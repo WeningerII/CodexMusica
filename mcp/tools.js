@@ -38,8 +38,17 @@ function jsonResult(value) {
 
 // Wrap an engine call so EngineError (bad id, etc.) comes back as a clean,
 // actionable tool error instead of a 500.
+//
+// Every tool here is read-only (it computes over a fixed catalog and mutates
+// nothing) and deterministic, so they share the same annotation hints. The
+// Connectors Directory review requires readOnlyHint/destructiveHint on every
+// tool — a per-tool `annotations` in `config` overrides these defaults.
 function tool(server, name, config, fn) {
-  server.registerTool(name, config, async (args) => {
+  const withAnnotations = {
+    annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
+    ...config,
+  };
+  server.registerTool(name, withAnnotations, async (args) => {
     try {
       return jsonResult(await fn(args ?? {}));
     } catch (err) {
