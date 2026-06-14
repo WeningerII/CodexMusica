@@ -8,8 +8,9 @@ services:
     runtime: docker
     dockerfilePath: ./mcp/Dockerfile
     dockerContext: .
-    # Deploys from the feature branch for now; change to main after merge.
+    # The blueprint is bound to this branch in Render. After merging to main you
+    # can repoint the blueprint to main; keep this branch alive until you do.
     branch: claude/happy-lamport-8t4yw5
-    plan: free
+    plan: starter
     healthCheckPath: /health
     autoDeploy: true
