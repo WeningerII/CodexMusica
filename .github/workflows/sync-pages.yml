@@ -1,16 +1,22 @@
 name: Sync site to Pages branch
 
-# Every push to the production branch rebuilds codex.html from source and
-# publishes it to `main` — the branch GitHub Pages serves — so the live site is
-# never stale and no manual refresh is needed.
+# Rebuilds codex.html from source and publishes it + the gate-verified api/ to
+# `main` (the branch GitHub Pages serves) — but ONLY after CI passes on the
+# production branch, so a red or stale build can never go live.
 #
-# This needs NO Pages settings change: Pages keeps serving `main`; this workflow
-# just keeps main's codex.html in lockstep with the production source. (If you
-# later point Pages directly at this branch in Settings, you can delete this
-# workflow — that's the lower-history-churn option.)
+# It triggers on CI *completion* (workflow_run), not the raw push, and the job
+# below runs only when that CI run SUCCEEDED — so freshness + faults + every gate
+# are green before the artifact ships. This is the in-repo "green before live"
+# enforcement; branch protection on production (a repo Setting) is the
+# belt-and-suspenders that also stops a direct push from skipping CI entirely.
+#
+# Needs NO Pages settings change: Pages keeps serving `main`; this keeps main's
+# codex.html + api/ in lockstep with the green production source.
 
 on:
-  push:
+  workflow_run:
+    workflows: ["CI"]
+    types: [completed]
     branches: [claude/loving-hawking-vq5m4] # production / default branch
   workflow_dispatch: {}
 
@@ -23,11 +29,19 @@ concurrency:
 
 jobs:
   sync:
+    # Publish only when the triggering CI run succeeded. (A manual workflow_dispatch
+    # carries no workflow_run payload, so let it through for an on-demand republish.)
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          # Check out the EXACT commit CI just validated — not the branch tip, which
+          # may have advanced. Manual dispatch falls back to the chosen ref.
+          ref: ${{ github.event.workflow_run.head_sha || github.ref }}
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: '22'
           cache: npm
@@ -35,22 +49,57 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build codex.html from source
+      - name: Build site artifacts from source
         run: |
+          set -e
+          # Everything is staged in _dist/ so the later `git checkout main`
+          # never collides with tracked working-tree files.
           CODEX_OUT_DIR="$PWD/_dist" node scripts/build_html.js --check
           test -f _dist/codex.html
 
-      - name: Publish codex.html to main (only if changed)
+          # Publish the committed api/ from THIS ref — never rebuild, never reuse
+          # main's. The CI `freshness` job byte-diffs the committed api/ against a
+          # fresh build on every PR, so whatever merged here is provably what a
+          # fresh build produces: there is nothing to recompile and no way to
+          # publish a stale API.
+          #
+          # (The old heuristic rebuilt only when references/ or build_static_api.js
+          # changed and otherwise reused main's api/. That silently shipped STALE
+          # recipes whenever the recipe ENGINE changed — _loader/search/score/
+          # translate/_merge — without a references/ edit, because the engine is
+          # not under references/; a failed or superseded prior sync could also
+          # drop a push's data from the reuse. Publishing this ref's gate-verified
+          # api/ closes both holes.)
+          rm -rf _dist/api
+          cp -r api _dist/api
+          test -f _dist/api/index.json
+
+          node scripts/build_discovery.js --api=_dist/api --out=_dist
+
+          # Contract gate: refuse to publish an API that breaks a documented
+          # promise (incomplete count, over-ceiling recipe, unresolvable id).
+          # build_static_api.js self-verifies in memory; this re-checks the
+          # on-disk artifact that is actually about to go live.
+          node scripts/check_api.js --api=_dist/api
+
+          cp AGENTS.md index.html _dist/
+
+      - name: Publish site to main (only if changed)
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git fetch origin main
           git checkout -B main origin/main
           cp _dist/codex.html codex.html
-          if git diff --quiet -- codex.html; then
-            echo "codex.html unchanged — nothing to publish."
+          cp _dist/index.html index.html
+          cp _dist/AGENTS.md AGENTS.md
+          cp _dist/llms.txt llms.txt
+          cp _dist/sitemap.xml sitemap.xml
+          rm -rf api && cp -r _dist/api api
+          git add -A codex.html index.html AGENTS.md llms.txt sitemap.xml api
+          if git diff --cached --quiet; then
+            echo "Site unchanged — nothing to publish."
             exit 0
           fi
-          git add codex.html
-          git commit -m "Auto-publish codex.html from ${GITHUB_SHA:0:7}"
+          git commit -m "Auto-publish site (codex.html + static API) from $(git rev-parse --short HEAD)"
           git push origin main

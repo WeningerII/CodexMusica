@@ -37,6 +37,7 @@ module.exports = [
         ARRANGEMENTS: 'readonly',
         AXIS_DEFINITIONS: 'readonly',
         CHAIN_ARCHETYPES: 'readonly',
+        CODEX_LAZY_API: 'readonly',
         CHAIN_SECTIONS: 'readonly',
         EMOJI_REGISTRY: 'readonly',
         EMOJI_SVGS: 'readonly',
@@ -63,6 +64,22 @@ module.exports = [
     rules: {
       'no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
       eqeqeq: ['error', 'smart'],
+      'no-empty': ['error', { allowEmptyCatch: true }],
+    },
+  },
+  {
+    // The MCP server (mcp/) — Node, ESM. Imports the CommonJS engine under
+    // scripts/ via createRequire. Its own deps live in mcp/node_modules.
+    files: ['mcp/**/*.js', 'mcp/**/*.mjs'],
+    languageOptions: {
+      ecmaVersion: 2023,
+      sourceType: 'module',
+      globals: { ...globals.node },
+    },
+    rules: {
+      'no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
+      eqeqeq: ['error', 'smart'],
+      'no-console': 'off',
       'no-empty': ['error', { allowEmptyCatch: true }],
     },
   },

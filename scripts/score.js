@@ -286,6 +286,7 @@ function _getNeighborsUncached(tradId, n = 5) {
     if (!ref) continue;
     for (const otherTid of Object.keys(C.TRADITION_EXTRAS)) {
       const oe = C.TRADITION_EXTRAS[otherTid];
+      if (oe.umbrella) continue; // umbrella genres never bias another tradition's scoring
       if (oe.parent === ref || (oe.parent || '').startsWith(ref + '.')) {
         candidates.push({ id: otherTid, src: 'crossref', weight: 1.0 });
       }
@@ -295,6 +296,7 @@ function _getNeighborsUncached(tradId, n = 5) {
   for (const otherTid of Object.keys(C.TRADITION_EXTRAS)) {
     if (otherTid === tradId) continue;
     const oe = C.TRADITION_EXTRAS[otherTid];
+    if (oe.umbrella) continue;
     if (oe.parent === e.parent) {
       candidates.push({ id: otherTid, src: 'sibling', weight: 0.7 });
     }
@@ -304,7 +306,7 @@ function _getNeighborsUncached(tradId, n = 5) {
   for (const otherTid of Object.keys(C.TRADITION_EXTRAS)) {
     if (otherTid === tradId) continue;
     const oe = C.TRADITION_EXTRAS[otherTid];
-    if (!oe.axes) continue;
+    if (oe.umbrella || !oe.axes) continue;
     let d = 0;
     for (const k of Object.keys(e.axes)) {
       if (oe.axes[k] !== undefined) d += Math.abs(e.axes[k] - oe.axes[k]);
@@ -678,7 +680,10 @@ if (flags.variant && flags.instrument && flags.tradition) {
   if (!variant) { console.error('Unknown variant for that instrument'); process.exit(2); }
   const ctx = buildContext(flags.tradition);
   if (!ctx) { console.error('Unknown tradition'); process.exit(2); }
-  const result = scoreVariant(variant, ctx);
+  // Neighbor-bias ON by default to match the engine (and --rank-variants); the
+  // bare --variant mode previously scored with neighbors OFF, so its number
+  // disagreed with what the engine actually selects on. --no-neighbors opts out.
+  const result = scoreVariant(variant, ctx, { useNeighbors: !flags['no-neighbors'] });
   console.log(JSON.stringify({ variant: variant.id, descriptors: variant.descriptors, ...result }, null, 2));
   process.exit(0);
 }

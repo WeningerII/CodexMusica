@@ -21,16 +21,23 @@
 
 const C = require('./_loader.js');
 const { buildMergedContext, scoreVariant } = require('./score.js');
+const { makeContextProvider } = require('./search.js');
 
 const args = process.argv.slice(2);
 const flags = {};
+// Accept both --flag=value and --flag value (the latter previously became
+// flags.flag === true, then failed downstream as "Unknown tradition: true").
+// BOOLEAN_FLAGS never consume the next token.
+const BOOLEAN_FLAGS = new Set(['filtered']);
 for (let i = 0; i < args.length; i++) {
   const a = args[i];
-  if (a.startsWith('--')) {
-    const eq = a.indexOf('=');
-    if (eq > 0) flags[a.slice(2, eq)] = a.slice(eq + 1);
-    else flags[a.slice(2)] = true;
-  }
+  if (!a.startsWith('--')) continue;
+  const eq = a.indexOf('=');
+  if (eq > 0) { flags[a.slice(2, eq)] = a.slice(eq + 1); continue; }
+  const name = a.slice(2);
+  const next = args[i + 1];
+  if (!BOOLEAN_FLAGS.has(name) && next !== undefined && !next.startsWith('--')) { flags[name] = next; i++; }
+  else flags[name] = true;
 }
 
 if (!flags.tradition) {
@@ -66,7 +73,7 @@ console.log(`╔═════════════════════�
 console.log(`║ INSPECT: ${t.name} (${tid})`);
 if (staples.length) console.log(`║ STAPLED: ${staples.join(', ')}`);
 console.log(`║ parent: ${e.parent || '(none)'}`);
-console.log(`║ crossRefs: ${(e.crossRefs || []).join(', ') || '(none)'}`);
+console.log(`║ crossRefs: ${(e.crossRefs || []).map(cr => (cr && typeof cr === 'object') ? cr.ref : cr).join(', ') || '(none)'}`);
 console.log(`║ instruments: ${(t.instruments || []).join(', ')}`);
 console.log(`║ room: ${t.room || '(none)'}    archetype: ${t.chain_archetype || '(inline)'}`);
 console.log(`║ chain inline: mic=${t.chain_mic || '?'} pre=${t.chain_pre || '?'} medium=${t.chain_medium || '?'} console=${t.chain_console || '?'}`);
@@ -78,6 +85,11 @@ if (!ctx) {
   console.error(`Failed to build context for ${tid}`);
   process.exit(2);
 }
+// Per-part isolation context — the SAME provider the engine uses (search.js
+// seedFromTradition / makeContextProvider), so the ✓ and scores match the actual
+// recipe pick on isolated-crossRef blends (voice_quality, cymbal_alloy, …) rather
+// than a flat merged context that ignores per-part staple exclusion.
+const getCtxForPart = makeContextProvider(allIds, 0.5);
 console.log(`── CONTEXT TOKENS (top 15 per space by weight) ──`);
 function showTopN(map, label, n = 15) {
   const m = map || new Map();
@@ -120,28 +132,47 @@ for (const iid of instrumentList) {
     const tag = isFamilyPart ? '[family]' : '[own]   ';
     console.log(`  ${tag} ${part.id}`);
 
-    // Score every variant
+    // Score every variant. Mirror the engine's auto-pick semantics so the ✓
+    // marks the variant the engine ACTUALLY selects (search.js seedFromTradition),
+    // not merely the top raw score: `auto: false` variants are explicit-only and
+    // never auto-picked, and ties break toward the canonical `default: true`.
     const scored = [];
     for (const v of (part.variants || [])) {
-      const r = scoreVariant(v, ctx, { useNeighbors: true });
+      const r = scoreVariant(v, getCtxForPart(part.id), { useNeighbors: true, skipSignals: true });
       scored.push({
         id: v.id,
         score: r.score,
         descriptors: v.descriptors || [],
         applies_to: v.applies_to || null,
+        auto: v.auto,
+        isDefault: v.default === true,
       });
     }
     scored.sort((a, b) => b.score - a.score);
 
-    // Show top N with a clear marker for the winner
+    // The engine's actual auto-pick: highest score among auto-eligible variants,
+    // ties resolved toward the canonical default.
+    const pick = scored
+      .filter(s => s.auto !== false)
+      .reduce((best, s) => {
+        if (!best) return s;
+        if (s.score > best.score) return s;
+        if (s.score === best.score && s.isDefault && !best.isDefault) return s;
+        return best;
+      }, null);
+
+    // Show top N with a clear marker for the engine's pick
     const toShow = scored.slice(0, runnerUpCount);
     for (let idx = 0; idx < toShow.length; idx++) {
       const s = toShow[idx];
       if (minScore !== null && s.score < minScore) continue;
-      const marker = idx === 0 ? '✓' : ' ';
+      const marker = (pick && s.id === pick.id) ? '✓' : ' ';
       const score = s.score.toFixed(3).padStart(8);
       const id = s.id.padEnd(34);
-      const filtered = (s.applies_to && !s.applies_to.includes(iid)) ? ' [applies_to-filtered]' : '';
+      const tags = [];
+      if (s.applies_to && !s.applies_to.includes(iid)) tags.push('applies_to-filtered');
+      if (s.auto === false) tags.push('explicit-only');
+      const filtered = tags.length ? ' [' + tags.join(', ') + ']' : '';
       console.log(`     ${marker} ${score}  ${id} ${filtered}`);
       if (s.descriptors.length > 0) {
         const d = s.descriptors.slice(0, 8).join(', ');
@@ -177,7 +208,7 @@ if (t.chain_archetype) {
     console.log(`  era=${arch.era || '?'}  region=${arch.region || '?'}`);
     console.log(`  components: mic=${arch.components?.mic} pre=${arch.components?.pre} console=${arch.components?.console} medium=${arch.components?.medium}`);
     console.log(`  comp=${arch.components?.comp || '?'} eq=${arch.components?.eq || '?'}`);
-    console.log(`  fx=${(arch.fx || []).join(', ') || '(none)'}`);
+    console.log(`  fx=${(arch.components?.fx || []).join(', ') || '(none)'}`);
   } else {
     console.log(`  archetype=${t.chain_archetype} (NOT FOUND)`);
   }

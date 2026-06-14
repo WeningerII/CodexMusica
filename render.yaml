@@ -1,0 +1,16 @@
+# Render Blueprint — deploys the CodexMusica MCP server as a Docker web service.
+#
+# Deploy: Render dashboard → New + → Blueprint → connect this repo → Apply.
+# Endpoint after deploy: https://<service-name>.onrender.com/mcp
+services:
+  - type: web
+    name: codex-musica-mcp
+    runtime: docker
+    dockerfilePath: ./mcp/Dockerfile
+    dockerContext: .
+    # The blueprint is bound to this branch in Render. After merging to main you
+    # can repoint the blueprint to main; keep this branch alive until you do.
+    branch: claude/happy-lamport-8t4yw5
+    plan: starter
+    healthCheckPath: /health
+    autoDeploy: true

@@ -13,12 +13,30 @@
 // Exits 0 on success, non-zero on any failure.
 
 const fs = require('fs');
+const os = require('os');
 const path = require('path');
 const vm = require('vm');
 const { execSync } = require('child_process');
 
 const ROOT = path.join(__dirname, '..');
 const { HTML_OUT: HTML_PATH, ZIP_OUT: ZIP_PATH } = require('./_paths.js');
+
+// The shipped codex.html is the LAZY SHELL (the build_html.js default): its
+// tradition tables live in api/, not the page. The HTML-artifact and parity
+// checks below need the tables in the page (they boot the script with no fetch
+// and read TRADITIONS/TRADITION_EXTRAS), so they exercise the EMBEDDED variant
+// built from the SAME source to a temp file (memoized). This is sound because
+// check_lazy_app.js separately proves the shipped lazy shell behaves identically
+// to this embedded build — so "source → embedded behaves right" plus
+// "lazy ≡ embedded" gives "source → shipped lazy behaves right". The shipped
+// shell's own shape (no leaked tables) is asserted directly in [2/4].
+let _embedHtmlPath = null;
+function embeddedHtml() {
+  if (_embedHtmlPath && fs.existsSync(_embedHtmlPath)) return _embedHtmlPath;
+  _embedHtmlPath = path.join(os.tmpdir(), `codex_tandem_embed_${process.pid}.html`);
+  execSync(`node ${path.join(__dirname, 'build_html.js')} --out=${_embedHtmlPath} --embedded --quiet`, { cwd: ROOT });
+  return _embedHtmlPath;
+}
 
 // Default tandem reads the committed audit snapshots (fast, ~25 min, robust).
 // The voice/pick audits are advisory review tools; regenerating them fresh
@@ -292,10 +310,16 @@ check('preface-matcher alignment (HTML embed ↔ Node primitive)', () => {
     { name: 'habitat-fallback (mustHaveAny)', re: /mustHaveAny/, where: 'both' },
     { name: 'habitat-fallback (register)', re: /register/, where: 'both' },
   ];
+  // Strip comments before matching: these invariants must hold in real CODE, not
+  // be satisfied by a comment that merely mentions `register` or `mustHave`
+  // (the habitat-fallback tokens are the easiest to fake this way).
+  const stripComments = (s) => s.replace(/\/\*[\s\S]*?\*\//g, '').replace(/\/\/[^\n]*/g, '');
+  const embedCode = stripComments(embedBody);
+  const nodeCode = stripComments(nodeSrc);
   const issues = [];
   for (const inv of invariants) {
-    if (!inv.re.test(embedBody)) issues.push(`HTML embed missing: ${inv.name}`);
-    if (!inv.re.test(nodeSrc)) issues.push(`Node primitive missing: ${inv.name}`);
+    if (!inv.re.test(embedCode)) issues.push(`HTML embed missing: ${inv.name}`);
+    if (!inv.re.test(nodeCode)) issues.push(`Node primitive missing: ${inv.name}`);
   }
 
   // Also verify the alphabetical-id tiebreak — lives in suggestPrefaceForCard
@@ -303,10 +327,10 @@ check('preface-matcher alignment (HTML embed ↔ Node primitive)', () => {
   // likely to drift silently because it's invisible until two tokens tie.
   const htmlSuggest = htmlSrc.match(/function suggestPrefaceForCard[\s\S]*?\n\}/);
   if (!htmlSuggest) issues.push('suggestPrefaceForCard not found in HTML template');
-  else if (!/localeCompare/.test(htmlSuggest[0])) {
+  else if (!/localeCompare/.test(stripComments(htmlSuggest[0]))) {
     issues.push('HTML suggestPrefaceForCard missing alphabetical tiebreak (localeCompare)');
   }
-  if (!/localeCompare/.test(nodeSrc)) {
+  if (!/localeCompare/.test(nodeCode)) {
     issues.push('Node primitive rank() missing alphabetical tiebreak (localeCompare)');
   }
 
@@ -517,6 +541,20 @@ check('exists', () => {
   const size = fs.statSync(HTML_PATH).size;
   return (size / 1024 / 1024).toFixed(2) + ' MB';
 });
+check('shipped codex.html is the lazy shell (no embedded tradition tables)', () => {
+  // The default build flipped to the lazy shell: the shipped artifact must NOT
+  // carry the tradition tables (that absence is the whole point) and MUST carry
+  // the CODEX_LAZY_API switch so the app boots from api/browse.json. The deep
+  // behavioral checks below run against a temp EMBEDDED build instead.
+  const html = fs.readFileSync(HTML_PATH, 'utf8');
+  if (/\bconst TRADITIONS\b/.test(html) || /\bconst TRADITION_EXTRAS\b/.test(html)) {
+    throw new Error('shipped codex.html embeds the tradition tables — expected the lazy shell');
+  }
+  if (!html.includes('const CODEX_LAZY_API')) {
+    throw new Error('shipped codex.html missing CODEX_LAZY_API — not the lazy shell');
+  }
+  return 'no TRADITIONS/TRADITION_EXTRAS in page; boots from api/browse.json';
+});
 check('JS parseable (vm.Script syntax check)', () => {
   const html = fs.readFileSync(HTML_PATH, 'utf8');
   const m = html.match(/<script>([\s\S]*?)<\/script>/);
@@ -540,7 +578,7 @@ check('catalog data matches source', () => {
   //     validate.js can't bypass it.
   // (3) Same TRADITION_EXTRAS count between source and HTML — catches embed
   //     truncation in the extras block specifically (its own ~700KB chunk).
-  const html = fs.readFileSync(HTML_PATH, 'utf8');
+  const html = fs.readFileSync(embeddedHtml(), 'utf8');
   const C = require('./_loader.js');
 
   // Read the TRUE id/key sets by evaluating the embedded data block, rather than
@@ -591,7 +629,7 @@ check('catalog data matches source', () => {
   return `${sourceCount} traditions + extras bijection holds`;
 });
 check('recently-added catalog content present', () => {
-  const html = fs.readFileSync(HTML_PATH, 'utf8');
+  const html = fs.readFileSync(embeddedHtml(), 'utf8');
   // Phase 0 (gap fixes): rap_voice, fado_voice, qawwali_lead, hindustani_sarod
   // Phase 1 (voice mechanism split): fry_bleed_voice, false_fold_voice, breath_admixed_voice,
   //   pressed_phonation_voice, worn_fold_voice, full_chest_belt_voice, aspirated_voice
@@ -662,7 +700,7 @@ check('HTML preface coordination — no repetition within tradition', () => {
   // landed on all six Hindustani instruments. This gate samples
   // multi-instrument traditions through the HTML's actual JavaScript and
   // verifies every card's preface is unique within its recipe.
-  const html = fs.readFileSync(HTML_PATH, 'utf8');
+  const html = fs.readFileSync(embeddedHtml(), 'utf8');
   let scriptContent = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(m => m[1]).join('\n');
   scriptContent += '\nObject.assign(globalThis, { TRADITIONS, INSTRUMENTS, importTradition, _applyRecipeDedup, app });\n';
   const noop = () => {};
@@ -715,7 +753,7 @@ check('HTML preface coordination — no repetition within tradition', () => {
 check('HTML import simulation produces expected card counts', () => {
   // Load the HTML JS and exercise importTradition for the four recently-fixed
   // traditions; verify card counts match expectations
-  const html = fs.readFileSync(HTML_PATH, 'utf8');
+  const html = fs.readFileSync(embeddedHtml(), 'utf8');
   let scriptContent = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(m => m[1]).join('\n');
   scriptContent += '\nObject.assign(globalThis, { TRADITIONS, INSTRUMENTS, importTradition, compileStack, app });\n';
   const noop = () => {};
@@ -770,7 +808,7 @@ check('HTML buildUpSetData — fixture correctness', () => {
   //   e → {B,C}       f → {B,D}       g → {C}        h → {D}
   // 8 non-empty intersections, each of size 1. The data builder must
   // enumerate exactly those 8 and prune the other 7 (out of 15 possible).
-  const html = fs.readFileSync(HTML_PATH, 'utf8');
+  const html = fs.readFileSync(embeddedHtml(), 'utf8');
   let scriptContent = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(m => m[1]).join('\n');
   scriptContent += '\nObject.assign(globalThis, { buildUpSetData, _cardDescriptorSet, Inst });\n';
   const noop = () => {};

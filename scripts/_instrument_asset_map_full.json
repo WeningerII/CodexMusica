@@ -1056,12 +1056,6 @@
     "commons_category": "Tablas"
   },
   {
-    "id": "taiko_drums",
-    "name": "Taiko (Japanese ensemble drums)",
-    "wikipedia": "Taiko",
-    "commons_category": "Taikos"
-  },
-  {
     "id": "talking_drum",
     "name": "Talking drum (West African pressure drum)",
     "wikipedia": "Talking drum",
@@ -2124,12 +2118,6 @@
     "commons_category": "Igils"
   },
   {
-    "id": "bata_drums",
-    "name": "Batá drums (Afro-Cuban liturgical three-drum set)",
-    "wikipedia": "Batá drums",
-    "commons_category": "Batá drumses"
-  },
-  {
     "id": "guitarron_mexicano",
     "name": "Guitarrón (Mexican mariachi bass guitar)",
     "wikipedia": "Guitarrón",
@@ -2404,18 +2392,6 @@
     "name": "Nafa (Tongan wooden slit-drum)",
     "wikipedia": "Nafa",
     "commons_category": "Nafas"
-  },
-  {
-    "id": "dumbek",
-    "name": "Dumbek / darbuka (Middle Eastern goblet drum)",
-    "wikipedia": "Dumbek",
-    "commons_category": "Dumbeks"
-  },
-  {
-    "id": "riqq",
-    "name": "Riqq (Middle Eastern small tambourine)",
-    "wikipedia": "Riqq",
-    "commons_category": "Riqqs"
   },
   {
     "id": "damaru",

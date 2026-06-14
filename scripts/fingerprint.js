@@ -48,6 +48,9 @@ const arch = t.chain_archetype ? C.CHAIN_ARCHETYPES.find(a => a.id === t.chain_a
 const tuning = t.tuning ? C.TUNINGS.find(tu => tu.id === t.tuning) : null;
 const aestheticId = flags.aesthetic || (Array.isArray(t.production_aesthetic) ? t.production_aesthetic[0] : t.production_aesthetic);
 const aesthetic = aestheticId ? (C.PRODUCTION_AESTHETICS || []).find(p => p.id === aestheticId) : null;
+// A USER-supplied --aesthetic that doesn't resolve must error, not silently drop
+// the whole AESTHETIC section (every other unknown-id path here exits 2).
+if (flags.aesthetic && !aesthetic) { console.error(`Unknown aesthetic: ${flags.aesthetic}`); process.exit(2); }
 
 const instruments = (t.instruments || []).map(iid => {
   const inst = C.INSTRUMENTS.find(i => i.id === iid);
@@ -186,5 +189,5 @@ if (r.axes) {
 }
 
 if (r.tradition.crossRefs.length) {
-  console.log(`CROSSREFS       ${r.tradition.crossRefs.join(', ')}`);
+  console.log(`CROSSREFS       ${r.tradition.crossRefs.map(cr => (cr && typeof cr === 'object') ? cr.ref : cr).join(', ')}`);
 }

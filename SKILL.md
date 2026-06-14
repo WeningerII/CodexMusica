@@ -1,7 +1,7 @@
 ---
 name: codex-music-tool
-description: Query, compose, validate, and mutate the Codex Musica dataset — 1090 recorded-music traditions (in a 311-node genre tree, 13-axis space), 421 instruments across 11 families with shared parts/variants, 256 rooms, 22 chain archetypes, 21 production aesthetics, 120 tunings, and a 459-entry voice/preface lexicon. Use to look entries up, build an ensemble + room/chain/tuning setup from a tradition (or blend), compile a compressed descriptor-stack "recipe", validate every cross-reference and invariant, and safely add/edit/delete instruments, traditions, rooms, and other entities.
-license: MIT
+description: Query, compose, validate, and mutate the Codex Musica dataset — 1119 recorded-music traditions (in a 312-node genre tree, 13-axis space), 419 instruments across 11 families with shared parts/variants, 256 rooms, 22 chain archetypes, 21 production aesthetics, 120 tunings, and a 454-entry voice/preface lexicon. Use to look entries up, build an ensemble + room/chain/tuning setup from a tradition (or blend), compile a compressed descriptor-stack "recipe", validate every cross-reference and invariant, and safely add/edit/delete instruments, traditions, rooms, and other entities.
+license: UNLICENSED
 ---
 
 # Codex Musica
@@ -13,13 +13,13 @@ stack telling someone how to record a song in a tradition (or 1–3 stapled trad
 This skill makes the data operable: **query**, **compose** an ensemble + sound, compile
 the **recipe**, **validate** every reference, and **mutate** safely.
 
-Every recipe below was run against the real `references/` files and shows its output.
+Every recipe below was run against the real `references/` files and shows its output. <!-- @promise: documented-behaviors -->
 Run from the package root (the dir holding `references/`), or set `CODEX_REF` to the
 absolute `references/` path. `node` and `jq` are available.
 
 > Ground truth beats memory: tables are bare `const` (not `window.*`/`module.exports`,
 > except `07`); `axes` is an **object**; **tree-node ids are full dotted paths**;
-> `crossRefs[]` mixes strings and `{ref,weight}` objects; counts are in §1. Shipped data
+> `crossRefs[]` mixes strings and `{ref,voice_isolated}`/`{ref,isolated_parts}` objects; counts are in §1.<!-- @promise: catalog-counts --> Shipped data
 > is clean under the §5 checker — but verify with §5/§6, don't trust remembered numbers.
 
 ---
@@ -49,17 +49,17 @@ Hard rule: **anything you emit (recipe or arrangement) MUST pass §6 before you 
 |---|---|---|---|
 | instrument families | 11 | bare slug: `bowed`,`percussion`,`wind`,… | `INSTRUMENT_FAMILIES` (array) |
 | family part-groups | 9 | keyed by family slug | `INSTRUMENT_FAMILY_PARTS` (object) |
-| instruments | 421 | bare slug, e.g. `oud`, `electric_bass` | `INSTRUMENTS` (array) |
+| instruments | 419 | bare slug, e.g. `oud`, `electric_bass` | `INSTRUMENTS` (array) |
 | rooms | 256 | bare slug, e.g. `parlor` | `ROOMS` (array) |
 | chain archetypes | 22 | `arch_<slug>` | `CHAIN_ARCHETYPES` (array) |
 | chain sections (UI menus) | 8 | `mic`/`pre`/`fx`/… | `CHAIN_SECTIONS` (array) |
 | production aesthetics | 21 | bare slug, e.g. `wall_of_sound` | `PRODUCTION_AESTHETICS` (array) |
 | arrangement templates | 5 | bare slug | `ARRANGEMENTS` (array) |
 | tunings | 120 | bare slug, e.g. `twelve_tet` | `TUNINGS` (array) |
-| tree nodes | 311 | **full dotted path**, e.g. `groovePercussion.afroDiasporicElec` | `TREE_NODES` (array) |
-| traditions | 1090 | bare slug, e.g. `afrobeat` | `TRADITIONS` (array) |
-| tradition extras | 1090 | keyed by tradition id | `TRADITION_EXTRAS` (object) |
-| voice/preface lexicon | 459 | bare slug, e.g. `sobbing` | `PREFACE_LEXICON` (array) |
+| tree nodes | 312 | **full dotted path**, e.g. `groovePercussion.afroDiasporicElec` | `TREE_NODES` (array) |
+| traditions | 1119 | bare slug, e.g. `afrobeat` | `TRADITIONS` (array) |
+| tradition extras | 1119 | keyed by tradition id | `TRADITION_EXTRAS` (object) |
+| voice/preface lexicon | 454 | bare slug, e.g. `sobbing` | `PREFACE_LEXICON` (array) |
 | axis definitions | 13 (trad) / 9 (inst) | bare slug, e.g. `harm` | `AXIS_DEFINITIONS`, `INSTRUMENT_AXIS_DEFINITIONS` |
 
 **Bundles → tables.** Each file declares bare `const NAME = …;` (no `window`; only
@@ -92,7 +92,7 @@ tradition ─instruments[]─▶ instrument ─family─▶ family ; instrument 
     ├─chain_mic / chain_pre / chain_console / chain_comp / chain_eq / chain_medium / chain_amp*
     │      = free-vocabulary component ids (NOT a lookup table; inline fallback when no archetype)
     └─production_aesthetic? ─▶ aesthetic
-extras[tradition] ─parent─▶ tree node id ; ─crossRefs[]─▶ tree node id (string OR {ref,weight})
+extras[tradition] ─parent─▶ tree node id ; ─crossRefs[]─▶ tree node id (string OR {ref,voice_isolated|isolated_parts})
 tree node ─parent─▶ tree node id (root nodes have parent:null)
 asset: EMOJI_REGISTRY[instrument_or_variant_id] = emoji codepoint ; instruments fall back via family
 ```
@@ -105,7 +105,7 @@ family_parts: INSTRUMENT_FAMILY_PARTS[familyId] = [ part, … ]          // 9 fa
 part        : {id, name, surface?, variants[], applies_to?[]}          // applies_to gates a family part
 variant     : {id, name, descriptors[], default?, applies_to?[], match_tokens?[]}
 instrument  : {id, name, family, class, axes{9 named keys}, short, parts[]}   // parts already family-merged
-room        : {id, name, cluster, descriptors[], note}                 // group by .cluster (no "type")
+room        : {id, name, cluster, descriptors[], note, default_chain_archetype?, era?, region?, scale_tier?}  // group by .cluster (no "type")
 archetype   : {id, name, era, region, scale_tier, components{mic,pre,console?,comp,eq,medium}, exemplar_studios[], note}
 aesthetic   : {id, name, era, description, characteristic_techniques[], exemplar_recordings[], production_locus}
 tuning      : {id, name, sub, descriptors[], note, pointer}            // "sub"/descriptors carry the system
@@ -124,13 +124,15 @@ Facts that bite if you miss them:
 - **`instrument.family`** ∈ the 11-value `INSTRUMENT_FAMILIES` table (always resolves).
   **`tradition.family`** is a *different* 12-value vocabulary (`global, classical,
   rock_punk, electronic, hip_hop, vernacular, jazz, pop, blues_gospel, rock, country,
-  pop_rock`; `global` dominates at 663/1090) — a top-level genre bucket, NOT an
+  pop_rock`; `global` dominates at 678/1119) — a top-level genre bucket, NOT an
   instrument family.
-- **Tree-node ids are full dotted paths.** 287 of 311 ids contain dots
+- **Tree-node ids are full dotted paths.** 288 of 312 ids contain dots
   (`functionalSong.country.honkyTonkEra`); `extras.parent`/`crossRefs` hold such ids and
   resolve directly via `byNode[path]` — no path reconstruction.
-- **`crossRefs[]` is a mixed array**: mostly strings (node-id paths), but ~67 entries
-  are `{ref:"<node path>", weight:N}` objects. Normalize with `cr.ref ?? cr` before
+- **`crossRefs[]` is a mixed array**: mostly strings (node-id paths), but 67 entries
+  (across 63 distinct traditions) are `{ref:"<node path>", voice_isolated:true}` (44) or
+  `{ref:"<node path>", isolated_parts:[…]}` (23) objects — there is **no** `weight` field
+  (a `{ref,weight}` object would fail `validate.js`). Normalize with `cr.ref ?? cr` before
   resolving (the §5/§6 checks do this).
 - An instrument's `parts` are already family-merged in the data; the §2 helper
   `partsFor(id)` reproduces the merge (family parts filtered by `applies_to`, overlaid
@@ -171,13 +173,13 @@ module.exports = T;
 ```bash
 CODEX_REF="$PWD/references" node -e 'const T=require("./load.js");
 console.log("loaded:",T.INSTRUMENTS.length,"insts,",T.TRADITIONS.length,"trads")'
-# → loaded: 421 insts, 1090 trads
+# → loaded: 419 insts, 1119 trads
 ```
 
 ### B. `require` for the preface lexicon only (it has `module.exports`)
 
 ```bash
-node -e 'console.log(require("./references/07_preface_lexicon.js").PREFACE_LEXICON.length)'  # → 459
+node -e 'console.log(require("./references/07_preface_lexicon.js").PREFACE_LEXICON.length)'  # → 454
 ```
 
 ### C. grep to locate fast (single-quoted JS; the field is `name`)
@@ -220,7 +222,7 @@ db.byAes = idx(db.PRODUCTION_AESTHETICS); db.byTuning = idx(db.TUNINGS);
 db.byTrad = idx(db.TRADITIONS); db.byNode = idx(db.TREE_NODES);
 db.byPreface = idx(db.PREFACE_LEXICON); db.extras = db.TRADITION_EXTRAS;
 // tree node ids are full dotted paths → resolve extras.parent / crossRefs via db.byNode.
-db.crId = cr => (cr && typeof cr === 'object') ? cr.ref : cr;   // crossRefs: string OR {ref,weight}
+db.crId = cr => (cr && typeof cr === 'object') ? cr.ref : cr;   // crossRefs: string OR {ref,voice_isolated|isolated_parts}
 // available parts for an instrument = family parts (filtered by applies_to) overlaid
 // with the instrument's own parts (own wins on id). Mirrors scripts/_merge.js.
 db.partsFor = id => {
@@ -249,7 +251,7 @@ For any query, `const db = require('./q.js')` and read `db.*` / `db.by*` /
 # 1) instruments per family, top 5
 node -e 'const db=require("./q.js");const c={};db.INSTRUMENTS.forEach(i=>c[i.family]=(c[i.family]||0)+1);
 console.log(JSON.stringify(Object.entries(c).sort((a,b)=>b[1]-a[1]).slice(0,5)))'
-# → [["percussion",109],["plucked_traditional",76],["wind",73],["ensemble",32],["bowed",31]]
+# → [["percussion",106],["plucked_traditional",76],["wind",73],["ensemble",32],["bowed",31]]
 
 # 2) traditions under a genre-tree branch (extras.parent is a full dotted path)
 node -e 'const db=require("./q.js");
@@ -263,7 +265,7 @@ console.log(JSON.stringify(db.TUNINGS.filter(t=>!(t.descriptors||[]).includes("W
 ```
 (Verified: instrument families 11; tradition.family buckets 12; tuning first-descriptor
 groups `pentatonic:11, korean-traditional:2, son-clave:2, …` — descriptors are
-character-based, not region-based; `PREFACE_LEXICON` has 544 distinct tokens.)
+character-based, not region-based; `PREFACE_LEXICON` has 564 distinct tokens.)
 
 ---
 
@@ -355,7 +357,7 @@ Each reuses `const db = require('./q.js')`. Run from the package root or with
 
 ### 3d. Voice & preface lexicon (descriptor enrichment)
 
-`PREFACE_LEXICON` is 459 named bundles of descriptor tokens for **vocal/character**
+`PREFACE_LEXICON` is 454 named bundles of descriptor tokens for **vocal/character**
 description (`sobbing`, `belting`, `keening`, `wailing`, `crooning`, `purring`, …). Use it
 to enrich a voice chair's descriptors with consistent tokens; there is **no numeric
 op-model and no conflicts table**.
@@ -408,12 +410,15 @@ flags below are verified; run from the repo root.
 | Explain variant picks / preface picks | `… --why` / `… --why-prefaces` (add `-json` for either) |
 
 Notes that bite:
-- `--diff` is a boolean flag, but the CLI's generic parser makes a *bare* `--diff`
-  swallow the next token — so `--diff <a> <b>` consumes `<a>` and dies with
-  `--diff requires two tradition ids`. **Protect it by putting a `--`flag immediately
-  after `--diff`**: `--diff --weight=0.7 <a> <b>` keeps both ids positional (verified).
-  `--weight` defaults to 0.5, so always include it to anchor the form, and keep
-  `--swap-variant`/`--exclude-instrument` *after* the two ids, not between them.
+- `--diff` is a registered boolean flag (`recipe.js`'s `BOOLEAN_FLAGS`), so it never
+  swallows the next token: the natural `--diff <a> <b> [--weight=0.7]` form just works,
+  and the two ids stay positional no matter where `--weight` / `--swap-variant` /
+  `--exclude-instrument` sit — before, between, or after them (all three orderings verified
+  byte-identical). `--weight` defaults to 0.5 (0 = full A … 1 = full B). (Historical
+  footgun, now fixed: a *bare* `--diff <a> <b>` used to swallow `<a>` and die with
+  `--diff requires two tradition ids`. `check_doc_commands.js` runs the documented form
+  and `check_doc_behaviors.js` asserts every argument ordering stays byte-identical on
+  each CI run, so this can't silently regress.)
 - `--swap-variant` is `inst:part:variant`; multiple swaps separated by `;`.
   Validate the triple first via `db.partsFor(inst)` (§2) — recipe.js rejects
   unknown part/variant ids with exit 2.
@@ -426,6 +431,7 @@ Verified examples:
 node scripts/recipe.js --tradition delta_blues --swap-variant=voice:voice_register:falsetto
 node scripts/recipe.js --tradition afrobeat --exclude-instrument=saxophone,trumpet
 node scripts/recipe.js --diff --weight=0.5 delta_blues detroit_techno
+node scripts/recipe.js --diff delta_blues detroit_techno          # bare form: both ids stay positional
 ```
 
 ### 3g. Reshape a card toward a preface (inverse-configure)
@@ -487,14 +493,19 @@ faithful path — the real function the app calls, not a reimplementation.
 
 ```js
 // rich_recipe.js — emit a named-format recipe via the real browser engine.
-// Save at the REPO ROOT and run `node rich_recipe.js` from there: jsdom +
-// build_html.js resolve relative to the repo, so running from elsewhere fails
-// with "Cannot find module 'jsdom'". (Mirrors scripts/app_recipe_regression.js.)
+// Save at the REPO ROOT and run `node rich_recipe.js` from there (jsdom +
+// build_html.js resolve relative to the repo). Run `npm ci` first: a fresh clone has
+// no node_modules, so an un-installed tree fails with "Cannot find module 'jsdom'" even
+// from the repo root — and running from the wrong dir fails the same way. (Mirrors
+// scripts/app_recipe_regression.js.)
 const fs=require('fs'),os=require('os'),path=require('path');
 const {execFileSync}=require('child_process');
-const {JSDOM}=require('jsdom');                 // devDependency, already installed
+const {JSDOM}=require('jsdom');                 // devDependency — needs `npm ci` first
 const tmp=path.join(os.tmpdir(),`codex_${process.pid}.html`);
-execFileSync('node',[path.join('scripts','build_html.js'),`--out=${tmp}`,'--quiet'],{stdio:['ignore','ignore','inherit']});
+// --embedded: the default build is the lazy shell, which boots by fetching api/
+// (jsdom here has no fetch). The embedded build carries the tables in-page and
+// boots synchronously — what this headless harness needs.
+execFileSync('node',[path.join('scripts','build_html.js'),`--out=${tmp}`,'--embedded','--quiet'],{stdio:['ignore','ignore','inherit']});
 const html=fs.readFileSync(tmp,'utf8'); fs.unlinkSync(tmp);
 const dom=new JSDOM(html,{runScripts:'dangerously',pretendToBeVisual:true,beforeParse(w){
   w.storage={async get(){return null;},async set(){},async delete(){},async list(){return{keys:[]};}};
@@ -633,7 +644,7 @@ path). Don't hand-edit the duplicated pieces independently:
   edit the `app.js` `TRADITION_SIGNATURES` block by hand.
 - `scripts/equivalence.js` (in `npm test` and `build.js`) executes both the browser
   functions (in jsdom) and the node primitives on shared fixtures and fails if their
-  descriptor sets or preface picks diverge — behavioral parity, not just textual. If you
+  descriptor sets or preface picks diverge — behavioral parity, not just textual. <!-- @promise: browser-node-parity --> If you
   change `_cardDescriptorSet`/`_matchSurvivors` in `app.js`, change the matching
   `scripts/_card_descriptors.js`/`_preface_match.js` too, or this gate fails.
 
@@ -648,6 +659,17 @@ path). Don't hand-edit the duplicated pieces independently:
 5. Optionally register an emoji in `EMOJI_REGISTRY` (else it falls back by family).
 6. Re-serialize `02_instruments.js` (+ `01` if touched); run the checker.
 
+**Add an optional, off-by-default dimension** (a new part, or extra variants, whose presence
+must NOT change any existing recipe): make the part's `default:true` variant *neutral* — empty
+`descriptors: []`, so it renders nothing — and tag every other variant `auto: false`. The node
+search (`search.js`) skips `auto: false` variants in **both** the seed pick (`seedFromTradition`)
+and the hill-climb (`variantSwapMoves`), so the neutral default is kept for every tradition and the
+variant surfaces only when a caller selects it explicitly via `--swap-variant` (which pins it
+past the search). The browser path uses `defaultParts` (no hill-climb), so it keeps the default
+too. This is how `voice`'s `voice_effort` (subglottal-pressure / under-singing) and
+`voice_vocal_tract` (tongue-root / vowel posture) dimensions were added with zero recipe drift
+(1198/1198 + 56/56 + 8/8 unchanged). Confirm with `npm test` after.
+
 **Edit**: keep `id` stable; re-check every ref you touch.
 **Delete an instrument**: remove it AND scrub every dangling ref — any
 `tradition.instruments[]`, any family part's `applies_to[]`, any `EMOJI_REGISTRY` entry,
@@ -656,7 +678,7 @@ and any arrangement `ensemble[]` pointing at it.
 **Add/edit/delete a tradition**: a `TRADITIONS` entry **must** have a paired
 `TRADITION_EXTRAS["<id>"]` whose `parent` is a tree-node id, `axes` is a 13-key object
 of ints in −2..+2, plus `description`/`exemplars`/`status`/`crossRefs` (crossRefs are
-tree-node ids, as strings or `{ref,weight}` objects). `room`/`tuning`/`chain_archetype`/
+tree-node ids, as strings or `{ref,voice_isolated}`/`{ref,isolated_parts}` objects). `room`/`tuning`/`chain_archetype`/
 `production_aesthetic` should resolve.
 
 **Other entities**: family/part/variant → `01`+`02`; room/archetype/aesthetic/tuning →
@@ -720,7 +742,7 @@ console.log(JSON.stringify({ totalIssues: issues.length, byCategory: byCat, samp
 **Verified on shipped data:** `{"totalIssues":0,"sample":[],"byCategory":{}}` — fully
 consistent. (Two subtleties make this true: the disjoint-`applies_to` `MULTI_DEFAULT`
 exception covers `wind.wind_articulation` and `percussion.percussion_technique`; and
-crossRefs are normalized via `cr.ref ?? cr` since ~67 are `{ref,weight}` objects.) The
+crossRefs are normalized via `cr.ref ?? cr` since 67 are `{ref,voice_isolated}`/`{ref,isolated_parts}` objects.) The
 checker also flags injected damage — a dup instrument id, bad `family`, orphan extras
 key, tradition with no extras, and bad extras `parent` yield `DUP_INST oud`,
 `BAD_FAMILY frob`, `EXTRAS_ORPHAN x_orphan`, `TRAD_NO_EXTRAS x_bad`,
@@ -805,7 +827,7 @@ name: Bill Monroe`, and the made-up archetype in `soft` (verified).
 - Load once with `q.js`; reuse `db.by*` and `db.partsFor`. Never re-parse the 1–2 MB
   bundles per query.
 - Project to `{id,name}` and `slice`/`head` before printing — never dump a full table
-  (421 instruments / 1090 traditions is a lot of tokens).
+  (419 instruments / 1119 traditions — a lot of tokens).
 - Prefer counts/samples while exploring; pull full records only for the few ids that
   land in the output.
 - For a single name lookup, `grep -oE "name: '…'"` beats spinning up node.
@@ -853,7 +875,7 @@ data; run from the repo root. Add `--json` where noted for machine-readable outp
 
 | In the app | Agent command |
 |---|---|
-| Browse traditions / instruments / rooms / tunings | `node scripts/list.js --traditions` (or `--instruments`, `--rooms`, `--archetypes`, `--aesthetics`, `--variants --instrument=<id>`) — all take filters like `--family=`, `--era=`, `--region=`, `--has-part=` |
+| Browse traditions / instruments / rooms / tunings | `node scripts/list.js --traditions` (or `--instruments`, `--rooms`, `--archetypes`, `--aesthetics`, `--tunings`, `--tree`, `--variants --instrument=<id>`) — filters are per-section: `--traditions` takes `--family=`/`--parent=`; `--instruments` takes `--family=`/`--has-part=`; `--rooms`/`--archetypes` take `--era=`/`--region=`/`--scale=` |
 | Chain-section menu (mic/pre/console/…) contents | `node scripts/list.js --section <mic\|pre\|console\|comp\|eq\|medium\|fx\|amp>` |
 | Deep-view one entry with its refs resolved | `node scripts/expand.js --tradition <id>` (or `--instrument`, `--room`, `--archetype`, `--aesthetic`, `--tree`) — emits JSON |
 | Tradition fingerprint strip (13-axis profile) | `node scripts/fingerprint.js <tradition_id>` (`--json`; optional `--aesthetic=<id>`) |
@@ -895,6 +917,7 @@ These are in §3 — cross-referenced here for completeness:
 |---|---|
 | Pre-flight a new tradition before adding | `node scripts/placement_check.js --id <new_id> --parent <tree_path> [--instruments id1,id2] [--room <id>] [--archetype <id>] [--tuning <id>]` |
 | Add / edit / delete entities + invariants | §5 (then `validate.js`, then `build_signatures.js` if signatures changed) |
+| Surgical field edit on one tradition (asserts prior value + unique match) | `node scripts/_apply_trad_edits.js` (see its usage header) |
 
 **Parity guarantee.** If you find a GUI capability with no command here, it's a
 documentation gap, not a missing feature — the engine is shared. Check `scripts/` (every

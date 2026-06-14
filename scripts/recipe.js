@@ -42,22 +42,36 @@ const { translate } = require('./translate.js');
 const args = process.argv.slice(2);
 const flags = {};
 const positional = [];
+// Boolean-only flags never consume the next token. Without this a bare
+// `--diff <idA> <idB>` made `--diff` swallow <idA>, leaving one positional and
+// dying with "--diff requires two tradition ids". Listing them lets the natural
+// `--diff <a> <b> [--weight=]` form work as documented (the `--diff --weight= <a> <b>`
+// form keeps working too).
+const BOOLEAN_FLAGS = new Set(['diff', 'json', 'trace', 'why', 'why-json', 'why-prefaces', 'why-prefaces-json']);
 for (let i = 0; i < args.length; i++) {
   const a = args[i];
   if (a.startsWith('--')) {
     const eq = a.indexOf('=');
     if (eq > 0) flags[a.slice(2, eq)] = a.slice(eq + 1);
     else {
+      const name = a.slice(2);
       const next = args[i + 1];
-      if (next && !next.startsWith('--')) { flags[a.slice(2)] = next; i++; }
-      else flags[a.slice(2)] = true;
+      if (!BOOLEAN_FLAGS.has(name) && next && !next.startsWith('--')) { flags[name] = next; i++; }
+      else flags[name] = true;
     }
   } else {
     positional.push(a);
   }
 }
 
-const maxChars = parseInt(flags['max-chars']) || 1000;
+let maxChars = 1000;
+if (flags['max-chars'] !== undefined) {
+  maxChars = parseInt(flags['max-chars'], 10);
+  if (!Number.isInteger(maxChars) || maxChars <= 0) {
+    console.error(`--max-chars must be a positive integer; got "${flags['max-chars']}"`);
+    process.exit(2);
+  }
+}
 
 // === Customization opts: --exclude-instrument / --swap-variant / --staple-mode ===
 //
@@ -218,18 +232,47 @@ if (flags.tradition) {
 }
 const opts = parseOpts(flags, primaryTradId, stapleIds);
 
+const TRAD_IDS = new Set(C.TRADITIONS.map(t => t.id));
+
+// Only --diff consumes positional args. In every other mode a stray positional
+// (e.g. `--tradition afrobeat post_punk`) was silently ignored — producing a
+// plausible but wrong recipe. Reject it, pointing at the blend form.
+if (!flags.diff && positional.length) {
+  console.error(`Unexpected argument(s): ${positional.join(' ')}`);
+  console.error(`  (for a blend use: recipe.js --traditions ${[flags.tradition, ...positional].filter(Boolean).join(',')})`);
+  process.exit(2);
+}
+
 if (flags.tradition) {
   seed = seedFromTradition(flags.tradition, [], opts);
   if (!seed) { console.error(`Unknown tradition: ${flags.tradition}`); process.exit(2); }
 } else if (flags.traditions) {
   const ids = String(flags.traditions).split(',').map(s => s.trim()).filter(Boolean);
   if (ids.length === 0) { console.error('No tradition ids provided'); process.exit(2); }
+  // Validate EVERY id, not just the primary. seedFromTradition silently drops an
+  // unknown staple, so a typo'd genre in a blend would otherwise vanish with no
+  // error (exit 0) — the blend promise quietly broken. Match the strictness of the
+  // single --tradition path and of --exclude/--add/--swap.
+  const unknown = ids.filter(id => !TRAD_IDS.has(id));
+  if (unknown.length) { console.error(`Unknown tradition id(s): ${unknown.join(', ')}`); process.exit(2); }
+  if (ids.length > 3) console.error(`note: blending ${ids.length} traditions; recipes are tuned for up to 3, so output may be noisy.`);
   seed = seedFromTradition(ids[0], ids.slice(1), opts);
   if (!seed) { console.error(`Unknown tradition: ${ids[0]}`); process.exit(2); }
 } else if (flags.diff) {
-  const [idA, idB] = positional;
+  const [idA, idB, ...extra] = positional;
   if (!idA || !idB) { console.error('--diff requires two tradition ids'); process.exit(2); }
-  const weight = flags.weight !== undefined ? parseFloat(flags.weight) : 0.5;
+  if (extra.length) { console.error(`--diff takes exactly two tradition ids; unexpected: ${extra.join(', ')}`); process.exit(2); }
+  // Validate both ids — a bogus SECONDARY is otherwise silently dropped (exit 0).
+  const unknown = [idA, idB].filter(id => !TRAD_IDS.has(id));
+  if (unknown.length) { console.error(`Unknown tradition id(s): ${unknown.join(', ')}`); process.exit(2); }
+  let weight = 0.5;
+  if (flags.weight !== undefined) {
+    weight = parseFloat(flags.weight);
+    if (!Number.isFinite(weight) || weight < 0 || weight > 1) {
+      console.error(`--weight must be a number in [0,1]; got "${flags.weight}"`);
+      process.exit(2);
+    }
+  }
   seed = seedDiff(idA, idB, weight, opts);
   if (!seed) { console.error('Unknown tradition'); process.exit(2); }
 } else if (flags['axis-target']) {
@@ -264,8 +307,11 @@ if (trace) {
 // the recipe stdout. --why-json emits the same data as JSON for machine parse.
 
 if (flags.why || flags['why-json']) {
-  const { buildMergedContext, scoreVariant } = require('./score.js');
-  const ctx = buildMergedContext(result.config.traditions, 0.5);
+  const { scoreVariant } = require('./score.js');
+  const { makeContextProvider } = require('./search.js');
+  // Mirror the engine's per-part isolation context (search.js seedFromTradition)
+  // so the explained scores are the ones that actually drove the pick.
+  const getCtxForPart = makeContextProvider(result.config.traditions, 0.5);
 
   const slotDetails = []; // [{instId, partId, winner, runnerUp, third, pinned}]
   for (const inst of result.config.instruments) {
@@ -274,12 +320,14 @@ if (flags.why || flags['why-json']) {
     for (const part of (cataInst.parts || [])) {
       const currentId = (inst.slots || {})[part.id];
       if (!currentId) continue;
+      const ctx = getCtxForPart(part.id);
       const scored = [];
       for (const v of (part.variants || [])) {
-        const r = scoreVariant(v, ctx, { useNeighbors: true });
+        if (v.auto === false) continue; // explicit-only: the engine never auto-picks these
+        const r = scoreVariant(v, ctx, { useNeighbors: true, skipSignals: true });
         scored.push({ id: v.id, score: r.score, isDefault: !!v.default });
       }
-      scored.sort((a, b) => b.score - a.score);
+      scored.sort((a, b) => (b.score - a.score) || ((b.isDefault ? 1 : 0) - (a.isDefault ? 1 : 0)));
       const winnerIdx = scored.findIndex(s => s.id === currentId);
       const winner = scored[winnerIdx] || { id: currentId, score: 0, isDefault: false };
       const pinned = !!(result.config.pinned && result.config.pinned[inst.id] &&
@@ -320,8 +368,10 @@ if (flags.why || flags['why-json']) {
         const defaultTag = c.isDefault ? ' [d]' : '';
         console.error(`    ${mark} ${c.id.padEnd(36)} ${c.score.toFixed(2).padStart(7)}${defaultTag}${delta}`);
       }
-      if (sd.winnerRank > 3) {
-        console.error(`    (winner ranked ${sd.winnerRank} of ${sd.totalCandidates} — likely pinned)`);
+      if (sd.winnerRank > 1) {
+        const why = sd.pinned ? 'pinned via --swap-variant'
+          : 'global search preferred it over the top local scorer';
+        console.error(`    (engine pick ranks ${sd.winnerRank} of ${sd.totalCandidates} in isolation — ${why})`);
       }
     }
     console.error('');

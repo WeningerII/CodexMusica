@@ -23,6 +23,17 @@ const aestheticIds = new Set((C.PRODUCTION_AESTHETICS || []).map(p => p.id));
 const chainIds = {};
 for (const sec of C.CHAIN_SECTIONS) chainIds[sec.id] = new Set(sec.items.map(i => i.id));
 
+// amp_make part-variant ids — the namespace tradition.chain_amp_guitar /
+// chain_amp_bass draw from (the app matches them against each instrument's
+// amp_make variants; the chain `amp` SECTION is a different id space). Collected
+// here so the per-instrument amp fields get the same broken-ref guard as chain_amp.
+const ampMakeVariantIds = new Set();
+for (const inst of C.INSTRUMENTS) {
+  for (const p of (inst.parts || [])) {
+    if (p.id === 'amp_make') for (const v of (p.variants || [])) ampMakeVariantIds.add(v.id);
+  }
+}
+
 // ---- Instrument validation ----
 const REQ_INST_AXES = ['pitchFix','sustain','polyphony','harmonicity','register','range','articulation','transduction','dynamics'];
 const seenInst = new Set();
@@ -102,6 +113,22 @@ for (const t of C.TRADITIONS) {
   if (t.chain_comp && chainIds.comp && !chainIds.comp.has(t.chain_comp)) errors.push(['BROKEN_REF', 'tradition.chain_comp', t.id, t.chain_comp]);
   if (t.chain_eq && chainIds.eq && !chainIds.eq.has(t.chain_eq)) errors.push(['BROKEN_REF', 'tradition.chain_eq', t.id, t.chain_eq]);
   if (t.chain_amp && chainIds.amp && !chainIds.amp.has(t.chain_amp)) errors.push(['BROKEN_REF', 'tradition.chain_amp', t.id, t.chain_amp]);
+  // chain_fx is an ARRAY of fx-section ids. Previously unguarded — that gap let
+  // `fx_`-prefixed ids (e.g. `fx_spring_reverb` vs the real `spring_reverb`) ride
+  // along and get silently dropped at render time, omitting intended fx.
+  if (Array.isArray(t.chain_fx)) {
+    for (const fxId of t.chain_fx) {
+      if (chainIds.fx && !chainIds.fx.has(fxId)) errors.push(['BROKEN_REF', 'tradition.chain_fx', t.id, fxId]);
+    }
+  }
+  // Per-instrument amp fields resolve against the amp_make variant namespace.
+  for (const ampField of ['chain_amp_guitar', 'chain_amp_bass']) {
+    const val = t[ampField];
+    if (val == null) continue;
+    for (const ampId of (Array.isArray(val) ? val : [val])) {
+      if (!ampMakeVariantIds.has(ampId)) errors.push(['BROKEN_REF', `tradition.${ampField}`, t.id, ampId]);
+    }
+  }
   if (Array.isArray(t.instruments)) {
     const seen = new Set();
     for (const iid of t.instruments) {
@@ -220,7 +247,14 @@ for (const tid of Object.keys(C.TRADITION_EXTRAS)) {
       if (!treeIds.has(ref)) errors.push(['BROKEN_REF', 'extras.crossRefs', tid, ref]);
     }
   }
-  if (e.axes) {
+  // Axes are REQUIRED, not optional. The lazy-loaded app materializes a 13-key
+  // zero-vector for any tradition whose browse-index axes are absent, while the
+  // embedded build reads absent axes as null (hiding find-similar, flattening the
+  // fingerprint) — so a missing axes object silently makes the shipped app
+  // diverge from the embedded build. Demanding axes here closes that at the root.
+  if (!e.axes || typeof e.axes !== 'object') {
+    errors.push(['MISSING_AXES', 'extras.axes', tid, 'axes object is required']);
+  } else {
     for (const ax of REQ_AXES) {
       const v = e.axes[ax];
       if (v === undefined || v === null) errors.push(['MISSING_AXIS', 'extras.axes', tid, ax]);
@@ -339,6 +373,26 @@ for (const fam of Object.keys(C.INSTRUMENT_FAMILY_PARTS || {})) {
     if (conflictPair) {
       errors.push(['MULTIPLE_DEFAULTS', 'family_parts', `${fam}.${part.id}`, conflictPair.join(',')]);
     }
+  }
+}
+
+// ---- Source-level duplicate-key detection (06_extras.js) ----
+// TRADITION_EXTRAS is an object literal, so a duplicate key silently collapses on
+// eval (the later definition wins) — invisible to every check against the loaded
+// object. Scan the raw source so a conflicting redefinition (the inuit_katajjaq
+// case) is caught instead of one definition being silently dropped.
+{
+  const fs = require('fs');
+  const path = require('path');
+  const extrasSrc = fs.readFileSync(path.join(__dirname, '..', 'references', '06_extras.js'), 'utf8');
+  const seenKey = new Set();
+  const keyRe = /^ {2}'([a-z0-9_]+)':\s*\{/gm;
+  let km;
+  while ((km = keyRe.exec(extrasSrc)) !== null) {
+    if (seenKey.has(km[1])) {
+      errors.push(['DUPLICATE_KEY', 'extras_source', km[1], 'two entries in 06_extras.js — the later one silently wins on eval']);
+    }
+    seenKey.add(km[1]);
   }
 }
 

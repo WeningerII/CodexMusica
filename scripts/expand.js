@@ -37,6 +37,12 @@ function resolveChainItem(sectionId, itemId) {
   return { id: itemId, name: '(unresolved)', descriptors: [] };
 }
 
+// Success paths set `process.exitCode` and let the process exit naturally rather
+// than calling `process.exit(0)`. `process.exit()` tears the process down before a
+// large async stdout write has drained, truncating piped JSON at the OS pipe buffer
+// (~64 KiB) — e.g. `expand.js --tradition <id> | jq` was losing everything past byte
+// 65524. Letting the event loop flush stdout first avoids that. Error paths keep
+// `process.exit(2)`: they write a tiny message to stderr and must halt immediately.
 if (flags.tradition) {
   const t = C.TRADITIONS.find(x => x.id === flags.tradition);
   if (!t) { console.error(`Unknown tradition: ${flags.tradition}`); process.exit(2); }
@@ -59,26 +65,20 @@ if (flags.tradition) {
     inline_chain: { mic: t.chain_mic, pre: t.chain_pre, console: t.chain_console, medium: t.chain_medium },
   };
   console.log(JSON.stringify(out, null, 2));
-  process.exit(0);
-}
-
-if (flags.instrument) {
+  process.exitCode = 0;
+} else if (flags.instrument) {
   const i = C.INSTRUMENTS.find(x => x.id === flags.instrument);
   if (!i) { console.error(`Unknown instrument: ${flags.instrument}`); process.exit(2); }
   console.log(JSON.stringify(i, null, 2));
-  process.exit(0);
-}
-
-if (flags.room) {
+  process.exitCode = 0;
+} else if (flags.room) {
   const r = C.ROOMS.find(x => x.id === flags.room);
   if (!r) { console.error(`Unknown room: ${flags.room}`); process.exit(2); }
   const arch = r.default_chain_archetype ? C.CHAIN_ARCHETYPES.find(a => a.id === r.default_chain_archetype) : null;
   const out = { ...r, default_chain_archetype_resolved: arch };
   console.log(JSON.stringify(out, null, 2));
-  process.exit(0);
-}
-
-if (flags.archetype) {
+  process.exitCode = 0;
+} else if (flags.archetype) {
   const a = C.CHAIN_ARCHETYPES.find(x => x.id === flags.archetype);
   if (!a) { console.error(`Unknown archetype: ${flags.archetype}`); process.exit(2); }
   const resolved = {};
@@ -88,17 +88,13 @@ if (flags.archetype) {
   }
   const out = { ...a, components_resolved: resolved };
   console.log(JSON.stringify(out, null, 2));
-  process.exit(0);
-}
-
-if (flags.aesthetic) {
+  process.exitCode = 0;
+} else if (flags.aesthetic) {
   const p = (C.PRODUCTION_AESTHETICS || []).find(x => x.id === flags.aesthetic);
   if (!p) { console.error(`Unknown aesthetic: ${flags.aesthetic}`); process.exit(2); }
   console.log(JSON.stringify(p, null, 2));
-  process.exit(0);
-}
-
-if (flags.tree) {
+  process.exitCode = 0;
+} else if (flags.tree) {
   const n = C.TREE_NODES.find(x => x.id === flags.tree);
   if (!n) { console.error(`Unknown tree node: ${flags.tree}`); process.exit(2); }
   const children = C.TREE_NODES.filter(x => x.parent === n.id);
@@ -107,8 +103,8 @@ if (flags.tree) {
     return e && e.parent === n.id;
   });
   console.log(JSON.stringify({ ...n, children, traditions: traditions.map(t => t.id) }, null, 2));
-  process.exit(0);
+  process.exitCode = 0;
+} else {
+  console.error('Specify what to expand: --tradition, --instrument, --room, --archetype, --aesthetic, --tree');
+  process.exit(2);
 }
-
-console.error('Specify what to expand: --tradition, --instrument, --room, --archetype, --aesthetic, --tree');
-process.exit(2);

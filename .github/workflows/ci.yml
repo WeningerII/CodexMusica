@@ -1,8 +1,19 @@
 name: CI
 
+# Least privilege: CI only reads the repo (the publish workflow, sync-pages.yml,
+# is the only one that needs contents: write).
+permissions:
+  contents: read
+
 on:
   push:
-    branches: [main, master]
+    # The production branch is included so a DIRECT push to it (bypassing a PR)
+    # still runs the full gate set and shows red — `master` was dead (no such
+    # branch). NOTE: this makes CI run and report, but it does not BLOCK the
+    # concurrent sync-pages publish; enforcing "green before live" requires
+    # branch protection on the production branch (a repo Setting, not workflow
+    # config) requiring these checks on PRs + disallowing direct pushes.
+    branches: [main, claude/loving-hawking-vq5m4]
   pull_request:
   workflow_dispatch:
 
@@ -10,9 +21,9 @@ jobs:
   verify:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: '22'
           cache: npm
@@ -29,17 +40,55 @@ jobs:
       - name: Validate references
         run: npm run validate
 
+      - name: Docs drift + documented-command validity
+        run: npm run check-docs
+
+      - name: Static API contract (committed api/ honors promises)
+        run: npm run check:api
+
+      - name: Promise→gate coverage (every promise documented AND gated, 0 orphans)
+        run: npm run check:promises
+
+      - name: Preface lexicon hygiene (no dup/empty/production-dead tokens, no dup ids)
+        run: npm run check:prefaces
+
       - name: Audit data quality
         run: npm run audit
 
       - name: Regression (recipes, prefaces, slots, app)
         run: npm run test
 
-      - name: Build single-file HTML (+ data + byte-ceiling check)
+      - name: Build codex.html (lazy shell + no-table-leak + byte-ceiling check)
         run: npm run build:html
 
       - name: UI reachability
         run: npm run reachability
+
+  # Reproducibility + two-sided gates. Separate job so the ~6-min fresh rebuild
+  # runs in parallel with `verify`, and still gates the merge (runs on PRs).
+  freshness:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build a fresh artifact from source
+        run: |
+          node scripts/build_static_api.js --out="$RUNNER_TEMP/fresh/api"
+          node scripts/build_html.js --out="$RUNNER_TEMP/fresh/codex.html" --quiet
+
+      - name: Reproducibility — committed api/ + codex.html == fresh build (0 diff)
+        run: node scripts/check_artifact_fresh.js --prebuilt-api="$RUNNER_TEMP/fresh/api" --prebuilt-html="$RUNNER_TEMP/fresh/codex.html"
+
+      - name: Fault injection — every gate is two-sided (0 escapes)
+        run: node scripts/faults.js --fresh-api="$RUNNER_TEMP/fresh/api" --fresh-html="$RUNNER_TEMP/fresh/codex.html"
 
   # The catalog-wide smoke (~16 min, all 1090 traditions) is intentionally not
   # on the per-push path. Run it on demand:

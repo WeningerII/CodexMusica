@@ -1,0 +1,13 @@
+# Keep the build context (and image) small. The MCP server only needs
+# scripts/ + references/*.js + mcp/ source.
+**/node_modules
+.git
+.github
+*.log
+*.zip
+codex.html
+/api
+/_dist
+/_dist_test
+tests
+references/_assets

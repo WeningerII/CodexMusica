@@ -124,7 +124,7 @@ function tradition_byId(tid) {
   if (!seedExtras) return null;
   const seedAxes = seedExtras.axes || {};
   const seedParent = seedExtras.parent || '';
-  const seedCrossRefs = new Set(seedExtras.crossRefs || []);
+  const seedCrossRefs = new Set((seedExtras.crossRefs || []).map(cr => (cr && typeof cr === 'object') ? cr.ref : cr));
 
   const results = [];
   for (const otherTid of Object.keys(C.TRADITION_EXTRAS)) {
@@ -136,7 +136,7 @@ function tradition_byId(tid) {
 
     const axisDist = axisL1(seedAxes, e.axes);
     const pathDist = parentPathDistance(seedParent, e.parent || '');
-    const otherCrossRefs = new Set(e.crossRefs || []);
+    const otherCrossRefs = new Set((e.crossRefs || []).map(cr => (cr && typeof cr === 'object') ? cr.ref : cr));
     let crossOverlap = 0;
     for (const cr of seedCrossRefs) if (otherCrossRefs.has(cr)) crossOverlap++;
     if (seedParent && otherCrossRefs.has(seedParent)) crossOverlap += 2;
@@ -380,7 +380,13 @@ if (type === 'tradition') {
     const target = {};
     for (const pair of String(flags.axes).split(',')) {
       const [k, v] = pair.split(':');
-      if (k && v !== undefined) target[k.trim()] = parseInt(v);
+      if (k && v !== undefined) {
+        const n = parseInt(v, 10);
+        // A non-numeric value would become NaN, making every distance NaN and
+        // the "top by distance" table just catalog order with score=NaN.
+        if (!Number.isInteger(n)) { console.error(`--axes: "${k.trim()}" has a non-integer value "${v}"`); process.exit(2); }
+        target[k.trim()] = n;
+      }
     }
     results = tradition_byAxes(target);
     header = `Top ${Math.min(limit, results.length)} traditions by axis distance:`;

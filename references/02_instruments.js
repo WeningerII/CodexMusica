@@ -66,6 +66,7 @@ const INSTRUMENTS = [
         { id: 'choir_regional_andean_three_voice_parallel_thirds', name: 'Andean three-voice parallel-thirds (Quechua-Aymara)', descriptors: ['andean-three-voice-parallel-thirds-quechua-aymara'], match_tokens: ['choir-blendable', 'ensemble'] },
         { id: 'choir_regional_polynesian_himene_tarava', name: 'Polynesian himene-tarava parallel-thirds (Tahitian congregational polyphonic)', descriptors: ['polynesian-himene-tarava-parallel-thirds-congregational'], match_tokens: ['choir-blendable', 'ensemble'], canonical_tags: ['polynesian-himene-tarava'] },
         { id: 'choir_regional_sub_saharan_call_response_ostinato', name: 'Sub-Saharan call-response ostinato (single-leader + group-response with polyrhythmic-layered cycles)', descriptors: ['sub-saharan-call-response-ostinato-polyrhythmic'], match_tokens: ['choir-blendable', 'ensemble', 'call-response'] },
+        { id: 'choir_regional_rioplatense_murga', name: 'Rioplatense murga block-chorus (Montevideo tablado cuplé belting)', descriptors: ['murga-tablado-cuple-belt', 'murga-carnaval-coro-block'], match_tokens: ['choir-blendable', 'ensemble'], canonical_tags: ['murga'] },
       ] },
       { id: 'choir_ensemble_repertoire', surface: false, name: 'Repertoire / period', variants: [
         { id: 'choir_ensemble_renaissance', default: true, name: 'Renaissance polyphony', descriptors: ['sacred-Latin', 'historical'], match_tokens: ['renaissance', 'choir-blendable', 'ensemble'] },
@@ -252,6 +253,19 @@ const INSTRUMENTS = [
         { id: 'rap_voice', surface: false, name: 'Rap voice', descriptors: ['rap', 'mc-flow', 'rhythmic-speech'], match_tokens: ['speech-derived', 'breathing'], canonical_tags: ['rap', 'hip-hop'] },
         { id: 'child_voice', surface: false, name: "Children's choir / treble", descriptors: ['child', 'treble'], match_tokens: ['child-voice', 'speech-derived', 'breathing'], canonical_tags: ['boys-choir'] },
       ] },
+      { id: 'voice_vocal_tract', surface: false, name: 'Vocal-tract / vowel posture', variants: [
+        { id: 'tract_neutral', default: true, surface: false, name: 'Neutral tract (unmarked)', descriptors: [] },
+        { id: 'tongue_root_retracted_dark', surface: false, auto: false, name: 'Tongue-root retracted (back-vowel, dark)', descriptors: ['tongue-root-retracted', 'back-vowel-targeted', 'front-consonant-degraded', 'pharyngeal-darkened'] },
+        { id: 'tongue_root_advanced_bright', surface: false, auto: false, name: 'Tongue-root advanced (front-vowel, bright)', descriptors: ['tongue-root-advanced', 'front-vowel-forward', 'consonant-crisp', 'oral-brightened'] },
+        { id: 'pharyngeal_widened_yawned', surface: false, auto: false, name: 'Pharynx widened (yawn-open throat)', descriptors: ['pharynx-widened', 'yawn-open-throat', 'inner-space-expanded'] },
+        { id: 'nasalized_tract', surface: false, auto: false, name: 'Nasalized (velopharyngeal port open)', descriptors: ['nasalized', 'velopharyngeal-open', 'nasal-coupled-resonance'] },
+      ] },
+      { id: 'voice_effort', surface: false, name: 'Phonatory effort / subglottal pressure', variants: [
+        { id: 'effort_moderate', default: true, surface: false, name: 'Moderate effort (unmarked dynamic)', descriptors: [] },
+        { id: 'effort_minimal_undersung', surface: false, auto: false, name: 'Minimal pressure / under-sung (conversation volume or below)', descriptors: ['minimal-subglottal-pressure', 'conversation-volume-or-below', 'under-sung', 'force-withheld'] },
+        { id: 'effort_projected', surface: false, auto: false, name: 'Projected (raised pressure, carrying)', descriptors: ['raised-subglottal-pressure', 'projected', 'carrying'] },
+        { id: 'effort_pressed_maximal', surface: false, auto: false, name: 'Pressed / maximal force', descriptors: ['maximal-subglottal-pressure', 'pressed-loud', 'full-force'] },
+      ] },
       { id: 'voice_vibrato', surface: false, name: 'Vibrato', variants: [
         { id: 'straight_tone', name: 'Straight tone', descriptors: ['pure', 'direct', 'instrumental'], match_tokens: ['speech-derived', 'breathing', 'vibrato-rich'] },
         { id: 'slow_vibrato', default: true, name: 'Slow vibrato', descriptors: ['chest-resonance-low-mid', 'expressive', 'classical'], match_tokens: ['vibrato-rich', 'vibrato-y', 'speech-derived'] },
@@ -260,6 +274,7 @@ const INSTRUMENTS = [
         { id: 'oscillating_vibrato', name: 'Country oscillating vibrato', descriptors: ['bluesy', 'expressive'], match_tokens: ['vibrato-rich', 'vibrato-y', 'speech-derived', 'breathing'], canonical_tags: ['country'] },
         { id: 'delayed_vibrato', name: 'Delayed vibrato', descriptors: ['tasteful', 'modern'], match_tokens: ['vibrato-rich', 'vibrato-y', 'speech-derived', 'breathing'] },
         { id: 'terminal_vibrato', name: 'Terminal (note-end only)', descriptors: ['melodic', 'period-honest'], match_tokens: ['vibrato-rich', 'vibrato-y', 'speech-derived', 'breathing'], canonical_tags: ['country'] },
+        { id: 'slow_wide_terminal_vibrato', auto: false, name: 'Slow, wide, terminal-only', descriptors: ['slow-rate', 'wide-excursion', 'terminal-sustain-only'] },
       ] },
       { id: 'voice_articulation', surface: false, name: 'Articulation', variants: [
         { id: 'legato_voice', default: true, name: 'Legato', descriptors: ['continuous-phonation', 'connected', 'flowing'], match_tokens: ['legato', 'sustained-tone', 'speech-derived'] },
@@ -281,6 +296,7 @@ const INSTRUMENTS = [
       ] },
       { id: 'voice_tradition', surface: false, name: 'Vocal tradition / training', variants: [
         { id: 'modern_pop_vocal_training', default: true, name: 'Modern pop / contemporary commercial vocal training', descriptors: ['modern-pop-training', 'contemporary-commercial', 'mixed-belt', 'studio-ready'], match_tokens: ['speech-derived', 'breathing'], canonical_tags: ['pop', 'modern'] },
+        { id: 'appalachian_outlaw_folk_tradition', auto: false, name: 'Anglo-American folk / outlaw-country (plain narrative, untrained-natural)', descriptors: ['anglo-american-folk', 'plain-spoken-narrative', 'untrained-natural', 'outlaw-country-lineage'] },
         { id: 'bel_canto_tradition', name: 'Bel canto (Italian operatic)', descriptors: ['bel-canto', 'italian-operatic', 'sustained-line', 'legato-priority'], match_tokens: ['speech-derived', 'breathing', 'classical-trained'], canonical_tags: ['classical', 'italian'] },
         { id: 'baroque_ornamental_tradition', name: 'Baroque ornamental (trills, divisions, messa di voce)', descriptors: ['baroque-ornamental', 'messa-di-voce', 'period-style', 'trill-heavy'], match_tokens: ['speech-derived', 'breathing', 'classical-trained', 'period-performance'], canonical_tags: ['baroque', 'classical'] },
         { id: 'sean_nos_tradition', name: 'Sean-nós (Irish unaccompanied)', descriptors: ['sean-nos', 'unaccompanied', 'gaelic-tradition', 'free-rhythm', 'ornamented'], match_tokens: ['speech-derived', 'breathing', 'folk-tradition'], canonical_tags: ['celtic', 'folk'] },
@@ -312,6 +328,7 @@ const INSTRUMENTS = [
         { id: 'andean_quechua_tradition', name: 'Andean Quechua / Aymara wayno vocal (Andes highland)', descriptors: ['andean-quechua-vocal', 'wayno-huayno-aymara', 'altiplano-quena-vocal'], match_tokens: ['speech-derived', 'breathing'], canonical_tags: ['andean', 'quechua', 'aymara'] },
         { id: 'native_american_vocal_tradition', name: 'Native American vocal (Plains/Southwest powwow & ceremonial)', descriptors: ['amerindian-powwow-vocal', 'pueblo-amerindian-vocal'], match_tokens: ['speech-derived', 'breathing'], canonical_tags: ['amerindian', 'powwow', 'pueblo'] },
         { id: 'southeast_asian_folk_vocal_tradition', name: 'Southeast Asian folk vocal (lam / mor-lam, luk-thung)', descriptors: ['morlam-lam-vocal', 'isan-luk-thung-vocal', 'mekong-khmer-vocal'], match_tokens: ['speech-derived', 'breathing'], canonical_tags: ['isan', 'morlam', 'mekong'] },
+        { id: 'southern_african_bantu_vocal_tradition', name: 'Southern African Bantu vocal (Zulu / Xhosa / Tsonga choral chant, isicathamiya to township pop)', descriptors: ['nguni-tsonga-sotho-vocal', 'isicathamiya-mbube-cothoza', 'township-jive-chant-vocal'], match_tokens: ['speech-derived', 'breathing'], canonical_tags: ['tsonga', 'zulu', 'african'] },
       ] },
       { id: 'voice_mechanism_compound', surface: false, name: 'Compound mechanism (multi-source phonation)', variants: [
         { id: 'voice_mechanism_single_source', default: true, name: 'Single-source phonation (standard fold vibration)', descriptors: ['single-source-phonation', 'standard-fold-vibration'], match_tokens: ['speech-derived', 'breathing'] },
@@ -323,6 +340,7 @@ const INSTRUMENTS = [
         { id: 'voice_mechanism_false_fold_distorted', name: 'False-fold distorted (ventricular noise + supraglottic compression, true-folds protected)', descriptors: ['false-fold-distorted-phonation', 'supraglottic-compression-screamed', 'ventricular-aperiodic-noise'], match_tokens: ['speech-derived', 'breathing'], canonical_tags: ['metal', 'hardcore', 'death-growl'] },
         { id: 'voice_mechanism_ingressive_paired', name: 'Ingressive-egressive paired-breath alternation (interlocked supraglottic+aryepiglottic both phases)', descriptors: ['ingressive-egressive-paired-breath', 'interlocked-supraglottic-both-phases'], match_tokens: ['speech-derived', 'breathing'], canonical_tags: ['inuit-throat-singing', 'arctic', 'indigenous'] },
         { id: 'voice_mechanism_M0_pulse_borrowed', name: 'M1 with M0-pulse borrowing (fry-modal mix, growl-into-modal)', descriptors: ['M1-with-M0-pulse-borrowing', 'fry-modal-mix'], match_tokens: ['speech-derived', 'breathing'] },
+        { id: 'voice_mechanism_supraglottal_rasp_pitch_stable', auto: false, name: 'Supraglottal rasp on a clean core (controlled ventricular/AES grain, soft throat-clear; true-fold pitch untouched)', descriptors: ['supraglottal-rasp-clean-core', 'pitch-stable-distortion', 'controlled-ventricular-overlay', 'throat-clear-grain'] },
       ] },
       { id: 'voice_estill_quality', surface: false, name: 'Estill voice-quality configuration (six canonical figure-combinations)', variants: [
         { id: 'voice_estill_speech', default: true, name: 'Speech quality (modal, neutral larynx, minimal AES narrowing)', descriptors: ['speech-quality-modal-neutral-larynx', 'minimal-AES-narrowing'], match_tokens: ['speech-derived', 'breathing'] },
@@ -4659,6 +4677,27 @@ const INSTRUMENTS = [
     ]
   },
   {
+    id: 'bass_drum',
+    name: 'Bass drum (kick / concert)',
+    family: 'percussion',
+    class: 'membranophone',
+    axes: { pitchFix: 0, sustain: -2, polyphony: -2, harmonicity: 0, register: -2, range: -1, articulation: 1, transduction: -2, dynamics: 1 },
+    short: 'bass drum',
+    parts: [
+      { id: 'bass_drum_size', name: 'Size', variants: [
+        { id: 'bass_drum_22_standard', default: true, name: '22-inch standard kick', descriptors: ['punchy', 'round-low-end'], match_tokens: ['rock', 'pop', 'standard-kit'] },
+        { id: 'bass_drum_18_jazz', name: '18-inch jazz bass drum', descriptors: ['warm', 'resonant', 'open'], match_tokens: ['jazz', 'bop', 'small-kit'] },
+        { id: 'bass_drum_24_26_big', name: '24-26-inch big kick', descriptors: ['deep', 'cavernous', 'thunderous'], match_tokens: ['metal', 'arena-rock', 'heavy-rock'] },
+        { id: 'bass_drum_concert', name: 'Concert / orchestral bass drum (mallet-struck)', descriptors: ['orchestral', 'broad', 'low-boom'], match_tokens: ['orchestral', 'marching', 'concert'] },
+      ] },
+      { id: 'bass_drum_beater', surface: false, name: 'Beater / pedal', variants: [
+        { id: 'bass_drum_felt_pedal', default: true, name: 'Felt beater, single pedal', descriptors: ['rounded-attack', 'felt-thump'], match_tokens: ['rock', 'pop'] },
+        { id: 'bass_drum_wood_click', name: 'Wood / plastic beater', descriptors: ['clicky-attack', 'defined-point'], match_tokens: ['metal', 'modern'] },
+        { id: 'bass_drum_double_pedal', name: 'Double pedal', descriptors: ['rapid', 'gallop'], match_tokens: ['metal', 'double-bass'] },
+      ] },
+    ]
+  },
+  {
     id: 'drum_kit',
     name: 'Drum kit (Western)',
     family: 'percussion',
@@ -5448,33 +5487,6 @@ const INSTRUMENTS = [
       { id: 'tabla_syahi', name: 'Syahi (black tuning paste)', variants: [
         { id: 'fresh_syahi', default: true, name: 'Fresh syahi', descriptors: ['ringing', 'pitched', 'vivid'], match_tokens: ['percussive-attack', 'hands', 'classical-trained'] },
         { id: 'aged_syahi', name: 'Aged syahi', descriptors: ['mellower', 'broken-in', 'softer'], match_tokens: ['percussive-attack', 'hands', 'classical-trained'] },
-      ] },
-    ]
-  },
-  {
-    id: 'taiko_drums',
-    name: 'Taiko (Japanese ensemble drums)',
-    family: 'percussion',
-    class: 'hand_percussion',
-    axes: { pitchFix: 0, sustain: -2, polyphony: 0, harmonicity: 0, register: -1, range: 1, articulation: 1, transduction: -2, dynamics: 2 },
-    short: 'taiko',
-    parts: [
-      { id: 'taiko_shell_wood', surface: false, name: 'Shell wood', variants: [
-        { id: 'keyaki_zelkova_single_log', default: true, name: 'Keyaki (Japanese zelkova, single-log kurinuki)', descriptors: ['keyaki', 'zelkova', 'single-log', 'kurinuki-construction', 'traditional'], match_tokens: ['percussive-attack', 'loud-projection', 'ensemble'], canonical_tags: ['traditional'] },
-        { id: 'tamo_japanese_ash_taiko', name: 'Tamo (Japanese ash)', descriptors: ['tamo', 'japanese-ash', 'ring-porous-grain'], match_tokens: ['percussive-attack', 'loud-projection', 'ensemble'], canonical_tags: ['traditional'] },
-        { id: 'sen_kalopanax_taiko', name: 'Sen (kalopanax septemlobus)', descriptors: ['sen', 'kalopanax', 'lighter-grain'], match_tokens: ['percussive-attack', 'loud-projection', 'ensemble'], canonical_tags: ['traditional'] },
-        { id: 'matsu_pine_taiko', name: 'Matsu (Japanese pine)', descriptors: ['matsu', 'japanese-pine', 'lighter-tone'], match_tokens: ['percussive-attack', 'loud-projection', 'ensemble'] },
-        { id: 'oak_barrel_american_taiko', name: 'American oak (wine-barrel kumi-daiko)', descriptors: ['oak-barrel', 'american-oak', 'wine-barrel-reuse', 'modern-american-taiko'], match_tokens: ['percussive-attack', 'loud-projection', 'ensemble'], canonical_tags: ['modern'] },
-      ] },
-      { id: 'taiko_size', surface: false, name: 'Size class', variants: [
-        { id: 'shime_daiko', name: 'Shime-daiko (compact, lead)', descriptors: ['high-pitched', 'timekeeping', 'virtuoso'], match_tokens: ['percussive-attack', 'loud-projection', 'ensemble'] },
-        { id: 'chu_daiko', default: true, name: 'Chū-daiko (medium)', descriptors: ['foundational', 'versatile'], match_tokens: ['percussive-attack', 'loud-projection', 'ensemble'] },
-        { id: 'odaiko', name: 'Ōdaiko (large)', descriptors: ['deep', 'ceremonial', 'foundational'], match_tokens: ['percussive-attack', 'loud-projection', 'ensemble'] },
-      ] },
-      { id: 'taiko_drums_context', surface: false, name: 'Use context', variants: [
-        { id: 'taiko_drums_matsuri', default: true, name: 'Matsuri festival', descriptors: ['communal'], match_tokens: ['percussive-attack', 'loud-projection', 'ensemble'] },
-        { id: 'taiko_drums_kumi', name: 'Kumi-daiko ensemble', descriptors: ['twentieth-century', 'concert-stage', 'modern'], match_tokens: ['percussive-attack', 'loud-projection', 'ensemble'] },
-        { id: 'taiko_drums_theater', name: 'Theater (kabuki / noh)', descriptors: ['theatrical', 'classical', 'ritualized'], match_tokens: ['percussive-attack', 'loud-projection', 'ensemble'] },
       ] },
     ]
   },
@@ -8211,6 +8223,34 @@ const INSTRUMENTS = [
     ]
   },
   {
+    id: 'rompler_workstation',
+    name: 'ROM-playback workstation / arranger keyboard',
+    family: 'electronic',
+    class: 'electronic',
+    axes: { pitchFix: 1, sustain: 1, polyphony: 2, harmonicity: 1, register: 0, range: 2, articulation: 0, transduction: 2, dynamics: 0 },
+    short: 'workstation',
+    parts: [
+      { id: 'rompler_preset_bank', name: 'Preset bank', variants: [
+        { id: 'rompler_preset_gm_combo', default: true, name: 'General-MIDI multitimbral combo', descriptors: ['preset-palette', 'multitimbral', 'polished'], match_tokens: ['electronic', 'synthesized'] },
+        { id: 'rompler_preset_mallet_marimba', name: 'Mallet / marimba PCM bank', descriptors: ['midi-marimba-preset', 'bright', 'percussive'], match_tokens: ['electronic', 'synthesized', 'mallets'] },
+        { id: 'rompler_preset_oriental_arranger', name: 'Oriental / regional arranger bank', descriptors: ['ornamented-lead', 'regional-style-kit', 'party-arranger'], match_tokens: ['electronic', 'synthesized'] },
+        { id: 'rompler_preset_dance_stabs', name: 'Dance stab / organ bank', descriptors: ['stabby', 'organ-preset'], match_tokens: ['electronic', 'synthesized'], canonical_tags: ['house', 'edm'] },
+        { id: 'rompler_preset_piano_orchestral', name: 'Piano / orchestral ROM bank', descriptors: ['sampled-realism', 'ballad-suited'], match_tokens: ['electronic', 'synthesized', 'orchestral'], canonical_tags: ['pop'] },
+      ] },
+      { id: 'rompler_context', surface: false, name: 'Use context', variants: [
+        { id: 'rompler_context_pop_workstation', default: true, name: '90s workstation pop production', descriptors: ['radio-ready', 'sequenced'], match_tokens: ['electronic', 'synthesized'], canonical_tags: ['pop'] },
+        { id: 'rompler_context_township_midi', name: 'Township / DIY MIDI dance production', descriptors: ['DIY-sequenced', 'preset-driven', 'high-tempo'], match_tokens: ['electronic', 'synthesized'] },
+        { id: 'rompler_context_arranger_party', name: 'Arranger-keyboard party / wedding band', descriptors: ['auto-accompaniment', 'live-banquet', 'one-man-band'], match_tokens: ['electronic', 'synthesized'] },
+      ] },
+      { id: 'rompler_lineage', surface: false, name: 'Hardware lineage', variants: [
+        { id: 'rompler_korg_m1_canonical', default: true, name: 'Korg M1 (canonical 1988-1995 — first mass-market workstation, 4 MB PCM ROM, universal preset canon)', descriptors: ['korg-m1-canonical-1988-1995-first-mass-market-workstation-4mb-pcm-rom-universal-preset-canon'], match_tokens: ['electronic', 'synthesized'], canonical_tags: ['vintage'] },
+        { id: 'rompler_roland_jv_xp', name: 'Roland JV / XP series (1992-2000s — expandable PCM rack standard)', descriptors: ['roland-jv-xp-series-1992-2000s-expandable-pcm-rack-standard'], match_tokens: ['electronic', 'synthesized'], canonical_tags: ['vintage'] },
+        { id: 'rompler_yamaha_psr_casio', name: 'Yamaha PSR / Casio home keyboard (1990s-2000s — GM auto-accompaniment, home and township studios)', descriptors: ['yamaha-psr-casio-home-keyboard-1990s-2000s-gm-auto-accompaniment-home-township-studios'], match_tokens: ['electronic', 'synthesized'] },
+        { id: 'rompler_korg_pa_arranger', name: 'Korg Pa series arranger (2001-present — pro regional style banks, Balkan and Middle Eastern wedding circuits)', descriptors: ['korg-pa-series-arranger-2001-present-pro-regional-style-banks-balkan-middle-eastern-wedding-circuits'], match_tokens: ['electronic', 'synthesized'] },
+      ] },
+    ]
+  },
+  {
     id: 'sampler_classic',
     name: 'Sampler (vintage)',
     family: 'electronic',
@@ -9420,7 +9460,7 @@ const INSTRUMENTS = [
       ] },
       { id: 'violao_7_role', name: 'Functional role', variants: [
         { id: 'violao_7_bordao_counter', default: true, name: 'Bordão counter-melody (choro)', descriptors: ['walking-bass', 'countermelody', 'choro-tradition'], match_tokens: ['plucked', 'choro-tradition'] },
-        { id: 'violao_7_chord_accompaniment', name: 'Chord accompaniment', variants: undefined, descriptors: ['accompaniment'], match_tokens: ['plucked'] },
+        { id: 'violao_7_chord_accompaniment', name: 'Chord accompaniment', descriptors: ['accompaniment'], match_tokens: ['plucked'] },
       ] },
     ]
   },
@@ -9813,25 +9853,6 @@ const INSTRUMENTS = [
   // ADDED: Latin American sweep — Afro-Cuban liturgical, mariachi,
   // Mexican son jarocho, Andean, vallenato, Venezuelan llanero
   // ============================================================
-  {
-    id: 'bata_drums',
-    name: 'Batá drums (Afro-Cuban liturgical three-drum set)',
-    family: 'percussion',
-    class: 'membranophone',
-    axes: { pitchFix: 0, sustain: -1, polyphony: -1, harmonicity: 0, register: 0, range: 1, articulation: 2, transduction: -2, dynamics: 1 },
-    short: 'batá',
-    parts: [
-      { id: 'bata_role', name: 'Drum size/role', variants: [
-        { id: 'bata_iya', default: true, name: 'Iyá (mother — largest, lead)', descriptors: ['lead', 'authoritative'], match_tokens: ['percussive-attack', 'hands', 'santeria', 'afro-cuban-liturgical', 'lukumi'] },
-        { id: 'bata_itotele', name: 'Itótele (middle — answer)', descriptors: ['response'], match_tokens: ['percussive-attack', 'hands', 'santeria', 'lukumi'] },
-        { id: 'bata_okonkolo', name: 'Okónkolo (smallest — pulse)', descriptors: ['pulse', 'high-pitched'], match_tokens: ['percussive-attack', 'hands', 'santeria', 'lukumi'] },
-      ] },
-      { id: 'bata_consecration', name: 'Consecration state', variants: [
-        { id: 'bata_aña', default: true, name: 'Aña (consecrated, for sacred ceremony)', descriptors: ['sacred', 'ritual', 'liturgical'], match_tokens: ['percussive-attack', 'santeria', 'lukumi'] },
-        { id: 'bata_aberikula', name: 'Aberíkula (unconsecrated, for concert/teaching)', descriptors: ['secular', 'concert-context'], match_tokens: ['percussive-attack'] },
-      ] },
-    ]
-  },
   {
     id: 'guitarron_mexicano',
     name: 'Guitarrón (Mexican mariachi bass guitar)',
@@ -10715,39 +10736,6 @@ const INSTRUMENTS = [
       ] },
       { id: 'nafa_tradition', surface: false, name: 'Performance tradition', variants: [
         { id: 'nafa_lakalaka_canonical', default: true, name: 'Lakalaka choreographed-performance accompaniment (canonical)', descriptors: ['lakalaka-choreographed-canonical-tongan'], match_tokens: ['hand-drum', 'tongan-tradition'] },
-      ] },
-    ]
-  },
-  {
-    id: 'dumbek',
-    name: 'Dumbek / darbuka (Middle Eastern goblet drum)',
-    family: 'percussion',
-    class: 'membranophone',
-    axes: { pitchFix: -1, sustain: -2, polyphony: -2, harmonicity: -1, register: 0, range: 0, articulation: 2, transduction: -2, dynamics: 1 },
-    short: 'dumbek',
-    parts: [
-      { id: 'dumbek_body', name: 'Body', variants: [
-        { id: 'dumbek_ceramic_canonical', default: true, name: 'Ceramic body with goat-skin or plastic head (canonical)', descriptors: ['ceramic-body-goat-skin-canonical-middle-eastern'], match_tokens: ['hand-drum', 'middle-eastern-tradition'] },
-        { id: 'dumbek_metal_alt', name: 'Cast-metal body alternative (modern)', descriptors: ['cast-metal-body-modern-alternative'], match_tokens: ['hand-drum', 'middle-eastern-tradition'] },
-      ] },
-      { id: 'dumbek_tradition', surface: false, name: 'Performance tradition', variants: [
-        { id: 'dumbek_chalghi_andalusi_canonical', default: true, name: 'Chalghi and Andalusi ensemble use (canonical)', descriptors: ['chalghi-andalusi-canonical-middle-eastern'], match_tokens: ['hand-drum', 'middle-eastern-tradition'] },
-      ] },
-    ]
-  },
-  {
-    id: 'riqq',
-    name: 'Riqq (Middle Eastern small tambourine)',
-    family: 'percussion',
-    class: 'hand_percussion',
-    axes: { pitchFix: -1, sustain: -2, polyphony: -2, harmonicity: -1, register: 1, range: -1, articulation: 2, transduction: -2, dynamics: 0 },
-    short: 'riqq',
-    parts: [
-      { id: 'riqq_body', name: 'Body', variants: [
-        { id: 'riqq_fish_skin_brass_jingles_canonical', default: true, name: 'Fish-skin or plastic head with brass jingles (canonical chalghi time-keeping)', descriptors: ['fish-skin-brass-jingles-canonical-chalghi-time-keeping'], match_tokens: ['hand-drum', 'iraqi-maqam-tradition', 'middle-eastern-tradition'] },
-      ] },
-      { id: 'riqq_tradition', surface: false, name: 'Performance tradition', variants: [
-        { id: 'riqq_chalghi_canonical', default: true, name: 'Chalghi ensemble time-keeping (canonical)', descriptors: ['chalghi-time-keeping-canonical-baghdadi'], match_tokens: ['hand-drum', 'iraqi-maqam-tradition'] },
       ] },
     ]
   },

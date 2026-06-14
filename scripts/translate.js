@@ -1376,9 +1376,38 @@ function translate(config, options = {}) {
   const s5 = buildSentence5_chain(config); if (s5) sentences.push(s5);
   const s6 = buildSentence6_medium_fx(config); if (s6) sentences.push(s6);
 
+  // Budget trim — graded, never over the ceiling.
+  //
+  // The old loop popped WHOLE sentences from the end, so going 45 chars over
+  // budget cost the entire signal-chain sentence (and canonical afrobeat shipped
+  // with no chain at all). These recipes are comma-lists ordered head-first by
+  // identity value, so the cheapest honest cut is the LAST clause of the LAST
+  // sentence: trailing fx before the chain head, trailing instruments before the
+  // roster head. A sentence is popped only once it's down to a single clause.
+  // If the sole surviving sentence still exceeds the ceiling, hard-cut at a word
+  // boundary — the ceiling is a documented CONTRACT (api promise, --max-chars)
+  // and is never exceeded, where the old guard silently returned sentence 1
+  // however long it was.
+  const lastClauseCut = (s) => {
+    const body = s.endsWith('.') ? s.slice(0, -1) : s;
+    const cut = Math.max(body.lastIndexOf(', '), body.lastIndexOf('; '));
+    return cut > 0 ? body.slice(0, cut).replace(/[,;:\s]+$/, '') + '.' : null;
+  };
   let output = sentences.join(' ');
-  while (output.length > ceiling && sentences.length > 1) {
-    sentences.pop();
+  while (output.length > ceiling && sentences.length > 0) {
+    const trimmed = lastClauseCut(sentences[sentences.length - 1]);
+    if (trimmed !== null) {
+      sentences[sentences.length - 1] = trimmed;
+    } else if (sentences.length > 1) {
+      sentences.pop(); // single-clause sentence and still over — drop it whole
+    } else {
+      // One single-clause sentence left and it alone exceeds the ceiling.
+      let s = sentences[0].slice(0, Math.max(0, ceiling - 1));
+      const sp = s.lastIndexOf(' ');
+      if (sp > 0) s = s.slice(0, sp);
+      output = s.replace(/[,;:\s]+$/, '') + '.';
+      return output;
+    }
     output = sentences.join(' ');
   }
   return output;

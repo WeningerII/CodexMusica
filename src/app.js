@@ -500,15 +500,98 @@ const TRADITION_SIGNATURES = {
   'norteno': ['characteristic-cry'],
 };
 
+// ---- Catalog: the tradition data layer ----
+// EVERY tradition read in the app goes through this object — no other code may
+// touch the TRADITIONS / TRADITION_EXTRAS globals directly. Two boot modes:
+//   • embedded — the reference tables are present as globals (the `--embedded`
+//     build, and every node harness that boots it). Everything is
+//     in memory up front; `ensureFull` resolves immediately and the sync
+//     import path behaves exactly as it always has.
+//   • lazy — boots from api/browse.json, the light Tier-1 index (id/name/
+//     family/lineage/parent/13 axes/instruments/description/exemplars/
+//     crossRefs). That index powers search, the tree, find-similar, and
+//     fingerprints entirely locally — identical recall and display to the
+//     embedded build. The only fields NOT in the index are the few row fields
+//     an IMPORT needs (tuning/room/parts/chain_*); those are fetched once per
+//     tradition from api/traditions/{id}.json (its `source` field) and cached.
+//     This is what lets the catalog scale past the single-file embed ceiling
+//     with no server and no per-action lag outside a tradition's first import.
+const Catalog = (() => {
+  let _list = [];            // light rows in catalog order — id/name/family/lineage/instruments
+  const _byId = new Map();   // id → light row
+  const _ext = new Map();    // id → extras: parent/axes/description/exemplars/crossRefs
+  const _full = new Map();   // id → row WITH import fields (tuning/room/parts/chain_*)
+  let _apiBase = null;       // non-null once lazy-booted (e.g. 'api/')
+
+  function bootFromGlobals() {
+    if (typeof TRADITIONS === 'undefined') return false;
+    _list = TRADITIONS;
+    for (const t of TRADITIONS) { _byId.set(t.id, t); _full.set(t.id, t); }
+    if (typeof TRADITION_EXTRAS !== 'undefined') {
+      for (const id of Object.keys(TRADITION_EXTRAS)) _ext.set(id, TRADITION_EXTRAS[id]);
+    }
+    return true;
+  }
+
+  // Boot from a fetched browse index (lazy mode). Axes arrive as a compact
+  // 13-array in the file's axisKeys order; remap to the named object the
+  // similarity/fingerprint code reads.
+  function bootFromIndex(browse, apiBase) {
+    const keys = browse.axisKeys || [];
+    _apiBase = apiBase || 'api/';
+    _list = [];
+    for (const it of browse.items || []) {
+      const row = { id: it.id, name: it.name, family: it.family, lineage: it.lineage || null, instruments: it.instruments || [] };
+      _list.push(row);
+      _byId.set(it.id, row);
+      const axes = {};
+      (it.axes || []).forEach((v, i) => { if (keys[i]) axes[keys[i]] = v; });
+      _ext.set(it.id, {
+        parent: it.parent || null,
+        axes,
+        description: it.description || '',
+        exemplars: it.exemplars || [],
+        crossRefs: it.crossRefs || [],
+      });
+    }
+    return _list.length > 0;
+  }
+
+  // Resolve the FULL row (light fields + import fields) for one tradition.
+  // Embedded mode and already-fetched ids resolve immediately; lazy mode
+  // fetches traditions/{id}.json once and merges its `source` over the light
+  // row. UI entry points await this BEFORE calling the (sync) importTradition.
+  async function ensureFull(id) {
+    if (_full.has(id)) return _full.get(id);
+    const row = _byId.get(id);
+    if (!row || !_apiBase) return row || null;
+    const res = await fetch(_apiBase + 'traditions/' + encodeURIComponent(id) + '.json');
+    if (!res.ok) throw new Error('tradition fetch failed: ' + id + ' (' + res.status + ')');
+    const rec = await res.json();
+    const full = Object.assign({}, row, rec.source || {});
+    _full.set(id, full);
+    return full;
+  }
+
+  return {
+    bootFromGlobals,
+    bootFromIndex,
+    all: () => _list,                  // light rows — iteration (search/tree/similar)
+    get: (id) => _byId.get(id),        // light row — name/family/lineage/instruments
+    ext: (id) => _ext.get(id),         // extras — parent/axes/description/exemplars/crossRefs
+    fullSync: (id) => _full.get(id),   // cached full row only — importTradition's sync read
+    ensureFull,                        // async — the ONE await point, before import
+  };
+})();
+
 // ---- Lookups ----
 // O(1) ID indexes built once at boot from the catalog arrays. Every render
 // path used to call `.find()` linear scans on these arrays — at 40+ cards
-// the cumulative cost of scanning 505 traditions × 372 instruments × N
+// the cumulative cost of scanning 1090 traditions × 421 instruments × N
 // chain items × variants dominated the per-render budget (the heaviest
 // single hot path, `findTraditionsByVector`, alone cost ~1M ops/render).
 // Maps push every lookup to constant time without changing call sites.
 const _INST_BY_ID = new Map();
-const _TRAD_BY_ID = new Map();
 const _ROOM_BY_ID = new Map();
 const _TUNING_BY_ID = new Map();
 const _FAM_BY_ID = new Map();
@@ -528,7 +611,7 @@ const _VARIANTS_BY_INST = new Map();         // instId → Map<partId, Map<varia
       _VARIANTS_BY_INST.set(inst.id, partMap);
     }
   }
-  if (typeof TRADITIONS !== 'undefined') for (const t of TRADITIONS) _TRAD_BY_ID.set(t.id, t);
+  Catalog.bootFromGlobals(); // traditions route through the Catalog layer (lazy boot replaces this in the shell build)
   if (typeof ROOMS !== 'undefined') for (const r of ROOMS) _ROOM_BY_ID.set(r.id, r);
   if (typeof TUNINGS !== 'undefined') for (const t of TUNINGS) _TUNING_BY_ID.set(t.id, t);
   if (typeof INSTRUMENT_FAMILIES !== 'undefined') for (const f of INSTRUMENT_FAMILIES) _FAM_BY_ID.set(f.id, f);
@@ -540,6 +623,26 @@ const _VARIANTS_BY_INST = new Map();         // instId → Map<partId, Map<varia
     }
   }
 })();
+
+// ---- Catalog boot promise (lazy shell) ----
+// The lazy build (the `build_html.js` default) omits the traditions/extras
+// tables from the page and injects `CODEX_LAZY_API` ahead of the app code. In that
+// build the Catalog boots from ONE fetch of api/browse.json — everything the
+// browse surfaces read. The embedded build takes the other branch (null):
+// bootFromGlobals already ran synchronously above, so its init path keeps
+// today's fully synchronous timing, byte-identical behavior.
+const CATALOG_READY = (typeof CODEX_LAZY_API !== 'undefined' && !Catalog.all().length)
+  ? fetch(CODEX_LAZY_API + 'browse.json')
+      .then((res) => {
+        if (!res.ok) throw new Error('browse index fetch failed (' + res.status + ')');
+        return res.json();
+      })
+      .then((browse) => {
+        if (!Catalog.bootFromIndex(browse, CODEX_LAZY_API)) {
+          throw new Error('browse index is empty');
+        }
+      })
+  : null;
 
 const _traditionSignatureFor = (tradId) => (tradId && TRADITION_SIGNATURES[tradId]) || [];
 
@@ -1297,7 +1400,7 @@ const _TREE_GLYPH_BY_ID = Object.fromEntries(TREE_NODES.map(n => [n.id, n]));
 function _treeNodeForTrad(tradId) {
   if (!tradId || tradId === '__ungrouped__') return null;
   if (_TREE_GLYPH_BY_ID[tradId]) return tradId;
-  const ex = (typeof TRADITION_EXTRAS !== 'undefined') ? TRADITION_EXTRAS[tradId] : null;
+  const ex = Catalog.ext(tradId);
   if (ex && ex.parent && _TREE_GLYPH_BY_ID[ex.parent]) return ex.parent;
   return null;
 }
@@ -1313,7 +1416,7 @@ function traditionGlyphsHTML(tradId, size) {
 }
 
 
-const Tradition = (id) => _TRAD_BY_ID.get(id);
+const Tradition = (id) => Catalog.get(id);
 const Inst = (id) => _INST_BY_ID.get(id);
 const Room = (id) => _ROOM_BY_ID.get(id);
 const Tuning = (id) => _TUNING_BY_ID.get(id);
@@ -1857,9 +1960,10 @@ function makeCard(instrumentId, opts) {
 // (which part / env / chain stage is currently being edited), the stack
 // panel toggle, the drift-suggestions overlay. Saved workspaces strip
 // these out before serializing; load/fork reapply the reset on every
-// card read out of storage; dupCard zeroes them on the copy. Single
-// source of truth so a new transient field added later picks up the
-// reset semantics at all four sites by being added here once.
+// card read out of storage; dupCard zeroes them on the copy; pushHistory
+// strips them when snapshotting for undo/redo (drift's apply closures don't
+// survive JSON). Single source of truth so a new transient field added later
+// picks up the reset semantics at all five sites by being added here once.
 const _CARD_TRANSIENTS = { drift: null, stackPanel: null, editingPart: null, editingEnv: null, editingChainStage: null };
 
 // UI timing constants. Centralized so cross-call relationships (CSS
@@ -1921,7 +2025,10 @@ function rmCard(id, opts) {
 }
 
 function importTradition(tradId) {
-  const trad = Tradition(tradId);
+  // SYNC by design (tandem's sandbox checks call it directly): reads the full
+  // row from the Catalog CACHE. Embedded mode pre-caches everything; in lazy
+  // mode every UI entry point awaits Catalog.ensureFull(tradId) first.
+  const trad = Catalog.fullSync(tradId);
   if (!trad) return [];
   // Quality-of-life: collapse all OTHER tradition groups already in the workspace
   // so the just-added tradition is the only one expanded. The user is almost
@@ -2006,10 +2113,15 @@ function importTradition(tradId) {
 // Import a tradition and give the standard feedback (toast + scroll-to-first).
 // Shared by the traditions picker, the empty-state starter gallery, and the
 // "Surprise me" button so all three behave identically.
-function importTraditionWithFeedback(tradId, opts) {
+async function importTraditionWithFeedback(tradId, opts) {
   opts = opts || {};
   const trad = Tradition(tradId);
   if (!trad) { showToast('Tradition not found', 'error'); return []; }
+  // The one await on the import path: in lazy mode this fetches the
+  // tradition's import payload (a few hundred bytes) the first time; embedded
+  // mode and repeat imports resolve immediately.
+  try { await Catalog.ensureFull(tradId); }
+  catch { showToast('Could not load tradition data — check your connection', 'error'); return []; }
   const created = importTradition(tradId);
   if (opts.closeModalId) closeModal(opts.closeModalId);
   app.similarFor = null;
@@ -2034,7 +2146,7 @@ function importTraditionWithFeedback(tradId, opts) {
 // result is always a real multi-instrument recipe, and avoids repeating the
 // immediately-previous pick.
 function surpriseTradition() {
-  const pool = (typeof TRADITIONS !== 'undefined' ? TRADITIONS : []).filter(t => (t.instruments || []).length >= 2);
+  const pool = Catalog.all().filter(t => (t.instruments || []).length >= 2);
   if (!pool.length) { showToast('No traditions available', 'error'); return; }
   let pick = pool[0];
   for (let i = 0; i < 8; i++) {
@@ -2758,7 +2870,7 @@ function renderAttributions() {
   const tbody = document.querySelector('#attributions-table tbody');
   if (!tbody) return;
   const rows = [
-    { name: 'Lucide',  scope: 'UI icons (97 in the codex)', license: 'ISC',     url: 'https://lucide.dev/' },
+    { name: 'Lucide',  scope: 'UI icons (' + (typeof ICON_PATHS !== 'undefined' ? Object.keys(ICON_PATHS).length : 0) + ' in the codex)', license: 'ISC',     url: 'https://lucide.dev/' },
     { name: 'Twemoji', scope: 'Instrument emoji (' + (typeof EMOJI_REGISTRY !== 'undefined' ? Object.keys(EMOJI_REGISTRY).length : 0) + ' mapped)', license: 'CC-BY 4.0', url: 'https://github.com/jdecked/twemoji' },
   ];
   tbody.innerHTML = rows.map(r => `<tr style="border-bottom: 1px solid var(--surface-2);">
@@ -2770,7 +2882,7 @@ function renderAttributions() {
 }
 
 // Family-level visual identity via color, not icons. The codex has 11
-// instrument families across 326 instruments; no UI icon library (Lucide,
+// instrument families across 421 instruments; no UI icon library (Lucide,
 // Heroicons, Tabler, etc.) has more than ~5 real instrument glyphs, and
 // substituting noteheads for "violin" or "drum" misrepresents the family.
 // Color works better here: 11 distinct hues actually differentiate, where
@@ -3913,12 +4025,27 @@ async function listSaved() {
     return r ? JSON.parse(r.value) : [];
   } catch { return []; }
 }
+// Read the saved-workspace index for a read-MODIFY-write (save/delete),
+// distinguishing "genuinely empty/absent" from "read failed". listSaved()
+// swallows every error into [] — fine for display, but FATAL for a write: a
+// transient storage hiccup would yield [], and writing that back overwrites
+// codex:list and orphans every previously saved workspace. This variant lets a
+// read/parse failure THROW so the caller's catch aborts the write instead.
+async function readListStrict() {
+  if (!window.storage) throw new Error('storage unavailable');
+  const r = await window.storage.get('codex:list'); // throws on storage failure — intentional
+  if (!r) return []; // key genuinely absent → empty list is correct
+  return JSON.parse(r.value); // throws on corruption — intentional
+}
+// Saved-workspace schema version: bump when the persisted card/chain shape changes
+// so an older app warns instead of silently mis-rendering a newer save.
+const WS_SCHEMA = 1;
 async function saveWS(name) {
   if (!window.storage) { showToast('Save failed', 'error'); return; }
   try {
-    const list = await listSaved();
+    const list = await readListStrict(); // abort (catch below) rather than overwrite a failed read
     const key = 'codex:ws:' + newId('ws');
-    const data = { key, name, saved_at: new Date().toISOString(), cards: app.cards.map(c => ({ ...c, ..._CARD_TRANSIENTS })) };
+    const data = { schema: WS_SCHEMA, key, name, saved_at: new Date().toISOString(), cards: app.cards.map(c => ({ ...c, ..._CARD_TRANSIENTS })) };
     await window.storage.set(key, JSON.stringify(data));
     list.push({ key, name, saved_at: data.saved_at, count: app.cards.length });
     await window.storage.set('codex:list', JSON.stringify(list));
@@ -3930,6 +4057,7 @@ async function loadWS(key) {
     const r = await safeGet(key);
     if (!r) { showToast('Not found', 'error'); return; }
     const d = JSON.parse(r.value);
+    if (d.schema && d.schema > WS_SCHEMA) { showToast('Saved by a newer version — update to open it', 'error'); return; }
     app.cards = (d.cards || []).map(c => {
       const card = { ...c, chain: c.chain || emptyChain(), ..._CARD_TRANSIENTS };
       if (card.prefaceAuto === undefined) card.prefaceAuto = !card.preface;
@@ -3937,6 +4065,7 @@ async function loadWS(key) {
     });
     closeModal('modal-saved');
     renderAll();
+    if (typeof pushHistory === 'function') pushHistory(); // parity with forkWS — one Ctrl+Z shouldn't discard the load
     showToast(`Loaded "${d.name}"`, 'success');
   } catch { showToast('Load failed', 'error'); }
 }
@@ -3952,6 +4081,7 @@ async function forkWS(key) {
     const r = await safeGet(key);
     if (!r) { showToast('Not found', 'error'); return; }
     const d = JSON.parse(r.value);
+    if (d.schema && d.schema > WS_SCHEMA) { showToast('Saved by a newer version — update to open it', 'error'); return; }
     app.cards = (d.cards || []).map(c => {
       const card = { ...c, id: newId('card'), chain: c.chain || emptyChain(), ..._CARD_TRANSIENTS };
       if (card.prefaceAuto === undefined) card.prefaceAuto = !card.preface;
@@ -3967,7 +4097,7 @@ async function delWS(key) {
   if (!window.storage) { showToast('Delete failed', 'error'); return; }
   try {
     await window.storage.delete(key);
-    const list = await listSaved();
+    const list = await readListStrict(); // abort (catch below) rather than overwrite a failed read
     await window.storage.set('codex:list', JSON.stringify(list.filter(w => w.key !== key)));
     renderSaved();
     showToast('Deleted', 'success');
@@ -3975,14 +4105,43 @@ async function delWS(key) {
 }
 
 // ---- Modals ----
+// Keyboard focus is trapped inside an open modal (Tab/Shift+Tab wrap) and restored
+// to the triggering control on close — honoring the aria-modal="true" contract the
+// markup declares.
+let _modalReturnFocus = null;
+function _focusables(root) {
+  return [...root.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])')]
+    .filter(el => el.offsetParent !== null);
+}
+function _trapTab(e, modal) {
+  if (e.key !== 'Tab' || !modal) return;
+  const f = _focusables(modal);
+  if (!f.length) return;
+  const first = f[0], last = f[f.length - 1];
+  if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+  else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+}
 function openModal(id) {
-  document.getElementById(id).classList.add('open');
+  const bg = document.getElementById(id);
+  _modalReturnFocus = document.activeElement; // restore focus here on close
+  bg.classList.add('open');
+  bg._trapHandler = (e) => _trapTab(e, bg.querySelector('.modal') || bg);
+  bg.addEventListener('keydown', bg._trapHandler);
   setTimeout(() => {
-    const i = document.querySelector('#' + id + ' input[type=search], #' + id + ' input[type=text]');
-    if (i) i.focus();
+    const i = bg.querySelector('input[type=search], input[type=text]');
+    (i || _focusables(bg)[0] || bg).focus();
   }, UI_TIMING_MS.MODAL_FOCUS_DELAY);
 }
-function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+function closeModal(id) {
+  const bg = document.getElementById(id);
+  if (!bg) return;
+  bg.classList.remove('open');
+  if (bg._trapHandler) { bg.removeEventListener('keydown', bg._trapHandler); bg._trapHandler = null; }
+  if (_modalReturnFocus && typeof _modalReturnFocus.focus === 'function' && document.contains(_modalReturnFocus)) {
+    _modalReturnFocus.focus();
+  }
+  _modalReturnFocus = null;
+}
 
 // ---- Confirm Dialog ----
 // Replaces native confirm() which is unreliable: browsers can suppress
@@ -4022,14 +4181,17 @@ function confirmDialog(opts) {
       </div>
     `;
     document.body.appendChild(bg);
+    const returnFocus = document.activeElement;
     const close = (result) => {
       bg.remove();
       document.removeEventListener('keydown', onKey);
+      if (returnFocus && typeof returnFocus.focus === 'function' && document.contains(returnFocus)) returnFocus.focus();
       resolve(result);
     };
     const onKey = (e) => {
       if (e.key === 'Escape') { e.preventDefault(); close(false); }
       else if (e.key === 'Enter') { e.preventDefault(); close(true); }
+      else if (e.key === 'Tab') _trapTab(e, bg.querySelector('.modal'));
     };
     document.addEventListener('keydown', onKey);
     bg.querySelector('[data-confirm-action="cancel"]').addEventListener('click', () => close(false));
@@ -4150,9 +4312,9 @@ function renderEmpty() {
       gallery.querySelectorAll('[data-starter-trad]').forEach(b =>
         b.addEventListener('click', () => importTraditionWithFeedback(b.dataset.starterTrad)));
     }
-    const surprise = document.getElementById('empty-surprise');
-    if (surprise) surprise.addEventListener('click', surpriseTradition);
-
+    // (#empty-surprise is a static template element — it is wired ONCE in
+    // _initApp. Wiring it here would stack a fresh listener on every empty-state
+    // render, so one click would fire surpriseTradition multiple times.)
     const qp = document.getElementById('quick-pick');
     const picks = ['voice', 'electric_guitar_single_coil', 'sitar', 'drum_kit', 'analog_synth'];
     qp.innerHTML = picks.map(id => {
@@ -4371,6 +4533,10 @@ function renderSidebarTraditions() {
       else app.collapsedTraditionGroups.add(tradId);
       renderSidebarTraditions();
     });
+    // Keyboard parity for the role="button" header (Enter/Space activate).
+    h.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); h.click(); }
+    });
   });
 
   // Wire mover buttons. Reorder by splicing the group's cards in app.cards
@@ -4392,7 +4558,6 @@ function renderSidebarTraditions() {
     const targetIdx = idx + direction;
     if (targetIdx < 0 || targetIdx >= seen.length) return;
     const otherId = seen[targetIdx];
-    if (typeof pushHistory === 'function') pushHistory();
     // Lift the moving group out of app.cards, then splice it back in either
     // BEFORE the other group's first card (when moving up) or AFTER the
     // other group's last card (when moving down).
@@ -4414,6 +4579,7 @@ function renderSidebarTraditions() {
         ? [...remaining, ...sourceCards]
         : [...remaining.slice(0, lastOtherIdx + 1), ...sourceCards, ...remaining.slice(lastOtherIdx + 1)];
     }
+    if (typeof pushHistory === 'function') pushHistory();
     renderAll();
   }
   host.querySelectorAll('[data-move-trad-up]').forEach(b => {
@@ -4511,7 +4677,6 @@ function renderSidebarTraditions() {
       // dragover from cursor Y relative to the target's midpoint.
       if (app._dragTraditionId && app._dragTraditionId !== targetId) {
         const sourceId = app._dragTraditionId;
-        if (typeof pushHistory === 'function') pushHistory();
         const sourceCards = app.cards.filter(c => c.traditionId === sourceId);
         const remaining = app.cards.filter(c => c.traditionId !== sourceId);
         if (dropAbove) {
@@ -4535,6 +4700,7 @@ function renderSidebarTraditions() {
           }
         }
         app._dragTraditionId = null;
+        if (typeof pushHistory === 'function') pushHistory();
         renderAll();
         return;
       }
@@ -4543,7 +4709,6 @@ function renderSidebarTraditions() {
       if (app._dragCardId) {
         const dragCard = app.cards.find(c => c.id === app._dragCardId);
         if (dragCard && dragCard.traditionId !== targetId) {
-          if (typeof pushHistory === 'function') pushHistory();
           dragCard.traditionId = targetId;
           // Move the card next to its new tradition's existing members
           app.cards = app.cards.filter(c => c.id !== dragCard.id);
@@ -4560,6 +4725,7 @@ function renderSidebarTraditions() {
             app.cards.splice(lastIdx + 1, 0, dragCard);
           }
           app._dragCardId = null;
+          if (typeof pushHistory === 'function') pushHistory();
           renderAll();
         }
       }
@@ -4568,7 +4734,7 @@ function renderSidebarTraditions() {
 
   // Wire tradition-delete buttons — bulk-remove all cards with that traditionId
   // in one undoable action. Uses skipHistory: true per rmCard to avoid one
-  // history entry per card; pushHistory() runs once before the batch.
+  // history entry per card; pushHistory() runs once after the batch.
   host.querySelectorAll('[data-delete-tradition]').forEach(b => {
     b.addEventListener('click', async (e) => {
       e.stopPropagation();
@@ -4586,8 +4752,8 @@ function renderSidebarTraditions() {
         danger: true,
       });
       if (!ok) return;
-      if (typeof pushHistory === 'function') pushHistory();
       for (const c of cards) rmCard(c.id, { skipHistory: true });
+      if (typeof pushHistory === 'function') pushHistory();
       showToast(`Removed ${tradName} (${cards.length} card${cards.length === 1 ? '' : 's'})`, 'success');
     });
   });
@@ -4712,8 +4878,10 @@ function renderSidebarStaple() {
   });
 
   const add = document.getElementById('sb-staple-add');
-  if (add) add.addEventListener('click', () => {
+  if (add) add.addEventListener('click', async () => {
     if (typeof importTradition === 'function') {
+      try { await Catalog.ensureFull(pick.id); }
+      catch { showToast('Could not load tradition data — check your connection', 'error'); return; }
       const cards = importTradition(pick.id);
       // Select the first card from the newly-added tradition
       if (cards && cards.length) {
@@ -4901,6 +5069,10 @@ function renderDetailBreadcrumb(card, _inst) {
       const grp = document.querySelector('#sidebar-traditions [data-tradition-id="' + card.traditionId + '"]');
       if (grp) grp.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     });
+    // Keyboard parity for the role="button" breadcrumb (Enter/Space activate).
+    left.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); left.click(); }
+    });
   }
   wrap.appendChild(left);
 
@@ -5057,7 +5229,11 @@ function pushHistory() {
   if (app.historyIndex < app.history.length - 1) {
     app.history.length = app.historyIndex + 1;
   }
-  const snapshot = JSON.stringify(app.cards);
+  // Strip session-only transient state before snapshotting (same single-source
+  // reset as save/load/fork/dup). Critically, `drift` holds candidate objects
+  // with live `apply` closures that JSON drops — restoring such a snapshot would
+  // leave a drift panel whose "Walk here" calls move.apply() → TypeError.
+  const snapshot = JSON.stringify(app.cards.map(c => ({ ...c, ..._CARD_TRANSIENTS })));
   // Skip no-op pushes (mutation that left cards array structurally identical).
   if (app.history.length > 0 && app.history[app.history.length - 1] === snapshot) return;
   app.history.push(snapshot);
@@ -5065,17 +5241,24 @@ function pushHistory() {
   app.historyIndex = app.history.length - 1;
   updateHistoryButtons();
 }
+// Restore a history snapshot defensively — a corrupted entry must not blank the
+// canvas or desync historyIndex (snapshots are app-produced, so this is a belt for
+// memory pressure / any future external history store).
+function _restoreSnapshot(idx) {
+  try { app.cards = JSON.parse(app.history[idx]); return true; }
+  catch (e) { console.error('history restore failed', e); showToast('Undo unavailable — history entry corrupted', 'error'); return false; }
+}
 function undo() {
   if (app.historyIndex <= 0) return;
   app.historyIndex--;
-  app.cards = JSON.parse(app.history[app.historyIndex]);
+  if (!_restoreSnapshot(app.historyIndex)) { app.historyIndex++; return; }
   renderAll();
   updateHistoryButtons();
 }
 function redo() {
   if (app.historyIndex >= app.history.length - 1) return;
   app.historyIndex++;
-  app.cards = JSON.parse(app.history[app.historyIndex]);
+  if (!_restoreSnapshot(app.historyIndex)) { app.historyIndex--; return; }
   renderAll();
   updateHistoryButtons();
 }
@@ -5130,6 +5313,15 @@ function renderPartRow(card, inst, part) {
     //             candidate variant (the swap would remove it; rendered as
     //             a separate strikethrough chip after the new variant's descrs)
     const currentVarDescs = currentVar ? new Set(entryRenderDescs(currentVar)) : new Set();
+    // "Not set" chip — mirrors the chain/environment null option (setTuning/setRoom/setChain)
+    // so a part can be left explicitly unset; an unset part contributes no descriptors
+    // (Variant() returns null and the descriptor builders skip it).
+    const noneChip = document.createElement('button');
+    noneChip.className = 'chip variant-chip' + (!card.parts[part.id] ? ' selected' : '');
+    noneChip.dataset.setPart = part.id;
+    noneChip.dataset.variant = '';
+    noneChip.innerHTML = '<span class="variant-chip-name">Not set</span>';
+    variants.appendChild(noneChip);
     part.variants.forEach(v => {
       const b = document.createElement('button');
       const isCurrent = card.parts[part.id] === v.id;
@@ -5315,7 +5507,7 @@ function renderChainSection(card) {
     if (isMulti) {
       const ids = card.chain[s.id] || [];
       isSet = ids.length > 0;
-      value = ids.length === 0 ? '—' : (ids.length === 1 ? ChainItem(s.id, ids[0]).name : ids.length + ' selected');
+      value = ids.length === 0 ? '—' : (ids.length === 1 ? (ChainItem(s.id, ids[0])?.name || ids[0]) : ids.length + ' selected');
     } else {
       const id = card.chain[s.id];
       isSet = !!id;
@@ -5793,7 +5985,7 @@ function handleCardClick(e, card) {
     return;
   }
   if (t.dataset.setPart) {
-    card.parts[t.dataset.setPart] = t.dataset.variant;
+    card.parts[t.dataset.setPart] = t.dataset.variant || null;
     if (card.prefaceAuto) card.preface = suggestPrefaceForCard(card);
     rerenderCard(card);
     return;
@@ -6237,7 +6429,29 @@ function syncAppBarHeight() {
   document.documentElement.style.setProperty('--app-bar-height', bar.offsetHeight + 'px');
 }
 
+// Boot gate. Embedded build: CATALOG_READY is null and init runs synchronously
+// inside the DOMContentLoaded handler, exactly as it always has. Lazy shell:
+// init waits for the one browse-index fetch; a failed fetch renders a
+// persistent, honest error state instead of a blank app.
 document.addEventListener('DOMContentLoaded', () => {
+  if (CATALOG_READY) CATALOG_READY.then(_initApp).catch(_renderBootError);
+  else _initApp();
+});
+
+function _renderBootError(err) {
+  console.error('Catalog boot failed:', err);
+  const detail = document.getElementById('workspace-detail') || document.body;
+  detail.innerHTML =
+    '<div class="empty-state" id="boot-error">' +
+    '<h2>Couldn’t load the catalog</h2>' +
+    '<p>The browse index (api/browse.json) failed to load. Check your connection and reload the page.</p>' +
+    '<div class="empty-state-actions"><button class="btn btn-primary" id="boot-error-reload">Reload</button></div>' +
+    '</div>';
+  const btn = document.getElementById('boot-error-reload');
+  if (btn) btn.addEventListener('click', () => location.reload());
+}
+
+function _initApp() {
   // Hydrate all icon placeholders in the static HTML shell. Each
   // <span data-icon="name" data-size="N"></span> placeholder gets its
   // innerHTML populated with the canonical icon() SVG. This keeps the
@@ -6259,8 +6473,15 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       const open = document.querySelector('.modal-bg.open');
-      if (open) open.classList.remove('open');
+      if (open && open.id) closeModal(open.id); // restores focus + clears the trap
+      else if (open) open.classList.remove('open');
     }
+  });
+  // Warn before discarding an unsaved in-progress workspace: the canvas lives in
+  // memory only (Save persists it), so a reload/close/crash would silently lose
+  // it. Respects the explicit-save model — it warns, it never autosaves.
+  window.addEventListener('beforeunload', (e) => {
+    if (app.cards && app.cards.length > 0) { e.preventDefault(); e.returnValue = ''; }
   });
   document.getElementById('btn-add').addEventListener('click', () => {
     app.pickerSearch = '';
@@ -6270,6 +6491,11 @@ document.addEventListener('DOMContentLoaded', () => {
     openModal('modal-add');
   });
   document.getElementById('empty-add').addEventListener('click', () => document.getElementById('btn-add').click());
+  // #empty-surprise is a STATIC template element (unlike the innerHTML-rebuilt
+  // starter gallery / quick-pick whose listeners die with their nodes), so it is
+  // wired exactly once here — never in renderEmpty, which runs every render.
+  const emptySurprise = document.getElementById('empty-surprise');
+  if (emptySurprise) emptySurprise.addEventListener('click', surpriseTradition);
   const eag = document.getElementById('empty-add-genre');
   if (eag) {
     eag.addEventListener('click', () => {
@@ -6392,7 +6618,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   renderAll();
-});
+}
 
 // ============================================================
 // HIERARCHICAL TREE PICKER + SONIC SIMILARITY
@@ -6499,16 +6725,16 @@ function getTreeNode(id) {
   return TREE_NODES.find(n => n.id === id);
 }
 function tradParent(tradId) {
-  return TRADITION_EXTRAS[tradId]?.parent || null;
+  return Catalog.ext(tradId)?.parent || null;
 }
 function getChildren(nodeId) {
   const internal = TREE_NODES.filter(n => n.parent === nodeId);
-  const leaves = TRADITIONS.filter(t => tradParent(t.id) === nodeId);
+  const leaves = Catalog.all().filter(t => tradParent(t.id) === nodeId);
   return [...internal, ...leaves];
 }
 function getCrossRefLeaves(nodeId) {
-  return TRADITIONS.filter(t => {
-    const ext = TRADITION_EXTRAS[t.id];
+  return Catalog.all().filter(t => {
+    const ext = Catalog.ext(t.id);
     if (!ext || !ext.crossRefs) return false;
     if (tradParent(t.id) === nodeId) return false; // already shown as primary
     return ext.crossRefs.includes(nodeId);
@@ -6543,7 +6769,7 @@ function getAncestorPath(tradId) {
 }
 
 // ---- SIMILARITY ----
-function tradAxes(id) { return TRADITION_EXTRAS[id]?.axes || null; }
+function tradAxes(id) { return Catalog.ext(id)?.axes || null; }
 
 function computeDistance(idA, idB) {
   const a = tradAxes(idA), b = tradAxes(idB);
@@ -6561,7 +6787,7 @@ function findSimilar(idA, n) {
   n = n || 8;
   const a = tradAxes(idA);
   if (!a) return [];
-  return TRADITIONS
+  return Catalog.all()
     .filter(t => t.id !== idA && tradAxes(t.id))
     .map(t => ({ id: t.id, name: t.name, distance: computeDistance(idA, t.id) }))
     .sort((x, y) => x.distance - y.distance)
@@ -6675,7 +6901,7 @@ function renderAxisFingerprint(axesObj, classExtra) {
 // The centroid is a pure function of static catalog data — the same tradId
 // always produces the same result. Cached lazily: first call per tradId
 // computes and stores; subsequent calls return the cached vector. With
-// findTraditionsByVector iterating all 505 traditions on every render, this
+// findTraditionsByVector iterating all 1090 traditions on every render, this
 // drops the per-render compute from ~1M ops to ~5K ops after first warmup.
 let _TRAD_CENTROID_CACHE = null;
 
@@ -6717,7 +6943,7 @@ function centroidDistance(a, b) {
 function findTraditionsByVector(vec, n) {
   n = n || 8;
   const results = [];
-  TRADITIONS.forEach(t => {
+  Catalog.all().forEach(t => {
     const c = tradInstrumentCentroid(t.id);
     if (!c) return;
     results.push({ id: t.id, name: t.name, distance: centroidDistance(vec, c), instrumentCount: c._n });
@@ -7162,12 +7388,26 @@ function renderTradPicker() {
 
   // Search mode — flat results across the whole catalog
   if (q) {
-    const matches = TRADITIONS.filter(t => {
-      const ext = TRADITION_EXTRAS[t.id] || {};
-      return normalizeSearch(t.name).includes(q)
-        || normalizeSearch(t.lineage || '').includes(q)
-        || normalizeSearch(ext.description || '').includes(q);
-    });
+    // Rank by WHERE the query matches, so an exact title beats a mere prose
+    // mention: 0 exact name · 1 name prefix · 2 name substring · 3 lineage/
+    // description only. Previously this was a flat substring filter rendered in
+    // raw catalog order, so a tradition that only *mentions* the term in its
+    // description (or a late-array entry) could bury the exact title far down.
+    // Secondary sort: shorter name first (more central), then alphabetical.
+    const matchRank = (t) => {
+      const ext = Catalog.ext(t.id) || {};
+      const name = normalizeSearch(t.name);
+      if (name === q) return 0;
+      if (name.startsWith(q)) return 1;
+      if (name.includes(q)) return 2;
+      if (normalizeSearch(t.lineage || '').includes(q) || normalizeSearch(ext.description || '').includes(q)) return 3;
+      return Infinity;
+    };
+    const matches = Catalog.all()
+      .map((t) => ({ t, r: matchRank(t) }))
+      .filter((x) => x.r !== Infinity)
+      .sort((a, b) => a.r - b.r || a.t.name.length - b.t.name.length || a.t.name.localeCompare(b.t.name))
+      .map((x) => x.t);
     if (!matches.length) {
       c.innerHTML = `<div class="empty-msg">No traditions match &ldquo;${esc(q)}&rdquo;</div>`;
       return;
@@ -7176,7 +7416,7 @@ function renderTradPicker() {
     html += `<div style="font-size: var(--fs-micro); color: var(--text-3); margin-bottom: var(--s3); text-transform: uppercase; letter-spacing: 0.06em; font-weight: var(--fw-semibold);">${matches.length} match${matches.length === 1 ? '' : 'es'}</div>`;
     matches.forEach(t => {
       const path = getAncestorPath(t.id);
-      const ext = TRADITION_EXTRAS[t.id] || {};
+      const ext = Catalog.ext(t.id) || {};
       const inst = (t.instruments || []).map(id => Inst(id)?.short || Inst(id)?.name).filter(Boolean);
       html += `<div class="tree-search-result">`;
       html += `<div>`;
@@ -7240,7 +7480,7 @@ function renderTreeNode(node, depth) {
 }
 
 function renderTradLeaf(tradition, depth, isCrossRef) {
-  const ext = TRADITION_EXTRAS[tradition.id] || {};
+  const ext = Catalog.ext(tradition.id) || {};
   const inst = (tradition.instruments || []).map(id => Inst(id)?.short || Inst(id)?.name).filter(Boolean);
   const indent = depth * 16;
   const cls = isCrossRef ? 'trad-leaf crossref' : 'trad-leaf';
@@ -7274,7 +7514,7 @@ function renderTradLeaf(tradition, depth, isCrossRef) {
 function renderSimilarView(tradId) {
   const trad = Tradition(tradId);
   if (!trad) return '<div>Tradition not found</div>';
-  const ext = TRADITION_EXTRAS[tradId] || {};
+  const ext = Catalog.ext(tradId) || {};
   const neighbors = findSimilar(tradId, 8);
 
   let html = `<button class="similar-back" data-similar-back>← Back to tree</button>`;
@@ -7306,7 +7546,7 @@ function renderSimilarView(tradId) {
   html += `<div class="similar-grid">`;
   neighbors.forEach(n => {
     const nTrad = Tradition(n.id);
-    const nExt = TRADITION_EXTRAS[n.id] || {};
+    const nExt = Catalog.ext(n.id) || {};
     const path = getAncestorPath(n.id);
     const matches = getMatchingAxes(tradId, n.id, 3);
     const inst = (nTrad.instruments || []).map(id => Inst(id)?.short || Inst(id)?.name).filter(Boolean);

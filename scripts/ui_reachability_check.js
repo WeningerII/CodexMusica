@@ -33,6 +33,9 @@
 'use strict';
 
 const fs = require('fs');
+const os = require('os');
+const path = require('path');
+const { execFileSync } = require('child_process');
 const { parseInventory } = require('./_inventory_parser.js');
 const { HTML_OUT } = require('./_paths.js');
 
@@ -48,6 +51,29 @@ for (const a of args) {
 
 const HTML_PATH = flags.html || HTML_OUT;
 const VERBOSE = !!flags.verbose;
+
+// The shipped codex.html is the LAZY SHELL (the build_html.js default): it boots
+// by fetching api/browse.json. Headless Chromium cannot fetch api/ over a
+// file:// origin, so a lazy shell loaded here would only ever render its
+// boot-error state and every surface would "fail". UI-surface resolution is a
+// property of the shared src/app.js render code, and check_lazy_app.js proves
+// the lazy shell reaches a byte-identical rendered DOM — so this gate exercises
+// the EMBEDDED variant (tables in the page, no fetch). If --html points at an
+// already-embedded file we use it as-is; otherwise (lazy, or nothing built yet)
+// we build a fresh embedded codex.html from source to a temp file.
+function resolveTestableHtml(htmlPath) {
+  if (htmlPath && fs.existsSync(htmlPath)) {
+    const txt = fs.readFileSync(htmlPath, 'utf8');
+    if (!txt.includes('const CODEX_LAZY_API')) return htmlPath; // already embedded
+    console.error('Target is the lazy shell — building an embedded codex.html for the reachability run.');
+  } else {
+    console.error('No built codex.html found — building an embedded one from source for the reachability run.');
+  }
+  const tmp = path.join(os.tmpdir(), `codex_reach_embed_${process.pid}.html`);
+  execFileSync('node', [path.join(__dirname, 'build_html.js'), `--out=${tmp}`, '--embedded', '--quiet'],
+    { stdio: ['ignore', 'ignore', 'inherit'] });
+  return tmp;
+}
 
 // Precondition setup snippets — each runs inside page.evaluate after navigation
 // completes and the codex's DOMContentLoaded boot has finished. The snippet
@@ -244,8 +270,9 @@ async function loadPlaywright() {
 }
 
 async function main() {
-  if (!fs.existsSync(HTML_PATH)) {
-    console.error(`✗ HTML file not found: ${HTML_PATH}`);
+  const testHtml = resolveTestableHtml(HTML_PATH);
+  if (!fs.existsSync(testHtml)) {
+    console.error(`✗ HTML file not found: ${testHtml}`);
     console.error('  Run scripts/build_html.js first.');
     process.exit(2);
   }
@@ -258,7 +285,7 @@ async function main() {
   }
 
   const reachable = entries.filter(e => e.status === 'reachable');
-  console.error(`Checking ${reachable.length} reachable entries against ${HTML_PATH}`);
+  console.error(`Checking ${reachable.length} reachable entries against ${testHtml}`);
 
   // Validate every entry's precondition resolves
   const unknownPreconditions = [];
@@ -343,7 +370,7 @@ async function main() {
     page.on('pageerror', err => {
       console.error(`  ! page error: ${err.message}`);
     });
-    await page.goto('file://' + HTML_PATH, { waitUntil: 'load' });
+    await page.goto('file://' + testHtml, { waitUntil: 'load' });
 
     for (const [precondition, groupEntries] of groups) {
       // Reset state, then run precondition setup

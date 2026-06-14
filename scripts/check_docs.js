@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 // check_docs.js — verify markdown numeric claims against current catalog/audit state.
 //
+// @covers: catalog-counts
+//
 // CATCHES drift across active markdown documentation. Run after catalog
 // changes that move any canonical count, or before tagging a release.
 //
@@ -66,6 +68,7 @@ const EXCLUDED_PREFIXES = [
 const EXCLUDED_FILES = [
   'README.md',
   'CHANGELOG.md',
+  'AUDIT_REPORT.md', // point-in-time audit: prose full of incidental numbers ("10 of the prefaces…"), not canonical totals
 ];
 
 const STATUS_RE = /\*\*STATUS:\*\*\s+(SHIPPED|ACTED ON|MOSTLY SHIPPED)/;
@@ -97,6 +100,13 @@ for (const md of allMarkdowns) {
   const content = fs.readFileSync(md, 'utf-8');
   if (!isExcluded(rel, content)) activeMarkdowns.push({ rel, abs: md, content });
 }
+// Also gate the non-.md discovery surfaces (llms.txt, index.html, package.json):
+// they carry canonical counts and script refs, but findMarkdowns only collects
+// *.md. (codex.html is intentionally excluded — a generated bundle full of data.)
+for (const extra of ['llms.txt', 'index.html', 'package.json']) {
+  const abs = path.join(ROOT, extra);
+  if (fs.existsSync(abs)) activeMarkdowns.push({ rel: extra, abs, content: fs.readFileSync(abs, 'utf-8') });
+}
 
 // ───────────────────────── Canonical count registry ─────────────────────────
 //
@@ -109,8 +119,14 @@ for (const md of allMarkdowns) {
 const QUALIFIERS = ['with', 'flagged', 'of', 'in', 'that', 'are', 'is', 'were', 'was', 'having', 'lack', 'fail', 'pass'];
 const Q_NEG = `(?!\\s+(?:${QUALIFIERS.join('|')})\\b)`;
 
+const GLOBAL_FAMILY_COUNT = C.TRADITIONS.filter(t => t.family === 'global').length;
+const DOTTED_NODE_COUNT = C.TREE_NODES.filter(n => n.id.includes('.')).length;
+
 const COUNT_CHECKS = [
-  { phrase: new RegExp(`(\\d+) traditions\\b${Q_NEG}`, 'g'), expected: C.TRADITIONS.length, kind: 'traditions' },
+  // "N traditions" with optional in-between modifiers ("recorded-music", "music")
+  // and \s+ so a line-wrapped "all 1119\ntraditions" still matches — both forms
+  // drifted silently before this pattern was widened.
+  { phrase: new RegExp(`(\\d+)(?:\\s+(?:recorded-music|music))?\\s+traditions\\b${Q_NEG}`, 'g'), expected: C.TRADITIONS.length, kind: 'traditions' },
   { phrase: new RegExp(`(\\d+) instruments\\b${Q_NEG}`, 'g'), expected: C.INSTRUMENTS.length, kind: 'instruments' },
   { phrase: new RegExp(`(\\d+) prefaces\\b${Q_NEG}`, 'g'), expected: C.PREFACE_LEXICON.length, kind: 'prefaces' },
   { phrase: new RegExp(`(\\d+) rooms\\b${Q_NEG}`, 'g'), expected: C.ROOMS.length, kind: 'rooms' },
@@ -119,6 +135,27 @@ const COUNT_CHECKS = [
   { phrase: new RegExp(`(\\d+) tunings\\b${Q_NEG}`, 'g'), expected: C.TUNINGS.length, kind: 'tunings' },
   { phrase: new RegExp(`(\\d+) tree nodes\\b${Q_NEG}`, 'g'), expected: C.TREE_NODES.length, kind: 'tree_nodes' },
   { phrase: new RegExp(`(\\d+) catalog tables\\b${Q_NEG}`, 'g'), expected: Object.keys(C).length, kind: 'catalog_tables' },
+  // Adjectival forms ("1119-tradition / 419-instrument codex", "312-node genre
+  // tree"). ≥3 digits so hypothetical example builds ("a 5-tradition build")
+  // aren't mistaken for catalog totals.
+  { phrase: /(\d{3,})-tradition\b/g, expected: C.TRADITIONS.length, kind: 'traditions_adj' },
+  { phrase: /(\d{3,})-instrument\b/g, expected: C.INSTRUMENTS.length, kind: 'instruments_adj' },
+  { phrase: /(\d+)-node genre tree/g, expected: C.TREE_NODES.length, kind: 'tree_nodes_adj' },
+  // SKILL.md §1 table rows ("| traditions | 1119 |")
+  { phrase: /\|\s*traditions\s*\|\s*(\d+)\s*\|/g, expected: C.TRADITIONS.length, kind: 'traditions_table' },
+  { phrase: /\|\s*tradition extras\s*\|\s*(\d+)\s*\|/g, expected: C.TRADITION_EXTRAS ? Object.keys(C.TRADITION_EXTRAS).length : C.TRADITIONS.length, kind: 'tradition_extras_table' },
+  { phrase: /\|\s*instruments\s*\|\s*(\d+)\s*\|/g, expected: C.INSTRUMENTS.length, kind: 'instruments_table' },
+  { phrase: /\|\s*tree nodes\s*\|\s*(\d+)\s*\|/g, expected: C.TREE_NODES.length, kind: 'tree_nodes_table' },
+  // Loader-output shorthand ("loaded: 419 insts, 1119 trads" — anchored on
+  // "loaded:"/"insts," so per-tradition roster counts like "9 insts" don't
+  // false-positive) and derived facts that drift when traditions/nodes are
+  // added ("global dominates at 678/1119", "288 of 312 ids contain dots").
+  { phrase: /loaded: (\d+) insts\b/g, expected: C.INSTRUMENTS.length, kind: 'insts_short' },
+  { phrase: /insts, (\d+) trads\b/g, expected: C.TRADITIONS.length, kind: 'trads_short' },
+  { phrase: /dominates at (\d+)\/\d+/g, expected: GLOBAL_FAMILY_COUNT, kind: 'global_family_count' },
+  { phrase: /dominates at \d+\/(\d+)/g, expected: C.TRADITIONS.length, kind: 'global_family_total' },
+  { phrase: /(\d+) of \d+ ids contain dots/g, expected: DOTTED_NODE_COUNT, kind: 'dotted_node_count' },
+  { phrase: /\d+ of (\d+) ids contain dots/g, expected: C.TREE_NODES.length, kind: 'dotted_node_total' },
 ];
 
 const PRAGMA_RE = /<!--\s*check_docs:ignore\s*-->/;
@@ -304,8 +341,8 @@ if (JSON_OUT) {
   process.exit((numericFailures.length + missingScripts.length + auditFailures.length + smokeFailures.length) > 0 ? 1 : 0);
 }
 
-console.log(`=== Markdown verification ===`);
-console.log(`(${activeMarkdowns.length} active markdowns / ${allMarkdowns.length} total; ${allMarkdowns.length - activeMarkdowns.length} excluded as historical/shipped)\n`);
+console.log(`=== Documentation verification ===`);
+console.log(`(${activeMarkdowns.length} active docs scanned: *.md + llms.txt + index.html; README/CHANGELOG/tests + codex.html excluded)\n`);
 
 // Numeric counts
 console.log(`[NUMERIC CLAIMS]  (${COUNT_CHECKS.length} count types)`);

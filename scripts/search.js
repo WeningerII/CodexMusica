@@ -173,6 +173,12 @@ function* variantSwapMoves(config) {
       for (const variant of part.variants) {
         const currentVariant = (inst.slots || {})[part.id];
         if (currentVariant === variant.id) continue;
+        // `auto: false` variants are explicit-only: the hill-climb never proposes
+        // them. This lets an optional dimension (e.g. the voice effort/vocal-tract
+        // parts) stay at its neutral default for every tradition unless a caller
+        // pins it in by an explicit slot choice — so adding the dimension perturbs
+        // no existing recipe.
+        if (variant.auto === false) continue;
         const newConfig = structuredClone(config);
         newConfig.instruments[i].slots[part.id] = variant.id;
         yield {
@@ -228,6 +234,10 @@ function* traditionStapleMoves(config) {
     if (!ref) continue;
     for (const otherTid of Object.keys(C.TRADITION_EXTRAS)) {
       const oe = C.TRADITION_EXTRAS[otherTid];
+      // Umbrella genres (e.g. `rock`, `metal`) are query endpoints, not real
+      // recording lineages — never auto-staple them into another tradition, or
+      // they'd homogenize the specific sub-genres they sit beside.
+      if (oe.umbrella) continue;
       if (oe.parent === ref || (oe.parent || '').startsWith(ref + '.')) {
         candidates.add(otherTid);
       }
@@ -340,6 +350,27 @@ function search(seed, options = {}) {
     trace.push({ score: currentScore, desc: bestDesc });
   }
 
+  // Refresh per-slot score bookkeeping under the FINAL config. The hill-climb
+  // swaps variants (and auto-staple grows the tradition stack), but `scores`
+  // was written once at seed time — so translate's surfacing gates were reading
+  // the REPLACED variant's score under the SEED stack and silently dropped
+  // descriptors the final pick actually earns (afrobeat's Ampeg B-15 amp and
+  // conga-skin descriptors were the proving case). Context convention mirrors
+  // scoreConfig exactly: per-part isolated provider at weight 0.5, neighbors on.
+  const getFinalCtx = makeContextProvider(current.traditions, 0.5);
+  for (const inst of current.instruments || []) {
+    const cataInst = C.INSTRUMENTS.find((x) => x.id === inst.id);
+    if (!cataInst) continue;
+    inst.scores = inst.scores || {};
+    for (const part of cataInst.parts || []) {
+      const vid = (inst.slots || {})[part.id];
+      if (!vid) continue;
+      const variant = (part.variants || []).find((v) => v.id === vid);
+      if (!variant) continue;
+      inst.scores[part.id] = scoreVariant(variant, getFinalCtx(part.id), { useNeighbors: true, skipSignals: true }).score;
+    }
+  }
+
   return { config: current, score: currentScore, trace, breakdown: scoreConfig(current).breakdown };
 }
 
@@ -390,7 +421,7 @@ function randomizeVariants(seed, seedNum) {
     const cataInst = C.INSTRUMENTS.find(i => i.id === inst.id);
     if (!cataInst) continue;
     for (const part of (cataInst.parts || [])) {
-      const variants = part.variants || [];
+      const variants = (part.variants || []).filter(v => v.auto !== false); // skip explicit-only variants
       if (variants.length <= 1) continue;
       const idx = Math.floor(pseudoRandom(counter++) * variants.length);
       inst.slots[part.id] = variants[idx].id;
@@ -449,7 +480,10 @@ function seedFromTradition(tradId, stapleIds = [], opts = {}) {
   const stapleWeight = typeof opts.stapleWeight === 'number' ? opts.stapleWeight : 0.5;
   // Initial slot assignments: pick best-scoring variant for each part of each instrument.
   // Use merged context if staples are provided so the scoring respects all combined traditions.
-  const allTradIds = [tradId, ...stapleIds];
+  // Dedupe: a tradition repeated in --traditions (e.g. `A,A`, or the primary also
+  // listed as a staple) must not be double-counted in the scoring context — which
+  // would re-add it at +0.5 weight and shift token-surfacing thresholds.
+  const allTradIds = [...new Set([tradId, ...stapleIds])];
   // Per-part isolation context: identical to ctx unless the primary tradition
   // has crossRefs flagging specific parts (isolated_parts: ['part_id', ...] or
   // legacy voice_isolated: true ≡ isolated_parts: ['voice_quality']). Used so
@@ -489,6 +523,7 @@ function seedFromTradition(tradId, stapleIds = [], opts = {}) {
       let bestIsDefault = false;
       const scoringCtx = getCtxForPart(part.id);
       for (const v of part.variants) {
+        if (v.auto === false) continue; // explicit-only variant: never auto-seeded (see variantSwapMoves)
         const r = scoreVariant(v, scoringCtx, { useNeighbors: true, skipSignals: true });
         const isDefault = v.default === true;
         // Strict win: better score
@@ -583,4 +618,4 @@ if (require.main === module) {
   console.log(JSON.stringify({ config: result.config, score: result.score, breakdown: result.breakdown }, null, 2));
 }
 
-module.exports = { search, searchMultiStart, seedFromTradition, findClosestTraditionByAxis };
+module.exports = { search, searchMultiStart, seedFromTradition, findClosestTraditionByAxis, makeContextProvider };
