@@ -197,10 +197,18 @@ function provenanceFor(config) {
 // layer is visible in the recipe; reshape a card toward a different one with
 // apply_preface.
 function prefacesForConfig(config) {
+  // The tradition signature is injected into EVERY card, so ranking the full
+  // descriptor set makes all instruments match the same preface (the signature's
+  // anchor). Strip the signature tokens so the match reflects the INSTRUMENT;
+  // fall back to the full set if an instrument has nothing of its own.
+  const sig = new Set();
+  for (const tid of config.traditions || []) for (const t of (SIGS[tid] || [])) sig.add(t);
   const out = {};
   for (const inst of config.instruments || []) {
     try {
-      const ranked = rank(cardDescriptors(cardFromConfig(config, inst.id), C, SIGS), C.PREFACE_LEXICON);
+      const full = cardDescriptors(cardFromConfig(config, inst.id), C, SIGS);
+      const instSpecific = new Set([...full].filter(t => !sig.has(t)));
+      const ranked = rank(instSpecific.size ? instSpecific : full, C.PREFACE_LEXICON);
       out[inst.id] = ranked.length
         ? { top: ranked[0].entry.id, score: round(ranked[0].score), alts: ranked.slice(1, 3).map(r => r.entry.id) }
         : null;
