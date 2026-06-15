@@ -16,8 +16,10 @@ const require = createRequire(import.meta.url);
 const C = require('../scripts/_loader.js');
 const { search, seedFromTradition, findClosestTraditionByAxis } = require('../scripts/search.js');
 const { translate } = require('../scripts/translate.js');
-const { tokensOf } = require('../scripts/_preface_match.js');
-const { seedCard, inverseConfigure } = require('../scripts/_inverse_configure.js');
+const { tokensOf, rank } = require('../scripts/_preface_match.js');
+const { seedCard, inverseConfigure, SIGS } = require('../scripts/_inverse_configure.js');
+const { cardFromConfig } = require('../scripts/_matcher.js');
+const { cardDescriptors } = require('../scripts/_card_descriptors.js');
 
 // ─────────────────────────── catalog lookups ───────────────────────────
 
@@ -189,9 +191,27 @@ function provenanceFor(config) {
   return { sourceById, injected };
 }
 
+// The engine's forward preface math: the descriptive preface each instrument's
+// card matches (id + score + alternates) — the label the browser shows on every
+// card and that recipe.js --why-prefaces reports. Surfaced so this integral
+// layer is visible in the recipe; reshape a card toward a different one with
+// apply_preface.
+function prefacesForConfig(config) {
+  const out = {};
+  for (const inst of config.instruments || []) {
+    try {
+      const ranked = rank(cardDescriptors(cardFromConfig(config, inst.id), C, SIGS), C.PREFACE_LEXICON);
+      out[inst.id] = ranked.length
+        ? { top: ranked[0].entry.id, score: round(ranked[0].score), alts: ranked.slice(1, 3).map(r => r.entry.id) }
+        : null;
+    } catch { out[inst.id] = null; }
+  }
+  return out;
+}
+
 // ─────────────────────────── response shaping ───────────────────────────
 
-function cleanConfig(config, sourceById = {}) {
+function cleanConfig(config, sourceById = {}, prefaceById = {}) {
   return {
     traditions: config.traditions,
     instruments: (config.instruments || []).map(i => ({
@@ -199,6 +219,8 @@ function cleanConfig(config, sourceById = {}) {
       name: labelOf(instById(i.id)) || i.id,
       slots: i.slots || {},
       source: sourceById[i.id] || null,
+      preface: prefaceById[i.id] ? prefaceById[i.id].top : null,
+      preface_alts: prefaceById[i.id] ? prefaceById[i.id].alts : [],
     })),
     room: config.room,
     archetype: config.archetype,
@@ -232,17 +254,18 @@ function affordances(config, injected = []) {
     swappable_variants: swappable,
     injected,
     similar_traditions: findSimilarTraditions(config.traditions[0], 6).map(s => s.id),
-    hint: 'Refine by re-calling with swap_variants (try apply_preface to get them from a mood word), exclude_instruments, add_instruments, room/tuning/chain, ensemble:"full" for a bigger band, or max_instruments to cap. get_instrument lists a part\'s variant labels.',
+    hint: 'Each instrument in config carries its auto-matched `preface` (+ preface_alts) — the engine\'s descriptive read of that card; reshape it toward a different mood with apply_preface. Refine by re-calling with swap_variants, exclude_instruments, add_instruments, room/tuning/chain, ensemble:"full" for a bigger band, or max_instruments to cap.',
   };
 }
 
 function finishRecipe(config, { maxChars = 1000, includeAffordances = true } = {}) {
   const recipe = translate(config, { ceiling: maxChars });
   const prov = provenanceFor(config);
+  const prefaceById = prefacesForConfig(config);
   const out = {
     recipe,
     recipe_chars: recipe.length,
-    config: cleanConfig(config, prov.sourceById),
+    config: cleanConfig(config, prov.sourceById, prefaceById),
   };
   if (includeAffordances) out.affordances = affordances(config, prov.injected);
   return out;
