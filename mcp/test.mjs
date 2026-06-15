@@ -161,6 +161,12 @@ check('recipe surfaces the auto-matched preface per instrument', () => {
   assert.ok(r.config.instruments.some(i => i.preface), 'at least one instrument has a matched preface');
 });
 
+check('prefaces are instrument-specific, not signature-bled', () => {
+  const r = E.generateRecipe({ traditions: ['bluegrass'] });
+  const distinct = new Set(r.config.instruments.map(i => i.preface).filter(Boolean));
+  assert.ok(distinct.size >= 3, `expected diverse per-instrument prefaces, got ${distinct.size} distinct`);
+});
+
 check('validation rejects bad ids', () => {
   assert.throws(() => E.generateRecipe({ traditions: ['nope_not_real'] }), /Unknown tradition/);
   assert.throws(() => E.generateRecipe({ traditions: ['bluegrass'], swap_variants: ['mandolin:nope:x'] }), /no part/);
