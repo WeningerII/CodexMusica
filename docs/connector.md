@@ -75,4 +75,4 @@ recipe is the deliverable — present it verbatim.
 ## Privacy & support
 
 - **Privacy:** [PRIVACY.md](../PRIVACY.md) — read-only, stateless, no personal data stored.
-- **Support:** [SUPPORT.md](../SUPPORT.md) — weningerii@gmail.com / GitHub Issues.
+- **Support:** [SUPPORT.md](../SUPPORT.md) — GitHub Issues.

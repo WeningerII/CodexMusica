@@ -58,8 +58,8 @@ updated" date above.
 
 ## Contact
 
-Questions about this policy or the service: **weningerii@gmail.com**, or open an
-issue at <https://github.com/WeningerII/CodexMusica/issues>.
+Questions about this policy or the service: open an issue at
+<https://github.com/WeningerII/CodexMusica/issues>.
 
 ---
 

@@ -19,7 +19,7 @@ notes. Everything here reflects the deployed server (`mcp/` over Streamable HTTP
 | **Read / write** | **Read-only.** Every tool is annotated `readOnlyHint: true`, `idempotentHint: true`, `openWorldHint: false`, each with a human-readable `title`. |
 | **External calls** | None. Closed-world; zero runtime dependencies; responses are derived entirely from the bundled catalog. |
 | **Documentation** | `docs/connector.md` (publish at `https://github.com/WeningerII/CodexMusica/blob/main/docs/connector.md` or the GitHub Pages site) |
-| **Support** | `SUPPORT.md` — weningerii@gmail.com / GitHub Issues |
+| **Support** | `SUPPORT.md` — GitHub Issues (add a non-personal support email if desired) |
 | **Privacy policy** | `PRIVACY.md` |
 
 ### Short description (≈50 words)

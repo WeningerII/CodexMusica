@@ -293,7 +293,7 @@ for (const t of C.TRADITIONS) {
 console.error('\n[5b] Multi-tradition stack ceiling:');
 
 // Canonical scenarios — each composes cards across several traditions.
-// Tony's reported case is the first; the others bracket it.
+// The reported case is the first; the others bracket it.
 const MULTI_TRAD_SCENARIOS = [
   { name: 'freak-folk + hindustani + honky-tonk + gnawa (~31 cards)',
     traditions: ['freak_folk_2000s', 'hindustani', 'honky_tonk', 'gnawa'] },

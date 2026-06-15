@@ -6113,7 +6113,7 @@ function rerenderCard(_card) {
   // Earlier behavior: queried `[data-card-id="${id}"]` and replaced with
   // `renderCard(target, primaryId)` — the OLD full-card renderer. That would
   // splice stale legacy markup over the detail view DOM, creating duplicate
-  // / orphan elements with each click. Tony's "the UI interactions are gone"
+  // / orphan elements with each click. A "the UI interactions are gone"
   // report traced to this exact intermediate state.
   //
   // Replacement: run preface dedup (still load-bearing for cross-card preface
