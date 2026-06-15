@@ -155,6 +155,12 @@ check('search_catalog finds chain items', () => {
   assert.ok(r.total >= 1 && r.results[0].type === 'chain', 'chain items are searchable');
 });
 
+check('recipe surfaces the auto-matched preface per instrument', () => {
+  const r = E.generateRecipe({ traditions: ['bluegrass'] });
+  assert.ok(r.config.instruments.every(i => 'preface' in i && 'preface_alts' in i), 'every instrument has preface fields');
+  assert.ok(r.config.instruments.some(i => i.preface), 'at least one instrument has a matched preface');
+});
+
 check('validation rejects bad ids', () => {
   assert.throws(() => E.generateRecipe({ traditions: ['nope_not_real'] }), /Unknown tradition/);
   assert.throws(() => E.generateRecipe({ traditions: ['bluegrass'], swap_variants: ['mandolin:nope:x'] }), /no part/);
