@@ -37,6 +37,12 @@ const customizationShape = {
     .describe('Recipe length ceiling in characters (default 1000).'),
   include_affordances: z.boolean().optional()
     .describe('Include the "knobs you can still turn" + leak flags. Default true.'),
+  prefaces: z.array(z.object({
+    instrument: z.string().describe('Instrument id to bend (e.g. "voice", "sitar"). Must be in the recipe — add via add_instruments / ensemble:"full" first if needed.'),
+    preface: z.string().describe('Preface id from search_prefaces (e.g. "satirical", "face-melting").'),
+    tradition: z.string().optional().describe('Tradition context for the bend (defaults to the primary).'),
+  })).optional()
+    .describe('Named prefaces to BAKE IN: for each {instrument, preface}, the engine re-derives that instrument\'s variants to realize the preface and labels it VERBATIM in the recipe. Use whenever the request names a preface for an instrument ("satirical voice", "face-melting sitar") — do NOT settle for the auto-matched preface when a specific one was requested. Two prefaces on the SAME instrument (e.g. each blended tradition\'s voice — satirical for one, bitter for the other) are both kept and MERGE in the recipe text ("satirical bitter voice: …"); pass the per-tradition `tradition` so each is derived in its own context.'),
 };
 
 function jsonResult(value) {
@@ -112,8 +118,9 @@ export function registerTools(server) {
     title: 'Generate a recording recipe',
     description:
       'Generate a recording recipe from tradition ids (first = primary, the rest blended in). WORKFLOW: use search_catalog to turn ' +
-      'the user\'s words into real ids (do not guess), and search_prefaces + apply_preface to turn prefaces (worn, satirical, keening) into ' +
-      'concrete swap_variants/room/tuning/chain overrides. Blends are LEAN by default (primary\'s instruments only) so they stay ' +
+      'the user\'s words into real ids (do not guess). For any preface the request names for an instrument ("satirical voice", "face-melting ' +
+      'sitar"), pass it in `prefaces` (find ids via search_prefaces) — the engine bakes it in and labels it verbatim; preferred over wiring ' +
+      'apply_preface overrides by hand. Blends are LEAN by default (primary\'s instruments only) so they stay ' +
       'coherent — pass ensemble:"full" for a big cross-genre band, max_instruments for intimate/solo, exclude_instruments to trim. ' +
       'The `recipe` field is the FINISHED deliverable — a complete, ceiling-budgeted descriptor stack that already names each ' +
       'instrument\'s preface (e.g. "keening pedal-steel: brass steel"); present it to the user VERBATIM — do not paraphrase, ' +

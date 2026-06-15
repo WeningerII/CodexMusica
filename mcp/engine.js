@@ -217,6 +217,46 @@ function prefacesForConfig(config) {
   return out;
 }
 
+// Bake explicit prefaces into a config. For each {instrument, preface, tradition?}:
+// inverse-configure that instrument toward the preface (re-deriving its variants,
+// the same engine apply_preface uses) and lock the label so the renderer surfaces
+// it verbatim instead of an auto-matched competitor. Returns { applied, errors };
+// errors are soft (reported, not thrown) so the rest of the recipe still renders.
+function applyPrefacesToConfig(config, specs) {
+  const applied = [];
+  const errors = [];
+  for (const raw of (specs || [])) {
+    const instrument = raw && raw.instrument;
+    const preface = raw && raw.preface;
+    const tradition = (raw && raw.tradition) || (config.traditions || [])[0] || null;
+    if (!instrument || !preface) { errors.push(`Bad preface spec (need {instrument, preface}): ${JSON.stringify(raw)}`); continue; }
+    if (!(C.PREFACE_LEXICON || []).find(p => p.id === preface)) { errors.push(`Unknown preface id: "${preface}" (use search_prefaces).`); continue; }
+    if (!instById(instrument)) { errors.push(`Unknown instrument id: "${instrument}" (search_catalog types=["instrument"]).`); continue; }
+    const card = seedCard(instrument, tradition);
+    if (!card) { errors.push(`Could not seed "${instrument}".`); continue; }
+    const res = inverseConfigure(card, preface);
+    if (!res) { errors.push(`Preface "${preface}" has no tokens to target.`); continue; }
+    const parts = { ...res.config.parts };
+    // Bake into the first not-yet-prefaced card of this instrument. If every card
+    // of this instrument is already prefaced (a second preface for the same
+    // instrument — e.g. each blended tradition's `voice`), ADD another card:
+    // same-instrument cards MERGE in the renderer, pooling their prefaces
+    // ("satirical bitter voice: …").
+    const open = (config.instruments || []).find(i => i.id === instrument && !i.preface_lock);
+    if (open) {
+      open.slots = { ...(open.slots || {}), ...parts };
+      open.preface_lock = preface;
+    } else if ((config.instruments || []).some(i => i.id === instrument)) {
+      config.instruments.push({ id: instrument, slots: parts, preface_lock: preface });
+    } else {
+      errors.push(`"${instrument}" is not in this recipe — add it (add_instruments) or use ensemble:"full" first.`);
+      continue;
+    }
+    applied.push({ instrument, preface, tradition, coverage: `${res.finalScore}/${res.targetTokenCount}` });
+  }
+  return { applied, errors };
+}
+
 // ─────────────────────────── response shaping ───────────────────────────
 
 function cleanConfig(config, sourceById = {}, prefaceById = {}) {
@@ -227,7 +267,7 @@ function cleanConfig(config, sourceById = {}, prefaceById = {}) {
       name: labelOf(instById(i.id)) || i.id,
       slots: i.slots || {},
       source: sourceById[i.id] || null,
-      preface: prefaceById[i.id] ? prefaceById[i.id].top : null,
+      preface: i.preface_lock || (prefaceById[i.id] ? prefaceById[i.id].top : null),
       preface_alts: prefaceById[i.id] ? prefaceById[i.id].alts : [],
     })),
     room: config.room,
@@ -293,12 +333,15 @@ export function generateRecipe(params = {}) {
   const result = search(seed, { maxIters: 100 });
   if (params.max_instruments != null) trimRoster(result.config, params.max_instruments, ids[0]);
   applyConfigOverrides(result.config, params);
+  const prefaceBake = applyPrefacesToConfig(result.config, params.prefaces);
 
   return {
     mode: ids.length > 1 ? 'blend' : 'single',
     ensemble: resolveStapleMode(params) === 'full' ? 'full' : 'lean',
     score: round(result.score),
     ...finishRecipe(result.config, { maxChars: params.max_chars, includeAffordances: params.include_affordances !== false }),
+    ...(prefaceBake.applied.length ? { applied_prefaces: prefaceBake.applied } : {}),
+    ...(prefaceBake.errors.length ? { preface_warnings: prefaceBake.errors } : {}),
     ...(params.include_why ? { why: whyBreakdown(result) } : {}),
   };
 }
@@ -327,6 +370,7 @@ export function blendTraditions(params = {}) {
   const result = search(seed, { maxIters: 100 });
   if (params.max_instruments != null) trimRoster(result.config, params.max_instruments, primaryId);
   applyConfigOverrides(result.config, params);
+  const prefaceBake = applyPrefacesToConfig(result.config, params.prefaces);
 
   return {
     mode: 'weighted-blend',
@@ -334,6 +378,8 @@ export function blendTraditions(params = {}) {
     ensemble: resolveStapleMode(params) === 'full' ? 'full' : 'lean',
     score: round(result.score),
     ...finishRecipe(result.config, { maxChars: params.max_chars, includeAffordances: params.include_affordances !== false }),
+    ...(prefaceBake.applied.length ? { applied_prefaces: prefaceBake.applied } : {}),
+    ...(prefaceBake.errors.length ? { preface_warnings: prefaceBake.errors } : {}),
   };
 }
 
@@ -350,6 +396,7 @@ export function recipeFromAxis(params = {}) {
   const result = search(seed, { maxIters: 100 });
   if (params.max_instruments != null) trimRoster(result.config, params.max_instruments, tid);
   applyConfigOverrides(result.config, params);
+  const prefaceBake = applyPrefacesToConfig(result.config, params.prefaces);
 
   return {
     mode: 'axis-target',
@@ -357,6 +404,8 @@ export function recipeFromAxis(params = {}) {
     matched_tradition: { id: tid, name: labelOf(tradById(tid)) || tid },
     score: round(result.score),
     ...finishRecipe(result.config, { maxChars: params.max_chars, includeAffordances: params.include_affordances !== false }),
+    ...(prefaceBake.applied.length ? { applied_prefaces: prefaceBake.applied } : {}),
+    ...(prefaceBake.errors.length ? { preface_warnings: prefaceBake.errors } : {}),
   };
 }
 

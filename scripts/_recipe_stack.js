@@ -236,13 +236,23 @@ function _resolvePreface(card) {
 // shared _preface_match SSOT, then greedily resolve collisions so two cards
 // don't both land on the same dominant (signature-anchored) preface.
 function assignDedupedPrefaces(cards) {
+  // Locked prefaces: a card whose preface was explicitly baked in (prefaceLock)
+  // keeps it, and its id is excluded from every other card's pool — mirrors the
+  // app's _computeRecipeDedupedPrefaces manual-lock behavior so a requested
+  // preface (engine `prefaces` / apply_preface) surfaces verbatim instead of
+  // being overridden by a higher-precision auto-match.
+  const lockedIds = new Set();
+  for (const c of (cards || [])) {
+    if (c && c.prefaceLock && c.preface) lockedIds.add(_resolvePreface(c) || c.preface);
+  }
   const slots = [];
   for (const card of (cards || [])) {
+    if (card && card.prefaceLock && card.preface) { card.preface = _resolvePreface(card) || card.preface; continue; }
     let ranked = [];
-    try {
-      ranked = rank(cardDescriptors(card, C, SIGS), C.PREFACE_LEXICON);
-    } catch { ranked = []; }
-    slots.push({ card, ranked, cursor: 0, current: ranked[0] || null });
+    try { ranked = rank(cardDescriptors(card, C, SIGS), C.PREFACE_LEXICON); } catch { ranked = []; }
+    let cursor = 0;
+    while (cursor < ranked.length && lockedIds.has(ranked[cursor].entry.id)) cursor++;
+    slots.push({ card, ranked, cursor, current: ranked[cursor] || null });
   }
   for (let iter = 0; iter < 100; iter++) {
     const claimants = new Map();
@@ -259,7 +269,8 @@ function assignDedupedPrefaces(cards) {
       group.sort((a, b) => b.current.score - a.current.score);
       for (let k = 1; k < group.length; k++) {
         const loser = group[k];
-        loser.current = loser.ranked[++loser.cursor] || null;
+        do { loser.cursor++; } while (loser.cursor < loser.ranked.length && lockedIds.has(loser.ranked[loser.cursor].entry.id));
+        loser.current = loser.ranked[loser.cursor] || null;
       }
     }
     if (!collision) break;
@@ -661,6 +672,11 @@ function cardsFromConfig(config) {
     tuning: config.tuning || null,
     room: config.room || null,
     chain,
+    // A baked-in preface (engine `prefaces` / apply_preface) rides on the config
+    // instrument as `preface_lock`; carry it through as a locked card preface so
+    // assignDedupedPrefaces surfaces it verbatim instead of auto-matching.
+    preface: inst.preface_lock || null,
+    prefaceLock: !!inst.preface_lock,
   }));
   assignDedupedPrefaces(cards);
   return cards;
