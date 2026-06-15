@@ -112,10 +112,13 @@ export function registerTools(server) {
     title: 'Generate a recording recipe',
     description:
       'Generate a recording recipe from tradition ids (first = primary, the rest blended in). WORKFLOW: use search_catalog to turn ' +
-      'the user\'s words into real ids (do not guess), and search_prefaces + apply_preface to turn moods (worn, sparse, bitter) into ' +
+      'the user\'s words into real ids (do not guess), and search_prefaces + apply_preface to turn prefaces (worn, satirical, keening) into ' +
       'concrete swap_variants/room/tuning/chain overrides. Blends are LEAN by default (primary\'s instruments only) so they stay ' +
       'coherent — pass ensemble:"full" for a big cross-genre band, max_instruments for intimate/solo, exclude_instruments to trim. ' +
-      'The response flags instruments a secondary tradition injected (affordances.injected). Re-call to iterate.',
+      'The `recipe` field is the FINISHED deliverable — a complete, ceiling-budgeted descriptor stack that already names each ' +
+      'instrument\'s preface (e.g. "keening pedal-steel: brass steel"); present it to the user VERBATIM — do not paraphrase, ' +
+      'reformat, or add gear/character it does not list. The response also flags instruments a secondary tradition injected ' +
+      '(affordances.injected). Re-call to iterate.',
     inputSchema: {
       traditions: z.array(z.string()).min(1)
         .describe('Tradition ids; first is primary, rest are blended in. Resolve with search_catalog.'),
@@ -129,7 +132,8 @@ export function registerTools(server) {
     description:
       'Weighted two-tradition blend on a dial: `weight` is B\'s share (0 = pure A, 0.5 = max blend default, 1 = pure B); the primary ' +
       '(owner of room/tuning/genre header) flips past 0.5. LEAN by default; ensemble:"full" merges both rosters. For 3+ traditions ' +
-      'use generate_recipe instead. Accepts the same customization knobs (swap_variants, exclude/add_instruments, room/tuning/chain, max_instruments).',
+      'use generate_recipe instead. Accepts the same customization knobs (swap_variants, exclude/add_instruments, room/tuning/chain, max_instruments). ' +
+      'Returns the same FINISHED `recipe` deliverable as generate_recipe — present it to the user verbatim, do not rewrite it.',
     inputSchema: {
       a: z.string().describe('First tradition id.'),
       b: z.string().describe('Second tradition id.'),
@@ -143,7 +147,7 @@ export function registerTools(server) {
     description:
       'Find the best-fit tradition for a target point in the catalog\'s 13-axis space, then emit its recipe. Use when you know the ' +
       'qualities you want (harmonic complexity, density, intensity, …) but not which genre. See list_options kind="axes" for axis ids. ' +
-      'Accepts the same customization knobs as generate_recipe.',
+      'Accepts the same customization knobs as generate_recipe, and returns the same FINISHED `recipe` deliverable — present it verbatim.',
     inputSchema: {
       axis_target: z.union([z.string(), z.record(z.string(), z.number())])
         .describe('Axis profile as "harm:1,density:2,intensity:2" or {"harm":1,"density":2}.'),
@@ -236,6 +240,7 @@ function registerPrompts(server) {
             '3. For (b), find moods with search_prefaces; for each instrument that should carry a mood, call apply_preface(tradition, instrument, preface) and collect its generate_recipe_overrides.\n' +
             '4. Call generate_recipe with the traditions + merged overrides (swap_variants/room/tuning/chain) + exclude_instruments for anything unwanted. Keep it LEAN by default; use max_instruments for intimate/solo pieces, ensemble:"full" only for an intentionally big band.\n' +
             '5. Read affordances.injected and drop anything a secondary tradition added that the user didn\'t ask for. Iterate.\n' +
+            '6. Present the returned `recipe` string to the user VERBATIM — it is the finished, ceiling-budgeted descriptor stack that already names each instrument\'s preface; do not paraphrase, reformat, or add gear/character it does not contain.\n' +
             'Remember: a preface IS the engine\'s intent→settings interpreter — apply_preface re-derives an instrument\'s variants, tuning, room, and chain to realize it, and the rendered recipe names each instrument\'s preface. Lean on the engine for character; it is not merely a gear-and-room list. (Scene framing and lyrics are still yours to add.)' +
             (request ? `\n\nRequest to compose: ${request}` : ''),
         },
