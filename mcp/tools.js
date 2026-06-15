@@ -68,7 +68,7 @@ export function registerTools(server) {
     title: 'Search the whole catalog',
     description:
       'Free-text search across the ENTIRE catalog — traditions (including their lineage prose), instruments, every part-variant, ' +
-      'rooms, tunings, arrangements, aesthetics, and 649 mood "prefaces". ALWAYS use this to turn a request\'s words ("outlaw", ' +
+      'rooms, tunings, arrangements, aesthetics, and 649 "prefaces" (aesthetic/technique/delivery signatures). ALWAYS use this to turn a request\'s words ("outlaw", ' +
       '"gut string", "ballad", "gothic", "midnight") into real ids — never guess ids. Multi-word queries rank records by how many ' +
       'terms match; filter with `types`. Returns {type, id, name, matched_on}; feed ids into generate_recipe, get_instrument, or ' +
       'apply_preface. Paginate with the returned cursor.',
@@ -81,10 +81,10 @@ export function registerTools(server) {
   }, (a) => E.searchCatalog(a));
 
   tool(server, 'search_prefaces', {
-    title: 'Search mood prefaces',
+    title: 'Search prefaces',
     description:
-      'Search the 649 descriptive "prefaces" — mood / quality / delivery words (worn, bitter, satirical, sobbing, narrating, ' +
-      'sparse, brooding) — by free text. Prefaces express INTENT (how it should FEEL/sound) as opposed to instruments (what plays). ' +
+      'Search the 649 "prefaces" — named aesthetic / technique / delivery signatures (satirical, keening, jhala-cascading, ' +
+      'inshad-cantillating, brooding), each a descriptor-token set — by free text. Prefaces express INTENT (how it should sound) as opposed to instruments (what plays). ' +
       'Returns ranked prefaces with their token signatures. Take a preface id to apply_preface to physically realize it on an instrument.',
     inputSchema: {
       query: z.string().describe('Mood/feel words, e.g. "worn bitter struggling".'),
@@ -93,7 +93,7 @@ export function registerTools(server) {
   }, (a) => E.searchPrefaces(a));
 
   tool(server, 'apply_preface', {
-    title: 'Apply a mood to an instrument',
+    title: 'Apply a preface to an instrument',
     description:
       'Bend ONE instrument toward a descriptive preface (intent → physical settings). Given a tradition (for context), an instrument ' +
       'id, and a preface id, the engine re-picks that instrument\'s part-variants, tuning, room, and signal chain to maximize match ' +
@@ -236,7 +236,7 @@ function registerPrompts(server) {
             '3. For (b), find moods with search_prefaces; for each instrument that should carry a mood, call apply_preface(tradition, instrument, preface) and collect its generate_recipe_overrides.\n' +
             '4. Call generate_recipe with the traditions + merged overrides (swap_variants/room/tuning/chain) + exclude_instruments for anything unwanted. Keep it LEAN by default; use max_instruments for intimate/solo pieces, ensemble:"full" only for an intentionally big band.\n' +
             '5. Read affordances.injected and drop anything a secondary tradition added that the user didn\'t ask for. Iterate.\n' +
-            'Remember: the engine models the PHYSICAL recording (instruments, materials, room, signal chain). Character, scene, and lyrics are yours to layer on top — it is a gear-and-room list, not a vibe interpreter.' +
+            'Remember: a preface IS the engine\'s intent→settings interpreter — apply_preface re-derives an instrument\'s variants, tuning, room, and chain to realize it, and the rendered recipe names each instrument\'s preface. Lean on the engine for character; it is not merely a gear-and-room list. (Scene framing and lyrics are still yours to add.)' +
             (request ? `\n\nRequest to compose: ${request}` : ''),
         },
       }],
@@ -253,10 +253,11 @@ export function buildServer() {
     {
       instructions:
         `CodexMusica turns words into recording recipes over ${E.counts.traditions} traditions, ${E.counts.instruments} instruments, ` +
-        `and ${E.counts.prefaces} mood "prefaces". Workflow: search_catalog (resolve words→ids, never guess) → search_prefaces + ` +
-        `apply_preface (moods→settings) → generate_recipe (blends are LEAN by default; ensemble:"full"/max_instruments to resize; ` +
-        `exclude_instruments to trim). Responses carry affordances (knobs left to turn) + injected (leak flags). The /compose_recipe ` +
-        `prompt has the full loop. Note: this is a physical gear/room recipe — character & lyrics are the caller's to add.`,
+        `and ${E.counts.prefaces} "prefaces" (named aesthetic/technique/delivery signatures, each a descriptor-token set). Workflow: ` +
+        `search_catalog (resolve words→ids, never guess) → search_prefaces + apply_preface (intent→physical settings: re-derives an ` +
+        `instrument's variants/tuning/room/chain) → generate_recipe (blends are LEAN by default; ensemble:"full"/max_instruments to ` +
+        `resize; exclude_instruments to trim). The rendered recipe names each instrument's preface. Responses carry affordances ` +
+        `(knobs left to turn) + injected (leak flags). The /compose_recipe prompt has the full loop.`,
     },
   );
   registerTools(server);

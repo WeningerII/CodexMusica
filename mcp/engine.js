@@ -15,7 +15,7 @@ const require = createRequire(import.meta.url);
 
 const C = require('../scripts/_loader.js');
 const { search, seedFromTradition, findClosestTraditionByAxis } = require('../scripts/search.js');
-const { translate } = require('../scripts/translate.js');
+const { renderRecipeFromConfig } = require('../scripts/_recipe_stack.js');
 const { tokensOf, rank } = require('../scripts/_preface_match.js');
 const { seedCard, inverseConfigure, SIGS } = require('../scripts/_inverse_configure.js');
 const { cardFromConfig } = require('../scripts/_matcher.js');
@@ -267,7 +267,7 @@ function affordances(config, injected = []) {
 }
 
 function finishRecipe(config, { maxChars = 1000, includeAffordances = true } = {}) {
-  const recipe = translate(config, { ceiling: maxChars });
+  const recipe = renderRecipeFromConfig(config, 'rich', maxChars);
   const prov = provenanceFor(config);
   const prefaceById = prefacesForConfig(config);
   const out = {
