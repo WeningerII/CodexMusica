@@ -690,7 +690,7 @@ check('round-trip extract + run validate', () => {
 
 console.log('\n[4/4] HTML ↔ source parity');
 check('HTML preface coordination — no repetition within tradition', () => {
-  // Tony's verbalized rule: if a preface is the top match for two cards in the
+  // The verbalized rule: if a preface is the top match for two cards in the
   // same recipe, the highest-scoring card keeps it and the others advance to
   // their next-best preface. This rule lives in the HTML embed's
   // `_applyRecipeDedup` (production runtime) — a Node-side counterpart used to
