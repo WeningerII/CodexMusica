@@ -8,8 +8,10 @@ services:
     runtime: docker
     dockerfilePath: ./mcp/Dockerfile
     dockerContext: .
-    # Deploys from the feature branch for now; change to main after merge.
-    branch: claude/happy-lamport-8t4yw5
-    plan: free
+    # Render deploys the service from this branch. Note: the Blueprint itself is
+    # ALSO bound to a source branch in Render's UI — repoint that to main too
+    # (Blueprint → settings) before deleting any feature branch.
+    branch: main
+    plan: starter
     healthCheckPath: /health
     autoDeploy: true

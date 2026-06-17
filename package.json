@@ -4,7 +4,7 @@
   "private": true,
   "description": "Compressed song-recipe descriptor engine over a 1119-tradition / 419-instrument music codex. Generates structural production blueprints, blends traditions, matches axis profiles, and ships a lazy-loading browseable HTML catalog app over a static, server-free JSON API.",
   "license": "UNLICENSED",
-  "author": "Tony",
+  "author": "CodexMusica",
   "type": "commonjs",
   "engines": {
     "node": ">=22"

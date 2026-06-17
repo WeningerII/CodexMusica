@@ -98,6 +98,24 @@ milliseconds of CPU and a few KB of JSON, and results are deterministic (cacheab
 At personal usage it's effectively free; even at scale the dominant lever is response
 size + caching, not compute.
 
+## Privacy & support
+
+See [PRIVACY.md](./PRIVACY.md) — in short: no accounts, no auth, no personal
+data; stateless compute over a public catalog, persisting no request content.
+
+- **Privacy policy:** https://github.com/WeningerII/CodexMusica/blob/main/mcp/PRIVACY.md
+- **Support:** https://github.com/WeningerII/CodexMusica/issues
+
+## Connectors Directory readiness
+
+For submission to Anthropic's [Connectors Directory](https://claude.com/docs/connectors/building/submission):
+
+- ✅ Public HTTPS endpoint; handlers return in milliseconds (far under the 5-minute limit); tool results are small (far under the 25k-token cap).
+- ✅ Every tool carries annotations — all `readOnlyHint: true` (they compute over a fixed catalog and mutate nothing), plus `idempotentHint`/`openWorldHint: false`.
+- ✅ No authentication required (open, read-only public data).
+- ✅ Privacy policy + support channel (above); all listed domains are owned by the publisher.
+- ⚠️ **Host on a non-sleeping instance** before submitting — the Render free tier spins down after idle, which delays the first request ~50s; reviewers and users need prompt responses.
+
 ## Files
 
 - `engine.js` — the deterministic workspace surface (start/edit/render + discovery) over `scripts/_workspace_ops.js`; validation + state-passing response shaping.
