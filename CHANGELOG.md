@@ -7,6 +7,23 @@ All notable changes to this project are recorded here. Format loosely follows
 ## [Unreleased] — production hardening
 
 ### Added
+- **Connector rewrite: deterministic editable workspace (PR #49).** The MCP
+  connector (`mcp/`) is now a headless driver of the same deterministic pipeline
+  the browser app uses, not a hill-climb search. New tool surface: `start_recipe`
+  (seed a tradition → the app's "Current Recipe"), `edit_recipe` (re-pick a
+  preface — which deterministically re-derives that instrument's variants/tuning/
+  room/chain via inverse-configure — swap variants, override room/chain/tuning,
+  add/remove instruments and traditions), `render_recipe`, plus discovery
+  (`search_catalog`, `search_prefaces`, `get_instrument`, `get_tradition`,
+  `list_traditions`, `list_options`). State is passed in and out — no auto-staple.
+  Retired the search-based tools (`generate_recipe`, `blend_traditions`,
+  `recipe_from_axis`, `apply_preface`, `find_similar_traditions`,
+  `list_instruments`) and the now-unused `mcp/corpus.js`. Connector output is
+  **1119/1119 byte-identical** to the app's Current Recipe, gated in CI via
+  `npm run test:connector` (incl. a headless app-vs-connector catalog-wide diff,
+  `scripts/check_app_parity.js`). Shared SSOT renderer/seed/inverse-configure live
+  in `scripts/_recipe_stack.js` / `_seed_workspace.js` / `_inverse_configure.js` /
+  `_workspace_ops.js`; design record in `CONNECTOR_WORKSPACE_PLAN.md`.
 - **Genre expansion (focused everynoise cut) completed: six new traditions**
   (1113 → 1119): `gengetone` (revived from the PR #33 revert), `manele`,
   `chalga`, `marrabenta`, `murga_uruguaya`, `shangaan_electro` — the full
