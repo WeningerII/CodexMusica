@@ -168,24 +168,27 @@ Three regression gates:
 
 ## 7. Phased implementation checklist
 
-- [ ] **P0 — Consolidate branches.** Bring the deploy branch's shared modules
-  (`_recipe_stack.js`, `_inverse_configure.js`, `_preface_match.js`,
-  `_card_descriptors.js`, `corpus.js`) onto the branch of record; retire the old
-  `translate()`-based `mcp/engine.js`.
-- [ ] **P1 — `seedTraditionCards`.** Port `importTradition` faithfully; land the
-  **seed-parity** gate (§6.1). This alone makes a freshly-seeded recipe equal the
-  Current Recipe.
-- [ ] **P2 — `renderRecipeFromCards`.** Header-from-cards + `compileStack`. Wire
-  `render`.
-- [ ] **P3 — Workspace ops.** `add/remove_instrument`, `add/remove_tradition`,
-  `set_variant`, `set_environment` (pure state-passing mutations).
-- [ ] **P4 — `set_preface`.** Via shared `inverseConfigure`; land **preface-parity**
-  gate (§6.2).
-- [ ] **P5 — Edit-sequence gate** (§6.3) + discovery passthrough
-  (`search_catalog`/`list_*`/`search_prefaces`).
-- [ ] **P6 — Tool surface.** Replace `generate_recipe`/`blend_traditions`/
-  `recipe_from_axis` with the workspace ops; axis → discovery helper.
-- [ ] **P7 — Full SSOT** (browser imports shared modules; delete inline copies).
+- [x] **P0 — Shared modules on this branch.** `_recipe_stack.js` + `_inverse_configure.js`
+  brought over (deps verified identical); old `translate()`-based `mcp/engine.js`
+  retired. (Branch *consolidation* to the deploy path is still pending — see §8.)
+- [x] **P1 — `seedTraditionCards`.** `scripts/_seed_workspace.js` ports `importTradition`
+  faithfully; `scripts/check_connector_parity.js` locks the structural invariants and
+  the `garage_rock` byte/length match (996 chars). Full catalog-wide app-equality gate
+  still pending (needs the browser pipeline reachable from Node).
+- [x] **P2 — `renderRecipeFromCards`.** `recipeHeaderFromCards` + `renderWorkspace`
+  (cards-based primary-roster header + `compileStack('rich')`).
+- [x] **P3 — Workspace ops.** `scripts/_workspace_ops.js`: add/remove_instrument,
+  add/remove_tradition, set_variant, set_environment — pure state-passing.
+- [x] **P4 — `set_preface`.** Via shared `inverseConfigure`; `scripts/check_workspace_ops.js`
+  verifies the verbatim re-derive (evangelizing→satirical).
+- [x] **P5 — Edit-sequence gate** (`check_workspace_ops.js`) + discovery
+  (`search_catalog` / `search_prefaces` / `get_instrument` / `list_options` in `mcp/engine.js`).
+- [x] **P6 — Tool surface.** `mcp/engine.js` + `mcp/tools.js` rewritten onto the
+  workspace: `start_recipe` / `edit_recipe` / `render_recipe` + discovery. `generate_recipe`/
+  `blend_traditions`/`recipe_from_axis` retired (`mcp/test.mjs`: 12 engine checks pass).
+- [ ] **P7 — Full SSOT** (browser imports shared modules; delete inline copies) — pending.
+- [ ] **Catalog-wide seed-parity** vs actual browser output, and **branch consolidation**
+  to the deploy path (`render.yaml` → `claude/happy-lamport-8t4yw5`) — pending (§8).
 
 ---
 
