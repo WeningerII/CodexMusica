@@ -24,6 +24,8 @@ check('start_recipe = the Current Recipe (deterministic, primary-only header)', 
   assert.ok(r.recipe.length <= 1000 && r.recipe.length > 900);
   assert.equal(r.cards.length, 5);
   assert.ok(r.workspace && Array.isArray(r.workspace.cards));
+  const voice = r.cards.find((c) => c.instrument === 'voice');
+  assert.equal(voice.preface, 'evangelizing', 'cards summary surfaces the auto-deduped preface (not null)');
 });
 
 check('max_chars ceiling honored', () => {

@@ -21,6 +21,7 @@ const require = createRequire(import.meta.url);
 const C = require('../scripts/_loader.js');
 const W = require('../scripts/_workspace_ops.js');
 const { rank, tokensOf } = require('../scripts/_preface_match.js');
+const { assignDedupedPrefaces } = require('../scripts/_recipe_stack.js');
 
 class EngineError extends Error {}
 
@@ -46,10 +47,13 @@ function normWorkspace(ws, opName) {
 // edit and see each instrument's current (deduped) preface without re-reading
 // the whole workspace.
 function cardsSummary(ws) {
-  // Render once on a throwaway so each card's auto-assigned preface is visible.
-  const rendered = W.render(ws, { format: 'rich', ceiling: 100000 });
-  void rendered;
-  return ws.cards.map((c) => ({
+  // Resolve each card's DISPLAYED preface exactly as the renderer does (deduped),
+  // on a shallow clone so the caller's workspace is never mutated. Reading
+  // c.preface off the live cards would report null for auto cards, since render
+  // assigns prefaces on its own clone.
+  const view = ws.cards.map((c) => ({ ...c }));
+  assignDedupedPrefaces(view);
+  return view.map((c) => ({
     card: c.id,
     instrument: c.instrumentId,
     name: labelOf(instById(c.instrumentId)) || c.instrumentId,
