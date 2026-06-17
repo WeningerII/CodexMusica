@@ -186,9 +186,14 @@ Three regression gates:
 - [x] **P6 — Tool surface.** `mcp/engine.js` + `mcp/tools.js` rewritten onto the
   workspace: `start_recipe` / `edit_recipe` / `render_recipe` + discovery. `generate_recipe`/
   `blend_traditions`/`recipe_from_axis` retired (`mcp/test.mjs`: 12 engine checks pass).
+- [x] **Catalog-wide seed-parity** vs the app's ACTUAL output. `scripts/check_app_parity.js`
+  runs the browser's own `importTradition` + `compileRecipeStack('rich')` headlessly
+  (catalog on `globalThis` via `_loader`, DOM stubbed, card-descriptor harvester mirrored
+  from the build) and diffs every tradition: **1119/1119 byte-identical**. It also caught +
+  fixed a real drift — the shared `assignDedupedPrefaces` was missing the app's
+  `shared`-count preface tiebreak (`sufi_sama` voice).
 - [ ] **P7 — Full SSOT** (browser imports shared modules; delete inline copies) — pending.
-- [ ] **Catalog-wide seed-parity** vs actual browser output, and **branch consolidation**
-  to the deploy path (`render.yaml` → `claude/happy-lamport-8t4yw5`) — pending (§8).
+- [ ] **Branch consolidation** to the deploy path (`render.yaml` → `claude/happy-lamport-8t4yw5`) — pending (§8).
 
 ---
 

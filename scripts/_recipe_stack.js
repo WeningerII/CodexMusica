@@ -24,7 +24,7 @@
 // trailing instruments with a `[+N hidden]` notice. Prefaces are never trimmed.
 
 const C = require('./_loader.js');
-const { rank } = require('./_preface_match.js');
+const { rank, tokensOf } = require('./_preface_match.js');
 const { cardDescriptors } = require('./_card_descriptors.js');
 const { SIGS } = require('./_inverse_configure.js');
 
@@ -249,7 +249,18 @@ function assignDedupedPrefaces(cards) {
   for (const card of (cards || [])) {
     if (card && card.prefaceLock && card.preface) { card.preface = _resolvePreface(card) || card.preface; continue; }
     let ranked = [];
-    try { ranked = rank(cardDescriptors(card, C, SIGS), C.PREFACE_LEXICON); } catch { ranked = []; }
+    try {
+      const descSet = cardDescriptors(card, C, SIGS);
+      // Match the app's _computeRecipeDedupedPrefaces tiebreak EXACTLY: score
+      // desc, then shared-token COUNT desc, then alphabetical id. rank() alone
+      // tiebreaks score→id, which diverges from the app when two prefaces hit
+      // equal precision at different shared counts (e.g. sufi_sama voice:
+      // qawwali-flying 5/5 vs yaaburnee 9/9 — both precision 1.0, the app keeps
+      // the more-specific 9-shared one).
+      ranked = rank(descSet, C.PREFACE_LEXICON)
+        .map((r) => ({ ...r, shared: tokensOf(r.entry).filter((t) => descSet.has(t)).length }))
+        .sort((a, b) => b.score - a.score || b.shared - a.shared || a.entry.id.localeCompare(b.entry.id));
+    } catch { ranked = []; }
     let cursor = 0;
     while (cursor < ranked.length && lockedIds.has(ranked[cursor].entry.id)) cursor++;
     slots.push({ card, ranked, cursor, current: ranked[cursor] || null });
