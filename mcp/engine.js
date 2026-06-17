@@ -20,7 +20,7 @@ const require = createRequire(import.meta.url);
 
 const C = require('../scripts/_loader.js');
 const W = require('../scripts/_workspace_ops.js');
-const { rank, tokensOf } = require('../scripts/_preface_match.js');
+const { tokensOf } = require('../scripts/_preface_match.js');
 const { assignDedupedPrefaces } = require('../scripts/_recipe_stack.js');
 
 class EngineError extends Error {}

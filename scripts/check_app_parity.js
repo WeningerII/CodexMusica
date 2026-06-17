@@ -67,7 +67,7 @@ function _cardDescriptorSet(card) {
     'localStorage', 'navigator', 'fetch',
     `${cardDescriptorsSnippet}\n${src}\n;return { importTradition, compileRecipeStack, app };`,
   );
-  return factory(sink, sink, (cb) => 0, () => {}, sink, sink, () => sink);
+  return factory(sink, sink, () => 0, () => {}, sink, sink, () => sink);
 }
 
 let app;

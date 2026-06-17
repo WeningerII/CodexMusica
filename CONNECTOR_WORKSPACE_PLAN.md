@@ -115,8 +115,9 @@ returning a tradition id you then `seed`, not a rendered recipe.
   `assignDedupedPrefaces`, `_resolvePreface`, the trim cascade. The renderer.
 - `scripts/_inverse_configure.js` → `inverseConfigure(card, prefaceId)`
   ("identical to the browser's `inverseConfigureForPreface`"). Powers `set_preface`.
-- `scripts/_preface_match.js`, `scripts/_card_descriptors.js`, `scripts/corpus.js`
-  → preface ranking + catalog search (discovery).
+- `scripts/_preface_match.js`, `scripts/_card_descriptors.js` → preface ranking +
+  card-descriptor harvest. (Catalog search / discovery is self-contained in
+  `mcp/engine.js` — the deploy branch's `corpus.js` search module was not brought over.)
 
 **Build (the missing deterministic pieces):**
 1. **`seedTraditionCards(traditionId)`** — a shared port of `importTradition`
