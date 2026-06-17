@@ -1,25 +1,30 @@
 # CodexMusica MCP server
 
-This turns the CodexMusica **engine** into callable tools for AI agents — the same
-reach a human has in the browser app, not a read-only lookup of precompiled
-defaults. An agent can blend traditions, add/remove instruments, swap part
-variants, target an axis profile, and override room/arrangement, then iterate on
-the result. Every recipe response also carries an `affordances` block — the knobs
-still available — so the tool behaves like an instrument to play, not a table to read.
+This drives the CodexMusica **deterministic workspace** as callable tools for AI
+agents — the same canvas a human edits in the browser app, headless. An agent
+seeds a tradition's default cards (identical to the app's "Current Recipe"), then
+edits them: re-pick an instrument's **preface** (which deterministically re-derives
+its variants/tuning/room/chain), swap a part variant, override room/chain/tuning,
+add or remove instruments, add or remove traditions. State is passed in and out —
+each recipe call returns the `workspace` to thread into the next. There is **no
+scoring search and no auto-staple**: the recipe is reproducible and equal to what a
+human sees in the app.
 
-It wraps the existing engine in-process (`scripts/search.js`, `scripts/translate.js`,
-the catalog in `references/`); it adds no new music logic.
+It reuses the shared SSOT modules in-process (`scripts/_workspace_ops.js` →
+`_seed_workspace.js` / `_recipe_stack.js` / `_inverse_configure.js`, the catalog in
+`references/`); it adds no new music logic. See `CONNECTOR_WORKSPACE_PLAN.md`.
 
 ## Tools
 
 | Tool | What it does |
 |---|---|
-| `generate_recipe` | Recipe for one tradition or a blend (first = primary, rest stapled). Customize: `exclude_instruments`, `add_instruments`, `swap_variants`, `arrangement`, `room`, `staple_mode`, `max_chars`. |
-| `blend_traditions` | Weighted two-way blend on a dial (`weight`: 0 = pure A, 0.5 = max blend, 1 = pure B). |
-| `recipe_from_axis` | Best-fit tradition for an axis profile (e.g. `"harm:1,density:2,intensity:2"`), then its recipe. |
-| `list_traditions` / `get_tradition` | Discover/search traditions; full record incl. axis profile. |
-| `list_instruments` / `get_instrument` | Discover instruments; `get_instrument` is the **knob catalog** — every part and the variant ids you pass to `swap_variants`. |
-| `find_similar_traditions` | Nearest traditions by axis distance (what to blend next). |
+| `start_recipe` | Seed a recipe from one or more `traditions` (first = primary, rest = explicit staples). Returns the recipe, a per-card summary, and the `workspace` to thread on. |
+| `edit_recipe` | Apply an ordered `edits` list to a `workspace`: `set_preface` (re-derive an instrument toward a mood, labeled verbatim), `set_variant`, `set_environment`, `add_instrument` / `remove_instrument`, `add_tradition` / `remove_tradition`. |
+| `render_recipe` | Re-render a `workspace` (e.g. different `format` or `max_chars`) without editing it. |
+| `search_catalog` | Free-text search → ids, across traditions, instruments, variants, rooms, tunings, arrangements, aesthetics, prefaces, chain. Resolve words before guessing. |
+| `search_prefaces` | Mood/feel words → preface ids for `set_preface`. |
+| `get_instrument` | The **knob catalog** — every part and the variant ids you pass to `set_variant`. |
+| `get_tradition` / `list_traditions` | Full tradition record (incl. axis profile + default instruments); browse/filter traditions. |
 | `list_options` | Enumerate override spaces: `rooms`, `tunings`, `chain_sections`, `archetypes`, `aesthetics`, `arrangements`, `instrument_families`, `tradition_families`, `axes`. |
 
 ## Quick start
@@ -27,7 +32,7 @@ the catalog in `references/`); it adds no new music logic.
 ```sh
 cd mcp
 npm ci          # install (or: npm install)
-npm test        # 11 checks against the live engine
+npm test        # engine checks against the deterministic workspace (server build needs the SDK)
 ```
 
 ### Local use (stdio — runs on your machine, zero hosting)
@@ -113,7 +118,7 @@ For submission to Anthropic's [Connectors Directory](https://claude.com/docs/con
 
 ## Files
 
-- `engine.js` — in-process adapter over the CJS engine (validation, response shaping, affordances).
+- `engine.js` — the deterministic workspace surface (start/edit/render + discovery) over `scripts/_workspace_ops.js`; validation + state-passing response shaping.
 - `tools.js` — MCP tool definitions (zod schemas) + `buildServer()`.
 - `server_stdio.js` — stdio entry (local).
 - `server_http.js` — Streamable HTTP entry (hosted connector).

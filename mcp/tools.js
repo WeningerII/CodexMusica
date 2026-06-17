@@ -1,66 +1,51 @@
-// tools.js — registers the CodexMusica engine as MCP tools + a workflow prompt.
+// tools.js — registers the CodexMusica deterministic workspace as MCP tools.
 //
-// IMPORTANT: claude.ai (web) silently drops the server-level `instructions`
-// field — the model only ever sees TOOL DESCRIPTIONS. So each description below
-// is written workflow-first (routing + when-to-use-vs-siblings), not as terse
-// docs. The `compose_recipe` prompt is a supplemental, user-invoked guide.
+// The connector is the human app's canvas, headless: start_recipe seeds a
+// tradition's deterministic default cards (== the app's "Current Recipe"), and
+// edit_recipe applies human-style edits (re-pick a preface — which deterministically
+// re-derives that instrument's settings — swap a part variant, override room/
+// chain/tuning, add/remove instruments, add/remove traditions). State is passed
+// in and out: every recipe call returns the `workspace` to thread into the next.
+// No hill-climb search, no auto-staple — the recipe is reproducible and equal to
+// what a human sees in the app.
 
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { z } from 'zod';
 import * as E from './engine.js';
 
-const CORPUS_TYPES = ['tradition', 'instrument', 'variant', 'room', 'tuning', 'arrangement', 'aesthetic', 'preface', 'chain'];
-
-// Customization knobs shared by the recipe-generating tools.
-const customizationShape = {
-  exclude_instruments: z.array(z.string()).optional()
-    .describe('Instrument ids to drop (trim a blend, or "afrobeat without saxophone"). Find ids via search_catalog.'),
-  add_instruments: z.array(z.string()).optional()
-    .describe('Instrument ids to add beyond the tradition roster (guest/hybrid instruments).'),
-  swap_variants: z.array(z.string()).optional()
-    .describe('Set specific part variants; each is "instrument:part:variant". Get these from apply_preface (to hit a mood) or get_instrument (to see options).'),
-  ensemble: z.enum(['lean', 'full']).optional()
-    .describe('lean (DEFAULT): use only the PRIMARY tradition\'s instruments — keeps blends small and coherent. full: merge every tradition\'s roster (bigger, can sprawl).'),
-  max_instruments: z.number().int().positive().optional()
-    .describe('Cap ensemble size; drops secondary/low-scoring instruments first, never the voice. Use for intimate/solo pieces.'),
-  arrangement: z.string().optional()
-    .describe('Arrangement archetype id (search_catalog types=["arrangement"]).'),
-  room: z.string().optional()
-    .describe('Override the room/space id (search_catalog types=["room"]).'),
-  tuning: z.string().optional()
-    .describe('Override the tuning id (search_catalog types=["tuning"]).'),
-  chain: z.record(z.string(), z.string()).optional()
-    .describe('Override signal-chain stages, e.g. {"mic":"<id>","medium":"<id>"}. Stages: mic/pre/console/comp/eq/amp/medium. Find item ids via search_catalog types=["chain"]. Overriding the chain makes it render in the recipe string.'),
-  staple_mode: z.enum(['full', 'lineage']).optional()
-    .describe('Advanced: how staples merge. `ensemble` sets this for you; only set directly to override.'),
-  max_chars: z.number().int().positive().optional()
-    .describe('Recipe length ceiling in characters (default 1000).'),
-  include_affordances: z.boolean().optional()
-    .describe('Include the "knobs you can still turn" + leak flags. Default true.'),
-  prefaces: z.array(z.object({
-    instrument: z.string().describe('Instrument id to bend (e.g. "voice", "sitar"). Must be in the recipe — add via add_instruments / ensemble:"full" first if needed.'),
-    preface: z.string().describe('Preface id from search_prefaces (e.g. "satirical", "face-melting").'),
-    tradition: z.string().optional().describe('Tradition context for the bend (defaults to the primary).'),
-  })).optional()
-    .describe('Named prefaces to BAKE IN: for each {instrument, preface}, the engine re-derives that instrument\'s variants to realize the preface and labels it VERBATIM in the recipe. Use whenever the request names a preface for an instrument ("satirical voice", "face-melting sitar") — do NOT settle for the auto-matched preface when a specific one was requested. Two prefaces on the SAME instrument (e.g. each blended tradition\'s voice — satirical for one, bitter for the other) are both kept and MERGE in the recipe text ("satirical bitter voice: …"); pass the per-tradition `tradition` so each is derived in its own context.'),
+const renderShape = {
+  format: z.enum(['rich', 'tags', 'prose', 'compact']).optional()
+    .describe('Recipe view. Default "rich" — the app\'s Current Recipe (preface label + full descriptor stack).'),
+  max_chars: z.number().int().positive().optional().describe('Length ceiling in characters (default 1000).'),
 };
+
+const workspaceSchema = z.object({ cards: z.array(z.any()) })
+  .describe('The workspace returned by the previous recipe call. Thread it through unchanged.');
+
+const editSchema = z.object({
+  action: z.enum([
+    'add_tradition', 'remove_tradition', 'add_instrument', 'remove_instrument',
+    'set_variant', 'set_environment', 'set_preface',
+  ]).describe('Which edit to apply.'),
+  tradition: z.string().optional().describe('Tradition id — for add_tradition / remove_tradition, or as context for add_instrument.'),
+  instrument: z.string().optional().describe('Instrument id — for add_instrument.'),
+  card: z.string().optional().describe('Card reference (the `card` id from a prior response, or an instrument id) — for remove_instrument / set_variant / set_environment / set_preface.'),
+  part: z.string().optional().describe('Part id — for set_variant (see get_instrument).'),
+  variant: z.string().optional().describe('Variant id — for set_variant (see get_instrument).'),
+  preface: z.string().optional().describe('Preface id — for set_preface (see search_prefaces). Deterministically re-derives the card\'s settings toward it, then labels it verbatim.'),
+  room: z.string().optional().describe('Room id — for set_environment.'),
+  tuning: z.string().optional().describe('Tuning id — for set_environment.'),
+  chain: z.record(z.string(), z.string()).optional().describe('Chain stage overrides — for set_environment, e.g. {"mic":"<id>","medium":"<id>"}.'),
+});
 
 function jsonResult(value) {
   return { content: [{ type: 'text', text: JSON.stringify(value, null, 2) }] };
 }
 
-// Wrap an engine call: EngineError → clean isError result the model can self-
-// correct from. Every tool is read-only, deterministic, closed-world; mirror the
-// `title` into annotations (the Connectors Directory requires it).
 function tool(server, name, config, fn) {
-  const cfg = {
-    ...config,
-    annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false, title: config.title, ...(config.annotations || {}) },
-  };
-  server.registerTool(name, cfg, async (args) => {
-    try {
-      return jsonResult(await fn(args ?? {}));
-    } catch (err) {
+  server.registerTool(name, config, async (args) => {
+    try { return jsonResult(await fn(args ?? {})); }
+    catch (err) {
       const msg = err && err.message ? err.message : String(err);
       return { content: [{ type: 'text', text: `Error: ${msg}` }], isError: true };
     }
@@ -68,130 +53,94 @@ function tool(server, name, config, fn) {
 }
 
 export function registerTools(server) {
-  // ── Discovery: the front door ───────────────────────────────────────────
+  // ── Recipe (the deterministic workspace) ────────────────────────────────
+
+  tool(server, 'start_recipe', {
+    title: 'Start a recipe from tradition(s)',
+    description:
+      'Seed a recording recipe from one or more traditions — deterministic default cards, identical to what a human sees in the ' +
+      'app ("Current Recipe"). First tradition is primary; any others are explicit staples (NOT auto-added). Returns the recipe ' +
+      'string, a per-card summary (with each instrument\'s preface), and the `workspace` to thread into edit_recipe. Resolve ' +
+      'tradition names to ids with search_catalog first. Present the `recipe` to the user VERBATIM.',
+    inputSchema: {
+      traditions: z.array(z.string()).min(1).describe('Tradition ids; first is primary. Resolve with search_catalog.'),
+      ...renderShape,
+    },
+  }, (a) => E.startRecipe(a));
+
+  tool(server, 'edit_recipe', {
+    title: 'Edit the recipe (human-style)',
+    description:
+      'Apply an ordered list of edits to a workspace and re-render — the headless equivalent of editing the app canvas. Edits: ' +
+      'set_preface (re-pick an instrument\'s preface — deterministically re-derives its variants/tuning/room/chain to match, then ' +
+      'labels it verbatim), set_variant (swap one part), set_environment (room/tuning/chain), add_instrument / remove_instrument, ' +
+      'add_tradition / remove_tradition. Pass the `workspace` from the previous call; get back the edited workspace + new recipe. ' +
+      'Iterate freely. Present the `recipe` VERBATIM.',
+    inputSchema: {
+      workspace: workspaceSchema,
+      edits: z.array(editSchema).min(1).describe('Edits applied in order.'),
+      ...renderShape,
+    },
+  }, (a) => E.editRecipe(a));
+
+  tool(server, 'render_recipe', {
+    title: 'Re-render the workspace',
+    description: 'Render an existing workspace again — e.g. a different format or max_chars — without editing it.',
+    inputSchema: { workspace: workspaceSchema, ...renderShape },
+  }, (a) => E.renderRecipe(a));
+
+  // ── Discovery (resolve words → ids; see the knobs) ──────────────────────
 
   tool(server, 'search_catalog', {
-    title: 'Search the whole catalog',
+    title: 'Search the catalog',
     description:
-      'Free-text search across the ENTIRE catalog — traditions (including their lineage prose), instruments, every part-variant, ' +
-      'rooms, tunings, arrangements, aesthetics, and 649 "prefaces" (aesthetic/technique/delivery signatures). ALWAYS use this to turn a request\'s words ("outlaw", ' +
-      '"gut string", "ballad", "gothic", "midnight") into real ids — never guess ids. Multi-word queries rank records by how many ' +
-      'terms match; filter with `types`. Returns {type, id, name, matched_on}; feed ids into generate_recipe, get_instrument, or ' +
-      'apply_preface. Paginate with the returned cursor.',
+      'Free-text search across traditions, instruments, part-variants, rooms, tunings, arrangements, aesthetics, prefaces, and ' +
+      'chain items. ALWAYS use this to turn a request\'s words into real ids — never guess. Multi-word queries rank by how many ' +
+      'terms match; filter with `types`.',
     inputSchema: {
-      query: z.string().describe('Words from the request, e.g. "gothic americana outlaw gut string".'),
-      types: z.array(z.enum(CORPUS_TYPES)).optional().describe(`Restrict to these record types: ${CORPUS_TYPES.join(', ')}.`),
+      query: z.string().describe('Words from the request, e.g. "garage rock fuzz".'),
+      types: z.array(z.enum([
+        'tradition', 'instrument', 'variant', 'room', 'tuning', 'arrangement', 'aesthetic', 'preface', 'chain',
+      ])).optional().describe('Restrict to these record types.'),
       limit: z.number().int().positive().optional().describe('Max results (default 20, max 50).'),
-      cursor: z.string().optional().describe('Opaque cursor from a previous response for the next page.'),
     },
   }, (a) => E.searchCatalog(a));
 
   tool(server, 'search_prefaces', {
-    title: 'Search prefaces',
+    title: 'Search prefaces (intent → preface id)',
     description:
-      'Search the 649 "prefaces" — named aesthetic / technique / delivery signatures (satirical, keening, jhala-cascading, ' +
-      'inshad-cantillating, brooding), each a descriptor-token set — by free text. Prefaces express INTENT (how it should sound) as opposed to instruments (what plays). ' +
-      'Returns ranked prefaces with their token signatures. Take a preface id to apply_preface to physically realize it on an instrument.',
+      'Search the named prefaces (aesthetic/technique/delivery signatures: satirical, keening, brooding, …) by mood/feel words. ' +
+      'Take a preface id to edit_recipe set_preface to realize it on an instrument.',
     inputSchema: {
       query: z.string().describe('Mood/feel words, e.g. "worn bitter struggling".'),
       limit: z.number().int().positive().optional().describe('Max results (default 15).'),
     },
   }, (a) => E.searchPrefaces(a));
 
-  tool(server, 'apply_preface', {
-    title: 'Apply a preface to an instrument',
-    description:
-      'Bend ONE instrument toward a descriptive preface (intent → physical settings). Given a tradition (for context), an instrument ' +
-      'id, and a preface id, the engine re-picks that instrument\'s part-variants, tuning, room, and signal chain to maximize match ' +
-      'with the preface. Returns `generate_recipe_overrides` (swap_variants + room/tuning/chain) ready to spread into generate_recipe. ' +
-      'E.g. voice + "worn" → cassette/lo-fi chain; voice + "satirical" → twangy staccato heightened-speech. Find preface ids with search_prefaces.',
-    inputSchema: {
-      tradition: z.string().optional().describe('Tradition id for starting context (recommended; the recipe\'s primary tradition).'),
-      instrument: z.string().describe('Instrument id to reshape (e.g. "voice"). Find via search_catalog types=["instrument"].'),
-      preface: z.string().describe('Target preface id (from search_prefaces).'),
-    },
-  }, (a) => E.applyPreface(a));
-
-  // ── Recipe generation (the engine) ──────────────────────────────────────
-
-  tool(server, 'generate_recipe', {
-    title: 'Generate a recording recipe',
-    description:
-      'Generate a recording recipe from tradition ids (first = primary, the rest blended in). WORKFLOW: use search_catalog to turn ' +
-      'the user\'s words into real ids (do not guess). For any preface the request names for an instrument ("satirical voice", "face-melting ' +
-      'sitar"), pass it in `prefaces` (find ids via search_prefaces) — the engine bakes it in and labels it verbatim; preferred over wiring ' +
-      'apply_preface overrides by hand. Blends are LEAN by default (primary\'s instruments only) so they stay ' +
-      'coherent — pass ensemble:"full" for a big cross-genre band, max_instruments for intimate/solo, exclude_instruments to trim. ' +
-      'The `recipe` field is the FINISHED deliverable — a complete, ceiling-budgeted descriptor stack that already names each ' +
-      'instrument\'s preface (e.g. "keening pedal-steel: brass steel"); present it to the user VERBATIM — do not paraphrase, ' +
-      'reformat, or add gear/character it does not list. The response also flags instruments a secondary tradition injected ' +
-      '(affordances.injected). Re-call to iterate.',
-    inputSchema: {
-      traditions: z.array(z.string()).min(1)
-        .describe('Tradition ids; first is primary, rest are blended in. Resolve with search_catalog.'),
-      ...customizationShape,
-      include_why: z.boolean().optional().describe('Include the scoring/search breakdown explaining the picks.'),
-    },
-  }, (a) => E.generateRecipe(a));
-
-  tool(server, 'blend_traditions', {
-    title: 'Weighted blend of two traditions',
-    description:
-      'Weighted two-tradition blend on a dial: `weight` is B\'s share (0 = pure A, 0.5 = max blend default, 1 = pure B); the primary ' +
-      '(owner of room/tuning/genre header) flips past 0.5. LEAN by default; ensemble:"full" merges both rosters. For 3+ traditions ' +
-      'use generate_recipe instead. Accepts the same customization knobs (swap_variants, exclude/add_instruments, room/tuning/chain, max_instruments). ' +
-      'Returns the same FINISHED `recipe` deliverable as generate_recipe — present it to the user verbatim, do not rewrite it.',
-    inputSchema: {
-      a: z.string().describe('First tradition id.'),
-      b: z.string().describe('Second tradition id.'),
-      weight: z.number().min(0).max(1).optional().describe('B\'s share in [0,1]. 0=A, 0.5=max blend (default), 1=B.'),
-      ...customizationShape,
-    },
-  }, (a) => E.blendTraditions(a));
-
-  tool(server, 'recipe_from_axis', {
-    title: 'Recipe from an axis profile',
-    description:
-      'Find the best-fit tradition for a target point in the catalog\'s 13-axis space, then emit its recipe. Use when you know the ' +
-      'qualities you want (harmonic complexity, density, intensity, …) but not which genre. See list_options kind="axes" for axis ids. ' +
-      'Accepts the same customization knobs as generate_recipe, and returns the same FINISHED `recipe` deliverable — present it verbatim.',
-    inputSchema: {
-      axis_target: z.union([z.string(), z.record(z.string(), z.number())])
-        .describe('Axis profile as "harm:1,density:2,intensity:2" or {"harm":1,"density":2}.'),
-      ...customizationShape,
-    },
-  }, (a) => E.recipeFromAxis(a));
-
-  // ── Targeted lookups ────────────────────────────────────────────────────
-
   tool(server, 'get_instrument', {
     title: 'Get one instrument (the knob catalog)',
-    description:
-      'Full record for one instrument: every part and the variant ids you can pass to swap_variants, with labels and which is the ' +
-      'default. Use to see exact swap options before customizing. (For a mood-driven choice, prefer apply_preface.)',
-    inputSchema: { id: z.string().describe('Instrument id (from search_catalog types=["instrument"]).') },
+    description: 'Every part and the variant ids valid for set_variant, with labels and which is the default.',
+    inputSchema: { id: z.string().describe('Instrument id (see search_catalog).') },
   }, (a) => E.getInstrument(a));
 
   tool(server, 'get_tradition', {
     title: 'Get one tradition',
-    description: 'Full record for one tradition: name, family, lineage, 13-axis profile, and the raw catalog row.',
-    inputSchema: { id: z.string().describe('Tradition id (from search_catalog types=["tradition"]).') },
+    description: 'Full record for one tradition: name, family, lineage, axis profile, default instruments, raw row.',
+    inputSchema: { id: z.string().describe('Tradition id (see search_catalog).') },
   }, (a) => E.getTradition(a));
 
-  tool(server, 'find_similar_traditions', {
-    title: 'Find similar traditions',
-    description: 'Nearest traditions to a given one by 13-axis distance — useful for picking what to blend in next.',
+  tool(server, 'list_traditions', {
+    title: 'List / browse traditions',
+    description: 'List or substring-filter traditions (by id/name and/or family). Paginated. For free-text use search_catalog.',
     inputSchema: {
-      id: z.string().describe('Tradition id to find neighbors of.'),
-      limit: z.number().int().positive().optional().describe('How many neighbors (default 8).'),
+      query: z.string().optional(), family: z.string().optional(),
+      limit: z.number().int().positive().optional(), offset: z.number().int().nonnegative().optional(),
     },
-  }, (a) => ({ id: a.id, items: E.findSimilarTraditions(a.id, a.limit || 8) }));
+  }, (a) => E.listTraditions(a));
 
   tool(server, 'list_options', {
-    title: 'Enumerate an option space',
-    description:
-      'List valid ids for an override space: rooms, tunings, chain_sections, archetypes, aesthetics, arrangements, instrument_families, ' +
-      'tradition_families, or axes. (For free-text search prefer search_catalog.)',
+    title: 'Enumerate an override space',
+    description: 'Valid ids for an override space: rooms, tunings, chain_sections, archetypes, aesthetics, arrangements, instrument_families, tradition_families, axes.',
     inputSchema: {
       kind: z.enum([
         'rooms', 'tunings', 'chain_sections', 'archetypes', 'aesthetics',
@@ -199,80 +148,23 @@ export function registerTools(server) {
       ]).describe('Which option space to enumerate.'),
     },
   }, (a) => E.listOptions(a));
-
-  // ── Plain enumeration (search_catalog is usually better) ────────────────
-
-  tool(server, 'list_traditions', {
-    title: 'List / filter traditions',
-    description: 'Enumerate traditions, optionally filtered by substring or family. For fuzzy / lineage-aware search use search_catalog instead.',
-    inputSchema: {
-      query: z.string().optional().describe('Case-insensitive substring match on id or name.'),
-      family: z.string().optional().describe('Restrict to a tradition family (list_options kind="tradition_families").'),
-      limit: z.number().int().positive().optional().describe('Max results (default 50).'),
-      offset: z.number().int().nonnegative().optional().describe('Pagination offset.'),
-    },
-  }, (a) => E.listTraditions(a));
-
-  tool(server, 'list_instruments', {
-    title: 'List / filter instruments',
-    description: 'Enumerate instruments, optionally filtered by substring or family. For fuzzy search use search_catalog instead.',
-    inputSchema: {
-      query: z.string().optional().describe('Case-insensitive substring match on id or name.'),
-      family: z.string().optional().describe('Restrict to an instrument family (list_options kind="instrument_families").'),
-      limit: z.number().int().positive().optional().describe('Max results (default 50).'),
-      offset: z.number().int().nonnegative().optional().describe('Pagination offset.'),
-    },
-  }, (a) => E.listInstruments(a));
 }
 
-// User-invoked workflow guide (survives even though claude.ai drops server
-// instructions). Surfaces as /mcp__codex-musica__compose_recipe.
-function registerPrompts(server) {
-  server.registerPrompt(
-    'compose_recipe',
-    {
-      title: 'Compose a recipe from a vibe',
-      description: 'Step-by-step workflow for turning a free-text musical request into a CodexMusica recipe via the connector tools.',
-      argsSchema: { request: z.string().optional().describe('The musical request / vibe to compose (optional).') },
-    },
-    ({ request } = {}) => ({
-      messages: [{
-        role: 'user',
-        content: {
-          type: 'text',
-          text:
-            'Compose a CodexMusica recording recipe. The connector takes STRUCTURED inputs, not prose — you are the translator. Loop:\n' +
-            '1. Split the request into (a) genre/instrument/scene words and (b) mood/feel words.\n' +
-            '2. Resolve (a) to real ids with search_catalog (traditions, instruments, variants, rooms). Never guess ids.\n' +
-            '3. For (b), find moods with search_prefaces; for each instrument that should carry a mood, call apply_preface(tradition, instrument, preface) and collect its generate_recipe_overrides.\n' +
-            '4. Call generate_recipe with the traditions + merged overrides (swap_variants/room/tuning/chain) + exclude_instruments for anything unwanted. Keep it LEAN by default; use max_instruments for intimate/solo pieces, ensemble:"full" only for an intentionally big band.\n' +
-            '5. Read affordances.injected and drop anything a secondary tradition added that the user didn\'t ask for. Iterate.\n' +
-            '6. Present the returned `recipe` string to the user VERBATIM — it is the finished, ceiling-budgeted descriptor stack that already names each instrument\'s preface; do not paraphrase, reformat, or add gear/character it does not contain.\n' +
-            'Remember: a preface IS the engine\'s intent→settings interpreter — apply_preface re-derives an instrument\'s variants, tuning, room, and chain to realize it, and the rendered recipe names each instrument\'s preface. Lean on the engine for character; it is not merely a gear-and-room list. (Scene framing and lyrics are still yours to add.)' +
-            (request ? `\n\nRequest to compose: ${request}` : ''),
-        },
-      }],
-    }),
-  );
-}
-
-// Build a fully-wired server instance. (A fresh instance is created per request
-// by the stateless HTTP transport; the heavy catalog loads once via the engine
-// module's require cache.)
 export function buildServer() {
   const server = new McpServer(
     { name: 'codex-musica', version: '2.0.0' },
     {
       instructions:
-        `CodexMusica turns words into recording recipes over ${E.counts.traditions} traditions, ${E.counts.instruments} instruments, ` +
-        `and ${E.counts.prefaces} "prefaces" (named aesthetic/technique/delivery signatures, each a descriptor-token set). Workflow: ` +
-        `search_catalog (resolve words→ids, never guess) → search_prefaces + apply_preface (intent→physical settings: re-derives an ` +
-        `instrument's variants/tuning/room/chain) → generate_recipe (blends are LEAN by default; ensemble:"full"/max_instruments to ` +
-        `resize; exclude_instruments to trim). The rendered recipe names each instrument's preface. Responses carry affordances ` +
-        `(knobs left to turn) + injected (leak flags). The /compose_recipe prompt has the full loop.`,
+        `CodexMusica is a deterministic recording-recipe workspace over ${E.counts.traditions} traditions, ` +
+        `${E.counts.instruments} instruments, and ${E.counts.prefaces} prefaces. It mirrors the browser app: ` +
+        `start_recipe seeds a tradition's default cards (the "Current Recipe"); edit_recipe applies human-style edits ` +
+        `(set_preface re-derives an instrument's settings toward a mood, set_variant/set_environment override knobs, ` +
+        `add/remove instruments and traditions). State is passed in and out — thread the 'workspace' from each recipe ` +
+        `call into the next. Resolve words to ids with search_catalog / search_prefaces (never guess). The 'recipe' ` +
+        `field is the finished deliverable — present it to the user VERBATIM. There is no scoring search and no ` +
+        `auto-staple: the recipe is reproducible and equal to what a human sees in the app.`,
     },
   );
   registerTools(server);
-  registerPrompts(server);
   return server;
 }
