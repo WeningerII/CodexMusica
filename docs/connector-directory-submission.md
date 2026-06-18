@@ -41,49 +41,50 @@ delivery signatures (e.g. `satirical`, `keening`, `jhala-cascading`) that map
 *intent → physical settings*.
 
 Ask for a sound in plain language and Claude resolves it to real catalog ids,
-bakes any requested prefaces into the instruments, and returns a compact
-descriptor-stack "recipe" — under 1,000 characters — naming the parts, materials,
-room, and signal chain to track it with. It also blends traditions on a dial,
-matches an axis profile to the closest genre, and introspects the whole catalog.
+seeds a tradition's deterministic default recipe — identical to what a human sees
+in the companion app — then edits it: re-picking an instrument's preface (which
+re-derives its physical settings), swapping part variants, overriding room/chain/
+tuning, and adding or removing instruments and traditions. The result is a compact
+descriptor-stack "recipe" under 1,000 characters, naming the parts, materials,
+room, and signal chain to track it with. State is passed in and out, so the recipe
+is reproducible and matches the app exactly.
 
 ---
 
 ## Use cases
 
 1. **Compose from a vibe.** *"outlaw country satirical, desert blues bitter,
-   face-melting sitar, no drums"* → a ready-to-track descriptor stack with
-   `satirical bitter voice`, `face-melting sitar`, and the full chain.
-2. **Blend two traditions on a dial.** Afrobeat × Highlife at weight 0.5 — a
-   coherent hybrid roster, room, and chain.
-3. **Reverse-engineer a sound.** Give a target axis profile (high harmonic
-   complexity, low density, high intensity) → the closest tradition + its recipe.
-4. **Bend one instrument to a feeling.** Apply `worn` to a voice → the engine
-   re-derives the mic/medium/variant chain that realizes it.
+   face-melting sitar"* → seed the traditions, then re-pick each instrument's
+   preface → a ready-to-track descriptor stack with `satirical voice`,
+   `face-melting sitar`, and the full chain.
+2. **Blend traditions.** Seed several traditions at once → a combined roster,
+   room, and chain, then trim or extend it instrument by instrument.
+3. **Bend one instrument to a feeling.** Set `worn` on a voice → the engine
+   re-derives the mic/medium/variant chain that realizes it, in place.
+4. **Iterate.** Swap a part variant, change the room, add or remove an instrument
+   or tradition — each edit re-renders the recipe, deterministically.
 5. **Production reference.** Browse an instrument's parts and swappable variants,
-   the room/tuning/chain option spaces, or nearest-neighbor traditions.
+   the room/tuning/chain option spaces, or the tradition catalog.
 
 ---
 
 ## Tools
 
-All 12 tools are read-only and deterministic. A user-invoked workflow prompt,
-`compose_recipe`, ties them into the end-to-end loop.
+All 9 tools are read-only and deterministic, and state is passed in and out (no
+sessions). Each is annotated `readOnlyHint`/`idempotentHint`/`openWorldHint:false`
+with a human-readable `title`.
 
 | Tool | Title | One-line summary |
 |---|---|---|
+| `start_recipe` | Start a recipe from tradition(s) | Seed a recipe from one or more tradition ids (first = primary, the rest explicit staples) — deterministic default cards, identical to the app's "Current Recipe". Returns the recipe, a per-card summary, and the `workspace` to thread on. |
+| `edit_recipe` | Edit the recipe | Apply an ordered list of edits to a workspace and re-render: `set_preface` (re-derive an instrument toward a mood, labeled verbatim), `set_variant`, `set_environment` (room/tuning/chain), `add`/`remove_instrument`, `add`/`remove_tradition`. |
+| `render_recipe` | Re-render the workspace | Render an existing workspace again (e.g. a different format or `max_chars`) without editing it. |
 | `search_catalog` | Search the whole catalog | Free-text search across every record type (traditions incl. lineage, instruments, part-variants, rooms, tunings, arrangements, aesthetics, prefaces) — turns request words into real ids. |
 | `search_prefaces` | Search prefaces | Search the 649 prefaces (aesthetic/technique/delivery signatures) by free text; returns ranked ids with their descriptor-token signatures. |
-| `apply_preface` | Apply a preface to an instrument | Bend one instrument toward a preface (intent → physical settings): re-derives its variants/tuning/room/chain; returns ready-to-bake overrides. |
-| `generate_recipe` | Generate a recording recipe | Build a recipe from one or more tradition ids (first = primary, rest blended), with optional instrument/variant/room/tuning/chain overrides and baked-in `prefaces`. Returns the descriptor-stack recipe + the knobs still available. |
-| `blend_traditions` | Weighted blend of two traditions | Weighted A→B blend on a 0–1 dial (B's share); primary flips past 0.5. |
-| `recipe_from_axis` | Recipe from an axis profile | Find the best-fit tradition for a target point in the 13-axis space, then emit its recipe. |
-| `get_instrument` | Get one instrument (the knob catalog) | Every part and the variant ids you can pass to `swap_variants`, with labels and defaults. |
+| `get_instrument` | Get one instrument (the knob catalog) | Every part and the variant ids you can pass to `set_variant`, with labels and defaults. |
 | `get_tradition` | Get one tradition | Name, family, lineage, and the 13-axis profile for one tradition. |
-| `find_similar_traditions` | Find similar traditions | Nearest traditions by 13-axis distance — what to blend in next. |
-| `list_options` | Enumerate an option space | Valid ids for rooms / tunings / chain sections / archetypes / aesthetics / arrangements / families / axes. |
 | `list_traditions` | List / filter traditions | Enumerate traditions, optionally filtered by substring or family. |
-| `list_instruments` | List / filter instruments | Enumerate instruments, optionally filtered by substring or family. |
-| `compose_recipe` *(prompt)* | Compose a recipe from a vibe | Step-by-step workflow guide: resolve words → ids, bake prefaces, generate, present verbatim. |
+| `list_options` | Enumerate an option space | Valid ids for rooms / tunings / chain sections / archetypes / aesthetics / arrangements / families / axes. |
 
 ---
 

@@ -42,8 +42,15 @@ function jsonResult(value) {
   return { content: [{ type: 'text', text: JSON.stringify(value, null, 2) }] };
 }
 
+// Every tool is read-only, idempotent, and closed-world: state-passing and
+// deterministic (no server-side mutation), and derived entirely from the bundled
+// catalog (no external calls). Annotate accordingly — this is the metadata the
+// connector directory weighs most. Per-tool overrides win if a config sets its own.
+const READ_ONLY_ANNOTATIONS = { readOnlyHint: true, idempotentHint: true, openWorldHint: false };
+
 function tool(server, name, config, fn) {
-  server.registerTool(name, config, async (args) => {
+  const withAnnotations = { ...config, annotations: { ...READ_ONLY_ANNOTATIONS, ...(config.annotations || {}) } };
+  server.registerTool(name, withAnnotations, async (args) => {
     try { return jsonResult(await fn(args ?? {})); }
     catch (err) {
       const msg = err && err.message ? err.message : String(err);

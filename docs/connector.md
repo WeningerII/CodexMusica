@@ -36,41 +36,39 @@ practices, and rasas, and the math touches **every** setting of an instrument.
 
 ## Try these
 
-> *outlaw country satirical, desert blues bitter, face-melting sitar, no drums*
+> *outlaw country satirical, desert blues bitter, face-melting sitar*
 
-→ `…satirical bitter voice, … face-melting sitar: bronze-steel teak …` — the two
-blended-tradition voices merge and pool their prefaces, and the sitar is baked to
-`face-melting`.
+→ Claude seeds the traditions, then re-picks each instrument's preface —
+`…satirical voice: …`, `…face-melting sitar: …` — each one deterministically
+re-deriving that instrument's variants, tuning, room, and chain.
 
-> *blend afrobeat and highlife, lean ensemble*
+> *blend afrobeat and highlife*
 
-> *I want something with high harmonic complexity but low density — what genre, and how do I record it?*
-
-> *give the voice a "worn" sound*
+> *garage rock, but give the voice a "worn" sound and drop the organ*
 
 ## The tools
 
 | Tool | What it does |
 |---|---|
+| `start_recipe` | Seed a recipe from one or more tradition ids (first = primary, rest = explicit staples). Returns the recipe + a `workspace` to thread on. |
+| `edit_recipe` | Apply ordered edits to a `workspace`: `set_preface` (re-derive an instrument toward a mood), `set_variant`, `set_environment`, `add`/`remove_instrument`, `add`/`remove_tradition`. |
+| `render_recipe` | Re-render a `workspace` (e.g. a different format or length) without editing it. |
 | `search_catalog` | Turn request words into real catalog ids (traditions, instruments, variants, rooms, tunings, arrangements, aesthetics, prefaces). |
 | `search_prefaces` | Find prefaces by free text; returns ids + token signatures. |
-| `apply_preface` | Bend one instrument toward a preface (intent → physical settings). |
-| `generate_recipe` | Generate a recipe from tradition ids, with overrides + baked-in `prefaces`. |
-| `blend_traditions` | Weighted two-tradition blend on a 0–1 dial. |
-| `recipe_from_axis` | Best-fit tradition for a target axis profile, then its recipe. |
 | `get_instrument` / `get_tradition` | Full record + swappable variants / 13-axis profile. |
-| `find_similar_traditions` | Nearest traditions by axis distance. |
-| `list_options` / `list_traditions` / `list_instruments` | Enumerate option spaces and the catalog. |
+| `list_options` / `list_traditions` | Enumerate the override spaces and the tradition catalog. |
 
-A `compose_recipe` prompt walks Claude through the full loop. Every tool is
-read-only and deterministic.
+Every tool is read-only and deterministic. State is passed in and out — Claude
+threads the `workspace` from each call into the next.
 
 ## How it works (recipe = under 1,000 chars)
 
-Claude resolves your words to ids, bakes any requested prefaces into the
-instruments, then the engine renders a descriptor stack capped at 1,000
-characters (lowest-value tokens trimmed first; prefaces and gear preserved). The
-recipe is the deliverable — present it verbatim.
+Claude resolves your words to ids, seeds a tradition's **deterministic default
+recipe** (identical to what a human sees in the app), then edits it — re-picking
+prefaces, swapping variants, adding or removing instruments and traditions. The
+engine renders a descriptor stack capped at 1,000 characters (lowest-value tokens
+trimmed first; prefaces and gear preserved). The recipe is the deliverable —
+present it verbatim.
 
 ## Privacy & support
 
