@@ -18,6 +18,11 @@
 //   silent blend-drop   -> recipe.js  (input validation)
 //   orphan promise      -> check_promises.js  (documented but unregistered/ungated)
 //   lazy != embedded    -> check_lazy_app.js  (shipped shell drifts from embedded build)
+//   app<->connector     -> check_app_parity.js   (connector render drifts from the app)
+//   preface drift       -> regression_prefaces.js (matcher output drifts from fixtures)
+//   slot-pick drift     -> check_slot_picks.js    (searched slot drifts from lock-ins)
+//   dead audit token    -> audit_dead_tokens.js   (token dead even in the enriched pool)
+//   workspace mutation  -> check_workspace_ops.js (an edit op mutates its input ws)
 //
 // Usage:
 //   node scripts/faults.js [--fresh-api=DIR --fresh-html=FILE] [--verbose]
@@ -234,6 +239,64 @@ record('silent-blend-drop -> recipe.js', gate(ROOT, ['scripts/recipe.js', '--tra
   const f = path.join(d, 'references/07_preface_lexicon.js');
   fs.writeFileSync(f, fs.readFileSync(f, 'utf8').replace('tokens: [', "tokens: ['zzz_dead_fault_token', "));
   record('dead-preface-token -> check_prefaces.js', gate(d, ['scripts/check_prefaces.js']), /zzz_dead_fault_token|dead-token|never scores/i);
+}
+
+// 14. app<->connector parity drift -> check_app_parity.js  (mutate ONLY the connector
+//     render path; the app reads its own inlined compileRecipeStack from src/app.js,
+//     so a sentinel in _seed_workspace.renderWorkspace forces the two to disagree)
+{
+  const d = mkenv(['scripts', 'references', 'src']);
+  const f = path.join(d, 'scripts/_seed_workspace.js');
+  fs.writeFileSync(f, fs.readFileSync(f, 'utf8').replace(
+    'return header + body;',
+    "return header + body + ' __PARITY_FAULT__';"
+  ));
+  record('app-connector-parity-drift -> check_app_parity.js', gate(d, ['scripts/check_app_parity.js', '--limit=30']), /__PARITY_FAULT__|mismatch|FAIL/i);
+}
+
+// 15. preface assignment drift -> regression_prefaces.js  (corrupt one fixture's
+//     expected preface so the matcher's real output no longer matches it)
+{
+  const d = mkenv(['scripts', 'references', 'tests']);
+  const f = path.join(d, 'tests/_preface_regression_fixtures.json');
+  const j = JSON.parse(fs.readFileSync(f, 'utf8'));
+  j[0].expectedPreface = '__preface_fault__';
+  fs.writeFileSync(f, JSON.stringify(j, null, 2));
+  record('preface-drift -> regression_prefaces.js', gate(d, ['scripts/regression_prefaces.js']), /__preface_fault__|FAIL/);
+}
+
+// 16. slot-pick drift -> check_slot_picks.js  (corrupt one fixture's expected variant
+//     so the searched slot pick no longer matches the lock-in)
+{
+  const d = mkenv(['scripts', 'references', 'tests']);
+  const f = path.join(d, 'tests/slot_pick_lock_ins.json');
+  const j = JSON.parse(fs.readFileSync(f, 'utf8'));
+  j.tests[0].expected_variant = '__slot_fault__';
+  fs.writeFileSync(f, JSON.stringify(j, null, 2));
+  record('slot-pick-drift -> check_slot_picks.js', gate(d, ['scripts/check_slot_picks.js']), /__slot_fault__|FAILURES|FAIL/);
+}
+
+// 17. dead token in the AUDIT-enriched pool -> audit_dead_tokens.js  (class 13 covers
+//     the production pool via check_prefaces; this covers the enriched-pool gate that
+//     also scans variant.match_tokens — a token dead even there does no work)
+{
+  const d = mkenv(['scripts', 'references']);
+  const f = path.join(d, 'references/07_preface_lexicon.js');
+  fs.writeFileSync(f, fs.readFileSync(f, 'utf8').replace('tokens: [', "tokens: ['zzz_dead_audit_token', "));
+  record('dead-audit-token -> audit_dead_tokens.js', gate(d, ['scripts/audit_dead_tokens.js']), /zzz_dead_audit_token|DEAD-TOKEN AUDIT: FAIL/i);
+}
+
+// 18. workspace mutation -> check_workspace_ops.js  (neuter clone() to an identity
+//     function so edit ops mutate their input workspace, violating the state-passing
+//     immutability the gate's "IMMUTABLE: ..." checks assert)
+{
+  const d = mkenv(['scripts', 'references']);
+  const f = path.join(d, 'scripts/_workspace_ops.js');
+  fs.writeFileSync(f, fs.readFileSync(f, 'utf8').replace(
+    'function clone(ws) {',
+    'function clone(ws) {\n  return ws; // __WORKSPACE_FAULT__ identity clone breaks state-passing'
+  ));
+  record('workspace-mutation -> check_workspace_ops.js', gate(d, ['scripts/check_workspace_ops.js']), /IMMUTABLE|FAIL/);
 }
 
 // Registry-driven completeness: every promise-bound gate (_promises.js) must have

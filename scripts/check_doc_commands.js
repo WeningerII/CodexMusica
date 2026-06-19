@@ -69,6 +69,13 @@ for (const [cmd, src] of cmds) {
 
 console.log(`=== Documented command execution (${cmds.size} concrete commands) ===`);
 if (VERBOSE || fail) for (const r of results) console.log(r);
+// Refuse to pass vacuously: if the scan extracts 0 runnable commands (the docs
+// reliably carry several recipe.js examples), the doc formatting or CMD_RE drifted
+// and "PASS — all 0 ... exit 0" would be a false green. Fail loudly instead.
+if (cmds.size === 0) {
+  console.error('FAIL — extracted 0 runnable documented commands; the doc-scan regex or doc formatting drifted (expected several recipe.js examples).');
+  process.exit(1);
+}
 if (fail === 0) {
   console.log(`PASS — all ${cmds.size} documented script commands exit 0.`);
   process.exit(0);
