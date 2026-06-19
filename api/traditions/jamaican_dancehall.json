@@ -5,7 +5,7 @@
   "lineage": "Jamaican dancehall genre emerging in the early 1980s as the post-roots-reggae evolution toward digital-rhythm computer-riddim DJ-toasting tradition — breakthrough recordings the Sleng Teng riddim 1985 (Wayne Smith Under Mi Sleng Teng, the first all-computer-generated reggae riddim), then through Yellowman, Eek-A-Mouse, Shabba Ranks, Buju Banton, Beenie Man, Bounty Killer, Vybz Kartel, and the broader 1990s-2000s Greensleeves / VP Records dancehall catalog",
   "recipe": "classic 1980-1983 jamaican dancehall, bass System, Jamaican branch, Afro-diasporic MC rhythm, house electronic dance chicago house tech-house. thick, blues-shouter, chest resonance low mid, ornamental. ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, maple vintage ambassador asymmetric bronze bell bronze drum kit, roland tr 8s modern aira digital recreation TR-808, roland tr 8s modern aira digital recreation TR-909, sampler, Fender blackface amp American 60s amp spring reverb bright clean strummed single coil electric guitar, Hammond a 100 built in Leslie home spinet Leslie 145 smaller 25w tube home club gospel runs fast tremolo tonewheel organ, sub bass analog poly synth. Kingston channel one defining 1972-1985 indie-commercial kingston channel one maxfield avenue. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter roland RE-201 space echo.",
   "recipe_chars": 991,
-  "score": 292.758,
+  "score": 292.268,
   "config": {
     "traditions": [
       "jamaican_dancehall",
@@ -203,13 +203,13 @@
           "electronic_technique": "electronic_bass_sub",
           "poly_archetypes": "juno_60",
           "poly_voices": "poly_5_voice",
-          "poly_maker_lineage": "poly_sequential_smith"
+          "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
           "electronic_technique": 3.1200000000000006,
           "poly_archetypes": 0.39,
           "poly_voices": 0.39,
-          "poly_maker_lineage": -0.7350000000000001
+          "poly_maker_lineage": -1.225
         }
       }
     ],
