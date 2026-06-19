@@ -34,6 +34,7 @@
     "check:api": "node scripts/check_api.js",
     "check:promises": "node scripts/check_promises.js",
     "check:prefaces": "node scripts/check_prefaces.js",
+    "check:dead-tokens": "node scripts/audit_dead_tokens.js",
     "check:fresh": "node scripts/check_artifact_fresh.js",
     "faults": "node scripts/faults.js",
     "lint": "eslint .",

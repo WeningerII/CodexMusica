@@ -2110,7 +2110,7 @@ const PREFACE_LEXICON = [
   {
     id: 'radiant',
     note: "bright outpouring of light — projecting shimmer over lifted, glowing mids",
-    tokens: ['bright', 'bright-projecting', 'warm-glowing', 'shimmering', 'projecting-bright', 'hyped-mids', 'sustained-projection', 'bright-high-register', 'lively']
+    tokens: ['bright', 'warm-glowing', 'shimmering', 'hyped-mids', 'sustained-projection', 'bright-high-register', 'lively']
   },
   {
     id: 'serene',
@@ -2135,32 +2135,32 @@ const PREFACE_LEXICON = [
   {
     id: 'scorching',
     note: "searing overdrive — high-gain saturated heat with aggressive transient bite",
-    tokens: ['high-gain-saturation', 'distorted', 'transient-grab-aggressive', 'growly', 'fast-attack-transient', 'percussive', 'high-gain-cascading-saturation', 'hot', 'sizzly']
+    tokens: ['high-gain-saturation', 'distorted', 'transient-grab-aggressive', 'growly', 'fast-attack-transient', 'percussive', 'high-gain-cascading-saturation']
   },
   {
     id: 'blazing',
     note: "incandescent intensity — bright saturated fire, projecting and percussive",
-    tokens: ['high-gain-saturation', 'bright', 'distorted', 'transient-grab-aggressive', 'fast-attack-transient', 'percussive', 'hot', 'high-gain-cascading-saturation', 'projecting-bright']
+    tokens: ['high-gain-saturation', 'bright', 'distorted', 'transient-grab-aggressive', 'fast-attack-transient', 'percussive', 'high-gain-cascading-saturation']
   },
   {
     id: 'shimmering',
     note: "glistening high-end haze — controlled shimmer floating in airy light",
-    tokens: ['shimmering', 'controlled-shimmer', 'sustained-shimmer', 'bright', 'warm-glowing', 'airy', 'floating', 'bright-high-register', 'silky-airy-top']
+    tokens: ['shimmering', 'bright', 'warm-glowing', 'airy', 'floating', 'bright-high-register', 'silky-airy-top']
   },
   {
     id: 'icy',
     note: "cold clinical brightness — clear glassy air with an arctic, controlled edge",
-    tokens: ['cold', 'cold-clinical-mix-aesthetic', 'bright-clear', 'dry-near-field-low-reverb-arctic-cold-air', 'controlled-shimmer', 'airy', 'bright', 'brighter', 'breath-tone-airy']
+    tokens: ['cold-clinical-mix-aesthetic', 'bright-clear', 'dry-near-field-low-reverb-arctic-cold-air', 'airy', 'bright', 'brighter', 'breath-tone-airy']
   },
   {
     id: 'dazzling',
     note: "blinding brilliance — projecting bright shimmer over hyped, sustained light",
-    tokens: ['bright', 'bright-projecting', 'shimmering', 'projecting-bright', 'hyped-mids', 'controlled-shimmer', 'bright-high-register', 'sustained-projection', 'warm-bright']
+    tokens: ['bright', 'shimmering', 'hyped-mids', 'bright-high-register', 'sustained-projection']
   },
   {
     id: 'enchanting',
     note: "spellbinding allure — warm-glowing ethereal float, soft and intimate",
-    tokens: ['warm-glowing', 'floating', 'intimate-aspirated', 'soft', 'smoothed', 'ethereal', 'airy', 'expressive', 'sustained-tone']
+    tokens: ['warm-glowing', 'floating', 'intimate-aspirated', 'soft', 'smoothed', 'airy', 'expressive', 'sustained-tone']
   },
   {
     id: 'dismal',
@@ -2170,7 +2170,7 @@ const PREFACE_LEXICON = [
   {
     id: 'bleak',
     note: "austere desolation — minimal cold dark, hollow and sustained",
-    tokens: ['dark', 'austere-meditative', 'low-mid-thick', 'mournful', 'minimal', 'hollow', 'sustained-tone', 'low-register', 'cold']
+    tokens: ['dark', 'austere-meditative', 'low-mid-thick', 'mournful', 'minimal', 'hollow', 'sustained-tone', 'low-register']
   },
   {
     id: 'dreadful',
@@ -2185,7 +2185,7 @@ const PREFACE_LEXICON = [
   {
     id: 'grim',
     note: "stern unsmiling dark — rough low-register austerity with a biting, cold edge",
-    tokens: ['dark', 'austere-meditative', 'low-register', 'rough', 'low-mid-thick', 'growly', 'sustained-tone', 'biting', 'cold']
+    tokens: ['dark', 'austere-meditative', 'low-register', 'rough', 'low-mid-thick', 'growly', 'sustained-tone', 'biting']
   },
   {
     id: 'weary',
@@ -2290,17 +2290,17 @@ const PREFACE_LEXICON = [
   {
     id: 'fiery',
     note: "blazing passion — distorted high-gain heat with aggressive growl",
-    tokens: ['high-gain-saturation', 'distorted', 'transient-grab-aggressive', 'biting', 'hot', 'sizzly', 'fast-attack-transient', 'growly', 'unrestrained']
+    tokens: ['high-gain-saturation', 'distorted', 'transient-grab-aggressive', 'biting', 'fast-attack-transient', 'growly', 'unrestrained']
   },
   {
     id: 'sizzling',
     note: "crackling heat — hot saturated bite, sharp and percussive",
-    tokens: ['hot', 'sizzly', 'high-gain-saturation', 'fast-attack-transient', 'biting', 'distorted', 'transient-grab-aggressive', 'sharp', 'percussive']
+    tokens: ['high-gain-saturation', 'fast-attack-transient', 'biting', 'distorted', 'transient-grab-aggressive', 'sharp', 'percussive']
   },
   {
     id: 'frosty',
     note: "cold glassy clarity — clinical clean brightness with an arctic chill",
-    tokens: ['cold', 'cold-clinical-mix-aesthetic', 'glassy', 'silvery', 'bright-clear', 'airless', 'dry-near-field-low-reverb-arctic-cold-air', 'clean', 'brighter']
+    tokens: ['cold-clinical-mix-aesthetic', 'glassy', 'silvery', 'bright-clear', 'airless', 'dry-near-field-low-reverb-arctic-cold-air', 'clean', 'brighter']
   },
   {
     id: 'elegant',
@@ -2380,7 +2380,7 @@ const PREFACE_LEXICON = [
   {
     id: 'cruel',
     note: "cold-blooded malice — a clean biting cut, sharp and unfeeling",
-    tokens: ['biting', 'cutting', 'cold', 'sharp', 'clean-articulation-low-blur', 'edgy', 'distorted', 'growly', 'dark']
+    tokens: ['biting', 'cutting', 'sharp', 'clean-articulation-low-blur', 'edgy', 'distorted', 'growly', 'dark']
   },
   {
     id: 'nasty',
@@ -2390,7 +2390,7 @@ const PREFACE_LEXICON = [
   {
     id: 'callous',
     note: "unfeeling detachment — cold neutral dryness, controlled and damped",
-    tokens: ['cold', 'neutral', 'dry', 'austere-meditative', 'low-distortion-low-coloration', 'controlled', 'sustained-tone', 'low-mid-rich-spectrum', 'blanket-damped']
+    tokens: ['neutral', 'dry', 'austere-meditative', 'low-distortion-low-coloration', 'controlled', 'sustained-tone', 'low-mid-rich-spectrum', 'blanket-damped']
   },
   {
     id: 'cranky',
@@ -2845,12 +2845,12 @@ const PREFACE_LEXICON = [
   {
     id: 'celestial',
     note: "heavenly light — shimmering ethereal halo, airy and floating",
-    tokens: ['halo', 'shimmering', 'ethereal', 'airy', 'floating', 'silky-airy-top', 'sustained-tone', 'reverberant', 'sweetened']
+    tokens: ['halo', 'shimmering', 'airy', 'floating', 'silky-airy-top', 'sustained-tone', 'reverberant', 'sweetened']
   },
   {
     id: 'spectral',
     note: "ghostly presence — ethereal airy float in haunted reverberant air",
-    tokens: ['ethereal', 'airy', 'floating', 'breath-tone-airy', 'haunted-romantic', 'drone-like', 'reverberant', 'sustained-tones-free-rhythm', 'washy']
+    tokens: ['airy', 'floating', 'breath-tone-airy', 'haunted-romantic', 'drone-like', 'reverberant', 'sustained-tones-free-rhythm', 'washy']
   },
   {
     id: 'subterranean',
@@ -2900,7 +2900,7 @@ const PREFACE_LEXICON = [
   {
     id: 'futuristic',
     note: "sci-fi gleam — synthetic digital clarity, glassy and wide",
-    tokens: ['synthesized', 'synthetic', 'digital', 'modern', 'bright-clear', 'controlled-shimmer', 'sustained-shimmer', 'wide-soundstage', 'glassy']
+    tokens: ['synthesized', 'synthetic', 'digital', 'modern', 'bright-clear', 'wide-soundstage', 'glassy']
   },
   {
     id: 'widescreen',
@@ -2915,7 +2915,7 @@ const PREFACE_LEXICON = [
   {
     id: 'industrial',
     note: "machine harsh — metallic distorted percussion over a buzzing sub",
-    tokens: ['distorted', 'metallic', 'percussive', 'sub-fundamental-buzz', 'transient-grab-aggressive', 'hf-distortion-prone', 'gritty', 'cold', 'sub-heavy']
+    tokens: ['distorted', 'metallic', 'percussive', 'sub-fundamental-buzz', 'transient-grab-aggressive', 'hf-distortion-prone', 'gritty', 'sub-heavy']
   },
   {
     id: 'psychedelic',
@@ -2935,7 +2935,7 @@ const PREFACE_LEXICON = [
   {
     id: 'ethereal',
     note: "gossamer float — an airy halo shimmer, weightless and reverberant",
-    tokens: ['ethereal', 'airy', 'floating', 'breath-tone-airy', 'halo', 'silky-airy-top', 'shimmering', 'reverberant', 'sustained-tone']
+    tokens: ['airy', 'floating', 'breath-tone-airy', 'halo', 'silky-airy-top', 'shimmering', 'reverberant', 'sustained-tone']
   },
   {
     id: 'hazy',
@@ -2945,7 +2945,7 @@ const PREFACE_LEXICON = [
   {
     id: 'crystalline',
     note: "pure clarity — clear glassy shimmer, silvery and bright",
-    tokens: ['bright-clear', 'glassy', 'controlled-shimmer', 'clean', 'silvery', 'treble-extended', 'present', 'bright', 'silky-airy-top']
+    tokens: ['bright-clear', 'glassy', 'clean', 'silvery', 'treble-extended', 'present', 'bright', 'silky-airy-top']
   },
   {
     id: 'velvety',
@@ -3015,7 +3015,7 @@ const PREFACE_LEXICON = [
   {
     id: 'misty',
     note: "soft fog — a washy breath-toned haze, reverberant and floating",
-    tokens: ['washy', 'breath-tone-airy', 'soft-onset', 'reverberant', 'smoothed', 'floating', 'top-rolled-off-12k', 'ethereal', 'layered-ambient']
+    tokens: ['washy', 'breath-tone-airy', 'soft-onset', 'reverberant', 'smoothed', 'floating', 'top-rolled-off-12k', 'layered-ambient']
   },
   {
     id: 'verdant',
@@ -3050,7 +3050,7 @@ const PREFACE_LEXICON = [
   {
     id: 'floating',
     note: "weightless drift — an airy ethereal halo, reverberant and soft",
-    tokens: ['floating', 'airy', 'ethereal', 'breath-tone-airy', 'halo', 'sustained-tone', 'reverberant', 'soft-onset', 'washy']
+    tokens: ['floating', 'airy', 'breath-tone-airy', 'halo', 'sustained-tone', 'reverberant', 'soft-onset', 'washy']
   },
   {
     id: 'smoky',

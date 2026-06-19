@@ -52,6 +52,9 @@ jobs:
       - name: Preface lexicon hygiene (no dup/empty/production-dead tokens, no dup ids)
         run: npm run check:prefaces
 
+      - name: Authoring dead-token gate (every preface token reaches a tradition-default card)
+        run: npm run check:dead-tokens
+
       - name: Audit data quality
         run: npm run audit
 
