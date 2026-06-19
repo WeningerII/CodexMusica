@@ -191,9 +191,9 @@
         },
         {
           "id": "theremin_moog_etherwave",
-          "name": "Moog Music Etherwave (canonical modern Robert Moog reissue 1996-present)",
+          "name": "Moog Music Etherwave (canonical modern reissue 1996-present)",
           "descriptors": [
-            "moog-music-etherwave-canonical-modern-robert-moog-reissue-1996-present"
+            "moog-music-etherwave-canonical-modern-reissue-1996-present"
           ],
           "match_tokens": [
             "electronic",
@@ -345,9 +345,9 @@
         },
         {
           "id": "theremin_moog_etherwave",
-          "name": "Moog Music Etherwave (canonical modern Robert Moog reissue 1996-present)",
+          "name": "Moog Music Etherwave (canonical modern reissue 1996-present)",
           "descriptors": [
-            "moog-music-etherwave-canonical-modern-robert-moog-reissue-1996-present"
+            "moog-music-etherwave-canonical-modern-reissue-1996-present"
           ],
           "match_tokens": [
             "electronic",
