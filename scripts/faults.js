@@ -18,6 +18,9 @@
 //   silent blend-drop   -> recipe.js  (input validation)
 //   orphan promise      -> check_promises.js  (documented but unregistered/ungated)
 //   lazy != embedded    -> check_lazy_app.js  (shipped shell drifts from embedded build)
+//   app<->connector     -> check_app_parity.js   (connector render drifts from the app)
+//   preface drift       -> regression_prefaces.js (matcher output drifts from fixtures)
+//   slot-pick drift     -> check_slot_picks.js    (searched slot drifts from lock-ins)
 //
 // Usage:
 //   node scripts/faults.js [--fresh-api=DIR --fresh-html=FILE] [--verbose]
@@ -234,6 +237,41 @@ record('silent-blend-drop -> recipe.js', gate(ROOT, ['scripts/recipe.js', '--tra
   const f = path.join(d, 'references/07_preface_lexicon.js');
   fs.writeFileSync(f, fs.readFileSync(f, 'utf8').replace('tokens: [', "tokens: ['zzz_dead_fault_token', "));
   record('dead-preface-token -> check_prefaces.js', gate(d, ['scripts/check_prefaces.js']), /zzz_dead_fault_token|dead-token|never scores/i);
+}
+
+// 14. app<->connector parity drift -> check_app_parity.js  (mutate ONLY the connector
+//     render path; the app reads its own inlined compileRecipeStack from src/app.js,
+//     so a sentinel in _seed_workspace.renderWorkspace forces the two to disagree)
+{
+  const d = mkenv(['scripts', 'references', 'src']);
+  const f = path.join(d, 'scripts/_seed_workspace.js');
+  fs.writeFileSync(f, fs.readFileSync(f, 'utf8').replace(
+    'return header + body;',
+    "return header + body + ' __PARITY_FAULT__';"
+  ));
+  record('app-connector-parity-drift -> check_app_parity.js', gate(d, ['scripts/check_app_parity.js', '--limit=30']), /__PARITY_FAULT__|mismatch|FAIL/i);
+}
+
+// 15. preface assignment drift -> regression_prefaces.js  (corrupt one fixture's
+//     expected preface so the matcher's real output no longer matches it)
+{
+  const d = mkenv(['scripts', 'references', 'tests']);
+  const f = path.join(d, 'tests/_preface_regression_fixtures.json');
+  const j = JSON.parse(fs.readFileSync(f, 'utf8'));
+  j[0].expectedPreface = '__preface_fault__';
+  fs.writeFileSync(f, JSON.stringify(j, null, 2));
+  record('preface-drift -> regression_prefaces.js', gate(d, ['scripts/regression_prefaces.js']), /__preface_fault__|FAIL/);
+}
+
+// 16. slot-pick drift -> check_slot_picks.js  (corrupt one fixture's expected variant
+//     so the searched slot pick no longer matches the lock-in)
+{
+  const d = mkenv(['scripts', 'references', 'tests']);
+  const f = path.join(d, 'tests/slot_pick_lock_ins.json');
+  const j = JSON.parse(fs.readFileSync(f, 'utf8'));
+  j.tests[0].expected_variant = '__slot_fault__';
+  fs.writeFileSync(f, JSON.stringify(j, null, 2));
+  record('slot-pick-drift -> check_slot_picks.js', gate(d, ['scripts/check_slot_picks.js']), /__slot_fault__|FAILURES|FAIL/);
 }
 
 // Registry-driven completeness: every promise-bound gate (_promises.js) must have
