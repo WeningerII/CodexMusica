@@ -13,7 +13,7 @@ on:
     # concurrent sync-pages publish; enforcing "green before live" requires
     # branch protection on the production branch (a repo Setting, not workflow
     # config) requiring these checks on PRs + disallowing direct pushes.
-    branches: [main, claude/loving-hawking-vq5m4]
+    branches: [main]
   pull_request:
   workflow_dispatch:
 

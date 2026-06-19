@@ -17,7 +17,7 @@ on:
   workflow_run:
     workflows: ["CI"]
     types: [completed]
-    branches: [claude/loving-hawking-vq5m4] # production / default branch
+    branches: [main] # production branch GitHub Pages serves
   workflow_dispatch: {}
 
 permissions:
