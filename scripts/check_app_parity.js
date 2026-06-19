@@ -89,10 +89,11 @@ let traditions = (C.TRADITIONS || []).map((t) => t.id);
 if (LIMIT > 0) traditions = traditions.slice(0, LIMIT);
 // Refuse to pass vacuously: with 0 traditions the `mismatch === 0 && errored === 0`
 // success test below is trivially true, so an empty catalog would mint a green
-// parity result that proves nothing. Treat it as an environment failure (exit 2).
+// parity result that proves nothing. Fail (exit 1, matching check_prefaces.js's
+// empty-loaded-data guard; exit 2 is reserved for a missing input file).
 if (traditions.length === 0) {
   console.error('FAIL — no traditions loaded (catalog empty); refusing to pass vacuously');
-  process.exit(2);
+  process.exit(1);
 }
 
 let match = 0, mismatch = 0, errored = 0, shown = 0;

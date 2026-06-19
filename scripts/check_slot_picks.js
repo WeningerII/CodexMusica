@@ -20,8 +20,9 @@ for (const a of args) {
   if (a.startsWith('--')) flags[a.slice(2)] = true;
 }
 
-// Refuse to pass vacuously: a missing fixture must FAIL loudly (exit 2), not crash
-// with an uncaught readFileSync; an empty test set must not mint "0/0 pass".
+// Refuse to pass vacuously (exit 2 = missing input file, exit 1 = ran but found a
+// problem): a missing fixture must FAIL loudly, not crash with an uncaught
+// readFileSync; an empty test set must FAIL, not mint "0/0 pass".
 const docPath = path.join(__dirname, '..', 'tests', 'slot_pick_lock_ins.json');
 if (!fs.existsSync(docPath)) {
   console.error(`Slot-pick lock-ins: FAIL — fixture missing at ${docPath} (refusing to pass vacuously)`);
@@ -31,7 +32,7 @@ const doc = JSON.parse(fs.readFileSync(docPath, 'utf8'));
 const tests = doc.tests || [];
 if (tests.length === 0) {
   console.error('Slot-pick lock-ins: FAIL — no tests in fixture (refusing to pass vacuously)');
-  process.exit(2);
+  process.exit(1);
 }
 
 const results = [];
