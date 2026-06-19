@@ -307,9 +307,9 @@
         {
           "id": "mono_moog_robert",
           "default": true,
-          "name": "Moog Robert Moog lineage (canonical Minimoog 1970 — Trumansburg NY)",
+          "name": "Moog lineage (canonical Minimoog 1970 — Trumansburg NY)",
           "descriptors": [
-            "moog-robert-moog-lineage-canonical-minimoog-1970-trumansburg-ny"
+            "moog-lineage-canonical-minimoog-1970-trumansburg-ny"
           ],
           "match_tokens": [
             "electronic",
@@ -322,9 +322,9 @@
         },
         {
           "id": "mono_arp_pearlman",
-          "name": "ARP Alan R. Pearlman lineage (canonical 2600 1971 — Lexington MA)",
+          "name": "ARP lineage (canonical 2600 1971 — Lexington MA)",
           "descriptors": [
-            "arp-alan-pearlman-lineage-canonical-2600-1971-lexington-ma"
+            "arp-lineage-canonical-2600-1971-lexington-ma"
           ],
           "match_tokens": [
             "electronic",
@@ -337,9 +337,9 @@
         },
         {
           "id": "mono_roland_kakehashi",
-          "name": "Roland Ikutaro Kakehashi lineage (canonical SH-101 / TB-303 1982-1984 — Osaka Japan)",
+          "name": "Roland lineage (canonical SH-101 / TB-303 1982-1984 — Osaka Japan)",
           "descriptors": [
-            "roland-ikutaro-kakehashi-lineage-canonical-sh-101-tb-303-1982-1984-osaka"
+            "roland-lineage-canonical-sh-101-tb-303-1982-1984-osaka"
           ],
           "match_tokens": [
             "electronic",
@@ -352,9 +352,9 @@
         },
         {
           "id": "mono_korg_kato",
-          "name": "Korg Tsutomu Katoh lineage (canonical MS-20 1978 — Tokyo Japan)",
+          "name": "Korg lineage (canonical MS-20 1978 — Tokyo Japan)",
           "descriptors": [
-            "korg-tsutomu-katoh-lineage-canonical-ms-20-1978-tokyo"
+            "korg-lineage-canonical-ms-20-1978-tokyo"
           ],
           "match_tokens": [
             "electronic",
@@ -528,9 +528,9 @@
         {
           "id": "mono_moog_robert",
           "default": true,
-          "name": "Moog Robert Moog lineage (canonical Minimoog 1970 — Trumansburg NY)",
+          "name": "Moog lineage (canonical Minimoog 1970 — Trumansburg NY)",
           "descriptors": [
-            "moog-robert-moog-lineage-canonical-minimoog-1970-trumansburg-ny"
+            "moog-lineage-canonical-minimoog-1970-trumansburg-ny"
           ],
           "match_tokens": [
             "electronic",
@@ -543,9 +543,9 @@
         },
         {
           "id": "mono_arp_pearlman",
-          "name": "ARP Alan R. Pearlman lineage (canonical 2600 1971 — Lexington MA)",
+          "name": "ARP lineage (canonical 2600 1971 — Lexington MA)",
           "descriptors": [
-            "arp-alan-pearlman-lineage-canonical-2600-1971-lexington-ma"
+            "arp-lineage-canonical-2600-1971-lexington-ma"
           ],
           "match_tokens": [
             "electronic",
@@ -558,9 +558,9 @@
         },
         {
           "id": "mono_roland_kakehashi",
-          "name": "Roland Ikutaro Kakehashi lineage (canonical SH-101 / TB-303 1982-1984 — Osaka Japan)",
+          "name": "Roland lineage (canonical SH-101 / TB-303 1982-1984 — Osaka Japan)",
           "descriptors": [
-            "roland-ikutaro-kakehashi-lineage-canonical-sh-101-tb-303-1982-1984-osaka"
+            "roland-lineage-canonical-sh-101-tb-303-1982-1984-osaka"
           ],
           "match_tokens": [
             "electronic",
@@ -573,9 +573,9 @@
         },
         {
           "id": "mono_korg_kato",
-          "name": "Korg Tsutomu Katoh lineage (canonical MS-20 1978 — Tokyo Japan)",
+          "name": "Korg lineage (canonical MS-20 1978 — Tokyo Japan)",
           "descriptors": [
-            "korg-tsutomu-katoh-lineage-canonical-ms-20-1978-tokyo"
+            "korg-lineage-canonical-ms-20-1978-tokyo"
           ],
           "match_tokens": [
             "electronic",

@@ -280,9 +280,9 @@
         {
           "id": "poly_sequential_smith",
           "default": true,
-          "name": "Sequential Dave Smith lineage (canonical Prophet-5 1978 — San Jose CA)",
+          "name": "Sequential lineage (canonical Prophet-5 1978 — San Jose CA)",
           "descriptors": [
-            "sequential-dave-smith-lineage-canonical-prophet-5-1978-san-jose-ca"
+            "sequential-lineage-canonical-prophet-5-1978-san-jose-ca"
           ],
           "match_tokens": [
             "electronic",
@@ -295,9 +295,9 @@
         },
         {
           "id": "poly_oberheim_tom",
-          "name": "Oberheim Tom Oberheim lineage (canonical OB-X 1979 / OB-Xa 1980 — Los Angeles CA)",
+          "name": "Oberheim lineage (canonical OB-X 1979 / OB-Xa 1980 — Los Angeles CA)",
           "descriptors": [
-            "oberheim-tom-oberheim-lineage-canonical-ob-x-1979-ob-xa-1980-los-angeles-ca"
+            "oberheim-lineage-canonical-ob-x-1979-ob-xa-1980-los-angeles-ca"
           ],
           "match_tokens": [
             "electronic",
@@ -460,9 +460,9 @@
         {
           "id": "poly_sequential_smith",
           "default": true,
-          "name": "Sequential Dave Smith lineage (canonical Prophet-5 1978 — San Jose CA)",
+          "name": "Sequential lineage (canonical Prophet-5 1978 — San Jose CA)",
           "descriptors": [
-            "sequential-dave-smith-lineage-canonical-prophet-5-1978-san-jose-ca"
+            "sequential-lineage-canonical-prophet-5-1978-san-jose-ca"
           ],
           "match_tokens": [
             "electronic",
@@ -475,9 +475,9 @@
         },
         {
           "id": "poly_oberheim_tom",
-          "name": "Oberheim Tom Oberheim lineage (canonical OB-X 1979 / OB-Xa 1980 — Los Angeles CA)",
+          "name": "Oberheim lineage (canonical OB-X 1979 / OB-Xa 1980 — Los Angeles CA)",
           "descriptors": [
-            "oberheim-tom-oberheim-lineage-canonical-ob-x-1979-ob-xa-1980-los-angeles-ca"
+            "oberheim-lineage-canonical-ob-x-1979-ob-xa-1980-los-angeles-ca"
           ],
           "match_tokens": [
             "electronic",
