@@ -1,7 +1,9 @@
 # Connector ⇄ Current Recipe: Workspace Parity Plan
 
-**Status:** design / diagnose-only (no engine code changed)
-**Branch of record:** `claude/epic-rubin-rolpj6` · deploy branch is `claude/happy-lamport-8t4yw5`
+**Status:** ✅ **Shipped** — merged to `main` (PR #49). The connector now runs the deterministic
+workspace (`start_recipe` / `edit_recipe` / `render_recipe`), verified **1119/1119 byte-identical**
+to the app's Current Recipe and gated in CI via `test:connector`. Kept as the design record; the
+sections below describe the as-built design.
 **Decisions (made):** state model = **state-passing**; anti-drift = **parity-gate-first**
 
 ---

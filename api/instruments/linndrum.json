@@ -119,9 +119,9 @@
         {
           "id": "linndrum_lm_2_canonical",
           "default": true,
-          "name": "Linn Electronics LM-2 / LinnDrum (canonical 1982-1984 — Roger Linn lineage, 8-bit sample ROM)",
+          "name": "Linn Electronics LM-2 / LinnDrum (canonical 1982-1984, 8-bit sample ROM)",
           "descriptors": [
-            "linn-electronics-lm-2-linndrum-canonical-1982-1984-roger-linn-lineage-8-bit-sample-rom"
+            "linn-electronics-lm-2-linndrum-canonical-1982-1984-8-bit-sample-rom"
           ],
           "match_tokens": [
             "electronic",
@@ -266,9 +266,9 @@
         {
           "id": "linndrum_lm_2_canonical",
           "default": true,
-          "name": "Linn Electronics LM-2 / LinnDrum (canonical 1982-1984 — Roger Linn lineage, 8-bit sample ROM)",
+          "name": "Linn Electronics LM-2 / LinnDrum (canonical 1982-1984, 8-bit sample ROM)",
           "descriptors": [
-            "linn-electronics-lm-2-linndrum-canonical-1982-1984-roger-linn-lineage-8-bit-sample-rom"
+            "linn-electronics-lm-2-linndrum-canonical-1982-1984-8-bit-sample-rom"
           ],
           "match_tokens": [
             "electronic",

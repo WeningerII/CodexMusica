@@ -19,7 +19,7 @@ on idle) — retry after a few seconds.
 ## What to include in a report
 
 - What you asked Claude (the request), and the recipe or error you got back.
-- The tool involved if you know it (e.g. `generate_recipe`, `apply_preface`).
+- The tool involved if you know it (e.g. `start_recipe`, `edit_recipe`).
 - Whether you added the connector via a custom URL or the Connectors Directory.
 
 ## Scope

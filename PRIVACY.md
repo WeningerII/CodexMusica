@@ -18,7 +18,7 @@ to look up). The server:
 - is **stateless** — it creates a fresh handler per request and keeps no session,
   database, or persistent store of requests or responses;
 - writes a minimal **operational log** line per call containing the JSON-RPC
-  method and the tool name (e.g. `tools/call generate_recipe`) plus a timestamp,
+  method and the tool name (e.g. `tools/call start_recipe`) plus a timestamp,
   for uptime and error monitoring. It does **not** log tool arguments or the
   recipe text;
 - makes **no outbound network calls** — every response is computed from the

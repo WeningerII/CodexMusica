@@ -326,8 +326,8 @@ const INSTRUMENTS = [
         { id: 'mande_jeli_vocal_tradition', name: 'Mande jeli / griot vocal (Mali, Senegal, Guinea, Gambia)', descriptors: ['mande-jeli-vocal', 'griot-praise-narrative-vocal', 'pentatonic-jeli-modal-vocal', 'west-african-praise-vocal-lineage'], match_tokens: ['speech-derived', 'breathing', 'folk-tradition'], canonical_tags: ['mande', 'west-african', 'griot', 'praise-vocal'] },
         { id: 'sami_joik_tradition', name: 'Sámi joik / yoik (Nordic Sápmi vocal)', descriptors: ['sami-joik-vocal', 'yoik-vuelle-luohti', 'sapmi-leudd-vocal'], match_tokens: ['speech-derived', 'breathing'], canonical_tags: ['sami', 'sapmi', 'joik'] },
         { id: 'andean_quechua_tradition', name: 'Andean Quechua / Aymara wayno vocal (Andes highland)', descriptors: ['andean-quechua-vocal', 'wayno-huayno-aymara', 'altiplano-quena-vocal'], match_tokens: ['speech-derived', 'breathing'], canonical_tags: ['andean', 'quechua', 'aymara'] },
-        { id: 'native_american_vocal_tradition', name: 'Native American vocal (Plains/Southwest powwow & ceremonial)', descriptors: ['amerindian-powwow-vocal', 'pueblo-amerindian-vocal'], match_tokens: ['speech-derived', 'breathing'], canonical_tags: ['amerindian', 'powwow', 'pueblo'] },
-        { id: 'southeast_asian_folk_vocal_tradition', name: 'Southeast Asian folk vocal (lam / mor-lam, luk-thung)', descriptors: ['morlam-lam-vocal', 'isan-luk-thung-vocal', 'mekong-khmer-vocal'], match_tokens: ['speech-derived', 'breathing'], canonical_tags: ['isan', 'morlam', 'mekong'] },
+        { id: 'native_american_vocal_tradition', name: 'Native American vocal (Plains/Southwest powwow & ceremonial)', descriptors: ['amerindian-powwow-vocal', 'pueblo-amerindian-vocal'], match_tokens: ['speech-derived', 'breathing'], canonical_tags: ['amerindian', 'powwow'] },
+        { id: 'southeast_asian_folk_vocal_tradition', name: 'Southeast Asian folk vocal (lam / mor-lam, luk-thung)', descriptors: ['morlam-lam-vocal', 'isan-luk-thung-vocal', 'mekong-khmer-vocal'], match_tokens: ['speech-derived', 'breathing'], canonical_tags: ['isan', 'mekong'] },
         { id: 'southern_african_bantu_vocal_tradition', name: 'Southern African Bantu vocal (Zulu / Xhosa / Tsonga choral chant, isicathamiya to township pop)', descriptors: ['nguni-tsonga-sotho-vocal', 'isicathamiya-mbube-cothoza', 'township-jive-chant-vocal'], match_tokens: ['speech-derived', 'breathing'], canonical_tags: ['tsonga', 'zulu', 'african'] },
       ] },
       { id: 'voice_mechanism_compound', surface: false, name: 'Compound mechanism (multi-source phonation)', variants: [
@@ -7941,10 +7941,10 @@ const INSTRUMENTS = [
         { id: 'sh_101', name: 'Roland SH-101', descriptors: ['fast-attack-transient', 'simple', 'versatile'], match_tokens: ['electronic', 'analog', 'synthesized'] },
       ] },
       { id: 'mono_maker_lineage', surface: false, name: 'Maker lineage', variants: [
-        { id: 'mono_moog_robert', default: true, name: 'Moog Robert Moog lineage (canonical Minimoog 1970 — Trumansburg NY)', descriptors: ['moog-robert-moog-lineage-canonical-minimoog-1970-trumansburg-ny'], match_tokens: ['electronic', 'analog', 'synthesized'], canonical_tags: ['vintage'] },
-        { id: 'mono_arp_pearlman', name: 'ARP Alan R. Pearlman lineage (canonical 2600 1971 — Lexington MA)', descriptors: ['arp-alan-pearlman-lineage-canonical-2600-1971-lexington-ma'], match_tokens: ['electronic', 'analog', 'synthesized'], canonical_tags: ['vintage'] },
-        { id: 'mono_roland_kakehashi', name: 'Roland Ikutaro Kakehashi lineage (canonical SH-101 / TB-303 1982-1984 — Osaka Japan)', descriptors: ['roland-ikutaro-kakehashi-lineage-canonical-sh-101-tb-303-1982-1984-osaka'], match_tokens: ['electronic', 'analog', 'synthesized'], canonical_tags: ['vintage'] },
-        { id: 'mono_korg_kato', name: 'Korg Tsutomu Katoh lineage (canonical MS-20 1978 — Tokyo Japan)', descriptors: ['korg-tsutomu-katoh-lineage-canonical-ms-20-1978-tokyo'], match_tokens: ['electronic', 'analog', 'synthesized'], canonical_tags: ['vintage'] },
+        { id: 'mono_moog_robert', default: true, name: 'Moog lineage (canonical Minimoog 1970 — Trumansburg NY)', descriptors: ['moog-lineage-canonical-minimoog-1970-trumansburg-ny'], match_tokens: ['electronic', 'analog', 'synthesized'], canonical_tags: ['vintage'] },
+        { id: 'mono_arp_pearlman', name: 'ARP lineage (canonical 2600 1971 — Lexington MA)', descriptors: ['arp-lineage-canonical-2600-1971-lexington-ma'], match_tokens: ['electronic', 'analog', 'synthesized'], canonical_tags: ['vintage'] },
+        { id: 'mono_roland_kakehashi', name: 'Roland lineage (canonical SH-101 / TB-303 1982-1984 — Osaka Japan)', descriptors: ['roland-lineage-canonical-sh-101-tb-303-1982-1984-osaka'], match_tokens: ['electronic', 'analog', 'synthesized'], canonical_tags: ['vintage'] },
+        { id: 'mono_korg_kato', name: 'Korg lineage (canonical MS-20 1978 — Tokyo Japan)', descriptors: ['korg-lineage-canonical-ms-20-1978-tokyo'], match_tokens: ['electronic', 'analog', 'synthesized'], canonical_tags: ['vintage'] },
       ] },
     ]
   },
@@ -7968,8 +7968,8 @@ const INSTRUMENTS = [
         { id: 'poly_16_voice', surface: false, name: '16-voice modern', descriptors: ['contemporary', 'virtuoso'], match_tokens: ['electronic', 'analog', 'synthesized'] },
       ] },
       { id: 'poly_maker_lineage', surface: false, name: 'Maker lineage', variants: [
-        { id: 'poly_sequential_smith', default: true, name: 'Sequential Dave Smith lineage (canonical Prophet-5 1978 — San Jose CA)', descriptors: ['sequential-dave-smith-lineage-canonical-prophet-5-1978-san-jose-ca'], match_tokens: ['electronic', 'analog', 'synthesized'], canonical_tags: ['vintage'] },
-        { id: 'poly_oberheim_tom', name: 'Oberheim Tom Oberheim lineage (canonical OB-X 1979 / OB-Xa 1980 — Los Angeles CA)', descriptors: ['oberheim-tom-oberheim-lineage-canonical-ob-x-1979-ob-xa-1980-los-angeles-ca'], match_tokens: ['electronic', 'analog', 'synthesized'], canonical_tags: ['vintage'] },
+        { id: 'poly_sequential_smith', default: true, name: 'Sequential lineage (canonical Prophet-5 1978 — San Jose CA)', descriptors: ['sequential-lineage-canonical-prophet-5-1978-san-jose-ca'], match_tokens: ['electronic', 'analog', 'synthesized'], canonical_tags: ['vintage'] },
+        { id: 'poly_oberheim_tom', name: 'Oberheim lineage (canonical OB-X 1979 / OB-Xa 1980 — Los Angeles CA)', descriptors: ['oberheim-lineage-canonical-ob-x-1979-ob-xa-1980-los-angeles-ca'], match_tokens: ['electronic', 'analog', 'synthesized'], canonical_tags: ['vintage'] },
         { id: 'poly_roland_jupiter', name: 'Roland Jupiter lineage (canonical Jupiter-8 1981 — Osaka Japan)', descriptors: ['roland-jupiter-lineage-canonical-jupiter-8-1981-osaka'], match_tokens: ['electronic', 'analog', 'synthesized'], canonical_tags: ['vintage'] },
         { id: 'poly_yamaha_cs', name: 'Yamaha CS lineage (canonical CS-80 1976 — Hamamatsu Japan, polyphonic flagship)', descriptors: ['yamaha-cs-lineage-canonical-cs-80-1976-hamamatsu-polyphonic-flagship'], match_tokens: ['electronic', 'analog', 'synthesized'], canonical_tags: ['vintage'] },
       ] },
@@ -8120,7 +8120,7 @@ const INSTRUMENTS = [
         { id: 'linndrum_hiphop_sample', name: 'Hip-hop sampling source', descriptors: ['classic-source', 'breakable', 'reissued-in-software'], match_tokens: ['electronic', 'machine-quantized'] },
       ] },
       { id: 'linndrum_production_origin', surface: false, name: 'Production origin', variants: [
-        { id: 'linndrum_lm_2_canonical', default: true, name: 'Linn Electronics LM-2 / LinnDrum (canonical 1982-1984 — Roger Linn lineage, 8-bit sample ROM)', descriptors: ['linn-electronics-lm-2-linndrum-canonical-1982-1984-roger-linn-lineage-8-bit-sample-rom'], match_tokens: ['electronic', 'machine-quantized'], canonical_tags: ['vintage'] },
+        { id: 'linndrum_lm_2_canonical', default: true, name: 'Linn Electronics LM-2 / LinnDrum (canonical 1982-1984, 8-bit sample ROM)', descriptors: ['linn-electronics-lm-2-linndrum-canonical-1982-1984-8-bit-sample-rom'], match_tokens: ['electronic', 'machine-quantized'], canonical_tags: ['vintage'] },
         { id: 'linndrum_lm_1_earlier', name: 'Linn LM-1 (1980-1982 — earliest sample-based drum machine, $5000 production-only)', descriptors: ['linn-lm-1-1980-1982-earliest-sample-based-drum-machine-5000-production-only'], match_tokens: ['electronic', 'machine-quantized'], canonical_tags: ['vintage'] },
         { id: 'linndrum_9000_late', name: 'Linn 9000 (1984-1986 — MIDI-equipped successor)', descriptors: ['linn-9000-1984-1986-midi-equipped-successor'], match_tokens: ['electronic', 'machine-quantized'], canonical_tags: ['vintage'] },
       ] },
@@ -8167,7 +8167,7 @@ const INSTRUMENTS = [
       { id: 'mod_lineage', surface: false, name: 'Modular lineage', variants: [
         { id: 'mod_moog_east_coast', default: true, name: 'Moog east-coast modular (canonical 1964-1981 Trumansburg — keyboard-driven subtractive)', descriptors: ['moog-east-coast-modular-canonical-1964-1981-trumansburg-keyboard-driven-subtractive'], match_tokens: ['electronic', 'modular-patch'], canonical_tags: ['vintage'] },
         { id: 'mod_buchla_west_coast', name: 'Buchla west-coast modular (canonical 1965-1980s Berkeley — sequencer/touchplate timbral)', descriptors: ['buchla-west-coast-modular-canonical-1965-1980s-berkeley-sequencer-touchplate-timbral'], match_tokens: ['electronic', 'modular-patch'], canonical_tags: ['vintage'] },
-        { id: 'mod_serge_tcherepnin', name: 'Serge Serge Tcherepnin lineage (canonical 1973-1980s Cal Arts — patch-programmable West-Coast)', descriptors: ['serge-tcherepnin-lineage-canonical-1973-1980s-cal-arts-patch-programmable-west-coast'], match_tokens: ['electronic', 'modular-patch'], canonical_tags: ['vintage'] },
+        { id: 'mod_serge_tcherepnin', name: 'Serge lineage (canonical 1973-1980s Cal Arts — patch-programmable West-Coast)', descriptors: ['serge-lineage-canonical-1973-1980s-cal-arts-patch-programmable-west-coast'], match_tokens: ['electronic', 'modular-patch'], canonical_tags: ['vintage'] },
         { id: 'mod_doepfer_eurorack', name: 'Doepfer eurorack (canonical 1995-present — small-format standardization)', descriptors: ['doepfer-eurorack-canonical-1995-present-small-format-standardization'], match_tokens: ['electronic', 'modular-patch'] },
         { id: 'mod_emu_modular', name: 'EMu Modular (1971-1978 — analog studio-grade East Coast precision)', descriptors: ['emu-modular-1971-1978-analog-studio-grade-east-coast-precision'], match_tokens: ['electronic', 'modular-patch'], canonical_tags: ['vintage'] },
       ] },
