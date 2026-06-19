@@ -87,6 +87,13 @@ function connectorRecipe(id) {
 // ── compare across the catalog ──────────────────────────────────────────────
 let traditions = (C.TRADITIONS || []).map((t) => t.id);
 if (LIMIT > 0) traditions = traditions.slice(0, LIMIT);
+// Refuse to pass vacuously: with 0 traditions the `mismatch === 0 && errored === 0`
+// success test below is trivially true, so an empty catalog would mint a green
+// parity result that proves nothing. Treat it as an environment failure (exit 2).
+if (traditions.length === 0) {
+  console.error('FAIL — no traditions loaded (catalog empty); refusing to pass vacuously');
+  process.exit(2);
+}
 
 let match = 0, mismatch = 0, errored = 0, shown = 0;
 const firstDiff = (a, b) => { const n = Math.min(a.length, b.length); for (let i = 0; i < n; i++) if (a[i] !== b[i]) return i; return n; };

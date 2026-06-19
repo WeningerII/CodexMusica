@@ -10,8 +10,22 @@ const C = require(path.join(__dirname, '_loader.js'));
 const PM = require(path.join(__dirname, '_preface_match.js'));
 const CD = require(path.join(__dirname, '_card_descriptors.js'));
 const M = require(path.join(__dirname, '_matcher.js'));
-const sigs = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'references', '_tradition_signatures.json'), 'utf8'));
-const fixtures = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'tests', '_preface_regression_fixtures.json'), 'utf8'));
+// Read-or-exit-2 (mirrors the missing-snapshot discipline in regression_recipes.js /
+// app_recipe_regression.js): a deleted fixtures/signatures file must FAIL loudly, not
+// crash with an uncaught readFileSync or — worse — pass vacuously on an empty set.
+function readJsonOrExit(p, label) {
+  if (!fs.existsSync(p)) {
+    console.log(`PREFACE REGRESSION: FAIL — ${label} missing at ${p} (refusing to pass vacuously)`);
+    process.exit(2);
+  }
+  return JSON.parse(fs.readFileSync(p, 'utf8'));
+}
+const sigs = readJsonOrExit(path.join(__dirname, '..', 'references', '_tradition_signatures.json'), 'tradition signatures');
+const fixtures = readJsonOrExit(path.join(__dirname, '..', 'tests', '_preface_regression_fixtures.json'), 'preface fixtures');
+if (!Array.isArray(fixtures) || fixtures.length === 0) {
+  console.log('PREFACE REGRESSION: FAIL — fixtures empty (refusing to pass vacuously)');
+  process.exit(2);
+}
 
 // suggest() delegates to the canonical primitive in _preface_match.js.
 // Two implementations of the v2 algorithm exist (HTML embed, _preface_match.js).
