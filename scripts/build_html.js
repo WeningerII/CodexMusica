@@ -239,6 +239,20 @@ fs.writeFileSync(outputPath, html);
 
 console.error(`Built ${outputPath} (${html.length.toLocaleString()} bytes)`);
 
+// The committed artifact lives at the repo root (that's what Pages serves and the
+// freshness gate checks). _paths.js defaults the output to a sandbox/temp dir, so a
+// bare `build:html` does NOT update ./codex.html. Warn the interactive dev; CI runs
+// the bare build only as a syntax/leak check, so stay quiet there.
+{
+  const repoHtml = path.join(SKILL_ROOT, 'codex.html');
+  if (!process.env.CI && path.resolve(outputPath) !== path.resolve(repoHtml)) {
+    console.error(
+      'note: that is the resolved output dir, not the committed ./codex.html — that file is unchanged.\n' +
+      '      to update it: CODEX_OUT_DIR="$(pwd)" node scripts/build_html.js   (or --out=codex.html)',
+    );
+  }
+}
+
 // ──────────────────────────── build summary ────────────────────────────
 // Per-source byte counts. Helpful for noticing when a source file shrank or grew
 // unexpectedly between builds. Skipped under --quiet.
