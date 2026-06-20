@@ -7,6 +7,19 @@ All notable changes to this project are recorded here. Format loosely follows
 ## [Unreleased] — production hardening
 
 ### Added
+- **Gate-lattice hardening: vacuous-pass guards + two-sided coverage of the full
+  CI-blocking tail.** Four gates that could report green while checking nothing now
+  refuse a vacuous pass — `check_app_parity.js` (an empty-catalog `mismatch===0 &&
+  errored===0` result), `check_doc_commands.js` (the "PASS — all 0" path when the doc
+  scan finds no commands), `regression_prefaces.js`, and `check_slot_picks.js` (a
+  deleted fixture crashed via uncaught `readFileSync`; an emptied one passed "0/0").
+  Exit-code convention unified: a missing input file exits 2 (matching the
+  missing-snapshot discipline in `regression_recipes.js` / `app_recipe_regression.js`),
+  data present-but-empty exits 1 (matching `check_prefaces.js`). `faults.js` now plants
+  a defect across **19 gate-classes** (0 escapes, registry-completeness asserted) — new
+  injections prove `check_app_parity`, `regression_prefaces`, `check_slot_picks`,
+  `audit_dead_tokens`, and `check_workspace_ops` go red on planted drift, closing the
+  "two-sided by inspection only" tail (the AUDIT_REPORT H1 finding).
 - **Connector rewrite: deterministic editable workspace (PR #49).** The MCP
   connector (`mcp/`) is now a headless driver of the same deterministic pipeline
   the browser app uses, not a hill-climb search. New tool surface: `start_recipe`
@@ -267,6 +280,16 @@ All notable changes to this project are recorded here. Format loosely follows
   nothing reads it (`fetch_commons.js` reads `_instrument_asset_map_full.json`).
 
 ### Changed
+- **Founder personal names dropped from maker-lineage descriptors** (the recipe
+  "no artist names" contract). The synth / drum-machine / theremin "maker lineage"
+  variants in `references/02_instruments.js` embedded a founder's personal name beside
+  the already-named brand — e.g. "Moog Robert Moog lineage" → "Moog lineage", and the
+  theremin "Moog Music Etherwave … Robert Moog reissue" → "… reissue". Brand + model +
+  year + place kept, personal name removed; variant ids unchanged (opaque keys). `api/`,
+  `codex.html`, `sitemap.xml`, and the recipe snapshots regenerated from source.
+- **`main` is now the canonical / default branch.** Reconciled `main` with the former
+  auto-named default (`claude/loving-hawking-vq5m4`) so there is one source of truth; CI
+  and the `sync-pages` auto-publish target `main` (the live Pages / Render line).
 - Tradition defaults refined (61 traditions; recipe outputs re-snapshotted, all
   regression/equivalence gates green, `codex.html` rebuilt):
   - **Recording-era coherence (21):** corrected anachronistic `chain_archetype`

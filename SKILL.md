@@ -1,6 +1,6 @@
 ---
 name: codex-music-tool
-description: Query, compose, validate, and mutate the Codex Musica dataset — 1119 recorded-music traditions (in a 312-node genre tree, 13-axis space), 419 instruments across 11 families with shared parts/variants, 256 rooms, 22 chain archetypes, 21 production aesthetics, 120 tunings, and a 454-entry voice/preface lexicon. Use to look entries up, build an ensemble + room/chain/tuning setup from a tradition (or blend), compile a compressed descriptor-stack "recipe", validate every cross-reference and invariant, and safely add/edit/delete instruments, traditions, rooms, and other entities.
+description: Query, compose, validate, and mutate the Codex Musica dataset — 1119 recorded-music traditions (in a 312-node genre tree, 13-axis space), 419 instruments across 11 families with shared parts/variants, 256 rooms, 22 chain archetypes, 21 production aesthetics, 120 tunings, and a 649-entry voice/preface lexicon. Use to look entries up, build an ensemble + room/chain/tuning setup from a tradition (or blend), compile a compressed descriptor-stack "recipe", validate every cross-reference and invariant, and safely add/edit/delete instruments, traditions, rooms, and other entities.
 license: UNLICENSED
 ---
 
@@ -59,7 +59,7 @@ Hard rule: **anything you emit (recipe or arrangement) MUST pass §6 before you 
 | tree nodes | 312 | **full dotted path**, e.g. `groovePercussion.afroDiasporicElec` | `TREE_NODES` (array) |
 | traditions | 1119 | bare slug, e.g. `afrobeat` | `TRADITIONS` (array) |
 | tradition extras | 1119 | keyed by tradition id | `TRADITION_EXTRAS` (object) |
-| voice/preface lexicon | 454 | bare slug, e.g. `sobbing` | `PREFACE_LEXICON` (array) |
+| voice/preface lexicon | 649 | bare slug, e.g. `sobbing` | `PREFACE_LEXICON` (array) |
 | axis definitions | 13 (trad) / 9 (inst) | bare slug, e.g. `harm` | `AXIS_DEFINITIONS`, `INSTRUMENT_AXIS_DEFINITIONS` |
 
 **Bundles → tables.** Each file declares bare `const NAME = …;` (no `window`; only
@@ -179,7 +179,7 @@ console.log("loaded:",T.INSTRUMENTS.length,"insts,",T.TRADITIONS.length,"trads")
 ### B. `require` for the preface lexicon only (it has `module.exports`)
 
 ```bash
-node -e 'console.log(require("./references/07_preface_lexicon.js").PREFACE_LEXICON.length)'  # → 454
+node -e 'console.log(require("./references/07_preface_lexicon.js").PREFACE_LEXICON.length)'  # → 649
 ```
 
 ### C. grep to locate fast (single-quoted JS; the field is `name`)
@@ -265,7 +265,7 @@ console.log(JSON.stringify(db.TUNINGS.filter(t=>!(t.descriptors||[]).includes("W
 ```
 (Verified: instrument families 11; tradition.family buckets 12; tuning first-descriptor
 groups `pentatonic:11, korean-traditional:2, son-clave:2, …` — descriptors are
-character-based, not region-based; `PREFACE_LEXICON` has 564 distinct tokens.)
+character-based, not region-based; `PREFACE_LEXICON` has 567 distinct tokens.)
 
 ---
 
@@ -357,7 +357,7 @@ Each reuses `const db = require('./q.js')`. Run from the package root or with
 
 ### 3d. Voice & preface lexicon (descriptor enrichment)
 
-`PREFACE_LEXICON` is 454 named bundles of descriptor tokens for **vocal/character**
+`PREFACE_LEXICON` is 649 named bundles of descriptor tokens for **vocal/character**
 description (`sobbing`, `belting`, `keening`, `wailing`, `crooning`, `purring`, …). Use it
 to enrich a voice chair's descriptors with consistent tokens; there is **no numeric
 op-model and no conflicts table**.
@@ -383,9 +383,9 @@ Assemble it from the resolved pieces in this fixed order:
 5. Medium + fx, then production aesthetic.
 
 A real compiled recipe (verbatim `node scripts/recipe.js --tradition afrobeat`
-snapshot, 903 chars — shown truncated):
+snapshot, 990 chars — shown truncated):
 ```
-classic West African mid-1970s afrobeat, groove Percussion, Afro-diasporic electric branch, American jazz fusion, Afro-diasporic MC rhythm acid jazz. thick, rap, nervy, narrative. Fender blackface amp American 60s amp spring reverb bright maple pau ferro single coil electric guitar, thomastik infeld low tension jazz warm pocket fingerstyle electric bass, birch vintage ambassador asymmetric bronze bell bronze drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 145 …
+classic West African mid-1970s afrobeat, groove Percussion, Afro-diasporic electric branch, American jazz fusion, Afro-diasporic MC rhythm acid jazz. thick, rap, nervy, narrative. Fender blackface amp American 60s amp spring reverb bright maple pau ferro single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, birch vintage ambassador asymmetric bronze bell bronze drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 145 …
 ```
 Output rules are strict (§4A): no prose/connectives, no axis values, **no
 artist/band/exemplar names**, drop defaults silently, modifiers-before-noun.
