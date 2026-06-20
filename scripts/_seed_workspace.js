@@ -16,8 +16,8 @@
 //
 // Rendering reuses the shared SSOT renderer (_recipe_stack.js): assignDedupedPrefaces
 // then compileStack('rich'). The only addition is a cards-based header (the app's
-// _recipeHeader(cards)); _recipe_stack's recipeHeaderFromConfig reads a *config's*
-// stapled traditions, which is the wrong source for the workspace model.
+// _recipeHeader(cards)); a config's stapled-tradition list
+// is the wrong source for the workspace model.
 
 const C = require('./_loader.js');
 const { assignDedupedPrefaces, compileStack } = require('./_recipe_stack.js');
