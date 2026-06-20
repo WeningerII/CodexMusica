@@ -17,10 +17,6 @@
 //   - assignDedupedPrefaces auto-assigns a deduped preface per card (the app's
 //     _computeRecipeDedupedPrefaces + _matchSurvivors), using the shared
 //     _preface_match + _card_descriptors SSOTs.
-//   - cardsFromConfig adapts a search/engine config into cards (resolving the
-//     archetype into a chain), and renderRecipeFromConfig adds the genre header.
-//     (Config->recipe path; no current caller — the connector seeds cards directly
-//     via _seed_workspace. Kept as the config-based entry; remove if confirmed dead.)
 //
 // The ceiling rules are NOT reinvented here — they are the app's: trim
 // low-information descriptor tokens first (by tier), then env chunks, then
@@ -652,78 +648,14 @@ function compileStack(cards, format, ceiling) {
   return compressProseRecipe(cards, ceiling);
 }
 
-// ─────────────────────────── config → cards adapter ───────────────────────────
-// Resolve the recipe's signal chain: archetype components first (period-curated),
-// then any inline_chain overrides, then fx_extras appended to fx. Mirrors how
-// translate.js / the app resolve the chain for rendering.
-function _resolveChainComponents(config) {
-  let comp = {};
-  if (config.archetype) {
-    const arch = (C.CHAIN_ARCHETYPES || []).find((a) => a.id === config.archetype);
-    if (arch && arch.components) comp = { ...arch.components };
-  }
-  if (config.inline_chain) {
-    for (const [k, v] of Object.entries(config.inline_chain)) if (v != null) comp[k] = v;
-  }
-  if (Array.isArray(config.fx_extras) && config.fx_extras.length) {
-    const fx = new Set(Array.isArray(comp.fx) ? comp.fx : (comp.fx ? [comp.fx] : []));
-    for (const f of config.fx_extras) fx.add(f);
-    comp.fx = [...fx];
-  }
-  return comp;
-}
-
-// Build cards from a search/engine config, then auto-assign deduped prefaces.
-// The shared chain/tuning/room live on every card (the renderers read env from
-// card[0] under the shared-env assumption).
-function cardsFromConfig(config) {
-  const primary = (config.traditions || [])[0] || null;
-  const chain = _resolveChainComponents(config);
-  const cards = (config.instruments || []).map((inst) => ({
-    instrumentId: inst.id,
-    traditionId: primary,
-    parts: { ...(inst.slots || {}) },
-    tuning: config.tuning || null,
-    room: config.room || null,
-    chain,
-    // A baked-in preface (engine `prefaces` / apply_preface) rides on the config
-    // instrument as `preface_lock`; carry it through as a locked card preface so
-    // assignDedupedPrefaces surfaces it verbatim instead of auto-matching.
-    preface: inst.preface_lock || null,
-    prefaceLock: !!inst.preface_lock,
-  }));
-  assignDedupedPrefaces(cards);
-  return cards;
-}
-
-function recipeHeaderFromConfig(config) {
-  const names = (config.traditions || [])
-    .map((tid) => { const t = (C.TRADITIONS || []).find((x) => x.id === tid); return t && t.name; })
-    .filter(Boolean);
-  return names.length ? names.join(' + ') + ', ' : '';
-}
-
-// The connector entrypoint: config → deduped-preface cards → header + body,
-// total within `ceiling`. Default format 'rich' (the app's "Current Recipe").
-function renderRecipeFromConfig(config, format = 'rich', ceiling = 1000) {
-  const cards = cardsFromConfig(config);
-  if (cards.length === 0) return '';
-  const header = recipeHeaderFromConfig(config);
-  const body = compileStack(cards, format, Math.max(1, ceiling - header.length));
-  return header + body;
-}
-
 module.exports = {
   buildStackParts,
   assignDedupedPrefaces,
-  cardsFromConfig,
   compileStack,
   compressProseRecipe,
   compressTagsRecipe,
   compressRichRecipe,
   compressCompactRecipe,
-  recipeHeaderFromConfig,
-  renderRecipeFromConfig,
   // shared helpers (exported for reuse / tests)
   _kebab,
   _suppressSubsumed,
