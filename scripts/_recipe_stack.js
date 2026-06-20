@@ -5,7 +5,8 @@
 // (compressProse/Tags/Rich/CompactRecipe + the trim cascade). It is the renderer
 // behind the app's "Current Recipe" / Rich view. Two Node callers render through
 // it instead of each carrying a copy:
-//   - mcp/engine.js  — the connector's recipe text (via renderRecipeFromConfig).
+//   - mcp/engine.js  — the connector's recipe text (via assignDedupedPrefaces +
+//     compileStack, through _seed_workspace.js / _workspace_ops.js).
 //   - scripts/smoke.js — the catalog-wide ≤ceiling budget assertion.
 //
 // It extends the former smoke.js-only port with the pieces the connector needs
@@ -18,6 +19,8 @@
 //     _preface_match + _card_descriptors SSOTs.
 //   - cardsFromConfig adapts a search/engine config into cards (resolving the
 //     archetype into a chain), and renderRecipeFromConfig adds the genre header.
+//     (Config->recipe path; no current caller — the connector seeds cards directly
+//     via _seed_workspace. Kept as the config-based entry; remove if confirmed dead.)
 //
 // The ceiling rules are NOT reinvented here — they are the app's: trim
 // low-information descriptor tokens first (by tier), then env chunks, then
