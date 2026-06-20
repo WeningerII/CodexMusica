@@ -23,6 +23,7 @@
 //   slot-pick drift     -> check_slot_picks.js    (searched slot drifts from lock-ins)
 //   dead audit token    -> audit_dead_tokens.js   (token dead even in the enriched pool)
 //   workspace mutation  -> check_workspace_ops.js (an edit op mutates its input ws)
+//   stale voice-parts   -> _gen_voice_parts.js --check (Node voice maps drift from src/app.js)
 //
 // Usage:
 //   node scripts/faults.js [--fresh-api=DIR --fresh-html=FILE] [--verbose]
@@ -297,6 +298,16 @@ record('silent-blend-drop -> recipe.js', gate(ROOT, ['scripts/recipe.js', '--tra
     'function clone(ws) {\n  return ws; // __WORKSPACE_FAULT__ identity clone breaks state-passing'
   ));
   record('workspace-mutation -> check_workspace_ops.js', gate(d, ['scripts/check_workspace_ops.js']), /IMMUTABLE|FAIL/);
+}
+
+// 19. stale voice-parts mirror -> _gen_voice_parts.js --check  (the Node seed's voice
+//     maps in _voice_parts_data.js drift from src/app.js without regeneration — a
+//     desync the recipe-parity gates can miss, since it need not change a rendered recipe)
+{
+  const d = mkenv(['scripts', 'src']);
+  const f = path.join(d, 'scripts/_voice_parts_data.js');
+  fs.writeFileSync(f, fs.readFileSync(f, 'utf8').replace("voice_articulation: 'melisma_voice'", "voice_articulation: '__VP_FAULT__'"));
+  record('stale-voice-parts -> _gen_voice_parts.js', gate(d, ['scripts/_gen_voice_parts.js', '--check']), /VOICE-PARTS: FAIL|stale/i);
 }
 
 // Registry-driven completeness: every promise-bound gate (_promises.js) must have
