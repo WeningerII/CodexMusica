@@ -19,7 +19,7 @@ builds, and a gate proves the shell behaves identically to it. <!-- @promise: la
 npm ci                 # install dev tooling from the lockfile
 npm run build:html     # build the lazy-shell catalog app → codex.html (+ api/)
 npm run validate       # cross-reference integrity check
-npm run test           # recipe + preface + slot-pick + app-parity + equivalence + lazy-parity regression
+npm run test           # recipe + preface + slot-pick + app-parity + equivalence + lazy-parity + connector-parity regression
 ```
 
 ## Command surface
@@ -36,7 +36,7 @@ Every operation is an `npm run` script (see `package.json`):
 | `npm run check:api` | Static-API contract gate: the published `api/` honors every documented promise — complete counts, ≤1000-char recipes, every `config` id resolves |
 | `npm run audit` | Data-quality audit (advisory warnings) |
 | `npm run audit:coherence` | Substantive coherence audit: field-vs-field consistency (recording-era clashes, stamped vocal-tradition defaults, non-12-TET tuning contradictions) |
-| `npm run test` | Regression (6 suites): recipe snapshots + preface assignments + slot-pick lock-ins + browser-app recipe parity + node↔browser equivalence + lazy-shell↔embedded parity |
+| `npm run test` | Regression (7 suites): recipe snapshots + preface assignments + slot-pick lock-ins + browser-app recipe parity + node↔browser equivalence + lazy-shell↔embedded parity + connector⇄app parity |
 | `npm run smoke` | Catalog-wide pipeline health across every tradition (slow) |
 | `npm run tandem` | End-to-end coherence across source + HTML artifacts |
 | `npm run reachability` | Drives every UI control in the built HTML (Playwright) |
@@ -68,7 +68,7 @@ All compute happens at build time; see `scripts/build_static_api.js`.
 ## Repository map
 
 - `references/` — the catalog data (`01_…`–`08_…`) plus base/vocabulary JSON. Data only.
-- `src/` — the browser app (`app.js`), HTML template, and the shared family-parts merge.
+- `src/` — the browser app (`app.js`) and HTML template (the shared family-parts merge it inlines is authored in `scripts/_merge.js`).
 - `scripts/` — build orchestration, the recipe engine, and all verification tooling.
 - `tests/` — regression snapshots and fixtures.
 - `SKILL.md` — the **contract**: schema, recipe pipeline, output rules, and invariants. Read this to understand or extend the catalog.
