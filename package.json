@@ -25,6 +25,7 @@
     "test:equiv": "node scripts/equivalence.js",
     "test:lazy": "node scripts/check_lazy_app.js",
     "test:connector": "node scripts/_gen_voice_parts.js --check && node scripts/check_connector_parity.js && node scripts/check_workspace_ops.js && node scripts/check_app_parity.js && node mcp/test.mjs",
+    "eval": "node scripts/eval_capabilities.js",
     "build:html:lazy": "node scripts/build_html.js --lazy --check",
     "build:html:embedded": "node scripts/build_html.js --embedded --check",
     "smoke": "node scripts/smoke.js",
