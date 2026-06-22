@@ -86,24 +86,33 @@ const NAMED_SET =
 
 function materialFamily(label) {
   const s = String(label).toLowerCase();
+  // Winding type first — for wound metal strings (electric/bass especially) the
+  // winding IS the choice, so it must not collapse into one "nickel/steel" bucket.
+  if (/flatwound|flat-?wound|\bflats?\b/.test(s)) return 'flatwound';
+  if (/half.?round/.test(s)) return 'half-round';
+  if (/tape.?wound/.test(s)) return 'tape-wound';
+  if (/ground.?wound/.test(s)) return 'ground-wound';
+  if (/roundwound|round-?wound/.test(s)) return 'roundwound';
+  if (/coated|nanoweb|polyweb|lifespan|elixir/.test(s)) return 'coated';
+  // Non-metal / acoustic materials (winding is almost always roundwound, so these
+  // are distinguished by their material, not their winding).
   if (/horsehair/.test(s)) return 'horsehair';
   if (/gut|catlin|pistoy|pistoia/.test(s)) return 'gut';
   if (/silk/.test(s)) return 'silk';
   if (/phosphor/.test(s)) return 'phosphor bronze';
   if (/80\/20|eighty.?twenty/.test(s)) return '80/20 bronze';
   if (/nickel bronze/.test(s)) return 'nickel bronze';
-  if (
-    /flatwound|roundwound|half.?round|tape.?wound|ground.?wound|tungsten|monel|stainless|chrome|slinky|pure nickel|nickel-?plated|nickel-?wound|\bnickel\b/.test(
-      s
-    )
-  )
-    return 'nickel/steel-wound';
-  if (/coated|nanoweb|polyweb|lifespan|elixir/.test(s)) return 'coated';
+  if (/nylgut|nylon|fluorocarbon|carbon|tetron|synthetic|monofilament|braided|gimped/.test(s))
+    return 'nylon/synthetic';
   if (/brass|wire-?strung/.test(s)) return 'brass/wire';
   if (/bronze/.test(s)) return 'bronze';
   if (/loha|iron/.test(s)) return 'iron';
-  if (/nylgut|nylon|fluorocarbon|carbon|tetron|synthetic|monofilament|braided|gimped/.test(s))
-    return 'nylon/synthetic';
+  // Alloy fallback — wound metal whose winding wasn't named (round assumed).
+  if (/pure nickel/.test(s)) return 'pure nickel';
+  if (/stainless/.test(s)) return 'stainless steel';
+  if (/monel/.test(s)) return 'monel';
+  if (/tungsten/.test(s)) return 'tungsten-wound';
+  if (/nickel-?plated|nickel-?wound|\bnickel\b/.test(s)) return 'nickel-plated';
   if (/steel/.test(s)) return 'steel';
   return null; // unclassifiable (in practice: a named set)
 }
