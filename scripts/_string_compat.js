@@ -16,13 +16,19 @@
 //   modes     — subset of {plucked, bowed, struck}; derived from class+family with a
 //               tiny explicit override for genuinely multi-mode instruments.
 //
-// Hard gates to offer a MATERIAL from source S on target T:
-//   1. both soundType are string-*            → excludes electronic (808), percussion, wind, …
-//   2. electrification matches                → acoustic ⇎ electric windings never cross
-//   3. modes overlap (S.modes ∩ T.modes ≠ ∅)  → a bow-only string never lands on a pluck-only neck
-// Register is deliberately NOT a hard gate: gut/steel/nylon are register-agnostic
-// materials; register decides the gauge/SET, which we handle by offering material
-// families and dropping named instrument-specific sets.
+// Hard gates to offer a MATERIAL on a target instrument (permissive policy):
+//   1. both soundType are string-*  → excludes electronic (808), percussion, wind, …
+//   2. electrification matches      → acoustic ⇎ electric windings never cross
+//   3. tension                      → a nylon-tension instrument (built for low
+//                                     tension) is never offered high-tension metal;
+//                                     steel-tension stays permissive (gut/silk OK)
+//   4. family-mode overlap          → a material used only on bowed instruments
+//                                     (horsehair) stays off a pluck-only neck; mode-
+//                                     agnostic materials (gut/steel/nylon) cross freely
+// Plus: drop named instrument-specific SETS and exotic count-singletons (a material
+// bound to a single instrument, e.g. loha iron). Register is NOT a material gate (it
+// sizes the SET/gauge). The mode axis is applied per material FAMILY (union of its
+// sources' modes), which is robust to individual variant under-tagging.
 
 const STRING_FAMILIES = new Set([
   'acoustic_strings',
@@ -141,28 +147,122 @@ function harvest(INSTRUMENTS) {
   return out;
 }
 
-function materialCompatible(srcEntry, targetProfile) {
-  if (!srcEntry.soundType.startsWith('string')) return false; // gate 1: string-ness
-  if (
-    (srcEntry.soundType === 'string-electric') !==
-    (targetProfile.soundType === 'string-electric')
-  )
-    return false; // gate 2: electrification
-  for (const m of srcEntry.modes) if (targetProfile.modes.has(m)) return true; // gate 3: mode overlap
-  return false;
+// Tension class per material family. A nylon-tension instrument (classical guitar,
+// ukulele, lute…) physically cannot take HIGH-tension strings; a steel-tension one
+// can take both, so we permissively allow low-tension crossovers (gut / silk on a
+// steel-string is real and historical).
+const HIGH_TENSION = new Set([
+  'steel',
+  'phosphor bronze',
+  '80/20 bronze',
+  'bronze',
+  'nickel bronze',
+  'nickel-plated',
+  'pure nickel',
+  'stainless steel',
+  'monel',
+  'coated',
+  'brass/wire',
+  'iron',
+  'tungsten-wound',
+  'flatwound',
+  'half-round',
+  'tape-wound',
+  'ground-wound',
+  'roundwound',
+]);
+function materialTension(family) {
+  return HIGH_TENSION.has(family) ? 'high' : 'low';
+}
+
+// Materials that survive every principled gate but are tradition-bound, not general
+// cross-instrument options. Horsehair is the lone case: it is used on one *plucked*
+// archaic zither (kantele) — so mode/tension/electrification all pass it — yet it is
+// really a bowed-folk + archaic specialty (morin khuur, gusle, igil…), not something
+// you'd offer on a modern steel-string. It stays on its native instruments'
+// canonical lists; it is simply not cross-pollinated.
+const NON_CROSS_MATERIAL = new Set(['horsehair']);
+
+// A target is "nylon-tension" iff every material on its OWN curated string part is
+// low-tension (e.g. a classical guitar ships nylon / gut / carbon only). Such
+// instruments get only low-tension expanded options; high-tension metal is excluded.
+function isNylonTension(inst) {
+  let any = false;
+  for (const p of inst.parts || []) {
+    const lab = p.name || p.label || '';
+    if (!/string/i.test(lab) || NON_MATERIAL_PART.test(lab + ' ' + p.id)) continue;
+    for (const v of p.variants || []) {
+      const f = materialFamily(v.name || v.id);
+      if (!f) continue;
+      any = true;
+      if (materialTension(f) === 'high') return false;
+    }
+  }
+  return any;
+}
+
+// Distinct source-instrument count per material family — used to drop exotic
+// singletons (a material bound to one instrument, e.g. horsehair / loha iron).
+function familySourceCounts(INSTRUMENTS) {
+  const m = new Map();
+  for (const e of harvest(INSTRUMENTS)) {
+    if (NAMED_SET.test(e.label)) continue;
+    const f = materialFamily(e.label);
+    if (!f) continue;
+    if (!m.has(f)) m.set(f, new Set());
+    m.get(f).add(e.src);
+  }
+  return m;
+}
+
+// Union of source-instrument modes per material family. A material that only ever
+// comes from bowed instruments (e.g. horsehair) thus stays out of a pluck-only
+// neck's pool, while a mode-agnostic material (gut/steel/nylon — used plucked AND
+// bowed) crosses freely. This is the principled form of the mode axis for MATERIALS:
+// per-family (union of its sources' modes), robust to individual variant under-tagging.
+function familyModes(INSTRUMENTS) {
+  const m = new Map();
+  for (const e of harvest(INSTRUMENTS)) {
+    if (NAMED_SET.test(e.label)) continue;
+    const f = materialFamily(e.label);
+    if (!f) continue;
+    if (!m.has(f)) m.set(f, new Set());
+    for (const mode of e.modes) m.get(f).add(mode);
+  }
+  return m;
 }
 
 // The expanded material pool for a target instrument: { family -> Set(labels) }.
-function expandedPool(targetInst, INSTRUMENTS) {
-  const tp = profile(targetInst);
-  const pool = harvest(INSTRUMENTS);
+// Permissive policy gates: string-ness, electrification, tension (nylon block),
+// family-mode overlap; plus drop named instrument-specific sets and exotic
+// count-singletons (< minSources source instruments).
+function expandedPool(targetInst, INSTRUMENTS, opts) {
+  const minSources = (opts && opts.minSources) || 2;
+  const tElectric = soundType(targetInst) === 'string-electric';
+  const tNylon = isNylonTension(targetInst);
+  const tModes = modes(targetInst);
+  const counts = familySourceCounts(INSTRUMENTS);
+  const fModes = familyModes(INSTRUMENTS);
   const byFam = new Map();
-  for (const e of pool) {
+  for (const e of harvest(INSTRUMENTS)) {
     if (e.src === targetInst.id) continue;
-    if (NAMED_SET.test(e.label)) continue; // drop instrument-specific sets
-    if (!materialCompatible(e, tp)) continue;
+    if (NAMED_SET.test(e.label)) continue; // instrument-specific set, not a material
+    if (!e.soundType.startsWith('string')) continue; // gate 1: string-ness (no 808/electronic)
+    if ((e.soundType === 'string-electric') !== tElectric) continue; // gate 2: electrification
     const fam = materialFamily(e.label);
     if (!fam) continue;
+    if (NON_CROSS_MATERIAL.has(fam)) continue; // tradition-bound, not cross-applicable
+    if ((counts.get(fam) || new Set()).size < minSources) continue; // drop exotic singletons
+    if (tNylon && materialTension(fam) === 'high') continue; // gate 3: tension (physical block)
+    const fm = fModes.get(fam);
+    let modeOverlap = false;
+    if (fm)
+      for (const mo of tModes)
+        if (fm.has(mo)) {
+          modeOverlap = true;
+          break;
+        }
+    if (!modeOverlap) continue; // gate 4: family-mode overlap (bowed-only stays off pluck-only)
     if (!byFam.has(fam)) byFam.set(fam, new Set());
     byFam.get(fam).add(e.label.replace(/\(.*?\)/g, '').trim());
   }
@@ -175,9 +275,12 @@ module.exports = {
   modes,
   profile,
   materialFamily,
+  materialTension,
+  isNylonTension,
+  familySourceCounts,
+  familyModes,
   expandedPool,
   harvest,
-  materialCompatible,
   STRING_FAMILIES,
   MULTIMODE_OVERRIDE,
 };
