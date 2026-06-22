@@ -214,6 +214,103 @@ add('S21 api/traditions/bluegrass.json: recipe + config present', () => {
   };
 });
 
+// ── expanded coverage (Loop 010 expanded set) ────────────────────────────────
+// One representative tradition per catalog family (real ids), reused by the
+// breadth + bulk/per-id consistency checks.
+const FAMS = {
+  blues_gospel: 'delta_blues',
+  classical: 'symphonic',
+  country: 'western_swing',
+  electronic: 'chicago_house',
+  global: 'palm_wine',
+  hip_hop: 'gangsta_rap',
+  jazz: 'new_orleans',
+  pop: 'reggaeton',
+  pop_rock: 'girl_group_60s',
+  rock: 'arena_rock',
+  rock_punk: 'progressive_rock',
+  vernacular: 'honky_tonk',
+};
+const STACK = /at \w+.*\(.*:\d+:\d+\)|Error:.*\n\s+at /; // an uncaught stack trace = crash
+
+add('S22 breadth: one tradition per family (12) valid <=1000', () => {
+  const bad = [];
+  for (const [fam, id] of Object.entries(FAMS)) {
+    const r = sh(R('recipe.js --tradition ' + id));
+    const t = r.out.trim();
+    if (!(r.code === 0 && t.length > 0 && t.length <= CEIL && !BROKEN.test(t)))
+      bad.push(`${fam}/${id}`);
+  }
+  return { pass: bad.length === 0, ev: bad.length ? 'BAD: ' + bad.join(' ') : '12/12 families ok' };
+});
+add('S23 --staple-mode lineage vs full differ in blend mode', () => {
+  const full = sh(R('recipe.js --traditions new_orleans,thrash_metal --staple-mode=full'));
+  const lin = sh(R('recipe.js --traditions new_orleans,thrash_metal --staple-mode=lineage'));
+  const ok = [full, lin].every(
+    (r) =>
+      r.code === 0 && r.out.trim().length > 0 && r.out.trim().length <= CEIL && !BROKEN.test(r.out)
+  );
+  const differ = full.out !== lin.out;
+  return {
+    pass: ok && differ,
+    ev: `full:${full.out.trim().length}c lineage:${lin.out.trim().length}c differ:${differ}`,
+  };
+});
+add('S24 robustness: bad --swap-variant variant -> graceful (no crash)', () => {
+  const r = sh(R('recipe.js --tradition afrobeat --swap-variant=voice:voice_register:__nope__'));
+  return {
+    pass: !(STACK.test(r.out) || BROKEN.test(r.out)),
+    ev: `exit ${r.code}, loud-reject:${r.code !== 0}`,
+  };
+});
+add('S25 robustness: bad --swap-variant instrument -> graceful (no crash)', () => {
+  const r = sh(R('recipe.js --tradition afrobeat --swap-variant=__noinstr__:x:y'));
+  return {
+    pass: !(STACK.test(r.out) || BROKEN.test(r.out)),
+    ev: `exit ${r.code}, loud-reject:${r.code !== 0}`,
+  };
+});
+add('S26 robustness: --diff with one bad id -> non-zero', () => {
+  const r = sh(R('recipe.js --diff delta_blues __nope_not_real__'));
+  const errlike = /unknown|not found|no such|invalid|resolve|error/i.test(r.out);
+  return {
+    pass: r.code !== 0 && errlike && !STACK.test(r.out),
+    ev: `exit ${r.code}, errorlike:${errlike}`,
+  };
+});
+add('S27 api/instruments/<id>.json sample valid', () => {
+  const sample = ['accordion', 'acoustic_guitar_dread', 'analog_mono_synth', 'balafon', 'agogo'];
+  const bad = [];
+  for (const id of sample) {
+    try {
+      const j = apiJson('instruments/' + id + '.json');
+      if (!j || typeof j !== 'object' || !(j.id || j.name)) bad.push(id + ':shape');
+    } catch (e) {
+      bad.push(id + ':' + (e.code === 'ENOENT' ? 'missing' : 'parse'));
+    }
+  }
+  return {
+    pass: bad.length === 0,
+    ev: bad.length ? 'BAD: ' + bad.join(' ') : `${sample.length}/${sample.length} ok`,
+  };
+});
+add('S28 consistency: all.json recipe == per-id file recipe (sample)', () => {
+  const all = apiJson('all.json');
+  const items = Array.isArray(all) ? all : all.items || all.traditions || [];
+  const byId = new Map(items.map((x) => [x.id, x.recipe]));
+  const mismatch = [];
+  for (const id of Object.values(FAMS)) {
+    const per = apiJson('traditions/' + id + '.json').recipe;
+    if (byId.get(id) !== per) mismatch.push(id);
+  }
+  return {
+    pass: mismatch.length === 0,
+    ev: mismatch.length
+      ? 'MISMATCH: ' + mismatch.join(' ')
+      : `${Object.values(FAMS).length} consistent`,
+  };
+});
+
 // ── run ──────────────────────────────────────────────────────────────────────
 if (scenarios.length === 0) {
   console.error('CAPABILITY EVAL: FAIL — no scenarios defined (refusing to pass vacuously)');

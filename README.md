@@ -37,7 +37,7 @@ Every operation is an `npm run` script (see `package.json`):
 | `npm run audit` | Data-quality audit (advisory warnings) |
 | `npm run audit:coherence` | Substantive coherence audit: field-vs-field consistency (recording-era clashes, stamped vocal-tradition defaults, non-12-TET tuning contradictions) |
 | `npm run test` | Regression + acceptance (7 regression suites + capability eval): recipe snapshots + preface assignments + slot-pick lock-ins + browser-app recipe parity + node↔browser equivalence + lazy-shell↔embedded parity + connector⇄app parity + black-box capability eval |
-| `npm run eval` | Black-box capability acceptance eval: 21 scenarios over every CLI surface + the static API (non-empty output, ≤1000-char recipe ceiling, determinism, loud failure on bad input). Also runs as the final step of `npm run test` |
+| `npm run eval` | Black-box capability acceptance eval: 28 scenarios over every CLI surface + the static API (non-empty output, ≤1000-char recipe ceiling, determinism, loud failure on bad input). Also runs as the final step of `npm run test` |
 | `npm run smoke` | Catalog-wide pipeline health across every tradition (slow) |
 | `npm run tandem` | End-to-end coherence across source + HTML artifacts |
 | `npm run reachability` | Drives every UI control in the built HTML (Playwright) |
