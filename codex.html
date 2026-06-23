@@ -19990,7 +19990,8 @@ function makeCard(instrumentId, opts) {
     editingEnv: null,
     editingChainStage: null,
     drift: null,
-    stackPanel: null
+    stackPanel: null,
+    _materialsOpen: false
   };
   // Auto-suggest preface from the card's descriptor set. Explicit opts.preface
   // wins (including `null` for intentional blank) and disables auto-mode;
@@ -20014,7 +20015,7 @@ function makeCard(instrumentId, opts) {
 // strips them when snapshotting for undo/redo (drift's apply closures don't
 // survive JSON). Single source of truth so a new transient field added later
 // picks up the reset semantics at all five sites by being added here once.
-const _CARD_TRANSIENTS = { drift: null, stackPanel: null, editingPart: null, editingEnv: null, editingChainStage: null };
+const _CARD_TRANSIENTS = { drift: null, stackPanel: null, editingPart: null, editingEnv: null, editingChainStage: null, _materialsOpen: false };
 
 // UI timing constants. Centralized so cross-call relationships (CSS
 // animation duration paired with the JS class-removal timeout, etc.)
@@ -23408,8 +23409,24 @@ function renderPartRow(card, inst, part) {
     if (expandedVars.length) {
       const det = document.createElement('details');
       det.className = 'part-expanded';
+      // Persist open/closed across the rerenderCard() that selecting a material
+      // triggers, so auditioning several borrowed materials doesn't re-collapse the
+      // list on every pick. State is a per-card transient, reset when the edited
+      // part changes (handleCardClick) so a freshly opened part starts collapsed.
+      det.open = !!card._materialsOpen;
+      det.addEventListener('toggle', () => { card._materialsOpen = det.open; });
       const kindLabel = expandedVars[0].expanded === 'wood' ? 'wood' : 'string';
       det.innerHTML = `<summary class="part-expanded-summary">More materials — any ${kindLabel} on any instrument (${expandedVars.length})</summary>`;
+      // The part row carries data-toggle-part, and handleCardClick (delegated on the
+      // card view) routes any click inside it that isn't a button/chip to "collapse
+      // this part". A <summary> is none of those, so its click would bubble up and
+      // collapse the whole part — the exact symptom of clicking "More materials"
+      // closing the part. Stop the summary's click here: the native <details> toggle
+      // is the click's DEFAULT action (stopPropagation doesn't cancel it), so the
+      // disclosure still opens/closes. Chips inside the body keep bubbling so
+      // [data-set-part] selection still reaches handleCardClick. Same guard the
+      // inline filter bar uses below.
+      det.querySelector('summary').addEventListener('click', e => e.stopPropagation());
       // Filter + grid live in a body wrapper so the <summary> stays the literal
       // first child (native disclosure) and the filter input sits below the header.
       const body = document.createElement('div');
@@ -24054,6 +24071,7 @@ function handleCardClick(e, card) {
 
   if (t.dataset.togglePart != null) {
     card.editingPart = card.editingPart === t.dataset.togglePart ? null : t.dataset.togglePart;
+    card._materialsOpen = false; // a freshly (re)opened part starts with the materials list collapsed
     rerenderCard(card);
     return;
   }
