@@ -152,4 +152,20 @@ function recordProblems(rec, R, { requireConfig = true } = {}) {
   return out;
 }
 
-module.exports = { RECIPE_CHAR_CEILING, TRADITION_SOURCE_KEYS, traditionSource, buildResolver, configIdProblems, recordProblems };
+// Return a shallow copy of an instrument with `expanded` (the universal
+// cross-instrument string materials injected at load by _merge.js) removed from
+// every part's variants. These are a live-only presentation layer — the static
+// published API carries each instrument's CURATED list, so the build writes the
+// stripped form and check_api compares against the stripped catalog instrument.
+// Single source so the two never drift.
+function stripExpandedVariants(inst) {
+  if (!inst || !Array.isArray(inst.parts)) return inst;
+  return {
+    ...inst,
+    parts: inst.parts.map((p) =>
+      Array.isArray(p.variants) ? { ...p, variants: p.variants.filter((v) => !v.expanded) } : p
+    ),
+  };
+}
+
+module.exports = { RECIPE_CHAR_CEILING, TRADITION_SOURCE_KEYS, traditionSource, buildResolver, configIdProblems, recordProblems, stripExpandedVariants };

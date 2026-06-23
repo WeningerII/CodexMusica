@@ -2768,6 +2768,7 @@ function _ensureDescriptorDF() {
     for (const inst of INSTRUMENTS) {
       for (const part of (inst.parts || [])) {
         for (const v of (part.variants || [])) {
+          if (v.expanded) continue; // universal cross-instrument materials don't shift corpus DF
           for (const d of (v.descriptors || [])) bump(d);
         }
       }
@@ -5322,7 +5323,8 @@ function renderPartRow(card, inst, part) {
     noneChip.dataset.variant = '';
     noneChip.innerHTML = '<span class="variant-chip-name">Not set</span>';
     variants.appendChild(noneChip);
-    part.variants.forEach(v => {
+    // Build one variant chip (with the per-part descriptor delta preview).
+    const makeChip = v => {
       const b = document.createElement('button');
       const isCurrent = card.parts[part.id] === v.id;
       b.className = 'chip variant-chip' + (isCurrent ? ' selected' : '');
@@ -5343,9 +5345,34 @@ function renderPartRow(card, inst, part) {
           }</div>`
         : '';
       b.innerHTML = `<span class="variant-chip-name">${esc(v.name)}</span>${descrHtml}`;
-      variants.appendChild(b);
-    });
+      return b;
+    };
+    // The instrument's own (curated) variants stay on top, exactly as before.
+    const nativeVars = part.variants.filter(v => !v.expanded);
+    const expandedVars = part.variants.filter(v => v.expanded);
+    nativeVars.forEach(v => variants.appendChild(makeChip(v)));
     row.appendChild(variants);
+    // Universal cross-instrument materials (a sound generator isn't bound by
+    // physical buildability) under a collapsed, searchable disclosure. Display-only
+    // grouping — nothing is filtered out; every material stays reachable.
+    if (expandedVars.length) {
+      const det = document.createElement('details');
+      det.className = 'part-expanded';
+      det.innerHTML = `<summary class="part-expanded-summary">More materials — any string on any instrument (${expandedVars.length})</summary>`;
+      // Filter + grid live in a body wrapper so the <summary> stays the literal
+      // first child (native disclosure) and the filter input sits below the header.
+      const body = document.createElement('div');
+      body.className = 'part-expanded-body';
+      const exGrid = document.createElement('div');
+      exGrid.className = 'part-variants-grid part-expanded-grid';
+      expandedVars.forEach(v => exGrid.appendChild(makeChip(v)));
+      body.appendChild(exGrid);
+      det.appendChild(body);
+      row.appendChild(det);
+      if (typeof attachInlineFilter === 'function') {
+        attachInlineFilter(body, { itemSelector: '.variant-chip', placeholder: 'Filter materials…' });
+      }
+    }
   }
   return row;
 }

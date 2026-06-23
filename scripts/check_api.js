@@ -33,7 +33,7 @@
 const fs = require('fs');
 const path = require('path');
 const C = require('./_loader.js');
-const { buildResolver, recordProblems, traditionSource } = require('./_api_contract.js');
+const { buildResolver, recordProblems, traditionSource, stripExpandedVariants } = require('./_api_contract.js');
 
 const ROOT = path.join(__dirname, '..');
 const flags = {};
@@ -205,7 +205,10 @@ if (iindex) {
     const rec = readJson(`instruments/${id}.json`);
     if (!rec) continue; // readJson already logged the miss
     if (rec.id !== id) fail(`instruments/${id}.json: id field is "${rec.id}"`);
-    else if (stable(rec) !== stable(instById.get(id))) {
+    // Compare against the CURATED catalog instrument: the published static file
+    // carries each instrument's own variants, not the live `expanded` universal
+    // string materials (served by the live get_instrument tool).
+    else if (stable(rec) !== stable(stripExpandedVariants(instById.get(id)))) {
       fail(`instruments/${id}.json: payload differs from the catalog instrument`);
     }
     ichecked++;

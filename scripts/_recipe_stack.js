@@ -139,6 +139,7 @@ function _ensureDF() {
   for (const inst of (C.INSTRUMENTS || [])) {
     for (const part of (inst.parts || [])) {
       for (const v of (part.variants || [])) {
+        if (v.expanded) continue; // universal cross-instrument materials don't shift corpus DF
         for (const d of (v.descriptors || [])) bump(d);
       }
     }
