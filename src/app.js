@@ -5358,7 +5358,8 @@ function renderPartRow(card, inst, part) {
     if (expandedVars.length) {
       const det = document.createElement('details');
       det.className = 'part-expanded';
-      det.innerHTML = `<summary class="part-expanded-summary">More materials — any string on any instrument (${expandedVars.length})</summary>`;
+      const kindLabel = expandedVars[0].expanded === 'wood' ? 'wood' : 'string';
+      det.innerHTML = `<summary class="part-expanded-summary">More materials — any ${kindLabel} on any instrument (${expandedVars.length})</summary>`;
       // Filter + grid live in a body wrapper so the <summary> stays the literal
       // first child (native disclosure) and the filter input sits below the header.
       const body = document.createElement('div');

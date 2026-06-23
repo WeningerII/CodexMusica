@@ -61,15 +61,65 @@ function mergeFamilyParts(instruments, familyParts) {
     inst.parts = merged;
   }
 
-  // ── universal string materials (sound-generator freedom) ─────────────────────
+  // ── universal materials (sound-generator freedom) ───────────────────────────
   // CodexMusica synthesizes audio, so it is NOT bound by physical buildability:
   // any stringed instrument may use any string material (beef gut on an electric
-  // bass, nickel-plated harp strings, a resonator strung like a sitar). Collect the
-  // union of every string-MATERIAL variant across the catalog and offer it on every
-  // instrument that has a string-material part. Appended copies are auto:false
-  // (never auto-seeded → default recipes stay byte-identical) and expanded:true (the
-  // UI groups them under collapsible headers). An instrument's own variants are left
-  // exactly as authored, in their original order, on top.
+  // bass, a resonator strung like a sitar), and any instrument with a resonant
+  // soundbox (top / back / body / soundboard) may be voiced from any tonewood.
+  // For each material family we collect the union of that material's variants
+  // across the catalog and offer the ones an instrument lacks on every part of the
+  // matching kind. Appended copies are auto:false (never auto-seeded → default
+  // recipes stay byte-identical) and carry expanded:<kind> (the UI groups them
+  // under a collapsible "More materials" header, and the static-API build strips
+  // them so published per-instrument files stay curated). An instrument's own
+  // variants are left exactly as authored, in their original order, on top.
+  //
+  // augmentUniversalMaterial is the single mechanism, parameterised per family:
+  //   isTargetPart(part)       — does this part take this material kind?
+  //   isMemberVariant(variant) — (optional) is this variant actually of the kind?
+  //                              omitted ⇒ every variant of a target part counts.
+  const augmentUniversalMaterial = function (instruments, kind, isTargetPart, isMemberVariant) {
+    const union = [];
+    const seen = {};
+    for (const inst of instruments || []) {
+      for (const p of inst.parts || []) {
+        if (!isTargetPart(p)) continue;
+        for (const v of p.variants || []) {
+          if (v.expanded) continue; // never re-collect an already-appended copy
+          if (isMemberVariant && !isMemberVariant(v)) continue;
+          if (!seen[v.id]) {
+            seen[v.id] = true;
+            union.push(v);
+          }
+        }
+      }
+    }
+    for (const inst of instruments || []) {
+      if (!Array.isArray(inst.parts)) continue;
+      // Build NEW part objects for the augmented parts. Do NOT mutate the existing
+      // part object: for a full-override own-part it is the SAME reference held in
+      // inst._ownParts, and mutating it would pollute _ownParts (which other code
+      // and the published API serialize) with the expanded variants.
+      inst.parts = inst.parts.map((p) => {
+        if (!isTargetPart(p)) return p;
+        const have = {};
+        for (const v of p.variants || []) have[v.id] = true;
+        const additions = [];
+        for (const v of union) {
+          if (have[v.id]) continue;
+          // default:false is critical — a copied variant must never become an
+          // instrument's default (its own curated default stays), or a part with no
+          // own default could pick up a borrowed one and change its recipe.
+          additions.push(Object.assign({}, v, { auto: false, expanded: kind, default: false }));
+        }
+        return additions.length
+          ? Object.assign({}, p, { variants: (p.variants || []).concat(additions) })
+          : p;
+      });
+    }
+  };
+
+  // Strings — any string material on any instrument that has a string-material part.
   const isStringMaterialPart = function (p) {
     return (
       /string/i.test(p.name || p.label || '') &&
@@ -78,42 +128,27 @@ function mergeFamilyParts(instruments, familyParts) {
       )
     );
   };
-  const stringMaterialUnion = [];
-  const unionSeen = {};
-  for (const inst of instruments || []) {
-    for (const p of inst.parts || []) {
-      if (!isStringMaterialPart(p)) continue;
-      for (const v of p.variants || []) {
-        if (!unionSeen[v.id]) {
-          unionSeen[v.id] = true;
-          stringMaterialUnion.push(v);
-        }
-      }
-    }
-  }
-  for (const inst of instruments || []) {
-    if (!Array.isArray(inst.parts)) continue;
-    // Build NEW part objects for the augmented parts. Do NOT mutate the existing
-    // part object: for a full-override own-part it is the SAME reference held in
-    // inst._ownParts, and mutating it would pollute _ownParts (which other code and
-    // the published API serialize) with the expanded variants.
-    inst.parts = inst.parts.map((p) => {
-      if (!isStringMaterialPart(p)) return p;
-      const have = {};
-      for (const v of p.variants || []) have[v.id] = true;
-      const additions = [];
-      for (const v of stringMaterialUnion) {
-        if (have[v.id]) continue;
-        // default:false is critical — a copied variant must never become an
-        // instrument's default (its own curated default stays), or a part with no
-        // own default could pick up a borrowed one and change its recipe.
-        additions.push(Object.assign({}, v, { auto: false, expanded: true, default: false }));
-      }
-      return additions.length
-        ? Object.assign({}, p, { variants: (p.variants || []).concat(additions) })
-        : p;
-    });
-  }
+  augmentUniversalMaterial(instruments, 'string', isStringMaterialPart);
+
+  // Tonewoods — any wood on any resonant soundbox surface (top / back / body /
+  // soundboard). Scoped to those parts only: necks, fretboards, drum shells,
+  // mallet bars and bow sticks stay curated. A part qualifies only if it BOTH
+  // names a soundbox surface AND carries ≥1 real wood variant — so "Body alloy",
+  // "Body type", "Top skin", the "Body" archetype list, etc. never match — and
+  // only the wood variants of a qualifying part travel (synthetic/composite tops
+  // stay put).
+  const WOOD = /(spruce|cedar|cedrillo|redwood|\bfir\b|larch|\bpine\b|pinho|juniper|cypress|alpine|mahogany|caoba|sapele|khaya|maple|sycamore|rosewood|palisander|jacarand|dalbergia|sheesham|pau.?ferro|palo escrito|huanghuali|kingwood|violetwood|cocobolo|bubinga|imbuia|\bkoa\b|acacia|walnut|butternut|ebony|blackwood|grenadilla|mpingo|zitan|sandalwood|paulownia|\bkiri\b|wutong|tongmu|mulberry|kuwa|zelkova|keyaki|cherry|yamazakura|apricot|\bplum\b|\bpear|boxwood|cornel|birch|alder|basswood|linden|poplar|willow|beech|\boak\b|chestnut|hornbeam|\bash\b|teak|jack.?wood|padauk|korina|limba|agathis|\bnato\b|okoume|\byew\b|ironwood|agave|eucalyptus|corymbia|bloodwood|naranjillo|yagrumo|cap[aá]|olive|laurel|lingue|rauli|aacha|hardwickia|\btun\b|hardwood|\bfig\b|plywood|laminate)/i;
+  const isWoodVariant = function (v) { return WOOD.test(v.name || v.label || ''); };
+  const isTonewoodPart = function (p) {
+    const nm = p.name || p.label || p.id || '';
+    if (!(p.variants || []).some((v) => !v.expanded && isWoodVariant(v))) return false;
+    if (/\b(top|back|bowl|ribs?|body)\b/i.test(nm) && /\bwood\b/i.test(nm)) return true;
+    if (/\bsoundboard\b/i.test(nm)) return true;
+    if (/\btop construction\b/i.test(nm)) return true;
+    if (/\bback\s*&\s*sides\b/i.test(nm)) return true;
+    return false;
+  };
+  augmentUniversalMaterial(instruments, 'wood', isTonewoodPart, isWoodVariant);
 
   return instruments;
 }
