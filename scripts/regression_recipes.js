@@ -27,6 +27,8 @@
 
 const fs = require('fs');
 const path = require('path');
+const os = require('os');
+const { Worker, isMainThread, workerData, parentPort } = require('worker_threads');
 const { search, seedFromTradition } = require('./search.js');
 const { translate } = require('./translate.js');
 
@@ -1277,6 +1279,61 @@ const FIXTURES = [
   { id: 'japanese_domestic_hataori', traditions: ['japanese_domestic_hataori'] },
 ];
 
+// Compute one fixture's recipe exactly as recipe.js does: hill-climb search,
+// then translate. Pure and deterministic in its tradition ids — which is what
+// lets the run be sharded across CPU cores below without changing any output.
+function computeFixture(fixture) {
+  const [primary, ...staples] = fixture.traditions;
+  const seed = seedFromTradition(primary, staples);
+  if (!seed) return { error: `seedFromTradition failed for ${primary}` };
+  try {
+    const result = search(seed, { maxIters: 100 });
+    return { output: translate(result.config), traditions: fixture.traditions };
+  } catch (err) {
+    return { error: err.message, traditions: fixture.traditions };
+  }
+}
+
+// ── worker entry ──────────────────────────────────────────────────────────
+// search() is CPU-bound and ~99% of this script's runtime (1198 fixtures ×
+// ~0.5s each, single-threaded). Each fixture is independent and deterministic,
+// so the full set is sharded round-robin across one worker per core. A worker
+// requires this same file (so it has FIXTURES + computeFixture) and only runs
+// its stripe, then posts {id: result} back. The `return` short-circuits the
+// main flag-parsing/diff section below — workers never reach it.
+if (!isMainThread) {
+  const { workerIndex, nWorkers } = workerData;
+  const out = {};
+  for (let i = workerIndex; i < FIXTURES.length; i += nWorkers) {
+    out[FIXTURES[i].id] = computeFixture(FIXTURES[i]);
+  }
+  parentPort.postMessage(out);
+  return;
+}
+
+// Run every fixture across a worker pool (one per core), merging the shard
+// results into a single id→result map identical to a sequential run.
+function runFixturesParallel() {
+  const nWorkers = Math.max(1, Math.min(os.cpus().length || 2, FIXTURES.length));
+  return new Promise((resolve, reject) => {
+    const results = {};
+    let exited = 0;
+    let aborted = false;
+    for (let k = 0; k < nWorkers; k++) {
+      const w = new Worker(__filename, { workerData: { workerIndex: k, nWorkers } });
+      w.on('message', (msg) => Object.assign(results, msg));
+      w.on('error', (err) => {
+        if (!aborted) { aborted = true; reject(err); }
+      });
+      w.on('exit', (code) => {
+        if (aborted) return;
+        if (code !== 0) { aborted = true; reject(new Error(`worker ${k} exited with code ${code}`)); return; }
+        if (++exited === nWorkers) resolve(results);
+      });
+    }
+  });
+}
+
 const args = process.argv.slice(2);
 const flags = {};
 for (let i = 0; i < args.length; i++) {
@@ -1297,41 +1354,30 @@ for (let i = 0; i < args.length; i++) {
   }
 }
 
-// Generate current output for each fixture
-function runFixtures(filter) {
-  const results = {};
+// Generate current output for each fixture. The full unfiltered set runs across
+// a worker pool (one per core); a single --fixture, or REGRESSION_SERIAL=1, runs
+// inline on this thread. Both paths call the same computeFixture, so the
+// id→result map — and therefore the snapshot comparison — is identical either way.
+async function runFixtures(filter) {
   const fixtures = filter ? FIXTURES.filter(f => f.id === filter) : FIXTURES;
   if (filter && fixtures.length === 0) {
     console.error(`Unknown fixture: ${filter}`);
     console.error(`Available: ${FIXTURES.map(f => f.id).join(', ')}`);
     process.exit(2);
   }
-  for (const fixture of fixtures) {
-    const [primary, ...staples] = fixture.traditions;
-    const seed = seedFromTradition(primary, staples);
-    if (!seed) {
-      results[fixture.id] = { error: `seedFromTradition failed for ${primary}` };
-      continue;
-    }
-    try {
-      // Mirror recipe.js exactly: hill-climb search, then translate.
-      // Earlier this harness called translate(seed) directly, which tested
-      // pre-search seed output, NOT the post-search recipe users actually see.
-      // That left every variant-swap and crossRef-expansion outside the regression net.
-      const result = search(seed, { maxIters: 100 });
-      const output = translate(result.config);
-      results[fixture.id] = { output, traditions: fixture.traditions };
-    } catch (err) {
-      results[fixture.id] = { error: err.message, traditions: fixture.traditions };
-    }
+  if (!filter && !process.env.REGRESSION_SERIAL && fixtures.length > 1) {
+    return runFixturesParallel();
   }
+  const results = {};
+  for (const fixture of fixtures) results[fixture.id] = computeFixture(fixture);
   return results;
 }
 
+(async () => {
 // ─────────────── --update mode ───────────────
 if (flags.update) {
   if (!fs.existsSync(SNAPSHOT_DIR)) fs.mkdirSync(SNAPSHOT_DIR, { recursive: true });
-  const current = runFixtures(flags.fixture);
+  const current = await runFixtures(flags.fixture);
   // If updating a single fixture, merge into existing snapshot rather than overwriting
   let snapshot = {};
   if (flags.fixture && fs.existsSync(SNAPSHOT_PATH)) {
@@ -1359,7 +1405,7 @@ if (!fs.existsSync(SNAPSHOT_PATH)) {
 }
 
 const snapshot = JSON.parse(fs.readFileSync(SNAPSHOT_PATH, 'utf8'));
-const current  = runFixtures(flags.fixture);
+const current  = await runFixtures(flags.fixture);
 
 const diffs = [];
 const missing = [];
@@ -1428,3 +1474,7 @@ if (missing.length > 0) {
 // only path to green is an explicit, reviewed --update.
 if (diffs.length > 0 || newFixtures.length > 0 || missing.length > 0) process.exit(1);
 process.exit(0);
+})().catch((err) => {
+  console.error('REGRESSION: harness error —', err && err.stack ? err.stack : err);
+  process.exit(2);
+});

@@ -17,7 +17,7 @@ const path = require('path');
 const C = require('./_loader.js');
 const { search, seedFromTradition } = require('./search.js');
 const { translate } = require('./translate.js');
-const { buildResolver, recordProblems, traditionSource, RECIPE_CHAR_CEILING } = require('./_api_contract.js');
+const { buildResolver, recordProblems, traditionSource, RECIPE_CHAR_CEILING, stripExpandedVariants } = require('./_api_contract.js');
 
 const flags = {};
 for (const a of process.argv.slice(2)) {
@@ -169,9 +169,14 @@ function main() {
   });
 
   // ---- instruments (no compute; straight from catalog) ----
+  // The live app + MCP connector serve the universal cross-instrument string
+  // materials (auto:false/expanded variants injected at load by _merge.js). The
+  // static per-instrument files keep each instrument's CURATED variant list so they
+  // don't each balloon by the ~360-material union (multi-MB across the dir). An
+  // agent that wants the full set uses the live get_instrument tool.
   const iindex = [];
   for (const inst of C.INSTRUMENTS) {
-    writeJson(path.join(OUT, 'instruments', `${inst.id}.json`), inst);
+    writeJson(path.join(OUT, 'instruments', `${inst.id}.json`), stripExpandedVariants(inst));
     iindex.push({
       id: inst.id,
       name: inst.name,

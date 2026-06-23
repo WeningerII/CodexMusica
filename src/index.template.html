@@ -337,6 +337,12 @@ ul { list-style: none; }
 .part-row-grid:hover .part-options-cell { color: var(--text); }
 .part-variants-grid { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: var(--s2); padding: var(--s3) 0 var(--s2); }
 .part-variants-grid .variant-chip { text-align: left; }
+/* Universal cross-instrument string materials: collapsed under a part's own
+   variants. Display-only grouping — every material stays reachable. */
+.part-expanded { grid-column: 1 / -1; margin-top: var(--s2); border-top: 1px dashed var(--border); }
+.part-expanded > summary { font-size: var(--fs-micro); font-weight: var(--fw-semibold); text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-3); cursor: pointer; padding: var(--s2) 0; }
+.part-expanded > summary:hover { color: var(--text); }
+.part-expanded-grid { padding-top: 0; }
 
 /* Sidebar recipe preview (Phase 8). Live compressRichRecipe output for the
    full workspace, with char counter against the 1000-char ceiling. */
