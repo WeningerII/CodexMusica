@@ -51,7 +51,12 @@ function seedCard(instrumentId, traditionId) {
 // Port of src/app.js:inverseConfigureForPreface. Returns null if the target or
 // instrument is unknown; otherwise { targetId, startScore, finalScore,
 // targetTokenCount, changes[], config }.
-function inverseConfigure(card, targetId) {
+function inverseConfigure(card, targetId, opts) {
+  // opts.pin: axis ids held FIXED during coordinate-ascent — a pinned axis still
+  // contributes its descriptors to the score but is never reshaped. Kept in
+  // lockstep with src/app.js:inverseConfigureForPreface (the browser passes pin
+  // when a material edit triggers the cascade; the connector/CLI don't pin today).
+  const pinned = (opts && Array.isArray(opts.pin)) ? new Set(opts.pin) : null;
   const target = (C.PREFACE_LEXICON || []).find((p) => p.id === targetId);
   if (!target) return null;
   const TARGET = new Set(tokensOf(target));
@@ -66,10 +71,16 @@ function inverseConfigure(card, targetId) {
   for (const part of (inst.parts || [])) {
     const variants = part.variants || [];
     if (variants.length < 2) continue;
+    // The universal cross-instrument materials are auto:false — the optimizer must
+    // never AUTO-select a borrowed material (only a human picks one). Offer only the
+    // curated variants as reshape targets, but KEEP the current pick even if it is a
+    // borrowed material so an earlier human choice is preserved, not dropped.
+    const curVid = (card.parts || {})[part.id] || null;
+    const choosable = variants.filter((v) => !v.expanded || v.id === curVid);
     axes.push({
       kind: 'part', id: part.id, label: part.name || part.id,
-      options: variants.map((v) => ({ id: v.id, label: v.name || v.id, contrib: new Set(v.descriptors || []) })),
-      current: (card.parts || {})[part.id] || null,
+      options: choosable.map((v) => ({ id: v.id, label: v.name || v.id, contrib: new Set(v.descriptors || []) })),
+      current: curVid,
     });
   }
   axes.push({
@@ -113,6 +124,7 @@ function inverseConfigure(card, targetId) {
   while (changed && iters < 12) {
     changed = false; iters++;
     for (const ax of axes) {
+      if (pinned && pinned.has(ax.id)) continue; // user-fixed axis — preserve the manual pick
       let bestId = chosen[ax.id];
       let bestForAxis = bestScore;
       for (const opt of ax.options) {
