@@ -21275,8 +21275,13 @@ function suggestPrefaceForCard(card) {
 // don't change between current and chosen produce no entries in `changes`,
 // so an "already-optimal" target returns changes:[] and apply() still sets
 // the label without mutating other state.
-function inverseConfigureForPreface(card, targetId) {
+function inverseConfigureForPreface(card, targetId, opts) {
   if (!card || !targetId) return null;
+  // opts.pin: array of axis ids held FIXED during coordinate-ascent. Used when a
+  // manual edit (picking a material) triggers the cascade — the touched part still
+  // contributes its descriptors to the score but is never reshaped, so the user's
+  // pick is preserved while the rest of the card moves toward the preface.
+  const pinned = (opts && Array.isArray(opts.pin)) ? new Set(opts.pin) : null;
   const target = (typeof PREFACE_LEXICON !== 'undefined' ? PREFACE_LEXICON : []).find(p => p.id === targetId);
   if (!target || !Array.isArray(target.tokens) || target.tokens.length === 0) return null;
   const TARGET = new Set(target.tokens);
@@ -21297,14 +21302,20 @@ function inverseConfigureForPreface(card, targetId) {
   for (const part of (inst.parts || [])) {
     const variants = part.variants || [];
     if (variants.length < 2) continue;
+    // The universal cross-instrument materials are auto:false — the optimizer must
+    // never AUTO-select a borrowed material (only a human picks one). Offer just the
+    // curated variants as reshape targets, but KEEP the current pick even if it is a
+    // borrowed material so the cascade preserves, rather than drops, an earlier choice.
+    const curVid = (card.parts || {})[part.id];
+    const choosable = variants.filter(function (v) { return !v.expanded || v.id === curVid; });
     axes.push({
       kind: 'part',
       id: part.id,
       label: part.name || part.id,
-      options: variants.map(function (v) {
+      options: choosable.map(function (v) {
         return { id: v.id, label: v.name || v.id, contrib: new Set(v.descriptors || []) };
       }),
-      current: (card.parts || {})[part.id],
+      current: curVid,
     });
   }
 
@@ -21388,6 +21399,7 @@ function inverseConfigureForPreface(card, targetId) {
     changed = false;
     iters++;
     for (const ax of axes) {
+      if (pinned && pinned.has(ax.id)) continue; // user-fixed axis — preserve the manual pick
       let bestId = chosen[ax.id];
       let bestForAxis = bestScore;
       for (const opt of ax.options) {
@@ -21637,6 +21649,43 @@ function commitPrefaceChange(card, prefaceId) {
     showToast(`Configured for ${prefaceId} · ${n} ${n === 1 ? 'axis' : 'axes'} changed (Ctrl+Z to revert)`, 'success');
   } else {
     showToast(`Preface set to ${prefaceId}`, 'success');
+  }
+}
+
+// A manual part edit (picking a material / variant) reshapes the REST of the card
+// toward the preface the new sound implies — the same inverse cascade a preface
+// pick runs — while PINNING the edited part so the user's choice is never reverted.
+// In auto-preface mode the target is re-derived from the new descriptor set; if the
+// user has locked a preface, the cascade reshapes toward that locked preface. The
+// auto-applied changes are surfaced via the shifts panel + a toast, mirroring
+// commitPrefaceChange. Caller owns pushHistory() and rerenderCard().
+function reconfigureAfterPartEdit(card, editedPartId) {
+  if (!card) return;
+  const auto = card.prefaceAuto !== false;
+  const target = auto
+    ? (typeof suggestPrefaceForCard === 'function' ? suggestPrefaceForCard(card) : null)
+    : card.preface;
+  if (!target) return;
+  const result = (typeof inverseConfigureForPreface === 'function')
+    ? inverseConfigureForPreface(card, target, { pin: [editedPartId] })
+    : null;
+  if (!result) {
+    // Free-form / no-token target (not in the lexicon): keep the re-derived label,
+    // no reshape possible without a token signature.
+    if (auto) card.preface = target;
+    return;
+  }
+  result.apply(); // reshapes the other axes toward `target`; sets card.preface = target, prefaceAuto = false
+  if (result.changes.length > 0) {
+    _recentShiftsByCard.set(card.id, {
+      targetId: target,
+      changes: result.changes,
+      startScore: result.startScore,
+      finalScore: result.finalScore,
+      targetTokenCount: result.targetTokenCount,
+    });
+    const n = result.changes.length;
+    showToast(`Reconfigured for ${target} · ${n} ${n === 1 ? 'change' : 'changes'} automatically (Ctrl+Z to revert)`, 'success');
   }
 }
 
@@ -23046,6 +23095,10 @@ function renderDetail() {
   if (stackSig) view.appendChild(stackSig);
   view.appendChild(renderDetailHeader(card, inst));
   view.appendChild(renderDetailTraitPills(card, inst));
+  // Auto-reconfigure explainer — mounted here (not inside the Preface tab) so the
+  // "what changed automatically" panel is visible no matter which tab is open when
+  // a part edit or a preface pick reshapes the card.
+  renderShiftsPanel(card, view);
   view.appendChild(renderDetailTabBar(card, inst));
   view.appendChild(renderDetailTabContent(card, inst));
 
@@ -23731,11 +23784,9 @@ function renderPrefaceSection(card) {
   // selected preface's token signature.
   renderReachabilityFan(card, sec);
 
-  // Shifts panel — if a previous commitPrefaceChange produced inverse
-  // configuration shifts, this surfaces what changed and which target
-  // tokens each shift contributed. Persists until next commit or until
-  // the user dismisses it.
-  renderShiftsPanel(card, sec);
+  // (The shifts panel that explains an inverse reconfigure is mounted once in
+  // renderDetail, above the tab bar, so it shows regardless of the active tab —
+  // a part edit on the Parts tab and a preface pick here both surface it.)
 
   // Input commit: typed value goes through commitPrefaceChange so lexicon
   // matches fire the inverse algorithm. Free-form values get stored as the
@@ -24081,8 +24132,22 @@ function handleCardClick(e, card) {
     return;
   }
   if (t.dataset.setPart) {
-    card.parts[t.dataset.setPart] = t.dataset.variant || null;
-    if (card.prefaceAuto) card.preface = suggestPrefaceForCard(card);
+    const partId = t.dataset.setPart;
+    card.parts[partId] = t.dataset.variant || null;
+    // Material parts (those carrying the universal cross-instrument materials)
+    // trigger the full inverse cascade toward the re-derived preface — the same
+    // machinery a preface pick runs — pinning the touched part so the user's choice
+    // is preserved, and surfacing every auto-applied change (shifts panel + toast).
+    // One history entry → one Ctrl+Z. Other parts keep the lightweight re-derive.
+    const inst = Inst(card.instrumentId);
+    const partDef = inst ? (inst.parts || []).find(p => p.id === partId) : null;
+    const isMaterialPart = !!(partDef && (partDef.variants || []).some(v => v.expanded));
+    if (isMaterialPart) {
+      reconfigureAfterPartEdit(card, partId);
+      if (typeof pushHistory === 'function') pushHistory();
+    } else if (card.prefaceAuto) {
+      card.preface = suggestPrefaceForCard(card);
+    }
     rerenderCard(card);
     return;
   }
