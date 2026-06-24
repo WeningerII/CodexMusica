@@ -2,7 +2,19 @@
 // Engine tests need no SDK; the server-build check is skipped if the SDK isn't
 // installed (npm ci in mcp/). Run: npm test
 import assert from 'node:assert/strict';
+import { createRequire } from 'node:module';
 import * as E from './engine.js';
+
+// Raw merged catalog (with the universal cross-instrument materials present) so the
+// guard below can tell a curated variant from a borrowed (expanded, auto:false) one —
+// getInstrument strips expanded variants, so it can't be used for this.
+const require = createRequire(import.meta.url);
+const C = require('../scripts/_loader.js');
+const EXPANDED = new Set();
+for (const inst of C.INSTRUMENTS || [])
+  for (const p of inst.parts || [])
+    for (const v of p.variants || [])
+      if (v.expanded) EXPANDED.add(`${inst.id}|${p.id}|${v.id}`);
 
 let passed = 0;
 function check(name, fn) {
@@ -40,6 +52,32 @@ check('edit_recipe set_preface re-derives + labels verbatim (state threaded)', (
   const voice = r.workspace.cards.find((c) => c.instrumentId === 'voice');
   assert.ok(voice.prefaceLock === true && voice.preface === 'satirical', 'preface locked on the card');
   assert.notDeepEqual(voice.parts, s.workspace.cards[0].parts, 'voice settings re-derived');
+});
+
+check('set_preface never AUTO-selects a borrowed (auto:false) material', () => {
+  // The universal cross-instrument materials are auto:false — a human picks them,
+  // the inverse-configure optimizer must never reach for one on its own. This guards
+  // scripts/_inverse_configure.js (shared by connector + CLI) against re-introducing
+  // the borrowed-material auto-pick that the wood/strings merge let slip in. afrobeat
+  // seeds material instruments (guitar/bass body_wood + string parts, drum shell_wood),
+  // all with CURATED defaults — so any expanded pick after set_preface is the bug.
+  const s = E.startRecipe({ traditions: ['afrobeat'] });
+  const prefaces = ['shrieking', 'keening', 'brooding', 'caressing', 'raging', 'groaning'];
+  let runs = 0;
+  for (const seed of s.workspace.cards) {
+    const before = { ...seed.parts };
+    for (const pref of prefaces) {
+      const r = E.editRecipe({ workspace: thread(s.workspace), edits: [{ action: 'set_preface', card: seed.instrumentId, preface: pref }] });
+      const edited = r.workspace.cards.find((c) => c.instrumentId === seed.instrumentId);
+      for (const [partId, vid] of Object.entries(edited.parts || {})) {
+        if (EXPANDED.has(`${seed.instrumentId}|${partId}|${vid}`)) {
+          assert.equal(before[partId], vid, `set_preface("${pref}") auto-selected borrowed material ${seed.instrumentId}.${partId}=${vid}`);
+        }
+      }
+      runs++;
+    }
+  }
+  assert.ok(runs >= 6, `expected several inverse runs, got ${runs}`);
 });
 
 check('edit_recipe add_tradition reflects in the header (explicit staple)', () => {
