@@ -1,0 +1,5 @@
+# Codex Musica — AI agents and crawlers welcome. All content is public, static data.
+User-agent: *
+Allow: /
+
+Sitemap: https://weningerii.github.io/CodexMusica/sitemap.xml

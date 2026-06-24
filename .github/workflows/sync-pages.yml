@@ -95,8 +95,9 @@ jobs:
           cp _dist/AGENTS.md AGENTS.md
           cp _dist/llms.txt llms.txt
           cp _dist/sitemap.xml sitemap.xml
+          cp _dist/robots.txt robots.txt
           rm -rf api && cp -r _dist/api api
-          git add -A codex.html index.html AGENTS.md llms.txt sitemap.xml api
+          git add -A codex.html index.html AGENTS.md llms.txt sitemap.xml robots.txt api
           if git diff --cached --quiet; then
             echo "Site unchanged — nothing to publish."
             exit 0

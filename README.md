@@ -63,8 +63,22 @@ The site root (`index.html`) is dual-purpose: human browsers redirect to the app
 fetchers read an inline agent guide pointing at `api/all.json`. So one link —
 the root URL — serves both audiences.
 
-Discovery surface: root `llms.txt`, `sitemap.xml`, and `AGENTS.md` (the agent guide).
-All compute happens at build time; see `scripts/build_static_api.js`.
+Discovery surface: root `llms.txt`, `robots.txt`, `sitemap.xml`, `server.json` (the MCP
+registry manifest), and `AGENTS.md` (the agent guide). All compute happens at build time;
+see `scripts/build_static_api.js` and `scripts/build_discovery.js`.
+
+## Live MCP connector
+
+A hosted **Model Context Protocol** server (`mcp/`, deployed on Render, auto-deploys from
+`main`) exposes the full *editable* engine as MCP tools — the headless twin of the browser
+app: seed a recipe, then edit prefaces / variants / room / chain / tuning, add/remove
+instruments and traditions, and re-render. Streamable HTTP, no auth, read-only and
+deterministic.
+
+- Endpoint: `https://codex-musica-mcp.onrender.com/mcp`
+- Server card (zero-config discovery): `https://codex-musica-mcp.onrender.com/.well-known/mcp.json`
+- Registry manifest: root `server.json` (publish to the official MCP registry with `mcp-publisher publish`)
+- Transport, privacy, and the tool contract: see `mcp/README.md` and `mcp/PRIVACY.md`.
 
 ## Repository map
 

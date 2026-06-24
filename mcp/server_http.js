@@ -33,6 +33,29 @@ app.use((req, res, next) => {
 
 app.get('/health', (_req, res) => res.json({ ok: true, service: 'codex-musica-mcp' }));
 
+// Server card for zero-config discovery — served from the server's OWN origin so a client
+// can learn identity / transport / auth before the MCP handshake (the SEP-1649/SEP-1960
+// /.well-known/mcp.json pattern, mirroring OAuth/OIDC well-known docs). The full tool list
+// still comes from the MCP initialize + tools/list handshake; this is the pre-connect hint.
+const PUBLIC_MCP_URL = process.env.MCP_PUBLIC_URL || 'https://codex-musica-mcp.onrender.com/mcp';
+app.get('/.well-known/mcp.json', (_req, res) =>
+  res.json({
+    name: 'io.github.weningerii/codex-musica',
+    title: 'Codex Musica',
+    description:
+      'Deterministic recording-recipe workspace: seed a recipe from any of 1119 music ' +
+      'traditions and edit it (prefaces, part variants, room/chain/tuning, instruments) — ' +
+      'the headless twin of the browser app, read-only and reproducible.',
+    version: '2.0.0',
+    transport: 'streamable-http',
+    endpoint: PUBLIC_MCP_URL,
+    authentication: 'none',
+    documentation: 'https://weningerii.github.io/CodexMusica/AGENTS.md',
+    websiteUrl: 'https://weningerii.github.io/CodexMusica',
+    repository: 'https://github.com/WeningerII/CodexMusica',
+  })
+);
+
 // One-line observability so the Render log shows what each call was.
 function describe(body) {
   const m = Array.isArray(body) ? body[0] : body;
