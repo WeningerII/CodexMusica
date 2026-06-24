@@ -53,6 +53,22 @@ For full structured arrangements (ensemble, room, chain, tuning) per tradition:
 }
 ```
 
+## Live MCP connector (hosted — no clone, no setup)
+
+A hosted **Model Context Protocol** server is the headless twin of the browser app — it
+exposes the full *editable* engine as tools. Seed a recipe from any tradition, then edit
+it (re-pick a preface, swap a part variant, override room/chain/tuning, add/remove
+instruments or traditions) and re-render. Deterministic and read-only; state passes in and
+out, so thread the returned `workspace` into the next call.
+
+- **Endpoint** (Streamable HTTP, no auth): `https://codex-musica-mcp.onrender.com/mcp`
+- **Add in Claude:** Settings → Connectors → Add custom connector → paste the URL.
+- **Server card** (capabilities, for clients that auto-discover): `https://codex-musica-mcp.onrender.com/.well-known/mcp.json`
+- **Tools:** `start_recipe`, `edit_recipe`, `render_recipe`, `search_catalog`, `search_prefaces`, `get_instrument`, `get_tradition`, `list_traditions`, `list_options`.
+
+Use the connector for *interactive* recipe-building; use the static JSON below when you
+just need to read the default recipe for a tradition.
+
 ## Full functionality (clone & run)
 
 The JSON endpoints above serve the **default** recipe per tradition — read-only. The

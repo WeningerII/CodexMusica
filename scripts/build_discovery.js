@@ -52,6 +52,18 @@ recipe_chars, score, config (the structured arrangement), and source (the raw
 catalog-row fields — tuning/room/chain — that the browser app imports from). Fetch
 the index to get every {id}, then fetch the per-id file you need.
 
+## Live MCP connector (hosted — no clone, no setup)
+A hosted Model Context Protocol server exposes the full EDITABLE engine as tools: seed a
+recipe from any tradition, then edit it (re-pick a preface, swap a part variant, override
+room/chain/tuning, add/remove instruments and traditions) and re-render. The headless twin
+of the browser app — deterministic and read-only; thread the returned workspace into the
+next call.
+
+- Endpoint (Streamable HTTP, no auth): https://codex-musica-mcp.onrender.com/mcp
+- Add in Claude: Settings -> Connectors -> Add custom connector -> paste the URL.
+- Server card (capabilities, for auto-discovery): https://codex-musica-mcp.onrender.com/.well-known/mcp.json
+- Tools: start_recipe, edit_recipe, render_recipe, search_catalog, search_prefaces, get_instrument, get_tradition, list_traditions, list_options.
+
 ## Full functionality (clone & run — for agents with a shell)
 The static JSON above is the DEFAULT recipe per tradition (read-only). The full engine —
 blend multiple genres, add/remove instruments, swap part variants, axis-target search,
@@ -97,6 +109,21 @@ const xml =
   '\n</urlset>\n';
 fs.writeFileSync(path.join(OUT_DIR, 'sitemap.xml'), xml);
 
+// ---- robots.txt ----
+// Everything here is public, static data — welcome every crawler and AI agent and point
+// them at the sitemap. NOTE: on a GitHub Pages PROJECT path (/CodexMusica/) crawlers read
+// robots at the DOMAIN root, so this is only authoritative under a custom domain; it is
+// harmless otherwise and becomes correct the moment a custom domain is attached.
+const robots = [
+  '# Codex Musica — AI agents and crawlers welcome. All content is public, static data.',
+  'User-agent: *',
+  'Allow: /',
+  '',
+  `Sitemap: ${BASE}/sitemap.xml`,
+  '',
+].join('\n');
+fs.writeFileSync(path.join(OUT_DIR, 'robots.txt'), robots);
+
 process.stderr.write(
-  `Wrote llms.txt and sitemap.xml (${urls.length} urls) to ${OUT_DIR}, base=${BASE}\n`
+  `Wrote llms.txt, sitemap.xml (${urls.length} urls), robots.txt to ${OUT_DIR}, base=${BASE}\n`
 );
