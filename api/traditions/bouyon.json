@@ -5,7 +5,7 @@
   "lineage": "Dominica electronic-hybrid Caribbean dance music codified through WCK and the late-1980s Dominica recording scene — characterized by cadence-lypso roots merged with zouk and dancehall programming, French Creole vocals, and the 100-120 BPM rhythmic foundation distinctive to the genre",
   "recipe": "classic 1987-1989 bouyon, groove Percussion, Caribbean branch, Afro-diasporic electric groove percussion kizomba kompa. extended whistle, full chest belt, overtone rich sustained, punctuated. TR-808, electric bass, analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 378,
-  "score": 77.628,
+  "score": 77.523,
   "config": {
     "traditions": [
       "bouyon",
@@ -49,7 +49,7 @@
           "voice_ornament_system": 0.45500000000000007,
           "voice_pitch_organization": 1.3,
           "voice_processing_chain": 9.278875,
-          "voice_multitrack_stack": 3.1064999999999996
+          "voice_multitrack_stack": 3.0014999999999996
         }
       },
       {

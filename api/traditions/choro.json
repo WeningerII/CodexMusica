@@ -5,7 +5,7 @@
   "lineage": "Brazilian instrumental urban-popular-music tradition originating 1870s-onward in Rio de Janeiro from European salon-dance (polka, schottische, waltz, mazurka) re-rhythmicized through Afro-Brazilian syncopation (especially habanera-derived). The canonical regional-choro ensemble: solo lead (flute, clarinet, or mandolin), seven-string guitar (violão-de-sete) providing baixaria walking-bass-line, six-string guitar accompanying-harmony, cavaquinho four-double-course soprano-guitar rhythmic-strum, and pandeiro frame-drum-with-jingles. The repertoire layers virtuosic compositional pieces (often modulating through multiple keys with rapid 16th-note arpeggios) with roda-de-choro participatory jam-session-tradition. Three historical phases: foundational late-19th-century, golden-age 1920s-1940s, and bossa-nova-and-modern-revival 1950s-onward.",
   "recipe": "classic mid-1870s choro, improv On Frame, string improv branch, Brazilian groove percussion samba tropicália. Brazilian flat back European spruce choro luthier canon Brazilian rosewood pre 1992 vintage bandolim, choro tradition nylon Brazilian rosewood pre 1992 choro cedar canonical choro violao 7 cordas, cedar strummed open chord ringing overtones classical nylon-string guitar, samba foundation mahogany samba canon steel modern strummed cavaquinho, powell boston canonical American orchestral flute, ebonite hard rubber klezmer tradition clarinet, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro, choro group. parlor. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 776,
-  "score": 227.897,
+  "score": 229.718,
   "config": {
     "traditions": [
       "choro",
@@ -25,7 +25,7 @@
         "scores": {
           "bandolim_body": 11.699999999999998,
           "bandolim_top_wood": 5.6499999999999995,
-          "bandolim_back_wood": 9.554999999999996,
+          "bandolim_back_wood": 11.374999999999995,
           "bandolim_strings": 6.35,
           "bandolim_technique": 9.749999999999998
         }

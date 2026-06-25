@@ -3,8 +3,8 @@
   "name": "German deutschrap",
   "family": "hip_hop",
   "lineage": "German-language hip-hop tradition emerging in 1990s through Die Fantastischen Vier (Stuttgart), Advanced Chemistry (Heidelberg), and the broader Frankfurt scene. The 2000s second-wave through Bushido, Sido, Aggro Berlin label, and Kool Savas extended the genre commercially; the 2010s-2020s wave through Capital Bra, Bonez MC, Apache 207, and the broader trap-and-drill influenced sound brought deutschrap to streaming dominance in German-speaking countries.",
-  "recipe": "classic mid-1990s german deutschrap, mc Rhythm, intl hip hop branch conscious hip-hop gangsta rap. thick, rap, nervy, narrative. chopped sampler, TR-808. mid manhattan 1975-1985 mid-major late70s nyc commercial. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 341,
+  "recipe": "classic Central European mid-1990s german deutschrap, mc Rhythm, intl hip hop branch conscious hip-hop gangsta rap. thick, rap, nervy, narrative. chopped sampler, TR-808. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 396,
   "score": 294.96,
   "config": {
     "traditions": [
@@ -83,7 +83,7 @@
         }
       }
     ],
-    "room": "studio_late70s_nyc_commercial",
+    "room": "berlin_techno_kreuzberg_studio",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_ldc",
@@ -101,7 +101,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "studio_late70s_nyc_commercial",
+    "room": "berlin_techno_kreuzberg_studio",
     "parts": {
       "voice_register": "chest_voice",
       "voice_quality": "rap_voice",

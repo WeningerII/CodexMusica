@@ -3,9 +3,9 @@
   "name": "Sertanejo",
   "family": "global",
   "lineage": "Brazilian rural-country pop tradition with two principal eras — sertanejo raiz (rural-roots, 1930s-1960s acoustic duos with double-vocal harmony) and sertanejo universitário (2000s-onward urban-pop crossover) codified through Leandro and Leonardo, Chitãozinho and Xororó (raiz canon), then Michel Teló, Luan Santana, and Marília Mendonça (post-2010 universitário)",
-  "recipe": "classic tropical mid-1930s sertanejo, groove Percussion, Brazilian branch, country functional song country rock nashville sound. thick, conversational, melodic, equal tempered. cedar travis picked classical nylon-string guitar, steel castagnari Italian premium folk music straight accordion, Fender tweed amp American 50s amp tweed breakup ernie ball slinky fingerpicked electric bass, steel pre muffled edge muffled hot rolled annealed drum kit, banda sinaloense, pinho paranas traditional Brazilian imbuia Brazilian walnut alternative steel doubled courses viola caipira. live tracking. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 698,
-  "score": 475.307,
+  "recipe": "classic tropical mid-1930s sertanejo, groove Percussion, Brazilian branch, country functional song country rock nashville sound. thick, conversational, melodic, equal tempered. travis picked classical nylon-string guitar, steel castagnari Italian premium folk music straight accordion, Fender tweed amp American 50s amp tweed breakup ernie ball slinky fingerpicked electric bass, steel pre muffled edge muffled hot rolled annealed drum kit, pinho paranas traditional Brazilian imbuia Brazilian walnut alternative steel doubled courses viola caipira. live tracking. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 674,
+  "score": 472.867,
   "config": {
     "traditions": [
       "sertanejo",
@@ -59,15 +59,15 @@
           "string_tuning": "standard_tuning",
           "top_wood_classical": "cedar_cl",
           "bracing_classical": "fan_torres_cl",
-          "string_classical": "plain_lamb_gut_classical_guitar",
+          "string_classical": "nylon_normal_cl",
           "attack_technique_cl": "fingertip_only_cl"
         },
         "scores": {
           "acoustic_technique": 24.75,
           "string_tuning": 0,
-          "top_wood_classical": 1.4299999999999997,
+          "top_wood_classical": 0.78,
           "bracing_classical": 0.585,
-          "string_classical": 0.585,
+          "string_classical": 0.12999999999999998,
           "attack_technique_cl": 0.195
         }
       },
@@ -142,17 +142,6 @@
           "cymbal_lathing": 27.090000000000003,
           "cymbal_finish": 0.28500000000000003,
           "drum_technique": 15.762499999999996
-        }
-      },
-      {
-        "id": "banda_sinaloense",
-        "slots": {
-          "sections": "banda_trumpets",
-          "banda_sinaloense_context": "banda_sinaloense_norteno"
-        },
-        "scores": {
-          "sections": 0.285,
-          "banda_sinaloense_context": 1.3
         }
       },
       {
@@ -233,8 +222,6 @@
       "free_reed_technique": "free_reed_folk_first_position",
       "reed_config": "lmm",
       "musette_offset": "dry_tuning",
-      "sections": "banda_trumpets",
-      "banda_sinaloense_context": "banda_sinaloense_quinceanera",
       "viola_caipira_courses": "viola_cebolão",
       "viola_caipira_context": "viola_caipira_sertanejo",
       "viola_caipira_top_wood": "viola_caipira_spruce",

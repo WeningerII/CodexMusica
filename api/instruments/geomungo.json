@@ -161,7 +161,7 @@
         {
           "id": "geomungo_silk_canonical",
           "default": true,
-          "name": "Silk (canonical canonical court canon)",
+          "name": "Silk (canonical court canon)",
           "descriptors": [
             "silk-canonical",
             "court-canonical"
@@ -298,7 +298,7 @@
         {
           "id": "geomungo_silk_canonical",
           "default": true,
-          "name": "Silk (canonical canonical court canon)",
+          "name": "Silk (canonical court canon)",
           "descriptors": [
             "silk-canonical",
             "court-canonical"

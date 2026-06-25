@@ -5,7 +5,7 @@
   "lineage": "Late-1990s onward European hard-techno subgenre crafted for peak-time large-club and outdoor festival rotation, characterized by 130-140 bpm driving four-on-the-floor, aggressive sub-bass, hypnotic loop-based arrangement, and minimal melodic content — codified through Berlin's Berghain-orbit producers (Marcel Dettmann, Ben Klock, Surgeon, Function), the Ostgut Ton label, and the broader European hard-techno festival circuit",
   "recipe": "classic 1997-1999 peak-time techno, electronic Dance, techno branch, house electronic dance acid house chicago house. drum machine analog, sub bass analog synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 307,
-  "score": 23.865,
+  "score": 24.015,
   "config": {
     "traditions": [
       "peak_techno",
@@ -22,7 +22,7 @@
           "shuffle_quantize": "straight_quantize"
         },
         "scores": {
-          "kick_voice": 0.75,
+          "kick_voice": 0.9,
           "snare_voice": 0.15,
           "hat_voice": 0.195,
           "shuffle_quantize": 8.92

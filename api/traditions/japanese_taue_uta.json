@@ -3,8 +3,8 @@
   "name": "Japanese taue-uta (田植唄, rice-planting songs)",
   "family": "global",
   "lineage": "Japanese taue-uta (田植唄, \"rice-planting songs\") tradition continuous from premodern Japanese-agricultural village-labor practice through Edo-period continuous performance into modern Japanese-and-Japanese-diaspora continuous rural practice (where it survives) and into intangible-heritage status for certain regional variants; foundational repertoire integrates rice-paddy planting and weeding-songs with characteristic Japanese-folk pentatonic vocabulary",
-  "recipe": "classic modern japanese taue-uta, field Work, east Asian branch, south Asian field work, east Asian wedding, east Asian lullaby japanese komoriuta korean jajanga. thick, yodel, tasteful, continuous-phonation. acrylic nylon modern tsugaru min yo folk song accompaniment shamisen. tanzanian outdoor village clearing. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 444,
+  "recipe": "classic modern japanese taue-uta, field Work, east Asian branch, south Asian field work, east Asian wedding, east Asian lullaby japanese komoriuta korean jajanga. thick, yodel, tasteful, continuous-phonation. acrylic nylon modern tsugaru min yo folk song accompaniment shamisen. forest clearing. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 425,
   "score": 144.514,
   "config": {
     "traditions": [
@@ -74,7 +74,7 @@
         }
       }
     ],
-    "room": "tanzanian_outdoor_village_clearing",
+    "room": "forest_clearing",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -92,7 +92,7 @@
   },
   "source": {
     "tuning": "japanese_in_scale",
-    "room": "tanzanian_outdoor_village_clearing",
+    "room": "forest_clearing",
     "parts": {
       "voice_articulation": "call_response_voice",
       "voice_speech_song": "voice_syllabic_singing",

@@ -3,9 +3,9 @@
   "name": "Psychedelic rock",
   "family": "rock_punk",
   "lineage": "Mid-late 1960s through early 1970s rock genre informed by hallucinogenic-drug culture and Indian classical music influence — codified through The Beatles (Revolver 1966, Sgt Pepper 1967, Magical Mystery Tour 1967), The Jimi Hendrix Experience (Are You Experienced 1967, Axis Bold as Love 1967, Electric Ladyland 1968), Pink Floyd (the Syd Barrett era The Piper at the Gates of Dawn 1967), 13th Floor Elevators, Jefferson Airplane, the Grateful Dead (their early San Francisco psychedelic era), the Doors",
-  "recipe": "classic British 1967-1969 psychedelic rock, distorted Rock, classic branch, experimental distorted rock krautrock chillwave. thick, low dynamic level, chest resonance low mid, equal tempered. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative fast tremolo tonewheel organ, treble-extended classic cedar sitar, ampeg svt amp rock bass amp mahogany ernie ball slinky riff driven electric bass, hot rolled annealed machine hammered symmetric pattern organized rows drum kit, mellotron m400 canonical 1970 1980 prog rock standard 35 key polyester base quarter inch iron oxide canonical mellotron mellotron. London major flagship studio 1968-1985 major-flagship uk 70s hard rock arena studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ.",
-  "recipe_chars": 972,
-  "score": 499.189,
+  "recipe": "classic Northern European 1967-1969 psychedelic rock, distorted Rock, classic branch, experimental distorted rock krautrock chillwave. thick, low dynamic level, chest resonance low mid, equal tempered. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative fast tremolo tonewheel organ, cedar maihar gharana instrumental concert lineage classical trained lineage sitar, ampeg svt amp rock bass amp mahogany ernie ball slinky riff driven electric bass, hot rolled annealed machine hammered symmetric pattern organized rows drum kit, mellotron m400 canonical 1970 1980 prog rock standard 35 key polyester base quarter inch iron oxide canonical mellotron mellotron. London major flagship studio 1968-1985 major-flagship uk 70s hard rock arena studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console.",
+  "recipe_chars": 995,
+  "score": 501.596,
   "config": {
     "traditions": [
       "psychedelic_rock",
@@ -126,7 +126,7 @@
           "sitar_pluck": 2.185,
           "sitar_main_strings": -1.05,
           "sitar_jawari_style": 0.378,
-          "sitar_gharana": 0.063
+          "sitar_gharana": 2.47
         }
       },
       {

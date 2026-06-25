@@ -3,9 +3,9 @@
   "name": "Outlaw country",
   "family": "vernacular",
   "lineage": "Early-to-mid 1970s reaction against the slick Nashville Sound establishment — codified through Waylon Jennings (Honky Tonk Heroes 1973, Dreaming My Dreams 1975), Willie Nelson (his return to Texas after the early-1970s Nashville disillusionment, Shotgun Willie 1973, Red Headed Stranger 1975, the Phases and Stages 1974), Kris Kristofferson, Johnny Cash (whose career outlaw turn aligned with the movement), David Allan Coe, Townes Van Zandt, the broader Austin Texas scene (Jerry Jeff Walker, Guy Clark) where outlaw country found its sympathetic recording-and-touring infrastructure outside the Nashville Music Row system",
-  "recipe": "classic North American 1974-1976 outlaw country, functional Song, outlaw branch, anglo singer song confessional60s late-60s interior confessional songwriter 1960s greenwich village confessional folk. thick, incomplete closure resting, expressive, equal tempered. cedar phosphor bronze pre war martin fingerpicked dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright mahogany single coil electric guitar, Fender blackface amp American 60s amp spring reverb bright classic country brass pedal steel, Fender tweed amp American 50s amp tweed breakup mahogany pyramid electric bass, bass drum, pearwood marine band tradition brass traditional straight harmonica, folk strummed open chord ringing overtones autoharp. nashville music row defining 1957-present major-flagship nashville rca studio b quonset hut. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 977,
-  "score": 310.185,
+  "recipe": "classic Southern American 1974-1976 outlaw country, functional Song, outlaw branch, anglo singer song confessional60s late-60s interior confessional songwriter 1960s greenwich village confessional folk. thick, incomplete closure resting, expressive, equal tempered. cedar phosphor bronze modern martin fingerpicked dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright mahogany single coil electric guitar, Fender blackface amp American 60s amp spring reverb bright classic country brass pedal steel, Fender tweed amp American 50s amp tweed breakup mahogany pyramid electric bass, bass drum, pearwood marine band tradition brass traditional straight harmonica, folk strummed open chord ringing overtones autoharp. nashville music row defining 1957-present major-flagship nashville rca studio b quonset hut. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 979,
+  "score": 309.99,
   "config": {
     "traditions": [
       "outlaw_country",
@@ -66,7 +66,7 @@
           "string_tuning": 0.7249999999999998,
           "top_wood": 1.028875,
           "back_sides": 0.39,
-          "string_acoustic": 1.2238749999999998
+          "string_acoustic": 1.028875
         }
       },
       {

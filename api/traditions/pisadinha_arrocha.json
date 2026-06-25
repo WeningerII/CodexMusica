@@ -3,9 +3,9 @@
   "name": "Pisadinha and arrocha (northeastern romantic)",
   "family": "pop",
   "lineage": "Brazilian arrocha and pisadinha contemporary northeastern-Brazilian romantic-popular music genres. Arrocha (Bahian, 1990s-2000s) is a slow-tempo romantic ballad with Brazilian-pop-influenced harmonic-vocabulary. Pisadinha (Pernambuco/Bahia, 2010s-2020s) is the faster-tempo dance-derivative incorporating electronic-production. Both share the working-class northeastern-Brazilian cultural orientation distinct from sertanejo universitário's middle-class-university-targeting.",
-  "recipe": "classic mid-1990s pisadinha and arrocha, functional Song, Brazilian song branch, reggaeton MC rhythm moombahton. extended whistle, rap, equal tempered, modern pop training. strummed open chord ringing overtones dreadnought acoustic guitar, electric bass, TR-808. estudio rozenblit recife. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 418,
-  "score": 91.918,
+  "recipe": "classic Southern American mid-1990s pisadinha and arrocha, functional Song, Brazilian song branch, reggaeton MC rhythm moombahton. extended whistle, rap, equal tempered, modern pop training. strummed open chord ringing overtones dreadnought acoustic guitar, electric bass, TR-808. estudio rozenblit recife. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 436,
+  "score": 91.967,
   "config": {
     "traditions": [
       "pisadinha_arrocha",
@@ -66,7 +66,7 @@
           "string_tuning": 0.7149999999999999,
           "top_wood": 0.32175,
           "back_sides": 0.45499999999999996,
-          "string_acoustic": 0.59475
+          "string_acoustic": 0.6435
         }
       },
       {

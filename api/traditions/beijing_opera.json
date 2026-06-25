@@ -3,9 +3,9 @@
   "name": "Beijing opera (jingju)",
   "family": "classical",
   "lineage": "Late-18th-century onward Chinese jingju classical theatrical tradition with the jinghu-led civilian orchestra and luogu martial percussion",
-  "recipe": "classic North American mid-1970s beijing opera, art Music, beijing opera branch, east Asian Cantonese opera, east Asian Tibetan ritual tibetan ache lhamo opera. thick, pressed, chest resonance low mid, narrative. erhuang narrative bamboo body beijing opera legato jinghu, python skin snake skin bamboo silk red sandalwood zitan erhu, yueqin, silk padauk mid tier pipa, percussion section ban clapper luogu, jingju foundational padauk mid tier sanxian. kabuki theater japanese. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 608,
-  "score": 449.251,
+  "recipe": "classic East Asian mid-1970s beijing opera, art Music, beijing opera branch, east Asian Cantonese opera, east Asian Tibetan ritual tibetan ache lhamo opera. thick, pressed, chest resonance low mid, narrative. erhuang narrative bamboo body beijing opera legato jinghu, python skin snake skin bamboo silk red sandalwood zitan erhu, yueqin, silk mahogany commercial grade pipa, percussion section ban clapper luogu, theatrical jingju foundational sanxian. chinese traditional teahouse. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 614,
+  "score": 447.335,
   "config": {
     "traditions": [
       "beijing_opera",
@@ -110,14 +110,14 @@
           "pipa_frets": "pipa_traditional_frets",
           "pipa_strings": "pipa_silk",
           "pipa_pick": "pipa_fingerpicks",
-          "pipa_body_wood": "pipa_padauk"
+          "pipa_body_wood": "pipa_mahogany"
         },
         "scores": {
           "plucked_traditional_technique": 12.125,
           "pipa_frets": 0.50625,
           "pipa_strings": 8.995999999999999,
           "pipa_pick": 0,
-          "pipa_body_wood": 2.2872500000000002
+          "pipa_body_wood": 1.8132499999999998
         }
       },
       {
@@ -147,11 +147,11 @@
           "sanxian_context": 6.98125,
           "sanxian_head": 0.78,
           "sanxian_strings": 0.845,
-          "sanxian_body_wood": 2.2872500000000002
+          "sanxian_body_wood": 0.845
         }
       }
     ],
-    "room": "kabuki_theater_japanese",
+    "room": "chinese_traditional_teahouse",
     "archetype": "arch_late60s_us_multitrack",
     "inline_chain": {
       "mic": "condenser_ldc",
@@ -169,7 +169,7 @@
   },
   "source": {
     "tuning": "chinese_pentatonic_gong",
-    "room": "kabuki_theater_japanese",
+    "room": "chinese_traditional_teahouse",
     "parts": {
       "voice_register": "falsetto",
       "voice_quality": "nasal_voice",

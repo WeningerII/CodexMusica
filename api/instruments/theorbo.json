@@ -180,9 +180,9 @@
         },
         {
           "id": "theorbo_ebony_ribs",
-          "name": "Ebony (premium, pre-1989 historical)",
+          "name": "Ebony (premium, historical)",
           "descriptors": [
-            "ebony-ribs-premium-pre-1989"
+            "ebony-ribs-premium-historical"
           ],
           "match_tokens": [
             "plucked",
@@ -395,9 +395,9 @@
         },
         {
           "id": "theorbo_ebony_ribs",
-          "name": "Ebony (premium, pre-1989 historical)",
+          "name": "Ebony (premium, historical)",
           "descriptors": [
-            "ebony-ribs-premium-pre-1989"
+            "ebony-ribs-premium-historical"
           ],
           "match_tokens": [
             "plucked",

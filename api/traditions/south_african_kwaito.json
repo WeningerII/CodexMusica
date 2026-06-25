@@ -3,8 +3,8 @@
   "name": "South African kwaito",
   "family": "hip_hop",
   "lineage": "South African house-and-hip-hop hybrid genre emerging in mid-1990s post-apartheid Johannesburg as a celebration of newly-democratic South African cultural identity. Characterized by slowed-down house tempo (90-110 BPM), Zulu-Xhosa-Sesotho-English vocal delivery, dub-and-reggae-influenced bass-and-keyboard production, and explicit South African township cultural lyrical content. Boom Shaka, Arthur Mafokate, Mandoza, Brenda Fassie (transitional), and TKZee consolidated the canonical 1990s-2000s commercial sound.",
-  "recipe": "classic 1994-1996 south african kwaito, mc Rhythm, Afro-diasporic branch, house electronic dance, Jamaican bass system jamaican dancehall. vocal fry, rap, chest resonance low mid, narrative. roland tr 8s modern aira digital recreation TR-808, sub bass analog synth, ampeg b15 amp American 60s bass amp flip top character mahogany pyramid electric bass. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 563,
+  "recipe": "classic Southern African 1994-1996 south african kwaito, mc Rhythm, Afro-diasporic branch, house electronic dance, Jamaican bass system jamaican dancehall. vocal fry, rap, chest resonance low mid, narrative. roland tr 8s modern aira digital recreation TR-808, sub bass analog synth, ampeg b15 amp American 60s bass amp flip top character mahogany pyramid electric bass. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 584,
   "score": 158.355,
   "config": {
     "traditions": [
@@ -106,7 +106,7 @@
         }
       }
     ],
-    "room": "lagos_decca_west_african_studio",
+    "room": "johannesburg_gallo_african_studios",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_ldc",
@@ -124,7 +124,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "lagos_decca_west_african_studio",
+    "room": "johannesburg_gallo_african_studios",
     "parts": {
       "body_wood": "alder_b",
       "pickup_config": "soapbar",

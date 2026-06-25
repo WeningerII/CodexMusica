@@ -3,9 +3,9 @@
   "name": "Ska",
   "family": "global",
   "lineage": "The ska tradition — Jamaican popular music built on the upstroke offbeat and walking bass, the direct precursor to rocksteady and reggae",
-  "recipe": "classic tropical mid-1970s ska, bass System, Jamaican branch, Caribbean groove percussion calypso zydeco. thick, forward-resonance, pure, punctuated. blues slide open string slide resonance single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character pyramid pure nickel bass electric bass, over hammered post lathe strikes pin lathed tonal groove brushes-and-sticks drum kit, Hammond a 100 built in Leslie home spinet tonewheel organ, heavy one piece matched to monette horn trumpet, saxophone, bass leaning trombone. Kingston studio one defining 1959-2004 indie-commercial kingston studio one brentford road. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 737,
-  "score": 168.83,
+  "recipe": "classic Caribbean mid-1970s ska, bass System, Jamaican branch, Caribbean groove percussion calypso zydeco. thick, forward-resonance, pure, punctuated. blues slide open string slide resonance single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character pyramid pure nickel bass electric bass, over hammered post lathe strikes pin lathed tonal groove brushes-and-sticks drum kit, Hammond a 100 built in Leslie home spinet tonewheel organ, heavy one piece matched to monette horn trumpet, saxophone, bass leaning trombone. Kingston studio one defining 1959-2004 indie-commercial kingston studio one brentford road. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 738,
+  "score": 169.48,
   "config": {
     "traditions": [
       "ska",
@@ -192,7 +192,7 @@
           "voice_ensemble_config": 11.179999999999996,
           "voice_ornament_system": 1.65,
           "voice_pitch_organization": 1.1049999999999998,
-          "voice_processing_chain": 2.4050000000000002,
+          "voice_processing_chain": 3.0549999999999997,
           "voice_multitrack_stack": 1.6899999999999997
         }
       },

@@ -78,13 +78,13 @@
       "amp": null,
       "medium": "digital_high"
     },
-    "tuning": "edo_31",
+    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "edo_31",
+    "tuning": "twelve_tet",
     "room": "concert_hall_shoebox",
     "parts": {
       "keyboard_technique": "keyboard_block_chord_pop",

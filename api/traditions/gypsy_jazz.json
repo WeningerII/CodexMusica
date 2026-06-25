@@ -5,7 +5,7 @@
   "lineage": "1930s Paris Romani-French string-led jazz-swing tradition combining American swing harmonic vocabulary with Eastern European Romani melodic-and-virtuoso-soloist tradition — codified through the Quintette du Hot Club de France (Django Reinhardt and Stéphane Grappelli, 1934 onward) and continuing through Romané musical-family transmission across European Romani communities into the present",
   "recipe": "classic mid-1930s jazz manouche, improv On Frame, string improv branch, europop functional song bal-folk balkan brass. fingerpicked parlor acoustic guitar, carpathian spruce hard rock maple acer saccharum French Polish shellac pad violin orchestral, growly gut upright bass, gypsy jazz quintet, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow legato saxophone, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble lead trumpet trumpet. parlor. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 613,
-  "score": 162.495,
+  "score": 163.145,
   "config": {
     "traditions": [
       "gypsy_jazz",
@@ -45,7 +45,7 @@
           "orch_rosin": "bernardel_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 3.14,
+          "bowed_technique": 3.7900000000000005,
           "orch_strings": 0,
           "orch_top_wood": 3.5650000000000004,
           "orch_back_wood": 2.925,

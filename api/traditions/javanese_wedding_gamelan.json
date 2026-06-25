@@ -3,8 +3,8 @@
   "name": "Javanese wedding gamelan music",
   "family": "global",
   "lineage": "Javanese wedding-music tradition continuous from medieval Javanese court-and-village gamelan practice through Islamic-period (post-15th-century) continuous performance into modern Indonesian-and-Javanese-diaspora practice; defined by gamelan-ensemble accompaniment to ceremonial-and-celebratory wedding-music repertoire",
-  "recipe": "classic modern javanese wedding gamelan music, wedding, east Asian branch, south Asian wedding, east Asian art music, indigenous ritual devotional beijing opera tibetan ache lhamo opera. thick, pressed, melodic, continuous-phonation. gamelan javanese full, saron gamelan, bonang, gamelan javanese teak premium javanese court buffalo hide rattan lacing canonical javanese kendang indonesian. tatami parlor japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 544,
+  "recipe": "classic Southeast Asian modern javanese wedding gamelan music, wedding, east Asian branch, south Asian wedding, east Asian art music, indigenous ritual devotional beijing opera tibetan ache lhamo opera. thick, pressed, melodic, continuous-phonation. gamelan javanese full, saron gamelan, bonang, gamelan javanese teak premium javanese court buffalo hide rattan lacing canonical javanese kendang indonesian. javanese pendopo pavilion. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 563,
   "score": 223.977,
   "config": {
     "traditions": [
@@ -101,7 +101,7 @@
         }
       }
     ],
-    "room": "tatami_parlor_japanese",
+    "room": "javanese_pendopo_pavilion",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -119,7 +119,7 @@
   },
   "source": {
     "tuning": "pelog_slendro_javanese",
-    "room": "tatami_parlor_japanese",
+    "room": "javanese_pendopo_pavilion",
     "parts": {
       "voice_articulation": "legato_voice",
       "voice_speech_song": "voice_syllabic_singing",

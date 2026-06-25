@@ -302,9 +302,9 @@
         {
           "id": "santoor_shivkumar_sharma_canon",
           "default": true,
-          "name": "Shivkumar Sharma canonical Hindustani-introduction lineage",
+          "name": "Santoor canonical Hindustani-introduction lineage",
           "descriptors": [
-            "shivkumar-sharma-canonical-lineage"
+            "santoor-canonical-lineage"
           ],
           "match_tokens": [
             "plucked",
@@ -475,9 +475,9 @@
         {
           "id": "santoor_shivkumar_sharma_canon",
           "default": true,
-          "name": "Shivkumar Sharma canonical Hindustani-introduction lineage",
+          "name": "Santoor canonical Hindustani-introduction lineage",
           "descriptors": [
-            "shivkumar-sharma-canonical-lineage"
+            "santoor-canonical-lineage"
           ],
           "match_tokens": [
             "plucked",

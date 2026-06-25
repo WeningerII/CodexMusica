@@ -5,7 +5,7 @@
   "lineage": "Dominica creole-French Caribbean dance-band tradition fusing Haitian compas and Trinidadian calypso, codified through Exile One and Grammacks in the 1970s",
   "recipe": "classic North American mid-1970s cadence-lypso, groove Percussion, Caribbean branch, Afro-diasporic electric groove percussion kompa afrobeat. thick, full chest belt, nervy, narrative. maple pau ferro ceramic nickel plated steel nickel single coil electric guitar, thomastik infeld low tension jazz warm pocket fingerstyle electric bass, birch vintage ambassador asymmetric bronze bell bronze drum kit, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, open slap hand drum congas. nuyorican fania canon 1968-1977 mid tier fania la tierra studios ny. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 738,
-  "score": 171.159,
+  "score": 171.054,
   "config": {
     "traditions": [
       "cadence_lypso",
@@ -49,7 +49,7 @@
           "voice_ornament_system": 1.2999999999999998,
           "voice_pitch_organization": 2.628,
           "voice_processing_chain": 8.30325,
-          "voice_multitrack_stack": 4.705
+          "voice_multitrack_stack": 4.6000000000000005
         }
       },
       {

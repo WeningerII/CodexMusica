@@ -2,10 +2,10 @@
   "id": "laiko",
   "name": "Laikó",
   "family": "global",
-  "lineage": "Post-rebetiko Greek popular song that emerged in the 1950s-1960s as rebetiko transitioned from tavern-context to commercial-nightclub-context — codified through Manolis Chiotis (who introduced the four-course-to-six-course bouzouki conversion and electric amplification), Stelios Kazantzidis (the voice of laiko), Marinella, Stratos Dionysiou, Yiannis Parios, Glykeria, and the Athens Minos / Columbia Greece / Lyra label catalog",
-  "recipe": "classic North American mid-1950s laikó, ballad Poetry, Mediterranean ballad branch, vocal drone modal, chanson fado ballad poetry cape verdean batuko of santiago island greek éntechno. thick, lament wail, chest resonance low mid, punctuated. walnut staves canonical Greek gut pre 1950s rebetiko strummed bouzouki, cedar fingerpicked classical nylon-string guitar, beech laminated maple laminated European tradition European spruce norway spruce grand piano, sub heavy electric bass, pre muffled edge muffled over hammered post lathe strikes hand lathed drum kit. athens major label 1955-1985 mid tier athens minos studios 60s 70s. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 762,
-  "score": 279.385,
+  "lineage": "Post-rebetiko Greek popular song that emerged in the 1950s-1960s as rebetiko transitioned from tavern-context to commercial-nightclub-context — codified through Manolis Chiotis (who introduced the three-course-to-four-course (trichordo-to-tetrachordo) bouzouki conversion and electric amplification), Stelios Kazantzidis (the voice of laiko), Marinella, Stratos Dionysiou, Yiannis Parios, Glykeria, and the Athens Minos / Columbia Greece / Lyra label catalog",
+  "recipe": "classic Southern European mid-1950s laikó, ballad Poetry, Mediterranean ballad branch, vocal drone modal, chanson fado ballad poetry cape verdean batuko of santiago island greek éntechno. thick, lament wail, chest resonance low mid, punctuated. walnut staves canonical Greek gut pre 1950s rebetiko strummed bouzouki, cedar fingerpicked classical nylon-string guitar, beech laminated maple laminated European tradition European spruce norway spruce grand piano, sub heavy electric bass, pre muffled edge muffled over hammered post lathe strikes hand lathed drum kit. athens major label 1955-1985 mid tier athens minos studios 60s 70s. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 765,
+  "score": 280.885,
   "config": {
     "traditions": [
       "laiko",
@@ -43,7 +43,7 @@
           "voice_microtone": 3.0225,
           "voice_tradition": 37.4075,
           "voice_mechanism_compound": 7.0200000000000005,
-          "voice_estill_quality": 10.025,
+          "voice_estill_quality": 11.024999999999999,
           "voice_speech_song": 24.927500000000006,
           "voice_ensemble_config": 19.695000000000004,
           "voice_ornament_system": 2.7949999999999995,

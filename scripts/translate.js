@@ -173,16 +173,28 @@ const ID_DISPLAY_OVERRIDES = {
 };
 
 const REGION_DISPLAY = {
-  'NA': 'North American',
-  'NA-LA': 'Los Angeles',
-  'NA-S': 'Southern American',
-  'NA-NW': 'Pacific Northwest',
-  'UK': 'British',
-  'EU': 'European',
-  'AFR': 'West African',
-  'ASIA': 'Asian',
-  'trop': 'tropical',
-  'global': '',
+  // North America
+  'NA': 'North American', 'NA-NE': 'North American', 'NA-W': 'North American',
+  'NA-C': 'North American', 'NA-MW': 'Midwestern American', 'NA-S': 'Southern American',
+  'NA-SE': 'Southern American', 'NA-SW': 'Southwestern American', 'NA-LA': 'Los Angeles',
+  'NA-NW': 'Pacific Northwest', 'NA-MX': 'Mexican',
+  // Europe
+  'UK': 'British', 'EU': 'European', 'EU-W': 'Western European', 'EUR-W': 'Western European',
+  'EU-S': 'Southern European', 'EU-C': 'Central European', 'EU-N': 'Northern European',
+  'EU-E': 'Eastern European', 'EU-IB': 'Iberian', 'CAUC': 'Caucasian',
+  // Africa
+  'AFR': 'African', 'AFR-W': 'West African', 'AFR-N': 'North African', 'AFR-E': 'East African',
+  'AFR-S': 'Southern African', 'AFR-C': 'Central African',
+  // Middle East
+  'ME': 'Middle Eastern',
+  // Asia
+  'ASIA': 'Asian', 'AS-S': 'South Asian', 'AS-E': 'East Asian', 'AS-SE': 'Southeast Asian',
+  'AS-NE': 'Northeast Asian', 'AS-C': 'Central Asian',
+  // South America / Caribbean
+  'SAM-S': 'South American', 'SAM-N': 'South American', 'SAM-W': 'Andean', 'SAM-NW': 'Andean',
+  'CARIB': 'Caribbean',
+  // Oceania / misc
+  'OCE': 'Oceanian', 'trop': 'tropical', 'global': '',
 };
 
 // Curated display map for chain items — produces terse phrases for descriptor stack.
@@ -700,7 +712,11 @@ function buildSentence1(config) {
   const equipmentEra = arch?.era || room?.era || null;
   // Use tradition era if found; else equipment era as fallback
   const eraRange = traditionEra || (equipmentEra ? extractEraFromText(equipmentEra) : null);
-  const region = arch?.region || room?.region || null;
+  // Prefer the ROOM's region (the cultural/geographic venue) over the chain
+  // archetype's: an archetype like arch_late60s_us_multitrack is a PRODUCTION
+  // style whose region (NA) was overriding the true origin of non-Western
+  // traditions, stamping samba/qawwali/Carnatic/etc. as "North American".
+  const region = room?.region || arch?.region || null;
 
   const parts = [];
   // Modifier: "classic" - we'll add this if the tradition's family or lineage suggests

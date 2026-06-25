@@ -102,7 +102,7 @@
       "comp": "comp_la2a_optical",
       "eq": "eq_passive_program_pultec",
       "amp": null,
-      "medium": "cassette_medium"
+      "medium": "tape_15ips"
     },
     "tuning": "japanese_in_scale",
     "aesthetic": null,
@@ -144,7 +144,7 @@
     "chain_pre": "transformer_solid_state",
     "chain_comp": "comp_la2a_optical",
     "chain_eq": "eq_passive_program_pultec",
-    "chain_medium": "cassette_medium",
+    "chain_medium": "tape_15ips",
     "chain_console": "colored"
   }
 }

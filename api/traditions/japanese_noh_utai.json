@@ -3,9 +3,9 @@
   "name": "Noh utai (Noh theatre chant)",
   "family": "classical",
   "lineage": "Japanese Noh utai sung-and-chanted vocal tradition of the canonical Noh theatre form, codified in the fourteenth-fifteenth centuries by Zeami Motokiyo (1363-1443). Performance integrates the male shite-actor's utai chant (the central narrative-and-character voice) with the jiutai chorus (typically eight male singers seated stage-right), supported by the hayashi instrumental ensemble (nohkan flute, ko-tsuzumi shoulder-drum, o-tsuzumi hip-drum, taiko stick-drum). Vocal architecture features extremely slow tempi, characteristic narrow-range melodic vocabulary in the yowagin \"weak-style\" and tsuyogin \"strong-style\" registers, with strictly codified breath-pause and vibrato conventions.",
-  "recipe": "classic early-1360s noh utai, art Music, east Asian branch, buddhist ritual devotional theravada pali chant gyütö multiphonic chant. sygyt, declaimed, melodic, narrative. madake bamboo phyllostachys canonical Japanese root section kinko ryu canonical edo period concert shakuhachi. noh stage japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 431,
-  "score": 110.452,
+  "recipe": "classic East Asian early-1360s noh utai, art Music, east Asian branch, buddhist ritual devotional theravada pali chant gyütö multiphonic chant. sygyt, declaimed, melodic, narrative. cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk oedo sukeroku canonical kumi daiko modern ensemble taiko drum. noh stage japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 477,
+  "score": 112.809,
   "config": {
     "traditions": [
       "japanese_noh_utai",
@@ -53,20 +53,20 @@
         }
       },
       {
-        "id": "shakuhachi",
+        "id": "taiko_drum",
         "slots": {
-          "wind_articulation": "wind_continuous_legato",
-          "shaku_length": "two_one",
-          "shaku_technique": "mura_iki",
-          "shakuhachi_body_material": "shakuhachi_madake_canonical",
-          "shakuhachi_lineage": "shakuhachi_kinko"
+          "taiko_size": "taiko_o_daiko",
+          "taiko_skin": "taiko_cowhide",
+          "taiko_shell_wood": "taiko_keyaki_canonical",
+          "taiko_lineage": "taiko_oedo_sukeroku",
+          "taiko_technique": "taiko_kumi_daiko"
         },
         "scores": {
-          "wind_articulation": 2.5445,
-          "shaku_length": 0.168,
-          "shaku_technique": 3.835,
-          "shakuhachi_body_material": 4.03,
-          "shakuhachi_lineage": 2.34
+          "taiko_size": 2.535,
+          "taiko_skin": 4.03,
+          "taiko_shell_wood": 4.68,
+          "taiko_lineage": 2.34,
+          "taiko_technique": 1.69
         }
       }
     ],
@@ -102,12 +102,7 @@
       "voice_ornament_system": "voice_ornament_jingju_role",
       "voice_estill_quality": "voice_estill_nasal_twang",
       "voice_vibrato": "oscillating_vibrato",
-      "voice_mechanism_compound": "voice_mechanism_single_source",
-      "wind_articulation": "wind_continuous_legato",
-      "shaku_length": "one_eight",
-      "shaku_technique": "meri_kari",
-      "shakuhachi_body_material": "shakuhachi_madake_canonical",
-      "shakuhachi_lineage": "shakuhachi_kinko"
+      "voice_mechanism_compound": "voice_mechanism_single_source"
     },
     "chain_mic": "condenser_sdc",
     "chain_pre": "pre_field_recorder_portable",

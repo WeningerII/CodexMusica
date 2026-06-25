@@ -3,9 +3,9 @@
   "name": "Sichuan opera (chuanju)",
   "family": "classical",
   "lineage": "Sichuan opera (chuanju) Chinese regional opera tradition of the Sichuan basin (Chengdu, Chongqing, and broader province), synthesizing five distinct musical styles: gaoqiang (high-pitched), kunqiang (kunqu-derived), huqin (string-led), tanxi (clapper-style), and dengdiao (Sichuan-folk-derived) into a single eclectic theatrical tradition. The chuanju is particularly known for the \"face-changing\" (bian lian) stagecraft technique where the performer switches painted masks in fractions of a second through hidden mechanisms. Performance integrates voice, stylized dance-movement, recited dialogue, percussion-led ensemble, and elaborate face-painting and costume conventions.",
-  "recipe": "classic North American mid-1970s sichuan opera, art Music, east Asian branch, east Asian Cantonese opera. thick, pressed, chest resonance low mid, unrestrained. jingju foundational silk canonical traditional padauk mid tier sanxian, composite material paulownia canonical Korean horse dog asymmetric canonical Korean pansori godo janggu. wooden pagoda hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 489,
-  "score": 185.06,
+  "recipe": "classic Southeast Asian mid-1970s sichuan opera, art Music, east Asian branch, east Asian Cantonese opera. thick, pressed, chest resonance low mid, unrestrained. jingju foundational silk canonical traditional sanxian, composite material paulownia canonical Korean horse dog asymmetric canonical Korean pansori godo janggu. wooden pagoda hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 474,
+  "score": 184.54,
   "config": {
     "traditions": [
       "sichuan_opera_chuanju",
@@ -67,7 +67,7 @@
           "sanxian_context": 3.705,
           "sanxian_head": 0,
           "sanxian_strings": 1.2676249999999998,
-          "sanxian_body_wood": 1.365
+          "sanxian_body_wood": 0.845
         }
       },
       {

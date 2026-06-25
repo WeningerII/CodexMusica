@@ -3,9 +3,9 @@
   "name": "Hindi filmi (Bollywood)",
   "family": "global",
   "lineage": "Hindi-language Bombay film-song playback tradition codified 1940s-onward, with first-wave golden-age 1940s-1960s through Naushad (Mughal-e-Azam 1960, the template-setting orchestrated-classical-folk-fusion music director), S.D. Burman (Pyaasa 1957, Aradhana 1969), Shankar-Jaikishan (Awaara 1951, Sangam 1964), Madan Mohan, Roshan, Salil Chowdhury; second-wave funk-fusion era 1970s-1980s through R.D. Burman (Hare Rama Hare Krishna 1971, Sholay 1975, the bossa-and-disco-and-funk-fusion auteur), Laxmikant-Pyarelal, Kalyanji-Anandji, Bappi Lahiri (the disco-filmi specialist); third-wave 1990s-onward through A.R. Rahman (Roja 1992, Bombay 1995, Dil Se 1998, Slumdog Millionaire 2008 global Oscar breakthrough), Vishal-Shekhar, Pritam, Amit Trivedi; the canonical playback singer lineage of Lata Mangeshkar (1929-2022, the 30000-song discography defining the female playback voice from 1948 onward), Mohammed Rafi (1924-1980, the male romantic-and-classical voice), Asha Bhosle (1933-, the cabaret-and-folk-versatile voice), Mukesh, Kishore Kumar (the 1970s comic-and-romantic voice and R.D. Burman collaborator), Manna Dey, Hemant Kumar",
-  "recipe": "classic North American early-1920s hindi filmi, functional Song, south Asian pop branch, indian classical improv improv on frame thumrī carnatic vocal. thick, low dynamic level, chest resonance low mid, equal tempered. vocal female straight harmonium indian, indian rosewood rosewood copper tabla, carpathian spruce European maple sycamore maple oil varnish amber tinted violin orchestral, kerala bamboo alternative south indian hariprasad chaurasia maihar gharana canonical 20th century continuous-airflow legato bansuri, closed jawari ravi shankar canon articulate less buzz maihar gharana allauddin khan lineage sitar, goat skin syahi rope laced steel ring dholak, steel modern tun indian cedar alternative shivkumar sharma canonical lineage santoor, mid 20th century banaras shehnai virtuoso classical solo raga tradition sheesham indian rosewood canonical Hindustani arundo donax quadruple folded canonical banaras shehnai.",
-  "recipe_chars": 928,
-  "score": 664.76,
+  "recipe": "classic South Asian early-1920s hindi filmi, functional Song, south Asian pop branch, indian classical improv improv on frame thumrī carnatic vocal. thick, low dynamic level, chest resonance low mid, equal tempered. vocal female straight harmonium indian, indian rosewood rosewood copper tabla, carpathian spruce European maple sycamore maple oil varnish amber tinted violin orchestral, kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, closed jawari ravi shankar canon articulate less buzz maihar gharana instrumental concert lineage sitar, goat skin syahi rope laced steel ring dholak, steel modern tun indian cedar alternative santoor canonical lineage santoor, mid 20th century banaras shehnai virtuoso classical solo raga tradition sheesham indian rosewood canonical Hindustani arundo donax quadruple folded canonical banaras shehnai. mumbai bombay filmi defining 1940-present major-flagship mumbai bombay filmi studio.",
+  "recipe_chars": 986,
+  "score": 674.445,
   "config": {
     "traditions": [
       "hindi_filmi",
@@ -148,7 +148,7 @@
           "sitar_pluck": 10.594999999999999,
           "sitar_main_strings": -0.595,
           "sitar_jawari_style": 2.34,
-          "sitar_gharana": 6.175
+          "sitar_gharana": 15.469999999999999
         }
       },
       {
@@ -182,7 +182,7 @@
           "santoor_mallets": 0.845,
           "santoor_strings": 10.334999999999999,
           "santoor_body_wood": 5.265000000000001,
-          "santoor_lineage": 4.485
+          "santoor_lineage": 4.875
         }
       },
       {

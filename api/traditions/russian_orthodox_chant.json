@@ -3,9 +3,9 @@
   "name": "Russian Orthodox liturgical chant",
   "family": "global",
   "lineage": "Russian Orthodox liturgical chant tradition codified across the medieval-Kievan and Muscovite periods, drawing on the Byzantine octoechos modal system through the znamenny notation tradition — characterized by unaccompanied male-choir performance, the four-part choral harmonization style developed from the seventeenth century onward, deep-bass octavist register, and the obikhod and obihod-derived modern liturgical settings used across the Russian Orthodox parish-and-monastic-foundation network",
-  "recipe": "classic modern russian orthodox liturgical chant, ritual Devotional, Russian orthodox branch, christian gospel coptic coptic liturgical chant ethiopian tewahedo zema chant. thick, declaimed, melodic, ornamental. a cappella small 3 to 8 one per part four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble, prima nylon modern spruce maple andreyev concert orchestra canonical revival balalaika, choir russian orthodox. cathedral. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 621,
-  "score": 246.007,
+  "recipe": "classic modern russian orthodox liturgical chant, ritual Devotional, Russian orthodox branch, christian gospel coptic coptic liturgical chant ethiopian tewahedo zema chant. thick, declaimed, melodic, ornamental. a cappella small 3 to 8 one per part four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble, choir russian orthodox. cathedral. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 533,
+  "score": 235.719,
   "config": {
     "traditions": [
       "russian_orthodox_chant",
@@ -68,23 +68,6 @@
         }
       },
       {
-        "id": "balalaika",
-        "slots": {
-          "plucked_traditional_technique": "plucked_folk_strummed",
-          "balalaika_size": "prima_balalaika",
-          "balalaika_strings": "nylon_balalaika",
-          "balalaika_body_wood": "balalaika_spruce_maple",
-          "balalaika_tradition": "balalaika_andreyev_concert"
-        },
-        "scores": {
-          "plucked_traditional_technique": -0.04678571428571429,
-          "balalaika_size": 3.77,
-          "balalaika_strings": 3.185,
-          "balalaika_body_wood": 1.4949999999999999,
-          "balalaika_tradition": 1.885
-        }
-      },
-      {
         "id": "choir_russian_orthodox",
         "slots": {
           "voicing": "orthodox_oktavist",
@@ -131,11 +114,6 @@
       "voice_mechanism_compound": "voice_mechanism_single_source",
       "choir_size": "chamber_choir",
       "choir_ensemble_repertoire": "choir_ensemble_renaissance",
-      "plucked_traditional_technique": "plucked_folk_strummed",
-      "balalaika_size": "prima_balalaika",
-      "balalaika_strings": "nylon_balalaika",
-      "balalaika_body_wood": "balalaika_spruce_maple",
-      "balalaika_tradition": "balalaika_andreyev_concert",
       "voicing": "orthodox_oktavist",
       "use": "orthodox_divine_liturgy"
     },

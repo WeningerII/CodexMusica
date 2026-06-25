@@ -3,8 +3,8 @@
   "name": "Korean hip-hop",
   "family": "hip_hop",
   "lineage": "Korean-language hip-hop tradition emerging through 1990s Seo Taiji and Boys, the Movement crew, and the broader Seoul-based scene. The 2010s commercial peak through the Show Me the Money TV competition (2012-onward) elevated Korean hip-hop into K-pop-adjacent commercial-dominance; the contemporary canonical roster includes Tablo, Jay Park, Beenzino, Zico, and the AOMG/H1GHR Music label crews. The Illionaire Records lineage (Dok2, The Quiett, Beenzino) defined much of the canonical 2010s sound.",
-  "recipe": "classic modern korean hip-hop, mc Rhythm, intl hip hop branch, us hip hop east coast east coast hip-hop brooklyn drill. thick, rap, melodic, narrative. chopped sampler, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, sub bass analog synth. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 492,
+  "recipe": "classic East Asian modern korean hip-hop, mc Rhythm, intl hip hop branch, us hip hop east coast east coast hip-hop brooklyn drill. thick, rap, melodic, narrative. chopped sampler, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, sub bass analog synth. korean gugak hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 454,
   "score": 296.897,
   "config": {
     "traditions": [
@@ -100,7 +100,7 @@
         }
       }
     ],
-    "room": "tokyo_studio_1970s_80s",
+    "room": "korean_gugak_hall",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "mic_sm7b_dynamic_shure",
@@ -118,7 +118,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "tokyo_studio_1970s_80s",
+    "room": "korean_gugak_hall",
     "parts": {
       "voice_register": "chest_voice",
       "voice_quality": "rap_voice",

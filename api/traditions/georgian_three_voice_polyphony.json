@@ -5,7 +5,7 @@
   "lineage": "Georgian Caucasian three-voice unaccompanied polyphonic tradition — comprising four regional sub-traditions each with distinct three-voice configuration: Kakhetian table-song (two soloists carrying upper voices over a sustained choral drone bani, the eastern-Georgian wine-toast supra context), Gurian three-voice with krimanchuli (the western-Georgian high-yodeling M1-M2-alternation upper voice over mtkmeli lead and bani drone, the most contrapuntally complex regional style), Megrelian funeral lament (the western-coastal-Georgian three-voice with text-carrying mtkmeli), and Svanetian highland complex three-voice (the upper-mountain Svaneti regional style with archaic non-tempered fifth-and-fourth harmony); twentieth-century preservation through the Anchiskhati Choir Tbilisi, Rustavi Choir, the ethnomusicology lineage of Joseb Jordania, Edisher Garaqanidze, and the Tbilisi State Conservatoire folk-polyphony research program; performed in church-and-supra contexts using non-tempered Pythagorean-leaning fifths and fourths, the harmonic vocabulary distinct from Western tempered choral practice",
   "recipe": "classic modern georgian three-voice polyphony, drone Modal, vocal branch, Mediterranean ballad ballad poetry sardinian cantu a tenore and launeddas croatian klapa dalmatian close-harmony. sygyt, false fold engaged, overtone rich sustained, hocket articulation. a cappella small 3 to 8 one per part three voice polyphonic regional kakhetian three voice two soloists choral drone global traditional polyphonic choir ensemble. parish church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 568,
-  "score": 338.095,
+  "score": 338.395,
   "config": {
     "traditions": [
       "georgian_three_voice_polyphony",
@@ -62,8 +62,8 @@
         },
         "scores": {
           "choir_size": 8.905,
-          "choir_polyphonic_configuration": 32.900000000000006,
-          "choir_regional_canonical_configuration": 37.06,
+          "choir_polyphonic_configuration": 33.050000000000004,
+          "choir_regional_canonical_configuration": 37.21,
           "choir_ensemble_repertoire": 8.71
         }
       }

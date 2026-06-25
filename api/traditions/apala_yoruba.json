@@ -3,9 +3,9 @@
   "name": "Apàlà (Yoruba Muslim percussion-song)",
   "family": "global",
   "lineage": "Yoruba apàlà percussion-and-vocal genre originating in 1930s-1940s Ibadan as a Muslim-Yoruba devotional-and-praise music for post-Ramadan ìdí-l-Fitr celebrations. Performance centers on male lead singer with a battery of dùndún talking-drums (iyaalu mother-drum plus gangan pressure-drums), agogo bell, sekere shaker, and chorus response. The talking-drum lineage carries percussive-and-melodic-allusion content through standardized Yoruba drum-language. Distinguished from sákárà by apàlà's dùndún-talking-drum (vs sákárà's frame-drum-with-shawm) instrumental signature. Direct ancestor of later fuji genre.",
-  "recipe": "classic mid-1930s apàlà, functional Song, African pop branch, west African groove percussion indonesian jaipongan fújì. thick, declaimed, pure, punctuated. omo cedrela odorata canonical Yoruba dundun goat skin leather tension cords canonical pressure bend talking drum, agogo, maple alternative German shawm. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 519,
-  "score": 184.67,
+  "recipe": "classic West African mid-1930s apàlà, functional Song, African pop branch, west African groove percussion indonesian jaipongan fújì. thick, declaimed, pure, punctuated. omo cedrela odorata canonical Yoruba dundun goat skin leather tension cords canonical pressure bend talking drum, agogo. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 500,
+  "score": 182.74,
   "config": {
     "traditions": [
       "apala_yoruba",
@@ -77,23 +77,6 @@
           "agogo_bell": 2.6,
           "agogo_context": 3.8349999999999995
         }
-      },
-      {
-        "id": "shawm",
-        "slots": {
-          "wind_articulation": "wind_ornament_heavy",
-          "shawm_pitch": "shawm_treble",
-          "shawm_context": "shawm_renaissance_consort",
-          "shawm_body_wood": "shawm_maple_alternative",
-          "shawm_reed": "shawm_arundo_pirouette"
-        },
-        "scores": {
-          "wind_articulation": -0.10500000000000002,
-          "shawm_pitch": 0.15,
-          "shawm_context": 0.65,
-          "shawm_body_wood": 1.04,
-          "shawm_reed": 0.195
-        }
       }
     ],
     "room": "lagos_decca_west_african_studio",
@@ -134,12 +117,7 @@
       "talking_drum_shell_wood": "talking_drum_omo_canonical",
       "talking_drum_head": "talking_drum_goat_skin_canonical",
       "agogo_bell": "agogo_double",
-      "agogo_context": "agogo_bateria",
-      "wind_articulation": "wind_ornament_heavy",
-      "shawm_pitch": "shawm_treble",
-      "shawm_context": "shawm_alta_capella",
-      "shawm_body_wood": "shawm_boxwood_canonical",
-      "shawm_reed": "shawm_arundo_pirouette"
+      "agogo_context": "agogo_bateria"
     },
     "chain_mic": "condenser_sdc",
     "chain_pre": "pre_field_recorder_portable",

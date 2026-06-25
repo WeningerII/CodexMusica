@@ -3,9 +3,9 @@
   "name": "Tarab (Arab East classical)",
   "family": "classical",
   "lineage": "Arab East (Egyptian, Levantine, Syrian, Iraqi) classical-vocal art-music tradition built on the takht ensemble (oud, qanun, ney, riq, kamancheh, with violin section added in the 20th-century Egyptian extension) accompanying a virtuoso vocal soloist performing elaborated maqam-system vocal-form on classical Arabic poetry; figures include Mohammed Abdel Wahab, Sayed Darwish, and the post-WWII era anchored by Umm Kulthum and Abdel Halim Hafez",
-  "recipe": "classic North American mid-1970s tarab, improv On Frame, Persian arab improv branch, middle eastern classical art music, med east poetic ballad poetry shashmaqam azerbaijani mugham. vocal fry, low dynamic level, chest resonance low mid, maqam neutral step. padauk Egyptian Syrian premium Lebanese cedar eastern Mediterranean pyramid oud, metal finger picks rosewood body arab premium goat skin bridge plate qanun, rosewood mop inlay canonical Egyptian takht fish skin canonical Egyptian light responsive brass jingles canonical takht riq, arundo donax cane canonical Persian nine segment hassan kassai canonical 20th century Persian radif continuous-airflow legato ney, kayhan kalhor canon walnut canonical Persian steel modern legato kamancheh, court tradition pre twentieth century takht arab, kanun kanun. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ.",
-  "recipe_chars": 999,
-  "score": 647.686,
+  "recipe": "classic North African mid-1970s tarab, improv On Frame, Persian arab improv branch, middle eastern classical art music, med east poetic ballad poetry shashmaqam azerbaijani mugham. vocal fry, low dynamic level, chest resonance low mid, maqam neutral step. padauk Egyptian Syrian premium Lebanese cedar eastern Mediterranean pyramid oud, metal finger picks rosewood body arab premium goat skin bridge plate qanun, rosewood mop inlay canonical Egyptian takht fish skin canonical Egyptian light responsive brass jingles canonical takht riq, arundo donax cane canonical Persian nine segment hassan kassai canonical 20th century Persian radif continuous-airflow legato ney, kayhan kalhor canon walnut canonical Persian steel modern legato kamancheh, court tradition pre twentieth century takht arab. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ.",
+  "recipe_chars": 985,
+  "score": 610.396,
   "config": {
     "traditions": [
       "arab_tarab",
@@ -155,19 +155,6 @@
           "members": 0.24,
           "takht_arab_era": 9.684999999999999
         }
-      },
-      {
-        "id": "kanun",
-        "slots": {
-          "plucked_traditional_technique": "plucked_classical_idiom",
-          "kanun_school": "kanun_arab",
-          "kanun_articulation": "kanun_tortoiseshell_pick"
-        },
-        "scores": {
-          "plucked_traditional_technique": 23.25,
-          "kanun_school": 13.715,
-          "kanun_articulation": 0.325
-        }
       }
     ],
     "room": "cairo_studio_misr_umm_kulthum_era",
@@ -211,8 +198,6 @@
       "qanun_body_wood": "qanun_walnut_body",
       "qanun_bridge_skin": "qanun_fish_skin_bridge",
       "qanun_string_material": "qanun_nylon_modern",
-      "kanun_school": "kanun_arab",
-      "kanun_articulation": "kanun_tortoiseshell_pick",
       "riq_size": "riq_medium",
       "riq_context": "riq_takht",
       "riq_shell_wood": "riq_rosewood_inlaid",

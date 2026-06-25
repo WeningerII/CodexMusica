@@ -288,11 +288,11 @@
         {
           "id": "fretless_ebony_unlined",
           "default": true,
-          "name": "Ebony unlined (Jaco canon — unmarked)",
+          "name": "Ebony unlined (fusion canon — unmarked)",
           "descriptors": [
             "ebony",
             "unlined",
-            "jaco-canon",
+            "fusion-fretless-canon",
             "singing-mwah"
           ],
           "match_tokens": [
@@ -306,7 +306,7 @@
         },
         {
           "id": "fretless_ebony_lined",
-          "name": "Ebony lined (pedagogical / Pino Palladino canon)",
+          "name": "Ebony lined (pedagogical / session-fretless canon)",
           "descriptors": [
             "ebony",
             "lined",
@@ -347,7 +347,7 @@
         },
         {
           "id": "fretless_micarta",
-          "name": "Micarta (Steve Bailey / 6-string boutique)",
+          "name": "Micarta (6-string boutique)",
           "descriptors": [
             "micarta",
             "synthetic",
@@ -538,11 +538,11 @@
         {
           "id": "fretless_ebony_unlined",
           "default": true,
-          "name": "Ebony unlined (Jaco canon — unmarked)",
+          "name": "Ebony unlined (fusion canon — unmarked)",
           "descriptors": [
             "ebony",
             "unlined",
-            "jaco-canon",
+            "fusion-fretless-canon",
             "singing-mwah"
           ],
           "match_tokens": [
@@ -556,7 +556,7 @@
         },
         {
           "id": "fretless_ebony_lined",
-          "name": "Ebony lined (pedagogical / Pino Palladino canon)",
+          "name": "Ebony lined (pedagogical / session-fretless canon)",
           "descriptors": [
             "ebony",
             "lined",
@@ -597,7 +597,7 @@
         },
         {
           "id": "fretless_micarta",
-          "name": "Micarta (Steve Bailey / 6-string boutique)",
+          "name": "Micarta (6-string boutique)",
           "descriptors": [
             "micarta",
             "synthetic",

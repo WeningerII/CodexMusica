@@ -2,10 +2,10 @@
   "id": "garifuna_punta_rock",
   "name": "Garifuna punta-rock (Belize/Honduras modern)",
   "family": "global",
-  "lineage": "Modern-popular variant of older Garifuna punta dance-tradition, developed in 1970s-1980s Belize and Honduras. Pen Cayetano (born 1954, Dangriga) developed the punta-rock sound in mid-1970s; Andy Palacio (1960-2008) extended internationally through his 2007 Wátina album (Stonetree Records). Electric instruments alongside Garifuna traditional drums (primero, segunda, tercero) and shaker.",
-  "recipe": "classic early-1960s garifuna punta-rock, functional Song, tropical song branch, Caribbean groove percussion kompa-direkt soca. thick, full chest belt, tasteful, narrative. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modeled amp modern rig mahogany ernie ball slinky sub heavy electric bass, behringer rd 8 modern clone analog circuit reproduction TR-808. port of spain community studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 607,
-  "score": 160.905,
+  "lineage": "Modern-popular variant of older Garifuna punta dance-tradition, developed in 1970s-1980s Belize and Honduras. Pen Cayetano (born 1954, Dangriga) developed the punta-rock sound in mid-1970s; Andy Palacio (born 1960) extended internationally through his 2007 Wátina album (Stonetree Records). Electric instruments alongside Garifuna traditional drums (primero, segunda, tercero) and shaker.",
+  "recipe": "classic North American 1974-1976 garifuna punta-rock, functional Song, tropical song branch, Caribbean groove percussion kompa-direkt soca. thick, full chest belt, tasteful, narrative. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modeled amp modern rig mahogany ernie ball slinky sub heavy electric bass, behringer rd 8 modern clone analog circuit reproduction TR-808. port of spain community studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 620,
+  "score": 160.755,
   "config": {
     "traditions": [
       "garifuna_punta_rock",
@@ -49,7 +49,7 @@
           "voice_ornament_system": 1.7999999999999998,
           "voice_pitch_organization": 0.45499999999999996,
           "voice_processing_chain": 12.745,
-          "voice_multitrack_stack": 4.989999999999999
+          "voice_multitrack_stack": 4.839999999999999
         }
       },
       {

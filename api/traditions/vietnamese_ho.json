@@ -3,8 +3,8 @@
   "name": "Vietnamese hò (work-coordination song)",
   "family": "global",
   "lineage": "Vietnamese hò (work-coordination call-and-response song) tradition continuous from premodern Vietnamese-agricultural-and-maritime labor practice through 19th-20th century continuous performance into modern Vietnamese-folk-revival practice across Northern, Central, and Southern Vietnam; the hò is the canonical Vietnamese work-coordination song-form integrating leader-and-group call-and-response across rice-paddy-planting, fishing, boat-rowing, and other labor-contexts",
-  "recipe": "classic modern vietnamese hò, field Work, east Asian branch, south Asian field work, atlantic Southeast Asian shanty, east Asian protest song bengali bhatiali american clipper-ship shanty. thick, incomplete closure resting, tasteful, unrestrained. tanzanian outdoor village clearing. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 413,
+  "recipe": "classic modern vietnamese hò, field Work, east Asian branch, south Asian field work, atlantic Southeast Asian shanty, east Asian protest song bengali bhatiali american clipper-ship shanty. thick, incomplete closure resting, tasteful, unrestrained. marsh swamp. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 390,
   "score": 120.302,
   "config": {
     "traditions": [
@@ -53,7 +53,7 @@
         }
       }
     ],
-    "room": "tanzanian_outdoor_village_clearing",
+    "room": "marsh_swamp",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -71,7 +71,7 @@
   },
   "source": {
     "tuning": "southeast_asian_pentatonic_popular_vocal",
-    "room": "tanzanian_outdoor_village_clearing",
+    "room": "marsh_swamp",
     "parts": {
       "voice_articulation": "call_response_voice",
       "voice_speech_song": "voice_syllabic_singing",

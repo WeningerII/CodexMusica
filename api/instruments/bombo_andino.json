@@ -68,12 +68,12 @@
       "variants": [
         {
           "id": "bombo_andino_llama",
-          "name": "Llama or vicuña hide",
+          "name": "Llama or guanaco hide",
           "descriptors": [
             "highland",
             "traditional",
             "distinctive",
-            "vicuña-hide",
+            "guanaco-hide",
             "hide"
           ],
           "match_tokens": [
@@ -208,12 +208,12 @@
       "variants": [
         {
           "id": "bombo_andino_llama",
-          "name": "Llama or vicuña hide",
+          "name": "Llama or guanaco hide",
           "descriptors": [
             "highland",
             "traditional",
             "distinctive",
-            "vicuña-hide",
+            "guanaco-hide",
             "hide"
           ],
           "match_tokens": [

@@ -3,9 +3,9 @@
   "name": "Joropo",
   "family": "global",
   "lineage": "Venezuelan-and-Colombian-Llanos plains cattle-ranch song-and-dance tradition with characteristic 3/4-against-6/8 hemiola-and-sesquialteral rhythmic-foundation. The canonical ensemble: arpa-llanera 32-string diatonic-harp (Venezuelan) or cuatro-y-bandola small-four-string-and-mandolin variant (Colombian), maracas, and either capacho large-shaker or bass. The vocal-style features high-projected open-throat cattle-driving register with improvised contrapunteo dueling-poet improvised-verse-exchange. The corrido-joropo storytelling-narrative-form, the pasaje-joropo slower-romantic-lyrical-form, and the joropo-recio fast-virtuosic-improvisational-form comprise the canonical variants. Embedded in cattle-ranch llanero rural-pastoral culture spanning the Orinoco-river-basin grasslands of Venezuela and eastern Colombia.",
-  "recipe": "classic tropical mid-1950s joropo, groove Percussion, Latin am branch, Latin am troubadour ballad poetry milonga cueca. thick, forward-resonance, chest resonance low mid, narrative. diatonic only joropo tradition cedar canonical llanos gut pre modern joropo fast runs arpa llanera, cedar canonical Venezuelan nylon strummed cuatro venezolano, maracas, rhythmic dance rhythm strummed bandola andina. colombian canon 1934-present mid tier discos fuentes medellin. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 571,
-  "score": 194.33,
+  "recipe": "classic South American mid-1950s joropo, groove Percussion, Latin am branch, Latin am troubadour ballad poetry milonga cueca. thick, forward-resonance, chest resonance low mid, narrative. diatonic only joropo tradition cedar canonical llanos gut pre modern joropo fast runs arpa llanera, cedar canonical Venezuelan nylon strummed cuatro venezolano, maracas. colombian canon 1934-present mid tier discos fuentes medellin. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 530,
+  "score": 174.105,
   "config": {
     "traditions": [
       "joropo",
@@ -94,17 +94,6 @@
           "maracas_construction": 0.9299999999999999,
           "maracas_filling": 0.495
         }
-      },
-      {
-        "id": "bandola_andina",
-        "slots": {
-          "plucked_traditional_technique": "plucked_folk_strummed",
-          "bandola_andina_use": "bandola_bambuco"
-        },
-        "scores": {
-          "plucked_traditional_technique": 11.525000000000002,
-          "bandola_andina_use": 8.7
-        }
       }
     ],
     "room": "discos_fuentes_medellin",
@@ -143,7 +132,6 @@
       "maracas_construction": "maracas_gourd",
       "maracas_filling": "maracas_seeds",
       "plucked_traditional_technique": "plucked_folk_strummed",
-      "bandola_andina_use": "bandola_pasillo",
       "arpa_llanera_strings": "arpa_llanera_32",
       "arpa_llanera_body_wood": "arpa_llanera_cedar",
       "arpa_llanera_string_material": "arpa_llanera_nylon_modern",

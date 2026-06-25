@@ -1025,7 +1025,7 @@ const PREFACE_LEXICON = [
   {
     id: 'wabi-rustic',
     note: "rustic-imperfect aesthetic — soft attack, breath audible, the tone allowed to be plain",
-    tokens: ['pure', 'beat-free', 'low-overtone-rich', 'soft', 'plush', 'key-locked', 'cozy', 'celtic', 'Scottish-influenced']
+    tokens: ['pure', 'beat-free', 'low-overtone-rich', 'soft', 'plush', 'key-locked', 'cozy']
   },
   {
     id: 'sabi-patinated',
@@ -1090,7 +1090,7 @@ const PREFACE_LEXICON = [
   {
     id: 'piphat-rolling',
     note: "Thai piphat ensemble — gongs and xylophones interlocking at competition tempo",
-    tokens: ['pure', 'minimal', 'naturally-reverberant', 'beat-free', 'key-locked', 'gagaku-foundational', 'classical', 'virtuoso', 'drone-foundation']
+    tokens: ['pure', 'minimal', 'naturally-reverberant', 'beat-free', 'key-locked', 'classical', 'virtuoso', 'drone-foundation']
   },
   {
     id: 'mor-lam-storytelling',
@@ -1100,7 +1100,7 @@ const PREFACE_LEXICON = [
   {
     id: 'kalangu-talking',
     note: "Hausa talking drum bending pitch under the singer — the drum as second voice answering text",
-    tokens: ['low-fundamental-tuning', 'vocal-accompaniment', 'pitched', 'virtuoso', 'flexible', 'shruti-inflected', 'raga-bound', 'Hindu-ritual', 'dhrupad-suited']
+    tokens: ['low-fundamental-tuning', 'vocal-accompaniment', 'pitched', 'virtuoso', 'flexible', 'pitch-bending', 'speech-mimicking']
   },
   {
     id: 'desert',
@@ -1125,7 +1125,7 @@ const PREFACE_LEXICON = [
   {
     id: 'maracatu-marching',
     note: "Pernambuco rural carnival — alfaia drums marching with afoxé and gonguê over voice call-and-response",
-    tokens: ['folk-tradition', 'dance-driving', 'iberian-celtic', 'folk', 'characteristic-cry', 'controlled', 'close', 'lively', 'even-harmonic-rich']
+    tokens: ['folk-tradition', 'dance-driving', 'afro-brazilian', 'folk', 'characteristic-cry', 'controlled', 'close', 'lively', 'even-harmonic-rich']
   },
   {
     id: 'sufi-mystical',
@@ -1145,7 +1145,7 @@ const PREFACE_LEXICON = [
   {
     id: 'kakaki-heralding',
     note: "Hausa-Fulani court long-trumpet — six-foot brass tube heralding royal ceremony",
-    tokens: ['court-ceremonial', 'call', 'ritual', 'Rosh-Hashanah-Yom-Kippur', 'sufi-mystical', 'sufi', 'common', 'devotional', 'ornamental-melismatic']
+    tokens: ['court-ceremonial', 'call', 'ritual', 'common', 'devotional', 'ornamental-melismatic']
   },
   {
     id: 'string-swimming',

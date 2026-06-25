@@ -199,7 +199,7 @@
           "default": true,
           "name": "Wurlitzer 200A (canonical 1974-1982 solid-state — Supertramp Logical Song-era canon)",
           "descriptors": [
-            "wurlitzer-200a-canonical-1974-1982-solid-state-supertramp-canon"
+            "wurlitzer-200a-canonical-1974-1982-solid-state-soft-rock-canon"
           ],
           "match_tokens": [
             "electric",
@@ -225,9 +225,9 @@
         },
         {
           "id": "wurlitzer_140b_classic",
-          "name": "Wurlitzer 140B (1960s tube — Ray Charles Whats I Say-era canon)",
+          "name": "Wurlitzer 140B (1960s tube)",
           "descriptors": [
-            "wurlitzer-140b-1960s-tube-ray-charles-canon"
+            "wurlitzer-140b-1960s-tube"
           ],
           "match_tokens": [
             "electric",
@@ -364,7 +364,7 @@
           "default": true,
           "name": "Wurlitzer 200A (canonical 1974-1982 solid-state — Supertramp Logical Song-era canon)",
           "descriptors": [
-            "wurlitzer-200a-canonical-1974-1982-solid-state-supertramp-canon"
+            "wurlitzer-200a-canonical-1974-1982-solid-state-soft-rock-canon"
           ],
           "match_tokens": [
             "electric",
@@ -390,9 +390,9 @@
         },
         {
           "id": "wurlitzer_140b_classic",
-          "name": "Wurlitzer 140B (1960s tube — Ray Charles Whats I Say-era canon)",
+          "name": "Wurlitzer 140B (1960s tube)",
           "descriptors": [
-            "wurlitzer-140b-1960s-tube-ray-charles-canon"
+            "wurlitzer-140b-1960s-tube"
           ],
           "match_tokens": [
             "electric",

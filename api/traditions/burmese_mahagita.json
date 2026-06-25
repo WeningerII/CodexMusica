@@ -3,9 +3,9 @@
   "name": "Burmese mahagita (classical canon)",
   "family": "classical",
   "lineage": "Burmese mahagita (\"great song\") classical Burmese art-music canon, comprising the codified repertoire of the late-Konbaung-dynasty (eighteenth-nineteenth century) royal court at Mandalay. The mahagita corpus is organized through several song-categories (kyò devotional-style, bwèh ceremonial-style, thachingan classical-song-form, etc.) with distinct modal-and-rhythmic conventions per category. Performance configuration ranges from solo voice with saung gauk arched-harp accompaniment (the most refined chamber form) to fuller ensembles with pat-tala xylophone, hsaing-waing drum-circle, and additional wind-instruments. The post-1885 British annexation of Burma terminated the royal-court patronage; the post-1962 Burma Socialist Programme cultural-policy and the State School of Music and Drama anchor modern transmission.",
-  "recipe": "classic North American mid-1880s burmese mahagita, art Music, southeast Asian branch, east Asian art music beijing opera tibetan ache lhamo opera. thick, pressed, chest resonance low mid, rhythmic. sanxian, refined gamelan balinese full. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 464,
-  "score": 286.69,
+  "recipe": "classic Southeast Asian mid-1880s burmese mahagita, art Music, southeast Asian branch, east Asian art music beijing opera tibetan ache lhamo opera. thick, pressed, chest resonance low mid, rhythmic. sanxian, refined gamelan balinese full. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 465,
+  "score": 286.41,
   "config": {
     "traditions": [
       "burmese_mahagita",
@@ -68,7 +68,7 @@
           "sanxian_context": 4.615,
           "sanxian_head": 0.78,
           "sanxian_strings": 0.845,
-          "sanxian_body_wood": 0.52
+          "sanxian_body_wood": 0.24
         }
       },
       {

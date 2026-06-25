@@ -5,7 +5,7 @@
   "lineage": "Greek wedding-music tradition continuous from Byzantine-era through Ottoman-period through 19th-20th-century modern-Greek continuous practice; regionally distributed with strongest preservation in Crete, Mani, Epirus, and Pontic-Greek diaspora",
   "recipe": "classic modern greek gamílio glendí, wedding, European branch, middle eastern wedding, Mediterranean ballad ballad poetry, vocal drone modal lebanese-arab wedding takht persian aroosi. thick, low dynamic level, chest resonance low mid, continuous-phonation. walnut staves canonical Greek steel canonical octave unison pairs ornamented bouzouki, mulberry canonical cretan steel modern legato cretan lyra, grenadilla African blackwood traditional continuous-airflow legato clarinet, castagnari Italian premium folk music ensemble accordion, clay pre modern traditional synthetic remo mylar modern canonical Egyptian Egyptian sombaty canonical mid east darbuka. carpeted bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 806,
-  "score": 230.717,
+  "score": 230.868,
   "config": {
     "traditions": [
       "greek_gamilio_glendi",
@@ -43,7 +43,7 @@
           "voice_microtone": 6.910000000000001,
           "voice_tradition": 27.949999999999996,
           "voice_mechanism_compound": 17.849999999999998,
-          "voice_estill_quality": 6.475,
+          "voice_estill_quality": 6.624999999999999,
           "voice_speech_song": 14.9175,
           "voice_ensemble_config": 10.594999999999995,
           "voice_ornament_system": 18.779999999999998,

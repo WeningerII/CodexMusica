@@ -254,9 +254,9 @@
         {
           "id": "bansuri_hariprasad_maihar",
           "default": true,
-          "name": "Hariprasad Chaurasia / Maihar gharana (canonical 20th-century Hindustani concert)",
+          "name": "Maihar gharana (canonical 20th-century Hindustani concert)",
           "descriptors": [
-            "hariprasad-chaurasia-maihar-gharana-canonical-20th-century"
+            "maihar-gharana-canonical-20th-century"
           ],
           "match_tokens": [
             "classical",
@@ -425,9 +425,9 @@
         {
           "id": "bansuri_hariprasad_maihar",
           "default": true,
-          "name": "Hariprasad Chaurasia / Maihar gharana (canonical 20th-century Hindustani concert)",
+          "name": "Maihar gharana (canonical 20th-century Hindustani concert)",
           "descriptors": [
-            "hariprasad-chaurasia-maihar-gharana-canonical-20th-century"
+            "maihar-gharana-canonical-20th-century"
           ],
           "match_tokens": [
             "classical",

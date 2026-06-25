@@ -3,9 +3,9 @@
   "name": "American drinking song (frat, sea-shanty-derived, country)",
   "family": "global",
   "lineage": "American drinking-song tradition continuous from 18th-19th century English-Irish-and-Scottish-imported drinking-song-and-sea-shanty repertoire through 19th-century American-frontier and Civil-War-era expansion through 20th-century college-fraternity drinking-song-and-country-music drinking-song lineage into modern American continuous bar-and-roadhouse practice; foundational repertoire includes \"99 Bottles of Beer,\" \"Show Me the Way to Go Home,\" \"Beer Barrel Polka,\" \"Drink to Me Only with Thine Eyes\"",
-  "recipe": "classic modern american drinking song, drinking Song, americas branch, European drinking song, americana country, atlantic Southeast Asian shanty gothic americana gothic country. thick, low dynamic level, melodic, continuous-phonation. dadgad tuning phosphor bronze pre war martin travis picked dreadnought acoustic guitar, wood fluorocarbon modern open back scruggs stelling bluegrass setup banjo 5 string, pearwood marine band tradition double brass chromatic canon suzuki Japanese modern precision harmonica. irish pub. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 652,
-  "score": 306.222,
+  "recipe": "classic modern american drinking song, drinking Song, americas branch, European drinking song, americana country, atlantic Southeast Asian shanty gothic americana gothic country. thick, low dynamic level, melodic, continuous-phonation. dadgad tuning martin lifespan sealed travis picked dreadnought acoustic guitar, wood fluorocarbon modern open back scruggs stelling bluegrass setup banjo 5 string, pearwood marine band tradition double brass chromatic canon suzuki Japanese modern precision harmonica. irish pub. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 644,
+  "score": 306.072,
   "config": {
     "traditions": [
       "american_drinking_song",
@@ -59,14 +59,14 @@
           "string_tuning": "dadgad",
           "top_wood": "mahogany_top",
           "back_sides": "mahogany_bs",
-          "string_acoustic": "phosphor_bronze"
+          "string_acoustic": "martin_lifespan"
         },
         "scores": {
           "acoustic_technique": 24.5,
           "string_tuning": 3.1,
           "top_wood": 0.9099999999999999,
           "back_sides": 0.9099999999999999,
-          "string_acoustic": 2.15625
+          "string_acoustic": 2.00625
         }
       },
       {

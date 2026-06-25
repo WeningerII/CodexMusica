@@ -514,11 +514,11 @@
         {
           "id": "sitar_maihar_gharana",
           "default": true,
-          "name": "Maihar gharana (Allauddin Khan / Ravi Shankar / Nikhil Banerjee)",
+          "name": "Maihar gharana (instrumental Hindustani concert lineage)",
           "descriptors": [
             "maihar-gharana",
-            "allauddin-khan-lineage",
-            "ravi-shankar-lineage"
+            "instrumental-concert-lineage",
+            "classical-trained-lineage"
           ],
           "match_tokens": [
             "plucked",
@@ -930,11 +930,11 @@
         {
           "id": "sitar_maihar_gharana",
           "default": true,
-          "name": "Maihar gharana (Allauddin Khan / Ravi Shankar / Nikhil Banerjee)",
+          "name": "Maihar gharana (instrumental Hindustani concert lineage)",
           "descriptors": [
             "maihar-gharana",
-            "allauddin-khan-lineage",
-            "ravi-shankar-lineage"
+            "instrumental-concert-lineage",
+            "classical-trained-lineage"
           ],
           "match_tokens": [
             "plucked",
