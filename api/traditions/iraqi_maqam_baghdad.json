@@ -3,9 +3,9 @@
   "name": "Iraqi maqam of Baghdad",
   "family": "classical",
   "lineage": "Iraqi maqam (\"al-maqam al-iraqi\") classical modal-suite tradition of Baghdad and the broader Iraqi cultural area, with development through the Ottoman-Mamluk and Ottoman-Hashemite periods into the twentieth-century canonical form. The Iraqi maqam repertoire comprises approximately fifty-six canonical maqamat (\"modal-suites\"), each organized as a multi-movement suite including tahrir (opening melismatic-improvisation movement), miyana (middle-register heightened-emotional section), and taslim (concluding-return cadential section). Performance configuration centers on the male qari (singer-reciter, a respected community-cultural-figure trained through extended apprenticeship) accompanied by the chalghi instrumental ensemble: joza (four-string spike-fiddle with coconut-shell resonator, the lead instrument), santur (struck-board-zither, distantly cognate with the Persian santur and the European hammered dulcimer), riqq (small tambourine with brass jingles), dumbek (goblet-drum), and naqqarat (small kettle-drum pair). Lyric base draws on classical Arabic poetry, with particularly heavy use of the seventh-century pre-Islamic mu'allaqat poetic tradition and the medieval Arabic poets al-Mutanabbi and Abu Nuwas. Modal vocabulary draws on the Arabic maqam framework with characteristic Iraqi-specific maqamat (such as maqam Bayat al-Iraqi, maqam Awj al-Iraqi) that have no exact parallel in Egyptian or Levantine maqam practice. Twentieth-century canonical qari include Mohammed al-Qubanchi (1900-1989), Yousuf Omar (1918-1987), and Hashim al-Rajab. Scheherezade Hassan's scholarship constitutes the principal Western-distributed academic documentation. Distinguished from Egyptian and Levantine maqam by Iraqi's joza-and-santur (vs oud-and-qanun) instrumental ensemble base; distinguished from Iranian dastgah and Azerbaijani mugham by Arabic-language repertoire and Baghdadi-specific maqamat; distinguished from Yemeni Sanaani by Iraqi maqam's suite-of-movements (vs Yemeni qomah-with-three-movements) architecture.",
-  "recipe": "classic Middle Eastern early-1900s iraqi maqam of baghdad, art Music, middle eastern classical branch, Persian arab improv improv on frame tarab turkish-romani çümbüş music. vocal fry, low dynamic level, chest resonance low mid, maqam neutral step. drone like modal santur, coconut shell resonator skin face canonical baghdadi chalghi ensemble lead canonical iraqi maqam legato joza, rosewood mop inlay canonical Egyptian takht fish skin canonical Egyptian light responsive brass jingles canonical takht riq, spun aluminum Egyptian sombaty synthetic remo mylar modern canonical Egyptian iraqi maqam zarb drier finger darbuka, small kettle pair stick struck canonical chalghi time keeping chalghi time keeping canonical baghdadi maqam naqqarat. iraqi baghdad chamber. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 898,
-  "score": 568.751,
+  "recipe": "classic Middle Eastern early-1900s iraqi maqam of baghdad, art Music, middle eastern classical branch, Persian arab improv improv on frame tarab turkish-romani çümbüş music. vocal fry, low dynamic level, chest resonance low mid, maqam neutral step. drone like modal santur, coconut shell resonator skin face canonical baghdadi chalghi ensemble lead canonical iraqi maqam legato joza, rosewood mop inlay canonical Egyptian takht fish skin canonical Egyptian light responsive brass jingles canonical takht riq, spun aluminum Egyptian sombaty synthetic remo mylar modern canonical Egyptian iraqi maqam zarb drier finger darbuka, small kettle pair stick struck canonical chalghi time keeping chalghi time keeping canonical baghdadi maqam naqqarat. iraqi baghdad chamber. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 839,
+  "score": 551.676,
   "config": {
     "traditions": [
       "iraqi_maqam_baghdad",
@@ -123,7 +123,7 @@
       }
     ],
     "room": "iraqi_baghdad_chamber",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_electrical_disc_cut",
     "inline_chain": {
       "mic": "mic_u47_tube_neumann",
       "pre": "pre_tube_german_v72",

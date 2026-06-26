@@ -3,9 +3,9 @@
   "name": "Qinqiang (Shaanxi opera, \"the ancestor of bangzi\")",
   "family": "classical",
   "lineage": "Qinqiang Northwest Chinese regional opera tradition of Shaanxi province, considered the ancestor of the broader bangzi (wooden-clapper) opera family that includes jin opera (Shanxi), yu opera (Henan), and Hebei bangzi. Origin traced to the Qin and Han dynasty court music of the Wei River basin. Performance features powerful declamatory vocal projection (characteristically loud and emotionally intense, reflecting the Loess Plateau aesthetic), the bangzi wooden-clapper as principal percussion-pulse keeper, and pi-pa accompanied martial-arts and historical-warrior repertoire. The post-1949 Shaanxi Provincial Qinqiang Theatre and the Yi Su She troupe (founded 1912 in Xi'an) anchor institutional transmission.",
-  "recipe": "classic Southeast Asian late-1940s qinqiang, art Music, east Asian branch, east Asian Cantonese opera. vocal fry, pressed, chest resonance low mid, narrative. silk canonical traditional sanxian, composite material janggu. wooden pagoda hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 373,
-  "score": 197.456,
+  "recipe": "classic Southeast Asian late-1940s qinqiang, art Music, east Asian branch, east Asian Cantonese opera. vocal fry, pressed, chest resonance low mid, narrative. silk canonical traditional sanxian, composite material janggu. wooden pagoda hall. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 314,
+  "score": 190.756,
   "config": {
     "traditions": [
       "qinqiang_shaanxi",
@@ -89,7 +89,7 @@
       }
     ],
     "room": "wooden_pagoda_hall",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_electrical_disc_cut",
     "inline_chain": {
       "mic": "mic_u87_condenser_neumann",
       "pre": "tube_pre",

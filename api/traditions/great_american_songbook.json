@@ -3,9 +3,9 @@
   "name": "Great American Songbook (vocal jazz pop)",
   "family": "global",
   "lineage": "1920s-1950s American popular-song repertoire from Tin Pan Alley, Broadway, and Hollywood (Gershwin, Berlin, Porter, Kern, Rodgers-and-Hart-and-Hammerstein) as interpreted by mid-century vocal jazz singers — Sinatra, Ella Fitzgerald, Sarah Vaughan, Tony Bennett, Nat King Cole",
-  "recipe": "classic North American mid-1920s great american songbook, functional Song, crooners branch, American jazz smooth vocal cool jazz vocal modern vocal jazz. thick, low dynamic level, chest resonance low mid, equal tempered. cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, growly gut upright bass, vintage ambassador asymmetric bronze bell bronze fourteen step drum kit, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris lyrical continuous-airflow saxophone, bach stradivarius 180 canonical American orchestral lyrical jazz balance trumpet, bach 42 canonical American orchestral tenor student commercial trombone. capitol tower 1750 vine 1956-present major-flagship capitol tower studios la. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 883,
-  "score": 464.546,
+  "recipe": "classic North American mid-1920s great american songbook, functional Song, crooners branch, American jazz smooth vocal cool jazz vocal modern vocal jazz. thick, low dynamic level, chest resonance low mid, equal tempered. cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, growly gut upright bass, vintage ambassador asymmetric bronze bell bronze fourteen step drum kit, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris lyrical continuous-airflow saxophone, bach stradivarius 180 canonical American orchestral lyrical jazz balance trumpet, bach 42 canonical American orchestral tenor student commercial trombone. capitol tower 1750 vine 1956-present major-flagship capitol tower studios la. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 846,
+  "score": 460.146,
   "config": {
     "traditions": [
       "great_american_songbook",
@@ -137,7 +137,7 @@
           "sax_body_alloy": 21.5,
           "sax_mouthpiece": 0.0195,
           "sax_technique": 19.0045,
-          "sax_maker_school": 20.498624999999997
+          "sax_maker_school": 22.498624999999997
         }
       },
       {
@@ -184,7 +184,7 @@
       }
     ],
     "room": "capitol_tower_studios_la",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_early_tape_us_commercial",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "pre_tube_german_v72",

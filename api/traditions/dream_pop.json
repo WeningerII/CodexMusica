@@ -3,9 +3,9 @@
   "name": "Dream pop",
   "family": "global",
   "lineage": "1980s-onward atmospheric guitar pop genre codified through the 4AD label catalog (Cocteau Twins, Treasure 1984, Heaven or Las Vegas 1990 the dream pop album), the Mazzy Star California canon (She Hangs Brightly 1990, So Tonight That I Might See 1993 with Hope Sandoval female-vocal-foreground), Galaxie 500 (the New England slowcore-adjacent canon), Beach House (Baltimore modern dream pop, Teen Dream 2010, Bloom 2012)",
-  "recipe": "classic Northern European mid-1980s dream pop, functional Song, pop rock branch, alternative distorted rock bedroom pop. thick, larynx lowered, melodic, rhythmic. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alder single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, oak pre muffled edge muffled hot rolled annealed drum kit, sequential lineage canonical prophet 5 1978 san jose ca lead analog poly yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth. UK 4ad and creation shoegaze 1986-1995 indie-commercial dream pop shoegaze 4ad studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix deluxe memory man chorus.",
-  "recipe_chars": 846,
-  "score": 633.615,
+  "recipe": "classic Northern European mid-1980s dream pop, functional Song, pop rock branch, alternative distorted rock bedroom pop. thick, larynx lowered, melodic, rhythmic. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alder single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, oak pre muffled edge muffled hot rolled annealed drum kit, sequential lineage canonical prophet 5 1978 san jose ca lead analog poly yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth. UK 4ad and creation shoegaze 1986-1995 indie-commercial dream pop shoegaze 4ad studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb electro-harmonix deluxe memory man chorus.",
+  "recipe_chars": 860,
+  "score": 626.853,
   "config": {
     "traditions": [
       "dream_pop",
@@ -169,7 +169,7 @@
       }
     ],
     "room": "dream_pop_shoegaze_4ad_studio",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_70s_uk_class_a_rock",
     "inline_chain": {
       "mic": "mic_u87_condenser_neumann",
       "pre": "transformer_solid_state",

@@ -3,9 +3,9 @@
   "name": "Classical",
   "family": "classical",
   "lineage": "The Western classical tradition — through-composed European art music of the common-practice era, spanning the Baroque, Classical, and Romantic periods",
-  "recipe": "classic North American mid-1970s classical, art Music, western common practice branch. thick, chest resonance low mid, equal tempered, Chinese classical vocal. beech laminated maple laminated European tradition European spruce norway spruce grand piano, norway spruce European alpine European maple bosnian source flamed figure violin orchestral, norway spruce European alpine European maple bosnian source flamed figure cello. shoebox concert hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 581,
-  "score": 377.424,
+  "recipe": "classic mid-1930s classical, art Music, western common practice branch. thick, chest resonance low mid, equal tempered, Chinese classical vocal. beech laminated maple laminated European tradition European spruce norway spruce grand piano, norway spruce European alpine European maple bosnian source flamed figure violin orchestral, norway spruce European alpine European maple bosnian source flamed figure cello. shoebox concert hall. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 507,
+  "score": 376.799,
   "config": {
     "traditions": [
       "classical"
@@ -129,7 +129,7 @@
       }
     ],
     "room": "concert_hall_shoebox",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_electrical_disc_cut",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "tube_pre",

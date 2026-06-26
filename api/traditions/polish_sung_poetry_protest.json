@@ -3,8 +3,8 @@
   "name": "Polish poezja śpiewana and Solidarność-era protest (1960s-1980s)",
   "family": "global",
   "lineage": "Polish poezja śpiewana (\"sung poetry\") and piosenka literacka (\"literary song\") protest-song tradition continuous from 1960s-1980s Communist-era Polish political-songwriter scene; centered on Jacek Kaczmarski (the Solidarność-aligned songwriter-bard whose \"Mury\" 1978 became the Solidarność anthem), Przemysław Gintrowski, Zbigniew Łapiński, Wojciech Bellon",
-  "recipe": "classic polish poezja śpiewana and solidarność-era protest, protest Song, European branch, anglo American protest song, Slavic bard ballad poetry, chanson fado ballad poetry american folk-revival protest song morna. thick, lament wail, melodic, continuous-phonation. martin lifespan fingerpicked acoustic guitar. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 451,
+  "recipe": "classic Central European polish poezja śpiewana and solidarność-era protest, protest Song, European branch, anglo American protest song, Slavic bard ballad poetry, chanson fado ballad poetry american folk-revival protest song morna. thick, lament wail, melodic, continuous-phonation. martin lifespan fingerpicked acoustic guitar. warsaw state label studio 1956-1990 mid tier polish polskie nagrania muza. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 534,
   "score": 133.75,
   "config": {
     "traditions": [
@@ -72,7 +72,7 @@
         }
       }
     ],
-    "room": "untreated_bedroom",
+    "room": "polish_polskie_nagrania_muza",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -90,7 +90,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "untreated_bedroom",
+    "room": "polish_polskie_nagrania_muza",
     "parts": {
       "voice_articulation": "narrative_voice",
       "voice_speech_song": "voice_syllabic_singing",

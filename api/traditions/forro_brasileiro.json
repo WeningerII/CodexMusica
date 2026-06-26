@@ -3,9 +3,9 @@
   "name": "Forró brasileiro",
   "family": "global",
   "lineage": "Brazilian Northeast accordion-led couple-dance tradition with three-instrument pé-de-serra canonical-ensemble: sanfona (accordion or button-accordion), zabumba (large two-headed flat-drum), and triângulo (steel triangle). Codified mid-20th-century by Pernambuco-and-Paraíba interior-rural-migration into urban-Recife and Rio-São-Paulo migrant-communities. The three canonical rhythmic-subforms — baião moderate-tempo with characteristic eighth-note zabumba dotted-pattern, xote slow-couple-dance derived from Czech schottische, xaxado fast-syncopated rural-bandit-cangaceiro dance — comprise the forró repertoire. The pé-de-serra traditional-style coexists with forró-eletrônico 1990s-onward electronic-bass-and-drum-machine variant centered in Bahia-and-Ceará.",
-  "recipe": "classic Southern American mid-1990s forró brasileiro, groove Percussion, Latin am branch, Brazilian groove percussion pagode baião. thick, intimate aspirated, chest resonance low mid, punctuated. leather castagnari Italian premium folk music accordion, wood baião tradition low stick with high bacalhau buzz zabumba, forró tradition open closed alternation triangulo forro, cedar nylon classical nylon-string guitar, alder pyramid pure nickel bass British mid 60s era electric bass. estudio rozenblit recife. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 640,
-  "score": 143.542,
+  "recipe": "classic Southern American mid-1990s forró brasileiro, groove Percussion, Latin am branch, Brazilian groove percussion pagode baião. thick, intimate aspirated, chest resonance low mid, punctuated. leather castagnari Italian premium folk music accordion, wood baião tradition low stick with high bacalhau buzz zabumba, forró tradition open closed alternation triangulo forro, cedar nylon classical nylon-string guitar, alder pyramid pure nickel bass British mid 60s era electric bass. estudio rozenblit recife. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 618,
+  "score": 130.407,
   "config": {
     "traditions": [
       "forro_brasileiro",
@@ -31,7 +31,7 @@
           "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
           "voice_register": 2.1000000000000014,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 0.7149999999999999,
           "voice_pitch_organization": 2.6,
           "voice_processing_chain": 6.109999999999999,
-          "voice_multitrack_stack": 2.4699999999999998
+          "voice_multitrack_stack": 2.8600000000000003
         }
       },
       {
@@ -139,7 +139,7 @@
       }
     ],
     "room": "estudio_rozenblit_recife",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_early_tape_havana",
     "inline_chain": {
       "mic": "dynamic_mic",
       "pre": "pre_tube_german_v72",

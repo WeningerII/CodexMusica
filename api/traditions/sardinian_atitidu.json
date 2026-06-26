@@ -3,8 +3,8 @@
   "name": "Sardinian atítidu (women's funeral lament)",
   "family": "global",
   "lineage": "Sardinian mourning-song tradition continuous from pre-Christian Sardinian rural practice through Catholic-era continuous performance by attitadoras (professional Sardinian keening-women); regionally distributed across Logudorese, Campidanese, and Nuorese Sardinian-language zones",
-  "recipe": "classic modern sardinian atítidu, funeral Lament, European branch, vocal drone modal, Mediterranean ballad ballad poetry, christian gospel ritual devotional bluegrass gospel sardinian cantu a tenore and launeddas. thick, false fold engaged, chest resonance low mid, ornamental. carpeted bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 425,
+  "recipe": "classic Southern European modern sardinian atítidu, funeral Lament, European branch, vocal drone modal, Mediterranean ballad ballad poetry, christian gospel ritual devotional bluegrass gospel sardinian cantu a tenore and launeddas. thick, false fold engaged, chest resonance low mid, ornamental. sardinian outdoor a tenore polyphony. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 463,
   "score": 161.637,
   "config": {
     "traditions": [
@@ -53,7 +53,7 @@
         }
       }
     ],
-    "room": "carpeted_bedroom",
+    "room": "sardinian_outdoor_a_tenore_polyphony",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -71,7 +71,7 @@
   },
   "source": {
     "tuning": "mediterranean_traditional_polyphonic_modal",
-    "room": "carpeted_bedroom",
+    "room": "sardinian_outdoor_a_tenore_polyphony",
     "parts": {
       "voice_articulation": "melisma_voice",
       "voice_speech_song": "voice_melismatic_singing",

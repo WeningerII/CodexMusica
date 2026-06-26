@@ -3,9 +3,9 @@
   "name": "Holy Minimalism (late 20th-century spiritual minimalism)",
   "family": "classical",
   "lineage": "Late-twentieth-century compositional movement centered on Estonian Arvo Pärt, English John Tavener, and late-Polish Henryk Górecki, characterized by slow tempi, modal-and-triadic harmonic vocabulary, sacred-or-spiritual textual content (often Orthodox Christian liturgical), and minimal compositional means. Pärt's tintinnabuli style (developed 1976 onward in Spiegel im Spiegel, Cantus, and Tabula Rasa) and Tavener's The Protecting Veil (1989) constitute the canonical type-specimens.",
-  "recipe": "classic Caucasian mid-1970s holy minimalism, art Music, western modern branch, christian gospel ritual devotional bluegrass gospel gospel quartet. thick, declaimed, chest resonance low mid, ornamental. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, mixed satb canonical 4 part western five voice polyphonic regional sacred liturgical global choir ensemble. stone armenian church. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 555,
-  "score": 305.175,
+  "recipe": "classic Caucasian mid-1970s holy minimalism, art Music, western modern branch, christian gospel ritual devotional bluegrass gospel gospel quartet. thick, declaimed, tasteful, ornamental. modern bright beech laminated maple laminated European tradition sitka spruce grand piano, mixed satb canonical 4 part western five voice polyphonic regional sacred liturgical global choir ensemble. stone armenian church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 538,
+  "score": 313.108,
   "config": {
     "traditions": [
       "holy_minimalism",
@@ -20,7 +20,7 @@
           "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "melisma_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "gospel_pentecostal_tradition",
@@ -31,14 +31,14 @@
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
-          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
           "voice_register": 28.92,
           "voice_quality": 29.759999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.3,
+          "voice_vibrato": 3.085,
           "voice_articulation": 22.275000000000002,
           "voice_microtone": 6.6225000000000005,
           "voice_tradition": 30.387500000000003,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 6.2749999999999995,
           "voice_pitch_organization": 2.4000000000000004,
           "voice_processing_chain": 2.5349999999999997,
-          "voice_multitrack_stack": 4.2775
+          "voice_multitrack_stack": 2.6
         }
       },
       {
@@ -58,22 +58,22 @@
           "keyboard_technique": "keyboard_gospel_chord_runs",
           "grand_piano_size": "grand_9_foot",
           "grand_piano_brand": "steinway_d",
-          "piano_hammer": "renner_standard_hammer",
+          "piano_hammer": "renner_blue_hammer",
           "piano_rim": "european_laminated_rim_beech_maple",
           "piano_soundboard": "sitka_spruce_diaphragmatic",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_plate": "wet_sand_cast_plate",
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
           "keyboard_technique": 28.932500000000005,
           "grand_piano_size": 0.195,
           "grand_piano_brand": 0.8699999999999999,
-          "piano_hammer": 9.27,
+          "piano_hammer": 9.335,
           "piano_rim": 13.715,
           "piano_soundboard": 8.84,
           "piano_pinblock": 9.4,
-          "piano_plate": 9.125,
+          "piano_plate": 9.485,
           "piano_pitch_standard": 9.77
         }
       },
@@ -94,7 +94,7 @@
       }
     ],
     "room": "stone_armenian_church",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "tube_pre",

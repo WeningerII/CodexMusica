@@ -3,8 +3,8 @@
   "name": "Albanian dasma (wedding music)",
   "family": "global",
   "lineage": "Albanian wedding-music tradition continuous from medieval Albanian rural practice through 19th-20th century continuous performance; particularly preserved in Northern Albanian highland zones, Southern Albanian iso-polyphonic zones, Kosovo, and Arbëresh-Italian diaspora",
-  "recipe": "classic modern albanian dasma, wedding, European branch, middle eastern wedding, Mediterranean ballad ballad poetry, vocal drone modal bulgarian women's choir persian aroosi. vocal fry, low dynamic level, tasteful, continuous-phonation. ebonite hard rubber klezmer tradition continuous-airflow legato clarinet, castagnari Italian premium folk music ensemble accordion, clay pre modern traditional goat skin Turkish darbuka regional darbuka, magic rosin modern acrylic base drone like fiddle. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 630,
+  "recipe": "classic Eastern European modern albanian dasma, wedding, European branch, middle eastern wedding, Mediterranean ballad ballad poetry, vocal drone modal bulgarian women's choir persian aroosi. vocal fry, low dynamic level, tasteful, continuous-phonation. ebonite hard rubber klezmer tradition continuous-airflow legato clarinet, castagnari Italian premium folk music ensemble accordion, clay pre modern traditional goat skin Turkish darbuka regional darbuka, magic rosin modern acrylic base drone like fiddle. klezmer simcha celebration hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 671,
   "score": 147.349,
   "config": {
     "traditions": [
@@ -123,7 +123,7 @@
         }
       }
     ],
-    "room": "untreated_bedroom",
+    "room": "klezmer_simcha_celebration_hall",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -141,7 +141,7 @@
   },
   "source": {
     "tuning": "balkan_odd_meter_aksak",
-    "room": "untreated_bedroom",
+    "room": "klezmer_simcha_celebration_hall",
     "parts": {
       "voice_articulation": "shouted_voice",
       "voice_speech_song": "voice_syllabic_singing",

@@ -3,9 +3,9 @@
   "name": "Algerian raï (political and pre-commercial)",
   "family": "global",
   "lineage": "Algerian raï tradition from its 1920s-1930s Oran-region origin as Bedouin-Andalusian women's-tradition through 1970s-1980s pre-commercial cheikha-and-cheb politicization era; the political-and-anti-clerical content of pre-commercial raï made it a target of both Algerian-state censorship and Islamist-fundamentalist violence including the 1994 assassination of Cheb Hasni",
-  "recipe": "classic North American mid-1920s algerian raï, protest Song, middle east n African branch, European protest song, mid east n African pop functional song, Persian arab improv improv on frame tarab khaliji. extended whistle, low dynamic level, chest resonance low mid, continuous-phonation. walnut ribs canonical mid tier pyramid nylon arab school oud, clay pre modern traditional fish skin pre modern Egyptian traditional Egyptian sombaty canonical mid east darbuka, weltmeister east German mid tier vintage volk ensemble accordion. carpeted bedroom. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 644,
-  "score": 241.24,
+  "recipe": "classic West African mid-1920s algerian raï, protest Song, middle east n African branch, European protest song, mid east n African pop functional song, Persian arab improv improv on frame tarab khaliji. extended whistle, low dynamic level, chest resonance low mid, continuous-phonation. walnut ribs canonical mid tier pyramid nylon arab school oud, clay pre modern traditional fish skin pre modern Egyptian traditional Egyptian sombaty canonical mid east darbuka, weltmeister east German mid tier vintage volk ensemble accordion. dakar senegal mbalax defining 1979-present indie-commercial dakar mbalax oran rai studio. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 714,
+  "score": 241.125,
   "config": {
     "traditions": [
       "algerian_rai_political",
@@ -94,7 +94,7 @@
           "free_reed_technique": "free_reed_orchestral_ensemble",
           "accordion_reed_material": "tipo_a_mano",
           "musette_offset": "german_tuning",
-          "reed_config": "lm_only",
+          "reed_config": "lmmm",
           "bellows": "cardboard_leather",
           "voicing_chamber": "no_cassotto",
           "accordion_maker_school": "accordion_weltmeister"
@@ -103,14 +103,14 @@
           "free_reed_technique": 10.045,
           "accordion_reed_material": 2.925,
           "musette_offset": 0.345,
-          "reed_config": 0.8049999999999999,
+          "reed_config": 0.69,
           "bellows": 0.345,
           "voicing_chamber": 0.15,
           "accordion_maker_school": 8.515
         }
       }
     ],
-    "room": "carpeted_bedroom",
+    "room": "dakar_mbalax_oran_rai_studio",
     "archetype": "arch_early_tape_us_commercial",
     "inline_chain": {
       "mic": "mic_sm58_dynamic_shure",
@@ -128,7 +128,7 @@
   },
   "source": {
     "tuning": "maqam_24edo",
-    "room": "carpeted_bedroom",
+    "room": "dakar_mbalax_oran_rai_studio",
     "parts": {
       "voice_articulation": "melisma_voice",
       "voice_speech_song": "voice_melismatic_singing",

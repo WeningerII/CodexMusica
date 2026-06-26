@@ -3,9 +3,9 @@
   "name": "Zydeco",
   "family": "global",
   "lineage": "Black Creole French Louisiana dance-music tradition codified through Clifton Chenier (the King of Zydeco, the Houston-based bandleader from the 1950s through his death in 1987), Boozoo Chavis (the originator of the genre name with his 1954 Paper in My Shoe), Buckwheat Zydeco, Rockin Dopsie, Beau Jocque, Geno Delafose; characterized by piano accordion (the larger more harmonically capable cousin of the Cajun single-row accordion) plus frottoir rubboard (the metal washboard-derived percussion worn over the shoulders, the Clifton Chenier and welder Willie Landry innovation (c. 1946), popularized by Cleveland Chenier), distinct from Cajun (which is white Acadian French Louisiana with single-row diatonic accordion)",
-  "recipe": "classic Southern American mid-1950s zydeco, groove Percussion, Caribbean branch, blues electric functional song chicago blues jump blues. thick, forward-resonance, punctuated, blues inflected. petosa seattle American premium chordal accordion, frottoir. lafayette louisiana zydeco dance hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 424,
-  "score": 129.375,
+  "recipe": "classic Southern American mid-1950s zydeco, groove Percussion, Caribbean branch, blues electric functional song chicago blues jump blues. thick, forward-resonance, punctuated, blues inflected. petosa seattle American premium chordal accordion, frottoir. lafayette louisiana zydeco dance hall. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 387,
+  "score": 123.013,
   "config": {
     "traditions": [
       "zydeco",
@@ -86,7 +86,7 @@
       }
     ],
     "room": "lafayette_louisiana_zydeco_dance_hall",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_early_tape_us_commercial",
     "inline_chain": {
       "mic": "dynamic_mic",
       "pre": "pre_neve_1073_input",

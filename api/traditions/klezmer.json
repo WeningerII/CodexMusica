@@ -5,7 +5,7 @@
   "lineage": "Eastern European Ashkenazi Jewish wedding-band tradition that was the central popular-celebratory music of the Yiddish-speaking world from the 16th-early-20th centuries before the Holocaust decimated its practitioner community; revived from the 1970s onward through The Klezmer Conservatory Band, Andy Statman, the Klezmatics, Brave Old World, and the Margot Leverett-Klezmer-Mountain-Boys lineage",
   "recipe": "classic Eastern European mid-1970s klezmer, improv On Frame, klezmer improv branch, string drone modal, European wedding maskandi greek gamílio glendí. ebonite hard rubber klezmer tradition clarinet, ornamented fiddle, leather castagnari Italian premium folk music bellows articulated accordion, bellows articulated piano accordion, upright bass, medium cup standard rim orchestral balance trumpet, klezmer ensemble, art music Italian alpine brescian tradition European maple drone like mandola, mellow traditional leather hammered dulcimer. klezmer simcha celebration hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 706,
-  "score": 116.452,
+  "score": 116.357,
   "config": {
     "traditions": [
       "klezmer",
@@ -37,14 +37,14 @@
           "fiddle_strings": "gut_wound",
           "fiddle_bow": "magic_rosin_fiddle",
           "fiddle_mute": "rubber_mute",
-          "fiddle_articulation": "pizz"
+          "fiddle_articulation": "sul_tasto"
         },
         "scores": {
           "bowed_technique": 14.894999999999998,
           "fiddle_strings": 0.74,
           "fiddle_bow": 0.6500000000000002,
           "fiddle_mute": 0.65,
-          "fiddle_articulation": 0.35
+          "fiddle_articulation": 0.255
         }
       },
       {

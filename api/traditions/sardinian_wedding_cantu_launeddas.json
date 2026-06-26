@@ -3,9 +3,9 @@
   "name": "Sardinian wedding cantu and launeddas music",
   "family": "global",
   "lineage": "Sardinian wedding-music tradition continuous from pre-Christian Sardinian rural practice through medieval-and-early-modern continuous performance; the launeddas (triple-clarinet) is the canonical Sardinian wedding-music instrument and the cantu a tenore polyphonic male-quartet vocal also features at weddings",
-  "recipe": "classic modern sardinian wedding cantu and launeddas music, wedding, European branch, vocal drone modal, wind pipe drone modal, Mediterranean ballad ballad poetry sevdalinka bulgarian women's choir. thick, false fold engaged, tasteful, continuous-phonation. cane arundo donax three pipes canonical sardinian archaic idioglottic single reeds canonical sardinian drone like circular breathing launeddas, castagnari Italian premium folk music drone like accordion, grenadilla African blackwood traditional continuous-airflow legato clarinet. carpeted bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 686,
-  "score": 205.457,
+  "recipe": "classic Southern European modern sardinian wedding cantu and launeddas music, wedding, European branch, vocal drone modal, wind pipe drone modal, Mediterranean ballad ballad poetry sevdalinka bulgarian women's choir. thick, false fold engaged, tasteful, continuous-phonation. cane arundo donax three pipes canonical sardinian archaic idioglottic single reeds canonical sardinian drone like circular breathing launeddas, castagnari Italian premium folk music drone like accordion, grenadilla African blackwood traditional continuous-airflow legato clarinet. sardinian outdoor a tenore polyphony. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 724,
+  "score": 205.267,
   "config": {
     "traditions": [
       "sardinian_wedding_cantu_launeddas",
@@ -75,7 +75,7 @@
           "free_reed_technique": "free_reed_drone_under",
           "accordion_reed_material": "brass_reeds",
           "musette_offset": "german_tuning",
-          "reed_config": "lm_only",
+          "reed_config": "lmmm",
           "bellows": "cardboard_leather",
           "voicing_chamber": "cassotto",
           "accordion_maker_school": "accordion_castagnari_italian"
@@ -84,7 +84,7 @@
           "free_reed_technique": 4.290000000000001,
           "accordion_reed_material": 0.39,
           "musette_offset": 1.2750000000000001,
-          "reed_config": 0.7,
+          "reed_config": 0.51,
           "bellows": 0.42000000000000004,
           "voicing_chamber": 0,
           "accordion_maker_school": 8.384999999999998
@@ -108,7 +108,7 @@
         }
       }
     ],
-    "room": "carpeted_bedroom",
+    "room": "sardinian_outdoor_a_tenore_polyphony",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -126,7 +126,7 @@
   },
   "source": {
     "tuning": "mediterranean_traditional_polyphonic_modal",
-    "room": "carpeted_bedroom",
+    "room": "sardinian_outdoor_a_tenore_polyphony",
     "parts": {
       "voice_articulation": "call_response_voice",
       "voice_speech_song": "voice_syllabic_singing",

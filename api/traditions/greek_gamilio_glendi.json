@@ -3,9 +3,9 @@
   "name": "Greek gamílio glendí (γαμήλιο γλέντι, wedding feast music)",
   "family": "global",
   "lineage": "Greek wedding-music tradition continuous from Byzantine-era through Ottoman-period through 19th-20th-century modern-Greek continuous practice; regionally distributed with strongest preservation in Crete, Mani, Epirus, and Pontic-Greek diaspora",
-  "recipe": "classic modern greek gamílio glendí, wedding, European branch, middle eastern wedding, Mediterranean ballad ballad poetry, vocal drone modal lebanese-arab wedding takht persian aroosi. thick, low dynamic level, chest resonance low mid, continuous-phonation. walnut staves canonical Greek steel canonical octave unison pairs ornamented bouzouki, mulberry canonical cretan steel modern legato cretan lyra, grenadilla African blackwood traditional continuous-airflow legato clarinet, castagnari Italian premium folk music ensemble accordion, clay pre modern traditional synthetic remo mylar modern canonical Egyptian Egyptian sombaty canonical mid east darbuka. carpeted bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 806,
-  "score": 230.868,
+  "recipe": "classic Southern European modern greek gamílio glendí, wedding, European branch, middle eastern wedding, Mediterranean ballad ballad poetry, vocal drone modal lebanese-arab wedding takht persian aroosi. thick, low dynamic level, chest resonance low mid, continuous-phonation. walnut staves canonical Greek steel canonical octave unison pairs ornamented bouzouki, mulberry canonical cretan steel modern legato cretan lyra, grenadilla African blackwood traditional continuous-airflow legato clarinet, castagnari Italian premium folk music ensemble accordion, clay pre modern traditional synthetic remo mylar modern canonical Egyptian Egyptian sombaty canonical mid east darbuka. athens piraeus rebetadika. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 833,
+  "score": 229.907,
   "config": {
     "traditions": [
       "greek_gamilio_glendi",
@@ -109,7 +109,7 @@
           "free_reed_technique": "free_reed_orchestral_ensemble",
           "accordion_reed_material": "brass_reeds",
           "musette_offset": "german_tuning",
-          "reed_config": "lm_only",
+          "reed_config": "lmmh",
           "bellows": "cardboard_leather",
           "voicing_chamber": "cassotto",
           "accordion_maker_school": "accordion_castagnari_italian"
@@ -118,7 +118,7 @@
           "free_reed_technique": 8.235,
           "accordion_reed_material": 0.15,
           "musette_offset": 0.6,
-          "reed_config": 1.1549999999999998,
+          "reed_config": 0.195,
           "bellows": 0.44999999999999996,
           "voicing_chamber": 0,
           "accordion_maker_school": 10.334999999999999
@@ -140,7 +140,7 @@
         }
       }
     ],
-    "room": "carpeted_bedroom",
+    "room": "athens_piraeus_rebetadika",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -158,7 +158,7 @@
   },
   "source": {
     "tuning": "rebetiko_eastern_modal_dromos",
-    "room": "carpeted_bedroom",
+    "room": "athens_piraeus_rebetadika",
     "parts": {
       "voice_articulation": "call_response_voice",
       "voice_speech_song": "voice_syllabic_singing",

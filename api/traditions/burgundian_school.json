@@ -3,9 +3,9 @@
   "name": "Burgundian School (early fifteenth century)",
   "family": "classical",
   "lineage": "Mid-fifteenth-century compositional school centered on the courts of the Dukes of Burgundy (Philip the Good, Charles the Bold) at Dijon and Brussels. Guillaume Dufay (c.1397-1474) and Gilles Binchois (c.1400-1460) are the principal composers. Developed the Mass cycle (cyclic Mass based on a single cantus firmus), the rondeau and ballade chanson forms, and the smoother-consonant fauxbourdon harmonic style. Direct precursor of the Franco-Flemish polyphonic school.",
-  "recipe": "classic North American early-1390s burgundian school, art Music, western early branch, christian gospel ritual devotional bluegrass gospel southern gospel quartet. thick, declaimed, chest resonance low mid, ornamental. a cappella small 3 to 8 one per part hocket interlocked single note distribution svanetian complex three voice highland polyphonic choir ensemble. parish church. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 512,
-  "score": 217.47,
+  "recipe": "classic early-1390s burgundian school, art Music, western early branch, christian gospel ritual devotional bluegrass gospel southern gospel quartet. thick, declaimed, chest resonance low mid, ornamental. a cappella small 3 to 8 one per part hocket interlocked single note distribution svanetian complex three voice highland polyphonic choir ensemble. parish church. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 438,
+  "score": 210.57,
   "config": {
     "traditions": [
       "burgundian_school",
@@ -69,7 +69,7 @@
       }
     ],
     "room": "stone_parish_church",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_electrical_disc_cut",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "tube_pre",

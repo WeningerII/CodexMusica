@@ -3,9 +3,9 @@
   "name": "Okinawan sanshin-and-eisa music",
   "family": "global",
   "lineage": "Okinawan sanshin-and-eisa music of the Ryukyu archipelago (southwestern Japan), historically and culturally distinct from mainland Japanese music. The sanshin (Okinawan three-string snake-skin-bellied long-neck plucked lute, the direct ancestor of the mainland shamisen) anchors the melodic content of solo-and-ensemble Okinawan classical (kunkunshi-notated court music), folk min'yō, and the contemporary popular Okinawan-pop forms. Eisa is the Okinawan summer Bon-festival ancestor-honoring dance-drum-and-chant tradition, with paranku frame-drum and odaiko large drum ensembles processing through Okinawan villages during the lunar-Bon mid-August period.",
-  "recipe": "classic East Asian mid-1970s okinawan sanshin-and-eisa music, functional Song, east Asian pop branch, blues narrative work song coco brasileiro bahraini fjiri. thick, worn fold, chest resonance low mid, narrative. cowhide canonical Japanese sen castor aralia mid tier oedo sukeroku canonical kumi daiko taiko drum, cat skin ivory mulberry kuwa mid tier traditional silk shamisen. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 579,
-  "score": 172.317,
+  "recipe": "classic East Asian mid-1930s okinawan sanshin-and-eisa music, functional Song, east Asian pop branch, blues narrative work song coco brasileiro bahraini fjiri. thick, worn fold, chest resonance low mid, narrative. cowhide canonical Japanese sen castor aralia mid tier oedo sukeroku canonical kumi daiko taiko drum, cat skin ivory mulberry kuwa mid tier traditional silk shamisen. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 520,
+  "score": 152.442,
   "config": {
     "traditions": [
       "okinawan_sanshin_eisa",
@@ -92,7 +92,7 @@
       }
     ],
     "room": "tokyo_studio_1970s_80s",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_electrical_disc_cut",
     "inline_chain": {
       "mic": "mic_u87_condenser_neumann",
       "pre": "tube_pre",

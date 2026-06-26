@@ -3,9 +3,9 @@
   "name": "Russian estrada",
   "family": "global",
   "lineage": "Soviet-era (1940s-1991) and post-Soviet (1991-onward) Russian-language commercial-stage popular song — Edita Piekha, Joseph Kobzon, Lev Leshchenko, Alla Pugacheva (Pesnya goda annual TV festival regular), Sofia Rotaru, Filipp Kirkorov; characterized by sentimental minor-key lyrical content, orchestrated arrangements with strings and brass, and the centralized State-controlled distribution through Melodiya / Soviet TV / Radio infrastructure",
-  "recipe": "classic Eastern European modern russian estrada, functional Song, europop branch, pop rock functional song new wave folk rock. thick, incomplete closure resting, melodic, narrative. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, castagnari Italian premium folk music straight accordion, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, brass pre muffled edge muffled hot rolled annealed drum kit, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles choir ensemble, Soviet orchestra canon strummed balalaika, rhythmic dance rhythm strummed domra. moscow state label 1964-present major-flagship moscow melodiya studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 845,
-  "score": 614.842,
+  "recipe": "classic Eastern European modern russian estrada, functional Song, europop branch, pop rock functional song new wave folk rock. thick, incomplete closure resting, melodic, narrative. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, castagnari Italian premium folk music straight accordion, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, brass pre muffled edge muffled hot rolled annealed drum kit, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles choir ensemble, steel modern alternative Soviet orchestra canon strummed balalaika, rhythmic dance rhythm strummed domra. moscow state label 1964-present major-flagship moscow melodiya studio. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 826,
+  "score": 616.39,
   "config": {
     "traditions": [
       "russian_estrada",
@@ -41,7 +41,7 @@
           "voice_vibrato": 3.1550000000000002,
           "voice_articulation": 0.8249999999999998,
           "voice_microtone": 39.07500000000001,
-          "voice_tradition": 22.294999999999998,
+          "voice_tradition": 24.244999999999997,
           "voice_mechanism_compound": 4.030000000000001,
           "voice_estill_quality": 7.1825,
           "voice_speech_song": 27.13749999999999,
@@ -62,18 +62,18 @@
           "piano_rim": "asian_laminated_rim_birch_maple",
           "piano_soundboard": "asian_spruce_soundboard",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_plate": "wet_sand_cast_plate",
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
           "keyboard_technique": 17.544999999999998,
           "grand_piano_size": 2.08,
           "grand_piano_brand": 2.6649999999999996,
-          "piano_hammer": 15.58,
+          "piano_hammer": 17.08,
           "piano_rim": 19.285,
           "piano_soundboard": 16.795,
           "piano_pinblock": 1.455,
-          "piano_plate": 1.26,
+          "piano_plate": 1.4625,
           "piano_pitch_standard": 2.6975
         }
       },
@@ -104,7 +104,7 @@
           "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
-          "pickup_config": "humbucker_mm",
+          "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
@@ -114,7 +114,7 @@
           "electric_technique": 4.1899999999999995,
           "amp_make": 12.089999999999998,
           "body_wood": 2.08,
-          "pickup_config": 0.045,
+          "pickup_config": 0.195,
           "string_type": 29.4125,
           "scale_length_b": 2.47,
           "fretted_or_not": 0.195,
@@ -177,7 +177,7 @@
         "scores": {
           "plucked_traditional_technique": 12.014999999999999,
           "balalaika_size": 0.39,
-          "balalaika_strings": -0.385,
+          "balalaika_strings": 1.2349999999999999,
           "balalaika_body_wood": 0,
           "balalaika_tradition": 6.449999999999998
         }
@@ -189,19 +189,19 @@
           "domra_courses": "three_string_domra",
           "domra_size": "domra_prima",
           "domra_body_wood": "domra_spruce_maple",
-          "domra_strings": "domra_gut_historical"
+          "domra_strings": "domra_steel_modern"
         },
         "scores": {
           "plucked_traditional_technique": 12.014999999999999,
           "domra_courses": 5.784999999999999,
           "domra_size": 0.66,
           "domra_body_wood": 0,
-          "domra_strings": -0.035
+          "domra_strings": 0.39
         }
       }
     ],
     "room": "moscow_melodiya_studio",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_german_diy_converted",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "pre_tube_german_v72",

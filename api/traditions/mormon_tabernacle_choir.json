@@ -3,9 +3,9 @@
   "name": "Mormon Tabernacle Choir tradition",
   "family": "classical",
   "lineage": "Mormon Tabernacle Choir of the LDS Church (founded 1847 in Salt Lake City, Utah) liturgical-and-concert choral tradition, comprising approximately 360 unpaid volunteer LDS Church-member singers. The choir performs at LDS General Conference biannual sessions and weekly Music & the Spoken Word radio broadcasts (continuous since 1929). Repertoire spans Mormon-specific liturgical hymns from the LDS Hymnbook, broader Christian-Protestant hymn tradition, and twentieth-century American-Western art-music. Distinguished by its 360-voice scale and the Salt Lake Tabernacle Aeolian-Skinner pipe-organ.",
-  "recipe": "classic North American late-1840s mormon tabernacle choir tradition, ritual Devotional, christian gospel branch, western common practice art music bel canto opera early romantic. thick, declaimed, chest resonance low mid, ornamental. mixed satb canonical 4 part western five voice polyphonic regional kakhetian three voice two soloists choral drone choir ensemble, skinner aeolian skinner canonical American eclectic early 20th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque pneumatic canonical late 19th century romantic legato pipe organ. cathedral. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 769,
-  "score": 191.745,
+  "recipe": "classic North American late-1840s mormon tabernacle choir tradition, ritual Devotional, christian gospel branch, western common practice art music bel canto opera early romantic. thick, declaimed, chest resonance low mid, ornamental. mixed satb canonical 4 part western five voice polyphonic regional kakhetian three voice two soloists choral drone choir ensemble, skinner aeolian skinner canonical American eclectic early 20th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque pneumatic canonical late 19th century romantic legato pipe organ. cathedral. passive ribbon, tube pre, German tube console. Studer 30ips tape.",
+  "recipe_chars": 703,
+  "score": 189.97,
   "config": {
     "traditions": [
       "mormon_tabernacle_choir",
@@ -90,7 +90,7 @@
       }
     ],
     "room": "cathedral",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_swing_era_live_studio",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "tube_pre",

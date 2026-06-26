@@ -3,9 +3,9 @@
   "name": "Pure Land Buddhist chant",
   "family": "global",
   "lineage": "East-Asian Pure-Land (Jingtu / Jodo) devotional chant tradition centered on the Amitabha nembutsu (recitation of Amitabha’s name) — codified through 5th-century Chinese teacher Tan Luan, formalized as separate school by Shan Tao (613-681), studio-recorded 1960-1980, then Honen (1133-1212) establishing Jōdo-shū in Japan, and Shinran (1173-1263) founding Jōdo Shinshū; characterized by repetitive nianfo / nembutsu name-chanting practice in slow-tempo melismatic delivery",
-  "recipe": "classic Northeast Asian mid-1970s pure land buddhist chant, ritual Devotional, buddhist branch, east Asian art music beijing opera tibetan ache lhamo opera. thick, pressed, chest resonance low mid, narrative. tibetan monastery assembly. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 368,
-  "score": 157.412,
+  "recipe": "classic Northeast Asian mid-1970s pure land buddhist chant, ritual Devotional, buddhist branch, east Asian art music beijing opera tibetan ache lhamo opera. thick, pressed, chest resonance low mid, narrative. tibetan monastery assembly. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 309,
+  "score": 147.887,
   "config": {
     "traditions": [
       "pure_land_buddhist",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "tibetan_monastery_assembly",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_electrical_disc_cut",
     "inline_chain": {
       "mic": "mic_u87_condenser_neumann",
       "pre": "tube_pre",

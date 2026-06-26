@@ -3,9 +3,9 @@
   "name": "Samba",
   "family": "global",
   "lineage": "Brazilian Rio carnival and samba-canção tradition, codified through the early-twentieth-century Rio favelas and the 1917 first-recorded-samba \"Pelo Telefone\" — through Cartola, Noel Rosa, and Ataulfo Alves codifying samba-canção lyric tradition, then Pixinguinha as the orchestrating bandleader, with samba-de-roda Bahian roots and samba-enredo carnival-school evolution",
-  "recipe": "classic Southern American late-1910s samba, groove Percussion, Brazilian branch, Brazilian song functional song bossa nova brazilian samba de roda do recôncavo. thick, intimate aspirated, pure, rhythmic. low mid rich spectrum cedar classical nylon-string guitar, samba foundation mahogany samba canon strummed cavaquinho, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian hands layered pandeiro, nylon canonical rio carnival aluminum canonical modern rio escola surdo, nylon multi rod cluster canonical samba aluminum canonical rio escola tamborim, samba tradition metal construction repinique, snappy samba tradition metal construction reco reco, samba tradition metal construction ganza, metal shell canonical modern Brazilian samba calfskin internal bamboo friction rod canonical Brazilian hands layered cuica, agogo. escola samba quadra. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET.",
-  "recipe_chars": 988,
-  "score": 535,
+  "recipe": "classic Southern American late-1910s samba, groove Percussion, Brazilian branch, Brazilian song functional song bossa nova brazilian samba de roda do recôncavo. thick, intimate aspirated, pure, rhythmic. low mid rich spectrum cedar classical nylon-string guitar, samba foundation mahogany samba canon strummed cavaquinho, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian hands layered pandeiro, nylon canonical rio carnival aluminum canonical modern rio escola surdo, nylon multi rod cluster canonical samba aluminum canonical rio escola tamborim, samba tradition metal construction repinique, snappy samba tradition metal construction reco reco, samba tradition metal construction ganza, metal shell canonical modern Brazilian samba calfskin internal bamboo friction rod canonical Brazilian hands layered cuica, agogo. escola samba quadra. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 984,
+  "score": 522.675,
   "config": {
     "traditions": [
       "samba",
@@ -59,7 +59,7 @@
           "string_tuning": "standard_tuning",
           "top_wood_classical": "cedar_cl",
           "bracing_classical": "fan_torres_cl",
-          "string_classical": "nylon_high_cl",
+          "string_classical": "gut_cl",
           "attack_technique_cl": "thumb_attack_cl"
         },
         "scores": {
@@ -67,7 +67,7 @@
           "string_tuning": 0,
           "top_wood_classical": 2.795,
           "bracing_classical": 0.65,
-          "string_classical": 0.195,
+          "string_classical": 0.845,
           "attack_technique_cl": 3.125
         }
       },
@@ -192,7 +192,7 @@
       }
     ],
     "room": "escola_samba_quadra",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_electrical_disc_cut",
     "inline_chain": {
       "mic": "mic_rca_77dx_ribbon",
       "pre": "tube_pre",

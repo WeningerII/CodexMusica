@@ -3,8 +3,8 @@
   "name": "Sikh shabad kirtan (Gurbani praise)",
   "family": "global",
   "lineage": "Sikh devotional kirtan tradition continuous from 15th-16th century Guru-Nanak-era Sikh-spiritual-music foundation through codification under Guru Arjan and continuous performance through 17th-19th century historical-Punjab-region into modern Sikh-and-Sikh-diaspora practice; the kirtan ensemble accompanies shabad (Gurbani-scriptural) text-recitation in gurdwara context",
-  "recipe": "classic modern sikh shabad kirtan, praise Song, indian subcontinent branch, middle east n African praise song, hindu ritual devotional, indian classical improv improv on frame sufi munajat and naat arabic madh and qasida. thick, declaimed, chest resonance low mid, continuous-phonation. treble-extended vocal female harmonium indian, indian rosewood rosewood copper tabla, suited to female vocal bronze steel mix wooden body miraj style tanpura. carpeted bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 593,
+  "recipe": "classic South Asian modern sikh shabad kirtan, praise Song, indian subcontinent branch, middle east n African praise song, hindu ritual devotional, indian classical improv improv on frame sufi munajat and naat arabic madh and qasida. thick, declaimed, chest resonance low mid, continuous-phonation. treble-extended vocal female harmonium indian, indian rosewood rosewood copper tabla, suited to female vocal bronze steel mix wooden body miraj style tanpura. golden temple amritsar gurdwara. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 620,
   "score": 246.315,
   "config": {
     "traditions": [
@@ -100,7 +100,7 @@
         }
       }
     ],
-    "room": "carpeted_bedroom",
+    "room": "golden_temple_amritsar_gurdwara",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -118,7 +118,7 @@
   },
   "source": {
     "tuning": "hindustani_thaat_alap_jod_jhala",
-    "room": "carpeted_bedroom",
+    "room": "golden_temple_amritsar_gurdwara",
     "parts": {
       "voice_articulation": "melisma_voice",
       "voice_speech_song": "voice_melismatic_singing",

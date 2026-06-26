@@ -3,9 +3,9 @@
   "name": "Grand opera (French nineteenth century)",
   "family": "classical",
   "lineage": "Nineteenth-century French operatic style characterized by five-act structure, large historical-or-mythological subjects, elaborate ballet sequences, and massive choral and orchestral forces. Daniel Auber's La muette de Portici (1828), Giacomo Meyerbeer's Les Huguenots (1836) and Le Prophète (1849), and Hector Berlioz's Les Troyens (1858) are canonical type-specimens. The Paris Opéra and the Palais Garnier (opened 1875) constitute the institutional anchors. Distinguished from Italian opera by grand-opera's spectacular-scale and French-language declamatory recitative vocabulary.",
-  "recipe": "classic North American late-1820s grand opera, art Music, western common practice branch, chanson fado ballad poetry greek éntechno cape verdean batuko of santiago island. thick, lament wail, chest resonance low mid, punctuated. beech laminated maple laminated European tradition European spruce norway spruce grand piano, Italian alpine spruce val di fiemme European maple sycamore maple oil varnish violin orchestral. shoebox concert hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 573,
-  "score": 286.081,
+  "recipe": "classic British late-1820s grand opera, art Music, western common practice branch, chanson fado ballad poetry greek éntechno cape verdean batuko of santiago island. thick, lament wail, chest resonance low mid, punctuated. beech laminated maple laminated European tradition European spruce norway spruce grand piano, Italian alpine spruce val di fiemme European maple sycamore maple oil varnish violin orchestral. shoebox concert hall. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 580,
+  "score": 280.656,
   "config": {
     "traditions": [
       "grand_opera_french",
@@ -106,7 +106,7 @@
       }
     ],
     "room": "concert_hall_shoebox",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_70s_uk_class_a_rock",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "tube_pre",

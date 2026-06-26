@@ -3,8 +3,8 @@
   "name": "Italian filastrocche (nursery rhymes)",
   "family": "global",
   "lineage": "Italian-language children's play-song (filastrocche) tradition continuous from medieval-and-early-modern Italian folk-play-song origins through 19th-century Italian-unification-era folklore-collection context into modern continuous Italian-and-Italian-diaspora childhood-practice",
-  "recipe": "classic modern italian filastrocche, nursery Rhyme, European branch, European lullaby, americas nursery rhyme, Mediterranean ballad ballad poetry brazilian cantigas de roda spanish and latin american rondas. thick, low dynamic level, tasteful, continuous-phonation. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 404,
+  "recipe": "classic modern italian filastrocche, nursery Rhyme, European branch, European lullaby, americas nursery rhyme, Mediterranean ballad ballad poetry brazilian cantigas de roda spanish and latin american rondas. thick, low dynamic level, tasteful, continuous-phonation. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 403,
   "score": 135.344,
   "config": {
     "traditions": [
@@ -53,7 +53,7 @@
         }
       }
     ],
-    "room": "untreated_bedroom",
+    "room": "parlor",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -71,7 +71,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "untreated_bedroom",
+    "room": "parlor",
     "parts": {
       "voice_articulation": "staccato_voice",
       "voice_speech_song": "voice_syllabic_singing",

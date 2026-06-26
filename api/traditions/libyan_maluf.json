@@ -3,9 +3,9 @@
   "name": "Libyan maluf (Andalusi classical)",
   "family": "classical",
   "lineage": "Libyan maluf classical Andalusi-Arabic art-music tradition of Tripoli and Benghazi, the Libyan recension of broader Maghrebi-Andalusi nuba descended from the post-1492 al-Andalus expulsion-diaspora. The Libyan repertoire is the smallest of the Maghrebi recensions, comprising suite-cycles shared with Tunisian malouf with Libyan-Arabic poetic-meter and dialect cadential conventions. The post-2011 civil-conflict period disrupted institutional transmission; diaspora-recovery at Royal Conservatory of Music Tripoli is the contemporary anchor.",
-  "recipe": "classic North African early-1490s libyan maluf, art Music, middle eastern classical branch, Persian arab improv improv on frame tarab turkish-romani çümbüş music. vocal fry, low dynamic level, chest resonance low mid, maqam neutral step. nylon plastic rosewood premium iraqi Turkish Lebanese cedar oud, carved hardwood canonical javanese goat skin canonical javanese gut yemeni pre modern arab legato rebab, spun aluminum Egyptian sombaty goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka. nuba courtyard hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 671,
-  "score": 309.205,
+  "recipe": "classic North African early-1490s libyan maluf, art Music, middle eastern classical branch, Persian arab improv improv on frame tarab turkish-romani çümbüş music. vocal fry, low dynamic level, chest resonance low mid, maqam neutral step. nylon plastic rosewood premium iraqi Turkish Lebanese cedar oud, carved hardwood canonical javanese goat skin canonical javanese gut yemeni pre modern arab legato rebab, spun aluminum Egyptian sombaty goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka. nuba courtyard hall. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 612,
+  "score": 304.13,
   "config": {
     "traditions": [
       "libyan_maluf",
@@ -109,7 +109,7 @@
       }
     ],
     "room": "nuba_courtyard_hall",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_electrical_disc_cut",
     "inline_chain": {
       "mic": "mic_u47_tube_neumann",
       "pre": "pre_tube_german_v72",

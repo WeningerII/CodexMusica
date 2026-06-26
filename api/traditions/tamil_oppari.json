@@ -3,8 +3,8 @@
   "name": "Tamil oppāri (ஒப்பாரி, women's lament)",
   "family": "global",
   "lineage": "Tamil women's mourning-song tradition continuous from medieval-Tamil-Nadu rural practice through 20th-century ethnographic documentation (M. D. Muthukumaraswamy and others) into modern continuous-tradition performance by working-class and Dalit-Tamil professional women keeners",
-  "recipe": "classic modern tamil oppāri, funeral Lament, south Asian branch, vocal drone modal, indian classical improv improv on frame, indian bard ballad poetry dhrupad cambodian chapei dang veng. vocal fry, declaimed, chest resonance low mid, continuous-phonation. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 394,
+  "recipe": "classic modern tamil oppāri, funeral Lament, south Asian branch, vocal drone modal, indian classical improv improv on frame, indian bard ballad poetry dhrupad cambodian chapei dang veng. vocal fry, declaimed, chest resonance low mid, continuous-phonation. field recording. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 402,
   "score": 147.585,
   "config": {
     "traditions": [
@@ -53,7 +53,7 @@
         }
       }
     ],
-    "room": "untreated_bedroom",
+    "room": "field_recording",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -71,7 +71,7 @@
   },
   "source": {
     "tuning": "carnatic_72_melakarta_kriti_form",
-    "room": "untreated_bedroom",
+    "room": "field_recording",
     "parts": {
       "voice_articulation": "melisma_voice",
       "voice_speech_song": "voice_melismatic_singing",

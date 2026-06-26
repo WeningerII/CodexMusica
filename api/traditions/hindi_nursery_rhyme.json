@@ -3,8 +3,8 @@
   "name": "Hindi nursery rhyme (Indian school-curriculum children's songs)",
   "family": "global",
   "lineage": "Pan-Indian Hindi-medium children's school-song tradition continuous from late-19th-century Indian-Republican-modernization-era school-curriculum codification through post-independence 1947-onward Hindi-medium school-curriculum continuous practice; the tradition is intentionally constructed school-curriculum-music rather than continuous-folk-tradition",
-  "recipe": "classic modern hindi nursery rhyme, nursery Rhyme, south Asian branch, south Asian lullaby, European nursery rhyme, east Asian nursery rhyme korean dongyo hindi lori. thick, low dynamic level, tasteful, continuous-phonation. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 363,
+  "recipe": "classic modern hindi nursery rhyme, nursery Rhyme, south Asian branch, south Asian lullaby, European nursery rhyme, east Asian nursery rhyme korean dongyo hindi lori. thick, low dynamic level, tasteful, continuous-phonation. field recording. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 371,
   "score": 98.111,
   "config": {
     "traditions": [
@@ -53,7 +53,7 @@
         }
       }
     ],
-    "room": "untreated_bedroom",
+    "room": "field_recording",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -71,7 +71,7 @@
   },
   "source": {
     "tuning": "hindustani_thaat_alap_jod_jhala",
-    "room": "untreated_bedroom",
+    "room": "field_recording",
     "parts": {
       "voice_articulation": "staccato_voice",
       "voice_speech_song": "voice_syllabic_singing",

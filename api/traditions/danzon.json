@@ -3,9 +3,9 @@
   "name": "Danzón",
   "family": "global",
   "lineage": "Cuban late-19th-century elegant-couple-dance tradition derived from European-contradanza imported through Haitian-French Saint-Domingue refugees 1791-onward, codified 1879-onward in Matanzas-and-Havana by orquesta-típica orchestral ensembles. The dance unfolds through ABACA rondo-form (introduction-and-paseo-promenade, A-section, B-section, A-return, C-trio-section, A-return), allowing partner-couples to alternate between dancing and resting during instrumental-trio-sections. The classic charanga-francesa ensemble: two flutes (one wooden, one metal), two violins, contrabass, piano, timbales (with cáscara stick-rhythm-on-shell), and güiro scraper. The danzón seeded the cha-cha-chá 1953-onward and danzonete vocal-variant 1929-onward and remains a living tradition through danzonera dance-hall events in Havana, Mérida, and Mexico-City.",
-  "recipe": "classic Caribbean modern danzón, groove Percussion, charanga danza branch, rumba Cuban rumba cubana yambú. powell boston canonical American orchestral flute, sitka spruce hard rock maple acer saccharum French Polish shellac pad violin orchestral, beech laminated maple laminated European tradition European spruce norway spruce grand piano, upright bass, open slap hand drum timbales, guiro. pre revolutionary cuba 1944-1960 mid tier panart puchito havana pre 1959. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 597,
-  "score": 49.247,
+  "recipe": "classic Caribbean modern danzón, groove Percussion, charanga danza branch, rumba Cuban rumba cubana yambú. powell boston canonical American orchestral flute, sitka spruce hard rock maple acer saccharum French Polish shellac pad violin orchestral, beech laminated maple laminated European tradition European spruce norway spruce grand piano, upright bass, open slap hand drum timbales, guiro. pre revolutionary cuba 1944-1960 mid tier panart puchito havana pre 1959. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 575,
+  "score": 36.822,
   "config": {
     "traditions": [
       "danzon",
@@ -121,7 +121,7 @@
       }
     ],
     "room": "panart_puchito_havana_pre_1959",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_early_tape_havana",
     "inline_chain": {
       "mic": "ribbon_passive",
       "pre": "pre_tube_german_v72",

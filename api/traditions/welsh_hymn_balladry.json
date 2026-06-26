@@ -3,9 +3,9 @@
   "name": "Welsh hymn-balladry",
   "family": "global",
   "lineage": "Welsh-language sacred-and-secular balladry tradition rooted in the Welsh Nonconformist chapel (capel) singing-school (cymanfa ganu) movement of the 18th-19th centuries — characterized by Welsh male voice choir (côr meibion) four-part harmony, hymn-tunes by William Williams Pantycelyn, Cwm Rhondda (1907), Calon Lân, and the broader Welsh-language hymnody-secular-balladry continuation",
-  "recipe": "classic North American late-1900s welsh hymn-balladry, ballad Poetry, Welsh hymn ballad branch, christian gospel anglican choral anglican choral evensong. thick, declaimed, nervy, ornamental. a cappella small 3 to 8 one per part four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble, concert harp, choir welsh male. country church. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 528,
-  "score": 87.32,
+  "recipe": "classic British late-1900s welsh hymn-balladry, ballad Poetry, Welsh hymn ballad branch, christian gospel anglican choral anglican choral evensong. thick, declaimed, nervy, ornamental. a cappella small 3 to 8 one per part four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble, concert harp, choir welsh male. country church. large-diaphragm condenser, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
+  "recipe_chars": 513,
+  "score": 82.595,
   "config": {
     "traditions": [
       "welsh_hymn_balladry",
@@ -90,7 +90,7 @@
       }
     ],
     "room": "wooden_country_church",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_60s_uk_small_commercial",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "pre_tube_german_v72",

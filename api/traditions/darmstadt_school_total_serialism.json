@@ -3,9 +3,9 @@
   "name": "Darmstadt School (total serialism)",
   "family": "classical",
   "lineage": "Post-war European avant-garde composer movement centered on the Internationale Ferienkurse für Neue Musik in Darmstadt (founded 1946), extending Webern's serial-row organization to all musical parameters (pitch, rhythm, dynamics, articulation, register) — \"total serialism\" or \"integral serialism.\" Boulez's Structures Ia (1952), Stockhausen's Kreuzspiel (1951), and Nono's Il canto sospeso (1956) constitute the canonical type-specimens. The Darmstadt School defined the European-modernist mainstream of 1950s-1960s.",
-  "recipe": "classic North American mid-1950s darmstadt school, art Music, western modern branch, musique concrete experimental electric acousmatic music soundscape composition. thick, yodel, chest resonance low mid, unrestrained. beech laminated maple laminated European tradition European spruce norway spruce grand piano, synthetic carpathian spruce European maple sycamore maple oil varnish violin orchestral. shoebox concert hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 554,
-  "score": 210.236,
+  "recipe": "classic European mid-1950s darmstadt school, art Music, western modern branch, musique concrete experimental electric acousmatic music soundscape composition. thick, yodel, chest resonance low mid, unrestrained. beech laminated maple laminated European tradition European spruce norway spruce grand piano, synthetic carpathian spruce European maple sycamore maple oil varnish violin orchestral. shoebox concert hall. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 504,
+  "score": 213.064,
   "config": {
     "traditions": [
       "darmstadt_school_total_serialism",
@@ -62,7 +62,7 @@
           "piano_rim": "european_laminated_rim_beech_maple",
           "piano_soundboard": "european_spruce_soundboard",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_plate": "wet_sand_cast_plate",
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
@@ -73,7 +73,7 @@
           "piano_rim": 12.8115,
           "piano_soundboard": 9.0615,
           "piano_pinblock": 8.75,
-          "piano_plate": 8.75,
+          "piano_plate": 9.86375,
           "piano_pitch_standard": 12.195
         }
       },
@@ -89,7 +89,7 @@
           "orch_bow": "modern_bow",
           "orch_bow_stick": "pernambuco_stick_orch",
           "orch_articulation": "arco_orch",
-          "orch_rosin": "liebenzeller_metal_rosin_orch"
+          "orch_rosin": "pirastro_gold_rosin_orch"
         },
         "scores": {
           "bowed_technique": 5.105,
@@ -97,16 +97,16 @@
           "orch_top_wood": 8.535,
           "orch_back_wood": 11.35,
           "orch_varnish": 8.75,
-          "orch_setup_period": 8.36375,
+          "orch_setup_period": 9.86375,
           "orch_bow": 0.15599999999999997,
           "orch_bow_stick": 9.6025,
           "orch_articulation": 1.8199999999999998,
-          "orch_rosin": 8.75
+          "orch_rosin": 9.86375
         }
       }
     ],
     "room": "concert_hall_shoebox",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_german_diy_converted",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "tube_pre",

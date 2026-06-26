@@ -3,8 +3,8 @@
   "name": "Indian Holi-and-Diwali festival processional",
   "family": "global",
   "lineage": "Indian Holi (festival of colors) and Diwali (festival of lights) processional tradition continuous from premodern Indian festival celebration practice through 19th-20th century continuous performance into modern Indian-and-Indian-diaspora continuous festival-practice; Holi processional integrates extensive dholak-and-shehnai-and-vocal participation alongside color-throwing, Diwali integrates devotional kirtan-and-bhajan with lamp-procession",
-  "recipe": "classic modern indian holi-and-diwali festival processional, carnival Processional, south Asian branch, indian subcontinent praise song, south Asian wedding, hindu ritual devotional hindu stuti and bhajan indian sangeet. thick, declaimed, tasteful, continuous-phonation. synthetic remo modern stable bolt tuned modern concert stable dholak, mid 20th century banaras shehnai virtuoso naubat ensemble wedding context processional sheesham indian rosewood canonical Hindustani shehnai, pitched indian rosewood rosewood tabla. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 661,
+  "recipe": "classic modern indian holi-and-diwali festival processional, carnival Processional, south Asian branch, indian subcontinent praise song, south Asian wedding, hindu ritual devotional hindu stuti and bhajan indian sangeet. thick, declaimed, tasteful, continuous-phonation. synthetic remo modern stable bolt tuned modern concert stable dholak, mid 20th century banaras shehnai virtuoso naubat ensemble wedding context processional sheesham indian rosewood canonical Hindustani shehnai, pitched indian rosewood rosewood tabla. festival stage. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 668,
   "score": 213.003,
   "config": {
     "traditions": [
@@ -98,7 +98,7 @@
         }
       }
     ],
-    "room": "untreated_bedroom",
+    "room": "festival_stage",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -116,7 +116,7 @@
   },
   "source": {
     "tuning": "hindustani_thaat_alap_jod_jhala",
-    "room": "untreated_bedroom",
+    "room": "festival_stage",
     "parts": {
       "voice_articulation": "call_response_voice",
       "voice_speech_song": "voice_syllabic_singing",

@@ -3,9 +3,9 @@
   "name": "Opera seria (Baroque heroic opera)",
   "family": "classical",
   "lineage": "Italian-language Baroque opera type focused on serious classical-mythological-and-historical subjects, codified by librettist Pietro Metastasio (1698-1782) whose libretti were set hundreds of times by Baroque composers. Performance configuration: three acts with strict da capo aria-and-recitative alternation, six characters (with castrato voices in the leading male hero roles), and minimal chorus. Handel's Giulio Cesare (1724) and Vivaldi's Orlando furioso (1727) are canonical type-specimens. Distinguished from later opera buffa by opera seria's elevated dramatic register.",
-  "recipe": "classic North American early-1690s opera seria, art Music, western early branch, western common practice art music bel canto opera verismo opera. thick, low dynamic level, chest resonance low mid, ornamental. beech laminated maple laminated European tradition European spruce norway spruce grand piano, synthetic Italian alpine spruce val di fiemme European maple bosnian source violin orchestral. shoebox concert hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 551,
-  "score": 420.866,
+  "recipe": "classic British early-1690s opera seria, art Music, western early branch, western common practice art music bel canto opera verismo opera. thick, low dynamic level, chest resonance low mid, ornamental. beech laminated maple laminated European tradition European spruce norway spruce grand piano, synthetic Italian alpine spruce val di fiemme European maple bosnian source violin orchestral. shoebox concert hall. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 558,
+  "score": 420.316,
   "config": {
     "traditions": [
       "opera_seria_baroque",
@@ -106,7 +106,7 @@
       }
     ],
     "room": "concert_hall_shoebox",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_70s_uk_class_a_rock",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "tube_pre",

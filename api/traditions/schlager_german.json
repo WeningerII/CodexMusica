@@ -3,9 +3,9 @@
   "name": "Schlager (German)",
   "family": "global",
   "lineage": "German-language popular sentimental song genre with 1920s Weimar cabaret roots, mid-century commercial extension (Heino, Roy Black, Freddy Quinn), and modern continuation (Helene Fischer, Andrea Berg) — major-key sentimental melodies, accordion-and-strings-and-occasional-yodel arrangements, lyrical content concerning love, home country (Heimat), nostalgia, holidays, alpine landscapes; distinct from Liedermacher (politically engaged literary-cabaret tradition)",
-  "recipe": "classic Central European mid-1920s schlager, functional Song, europop branch, crooners functional song brill building pop american barbershop quartet. thick, low dynamic level, melodic, ornamental. weltmeister east German mid tier vintage volk straight accordion, Fender tweed amp American 50s amp tweed breakup alder pyramid electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, singing lead analog poly synth. german liedermacher kabarett berlin. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 613,
-  "score": 228.682,
+  "recipe": "classic Central European mid-1920s schlager, functional Song, europop branch, crooners functional song brill building pop american barbershop quartet. thick, low dynamic level, melodic, ornamental. weltmeister east German mid tier vintage volk straight accordion, Fender tweed amp American 50s amp tweed breakup alder pyramid electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, singing lead analog poly synth. german liedermacher kabarett berlin. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 569,
+  "score": 228.533,
   "config": {
     "traditions": [
       "schlager_german",
@@ -41,7 +41,7 @@
           "voice_vibrato": 3.7065000000000006,
           "voice_articulation": 1.7499999999999998,
           "voice_microtone": 8.330000000000002,
-          "voice_tradition": 12.5125,
+          "voice_tradition": 14.4625,
           "voice_mechanism_compound": 3.12,
           "voice_estill_quality": 6.5596250000000005,
           "voice_speech_song": 21.189999999999998,
@@ -81,7 +81,7 @@
           "body_wood": "alder_b",
           "pickup_config": "soapbar",
           "string_type": "pyramid_pure_nickel",
-          "scale_length_b": "short_scale_b",
+          "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretless",
           "bass_technique": "sub_bass_synth_blend"
         },
@@ -89,9 +89,9 @@
           "electric_technique": 0.06499999999999999,
           "amp_make": 7.5725,
           "body_wood": 1.885,
-          "pickup_config": 0.6059999999999999,
+          "pickup_config": 1.95,
           "string_type": 3.7700000000000005,
-          "scale_length_b": 1.885,
+          "scale_length_b": 1.926,
           "fretted_or_not": 1.6,
           "bass_technique": 3.75
         }
@@ -102,7 +102,7 @@
           "percussion_technique": "percussion_brushes_and_sticks",
           "shell_wood": "brass_shell",
           "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "bearing_edges": "edge_45",
           "drumhead": "ec_pre_muffled_drumhead",
           "snare_wires": "cable_snares",
           "cymbal_alloy": "b15_signature",
@@ -115,7 +115,7 @@
           "percussion_technique": 13.714999999999996,
           "shell_wood": 0.39,
           "shell_thickness": 0.195,
-          "bearing_edges": 1.885,
+          "bearing_edges": 1.926,
           "drumhead": 9.915000000000001,
           "snare_wires": 1.885,
           "cymbal_alloy": 7.975625,
@@ -142,7 +142,7 @@
       }
     ],
     "room": "german_liedermacher_kabarett_berlin",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_german_diy_converted",
     "inline_chain": {
       "mic": "dynamic_mic",
       "pre": "pre_neve_1073_input",

@@ -3,9 +3,9 @@
   "name": "Yu opera (Henan bangzi)",
   "family": "classical",
   "lineage": "Yu opera Henan provincial Chinese opera tradition, the largest of the bangzi (wooden-clapper) opera family by audience and the second-largest Chinese opera tradition after jingju by aggregate national reach. Origin in seventeenth-eighteenth century Henan from earlier folk-music synthesis with qinqiang influences. Distinguished from neighboring qinqiang by softer, more lyrical vocal register and accessible Henan-dialect Mandarin language. Canonical play Hua Mulan (the female-warrior legend) constitutes the type-specimen of yu opera's strong female-protagonist tradition. The post-1949 Henan Yu Opera Theatre under Chang Xiangyu consolidated the modern repertoire.",
-  "recipe": "classic Southeast Asian late-1940s yu opera, art Music, east Asian branch, east Asian Cantonese opera. thick, pressed, chest resonance low mid, equal tempered. python skin silk canonical traditional sanxian, composite material paulownia canonical Korean horse dog asymmetric canonical Korean pansori godo janggu. wooden pagoda hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 464,
-  "score": 241.829,
+  "recipe": "classic Southeast Asian late-1940s yu opera, art Music, east Asian branch, east Asian Cantonese opera. thick, pressed, chest resonance low mid, equal tempered. python skin silk canonical traditional sanxian, composite material paulownia canonical Korean horse dog asymmetric canonical Korean pansori godo janggu. wooden pagoda hall. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 405,
+  "score": 238.379,
   "config": {
     "traditions": [
       "yu_opera_henan",
@@ -89,7 +89,7 @@
       }
     ],
     "room": "wooden_pagoda_hall",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_electrical_disc_cut",
     "inline_chain": {
       "mic": "mic_u87_condenser_neumann",
       "pre": "tube_pre",

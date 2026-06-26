@@ -3,8 +3,8 @@
   "name": "English halyard shanty (Atlantic merchant-marine work-song)",
   "family": "global",
   "lineage": "English-Anglo-American halyard-shanty tradition continuous from 18th-19th-century Atlantic-merchant-marine work-song practice through the great-age-of-sail 1830s-1880s peak-shanty-period continuous into 20th-century revival (the Stan Hugill Shanties from the Seven Seas 1961 canonical scholarly-documentation) into modern Anglosphere folk-revival continuous practice; foundational repertoire includes \"Drunken Sailor,\" \"Blow the Man Down,\" \"Haul Away Joe\"",
-  "recipe": "classic mid-1830s english halyard shanty, sea Shanty, atlantic branch, American south field work, European drinking song, anglo singer song ballad poetry indie folk freak folk. thick, low dynamic level, melodic, continuous-phonation. Celtic Irish straight concertina. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 406,
+  "recipe": "classic mid-1830s english halyard shanty, sea Shanty, atlantic branch, American south field work, European drinking song, anglo singer song ballad poetry indie folk freak folk. thick, low dynamic level, melodic, continuous-phonation. Celtic Irish straight concertina. beach. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 404,
   "score": 161.386,
   "config": {
     "traditions": [
@@ -66,7 +66,7 @@
         }
       }
     ],
-    "room": "untreated_bedroom",
+    "room": "beach",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -84,7 +84,7 @@
   },
   "source": {
     "tuning": "celtic_irish_modal_dorian_mixolydian",
-    "room": "untreated_bedroom",
+    "room": "beach",
     "parts": {
       "voice_articulation": "call_response_voice",
       "voice_speech_song": "voice_syllabic_singing",

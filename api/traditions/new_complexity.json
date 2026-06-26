@@ -3,9 +3,9 @@
   "name": "New Complexity (1970s-1980s British post-serial maximalism)",
   "family": "classical",
   "lineage": "British-and-international compositional school emerging in 1970s-80s centered on Brian Ferneyhough's notational-and-technical maximalism, with extremely complex rhythmic-and-articulation specification often exceeding what performers can literally execute. Distinguished from Darmstadt total-serialism by New Complexity's expressionist-and-virtuoso (rather than rationally-structural) orientation. Ferneyhough's Time and Motion Studies (1973-77) and his Carceri d'Invenzione cycle (1981-86) constitute the canonical type-specimens.",
-  "recipe": "classic North American new complexity, art Music, western modern branch, western common practice art music the mighty handful early romantic. thick, larynx lowered, chest resonance low mid, narrative. synthetic sitka spruce bigleaf maple western maple oil varnish violin orchestral. shoebox concert hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 436,
-  "score": 187.222,
+  "recipe": "classic British new complexity, art Music, western modern branch, western common practice art music the mighty handful early romantic. thick, larynx lowered, chest resonance low mid, narrative. synthetic sitka spruce bigleaf maple western maple oil varnish violin orchestral. shoebox concert hall. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 443,
+  "score": 188.972,
   "config": {
     "traditions": [
       "new_complexity",
@@ -81,7 +81,7 @@
       }
     ],
     "room": "concert_hall_shoebox",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_70s_uk_class_a_rock",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "tube_pre",

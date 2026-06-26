@@ -3,8 +3,8 @@
   "name": "Māori waiata tangi (mourning-song)",
   "family": "global",
   "lineage": "Māori mourning-song tradition continuous from pre-contact Māori ritual-practice through 19th-20th century continuous performance at tangihanga (Māori funeral rites) into modern Māori-cultural-revival; the waiata tangi is one of the codified Māori waiata categories alongside waiata aroha (love-song) and waiata oriori (lullaby)",
-  "recipe": "classic modern māori waiata tangi, funeral Lament, oceania pacific branch, indigenous ritual devotional, vocal drone modal, Celtic balladic ballad poetry inuit katajjaq throat-singing game shipibo-conibo icaros healing songs. sygyt, declaimed, overtone rich sustained, continuous-phonation. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 429,
+  "recipe": "classic Oceanian modern māori waiata tangi, funeral Lament, oceania pacific branch, indigenous ritual devotional, vocal drone modal, Celtic balladic ballad poetry inuit katajjaq throat-singing game shipibo-conibo icaros healing songs. sygyt, declaimed, overtone rich sustained, continuous-phonation. maori marae carved wharenui. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 458,
   "score": 175.395,
   "config": {
     "traditions": [
@@ -53,7 +53,7 @@
         }
       }
     ],
-    "room": "untreated_bedroom",
+    "room": "maori_marae_carved_wharenui",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -71,7 +71,7 @@
   },
   "source": {
     "tuning": "mongolian_pentatonic_long_song",
-    "room": "untreated_bedroom",
+    "room": "maori_marae_carved_wharenui",
     "parts": {
       "voice_articulation": "melisma_voice",
       "voice_speech_song": "voice_melismatic_singing",

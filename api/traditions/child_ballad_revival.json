@@ -3,9 +3,9 @@
   "name": "Child ballad revival",
   "family": "global",
   "lineage": "Performance tradition revived 1955-1965, of the 305 narrative ballads catalogued by Francis James Child in The English and Scottish Popular Ballads (1882-1898) — revived through the Lowland Scottish travelling family tradition (Jeannie Robertson, Belle Stewart, Lizzie Higgins) and the parallel UK folk-revival concert-performance lineage (Ewan MacColl, Peggy Seeger, June Tabor, Martin Carthy, Frankie Armstrong)",
-  "recipe": "classic Northern European mid-1960s child ballad revival, ballad Poetry, Scottish ballad branch, anglo singer song britfolk britfolk revival. thick, incomplete closure resting, narrative, Scottish Gaelic vocal. dadgad tuning martin lifespan fingerpicked acoustic guitar, drone like fiddle, concert harp. uk folk revival club 60s. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 461,
-  "score": 158.915,
+  "recipe": "classic Northern European mid-1960s child ballad revival, ballad Poetry, Scottish ballad branch, anglo singer song britfolk britfolk revival. thick, incomplete closure resting, narrative, Scottish Gaelic vocal. dadgad tuning martin lifespan fingerpicked acoustic guitar, drone like fiddle, concert harp. uk folk revival club 60s. large-diaphragm condenser, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
+  "recipe_chars": 453,
+  "score": 155.93,
   "config": {
     "traditions": [
       "child_ballad_revival",
@@ -30,7 +30,7 @@
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
           "voice_register": 7.804500000000001,
@@ -48,7 +48,7 @@
           "voice_ornament_system": 5.949999999999999,
           "voice_pitch_organization": 0.3,
           "voice_processing_chain": 2.9030000000000005,
-          "voice_multitrack_stack": 0.585
+          "voice_multitrack_stack": 1.7125
         }
       },
       {
@@ -100,7 +100,7 @@
       }
     ],
     "room": "uk_folk_revival_club_60s",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_60s_uk_small_commercial",
     "inline_chain": {
       "mic": "mic_u67_tube_neumann",
       "pre": "pre_tube_german_v72",

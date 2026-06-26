@@ -3,53 +3,53 @@
   "name": "Basque kantautor",
   "family": "global",
   "lineage": "Basque-language (Euskera) singer-songwriter tradition emerging from underground anti-Franco protest culture in the late-1960s — codified through Mikel Laboa (the Basque kantautor founder, his 1969 Bost urte and 1974 Gernika releases the founding statements), Benito Lertxundi, Imanol Larzabal, Antton Valverde, Lourdes Iriondo, Xabier Lete; deeply engaged with Basque cultural-linguistic revival under and after Franco-era cultural suppression, with parallel post-1980s extensions through Ruper Ordorika (the post-Franco-era Basque cantautor voice)",
-  "recipe": "classic Iberian 1967-1969 basque kantautor, functional Song, iberian branch, chanson fado ballad poetry, European protest song cape verdean batuko of santiago island french musette. thick, lament wail, melodic, punctuated. fingerpicked acoustic guitar, gaita galega three drone muiñeira dance driving gaita galega, castagnari Italian premium folk music straight accordion, mahogany pyramid pure nickel bass British mid 60s era electric bass. iberian kantautor basque galician club. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 613,
-  "score": 192.37,
+  "recipe": "classic Iberian 1967-1969 basque kantautor, functional Song, iberian branch, chanson fado ballad poetry, European protest song cape verdean batuko of santiago island morna. vocal fry, lament wail, tasteful, punctuated. martin lifespan fingerpicked acoustic guitar, gaita galega three drone muiñeira dance driving gaita galega, pigini Italian premium concert straight accordion, mahogany pyramid pure nickel bass British mid 60s era electric bass. iberian kantautor basque galician club. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 574,
+  "score": 185.706,
   "config": {
     "traditions": [
       "basque_kantautor",
       "cape_verdean_batuko",
-      "french_musette"
+      "morna"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "vocal_fry",
           "voice_quality": "fado_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "staccato_voice",
           "voice_microtone": "blue_notes",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
         },
         "scores": {
-          "voice_register": 3.4700000000000006,
-          "voice_quality": 6.085,
+          "voice_register": 4.029999999999999,
+          "voice_quality": 9.91,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.625,
-          "voice_articulation": 2.9899999999999998,
-          "voice_microtone": 1.4949999999999999,
-          "voice_tradition": 15.957499999999998,
-          "voice_mechanism_compound": 7.279999999999999,
-          "voice_estill_quality": 8.5475,
-          "voice_speech_song": 25.935,
-          "voice_ensemble_config": 21.06,
-          "voice_ornament_system": 3.745,
-          "voice_pitch_organization": 4.555000000000001,
-          "voice_processing_chain": 4.159999999999999,
-          "voice_multitrack_stack": 4.68
+          "voice_vibrato": 0.7725,
+          "voice_articulation": 2.145,
+          "voice_microtone": 1.6899999999999997,
+          "voice_tradition": 19.175,
+          "voice_mechanism_compound": 7.474999999999999,
+          "voice_estill_quality": 6.37,
+          "voice_speech_song": 28.210000000000004,
+          "voice_ensemble_config": 23.725,
+          "voice_ornament_system": 4.62,
+          "voice_pitch_organization": 5.8050000000000015,
+          "voice_processing_chain": 6.4025,
+          "voice_multitrack_stack": 5.525
         }
       },
       {
@@ -63,12 +63,12 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 10.820000000000002,
-          "string_tuning": 0.7149999999999999,
+          "acoustic_technique": 10.27,
+          "string_tuning": 1.2999999999999998,
           "top_wood": 0.54,
           "back_sides": 0.78,
-          "string_acoustic": 0.845,
-          "acoustic_om_technique": 10.820000000000002
+          "string_acoustic": 1.04,
+          "acoustic_om_technique": 10.27
         }
       },
       {
@@ -77,38 +77,38 @@
           "wind_articulation": "wind_folk_melodic",
           "gaita_galega_drones": "gaita_galega_three_drones",
           "gaita_galega_use": "gaita_galega_muiñeira",
-          "gaita_galega_chanter_wood": "gaita_galega_boxwood",
-          "gaita_galega_reed": "gaita_galega_cane_canonical",
-          "gaita_galega_bag": "gaita_galega_goatskin_canonical"
+          "gaita_galega_chanter_wood": "gaita_galega_african_blackwood",
+          "gaita_galega_reed": "gaita_galega_synthetic_reed",
+          "gaita_galega_bag": "gaita_galega_synthetic_bag"
         },
         "scores": {
-          "wind_articulation": 4.6450000000000005,
-          "gaita_galega_drones": 2.565,
-          "gaita_galega_use": 6.514999999999999,
-          "gaita_galega_chanter_wood": 1.2349999999999999,
-          "gaita_galega_reed": 1.2349999999999999,
-          "gaita_galega_bag": 1.2349999999999999
+          "wind_articulation": 2.37,
+          "gaita_galega_drones": 3.265,
+          "gaita_galega_use": 2.6649999999999996,
+          "gaita_galega_chanter_wood": 0.78,
+          "gaita_galega_reed": 0.7725,
+          "gaita_galega_bag": 0.7725
         }
       },
       {
         "id": "accordion",
         "slots": {
           "free_reed_technique": "free_reed_folk_first_position",
-          "accordion_reed_material": "tipo_a_mano",
-          "musette_offset": "french_musette",
+          "accordion_reed_material": "steel_reeds",
+          "musette_offset": "scottish_musette",
           "reed_config": "lmmm",
           "bellows": "cardboard_leather",
           "voicing_chamber": "no_cassotto",
-          "accordion_maker_school": "accordion_castagnari_italian"
+          "accordion_maker_school": "accordion_pigini_italian"
         },
         "scores": {
-          "free_reed_technique": 6.595000000000001,
-          "accordion_reed_material": 0.54,
-          "musette_offset": 1.625,
-          "reed_config": 5.525,
+          "free_reed_technique": 4.32,
+          "accordion_reed_material": 0.78,
+          "musette_offset": 0.78,
+          "reed_config": 1.9425000000000001,
           "bellows": 0.39,
           "voicing_chamber": 0.39,
-          "accordion_maker_school": 4.42
+          "accordion_maker_school": 1.5037499999999997
         }
       },
       {
@@ -117,9 +117,9 @@
           "electric_technique": "electric_bass_slap_pop",
           "amp_make": "amp_british_60s_selmer",
           "body_wood": "mahogany_b",
-          "pickup_config": "split_coil",
+          "pickup_config": "soapbar",
           "string_type": "pyramid_pure_nickel",
-          "scale_length_b": "short_scale_b",
+          "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretted",
           "bass_technique": "slap_pop"
         },
@@ -127,16 +127,16 @@
           "electric_technique": 1.4299999999999997,
           "amp_make": 0.6499999999999999,
           "body_wood": 1.08,
-          "pickup_config": 0,
-          "string_type": 3.25,
-          "scale_length_b": 0.54,
+          "pickup_config": 0.7725,
+          "string_type": 3.6399999999999997,
+          "scale_length_b": 0.7725,
           "fretted_or_not": 1.4949999999999999,
           "bass_technique": 1.4299999999999997
         }
       }
     ],
     "room": "iberian_kantautor_basque_galician_club",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_german_diy_converted",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "pre_tube_german_v72",

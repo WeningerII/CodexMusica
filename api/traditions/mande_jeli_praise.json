@@ -3,8 +3,8 @@
   "name": "Mande jeli / griot praise-song",
   "family": "global",
   "lineage": "Mande-and-Wolof West-African praise-song tradition continuous from medieval Mali Empire era (13th-15th century Sundiata Keita era when the jeli/griot caste-tradition was codified) through colonial-period continuous performance into modern Mande-and-Wolof and Mande-diaspora practice; the jeli is the hereditary praise-singer-and-historian role with documented professional-genealogical lineage",
-  "recipe": "classic modern mande jeli / griot praise-song, praise Song, sub saharan African branch, middle east n African praise song, west African griot ballad poetry, string drone modal donsongoni hunter's harp mandé jeli. thick, declaimed, tasteful, continuous-phonation. calabash nylon fishing line cowhide mande traditional kora, calabash gourd canonical bambara nylon modern call-and-response ngoni, buzzy natural material resonance calabash gourd balafon. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 589,
+  "recipe": "classic West African modern mande jeli / griot praise-song, praise Song, sub saharan African branch, middle east n African praise song, west African griot ballad poetry, string drone modal donsongoni hunter's harp mandé jeli. thick, declaimed, tasteful, continuous-phonation. calabash nylon fishing line cowhide mande traditional kora, calabash gourd canonical bambara nylon modern call-and-response ngoni, buzzy natural material resonance calabash gourd balafon. bamako griot jeli compound. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 621,
   "score": 381.432,
   "config": {
     "traditions": [
@@ -104,7 +104,7 @@
         }
       }
     ],
-    "room": "untreated_bedroom",
+    "room": "bamako_griot_jeli_compound",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_ldc",
@@ -122,7 +122,7 @@
   },
   "source": {
     "tuning": "mande_pentatonic_jeli_modal",
-    "room": "untreated_bedroom",
+    "room": "bamako_griot_jeli_compound",
     "parts": {
       "voice_articulation": "narrative_voice",
       "voice_speech_song": "voice_recitative_free_rhythm",

@@ -3,9 +3,9 @@
   "name": "Andalusī nūba",
   "family": "classical",
   "lineage": "Moroccan-Maghrebi Andalusi classical music tradition (al-ala / musique andalouse) descended from the 11-12th century cultural heritage of Muslim-ruled Iberian Andalusia, brought to North Africa with the post-1492 Iberian Muslim and Jewish expulsion and preserved in Fez, Tetouan, Tangier, Rabat — codified through 11 surviving nūba multi-section suites in the Moroccan corpus (sister lineages: Algerian gharnati, Tunisian malouf)",
-  "recipe": "classic North African early-1490s andalusī nūba, art Music, middle eastern classical branch, vocal drone modal. vocal fry, low dynamic level, chest resonance low mid, continuous-phonation. walnut ribs canonical mid tier Lebanese cedar eastern Mediterranean pyramid oud, metal finger picks walnut body canonical decorative goat skin bridge plate qanun, carved hardwood canonical javanese goat skin canonical javanese legato rebab, darbuka, riq, juniper bent frame canonical Maghrebi synthetic remo modern world music bendir. fez andalusi palace riad. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 681,
-  "score": 181.635,
+  "recipe": "classic North African early-1490s andalusī nūba, art Music, middle eastern classical branch, vocal drone modal. vocal fry, low dynamic level, chest resonance low mid, continuous-phonation. walnut ribs canonical mid tier Lebanese cedar eastern Mediterranean pyramid oud, metal finger picks walnut body canonical decorative goat skin bridge plate qanun, carved hardwood canonical javanese goat skin canonical javanese legato rebab, darbuka, riq, juniper bent frame canonical Maghrebi synthetic remo modern world music bendir. fez andalusi palace riad. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 622,
+  "score": 178.81,
   "config": {
     "traditions": [
       "andalusi_nuba"
@@ -160,7 +160,7 @@
       }
     ],
     "room": "fez_andalusi_palace_riad",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_electrical_disc_cut",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "pre_tube_german_v72",

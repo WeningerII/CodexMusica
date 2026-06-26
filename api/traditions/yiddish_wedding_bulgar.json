@@ -5,7 +5,7 @@
   "lineage": "Ashkenazi-Jewish wedding-dance-music tradition continuous from 19th-century Eastern-European-shtetl klezmer practice through New-York Yiddish-American post-1880s immigration era through the 1970s klezmer-revival; the bulgar (Bulgarian-origin double-line dance) and freylekhs (joyful-dance) are the canonical Ashkenazi wedding-dance forms",
   "recipe": "classic Eastern European mid-1880s yiddish wedding bulgar and freylekhs, wedding, European branch, middle eastern wedding, string improv improv on frame, chanson fado ballad poetry cape verdean batuko of santiago island lebanese-arab wedding takht. vocal fry, lament wail, chest resonance low mid, continuous-phonation. klezmer ensemble, ebonite hard rubber klezmer tradition continuous-airflow legato clarinet, ornamented fiddle, castagnari Italian premium folk music bellows articulated accordion, upright bass. klezmer simcha celebration hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 676,
-  "score": 207.129,
+  "score": 206.733,
   "config": {
     "traditions": [
       "yiddish_wedding_bulgar",
@@ -86,15 +86,15 @@
           "bowed_technique": "bowed_klezmer_ornamented",
           "fiddle_strings": "synthetic_core",
           "fiddle_bow": "light_rosin",
-          "fiddle_mute": "practice_mute",
+          "fiddle_mute": "no_mute",
           "fiddle_articulation": "pizz"
         },
         "scores": {
           "bowed_technique": 12.099499999999999,
           "fiddle_strings": 0.8850000000000001,
           "fiddle_bow": 0.15,
-          "fiddle_mute": 0.45499999999999996,
-          "fiddle_articulation": 1.7055
+          "fiddle_mute": 0.345,
+          "fiddle_articulation": 1.24
         }
       },
       {
@@ -103,7 +103,7 @@
           "free_reed_technique": "free_reed_bellows_articulated",
           "accordion_reed_material": "tipo_a_mano",
           "musette_offset": "italian_tuning",
-          "reed_config": "lmmm",
+          "reed_config": "lm_only",
           "bellows": "cardboard_leather",
           "voicing_chamber": "no_cassotto",
           "accordion_maker_school": "accordion_castagnari_italian"
@@ -112,7 +112,7 @@
           "free_reed_technique": 7.199999999999999,
           "accordion_reed_material": 0.39,
           "musette_offset": 0.65,
-          "reed_config": 0.63,
+          "reed_config": 0.8099999999999997,
           "bellows": 0.195,
           "voicing_chamber": 0.15,
           "accordion_maker_school": 7.215

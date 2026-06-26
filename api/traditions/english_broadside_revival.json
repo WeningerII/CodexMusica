@@ -3,9 +3,9 @@
   "name": "English broadside ballad",
   "family": "global",
   "lineage": "English topical-narrative balladry tradition — printed cheap as broadside sheets in the 16th-19th centuries, collected by Cecil Sharp and the late-19th-century English folk-revival, revived through the post-WWII folk-club circuit (the Watersons family, Martin Carthy, A.L. Lloyd, Ewan MacColl, June Tabor, Peter Bellamy)",
-  "recipe": "classic Northern European mid-1970s english broadside ballad, ballad Poetry, English broadside branch, anglo singer song britfolk britfolk revival. thick, incomplete closure resting, narrative, Scottish Gaelic vocal. dadgad tuning martin lifespan fingerpicked acoustic guitar, drone like fiddle, modern Irish carroll suttner premium revival steel reeds canonical anglo straight concertina anglo. uk folk revival club 60s. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 553,
-  "score": 141.604,
+  "recipe": "classic Northern European 1965-1968 english broadside ballad, ballad Poetry, English broadside branch, anglo singer song britfolk britfolk revival. thick, incomplete closure resting, narrative, Scottish Gaelic vocal. dadgad tuning martin lifespan fingerpicked acoustic guitar, drone like fiddle, modern Irish carroll suttner premium revival steel reeds canonical anglo straight concertina anglo. uk folk revival club 60s. large-diaphragm condenser, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
+  "recipe_chars": 545,
+  "score": 139.252,
   "config": {
     "traditions": [
       "english_broadside_revival",
@@ -30,7 +30,7 @@
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
           "voice_register": 8.055625,
@@ -48,7 +48,7 @@
           "voice_ornament_system": 4.911250000000001,
           "voice_pitch_organization": 0.056249999999999994,
           "voice_processing_chain": 1.774375,
-          "voice_multitrack_stack": 0.9874999999999999
+          "voice_multitrack_stack": 1.4475
         }
       },
       {
@@ -106,7 +106,7 @@
       }
     ],
     "room": "uk_folk_revival_club_60s",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_60s_uk_small_commercial",
     "inline_chain": {
       "mic": "mic_u67_tube_neumann",
       "pre": "pre_tube_german_v72",

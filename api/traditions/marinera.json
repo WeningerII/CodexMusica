@@ -3,9 +3,9 @@
   "name": "Marinera peruana",
   "family": "global",
   "lineage": "Peruvian coastal courtship dance with three regional variants (norteña, limeña, serrana) and characteristic guitarra-cajón-vocal ensemble",
-  "recipe": "classic Andean mid-1970s marinera peruana, groove Percussion, Latin am branch, Latin am troubadour ballad poetry filipino harana milonga. thick, low dynamic level, chest resonance low mid, rhythmic. fingerpicked acoustic guitar, open back Afro peruvian tradition marinera tradition cajon peruano, a cappella small 3 to 8 one per part three voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu choir ensemble. andean altiplano outdoor. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 587,
-  "score": 147.72,
+  "recipe": "classic Andean mid-1930s marinera peruana, groove Percussion, Latin am branch, Latin am troubadour ballad poetry filipino harana milonga. thick, low dynamic level, chest resonance low mid, rhythmic. fingerpicked acoustic guitar, open back Afro peruvian tradition marinera tradition cajon peruano, a cappella small 3 to 8 one per part three voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu choir ensemble. andean altiplano outdoor. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 528,
+  "score": 137.82,
   "config": {
     "traditions": [
       "marinera",
@@ -99,7 +99,7 @@
       }
     ],
     "room": "andean_altiplano_outdoor",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_electrical_disc_cut",
     "inline_chain": {
       "mic": "mic_u47_tube_neumann",
       "pre": "tube_pre",

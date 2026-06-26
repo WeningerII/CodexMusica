@@ -3,8 +3,8 @@
   "name": "Scottish Hebridean iorram (rowing song)",
   "family": "global",
   "lineage": "Scottish-Hebridean Gaelic rowing-song (iorram, pronounced \"ear-ram\") tradition continuous from medieval-Hebridean-Gaelic maritime practice through 18th-19th-century continuous performance on Scottish-Western-Isles fishing-boats and ferries into 20th-century Scottish-Gaelic revival; the iorram coordinates the synchronized-oar-stroke timing of multi-oar Hebridean fishing-boats",
-  "recipe": "classic modern scottish hebridean iorram, sea Shanty, north Southeast Asian baltic branch, atlantic Southeast Asian shanty, European lullaby, Celtic British praise song scottish gaelic tàladh welsh moliannu and cerdd dant. vocal fry, declaimed, tasteful, continuous-phonation. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 415,
+  "recipe": "classic modern scottish hebridean iorram, sea Shanty, north Southeast Asian baltic branch, atlantic Southeast Asian shanty, European lullaby, Celtic British praise song scottish gaelic tàladh welsh moliannu and cerdd dant. vocal fry, declaimed, tasteful, continuous-phonation. beach. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 413,
   "score": 120.29,
   "config": {
     "traditions": [
@@ -53,7 +53,7 @@
         }
       }
     ],
-    "room": "untreated_bedroom",
+    "room": "beach",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -71,7 +71,7 @@
   },
   "source": {
     "tuning": "celtic_irish_modal_dorian_mixolydian",
-    "room": "untreated_bedroom",
+    "room": "beach",
     "parts": {
       "voice_articulation": "call_response_voice",
       "voice_speech_song": "voice_syllabic_singing",

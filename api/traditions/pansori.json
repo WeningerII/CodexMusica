@@ -3,14 +3,14 @@
   "name": "Pansori",
   "family": "classical",
   "lineage": "Korean epic-narrative solo-vocal tradition with single sorikkun (singer-storyteller) accompanied by single buk barrel-drum gosu (drummer) and aniri spoken-narration interludes between sung passages. Codified late-17th-and-18th-century onward in Cholla-province (southwestern Korean peninsula) from earlier shamanic kut-ritual narrative-chant, evolved through 19th-century master-disciple-school lineages into a 3-to-8-hour concert form covering twelve canonical madang epic-narratives (now five surviving: Chunhyangga, Simcheongga, Heungbuga, Sugungga, Jeokbyeokga). The vocal technique stresses sangchung-cheong middle-register, jjokbal-hoek tonal-coloration, and gyeongdrumeokpan throat-tearing rough-vocal-quality (deliberately broken via years of practice), with strict jangdan rhythmic-cycle alternation from slowest 18/8 jinyangjo to fastest 4/4 hwimori.",
-  "recipe": "classic East Asian mid-1970s pansori, drone Modal, vocal branch, east Asian art music, Celtic balladic ballad poetry, sub saharan African praise song tibetan ache lhamo opera gwerz breton. aniri spoken narrative quality interleaved chuseong ascending into slide jungmori medium 12 4 narrative no interjected chuimsae solo canonical five madang narrative repertoire pansori voice, paulownia canonical Korean cowhide canonical Korean buk korean. korean gugak hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 594,
-  "score": 83.701,
+  "recipe": "classic East Asian mid-1930s pansori, drone Modal, vocal branch, east Asian art music, Celtic balladic ballad poetry, sub saharan African praise song gwerz breton tibetan ache lhamo opera. aniri spoken narrative quality interleaved chuseong ascending into slide jungmori medium 12 4 narrative no interjected chuimsae solo canonical five madang narrative repertoire pansori voice, paulownia canonical Korean cowhide canonical Korean buk korean. korean gugak hall. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 535,
+  "score": 68.851,
   "config": {
     "traditions": [
       "pansori",
-      "tibetan_ache_lhamo",
-      "gwerz_breton"
+      "gwerz_breton",
+      "tibetan_ache_lhamo"
     ],
     "instruments": [
       {
@@ -23,9 +23,9 @@
           "pansori_voice_repertoire": "pansori_voice_canonical_five"
         },
         "scores": {
-          "pansori_phonation_mechanism": 11.033214285714283,
+          "pansori_phonation_mechanism": 11.033214285714285,
           "pansori_sigimsae_ornament": 1.3,
-          "pansori_jangdan_cycle": 9.433214285714284,
+          "pansori_jangdan_cycle": 9.433214285714286,
           "pansori_chuimsae_response": 3.575,
           "pansori_voice_repertoire": 17.44642857142857
         }
@@ -47,7 +47,7 @@
       }
     ],
     "room": "korean_gugak_hall",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_electrical_disc_cut",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "pre_tube_german_v72",
