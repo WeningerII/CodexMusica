@@ -3,9 +3,9 @@
   "name": "Baroque pop (60s)",
   "family": "rock_punk",
   "lineage": "1960s pop substyle integrating harpsichord, classical-orchestral-strings, woodwinds, and other Baroque-and-Classical-period instrumental textures into pop-song structures. Procol Harum's A Whiter Shade of Pale (1967), the Beatles' Eleanor Rigby (1966) and broader Sgt. Pepper's (1967) deployments, the Left Banke's Walk Away Renée (1966), and the Zombies' Odessey and Oracle (1968) constitute the canonical type-specimens.",
-  "recipe": "classic Los Angeles mid-1960s baroque pop, distorted Rock, art rock branch, western common practice art music classical period grand opera. thick, low dynamic level, chest resonance low mid, narrative. marshall plexi amp British rock amp alder pau ferro nickel plated steel single coil electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, brass pre muffled edge muffled hot rolled annealed drum kit, 18 ply hard rock maple vintage production European spruce norway spruce grand piano, synthetic norway spruce European alpine European maple bosnian source violin orchestral, French blanchet taskin paris canonical late 18th century galant soft leather plectra canonical French 18th century alternative vallotti canonical late Baroque Italian well temperament legato harpsichord. small Soho room 1962-1968 indie-commercial uk small 60s commercial. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ.",
-  "recipe_chars": 971,
-  "score": 674.06,
+  "recipe": "classic British mid-1960s baroque pop, distorted Rock, art rock branch, western common practice art music classical period grand opera. thick, low dynamic level, chest resonance low mid, narrative. marshall plexi amp British rock amp alder pau ferro nickel plated steel single coil electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, brass pre muffled edge muffled hot rolled annealed drum kit, 18 ply hard rock maple vintage production European spruce norway spruce grand piano, synthetic norway spruce European alpine European maple bosnian source violin orchestral, French blanchet taskin paris canonical late 18th century galant soft leather plectra canonical French 18th century alternative vallotti canonical late Baroque Italian well temperament legato harpsichord. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, tube pre, German tube console, vari-mu, Pultec passive program EQ.",
+  "recipe_chars": 974,
+  "score": 669.835,
   "config": {
     "traditions": [
       "baroque_pop_60s",
@@ -208,7 +208,7 @@
       }
     ],
     "room": "studio_uk_small_60s_commercial",
-    "archetype": "arch_60s_la_smallroom_chambers",
+    "archetype": "arch_60s_uk_small_commercial",
     "inline_chain": {
       "mic": "mic_u67_tube_neumann",
       "pre": "pre_ua_610_tube",

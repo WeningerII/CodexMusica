@@ -3,8 +3,8 @@
   "name": "Apache hunting-medicine song (Native American)",
   "family": "global",
   "lineage": "Apache-and-broader-Native-American hunting-medicine song tradition continuous from premodern Indigenous-North-American hunting-and-ritual practice through colonial-era continuous performance into modern Native-American continuous practice",
-  "recipe": "classic modern apache hunting-medicine song, hunting Song, indigenous branch, arctic hunting song, sub saharan African hunting song, indigenous ritual devotional inuit katajjaq throat-singing game shipibo-conibo icaros healing songs. sygyt, declaimed, overtone rich sustained, continuous-phonation. foundational high pitched powwow drum circle. plains northern powwow drum circle outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 518,
+  "recipe": "classic Midwestern American modern apache hunting-medicine song, hunting Song, indigenous branch, arctic hunting song, sub saharan African hunting song, indigenous ritual devotional inuit katajjaq throat-singing game shipibo-conibo icaros healing songs. sygyt, declaimed, overtone rich sustained, continuous-phonation. foundational high pitched powwow drum circle. plains northern powwow drum circle outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 538,
   "score": 200.515,
   "config": {
     "traditions": [
@@ -75,13 +75,13 @@
       "amp": null,
       "medium": "digital_high"
     },
-    "tuning": "mongolian_pentatonic_long_song",
+    "tuning": "just_intonation",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "mongolian_pentatonic_long_song",
+    "tuning": "just_intonation",
     "room": "plains_northern_powwow_drum_circle_outdoor",
     "parts": {
       "voice_articulation": "call_response_voice",

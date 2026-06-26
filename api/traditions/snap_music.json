@@ -3,9 +3,9 @@
   "name": "Snap music (mid-2000s Atlanta)",
   "family": "hip_hop",
   "lineage": "Mid-2000s Atlanta hip-hop subgenre developed from crunk through stripped-back minimal production replacing crunk's aggressive synth-and-808 with finger-snap-percussion-led beats. D4L's \"Laffy Taffy\" (2005) and Dem Franchize Boyz' \"Lean Wit It, Rock Wit It\" (2005) inaugurated the genre; Yung Joc, Soulja Boy (whose 2007 \"Crank That\" extended snap into broader commercial mainstream), and the Mojoe-and-Drumma-Boy production lineage constitute the canonical roster.",
-  "recipe": "classic Southern American snap music, mc Rhythm, southern branch, house electronic dance deep house tech-house. thick, rap, chest resonance low mid, narrative. TR-808. neve paired 1970-1995 mid-major la rock 70s 90s. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
-  "recipe_chars": 341,
-  "score": 125.333,
+  "recipe": "classic Los Angeles snap music, mc Rhythm, southern branch, house electronic dance deep house tech-house. thick, rap, chest resonance low mid, narrative. TR-808. neve paired 1970-1995 mid-major la rock 70s 90s. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
+  "recipe_chars": 335,
+  "score": 126.537,
   "config": {
     "traditions": [
       "snap_music",
@@ -30,7 +30,7 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
@@ -48,7 +48,7 @@
           "voice_ensemble_config": 15.404999999999998,
           "voice_ornament_system": 1.8249999999999997,
           "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 7.59,
+          "voice_processing_chain": 7.92,
           "voice_multitrack_stack": 5.7749999999999995
         }
       },

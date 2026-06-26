@@ -3,9 +3,9 @@
   "name": "Jīngjù (Beijing opera)",
   "family": "classical",
   "lineage": "Late-18th-century onward Chinese capital-region operatic synthesis emerging in Beijing from the Anhui-Hui troupes 1790 and the Hubei kunqu-pihuang merger 1820s onward, codified by the four great male role-types (sheng, jing chou-and-dan painted-face roles) and the four schools of female dan voice. Built on jinghu-erhu fiddle accompaniment with bangu-and-paigu percussion section setting the jianzipu rhythmic patterns. Court patronage in the Qing late-imperial period gave way to commercial troupe-theaters of late-Qing and Republican-era Shanghai-and-Beijing. The vocal stylization layers melismatic-modal pihuang (xipi-and-erhuang aria modes) with declamatory speech-tone alignment, where Mandarin tones constrain melodic contour.",
-  "recipe": "classic North American mid-1820s jīngjù, art Music, east Asian branch, vocal drone modal pansori macedonian glasoechko male diaphonic. vocal fry, pressed, melodic, narrative. python skin snake skin bamboo stick horsehair threaded between strings erhu, yueqin, silk padauk mid tier pipa, erhuang narrative bamboo body beijing opera legato jinghu, padauk mid tier sanxian, percussion section ban clapper luogu. kabuki theater japanese. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 565,
-  "score": 305.999,
+  "recipe": "classic East Asian mid-1820s jīngjù, art Music, east Asian branch, vocal drone modal pansori macedonian glasoechko male diaphonic. vocal fry, pressed, melodic, narrative. python skin snake skin bamboo stick horsehair threaded between strings erhu, yueqin, silk mahogany commercial grade pipa, erhuang narrative bamboo body beijing opera legato jinghu, padauk mid tier sanxian, percussion section ban clapper luogu. chinese traditional teahouse. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 576,
+  "score": 304.167,
   "config": {
     "traditions": [
       "jingju",
@@ -93,14 +93,14 @@
           "pipa_frets": "pipa_modern_frets",
           "pipa_strings": "pipa_silk",
           "pipa_pick": "pipa_fingerpicks",
-          "pipa_body_wood": "pipa_padauk"
+          "pipa_body_wood": "pipa_mahogany"
         },
         "scores": {
           "plucked_traditional_technique": 6.970000000000001,
           "pipa_frets": 0.65,
           "pipa_strings": 10.659999999999998,
           "pipa_pick": 0,
-          "pipa_body_wood": 2.0985714285714288
+          "pipa_body_wood": 1.195
         }
       },
       {
@@ -136,7 +136,7 @@
           "sanxian_context": 4.29,
           "sanxian_head": 0.585,
           "sanxian_strings": 0.65,
-          "sanxian_body_wood": 2.0985714285714288
+          "sanxian_body_wood": 1.17
         }
       },
       {
@@ -151,7 +151,7 @@
         }
       }
     ],
-    "room": "kabuki_theater_japanese",
+    "room": "chinese_traditional_teahouse",
     "archetype": "arch_late60s_us_multitrack",
     "inline_chain": {
       "mic": "condenser_ldc",
@@ -169,7 +169,7 @@
   },
   "source": {
     "tuning": "chinese_pentatonic_gong",
-    "room": "kabuki_theater_japanese",
+    "room": "chinese_traditional_teahouse",
     "parts": {
       "voice_register": "falsetto",
       "voice_quality": "nasal_voice",

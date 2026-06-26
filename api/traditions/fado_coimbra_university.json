@@ -2,10 +2,10 @@
   "id": "fado_coimbra_university",
   "name": "Fado de Coimbra",
   "family": "global",
-  "lineage": "Academic male-student fado tradition centered on the University of Coimbra (Portugals oldest university, founded 1290) — distinct from fado de Lisboa in vocal register (male tenor/baritone), repertoire (poetry-set songs, student songs, serenata), and performance context (outdoor stone-paved quadrangle and Sé Velha cathedral steps rather than intimate tavern); performers wear the traditional black student capa-e-batina cape",
-  "recipe": "classic North American early-1290s fado de coimbra, ballad Poetry, fado coimbra branch, chanson fado fado lisboa, chanson fado classic chanson chanson classique. vocal fry, lament wail, chest resonance low mid, unrestrained. bowl back Italian German spruce classical leaning European maple loar canon mandolin, cedar nylon fingerpicked classical nylon-string guitar, lower tuned fado coimbra tradition jacaranda Portuguese rosewood spruce canonical fado steel canonical Portuguese guitarra portuguesa. coimbra university outdoor quad. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 666,
-  "score": 195.421,
+  "lineage": "Academic male-student fado tradition centered on the University of Coimbra (Portugals oldest university, founded in the 13th century) — distinct from fado de Lisboa in vocal register (male tenor/baritone), repertoire (poetry-set songs, student songs, serenata), and performance context (outdoor stone-paved quadrangle and Sé Velha cathedral steps rather than intimate tavern); performers wear the traditional black student capa-e-batina cape",
+  "recipe": "classic Iberian mid-1970s fado de coimbra, ballad Poetry, fado coimbra branch, chanson fado fado lisboa, chanson fado classic chanson chanson classique. vocal fry, lament wail, chest resonance low mid, unrestrained. bowl back Italian German spruce classical leaning European maple loar canon mandolin, cedar nylon fingerpicked classical nylon-string guitar, lower tuned fado coimbra tradition jacaranda Portuguese rosewood spruce canonical fado steel canonical Portuguese guitarra portuguesa. coimbra university outdoor quad. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 657,
+  "score": 196.421,
   "config": {
     "traditions": [
       "fado_coimbra_university",
@@ -88,7 +88,7 @@
         "scores": {
           "acoustic_technique": 9.536875,
           "string_tuning": 0,
-          "top_wood_classical": 4.409,
+          "top_wood_classical": 5.409,
           "bracing_classical": 2.01125,
           "string_classical": 1.4299999999999997,
           "attack_technique_cl": 1.4949999999999999

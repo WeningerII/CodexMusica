@@ -3,9 +3,9 @@
   "name": "Telugu kirtana (Carnatic devotional song)",
   "family": "classical",
   "lineage": "Telugu kirtana devotional-song genre within the broader Carnatic classical tradition of South India, with Telugu serving as the dominant lyrical language of the Carnatic kriti repertoire. The Telugu-language compositions of the Carnatic Trinity Tyagaraja (1767-1847), Muthuswami Dikshitar (1775-1835), and Syama Sastri (1762-1827) form the canonical core of the entire Carnatic concert repertoire. Performance follows the standard Carnatic kriti structure (pallavi-anupallavi-charanam) with raga-and-tala framework. The Tyagaraja Aradhana annual festival at Tiruvaiyaru constitutes the central institutional anchor of the kriti performance tradition.",
-  "recipe": "classic North American early-1760s telugu kirtana, art Music, south Asian branch, hindu ritual devotional borgeet javali. vocal fry, declaimed, chest resonance low mid, microtonal. indian rosewood rosewood copper tabla, suited to female vocal bronze steel mix gourd body canonical traditional tanpura. kolkata dum dum EMI hmv 1928-present major-flagship kolkata hmv dum dum studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 513,
-  "score": 227.78,
+  "recipe": "classic South Asian early-1760s telugu kirtana, art Music, south Asian branch, hindu ritual devotional borgeet javali. vocal fry, declaimed, chest resonance low mid, microtonal. jackwood barrel canonical carnatic goat buffalo rice paste karanai palghat lineage canonical carnatic mridangam, suited to female vocal bronze steel mix gourd body canonical traditional tanpura. kolkata dum dum EMI hmv 1928-present major-flagship kolkata hmv dum dum studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 584,
+  "score": 247.95,
   "config": {
     "traditions": [
       "telugu_kirtana",
@@ -53,16 +53,20 @@
         }
       },
       {
-        "id": "tabla",
+        "id": "mridangam",
         "slots": {
-          "tabla_dayan": "shisham_dayan",
-          "tabla_bayan": "copper_bayan",
-          "tabla_syahi": "aged_syahi"
+          "mridangam_heads": "mridangam_standard",
+          "mridangam_use": "mridangam_carnatic",
+          "mridangam_shell_wood": "mridangam_jackwood_canonical",
+          "mridangam_heads_material": "mridangam_goat_buffalo",
+          "mridangam_lineage": "mridangam_palghat"
         },
         "scores": {
-          "tabla_dayan": 5.329999999999999,
-          "tabla_bayan": 4.9399999999999995,
-          "tabla_syahi": 4.419999999999999
+          "mridangam_heads": 4.9399999999999995,
+          "mridangam_use": 0,
+          "mridangam_shell_wood": 14.04,
+          "mridangam_heads_material": 2.535,
+          "mridangam_lineage": 13.344999999999997
         }
       },
       {
@@ -118,9 +122,6 @@
       "voice_estill_quality": "voice_estill_opera",
       "voice_vibrato": "fast_vibrato",
       "voice_mechanism_compound": "voice_mechanism_single_source",
-      "tabla_dayan": "shisham_dayan",
-      "tabla_bayan": "copper_bayan",
-      "tabla_syahi": "aged_syahi",
       "plucked_traditional_technique": "plucked_drone_modal",
       "tanpura_size": "female_size",
       "tanpura_jawari": "curved_jawari",

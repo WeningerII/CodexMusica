@@ -5,7 +5,7 @@
   "lineage": "Bengali-language children's play-song tradition continuous from premodern Bengali folk-play-song origins through 19th-20th century Bengali-Renaissance literary-elevation (Rabindranath Tagore's Sahaj Path 1930 children's-curriculum rhyme-and-text reader canonical) and Sukumar Ray's nonsense-verse Abol Tabol 1923 into modern continuous Bengali-and-Bangladeshi childhood-practice",
   "recipe": "classic early-1930s bengali chhōtōdēr chōṛā, nursery Rhyme, south Asian branch, south Asian lullaby, European nursery rhyme, indian bard ballad poetry cambodian chapei dang veng hindi lori. thick, declaimed, tasteful, continuous-phonation. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 378,
-  "score": 102.944,
+  "score": 103.074,
   "config": {
     "traditions": [
       "bengali_chhotoder_chora",
@@ -31,7 +31,7 @@
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_unison_double_take"
         },
         "scores": {
           "voice_register": 5.2250000000000005,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 8.844999999999999,
           "voice_pitch_organization": 8.404999999999998,
           "voice_processing_chain": 3.3406249999999997,
-          "voice_multitrack_stack": 1.365
+          "voice_multitrack_stack": 1.495
         }
       }
     ],

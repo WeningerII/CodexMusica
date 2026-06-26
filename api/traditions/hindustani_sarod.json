@@ -3,9 +3,9 @@
   "name": "Hindustani classical (sarod-led)",
   "family": "classical",
   "lineage": "North Indian sarod tradition centered on the Maihar gharana of Allauddin Khan (1862-1972, the patriarch who taught both his son Ali Akbar Khan and his son-in-law Ravi Shankar) and the Senia Bangash gharana of the Bangash family (Hafiz Ali Khan, Amjad Ali Khan) — the sarod is the fretless metal-fingerboard plucked-lute derivation of the Afghan rabab brought to Hindustani classical from the 18th-19th centuries",
-  "recipe": "classic North American early-1860s hindustani classical, improv On Frame, indian classical improv branch, south Asian art music, vocal drone modal telugu kirtana sinhala vannama. coconut shell shell tun indian cedar maihar gharana sarod, indian rosewood rosewood copper tabla, suited to female vocal bronze steel mix gourd body canonical traditional tanpura, open jawari vilayat khan canon long sustain buzzing overtones maihar gharana sitar. varanasi benares gharana baithak. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 608,
-  "score": 173.851,
+  "recipe": "classic South Asian early-1860s hindustani classical, improv On Frame, indian classical improv branch, south Asian art music, vocal drone modal telugu kirtana sinhala vannama. coconut shell shell tun indian cedar maihar gharana sarod, indian rosewood rosewood copper tabla, suited to female vocal bronze steel mix gourd body canonical traditional tanpura, open jawari vilayat khan canon long sustain buzzing overtones maihar gharana sitar. varanasi benares gharana baithak. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 605,
+  "score": 175.711,
   "config": {
     "traditions": [
       "hindustani_sarod",
@@ -92,7 +92,7 @@
           "sitar_pluck": 8.075,
           "sitar_main_strings": -1.05,
           "sitar_jawari_style": 5.679999999999999,
-          "sitar_gharana": 13.58875
+          "sitar_gharana": 15.448749999999997
         }
       }
     ],

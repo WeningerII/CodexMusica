@@ -5,7 +5,7 @@
   "lineage": "Late-1980s and early-1990s Italian house tradition codified through Black Box \"Ride on Time\" (1989), Cappella, FPI Project, Quartz — characterized by major-key euphoric piano-stab figures, female diva-vocal samples (often uncleared at the time), and the Italo-disco euphoric production aesthetic",
   "recipe": "classic 1987-1989 italo house, electronic Dance, italo house branch, continental electronic dance disco. thick, chest mix belt, chest resonance low mid, narrative. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, digital subtractive, TR-909, sampler. treated studio. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
   "recipe_chars": 404,
-  "score": 155.074,
+  "score": 155.111,
   "config": {
     "traditions": [
       "italo_house_piano",
@@ -46,7 +46,7 @@
           "voice_speech_song": 9.393749999999997,
           "voice_ensemble_config": 8.879374999999998,
           "voice_ornament_system": 5.400000000000001,
-          "voice_pitch_organization": 1.330625,
+          "voice_pitch_organization": 1.349375,
           "voice_processing_chain": 12.850625,
           "voice_multitrack_stack": 4.1743749999999995
         }
@@ -116,7 +116,7 @@
           "sampler_archetypes": 1.25,
           "sampler_bit_depth": 0.52,
           "sampler_workflow": 2,
-          "sampler_classic_context": 28.145624999999995
+          "sampler_classic_context": 28.164374999999993
         }
       }
     ],

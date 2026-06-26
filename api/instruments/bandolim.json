@@ -38,12 +38,12 @@
         },
         {
           "id": "bandolim_bowl_back",
-          "name": "Bowl-back (Italian-influenced pre-Pixinguinha)",
+          "name": "Bowl-back (Italian-influenced, early period)",
           "descriptors": [
             "overtone-rich",
             "european-derived",
             "bowl-back",
-            "pre-pixinguinha"
+            "early-period"
           ],
           "match_tokens": [
             "plucked",
@@ -108,7 +108,7 @@
           "descriptors": [
             "brazilian-rosewood",
             "pre-1992-vintage",
-            "jacob-do-bandolim-era"
+            "mid-twentieth-century-vintage"
           ],
           "match_tokens": [
             "plucked",
@@ -252,12 +252,12 @@
         },
         {
           "id": "bandolim_bowl_back",
-          "name": "Bowl-back (Italian-influenced pre-Pixinguinha)",
+          "name": "Bowl-back (Italian-influenced, early period)",
           "descriptors": [
             "overtone-rich",
             "european-derived",
             "bowl-back",
-            "pre-pixinguinha"
+            "early-period"
           ],
           "match_tokens": [
             "plucked",
@@ -322,7 +322,7 @@
           "descriptors": [
             "brazilian-rosewood",
             "pre-1992-vintage",
-            "jacob-do-bandolim-era"
+            "mid-twentieth-century-vintage"
           ],
           "match_tokens": [
             "plucked",

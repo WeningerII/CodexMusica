@@ -3,9 +3,9 @@
   "name": "Hindustani classical",
   "family": "classical",
   "lineage": "North Indian classical raga tradition organized through the gharana (lineage-school) transmission system across Gwalior, Agra, Patiala, Kirana, Atrauli-Jaipur, Indore, Mewati, Benares gharanas — codified through V.N. Bhatkhandes 10-thaat system in the early 20th century, 20th-century lineage Ustad Bismillah Khan (shehnai), Ravi Shankar (sitar), Vilayat Khan (sitar), Ali Akbar Khan (sarod), Pandit Bhimsen Joshi (Kirana vocal), Pandit Hariprasad Chaurasia (bansuri)",
-  "recipe": "classic North American mid-1970s hindustani classical, improv On Frame, indian classical improv branch, south Asian art music, vocal drone modal telugu kirtana sinhala vannama. open jawari vilayat khan canon long sustain buzzing overtones maihar gharana sitar, indian rosewood rosewood copper tabla, suited to female vocal bronze steel mix gourd body canonical traditional tanpura, steel modern tun indian cedar alternative shivkumar sharma canonical lineage santoor, coconut shell shell tun indian cedar maihar gharana sarod, low overtone rich kerala bamboo alternative south indian hariprasad chaurasia maihar gharana canonical 20th century continuous-airflow legato bansuri, mid 20th century banaras shehnai virtuoso classical solo raga tradition sheesham indian rosewood canonical Hindustani arundo donax quadruple folded canonical banaras shehnai. varanasi benares gharana baithak. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ.",
-  "recipe_chars": 986,
-  "score": 321.429,
+  "recipe": "classic South Asian mid-1970s hindustani classical, improv On Frame, indian classical improv branch, south Asian art music, vocal drone modal telugu kirtana sinhala vannama. open jawari vilayat khan canon long sustain buzzing overtones maihar gharana sitar, indian rosewood rosewood copper tabla, suited to female vocal bronze steel mix gourd body canonical traditional tanpura, steel modern tun indian cedar alternative santoor canonical lineage santoor, coconut shell shell tun indian cedar maihar gharana sarod, low overtone rich kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, mid 20th century banaras shehnai virtuoso classical solo raga tradition sheesham indian rosewood canonical Hindustani arundo donax quadruple folded canonical banaras shehnai. varanasi benares gharana baithak. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 985,
+  "score": 324.789,
   "config": {
     "traditions": [
       "hindustani",
@@ -37,7 +37,7 @@
           "sitar_pluck": 8.674999999999999,
           "sitar_main_strings": -1.05,
           "sitar_jawari_style": 4.4799999999999995,
-          "sitar_gharana": 9.791428571428572
+          "sitar_gharana": 15.151428571428571
         }
       },
       {
@@ -128,7 +128,7 @@
           "bansuri_length": 2.745,
           "bansuri_ornament": 10.8875,
           "bansuri_body_material": 6.789999999999999,
-          "bansuri_lineage": 12.170714285714286
+          "bansuri_lineage": 10.170714285714286
         }
       },
       {

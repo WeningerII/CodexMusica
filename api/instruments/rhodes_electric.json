@@ -344,9 +344,9 @@
         },
         {
           "id": "rhodes_pickup_close_bark",
-          "name": "Close pickup gap (more bark / dirt — Stevie Wonder canonical canon)",
+          "name": "Close pickup gap (more bark / dirt)",
           "descriptors": [
-            "close-pickup-gap-more-bark-dirt-motown-clavinet-canon"
+            "close-pickup-gap-more-bark-dirt"
           ],
           "match_tokens": [
             "electric"
@@ -556,9 +556,9 @@
         },
         {
           "id": "rhodes_pickup_close_bark",
-          "name": "Close pickup gap (more bark / dirt — Stevie Wonder canonical canon)",
+          "name": "Close pickup gap (more bark / dirt)",
           "descriptors": [
-            "close-pickup-gap-more-bark-dirt-motown-clavinet-canon"
+            "close-pickup-gap-more-bark-dirt"
           ],
           "match_tokens": [
             "electric"

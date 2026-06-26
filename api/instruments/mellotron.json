@@ -178,9 +178,9 @@
         },
         {
           "id": "mellotron_mkii_streetly",
-          "name": "Mellotron Mark II Streetly (canonical 1964-1968 — Strawberry Fields-era canon)",
+          "name": "Mellotron Mark II Streetly (canonical 1964-1968 — early Mellotron era)",
           "descriptors": [
-            "mellotron-mkii-streetly-canonical-1964-1968-strawberry-fields-era"
+            "mellotron-mkii-streetly-canonical-1964-1968-early-era"
           ],
           "match_tokens": [
             "electric",
@@ -192,9 +192,9 @@
         },
         {
           "id": "mellotron_m300",
-          "name": "Mellotron M300 (1968 transitional — Moody Blues canon)",
+          "name": "Mellotron M300 (1968 transitional)",
           "descriptors": [
-            "mellotron-m300-1968-transitional-moody-blues-canon"
+            "mellotron-m300-1968-transitional"
           ],
           "match_tokens": [
             "electric",
@@ -352,9 +352,9 @@
         },
         {
           "id": "mellotron_mkii_streetly",
-          "name": "Mellotron Mark II Streetly (canonical 1964-1968 — Strawberry Fields-era canon)",
+          "name": "Mellotron Mark II Streetly (canonical 1964-1968 — early Mellotron era)",
           "descriptors": [
-            "mellotron-mkii-streetly-canonical-1964-1968-strawberry-fields-era"
+            "mellotron-mkii-streetly-canonical-1964-1968-early-era"
           ],
           "match_tokens": [
             "electric",
@@ -366,9 +366,9 @@
         },
         {
           "id": "mellotron_m300",
-          "name": "Mellotron M300 (1968 transitional — Moody Blues canon)",
+          "name": "Mellotron M300 (1968 transitional)",
           "descriptors": [
-            "mellotron-m300-1968-transitional-moody-blues-canon"
+            "mellotron-m300-1968-transitional"
           ],
           "match_tokens": [
             "electric",

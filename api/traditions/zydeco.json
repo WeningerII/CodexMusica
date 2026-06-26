@@ -2,10 +2,10 @@
   "id": "zydeco",
   "name": "Zydeco",
   "family": "global",
-  "lineage": "Black Creole French Louisiana dance-music tradition codified through Clifton Chenier (the King of Zydeco, the Houston-based bandleader from the 1950s through his death in 1987), Boozoo Chavis (the originator of the genre name with his 1954 Paper in My Shoe), Buckwheat Zydeco, Rockin Dopsie, Beau Jocque, Geno Delafose; characterized by piano accordion (the larger more harmonically capable cousin of the Cajun single-row accordion) plus frottoir rubboard (the metal washboard-derived percussion worn over the shoulders, the Cleveland and Willis Prudhomme innovation from the late 1940s), distinct from Cajun (which is white Acadian French Louisiana with single-row diatonic accordion)",
-  "recipe": "classic North American 1947-1949 zydeco, groove Percussion, Caribbean branch, blues electric functional song chicago blues jump blues. thick, forward-resonance, punctuated, blues inflected. petosa seattle American premium chordal accordion, frottoir. lafayette louisiana zydeco dance hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 421,
-  "score": 128.242,
+  "lineage": "Black Creole French Louisiana dance-music tradition codified through Clifton Chenier (the King of Zydeco, the Houston-based bandleader from the 1950s through his death in 1987), Boozoo Chavis (the originator of the genre name with his 1954 Paper in My Shoe), Buckwheat Zydeco, Rockin Dopsie, Beau Jocque, Geno Delafose; characterized by piano accordion (the larger more harmonically capable cousin of the Cajun single-row accordion) plus frottoir rubboard (the metal washboard-derived percussion worn over the shoulders, the Clifton Chenier and welder Willie Landry innovation (c. 1946), popularized by Cleveland Chenier), distinct from Cajun (which is white Acadian French Louisiana with single-row diatonic accordion)",
+  "recipe": "classic Southern American mid-1950s zydeco, groove Percussion, Caribbean branch, blues electric functional song chicago blues jump blues. thick, forward-resonance, punctuated, blues inflected. petosa seattle American premium chordal accordion, frottoir. lafayette louisiana zydeco dance hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 424,
+  "score": 129.375,
   "config": {
     "traditions": [
       "zydeco",
@@ -30,7 +30,7 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
@@ -48,7 +48,7 @@
           "voice_ensemble_config": 10.724999999999998,
           "voice_ornament_system": 1.2675,
           "voice_pitch_organization": 0.65,
-          "voice_processing_chain": 4.2615,
+          "voice_processing_chain": 5.395,
           "voice_multitrack_stack": 2.7364999999999995
         }
       },

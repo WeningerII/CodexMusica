@@ -576,13 +576,13 @@
         },
         {
           "id": "phosphor_bronze",
-          "name": "Phosphor bronze (Martin pre-war canon)",
+          "name": "Phosphor bronze (modern Martin canon)",
           "descriptors": [
             "low-mid-rich-spectrum",
             "full",
             "balanced",
             "phosphor-bronze",
-            "pre-war-martin"
+            "modern-martin"
           ],
           "match_tokens": [
             "acoustic-only",
@@ -879,13 +879,13 @@
         },
         {
           "id": "phosphor_bronze",
-          "name": "Phosphor bronze (Martin pre-war canon)",
+          "name": "Phosphor bronze (modern Martin canon)",
           "descriptors": [
             "low-mid-rich-spectrum",
             "full",
             "balanced",
             "phosphor-bronze",
-            "pre-war-martin"
+            "modern-martin"
           ],
           "match_tokens": [
             "acoustic-only",

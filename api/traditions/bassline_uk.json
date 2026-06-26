@@ -2,10 +2,10 @@
   "id": "bassline_uk",
   "name": "Bassline (UK Sheffield-Niche)",
   "family": "electronic",
-  "lineage": "Mid-2000s UK garage subgenre developed in Sheffield through the Niche nightclub scene (active 1992-2005). Characterized by aggressive 4×4 garage rhythmic foundation, hyperactive bass-line designs, and explicit Yorkshire-northern-English MC vocal-delivery. The 2008 closure of Niche and police-action against the scene defined a peak-and-collapse cycle; T2's \"Heartbroken\" (2007) constitutes the canonical commercial-mainstream bassline track.",
-  "recipe": "classic British mid-1990s bassline, bass System, uk soundsystem branch, intl hip hop MC rhythm german deutschrap uk grime. vocal fry, rap, chest resonance low mid, narrative. TR-808, sub bass analog synth, ampeg svt amp rock bass amp mahogany pyramid pure nickel bass electric bass. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "lineage": "Mid-2000s UK garage subgenre developed in Sheffield through the Niche nightclub scene (active from 1992 to 2005). Characterized by aggressive 4×4 garage rhythmic foundation, hyperactive bass-line designs, and explicit Yorkshire-northern-English MC vocal-delivery. The 2008 closure of Niche and police-action against the scene defined a peak-and-collapse cycle; T2's \"Heartbroken\" (2007) constitutes the canonical commercial-mainstream bassline track.",
+  "recipe": "classic British 2004-2006 bassline, bass System, uk soundsystem branch, intl hip hop MC rhythm german deutschrap uk grime. vocal fry, rap, chest resonance low mid, narrative. TR-808, sub bass analog synth, ampeg svt amp rock bass amp mahogany pyramid pure nickel bass electric bass. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 501,
-  "score": 143.392,
+  "score": 145.192,
   "config": {
     "traditions": [
       "bassline_uk",
@@ -43,7 +43,7 @@
           "voice_microtone": 0,
           "voice_tradition": 7.7695,
           "voice_mechanism_compound": 0.5295,
-          "voice_estill_quality": 0.6499999999999999,
+          "voice_estill_quality": 1.9499999999999997,
           "voice_speech_song": 12.3645,
           "voice_ensemble_config": 10.854999999999997,
           "voice_ornament_system": 2.315,

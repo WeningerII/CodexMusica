@@ -3,9 +3,9 @@
   "name": "Vietnamese cải lương (renovated opera)",
   "family": "classical",
   "lineage": "Vietnamese cải lương (\"renovated theatre\") southern-Vietnamese popular-and-classical theatrical tradition emerging in 1917 in Mekong Delta region as a modernization of the older hát bội classical-court-opera tradition, incorporating Western-style spoken dialogue and naturalistic staging while retaining the đờn ca tài tử southern-amateur-music instrumental tradition as musical foundation. The genre flourished through the colonial-period Mekong Delta and post-1945 Saigon as the dominant southern Vietnamese popular-theatre form. Performance integrates đàn tranh sixteen-string zither, đàn bầu one-string monochord, đàn nguyệt moon-lute, and đàn tỳ bà pear-lute with stylized melodic-recitative vocal-narrative content.",
-  "recipe": "classic North American late-1910s vietnamese cải lương, art Music, southeast Asian branch, east Asian Cantonese opera. vocal fry, pressed, chest resonance low mid, narrative. dan tranh, dan bau, silk padauk mid tier pipa. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 448,
-  "score": 234.315,
+  "recipe": "classic Southeast Asian late-1910s vietnamese cải lương, art Music, southeast Asian branch, east Asian Cantonese opera. vocal fry, pressed, chest resonance low mid, narrative. dan tranh, dan bau, low mid rich spectrum vocal imitating silk pipa. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 471,
+  "score": 233.795,
   "config": {
     "traditions": [
       "vietnamese_cai_luong",
@@ -86,14 +86,14 @@
           "pipa_frets": "pipa_traditional_frets",
           "pipa_strings": "pipa_silk",
           "pipa_pick": "pipa_fingerpicks",
-          "pipa_body_wood": "pipa_padauk"
+          "pipa_body_wood": "pipa_mahogany"
         },
         "scores": {
           "plucked_traditional_technique": 11.1365,
           "pipa_frets": 0.195,
           "pipa_strings": 8.645,
           "pipa_pick": 0,
-          "pipa_body_wood": 1.365
+          "pipa_body_wood": 0.845
         }
       }
     ],

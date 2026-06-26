@@ -3,8 +3,8 @@
   "name": "Bengali bhatiali (boatmen's song)",
   "family": "global",
   "lineage": "Bengali bhatiali (boatmen's song) tradition continuous from premodern Bengali-riverine-and-Sundarbans-delta boatmen labor practice through 19th-20th century Tagore-era literary-elevation (Tagore composed extensively in the bhatiali idiom) into modern Bengali-and-Bangladeshi continuous practice; the bhatiali is the canonical Bengali downstream-rowing-song integrating long-held-vocal phrases matched to slow downstream-rowing strokes",
-  "recipe": "classic modern bengali bhatiali, field Work, south Asian branch, east Asian field work, atlantic Southeast Asian shanty, south Asian lullaby bengali ghum-paranir gan hindi lori. thick, low dynamic level, tasteful, unrestrained. ornamented dotara, baul gourd bamboo canonical bengali gut pre modern bengali historical ornamented ektara. tanzanian outdoor village clearing. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 501,
+  "recipe": "classic modern bengali bhatiali, field Work, south Asian branch, east Asian field work, atlantic Southeast Asian shanty, south Asian lullaby bengali ghum-paranir gan hindi lori. thick, low dynamic level, tasteful, unrestrained. ornamented dotara, baul gourd bamboo canonical bengali gut pre modern bengali historical ornamented ektara. marsh swamp. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 478,
   "score": 164.968,
   "config": {
     "traditions": [
@@ -81,7 +81,7 @@
         }
       }
     ],
-    "room": "tanzanian_outdoor_village_clearing",
+    "room": "marsh_swamp",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -99,7 +99,7 @@
   },
   "source": {
     "tuning": "hindustani_thaat_alap_jod_jhala",
-    "room": "tanzanian_outdoor_village_clearing",
+    "room": "marsh_swamp",
     "parts": {
       "voice_articulation": "melisma_voice",
       "voice_speech_song": "voice_melismatic_singing",

@@ -2,10 +2,10 @@
   "id": "deep_house_soulful",
   "name": "Deep house (soulful)",
   "family": "global",
-  "lineage": "Soulful-jazz house sub-style codified through 1990s New York and New Jersey production — Larry Heard / Mr. Fingers, Kerri Chandler, Masters at Work, Blaze, and Kenny Bobien (vocalist) — characterized by jazz-chord harmonic vocabulary, gospel-soul vocal performances, and warm analog-instrument production aesthetic",
+  "lineage": "Soulful-jazz house sub-style codified through 1990s New York and New Jersey production — Kerri Chandler, Masters at Work, Blaze, and Kenny Bobien (vocalist), extending the 1980s Chicago deep-house template of Larry Heard / Mr. Fingers — characterized by jazz-chord harmonic vocabulary, gospel-soul vocal performances, and warm analog-instrument production aesthetic",
   "recipe": "classic mid-1990s deep house, electronic Dance, deep house branch, soul R&B functional song doo-wop alt-r&b. thick, blues-shouter, nervy, narrative. centered tine pickup gap canonical balanced Rhodes voicing gospel runs rhodes electric, singing lead digital subtractive, TR-909, field textural sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 448,
-  "score": 302.18,
+  "score": 310.98,
   "config": {
     "traditions": [
       "deep_house_soulful",
@@ -48,7 +48,7 @@
           "voice_ensemble_config": 16.704999999999995,
           "voice_ornament_system": 1.4299999999999997,
           "voice_pitch_organization": 2.73,
-          "voice_processing_chain": 7.754999999999999,
+          "voice_processing_chain": 10.305,
           "voice_multitrack_stack": 7.15
         }
       },
@@ -92,7 +92,7 @@
           "tr909_production_origin": "tr909_tr_8s_modern"
         },
         "scores": {
-          "tr909_voice": 15.499999999999998,
+          "tr909_voice": 18,
           "drum_machine_909_context": 2.6750000000000003,
           "tr909_production_origin": 0.8999999999999999
         }
@@ -111,7 +111,7 @@
           "sampler_archetypes": 2.775,
           "sampler_bit_depth": 1.755,
           "sampler_workflow": 5.025,
-          "sampler_classic_context": 45.88999999999999
+          "sampler_classic_context": 49.13999999999999
         }
       }
     ],

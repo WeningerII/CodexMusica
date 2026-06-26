@@ -3,9 +3,9 @@
   "name": "Cajun",
   "family": "global",
   "lineage": "South Louisiana Cajun French dance-hall music tradition rooted in the 1755 Acadian expulsion from Nova Scotia, codified through the Hackberry Ramblers (1930s commercial recordings), Iry LeJeune (post-WWII accordion revival), Nathan Abshire, Dewey Balfa and the Balfa Brothers, the Savoy Family Band (Marc and Ann Savoy and their sons), and the modern continuation (Steve Riley and the Mamou Playboys, BeauSoleil with Michael Doucet)",
-  "recipe": "classic North American mid-1930s cajun, drone Modal, string branch, Caribbean groove percussion mento zydeco. thick, forward-resonance, melodic, punctuated. single row diatonic Cajun tradition bellows chop drone foot cajun accordion, magic rosin modern acrylic base drone like fiddle. cajun dance hall acadia louisiana. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 451,
-  "score": 147.76,
+  "recipe": "classic Southern American mid-1930s cajun, drone Modal, string branch, Caribbean groove percussion mento zydeco. thick, forward-resonance, melodic, punctuated. single row diatonic Cajun tradition bellows chop drone foot cajun accordion, magic rosin modern acrylic base drone like fiddle. cajun dance hall acadia louisiana. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 454,
+  "score": 148.41,
   "config": {
     "traditions": [
       "cajun",
@@ -48,7 +48,7 @@
           "voice_ensemble_config": 15.989999999999997,
           "voice_ornament_system": 1.5925,
           "voice_pitch_organization": 1.9349999999999998,
-          "voice_processing_chain": 3.965,
+          "voice_processing_chain": 4.614999999999999,
           "voice_multitrack_stack": 3.055
         }
       },

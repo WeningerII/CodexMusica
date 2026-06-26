@@ -3,9 +3,9 @@
   "name": "Detroit hip-hop",
   "family": "hip_hop",
   "lineage": "Detroit Michigan hip-hop tradition with distinct regional-aesthetic descended from J Dilla's 1990s-2000s production style — sampling jazz, soul, and funk records with deliberately-loose drum-quantization and \"behind-the-beat\" rhythmic feel. Slum Village (founded 1991 by J Dilla, T3, and Baatin), Royce da 5'9\", Black Milk, Danny Brown, and (later) 42 Dugg, Babyface Ray, and Tee Grizzley constitute the canonical roster. Eminem's parallel Detroit-based career operates as adjacent-but-distinct lineage.",
-  "recipe": "classic Los Angeles mid-1990s detroit hip-hop, mc Rhythm, us hip hop branch, us hip hop conscious rap conscious hip-hop. thick, rap, narrative, equal tempered. chopped sampler, TR-808. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
-  "recipe_chars": 362,
-  "score": 253.749,
+  "recipe": "classic Midwestern American mid-1990s detroit hip-hop, mc Rhythm, us hip hop branch, us hip hop conscious rap conscious hip-hop. thick, rap, narrative, equal tempered. chopped sampler, TR-808. converted house 2648 west grand blvd 1959-1972 mid tier hitsville usa motown detroit. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 408,
+  "score": 250.086,
   "config": {
     "traditions": [
       "detroit_hip_hop",
@@ -82,8 +82,8 @@
         }
       }
     ],
-    "room": "studio_la_rock_70s_90s",
-    "archetype": "arch_70s_la_rock_commercial",
+    "room": "hitsville_usa_motown_detroit",
+    "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "pre_neve_1073_input",
@@ -100,7 +100,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "studio_la_rock_70s_90s",
+    "room": "hitsville_usa_motown_detroit",
     "parts": {
       "voice_register": "chest_voice",
       "voice_quality": "rap_voice",

@@ -3,8 +3,8 @@
   "name": "Maskandi",
   "family": "global",
   "lineage": "Zulu South African male-vocal-and-guitar tradition that emerged in the mid-20th century from rural KwaZulu-Natal migrant-labour culture — characterized by the izibongo praise-poetry vocal opening, the maskandi guitar style with characteristic open-chord strumming and finger-picking patterns, and Zulu-language lyrical content addressing rural-urban migration, romantic longing, and traditional social commentary; figures Phuzekhemisi, Ihhashi Elimhlophe, Bhekumuzi Luthuli, Mfaz Omnyama",
-  "recipe": "classic tropical mid-1970s maskandi, drone Modal, string branch, central east south African groove percussion chimurenga soukous. vocal fry, declaimed, chest resonance low mid, equal tempered. cedar phosphor bronze bronze strummed open chord ringing overtones parlor acoustic guitar. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 472,
+  "recipe": "classic Southern African mid-1970s maskandi, drone Modal, string branch, central east south African groove percussion chimurenga soukous. vocal fry, declaimed, chest resonance low mid, equal tempered. cedar phosphor bronze bronze strummed open chord ringing overtones parlor acoustic guitar. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 480,
   "score": 101.725,
   "config": {
     "traditions": [
@@ -81,13 +81,13 @@
       "amp": null,
       "medium": "tape_15ips"
     },
-    "tuning": "mande_pentatonic_jeli_modal",
+    "tuning": "twelve_tet",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "mande_pentatonic_jeli_modal",
+    "tuning": "twelve_tet",
     "room": "johannesburg_gallo_african_studios",
     "parts": {
       "voice_register": "mix_voice",

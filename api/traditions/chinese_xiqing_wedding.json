@@ -3,9 +3,9 @@
   "name": "Chinese xǐqìng (喜慶) wedding music",
   "family": "global",
   "lineage": "Chinese wedding-music tradition continuous from imperial-era Chinese ceremonial-music practice through Republican-period and post-1949 evolution into modern Chinese-Mandarin-speaking domestic practice across mainland China, Taiwan, and Chinese-diaspora communities; the suona (Chinese shawm) is the canonical wedding-music instrument though here represented by sheng-and-dizi-and-erhu substitute ensemble",
-  "recipe": "classic late-1940s chinese xǐqìng (喜慶) wedding music, wedding, east Asian branch, south Asian wedding, east Asian art music, carnival processional beijing opera tibetan ache lhamo opera. thick, pressed, melodic, continuous-phonation. traditional bamboo pipes copper brass free reeds canonical Chinese straight sheng, no membrane buzz bitter bamboo phyllostachys nigra canonical jiangnan suzhou bangdi northern sharp opera percussive continuous-airflow legato dizi, python skin snake skin bamboo silk red sandalwood zitan erhu, silk red sandalwood zitan premium pipa, boxwood canonical renaissance European arundo donax wooden pirouette canonical renaissance shawm. shanghai emi pathe 1930s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 820,
-  "score": 321.484,
+  "recipe": "classic East Asian late-1940s chinese xǐqìng (喜慶) wedding music, wedding, east Asian branch, south Asian wedding, east Asian art music, carnival processional beijing opera tibetan ache lhamo opera. thick, pressed, melodic, continuous-phonation. traditional bamboo pipes copper brass free reeds canonical Chinese straight sheng, no membrane buzz bitter bamboo phyllostachys nigra canonical jiangnan suzhou bangdi northern sharp opera percussive continuous-airflow legato dizi, python skin snake skin bamboo silk red sandalwood zitan erhu, silk red sandalwood zitan premium pipa. shanghai emi pathe 1930s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 733,
+  "score": 313.635,
   "config": {
     "traditions": [
       "chinese_xiqing_wedding",
@@ -119,23 +119,6 @@
           "pipa_pick": 0.195,
           "pipa_body_wood": 2.7445000000000004
         }
-      },
-      {
-        "id": "shawm",
-        "slots": {
-          "wind_articulation": "wind_ornament_heavy",
-          "shawm_pitch": "shawm_treble",
-          "shawm_context": "shawm_alta_capella",
-          "shawm_body_wood": "shawm_boxwood_canonical",
-          "shawm_reed": "shawm_arundo_pirouette"
-        },
-        "scores": {
-          "wind_articulation": -0.10500000000000001,
-          "shawm_pitch": 0.39,
-          "shawm_context": 2.08,
-          "shawm_body_wood": 2.6445,
-          "shawm_reed": 2.8395
-        }
       }
     ],
     "room": "shanghai_emi_pathe_1930s",
@@ -183,11 +166,6 @@
       "pipa_strings": "pipa_steel_nylon",
       "pipa_pick": "pipa_fingernail",
       "pipa_body_wood": "pipa_red_sandalwood",
-      "wind_articulation": "wind_ornament_heavy",
-      "shawm_pitch": "shawm_treble",
-      "shawm_context": "shawm_alta_capella",
-      "shawm_body_wood": "shawm_boxwood_canonical",
-      "shawm_reed": "shawm_arundo_pirouette",
       "free_reed_technique": "free_reed_folk_first_position",
       "sheng_size": "sheng_traditional_17",
       "sheng_context": "sheng_orchestra",

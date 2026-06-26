@@ -258,7 +258,7 @@
           "id": "short_scale_bass_eb0",
           "name": "Gibson EB-0",
           "descriptors": [
-            "Motown-school",
+            "sg-style",
             "humbucker",
             "thumpy"
           ],
@@ -415,10 +415,10 @@
         },
         {
           "id": "short_scale_bass_pyramid_pure_nickel",
-          "name": "Pyramid pure nickel short-scale (McCartney / Beatles canon)",
+          "name": "Pyramid pure nickel short-scale (British-invasion violin-bass canon)",
           "descriptors": [
             "pyramid-pure-nickel",
-            "mccartney-canon"
+            "violin-bass-canon"
           ],
           "match_tokens": [
             "electric",
@@ -473,7 +473,7 @@
           "id": "short_scale_bass_eb0",
           "name": "Gibson EB-0",
           "descriptors": [
-            "Motown-school",
+            "sg-style",
             "humbucker",
             "thumpy"
           ],
@@ -630,10 +630,10 @@
         },
         {
           "id": "short_scale_bass_pyramid_pure_nickel",
-          "name": "Pyramid pure nickel short-scale (McCartney / Beatles canon)",
+          "name": "Pyramid pure nickel short-scale (British-invasion violin-bass canon)",
           "descriptors": [
             "pyramid-pure-nickel",
-            "mccartney-canon"
+            "violin-bass-canon"
           ],
           "match_tokens": [
             "electric",

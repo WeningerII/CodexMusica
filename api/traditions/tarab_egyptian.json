@@ -2,10 +2,10 @@
   "id": "tarab_egyptian",
   "name": "Tarab (Egyptian classical)",
   "family": "global",
-  "lineage": "The specifically Egyptian branch of the broader Arab tarab tradition — built on the takht ensemble (oud, qanun, ney, riq, kamancheh) plus the 20th-century Egyptian innovation of adding a large Western violin section for the Umm Kulthum / Mohammed Abdel Wahab era recordings; pre-WWII figures Sayed Darwish, Mohammed al-Qasabgi, Zakariya Ahmed, then the post-WWII Golden Age anchored by Umm Kulthum (1898-1975), Mohammed Abdel Wahab (1902-1991), Abdel Halim Hafez (1929-1977)",
-  "recipe": "classic North American early-1890s tarab, improv On Frame, Persian arab improv branch, middle eastern classical art music, Sufi ritual devotional armenian liturgical and folk andalusī nūba. thick, low dynamic level, chest resonance low mid, maqam neutral step. padauk Egyptian Syrian premium Lebanese cedar eastern Mediterranean pyramid oud, metal finger picks rosewood body arab premium goat skin bridge plate qanun, brass nickel silver Egyptian modern hassan kassai canonical 20th century Persian radif continuous-airflow legato ney, gut 3 main playing strings tun cedar legato sarangi, court tradition pre twentieth century takht arab, traditional kanun kanun, half rectified carpathian spruce European maple sycamore maple cremonese pre 1750 violin orchestral. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 987,
-  "score": 410.507,
+  "lineage": "The specifically Egyptian branch of the broader Arab tarab tradition — built on the takht ensemble (oud, qanun, ney, riq, kamancheh) plus the 20th-century Egyptian innovation of adding a large Western violin section for the 1945-1970 Umm Kulthum / Mohammed Abdel Wahab era recordings; pre-WWII figures Sayed Darwish, Mohammed al-Qasabgi, Zakariya Ahmed, then the post-WWII Golden Age anchored by Umm Kulthum (1898-1975), Mohammed Abdel Wahab (1902-1991), Abdel Halim Hafez (1929-1977)",
+  "recipe": "classic North African mid-1950s tarab, improv On Frame, Persian arab improv branch, middle eastern classical art music, Sufi ritual devotional armenian liturgical and folk andalusī nūba. thick, low dynamic level, chest resonance low mid, maqam neutral step. padauk Egyptian Syrian premium Lebanese cedar eastern Mediterranean pyramid oud, metal finger picks rosewood body arab premium goat skin bridge plate qanun, brass nickel silver Egyptian modern hassan kassai canonical 20th century Persian radif continuous-airflow legato ney, court tradition pre twentieth century takht arab, traditional kanun kanun, half rectified carpathian spruce European maple sycamore maple cremonese pre 1750 violin orchestral. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 931,
+  "score": 392.637,
   "config": {
     "traditions": [
       "tarab_egyptian",
@@ -112,25 +112,6 @@
         }
       },
       {
-        "id": "sarangi",
-        "slots": {
-          "bowed_technique": "bowed_legato_classical",
-          "sarangi_belly": "goat_skin_sarangi",
-          "sarangi_taraf": "sarangi_40_strings",
-          "sarangi_bow": "horse_hair_loose",
-          "sarangi_main_strings": "sarangi_gut_main",
-          "sarangi_body_wood": "sarangi_tun_body"
-        },
-        "scores": {
-          "bowed_technique": 12,
-          "sarangi_belly": 1.8200000000000003,
-          "sarangi_taraf": 0.24,
-          "sarangi_bow": 0.39,
-          "sarangi_main_strings": 1.365,
-          "sarangi_body_wood": 2.0549999999999997
-        }
-      },
-      {
         "id": "takht_arab",
         "slots": {
           "members": "takht_oud",
@@ -226,11 +207,6 @@
       "qanun_body_wood": "qanun_walnut_body",
       "qanun_bridge_skin": "qanun_fish_skin_bridge",
       "qanun_string_material": "qanun_nylon_modern",
-      "sarangi_belly": "goat_skin_sarangi",
-      "sarangi_taraf": "sarangi_35_strings",
-      "sarangi_bow": "horse_hair_tensioned",
-      "sarangi_main_strings": "sarangi_gut_main",
-      "sarangi_body_wood": "sarangi_tun_body",
       "kanun_school": "kanun_arab",
       "kanun_articulation": "kanun_tortoiseshell_pick",
       "wind_articulation": "wind_continuous_legato",

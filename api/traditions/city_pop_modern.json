@@ -3,8 +3,8 @@
   "name": "City pop modern revival",
   "family": "pop",
   "lineage": "2010s-and-2020s international revival of late-1970s and 1980s Japanese city-pop genre through internet-distributed YouTube algorithm-circulation (especially the 2017 viral revival of Mariya Takeuchi's \"Plastic Love\"). Characterized by sophisticated jazz-and-fusion harmonic vocabulary, broad-AOR aesthetic (West-Coast Los Angeles 1970s session-musician influence transmitted through Tatsuro Yamashita and Haruomi Hosono), and explicit Tokyo-urban-1980s-economic-bubble nostalgia. Tomoo Nagai, Yumi Matsutoya, Anri are foundational; the modern revival scene includes Ginger Root, Night Tempo (city-pop edits), and broader vaporwave-adjacent producers.",
-  "recipe": "classic 1977-1979 city pop modern revival, functional Song, east Asian pop branch, American jazz fusion acid jazz nu jazz / electro-jazz. thick, rap, tasteful, narrative. roland jc120 amp solid state stereo chorus basswood alnico clean humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric bronze bell bronze over hammered drum kit, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, singing lead analog synth. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 750,
+  "recipe": "classic 1977-1979 city pop modern revival, functional Song, east Asian pop branch, American jazz fusion acid jazz nu jazz / electro-jazz. thick, rap, tasteful, narrative. roland jc120 amp solid state stereo chorus basswood alnico clean humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric bronze bell bronze over hammered drum kit, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, singing lead analog synth. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 746,
   "score": 713.521,
   "config": {
     "traditions": [
@@ -180,7 +180,7 @@
         }
       }
     ],
-    "room": "tokyo_studio_1970s_80s",
+    "room": "studio_distributed_production",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_ldc",
@@ -198,7 +198,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "tokyo_studio_1970s_80s",
+    "room": "studio_distributed_production",
     "parts": {
       "body_wood": "alder_h",
       "pickup_magnet": "alnico_5_h",

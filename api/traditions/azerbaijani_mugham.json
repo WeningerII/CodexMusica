@@ -3,8 +3,8 @@
   "name": "Azerbaijani mugham",
   "family": "classical",
   "lineage": "Azerbaijani classical modal art-music tradition of the modal-improvisatory dastgah suite system. The seven-dastgah canonical sequence — Rast, Shur, Segah, Chargah, Bayati-Shiraz, Shushtar, Humayun — each suite built from a tonal-center microtonal modal vocabulary with characteristic shifted-third intervals, extended through gushe sub-section sequences. Khananda singer-led trio with tar long-necked plucked lute (eleven-or-twelve-string mulberry-wood double-bowl body, redesigned by Sadigjan in the 1870s into its modern form) and kamancha four-string spike fiddle, with the khananda holding a gaval frame-drum. The Shusha \"conservatory of the East\" lineage established the Garabagh school as the canonical performance dialect. Twentieth-century founding figures include Jabbar Garyaghdioglu (1861-1944), Khan Shushinski (1901-1979), Seyid Shushinski, with Uzeyir Hajibeyov (1885-1948) founding the symphonic mugham and the 1908 opera Leyli and Majnun. Distinguished from Iraqi maqam by Garabagh-Shusha dialect-specific gushe-sequence conventions; distinguished from Persian radif by Azerbaijani-Turkic vocal-ornamentation grammar; distinguished from Turkish makam by the dastgah modal-cycle structural framework",
-  "recipe": "classic North American early-1860s azerbaijani mugham, art Music, middle eastern classical branch, south Asian art music, Persian arab improv improv on frame tarab telugu kirtana. vocal fry, declaimed, chest resonance low mid, maqam neutral step. synthetic brass mulberry bowl canonical double bowl steel bronze mix tar persian, walnut bowl skin faced canonical caucasian four string silk or steel canonical mugham trio garabagh shusha mugham school canonical azerbaijani legato kamancha, walnut bent frame canonical Persian goat skin tacked brass rings canonical Iranian daf, wooden frame internal jingles canonical azerbaijani khananda held canonical garabagh school gaval. shusha garabagh mugham conservatory. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 859,
+  "recipe": "classic Caucasian early-1860s azerbaijani mugham, art Music, middle eastern classical branch, south Asian art music, Persian arab improv improv on frame tarab telugu kirtana. vocal fry, declaimed, chest resonance low mid, maqam neutral step. synthetic brass mulberry bowl canonical double bowl steel bronze mix tar persian, walnut bowl skin faced canonical caucasian four string silk or steel canonical mugham trio garabagh shusha mugham school canonical azerbaijani legato kamancha, walnut bent frame canonical Persian goat skin tacked brass rings canonical Iranian daf, wooden frame internal jingles canonical azerbaijani khananda held canonical garabagh school gaval. shusha garabagh mugham conservatory. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 854,
   "score": 448.266,
   "config": {
     "traditions": [
@@ -156,7 +156,7 @@
       "plucked_traditional_technique": "plucked_ornamented_melodic",
       "tar_belly": "tar_lamb_skin",
       "tar_pick": "tar_brass_mizrab",
-      "tar_body_wood": "tar_walnut_body",
+      "tar_body_wood": "tar_mulberry_body",
       "tar_string_material": "tar_steel_bronze",
       "tar_tradition": "tar_radif_canonical",
       "bowed_technique": "bowed_legato_classical",

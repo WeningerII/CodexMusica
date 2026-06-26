@@ -5,7 +5,7 @@
   "lineage": "Southern trap subgenre codified through Atlanta’s 2000s street-rap scene — T.I.’s Trap Muzik (2003), Young Jeezy’s Let’s Get It: Thug Motivation 101 (2005), Gucci Mane, and Three 6 Mafia’s earlier Memphis groundwork; characterized by 70-80 BPM-doubled trap-hi-hat patterns, 808-bass-and-kick programming, and street-narrative lyrical subject matter",
   "recipe": "classic Southern American mid-2000s trap, mc Rhythm, southern branch, house electronic dance deep house chicago house. thick, rap, chest resonance low mid, narrative. drum machine analog, sub bass analog synth. vocal booth isolated 2010-present mid-major atlanta trap commercial. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
   "recipe_chars": 404,
-  "score": 152.24,
+  "score": 154.145,
   "config": {
     "traditions": [
       "southern_trap",
@@ -30,7 +30,7 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
           "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
-          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
@@ -48,7 +48,7 @@
           "voice_ensemble_config": 18.525,
           "voice_ornament_system": 1.2349999999999999,
           "voice_pitch_organization": 2.36,
-          "voice_processing_chain": 9.389999999999999,
+          "voice_processing_chain": 9.77,
           "voice_multitrack_stack": 3.8349999999999995
         }
       },
@@ -61,7 +61,7 @@
           "shuffle_quantize": "straight_quantize"
         },
         "scores": {
-          "kick_voice": 2.5999999999999996,
+          "kick_voice": 3.2499999999999996,
           "snare_voice": 0.045,
           "hat_voice": 0.195,
           "shuffle_quantize": 3.0699999999999994

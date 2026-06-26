@@ -1,6 +1,6 @@
 {
   "name": "Codex Musica — browse index (Tier-1 data for the lazy-loaded app)",
-  "generated": "2026-06-19",
+  "generated": "2026-06-25",
   "axisKeys": [
     "harm",
     "pitch",
@@ -1507,7 +1507,7 @@
       "id": "new_wave",
       "name": "New wave",
       "family": "rock_punk",
-      "lineage": "Late-1970s through mid-1980s post-punk-derived pop-rock — codified through Blondie, Talking Heads (Remain in Light 1980), Devo (Q: Are We Not Men? A: We Are Devo! 1978), The Cars (The Cars 1978), Elvis Costello & the Attractions (My Aim Is True 1977), and the broader Stiff Records / Sire Records ecosystem; characterized by angular-rhythm-section, ironic-detached vocals, and pop-song-form embrace distinguishing it from punk",
+      "lineage": "Late-1970s through mid-1980s post-punk-derived pop-rock — codified through Blondie, Talking Heads (Remain in Light 1980), Devo (Q: Are We Not Men? A: We Are Devo! 1978), The Cars (The Cars 1978), Elvis Costello (My Aim Is True 1977), and the broader Stiff Records / Sire Records ecosystem; characterized by angular-rhythm-section, ironic-detached vocals, and pop-song-form embrace distinguishing it from punk",
       "parent": "functionalSong.popRock.newWave",
       "axes": [
         1,
@@ -2006,7 +2006,7 @@
       "id": "modal_jazz",
       "name": "Modal jazz",
       "family": "jazz",
-      "lineage": "Late-1950s onward jazz subgenre dispensing with rapid bebop chord-changes in favor of static modal frameworks — Miles Davis Kind of Blue (1959), Coltrane Giant Steps and the McCoy Tyner / Elvin Jones quartet years, Bill Evans modal trio voicings, Wayne Shorter, Herbie Hancock",
+      "lineage": "Late-1950s onward jazz subgenre dispensing with rapid bebop chord-changes in favor of static modal frameworks — Miles Davis Kind of Blue (1959), Coltrane Impressions and the McCoy Tyner / Elvin Jones quartet years, Bill Evans modal trio voicings, Wayne Shorter, Herbie Hancock",
       "parent": "improvOnFrame.americanJazz.bop",
       "axes": [
         0,
@@ -3697,7 +3697,7 @@
       "id": "palm_wine",
       "name": "Palm-wine guitar",
       "family": "global",
-      "lineage": "West African coastal acoustic-guitar songcraft tradition, codified through the early-twentieth-century Sierra Leonean and Liberian port-city repertoire and the Ghanaian Sékou Diabaté and S.E. Rogie 1950s-1960s acoustic-guitar lineage — characterized by relaxed two-finger picking patterns over Krio/English-Creole melodic vocal lines, played at outdoor gatherings drinking the eponymous fermented palm sap",
+      "lineage": "West African coastal acoustic-guitar songcraft tradition, codified through the early-twentieth-century Sierra Leonean and Liberian port-city repertoire and the Ghanaian Koo Nimo and the Sierra Leonean S.E. Rogie 1950s-1960s acoustic-guitar lineage — characterized by relaxed two-finger picking patterns over Krio/English-Creole melodic vocal lines, played at outdoor gatherings drinking the eponymous fermented palm sap",
       "parent": "groovePercussion.westAfrican",
       "axes": [
         1,
@@ -4840,7 +4840,7 @@
       "id": "disco",
       "name": "Disco",
       "family": "blues_gospel",
-      "lineage": "Mid-1970s through 1980 dance-floor evolution of Philly Soul orchestral pop, NYC club culture, and 4/4 thump rhythm — codified through Donna Summer / Giorgio Moroder collaborations (I Feel Love 1977, Munich Musicland), Chic (Niles Rodgers and Bernard Edwards at Atlantic / Power Station NYC), Bee Gees Saturday Night Fever (RSO 1977), KC and the Sunshine Band, Sister Sledge, the entire Studio 54 NYC era catalog",
+      "lineage": "Mid-1970s through 1980 dance-floor evolution of Philly Soul orchestral pop, NYC club culture, and 4/4 thump rhythm — codified through Donna Summer / Giorgio Moroder collaborations (I Feel Love 1977, Munich Musicland), Chic (Nile Rodgers and Bernard Edwards at Atlantic / Power Station NYC), Bee Gees Saturday Night Fever (RSO 1977), KC and the Sunshine Band, Sister Sledge, the entire Studio 54 NYC era catalog",
       "parent": "electronicDance.continental",
       "axes": [
         2,
@@ -6579,8 +6579,7 @@
         "riq",
         "ney",
         "kamancheh",
-        "takht_arab",
-        "kanun"
+        "takht_arab"
       ],
       "description": "Arab tarab (codified late-19th to mid-20th century in Cairo, Beirut, and Aleppo with roots in earlier Ottoman and Andalusi practice), the Arab classical aesthetic ideal centered on the singer-and-takht-ensemble interaction that produces deep emotional rapture (tarab — the affective state itself names the genre). Defined by the takht ensemble (oud, qanun, nay, riq, sometimes violin), maqam-based modal performance with extended improvised vocal ornamentation (mawwal, layali), stretch-form arrangements where a single song expands across forty-plus minutes through audience-call-and-response cycles, and the foregrounded singer-improvising-melodically-on-a-pre-composed-text relationship that defines Egyptian Golden Age tradition. Distinguished from later Arabic pop by length, instrumentation, and improvisation; distinguished from Andalusi nuba by Mashriqi maqam system and tarab affective focus over Maghrebi codified-suite form.",
       "exemplars": [
@@ -6665,7 +6664,6 @@
         "kemence",
         "mey",
         "zurna",
-        "kanun",
         "tanbur_persian"
       ],
       "description": "Turkish makam classical / Ottoman classical (codified Ottoman-era onward, with foundational theoretical writings by Ali Ufki and Dimitrie Cantemir 17th-18th century establishing the makam-and-usul system, and continuous tradition through Republican-Turkey-era reform and contemporary Turkish-classical practice), the Ottoman court classical music tradition. Defined by makam modal system (over 200 makamat — modal frameworks each with characteristic intervals, melodic phrases, and emotional-association — much more elaborate than Arab-maqam or Persian-dastgah), usul rhythmic cycles (specific time-cycle patterns ranging from short 2-beat to extended 28-beat structures), fasıl suite-form organizing performance around a single makam through fixed-form composition-categories (peshrev instrumental opening, beste vocal middle, sharki vocal aftermath, saz semaisi instrumental conclusion), takım classical-orchestra ensemble (ud, kanun, ney, kemençe, tanbur as instruments), and vocal-foreground performance with extensive melismatic-Turkish-vocal-ornament. Distinguished from Arab maqam by Turkish-specific elaborated mode-system and Turkish-language texts; distinguished from Persian dastgah by usul-rhythmic-cycle foundation and fasıl-suite-form structure; distinguished from later Turkish-classical-pop and Turkish-folk by court-classical-tradition framing.",
@@ -8670,7 +8668,7 @@
       "id": "laiko",
       "name": "Laikó",
       "family": "global",
-      "lineage": "Post-rebetiko Greek popular song that emerged in the 1950s-1960s as rebetiko transitioned from tavern-context to commercial-nightclub-context — codified through Manolis Chiotis (who introduced the four-course-to-six-course bouzouki conversion and electric amplification), Stelios Kazantzidis (the voice of laiko), Marinella, Stratos Dionysiou, Yiannis Parios, Glykeria, and the Athens Minos / Columbia Greece / Lyra label catalog",
+      "lineage": "Post-rebetiko Greek popular song that emerged in the 1950s-1960s as rebetiko transitioned from tavern-context to commercial-nightclub-context — codified through Manolis Chiotis (who introduced the three-course-to-four-course (trichordo-to-tetrachordo) bouzouki conversion and electric amplification), Stelios Kazantzidis (the voice of laiko), Marinella, Stratos Dionysiou, Yiannis Parios, Glykeria, and the Athens Minos / Columbia Greece / Lyra label catalog",
       "parent": "balladPoetry.mediterraneanBallad",
       "axes": [
         1,
@@ -8755,7 +8753,7 @@
       "id": "bulgarian_womens_choir",
       "name": "Bulgarian women's choir",
       "family": "global",
-      "lineage": "Bulgarian state-radio female-voice choir tradition codified by composer Philip Koutev from 1952 onward (Philip Koutev State Ensemble) and brought to international attention through Marcel Cellier 1975 Nonesuch Explorer release Le Mystère des Voix Bulgares; reharmonizes Bulgarian village folk-song repertoire (Rhodope and Pirin regional traditions) for concert-stage female chorus",
+      "lineage": "Bulgarian state-radio female-voice choir tradition codified by composer Philip Koutev from 1952 onward (Philip Koutev State Ensemble) and brought to international attention through Marcel Cellier (original 1975 Disques Cellier, 1987 Nonesuch Explorer) release Le Mystère des Voix Bulgares; reharmonizes Bulgarian village folk-song repertoire (Rhodope and Pirin regional traditions) for concert-stage female chorus",
       "parent": "droneModal.vocal",
       "axes": [
         -1,
@@ -8939,7 +8937,7 @@
       "id": "nashville_sound",
       "name": "Nashville Sound",
       "family": "country",
-      "lineage": "Late-1950s through 1960s smooth-pop country crossover production aesthetic codified by Chet Atkins (RCA Studio B Nashville producer, the Nashville Sound architect) and Owen Bradley (Decca/MCA Quonset Hut producer) as a deliberate softening of honky-tonks rough-edged dance-hall instrumentation toward smoother string-section and vocal-chorus-backed pop production — designed to compete with rock and roll for AM-radio pop airplay; recordings include Patsy Cline I Fall to Pieces 1961 and Crazy 1961, Jim Reeves Hes Got the Whole World in His Hands 1962, Eddy Arnold Make the World Go Away 1965",
+      "lineage": "Late-1950s through 1960s smooth-pop country crossover production aesthetic codified by Chet Atkins (RCA Studio B Nashville producer, the Nashville Sound architect) and Owen Bradley (Decca/MCA Quonset Hut producer) as a deliberate softening of honky-tonks rough-edged dance-hall instrumentation toward smoother string-section and vocal-chorus-backed pop production — designed to compete with rock and roll for AM-radio pop airplay; recordings include Patsy Cline I Fall to Pieces 1961 and Crazy 1961, Jim Reeves Hell Have to Go 1960, Eddy Arnold Make the World Go Away 1965",
       "parent": "functionalSong.country.nashville",
       "axes": [
         1,
@@ -9179,7 +9177,7 @@
       "id": "ethio_jazz",
       "name": "Ethio-jazz",
       "family": "global",
-      "lineage": "Ethiopian Golden Age 1969-1974 Amha-Kaifa-Philips label canon — codified through Mulatu Astatke’s Berklee-and-NYC training brought back to Addis Ababa, the Roha Band and Walias Band as the canonical recording ensembles, Mahmoud Ahmed (Ere Mela Mela 1975), Alemayehu Eshete, Tlahoun Gèssèssè, and Tilahun Gessesse as canonical singers; characterized by Ethiopian kignit-modal vocals over jazz-and-soul instrumental beds",
+      "lineage": "Ethiopian Golden Age 1969-1974 Amha-Kaifa-Philips label canon — codified through Mulatu Astatke’s Berklee-and-NYC training brought back to Addis Ababa, the Roha Band and Walias Band as the canonical recording ensembles, Mahmoud Ahmed (Ere Mela Mela 1975), Alemayehu Eshete, and Tilahun Gessesse (also romanized Tlahoun Gèssèssè) as canonical singers; characterized by Ethiopian kignit-modal vocals over jazz-and-soul instrumental beds",
       "parent": "improvOnFrame.latinJazz",
       "axes": [
         0,
@@ -9308,7 +9306,7 @@
       "id": "zydeco",
       "name": "Zydeco",
       "family": "global",
-      "lineage": "Black Creole French Louisiana dance-music tradition codified through Clifton Chenier (the King of Zydeco, the Houston-based bandleader from the 1950s through his death in 1987), Boozoo Chavis (the originator of the genre name with his 1954 Paper in My Shoe), Buckwheat Zydeco, Rockin Dopsie, Beau Jocque, Geno Delafose; characterized by piano accordion (the larger more harmonically capable cousin of the Cajun single-row accordion) plus frottoir rubboard (the metal washboard-derived percussion worn over the shoulders, the Cleveland and Willis Prudhomme innovation from the late 1940s), distinct from Cajun (which is white Acadian French Louisiana with single-row diatonic accordion)",
+      "lineage": "Black Creole French Louisiana dance-music tradition codified through Clifton Chenier (the King of Zydeco, the Houston-based bandleader from the 1950s through his death in 1987), Boozoo Chavis (the originator of the genre name with his 1954 Paper in My Shoe), Buckwheat Zydeco, Rockin Dopsie, Beau Jocque, Geno Delafose; characterized by piano accordion (the larger more harmonically capable cousin of the Cajun single-row accordion) plus frottoir rubboard (the metal washboard-derived percussion worn over the shoulders, the Clifton Chenier and welder Willie Landry innovation (c. 1946), popularized by Cleveland Chenier), distinct from Cajun (which is white Acadian French Louisiana with single-row diatonic accordion)",
       "parent": "groovePercussion.caribbean",
       "axes": [
         1,
@@ -9380,7 +9378,7 @@
       "id": "tibetan_gyuto",
       "name": "Gyütö multiphonic chant (Tibetan Buddhist)",
       "family": "global",
-      "lineage": "Tibetan Vajrayana-Buddhist Gelugpa-school tantric-chant tradition of the Gyuto Tantric University monastery (founded 1474 by Je Sherab Sengge, originally located in Lhasa, exiled 1959 to Dharamsala-and-Mysore India). The signature gyumey rang-chen multiphonic-vocal-technique produces a single chord per voice through subharmonic-overtone-isolation, with the chord typically including the fundamental, a fifth, and a major-third harmonic-overtone (heard simultaneously). Liturgical-context is the tantric sadhana practice cycle: protector-deity invocation (kangso), initiation-empowerment (wangkur), and meditation-on-tutelary-deity (yidam). The dranyen long-trumpets, gyaling oboe-like-shawms, and damaru hourglass-hand-drums punctuate the chant at canonical liturgical-points.",
+      "lineage": "Tibetan Vajrayana-Buddhist Gelugpa-school tantric-chant tradition of the Gyuto Tantric University monastery (founded 1474 by Je Sherab Sengge, originally located in Lhasa, exiled 1959 to Dharamsala-and-Mysore India). The signature gyumey rang-chen multiphonic-vocal-technique produces a single chord per voice through subharmonic-overtone-isolation, with the chord typically including the fundamental, a fifth, and a major-third harmonic-overtone (heard simultaneously). Liturgical-context is the tantric sadhana practice cycle: protector-deity invocation (kangso), initiation-empowerment (wangkur), and meditation-on-tutelary-deity (yidam). The dungchen long-trumpets, gyaling oboe-like-shawms, and damaru hourglass-hand-drums punctuate the chant at canonical liturgical-points.",
       "parent": "ritualDevotional.buddhist",
       "axes": [
         -2,
@@ -10190,7 +10188,7 @@
       "id": "cantopop",
       "name": "Cantopop",
       "family": "global",
-      "lineage": "Hong Kong Cantonese-language mainstream pop, codified through the late-1970s Sam Hui and the 1980s Heavenly Kings — Jacky Cheung, Andy Lau, Aaron Kwok, Leon Lai — characterized by ballad-heavy repertoire, film-tie-in song format, and the post-handover (1997) industry that absorbed and merged with the mainland Mandarin pop market",
+      "lineage": "Hong Kong Cantonese-language mainstream pop, codified through the late-1970s Sam Hui and the early-1990s Four Heavenly Kings — Jacky Cheung, Andy Lau, Aaron Kwok, Leon Lai — characterized by ballad-heavy repertoire, film-tie-in song format, and the post-handover (1997) industry that absorbed and merged with the mainland Mandarin pop market",
       "parent": "functionalSong.eastAsianPop",
       "axes": [
         2,
@@ -10947,7 +10945,7 @@
       "id": "mambo",
       "name": "Mambo",
       "family": "global",
-      "lineage": "Cuban big-band brass-and-saxophone urban-popular-dance music codified 1939-onward in Havana from son-cubano accelerated-and-orchestrated for big-band swing-orchestra adaptation. The mambo-typical ensemble: four-trumpets, four-saxophones (two altos, two tenors plus baritone), piano, contrabass, congas, bongos, timbales, claves, maracas, and güiro. The mambo-section open-improvisation montuno-equivalent features brass-shouts (mambos), saxophone-and-piano riffs over ostinato-vamp, and percussion-and-vocal call-and-response. The 1947-onward Mexico-City-and-NYC-Palladium mambo-craze made it the international Cuban-dance-music ambassador; the 1950s saw mambo-fused-with-jazz (Afro-Cuban jazz, Latin-jazz), with cha-cha-chá and pachanga emerging as next-generation variants.",
+      "lineage": "Cuban big-band brass-and-saxophone urban-popular-dance music codified 1939-onward in Havana from son-cubano accelerated-and-orchestrated for big-band swing-orchestra adaptation. The mambo-typical ensemble: four-trumpets, five-saxophones (two altos, two tenors, plus baritone), piano, contrabass, congas, bongos, timbales, claves, maracas, and güiro. The mambo-section open-improvisation montuno-equivalent features brass-shouts (mambos), saxophone-and-piano riffs over ostinato-vamp, and percussion-and-vocal call-and-response. The 1947-onward Mexico-City-and-NYC-Palladium mambo-craze made it the international Cuban-dance-music ambassador; the 1950s saw mambo-fused-with-jazz (Afro-Cuban jazz, Latin-jazz), with cha-cha-chá and pachanga emerging as next-generation variants.",
       "parent": "groovePercussion.cuban.charangaDanza",
       "axes": [
         2,
@@ -11311,7 +11309,7 @@
       "id": "vallenato",
       "name": "Vallenato",
       "family": "global",
-      "lineage": "Colombian-Caribbean accordion-led song-form codified 1940s-onward in Valledupar (Cesar-department, northeastern Colombia) from earlier 19th-century rural-troubadour traditions of the Magdalena-basin cattle-ranch lineage. The canonical ensemble: button-accordion (the diatonic Hohner-3-row accordion imported via 1880s-onward German maritime-trade with Caribbean-port-cities), caja-vallenata small two-headed drum, guacharaca grooved-bamboo scraper. The four canonical vallenato airs: paseo moderate-tempo-narrative, merengue (different from Dominican) faster-2/4, son slower-double-meter, and puya fastest-rural-virtuosic. The lyric-tradition is heavily narrative-storytelling, often improvised, and the Vallenato-Festival-de-la-Leyenda annual competition (since 1968) codifies regional standards.",
+      "lineage": "Colombian-Caribbean accordion-led song-form codified 1940s-onward in Valledupar (Cesar-department, northeastern Colombia) from earlier 19th-century rural-troubadour traditions of the Magdalena-basin cattle-ranch lineage. The canonical ensemble: button-accordion (the diatonic Hohner-3-row accordion imported via 1880s-onward German maritime-trade with Caribbean-port-cities), caja-vallenata small two-headed drum, guacharaca grooved-bamboo scraper. The four canonical vallenato airs: paseo moderate-tempo-narrative, merengue (different from Dominican) faster-6/8, son slower-double-meter, and puya fastest-rural-virtuosic. The lyric-tradition is heavily narrative-storytelling, often improvised, and the Vallenato-Festival-de-la-Leyenda annual competition (since 1968) codifies regional standards.",
       "parent": "groovePercussion.latinAm",
       "axes": [
         1,
@@ -11375,8 +11373,7 @@
         "voice",
         "arpa_llanera",
         "cuatro_venezolano",
-        "maracas",
-        "bandola_andina"
+        "maracas"
       ],
       "description": "Joropo (codified 19th century in the Venezuelan-and-Colombian llanos plains region as cattle-ranch dance music, with continuous tradition through to present and folkloric-codification through 20th-century recorded performance), the Venezuelan-Colombian llano dance and song tradition. Defined by 3/4-with-hemiola metric organization (the joropo-specific 6/8-vs-3/4 metric ambiguity creating the signature push-pull feel), arpa llanera (Venezuelan harp — small portable diatonic harp with no pedals) and cuatro (four-string guitar-like instrument) ensemble at the core, often extended with maracas, contrabass, and occasional bandola llanera pear-shaped lute, vocal delivery in Spanish often with extended-note sustained-cry vocal style and syllabic-rapid-fire verses alternating, and dance-form choreography built on zapateado foot-stamping and partnered turning patterns. Distinguished from cumbia colombiana by inland-llanos-not-coastal-Caribbean lineage and harp-ensemble instrumentation; distinguished from Andean huayno by Venezuelan-and-Colombian-not-Andean-Quechua lineage; distinguished from Mexican son jarocho by Venezuelan-not-Mexican origin despite both featuring harp.",
       "exemplars": [
@@ -11392,7 +11389,7 @@
       "id": "merengue_dominicano",
       "name": "Merengue dominicano",
       "family": "global",
-      "lineage": "Dominican-Republic national-couple-dance and rhythm 1850s-onward, codified into modern merengue-típico by mid-20th-century with three-instrument perico-ripiao canonical-ensemble: tambora two-headed barrel-drum, güira metallic-scraper, and accordion (originally diatonic German button-accordion imported via late-19th-century Hamburg-trade routes). The 2/4 fast-tempo merengue-clave (one-bar pattern: down-down-up-down on tambora) accelerates and accents the second eighth-note. The 1960s-1980s era added brass-section merengue-orquesta (modeled on Cuban big-band mambo) and electric-bass-and-keyboards, culminating in the international 1980s-merengue-mainstream wave. Three regional-variants: merengue-típico-cibaeño (Cibao-region accordion-led), merengue-de-orquesta (urban-Santo-Domingo big-band), and merengue-de-calle (1990s-onward street-and-urban variant).",
+      "lineage": "Dominican-Republic national-couple-dance and rhythm 1850s-origin (recorded canon 1970-1995), codified into modern merengue-típico by mid-20th-century with three-instrument perico-ripiao canonical-ensemble: tambora two-headed barrel-drum, güira metallic-scraper, and accordion (originally diatonic German button-accordion imported via late-19th-century Hamburg-trade routes). The 2/4 fast-tempo merengue-clave (one-bar pattern: down-down-up-down on tambora) accelerates and accents the second eighth-note. The 1960s-1980s era added brass-section merengue-orquesta (modeled on Cuban big-band mambo) and electric-bass-and-keyboards, culminating in the international 1980s-merengue-mainstream wave. Three regional-variants: merengue-típico-cibaeño (Cibao-region accordion-led), merengue-de-orquesta (urban-Santo-Domingo big-band), and merengue-de-calle (1990s-onward street-and-urban variant).",
       "parent": "groovePercussion.latinAm",
       "axes": [
         1,
@@ -11998,7 +11995,7 @@
       "id": "hi_nrg",
       "name": "Hi-NRG",
       "family": "global",
-      "lineage": "Late-1970s through 1980s gay-club-derived electronic dance music characterized by 130+ bpm tempo, electronic-disco production (sequenced bass, mechanical hi-hat patterns), and intense emotionally-direct pop-vocal lead — codified through Patrick Cowley (Megatron Man 1981, the Sylvester collaborations), Bobby O, Lime, Hazell Dean, Divine (the 1980s Bobby O recordings), with the form serving as a precursor to acid-house and techno",
+      "lineage": "early-1980s onward gay-club-derived electronic dance music characterized by 130+ bpm tempo, electronic-disco production (sequenced bass, mechanical hi-hat patterns), and intense emotionally-direct pop-vocal lead — codified through Patrick Cowley (Megatron Man 1981, the Sylvester collaborations), Bobby O, Lime, Hazell Dean, Divine (the 1980s Bobby O recordings), with the form serving as a precursor to acid-house and techno",
       "parent": "electronicDance.eurodance",
       "axes": [
         1,
@@ -12231,7 +12228,7 @@
       "id": "ska_revival_2tone",
       "name": "2-Tone ska revival",
       "family": "global",
-      "lineage": "UK 1979-81 multiracial ska revival movement centered on Coventry — codified through the 2 Tone Records label (founded 1979 by Jerry Dammers of The Specials) and its catalog: The Specials, The Selecter, Madness, The Beat, The Bodysnatchers, Bad Manners — translating original 1960s Jamaican ska into the post-punk era with explicit anti-racist political content and Two-Tone-checkerboard graphic identity",
+      "lineage": "UK 1979-1981 multiracial ska revival movement centered on Coventry — codified through the 2 Tone Records label (founded 1979 by Jerry Dammers of The Specials) and its catalog: The Specials, The Selecter, Madness, The Beat, The Bodysnatchers, Bad Manners — translating original 1960s Jamaican ska into the post-punk era with explicit anti-racist political content and Two-Tone-checkerboard graphic identity",
       "parent": "bassSystem.reggaeDiaspora",
       "axes": [
         1,
@@ -12349,7 +12346,7 @@
       "id": "russian_bard_song",
       "name": "Russian bard song (avtorskaya pesnya)",
       "family": "global",
-      "lineage": "Soviet-era guitar-and-poet song (avtorskaya pesnya, literally authorial song) tradition codified by Vladimir Vysotsky (the raspy-voice baritone), Bulat Okudgava (the gentle-tenor Arbat-Street troubadour), Alexander Galich (the dissident émigré voice), Yuri Vizbor (the mountain-climbing-and-friendship songwriter) — circulated through magnitizdat (self-distributed-tape underground circulation) under Soviet censorship rather than official Melodiya release",
+      "lineage": "Soviet-era guitar-and-poet song (avtorskaya pesnya, literally authorial song) tradition codified by Vladimir Vysotsky (the raspy-voice baritone), Bulat Okudzhava (the gentle-tenor Arbat-Street troubadour), Alexander Galich (the dissident émigré voice), Yuri Vizbor (the mountain-climbing-and-friendship songwriter) — circulated through magnitizdat (self-distributed-tape underground circulation) under Soviet censorship rather than official Melodiya release",
       "parent": "balladPoetry.slavicBard",
       "axes": [
         0,
@@ -13837,7 +13834,7 @@
       "id": "child_ballad_revival",
       "name": "Child ballad revival",
       "family": "global",
-      "lineage": "Performance tradition of the 305 narrative ballads catalogued by Francis James Child in The English and Scottish Popular Ballads (1882-1898) — revived through the Lowland Scottish travelling family tradition (Jeannie Robertson, Belle Stewart, Lizzie Higgins) and the parallel UK folk-revival concert-performance lineage (Ewan MacColl, Peggy Seeger, June Tabor, Martin Carthy, Frankie Armstrong)",
+      "lineage": "Performance tradition revived 1955-1965, of the 305 narrative ballads catalogued by Francis James Child in The English and Scottish Popular Ballads (1882-1898) — revived through the Lowland Scottish travelling family tradition (Jeannie Robertson, Belle Stewart, Lizzie Higgins) and the parallel UK folk-revival concert-performance lineage (Ewan MacColl, Peggy Seeger, June Tabor, Martin Carthy, Frankie Armstrong)",
       "parent": "balladPoetry.celticBalladic.scottishBallad",
       "axes": [
         0,
@@ -14313,7 +14310,7 @@
       "id": "fado_coimbra_university",
       "name": "Fado de Coimbra",
       "family": "global",
-      "lineage": "Academic male-student fado tradition centered on the University of Coimbra (Portugals oldest university, founded 1290) — distinct from fado de Lisboa in vocal register (male tenor/baritone), repertoire (poetry-set songs, student songs, serenata), and performance context (outdoor stone-paved quadrangle and Sé Velha cathedral steps rather than intimate tavern); performers wear the traditional black student capa-e-batina cape",
+      "lineage": "Academic male-student fado tradition centered on the University of Coimbra (Portugals oldest university, founded in the 13th century) — distinct from fado de Lisboa in vocal register (male tenor/baritone), repertoire (poetry-set songs, student songs, serenata), and performance context (outdoor stone-paved quadrangle and Sé Velha cathedral steps rather than intimate tavern); performers wear the traditional black student capa-e-batina cape",
       "parent": "balladPoetry.chansonFado.fadoCoimbra",
       "axes": [
         1,
@@ -14634,7 +14631,7 @@
       "id": "deep_house_soulful",
       "name": "Deep house (soulful)",
       "family": "global",
-      "lineage": "Soulful-jazz house sub-style codified through 1990s New York and New Jersey production — Larry Heard / Mr. Fingers, Kerri Chandler, Masters at Work, Blaze, and Kenny Bobien (vocalist) — characterized by jazz-chord harmonic vocabulary, gospel-soul vocal performances, and warm analog-instrument production aesthetic",
+      "lineage": "Soulful-jazz house sub-style codified through 1990s New York and New Jersey production — Kerri Chandler, Masters at Work, Blaze, and Kenny Bobien (vocalist), extending the 1980s Chicago deep-house template of Larry Heard / Mr. Fingers — characterized by jazz-chord harmonic vocabulary, gospel-soul vocal performances, and warm analog-instrument production aesthetic",
       "parent": "electronicDance.house.deepHouse",
       "axes": [
         2,
@@ -14961,7 +14958,6 @@
       "instruments": [
         "choir_ensemble",
         "voice",
-        "balalaika",
         "choir_russian_orthodox"
       ],
       "description": "Russian Orthodox chant (codified 11th century onward through Byzantine-Greek liturgical chant adapted into Slavonic-language Eastern Orthodox practice, with continuous tradition through to present and major reform periods including 17th-century Nikon reforms and post-Stalin 1950s-onward revival), the Russian Orthodox liturgical chant tradition. Defined by unaccompanied (a-cappella — Orthodox liturgical practice excludes instrumental accompaniment) SATB-and-bass-octavist choral singing with characteristic Russian deep-bass register (the bass-octavist Russian-vocal-tradition specialty of singing an octave below standard bass), occasional priest-and-deacon solo chant on liturgical-prayer-recitation texts, eight-mode (osmoglasie) tone system inherited from Byzantine practice with Russian-specific melodic-and-harmonic modifications, and repertoire spanning znamenny-chant (the older monodic Russian chant), kievan-and-kievopechersky chants (regional polyphonic-derivative styles), and modern-composed liturgical works (Tchaikovsky-and-Rachmaninoff Liturgy and Vespers settings). Distinguished from Greek Byzantine chant by Slavonic-language and Russian polyphonic adaptations; distinguished from Roman Catholic Gregorian by Eastern-Orthodox lineage and absence of monodic uniformity; distinguished from secular Russian choral music by liturgical function.",
@@ -17351,7 +17347,6 @@
         "accordion",
         "electric_bass",
         "drum_kit",
-        "banda_sinaloense",
         "viola_caipira"
       ],
       "description": "Brazilian rural-country popular music tradition, originating in Goiás and Minas Gerais. Two-voice tight-thirds harmony singing (dupla de irmãos) over guitar-and-accordion accompaniment. Modern sertanejo universitário (1990s onward) added pop-rock production and country-music-Anglo influence, becoming the mainstream Brazilian commercial-radio format.",
@@ -18072,7 +18067,7 @@
       "id": "tarab_egyptian",
       "name": "Tarab (Egyptian classical)",
       "family": "global",
-      "lineage": "The specifically Egyptian branch of the broader Arab tarab tradition — built on the takht ensemble (oud, qanun, ney, riq, kamancheh) plus the 20th-century Egyptian innovation of adding a large Western violin section for the Umm Kulthum / Mohammed Abdel Wahab era recordings; pre-WWII figures Sayed Darwish, Mohammed al-Qasabgi, Zakariya Ahmed, then the post-WWII Golden Age anchored by Umm Kulthum (1898-1975), Mohammed Abdel Wahab (1902-1991), Abdel Halim Hafez (1929-1977)",
+      "lineage": "The specifically Egyptian branch of the broader Arab tarab tradition — built on the takht ensemble (oud, qanun, ney, riq, kamancheh) plus the 20th-century Egyptian innovation of adding a large Western violin section for the 1945-1970 Umm Kulthum / Mohammed Abdel Wahab era recordings; pre-WWII figures Sayed Darwish, Mohammed al-Qasabgi, Zakariya Ahmed, then the post-WWII Golden Age anchored by Umm Kulthum (1898-1975), Mohammed Abdel Wahab (1902-1991), Abdel Halim Hafez (1929-1977)",
       "parent": "improvOnFrame.persianArabImprov",
       "axes": [
         -1,
@@ -18094,7 +18089,6 @@
         "oud",
         "qanun",
         "ney",
-        "sarangi",
         "takht_arab",
         "kanun",
         "violin_orchestral"
@@ -18196,7 +18190,7 @@
       "id": "persian_pop_los_angeles",
       "name": "Tehrangeles Persian pop",
       "family": "global",
-      "lineage": "Iranian-diaspora Los Angeles-recorded pop tradition codified by the post-1979-revolution émigré recording industry centered on Westwood / Tarzana — Andy and Kouros, Moein, Dariush, Googoosh’s post-2000 return, with characteristic Farsi-language vocals over Westernized pop-rock production",
+      "lineage": "Iranian-diaspora Los Angeles-recorded pop tradition (1980-1995) codified by the post-1979-revolution émigré recording industry centered on Westwood / Tarzana — Andy and Kouros, Moein, Dariush, Googoosh’s post-2000 return, with characteristic Farsi-language vocals over Westernized pop-rock production",
       "parent": "functionalSong.midEastNAfricanPop",
       "axes": [
         1,
@@ -18421,7 +18415,7 @@
       "id": "pure_land_buddhist",
       "name": "Pure Land Buddhist chant",
       "family": "global",
-      "lineage": "East-Asian Pure-Land (Jingtu / Jodo) devotional chant tradition centered on the Amitabha nembutsu (recitation of Amitabha’s name) — codified through 5th-century Chinese teacher Tan Luan, formalized as separate school by Shan Tao (613-681), then Honen (1133-1212) establishing Jōdo-shū in Japan, and Shinran (1173-1263) founding Jōdo Shinshū; characterized by repetitive nianfo / nembutsu name-chanting practice in slow-tempo melismatic delivery",
+      "lineage": "East-Asian Pure-Land (Jingtu / Jodo) devotional chant tradition centered on the Amitabha nembutsu (recitation of Amitabha’s name) — codified through 5th-century Chinese teacher Tan Luan, formalized as separate school by Shan Tao (613-681), studio-recorded 1960-1980, then Honen (1133-1212) establishing Jōdo-shū in Japan, and Shinran (1173-1263) founding Jōdo Shinshū; characterized by repetitive nianfo / nembutsu name-chanting practice in slow-tempo melismatic delivery",
       "parent": "ritualDevotional.buddhist",
       "axes": [
         -2,
@@ -19094,7 +19088,7 @@
       "id": "bengali_baul",
       "name": "Bengali baul (mystic-itinerant song)",
       "family": "global",
-      "lineage": "Lalon-Shah-lineage Bengali mystic-itinerant tradition (Lalon Fakir, c. 1774-1890, the foundational figure) — codified through the Kenduli Mela annual Baul gathering, the Bardhaman district teaching lineages, and the 20th-century preservation work of Purna Das Baul; characterized by ektara-or-dotara-and-khamak accompaniment, Sufi-Vaishnav-Tantric syncretic philosophy, and the wandering-mendicant performance context",
+      "lineage": "Lalon-Shah-lineage Bengali mystic-itinerant tradition, studio-recorded 1970-1990 (Lalon Fakir, c. 1774-1890, the foundational figure) — codified through the Kenduli Mela annual Baul gathering, the Bardhaman district teaching lineages, and the 20th-century preservation work of Purna Das Baul; characterized by ektara-or-dotara-and-khamak accompaniment, Sufi-Vaishnav-Tantric syncretic philosophy, and the wandering-mendicant performance context",
       "parent": "balladPoetry.indianBard",
       "axes": [
         -2,
@@ -21209,7 +21203,7 @@
       "id": "chinese_kunqu_opera",
       "name": "Chinese kunqu opera",
       "family": "classical",
-      "lineage": "Chinese kunqu opera. Kunqu crystallized in the Kunshan region (south of Suzhou, Jiangsu province) during the late Ming dynasty (sixteenth century) under the founding theorist-composer Wei Liangfu (c.1489-1566), who codified the kunqu-tunes system based on the older Kunshan-region folk-tune vocabulary. The genre flourished through the Ming-Qing transition as the dominant elite-class theatrical-and-musical form, with the canonical play-cycles of the Mudan Ting (Peony Pavilion, 1598, Tang Xianzu) and Changsheng Dian (Palace of Eternal Life, 1688, Hong Sheng) constituting the core repertoire. Performance integrates singing, stylized dance-movement, recited dialogue, and instrumental accompaniment in a fully-integrated theatrical form. Vocal style features wide melisma, characteristic dyhayou portamento sliding-pitch ornament, and an elaborate ornament-vocabulary tied to specific text-tones and emotion-categories. The accompanying ensemble centers on the qudi flute (the principal melodic carrier, a transverse bamboo flute), sanxian (three-string plucked lute), pipa (four-string pear-shaped plucked lute), and a percussion battery for theatrical-cue work. The mid-twentieth-century cultural-revolutionary period nearly extinguished the form; the post-1980 revival under conservatory programs and the touring company circuit has restored continuity. Yu Zhenfei (1902-1993) is among the twentieth-century canonical performers. Distinguished from later Beijing opera (jingju) by kunqu's elite-literary-elegant register and slower tempo; distinguished from Cantonese opera (yueju) by Wu-Mandarin lyric-language and Jiangnan-region cadential conventions.",
+      "lineage": "Chinese kunqu opera. Kunqu crystallized in the Kunshan region (south of Suzhou, Jiangsu province) during the late Ming dynasty (1550-1560, sixteenth century) under the founding theorist-composer Wei Liangfu (c.1489-1566), who codified the kunqu-tunes system based on the older Kunshan-region folk-tune vocabulary. The genre flourished through the Ming-Qing transition as the dominant elite-class theatrical-and-musical form, with the canonical play-cycles of the Mudan Ting (Peony Pavilion, 1598, Tang Xianzu) and Changsheng Dian (Palace of Eternal Life, 1688, Hong Sheng) constituting the core repertoire. Performance integrates singing, stylized dance-movement, recited dialogue, and instrumental accompaniment in a fully-integrated theatrical form. Vocal style features wide melisma, characteristic dyhayou portamento sliding-pitch ornament, and an elaborate ornament-vocabulary tied to specific text-tones and emotion-categories. The accompanying ensemble centers on the qudi flute (the principal melodic carrier, a transverse bamboo flute), sanxian (three-string plucked lute), pipa (four-string pear-shaped plucked lute), and a percussion battery for theatrical-cue work. The mid-twentieth-century cultural-revolutionary period nearly extinguished the form; the post-1980 revival under conservatory programs and the touring company circuit has restored continuity. Yu Zhenfei (1902-1993) is among the twentieth-century canonical performers. Distinguished from later Beijing opera (jingju) by kunqu's elite-literary-elegant register and slower tempo; distinguished from Cantonese opera (yueju) by Wu-Mandarin lyric-language and Jiangnan-region cadential conventions.",
       "parent": "artMusic.eastAsian",
       "axes": [
         1,
@@ -22533,8 +22527,7 @@
       "instruments": [
         "voice",
         "talking_drum",
-        "agogo",
-        "shawm"
+        "agogo"
       ],
       "description": "Yoruba apàlà percussion-and-vocal genre originating in 1930s-1940s Ibadan as a Muslim-Yoruba devotional-and-praise music for post-Ramadan ìdí-l-Fitr celebrations. Performance centers on male lead singer with a battery of dùndún talking-drums (iyaalu mother-drum plus gangan pressure-drums), agogo bell, sekere shaker, and chorus response. The talking-drum lineage carries percussive-and-melodic-allusion content through standardized Yoruba drum-language. Distinguished from sákárà by apàlà's dùndún-talking-drum (vs sákárà's frame-drum-with-shawm) instrumental signature. Direct ancestor of later fuji genre.",
       "exemplars": [
@@ -23650,7 +23643,7 @@
       ],
       "instruments": [
         "voice",
-        "tabla",
+        "mridangam",
         "tanpura"
       ],
       "description": "Telugu kirtana devotional-song genre within the broader Carnatic classical tradition of South India, with Telugu serving as the dominant lyrical language of the Carnatic kriti repertoire. The Telugu-language compositions of the Carnatic Trinity Tyagaraja (1767-1847), Muthuswami Dikshitar (1775-1835), and Syama Sastri (1762-1827) form the canonical core of the entire Carnatic concert repertoire. Performance follows the standard Carnatic kriti structure (pallavi-anupallavi-charanam) with raga-and-tala framework. The Tyagaraja Aradhana annual festival at Tiruvaiyaru constitutes the central institutional anchor of the kriti performance tradition.",
@@ -24030,7 +24023,7 @@
       ],
       "instruments": [
         "voice",
-        "shakuhachi"
+        "taiko_drum"
       ],
       "description": "Japanese Noh utai sung-and-chanted vocal tradition of the canonical Noh theatre form, codified in the fourteenth-fifteenth centuries by Zeami Motokiyo (1363-1443). Performance integrates the male shite-actor's utai chant (the central narrative-and-character voice) with the jiutai chorus (typically eight male singers seated stage-right), supported by the hayashi instrumental ensemble (nohkan flute, ko-tsuzumi shoulder-drum, o-tsuzumi hip-drum, taiko stick-drum). Vocal architecture features extremely slow tempi, characteristic narrow-range melodic vocabulary in the yowagin \"weak-style\" and tsuyogin \"strong-style\" registers, with strictly codified breath-pause and vibrato conventions.",
       "exemplars": [
@@ -24103,7 +24096,6 @@
       ],
       "instruments": [
         "voice",
-        "sanxian",
         "taiko_drum",
         "shamisen"
       ],
@@ -25986,7 +25978,7 @@
       "id": "balkan_brass_fanfara",
       "name": "Balkan brass (fanfara, Roma-Serbian-Macedonian)",
       "family": "global",
-      "lineage": "Balkan brass ensemble tradition of southern Serbia (Vranje, Užice regions), western Bulgaria, and northern Macedonia, performed by predominantly Roma musicians at weddings, funerals, and the canonical annual Guča Brass Band Festival in southern Serbia (founded 1961). Performance configuration: ensemble of 6-12 brass instruments (trumpets, trombones, tubas, flugelhorns) plus tapan large frame-drum, playing characteristic Balkan asymmetrical-meter (5/8, 7/8, 9/8, 11/8) rhythmic-cycles with virtuosic ornamental melodic-line. The genre crystallized in nineteenth-century Ottoman-period military-band tradition adapted into the post-Ottoman Balkan civilian-popular-celebration context. Distinguished from neighboring Albanian saze and Greek nisiotika by Balkan brass's brass-ensemble (vs string-and-clarinet) instrumental signature.",
+      "lineage": "Balkan brass ensemble tradition of southern Serbia (Vranje, Užice regions), western Bulgaria, and northern Macedonia, performed by predominantly Roma musicians at weddings, funerals, and the canonical annual Guča Brass Band Festival in southern Serbia (founded 1961). Performance configuration: ensemble of 6-12 brass instruments (trumpets, trombones, tubas, flugelhorns) plus tapan large double-headed cylindrical drum, playing characteristic Balkan asymmetrical-meter (5/8, 7/8, 9/8, 11/8) rhythmic-cycles with virtuosic ornamental melodic-line. The genre crystallized in nineteenth-century Ottoman-period military-band tradition adapted into the post-Ottoman Balkan civilian-popular-celebration context. Distinguished from neighboring Albanian saze and Greek nisiotika by Balkan brass's brass-ensemble (vs string-and-clarinet) instrumental signature.",
       "parent": "functionalSong.europop",
       "axes": [
         1,
@@ -26998,7 +26990,7 @@
       "id": "bolero_mexicano",
       "name": "Bolero mexicano",
       "family": "pop",
-      "lineage": "Mexican adaptation of the broader Latin-American bolero, developed in mid-twentieth-century Mexico City through Agustín Lara (1897-1970) and the 1940s-1950s Mexican-cinema golden-age. Solo voice with piano-or-trio accompaniment, slow 2/4 meter with the canonical bolero rhythmic figure, intensely romantic-melancholic register. Distinguished from Cuban bolero by Mexican-Spanish lyrical register and elaborate harmonic-vocabulary.",
+      "lineage": "Mexican adaptation of the broader Latin-American bolero, developed in mid-twentieth-century Mexico City through Agustín Lara (born 1897) and the 1940s-1950s Mexican-cinema golden-age. Solo voice with piano-or-trio accompaniment, slow 2/4 meter with the canonical bolero rhythmic figure, intensely romantic-melancholic register. Distinguished from Cuban bolero by Mexican-Spanish lyrical register and elaborate harmonic-vocabulary.",
       "parent": "functionalSong.mexican",
       "axes": [
         1,
@@ -27399,7 +27391,7 @@
       "id": "chutney_indo_caribbean",
       "name": "Chutney (Indo-Caribbean)",
       "family": "global",
-      "lineage": "Indo-Caribbean Trinidadian-and-Guyanese popular-music developed in late-twentieth-century Trinidad from synthesis of Bhojpuri-Hindi folk-song of the post-1845 Indian-indentured-laborer community with Trinidadian calypso-and-soca. Voice (often female), dholak, dhantal, tassa, electric-instruments. Sundar Popo's 1968 \"Nana and Nani\" is the canonical foundational chutney recording.",
+      "lineage": "Indo-Caribbean Trinidadian-and-Guyanese popular-music developed in late-twentieth-century Trinidad from synthesis of Bhojpuri-Hindi folk-song of the post-indenture Indian-laborer community with Trinidadian calypso-and-soca. Voice (often female), dholak, dhantal, tassa, electric-instruments. Sundar Popo's 1968 \"Nana and Nani\" is the canonical foundational chutney recording.",
       "parent": "functionalSong.southAsianPop",
       "axes": [
         1,
@@ -27516,7 +27508,7 @@
       "id": "garifuna_punta_rock",
       "name": "Garifuna punta-rock (Belize/Honduras modern)",
       "family": "global",
-      "lineage": "Modern-popular variant of older Garifuna punta dance-tradition, developed in 1970s-1980s Belize and Honduras. Pen Cayetano (born 1954, Dangriga) developed the punta-rock sound in mid-1970s; Andy Palacio (1960-2008) extended internationally through his 2007 Wátina album (Stonetree Records). Electric instruments alongside Garifuna traditional drums (primero, segunda, tercero) and shaker.",
+      "lineage": "Modern-popular variant of older Garifuna punta dance-tradition, developed in 1970s-1980s Belize and Honduras. Pen Cayetano (born 1954, Dangriga) developed the punta-rock sound in mid-1970s; Andy Palacio (born 1960) extended internationally through his 2007 Wátina album (Stonetree Records). Electric instruments alongside Garifuna traditional drums (primero, segunda, tercero) and shaker.",
       "parent": "functionalSong.tropicalSong",
       "axes": [
         0,
@@ -31566,7 +31558,7 @@
       "id": "east_coast_hip_hop_classic",
       "name": "East Coast hip-hop (classic NY)",
       "family": "hip_hop",
-      "lineage": "New York City classic hip-hop tradition encompassing Bronx-origin 1970s breakbeat-DJ-and-MC culture through 1990s \"golden age\" of Native Tongues, Boom Bap, and Wu-Tang Clan-led hardcore-NY sound. Characterized by sample-based production drawing on jazz, soul, and funk record collections, virtuoso lyrical-technique emphasis, and dense urban-NY cultural-narrative content. The Premier-Pete-Rock-RZA production lineage and the canonical Rakim-Nas-Biggie-Jay-Z MC tradition define the canonical East Coast aesthetic.",
+      "lineage": "New York City classic hip-hop tradition encompassing Bronx-origin 1970s-era breakbeat-DJ-and-MC culture through 1990s \"golden age\" of Native Tongues, Boom Bap, and Wu-Tang Clan-led hardcore-NY sound. Characterized by sample-based production drawing on jazz, soul, and funk record collections, virtuoso lyrical-technique emphasis, and dense urban-NY cultural-narrative content. The Premier-Pete-Rock-RZA production lineage and the canonical Rakim-Nas-Biggie-Jay-Z MC tradition define the canonical East Coast aesthetic.",
       "parent": "mcRhythm.usHipHop.eastCoast",
       "axes": [
         1,
@@ -31848,7 +31840,7 @@
       "id": "houston_chopped_screwed",
       "name": "Houston chopped and screwed",
       "family": "hip_hop",
-      "lineage": "Houston Texas hip-hop production-style invented by DJ Screw (1971-2000) in early 1990s, in which existing hip-hop tracks are slowed dramatically (typically to 60-70% of original tempo) and chopped (rearranged in cut-and-paste sequence with repeats and skips). DJ Screw's Screwed Up Click crew (including Lil' Keke, Big Moe, Z-Ro, Lil' Flip) defined the canonical roster. Distinguished by the chopped-and-screwed technique's production-method-as-genre identity.",
+      "lineage": "Houston Texas hip-hop production-style invented by DJ Screw (born 1971) in early 1990s, in which existing hip-hop tracks are slowed dramatically (typically to 60-70% of original tempo) and chopped (rearranged in cut-and-paste sequence with repeats and skips). DJ Screw's Screwed Up Click crew (including Lil' Keke, Big Moe, Z-Ro, Lil' Flip) defined the canonical roster. Distinguished by the chopped-and-screwed technique's production-method-as-genre identity.",
       "parent": "mcRhythm.usHipHop.southern",
       "axes": [
         0,
@@ -33703,7 +33695,7 @@
       "id": "bassline_uk",
       "name": "Bassline (UK Sheffield-Niche)",
       "family": "electronic",
-      "lineage": "Mid-2000s UK garage subgenre developed in Sheffield through the Niche nightclub scene (active 1992-2005). Characterized by aggressive 4×4 garage rhythmic foundation, hyperactive bass-line designs, and explicit Yorkshire-northern-English MC vocal-delivery. The 2008 closure of Niche and police-action against the scene defined a peak-and-collapse cycle; T2's \"Heartbroken\" (2007) constitutes the canonical commercial-mainstream bassline track.",
+      "lineage": "Mid-2000s UK garage subgenre developed in Sheffield through the Niche nightclub scene (active from 1992 to 2005). Characterized by aggressive 4×4 garage rhythmic foundation, hyperactive bass-line designs, and explicit Yorkshire-northern-English MC vocal-delivery. The 2008 closure of Niche and police-action against the scene defined a peak-and-collapse cycle; T2's \"Heartbroken\" (2007) constitutes the canonical commercial-mainstream bassline track.",
       "parent": "bassSystem.ukSoundsystem",
       "axes": [
         1,
@@ -38066,8 +38058,7 @@
         "sheng",
         "dizi",
         "erhu",
-        "pipa",
-        "shawm"
+        "pipa"
       ],
       "description": "The Chinese xǐqìng (喜慶, \"wedding-celebration\") music tradition continuous from imperial-era Chinese ceremonial-music practice through Republican-period and post-1949 evolution into modern Chinese-Mandarin-speaking domestic practice across mainland China, Taiwan, and Chinese-diaspora communities; the suona (Chinese shawm — though absent from this catalog so substituted with sheng-and-dizi-and-erhu ensemble) is the canonical wedding-music instrument providing the loud-outdoor-celebratory melodic foreground. Defined by Chinese pentatonic (gong-shang-jue-zhi-yu) melodic vocabulary, characteristic xǐqìng repertoire including \"Bǎi Niǎo Cháo Fèng\" (百鸟朝凤, \"Hundred Birds Worship the Phoenix\") suona-canonical, percussion-and-gong-and-cymbal accompaniment ensemble providing rhythmic foundation, ceremonial-and-festive dual-function repertoire arrangement, Mandarin-Putonghua text register.",
       "exemplars": [

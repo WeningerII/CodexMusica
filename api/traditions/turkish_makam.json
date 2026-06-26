@@ -3,9 +3,9 @@
   "name": "Turkish makam (classical)",
   "family": "classical",
   "lineage": "Ottoman-Turkish classical music tradition (Klasik Türk müziği) descended from the Ottoman court tradition and Mevlevi (Sufi whirling-dervish) ceremonial repertoire, organized through the makam modal system (~600 documented makams, ~150 in active use) and the usul (rhythmic-cycle) system; figures: Itri (1640-1712), Hammamizade İsmail Dede Efendi (1778-1846), and the modern recording-era voices Münir Nurettin Selçuk, Safiye Ayla, Zeki Müren",
-  "recipe": "classic North American early-1640s turkish makam, art Music, middle eastern classical branch, Persian arab improv improv on frame tarab malhun. vocal fry, low dynamic level, chest resonance low mid, punctuated. rosewood premium iraqi Turkish Lebanese cedar eastern Mediterranean pyramid oud, metal finger picks maple body Turkish school qanun, arundo donax cane canonical Persian nine segment mevlevi Sufi konya tradition Turkish ney continuous-airflow legato ney, plum walnut ottoman legato kemence, continuous-airflow legato mey, apricot canonical anatolian ottoman arundo donax metal staple canonical ottoman zurna, kanun kanun, tanbur persian. istanbul recording canon 1955-present mid tier istanbul makam kilic ali pasha studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 865,
-  "score": 642.105,
+  "recipe": "classic Middle Eastern early-1640s turkish makam, art Music, middle eastern classical branch, Persian arab improv improv on frame tarab malhun. vocal fry, low dynamic level, chest resonance low mid, punctuated. rosewood premium iraqi Turkish Lebanese cedar eastern Mediterranean pyramid oud, metal finger picks maple body Turkish school qanun, arundo donax cane canonical Persian nine segment mevlevi Sufi konya tradition Turkish ney continuous-airflow legato ney, plum walnut ottoman legato kemence, continuous-airflow legato mey, apricot canonical anatolian ottoman arundo donax metal staple canonical ottoman zurna, tanbur persian. istanbul recording canon 1955-present mid tier istanbul makam kilic ali pasha studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 852,
+  "score": 598.297,
   "config": {
     "traditions": [
       "turkish_makam",
@@ -163,19 +163,6 @@
         }
       },
       {
-        "id": "kanun",
-        "slots": {
-          "plucked_traditional_technique": "plucked_classical_idiom",
-          "kanun_school": "kanun_turkish",
-          "kanun_articulation": "kanun_tortoiseshell_pick"
-        },
-        "scores": {
-          "plucked_traditional_technique": 24.374999999999993,
-          "kanun_school": 18.912999999999997,
-          "kanun_articulation": 0.5199999999999999
-        }
-      },
-      {
         "id": "tanbur_persian",
         "slots": {
           "plucked_traditional_technique": "plucked_classical_idiom",
@@ -234,8 +221,6 @@
       "qanun_body_wood": "qanun_walnut_body",
       "qanun_bridge_skin": "qanun_fish_skin_bridge",
       "qanun_string_material": "qanun_nylon_modern",
-      "kanun_school": "kanun_turkish",
-      "kanun_articulation": "kanun_tortoiseshell_pick",
       "tanbur_use": "tanbur_sufi",
       "tanbur_persian_strings": "tanbur_persian_six",
       "tanbur_persian_body_wood": "tanbur_mulberry_body",

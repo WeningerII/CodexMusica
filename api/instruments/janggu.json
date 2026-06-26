@@ -121,7 +121,7 @@
         {
           "id": "janggu_horse_dog_asymmetric",
           "default": true,
-          "name": "Horse-hide (puk treble) + dog-hide (chae bass) — canonical asymmetric Korean",
+          "name": "Horse-hide (puk/left bass) + dog-hide (chae/right treble) — canonical asymmetric Korean",
           "descriptors": [
             "horse-dog-asymmetric-canonical-korean"
           ],
@@ -291,7 +291,7 @@
         {
           "id": "janggu_horse_dog_asymmetric",
           "default": true,
-          "name": "Horse-hide (puk treble) + dog-hide (chae bass) — canonical asymmetric Korean",
+          "name": "Horse-hide (puk/left bass) + dog-hide (chae/right treble) — canonical asymmetric Korean",
           "descriptors": [
             "horse-dog-asymmetric-canonical-korean"
           ],

@@ -5,7 +5,7 @@
   "lineage": "Renaissance secular polyphonic vocal genre developed in sixteenth-century Italy through Jacques Arcadelt, Adrian Willaert, and culminating in Carlo Gesualdo (1566-1613) and Claudio Monteverdi (1567-1643). Set Italian secular poetry in elaborate four-to-six-voice polyphonic textures with characteristic word-painting and increasingly chromatic harmonic vocabulary (especially in Gesualdo). The English madrigal school (Thomas Morley, John Wilbye, Thomas Weelkes) flourished briefly in 1580s-1610s as an Italian-derived English adaptation. Direct precursor to Baroque secular cantata and opera.",
   "recipe": "classic North American early-1560s renaissance madrigal, art Music, western early branch, Mediterranean ballad ballad poetry croatian klapa dalmatian close-harmony kabyle music. thick, low dynamic level, chest resonance low mid, hocket articulation. a cappella small 3 to 8 one per part four voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble. shoebox concert hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 565,
-  "score": 192.218,
+  "score": 192.368,
   "config": {
     "traditions": [
       "renaissance_madrigal",
@@ -43,7 +43,7 @@
           "voice_microtone": 3.545,
           "voice_tradition": 20.409999999999997,
           "voice_mechanism_compound": 8.32,
-          "voice_estill_quality": 21.619999999999997,
+          "voice_estill_quality": 21.769999999999996,
           "voice_speech_song": 17.095000000000002,
           "voice_ensemble_config": 25.740000000000002,
           "voice_ornament_system": 18,

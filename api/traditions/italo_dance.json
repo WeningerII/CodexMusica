@@ -5,7 +5,7 @@
   "lineage": "Late-1990s through early-2000s Italian commercial-dance genre evolved from italo-disco through eurodance, characterized by accelerated 140-150 bpm tempo, melodic synth-lead lines, and earnest pop-vocal hooks — codified through Eiffel 65 (Blue 1999), Gigi D'Agostino (L'Amour Toujours 1999, La Passion 2000), DJ Lhasa, Prezioso, with the genre serving as a distinct continental commercial-dance regional scene",
   "recipe": "classic 1997-1999 italo dance, electronic Dance, eurodance branch, continental electronic dance disco. thick, chest mix belt, melodic, narrative. singing lead digital subtractive, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, TR-909, melodic orchestral imitation pitched sampler. treated studio. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
   "recipe_chars": 533,
-  "score": 165.27,
+  "score": 165.413,
   "config": {
     "traditions": [
       "italo_dance",
@@ -46,7 +46,7 @@
           "voice_speech_song": 7.344999999999999,
           "voice_ensemble_config": 7.214999999999998,
           "voice_ornament_system": 6.8999999999999995,
-          "voice_pitch_organization": 1.07525,
+          "voice_pitch_organization": 1.2177499999999999,
           "voice_processing_chain": 10.295,
           "voice_multitrack_stack": 4.32625
         }

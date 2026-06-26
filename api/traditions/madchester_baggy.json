@@ -5,7 +5,7 @@
   "lineage": "Late-1980s-and-early-1990s Manchester-based British rock-and-dance subgenre synthesizing indie-rock with acid-house club rhythmic-influence. The Stone Roses, Happy Mondays, Inspiral Carpets, the Charlatans, and James constitute the canonical roster; the Hacienda nightclub (Manchester, opened 1982) provided the canonical performance venue. The 1989 Stone Roses self-titled debut and the parallel Happy Mondays Bummed (1988) consolidated the canonical sound.",
   "recipe": "classic British 1987-1989 madchester / baggy, distorted Rock, alternative branch, house electronic dance deep house tech-house. thick, blues-shouter, nervy, narrative. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character ernie ball slinky electric bass, vintage ambassador asymmetric machine hammered symmetric pattern organized rows drum kit, sound design field sampler. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb chorus flanger.",
   "recipe_chars": 730,
-  "score": 327.52,
+  "score": 332.887,
   "config": {
     "traditions": [
       "madchester_baggy",
@@ -48,8 +48,8 @@
           "voice_ensemble_config": 15.404999999999998,
           "voice_ornament_system": 0.6499999999999999,
           "voice_pitch_organization": 5.739999999999999,
-          "voice_processing_chain": 9.92,
-          "voice_multitrack_stack": 5.4350000000000005
+          "voice_processing_chain": 11.170000000000002,
+          "voice_multitrack_stack": 6.835000000000001
         }
       },
       {
@@ -124,7 +124,7 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 29.244999999999997,
+          "percussion_technique": 30.494999999999997,
           "shell_wood": 0.65,
           "shell_thickness": 0.24,
           "bearing_edges": 0.585,
@@ -151,7 +151,7 @@
           "sampler_archetypes": 0.65,
           "sampler_bit_depth": 0.9099999999999999,
           "sampler_workflow": 1.4849999999999999,
-          "sampler_classic_context": 48.5875
+          "sampler_classic_context": 50.055
         }
       }
     ],

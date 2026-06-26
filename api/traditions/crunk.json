@@ -3,9 +3,9 @@
   "name": "Crunk (early 2000s Memphis-Atlanta)",
   "family": "hip_hop",
   "lineage": "Early-2000s Memphis-and-Atlanta hip-hop subgenre characterized by simple-aggressive shouted-call-and-response vocal-delivery, hyperactive drum-machine production with 808 bass emphasis, and explicit club-anthem function. Lil Jon and the East Side Boyz (Atlanta 1997-onward) inaugurated the canonical sound; Three 6 Mafia, Ying Yang Twins, and the broader BME Recordings roster constitute the canonical roster. The 2003 \"Get Low\" hit consolidated commercial peak.",
-  "recipe": "classic Los Angeles crunk, mc Rhythm, southern branch, west African groove percussion mbalax indonesian jaipongan. vocal fry, rap, chest resonance low mid, narrative. TR-808, fast decay focused low sub bass analog synth. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
-  "recipe_chars": 398,
-  "score": 146.042,
+  "recipe": "classic Southern American crunk, mc Rhythm, southern branch, west African groove percussion mbalax indonesian jaipongan. vocal fry, rap, chest resonance low mid, narrative. TR-808, fast decay focused low sub bass analog synth. vocal booth isolated 2010-present mid-major atlanta trap commercial. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
+  "recipe_chars": 420,
+  "score": 145.479,
   "config": {
     "traditions": [
       "crunk",
@@ -83,8 +83,8 @@
         }
       }
     ],
-    "room": "studio_la_rock_70s_90s",
-    "archetype": "arch_70s_la_rock_commercial",
+    "room": "studio_atlanta_trap_commercial",
+    "archetype": "arch_atlanta_trap_2010s",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "pre_neve_1073_input",
@@ -101,7 +101,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "studio_la_rock_70s_90s",
+    "room": "studio_atlanta_trap_commercial",
     "parts": {
       "voice_register": "chest_voice",
       "voice_quality": "rap_voice",

@@ -3,8 +3,8 @@
   "name": "Tango traditional (orquesta típica era)",
   "family": "global",
   "lineage": "Pre-1955 Buenos-Aires-and-Montevideo orquesta-típica golden-age tradition of the 1940s-decade-of-the-orchestras D'Arienzo-Troilo-Pugliese-Di-Sarli-stylistic-spectrum. The standard ten-piece orquesta-típica configuration: four bandoneóns leading-and-bellows-articulated-counter-melody, four violins (with one rotated to viola for chamber-thickness), upright-bass marking the strong-beats, and piano providing harmonic-rhythmic-anchor. Built on the 2/4 four-strong-beat (D'Arienzo marcato) versus 4/4 elongated-phrasing (Pugliese yumba-and-rubato) tempo-philosophy split that defines tango interpretation. The repertoire layers tango-instrumental, tango-canción with sung-poetic-lunfardo-slang lyrics, vals-criollo Argentine-waltz, and milonga-fast pace variant.",
-  "recipe": "classic mid-1940s tango traditional, ballad Poetry, Latin am troubadour branch, Latin am groove percussion joropo vallenato. sygyt, forward-resonance, pure, narrative. tango virtuoso premier German tango premium alternative steel reeds canonical aa pre 1949 voicing bellows articulated bandoneon, synthetic sitka spruce European maple sycamore maple cremonese pre 1750 violin orchestral, upright piano, upright bass. large tracking room 1920-1965 mid tier odeon rca buenos aires. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 552,
+  "recipe": "classic South American mid-1940s tango traditional, ballad Poetry, Latin am troubadour branch, Latin am groove percussion joropo vallenato. sygyt, forward-resonance, pure, narrative. tango virtuoso premier German tango premium alternative steel reeds canonical aa pre 1949 voicing bellows articulated bandoneon, synthetic sitka spruce European maple sycamore maple cremonese pre 1750 violin orchestral, upright piano, upright bass. large tracking room 1920-1965 mid tier odeon rca buenos aires. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 567,
   "score": 145.59,
   "config": {
     "traditions": [
@@ -91,7 +91,7 @@
           "orch_varnish": 4.13,
           "orch_setup_period": 3.4449999999999994,
           "orch_bow": 2.6,
-          "orch_bow_stick": -5.551115123125783e-17,
+          "orch_bow_stick": -3.8857805861880476e-17,
           "orch_articulation": 0.48,
           "orch_rosin": 1.4299999999999997
         }

@@ -3,9 +3,9 @@
   "name": "Ska and rocksteady",
   "family": "global",
   "lineage": "Jamaican ska (1959-1965, fast-tempo guitar-upbeat horn-section-foregrounded dance music) and its slower-tempo derivation rocksteady (1965-1968) — codified at Studio One, Treasure Isle, and Federal through the Skatalites (Tommy McCook, Don Drummond, Roland Alphonso, Lloyd Knibb, the ska house band), Prince Buster, Toots and the Maytals, the Wailers (early-period), Alton Ellis (Get Ready Rocksteady), Ken Boothe, the Heptones; preceded reggae and remains foundational to the broader Jamaican popular music lineage",
-  "recipe": "classic tropical mid-1960s ska and rocksteady, bass System, Jamaican branch, Caribbean groove percussion calypso zydeco. thick, forward-resonance, melodic, punctuated. ebony open string slide resonance single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character alder pyramid electric bass, bronze bell bronze over hammered post lathe strikes pin lathed drum kit, Hammond a 100 built in Leslie home spinet tonewheel organ, bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn trumpet, rose brass darker warmer saxophone, bach 42 canonical American orchestral tenor bass trombone trombone. Kingston studio one defining 1959-2004 indie-commercial kingston studio one brentford road. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 847,
-  "score": 255.175,
+  "recipe": "classic Caribbean mid-1960s ska and rocksteady, bass System, Jamaican branch, Caribbean groove percussion calypso zydeco. thick, forward-resonance, melodic, punctuated. ebony open string slide resonance single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character alder pyramid electric bass, bronze bell bronze over hammered post lathe strikes pin lathed drum kit, Hammond a 100 built in Leslie home spinet tonewheel organ, bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn trumpet, rose brass darker warmer saxophone, bach 42 canonical American orchestral tenor bass trombone trombone. Kingston studio one defining 1959-2004 indie-commercial kingston studio one brentford road. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 848,
+  "score": 255.465,
   "config": {
     "traditions": [
       "ska_rocksteady",
@@ -174,7 +174,7 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
@@ -192,7 +192,7 @@
           "voice_ensemble_config": 17.809999999999995,
           "voice_ornament_system": 1.65,
           "voice_pitch_organization": 1.8399999999999999,
-          "voice_processing_chain": 4.325,
+          "voice_processing_chain": 4.614999999999999,
           "voice_multitrack_stack": 2.0799999999999996
         }
       },

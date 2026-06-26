@@ -5,7 +5,7 @@
   "lineage": "Lush orchestral soul codified at Sigma Sound Studios Philadelphia 1971-1980 under Kenny Gamble and Leon Huffs Philadelphia International Records label with the MFSB rhythm section (Mother Father Sister Brother) as house band — The OJays Backstabbers and Love Train, Harold Melvin and the Blue Notes If You Dont Know Me by Now, MFSB TSOP, Spinners, Three Degrees, Patti LaBelle",
   "recipe": "classic North American mid-1970s philadelphia international soul, functional Song, soul R&B branch, pop rock functional song, continental electronic dance new wave yacht rock. thick, blues-shouter, chest resonance low mid, narrative. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character mahogany ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, neoprene rubber tips canonical Rhodes stage suitcase mid 1970s block chord rhodes electric, Hammond b3 canonical 1955 1975 jazz gospel rock standard block chord fast tremolo tonewheel organ, rectified machine polished hard rock maple acer saccharum synthetic varnish violin orchestral, tenor nickel silver bright projecting ensemble honking saxophone.",
   "recipe_chars": 968,
-  "score": 833.231,
+  "score": 832.841,
   "config": {
     "traditions": [
       "philly_soul_intl",
@@ -131,7 +131,7 @@
           "rhodes_use": "rhodes_soul",
           "rhodes_tine_material": "rhodes_mark7_modern_tine",
           "rhodes_hammer_tip": "rhodes_neoprene_hammer_tip",
-          "rhodes_pickup_position": "rhodes_pickup_close_bark"
+          "rhodes_pickup_position": "rhodes_pickup_far_bell"
         },
         "scores": {
           "keyboard_technique": 16.149999999999995,
@@ -139,7 +139,7 @@
           "rhodes_use": 3.12,
           "rhodes_tine_material": -0.175,
           "rhodes_hammer_tip": 1.95,
-          "rhodes_pickup_position": 0.78
+          "rhodes_pickup_position": 0.39
         }
       },
       {
