@@ -3,8 +3,8 @@
   "name": "Faroese kvæði (chain-dance ballad and domestic song)",
   "family": "global",
   "lineage": "Faroese kvæði (chain-dance ballad and broader domestic song) tradition continuous from medieval-Faroese narrative-ballad practice through 17th-18th-century continuous performance into modern Faroese continuous practice; the kvæði integrates medieval-Norse-and-Faroese narrative-balladry with characteristic Faroese chain-dance domestic-and-community ritual",
-  "recipe": "classic modern faroese kvæði, domestic Rhythm, east Asian arctic branch, Celtic hebridean domestic rhythm, Celtic balladic ballad poetry, European wedding irish spinning song sean-nós solo singing. vocal fry, low dynamic level, tasteful, continuous-phonation. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 398,
+  "recipe": "classic North American modern faroese kvæði, domestic Rhythm, east Asian arctic branch, Celtic hebridean domestic rhythm, Celtic balladic ballad poetry, European wedding irish spinning song sean-nós solo singing. vocal fry, low dynamic level, tasteful, continuous-phonation. newfoundland outport kitchen party. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 440,
   "score": 116.358,
   "config": {
     "traditions": [
@@ -53,7 +53,7 @@
         }
       }
     ],
-    "room": "untreated_bedroom",
+    "room": "newfoundland_outport_kitchen_party",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -71,7 +71,7 @@
   },
   "source": {
     "tuning": "nordic_modal_drone_double_stops",
-    "room": "untreated_bedroom",
+    "room": "newfoundland_outport_kitchen_party",
     "parts": {
       "voice_articulation": "call_response_voice",
       "voice_speech_song": "voice_syllabic_singing",

@@ -3,9 +3,9 @@
   "name": "Beneventan chant (southern Italian)",
   "family": "classical",
   "lineage": "Pre-Gregorian liturgical chant tradition of Benevento and southern Italian Lombard-Beneventan duchies (sixth-thirteenth centuries), preserved fragmentarily in Beneventan-script manuscripts of the Benevento Cathedral Library and Montecassino Abbey. Replaced by Roman-rite Gregorian chant after eleventh-century imposition, but with significant Beneventan-melodic-material absorbed into the broader Italian Gregorian recension. Distinguished from Gregorian by Beneventan's distinct melodic style, narrower range, characteristic ornamental conventions, and Lombard-script notational tradition.",
-  "recipe": "classic North American mid-1970s beneventan chant, ritual Devotional, christian gospel branch, western early art music ars antiqua and organum renaissance sacred polyphony. thick, declaimed, melodic, ornamental. mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. parish church. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 514,
-  "score": 188.243,
+  "recipe": "classic mid-1910s beneventan chant, ritual Devotional, christian gospel branch, western early art music ars antiqua and organum renaissance sacred polyphony. thick, declaimed, melodic, ornamental. mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. parish church. acoustic horn. 78rpm shellac.",
+  "recipe_chars": 397,
+  "score": 181.943,
   "config": {
     "traditions": [
       "beneventan_chant",
@@ -69,7 +69,7 @@
       }
     ],
     "room": "stone_parish_church",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_acoustic_horn_pre1925",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "tube_pre",

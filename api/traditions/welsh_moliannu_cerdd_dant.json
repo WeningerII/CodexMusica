@@ -3,8 +3,8 @@
   "name": "Welsh moliannu and cerdd dant (Welsh praise-poetry)",
   "family": "global",
   "lineage": "Welsh medieval praise-poetry tradition continuous from 6th-7th-century Taliesin-and-Aneirin foundational era (the Cynfeirdd \"early-poets\") through 12th-13th century Gogynfeirdd \"poets-of-the-princes\" era of court-praise-poetry through continuous-Welsh-bardic transmission into modern penillion-singing and cerdd dant (\"string-craft\") harp-and-voice tradition",
-  "recipe": "classic modern welsh moliannu and cerdd dant, praise Song, Celtic British branch, sub saharan African praise song, Celtic balladic ballad poetry, string drone modal zulu izibongo mande jeli / griot praise-song. extended whistle, declaimed, tasteful, continuous-phonation. nylon celtic harp, foundational foundational warm informal choir welsh male. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 487,
+  "recipe": "classic Northern European modern welsh moliannu and cerdd dant, praise Song, Celtic British branch, sub saharan African praise song, Celtic balladic ballad poetry, string drone modal zulu izibongo mande jeli / griot praise-song. extended whistle, declaimed, tasteful, continuous-phonation. nylon celtic harp, foundational foundational warm informal choir welsh male. uk folk revival club 60s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 522,
   "score": 202.893,
   "config": {
     "traditions": [
@@ -77,7 +77,7 @@
         }
       }
     ],
-    "room": "untreated_bedroom",
+    "room": "uk_folk_revival_club_60s",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -95,7 +95,7 @@
   },
   "source": {
     "tuning": "nordic_modal_drone_double_stops",
-    "room": "untreated_bedroom",
+    "room": "uk_folk_revival_club_60s",
     "parts": {
       "voice_articulation": "narrative_voice",
       "voice_speech_song": "voice_syllabic_singing",

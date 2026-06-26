@@ -3,9 +3,9 @@
   "name": "Ambrosian chant (Milan rite)",
   "family": "classical",
   "lineage": "Liturgical chant of the Ambrosian rite of Milan, attributed in legend to Saint Ambrose (Bishop of Milan 374-397), preserved in continuous use in the Archdiocese of Milan and adjacent dioceses of Lombardy (Italy) and Lugano (Switzerland). Distinguished from Gregorian chant by Ambrosian's distinct repertoire (with different proper-of-the-mass texts and melodic content), the eight Ambrosian modes (related to but distinct from Gregorian modes), and Milanese-specific liturgical structure. Survived medieval-and-Tridentine liturgical reforms as one of only two surviving Latin liturgical-music-traditions.",
-  "recipe": "classic North American mid-1970s ambrosian chant, ritual Devotional, christian gospel branch, western early art music ars antiqua and organum renaissance sacred polyphony. thick, declaimed, melodic, ornamental. a cappella small 3 to 8 one per part four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. parish church. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 514,
-  "score": 177.988,
+  "recipe": "classic mid-1930s ambrosian chant, ritual Devotional, christian gospel branch, western early art music ars antiqua and organum renaissance sacred polyphony. thick, declaimed, melodic, ornamental. a cappella small 3 to 8 one per part four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. parish church. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 440,
+  "score": 167.838,
   "config": {
     "traditions": [
       "ambrosian_chant_milanese",
@@ -69,7 +69,7 @@
       }
     ],
     "room": "stone_parish_church",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_electrical_disc_cut",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "tube_pre",

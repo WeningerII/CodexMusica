@@ -3,8 +3,8 @@
   "name": "Egyptian Sayyed Darwish and Sheikh Imam political-vocal lineage",
   "family": "global",
   "lineage": "Egyptian political-vocal tradition founded by Sayyed Darwish (1892-1923, the early-20th-century musical pioneer who composed in support of the 1919 Egyptian Revolution against British occupation including the song \"Bilady, Bilady, Bilady\" that became the Egyptian national anthem) continuous through Sheikh Imam Eissa (1918-1995) and the Ahmed Fouad Negm collaborative songbook of 1960s-1990s anti-Nasser-and-anti-Sadat political-protest",
-  "recipe": "classic early-1890s egyptian sayyed darwish and sheikh imam political-vocal lineage, protest Song, middle east n African branch, European protest song, middle eastern classical art music, med east poetic ballad poetry andalusī nūba persian dastgāh. vocal fry, low dynamic level, chest resonance low mid, continuous-phonation. padauk Egyptian Syrian premium Lebanese cedar eastern Mediterranean pyramid oud. carpeted bedroom. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 497,
+  "recipe": "classic North African early-1890s egyptian sayyed darwish and sheikh imam political-vocal lineage, protest Song, middle east n African branch, European protest song, middle eastern classical art music, med east poetic ballad poetry andalusī nūba persian dastgāh. vocal fry, low dynamic level, chest resonance low mid, continuous-phonation. padauk Egyptian Syrian premium Lebanese cedar eastern Mediterranean pyramid oud. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 584,
   "score": 211.62,
   "config": {
     "traditions": [
@@ -74,7 +74,7 @@
         }
       }
     ],
-    "room": "carpeted_bedroom",
+    "room": "cairo_studio_misr_umm_kulthum_era",
     "archetype": "arch_electrical_disc_cut",
     "inline_chain": {
       "mic": "mic_rca_44bx_ribbon",
@@ -92,7 +92,7 @@
   },
   "source": {
     "tuning": "maqam_24edo",
-    "room": "carpeted_bedroom",
+    "room": "cairo_studio_misr_umm_kulthum_era",
     "parts": {
       "voice_articulation": "melisma_voice",
       "voice_speech_song": "voice_melismatic_singing",

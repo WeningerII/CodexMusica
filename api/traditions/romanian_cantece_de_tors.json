@@ -3,8 +3,8 @@
   "name": "Romanian cântece de tors (spinning songs)",
   "family": "global",
   "lineage": "Romanian spinning-song (cântece de tors) tradition continuous from premodern Romanian-rural domestic-textile-labor practice through 19th-century Romanian-folklorist documentation through 20th-century Béla Bartók Romanian-folk-collection canonical into modern Romanian-folk-revival continuous practice",
-  "recipe": "classic modern romanian cântece de tors, domestic Rhythm, Slavic baltic branch, Celtic hebridean domestic rhythm, Slavic balkan field work, European lullaby irish spinning song sardinian boci de tela. thick, false fold engaged, tasteful, continuous-phonation. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 398,
+  "recipe": "classic Northern European modern romanian cântece de tors, domestic Rhythm, Slavic baltic branch, Celtic hebridean domestic rhythm, Slavic balkan field work, European lullaby irish spinning song sardinian boci de tela. thick, false fold engaged, tasteful, continuous-phonation. setu farmhouse wood. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 428,
   "score": 109.139,
   "config": {
     "traditions": [
@@ -53,7 +53,7 @@
         }
       }
     ],
-    "room": "untreated_bedroom",
+    "room": "setu_farmhouse_wood",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -71,7 +71,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "untreated_bedroom",
+    "room": "setu_farmhouse_wood",
     "parts": {
       "voice_articulation": "narrative_voice",
       "voice_speech_song": "voice_syllabic_singing",

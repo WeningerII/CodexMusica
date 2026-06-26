@@ -3,9 +3,9 @@
   "name": "Candombe uruguayo",
   "family": "global",
   "lineage": "Afro-Uruguayan drum-procession tradition traced to 18th-century African slave processions through Montevideo — performed by the cuerda de tambores ensemble of three drum sizes (chico small high-pitched lead-rhythm, repique medium-pitched conversational, piano deep bass) carried on shoulder straps and played with one hand and one stick; the annual Desfile de Llamadas during Carnival brings comparsas through Barrio Sur, Palermo, and Cordón Montevideo neighborhoods with their costumed dancers and full cuerda batteries — figures Pedro Ferreira, Romero Ferreira, the modern Hugo Fattoruso extensions",
-  "recipe": "classic South American mid-1970s candombe uruguayo, groove Percussion, Latin am branch, Afro-diasporic ritual devotional. a cappella small 3 to 8 one per part call response single leader group response sub saharan call response ostinato polyrhythmic choir ensemble, lead cowhide canonical candomble atabaque, lead open slap hand drum congas. montevideo candombe barrio sur carnival. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 514,
-  "score": 46.76,
+  "recipe": "classic South American mid-1930s candombe uruguayo, groove Percussion, Latin am branch, Afro-diasporic ritual devotional. a cappella small 3 to 8 one per part call response single leader group response sub saharan call response ostinato polyrhythmic choir ensemble, lead cowhide canonical candomble atabaque, lead open slap hand drum congas. montevideo candombe barrio sur carnival. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 455,
+  "score": 37.735,
   "config": {
     "traditions": [
       "candombe_uruguayan"
@@ -56,7 +56,7 @@
       }
     ],
     "room": "montevideo_candombe_barrio_sur_carnival",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_electrical_disc_cut",
     "inline_chain": {
       "mic": "mic_sm57_dynamic_shure",
       "pre": "transformer_solid_state",

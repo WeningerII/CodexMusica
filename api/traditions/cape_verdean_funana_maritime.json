@@ -3,8 +3,8 @@
   "name": "Cape Verdean funaná (maritime-and-island work-song)",
   "family": "global",
   "lineage": "Cape Verdean Atlantic-island music tradition with maritime-and-emigration thematic integration; the broader Cape Verdean musical tradition (morna, coladeira, funaná, batuque) developed across 16th-onward Portuguese-colonial-era through post-1975 independent-Cape-Verdean continuous practice; the Cape Verdean maritime-emigration culture integrates extensive maritime-and-port-departure-lament repertoire",
-  "recipe": "classic mid-1970s cape verdean funaná, sea Shanty, atlantic branch, americas drinking song, iberian Latin protest song, chanson fado ballad poetry morna cape verdean batuko of santiago island. vocal fry, lament wail, chest resonance low mid, continuous-phonation. cedar fingerpicked classical nylon-string guitar, jacaranda rosewood canonical Portuguese gut pre modern Portuguese strummed cavaquinho, castagnari Italian premium folk music accordion. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 588,
+  "recipe": "classic West African mid-1970s cape verdean funaná, sea Shanty, atlantic branch, americas drinking song, iberian Latin protest song, chanson fado ballad poetry morna cape verdean batuko of santiago island. vocal fry, lament wail, chest resonance low mid, continuous-phonation. cedar fingerpicked classical nylon-string guitar, jacaranda rosewood canonical Portuguese gut pre modern Portuguese strummed cavaquinho, castagnari Italian premium folk music accordion. batuko outdoor village. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 616,
   "score": 186.915,
   "config": {
     "traditions": [
@@ -110,7 +110,7 @@
         }
       }
     ],
-    "room": "untreated_bedroom",
+    "room": "batuko_outdoor_village",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -128,7 +128,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "untreated_bedroom",
+    "room": "batuko_outdoor_village",
     "parts": {
       "voice_articulation": "narrative_voice",
       "voice_speech_song": "voice_syllabic_singing",

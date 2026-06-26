@@ -3,9 +3,9 @@
   "name": "Gnawa",
   "family": "global",
   "lineage": "Moroccan Sufi-trance ceremonial tradition with West-African Bambara-Soussi-Hausa-Songhai lineage tracing to sub-Saharan enslaved peoples brought to Morocco — codified through the lila ceremony with master-musician maâlem leading sintir-bass-lute and qarqaba-iron-castanets ensemble; canonical lineage through Mahmoud Guinia (Marrakech), Mustapha Baqbou, and the Essaouira Gnaoua festival (founded 1998) as the genre’s international showcase",
-  "recipe": "classic North African late-1990s gnawa, drone Modal, string branch, Afro-diasporic ritual devotional, Sufi ritual devotional lukumí ceremonial qawwali. vocal fry, declaimed, melodic, punctuated. sersara gut gut string call-and-response sintir, gnawa traditional iron metallic clang dominant ritual qarqaba, tbel, gut juniper bent frame canonical Maghrebi goat skin tacked canonical Sufi bendir, castanets, apricot canonical Maghrebi arundo donax canonical Maghrebi ghaita. stone plaster medina room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 631,
-  "score": 211.025,
+  "recipe": "classic North African late-1990s gnawa, drone Modal, string branch, Afro-diasporic ritual devotional, Sufi ritual devotional lukumí ceremonial qawwali. vocal fry, declaimed, melodic, punctuated. sersara gut gut string call-and-response sintir, gnawa traditional iron metallic clang dominant ritual qarqaba, tbel, gut juniper bent frame canonical Maghrebi goat skin tacked canonical Sufi bendir, castanets, apricot canonical Maghrebi arundo donax canonical Maghrebi ghaita. stone plaster medina room. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 641,
+  "score": 205.95,
   "config": {
     "traditions": [
       "gnawa",
@@ -146,7 +146,7 @@
       }
     ],
     "room": "stone_plaster_medina_room",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_emi_lagos_african_70s",
     "inline_chain": {
       "mic": "mic_sm57_dynamic_shure",
       "pre": "pre_field_recorder_portable",

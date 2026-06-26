@@ -3,8 +3,8 @@
   "name": "Zulu izibongo (praise-poetry)",
   "family": "global",
   "lineage": "Zulu izibongo praise-poetry tradition continuous from pre-colonial Zulu royal-court praise-singer (imbongi) practice through 19th-century Shaka-kaSenzangakhona-era continuous performance into modern South-African Zulu cultural-practice; the imbongi is the hereditary praise-poetry-and-political-orator role",
-  "recipe": "classic modern zulu izibongo, praise Song, sub saharan African branch, oceania pacific praise song, west African griot ballad poetry, African pop isicathamiya māori waiata mōteatea / patere mandé jeli. extended whistle, declaimed, tasteful, continuous-phonation. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 401,
+  "recipe": "classic Southern African modern zulu izibongo, praise Song, sub saharan African branch, oceania pacific praise song, west African griot ballad poetry, African pop isicathamiya māori waiata mōteatea / patere mandé jeli. extended whistle, declaimed, tasteful, continuous-phonation. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 494,
   "score": 162.107,
   "config": {
     "traditions": [
@@ -53,7 +53,7 @@
         }
       }
     ],
-    "room": "untreated_bedroom",
+    "room": "johannesburg_gallo_african_studios",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -71,7 +71,7 @@
   },
   "source": {
     "tuning": "yoruba_juju_fuji_polyrhythmic",
-    "room": "untreated_bedroom",
+    "room": "johannesburg_gallo_african_studios",
     "parts": {
       "voice_articulation": "narrative_voice",
       "voice_speech_song": "voice_heightened_speech",

@@ -3,8 +3,8 @@
   "name": "Shangaan electro",
   "family": "electronic",
   "lineage": "Ultra-fast Tsonga dance music from Limpopo and Soweto codified by producer Nozinja around 2005-2010 (Tshetsha Boys, Zinja Hlungwani) — 170-189bpm MIDI-marimba and organ presets over skeletal, often kick-less drum programming, chanted Xitsonga hooks answered by the dance troupe, and the whirlwind xibelani dance culture",
-  "recipe": "classic mid-2000s shangaan electro, electronic Dance, African dance branch, central east south African groove percussion, footwork electronic dance juke jersey club. vocal fry, rap, chest resonance low mid, punctuated. MIDI marimba preset diy sequenced rompler workstation, sampler drum machine. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 434,
+  "recipe": "classic Southern American mid-2000s shangaan electro, electronic Dance, African dance branch, central east south African groove percussion, footwork electronic dance juke jersey club. vocal fry, rap, chest resonance low mid, punctuated. MIDI marimba preset diy sequenced rompler workstation, sampler drum machine. rio favela home baile funk. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 471,
   "score": 90.862,
   "config": {
     "traditions": [
@@ -83,7 +83,7 @@
         }
       }
     ],
-    "room": "untreated_bedroom",
+    "room": "rio_favela_home_baile_funk",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_fet",
@@ -101,7 +101,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "untreated_bedroom",
+    "room": "rio_favela_home_baile_funk",
     "parts": {
       "voice_register": "chest_voice",
       "voice_quality": "speech_voice",

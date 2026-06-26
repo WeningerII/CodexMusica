@@ -3,9 +3,9 @@
   "name": "Iraqi maqam (al-Maqam al-Iraqi)",
   "family": "global",
   "lineage": "Iraqi classical vocal tradition codified in the Baghdadi school as a corpus of 56 canonical maqams (mode-pieces), each with a specific opening tahrir vocal cadenza, body section called miyana, and closing teslim cadence; performed by a solo qari vocalist accompanied by the chalghi small ensemble of santur, jawza Iraqi spike-fiddle, tabla, and riq — figures Mohammed al-Qabbanchi, Yusuf Omar, Hussein Al-Aazami, Hamid al-Saadi",
-  "recipe": "classic Middle Eastern mid-1970s iraqi maqam, improv On Frame, Persian arab improv branch, middle eastern classical art music armenian liturgical and folk turkish makam. thick, rap, chest resonance low mid, punctuated. santur, metal finger picks maple body Turkish school goat skin bridge plate qanun, spun aluminum Egyptian sombaty goat skin Turkish darbuka regional iraqi maqam zarb drier finger darbuka, rosewood mop inlay canonical Egyptian takht fish skin canonical Egyptian light responsive brass jingles canonical takht riq. baghdad iraqi maqam context. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 692,
-  "score": 292.833,
+  "recipe": "classic Middle Eastern mid-1930s iraqi maqam, improv On Frame, Persian arab improv branch, middle eastern classical art music armenian liturgical and folk turkish makam. thick, rap, chest resonance low mid, punctuated. santur, metal finger picks maple body Turkish school goat skin bridge plate qanun, spun aluminum Egyptian sombaty goat skin Turkish darbuka regional iraqi maqam zarb drier finger darbuka, rosewood mop inlay canonical Egyptian takht fish skin canonical Egyptian light responsive brass jingles canonical takht riq. baghdad iraqi maqam context. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 633,
+  "score": 284.233,
   "config": {
     "traditions": [
       "iraqi_maqam",
@@ -120,7 +120,7 @@
       }
     ],
     "room": "baghdad_iraqi_maqam_context",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_electrical_disc_cut",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "pre_tube_german_v72",

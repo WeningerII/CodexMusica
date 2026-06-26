@@ -3,8 +3,8 @@
   "name": "Yoruba ọmọ-iya nursery and play-song",
   "family": "global",
   "lineage": "Yoruba children's play-song tradition continuous from pre-colonial Yoruba family-and-community-rearing practice through 19th-20th century continuous performance into modern Yoruba-and-Yoruba-diaspora childhood-practice across southwestern Nigeria, Benin, Togo, and the Atlantic Afro-diaspora",
-  "recipe": "classic modern yoruba ọmọ-iya nursery and play-song, nursery Rhyme, sub saharan African branch, sub saharan African praise song, americas nursery rhyme zulu izibongo mande jeli / griot praise-song. thick, declaimed, tasteful, continuous-phonation. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 386,
+  "recipe": "classic modern yoruba ọmọ-iya nursery and play-song, nursery Rhyme, sub saharan African branch, sub saharan African praise song, americas nursery rhyme zulu izibongo mande jeli / griot praise-song. thick, declaimed, tasteful, continuous-phonation. field recording. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 394,
   "score": 217.586,
   "config": {
     "traditions": [
@@ -53,7 +53,7 @@
         }
       }
     ],
-    "room": "untreated_bedroom",
+    "room": "field_recording",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -71,7 +71,7 @@
   },
   "source": {
     "tuning": "yoruba_juju_fuji_polyrhythmic",
-    "room": "untreated_bedroom",
+    "room": "field_recording",
     "parts": {
       "voice_articulation": "call_response_voice",
       "voice_speech_song": "voice_syllabic_singing",

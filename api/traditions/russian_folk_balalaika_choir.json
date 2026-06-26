@@ -3,9 +3,9 @@
   "name": "Russian folk balalaika and choral",
   "family": "global",
   "lineage": "Vassily Andreyev-codified (late 19th-century) Russian-folk-orchestra tradition — Andreyev standardized the balalaika family (prima, sekunda, alto, bass, kontrabass) and founded the Great Russian Orchestra (Velikorusskiy Orkestr) in St. Petersburg 1888, establishing the concert-stage Russian-folk-instrument ensemble model that the Soviet era institutionalized through state ensembles like the Pyatnitsky Choir",
-  "recipe": "classic Eastern European late-1880s russian folk balalaika and choral, ballad Poetry, Slavic bard branch, christian gospel Russian orthodox, western common practice art music russian orthodox liturgical chant byzantine chant. thick, declaimed, chest resonance low mid, ornamental. bass foundation andreyev concert orchestra canonical revival strummed balalaika, orchestral bass rare spruce maple andreyev gut pre andreyev historical strummed domra, castagnari Italian premium folk music straight accordion. moscow state label 1964-present major-flagship moscow melodiya studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 709,
-  "score": 185.237,
+  "recipe": "classic Eastern European late-1880s russian folk balalaika and choral, ballad Poetry, Slavic bard branch, christian gospel Russian orthodox, western common practice art music russian orthodox liturgical chant byzantine chant. thick, declaimed, chest resonance low mid, ornamental. bass foundation andreyev concert orchestra canonical revival strummed balalaika, orchestral bass rare spruce maple andreyev gut pre andreyev historical strummed domra, castagnari Italian premium folk music straight accordion. moscow state label 1964-present major-flagship moscow melodiya studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 650,
+  "score": 180.987,
   "config": {
     "traditions": [
       "russian_folk_balalaika_choir",
@@ -57,14 +57,14 @@
         "slots": {
           "plucked_traditional_technique": "plucked_folk_strummed",
           "balalaika_size": "bass_balalaika",
-          "balalaika_strings": "nylon_balalaika",
+          "balalaika_strings": "gut_balalaika",
           "balalaika_body_wood": "balalaika_spruce_maple",
           "balalaika_tradition": "balalaika_andreyev_concert"
         },
         "scores": {
           "plucked_traditional_technique": 10.499999999999998,
           "balalaika_size": 4.055,
-          "balalaika_strings": -0.595,
+          "balalaika_strings": 0.12999999999999998,
           "balalaika_body_wood": 0.39,
           "balalaika_tradition": 7.58
         }
@@ -109,7 +109,7 @@
       }
     ],
     "room": "moscow_melodiya_studio",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_electrical_disc_cut",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "pre_tube_german_v72",

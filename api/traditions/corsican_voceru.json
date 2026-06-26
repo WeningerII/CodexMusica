@@ -3,8 +3,8 @@
   "name": "Corsican voceru (vendetta-lament)",
   "family": "global",
   "lineage": "Corsican mourning-song tradition continuous from medieval-and-early-modern Corsican rural practice through 18th-19th century documented performance by voceratrice (Corsican professional women keeners); particularly associated with the vendetta tradition where the voceru explicitly demands revenge on the killer",
-  "recipe": "classic modern corsican voceru, funeral Lament, European branch, vocal drone modal, Mediterranean ballad ballad poetry, chanson fado ballad poetry greek éntechno morna. vocal fry, lament wail, tasteful, continuous-phonation. carpeted bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 372,
+  "recipe": "classic Southern European modern corsican voceru, funeral Lament, European branch, vocal drone modal, Mediterranean ballad ballad poetry, chanson fado ballad poetry greek éntechno morna. vocal fry, lament wail, tasteful, continuous-phonation. sardinian outdoor a tenore polyphony. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 410,
   "score": 115.375,
   "config": {
     "traditions": [
@@ -53,7 +53,7 @@
         }
       }
     ],
-    "room": "carpeted_bedroom",
+    "room": "sardinian_outdoor_a_tenore_polyphony",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -71,7 +71,7 @@
   },
   "source": {
     "tuning": "mediterranean_traditional_polyphonic_modal",
-    "room": "carpeted_bedroom",
+    "room": "sardinian_outdoor_a_tenore_polyphony",
     "parts": {
       "voice_articulation": "melisma_voice",
       "voice_speech_song": "voice_melismatic_singing",

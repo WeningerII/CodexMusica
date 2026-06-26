@@ -3,9 +3,9 @@
   "name": "Zarzuela (Spanish lyric theatre)",
   "family": "classical",
   "lineage": "Spanish lyric-theatre tradition combining sung-operatic and spoken-dialogue sections, named after the Royal Palacio de la Zarzuela where the early seventeenth-century court entertainments were performed. The modern zarzuela emerged in mid-nineteenth-century Madrid through Francisco Asenjo Barbieri and Federico Chueca; the género chico shorter one-act form developed in 1880s-1900s and crystallized the canonical Madrid-urban-life subject matter. Distinguished from broader European operetta by zarzuela's Spanish-specific musical idioms (jota, habanera, fandango integration) and Madrid-and-regional Spanish settings.",
-  "recipe": "classic North American mid-1880s zarzuela, functional Song, iberian branch, western common practice art music bel canto opera early romantic. thick, low dynamic level, chest resonance low mid, ornamental. beech laminated maple laminated European tradition European spruce norway spruce grand piano, synthetic carpathian spruce European maple sycamore maple oil varnish violin orchestral. shoebox concert hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 541,
-  "score": 269.932,
+  "recipe": "classic British mid-1880s zarzuela, functional Song, iberian branch, western common practice art music bel canto opera early romantic. thick, low dynamic level, chest resonance low mid, ornamental. beech laminated maple laminated European tradition European spruce norway spruce grand piano, synthetic carpathian spruce European maple sycamore maple oil varnish violin orchestral. shoebox concert hall. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 548,
+  "score": 270.032,
   "config": {
     "traditions": [
       "zarzuela_spanish",
@@ -106,7 +106,7 @@
       }
     ],
     "room": "concert_hall_shoebox",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_70s_uk_class_a_rock",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "tube_pre",

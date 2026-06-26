@@ -5,7 +5,7 @@
   "lineage": "Venetian Carnevale tradition documented from medieval-Venetian Carnival celebration (the documented Venetian-Carnevale lineage extends to 11th-12th-century with the canonical post-1268 Doge-mandated Giovedi Grasso celebration) through 18th-century peak-Carnevale era through 1797-Napoleonic suppression through 1979 modern-revival into modern Venice Carnevale continuous practice",
   "recipe": "classic Southern European late-1260s venetian carnevale, carnival Processional, European branch, American south carnival processional, European wedding, Mediterranean ballad ballad poetry croatian klapa dalmatian close-harmony sardinian wedding cantu and launeddas music. vocal fry, false fold engaged, tasteful, continuous-phonation. cedar concert modern carbon fiber classical nylon-string guitar, synthetic magic rosin modern acrylic base drone like fiddle, boxwood canonical renaissance Baroque continuous-airflow legato recorder. outdoor dalmatian square. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 690,
-  "score": 194.6,
+  "score": 194.385,
   "config": {
     "traditions": [
       "venice_carnevale",
@@ -77,14 +77,14 @@
           "bowed_technique": "bowed_rough_drone",
           "fiddle_strings": "synthetic_core",
           "fiddle_bow": "magic_rosin_fiddle",
-          "fiddle_mute": "practice_mute",
+          "fiddle_mute": "rubber_mute",
           "fiddle_articulation": "sul_pont"
         },
         "scores": {
           "bowed_technique": 8.09,
           "fiddle_strings": 4.225,
           "fiddle_bow": 9.099999999999998,
-          "fiddle_mute": 0.45499999999999996,
+          "fiddle_mute": 0.24,
           "fiddle_articulation": 0.545
         }
       },

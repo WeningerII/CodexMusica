@@ -3,8 +3,8 @@
   "name": "Yoruba aso ebi wedding music",
   "family": "global",
   "lineage": "Yoruba wedding-music tradition continuous from pre-colonial Yoruba ritual-practice through 19th-20th century continuous performance into modern Yoruba-and-Yoruba-diaspora domestic practice across southwestern Nigeria, Benin, Togo, and the Atlantic Afro-diaspora; the aso ebi (unified-dress) wedding tradition emphasizes group-celebration vocal-and-drumming participation",
-  "recipe": "classic modern yoruba aso ebi wedding music, wedding, African diasporic branch, south Asian wedding, African pop functional song, west African groove percussion congolese rumba mbaqanga. thick, low dynamic level, tasteful, continuous-phonation. iroko alternative west African goat skin leather tension cords canonical pressure bend talking drum, modern revival iroko west African premium cowhide rope lacing canonical mande dunun, foundational bass rhythm calabash shekere. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 612,
+  "recipe": "classic modern yoruba aso ebi wedding music, wedding, African diasporic branch, south Asian wedding, African pop functional song, west African groove percussion congolese rumba mbaqanga. thick, low dynamic level, tasteful, continuous-phonation. iroko alternative west African goat skin leather tension cords canonical pressure bend talking drum, modern revival iroko west African premium cowhide rope lacing canonical mande dunun, foundational bass rhythm calabash shekere. festival stage. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 619,
   "score": 252.128,
   "config": {
     "traditions": [
@@ -94,7 +94,7 @@
         }
       }
     ],
-    "room": "untreated_bedroom",
+    "room": "festival_stage",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -112,7 +112,7 @@
   },
   "source": {
     "tuning": "yoruba_juju_fuji_polyrhythmic",
-    "room": "untreated_bedroom",
+    "room": "festival_stage",
     "parts": {
       "voice_articulation": "call_response_voice",
       "voice_speech_song": "voice_syllabic_singing",

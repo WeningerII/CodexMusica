@@ -3,9 +3,9 @@
   "name": "Fluxus intermedia composition",
   "family": "classical",
   "lineage": "International intermedia-art movement (1962-1978 active period, lingering influences thereafter) founded by George Maciunas, including composer-artists George Brecht, La Monte Young, Yoko Ono, Nam June Paik, and Alison Knowles. Compositional output centered on event-scores (brief text-instructions for actions), conceptual-musical-performance, and the deliberate dissolution of boundaries between music, theatre, visual art, and life-art. Brecht's Drip Music (1959) and Young's Compositions 1960 series constitute the canonical type-specimens.",
-  "recipe": "classic North American mid-1970s fluxus intermedia composition, art Music, western modern branch, musique concrete experimental electric soundscape composition acousmatic music. thick, breath admixed, chest resonance low mid, unrestrained. shoebox concert hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 393,
-  "score": 75.515,
+  "recipe": "classic mid-1970s fluxus intermedia composition, art Music, western modern branch, musique concrete experimental electric soundscape composition acousmatic music. thick, breath admixed, chest resonance low mid, unrestrained. shoebox concert hall. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
+  "recipe_chars": 342,
+  "score": 74.413,
   "config": {
     "traditions": [
       "fluxus_intermedia",
@@ -31,7 +31,7 @@
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
-          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+          "voice_multitrack_stack": "voice_multitrack_unison_double_take"
         },
         "scores": {
           "voice_register": 4.05,
@@ -49,12 +49,12 @@
           "voice_ornament_system": 5.0680000000000005,
           "voice_pitch_organization": 5.0365,
           "voice_processing_chain": 2.34,
-          "voice_multitrack_stack": 2.0475
+          "voice_multitrack_stack": 0.845
         }
       }
     ],
     "room": "concert_hall_shoebox",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_pre_daw_electronic_pioneer",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "tube_pre",

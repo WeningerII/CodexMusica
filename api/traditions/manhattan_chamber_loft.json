@@ -3,9 +3,9 @@
   "name": "Manhattan-chamber loft-recording",
   "family": "global",
   "lineage": "Manhattan-loft-school chamber-recording aesthetic codified through 1970s-1980s minimalist composers recording in downtown Manhattan converted-warehouse loft spaces — Steve Reich (Music for 18 Musicians 1976), Philip Glass (Glassworks 1982), Meredith Monk, and the Knitting Factory-adjacent ecosystem; characterized by ensemble close-tracking, dry-room aesthetic, and minimalist compositional architecture",
-  "recipe": "classic North American mid-1970s manhattan-chamber loft-recording, art Music, western common practice branch, western modern art music, American jazz avant indeterminacy and aleatoric second viennese school. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, silver wound lamb gut core sitka spruce bigleaf maple western maple violin orchestral, synthetic engelmann spruce European maple sycamore maple oil varnish cello, gold brass warmer tone selmer mark vi canonical 1954 1974 jazz paris multiphonic saxophone. mid manhattan 1975-1985 mid-major late70s nyc commercial. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 743,
-  "score": 211.385,
+  "recipe": "classic North American mid-1970s manhattan-chamber loft-recording, art Music, western common practice branch, western modern art music, American jazz avant indeterminacy and aleatoric second viennese school. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, silver wound lamb gut core sitka spruce bigleaf maple western maple violin orchestral, synthetic engelmann spruce European maple sycamore maple oil varnish cello, yellow brass modern standard yamaha custom 875ex modern Japanese premium multiphonic saxophone. mid manhattan 1975-1985 mid-major late70s nyc commercial. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 729,
+  "score": 221.94,
   "config": {
     "traditions": [
       "manhattan_chamber_loft",
@@ -34,7 +34,7 @@
           "piano_rim": 9.185,
           "piano_soundboard": 8.75,
           "piano_pinblock": 8.75,
-          "piano_plate": 9.425,
+          "piano_plate": 11,
           "piano_pitch_standard": 9.440000000000001
         }
       },
@@ -58,11 +58,11 @@
           "orch_top_wood": 7.125,
           "orch_back_wood": 12.325000000000001,
           "orch_varnish": 8.75,
-          "orch_setup_period": 9.425,
+          "orch_setup_period": 11,
           "orch_bow": 1.145,
           "orch_bow_stick": 10.2,
           "orch_articulation": 1,
-          "orch_rosin": 10.465
+          "orch_rosin": 12.415000000000001
         }
       },
       {
@@ -80,11 +80,11 @@
         },
         "scores": {
           "bowed_technique": 3.4,
-          "cello_strings": 1.8200000000000005,
+          "cello_strings": 3.7700000000000005,
           "cello_top_wood": 5.5,
           "cello_back_wood": 9.14,
           "cello_varnish": 8.75,
-          "cello_setup_period": 9.425,
+          "cello_setup_period": 11,
           "cello_bow_grip": 1.69,
           "cello_rosin": 8.945,
           "cello_bow_stick": 10.2
@@ -96,24 +96,24 @@
           "wind_articulation": "wind_multiphonic_avant",
           "sax_size": "baritone_sax",
           "sax_reed": "medium_reed",
-          "sax_body_alloy": "gold_brass_sax",
+          "sax_body_alloy": "yellow_brass_sax",
           "sax_mouthpiece": "metal_mp",
           "sax_technique": "sax_multiphonic_avant",
-          "sax_maker_school": "sax_selmer_mark_vi"
+          "sax_maker_school": "sax_yamaha_custom"
         },
         "scores": {
           "wind_articulation": 4.875,
           "sax_size": 0.65,
           "sax_reed": 0.9099999999999999,
-          "sax_body_alloy": 9.595,
+          "sax_body_alloy": 11.24,
           "sax_mouthpiece": 0.24,
           "sax_technique": 3.375,
-          "sax_maker_school": 2.2749999999999995
+          "sax_maker_school": 2.8600000000000003
         }
       }
     ],
     "room": "studio_late70s_nyc_commercial",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_80s_indie_commercial_us",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "transformer_solid_state",

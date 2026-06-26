@@ -3,9 +3,9 @@
   "name": "Early Romantic (1800-1850)",
   "family": "classical",
   "lineage": "European art-music period c.1800-1850 emerging from late Beethoven through the first generation of explicitly Romantic composers. Characterized by expanded chromatic harmony, programmatic narrative content, virtuoso performer-composer figures, and the lieder cycle as song-form. Schubert's 600+ songs, Schumann's piano-cycles, Chopin's piano-études-and-nocturnes, and Mendelssohn's symphonies constitute the canonical core.",
-  "recipe": "classic North American early romantic, art Music, western common practice branch, western modern art music second viennese school spectralism. thick, low dynamic level, chest resonance low mid, narrative. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, silver wound lamb gut core carpathian spruce bigleaf maple western maple violin orchestral, silver wound lamb gut core carpathian spruce European maple sycamore maple cello. shoebox concert hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 623,
-  "score": 332.021,
+  "recipe": "classic early romantic, art Music, western common practice branch, western modern art music second viennese school spectralism. thick, low dynamic level, chest resonance low mid, narrative. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, silver wound lamb gut core carpathian spruce bigleaf maple western maple violin orchestral, silver wound lamb gut core carpathian spruce European maple sycamore maple cello. shoebox concert hall. acoustic horn. 78rpm shellac.",
+  "recipe_chars": 506,
+  "score": 325.396,
   "config": {
     "traditions": [
       "early_romantic_19c",
@@ -49,7 +49,7 @@
           "voice_ornament_system": 5.140000000000001,
           "voice_pitch_organization": 5.98875,
           "voice_processing_chain": 5.069999999999999,
-          "voice_multitrack_stack": 6.2075000000000005
+          "voice_multitrack_stack": 3.6075000000000004
         }
       },
       {
@@ -131,7 +131,7 @@
       }
     ],
     "room": "concert_hall_shoebox",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_acoustic_horn_pre1925",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "tube_pre",

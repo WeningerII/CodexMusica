@@ -3,14 +3,12 @@
   "name": "Kulintang",
   "family": "classical",
   "lineage": "Maguindanao and Maranao (Mindanao, Philippines) horizontally-laid bossed-gong-set ensemble tradition predating Spanish contact",
-  "recipe": "classic Southeast Asian mid-1970s kulintang, art Music, southeast Asian branch, indigenous ritual devotional mapuche tayil genealogical chant shipibo-conibo icaros healing songs. kulintang set. balinese banjar courtyard. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 352,
-  "score": 18.24,
+  "recipe": "classic Southeast Asian mid-1930s kulintang, art Music, southeast Asian branch, indigenous ritual devotional. kulintang set. balinese banjar courtyard. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 224,
+  "score": 4.33,
   "config": {
     "traditions": [
-      "kulintang",
-      "mapuche_tayil_ritual",
-      "shipibo_icaros"
+      "kulintang"
     ],
     "instruments": [
       {
@@ -21,12 +19,12 @@
         },
         "scores": {
           "kulintang_set_tuning": 3.1,
-          "kulintang_set_context": 2.715
+          "kulintang_set_context": 0.78
         }
       }
     ],
     "room": "balinese_banjar_courtyard",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_electrical_disc_cut",
     "inline_chain": {
       "mic": "mic_u87_condenser_neumann",
       "pre": "transformer_solid_state",

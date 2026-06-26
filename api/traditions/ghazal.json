@@ -3,9 +3,9 @@
   "name": "Ghazal",
   "family": "global",
   "lineage": "Persian-Urdu (and Pashto, Bengali, Hindi) classical lyric-poetry vocal song-form built on the rhyming-couplet ghazal poetic structure originated in 7th-century Arabic poetry, refined in 13th-century Persian poetry (Rumi, Hafez), and developed into a vocal-musical canon through the Mughal-era courts; Indian subcontinental ghazal singers: Begum Akhtar, Mehdi Hassan, Ghulam Ali, Jagjit Singh, Farida Khanum",
-  "recipe": "classic Middle Eastern mid-1970s ghazal, ballad Poetry, med east poetic branch, vocal drone modal pansori armenian duduk-accompanied chant. vocal fry, declaimed, chest resonance low mid, narrative. vocal male straight harmonium indian, indian rosewood rosewood copper tabla, gut 3 main playing strings tun cedar legato sarangi. tehran classical dastgah context. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 493,
-  "score": 306.597,
+  "recipe": "classic Middle Eastern mid-1930s ghazal, ballad Poetry, med east poetic branch, vocal drone modal pansori armenian duduk-accompanied chant. vocal fry, declaimed, chest resonance low mid, narrative. vocal male straight harmonium indian, indian rosewood rosewood copper tabla, gut 3 main playing strings tun cedar legato sarangi. tehran classical dastgah context. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 434,
+  "score": 292.647,
   "config": {
     "traditions": [
       "ghazal",
@@ -101,7 +101,7 @@
       }
     ],
     "room": "tehran_classical_dastgah_context",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_electrical_disc_cut",
     "inline_chain": {
       "mic": "mic_u47_tube_neumann",
       "pre": "tube_pre",

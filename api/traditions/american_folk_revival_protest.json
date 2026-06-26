@@ -3,9 +3,9 @@
   "name": "American folk-revival protest song",
   "family": "global",
   "lineage": "American protest-song tradition continuous from Industrial-Workers-of-the-World early-20th-century labor anthems (Joe Hill, \"Solidarity Forever\") through the 1930s Almanac Singers and Popular Front lineage through 1960s civil-rights-and-anti-war folk-revival continuous into the modern indie-protest singer-songwriter scene",
-  "recipe": "classic mid-1930s american folk-revival protest song, protest Song, anglo American branch, iberian Latin protest song, European protest song, anglo singer song ballad poetry, americana country texas country-folk storyteller 1960s greenwich village confessional folk. thick, incomplete closure resting, melodic, continuous-phonation. martin lifespan fingerpicked acoustic guitar, pearwood marine band tradition stainless steel steel suzuki Japanese modern precision harmonica, walnut mid tier fluorocarbon modern open back scruggs stelling banjo 5 string. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 693,
-  "score": 346.707,
+  "recipe": "classic North American mid-1930s american folk-revival protest song, protest Song, anglo American branch, iberian Latin protest song, European protest song, anglo singer song ballad poetry, americana country texas country-folk storyteller 1960s greenwich village confessional folk. thick, incomplete closure resting, melodic, continuous-phonation. martin lifespan fingerpicked acoustic guitar, pearwood marine band tradition stainless steel steel suzuki Japanese modern precision harmonica, walnut mid tier fluorocarbon modern open back scruggs stelling banjo 5 string. dry but alive 1948-1965 indie-commercial early tape us small. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 761,
+  "score": 346.736,
   "config": {
     "traditions": [
       "american_folk_revival_protest",
@@ -115,14 +115,14 @@
           "banjo_pot": 0.975,
           "banjo_play": 0,
           "banjo_rim_wood": 0.12999999999999998,
-          "banjo_neck_wood": 1.01125,
+          "banjo_neck_wood": 1.04,
           "banjo_strings": 1.87575,
           "banjo_bridge": 0,
           "banjo_setup_period": 9.619999999999997
         }
       }
     ],
-    "room": "untreated_bedroom",
+    "room": "studio_early_tape_us_small",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -140,7 +140,7 @@
   },
   "source": {
     "tuning": "folk_fingerstyle_alternating_bass",
-    "room": "untreated_bedroom",
+    "room": "studio_early_tape_us_small",
     "parts": {
       "voice_articulation": "narrative_voice",
       "voice_speech_song": "voice_syllabic_singing",

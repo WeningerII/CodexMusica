@@ -3,9 +3,9 @@
   "name": "Gurmat Sangeet (Sikh devotional)",
   "family": "global",
   "lineage": "Sikh sacred-music tradition built on shabad kirtan (singing of the verses of the Guru Granth Sahib scripture), organized by raga across the 31 ragas mentioned in the Granth, performed by trained ragis at gurdwaras worldwide and especially at Harmandir Sahib (the Golden Temple) in Amritsar where the tradition has been performed continuously since the 1604 installation of the Adi Granth scripture by Guru Arjan Dev",
-  "recipe": "classic South Asian mid-1600s gurmat sangeet, ritual Devotional, hindu branch, indian classical improv improv on frame, Sufi ritual devotional tarana dadra. vocal fry, declaimed, chest resonance low mid, punctuated. indian rosewood rosewood copper tabla, low overtone rich vocal male harmonium indian, silvery suited to female vocal tanpura, tun indian cedar gut pre modern sikh canon legato dilruba. golden temple amritsar gurdwara. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 565,
-  "score": 200.616,
+  "recipe": "classic South Asian mid-1600s gurmat sangeet, ritual Devotional, hindu branch, indian classical improv improv on frame, Sufi ritual devotional tarana dadra. vocal fry, declaimed, chest resonance low mid, punctuated. indian rosewood rosewood copper tabla, low overtone rich vocal male harmonium indian, silvery suited to female vocal tanpura, tun indian cedar gut pre modern sikh canon legato dilruba. golden temple amritsar gurdwara. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 506,
+  "score": 193.766,
   "config": {
     "traditions": [
       "sikh_gurmat_sangeet",
@@ -118,7 +118,7 @@
       }
     ],
     "room": "golden_temple_amritsar_gurdwara",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_electrical_disc_cut",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "pre_tube_german_v72",

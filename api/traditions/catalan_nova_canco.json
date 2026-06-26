@@ -3,8 +3,8 @@
   "name": "Catalan Nova Cançó",
   "family": "global",
   "lineage": "Catalan Nova Cançó (\"new song\") minority-language protest-song tradition continuous from 1959 founding by Els Setze Jutges collective through the Franco-era 1959-1975 Catalan-language-suppression-resistance period continuous into post-Franco Catalan-cultural-revival; centered on Lluís Llach, Raimon, Joan Manuel Serrat, Maria del Mar Bonet, Pi de la Serra",
-  "recipe": "classic mid-1960s catalan nova cançó, protest Song, European branch, iberian Latin protest song, iberian functional song, chanson fado ballad poetry morna cape verdean batuko of santiago island. vocal fry, lament wail, melodic, continuous-phonation. fingerpicked acoustic guitar. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 418,
+  "recipe": "classic Iberian mid-1960s catalan nova cançó, protest Song, European branch, iberian Latin protest song, iberian functional song, chanson fado ballad poetry morna cape verdean batuko of santiago island. vocal fry, lament wail, melodic, continuous-phonation. fingerpicked acoustic guitar. iberian kantautor basque galician club. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 457,
   "score": 148.795,
   "config": {
     "traditions": [
@@ -72,7 +72,7 @@
         }
       }
     ],
-    "room": "untreated_bedroom",
+    "room": "iberian_kantautor_basque_galician_club",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -90,7 +90,7 @@
   },
   "source": {
     "tuning": "iberian_kantautor_minority_language_modal",
-    "room": "untreated_bedroom",
+    "room": "iberian_kantautor_basque_galician_club",
     "parts": {
       "voice_articulation": "narrative_voice",
       "voice_speech_song": "voice_syllabic_singing",

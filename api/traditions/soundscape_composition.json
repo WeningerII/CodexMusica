@@ -3,9 +3,9 @@
   "name": "Soundscape composition (Vancouver-school environmental)",
   "family": "classical",
   "lineage": "Canadian-and-international compositional approach emerging in 1970s through R. Murray Schafer's World Soundscape Project at Simon Fraser University. Compositions integrate field-recorded environmental and ecological sounds with electroacoustic transformation, addressing acoustic-ecology and the listener's sonic-environmental awareness. Hildegard Westerkamp's Kits Beach Soundwalk (1989) and Schafer's Vancouver Soundscape (1973) constitute the canonical type-specimens.",
-  "recipe": "classic North American mid-1970s soundscape composition, experimental Elec, musique concrete branch, ambient experimental electric dark ambient hauntology. field textural sampler. shoebox concert hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 333,
-  "score": 49.242,
+  "recipe": "classic mid-1970s soundscape composition, experimental Elec, musique concrete branch, ambient experimental electric dark ambient hauntology. field textural sampler. shoebox concert hall. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
+  "recipe_chars": 282,
+  "score": 48.927,
   "config": {
     "traditions": [
       "soundscape_composition",
@@ -18,21 +18,21 @@
         "slots": {
           "electronic_technique": "electronic_glitch_textural",
           "sampler_archetypes": "ensoniq_asr10",
-          "sampler_bit_depth": "sampler_eight_bit",
+          "sampler_bit_depth": "sampler_twentyfour_bit",
           "sampler_workflow": "sampler_field_recordings",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
           "electronic_technique": 12.115,
           "sampler_archetypes": 0.5849999999999999,
-          "sampler_bit_depth": 0,
+          "sampler_bit_depth": 0.43499999999999994,
           "sampler_workflow": 13.989375,
           "sampler_classic_context": 18.102499999999996
         }
       }
     ],
     "room": "concert_hall_shoebox",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_pre_daw_electronic_pioneer",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "tube_pre",

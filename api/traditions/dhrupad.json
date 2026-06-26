@@ -3,9 +3,9 @@
   "name": "Dhrupad",
   "family": "classical",
   "lineage": "The oldest surviving North Indian classical vocal genre, dating from the 12-13th centuries and preserved through the Dagar Bani (Dagar family lineage, the modern dhrupad school) and the Bishnupur and Talwandi sub-traditions; characterized by an extended alap (40+ minutes free-meter), the dhamar / chautal / sultal metric sections with pakhawaj accompaniment, and the use of rudra veena, surbahar, or sursingar as alternative melodic instruments to vocal",
-  "recipe": "classic South Asian mid-1970s dhrupad, improv On Frame, indian classical improv branch, south Asian art music, hindu ritual devotional telugu kirtana sinhala vannama. vocal fry, declaimed, chest resonance low mid, punctuated. suited to female vocal bronze steel mix gourd body canonical traditional tanpura, goat skin syahi dagar dhrupad lineage pakhawaj, steel brass jackwood twin gourds dagar bani canonical dhrupad rudra veena. varanasi benares gharana baithak. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 596,
-  "score": 292.39,
+  "recipe": "classic South Asian mid-1930s dhrupad, improv On Frame, indian classical improv branch, south Asian art music, hindu ritual devotional telugu kirtana sinhala vannama. vocal fry, declaimed, chest resonance low mid, punctuated. suited to female vocal bronze steel mix gourd body canonical traditional tanpura, goat skin syahi dagar dhrupad lineage pakhawaj, steel brass jackwood twin gourds dagar bani canonical dhrupad rudra veena. varanasi benares gharana baithak. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 537,
+  "score": 281.44,
   "config": {
     "traditions": [
       "dhrupad",
@@ -105,7 +105,7 @@
       }
     ],
     "room": "varanasi_benares_gharana_baithak",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_electrical_disc_cut",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_tube_german_v72",

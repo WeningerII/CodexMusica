@@ -3,8 +3,8 @@
   "name": "Norwegian skipperslåttar (sailor work-songs)",
   "family": "global",
   "lineage": "Norwegian-Scandinavian sailor work-song tradition (skipperslåttar = \"ship-sailor tunes,\" skanssanger = \"quarterdeck songs\") continuous from 18th-19th-century Norwegian-and-broader-Scandinavian maritime-trade work-song practice through 20th-century Norwegian-folk-revival into modern Norwegian-coastal-cultural-practice; foundational repertoire includes \"Pål sine høner\" (sailor work-coordination song), Norwegian sea-shanty translations",
-  "recipe": "classic modern norwegian skipperslåttar, sea Shanty, north Southeast Asian baltic branch, atlantic Southeast Asian shanty, Slavic balkan field work, European drinking song russian zhnitvenye pesni romanian colinde de seceriş. thick, low dynamic level, tasteful, unrestrained. castagnari Italian premium folk music straight accordion. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 472,
+  "recipe": "classic modern norwegian skipperslåttar, sea Shanty, north Southeast Asian baltic branch, atlantic Southeast Asian shanty, Slavic balkan field work, European drinking song russian zhnitvenye pesni romanian colinde de seceriş. thick, low dynamic level, tasteful, unrestrained. castagnari Italian premium folk music straight accordion. beach. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 470,
   "score": 112.735,
   "config": {
     "traditions": [
@@ -74,7 +74,7 @@
         }
       }
     ],
-    "room": "untreated_bedroom",
+    "room": "beach",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -92,7 +92,7 @@
   },
   "source": {
     "tuning": "nordic_modal_drone_double_stops",
-    "room": "untreated_bedroom",
+    "room": "beach",
     "parts": {
       "voice_articulation": "call_response_voice",
       "voice_speech_song": "voice_syllabic_singing",

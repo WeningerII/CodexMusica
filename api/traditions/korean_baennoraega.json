@@ -3,8 +3,8 @@
   "name": "Korean baennoraega and domestic-women's song",
   "family": "global",
   "lineage": "Korean baennoraega (뱃노래, \"boatmen's song\") and broader Korean women's-domestic-labor song tradition continuous from premodern Korean-rural domestic-labor practice through Joseon-dynasty continuous performance into modern Korean-folk-revival",
-  "recipe": "classic modern korean baennoraega and domestic-women's song, domestic Rhythm, east Asian arctic branch, Celtic hebridean domestic rhythm, east Asian field work, atlantic Southeast Asian shanty vietnamese hò japanese taue-uta. thick, incomplete closure resting, tasteful, continuous-phonation. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 431,
+  "recipe": "classic East Asian modern korean baennoraega and domestic-women's song, domestic Rhythm, east Asian arctic branch, Celtic hebridean domestic rhythm, east Asian field work, atlantic Southeast Asian shanty vietnamese hò japanese taue-uta. thick, incomplete closure resting, tasteful, continuous-phonation. korean gugak hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 452,
   "score": 143.83,
   "config": {
     "traditions": [
@@ -53,7 +53,7 @@
         }
       }
     ],
-    "room": "untreated_bedroom",
+    "room": "korean_gugak_hall",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -71,7 +71,7 @@
   },
   "source": {
     "tuning": "korean_minsogak_modes",
-    "room": "untreated_bedroom",
+    "room": "korean_gugak_hall",
     "parts": {
       "voice_articulation": "narrative_voice",
       "voice_speech_song": "voice_syllabic_singing",

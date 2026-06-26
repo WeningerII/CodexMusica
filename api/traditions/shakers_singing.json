@@ -3,9 +3,9 @@
   "name": "Shaker singing (Shaker hymnody)",
   "family": "classical",
   "lineage": "American Shaker (United Society of Believers in Christ's Second Appearing) song tradition, comprising over 10,000 documented hymns composed by Shaker community members in the eighteenth-and-nineteenth-century Shaker communities of New England, New York, Ohio, and Kentucky. Performance: unison-and-octave congregational singing in characteristic strophic-narrative-or-praise form, often associated with the canonical Shaker \"labor\" of synchronized-rhythmic-walking-and-clapping worship-practice. The 1848 \"Simple Gifts\" composed by Joseph Brackett at Alfred, Maine became internationally famous after Aaron Copland's 1944 Appalachian Spring incorporation.",
-  "recipe": "classic North American late-1840s shaker singing, ritual Devotional, christian gospel branch, American sacred ritual devotional sacred harp shape-note. thick, declaimed, chest resonance low mid, ornamental. mountain valley. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 355,
-  "score": 80.21,
+  "recipe": "classic North American late-1840s shaker singing, ritual Devotional, christian gospel branch, American sacred ritual devotional sacred harp shape-note. thick, declaimed, chest resonance low mid, ornamental. mountain valley. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 318,
+  "score": 73.335,
   "config": {
     "traditions": [
       "shakers_singing",
@@ -53,7 +53,7 @@
       }
     ],
     "room": "mountain_valley",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_early_tape_us_commercial",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "tube_pre",

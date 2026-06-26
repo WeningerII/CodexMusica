@@ -3,8 +3,8 @@
   "name": "Berber Amazigh ahidus (wedding dance)",
   "family": "global",
   "lineage": "Berber-Amazigh wedding-music tradition continuous from pre-Islamic North African Berber rural practice through Islamic-period continuous performance into modern Tamazight-speaking Moroccan and Algerian Berber-zone domestic practice; particularly preserved in the Atlas Mountains (Middle and High Atlas Tamazight zones) and the Kabyle Algeria",
-  "recipe": "classic modern berber amazigh ahidus, wedding, middle eastern branch, west African groove percussion, islamic ritual devotional, med east poetic ballad poetry were music palm-wine guitar. thick, declaimed, melodic, continuous-phonation. beech mass produced modern synthetic remo modern world music bendir, walnut bent frame canonical Iranian synthetic remo modern tar frame drum. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 518,
+  "recipe": "classic North African modern berber amazigh ahidus, wedding, middle eastern branch, west African groove percussion, islamic ritual devotional, med east poetic ballad poetry were music palm-wine guitar. thick, declaimed, melodic, continuous-phonation. beech mass produced modern synthetic remo modern world music bendir, walnut bent frame canonical Iranian synthetic remo modern tar frame drum. atlas mountain village square. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 554,
   "score": 136.898,
   "config": {
     "traditions": [
@@ -85,7 +85,7 @@
         }
       }
     ],
-    "room": "untreated_bedroom",
+    "room": "atlas_mountain_village_square",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -103,7 +103,7 @@
   },
   "source": {
     "tuning": "tuareg_pentatonic_raised4",
-    "room": "untreated_bedroom",
+    "room": "atlas_mountain_village_square",
     "parts": {
       "voice_articulation": "shouted_voice",
       "voice_speech_song": "voice_syllabic_singing",

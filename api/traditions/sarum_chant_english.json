@@ -3,9 +3,9 @@
   "name": "Sarum chant (English medieval rite)",
   "family": "classical",
   "lineage": "Medieval English liturgical chant tradition of the Sarum rite (Use of Salisbury), the dominant English liturgical-use from the eleventh century through the 1549 Reformation imposition of the Book of Common Prayer. Distinguished from broader Roman-rite Gregorian repertoire by Sarum-specific propers, sequences (the canonical Salve mater misericordie Marian sequence), and the elaborate Procession-and-Station liturgical-choreography. Modern liturgical reconstruction by the Cambridge Sarum Group and Anglican-and-Anglo-Catholic communities in England.",
-  "recipe": "classic North American late-1540s sarum chant, ritual Devotional, christian gospel branch, western early art music ars antiqua and organum renaissance sacred polyphony. thick, declaimed, chest resonance low mid, ornamental. mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. parish church. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 526,
-  "score": 175.028,
+  "recipe": "classic late-1540s sarum chant, ritual Devotional, christian gospel branch, western early art music ars antiqua and organum renaissance sacred polyphony. thick, declaimed, chest resonance low mid, ornamental. mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. parish church. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 452,
+  "score": 166.828,
   "config": {
     "traditions": [
       "sarum_chant_english",
@@ -69,7 +69,7 @@
       }
     ],
     "room": "stone_parish_church",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_electrical_disc_cut",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "tube_pre",

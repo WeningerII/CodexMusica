@@ -3,8 +3,8 @@
   "name": "Irish spinning song (amhrán snímh)",
   "family": "global",
   "lineage": "Irish-Gaelic spinning-and-domestic-labor song tradition continuous from medieval-and-early-modern Irish-rural domestic-textile-labor practice through 19th-20th century continuous performance into modern Irish-Gaelic-and-Scottish-Gaelic revival",
-  "recipe": "classic modern irish spinning song, domestic Rhythm, Celtic hebridean branch, Slavic baltic domestic rhythm, European lullaby, Celtic balladic ballad poetry scottish gaelic tàladh sean-nós solo singing. vocal fry, declaimed, tasteful, continuous-phonation. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 395,
+  "recipe": "classic Northern European modern irish spinning song, domestic Rhythm, Celtic hebridean branch, Slavic baltic domestic rhythm, European lullaby, Celtic balladic ballad poetry scottish gaelic tàladh sean-nós solo singing. vocal fry, declaimed, tasteful, continuous-phonation. connemara kitchen sean nos. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 432,
   "score": 118.399,
   "config": {
     "traditions": [
@@ -53,7 +53,7 @@
         }
       }
     ],
-    "room": "untreated_bedroom",
+    "room": "connemara_kitchen_sean_nos",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -71,7 +71,7 @@
   },
   "source": {
     "tuning": "celtic_irish_modal_dorian_mixolydian",
-    "room": "untreated_bedroom",
+    "room": "connemara_kitchen_sean_nos",
     "parts": {
       "voice_articulation": "narrative_voice",
       "voice_speech_song": "voice_syllabic_singing",

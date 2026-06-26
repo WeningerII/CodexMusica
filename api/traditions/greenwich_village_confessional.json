@@ -3,9 +3,9 @@
   "name": "1960s Greenwich Village confessional folk",
   "family": "global",
   "lineage": "Early-1960s Greenwich Village (Cafe Wha, Gerdes Folk City, the Bitter End) folk-revival singer-songwriter circuit — Bob Dylan, Phil Ochs, Dave Van Ronk, Joan Baez early years, Tom Paxton, Eric Andersen",
-  "recipe": "classic North American 1960s greenwich village confessional folk, ballad Poetry, 60s confessional, anglo singer song laurel canyon, anglo singer song britfolk britfolk revival. thick, incomplete closure resting, melodic, unrestrained. verse-lament through-composed narrative, through composed, static dynamic envelope, vocal ornamentation as intensification. dadgad tuning fingerpicked acoustic guitar, pearwood marine band tradition brass traditional hering Brazilian premium forro canon harmonica. nyc jazz vocal engineered 1958-1998 mid tier a and r recording nyc. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 699,
-  "score": 278.805,
+  "recipe": "classic North American 1960s greenwich village confessional folk, ballad Poetry, 60s confessional, anglo singer song laurel canyon, anglo singer song britfolk britfolk revival. thick, incomplete closure resting, melodic, unrestrained. verse-lament through-composed narrative, through composed, static dynamic envelope, vocal ornamentation as intensification. dadgad tuning fingerpicked acoustic guitar, pearwood marine band tradition brass traditional hering Brazilian premium forro canon harmonica. nyc jazz vocal engineered 1958-1998 mid tier a and r recording nyc. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 662,
+  "score": 276.954,
   "config": {
     "traditions": [
       "greenwich_village_confessional",
@@ -49,7 +49,7 @@
           "voice_ornament_system": 8.588125,
           "voice_pitch_organization": 2.9274999999999998,
           "voice_processing_chain": 2.79875,
-          "voice_multitrack_stack": 4.715000000000001
+          "voice_multitrack_stack": 6.715000000000001
         }
       },
       {
@@ -94,7 +94,7 @@
       }
     ],
     "room": "a_and_r_recording_nyc",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_early_tape_us_commercial",
     "inline_chain": {
       "mic": "ribbon_passive",
       "pre": "pre_tube_german_v72",

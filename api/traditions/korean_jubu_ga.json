@@ -3,9 +3,9 @@
   "name": "Korean jubu-ga (drinking-and-celebration songs)",
   "family": "global",
   "lineage": "Korean drinking-and-celebration song tradition continuous from premodern Korean banquet-and-tavern song-tradition through Japanese-colonial-era and post-1945 continuous performance into modern Korean-and-Korean-diaspora continuous noraebang (가요방, song-room) and drinking-establishment practice; the broader Korean drinking-culture integrates extensive trot (트로트) and folk-drinking-song repertoire",
-  "recipe": "classic mid-1940s korean jubu-ga, drinking Song, east Asian branch, European drinking song, east Asian pop functional song, east Asian protest song shidaiqu korean trot. thick, chest mix belt, tasteful, continuous-phonation. mahogany flatwound thomastik strummed open chord ringing overtones acoustic guitar. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 447,
-  "score": 269.894,
+  "recipe": "classic mid-1940s korean jubu-ga, drinking Song, east Asian branch, European drinking song, east Asian pop functional song, east Asian protest song shidaiqu korean trot. thick, chest mix belt, tasteful, continuous-phonation. flatwound thomastik strummed open chord ringing overtones fingerpicked acoustic guitar. irish pub. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 453,
+  "score": 269.701,
   "config": {
     "traditions": [
       "korean_jubu_ga",
@@ -65,14 +65,14 @@
         "scores": {
           "acoustic_technique": 12.474999999999998,
           "string_tuning": 0,
-          "top_wood": 1.0062499999999999,
-          "back_sides": 1.0062499999999999,
+          "top_wood": 0.9099999999999999,
+          "back_sides": 0.9099999999999999,
           "string_acoustic": 3.5749999999999993,
           "acoustic_om_technique": 6.470000000000001
         }
       }
     ],
-    "room": "untreated_bedroom",
+    "room": "irish_pub",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -90,7 +90,7 @@
   },
   "source": {
     "tuning": "korean_minsogak_modes",
-    "room": "untreated_bedroom",
+    "room": "irish_pub",
     "parts": {
       "voice_articulation": "shouted_voice",
       "voice_speech_song": "voice_syllabic_singing",

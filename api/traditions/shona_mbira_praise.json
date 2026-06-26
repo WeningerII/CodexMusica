@@ -3,8 +3,8 @@
   "name": "Shona mbira praise music (Zimbabwe)",
   "family": "global",
   "lineage": "Shona mbira-and-vocal praise-music tradition continuous from pre-colonial Zimbabwe Karanga-Shona ritual-practice through colonial-period continuous performance into modern Zimbabwean Shona-cultural practice; the mbira dzavadzimu (mbira of the ancestors) is the canonical Shona ritual-and-praise instrument",
-  "recipe": "classic modern shona mbira praise music, praise Song, sub saharan African branch, indigenous ritual devotional, string drone modal, central east south African groove percussion maasai adumu warrior jumping-song inuit katajjaq throat-singing game. sygyt, declaimed, melodic, continuous-phonation. steel maple mbira. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 453,
+  "recipe": "classic Southern African modern shona mbira praise music, praise Song, sub saharan African branch, indigenous ritual devotional, string drone modal, central east south African groove percussion maasai adumu warrior jumping-song inuit katajjaq throat-singing game. sygyt, declaimed, melodic, continuous-phonation. steel maple mbira. harare formerly salisbury 1971-present indie-commercial harare zimbabwean chimurenga studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 554,
   "score": 203.887,
   "config": {
     "traditions": [
@@ -68,7 +68,7 @@
         }
       }
     ],
-    "room": "untreated_bedroom",
+    "room": "harare_zimbabwean_chimurenga_studio",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -86,7 +86,7 @@
   },
   "source": {
     "tuning": "mbira_seven_tone",
-    "room": "untreated_bedroom",
+    "room": "harare_zimbabwean_chimurenga_studio",
     "parts": {
       "voice_articulation": "call_response_voice",
       "voice_speech_song": "voice_syllabic_singing",

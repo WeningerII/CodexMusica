@@ -5,7 +5,7 @@
   "lineage": "Andean Quechua-and-Aymara wedding-music tradition continuous from pre-Columbian Andean ritual-practice through colonial-period syncretic continuous performance into modern Quechua-and-Aymara-speaking domestic practice across Peru, Bolivia, Ecuador, and the Andean diaspora; the huayno is the canonical Andean dance-form across multiple ceremonial contexts including weddings",
   "recipe": "classic Andean modern andean matrimonio huayno, wedding, americas branch, south Asian wedding, Latin am groove percussion, Latin am troubadour ballad poetry milonga indian sangeet. thick, forward-resonance, tasteful, continuous-phonation. naranjillo andean premium wood cedar andean andean classical charango, bone continuous-airflow legato quena, andean tradition paired rows interlocking siku panpipes, castagnari Italian premium folk music bellows articulated accordion. andean altiplano outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 629,
-  "score": 268.831,
+  "score": 269.156,
   "config": {
     "traditions": [
       "andean_matrimonio_huayno",
@@ -98,19 +98,19 @@
         "slots": {
           "free_reed_technique": "free_reed_bellows_articulated",
           "accordion_reed_material": "brass_reeds",
-          "musette_offset": "german_tuning",
+          "musette_offset": "demi_swing",
           "reed_config": "lmmm",
           "bellows": "cardboard_leather",
-          "voicing_chamber": "no_cassotto",
+          "voicing_chamber": "cassotto",
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
           "free_reed_technique": 7.4499999999999975,
           "accordion_reed_material": 0.795,
-          "musette_offset": 0.39,
+          "musette_offset": 0.45499999999999996,
           "reed_config": 0.195,
           "bellows": 0.39,
-          "voicing_chamber": 0.195,
+          "voicing_chamber": 0.45499999999999996,
           "accordion_maker_school": 7.540000000000001
         }
       }

@@ -3,9 +3,9 @@
   "name": "Methodist hymnody (18th-century English Protestant)",
   "family": "classical",
   "lineage": "English Protestant hymn tradition codified through the 6,500+ hymn texts of Charles Wesley (1707-1788) and the canonical Methodist hymn-book A Collection of Hymns for the use of the People called Methodists (1780, John Wesley editor). The Methodist tradition emphasizes intensely personal-devotional content (the \"warmed heart\" theme), strong congregational singing as central liturgical practice, and the use of vernacular-popular-tune adaptations alongside specifically-composed Methodist hymn-tunes. Major influence on the broader English-speaking-world Protestant hymnody.",
-  "recipe": "classic North American early-1700s methodist hymnody, ritual Devotional, christian gospel branch, western common practice art music anglican cathedral-choral recording tradition classical period. thick, declaimed, chest resonance low mid, ornamental. mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone global traditional polyphonic choir ensemble, silbermann saxon canonical bach era central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque pneumatic canonical late 19th century romantic legato pipe organ. cathedral. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 823,
-  "score": 178.122,
+  "recipe": "classic British early-1700s methodist hymnody, ritual Devotional, christian gospel branch, western common practice art music anglican cathedral-choral recording tradition classical period. thick, declaimed, chest resonance low mid, ornamental. mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone global traditional polyphonic choir ensemble, silbermann saxon canonical bach era central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque pneumatic canonical late 19th century romantic legato pipe organ. cathedral. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 830,
+  "score": 177.222,
   "config": {
     "traditions": [
       "methodist_hymnody",
@@ -90,7 +90,7 @@
       }
     ],
     "room": "cathedral",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_70s_uk_class_a_rock",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "tube_pre",

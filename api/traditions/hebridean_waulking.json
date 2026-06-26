@@ -3,8 +3,8 @@
   "name": "Hebridean waulking song (òrain luaidh)",
   "family": "global",
   "lineage": "Scottish-Hebridean Gaelic waulking-song (òrain luaidh) tradition continuous from medieval-and-early-modern Hebridean Gaelic wool-fulling labor practice through 19th-20th century continuous performance into modern Scottish-Gaelic revival",
-  "recipe": "classic modern hebridean waulking song, domestic Rhythm, Celtic hebridean branch, Slavic baltic domestic rhythm, sub saharan African field work, north Southeast Asian baltic Southeast Asian shanty scottish hebridean iorram mande-wolof west-african harvest-and-field song. vocal fry, declaimed, tasteful, unrestrained. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 456,
+  "recipe": "classic Northern European modern hebridean waulking song, domestic Rhythm, Celtic hebridean branch, Slavic baltic domestic rhythm, sub saharan African field work, north Southeast Asian baltic Southeast Asian shanty scottish hebridean iorram mande-wolof west-african harvest-and-field song. vocal fry, declaimed, tasteful, unrestrained. scottish bothy farmhouse kitchen. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 499,
   "score": 124.789,
   "config": {
     "traditions": [
@@ -53,7 +53,7 @@
         }
       }
     ],
-    "room": "untreated_bedroom",
+    "room": "scottish_bothy_farmhouse_kitchen",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -71,7 +71,7 @@
   },
   "source": {
     "tuning": "celtic_irish_modal_dorian_mixolydian",
-    "room": "untreated_bedroom",
+    "room": "scottish_bothy_farmhouse_kitchen",
     "parts": {
       "voice_articulation": "call_response_voice",
       "voice_speech_song": "voice_syllabic_singing",

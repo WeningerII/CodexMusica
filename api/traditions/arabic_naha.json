@@ -3,8 +3,8 @@
   "name": "Arabic nāḥa (نائحة, women's mourning-song)",
   "family": "global",
   "lineage": "Pan-Arab mourning-song tradition continuous from pre-Islamic jāhiliyya rithā' (elegy) practice through medieval-Islamic-period continuous performance by nā'iḥa (Arabic professional mourning-women) across Egypt, Levant, Maghreb, and Gulf into 20th-century field-documentation",
-  "recipe": "classic modern arabic nāḥa, funeral Lament, middle eastern branch, islamic ritual devotional, vocal drone modal, med east poetic ballad poetry silbo gomero whistled language armenian duduk-accompanied chant. vocal fry, declaimed, chest resonance low mid, unrestrained. carpeted bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 416,
+  "recipe": "classic North African modern arabic nāḥa, funeral Lament, middle eastern branch, islamic ritual devotional, vocal drone modal, med east poetic ballad poetry silbo gomero whistled language armenian duduk-accompanied chant. vocal fry, declaimed, chest resonance low mid, unrestrained. stone plaster medina room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 439,
   "score": 186.133,
   "config": {
     "traditions": [
@@ -53,7 +53,7 @@
         }
       }
     ],
-    "room": "carpeted_bedroom",
+    "room": "stone_plaster_medina_room",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -71,7 +71,7 @@
   },
   "source": {
     "tuning": "maqam_24edo",
-    "room": "carpeted_bedroom",
+    "room": "stone_plaster_medina_room",
     "parts": {
       "voice_articulation": "melisma_voice",
       "voice_speech_song": "voice_melismatic_singing",

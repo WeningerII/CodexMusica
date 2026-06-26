@@ -3,9 +3,9 @@
   "name": "Sufi munajat and naat (praise of God and Prophet)",
   "family": "global",
   "lineage": "Sufi devotional praise-song tradition continuous from medieval Sufi-poetic era (13th-15th century Rumi, Hafez, Saadi era) through Indo-Persian-Mughal-era continuous performance into modern Sufi-and-Muslim-diaspora practice; munajat (intimate-supplication praise of God) and naat (praise of the Prophet Muhammad) are the canonical Sufi praise-forms",
-  "recipe": "classic North American mid-1970s sufi munajat and naat, praise Song, middle east n African branch, indian subcontinent praise song, Sufi ritual devotional, middle eastern classical art music qawwali sufi inshad. vocal fry, declaimed, chest resonance low mid, continuous-phonation. low overtone rich vocal male harmonium indian, indian rosewood rosewood copper tabla. carpeted bedroom. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 516,
-  "score": 251.167,
+  "recipe": "classic South Asian mid-1930s sufi munajat and naat, praise Song, middle east n African branch, indian subcontinent praise song, Sufi ritual devotional, middle eastern classical art music qawwali sufi inshad. vocal fry, declaimed, chest resonance low mid, continuous-phonation. low overtone rich vocal male harmonium indian, indian rosewood rosewood copper tabla. karachi lahore naat devotional majlis. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 475,
+  "score": 243.367,
   "config": {
     "traditions": [
       "sufi_munajat_naat",
@@ -81,8 +81,8 @@
         }
       }
     ],
-    "room": "carpeted_bedroom",
-    "archetype": "arch_late60s_us_multitrack",
+    "room": "karachi_lahore_naat_devotional_majlis",
+    "archetype": "arch_electrical_disc_cut",
     "inline_chain": {
       "mic": "mic_u47_tube_neumann",
       "pre": "pre_tube_german_v72",
@@ -99,7 +99,7 @@
   },
   "source": {
     "tuning": "maqam_24edo",
-    "room": "carpeted_bedroom",
+    "room": "karachi_lahore_naat_devotional_majlis",
     "parts": {
       "voice_articulation": "melisma_voice",
       "voice_speech_song": "voice_melismatic_singing",

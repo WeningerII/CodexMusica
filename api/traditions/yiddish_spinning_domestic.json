@@ -3,8 +3,8 @@
   "name": "Yiddish spinning-and-domestic song (Oyfn Pripetshik lineage)",
   "family": "global",
   "lineage": "Yiddish spinning-and-domestic-lullaby tradition continuous from medieval-Ashkenazi-Jewish domestic-and-textile labor practice through 19th-century Yiddish folksongbook canonization into modern Yiddish-revival continuous practice",
-  "recipe": "classic modern yiddish spinning-and-domestic song, domestic Rhythm, Slavic baltic branch, Celtic hebridean domestic rhythm, European lullaby, European wedding sardinian boci de tela irish spinning song. thick, false fold engaged, tasteful, continuous-phonation. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 400,
+  "recipe": "classic modern yiddish spinning-and-domestic song, domestic Rhythm, Slavic baltic branch, Celtic hebridean domestic rhythm, European lullaby, European wedding sardinian boci de tela irish spinning song. thick, false fold engaged, tasteful, continuous-phonation. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 399,
   "score": 103.454,
   "config": {
     "traditions": [
@@ -53,7 +53,7 @@
         }
       }
     ],
-    "room": "untreated_bedroom",
+    "room": "parlor",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -71,7 +71,7 @@
   },
   "source": {
     "tuning": "klezmer_freygish_ahava_raba_modes",
-    "room": "untreated_bedroom",
+    "room": "parlor",
     "parts": {
       "voice_articulation": "legato_voice",
       "voice_speech_song": "voice_syllabic_singing",

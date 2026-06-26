@@ -3,9 +3,9 @@
   "name": "Cool jazz vocal",
   "family": "global",
   "lineage": "Late-1950s/60s cool-school West-Coast-jazz vocal aesthetic — Chet Baker (Sings, 1954), June Christy, Anita ODay, Julie London — restrained delivery, intimate microphone presence, small-group accompaniment, contrasted against the muscular East Coast hard bop of the same period",
-  "recipe": "classic North American 1957-1959 cool jazz vocal, improv On Frame, smooth vocal branch, Latin jazz improv on frame descarga ethio-jazz. thick, intimate aspirated, melodic, narrative. cold pressed wurzen felt oversize maple tension resonator a 415 grand piano, growly gut upright bass, birch vintage ambassador asymmetric bronze bell bronze drum kit, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris lyrical continuous-airflow saxophone. capitol tower 1750 vine 1956-present major-flagship capitol tower studios la. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 665,
-  "score": 452.599,
+  "recipe": "classic North American 1957-1959 cool jazz vocal, improv On Frame, smooth vocal branch, Latin jazz improv on frame descarga ethio-jazz. thick, intimate aspirated, melodic, narrative. cold pressed wurzen felt oversize maple tension resonator a 415 grand piano, growly gut upright bass, birch vintage ambassador asymmetric bronze bell bronze drum kit, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris lyrical continuous-airflow saxophone. capitol tower 1750 vine 1956-present major-flagship capitol tower studios la. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 657,
+  "score": 450.799,
   "config": {
     "traditions": [
       "cool_jazz_vocal",
@@ -137,12 +137,12 @@
           "sax_body_alloy": 25.320000000000004,
           "sax_mouthpiece": 0.845,
           "sax_technique": 25.125,
-          "sax_maker_school": 32.083875
+          "sax_maker_school": 34.083875
         }
       }
     ],
     "room": "capitol_tower_studios_la",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_60s_la_smallroom_chambers",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "pre_tube_german_v72",

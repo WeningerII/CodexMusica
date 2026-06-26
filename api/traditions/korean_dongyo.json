@@ -3,8 +3,8 @@
   "name": "Korean dongyo (동요, children's songs)",
   "family": "global",
   "lineage": "Korean children's song (dongyo) tradition continuous from premodern Korean folk-play-song origins through early-20th-century Korean-modernization codification (the 1920s-1940s Korean dongyo movement specifically created modern children's-song repertoire for school-curriculum-and-radio-broadcast use) into modern continuous South-and-North-Korean childhood-practice",
-  "recipe": "classic mid-1920s korean dongyo, nursery Rhyme, east Asian branch, European nursery rhyme, east Asian lullaby, east Asian funeral lament korean kok mandarin yáolán qǔ. thick, low dynamic level, tasteful, continuous-phonation. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 364,
+  "recipe": "classic mid-1920s korean dongyo, nursery Rhyme, east Asian branch, European nursery rhyme, east Asian lullaby, east Asian funeral lament korean kok mandarin yáolán qǔ. thick, low dynamic level, tasteful, continuous-phonation. field recording. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 372,
   "score": 144.162,
   "config": {
     "traditions": [
@@ -53,7 +53,7 @@
         }
       }
     ],
-    "room": "untreated_bedroom",
+    "room": "field_recording",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -71,7 +71,7 @@
   },
   "source": {
     "tuning": "korean_minsogak_modes",
-    "room": "untreated_bedroom",
+    "room": "field_recording",
     "parts": {
       "voice_articulation": "staccato_voice",
       "voice_speech_song": "voice_syllabic_singing",

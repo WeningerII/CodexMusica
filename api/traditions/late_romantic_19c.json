@@ -3,9 +3,9 @@
   "name": "Late Romantic (1850-1910)",
   "family": "classical",
   "lineage": "European art-music period c.1850-1910 expanding the Romantic vocabulary into extreme chromaticism (Wagner), massive orchestral forces (Mahler, Strauss, Bruckner), nationalist-folk integration (Dvořák, Smetana, Borodin), and the gradual approach to tonal dissolution. Wagner's Tristan chord (1859) is often cited as the precipitating moment of tonal crisis. The German-Austrian symphonic tradition reached its maximum extent with Mahler's 1000-performer Eighth Symphony (1910).",
-  "recipe": "classic North American late romantic, art Music, western common practice branch, western modern art music second viennese school spectralism. thick, low dynamic level, chest resonance low mid, equal tempered. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, synthetic sitka spruce bigleaf maple western maple oil varnish violin orchestral, synthetic carpathian spruce European maple sycamore maple oil varnish cello. shoebox concert hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 612,
-  "score": 339.195,
+  "recipe": "classic late romantic, art Music, western common practice branch, western modern art music second viennese school spectralism. thick, low dynamic level, chest resonance low mid, equal tempered. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, synthetic sitka spruce bigleaf maple western maple oil varnish violin orchestral, synthetic carpathian spruce European maple sycamore maple oil varnish cello. shoebox concert hall. acoustic horn. 78rpm shellac.",
+  "recipe_chars": 495,
+  "score": 333.22,
   "config": {
     "traditions": [
       "late_romantic_19c",
@@ -49,7 +49,7 @@
           "voice_ornament_system": 5.140000000000001,
           "voice_pitch_organization": 5.9725,
           "voice_processing_chain": 4.074999999999999,
-          "voice_multitrack_stack": 5.817499999999999
+          "voice_multitrack_stack": 3.2174999999999994
         }
       },
       {
@@ -131,7 +131,7 @@
       }
     ],
     "room": "concert_hall_shoebox",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_acoustic_horn_pre1925",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "tube_pre",

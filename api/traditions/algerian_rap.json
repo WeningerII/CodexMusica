@@ -109,13 +109,13 @@
       "amp": null,
       "medium": "digital_std"
     },
-    "tuning": "twelve_tet",
+    "tuning": "maqam_24edo",
     "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "twelve_tet",
+    "tuning": "maqam_24edo",
     "room": "treated_studio",
     "parts": {
       "voice_register": "chest_voice",

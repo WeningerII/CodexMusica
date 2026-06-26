@@ -3,9 +3,9 @@
   "name": "Sichuan opera (chuanju)",
   "family": "classical",
   "lineage": "Sichuan opera (chuanju) Chinese regional opera tradition of the Sichuan basin (Chengdu, Chongqing, and broader province), synthesizing five distinct musical styles: gaoqiang (high-pitched), kunqiang (kunqu-derived), huqin (string-led), tanxi (clapper-style), and dengdiao (Sichuan-folk-derived) into a single eclectic theatrical tradition. The chuanju is particularly known for the \"face-changing\" (bian lian) stagecraft technique where the performer switches painted masks in fractions of a second through hidden mechanisms. Performance integrates voice, stylized dance-movement, recited dialogue, percussion-led ensemble, and elaborate face-painting and costume conventions.",
-  "recipe": "classic Southeast Asian mid-1970s sichuan opera, art Music, east Asian branch, east Asian Cantonese opera. thick, pressed, chest resonance low mid, unrestrained. jingju foundational silk canonical traditional sanxian, composite material paulownia canonical Korean horse dog asymmetric canonical Korean pansori godo janggu. wooden pagoda hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 474,
-  "score": 184.54,
+  "recipe": "classic Southeast Asian mid-1930s sichuan opera, art Music, east Asian branch, east Asian Cantonese opera. thick, pressed, chest resonance low mid, unrestrained. jingju foundational silk canonical traditional sanxian, composite material paulownia canonical Korean horse dog asymmetric canonical Korean pansori godo janggu. wooden pagoda hall. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 415,
+  "score": 177.19,
   "config": {
     "traditions": [
       "sichuan_opera_chuanju",
@@ -89,7 +89,7 @@
       }
     ],
     "room": "wooden_pagoda_hall",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_electrical_disc_cut",
     "inline_chain": {
       "mic": "mic_u87_condenser_neumann",
       "pre": "tube_pre",

@@ -3,8 +3,8 @@
   "name": "English nursery rhyme",
   "family": "global",
   "lineage": "English-language nursery-rhyme tradition continuous from medieval and early-modern English play-song origins through 18th-century chapbook publication (Tommy Thumb's Pretty Song Book 1744 the earliest documented English nursery-rhyme collection) through Iona and Peter Opie's 20th-century Lore and Language of Schoolchildren ethnographic documentation",
-  "recipe": "classic mid-1740s english nursery rhyme, nursery Rhyme, European branch, americas nursery rhyme, European lullaby, Celtic balladic ballad poetry spanish and latin american rondas sean-nós solo singing. thick, low dynamic level, tasteful, continuous-phonation. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 398,
+  "recipe": "classic mid-1740s english nursery rhyme, nursery Rhyme, European branch, americas nursery rhyme, European lullaby, Celtic balladic ballad poetry spanish and latin american rondas sean-nós solo singing. thick, low dynamic level, tasteful, continuous-phonation. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 397,
   "score": 86.823,
   "config": {
     "traditions": [
@@ -53,7 +53,7 @@
         }
       }
     ],
-    "room": "untreated_bedroom",
+    "room": "parlor",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -71,7 +71,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "untreated_bedroom",
+    "room": "parlor",
     "parts": {
       "voice_articulation": "staccato_voice",
       "voice_speech_song": "voice_syllabic_singing",

@@ -3,9 +3,9 @@
   "name": "Umbanda ceremonial",
   "family": "global",
   "lineage": "Rio and São Paulo 1908-onward syncretic Afro-Catholic-spiritualist liturgical tradition founded by Zélio Fernandino de Moraes (1908 first session) — fusing Catholic saints, candomblé orixás, Kardecist spiritualism, and Indigenous Brazilian ancestor cults; characterized by the gira ceremonial circle, pontos-cantados invocation songs, atabaque drum accompaniment, and the caboclo / preto-velho / criança guide-spirit roles",
-  "recipe": "classic Southern American modern umbanda ceremonial, ritual Devotional, Afro-diasporic branch, Brazilian groove percussion pagode baião. thick, intimate aspirated, punctuated, equal tempered. atabaque, a cappella small 3 to 8 one per part sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble. bahian terreiro outdoor. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 484,
-  "score": 90.722,
+  "recipe": "classic Southern American modern umbanda ceremonial, ritual Devotional, Afro-diasporic branch, Brazilian groove percussion pagode baião. thick, intimate aspirated, punctuated, equal tempered. atabaque, a cappella small 3 to 8 one per part sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble. bahian terreiro outdoor. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 425,
+  "score": 77.405,
   "config": {
     "traditions": [
       "umbanda_brazilian",
@@ -31,7 +31,7 @@
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
           "voice_register": 1.0999999999999996,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 3.65,
           "voice_pitch_organization": 0.7149999999999997,
           "voice_processing_chain": 6.11,
-          "voice_multitrack_stack": 2.1125
+          "voice_multitrack_stack": 1.6574999999999995
         }
       },
       {
@@ -82,7 +82,7 @@
       }
     ],
     "room": "bahian_terreiro_outdoor",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_electrical_disc_cut",
     "inline_chain": {
       "mic": "dynamic_mic",
       "pre": "pre_field_recorder_portable",

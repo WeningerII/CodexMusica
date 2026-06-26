@@ -3,9 +3,9 @@
   "name": "Lutheran chorale tradition",
   "family": "classical",
   "lineage": "German Protestant vernacular hymn tradition emerging from Martin Luther's liturgical reforms (1520s-1540s), in which sturdy German-language hymn-tunes (chorales) became the canonical sung-prayer of the Lutheran congregation. The seventeenth-century four-voice harmonization tradition (codified by Hans Leo Hassler, Michael Praetorius, and later Johann Sebastian Bach in his approximately 400 chorale harmonizations) constitutes the canonical compositional layer. Direct precursor to broader Lutheran cantata-and-passion compositional tradition.",
-  "recipe": "classic North American mid-1520s lutheran chorale tradition, ritual Devotional, christian gospel branch, western common practice art music classical period anglican cathedral-choral recording tradition. thick, declaimed, chest resonance low mid, ornamental. mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone global traditional polyphonic choir ensemble, silbermann saxon canonical bach era central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque mechanical tracker canonical Baroque direct touch legato pipe organ. cathedral. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 833,
-  "score": 203.83,
+  "recipe": "classic European mid-1520s lutheran chorale tradition, ritual Devotional, christian gospel branch, western common practice art music classical period anglican cathedral-choral recording tradition. thick, declaimed, chest resonance low mid, ornamental. mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone global traditional polyphonic choir ensemble, silbermann saxon canonical bach era central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque mechanical tracker canonical Baroque direct touch legato pipe organ. cathedral. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 783,
+  "score": 203.23,
   "config": {
     "traditions": [
       "lutheran_chorale",
@@ -90,7 +90,7 @@
       }
     ],
     "room": "cathedral",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_german_diy_converted",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "tube_pre",

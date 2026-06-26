@@ -3,9 +3,9 @@
   "name": "Huangmei opera (Anhui regional opera)",
   "family": "classical",
   "lineage": "Huangmei opera (Huangmei xi) Chinese regional opera tradition originating in the late nineteenth century in the Huangmei county of Hubei province and developing through the early-twentieth century in Anhui province (especially Anqing region) into one of the five major Chinese opera traditions. Distinguished from the elite kunqu and jingju by accessible vernacular Anhui-and-Hubei dialect language, simple rural-folk melodic vocabulary (developed from tea-picking and rice-planting work songs), and more naturalistic theatrical-realism in staging. The Tianxianpei (\"Heavenly Match\") play is the canonical type-specimen. The post-1949 Anhui Provincial Huangmei Opera Theatre consolidated the modern repertoire.",
-  "recipe": "classic Southeast Asian late-1940s huangmei opera, art Music, east Asian branch, east Asian Cantonese opera. thick, pressed, chest resonance low mid, equal tempered. python skin silk canonical traditional sanxian, silk red sandalwood zitan premium pipa, composite material paulownia canonical Korean horse dog asymmetric canonical Korean pansori godo janggu. wooden pagoda hall. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 510,
-  "score": 240.346,
+  "recipe": "classic Southeast Asian late-1940s huangmei opera, art Music, east Asian branch, east Asian Cantonese opera. thick, pressed, chest resonance low mid, equal tempered. python skin silk canonical traditional sanxian, silk red sandalwood zitan premium pipa, composite material paulownia canonical Korean horse dog asymmetric canonical Korean pansori godo janggu. wooden pagoda hall. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 451,
+  "score": 234.946,
   "config": {
     "traditions": [
       "huangmei_opera_chinese",
@@ -106,7 +106,7 @@
       }
     ],
     "room": "wooden_pagoda_hall",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_electrical_disc_cut",
     "inline_chain": {
       "mic": "mic_u87_condenser_neumann",
       "pre": "tube_pre",

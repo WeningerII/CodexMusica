@@ -3,9 +3,9 @@
   "name": "Taarab",
   "family": "global",
   "lineage": "East African Swahili-coast genre (Zanzibar, coastal Tanzania, coastal Kenya, Comoros) fusing Arab maqam-system melody, Indian classical raga vocabulary, and Bantu-Swahili language poetry into large-ensemble wedding-and-celebration music; codified through Siti binti Saad (1928 HMV-Bombay first commercial recordings, the mother of taarab), Bi Kidude (1910-2013, Zanzibars longest-living taarab matriarch), the Culture Musical Club (founded 1958), and Black Star Musical Club",
-  "recipe": "classic East African early-1910s taarab, groove Percussion, central east south African branch, Persian arab improv improv on frame, mid east n African pop functional song khaliji algerian chaabi. thick, declaimed, chest resonance low mid, equal tempered. weltmeister east German mid tier vintage volk ensemble accordion, metal finger picks rosewood body arab premium qanun, walnut ribs canonical mid tier pyramid nylon arab school oud, carpathian spruce European maple bosnian source flamed figure oil varnish violin orchestral, spun aluminum Egyptian sombaty Egyptian sombaty canonical mid east darbuka. dar es salaam zanzibar taarab culture club. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 780,
-  "score": 357.517,
+  "recipe": "classic East African early-1910s taarab, groove Percussion, central east south African branch, Persian arab improv improv on frame, mid east n African pop functional song khaliji algerian chaabi. thick, declaimed, chest resonance low mid, equal tempered. weltmeister east German mid tier vintage volk ensemble accordion, metal finger picks rosewood body arab premium qanun, walnut ribs canonical mid tier pyramid nylon arab school oud, carpathian spruce European maple bosnian source flamed figure oil varnish violin orchestral, spun aluminum Egyptian sombaty Egyptian sombaty canonical mid east darbuka. dar es salaam zanzibar taarab culture club. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 721,
+  "score": 347.515,
   "config": {
     "traditions": [
       "taarab",
@@ -31,7 +31,7 @@
           "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
           "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
           "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
-          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
           "voice_register": 11.719999999999997,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 23.825,
           "voice_pitch_organization": 23.78,
           "voice_processing_chain": 2.6999999999999997,
-          "voice_multitrack_stack": 2.0475
+          "voice_multitrack_stack": 1.8199999999999994
         }
       },
       {
@@ -159,7 +159,7 @@
       }
     ],
     "room": "dar_es_salaam_zanzibar_taarab_culture_club",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_electrical_disc_cut",
     "inline_chain": {
       "mic": "mic_u47_tube_neumann",
       "pre": "pre_tube_german_v72",

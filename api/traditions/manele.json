@@ -132,13 +132,13 @@
       "amp": null,
       "medium": "digital_high"
     },
-    "tuning": "twelve_tet",
+    "tuning": "makam_turkish",
     "aesthetic": "maximalist_streaming_pop",
     "arrangement": null,
     "fx_extras": []
   },
   "source": {
-    "tuning": "twelve_tet",
+    "tuning": "makam_turkish",
     "room": "live_room",
     "parts": {
       "voice_register": "chest_voice",

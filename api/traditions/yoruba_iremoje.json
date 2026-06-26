@@ -3,8 +3,8 @@
   "name": "Yoruba ìrèmọjẹ (hunters' and widows' funeral dirge)",
   "family": "global",
   "lineage": "Yoruba mourning-song tradition continuous from pre-colonial Yoruba ritual-practice through 19th-20th century continuous performance by Yoruba hunters'-guild and hunters'-widows; particularly preserved in Ọ̀yọ́, Òṣun, Ọ̀ǹdó, Èkìtì Yoruba cultural zones",
-  "recipe": "classic modern yoruba ìrèmọjẹ, funeral Lament, African diasporic branch, indigenous ritual devotional, vocal drone modal, west African griot ballad poetry inuit katajjaq throat-singing game shipibo-conibo icaros healing songs. sygyt, declaimed, overtone rich sustained, continuous-phonation. carpeted bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 439,
+  "recipe": "classic West African modern yoruba ìrèmọjẹ, funeral Lament, African diasporic branch, indigenous ritual devotional, vocal drone modal, west African griot ballad poetry inuit katajjaq throat-singing game shipibo-conibo icaros healing songs. sygyt, declaimed, overtone rich sustained, continuous-phonation. bamako griot jeli compound. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 462,
   "score": 205.215,
   "config": {
     "traditions": [
@@ -53,7 +53,7 @@
         }
       }
     ],
-    "room": "carpeted_bedroom",
+    "room": "bamako_griot_jeli_compound",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -71,7 +71,7 @@
   },
   "source": {
     "tuning": "yoruba_juju_fuji_polyrhythmic",
-    "room": "carpeted_bedroom",
+    "room": "bamako_griot_jeli_compound",
     "parts": {
       "voice_articulation": "melisma_voice",
       "voice_speech_song": "voice_melismatic_singing",

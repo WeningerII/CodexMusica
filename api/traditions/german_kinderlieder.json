@@ -3,8 +3,8 @@
   "name": "German Kinderlieder and Abzählreime",
   "family": "global",
   "lineage": "German-language children's play-song (Kinderlieder) and counting-out-rhyme (Abzählreime) tradition continuous from medieval-and-early-modern German folk-play-song origins through Brothers Grimm 19th-century Kinder- und Hausmärchen documentation context (the Grimm collection includes children's-rhyme apparatus) through 19th-20th century German school-curriculum codification into modern continuous Austrian-and-Swiss-and-German childhood-practice",
-  "recipe": "classic modern german kinderlieder and abzählreime, nursery Rhyme, European branch, European lullaby, americas nursery rhyme, chanson fado ballad poetry spanish and latin american rondas brazilian cantigas de roda. thick, low dynamic level, tasteful, continuous-phonation. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 411,
+  "recipe": "classic modern german kinderlieder and abzählreime, nursery Rhyme, European branch, European lullaby, americas nursery rhyme, chanson fado ballad poetry spanish and latin american rondas brazilian cantigas de roda. thick, low dynamic level, tasteful, continuous-phonation. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 410,
   "score": 96.92,
   "config": {
     "traditions": [
@@ -53,7 +53,7 @@
         }
       }
     ],
-    "room": "untreated_bedroom",
+    "room": "parlor",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -71,7 +71,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "untreated_bedroom",
+    "room": "parlor",
     "parts": {
       "voice_articulation": "staccato_voice",
       "voice_speech_song": "voice_syllabic_singing",

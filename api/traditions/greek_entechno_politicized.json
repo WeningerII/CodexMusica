@@ -3,8 +3,8 @@
   "name": "Greek éntechno politicized (Theodorakis era)",
   "family": "global",
   "lineage": "Greek politicized éntechno (\"artistic music\") protest-song tradition centered on Mikis Theodorakis (1925-2021, the foundational figure whose Communist-Party-aligned political-songwriter career spanned the 1944-1945 Civil-War partisan era through the 1967-1974 Greek Junta exile-and-imprisonment era and continuous through post-Metapolitefsi democratic-era continuous performance) and continuous through the broader 1960s-1990s Greek éntechno politicized songwriter scene including Manos Loizos and Yannis Markopoulos",
-  "recipe": "classic early-1920s greek éntechno politicized, protest Song, European branch, middle east n African protest song, Mediterranean ballad ballad poetry, iberian functional song galician kantautor and folk-pop laikó. thick, lament wail, melodic, continuous-phonation. walnut staves canonical Greek strummed bouzouki, cedar carbon fiber fingerpicked classical nylon-string guitar. carpeted bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 524,
+  "recipe": "classic Southern European early-1920s greek éntechno politicized, protest Song, European branch, middle east n African protest song, Mediterranean ballad ballad poetry, iberian functional song galician kantautor and folk-pop laikó. thick, lament wail, melodic, continuous-phonation. walnut staves canonical Greek strummed bouzouki, cedar carbon fiber fingerpicked classical nylon-string guitar. athens major label 1955-1985 mid tier athens minos studios 60s 70s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 592,
   "score": 157.195,
   "config": {
     "traditions": [
@@ -89,7 +89,7 @@
         }
       }
     ],
-    "room": "carpeted_bedroom",
+    "room": "athens_minos_studios_60s_70s",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -107,7 +107,7 @@
   },
   "source": {
     "tuning": "rebetiko_eastern_modal_dromos",
-    "room": "carpeted_bedroom",
+    "room": "athens_minos_studios_60s_70s",
     "parts": {
       "voice_articulation": "narrative_voice",
       "voice_speech_song": "voice_syllabic_singing",

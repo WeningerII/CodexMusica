@@ -3,9 +3,9 @@
   "name": "Calypso",
   "family": "global",
   "lineage": "Trinidadian narrative-and-topical song tradition emerging from post-1834 Emancipation kalinda stick-fighting chant, codified through the post-WWII commercial recording era — Mighty Sparrow (Slinger Francisco), Lord Kitchener (Aldwyn Roberts), Lord Invader, the Roaring Lion, Lord Melody, Calypso Rose; performed during the Trinidad and Tobago Carnival season (October-February preparation, with Carnival Monday-Tuesday peak) in calypso tent venues and competition contexts",
-  "recipe": "classic Caribbean mid-1830s calypso, groove Percussion, Caribbean branch, tropical song functional song, Caribbean carnival processional garifuna paranda and hungu-hungu bachata. thick, full chest belt, melodic, narrative. narrative fingerpicked dreadnought acoustic guitar, claves, pyramid pure nickel bass British mid 60s era sub heavy electric bass, steelpan, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn ensemble trumpet, tenor gold brass warmer tone saxophone. trinidad calypso panyard outdoor. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 725,
-  "score": 171.995,
+  "recipe": "classic Caribbean mid-1830s calypso, groove Percussion, Caribbean branch, tropical song functional song, Caribbean carnival processional garifuna paranda and hungu-hungu bachata. thick, full chest belt, melodic, narrative. narrative fingerpicked dreadnought acoustic guitar, claves, pyramid pure nickel bass British mid 60s era sub heavy electric bass, steelpan, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn ensemble trumpet, tenor gold brass warmer tone saxophone. trinidad calypso panyard outdoor. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 703,
+  "score": 157.13,
   "config": {
     "traditions": [
       "calypso",
@@ -31,7 +31,7 @@
           "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
           "voice_register": 4.460000000000001,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 0.9099999999999999,
           "voice_pitch_organization": 2.9850000000000008,
           "voice_processing_chain": 6.779999999999999,
-          "voice_multitrack_stack": 3.3149999999999995
+          "voice_multitrack_stack": 4.68
         }
       },
       {
@@ -144,7 +144,7 @@
           "sax_body_alloy": "gold_brass_sax",
           "sax_mouthpiece": "hard_rubber_mp",
           "sax_technique": "sax_cool_lyrical",
-          "sax_maker_school": "sax_keilwerth_german"
+          "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
           "wind_articulation": 1.4299999999999997,
@@ -153,12 +153,12 @@
           "sax_body_alloy": 1.7999999999999998,
           "sax_mouthpiece": 0.65,
           "sax_technique": 0.325,
-          "sax_maker_school": 0.195
+          "sax_maker_school": 0.7149999999999999
         }
       }
     ],
     "room": "trinidad_calypso_panyard_outdoor",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_early_tape_havana",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

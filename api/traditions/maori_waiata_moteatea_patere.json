@@ -3,8 +3,8 @@
   "name": "Māori waiata mōteatea / patere (Maori praise-chant)",
   "family": "global",
   "lineage": "Māori praise-chant tradition continuous from pre-contact Māori ritual-practice through 19th-20th century continuous performance at marae context into modern Māori-cultural-revival; patere (women's rapid-recitation praise-and-genealogy-chant) and pao (impromptu praise-song) are the canonical Māori praise-chant forms",
-  "recipe": "classic modern māori waiata mōteatea / patere, praise Song, oceania pacific branch, sub saharan African praise song, indigenous ritual devotional, oceania pacific funeral lament zulu izibongo yoruba oríkì. extended whistle, declaimed, tasteful, continuous-phonation. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 405,
+  "recipe": "classic Oceanian modern māori waiata mōteatea / patere, praise Song, oceania pacific branch, sub saharan African praise song, indigenous ritual devotional, oceania pacific funeral lament zulu izibongo yoruba oríkì. extended whistle, declaimed, tasteful, continuous-phonation. maori marae carved wharenui. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 434,
   "score": 190.894,
   "config": {
     "traditions": [
@@ -53,7 +53,7 @@
         }
       }
     ],
-    "room": "untreated_bedroom",
+    "room": "maori_marae_carved_wharenui",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -71,7 +71,7 @@
   },
   "source": {
     "tuning": "mongolian_pentatonic_long_song",
-    "room": "untreated_bedroom",
+    "room": "maori_marae_carved_wharenui",
     "parts": {
       "voice_articulation": "narrative_voice",
       "voice_speech_song": "voice_recitative_free_rhythm",

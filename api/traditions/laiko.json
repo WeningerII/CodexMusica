@@ -3,9 +3,9 @@
   "name": "Laikó",
   "family": "global",
   "lineage": "Post-rebetiko Greek popular song that emerged in the 1950s-1960s as rebetiko transitioned from tavern-context to commercial-nightclub-context — codified through Manolis Chiotis (who introduced the three-course-to-four-course (trichordo-to-tetrachordo) bouzouki conversion and electric amplification), Stelios Kazantzidis (the voice of laiko), Marinella, Stratos Dionysiou, Yiannis Parios, Glykeria, and the Athens Minos / Columbia Greece / Lyra label catalog",
-  "recipe": "classic Southern European mid-1950s laikó, ballad Poetry, Mediterranean ballad branch, vocal drone modal, chanson fado ballad poetry cape verdean batuko of santiago island greek éntechno. thick, lament wail, chest resonance low mid, punctuated. walnut staves canonical Greek gut pre 1950s rebetiko strummed bouzouki, cedar fingerpicked classical nylon-string guitar, beech laminated maple laminated European tradition European spruce norway spruce grand piano, sub heavy electric bass, pre muffled edge muffled over hammered post lathe strikes hand lathed drum kit. athens major label 1955-1985 mid tier athens minos studios 60s 70s. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 765,
-  "score": 280.885,
+  "recipe": "classic Southern European mid-1950s laikó, ballad Poetry, Mediterranean ballad branch, vocal drone modal, chanson fado ballad poetry cape verdean batuko of santiago island greek éntechno. thick, lament wail, chest resonance low mid, punctuated. walnut staves canonical Greek gut pre 1950s rebetiko strummed bouzouki, cedar carbon fiber fingerpicked classical nylon-string guitar, beech laminated maple laminated European tradition European spruce norway spruce grand piano, sub heavy electric bass, pre muffled edge muffled fx9 manganese bronze over hammered drum kit. athens major label 1955-1985 mid tier athens minos studios 60s 70s. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 724,
+  "score": 282.563,
   "config": {
     "traditions": [
       "laiko",
@@ -57,7 +57,7 @@
         "slots": {
           "plucked_traditional_technique": "plucked_folk_strummed",
           "bouzouki_courses": "trichordo",
-          "bouzouki_pick": "bouzouki_thin",
+          "bouzouki_pick": "bouzouki_medium",
           "bouzouki_body_wood": "bouzouki_walnut_bowl",
           "bouzouki_strings": "bouzouki_gut_historical"
         },
@@ -84,7 +84,7 @@
           "string_tuning": 0,
           "top_wood_classical": 7.409999999999999,
           "bracing_classical": 1.105,
-          "string_classical": 0.7350000000000001,
+          "string_classical": 1.95,
           "attack_technique_cl": 4.13
         }
       },
@@ -98,7 +98,7 @@
           "piano_rim": "european_laminated_rim_beech_maple",
           "piano_soundboard": "european_spruce_soundboard",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_plate": "wet_sand_cast_plate",
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
@@ -109,7 +109,7 @@
           "piano_rim": 7.995,
           "piano_soundboard": 5.8825,
           "piano_pinblock": 4.295,
-          "piano_plate": 4.14,
+          "piano_plate": 4.635,
           "piano_pitch_standard": 8.254999999999999
         }
       },
@@ -117,21 +117,21 @@
         "id": "electric_bass",
         "slots": {
           "electric_technique": "electric_bass_slap_pop",
-          "amp_make": "amp_british_60s_selmer",
+          "amp_make": "amp_modern_modeling",
           "body_wood": "mahogany_b",
-          "pickup_config": "humbucker_mm",
+          "pickup_config": "soapbar",
           "string_type": "half_round",
-          "scale_length_b": "short_scale_b",
+          "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretted",
           "bass_technique": "sub_bass_synth_blend"
         },
         "scores": {
           "electric_technique": 1.1449999999999998,
-          "amp_make": 0.49999999999999994,
+          "amp_make": 2.0149999999999997,
           "body_wood": 0.69,
-          "pickup_config": 0.045,
+          "pickup_config": 1.2349999999999999,
           "string_type": 1.4949999999999999,
-          "scale_length_b": 0.345,
+          "scale_length_b": 0.845,
           "fretted_or_not": 1.1949999999999998,
           "bass_technique": 2.1125
         }
@@ -142,10 +142,10 @@
           "percussion_technique": "percussion_brushes_and_sticks",
           "shell_wood": "mahogany_shell",
           "shell_thickness": "thin_shell",
-          "bearing_edges": "edge_30",
+          "bearing_edges": "edge_45",
           "drumhead": "ec_pre_muffled_drumhead",
           "snare_wires": "cable_snares",
-          "cymbal_alloy": "b15_signature",
+          "cymbal_alloy": "meinl_fx9",
           "cymbal_hammering": "over_hammered",
           "cymbal_lathing": "hand_lathed_pit_retaining",
           "cymbal_finish": "hand_hammered",
@@ -155,10 +155,10 @@
           "percussion_technique": 16.64,
           "shell_wood": 0.39,
           "shell_thickness": 0.045,
-          "bearing_edges": 0.54,
+          "bearing_edges": 0.845,
           "drumhead": 1.905,
           "snare_wires": 0.345,
-          "cymbal_alloy": 0.7149999999999999,
+          "cymbal_alloy": 2.0475000000000003,
           "cymbal_hammering": 3.0900000000000003,
           "cymbal_lathing": 2.4050000000000002,
           "cymbal_finish": 0.195,
@@ -167,7 +167,7 @@
       }
     ],
     "room": "athens_minos_studios_60s_70s",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_german_diy_converted",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "pre_tube_german_v72",

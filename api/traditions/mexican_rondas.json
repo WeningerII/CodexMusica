@@ -3,8 +3,8 @@
   "name": "Mexican rondas infantiles (children's circle-songs)",
   "family": "global",
   "lineage": "Mexican-Spanish children's circle-song (ronda infantil) tradition continuous from colonial-period Spanish-imported children's play-song origins through 19th-20th century continuous Mexican-childhood-practice into modern Mexican-and-Mexican-diaspora practice; the Mexican-specific rep diverges from Iberian-Spanish in incorporating Mesoamerican-Indigenous and Mexican-folk-festival musical influences",
-  "recipe": "classic modern mexican rondas infantiles, nursery Rhyme, americas branch, European nursery rhyme, European lullaby, americas wedding english nursery rhyme french comptines. thick, low dynamic level, tasteful, continuous-phonation. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 369,
+  "recipe": "classic modern mexican rondas infantiles, nursery Rhyme, americas branch, European nursery rhyme, European lullaby, americas wedding english nursery rhyme french comptines. thick, low dynamic level, tasteful, continuous-phonation. field recording. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 377,
   "score": 92.457,
   "config": {
     "traditions": [
@@ -53,7 +53,7 @@
         }
       }
     ],
-    "room": "untreated_bedroom",
+    "room": "field_recording",
     "archetype": "arch_modern_pro_daw_studio",
     "inline_chain": {
       "mic": "condenser_sdc",
@@ -71,7 +71,7 @@
   },
   "source": {
     "tuning": "twelve_tet",
-    "room": "untreated_bedroom",
+    "room": "field_recording",
     "parts": {
       "voice_articulation": "call_response_voice",
       "voice_speech_song": "voice_syllabic_singing",
