@@ -25,7 +25,9 @@ for (const a of args) {
 // readFileSync; an empty test set must FAIL, not mint "0/0 pass".
 const docPath = path.join(__dirname, '..', 'tests', 'slot_pick_lock_ins.json');
 if (!fs.existsSync(docPath)) {
-  console.error(`Slot-pick lock-ins: FAIL — fixture missing at ${docPath} (refusing to pass vacuously)`);
+  console.error(
+    `Slot-pick lock-ins: FAIL — fixture missing at ${docPath} (refusing to pass vacuously)`
+  );
   process.exit(2);
 }
 const doc = JSON.parse(fs.readFileSync(docPath, 'utf8'));
@@ -43,20 +45,27 @@ for (const t of tests) {
     continue;
   }
   const r = search(seed, { maxIters: 100 });
-  const card = r.config.instruments.find(i => i.id === t.instrument);
+  const card = r.config.instruments.find((i) => i.id === t.instrument);
   if (!card) {
-    results.push({ ...t, ok: false, actual: null, error: `instrument '${t.instrument}' not in config` });
+    results.push({
+      ...t,
+      ok: false,
+      actual: null,
+      error: `instrument '${t.instrument}' not in config`,
+    });
     continue;
   }
   const actual = (card.slots || {})[t.part];
   results.push({ ...t, ok: actual === t.expected_variant, actual });
 }
 
-const passed = results.filter(r => r.ok).length;
-const failed = results.filter(r => !r.ok);
+const passed = results.filter((r) => r.ok).length;
+const failed = results.filter((r) => !r.ok);
 
 if (flags.json) {
-  process.stdout.write(JSON.stringify({ passed, failed: failed.length, total: tests.length, results }, null, 2));
+  process.stdout.write(
+    JSON.stringify({ passed, failed: failed.length, total: tests.length, results }, null, 2)
+  );
   process.exit(failed.length > 0 ? 1 : 0);
 }
 

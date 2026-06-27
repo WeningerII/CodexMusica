@@ -39,7 +39,9 @@ const C = require('./_loader.js');
 const { cardDescriptors } = require('./_card_descriptors.js');
 const prefaceMatch = require('./_preface_match.js');
 
-const SIGS = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'references/_tradition_signatures.json'), 'utf8'));
+const SIGS = JSON.parse(
+  fs.readFileSync(path.join(__dirname, '..', 'references/_tradition_signatures.json'), 'utf8')
+);
 const VERBOSE = process.argv.includes('--verbose');
 
 // Fixture sample — spans families and tradition-bearing vs bare cards so the
@@ -61,9 +63,13 @@ function buildTempHtml() {
   // --embedded: this harness boots the page in jsdom with NO fetch — it needs
   // the tradition tables in the page. check_lazy_app.js proves the shipped
   // lazy shell behaves identically to this embedded build.
-  execFileSync('node', [path.join(__dirname, 'build_html.js'), `--out=${tmp}`, '--quiet', '--embedded'], {
-    stdio: ['ignore', 'ignore', 'inherit'],
-  });
+  execFileSync(
+    'node',
+    [path.join(__dirname, 'build_html.js'), `--out=${tmp}`, '--quiet', '--embedded'],
+    {
+      stdio: ['ignore', 'ignore', 'inherit'],
+    }
+  );
   return tmp;
 }
 
@@ -76,8 +82,23 @@ function browserResults(html) {
       runScripts: 'dangerously',
       pretendToBeVisual: true,
       beforeParse(w) {
-        w.storage = { async get() { return null; }, async set() {}, async delete() {}, async list() { return { keys: [] }; } };
-        w.matchMedia = () => ({ matches: false, addEventListener() {}, removeEventListener() {}, addListener() {}, removeListener() {} });
+        w.storage = {
+          async get() {
+            return null;
+          },
+          async set() {},
+          async delete() {},
+          async list() {
+            return { keys: [] };
+          },
+        };
+        w.matchMedia = () => ({
+          matches: false,
+          addEventListener() {},
+          removeEventListener() {},
+          addListener() {},
+          removeListener() {},
+        });
         w.scrollTo = () => {};
       },
     });
@@ -118,8 +139,18 @@ function nodeResults(browser) {
   for (const fx of FIXTURES) {
     const key = fx.instrumentId + '@' + (fx.traditionId || '(none)');
     const b = browser[key];
-    if (!b || b.err) { out[key] = { err: b ? b.err : 'no-browser-card' }; continue; }
-    const card = { instrumentId: fx.instrumentId, traditionId: fx.traditionId, parts: b.parts, tuning: b.tuning, room: b.room, chain: {} };
+    if (!b || b.err) {
+      out[key] = { err: b ? b.err : 'no-browser-card' };
+      continue;
+    }
+    const card = {
+      instrumentId: fx.instrumentId,
+      traditionId: fx.traditionId,
+      parts: b.parts,
+      tuning: b.tuning,
+      room: b.room,
+      chain: {},
+    };
     const set = cardDescriptors(card, C, SIGS);
     const descs = Array.from(set).sort();
     const preface = prefaceMatch.suggest(set, C.PREFACE_LEXICON);
@@ -139,24 +170,36 @@ function nodeResults(browser) {
   const mismatches = [];
   for (const fx of FIXTURES) {
     const key = fx.instrumentId + '@' + (fx.traditionId || '(none)');
-    const b = browser[key], n = node[key];
-    if (!b || b.err) { mismatches.push(`${key}: browser error — ${b ? b.err : 'missing'}`); continue; }
-    if (!n || n.err) { mismatches.push(`${key}: node error — ${n ? n.err : 'missing'}`); continue; }
+    const b = browser[key],
+      n = node[key];
+    if (!b || b.err) {
+      mismatches.push(`${key}: browser error — ${b ? b.err : 'missing'}`);
+      continue;
+    }
+    if (!n || n.err) {
+      mismatches.push(`${key}: node error — ${n ? n.err : 'missing'}`);
+      continue;
+    }
 
     const descsB = JSON.stringify(b.descs);
     const descsN = JSON.stringify(n.descs);
     if (descsB !== descsN) {
       // Report the symmetric difference so a drift is actionable.
-      const setB = new Set(b.descs), setN = new Set(n.descs);
+      const setB = new Set(b.descs),
+        setN = new Set(n.descs);
       const onlyB = b.descs.filter((d) => !setN.has(d));
       const onlyN = n.descs.filter((d) => !setB.has(d));
-      mismatches.push(`${key}: descriptor-set drift — browser-only=[${onlyB.join(',')}] node-only=[${onlyN.join(',')}]`);
+      mismatches.push(
+        `${key}: descriptor-set drift — browser-only=[${onlyB.join(',')}] node-only=[${onlyN.join(',')}]`
+      );
     }
     if (b.preface !== n.preface) {
       mismatches.push(`${key}: preface drift — browser="${b.preface}" node="${n.preface}"`);
     }
     if (VERBOSE) {
-      console.error(`  ${key}: ${b.descs.length} descs, preface=${b.preface} ${descsB === descsN && b.preface === n.preface ? 'OK' : 'DRIFT'}`);
+      console.error(
+        `  ${key}: ${b.descs.length} descs, preface=${b.preface} ${descsB === descsN && b.preface === n.preface ? 'OK' : 'DRIFT'}`
+      );
     }
   }
 
@@ -165,5 +208,10 @@ function nodeResults(browser) {
     for (const m of mismatches) console.error('  ' + m);
     process.exit(1);
   }
-  console.error(`EQUIVALENCE: ${FIXTURES.length}/${FIXTURES.length} PASS — browser and node agree on descriptor sets and preface suggestions`);
-})().catch((e) => { console.error('EQUIVALENCE: harness crash — ' + (e && e.message)); process.exit(1); });
+  console.error(
+    `EQUIVALENCE: ${FIXTURES.length}/${FIXTURES.length} PASS — browser and node agree on descriptor sets and preface suggestions`
+  );
+})().catch((e) => {
+  console.error('EQUIVALENCE: harness crash — ' + (e && e.message));
+  process.exit(1);
+});

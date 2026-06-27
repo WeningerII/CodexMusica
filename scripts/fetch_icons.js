@@ -17,29 +17,105 @@ const OUT_DIR = path.join(__dirname, '..', 'references', '_assets', 'icons');
 // mapping lives in build_assets.js so callers don't have to change.
 const WANTED = [
   // --- Section 1: existing 12 icons in the codex ---
-  'circle-alert', 'check', 'chevron-down', 'chevron-right', 'copy', 'eye',
-  'network', 'pin', 'shuffle', 'sparkles', 'trash-2', 'x',
+  'circle-alert',
+  'check',
+  'chevron-down',
+  'chevron-right',
+  'copy',
+  'eye',
+  'network',
+  'pin',
+  'shuffle',
+  'sparkles',
+  'trash-2',
+  'x',
 
   // --- Section 2: UI chrome (the 85 in the research report) ---
-  'settings', 'save', 'save-all', 'folder', 'folder-open', 'file', 'file-plus',
-  'search', 'funnel', 'arrow-up-down', 'refresh-cw', 'pencil',
-  'plus', 'minus', 'maximize-2', 'minimize-2',
-  'arrow-up', 'arrow-down', 'arrow-left', 'arrow-right', 'house',
-  'menu', 'ellipsis-vertical', 'ellipsis',
-  'layout-grid', 'list', 'gallery-thumbnails', 'grip-vertical', 'move-diagonal',
-  'bookmark', 'star', 'heart', 'share-2', 'download', 'upload',
-  'clipboard-paste', 'scissors', 'undo-2', 'redo-2', 'clipboard',
-  'link', 'external-link', 'paperclip', 'eye-off', 'lock', 'lock-open', 'key',
-  'triangle-alert', 'info', 'circle-question-mark', 'lightbulb', 'wand-sparkles', 'zap',
-  'loader-circle', 'loader', 'panel-left', 'columns-2',
-  'zoom-in', 'zoom-out', 'scan', 'sliders-horizontal',
-  'toggle-right', 'toggle-left', 'circle-dot', 'square-check',
-  'play', 'pause', 'square', 'circle', 'rewind', 'fast-forward',
-  'skip-back', 'skip-forward', 'repeat', 'repeat-1',
-  'volume-2', 'volume-1', 'volume-x',
+  'settings',
+  'save',
+  'save-all',
+  'folder',
+  'folder-open',
+  'file',
+  'file-plus',
+  'search',
+  'funnel',
+  'arrow-up-down',
+  'refresh-cw',
+  'pencil',
+  'plus',
+  'minus',
+  'maximize-2',
+  'minimize-2',
+  'arrow-up',
+  'arrow-down',
+  'arrow-left',
+  'arrow-right',
+  'house',
+  'menu',
+  'ellipsis-vertical',
+  'ellipsis',
+  'layout-grid',
+  'list',
+  'gallery-thumbnails',
+  'grip-vertical',
+  'move-diagonal',
+  'bookmark',
+  'star',
+  'heart',
+  'share-2',
+  'download',
+  'upload',
+  'clipboard-paste',
+  'scissors',
+  'undo-2',
+  'redo-2',
+  'clipboard',
+  'link',
+  'external-link',
+  'paperclip',
+  'eye-off',
+  'lock',
+  'lock-open',
+  'key',
+  'triangle-alert',
+  'info',
+  'circle-question-mark',
+  'lightbulb',
+  'wand-sparkles',
+  'zap',
+  'loader-circle',
+  'loader',
+  'panel-left',
+  'columns-2',
+  'zoom-in',
+  'zoom-out',
+  'scan',
+  'sliders-horizontal',
+  'toggle-right',
+  'toggle-left',
+  'circle-dot',
+  'square-check',
+  'play',
+  'pause',
+  'square',
+  'circle',
+  'rewind',
+  'fast-forward',
+  'skip-back',
+  'skip-forward',
+  'repeat',
+  'repeat-1',
+  'volume-2',
+  'volume-1',
+  'volume-x',
 
   // --- Family-level music glyphs (kept from existing ICONS for continuity) ---
-  'mic', 'headphones', 'disc', 'guitar', 'piano',
+  'mic',
+  'headphones',
+  'disc',
+  'guitar',
+  'piano',
 ];
 
 function fetchUrl(url) {
@@ -54,7 +130,9 @@ function fetchUrl(url) {
       }
       let body = '';
       res.setEncoding('utf8');
-      res.on('data', (chunk) => { body += chunk; });
+      res.on('data', (chunk) => {
+        body += chunk;
+      });
       res.on('end', () => resolve(body));
     });
     req.on('error', reject);
@@ -63,18 +141,23 @@ function fetchUrl(url) {
 
 async function main() {
   fs.mkdirSync(OUT_DIR, { recursive: true });
-  fs.writeFileSync(path.join(OUT_DIR, '_LUCIDE_VERSION.txt'),
-    `lucide-static@${LUCIDE_VERSION}\nISC License — see _LICENSE.txt\n`);
+  fs.writeFileSync(
+    path.join(OUT_DIR, '_LUCIDE_VERSION.txt'),
+    `lucide-static@${LUCIDE_VERSION}\nISC License — see _LICENSE.txt\n`
+  );
 
   // Vendor LICENSE from the lucide repo
   try {
-    const license = await fetchUrl('https://raw.githubusercontent.com/lucide-icons/lucide/main/LICENSE');
+    const license = await fetchUrl(
+      'https://raw.githubusercontent.com/lucide-icons/lucide/main/LICENSE'
+    );
     fs.writeFileSync(path.join(OUT_DIR, '_LICENSE.txt'), license);
   } catch {
     console.warn('  (could not fetch LICENSE — copy manually from lucide repo)');
   }
 
-  let ok = 0, fail = 0;
+  let ok = 0,
+    fail = 0;
   for (const slug of WANTED) {
     const url = BASE + slug + '.svg';
     try {
@@ -90,4 +173,7 @@ async function main() {
   console.log(`Output: ${OUT_DIR}`);
 }
 
-main().catch(e => { console.error(e); process.exit(1); });
+main().catch((e) => {
+  console.error(e);
+  process.exit(1);
+});

@@ -34,7 +34,10 @@ let _embedHtmlPath = null;
 function embeddedHtml() {
   if (_embedHtmlPath && fs.existsSync(_embedHtmlPath)) return _embedHtmlPath;
   _embedHtmlPath = path.join(os.tmpdir(), `codex_tandem_embed_${process.pid}.html`);
-  execSync(`node ${path.join(__dirname, 'build_html.js')} --out=${_embedHtmlPath} --embedded --quiet`, { cwd: ROOT });
+  execSync(
+    `node ${path.join(__dirname, 'build_html.js')} --out=${_embedHtmlPath} --embedded --quiet`,
+    { cwd: ROOT }
+  );
   return _embedHtmlPath;
 }
 
@@ -60,7 +63,8 @@ function check(label, fn) {
 // silent stderr stream. maxBuffer raised from the 1MB default to safely
 // hold smoke.js / regression.js / calibrate.js output across all 450
 // traditions even if they grow.
-const RUN = (cmd) => execSync(cmd + ' 2>&1', { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
+const RUN = (cmd) =>
+  execSync(cmd + ' 2>&1', { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
 
 // Tolerant variant — captures full output even on non-zero exit. Used for
 // scripts that are review-tools rather than hard build gates (e.g. calibrate.js,
@@ -152,21 +156,27 @@ check('voice audit classifications (advisory — staple-context override)', () =
   let auditPath, mode;
   if (DEEP) {
     try {
-      execSync('node scripts/audit_voice_picks.js --dry-run',
-        { cwd: ROOT, encoding: 'utf8', stdio: 'pipe', maxBuffer: 16 * 1024 * 1024 });
-      auditPath = '/tmp/voice_audit.json'; mode = 'fresh';
+      execSync('node scripts/audit_voice_picks.js --dry-run', {
+        cwd: ROOT,
+        encoding: 'utf8',
+        stdio: 'pipe',
+        maxBuffer: 16 * 1024 * 1024,
+      });
+      auditPath = '/tmp/voice_audit.json';
+      mode = 'fresh';
     } catch (e) {
       return 'fresh audit unavailable (advisory) — ' + (e.message || '').slice(0, 60);
     }
   } else {
-    auditPath = path.join(ROOT, 'tests/voice_audit.json'); mode = 'committed baseline';
+    auditPath = path.join(ROOT, 'tests/voice_audit.json');
+    mode = 'committed baseline';
   }
   if (!fs.existsSync(auditPath)) return `no ${mode} snapshot (advisory)`;
   const audit = JSON.parse(fs.readFileSync(auditPath, 'utf8'));
   const cls = JSON.parse(fs.readFileSync(clsPath, 'utf8'));
-  const tids = new Set(audit.records.map(r => r.tid));
+  const tids = new Set(audit.records.map((r) => r.tid));
   const classified = new Set(Object.keys(cls.classifications || {}));
-  const missing = [...tids].filter(t => !classified.has(t));
+  const missing = [...tids].filter((t) => !classified.has(t));
   // Format integrity of human-authored entries stays fatal — guards the file itself.
   for (const [tid, val] of Object.entries(cls.classifications || {})) {
     if (!Array.isArray(val) || val.length !== 2) throw new Error(`${tid}: malformed`);
@@ -197,9 +207,10 @@ check('pick_audit_classifications (advisory — staple-context override)', () =>
   const clsPath = path.join(ROOT, 'tests/pick_audit_classifications.json');
   if (!fs.existsSync(clsPath)) return 'no classifications file';
   const cls = JSON.parse(fs.readFileSync(clsPath, 'utf8'));
-  const slots = Object.keys(cls).filter(k => !k.startsWith('_'));
-  const issues = [];          // STRUCTURAL problems → fatal (missing/unparseable audit JSON, dry-run crash)
-  let totalMissing = 0, totalStale = 0;  // CLASSIFICATION BACKLOG → advisory (same rationale as voice audit)
+  const slots = Object.keys(cls).filter((k) => !k.startsWith('_'));
+  const issues = []; // STRUCTURAL problems → fatal (missing/unparseable audit JSON, dry-run crash)
+  let totalMissing = 0,
+    totalStale = 0; // CLASSIFICATION BACKLOG → advisory (same rationale as voice audit)
   for (const slotKey of slots) {
     // Derive (instrument, part) from the on-disk audit JSON metadata.
     // Two historical formats exist: target as "<instr>/<part>" string, or
@@ -225,8 +236,10 @@ check('pick_audit_classifications (advisory — staple-context override)', () =>
     let audit = onDisk;
     if (DEEP) {
       try {
-        execSync(`node scripts/audit_picks.js --instrument=${instrument} --part=${part} --dry-run --json-only`,
-          { cwd: ROOT, encoding: 'utf8', stdio: 'pipe', maxBuffer: 16 * 1024 * 1024 });
+        execSync(
+          `node scripts/audit_picks.js --instrument=${instrument} --part=${part} --dry-run --json-only`,
+          { cwd: ROOT, encoding: 'utf8', stdio: 'pipe', maxBuffer: 16 * 1024 * 1024 }
+        );
       } catch (e) {
         issues.push(`${slotKey}: dry-run audit failed (${(e.message || '').slice(0, 80)})`);
         continue;
@@ -238,7 +251,7 @@ check('pick_audit_classifications (advisory — staple-context override)', () =>
       }
       audit = JSON.parse(fs.readFileSync(freshPath, 'utf8'));
     }
-    const auditTids = new Set(audit.records.map(r => r.tid));
+    const auditTids = new Set(audit.records.map((r) => r.tid));
     const slotCls = cls[slotKey] || {};
     const classified = new Set([
       ...(slotCls.resolved_via_isolated_parts || []),
@@ -247,8 +260,8 @@ check('pick_audit_classifications (advisory — staple-context override)', () =>
       ...(slotCls.C_tied_scores || []),
     ]);
     const resolved = new Set(slotCls.resolved_via_isolated_parts || []);
-    const missing = [...auditTids].filter(t => !classified.has(t));
-    const stale = [...classified].filter(t => !auditTids.has(t) && !resolved.has(t));
+    const missing = [...auditTids].filter((t) => !classified.has(t));
+    const stale = [...classified].filter((t) => !auditTids.has(t) && !resolved.has(t));
     totalMissing += missing.length;
     totalStale += stale.length;
   }
@@ -266,7 +279,11 @@ check('pick_audit_classifications (advisory — staple-context override)', () =>
 check('check_docs (markdown drift)', () => {
   const out = RUN('node scripts/check_docs.js --json');
   let data;
-  try { data = JSON.parse(out); } catch { throw new Error('check_docs JSON parse failed'); }
+  try {
+    data = JSON.parse(out);
+  } catch {
+    throw new Error('check_docs JSON parse failed');
+  }
   const fails = (data.numericFailures || []).length + (data.missingScripts || []).length;
   if (fails > 0) {
     const summary = [];
@@ -274,9 +291,13 @@ check('check_docs (markdown drift)', () => {
       summary.push(`${f.file}:${f.line} claims ${f.found} ${f.kind} (actual ${f.expected})`);
     }
     for (const m of (data.missingScripts || []).slice(0, 3)) {
-      summary.push(`scripts/${m.script} missing — referenced at ${m.sources[0].file}:${m.sources[0].line}`);
+      summary.push(
+        `scripts/${m.script} missing — referenced at ${m.sources[0].file}:${m.sources[0].line}`
+      );
     }
-    throw new Error(summary.join('; ') + (fails > summary.length ? ` (+${fails - summary.length} more)` : ''));
+    throw new Error(
+      summary.join('; ') + (fails > summary.length ? ` (+${fails - summary.length} more)` : '')
+    );
   }
   return `${data.scope.activeMarkdowns} active markdowns clean (${data.scope.totalMarkdowns - data.scope.activeMarkdowns} excluded as historical/shipped)`;
 });
@@ -300,7 +321,11 @@ check('preface-matcher alignment (HTML embed ↔ Node primitive)', () => {
     // Both implementations name the token array slightly differently —
     // `tokens.length` in the HTML embed, `prefaceTokens.length` in the
     // Node primitive — so the check matches either.
-    { name: 'precision-normalized scoring', re: /shared\s*\/\s*(?:prefaceT|t)okens\.length/, where: 'both' },
+    {
+      name: 'precision-normalized scoring',
+      re: /shared\s*\/\s*(?:prefaceT|t)okens\.length/,
+      where: 'both',
+    },
     // Empty-card short-circuit
     { name: 'empty-card short-circuit', re: /size\s*===\s*0/, where: 'both' },
     // Zero-shared skip
@@ -345,13 +370,17 @@ check('preface-matcher alignment (HTML embed ↔ Node primitive)', () => {
 // This check fails if the inlined block drifts from the JSON — regenerate with
 // `node scripts/build_signatures.js`.
 check('tradition-signature parity (app.js inline ↔ canonical JSON)', () => {
-  const json = JSON.parse(fs.readFileSync(path.join(ROOT, 'references/_tradition_signatures.json'), 'utf8'));
+  const json = JSON.parse(
+    fs.readFileSync(path.join(ROOT, 'references/_tradition_signatures.json'), 'utf8')
+  );
   const appSrc = fs.readFileSync(path.join(ROOT, 'src/app.js'), 'utf8');
   const m = appSrc.match(/const TRADITION_SIGNATURES = (\{[\s\S]*?\n\});/);
   if (!m) throw new Error('TRADITION_SIGNATURES not found in src/app.js');
   const inline = new Function('return ' + m[1])();
   if (JSON.stringify(inline) !== JSON.stringify(json)) {
-    throw new Error('src/app.js TRADITION_SIGNATURES != references/_tradition_signatures.json — run `node scripts/build_signatures.js`');
+    throw new Error(
+      'src/app.js TRADITION_SIGNATURES != references/_tradition_signatures.json — run `node scripts/build_signatures.js`'
+    );
   }
   return `${Object.keys(json).length} tradition signatures parity-locked (app.js ↔ JSON)`;
 });
@@ -385,7 +414,8 @@ check('card-descriptor semantics aligned (production vs audit)', () => {
 
   // The injected core in the built HTML.
   const m = builtHtml.match(/function harvestDescriptors\(card, lookups\)\s*\{([\s\S]*?)\n\}/);
-  if (!m) throw new Error('harvestDescriptors not found in built codex.html — build_html inject missing');
+  if (!m)
+    throw new Error('harvestDescriptors not found in built codex.html — build_html inject missing');
   const embedBody = m[1];
   if (!/function _cardDescriptorSet\(card\)/.test(builtHtml)) {
     throw new Error('_cardDescriptorSet browser adapter not found in built codex.html');
@@ -403,16 +433,24 @@ check('card-descriptor semantics aligned (production vs audit)', () => {
   // literally says "NOT match_tokens", which is documentation, not a code reference.
   const stripComments = (s) => s.replace(/\/\/[^\n]*/g, '').replace(/\/\*[\s\S]*?\*\//g, '');
   if (/match_tokens/.test(stripComments(embedBody))) {
-    issues.push('HTML _cardDescriptorSet references match_tokens — would silently change production preface assignments');
+    issues.push(
+      'HTML _cardDescriptorSet references match_tokens — would silently change production preface assignments'
+    );
   }
-  if (/match_tokens/.test(prodNodeSrc.replace(/\/\/[^\n]*/g, '').replace(/\/\*[\s\S]*?\*\//g, ''))) {
+  if (
+    /match_tokens/.test(prodNodeSrc.replace(/\/\/[^\n]*/g, '').replace(/\/\*[\s\S]*?\*\//g, ''))
+  ) {
     // Strip comments before checking — the header documents the divergence and mentions match_tokens
-    issues.push('_card_descriptors.js references match_tokens outside comments — production gate would drift from HTML embed');
+    issues.push(
+      '_card_descriptors.js references match_tokens outside comments — production gate would drift from HTML embed'
+    );
   }
 
   // Audit-side: _matcher.cardDescriptors MUST reference match_tokens
   if (!/match_tokens/.test(matcherBody)) {
-    issues.push('_matcher.cardDescriptors no longer pools match_tokens — audit tools would lose the enrichment signal they were designed to consume');
+    issues.push(
+      '_matcher.cardDescriptors no longer pools match_tokens — audit tools would lose the enrichment signal they were designed to consume'
+    );
   }
 
   if (issues.length) throw new Error(issues.join('; '));
@@ -447,11 +485,12 @@ check('CSS/JS — no hardcoded font-size or font-weight', () => {
     const violations = [];
     for (let i = 0; i < lines.length; i++) {
       const line = lines[i];
-      if (/^\s*--/.test(line)) continue;  // token definition allowed
-      if (/font-size:\s*\d/.test(line)) violations.push(`${rel}:${i+1} font-size`);
-      if (/font-weight:\s*\d/.test(line)) violations.push(`${rel}:${i+1} font-weight`);
+      if (/^\s*--/.test(line)) continue; // token definition allowed
+      if (/font-size:\s*\d/.test(line)) violations.push(`${rel}:${i + 1} font-size`);
+      if (/font-weight:\s*\d/.test(line)) violations.push(`${rel}:${i + 1} font-weight`);
     }
-    if (violations.length) throw new Error(`${violations.length} hardcoded: ${violations.slice(0,3).join('; ')}`);
+    if (violations.length)
+      throw new Error(`${violations.length} hardcoded: ${violations.slice(0, 3).join('; ')}`);
   }
   return 'all font props use tokens';
 });
@@ -477,19 +516,20 @@ check('Icons — every name called is defined in ICONS map', () => {
   const C = require('./_loader.js');
   const ICON_PATHS = C.ICON_PATHS || {};
   const ICON_ALIASES = C.ICON_ALIASES || {};
-  const localKeys = new Set([...bottom.matchAll(/^\s*'([\w-]+)':\s*'</gm)].map(m => m[1]));
+  const localKeys = new Set([...bottom.matchAll(/^\s*'([\w-]+)':\s*'</gm)].map((m) => m[1]));
   const resolves = (name) => {
     const r = ICON_ALIASES[name] || name;
     return Object.prototype.hasOwnProperty.call(ICON_PATHS, r) || localKeys.has(r);
   };
-  const calls = [...bottom.matchAll(/\bicon\(['"]([\w-]+)['"]/g)].map(m => m[1]);
-  const missing = [...new Set(calls.filter(c => !resolves(c)))];
+  const calls = [...bottom.matchAll(/\bicon\(['"]([\w-]+)['"]/g)].map((m) => m[1]);
+  const missing = [...new Set(calls.filter((c) => !resolves(c)))];
   if (missing.length) throw new Error(`undefined icons called: ${missing.join(', ')}`);
   // Targeted guard for the specific quote-escape regression: `icon("'name'", N)`
   // is a malformed call that the strict regex above silently skips, leaving
   // empty SVGs in the rendered UI. Catch the pattern by literal match.
   const broken = (bottom.match(/icon\(["']['"][\w-]+/g) || []).length;
-  if (broken) throw new Error(`${broken} malformed icon("'name'", ...) call(s) — quote-escape damage`);
+  if (broken)
+    throw new Error(`${broken} malformed icon("'name'", ...) call(s) — quote-escape damage`);
   return `${calls.length} call(s) resolve via ICON_PATHS(${Object.keys(ICON_PATHS).length})+aliases(${Object.keys(ICON_ALIASES).length})+local(${localKeys.size})`;
 });
 
@@ -508,7 +548,10 @@ check('Icons — no inline SVGs bypassing the icon() renderer', () => {
   const top = fs.readFileSync(path.join(ROOT, 'src/index.template.html'), 'utf8');
   const bottom = fs.readFileSync(path.join(ROOT, 'src/app.js'), 'utf8');
   const topSvgs = (top.match(/<svg\b/g) || []).length;
-  if (topSvgs > 0) throw new Error(`${topSvgs} inline <svg> in top template — use <span data-icon="name"> placeholder instead`);
+  if (topSvgs > 0)
+    throw new Error(
+      `${topSvgs} inline <svg> in top template — use <span data-icon="name"> placeholder instead`
+    );
   // Bottom template: <svg> is permitted inside icon() and inside hand-rolled
   // visualization functions (allowlist below). Anything else is a bypass.
   const VIZ_ALLOWLIST = ['function renderUpSet(', 'function image(', 'function glyphSvg('];
@@ -526,11 +569,13 @@ check('Icons — no inline SVGs bypassing the icon() renderer', () => {
     const end = nextFnRel < 0 ? bottom.length : start + sig.length + nextFnRel;
     allowedRegions.push([start, end]);
   }
-  const svgPositions = [...bottom.matchAll(/<svg\b/g)].map(m => m.index);
-  const stray = svgPositions.filter(pos => !allowedRegions.some(([s, e]) => pos >= s && pos < e));
+  const svgPositions = [...bottom.matchAll(/<svg\b/g)].map((m) => m.index);
+  const stray = svgPositions.filter((pos) => !allowedRegions.some(([s, e]) => pos >= s && pos < e));
   if (stray.length) {
     const lineNo = bottom.slice(0, stray[0]).split('\n').length;
-    throw new Error(`${stray.length} inline <svg> in bottom template (first at line ${lineNo}) — migrate to icon('name') call`);
+    throw new Error(
+      `${stray.length} inline <svg> in bottom template (first at line ${lineNo}) — migrate to icon('name') call`
+    );
   }
   return `0 stray inline SVGs across both templates`;
 });
@@ -595,13 +640,16 @@ check('catalog data matches source', () => {
     const m = html.slice(tradEnd + 'const TRADITION_EXTRAS'.length).match(/\nconst [A-Z_]+\s*=/);
     return m ? tradEnd + 'const TRADITION_EXTRAS'.length + m.index : html.length;
   })();
-  const dataJs = html.slice(tradStart, dataEnd)
-    .split('\n').filter(l => l !== '</script>' && !l.startsWith('<script>')).join('\n')
+  const dataJs = html
+    .slice(tradStart, dataEnd)
+    .split('\n')
+    .filter((l) => l !== '</script>' && !l.startsWith('<script>'))
+    .join('\n')
     .replace(/^const (\w+) =/gm, 'globalThis.$1 =');
   const dataSandbox = { Object, Array, JSON };
   vm.createContext(dataSandbox);
   vm.runInContext(dataJs, dataSandbox, { filename: 'html-data-block.js', timeout: 15000 });
-  const htmlTradIds = new Set((dataSandbox.TRADITIONS || []).map(t => t.id));
+  const htmlTradIds = new Set((dataSandbox.TRADITIONS || []).map((t) => t.id));
   const htmlExtrasKeys = new Set(Object.keys(dataSandbox.TRADITION_EXTRAS || {}));
 
   // (1) Count parity with source
@@ -611,19 +659,25 @@ check('catalog data matches source', () => {
   }
 
   // (2) Bijection inside the HTML itself
-  const tradWithoutExtras = [...htmlTradIds].filter(id => !htmlExtrasKeys.has(id));
-  const extrasWithoutTrad = [...htmlExtrasKeys].filter(id => !htmlTradIds.has(id));
+  const tradWithoutExtras = [...htmlTradIds].filter((id) => !htmlExtrasKeys.has(id));
+  const extrasWithoutTrad = [...htmlExtrasKeys].filter((id) => !htmlTradIds.has(id));
   if (tradWithoutExtras.length) {
-    throw new Error(`${tradWithoutExtras.length} tradition(s) have no extras entry — UI-invisible in tree: ${tradWithoutExtras.slice(0, 3).join(', ')}${tradWithoutExtras.length > 3 ? '…' : ''}`);
+    throw new Error(
+      `${tradWithoutExtras.length} tradition(s) have no extras entry — UI-invisible in tree: ${tradWithoutExtras.slice(0, 3).join(', ')}${tradWithoutExtras.length > 3 ? '…' : ''}`
+    );
   }
   if (extrasWithoutTrad.length) {
-    throw new Error(`${extrasWithoutTrad.length} extras entry/entries have no matching tradition: ${extrasWithoutTrad.slice(0, 3).join(', ')}${extrasWithoutTrad.length > 3 ? '…' : ''}`);
+    throw new Error(
+      `${extrasWithoutTrad.length} extras entry/entries have no matching tradition: ${extrasWithoutTrad.slice(0, 3).join(', ')}${extrasWithoutTrad.length > 3 ? '…' : ''}`
+    );
   }
 
   // (3) Extras count parity between source and HTML
   const sourceExtrasCount = Object.keys(C.TRADITION_EXTRAS).length;
   if (htmlExtrasKeys.size !== sourceExtrasCount) {
-    throw new Error(`source has ${sourceExtrasCount} extras entries, HTML has ${htmlExtrasKeys.size}`);
+    throw new Error(
+      `source has ${sourceExtrasCount} extras entries, HTML has ${htmlExtrasKeys.size}`
+    );
   }
 
   return `${sourceCount} traditions + extras bijection holds`;
@@ -638,18 +692,32 @@ check('recently-added catalog content present', () => {
   // Phase 6+ (chain mechanism vocab continued): comp/eq/fx/amp circuit-topology vocabulary
   // Phase 6+ warm-audit: instrument-side warm replacements (low-mid-rich-spectrum, etc.)
   const required = [
-    'rap_voice', 'fado_voice', 'qawwali_lead', 'hindustani_sarod',
-    'fry_bleed_voice', 'false_fold_voice', 'breath_admixed_voice',
-    'pressed_phonation_voice', 'worn_fold_voice', 'full_chest_belt_voice',
-    'aspirated_voice', 'lowered_larynx_voice', 'register_break_voice',
-    'top-rolled-off-12k', 'even-harmonic-rich',
-    'transformer-coupled-channel', 'hf-compression-natural',
-    'high-gain-cascading-tube-stages', 'long-attack-LDR-thermal',
-    'germanium-soft-clip-asymmetric', 'passive-LC-broad-curves',
+    'rap_voice',
+    'fado_voice',
+    'qawwali_lead',
+    'hindustani_sarod',
+    'fry_bleed_voice',
+    'false_fold_voice',
+    'breath_admixed_voice',
+    'pressed_phonation_voice',
+    'worn_fold_voice',
+    'full_chest_belt_voice',
+    'aspirated_voice',
+    'lowered_larynx_voice',
+    'register_break_voice',
+    'top-rolled-off-12k',
+    'even-harmonic-rich',
+    'transformer-coupled-channel',
+    'hf-compression-natural',
+    'high-gain-cascading-tube-stages',
+    'long-attack-LDR-thermal',
+    'germanium-soft-clip-asymmetric',
+    'passive-LC-broad-curves',
     'doppler-pitch-modulation',
-    'low-mid-rich-spectrum', 'chest-resonance-low-mid',
+    'low-mid-rich-spectrum',
+    'chest-resonance-low-mid',
   ];
-  const missing = required.filter(t => !html.includes(t));
+  const missing = required.filter((t) => !html.includes(t));
   if (missing.length) throw new Error('missing: ' + missing.join(', '));
   return required.length + ' editorial-pass identifiers present';
 });
@@ -665,7 +733,8 @@ check('exists', () => {
     } catch (e) {
       throw new Error('not found and build_zip.sh failed: ' + (e.message || '').slice(0, 200));
     }
-    if (!fs.existsSync(ZIP_PATH)) throw new Error('build_zip.sh ran but produced no zip at ' + ZIP_PATH);
+    if (!fs.existsSync(ZIP_PATH))
+      throw new Error('build_zip.sh ran but produced no zip at ' + ZIP_PATH);
   }
   return (fs.statSync(ZIP_PATH).size / 1024).toFixed(0) + ' KB';
 });
@@ -677,8 +746,9 @@ check('round-trip extract + run validate', () => {
     // "Layout: ZIP root → codex-music-tool/ → SKILL.md + ..."). Locate that
     // sole subdirectory rather than assuming files at tmpDir root.
     const entries = fs.readdirSync(tmpDir);
-    const subdirs = entries.filter(e => fs.statSync(path.join(tmpDir, e)).isDirectory());
-    if (subdirs.length !== 1) throw new Error(`expected 1 subdir in zip root, got ${subdirs.length}: ${entries.join(',')}`);
+    const subdirs = entries.filter((e) => fs.statSync(path.join(tmpDir, e)).isDirectory());
+    if (subdirs.length !== 1)
+      throw new Error(`expected 1 subdir in zip root, got ${subdirs.length}: ${entries.join(',')}`);
     const workDir = path.join(tmpDir, subdirs[0]);
     const out = execSync('node scripts/validate.js', { cwd: workDir, encoding: 'utf8' });
     if (!out.includes('VALID')) throw new Error('zip validate failed');
@@ -701,24 +771,48 @@ check('HTML preface coordination — no repetition within tradition', () => {
   // multi-instrument traditions through the HTML's actual JavaScript and
   // verifies every card's preface is unique within its recipe.
   const html = fs.readFileSync(embeddedHtml(), 'utf8');
-  let scriptContent = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(m => m[1]).join('\n');
-  scriptContent += '\nObject.assign(globalThis, { TRADITIONS, INSTRUMENTS, importTradition, _applyRecipeDedup, app });\n';
+  let scriptContent = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)]
+    .map((m) => m[1])
+    .join('\n');
+  scriptContent +=
+    '\nObject.assign(globalThis, { TRADITIONS, INSTRUMENTS, importTradition, _applyRecipeDedup, app });\n';
   const noop = () => {};
   const stubEl = () => ({
-    className: '', innerHTML: '', dataset: {},
+    className: '',
+    innerHTML: '',
+    dataset: {},
     classList: { add: noop, remove: noop, contains: () => false, toggle: noop },
-    appendChild: noop, addEventListener: noop, removeEventListener: noop,
-    replaceWith: noop, querySelector: stubEl, querySelectorAll: () => [],
-    style: {}, focus: noop, click: noop,
+    appendChild: noop,
+    addEventListener: noop,
+    removeEventListener: noop,
+    replaceWith: noop,
+    querySelector: stubEl,
+    querySelectorAll: () => [],
+    style: {},
+    focus: noop,
+    click: noop,
   });
   const doc = {
-    addEventListener: noop, getElementById: stubEl, querySelector: stubEl, querySelectorAll: () => [],
-    createElement: stubEl, body: stubEl(), head: stubEl(), readyState: 'complete',
+    addEventListener: noop,
+    getElementById: stubEl,
+    querySelector: stubEl,
+    querySelectorAll: () => [],
+    createElement: stubEl,
+    body: stubEl(),
+    head: stubEl(),
+    readyState: 'complete',
   };
   const sandbox = {
-    console: { log: noop, error: noop, warn: noop }, setTimeout, clearTimeout, requestAnimationFrame: (fn) => fn(), document: doc,
-    navigator: { clipboard: null }, addEventListener: noop, removeEventListener: noop,
-    isSecureContext: false, location: { href: '' },
+    console: { log: noop, error: noop, warn: noop },
+    setTimeout,
+    clearTimeout,
+    requestAnimationFrame: (fn) => fn(),
+    document: doc,
+    navigator: { clipboard: null },
+    addEventListener: noop,
+    removeEventListener: noop,
+    isSecureContext: false,
+    location: { href: '' },
   };
   sandbox.window = sandbox;
   sandbox.globalThis = sandbox;
@@ -728,19 +822,31 @@ check('HTML preface coordination — no repetition within tradition', () => {
   // Sample includes the original failure case (Hindustani) plus traditions
   // from each major tree branch with 4+ instruments — enough surface area to
   // catch any regression in the dedup loop.
-  const sample = ['hindustani', 'qawwali', 'chicago_blues', 'bluegrass', 'fado', 'mariachi',
-                  'samba', 'pansori', 'pentecostal_gospel', 'klezmer'];
+  const sample = [
+    'hindustani',
+    'qawwali',
+    'chicago_blues',
+    'bluegrass',
+    'fado',
+    'mariachi',
+    'samba',
+    'pansori',
+    'pentecostal_gospel',
+    'klezmer',
+  ];
   const failures = [];
   for (const tid of sample) {
     sandbox.app.cards = [];
     sandbox.importTradition(tid);
     if (sandbox.app.cards.length < 2) continue;
     sandbox._applyRecipeDedup();
-    const prefs = sandbox.app.cards.map(c => c.preface).filter(p => p);
+    const prefs = sandbox.app.cards.map((c) => c.preface).filter((p) => p);
     const seen = new Map();
     for (let i = 0; i < prefs.length; i++) {
       if (seen.has(prefs[i])) {
-        failures.push(`${tid}: '${prefs[i]}' on ${seen.get(prefs[i])} AND ${sandbox.app.cards[i].instrumentId}`);
+        failures.push(
+          `${tid}: '${prefs[i]}' on ${seen.get(prefs[i])} AND ${sandbox.app.cards[i].instrumentId}`
+        );
         break;
       }
       seen.set(prefs[i], sandbox.app.cards[i].instrumentId);
@@ -754,24 +860,48 @@ check('HTML import simulation produces expected card counts', () => {
   // Load the HTML JS and exercise importTradition for the four recently-fixed
   // traditions; verify card counts match expectations
   const html = fs.readFileSync(embeddedHtml(), 'utf8');
-  let scriptContent = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(m => m[1]).join('\n');
-  scriptContent += '\nObject.assign(globalThis, { TRADITIONS, INSTRUMENTS, importTradition, compileStack, app });\n';
+  let scriptContent = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)]
+    .map((m) => m[1])
+    .join('\n');
+  scriptContent +=
+    '\nObject.assign(globalThis, { TRADITIONS, INSTRUMENTS, importTradition, compileStack, app });\n';
   const noop = () => {};
   const stubEl = () => ({
-    className: '', innerHTML: '', dataset: {},
+    className: '',
+    innerHTML: '',
+    dataset: {},
     classList: { add: noop, remove: noop, contains: () => false, toggle: noop },
-    appendChild: noop, addEventListener: noop, removeEventListener: noop,
-    replaceWith: noop, querySelector: stubEl, querySelectorAll: () => [],
-    style: {}, focus: noop, click: noop,
+    appendChild: noop,
+    addEventListener: noop,
+    removeEventListener: noop,
+    replaceWith: noop,
+    querySelector: stubEl,
+    querySelectorAll: () => [],
+    style: {},
+    focus: noop,
+    click: noop,
   });
   const doc = {
-    addEventListener: noop, getElementById: stubEl, querySelector: stubEl, querySelectorAll: () => [],
-    createElement: stubEl, body: stubEl(), head: stubEl(), readyState: 'complete',
+    addEventListener: noop,
+    getElementById: stubEl,
+    querySelector: stubEl,
+    querySelectorAll: () => [],
+    createElement: stubEl,
+    body: stubEl(),
+    head: stubEl(),
+    readyState: 'complete',
   };
   const sandbox = {
-    console: { log: noop, error: noop, warn: noop }, setTimeout, clearTimeout, requestAnimationFrame: (fn) => fn(), document: doc,
-    navigator: { clipboard: null }, addEventListener: noop, removeEventListener: noop,
-    isSecureContext: false, location: { href: '' },
+    console: { log: noop, error: noop, warn: noop },
+    setTimeout,
+    clearTimeout,
+    requestAnimationFrame: (fn) => fn(),
+    document: doc,
+    navigator: { clipboard: null },
+    addEventListener: noop,
+    removeEventListener: noop,
+    isSecureContext: false,
+    location: { href: '' },
   };
   sandbox.window = sandbox;
   sandbox.globalThis = sandbox;
@@ -809,24 +939,47 @@ check('HTML buildUpSetData — fixture correctness', () => {
   // 8 non-empty intersections, each of size 1. The data builder must
   // enumerate exactly those 8 and prune the other 7 (out of 15 possible).
   const html = fs.readFileSync(embeddedHtml(), 'utf8');
-  let scriptContent = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(m => m[1]).join('\n');
+  let scriptContent = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)]
+    .map((m) => m[1])
+    .join('\n');
   scriptContent += '\nObject.assign(globalThis, { buildUpSetData, _cardDescriptorSet, Inst });\n';
   const noop = () => {};
   const stubEl = () => ({
-    className: '', innerHTML: '', dataset: {},
+    className: '',
+    innerHTML: '',
+    dataset: {},
     classList: { add: noop, remove: noop, contains: () => false, toggle: noop },
-    appendChild: noop, addEventListener: noop, removeEventListener: noop,
-    replaceWith: noop, querySelector: stubEl, querySelectorAll: () => [],
-    style: {}, focus: noop, click: noop,
+    appendChild: noop,
+    addEventListener: noop,
+    removeEventListener: noop,
+    replaceWith: noop,
+    querySelector: stubEl,
+    querySelectorAll: () => [],
+    style: {},
+    focus: noop,
+    click: noop,
   });
   const doc = {
-    addEventListener: noop, getElementById: stubEl, querySelector: stubEl, querySelectorAll: () => [],
-    createElement: stubEl, body: stubEl(), head: stubEl(), readyState: 'complete',
+    addEventListener: noop,
+    getElementById: stubEl,
+    querySelector: stubEl,
+    querySelectorAll: () => [],
+    createElement: stubEl,
+    body: stubEl(),
+    head: stubEl(),
+    readyState: 'complete',
   };
   const sandbox = {
-    console: { log: noop, error: noop, warn: noop }, setTimeout, clearTimeout, requestAnimationFrame: (fn) => fn(), document: doc,
-    navigator: { clipboard: null }, addEventListener: noop, removeEventListener: noop,
-    isSecureContext: false, location: { href: '' },
+    console: { log: noop, error: noop, warn: noop },
+    setTimeout,
+    clearTimeout,
+    requestAnimationFrame: (fn) => fn(),
+    document: doc,
+    navigator: { clipboard: null },
+    addEventListener: noop,
+    removeEventListener: noop,
+    isSecureContext: false,
+    location: { href: '' },
   };
   sandbox.window = sandbox;
   sandbox.globalThis = sandbox;
@@ -842,7 +995,7 @@ check('HTML buildUpSetData — fixture correctness', () => {
   };
   sandbox._cardDescriptorSet = (card) => fixture[card.instrumentId];
   sandbox.Inst = (id) => ({ name: id.toUpperCase(), family: 'voice' });
-  const cards = ['a', 'b', 'c', 'd'].map(id => ({ instrumentId: id }));
+  const cards = ['a', 'b', 'c', 'd'].map((id) => ({ instrumentId: id }));
   const data = sandbox.buildUpSetData(cards);
   if (!data) throw new Error('buildUpSetData returned null');
   if (data.sets.length !== 4) throw new Error(`expected 4 sets, got ${data.sets.length}`);
@@ -850,7 +1003,8 @@ check('HTML buildUpSetData — fixture correctness', () => {
     throw new Error(`expected 8 non-empty intersections, got ${data.intersections.length}`);
   }
   for (const inter of data.intersections) {
-    if (inter.size !== 1) throw new Error(`intersection ${inter.setIdxs.join(',')} has size ${inter.size}, expected 1`);
+    if (inter.size !== 1)
+      throw new Error(`intersection ${inter.setIdxs.join(',')} has size ${inter.size}, expected 1`);
   }
   return '8/8 non-empty intersections found in fixture';
 });

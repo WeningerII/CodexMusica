@@ -36,25 +36,34 @@ if (!tradId) {
   process.exit(2);
 }
 
-const t = C.TRADITIONS.find(x => x.id === tradId);
+const t = C.TRADITIONS.find((x) => x.id === tradId);
 const e = C.TRADITION_EXTRAS[tradId];
 if (!t) {
   console.error(`No tradition with id="${tradId}". Try nearest_neighbor.js to find a match.`);
   process.exit(2);
 }
 
-const room = t.room ? C.ROOMS.find(r => r.id === t.room) : null;
-const arch = t.chain_archetype ? C.CHAIN_ARCHETYPES.find(a => a.id === t.chain_archetype) : null;
-const tuning = t.tuning ? C.TUNINGS.find(tu => tu.id === t.tuning) : null;
-const aestheticId = flags.aesthetic || (Array.isArray(t.production_aesthetic) ? t.production_aesthetic[0] : t.production_aesthetic);
-const aesthetic = aestheticId ? (C.PRODUCTION_AESTHETICS || []).find(p => p.id === aestheticId) : null;
+const room = t.room ? C.ROOMS.find((r) => r.id === t.room) : null;
+const arch = t.chain_archetype ? C.CHAIN_ARCHETYPES.find((a) => a.id === t.chain_archetype) : null;
+const tuning = t.tuning ? C.TUNINGS.find((tu) => tu.id === t.tuning) : null;
+const aestheticId =
+  flags.aesthetic ||
+  (Array.isArray(t.production_aesthetic) ? t.production_aesthetic[0] : t.production_aesthetic);
+const aesthetic = aestheticId
+  ? (C.PRODUCTION_AESTHETICS || []).find((p) => p.id === aestheticId)
+  : null;
 // A USER-supplied --aesthetic that doesn't resolve must error, not silently drop
 // the whole AESTHETIC section (every other unknown-id path here exits 2).
-if (flags.aesthetic && !aesthetic) { console.error(`Unknown aesthetic: ${flags.aesthetic}`); process.exit(2); }
+if (flags.aesthetic && !aesthetic) {
+  console.error(`Unknown aesthetic: ${flags.aesthetic}`);
+  process.exit(2);
+}
 
-const instruments = (t.instruments || []).map(iid => {
-  const inst = C.INSTRUMENTS.find(i => i.id === iid);
-  return inst ? { id: iid, name: inst.short || inst.name, family: inst.family } : { id: iid, name: '?', family: '?' };
+const instruments = (t.instruments || []).map((iid) => {
+  const inst = C.INSTRUMENTS.find((i) => i.id === iid);
+  return inst
+    ? { id: iid, name: inst.short || inst.name, family: inst.family }
+    : { id: iid, name: '?', family: '?' };
 });
 
 // Inline chain (the values directly on the tradition) — useful when chain_archetype isn't set
@@ -76,35 +85,45 @@ const result = {
     exemplars: e?.exemplars || [],
     crossRefs: e?.crossRefs || [],
   },
-  room: room ? {
-    id: room.id,
-    name: room.name,
-    cluster: room.cluster,
-    era: room.era || null,
-    region: room.region || null,
-    scale_tier: room.scale_tier || null,
-    descriptors: room.descriptors || [],
-    note: room.note || null,
-  } : null,
-  chain_archetype: arch ? {
-    id: arch.id,
-    name: arch.name,
-    era: arch.era,
-    region: arch.region,
-    scale_tier: arch.scale_tier,
-    components: arch.components,
-    note: arch.note || null,
-  } : null,
+  room: room
+    ? {
+        id: room.id,
+        name: room.name,
+        cluster: room.cluster,
+        era: room.era || null,
+        region: room.region || null,
+        scale_tier: room.scale_tier || null,
+        descriptors: room.descriptors || [],
+        note: room.note || null,
+      }
+    : null,
+  chain_archetype: arch
+    ? {
+        id: arch.id,
+        name: arch.name,
+        era: arch.era,
+        region: arch.region,
+        scale_tier: arch.scale_tier,
+        components: arch.components,
+        note: arch.note || null,
+      }
+    : null,
   inline_chain: arch ? null : inlineChain, // only show inline if archetype isn't doing the job
-  production_aesthetic: aesthetic ? {
-    id: aesthetic.id,
-    name: aesthetic.name,
-    era: aesthetic.era,
-    description: aesthetic.description,
-    characteristic_techniques: aesthetic.characteristic_techniques,
-    production_locus: aesthetic.production_locus,
-  } : null,
-  tuning: tuning ? { id: tuning.id, name: tuning.name } : (t.tuning ? { id: t.tuning, name: '(unresolved)' } : null),
+  production_aesthetic: aesthetic
+    ? {
+        id: aesthetic.id,
+        name: aesthetic.name,
+        era: aesthetic.era,
+        description: aesthetic.description,
+        characteristic_techniques: aesthetic.characteristic_techniques,
+        production_locus: aesthetic.production_locus,
+      }
+    : null,
+  tuning: tuning
+    ? { id: tuning.id, name: tuning.name }
+    : t.tuning
+      ? { id: t.tuning, name: '(unresolved)' }
+      : null,
   instruments,
   axes: e?.axes || null,
   status: e?.status || 'unknown',
@@ -137,7 +156,9 @@ console.log('');
 if (r.room) {
   console.log(`ROOM            ${r.room.id}`);
   if (r.room.scale_tier || r.room.era || r.room.region) {
-    console.log(`  scale:        ${r.room.scale_tier || '—'} / era: ${r.room.era || '—'} / region: ${r.room.region || '—'}`);
+    console.log(
+      `  scale:        ${r.room.scale_tier || '—'} / era: ${r.room.era || '—'} / region: ${r.room.region || '—'}`
+    );
   }
   if (r.room.descriptors.length) {
     console.log(`  descriptors:  ${r.room.descriptors.join(', ')}`);
@@ -147,14 +168,16 @@ if (r.room) {
 
 if (r.chain_archetype) {
   console.log(`CHAIN ARCHETYPE ${r.chain_archetype.id}`);
-  console.log(`  era/region:   ${r.chain_archetype.era}  ${r.chain_archetype.region}  ${r.chain_archetype.scale_tier}`);
+  console.log(
+    `  era/region:   ${r.chain_archetype.era}  ${r.chain_archetype.region}  ${r.chain_archetype.scale_tier}`
+  );
   for (const [k, v] of Object.entries(r.chain_archetype.components)) {
     if (Array.isArray(v)) console.log(`  ${k.padEnd(13)} ${v.join(', ')}`);
     else console.log(`  ${k.padEnd(13)} ${v}`);
   }
   console.log('');
 } else if (r.inline_chain) {
-  console.log('INLINE CHAIN    (no archetype reference; using tradition\'s inline chain fields)');
+  console.log("INLINE CHAIN    (no archetype reference; using tradition's inline chain fields)");
   for (const [k, v] of Object.entries(r.inline_chain)) {
     if (v) console.log(`  ${k.padEnd(13)} ${v}`);
   }
@@ -182,12 +205,20 @@ if (r.instruments.length) {
 if (r.axes) {
   console.log('AXES (13)');
   const ax = r.axes;
-  console.log(`  harm:${String(ax.harm).padEnd(3)} pitch:${String(ax.pitch).padEnd(3)} ornament:${String(ax.ornament).padEnd(3)} meter:${String(ax.meter).padEnd(3)} density:${String(ax.density).padEnd(3)}`);
-  console.log(`  transmission:${String(ax.transmission).padEnd(3)} improv:${String(ax.improv).padEnd(3)} soundTech:${String(ax.soundTech).padEnd(3)} intensity:${String(ax.intensity).padEnd(3)}`);
-  console.log(`  voice:${String(ax.voice).padEnd(3)} timbre:${String(ax.timbre).padEnd(3)} percussion:${String(ax.percussion).padEnd(3)} cyclicity:${String(ax.cyclicity).padEnd(3)}`);
+  console.log(
+    `  harm:${String(ax.harm).padEnd(3)} pitch:${String(ax.pitch).padEnd(3)} ornament:${String(ax.ornament).padEnd(3)} meter:${String(ax.meter).padEnd(3)} density:${String(ax.density).padEnd(3)}`
+  );
+  console.log(
+    `  transmission:${String(ax.transmission).padEnd(3)} improv:${String(ax.improv).padEnd(3)} soundTech:${String(ax.soundTech).padEnd(3)} intensity:${String(ax.intensity).padEnd(3)}`
+  );
+  console.log(
+    `  voice:${String(ax.voice).padEnd(3)} timbre:${String(ax.timbre).padEnd(3)} percussion:${String(ax.percussion).padEnd(3)} cyclicity:${String(ax.cyclicity).padEnd(3)}`
+  );
   console.log('');
 }
 
 if (r.tradition.crossRefs.length) {
-  console.log(`CROSSREFS       ${r.tradition.crossRefs.map(cr => (cr && typeof cr === 'object') ? cr.ref : cr).join(', ')}`);
+  console.log(
+    `CROSSREFS       ${r.tradition.crossRefs.map((cr) => (cr && typeof cr === 'object' ? cr.ref : cr)).join(', ')}`
+  );
 }

@@ -28,7 +28,13 @@
 // The score function aggregates per-slot scores using score.js.
 
 const C = require('./_loader.js');
-const { buildMergedContext, isolatedStaplesForPart, scoreVariant, lookupDescriptor, parseEra } = require('./score.js');
+const {
+  buildMergedContext,
+  isolatedStaplesForPart,
+  scoreVariant,
+  lookupDescriptor,
+  parseEra,
+} = require('./score.js');
 
 // Generalized per-slot context provider. crossRefs may flag any part for
 // isolation via `isolated_parts: ['part_id', ...]`. Legacy `voice_isolated: true`
@@ -40,9 +46,10 @@ function makeContextProvider(traditions, weight = 0.5) {
   return function getCtxForPart(partId) {
     if (cache.has(partId)) return cache.get(partId);
     const exclude = isolatedStaplesForPart(primaryTid, traditions, partId);
-    const ctx = exclude.size === 0
-      ? fullCtx
-      : buildMergedContext(traditions, weight, { excludeStaples: exclude });
+    const ctx =
+      exclude.size === 0
+        ? fullCtx
+        : buildMergedContext(traditions, weight, { excludeStaples: exclude });
     cache.set(partId, ctx);
     return ctx;
   };
@@ -64,13 +71,13 @@ function scoreConfig(config) {
   // Score each instrument slot's variant choices
   let instrumentScore = 0;
   for (const inst of config.instruments) {
-    const i = C.INSTRUMENTS.find(x => x.id === inst.id);
+    const i = C.INSTRUMENTS.find((x) => x.id === inst.id);
     if (!i) continue;
     let instSum = 0;
-    for (const part of (i.parts || [])) {
+    for (const part of i.parts || []) {
       const variantId = (inst.slots || {})[part.id];
       if (!variantId) continue;
-      const variant = part.variants.find(v => v.id === variantId);
+      const variant = part.variants.find((v) => v.id === variantId);
       if (!variant) continue;
       const scoringCtx = getCtxForPart(part.id);
       const r = scoreVariant(variant, scoringCtx, { useNeighbors: true, skipSignals: true });
@@ -85,13 +92,13 @@ function scoreConfig(config) {
   // We treat each as a "variant" for scoring purposes — use its descriptors against context
   let chainScore = 0;
   if (config.archetype) {
-    const arch = C.CHAIN_ARCHETYPES.find(a => a.id === config.archetype);
+    const arch = C.CHAIN_ARCHETYPES.find((a) => a.id === config.archetype);
     if (arch) {
       for (const [secId, itemId] of Object.entries(arch.components)) {
         if (Array.isArray(itemId)) continue; // fx handled below
-        const sec = C.CHAIN_SECTIONS.find(s => s.id === secId);
+        const sec = C.CHAIN_SECTIONS.find((s) => s.id === secId);
         if (!sec) continue;
-        const item = sec.items.find(x => x.id === itemId);
+        const item = sec.items.find((x) => x.id === itemId);
         if (!item) continue;
         const r = scoreVariant(item, ctx, { useNeighbors: false, skipSignals: true });
         chainScore += r.score * 0.5; // chain weight slightly lower than instruments
@@ -121,7 +128,7 @@ function scoreConfig(config) {
 
   // Aesthetic application: era overlap AND region/genre compatibility
   if (config.aesthetic) {
-    const aesthetic = (C.PRODUCTION_AESTHETICS || []).find(p => p.id === config.aesthetic);
+    const aesthetic = (C.PRODUCTION_AESTHETICS || []).find((p) => p.id === config.aesthetic);
     if (aesthetic && ctx.eraRange) {
       const aRange = parseEra(aesthetic.era);
       let aestheticScore = 0;
@@ -133,7 +140,7 @@ function scoreConfig(config) {
           aestheticScore -= 5.0;
         } else {
           // Check technique overlap with tradition context via type-separated lookup
-          const techMatches = (aesthetic.characteristic_techniques || []).filter(tech => {
+          const techMatches = (aesthetic.characteristic_techniques || []).filter((tech) => {
             return lookupDescriptor(tech, ctx, null).length > 0;
           });
           if (techMatches.length === 0) {
@@ -165,10 +172,10 @@ function* variantSwapMoves(config) {
   const pinned = config.pinned || null;
   for (let i = 0; i < config.instruments.length; i++) {
     const inst = config.instruments[i];
-    const cataInst = C.INSTRUMENTS.find(x => x.id === inst.id);
+    const cataInst = C.INSTRUMENTS.find((x) => x.id === inst.id);
     if (!cataInst) continue;
     const pinnedParts = pinned && Array.isArray(pinned[inst.id]) ? pinned[inst.id] : null;
-    for (const part of (cataInst.parts || [])) {
+    for (const part of cataInst.parts || []) {
       if (pinnedParts && pinnedParts.includes(part.id)) continue;
       for (const variant of part.variants) {
         const currentVariant = (inst.slots || {})[part.id];
@@ -193,9 +200,9 @@ function* variantSwapMoves(config) {
 // Swap chain components against alternatives — only era/region/scale-compatible archetypes
 function* chainSwapMoves(config) {
   if (!config.archetype) return;
-  const arch = C.CHAIN_ARCHETYPES.find(a => a.id === config.archetype);
+  const arch = C.CHAIN_ARCHETYPES.find((a) => a.id === config.archetype);
   if (!arch) return;
-  const room = config.room ? C.ROOMS.find(r => r.id === config.room) : null;
+  const room = config.room ? C.ROOMS.find((r) => r.id === config.room) : null;
   // The new archetype must match the ROOM's era/region (room is primary anchor).
   // When the room lacks an era — many domestic/parlor/cathedral rooms have no era —
   // fall back to the CURRENT archetype's era as the anchor. Without this fallback,
@@ -207,7 +214,8 @@ function* chainSwapMoves(config) {
       const eraAnchor = room.era || arch.era;
       if (eraAnchor && otherArch.era && eraAnchor !== otherArch.era) continue;
       if (room.region && otherArch.region && room.region !== otherArch.region) continue;
-      if (room.scale_tier && otherArch.scale_tier && room.scale_tier !== otherArch.scale_tier) continue;
+      if (room.scale_tier && otherArch.scale_tier && room.scale_tier !== otherArch.scale_tier)
+        continue;
     } else {
       // No room — fall back to era/region match against current archetype
       if (otherArch.era !== arch.era || otherArch.region !== arch.region) continue;
@@ -229,8 +237,8 @@ function* traditionStapleMoves(config) {
   if (!e) return;
   // Get crossref targets — those are the canonical staples
   const candidates = new Set();
-  for (const cr of (e.crossRefs || [])) {
-    const ref = typeof cr === 'string' ? cr : (cr && cr.ref);
+  for (const cr of e.crossRefs || []) {
+    const ref = typeof cr === 'string' ? cr : cr && cr.ref;
     if (!ref) continue;
     for (const otherTid of Object.keys(C.TRADITION_EXTRAS)) {
       const oe = C.TRADITION_EXTRAS[otherTid];
@@ -253,8 +261,22 @@ function* traditionStapleMoves(config) {
   // staple-set to spread across distinct branches rather than cluster.
   // Selection: pick by axes-similarity to primary tradition (closest sibling
   // to primary's axis profile). Falls back to lex-first when axes unavailable.
-  const AXIS_KEYS = ['harm','pitch','ornament','meter','density','transmission','improv','soundTech','intensity','voice','timbre','percussion','cyclicity'];
-  const primaryAxes = (e.axes || {});
+  const AXIS_KEYS = [
+    'harm',
+    'pitch',
+    'ornament',
+    'meter',
+    'density',
+    'transmission',
+    'improv',
+    'soundTech',
+    'intensity',
+    'voice',
+    'timbre',
+    'percussion',
+    'cyclicity',
+  ];
+  const primaryAxes = e.axes || {};
   const axisDistance = (otherTid) => {
     const oa = (C.TRADITION_EXTRAS[otherTid] || {}).axes || {};
     let d = 0;
@@ -271,7 +293,10 @@ function* traditionStapleMoves(config) {
     if (config.traditions.includes(cand)) continue;
     const cp = (C.TRADITION_EXTRAS[cand] || {}).parent || '';
     const existing = byParent.get(cp);
-    if (!existing) { byParent.set(cp, cand); continue; }
+    if (!existing) {
+      byParent.set(cp, cand);
+      continue;
+    }
     const ed = axisDistance(existing);
     const cd = axisDistance(cand);
     if (cd < ed || (cd === ed && cand < existing)) byParent.set(cp, cand);
@@ -290,7 +315,7 @@ function* traditionStapleMoves(config) {
 // explicitly references. Speculative aesthetic-application is too noisy.
 function* aestheticToggleMoves(config) {
   const primaryId = config.traditions[0];
-  const t = C.TRADITIONS.find(x => x.id === primaryId);
+  const t = C.TRADITIONS.find((x) => x.id === primaryId);
   if (!t) return;
   const allowed = new Set();
   if (t.production_aesthetic) {
@@ -367,7 +392,10 @@ function search(seed, options = {}) {
       if (!vid) continue;
       const variant = (part.variants || []).find((v) => v.id === vid);
       if (!variant) continue;
-      inst.scores[part.id] = scoreVariant(variant, getFinalCtx(part.id), { useNeighbors: true, skipSignals: true }).score;
+      inst.scores[part.id] = scoreVariant(variant, getFinalCtx(part.id), {
+        useNeighbors: true,
+        skipSignals: true,
+      }).score;
     }
   }
 
@@ -394,7 +422,7 @@ function searchMultiStart(seed, options = {}) {
   // Sort by score, best first
   results.sort((a, b) => b.score - a.score);
   const best = results[0];
-  const scores = results.map(r => r.score);
+  const scores = results.map((r) => r.score);
   const scoreSpread = Math.max(...scores) - Math.min(...scores);
   return {
     ...best,
@@ -403,7 +431,7 @@ function searchMultiStart(seed, options = {}) {
       scores,
       spread: scoreSpread,
       multimodal: scoreSpread > 1.0, // threshold: ≥1 score-unit spread = multimodal signal
-    }
+    },
   };
 }
 
@@ -412,16 +440,16 @@ function randomizeVariants(seed, seedNum) {
   function pseudoRandom(n) {
     // Simple deterministic LCG seeded with the seedNum input
     let state = (seedNum * 2654435761) >>> 0;
-    state = (state ^ n * 0x9e3779b9) >>> 0;
-    return (state * 16807) % 2147483647 / 2147483647;
+    state = (state ^ (n * 0x9e3779b9)) >>> 0;
+    return ((state * 16807) % 2147483647) / 2147483647;
   }
   const newConfig = structuredClone(seed);
   let counter = 0;
   for (const inst of newConfig.instruments) {
-    const cataInst = C.INSTRUMENTS.find(i => i.id === inst.id);
+    const cataInst = C.INSTRUMENTS.find((i) => i.id === inst.id);
     if (!cataInst) continue;
-    for (const part of (cataInst.parts || [])) {
-      const variants = (part.variants || []).filter(v => v.auto !== false); // skip explicit-only variants
+    for (const part of cataInst.parts || []) {
+      const variants = (part.variants || []).filter((v) => v.auto !== false); // skip explicit-only variants
       if (variants.length <= 1) continue;
       const idx = Math.floor(pseudoRandom(counter++) * variants.length);
       inst.slots[part.id] = variants[idx].id;
@@ -453,13 +481,16 @@ function findClosestTraditionByAxis(target) {
       }
     }
     if (matched === 0) continue;
-    if (dist < bestDist) { bestDist = dist; best = tid; }
+    if (dist < bestDist) {
+      bestDist = dist;
+      best = tid;
+    }
   }
   return best;
 }
 
 function seedFromTradition(tradId, stapleIds = [], opts = {}) {
-  const t = C.TRADITIONS.find(x => x.id === tradId);
+  const t = C.TRADITIONS.find((x) => x.id === tradId);
   if (!t) return null;
   // opts:
   //   exclude:      Set<instrumentId> — instruments to drop from the seed
@@ -498,7 +529,7 @@ function seedFromTradition(tradId, stapleIds = [], opts = {}) {
   const allInstrumentIds = new Set(t.instruments || []);
   if (stapleMode === 'full') {
     for (const sid of stapleIds) {
-      const sTrad = C.TRADITIONS.find(x => x.id === sid);
+      const sTrad = C.TRADITIONS.find((x) => x.id === sid);
       if (sTrad && Array.isArray(sTrad.instruments)) {
         for (const iid of sTrad.instruments) allInstrumentIds.add(iid);
       }
@@ -512,12 +543,12 @@ function seedFromTradition(tradId, stapleIds = [], opts = {}) {
   // Apply excludes after assembly (so the user can drop instruments contributed by
   // either the primary or a staple)
   for (const iid of exclude) allInstrumentIds.delete(iid);
-  const instruments = [...allInstrumentIds].map(iid => {
-    const i = C.INSTRUMENTS.find(x => x.id === iid);
+  const instruments = [...allInstrumentIds].map((iid) => {
+    const i = C.INSTRUMENTS.find((x) => x.id === iid);
     if (!i) return { id: iid, slots: {}, scores: {} };
     const slots = {};
     const scores = {};
-    for (const part of (i.parts || [])) {
+    for (const part of i.parts || []) {
       let best = null;
       let bestScore = -Infinity;
       let bestIsDefault = false;
@@ -528,14 +559,17 @@ function seedFromTradition(tradId, stapleIds = [], opts = {}) {
         const isDefault = v.default === true;
         // Strict win: better score
         if (r.score > bestScore) {
-          best = v.id; bestScore = r.score; bestIsDefault = isDefault;
+          best = v.id;
+          bestScore = r.score;
+          bestIsDefault = isDefault;
           continue;
         }
         // Tie-break by default flag — prefer the canonical default when scores match.
         // Without this, ties are won by whichever variant comes first in the array,
         // which is incidental author-ordering rather than canonical preference.
         if (r.score === bestScore && isDefault && !bestIsDefault) {
-          best = v.id; bestIsDefault = true;
+          best = v.id;
+          bestIsDefault = true;
         }
       }
       if (best) {
@@ -551,7 +585,7 @@ function seedFromTradition(tradId, stapleIds = [], opts = {}) {
   // pinning, search would climb back to the higher-scoring canonical variant.
   const pinned = {};
   for (const iid of Object.keys(swap)) {
-    const instEntry = instruments.find(x => x.id === iid);
+    const instEntry = instruments.find((x) => x.id === iid);
     if (!instEntry) continue;
     for (const partId of Object.keys(swap[iid])) {
       instEntry.slots[partId] = swap[iid][partId];
@@ -575,7 +609,9 @@ function seedFromTradition(tradId, stapleIds = [], opts = {}) {
       medium: t.chain_medium || null,
     },
     tuning: t.tuning,
-    aesthetic: Array.isArray(t.production_aesthetic) ? t.production_aesthetic[0] : t.production_aesthetic || null,
+    aesthetic: Array.isArray(t.production_aesthetic)
+      ? t.production_aesthetic[0]
+      : t.production_aesthetic || null,
     arrangement: arrangementOverride || t.arrangement || null,
     fx_extras: Array.isArray(t.chain_fx) ? [...t.chain_fx] : [],
   };
@@ -591,8 +627,10 @@ for (let i = 0; i < args.length; i++) {
     if (eq > 0) flags[a.slice(2, eq)] = a.slice(eq + 1);
     else {
       const next = args[i + 1];
-      if (next && !next.startsWith('--')) { flags[a.slice(2)] = next; i++; }
-      else flags[a.slice(2)] = true;
+      if (next && !next.startsWith('--')) {
+        flags[a.slice(2)] = next;
+        i++;
+      } else flags[a.slice(2)] = true;
     }
   }
 }
@@ -601,7 +639,10 @@ if (require.main === module) {
   let seed = null;
   if (flags.tradition) {
     seed = seedFromTradition(flags.tradition);
-    if (!seed) { console.error(`Unknown tradition: ${flags.tradition}`); process.exit(2); }
+    if (!seed) {
+      console.error(`Unknown tradition: ${flags.tradition}`);
+      process.exit(2);
+    }
   } else if (flags.seed) {
     seed = JSON.parse(require('fs').readFileSync(flags.seed, 'utf8'));
   } else {
@@ -615,7 +656,19 @@ if (require.main === module) {
     for (const t of result.trace) console.error(`  ${t.score.toFixed(2).padStart(7)}  ${t.desc}`);
     console.error('');
   }
-  console.log(JSON.stringify({ config: result.config, score: result.score, breakdown: result.breakdown }, null, 2));
+  console.log(
+    JSON.stringify(
+      { config: result.config, score: result.score, breakdown: result.breakdown },
+      null,
+      2
+    )
+  );
 }
 
-module.exports = { search, searchMultiStart, seedFromTradition, findClosestTraditionByAxis, makeContextProvider };
+module.exports = {
+  search,
+  searchMultiStart,
+  seedFromTradition,
+  findClosestTraditionByAxis,
+  makeContextProvider,
+};

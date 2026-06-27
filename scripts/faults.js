@@ -62,13 +62,19 @@ function mkenv(items) {
 // merely hangs can't masquerade as detection.
 function gate(dir, args) {
   try {
-    const out = execFileSync('node', args, { cwd: dir, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'], timeout: 300000, maxBuffer: 32 * 1024 * 1024 });
+    const out = execFileSync('node', args, {
+      cwd: dir,
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'pipe'],
+      timeout: 300000,
+      maxBuffer: 32 * 1024 * 1024,
+    });
     if (VERBOSE) process.stderr.write(out);
     return { code: 0, out };
   } catch (e) {
     const out = `${e.stdout || ''}${e.stderr || ''}`;
     if (VERBOSE) process.stderr.write(out);
-    const code = e.code === 'ETIMEDOUT' ? 'timeout' : (e.status == null ? -1 : e.status);
+    const code = e.code === 'ETIMEDOUT' ? 'timeout' : e.status == null ? -1 : e.status;
     return { code, out };
   }
 }
@@ -92,7 +98,9 @@ function record(cls, res, expect) {
   process.stderr.write(`  ${tag}  ${cls}  (exit ${code})\n`);
 }
 
-process.stderr.write('Injecting one defect per gate-class (isolated temp copies; real tree untouched)…\n');
+process.stderr.write(
+  'Injecting one defect per gate-class (isolated temp copies; real tree untouched)…\n'
+);
 
 // 1. broken ref -> validate.js
 {
@@ -110,14 +118,22 @@ process.stderr.write('Injecting one defect per gate-class (isolated temp copies;
   j.recipe = 'x'.repeat(1001);
   j.recipe_chars = 1001;
   fs.writeFileSync(f, JSON.stringify(j, null, 2));
-  record('over-ceiling-recipe -> check_api.js', gate(d, ['scripts/check_api.js']), /1000|ceiling|chars/i);
+  record(
+    'over-ceiling-recipe -> check_api.js',
+    gate(d, ['scripts/check_api.js']),
+    /1000|ceiling|chars/i
+  );
 }
 
 // 3. dropped tradition -> check_api.js
 {
   const d = mkenv(['scripts', 'references', 'api']);
   fs.unlinkSync(path.join(d, 'api/traditions/zydeco.json'));
-  record('dropped-tradition -> check_api.js', gate(d, ['scripts/check_api.js']), /zydeco|missing|count/i);
+  record(
+    'dropped-tradition -> check_api.js',
+    gate(d, ['scripts/check_api.js']),
+    /zydeco|missing|count/i
+  );
 }
 
 // 4. unresolvable config id (stale snapshot vs catalog) -> check_api.js
@@ -127,7 +143,11 @@ process.stderr.write('Injecting one defect per gate-class (isolated temp copies;
   const j = JSON.parse(fs.readFileSync(f, 'utf8'));
   j.config.room = 'BOGUS_ROOM_FAULT';
   fs.writeFileSync(f, JSON.stringify(j, null, 2));
-  record('unresolvable-id -> check_api.js', gate(d, ['scripts/check_api.js']), /BOGUS_ROOM_FAULT|resolve|room/i);
+  record(
+    'unresolvable-id -> check_api.js',
+    gate(d, ['scripts/check_api.js']),
+    /BOGUS_ROOM_FAULT|resolve|room/i
+  );
 }
 
 // 5. app<->node desync -> equivalence.js  (mutate the NODE adapter only; the
@@ -135,12 +155,18 @@ process.stderr.write('Injecting one defect per gate-class (isolated temp copies;
 {
   const d = mkenv(['scripts', 'references', 'src']);
   const f = path.join(d, 'scripts/_card_descriptors.js');
-  const s = fs.readFileSync(f, 'utf8').replace(
-    '  return harvestDescriptors(card, lookups);',
-    "  const _s = harvestDescriptors(card, lookups); _s.add('__FAULT__'); return _s;"
-  );
+  const s = fs
+    .readFileSync(f, 'utf8')
+    .replace(
+      '  return harvestDescriptors(card, lookups);',
+      "  const _s = harvestDescriptors(card, lookups); _s.add('__FAULT__'); return _s;"
+    );
   fs.writeFileSync(f, s);
-  record('app-node-desync -> equivalence.js', gate(d, ['scripts/equivalence.js']), /__FAULT__|EQUIVALENCE|differ|mismatch/i);
+  record(
+    'app-node-desync -> equivalence.js',
+    gate(d, ['scripts/equivalence.js']),
+    /__FAULT__|EQUIVALENCE|differ|mismatch/i
+  );
 }
 
 // 6. stale api/ (committed != fresh build) -> check_artifact_fresh.js
@@ -159,7 +185,9 @@ if (FRESH_API && FRESH_HTML) {
   ]);
   record('stale-api -> check_artifact_fresh.js', res, /STALE_DRIFT|drift|stale|!=|content/i);
 } else {
-  process.stderr.write('  - skipped stale-api fault (pass --fresh-api=DIR --fresh-html=FILE to enable)\n');
+  process.stderr.write(
+    '  - skipped stale-api fault (pass --fresh-api=DIR --fresh-html=FILE to enable)\n'
+  );
 }
 
 // 6b. stale codex.html (committed != fresh build) -> check_artifact_fresh.js
@@ -170,7 +198,10 @@ if (FRESH_API && FRESH_HTML) {
 if (FRESH_API && FRESH_HTML) {
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-fault-html-'));
   const staleHtml = path.join(tmp, 'stale_codex.html');
-  fs.writeFileSync(staleHtml, fs.readFileSync(FRESH_HTML, 'utf8') + '\n<!-- __STALE_HTML_FAULT__ -->\n');
+  fs.writeFileSync(
+    staleHtml,
+    fs.readFileSync(FRESH_HTML, 'utf8') + '\n<!-- __STALE_HTML_FAULT__ -->\n'
+  );
   const res = gate(ROOT, [
     'scripts/check_artifact_fresh.js',
     `--committed-api=${FRESH_API}`,
@@ -182,13 +213,21 @@ if (FRESH_API && FRESH_HTML) {
 }
 
 // 7. silent blend-drop -> recipe.js  (read-only on the real tree)
-record('silent-blend-drop -> recipe.js', gate(ROOT, ['scripts/recipe.js', '--traditions', 'afrobeat,__bogus_fault__']), /__bogus_fault__|[Uu]nknown|not found|resolve/);
+record(
+  'silent-blend-drop -> recipe.js',
+  gate(ROOT, ['scripts/recipe.js', '--traditions', 'afrobeat,__bogus_fault__']),
+  /__bogus_fault__|[Uu]nknown|not found|resolve/
+);
 
 // 8. orphan promise (documented but unregistered/ungated) -> check_promises.js
 {
   const d = mkenv(['scripts', 'AGENTS.md', 'llms.txt', 'README.md', 'SKILL.md']);
   fs.appendFileSync(path.join(d, 'AGENTS.md'), '\n<!-- @promise: __orphan_fault__ -->\n');
-  record('orphan-promise -> check_promises.js', gate(d, ['scripts/check_promises.js']), /__orphan_fault__|orphan|no row/i);
+  record(
+    'orphan-promise -> check_promises.js',
+    gate(d, ['scripts/check_promises.js']),
+    /__orphan_fault__|orphan|no row/i
+  );
 }
 
 // 9. lazy shell drifts from embedded build -> check_lazy_app.js
@@ -202,23 +241,55 @@ record('silent-blend-drop -> recipe.js', gate(ROOT, ['scripts/recipe.js', '--tra
   const j = JSON.parse(fs.readFileSync(f, 'utf8'));
   j.items[0].name = (j.items[0].name || '') + ' __FAULT__';
   fs.writeFileSync(f, JSON.stringify(j, null, 2));
-  record('lazy-shell-desync -> check_lazy_app.js', gate(d, ['scripts/check_lazy_app.js']), /__FAULT__|drift|projection|LAZY-APP: FAIL/i);
+  record(
+    'lazy-shell-desync -> check_lazy_app.js',
+    gate(d, ['scripts/check_lazy_app.js']),
+    /__FAULT__|drift|projection|LAZY-APP: FAIL/i
+  );
 }
 
 // 10. doc count drift -> check_docs.js  (a canonical count in the docs no longer
 //     matches the live catalog — the class that shipped stale AGENTS/SKILL counts)
 {
-  const d = mkenv(['scripts', 'references', 'SKILL.md', 'AGENTS.md', 'index.html', 'package.json', 'llms.txt']);
+  const d = mkenv([
+    'scripts',
+    'references',
+    'SKILL.md',
+    'AGENTS.md',
+    'index.html',
+    'package.json',
+    'llms.txt',
+  ]);
   const f = path.join(d, 'package.json');
   fs.writeFileSync(f, fs.readFileSync(f, 'utf8').replace('1119-tradition', '1118-tradition'));
-  record('count-drift -> check_docs.js', gate(d, ['scripts/check_docs.js']), /1118|1119|drift|mismatch|count|expected/i);
+  record(
+    'count-drift -> check_docs.js',
+    gate(d, ['scripts/check_docs.js']),
+    /1118|1119|drift|mismatch|count|expected/i
+  );
 }
 
 // 11. a documented command that no longer exits 0 -> check_doc_commands.js
 {
-  const d = mkenv(['scripts', 'references', 'api', 'src', 'AGENTS.md', 'llms.txt', 'README.md', 'SKILL.md']);
-  fs.appendFileSync(path.join(d, 'AGENTS.md'), '\nnode scripts/recipe.js --tradition __doccmd_fault__\n');
-  record('failing-doc-command -> check_doc_commands.js', gate(d, ['scripts/check_doc_commands.js']), /__doccmd_fault__|errored|exit|recipe/i);
+  const d = mkenv([
+    'scripts',
+    'references',
+    'api',
+    'src',
+    'AGENTS.md',
+    'llms.txt',
+    'README.md',
+    'SKILL.md',
+  ]);
+  fs.appendFileSync(
+    path.join(d, 'AGENTS.md'),
+    '\nnode scripts/recipe.js --tradition __doccmd_fault__\n'
+  );
+  record(
+    'failing-doc-command -> check_doc_commands.js',
+    gate(d, ['scripts/check_doc_commands.js']),
+    /__doccmd_fault__|errored|exit|recipe/i
+  );
 }
 
 // 12. a documented BEHAVIOR drifts from the prose -> check_doc_behaviors.js
@@ -228,8 +299,15 @@ record('silent-blend-drop -> recipe.js', gate(ROOT, ['scripts/recipe.js', '--tra
   const f = path.join(d, 'references/07_preface_lexicon.js');
   // Rename belting's UNIQUE id so the §3d assertion (which finds 'belting' and
   // checks its documented 8 tokens) sees "(belting not found)" and fails.
-  fs.writeFileSync(f, fs.readFileSync(f, 'utf8').replace("id: 'belting'", "id: 'belting__fault__'"));
-  record('behavior-drift -> check_doc_behaviors.js', gate(d, ['scripts/check_doc_behaviors.js']), /belting|behavior|drift|not found|FAIL/i);
+  fs.writeFileSync(
+    f,
+    fs.readFileSync(f, 'utf8').replace("id: 'belting'", "id: 'belting__fault__'")
+  );
+  record(
+    'behavior-drift -> check_doc_behaviors.js',
+    gate(d, ['scripts/check_doc_behaviors.js']),
+    /belting|behavior|drift|not found|FAIL/i
+  );
 }
 
 // 13. a production-dead preface token -> check_prefaces.js  (a token no card can
@@ -238,8 +316,15 @@ record('silent-blend-drop -> recipe.js', gate(ROOT, ['scripts/recipe.js', '--tra
 {
   const d = mkenv(['scripts', 'references']);
   const f = path.join(d, 'references/07_preface_lexicon.js');
-  fs.writeFileSync(f, fs.readFileSync(f, 'utf8').replace('tokens: [', "tokens: ['zzz_dead_fault_token', "));
-  record('dead-preface-token -> check_prefaces.js', gate(d, ['scripts/check_prefaces.js']), /zzz_dead_fault_token|dead-token|never scores/i);
+  fs.writeFileSync(
+    f,
+    fs.readFileSync(f, 'utf8').replace('tokens: [', "tokens: ['zzz_dead_fault_token', ")
+  );
+  record(
+    'dead-preface-token -> check_prefaces.js',
+    gate(d, ['scripts/check_prefaces.js']),
+    /zzz_dead_fault_token|dead-token|never scores/i
+  );
 }
 
 // 14. app<->connector parity drift -> check_app_parity.js  (mutate ONLY the connector
@@ -248,11 +333,17 @@ record('silent-blend-drop -> recipe.js', gate(ROOT, ['scripts/recipe.js', '--tra
 {
   const d = mkenv(['scripts', 'references', 'src']);
   const f = path.join(d, 'scripts/_seed_workspace.js');
-  fs.writeFileSync(f, fs.readFileSync(f, 'utf8').replace(
-    'return header + body;',
-    "return header + body + ' __PARITY_FAULT__';"
-  ));
-  record('app-connector-parity-drift -> check_app_parity.js', gate(d, ['scripts/check_app_parity.js', '--limit=30']), /__PARITY_FAULT__|mismatch|FAIL/i);
+  fs.writeFileSync(
+    f,
+    fs
+      .readFileSync(f, 'utf8')
+      .replace('return header + body;', "return header + body + ' __PARITY_FAULT__';")
+  );
+  record(
+    'app-connector-parity-drift -> check_app_parity.js',
+    gate(d, ['scripts/check_app_parity.js', '--limit=30']),
+    /__PARITY_FAULT__|mismatch|FAIL/i
+  );
 }
 
 // 15. preface assignment drift -> regression_prefaces.js  (corrupt one fixture's
@@ -263,7 +354,11 @@ record('silent-blend-drop -> recipe.js', gate(ROOT, ['scripts/recipe.js', '--tra
   const j = JSON.parse(fs.readFileSync(f, 'utf8'));
   j[0].expectedPreface = '__preface_fault__';
   fs.writeFileSync(f, JSON.stringify(j, null, 2));
-  record('preface-drift -> regression_prefaces.js', gate(d, ['scripts/regression_prefaces.js']), /__preface_fault__|FAIL/);
+  record(
+    'preface-drift -> regression_prefaces.js',
+    gate(d, ['scripts/regression_prefaces.js']),
+    /__preface_fault__|FAIL/
+  );
 }
 
 // 16. slot-pick drift -> check_slot_picks.js  (corrupt one fixture's expected variant
@@ -274,7 +369,11 @@ record('silent-blend-drop -> recipe.js', gate(ROOT, ['scripts/recipe.js', '--tra
   const j = JSON.parse(fs.readFileSync(f, 'utf8'));
   j.tests[0].expected_variant = '__slot_fault__';
   fs.writeFileSync(f, JSON.stringify(j, null, 2));
-  record('slot-pick-drift -> check_slot_picks.js', gate(d, ['scripts/check_slot_picks.js']), /__slot_fault__|FAILURES|FAIL/);
+  record(
+    'slot-pick-drift -> check_slot_picks.js',
+    gate(d, ['scripts/check_slot_picks.js']),
+    /__slot_fault__|FAILURES|FAIL/
+  );
 }
 
 // 17. dead token in the AUDIT-enriched pool -> audit_dead_tokens.js  (class 13 covers
@@ -283,8 +382,15 @@ record('silent-blend-drop -> recipe.js', gate(ROOT, ['scripts/recipe.js', '--tra
 {
   const d = mkenv(['scripts', 'references']);
   const f = path.join(d, 'references/07_preface_lexicon.js');
-  fs.writeFileSync(f, fs.readFileSync(f, 'utf8').replace('tokens: [', "tokens: ['zzz_dead_audit_token', "));
-  record('dead-audit-token -> audit_dead_tokens.js', gate(d, ['scripts/audit_dead_tokens.js']), /zzz_dead_audit_token|DEAD-TOKEN AUDIT: FAIL/i);
+  fs.writeFileSync(
+    f,
+    fs.readFileSync(f, 'utf8').replace('tokens: [', "tokens: ['zzz_dead_audit_token', ")
+  );
+  record(
+    'dead-audit-token -> audit_dead_tokens.js',
+    gate(d, ['scripts/audit_dead_tokens.js']),
+    /zzz_dead_audit_token|DEAD-TOKEN AUDIT: FAIL/i
+  );
 }
 
 // 18. workspace mutation -> check_workspace_ops.js  (neuter clone() to an identity
@@ -293,11 +399,20 @@ record('silent-blend-drop -> recipe.js', gate(ROOT, ['scripts/recipe.js', '--tra
 {
   const d = mkenv(['scripts', 'references']);
   const f = path.join(d, 'scripts/_workspace_ops.js');
-  fs.writeFileSync(f, fs.readFileSync(f, 'utf8').replace(
-    'function clone(ws) {',
-    'function clone(ws) {\n  return ws; // __WORKSPACE_FAULT__ identity clone breaks state-passing'
-  ));
-  record('workspace-mutation -> check_workspace_ops.js', gate(d, ['scripts/check_workspace_ops.js']), /IMMUTABLE|FAIL/);
+  fs.writeFileSync(
+    f,
+    fs
+      .readFileSync(f, 'utf8')
+      .replace(
+        'function clone(ws) {',
+        'function clone(ws) {\n  return ws; // __WORKSPACE_FAULT__ identity clone breaks state-passing'
+      )
+  );
+  record(
+    'workspace-mutation -> check_workspace_ops.js',
+    gate(d, ['scripts/check_workspace_ops.js']),
+    /IMMUTABLE|FAIL/
+  );
 }
 
 // 19. stale voice-parts mirror -> _gen_voice_parts.js --check  (the Node seed's voice
@@ -306,8 +421,17 @@ record('silent-blend-drop -> recipe.js', gate(ROOT, ['scripts/recipe.js', '--tra
 {
   const d = mkenv(['scripts', 'src']);
   const f = path.join(d, 'scripts/_voice_parts_data.js');
-  fs.writeFileSync(f, fs.readFileSync(f, 'utf8').replace("voice_articulation: 'melisma_voice'", "voice_articulation: '__VP_FAULT__'"));
-  record('stale-voice-parts -> _gen_voice_parts.js', gate(d, ['scripts/_gen_voice_parts.js', '--check']), /VOICE-PARTS: FAIL|stale/i);
+  fs.writeFileSync(
+    f,
+    fs
+      .readFileSync(f, 'utf8')
+      .replace("voice_articulation: 'melisma_voice'", "voice_articulation: '__VP_FAULT__'")
+  );
+  record(
+    'stale-voice-parts -> _gen_voice_parts.js',
+    gate(d, ['scripts/_gen_voice_parts.js', '--check']),
+    /VOICE-PARTS: FAIL|stale/i
+  );
 }
 
 // Registry-driven completeness: every promise-bound gate (_promises.js) must have
@@ -318,25 +442,36 @@ let uncovered = [];
 if (FRESH_API && FRESH_HTML) {
   const PROMISES = require('./_promises.js');
   const faulted = new Set(results.map((r) => r.cls.split('->').pop().trim()));
-  uncovered = [...new Set(PROMISES.map((p) => p.gate))]
-    .filter((g) => g !== 'faults.js' && !faulted.has(g));
+  uncovered = [...new Set(PROMISES.map((p) => p.gate))].filter(
+    (g) => g !== 'faults.js' && !faulted.has(g)
+  );
 }
 
 const escaped = results.filter((r) => !r.caught);
-console.log(`\n=== Fault injection: ${results.length} gate-class(es) tested, ${escaped.length} escape(s) ===`);
+console.log(
+  `\n=== Fault injection: ${results.length} gate-class(es) tested, ${escaped.length} escape(s) ===`
+);
 if (escaped.length === 0 && uncovered.length === 0) {
-  console.log(FRESH_API && FRESH_HTML
-    ? 'PASS — every injected defect was caught AND every promise-bound gate has a fault class. All gates are two-sided.'
-    : 'PASS — every injected defect was caught (partial run; pass --fresh-api/--fresh-html to also assert gate-coverage completeness).');
+  console.log(
+    FRESH_API && FRESH_HTML
+      ? 'PASS — every injected defect was caught AND every promise-bound gate has a fault class. All gates are two-sided.'
+      : 'PASS — every injected defect was caught (partial run; pass --fresh-api/--fresh-html to also assert gate-coverage completeness).'
+  );
   process.exit(0);
 }
 if (escaped.length) {
-  console.error('FAIL — these gate-classes did not catch their planted defect for the right reason:');
+  console.error(
+    'FAIL — these gate-classes did not catch their planted defect for the right reason:'
+  );
   for (const e of escaped) console.error(`  ✗ ${e.cls}  [${e.reason}]`);
-  console.error('  (ESCAPED = gate passed; TIMEOUT = gate hung; WRONG-REASON = failed but not on the planted defect)');
+  console.error(
+    '  (ESCAPED = gate passed; TIMEOUT = gate hung; WRONG-REASON = failed but not on the planted defect)'
+  );
 }
 if (uncovered.length) {
-  console.error(`FAIL — ${uncovered.length} promise-bound gate(s) have NO fault class, so "every gate is two-sided" is unproven for them:`);
+  console.error(
+    `FAIL — ${uncovered.length} promise-bound gate(s) have NO fault class, so "every gate is two-sided" is unproven for them:`
+  );
   for (const g of uncovered) console.error(`  ✗ ${g}  (add a fault class in faults.js)`);
 }
 process.exit(1);

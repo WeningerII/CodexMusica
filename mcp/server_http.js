@@ -68,24 +68,37 @@ app.post(MCP_PATH, async (req, res) => {
   // Stateless: brand-new server + transport for this single request.
   const server = buildServer();
   const transport = new StreamableHTTPServerTransport({ sessionIdGenerator: undefined });
-  res.on('close', () => { transport.close(); server.close(); });
+  res.on('close', () => {
+    transport.close();
+    server.close();
+  });
   try {
     await server.connect(transport);
     await transport.handleRequest(req, res, req.body);
   } catch (err) {
     console.error('[mcp] request error:', err);
     if (!res.headersSent) {
-      res.status(500).json({ jsonrpc: '2.0', error: { code: -32603, message: 'Internal server error' }, id: null });
+      res.status(500).json({
+        jsonrpc: '2.0',
+        error: { code: -32603, message: 'Internal server error' },
+        id: null,
+      });
     }
   }
 });
 
 // Stateless mode has no server-initiated SSE stream and no session lifecycle.
 const notAllowed = (_req, res) =>
-  res.status(405).json({ jsonrpc: '2.0', error: { code: -32000, message: 'Method not allowed (stateless server).' }, id: null });
+  res.status(405).json({
+    jsonrpc: '2.0',
+    error: { code: -32000, message: 'Method not allowed (stateless server).' },
+    id: null,
+  });
 app.get(MCP_PATH, notAllowed);
 app.delete(MCP_PATH, notAllowed);
 
 app.listen(PORT, () => {
-  console.error(`codex-musica MCP server (stateless Streamable HTTP) listening on :${PORT}${MCP_PATH}`);
+  console.error(
+    `codex-musica MCP server (stateless Streamable HTTP) listening on :${PORT}${MCP_PATH}`
+  );
 });

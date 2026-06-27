@@ -39,10 +39,15 @@ function parseArgs(argv) {
     const a = argv[i];
     if (!a.startsWith('--')) continue;
     const eq = a.indexOf('=');
-    if (eq > 0) { flags[a.slice(2, eq)] = a.slice(eq + 1); continue; }
+    if (eq > 0) {
+      flags[a.slice(2, eq)] = a.slice(eq + 1);
+      continue;
+    }
     const next = argv[i + 1];
-    if (next && !next.startsWith('--')) { flags[a.slice(2)] = next; i++; }
-    else flags[a.slice(2)] = true;
+    if (next && !next.startsWith('--')) {
+      flags[a.slice(2)] = next;
+      i++;
+    } else flags[a.slice(2)] = true;
   }
   return flags;
 }
@@ -52,7 +57,9 @@ function main() {
   const instrumentId = flags.instrument;
   const targetId = flags.preface;
   if (!instrumentId || !targetId) {
-    console.error('usage: node scripts/preface_configure.js --instrument <id> --preface <id> [--tradition <id>] [--json]');
+    console.error(
+      'usage: node scripts/preface_configure.js --instrument <id> --preface <id> [--tradition <id>] [--json]'
+    );
     process.exit(2);
   }
   if (!C.INSTRUMENTS.find((x) => x.id === instrumentId)) {
@@ -65,18 +72,27 @@ function main() {
   }
   const card = seedCard(instrumentId, flags.tradition || null);
   const result = inverseConfigure(card, targetId);
-  if (!result) { console.error('inverse-configure failed (no target tokens or unknown instrument).'); process.exit(1); }
+  if (!result) {
+    console.error('inverse-configure failed (no target tokens or unknown instrument).');
+    process.exit(1);
+  }
 
   if (flags.json) {
     // Include the realized descriptor set + achieved forward score for callers.
     const D = cardDescriptors(result.config, C, SIGS);
-    const achieved = (() => { let n = 0; for (const t of tokensOf(C.PREFACE_LEXICON.find((p) => p.id === targetId))) if (D.has(t)) n++; return n; })();
+    const achieved = (() => {
+      let n = 0;
+      for (const t of tokensOf(C.PREFACE_LEXICON.find((p) => p.id === targetId))) if (D.has(t)) n++;
+      return n;
+    })();
     console.log(JSON.stringify({ ...result, achievedForwardHits: achieved }, null, 2));
     return;
   }
 
   console.log(`inverse-configure: ${instrumentId} → preface "${targetId}"`);
-  console.log(`  target coverage: ${result.startScore}/${result.targetTokenCount} → ${result.finalScore}/${result.targetTokenCount} tokens`);
+  console.log(
+    `  target coverage: ${result.startScore}/${result.targetTokenCount} → ${result.finalScore}/${result.targetTokenCount} tokens`
+  );
   if (result.changes.length === 0) {
     console.log('  (already optimal — no axis changes; preface label set)');
   } else {

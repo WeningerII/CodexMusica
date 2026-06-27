@@ -28,9 +28,19 @@ const UPDATE = process.argv.includes('--update');
 // entries does not shift the sample. Spans ensembles, plucked/bowed strings,
 // percussion, winds, keys, and electronic instruments.
 const SAMPLE_IDS = [
-  'choir_ensemble', 'mandolin', 'guqin', 'tanbur_persian', 'kemence',
-  'damaru', 'muthallath', 'taphon', 'biniou', 'mizmar',
-  'combo_organ', 'drum_machine_909', 'choir_welsh_male',
+  'choir_ensemble',
+  'mandolin',
+  'guqin',
+  'tanbur_persian',
+  'kemence',
+  'damaru',
+  'muthallath',
+  'taphon',
+  'biniou',
+  'mizmar',
+  'combo_organ',
+  'drum_machine_909',
+  'choir_welsh_male',
 ];
 const FORMATS = ['prose', 'tags', 'compact', 'rich'];
 
@@ -39,9 +49,13 @@ function buildTempHtml() {
   // --embedded: this harness boots the page in jsdom with NO fetch — it needs
   // the tradition tables in the page. check_lazy_app.js proves the shipped
   // lazy shell behaves identically to this embedded build.
-  execFileSync('node', [path.join(__dirname, 'build_html.js'), `--out=${tmp}`, '--quiet', '--embedded'], {
-    stdio: ['ignore', 'ignore', 'inherit'],
-  });
+  execFileSync(
+    'node',
+    [path.join(__dirname, 'build_html.js'), `--out=${tmp}`, '--quiet', '--embedded'],
+    {
+      stdio: ['ignore', 'ignore', 'inherit'],
+    }
+  );
   return tmp;
 }
 
@@ -52,14 +66,21 @@ function snapshotFromHtml(html) {
       pretendToBeVisual: true,
       beforeParse(w) {
         w.storage = {
-          async get() { return null; },
+          async get() {
+            return null;
+          },
           async set() {},
           async delete() {},
-          async list() { return { keys: [] }; },
+          async list() {
+            return { keys: [] };
+          },
         };
         w.matchMedia = () => ({
-          matches: false, addEventListener() {}, removeEventListener() {},
-          addListener() {}, removeListener() {},
+          matches: false,
+          addEventListener() {},
+          removeEventListener() {},
+          addListener() {},
+          removeListener() {},
         });
         w.scrollTo = () => {};
       },
@@ -106,7 +127,9 @@ function snapshotFromHtml(html) {
   // that asserts nothing (and silently writes a new baseline from whatever the
   // current — possibly broken — behavior is).
   if (!fs.existsSync(SNAP) && !UPDATE) {
-    console.error(`APP RECIPE REGRESSION: FAIL — no snapshot at ${SNAP}. Run with --update to create one.`);
+    console.error(
+      `APP RECIPE REGRESSION: FAIL — no snapshot at ${SNAP}. Run with --update to create one.`
+    );
     process.exit(2);
   }
   if (UPDATE) {
@@ -122,7 +145,9 @@ function snapshotFromHtml(html) {
     if (JSON.stringify(expected[k]) !== JSON.stringify(snap[k])) drift.push(k);
   }
   if (drift.length) {
-    console.error(`APP RECIPE REGRESSION: FAIL — ${drift.length} drifted entr${drift.length === 1 ? 'y' : 'ies'}`);
+    console.error(
+      `APP RECIPE REGRESSION: FAIL — ${drift.length} drifted entr${drift.length === 1 ? 'y' : 'ies'}`
+    );
     for (const k of drift.slice(0, 10)) console.error(`  ${k}`);
     console.error('  (if intentional, re-run with --update)');
     process.exit(1);

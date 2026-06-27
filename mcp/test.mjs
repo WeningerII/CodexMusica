@@ -13,13 +13,18 @@ const C = require('../scripts/_loader.js');
 const EXPANDED = new Set();
 for (const inst of C.INSTRUMENTS || [])
   for (const p of inst.parts || [])
-    for (const v of p.variants || [])
-      if (v.expanded) EXPANDED.add(`${inst.id}|${p.id}|${v.id}`);
+    for (const v of p.variants || []) if (v.expanded) EXPANDED.add(`${inst.id}|${p.id}|${v.id}`);
 
 let passed = 0;
 function check(name, fn) {
-  try { fn(); console.log(`  ok  ${name}`); passed++; }
-  catch (err) { console.error(`FAIL  ${name}\n      ${err.message}`); process.exitCode = 1; }
+  try {
+    fn();
+    console.log(`  ok  ${name}`);
+    passed++;
+  } catch (err) {
+    console.error(`FAIL  ${name}\n      ${err.message}`);
+    process.exitCode = 1;
+  }
 }
 // Simulate the model threading state: round-trip the workspace through JSON.
 const thread = (ws) => JSON.parse(JSON.stringify(ws));
@@ -37,7 +42,11 @@ check('start_recipe = the Current Recipe (deterministic, primary-only header)', 
   assert.equal(r.cards.length, 5);
   assert.ok(r.workspace && Array.isArray(r.workspace.cards));
   const voice = r.cards.find((c) => c.instrument === 'voice');
-  assert.equal(voice.preface, 'evangelizing', 'cards summary surfaces the auto-deduped preface (not null)');
+  assert.equal(
+    voice.preface,
+    'evangelizing',
+    'cards summary surfaces the auto-deduped preface (not null)'
+  );
 });
 
 check('max_chars ceiling honored', () => {
@@ -47,10 +56,16 @@ check('max_chars ceiling honored', () => {
 
 check('edit_recipe set_preface re-derives + labels verbatim (state threaded)', () => {
   const s = E.startRecipe({ traditions: ['garage_rock'] });
-  const r = E.editRecipe({ workspace: thread(s.workspace), edits: [{ action: 'set_preface', card: 'voice', preface: 'satirical' }] });
+  const r = E.editRecipe({
+    workspace: thread(s.workspace),
+    edits: [{ action: 'set_preface', card: 'voice', preface: 'satirical' }],
+  });
   assert.ok(/(^|,\s*)satirical voice:/.test(r.recipe), 'preface labeled verbatim');
   const voice = r.workspace.cards.find((c) => c.instrumentId === 'voice');
-  assert.ok(voice.prefaceLock === true && voice.preface === 'satirical', 'preface locked on the card');
+  assert.ok(
+    voice.prefaceLock === true && voice.preface === 'satirical',
+    'preface locked on the card'
+  );
   assert.notDeepEqual(voice.parts, s.workspace.cards[0].parts, 'voice settings re-derived');
 });
 
@@ -67,11 +82,18 @@ check('set_preface never AUTO-selects a borrowed (auto:false) material', () => {
   for (const seed of s.workspace.cards) {
     const before = { ...seed.parts };
     for (const pref of prefaces) {
-      const r = E.editRecipe({ workspace: thread(s.workspace), edits: [{ action: 'set_preface', card: seed.instrumentId, preface: pref }] });
+      const r = E.editRecipe({
+        workspace: thread(s.workspace),
+        edits: [{ action: 'set_preface', card: seed.instrumentId, preface: pref }],
+      });
       const edited = r.workspace.cards.find((c) => c.instrumentId === seed.instrumentId);
       for (const [partId, vid] of Object.entries(edited.parts || {})) {
         if (EXPANDED.has(`${seed.instrumentId}|${partId}|${vid}`)) {
-          assert.equal(before[partId], vid, `set_preface("${pref}") auto-selected borrowed material ${seed.instrumentId}.${partId}=${vid}`);
+          assert.equal(
+            before[partId],
+            vid,
+            `set_preface("${pref}") auto-selected borrowed material ${seed.instrumentId}.${partId}=${vid}`
+          );
         }
       }
       runs++;
@@ -82,7 +104,10 @@ check('set_preface never AUTO-selects a borrowed (auto:false) material', () => {
 
 check('edit_recipe add_tradition reflects in the header (explicit staple)', () => {
   const s = E.startRecipe({ traditions: ['garage_rock'] });
-  const r = E.editRecipe({ workspace: thread(s.workspace), edits: [{ action: 'add_tradition', tradition: 'punk' }] });
+  const r = E.editRecipe({
+    workspace: thread(s.workspace),
+    edits: [{ action: 'add_tradition', tradition: 'punk' }],
+  });
   assert.ok(r.recipe.startsWith('Garage rock + Punk, '), `header: ${r.recipe.slice(0, 40)}`);
   assert.ok(r.cards.length > s.cards.length);
 });
@@ -92,7 +117,12 @@ check('edit_recipe set_variant applies + chains multiple edits', () => {
   const r = E.editRecipe({
     workspace: thread(s.workspace),
     edits: [
-      { action: 'set_variant', card: 'electric_guitar_single_coil', part: 'body_wood', variant: 'mahogany' },
+      {
+        action: 'set_variant',
+        card: 'electric_guitar_single_coil',
+        part: 'body_wood',
+        variant: 'mahogany',
+      },
       { action: 'remove_instrument', card: 'tonewheel_organ' },
     ],
   });
@@ -130,22 +160,37 @@ check('list_options enumerates rooms', () => {
 
 check('validation: actionable errors', () => {
   assert.throws(() => E.startRecipe({ traditions: ['nope_not_real'] }), /Unknown tradition/);
-  assert.throws(() => E.editRecipe({ edits: [{ action: 'set_preface', card: 'voice', preface: 'x' }] }), /needs a "workspace"/);
+  assert.throws(
+    () => E.editRecipe({ edits: [{ action: 'set_preface', card: 'voice', preface: 'x' }] }),
+    /needs a "workspace"/
+  );
   const s = E.startRecipe({ traditions: ['garage_rock'] });
-  assert.throws(() => E.editRecipe({ workspace: thread(s.workspace), edits: [{ action: 'bogus' }] }), /Unknown edit action/);
-  assert.throws(() => E.editRecipe({ workspace: thread(s.workspace), edits: [{ action: 'set_variant', card: 'voice', part: 'nope', variant: 'x' }] }), /no part/);
+  assert.throws(
+    () => E.editRecipe({ workspace: thread(s.workspace), edits: [{ action: 'bogus' }] }),
+    /Unknown edit action/
+  );
+  assert.throws(
+    () =>
+      E.editRecipe({
+        workspace: thread(s.workspace),
+        edits: [{ action: 'set_variant', card: 'voice', part: 'nope', variant: 'x' }],
+      }),
+    /no part/
+  );
 });
 
 // SDK-dependent: only runs if @modelcontextprotocol/sdk is installed.
 try {
   const { buildServer } = await import('./tools.js');
   assert.ok(buildServer(), 'server constructed');
-  console.log('  ok  server builds with all tools'); passed++;
+  console.log('  ok  server builds with all tools');
+  passed++;
 } catch (err) {
   if (/Cannot find package|Cannot find module/.test(err.message)) {
     console.log('  --  server build skipped (SDK not installed in-container)');
   } else {
-    console.error(`FAIL  server builds with all tools\n      ${err.message}`); process.exitCode = 1;
+    console.error(`FAIL  server builds with all tools\n      ${err.message}`);
+    process.exitCode = 1;
   }
 }
 

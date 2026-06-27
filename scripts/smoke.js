@@ -131,10 +131,11 @@ console.error('\n[2] Multi-tradition blends:');
 for (const ids of BLEND_PAIRS) {
   stats.blends++;
   // Skip blends referencing unknown traditions (keeps test resilient as catalog evolves)
-  const unknown = ids.find(id => !C.TRADITION_EXTRAS[id]);
+  const unknown = ids.find((id) => !C.TRADITION_EXTRAS[id]);
   if (unknown) {
     if (VERBOSE) console.error(`  - skip blend [${ids.join(', ')}]: unknown tradition ${unknown}`);
-    stats.total++; stats.ok++;
+    stats.total++;
+    stats.ok++;
     continue;
   }
   smokeOne(`blend:${ids.join('+')}`, () => seedFromTradition(ids[0], ids.slice(1)));
@@ -148,19 +149,21 @@ function seedFromAxisTarget(target) {
   return best ? seedFromTradition(best) : null;
 }
 const AXIS_TARGETS = [
-  { harm: 0, density: 0, intensity: 0 },                             // anodyne mid
-  { harm: 2, density: 2, intensity: 2 },                             // dense maximalist
-  { harm: -2, density: -2, intensity: -2 },                          // sparse minimalist
-  { harm: 0, pitch: 2, ornament: 2, meter: 1 },                      // pitch-elaborate / ornamental
-  { harm: 1, density: 1, transmission: -2 },                         // notated tradition
-  { harm: -1, voice: 2, density: -2 },                               // unaccompanied vocal
-  { harm: 2, percussion: 2, intensity: 2, density: 2 },              // dense percussive max
-  { meter: -2, cyclicity: 2 },                                       // free-meter cyclic
+  { harm: 0, density: 0, intensity: 0 }, // anodyne mid
+  { harm: 2, density: 2, intensity: 2 }, // dense maximalist
+  { harm: -2, density: -2, intensity: -2 }, // sparse minimalist
+  { harm: 0, pitch: 2, ornament: 2, meter: 1 }, // pitch-elaborate / ornamental
+  { harm: 1, density: 1, transmission: -2 }, // notated tradition
+  { harm: -1, voice: 2, density: -2 }, // unaccompanied vocal
+  { harm: 2, percussion: 2, intensity: 2, density: 2 }, // dense percussive max
+  { meter: -2, cyclicity: 2 }, // free-meter cyclic
 ];
 console.error('\n[3] Axis-target seeding:');
 for (const target of AXIS_TARGETS) {
   stats.axisTargets++;
-  const desc = Object.entries(target).map(([k, v]) => `${k}:${v}`).join(',');
+  const desc = Object.entries(target)
+    .map(([k, v]) => `${k}:${v}`)
+    .join(',');
   smokeOne(`axis:${desc}`, () => seedFromAxisTarget(target));
 }
 
@@ -178,18 +181,22 @@ const { HTML_OUT } = require('./_paths.js');
 const HTML_PATH_LEGACY = path.join(__dirname, '..', '..', 'codex.html');
 let htmlPath = null;
 for (const p of [HTML_PATH_LEGACY, HTML_OUT]) {
-  if (fs.existsSync(p)) { htmlPath = p; break; }
+  if (fs.existsSync(p)) {
+    htmlPath = p;
+    break;
+  }
 }
 stats.total++;
 if (!htmlPath) {
   if (VERBOSE) console.error('  - skip: codex.html not built yet (run build_html first)');
-  stats.ok++;  // Not a failure if HTML not built — smoke runs before build_html in pipeline
+  stats.ok++; // Not a failure if HTML not built — smoke runs before build_html in pipeline
 } else {
   const html = fs.readFileSync(htmlPath, 'utf8');
   // Extract scripts and try parsing each via vm.Script
   const vm = require('vm');
   const scriptRe = /<script[^>]*>([\s\S]*?)<\/script>/g;
-  let m, idx = 0;
+  let m,
+    idx = 0;
   let allOk = true;
   while ((m = scriptRe.exec(html)) !== null) {
     idx++;
@@ -231,31 +238,41 @@ const STACK_CEILING = 1000;
 // (shared with the MCP connector via mcp/engine.js). compileStack(cards, format,
 // ceiling) is the no-header dispatcher; aliased to the former local name so the
 // section-5 budget call sites below are unchanged.
-const { compileStack: compileRecipeStackNode } = require("./_recipe_stack.js");
-
+const { compileStack: compileRecipeStackNode } = require('./_recipe_stack.js');
 
 function buildDefaultCardsForTradition(t) {
   if (!t || !t.instruments) return [];
-  return t.instruments.map(iid => {
-    const inst = C.INSTRUMENTS.find(i => i.id === iid);
-    if (!inst) return null;
-    const parts = {};
-    for (const p of (inst.parts || [])) {
-      const def = (p.variants || []).find(v => v.default === true);
-      if (def) parts[p.id] = def.id;
-      else if (p.variants && p.variants.length) parts[p.id] = p.variants[0].id;
-    }
-    // Build a card with shared env from the tradition's tuning/room. Chain
-    // is omitted (matches default-canonical state in UI before user edits).
-    return {
-      id: 'c_' + iid,
-      instrumentId: iid,
-      parts,
-      tuning: t.tuning || null,
-      room: t.room || null,
-      chain: { fx: [], amp: null, mic: null, pre: null, comp: null, eq: null, medium: null, console: null }
-    };
-  }).filter(Boolean);
+  return t.instruments
+    .map((iid) => {
+      const inst = C.INSTRUMENTS.find((i) => i.id === iid);
+      if (!inst) return null;
+      const parts = {};
+      for (const p of inst.parts || []) {
+        const def = (p.variants || []).find((v) => v.default === true);
+        if (def) parts[p.id] = def.id;
+        else if (p.variants && p.variants.length) parts[p.id] = p.variants[0].id;
+      }
+      // Build a card with shared env from the tradition's tuning/room. Chain
+      // is omitted (matches default-canonical state in UI before user edits).
+      return {
+        id: 'c_' + iid,
+        instrumentId: iid,
+        parts,
+        tuning: t.tuning || null,
+        room: t.room || null,
+        chain: {
+          fx: [],
+          amp: null,
+          mic: null,
+          pre: null,
+          comp: null,
+          eq: null,
+          medium: null,
+          console: null,
+        },
+      };
+    })
+    .filter(Boolean);
 }
 
 const FORMATS = ['prose', 'tags', 'rich', 'compact'];
@@ -295,20 +312,40 @@ console.error('\n[5b] Multi-tradition stack ceiling:');
 // Canonical scenarios — each composes cards across several traditions.
 // The reported case is the first; the others bracket it.
 const MULTI_TRAD_SCENARIOS = [
-  { name: 'freak-folk + hindustani + honky-tonk + gnawa (~31 cards)',
-    traditions: ['freak_folk_2000s', 'hindustani', 'honky_tonk', 'gnawa'] },
-  { name: 'gospel × 4 (~30 cards)',
-    traditions: ['pentecostal_gospel', 'southern_gospel_quartet', 'sacred_steel', 'bluegrass_gospel'] },
-  { name: 'classical × 5 cross-region (~30 cards)',
-    traditions: ['hindustani', 'persian_dastgah', 'turkish_makam', 'jingju', 'wenrenyue'] },
-  { name: 'rock-canon × 6 (~40 cards)',
-    traditions: ['shoegaze', 'post_punk', 'hardcore_punk', 'arena_rock', 'krautrock', 'noise_music'] },
+  {
+    name: 'freak-folk + hindustani + honky-tonk + gnawa (~31 cards)',
+    traditions: ['freak_folk_2000s', 'hindustani', 'honky_tonk', 'gnawa'],
+  },
+  {
+    name: 'gospel × 4 (~30 cards)',
+    traditions: [
+      'pentecostal_gospel',
+      'southern_gospel_quartet',
+      'sacred_steel',
+      'bluegrass_gospel',
+    ],
+  },
+  {
+    name: 'classical × 5 cross-region (~30 cards)',
+    traditions: ['hindustani', 'persian_dastgah', 'turkish_makam', 'jingju', 'wenrenyue'],
+  },
+  {
+    name: 'rock-canon × 6 (~40 cards)',
+    traditions: [
+      'shoegaze',
+      'post_punk',
+      'hardcore_punk',
+      'arena_rock',
+      'krautrock',
+      'noise_music',
+    ],
+  },
 ];
 
 for (const scenario of MULTI_TRAD_SCENARIOS) {
   const cards = [];
   for (const tid of scenario.traditions) {
-    const t = C.TRADITIONS.find(x => x.id === tid);
+    const t = C.TRADITIONS.find((x) => x.id === tid);
     if (!t) continue;
     const built = buildDefaultCardsForTradition(t);
     for (const c of built) {
@@ -339,12 +376,17 @@ for (const scenario of MULTI_TRAD_SCENARIOS) {
 // Pathological stress — every card duplicated. Verifies Phase C +
 // defensive truncate hold under loads no real user would compose.
 {
-  const t1 = C.TRADITIONS.find(x => x.id === 'freak_folk_2000s');
-  const t2 = C.TRADITIONS.find(x => x.id === 'hindustani');
+  const t1 = C.TRADITIONS.find((x) => x.id === 'freak_folk_2000s');
+  const t2 = C.TRADITIONS.find((x) => x.id === 'hindustani');
   if (t1 && t2) {
     const base = [...buildDefaultCardsForTradition(t1), ...buildDefaultCardsForTradition(t2)];
-    const stress = [...base, ...base.map(c => ({ ...c, id: c.id + '_dup', parts: { ...c.parts } }))];
-    stress.forEach((c, i) => { c.id = `stress_${i}`; });
+    const stress = [
+      ...base,
+      ...base.map((c) => ({ ...c, id: c.id + '_dup', parts: { ...c.parts } })),
+    ];
+    stress.forEach((c, i) => {
+      c.id = `stress_${i}`;
+    });
     const scope = `stress:${stress.length}-cards`;
     for (const fmt of FORMATS) {
       stats.total++;
@@ -387,6 +429,3 @@ if (failures.length > 0) {
 
 console.error(`\nSMOKE: ${stats.ok}/${stats.total} pass.`);
 process.exit(0);
-
-
-

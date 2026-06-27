@@ -12,7 +12,7 @@ human sees in the app.
 
 It reuses the shared SSOT modules in-process (`scripts/_workspace_ops.js` →
 `_seed_workspace.js` / `_recipe_stack.js` / `_inverse_configure.js`, the catalog in
-`references/`); it adds no new music logic. See `CONNECTOR_WORKSPACE_PLAN.md`.
+`references/`); it adds no new music logic.
 
 ## Tools
 
@@ -79,14 +79,14 @@ A `render.yaml` blueprint is included at the repo root:
 2. Your endpoint is `https://<service-name>.onrender.com/mcp`.
 3. Claude → **Add connectors → custom** → paste that `…/mcp` URL.
 
-Notes: the `free` plan **spins down when idle** — the first call after a lull cold-starts in ~30–60s, which can stall the connector handshake; bump to `starter` to stay warm. The blueprint deploys from the `claude/happy-lamport-8t4yw5` branch; change `branch:` to `main` after you merge.
+Notes: the `free` plan **spins down when idle** — the first call after a lull cold-starts in ~30–60s, which can stall the connector handshake; bump to `starter` to stay warm. The blueprint deploys from `main` (configured in `render.yaml`).
 
 - **No login.** The engine is read-only compute, so the server is open. Don't add
   auth for onboarding; put **edge rate-limiting** in front (e.g. Cloudflare) to
   catch runaway/broken agents. Add API-key/OAuth metering later only if you monetize.
 - `GET /health` is a plain health check for your host's probes.
-- **Scaling:** sessions are kept in-process and in-memory, so run a single instance
-  or use sticky sessions if you scale horizontally.
+- **Scaling:** the server is stateless (no in-process sessions), so it scales
+  horizontally without sticky sessions — run as many instances as you like.
 - **Cloudflare Workers** specifically: port `server_http.js` to
   `WebStandardStreamableHTTPServerTransport` (the SDK's web-standard variant); the
   Node transport used here targets Node hosts.

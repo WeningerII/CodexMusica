@@ -30,8 +30,10 @@ for (let i = 0; i < args.length; i++) {
       flags[a.slice(2, eq)] = a.slice(eq + 1);
     } else {
       const next = args[i + 1];
-      if (next && !next.startsWith('--')) { flags[a.slice(2)] = next; i++; }
-      else flags[a.slice(2)] = true;
+      if (next && !next.startsWith('--')) {
+        flags[a.slice(2)] = next;
+        i++;
+      } else flags[a.slice(2)] = true;
     }
   }
 }
@@ -62,7 +64,7 @@ function filterBy(items, mapping) {
   for (const [flagKey, fieldKey] of Object.entries(mapping)) {
     if (flags[flagKey] !== undefined && flags[flagKey] !== true) {
       const want = String(flags[flagKey]);
-      result = result.filter(it => {
+      result = result.filter((it) => {
         const v = it[fieldKey];
         if (v === undefined || v === null) return false;
         if (Array.isArray(v)) return v.includes(want);
@@ -75,10 +77,10 @@ function filterBy(items, mapping) {
 
 // --section
 if (flags.section) {
-  const sec = C.CHAIN_SECTIONS.find(s => s.id === flags.section);
+  const sec = C.CHAIN_SECTIONS.find((s) => s.id === flags.section);
   if (!sec) {
     console.error(`Unknown section: ${flags.section}`);
-    console.error(`Available: ${C.CHAIN_SECTIONS.map(s => s.id).join(', ')}`);
+    console.error(`Available: ${C.CHAIN_SECTIONS.map((s) => s.id).join(', ')}`);
     process.exit(2);
   }
   emit(sec.items, ['name', 'descriptors']);
@@ -88,7 +90,10 @@ if (flags.section) {
 // --rooms
 if (flags.rooms !== undefined) {
   const filtered = filterBy(C.ROOMS, {
-    cluster: 'cluster', era: 'era', region: 'region', scale: 'scale_tier',
+    cluster: 'cluster',
+    era: 'era',
+    region: 'region',
+    scale: 'scale_tier',
   });
   emit(filtered, ['cluster', 'era', 'region', 'scale_tier', 'descriptors']);
   process.exit(0);
@@ -97,12 +102,19 @@ if (flags.rooms !== undefined) {
 // --instruments
 if (flags.instruments !== undefined) {
   let filtered = C.INSTRUMENTS;
-  if (flags.family && flags.family !== true) filtered = filtered.filter(i => i.family === flags.family);
+  if (flags.family && flags.family !== true)
+    filtered = filtered.filter((i) => i.family === flags.family);
   if (flags['has-part'] && flags['has-part'] !== true) {
-    filtered = filtered.filter(i => (i.parts || []).some(p => p.id === flags['has-part']));
+    filtered = filtered.filter((i) => (i.parts || []).some((p) => p.id === flags['has-part']));
   }
-  if (flags.json) { console.log(JSON.stringify(filtered, null, 2)); process.exit(0); }
-  if (flags.ids) { for (const i of filtered) console.log(i.id); process.exit(0); }
+  if (flags.json) {
+    console.log(JSON.stringify(filtered, null, 2));
+    process.exit(0);
+  }
+  if (flags.ids) {
+    for (const i of filtered) console.log(i.id);
+    process.exit(0);
+  }
   for (const i of filtered) {
     const partCount = (i.parts || []).length;
     console.log(`${i.id}  family=${i.family}  parts=${partCount}  ${i.short || i.name}`);
@@ -116,17 +128,20 @@ if (flags.variants !== undefined) {
     console.error('--variants requires --instrument=<id>');
     process.exit(2);
   }
-  const inst = C.INSTRUMENTS.find(i => i.id === flags.instrument);
+  const inst = C.INSTRUMENTS.find((i) => i.id === flags.instrument);
   if (!inst) {
     console.error(`Unknown instrument: ${flags.instrument}`);
     process.exit(2);
   }
   let parts = inst.parts || [];
-  if (flags.part) parts = parts.filter(p => p.id === flags.part);
-  if (flags.json) { console.log(JSON.stringify(parts, null, 2)); process.exit(0); }
+  if (flags.part) parts = parts.filter((p) => p.id === flags.part);
+  if (flags.json) {
+    console.log(JSON.stringify(parts, null, 2));
+    process.exit(0);
+  }
   for (const p of parts) {
     console.log(`${p.id}  (${p.name})`);
-    for (const v of (p.variants || [])) {
+    for (const v of p.variants || []) {
       const desc = (v.descriptors || []).join(', ');
       console.log(`  ${v.id}  ${v.name}  [${desc}]`);
     }
@@ -137,13 +152,25 @@ if (flags.variants !== undefined) {
 // --archetypes
 if (flags.archetypes !== undefined) {
   const filtered = filterBy(C.CHAIN_ARCHETYPES || [], {
-    era: 'era', region: 'region', scale: 'scale_tier',
+    era: 'era',
+    region: 'region',
+    scale: 'scale_tier',
   });
-  if (flags.json) { console.log(JSON.stringify(filtered, null, 2)); process.exit(0); }
-  if (flags.ids) { for (const a of filtered) console.log(a.id); process.exit(0); }
+  if (flags.json) {
+    console.log(JSON.stringify(filtered, null, 2));
+    process.exit(0);
+  }
+  if (flags.ids) {
+    for (const a of filtered) console.log(a.id);
+    process.exit(0);
+  }
   for (const a of filtered) {
     console.log(`${a.id}  era=${a.era}  region=${a.region}  scale=${a.scale_tier}`);
-    console.log(`  components: ${Object.entries(a.components).map(([k,v]) => k+'='+(Array.isArray(v)?v.join('+'):v)).join('  ')}`);
+    console.log(
+      `  components: ${Object.entries(a.components)
+        .map(([k, v]) => k + '=' + (Array.isArray(v) ? v.join('+') : v))
+        .join('  ')}`
+    );
   }
   process.exit(0);
 }
@@ -151,7 +178,10 @@ if (flags.archetypes !== undefined) {
 // --aesthetics
 if (flags.aesthetics !== undefined) {
   const filtered = filterBy(C.PRODUCTION_AESTHETICS || [], { era: 'era' });
-  if (flags.json) { console.log(JSON.stringify(filtered, null, 2)); process.exit(0); }
+  if (flags.json) {
+    console.log(JSON.stringify(filtered, null, 2));
+    process.exit(0);
+  }
   for (const p of filtered) {
     console.log(`${p.id}  era=${p.era}  locus=${p.production_locus}`);
     console.log(`  techniques: ${(p.characteristic_techniques || []).join(', ')}`);
@@ -162,15 +192,22 @@ if (flags.aesthetics !== undefined) {
 // --traditions
 if (flags.traditions !== undefined) {
   let filtered = C.TRADITIONS;
-  if (flags.family && flags.family !== true) filtered = filtered.filter(t => t.family === flags.family);
+  if (flags.family && flags.family !== true)
+    filtered = filtered.filter((t) => t.family === flags.family);
   if (flags.parent && flags.parent !== true) {
-    filtered = filtered.filter(t => {
+    filtered = filtered.filter((t) => {
       const e = C.TRADITION_EXTRAS[t.id];
       return e && e.parent === flags.parent;
     });
   }
-  if (flags.json) { console.log(JSON.stringify(filtered, null, 2)); process.exit(0); }
-  if (flags.ids) { for (const t of filtered) console.log(t.id); process.exit(0); }
+  if (flags.json) {
+    console.log(JSON.stringify(filtered, null, 2));
+    process.exit(0);
+  }
+  if (flags.ids) {
+    for (const t of filtered) console.log(t.id);
+    process.exit(0);
+  }
   for (const t of filtered) {
     const e = C.TRADITION_EXTRAS[t.id];
     const parent = e ? e.parent : '?';
@@ -189,11 +226,14 @@ if (flags.tunings !== undefined) {
 if (flags.tree !== undefined) {
   let nodes = C.TREE_NODES;
   if (flags.root && flags.root !== true) {
-    nodes = nodes.filter(n => n.id === flags.root || n.id.startsWith(flags.root + '.'));
+    nodes = nodes.filter((n) => n.id === flags.root || n.id.startsWith(flags.root + '.'));
   }
   const maxDepth = flags.depth ? parseInt(flags.depth) : 99;
-  nodes = nodes.filter(n => (n.id.match(/\./g) || []).length <= maxDepth);
-  if (flags.json) { console.log(JSON.stringify(nodes, null, 2)); process.exit(0); }
+  nodes = nodes.filter((n) => (n.id.match(/\./g) || []).length <= maxDepth);
+  if (flags.json) {
+    console.log(JSON.stringify(nodes, null, 2));
+    process.exit(0);
+  }
   for (const n of nodes) {
     const depth = (n.id.match(/\./g) || []).length;
     const indent = '  '.repeat(depth);
@@ -204,7 +244,10 @@ if (flags.tree !== undefined) {
 
 // --axes
 if (flags.axes !== undefined) {
-  if (flags.json) { console.log(JSON.stringify(C.AXIS_DEFINITIONS, null, 2)); process.exit(0); }
+  if (flags.json) {
+    console.log(JSON.stringify(C.AXIS_DEFINITIONS, null, 2));
+    process.exit(0);
+  }
   for (const a of C.AXIS_DEFINITIONS) {
     console.log(`${a.id.padEnd(14)} ${a.name}`);
     console.log(`  -2 ← ${a.neg}  ${a.neg_anchor ? '(' + a.neg_anchor + ')' : ''}`);
@@ -215,7 +258,10 @@ if (flags.axes !== undefined) {
 
 // --inst-axes
 if (flags['inst-axes'] !== undefined) {
-  if (flags.json) { console.log(JSON.stringify(C.INSTRUMENT_AXIS_DEFINITIONS, null, 2)); process.exit(0); }
+  if (flags.json) {
+    console.log(JSON.stringify(C.INSTRUMENT_AXIS_DEFINITIONS, null, 2));
+    process.exit(0);
+  }
   for (const a of C.INSTRUMENT_AXIS_DEFINITIONS) {
     console.log(`${a.id.padEnd(14)} ${a.name}`);
     console.log(`  -2 ← ${a.neg}`);

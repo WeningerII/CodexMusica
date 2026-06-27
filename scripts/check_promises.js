@@ -50,7 +50,10 @@ for (const f of fs.readdirSync(SCRIPTS)) {
   let m;
   COVERS_RE.lastIndex = 0;
   while ((m = COVERS_RE.exec(text)) !== null) {
-    for (const id of m[1].split(/[ ,]+/).map((s) => s.trim()).filter(Boolean)) {
+    for (const id of m[1]
+      .split(/[ ,]+/)
+      .map((s) => s.trim())
+      .filter(Boolean)) {
       if (!gateCovers.has(id)) gateCovers.set(id, []);
       gateCovers.get(id).push(f);
     }
@@ -64,17 +67,33 @@ const problems = [];
 // declared gate actually carries the @covers tag).
 for (const r of REGISTRY) {
   const inDocs = docMarkers.get(r.id) || [];
-  if (!inDocs.length) problems.push(`promise "${r.id}" has NO doc marker (add <!-- @promise: ${r.id} --> to ${r.doc})`);
-  else if (!inDocs.includes(r.doc)) problems.push(`promise "${r.id}" marker is in ${inDocs.join(',')} but registry says ${r.doc}`);
+  if (!inDocs.length)
+    problems.push(
+      `promise "${r.id}" has NO doc marker (add <!-- @promise: ${r.id} --> to ${r.doc})`
+    );
+  else if (!inDocs.includes(r.doc))
+    problems.push(`promise "${r.id}" marker is in ${inDocs.join(',')} but registry says ${r.doc}`);
 
   const inGates = gateCovers.get(r.id) || [];
-  if (!inGates.length) problems.push(`promise "${r.id}" has NO gate (add // @covers: ${r.id} to ${r.gate})`);
-  else if (!inGates.includes(r.gate)) problems.push(`promise "${r.id}" is covered by ${inGates.join(',')} but registry says ${r.gate}`);
+  if (!inGates.length)
+    problems.push(`promise "${r.id}" has NO gate (add // @covers: ${r.id} to ${r.gate})`);
+  else if (!inGates.includes(r.gate))
+    problems.push(
+      `promise "${r.id}" is covered by ${inGates.join(',')} but registry says ${r.gate}`
+    );
 }
 // DOC -> REG (no documented promise without a registry row).
-for (const id of docMarkers.keys()) if (!regIds.has(id)) problems.push(`doc marker @promise:${id} (${docMarkers.get(id).join(',')}) has no row in _promises.js`);
+for (const id of docMarkers.keys())
+  if (!regIds.has(id))
+    problems.push(
+      `doc marker @promise:${id} (${docMarkers.get(id).join(',')}) has no row in _promises.js`
+    );
 // GATE -> REG (no gate verifying an unregistered promise).
-for (const id of gateCovers.keys()) if (!regIds.has(id)) problems.push(`gate @covers:${id} (${gateCovers.get(id).join(',')}) has no row in _promises.js`);
+for (const id of gateCovers.keys())
+  if (!regIds.has(id))
+    problems.push(
+      `gate @covers:${id} (${gateCovers.get(id).join(',')}) has no row in _promises.js`
+    );
 
 // ── report ──
 console.log(`=== Promise->gate coverage (bijection across docs / registry / gates) ===`);
@@ -82,10 +101,14 @@ if (VERBOSE && problems.length === 0) {
   for (const r of REGISTRY) console.log(`  ✓ ${r.id.padEnd(24)} ${r.doc} <-> ${r.gate}`);
 }
 if (problems.length === 0) {
-  console.log(`PASS — all ${REGISTRY.length} promises are documented AND gated; 0 orphans on any side.`);
+  console.log(
+    `PASS — all ${REGISTRY.length} promises are documented AND gated; 0 orphans on any side.`
+  );
   process.exit(0);
 }
 console.error(`FAIL — ${problems.length} coverage gap(s):`);
 for (const p of problems) console.error(`  ✗ ${p}`);
-console.error(`\nEvery promise needs all three: a registry row, a <!-- @promise: id --> doc marker, and a // @covers: id gate tag.`);
+console.error(
+  `\nEvery promise needs all three: a registry row, a <!-- @promise: id --> doc marker, and a // @covers: id gate tag.`
+);
 process.exit(1);

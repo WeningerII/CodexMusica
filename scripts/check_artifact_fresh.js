@@ -60,9 +60,15 @@ function buildFresh() {
   const apiDir = path.join(dir, 'api');
   const htmlFile = path.join(dir, 'codex.html');
   process.stderr.write('Building fresh api/ (this is the ~6-min full compile)…\n');
-  execFileSync('node', [path.join('scripts', 'build_static_api.js'), `--out=${apiDir}`], { cwd: ROOT, stdio: ['ignore', 'ignore', 'inherit'] });
+  execFileSync('node', [path.join('scripts', 'build_static_api.js'), `--out=${apiDir}`], {
+    cwd: ROOT,
+    stdio: ['ignore', 'ignore', 'inherit'],
+  });
   process.stderr.write('Building fresh codex.html…\n');
-  execFileSync('node', [path.join('scripts', 'build_html.js'), `--out=${htmlFile}`, '--quiet'], { cwd: ROOT, stdio: ['ignore', 'ignore', 'inherit'] });
+  execFileSync('node', [path.join('scripts', 'build_html.js'), `--out=${htmlFile}`, '--quiet'], {
+    cwd: ROOT,
+    stdio: ['ignore', 'ignore', 'inherit'],
+  });
   return { apiDir, htmlFile };
 }
 
@@ -77,14 +83,20 @@ const diffs = [];
 // ---- api/ : compare the file SET and the (date-normalized) contents ----
 const committedFiles = fs.existsSync(committedApi) ? listFiles(committedApi) : [];
 const freshFiles = fs.existsSync(fresh.apiDir) ? listFiles(fresh.apiDir) : [];
-const cSet = new Set(committedFiles), fSet = new Set(freshFiles);
-for (const f of committedFiles) if (!fSet.has(f)) diffs.push(`api/${f}: in committed, NOT in fresh build (stale extra file)`);
-for (const f of freshFiles) if (!cSet.has(f)) diffs.push(`api/${f}: in fresh build, MISSING from committed`);
+const cSet = new Set(committedFiles),
+  fSet = new Set(freshFiles);
+for (const f of committedFiles)
+  if (!fSet.has(f)) diffs.push(`api/${f}: in committed, NOT in fresh build (stale extra file)`);
+for (const f of freshFiles)
+  if (!cSet.has(f)) diffs.push(`api/${f}: in fresh build, MISSING from committed`);
 for (const f of committedFiles) {
   if (!fSet.has(f)) continue;
   let a = readMaybe(path.join(committedApi, f));
   let b = readMaybe(path.join(fresh.apiDir, f));
-  if (f.endsWith('.json')) { a = Buffer.from(normalizeJson(a.toString('utf8'))); b = Buffer.from(normalizeJson(b.toString('utf8'))); }
+  if (f.endsWith('.json')) {
+    a = Buffer.from(normalizeJson(a.toString('utf8')));
+    b = Buffer.from(normalizeJson(b.toString('utf8')));
+  }
   if (!a.equals(b)) diffs.push(`api/${f}: committed != fresh build (content drift)`);
 }
 
@@ -93,17 +105,22 @@ const ch = readMaybe(committedHtml);
 const fh = readMaybe(fresh.htmlFile);
 if (!ch) diffs.push('codex.html: committed copy missing');
 else if (!fh) diffs.push('codex.html: fresh build missing');
-else if (!ch.equals(fh)) diffs.push(`codex.html: committed (${ch.length}B) != fresh build (${fh.length}B) — stale`);
+else if (!ch.equals(fh))
+  diffs.push(`codex.html: committed (${ch.length}B) != fresh build (${fh.length}B) — stale`);
 
 // ---- report ----
 console.log('=== Artifact reproducibility (committed == fresh build from source?) ===');
 if (diffs.length === 0) {
-  console.log(`PASS — committed api/ (${committedFiles.length} files) + codex.html are byte-identical to a fresh build (modulo build timestamps).`);
+  console.log(
+    `PASS — committed api/ (${committedFiles.length} files) + codex.html are byte-identical to a fresh build (modulo build timestamps).`
+  );
   console.log('       The published artifact is provably a function of the source.');
   process.exit(0);
 }
 console.error(`FAIL — ${diffs.length} file(s) drifted from a fresh build:`);
 for (const d of diffs.slice(0, 40)) console.error(`  ✗ ${d}`);
 if (diffs.length > 40) console.error(`  … and ${diffs.length - 40} more.`);
-console.error('\nRebuild and commit: `npm run build:api` + `npm run build:html`, then commit the regenerated api/ and codex.html.');
+console.error(
+  '\nRebuild and commit: `npm run build:api` + `npm run build:html`, then commit the regenerated api/ and codex.html.'
+);
 process.exit(1);

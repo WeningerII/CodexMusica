@@ -46,7 +46,9 @@ const fs = require('fs');
 const path = require('path');
 const C = require(path.join(__dirname, '_loader.js'));
 const { search, seedFromTradition } = require(path.join(__dirname, 'search.js'));
-const { buildContext, buildMergedContext, isolatedStaplesForPart, scoreVariant } = require(path.join(__dirname, 'score.js'));
+const { buildContext, buildMergedContext, isolatedStaplesForPart, scoreVariant } = require(
+  path.join(__dirname, 'score.js')
+);
 
 // === CLI parsing ===
 const flags = {};
@@ -64,27 +66,39 @@ const OUT_PATH = flags.out || null;
 const JSON_ONLY = !!flags['json-only'];
 
 if (!TARGET_INSTRUMENT || !TARGET_PART) {
-  console.error('Usage: audit_picks.js --instrument=<id> --part=<id> [--tradition=<id>] [--out=<path>] [--json-only] [--dry-run]');
+  console.error(
+    'Usage: audit_picks.js --instrument=<id> --part=<id> [--tradition=<id>] [--out=<path>] [--json-only] [--dry-run]'
+  );
   process.exit(2);
 }
 
 // === Locate instrument and part definitions ===
-const inst = C.INSTRUMENTS.find(x => x.id === TARGET_INSTRUMENT);
-if (!inst) { console.error(`Unknown instrument: ${TARGET_INSTRUMENT}`); process.exit(2); }
+const inst = C.INSTRUMENTS.find((x) => x.id === TARGET_INSTRUMENT);
+if (!inst) {
+  console.error(`Unknown instrument: ${TARGET_INSTRUMENT}`);
+  process.exit(2);
+}
 
 // Find the part — it may be defined inline on the instrument OR inherited
 // from a family-parts shared definition. _loader.js merges family parts onto
 // instruments before exposing them.
-const part = (inst.parts || []).find(p => p.id === TARGET_PART);
-if (!part) { console.error(`Unknown part ${TARGET_PART} on instrument ${TARGET_INSTRUMENT}`); process.exit(2); }
+const part = (inst.parts || []).find((p) => p.id === TARGET_PART);
+if (!part) {
+  console.error(`Unknown part ${TARGET_PART} on instrument ${TARGET_INSTRUMENT}`);
+  process.exit(2);
+}
 
 // === Find all traditions that use this instrument ===
 const candidateTraditions = SINGLE_TRAD
-  ? C.TRADITIONS.filter(t => t.id === SINGLE_TRAD && (t.instruments || []).includes(TARGET_INSTRUMENT))
-  : C.TRADITIONS.filter(t => (t.instruments || []).includes(TARGET_INSTRUMENT));
+  ? C.TRADITIONS.filter(
+      (t) => t.id === SINGLE_TRAD && (t.instruments || []).includes(TARGET_INSTRUMENT)
+    )
+  : C.TRADITIONS.filter((t) => (t.instruments || []).includes(TARGET_INSTRUMENT));
 
 if (candidateTraditions.length === 0) {
-  console.error(`No tradition uses ${TARGET_INSTRUMENT}${SINGLE_TRAD ? ` (looked up ${SINGLE_TRAD})` : ''}`);
+  console.error(
+    `No tradition uses ${TARGET_INSTRUMENT}${SINGLE_TRAD ? ` (looked up ${SINGLE_TRAD})` : ''}`
+  );
   process.exit(2);
 }
 
@@ -94,7 +108,7 @@ if (candidateTraditions.length === 0) {
 // hill-climber still picks among them, and the audit needs to follow that.
 function scoreAllVariants(context) {
   const out = [];
-  for (const v of (part.variants || [])) {
+  for (const v of part.variants || []) {
     const result = scoreVariant(v, context, { useNeighbors: true });
     out.push({ id: v.id, score: Number(result.score.toFixed(4)) });
   }
@@ -123,7 +137,7 @@ for (const t of candidateTraditions) {
   // Step 2: compute isolation set for the target part. Staples isolated for
   // this part don't contribute to its scoring.
   const isolated = isolatedStaplesForPart(t.id, allTradIds, TARGET_PART);
-  const stapleIdsForPart = stapleIds.filter(sid => !isolated.has(sid));
+  const stapleIdsForPart = stapleIds.filter((sid) => !isolated.has(sid));
 
   // Step 3: build the two contexts.
   const primaryCtx = buildContext(t.id);
@@ -141,12 +155,15 @@ for (const t of candidateTraditions) {
   const mismatch = primaryPick.id !== stapledPick.id;
 
   // Record. crossRefs schema can be string or { ref, isolated_parts, voice_isolated }.
-  const crossRefs = (e.crossRefs || []).map(cr =>
+  const crossRefs = (e.crossRefs || []).map((cr) =>
     typeof cr === 'string'
       ? cr
-      : (cr.isolated_parts || cr.voice_isolated
-          ? { ref: cr.ref, isolated_parts: cr.isolated_parts || (cr.voice_isolated ? ['voice_quality'] : []) }
-          : cr.ref)
+      : cr.isolated_parts || cr.voice_isolated
+        ? {
+            ref: cr.ref,
+            isolated_parts: cr.isolated_parts || (cr.voice_isolated ? ['voice_quality'] : []),
+          }
+        : cr.ref
   );
 
   records.push({
@@ -168,12 +185,12 @@ for (const t of candidateTraditions) {
 }
 
 // === Output ===
-const mismatches = records.filter(r => r.mismatch);
+const mismatches = records.filter((r) => r.mismatch);
 
 // Voice gets a slightly different schema for backward compat (and because
 // SKILL.md describes voice as the only slot with classification-coherence
 // enforced by tandem). Keep both shapes.
-const isVoice = (TARGET_INSTRUMENT === 'voice' && TARGET_PART === 'voice_quality');
+const isVoice = TARGET_INSTRUMENT === 'voice' && TARGET_PART === 'voice_quality';
 const outputJson = isVoice
   ? {
       generated_at: new Date().toISOString(),
@@ -197,7 +214,9 @@ const jsonPath = DRY_RUN
     ? path.join(__dirname, '..', 'tests', 'voice_audit.json')
     : path.join(__dirname, '..', 'tests', `${slotKey}_audit.json`);
 fs.writeFileSync(jsonPath, JSON.stringify(outputJson, null, 2) + '\n');
-console.error(`Wrote ${jsonPath} (${mismatches.length} mismatch(es) across ${records.length} traditions)`);
+console.error(
+  `Wrote ${jsonPath} (${mismatches.length} mismatch(es) across ${records.length} traditions)`
+);
 
 // Markdown output for human review (unless --json-only)
 if (!JSON_ONLY) {
@@ -215,7 +234,9 @@ if (!JSON_ONLY) {
     md.push('|---|---|---|---|');
     for (const r of mismatches) {
       const stapleList = (r.staples || []).join(', ') || '—';
-      md.push(`| \`${r.tid}\` | \`${r.primary_pick}\` (${r.primary_pick_score}) | \`${r.current_pick}\` (${r.current_pick_score}) | ${stapleList} |`);
+      md.push(
+        `| \`${r.tid}\` | \`${r.primary_pick}\` (${r.primary_pick_score}) | \`${r.current_pick}\` (${r.current_pick_score}) | ${stapleList} |`
+      );
     }
   }
   const mdText = md.join('\n') + '\n';

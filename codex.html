@@ -17968,8 +17968,11 @@ function mergeFamilyParts(instruments, familyParts) {
   // "Body type", "Top skin", the "Body" archetype list, etc. never match — and
   // only the wood variants of a qualifying part travel (synthetic/composite tops
   // stay put).
-  const WOOD = /(spruce|cedar|cedrillo|redwood|\bfir\b|larch|\bpine\b|pinho|juniper|cypress|alpine|mahogany|caoba|sapele|khaya|maple|sycamore|rosewood|palisander|jacarand|dalbergia|sheesham|pau.?ferro|palo escrito|huanghuali|kingwood|violetwood|cocobolo|bubinga|imbuia|\bkoa\b|acacia|walnut|butternut|ebony|blackwood|grenadilla|mpingo|zitan|sandalwood|paulownia|\bkiri\b|wutong|tongmu|mulberry|kuwa|zelkova|keyaki|cherry|yamazakura|apricot|\bplum\b|\bpear|boxwood|cornel|birch|alder|basswood|linden|poplar|willow|beech|\boak\b|chestnut|hornbeam|\bash\b|teak|jack.?wood|padauk|korina|limba|agathis|\bnato\b|okoume|\byew\b|ironwood|agave|eucalyptus|corymbia|bloodwood|naranjillo|yagrumo|cap[aá]|olive|laurel|lingue|rauli|aacha|hardwickia|\btun\b|hardwood|\bfig\b|plywood|laminate)/i;
-  const isWoodVariant = function (v) { return WOOD.test(v.name || v.label || ''); };
+  const WOOD =
+    /(spruce|cedar|cedrillo|redwood|\bfir\b|larch|\bpine\b|pinho|juniper|cypress|alpine|mahogany|caoba|sapele|khaya|maple|sycamore|rosewood|palisander|jacarand|dalbergia|sheesham|pau.?ferro|palo escrito|huanghuali|kingwood|violetwood|cocobolo|bubinga|imbuia|\bkoa\b|acacia|walnut|butternut|ebony|blackwood|grenadilla|mpingo|zitan|sandalwood|paulownia|\bkiri\b|wutong|tongmu|mulberry|kuwa|zelkova|keyaki|cherry|yamazakura|apricot|\bplum\b|\bpear|boxwood|cornel|birch|alder|basswood|linden|poplar|willow|beech|\boak\b|chestnut|hornbeam|\bash\b|teak|jack.?wood|padauk|korina|limba|agathis|\bnato\b|okoume|\byew\b|ironwood|agave|eucalyptus|corymbia|bloodwood|naranjillo|yagrumo|cap[aá]|olive|laurel|lingue|rauli|aacha|hardwickia|\btun\b|hardwood|\bfig\b|plywood|laminate)/i;
+  const isWoodVariant = function (v) {
+    return WOOD.test(v.name || v.label || '');
+  };
   const isTonewoodPart = function (p) {
     const nm = p.name || p.label || p.id || '';
     if (!(p.variants || []).some((v) => !v.expanded && isWoodVariant(v))) return false;
@@ -18001,23 +18004,23 @@ function harvestDescriptors(card, lookups) {
   if (!inst) return set;
 
   // Variant descriptors (descriptors only — NOT match_tokens).
-  for (const partDef of (inst.parts || [])) {
+  for (const partDef of inst.parts || []) {
     const variantId = card.parts && card.parts[partDef.id];
     if (!variantId) continue;
     const variant = (partDef.variants || []).find((v) => v.id === variantId);
-    if (variant) for (const d of (variant.descriptors || [])) set.add(d);
+    if (variant) for (const d of variant.descriptors || []) set.add(d);
   }
 
   // Tuning descriptors.
   if (card.tuning) {
     const t = lookups.tuning(card.tuning);
-    if (t) for (const d of (t.descriptors || [])) set.add(d);
+    if (t) for (const d of t.descriptors || []) set.add(d);
   }
 
   // Room descriptors.
   if (card.room) {
     const r = lookups.room(card.room);
-    if (r) for (const d of (r.descriptors || [])) set.add(d);
+    if (r) for (const d of r.descriptors || []) set.add(d);
   }
 
   // Chain-stage item descriptors.
@@ -18026,13 +18029,13 @@ function harvestDescriptors(card, lookups) {
       const itemId = card.chain[stageId];
       if (!itemId) continue;
       const item = lookups.chainItem(stageId, itemId);
-      if (item) for (const d of (item.descriptors || [])) set.add(d);
+      if (item) for (const d of item.descriptors || []) set.add(d);
     }
   }
 
   // Tradition signature.
   if (card.traditionId) {
-    for (const d of (lookups.signature(card.traditionId) || [])) set.add(d);
+    for (const d of lookups.signature(card.traditionId) || []) set.add(d);
   }
 
   return set;

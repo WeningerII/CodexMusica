@@ -2,7 +2,7 @@
 // check_prefaces.js — preface-lexicon hygiene gate, in PRODUCTION semantics.
 //
 // This is the `_card_descriptors`-based dead-token gate prescribed by the
-// verification audit (AUDIT_REPORT §3.2 M-DATA-1 / §5.5). It answers the
+// verification audit. It answers the
 // question that matters to the shipped app:
 //
 //   "Will every token in every preface actually be able to score against a
@@ -34,21 +34,25 @@ const C = require('./_loader.js');
 // two must agree on what "a card can surface" means.
 function productionDescriptorUniverse() {
   const live = new Set();
-  for (const i of (C.INSTRUMENTS || [])) {
-    for (const p of (i.parts || [])) {
-      for (const v of (p.variants || [])) {
-        for (const d of (v.descriptors || [])) live.add(d);
+  for (const i of C.INSTRUMENTS || []) {
+    for (const p of i.parts || []) {
+      for (const v of p.variants || []) {
+        for (const d of v.descriptors || []) live.add(d);
       }
     }
   }
-  for (const t of (C.TUNINGS || [])) for (const d of (t.descriptors || [])) live.add(d);
-  for (const r of (C.ROOMS || [])) for (const d of (r.descriptors || [])) live.add(d);
-  for (const s of (C.CHAIN_SECTIONS || [])) {
-    for (const it of (s.items || [])) for (const d of (it.descriptors || [])) live.add(d);
+  for (const t of C.TUNINGS || []) for (const d of t.descriptors || []) live.add(d);
+  for (const r of C.ROOMS || []) for (const d of r.descriptors || []) live.add(d);
+  for (const s of C.CHAIN_SECTIONS || []) {
+    for (const it of s.items || []) for (const d of it.descriptors || []) live.add(d);
   }
   let sigs = {};
-  try { sigs = require('../references/_tradition_signatures.json'); } catch { /* optional */ }
-  for (const k of Object.keys(sigs)) for (const d of (sigs[k] || [])) live.add(d);
+  try {
+    sigs = require('../references/_tradition_signatures.json');
+  } catch {
+    /* optional */
+  }
+  for (const k of Object.keys(sigs)) for (const d of sigs[k] || []) live.add(d);
   return live;
 }
 
@@ -71,28 +75,49 @@ for (const e of lexicon) {
   const toks = Array.isArray(e.tokens) ? e.tokens : [];
   tokenTotal += toks.length;
 
-  if (toks.length === 0) { issues.push({ kind: 'empty', id: e.id, detail: 'no tokens — will never match' }); continue; }
+  if (toks.length === 0) {
+    issues.push({ kind: 'empty', id: e.id, detail: 'no tokens — will never match' });
+    continue;
+  }
 
   const seen = new Set();
   const dups = new Set();
-  for (const t of toks) { if (seen.has(t)) dups.add(t); else seen.add(t); }
-  if (dups.size) issues.push({ kind: 'dup-token', id: e.id, detail: [...dups].join(', ') + ' (repeated — deflates score)' });
+  for (const t of toks) {
+    if (seen.has(t)) dups.add(t);
+    else seen.add(t);
+  }
+  if (dups.size)
+    issues.push({
+      kind: 'dup-token',
+      id: e.id,
+      detail: [...dups].join(', ') + ' (repeated — deflates score)',
+    });
 
   const dead = [...seen].filter((t) => !universe.has(t));
-  if (dead.length) issues.push({ kind: 'dead-token', id: e.id, detail: dead.join(', ') + ' (no card produces this in production — never scores)' });
+  if (dead.length)
+    issues.push({
+      kind: 'dead-token',
+      id: e.id,
+      detail: dead.join(', ') + ' (no card produces this in production — never scores)',
+    });
 }
 
-for (const [id, n] of idCounts) if (n > 1) issues.push({ kind: 'dup-id', id, detail: n + ' entries share this id' });
+for (const [id, n] of idCounts)
+  if (n > 1) issues.push({ kind: 'dup-id', id, detail: n + ' entries share this id' });
 
 if (issues.length === 0) {
-  console.log(`PREFACE LEXICON CHECK: PASS — ${lexicon.length} prefaces, ${tokenTotal} tokens, ${universe.size} production descriptors; 0 issues (no dup ids, no dup/empty/production-dead tokens).`);
+  console.log(
+    `PREFACE LEXICON CHECK: PASS — ${lexicon.length} prefaces, ${tokenTotal} tokens, ${universe.size} production descriptors; 0 issues (no dup ids, no dup/empty/production-dead tokens).`
+  );
   process.exit(0);
 }
 
 const byKind = {};
 for (const i of issues) (byKind[i.kind] ||= []).push(i);
-console.log(`PREFACE LEXICON CHECK: FAIL — ${issues.length} issue(s) across ${Object.keys(byKind).length} kind(s):\n`);
+console.log(
+  `PREFACE LEXICON CHECK: FAIL — ${issues.length} issue(s) across ${Object.keys(byKind).length} kind(s):\n`
+);
 for (const kind of ['dup-id', 'empty', 'dup-token', 'dead-token']) {
-  for (const i of (byKind[kind] || [])) console.log(`  [${kind}] ${i.id}: ${i.detail}`);
+  for (const i of byKind[kind] || []) console.log(`  [${kind}] ${i.id}: ${i.detail}`);
 }
 process.exit(1);

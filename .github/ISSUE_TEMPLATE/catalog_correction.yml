@@ -1,0 +1,23 @@
+name: Catalog correction
+description: A tradition, instrument, room, tuning, or recipe detail is inaccurate.
+labels: ['catalog-accuracy']
+body:
+  - type: input
+    id: entry
+    attributes:
+      label: Catalog entry
+      description: The tradition / instrument / room id or name (e.g. `flamenco`, `koto`).
+    validations:
+      required: true
+  - type: textarea
+    id: issue
+    attributes:
+      label: What is inaccurate?
+      description: Describe the error and the correct information.
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Sources
+      description: Citations or references supporting the correction (optional, but appreciated).

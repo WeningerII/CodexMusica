@@ -33,15 +33,22 @@ for (let i = 0; i < args.length; i++) {
   const a = args[i];
   if (!a.startsWith('--')) continue;
   const eq = a.indexOf('=');
-  if (eq > 0) { flags[a.slice(2, eq)] = a.slice(eq + 1); continue; }
+  if (eq > 0) {
+    flags[a.slice(2, eq)] = a.slice(eq + 1);
+    continue;
+  }
   const name = a.slice(2);
   const next = args[i + 1];
-  if (!BOOLEAN_FLAGS.has(name) && next !== undefined && !next.startsWith('--')) { flags[name] = next; i++; }
-  else flags[name] = true;
+  if (!BOOLEAN_FLAGS.has(name) && next !== undefined && !next.startsWith('--')) {
+    flags[name] = next;
+    i++;
+  } else flags[name] = true;
 }
 
 if (!flags.tradition) {
-  console.error('Usage: inspect.js --tradition=<id> [--staples=id1,id2] [--instrument=id] [--part=id] [--runner-up=N] [--threshold=N] [--filtered]');
+  console.error(
+    'Usage: inspect.js --tradition=<id> [--staples=id1,id2] [--instrument=id] [--part=id] [--runner-up=N] [--threshold=N] [--filtered]'
+  );
   process.exit(2);
 }
 
@@ -53,7 +60,7 @@ const runnerUpCount = parseInt(flags['runner-up']) || 3;
 const minScore = flags.threshold !== undefined ? parseFloat(flags.threshold) : null;
 const showFiltered = !!flags.filtered;
 
-const t = C.TRADITIONS.find(x => x.id === tid);
+const t = C.TRADITIONS.find((x) => x.id === tid);
 if (!t) {
   console.error(`Unknown tradition: ${tid}`);
   process.exit(2);
@@ -61,7 +68,7 @@ if (!t) {
 
 const allIds = [tid, ...staples];
 for (const sid of staples) {
-  if (!C.TRADITIONS.find(x => x.id === sid)) {
+  if (!C.TRADITIONS.find((x) => x.id === sid)) {
     console.error(`Unknown staple tradition: ${sid}`);
     process.exit(2);
   }
@@ -73,10 +80,14 @@ console.log(`╔═════════════════════�
 console.log(`║ INSPECT: ${t.name} (${tid})`);
 if (staples.length) console.log(`║ STAPLED: ${staples.join(', ')}`);
 console.log(`║ parent: ${e.parent || '(none)'}`);
-console.log(`║ crossRefs: ${(e.crossRefs || []).map(cr => (cr && typeof cr === 'object') ? cr.ref : cr).join(', ') || '(none)'}`);
+console.log(
+  `║ crossRefs: ${(e.crossRefs || []).map((cr) => (cr && typeof cr === 'object' ? cr.ref : cr)).join(', ') || '(none)'}`
+);
 console.log(`║ instruments: ${(t.instruments || []).join(', ')}`);
 console.log(`║ room: ${t.room || '(none)'}    archetype: ${t.chain_archetype || '(inline)'}`);
-console.log(`║ chain inline: mic=${t.chain_mic || '?'} pre=${t.chain_pre || '?'} medium=${t.chain_medium || '?'} console=${t.chain_console || '?'}`);
+console.log(
+  `║ chain inline: mic=${t.chain_mic || '?'} pre=${t.chain_pre || '?'} medium=${t.chain_medium || '?'} console=${t.chain_console || '?'}`
+);
 console.log(`╚════════════════════════════════════════════════════════════════════════════\n`);
 
 // ─────────────── CONTEXT TOKENS ───────────────
@@ -109,23 +120,21 @@ console.log(`── INSTRUMENT VARIANT SELECTION ──\n`);
 
 const allInstrumentIds = new Set(t.instruments || []);
 for (const sid of staples) {
-  const s = C.TRADITIONS.find(x => x.id === sid);
+  const s = C.TRADITIONS.find((x) => x.id === sid);
   if (s && Array.isArray(s.instruments)) for (const iid of s.instruments) allInstrumentIds.add(iid);
 }
 
 const instrumentList = filterInstrument ? [filterInstrument] : [...allInstrumentIds];
 
 for (const iid of instrumentList) {
-  const i = C.INSTRUMENTS.find(x => x.id === iid);
+  const i = C.INSTRUMENTS.find((x) => x.id === iid);
   if (!i) {
     console.log(`[${iid}] NOT FOUND in catalog`);
     continue;
   }
   console.log(`▸ ${iid}  (family: ${i.family})`);
 
-  const partsList = filterPart
-    ? (i.parts || []).filter(p => p.id === filterPart)
-    : (i.parts || []);
+  const partsList = filterPart ? (i.parts || []).filter((p) => p.id === filterPart) : i.parts || [];
 
   for (const part of partsList) {
     const isFamilyPart = !!part._fromFamily;
@@ -137,7 +146,7 @@ for (const iid of instrumentList) {
     // not merely the top raw score: `auto: false` variants are explicit-only and
     // never auto-picked, and ties break toward the canonical `default: true`.
     const scored = [];
-    for (const v of (part.variants || [])) {
+    for (const v of part.variants || []) {
       const r = scoreVariant(v, getCtxForPart(part.id), { useNeighbors: true, skipSignals: true });
       scored.push({
         id: v.id,
@@ -153,7 +162,7 @@ for (const iid of instrumentList) {
     // The engine's actual auto-pick: highest score among auto-eligible variants,
     // ties resolved toward the canonical default.
     const pick = scored
-      .filter(s => s.auto !== false)
+      .filter((s) => s.auto !== false)
       .reduce((best, s) => {
         if (!best) return s;
         if (s.score > best.score) return s;
@@ -166,7 +175,7 @@ for (const iid of instrumentList) {
     for (let idx = 0; idx < toShow.length; idx++) {
       const s = toShow[idx];
       if (minScore !== null && s.score < minScore) continue;
-      const marker = (pick && s.id === pick.id) ? '✓' : ' ';
+      const marker = pick && s.id === pick.id ? '✓' : ' ';
       const score = s.score.toFixed(3).padStart(8);
       const id = s.id.padEnd(34);
       const tags = [];
@@ -189,7 +198,7 @@ for (const iid of instrumentList) {
 // ─────────────── ROOM + ARCHETYPE FRAMING ───────────────
 console.log(`── ROOM CONTEXT ──`);
 if (t.room) {
-  const room = C.ROOMS.find(r => r.id === t.room);
+  const room = C.ROOMS.find((r) => r.id === t.room);
   if (room) {
     console.log(`  room=${room.id}`);
     console.log(`  era=${room.era || '?'}  region=${room.region || '?'}`);
@@ -202,11 +211,13 @@ console.log('');
 
 if (t.chain_archetype) {
   console.log(`── ARCHETYPE CONTEXT ──`);
-  const arch = C.CHAIN_ARCHETYPES.find(a => a.id === t.chain_archetype);
+  const arch = C.CHAIN_ARCHETYPES.find((a) => a.id === t.chain_archetype);
   if (arch) {
     console.log(`  archetype=${arch.id}`);
     console.log(`  era=${arch.era || '?'}  region=${arch.region || '?'}`);
-    console.log(`  components: mic=${arch.components?.mic} pre=${arch.components?.pre} console=${arch.components?.console} medium=${arch.components?.medium}`);
+    console.log(
+      `  components: mic=${arch.components?.mic} pre=${arch.components?.pre} console=${arch.components?.console} medium=${arch.components?.medium}`
+    );
     console.log(`  comp=${arch.components?.comp || '?'} eq=${arch.components?.eq || '?'}`);
     console.log(`  fx=${(arch.components?.fx || []).join(', ') || '(none)'}`);
   } else {

@@ -36,9 +36,9 @@ function tokensOf(preface) {
   if (Array.isArray(preface.tokens) && preface.tokens.length > 0) return preface.tokens;
   const h = preface.habitat || {};
   const seen = new Set();
-  for (const t of (h.mustHave || [])) seen.add(t);
-  for (const t of (h.mustHaveAny || [])) seen.add(t);
-  for (const t of (h.register || [])) seen.add(t);
+  for (const t of h.mustHave || []) seen.add(t);
+  for (const t of h.mustHaveAny || []) seen.add(t);
+  for (const t of h.register || []) seen.add(t);
   return Array.from(seen);
 }
 

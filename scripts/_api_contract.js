@@ -23,9 +23,19 @@ const RECIPE_CHAR_CEILING = 1000; // AGENTS.md / llms.txt: "recipe (string, <=10
 // fields ride along in that file. Builder and gate both use THIS list, so the
 // published `source` can never silently drift from references/.
 const TRADITION_SOURCE_KEYS = [
-  'tuning', 'room', 'parts',
-  'chain_mic', 'chain_pre', 'chain_comp', 'chain_eq', 'chain_medium',
-  'chain_console', 'chain_fx', 'chain_amp', 'chain_amp_guitar', 'chain_amp_bass',
+  'tuning',
+  'room',
+  'parts',
+  'chain_mic',
+  'chain_pre',
+  'chain_comp',
+  'chain_eq',
+  'chain_medium',
+  'chain_console',
+  'chain_fx',
+  'chain_amp',
+  'chain_amp_guitar',
+  'chain_amp_bass',
 ];
 
 // Project a catalog tradition row down to its `source` payload (only the keys
@@ -169,4 +179,12 @@ function stripExpandedVariants(inst) {
   };
 }
 
-module.exports = { RECIPE_CHAR_CEILING, TRADITION_SOURCE_KEYS, traditionSource, buildResolver, configIdProblems, recordProblems, stripExpandedVariants };
+module.exports = {
+  RECIPE_CHAR_CEILING,
+  TRADITION_SOURCE_KEYS,
+  traditionSource,
+  buildResolver,
+  configIdProblems,
+  recordProblems,
+  stripExpandedVariants,
+};

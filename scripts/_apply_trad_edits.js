@@ -23,7 +23,10 @@ const path = require('path');
 
 const editsPath = process.argv[2];
 const dryRun = process.argv.includes('--dry-run');
-if (!editsPath) { console.error('usage: _apply_trad_edits.js edits.json [--dry-run]'); process.exit(2); }
+if (!editsPath) {
+  console.error('usage: _apply_trad_edits.js edits.json [--dry-run]');
+  process.exit(2);
+}
 
 const FILE = path.join(__dirname, '..', 'references', '05_traditions.js');
 const edits = JSON.parse(fs.readFileSync(editsPath, 'utf8'));
@@ -31,23 +34,40 @@ const lines = fs.readFileSync(FILE, 'utf8').split('\n');
 
 // index each tradition id → line number
 const lineOf = {};
-lines.forEach((ln, i) => { const m = ln.match(/^ {2}\{ id: '([a-z0-9_]+)',/); if (m) lineOf[m[1]] = i; });
+lines.forEach((ln, i) => {
+  const m = ln.match(/^ {2}\{ id: '([a-z0-9_]+)',/);
+  if (m) lineOf[m[1]] = i;
+});
 
-const esc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-let applied = 0; const report = []; const errors = [];
+const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+let applied = 0;
+const report = [];
+const errors = [];
 
 for (const [tid, ops] of Object.entries(edits)) {
   const li = lineOf[tid];
-  if (li === undefined) { errors.push(`NO_SUCH_TRADITION ${tid}`); continue; }
+  if (li === undefined) {
+    errors.push(`NO_SUCH_TRADITION ${tid}`);
+    continue;
+  }
   let line = lines[li];
   for (const op of ops) {
     const { field, from, to } = op;
-    if (from === to) { report.push(`${tid}.${field}: noop (from==to)`); continue; }
+    if (from === to) {
+      report.push(`${tid}.${field}: noop (from==to)`);
+      continue;
+    }
     // delim-anchored, value-asserted, must be unique
     const pat = new RegExp(`([,{] )${esc(field)}: '${esc(from)}'`, 'g');
     const matches = line.match(pat);
-    if (!matches) { errors.push(`NO_MATCH ${tid}.${field}=='${from}' (current line has different value)`); continue; }
-    if (matches.length > 1) { errors.push(`AMBIGUOUS ${tid}.${field} matched ${matches.length}×`); continue; }
+    if (!matches) {
+      errors.push(`NO_MATCH ${tid}.${field}=='${from}' (current line has different value)`);
+      continue;
+    }
+    if (matches.length > 1) {
+      errors.push(`AMBIGUOUS ${tid}.${field} matched ${matches.length}×`);
+      continue;
+    }
     line = line.replace(pat, `$1${field}: '${to}'`);
     report.push(`${tid}.${field}: '${from}' -> '${to}'`);
     applied++;
@@ -56,7 +76,17 @@ for (const [tid, ops] of Object.entries(edits)) {
 }
 
 console.log(report.join('\n'));
-if (errors.length) { console.error('\nERRORS:\n' + errors.join('\n')); }
-console.log(`\n${dryRun ? 'DRY-RUN ' : ''}${applied} edit(s) across ${Object.keys(edits).length} tradition(s); ${errors.length} error(s).`);
-if (errors.length && !dryRun) { console.error('Refusing to write due to errors. Fix the edits file.'); process.exit(1); }
-if (!dryRun && applied) { fs.writeFileSync(FILE, lines.join('\n')); console.log('WROTE ' + FILE); }
+if (errors.length) {
+  console.error('\nERRORS:\n' + errors.join('\n'));
+}
+console.log(
+  `\n${dryRun ? 'DRY-RUN ' : ''}${applied} edit(s) across ${Object.keys(edits).length} tradition(s); ${errors.length} error(s).`
+);
+if (errors.length && !dryRun) {
+  console.error('Refusing to write due to errors. Fix the edits file.');
+  process.exit(1);
+}
+if (!dryRun && applied) {
+  fs.writeFileSync(FILE, lines.join('\n'));
+  console.log('WROTE ' + FILE);
+}

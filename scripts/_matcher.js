@@ -39,13 +39,19 @@ function getSigs() {
   return sigsCache;
 }
 
-function Inst(id) { return C.INSTRUMENTS.find(x => x.id === id); }
-function Tuning(id) { return (C.TUNINGS || []).find(x => x.id === id); }
-function Room(id) { return (C.ROOMS || []).find(x => x.id === id); }
+function Inst(id) {
+  return C.INSTRUMENTS.find((x) => x.id === id);
+}
+function Tuning(id) {
+  return (C.TUNINGS || []).find((x) => x.id === id);
+}
+function Room(id) {
+  return (C.ROOMS || []).find((x) => x.id === id);
+}
 function ChainItem(stage, itemId) {
   for (const sec of C.CHAIN_SECTIONS) {
     if (sec.stage === stage || sec.id === stage) {
-      const it = (sec.items || []).find(x => x.id === itemId);
+      const it = (sec.items || []).find((x) => x.id === itemId);
       if (it) return it;
     }
   }
@@ -59,34 +65,34 @@ function cardDescriptors(card) {
   const inst = Inst(card.instrumentId);
   if (!inst) return new Set();
   const s = new Set();
-  for (const p of (inst.parts || [])) {
-    const v = (p.variants || []).find(x => x.id === card.parts[p.id]);
+  for (const p of inst.parts || []) {
+    const v = (p.variants || []).find((x) => x.id === card.parts[p.id]);
     if (v) {
-      for (const d of (v.descriptors || [])) s.add(d);
+      for (const d of v.descriptors || []) s.add(d);
       // match_tokens: matcher-only enrichment (dictionary-derived, systematic).
       // Pooled into card descriptors for preface scoring but NOT consumed by the
       // recipe renderer — keeps matching signal decoupled from rendering surface.
-      for (const d of (v.match_tokens || [])) s.add(d);
+      for (const d of v.match_tokens || []) s.add(d);
     }
   }
   if (card.tuning) {
     const t = Tuning(card.tuning);
-    if (t) for (const d of (t.descriptors || [])) s.add(d);
+    if (t) for (const d of t.descriptors || []) s.add(d);
   }
   if (card.room) {
     const r = Room(card.room);
-    if (r) for (const d of (r.descriptors || [])) s.add(d);
+    if (r) for (const d of r.descriptors || []) s.add(d);
   }
   if (card.chain) {
     for (const sid of ['mic', 'pre', 'medium', 'console']) {
       const iid = card.chain[sid];
       if (!iid) continue;
       const it = ChainItem(sid, iid);
-      if (it) for (const d of (it.descriptors || [])) s.add(d);
+      if (it) for (const d of it.descriptors || []) s.add(d);
     }
   }
   const sigs = getSigs();
-  for (const d of (sigs[card.traditionId] || [])) s.add(d);
+  for (const d of sigs[card.traditionId] || []) s.add(d);
   return s;
 }
 
@@ -94,12 +100,12 @@ function cardDescriptors(card) {
 // of every part (or first variant if no default), plus the tradition's tuning,
 // room, and chain inline. Used by the reach probe and tie audit.
 function defaultCard(traditionId, instrumentId) {
-  const t = C.TRADITIONS.find(x => x.id === traditionId);
+  const t = C.TRADITIONS.find((x) => x.id === traditionId);
   const inst = Inst(instrumentId);
   if (!t || !inst) return null;
   const parts = {};
-  for (const p of (inst.parts || [])) {
-    const def = (p.variants || []).find(v => v.default);
+  for (const p of inst.parts || []) {
+    const def = (p.variants || []).find((v) => v.default);
     if (def) parts[p.id] = def.id;
     else if (p.variants.length > 0) parts[p.id] = p.variants[0].id;
   }
@@ -110,7 +116,10 @@ function defaultCard(traditionId, instrumentId) {
     tuning: t.tuning,
     room: t.room,
     chain: {
-      mic: t.chain_mic, pre: t.chain_pre, medium: t.chain_medium, console: t.chain_console,
+      mic: t.chain_mic,
+      pre: t.chain_pre,
+      medium: t.chain_medium,
+      console: t.chain_console,
     },
   };
 }
@@ -119,7 +128,7 @@ function defaultCard(traditionId, instrumentId) {
 // (not defaults). Honors per-instrument slot overrides from result.config.
 function cardFromConfig(config, instrumentId) {
   const primaryTradId = config.traditions[0];
-  const instEntry = config.instruments.find(x => x.id === instrumentId);
+  const instEntry = config.instruments.find((x) => x.id === instrumentId);
   if (!instEntry) return null;
   return {
     traditionId: primaryTradId,

@@ -65,13 +65,20 @@ function resolveTestableHtml(htmlPath) {
   if (htmlPath && fs.existsSync(htmlPath)) {
     const txt = fs.readFileSync(htmlPath, 'utf8');
     if (!txt.includes('const CODEX_LAZY_API')) return htmlPath; // already embedded
-    console.error('Target is the lazy shell — building an embedded codex.html for the reachability run.');
+    console.error(
+      'Target is the lazy shell — building an embedded codex.html for the reachability run.'
+    );
   } else {
-    console.error('No built codex.html found — building an embedded one from source for the reachability run.');
+    console.error(
+      'No built codex.html found — building an embedded one from source for the reachability run.'
+    );
   }
   const tmp = path.join(os.tmpdir(), `codex_reach_embed_${process.pid}.html`);
-  execFileSync('node', [path.join(__dirname, 'build_html.js'), `--out=${tmp}`, '--embedded', '--quiet'],
-    { stdio: ['ignore', 'ignore', 'inherit'] });
+  execFileSync(
+    'node',
+    [path.join(__dirname, 'build_html.js'), `--out=${tmp}`, '--embedded', '--quiet'],
+    { stdio: ['ignore', 'ignore', 'inherit'] }
+  );
   return tmp;
 }
 
@@ -80,7 +87,7 @@ function resolveTestableHtml(htmlPath) {
 // brings the workspace into the named state. After the snippet runs, the check
 // loop verifies each entry's selector resolves to ≥ 1 element.
 const PRECONDITIONS = {
-  'empty': `
+  empty: `
     // No setup. Workspace boots empty.
   `,
   '1+ cards': `
@@ -257,14 +264,16 @@ function resolvePrecondition(spec) {
   if (PRECONDITIONS[spec]) return PRECONDITIONS[spec];
   const mo = spec.match(/^modal open:\s*(\S+)/);
   if (mo) return modalOpenSetup(mo[1]);
-  return null;  // unknown precondition
+  return null; // unknown precondition
 }
 
 async function loadPlaywright() {
   try {
     return require('playwright');
   } catch {
-    console.error('playwright not installed — run: npm install (then: npx playwright install chromium)');
+    console.error(
+      'playwright not installed — run: npm install (then: npx playwright install chromium)'
+    );
     process.exit(2);
   }
 }
@@ -284,7 +293,7 @@ async function main() {
     process.exit(2);
   }
 
-  const reachable = entries.filter(e => e.status === 'reachable');
+  const reachable = entries.filter((e) => e.status === 'reachable');
   console.error(`Checking ${reachable.length} reachable entries against ${testHtml}`);
 
   // Validate every entry's precondition resolves
@@ -367,7 +376,7 @@ async function main() {
     // One page for the whole check — reloading per group is expensive (5.7 MB
     // script parse per reload). Reset script between groups instead.
     const page = await browser.newPage();
-    page.on('pageerror', err => {
+    page.on('pageerror', (err) => {
       console.error(`  ! page error: ${err.message}`);
     });
     await page.goto('file://' + testHtml, { waitUntil: 'load' });
@@ -390,7 +399,8 @@ async function main() {
         } catch (e) {
           console.error(`✗ Precondition "${precondition}" setup failed: ${e.message}`);
           fails += groupEntries.length;
-          for (const ge of groupEntries) failures.push({ entry: ge, reason: 'precondition setup failed: ' + e.message });
+          for (const ge of groupEntries)
+            failures.push({ entry: ge, reason: 'precondition setup failed: ' + e.message });
           continue;
         }
       }
@@ -399,7 +409,7 @@ async function main() {
       for (const entry of groupEntries) {
         let result;
         try {
-          result = await page.evaluate(sel => {
+          result = await page.evaluate((sel) => {
             // Some selectors (e.g. 'document', 'n/a') are sentinels for non-DOM
             // surfaces like keyboard shortcuts. They don't resolve to elements;
             // we treat them as always-pass here. The reachability gate's job is
@@ -409,7 +419,7 @@ async function main() {
             return document.querySelectorAll(sel).length;
           }, entry.selector);
         } catch {
-          result = -1;  // invalid selector
+          result = -1; // invalid selector
         }
 
         if (result >= 1) {
@@ -417,7 +427,10 @@ async function main() {
           if (VERBOSE) console.error(`  ✓ ${entry.name} (${result} matches)`);
         } else {
           fails++;
-          const reason = result === 0 ? 'selector resolved to 0 elements' : `invalid selector (querySelectorAll threw)`;
+          const reason =
+            result === 0
+              ? 'selector resolved to 0 elements'
+              : `invalid selector (querySelectorAll threw)`;
           failures.push({ entry, reason });
           console.error(`  ✗ ${entry.name} — ${reason}`);
           console.error(`      selector: ${entry.selector}`);
@@ -432,7 +445,9 @@ async function main() {
   }
 
   console.error('');
-  console.error(`Reachability: ${passes} pass / ${fails} fail (out of ${reachable.length} checked)`);
+  console.error(
+    `Reachability: ${passes} pass / ${fails} fail (out of ${reachable.length} checked)`
+  );
   if (fails > 0) {
     console.error('');
     console.error('FAILURES:');
@@ -447,7 +462,7 @@ async function main() {
   console.error('UI REACHABILITY: all reachable entries resolve.');
 }
 
-main().catch(e => {
+main().catch((e) => {
   console.error('✗ Reachability check crashed:', e);
   process.exit(2);
 });

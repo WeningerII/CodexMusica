@@ -15,7 +15,15 @@
 const fs = require('fs');
 const path = require('path');
 
-const REQUIRED = ['name', 'kind', 'selector', 'surface', 'implementation', 'status', 'precondition'];
+const REQUIRED = [
+  'name',
+  'kind',
+  'selector',
+  'surface',
+  'implementation',
+  'status',
+  'precondition',
+];
 const OPTIONAL = ['notes'];
 const VALID_KINDS = ['data-action', 'widget', 'modal', 'keyboard-shortcut', 'drag-drop'];
 const VALID_STATUSES = ['reachable', 'pending', 'retired'];
@@ -25,14 +33,16 @@ function parseEntry(blockText, _blockIndex) {
   const lines = blockText.split('\n');
   for (const raw of lines) {
     const line = raw.replace(/\s+$/, '');
-    if (!line || line.startsWith('#')) continue;  // skip blanks + YAML-style comments
+    if (!line || line.startsWith('#')) continue; // skip blanks + YAML-style comments
     const colon = line.indexOf(':');
     if (colon < 0) continue;
     const key = line.slice(0, colon).trim();
     let value = line.slice(colon + 1).trim();
     // Strip surrounding single or double quotes (YAML quoted-scalar style).
-    if ((value.startsWith("'") && value.endsWith("'")) ||
-        (value.startsWith('"') && value.endsWith('"'))) {
+    if (
+      (value.startsWith("'") && value.endsWith("'")) ||
+      (value.startsWith('"') && value.endsWith('"'))
+    ) {
       value = value.slice(1, -1);
     }
     entry[key] = value;
@@ -44,22 +54,26 @@ function validateEntry(entry, blockIndex) {
   const errs = [];
   for (const field of REQUIRED) {
     if (!(field in entry) || !entry[field]) {
-      errs.push(`block #${blockIndex} (${entry.name || '<unnamed>'}): missing required field "${field}"`);
+      errs.push(
+        `block #${blockIndex} (${entry.name || '<unnamed>'}): missing required field "${field}"`
+      );
     }
   }
   if (entry.kind && !VALID_KINDS.includes(entry.kind)) {
-    errs.push(`block #${blockIndex} (${entry.name}): invalid kind "${entry.kind}" — expected one of ${VALID_KINDS.join(', ')}`);
+    errs.push(
+      `block #${blockIndex} (${entry.name}): invalid kind "${entry.kind}" — expected one of ${VALID_KINDS.join(', ')}`
+    );
   }
   if (entry.status && !VALID_STATUSES.includes(entry.status)) {
-    errs.push(`block #${blockIndex} (${entry.name}): invalid status "${entry.status}" — expected one of ${VALID_STATUSES.join(', ')}`);
+    errs.push(
+      `block #${blockIndex} (${entry.name}): invalid status "${entry.status}" — expected one of ${VALID_STATUSES.join(', ')}`
+    );
   }
   return errs;
 }
 
 function parseInventory(docPath) {
-  const absPath = path.isAbsolute(docPath)
-    ? docPath
-    : path.join(__dirname, '..', docPath);
+  const absPath = path.isAbsolute(docPath) ? docPath : path.join(__dirname, '..', docPath);
   const doc = fs.readFileSync(absPath, 'utf8');
   const blockRegex = /```yaml\n([\s\S]*?)```/g;
   const entries = [];

@@ -59,23 +59,15 @@ const JSON_OUT = flags.json;
 // pass; SKILL.md is the one canonical manifest whose counts must stay truthful.
 // README.md and CHANGELOG.md are prose (comma-formatted numbers, not canonical
 // totals) and are intentionally not drift-checked; tests/ holds fixtures.
-const EXCLUDED_PREFIXES = [
-  'node_modules/',
-  'tests/',
-  '.git/',
-];
+const EXCLUDED_PREFIXES = ['node_modules/', 'tests/', '.git/'];
 
-const EXCLUDED_FILES = [
-  'README.md',
-  'CHANGELOG.md',
-  'AUDIT_REPORT.md', // point-in-time audit: prose full of incidental numbers ("10 of the prefaces…"), not canonical totals
-];
+const EXCLUDED_FILES = ['README.md', 'CHANGELOG.md'];
 
 const STATUS_RE = /\*\*STATUS:\*\*\s+(SHIPPED|ACTED ON|MOSTLY SHIPPED)/;
 
 function isExcluded(relpath, content) {
   if (EXCLUDED_FILES.includes(relpath)) return true;
-  if (EXCLUDED_PREFIXES.some(p => relpath.startsWith(p))) return true;
+  if (EXCLUDED_PREFIXES.some((p) => relpath.startsWith(p))) return true;
   if (STATUS_RE.test(content)) return true;
   return false;
 }
@@ -105,7 +97,8 @@ for (const md of allMarkdowns) {
 // *.md. (codex.html is intentionally excluded — a generated bundle full of data.)
 for (const extra of ['llms.txt', 'index.html', 'package.json']) {
   const abs = path.join(ROOT, extra);
-  if (fs.existsSync(abs)) activeMarkdowns.push({ rel: extra, abs, content: fs.readFileSync(abs, 'utf-8') });
+  if (fs.existsSync(abs))
+    activeMarkdowns.push({ rel: extra, abs, content: fs.readFileSync(abs, 'utf-8') });
 }
 
 // ───────────────────────── Canonical count registry ─────────────────────────
@@ -116,25 +109,71 @@ for (const extra of ['llms.txt', 'index.html', 'package.json']) {
 // rather than canonical catalog totals. The pragma override remains available
 // for any edge case the regex misclassifies.
 
-const QUALIFIERS = ['with', 'flagged', 'of', 'in', 'that', 'are', 'is', 'were', 'was', 'having', 'lack', 'fail', 'pass'];
+const QUALIFIERS = [
+  'with',
+  'flagged',
+  'of',
+  'in',
+  'that',
+  'are',
+  'is',
+  'were',
+  'was',
+  'having',
+  'lack',
+  'fail',
+  'pass',
+];
 const Q_NEG = `(?!\\s+(?:${QUALIFIERS.join('|')})\\b)`;
 
-const GLOBAL_FAMILY_COUNT = C.TRADITIONS.filter(t => t.family === 'global').length;
-const DOTTED_NODE_COUNT = C.TREE_NODES.filter(n => n.id.includes('.')).length;
+const GLOBAL_FAMILY_COUNT = C.TRADITIONS.filter((t) => t.family === 'global').length;
+const DOTTED_NODE_COUNT = C.TREE_NODES.filter((n) => n.id.includes('.')).length;
 
 const COUNT_CHECKS = [
   // "N traditions" with optional in-between modifiers ("recorded-music", "music")
   // and \s+ so a line-wrapped "all 1119\ntraditions" still matches — both forms
   // drifted silently before this pattern was widened.
-  { phrase: new RegExp(`(\\d+)(?:\\s+(?:recorded-music|music))?\\s+traditions\\b${Q_NEG}`, 'g'), expected: C.TRADITIONS.length, kind: 'traditions' },
-  { phrase: new RegExp(`(\\d+) instruments\\b${Q_NEG}`, 'g'), expected: C.INSTRUMENTS.length, kind: 'instruments' },
-  { phrase: new RegExp(`(\\d+) prefaces\\b${Q_NEG}`, 'g'), expected: C.PREFACE_LEXICON.length, kind: 'prefaces' },
+  {
+    phrase: new RegExp(`(\\d+)(?:\\s+(?:recorded-music|music))?\\s+traditions\\b${Q_NEG}`, 'g'),
+    expected: C.TRADITIONS.length,
+    kind: 'traditions',
+  },
+  {
+    phrase: new RegExp(`(\\d+) instruments\\b${Q_NEG}`, 'g'),
+    expected: C.INSTRUMENTS.length,
+    kind: 'instruments',
+  },
+  {
+    phrase: new RegExp(`(\\d+) prefaces\\b${Q_NEG}`, 'g'),
+    expected: C.PREFACE_LEXICON.length,
+    kind: 'prefaces',
+  },
   { phrase: new RegExp(`(\\d+) rooms\\b${Q_NEG}`, 'g'), expected: C.ROOMS.length, kind: 'rooms' },
-  { phrase: new RegExp(`(\\d+) chain archetypes\\b${Q_NEG}`, 'g'), expected: C.CHAIN_ARCHETYPES.length, kind: 'chain_archetypes' },
-  { phrase: new RegExp(`(\\d+) production aesthetics\\b${Q_NEG}`, 'g'), expected: C.PRODUCTION_AESTHETICS.length, kind: 'production_aesthetics' },
-  { phrase: new RegExp(`(\\d+) tunings\\b${Q_NEG}`, 'g'), expected: C.TUNINGS.length, kind: 'tunings' },
-  { phrase: new RegExp(`(\\d+) tree nodes\\b${Q_NEG}`, 'g'), expected: C.TREE_NODES.length, kind: 'tree_nodes' },
-  { phrase: new RegExp(`(\\d+) catalog tables\\b${Q_NEG}`, 'g'), expected: Object.keys(C).length, kind: 'catalog_tables' },
+  {
+    phrase: new RegExp(`(\\d+) chain archetypes\\b${Q_NEG}`, 'g'),
+    expected: C.CHAIN_ARCHETYPES.length,
+    kind: 'chain_archetypes',
+  },
+  {
+    phrase: new RegExp(`(\\d+) production aesthetics\\b${Q_NEG}`, 'g'),
+    expected: C.PRODUCTION_AESTHETICS.length,
+    kind: 'production_aesthetics',
+  },
+  {
+    phrase: new RegExp(`(\\d+) tunings\\b${Q_NEG}`, 'g'),
+    expected: C.TUNINGS.length,
+    kind: 'tunings',
+  },
+  {
+    phrase: new RegExp(`(\\d+) tree nodes\\b${Q_NEG}`, 'g'),
+    expected: C.TREE_NODES.length,
+    kind: 'tree_nodes',
+  },
+  {
+    phrase: new RegExp(`(\\d+) catalog tables\\b${Q_NEG}`, 'g'),
+    expected: Object.keys(C).length,
+    kind: 'catalog_tables',
+  },
   // Adjectival forms ("1119-tradition / 419-instrument codex", "312-node genre
   // tree"). ≥3 digits so hypothetical example builds ("a 5-tradition build")
   // aren't mistaken for catalog totals.
@@ -142,20 +181,52 @@ const COUNT_CHECKS = [
   { phrase: /(\d{3,})-instrument\b/g, expected: C.INSTRUMENTS.length, kind: 'instruments_adj' },
   { phrase: /(\d+)-node genre tree/g, expected: C.TREE_NODES.length, kind: 'tree_nodes_adj' },
   // SKILL.md §1 table rows ("| traditions | 1119 |")
-  { phrase: /\|\s*traditions\s*\|\s*(\d+)\s*\|/g, expected: C.TRADITIONS.length, kind: 'traditions_table' },
-  { phrase: /\|\s*tradition extras\s*\|\s*(\d+)\s*\|/g, expected: C.TRADITION_EXTRAS ? Object.keys(C.TRADITION_EXTRAS).length : C.TRADITIONS.length, kind: 'tradition_extras_table' },
-  { phrase: /\|\s*instruments\s*\|\s*(\d+)\s*\|/g, expected: C.INSTRUMENTS.length, kind: 'instruments_table' },
-  { phrase: /\|\s*tree nodes\s*\|\s*(\d+)\s*\|/g, expected: C.TREE_NODES.length, kind: 'tree_nodes_table' },
+  {
+    phrase: /\|\s*traditions\s*\|\s*(\d+)\s*\|/g,
+    expected: C.TRADITIONS.length,
+    kind: 'traditions_table',
+  },
+  {
+    phrase: /\|\s*tradition extras\s*\|\s*(\d+)\s*\|/g,
+    expected: C.TRADITION_EXTRAS ? Object.keys(C.TRADITION_EXTRAS).length : C.TRADITIONS.length,
+    kind: 'tradition_extras_table',
+  },
+  {
+    phrase: /\|\s*instruments\s*\|\s*(\d+)\s*\|/g,
+    expected: C.INSTRUMENTS.length,
+    kind: 'instruments_table',
+  },
+  {
+    phrase: /\|\s*tree nodes\s*\|\s*(\d+)\s*\|/g,
+    expected: C.TREE_NODES.length,
+    kind: 'tree_nodes_table',
+  },
   // Loader-output shorthand ("loaded: 419 insts, 1119 trads" — anchored on
   // "loaded:"/"insts," so per-tradition roster counts like "9 insts" don't
   // false-positive) and derived facts that drift when traditions/nodes are
   // added ("global dominates at 678/1119", "288 of 312 ids contain dots").
   { phrase: /loaded: (\d+) insts\b/g, expected: C.INSTRUMENTS.length, kind: 'insts_short' },
   { phrase: /insts, (\d+) trads\b/g, expected: C.TRADITIONS.length, kind: 'trads_short' },
-  { phrase: /dominates at (\d+)\/\d+/g, expected: GLOBAL_FAMILY_COUNT, kind: 'global_family_count' },
-  { phrase: /dominates at \d+\/(\d+)/g, expected: C.TRADITIONS.length, kind: 'global_family_total' },
-  { phrase: /(\d+) of \d+ ids contain dots/g, expected: DOTTED_NODE_COUNT, kind: 'dotted_node_count' },
-  { phrase: /\d+ of (\d+) ids contain dots/g, expected: C.TREE_NODES.length, kind: 'dotted_node_total' },
+  {
+    phrase: /dominates at (\d+)\/\d+/g,
+    expected: GLOBAL_FAMILY_COUNT,
+    kind: 'global_family_count',
+  },
+  {
+    phrase: /dominates at \d+\/(\d+)/g,
+    expected: C.TRADITIONS.length,
+    kind: 'global_family_total',
+  },
+  {
+    phrase: /(\d+) of \d+ ids contain dots/g,
+    expected: DOTTED_NODE_COUNT,
+    kind: 'dotted_node_count',
+  },
+  {
+    phrase: /\d+ of (\d+) ids contain dots/g,
+    expected: C.TREE_NODES.length,
+    kind: 'dotted_node_total',
+  },
 ];
 
 const PRAGMA_RE = /<!--\s*check_docs:ignore\s*-->/;
@@ -222,7 +293,11 @@ function runCapture(cmd, args) {
   // execSync throws on non-zero exit. Audit scripts exit 1 when issues found
   // (which is informational, not an error). Capture output either way.
   try {
-    return execSync([cmd, ...args].join(' '), { cwd: ROOT, encoding: 'utf-8', stdio: ['pipe', 'pipe', 'pipe'] });
+    return execSync([cmd, ...args].join(' '), {
+      cwd: ROOT,
+      encoding: 'utf-8',
+      stdio: ['pipe', 'pipe', 'pipe'],
+    });
   } catch (e) {
     if (e.stdout) return e.stdout;
     throw e;
@@ -244,7 +319,14 @@ if (WITH_AUDITS) {
         const lineNum = lineNumberAt(content, m.index);
         if (PRAGMA_RE.test(lineAt(content, lineNum))) continue;
         if (found !== flagged) {
-          auditFailures.push({ file: rel, line: lineNum, kind: 'dead_token_count', found, expected: flagged, context: lineAt(content, lineNum).trim().slice(0, 120) });
+          auditFailures.push({
+            file: rel,
+            line: lineNum,
+            kind: 'dead_token_count',
+            found,
+            expected: flagged,
+            context: lineAt(content, lineNum).trim().slice(0, 120),
+          });
         }
       }
     }
@@ -264,7 +346,14 @@ if (WITH_AUDITS) {
         const lineNum = lineNumberAt(content, m.index);
         if (PRAGMA_RE.test(lineAt(content, lineNum))) continue;
         if (found !== flagged) {
-          auditFailures.push({ file: rel, line: lineNum, kind: 'profile_size_count', found, expected: flagged, context: lineAt(content, lineNum).trim().slice(0, 120) });
+          auditFailures.push({
+            file: rel,
+            line: lineNum,
+            kind: 'profile_size_count',
+            found,
+            expected: flagged,
+            context: lineAt(content, lineNum).trim().slice(0, 120),
+          });
         }
       }
     }
@@ -290,7 +379,14 @@ if (WITH_SMOKE) {
           const lineNum = lineNumberAt(content, m2.index);
           if (PRAGMA_RE.test(lineAt(content, lineNum))) continue;
           if (found !== total) {
-            smokeFailures.push({ file: rel, line: lineNum, kind: 'smoke_ceiling_assertions', found, expected: total, context: lineAt(content, lineNum).trim().slice(0, 120) });
+            smokeFailures.push({
+              file: rel,
+              line: lineNum,
+              kind: 'smoke_ceiling_assertions',
+              found,
+              expected: total,
+              context: lineAt(content, lineNum).trim().slice(0, 120),
+            });
           }
         }
       }
@@ -313,7 +409,14 @@ if (WITH_SMOKE) {
           const lineNum = lineNumberAt(content, m2.index);
           if (PRAGMA_RE.test(lineAt(content, lineNum))) continue;
           if (found !== count) {
-            smokeFailures.push({ file: rel, line: lineNum, kind: 'no_iconic_advisories', found, expected: count, context: lineAt(content, lineNum).trim().slice(0, 120) });
+            smokeFailures.push({
+              file: rel,
+              line: lineNum,
+              kind: 'no_iconic_advisories',
+              found,
+              expected: count,
+              context: lineAt(content, lineNum).trim().slice(0, 120),
+            });
           }
         }
       }
@@ -326,23 +429,35 @@ if (WITH_SMOKE) {
 // ───────────────────────── Report ─────────────────────────
 
 if (JSON_OUT) {
-  console.log(JSON.stringify({
-    scope: {
-      activeMarkdowns: activeMarkdowns.length,
-      totalMarkdowns: allMarkdowns.length,
-      withAudits: !!WITH_AUDITS,
-      withSmoke: !!WITH_SMOKE,
-    },
-    numericFailures,
-    missingScripts,
-    auditFailures,
-    smokeFailures,
-  }, null, 2));
-  process.exit((numericFailures.length + missingScripts.length + auditFailures.length + smokeFailures.length) > 0 ? 1 : 0);
+  console.log(
+    JSON.stringify(
+      {
+        scope: {
+          activeMarkdowns: activeMarkdowns.length,
+          totalMarkdowns: allMarkdowns.length,
+          withAudits: !!WITH_AUDITS,
+          withSmoke: !!WITH_SMOKE,
+        },
+        numericFailures,
+        missingScripts,
+        auditFailures,
+        smokeFailures,
+      },
+      null,
+      2
+    )
+  );
+  process.exit(
+    numericFailures.length + missingScripts.length + auditFailures.length + smokeFailures.length > 0
+      ? 1
+      : 0
+  );
 }
 
 console.log(`=== Documentation verification ===`);
-console.log(`(${activeMarkdowns.length} active docs scanned: *.md + llms.txt + index.html; README/CHANGELOG/tests + codex.html excluded)\n`);
+console.log(
+  `(${activeMarkdowns.length} active docs scanned: *.md + llms.txt + index.html; README/CHANGELOG/tests + codex.html excluded)\n`
+);
 
 // Numeric counts
 console.log(`[NUMERIC CLAIMS]  (${COUNT_CHECKS.length} count types)`);
@@ -375,7 +490,10 @@ if (WITH_AUDITS) {
     console.log(`  ✓ Audit-derived count claims match current audit output.`);
   } else {
     for (const f of auditFailures) {
-      if (f.error) { console.log(`  ⚠ ${f.error}`); continue; }
+      if (f.error) {
+        console.log(`  ⚠ ${f.error}`);
+        continue;
+      }
       console.log(`  ✗ ${f.file}:${f.line} — claims ${f.found} ${f.kind} (actual: ${f.expected})`);
       console.log(`      "${f.context}"`);
     }
@@ -389,7 +507,10 @@ if (WITH_SMOKE) {
     console.log(`  ✓ Smoke + advisory claims match current output.`);
   } else {
     for (const f of smokeFailures) {
-      if (f.error) { console.log(`  ⚠ ${f.error}`); continue; }
+      if (f.error) {
+        console.log(`  ⚠ ${f.error}`);
+        continue;
+      }
       console.log(`  ✗ ${f.file}:${f.line} — claims ${f.found} ${f.kind} (actual: ${f.expected})`);
       console.log(`      "${f.context}"`);
     }
@@ -397,7 +518,8 @@ if (WITH_SMOKE) {
   console.log();
 }
 
-const totalFailures = numericFailures.length + missingScripts.length + auditFailures.length + smokeFailures.length;
+const totalFailures =
+  numericFailures.length + missingScripts.length + auditFailures.length + smokeFailures.length;
 if (totalFailures === 0) {
   console.log(`PASS — no drift detected.`);
   if (!WITH_AUDITS && !WITH_SMOKE) {

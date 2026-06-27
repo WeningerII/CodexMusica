@@ -2,7 +2,6 @@
 
 ## Contact
 
-- **Email:** _(optional — add a non-personal support address)_
 - **Issues / bugs:** <https://github.com/WeningerII/CodexMusica/issues>
 
 We aim to acknowledge reports within a few business days. This is a maintained

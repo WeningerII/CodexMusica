@@ -1,0 +1,34 @@
+name: Bug report
+description: Something in the website, catalog app, or MCP connector isn't working.
+labels: ['bug']
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: Where did it happen?
+      options:
+        - Website / catalog app (codex.html)
+        - MCP connector (via an AI client)
+        - Static JSON API (api/)
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you do, what did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. ...
+        2. ...
+  - type: input
+    id: env
+    attributes:
+      label: Client / browser
+      description: e.g. Claude desktop, Chrome 126, Safari 17.

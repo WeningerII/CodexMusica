@@ -26,7 +26,9 @@ const vm = require('vm');
 const C = require('./_loader.js');
 
 const SHARD_VOCAB = (() => {
-  const data = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'references', '_shard_vocabulary.json'), 'utf8'));
+  const data = JSON.parse(
+    fs.readFileSync(path.join(__dirname, '..', 'references', '_shard_vocabulary.json'), 'utf8')
+  );
   const flat = {};
   for (const [k, v] of Object.entries(data)) {
     if (k.startsWith('_doc')) continue;
@@ -37,14 +39,18 @@ const SHARD_VOCAB = (() => {
 })();
 
 const INSTRUMENT_BASE = (() => {
-  const data = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'references', '_instrument_base.json'), 'utf8'));
+  const data = JSON.parse(
+    fs.readFileSync(path.join(__dirname, '..', 'references', '_instrument_base.json'), 'utf8')
+  );
   const flat = {};
   for (const [k, v] of Object.entries(data)) if (!k.startsWith('_')) flat[k] = v;
   return flat;
 })();
 
 const PART_TYPE = (() => {
-  const data = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'references', '_part_type.json'), 'utf8'));
+  const data = JSON.parse(
+    fs.readFileSync(path.join(__dirname, '..', 'references', '_part_type.json'), 'utf8')
+  );
   const flat = {};
   for (const [k, v] of Object.entries(data)) {
     if (k.startsWith('_doc')) continue;
@@ -54,41 +60,78 @@ const PART_TYPE = (() => {
   return flat;
 })();
 
-const STOP = new Set(['a','b','c','d','e','f','g','h','of','the','and','or','to','with','in','on','at','is','it','as','no']);
+const STOP = new Set([
+  'a',
+  'b',
+  'c',
+  'd',
+  'e',
+  'f',
+  'g',
+  'h',
+  'of',
+  'the',
+  'and',
+  'or',
+  'to',
+  'with',
+  'in',
+  'on',
+  'at',
+  'is',
+  'it',
+  'as',
+  'no',
+]);
 const TARGET_TOKENS = 6;
 
 function parseShards(variantId, partId) {
   let core = variantId;
   if (partId && variantId.startsWith(partId + '_')) core = variantId.slice(partId.length + 1);
-  return core.split('_').filter(w => w.length > 0 && !STOP.has(w) && !/^\d+$/.test(w));
+  return core.split('_').filter((w) => w.length > 0 && !STOP.has(w) && !/^\d+$/.test(w));
 }
 
 function composeOwn(instrument, part, variant) {
   const shards = parseShards(variant.id, part.id);
-  const out = []; const seen = new Set();
-  const push = (t) => { if (t && !seen.has(t)) { seen.add(t); out.push(t); } };
+  const out = [];
+  const seen = new Set();
+  const push = (t) => {
+    if (t && !seen.has(t)) {
+      seen.add(t);
+      out.push(t);
+    }
+  };
   // Variant-specific tokens first (shards + authored)
   for (const s of shards) if (SHARD_VOCAB[s]) for (const t of SHARD_VOCAB[s]) push(t);
-  for (const t of (variant.descriptors || [])) push(t);
+  for (const t of variant.descriptors || []) push(t);
   // INSTRUMENT_BASE + PART_TYPE fill remaining slots. These end up in
   // match_tokens (matcher-only), so renderer doesn't surface them.
-  for (const t of (INSTRUMENT_BASE[instrument.id] || [])) push(t);
-  for (const t of (PART_TYPE[part.id] || [])) push(t);
+  for (const t of INSTRUMENT_BASE[instrument.id] || []) push(t);
+  for (const t of PART_TYPE[part.id] || []) push(t);
   return out.slice(0, TARGET_TOKENS);
 }
 
 function composeFamily(part, variant) {
   const shards = parseShards(variant.id, part.id);
-  const out = []; const seen = new Set();
-  const push = (t) => { if (t && !seen.has(t)) { seen.add(t); out.push(t); } };
+  const out = [];
+  const seen = new Set();
+  const push = (t) => {
+    if (t && !seen.has(t)) {
+      seen.add(t);
+      out.push(t);
+    }
+  };
   for (const s of shards) if (SHARD_VOCAB[s]) for (const t of SHARD_VOCAB[s]) push(t);
-  for (const t of (variant.descriptors || [])) push(t);
-  for (const t of (PART_TYPE[part.id] || [])) push(t);
+  for (const t of variant.descriptors || []) push(t);
+  for (const t of PART_TYPE[part.id] || []) push(t);
   return out.slice(0, TARGET_TOKENS);
 }
 
 function loadFamilyParts() {
-  const src = fs.readFileSync(path.join(__dirname, '..', 'references', '01_family_parts.js'), 'utf8');
+  const src = fs.readFileSync(
+    path.join(__dirname, '..', 'references', '01_family_parts.js'),
+    'utf8'
+  );
   const ctx = { module: { exports: {} }, exports: {} };
   vm.createContext(ctx);
   vm.runInContext(src + '\nmodule.exports = INSTRUMENT_FAMILY_PARTS;\n', ctx);
@@ -98,18 +141,24 @@ function loadFamilyParts() {
 function main() {
   const isDryRun = process.argv.includes('--dry-run');
   const isApply = process.argv.includes('--apply');
-  if (!isDryRun && !isApply) { console.error('Usage: --dry-run|--apply'); process.exit(1); }
+  if (!isDryRun && !isApply) {
+    console.error('Usage: --dry-run|--apply');
+    process.exit(1);
+  }
 
   const FAMILY = loadFamilyParts();
   const ownUpdates = [];
   for (const inst of C.INSTRUMENTS) {
-    for (const op of (inst._ownParts || [])) {
+    for (const op of inst._ownParts || []) {
       if (!Array.isArray(op.variants)) continue;
       for (const v of op.variants) {
         ownUpdates.push({
-          instId: inst.id, partId: op.id, variantId: v.id,
-          oldTokens: v.descriptors || [], newTokens: composeOwn(inst, op, v),
-          shards: parseShards(v.id, op.id)
+          instId: inst.id,
+          partId: op.id,
+          variantId: v.id,
+          oldTokens: v.descriptors || [],
+          newTokens: composeOwn(inst, op, v),
+          shards: parseShards(v.id, op.id),
         });
       }
     }
@@ -117,11 +166,14 @@ function main() {
   const familyUpdates = [];
   for (const [familyId, parts] of Object.entries(FAMILY)) {
     for (const part of parts) {
-      for (const v of (part.variants || [])) {
+      for (const v of part.variants || []) {
         familyUpdates.push({
-          familyId, partId: part.id, variantId: v.id,
-          oldTokens: v.descriptors || [], newTokens: composeFamily(part, v),
-          shards: parseShards(v.id, part.id)
+          familyId,
+          partId: part.id,
+          variantId: v.id,
+          oldTokens: v.descriptors || [],
+          newTokens: composeFamily(part, v),
+          shards: parseShards(v.id, part.id),
         });
       }
     }
@@ -130,7 +182,9 @@ function main() {
 
   if (isDryRun) {
     const dist = {};
-    let under = 0, ownUnder = 0, famUnder = 0;
+    let under = 0,
+      ownUnder = 0,
+      famUnder = 0;
     for (const u of all) {
       dist[u.newTokens.length] = (dist[u.newTokens.length] || 0) + 1;
       if (u.newTokens.length < TARGET_TOKENS) under++;
@@ -143,12 +197,30 @@ function main() {
     console.log('FAMILY updates: ' + familyUpdates.length);
     console.log('Total:          ' + all.length);
     console.log();
-    console.log('Underfilled (<6 tokens): ' + under + ' (' + (100*under/all.length).toFixed(1) + '%)');
-    console.log('  OWN:    ' + ownUnder + '/' + ownUpdates.length + ' (' + (100*ownUnder/ownUpdates.length).toFixed(1) + '%)');
-    console.log('  FAMILY: ' + famUnder + '/' + familyUpdates.length + ' (' + (100*famUnder/familyUpdates.length).toFixed(1) + '%)');
+    console.log(
+      'Underfilled (<6 tokens): ' + under + ' (' + ((100 * under) / all.length).toFixed(1) + '%)'
+    );
+    console.log(
+      '  OWN:    ' +
+        ownUnder +
+        '/' +
+        ownUpdates.length +
+        ' (' +
+        ((100 * ownUnder) / ownUpdates.length).toFixed(1) +
+        '%)'
+    );
+    console.log(
+      '  FAMILY: ' +
+        famUnder +
+        '/' +
+        familyUpdates.length +
+        ' (' +
+        ((100 * famUnder) / familyUpdates.length).toFixed(1) +
+        '%)'
+    );
     console.log();
     console.log('Token count distribution:');
-    for (const n of Object.keys(dist).sort((a,b)=>a-b)) console.log('  ' + n + ': ' + dist[n]);
+    for (const n of Object.keys(dist).sort((a, b) => a - b)) console.log('  ' + n + ': ' + dist[n]);
     console.log();
     const vocab = new Set();
     for (const u of all) for (const t of u.newTokens) vocab.add(t);
@@ -156,8 +228,9 @@ function main() {
 
     console.log();
     console.log('# SAMPLE OWN DIFFS');
-    for (let i = 0; i < ownUpdates.length; i += Math.floor(ownUpdates.length/15)) {
-      const u = ownUpdates[i]; if (!u) continue;
+    for (let i = 0; i < ownUpdates.length; i += Math.floor(ownUpdates.length / 15)) {
+      const u = ownUpdates[i];
+      if (!u) continue;
       console.log();
       console.log('## ' + u.instId + '/' + u.partId + '/' + u.variantId);
       console.log('OLD: ' + u.oldTokens.join(', '));
@@ -165,8 +238,9 @@ function main() {
     }
     console.log();
     console.log('# SAMPLE FAMILY DIFFS');
-    for (let i = 0; i < familyUpdates.length; i += Math.floor(familyUpdates.length/15)) {
-      const u = familyUpdates[i]; if (!u) continue;
+    for (let i = 0; i < familyUpdates.length; i += Math.floor(familyUpdates.length / 15)) {
+      const u = familyUpdates[i];
+      if (!u) continue;
       console.log();
       console.log('## [' + u.familyId + '] ' + u.partId + '/' + u.variantId);
       console.log('OLD: ' + u.oldTokens.join(', '));
@@ -184,7 +258,7 @@ function main() {
 
     function tokensForVariantMatchOnly(newTokens, oldTokens) {
       const old = new Set(oldTokens || []);
-      return newTokens.filter(t => !old.has(t));
+      return newTokens.filter((t) => !old.has(t));
     }
 
     function writeVariantMatchTokens(srcText, variantId, matchTokens) {
@@ -192,12 +266,15 @@ function main() {
       // Find the variant block { id: 'X', ... descriptors: [...] ... }
       // Look for `descriptors: [...]` after the id, within the variant's `{ ... }`.
       // Within-block bound enforced by capping the gap.
-      const pat = new RegExp(`(\\{\\s*id\\s*:\\s*['"]${idEsc}['"][\\s\\S]{0,800}?descriptors\\s*:\\s*\\[[^\\]]*\\])(\\s*,\\s*match_tokens\\s*:\\s*\\[[^\\]]*\\])?`);
+      const pat = new RegExp(
+        `(\\{\\s*id\\s*:\\s*['"]${idEsc}['"][\\s\\S]{0,800}?descriptors\\s*:\\s*\\[[^\\]]*\\])(\\s*,\\s*match_tokens\\s*:\\s*\\[[^\\]]*\\])?`
+      );
       const m = srcText.match(pat);
       if (!m) return { src: srcText, changed: false };
-      const matchTokensStr = matchTokens.length > 0
-        ? `, match_tokens: [${matchTokens.map(t => `'${t}'`).join(', ')}]`
-        : '';
+      const matchTokensStr =
+        matchTokens.length > 0
+          ? `, match_tokens: [${matchTokens.map((t) => `'${t}'`).join(', ')}]`
+          : '';
       // Build replacement: keep the descriptors part, replace any existing
       // match_tokens with new, or insert new if absent.
       const replacement = m[1] + matchTokensStr;
@@ -212,10 +289,15 @@ function main() {
     for (const u of ownUpdates) {
       const matchOnly = tokensForVariantMatchOnly(u.newTokens, u.oldTokens);
       const { src: nextSrc, changed } = writeVariantMatchTokens(src, u.variantId, matchOnly);
-      if (changed) { src = nextSrc; ownReplaced++; }
+      if (changed) {
+        src = nextSrc;
+        ownReplaced++;
+      }
     }
     fs.writeFileSync(ownSrc, src);
-    console.error('OWN: ' + ownReplaced + '/' + ownUpdates.length + ' match_tokens written to 02_instruments.js');
+    console.error(
+      'OWN: ' + ownReplaced + '/' + ownUpdates.length + ' match_tokens written to 02_instruments.js'
+    );
 
     const famSrc = path.join(__dirname, '..', 'references', '01_family_parts.js');
     const famBackup = famSrc + '.pre_systematic_enrichment';
@@ -225,10 +307,19 @@ function main() {
     for (const u of familyUpdates) {
       const matchOnly = tokensForVariantMatchOnly(u.newTokens, u.oldTokens);
       const { src: nextSrc, changed } = writeVariantMatchTokens(famText, u.variantId, matchOnly);
-      if (changed) { famText = nextSrc; famReplaced++; }
+      if (changed) {
+        famText = nextSrc;
+        famReplaced++;
+      }
     }
     fs.writeFileSync(famSrc, famText);
-    console.error('FAMILY: ' + famReplaced + '/' + familyUpdates.length + ' match_tokens written to 01_family_parts.js');
+    console.error(
+      'FAMILY: ' +
+        famReplaced +
+        '/' +
+        familyUpdates.length +
+        ' match_tokens written to 01_family_parts.js'
+    );
   }
 }
 

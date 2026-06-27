@@ -33,7 +33,12 @@
 const fs = require('fs');
 const path = require('path');
 const C = require('./_loader.js');
-const { buildResolver, recordProblems, traditionSource, stripExpandedVariants } = require('./_api_contract.js');
+const {
+  buildResolver,
+  recordProblems,
+  traditionSource,
+  stripExpandedVariants,
+} = require('./_api_contract.js');
 
 const ROOT = path.join(__dirname, '..');
 const flags = {};
@@ -71,8 +76,12 @@ function diffIds(label, actualIds, expectedIds) {
   const expected = new Set(expectedIds);
   const missing = [...expected].filter((id) => !actual.has(id));
   const extra = [...actual].filter((id) => !expected.has(id));
-  if (missing.length) fail(`${label}: ${missing.length} catalog id(s) missing (e.g. ${missing.slice(0, 5).join(', ')})`);
-  if (extra.length) fail(`${label}: ${extra.length} id(s) not in catalog (e.g. ${extra.slice(0, 5).join(', ')})`);
+  if (missing.length)
+    fail(
+      `${label}: ${missing.length} catalog id(s) missing (e.g. ${missing.slice(0, 5).join(', ')})`
+    );
+  if (extra.length)
+    fail(`${label}: ${extra.length} id(s) not in catalog (e.g. ${extra.slice(0, 5).join(', ')})`);
 }
 
 const R = buildResolver(C);
@@ -96,20 +105,30 @@ function checkIndexItems(label, items, dir, byId) {
     const cat = byId.get(it.id);
     if (!cat) continue; // diffIds already reports unknown/missing ids
     const expectHref = `${dir}/${it.id}.json`;
-    if (it.href !== expectHref) fail(`${label}[${it.id}]: href="${it.href}", expected "${expectHref}"`);
-    else if (!fs.existsSync(path.join(API, it.href))) fail(`${label}[${it.id}]: href target missing on disk: ${it.href}`);
-    if (it.name !== cat.name) fail(`${label}[${it.id}]: name="${it.name}" != catalog "${cat.name}"`);
-    if (it.family !== cat.family) fail(`${label}[${it.id}]: family="${it.family}" != catalog "${cat.family}"`);
+    if (it.href !== expectHref)
+      fail(`${label}[${it.id}]: href="${it.href}", expected "${expectHref}"`);
+    else if (!fs.existsSync(path.join(API, it.href)))
+      fail(`${label}[${it.id}]: href target missing on disk: ${it.href}`);
+    if (it.name !== cat.name)
+      fail(`${label}[${it.id}]: name="${it.name}" != catalog "${cat.name}"`);
+    if (it.family !== cat.family)
+      fail(`${label}[${it.id}]: family="${it.family}" != catalog "${cat.family}"`);
   }
 }
 
 // ───────────────────────── traditions ─────────────────────────
 const tindex = readJson('traditions/index.json');
 if (tindex) {
-  if (tindex.count !== C.TRADITIONS.length) fail(`traditions/index.json count=${tindex.count}, catalog has ${C.TRADITIONS.length}`);
+  if (tindex.count !== C.TRADITIONS.length)
+    fail(`traditions/index.json count=${tindex.count}, catalog has ${C.TRADITIONS.length}`);
   const items = Array.isArray(tindex.items) ? tindex.items : [];
-  if (items.length !== tindex.count) fail(`traditions/index.json: count=${tindex.count} but items.length=${items.length}`);
-  diffIds('traditions/index.json', items.map((x) => x.id), tradIds);
+  if (items.length !== tindex.count)
+    fail(`traditions/index.json: count=${tindex.count} but items.length=${items.length}`);
+  diffIds(
+    'traditions/index.json',
+    items.map((x) => x.id),
+    tradIds
+  );
   checkIndexItems('traditions/index.json', items, 'traditions', tradById);
 
   // Per-id files: each catalog tradition has a file that honors the record
@@ -123,9 +142,12 @@ if (tindex) {
     for (const p of recordProblems(rec, R)) fail(`traditions/${id}.json — ${p}`);
     const cat = tradById.get(id);
     if (cat) {
-      if (rec.name !== cat.name) fail(`traditions/${id}.json: name="${rec.name}" != catalog "${cat.name}"`);
-      if (rec.family !== cat.family) fail(`traditions/${id}.json: family="${rec.family}" != catalog "${cat.family}"`);
-      if ((rec.lineage || null) !== (cat.lineage || null)) fail(`traditions/${id}.json: lineage differs from catalog`);
+      if (rec.name !== cat.name)
+        fail(`traditions/${id}.json: name="${rec.name}" != catalog "${cat.name}"`);
+      if (rec.family !== cat.family)
+        fail(`traditions/${id}.json: family="${rec.family}" != catalog "${cat.family}"`);
+      if ((rec.lineage || null) !== (cat.lineage || null))
+        fail(`traditions/${id}.json: lineage differs from catalog`);
     }
     // `source` (the import payload for the lazy-loaded app) must be a verbatim
     // projection of the CURRENT catalog row — this is the check that catches a
@@ -143,13 +165,20 @@ if (tindex) {
 // ───────────────────────── all.json (the "one fetch" payload) ─────────────────────────
 const all = readJson('all.json');
 if (all) {
-  if (all.count !== C.TRADITIONS.length) fail(`all.json count=${all.count}, catalog has ${C.TRADITIONS.length}`);
+  if (all.count !== C.TRADITIONS.length)
+    fail(`all.json count=${all.count}, catalog has ${C.TRADITIONS.length}`);
   const items = Array.isArray(all.items) ? all.items : [];
-  if (items.length !== all.count) fail(`all.json: count=${all.count} but items.length=${items.length}`);
-  diffIds('all.json', items.map((x) => x.id), tradIds);
+  if (items.length !== all.count)
+    fail(`all.json: count=${all.count} but items.length=${items.length}`);
+  diffIds(
+    'all.json',
+    items.map((x) => x.id),
+    tradIds
+  );
   for (const item of items) {
     // all.json items carry recipe + recipe_chars but no config (by design).
-    for (const p of recordProblems(item, R, { requireConfig: false })) fail(`all.json[${item.id}] — ${p}`);
+    for (const p of recordProblems(item, R, { requireConfig: false }))
+      fail(`all.json[${item.id}] — ${p}`);
     // The "one fetch" payload must agree with the per-id file an agent would
     // otherwise fetch — a recipe present in all.json but different per-id (or
     // fabricated in either) is a silent contradiction the count/ceiling checks
@@ -160,8 +189,10 @@ if (all) {
     }
     const cat = tradById.get(item.id);
     if (cat) {
-      if (item.name !== cat.name) fail(`all.json[${item.id}]: name="${item.name}" != catalog "${cat.name}"`);
-      if (item.family !== cat.family) fail(`all.json[${item.id}]: family="${item.family}" != catalog "${cat.family}"`);
+      if (item.name !== cat.name)
+        fail(`all.json[${item.id}]: name="${item.name}" != catalog "${cat.name}"`);
+      if (item.family !== cat.family)
+        fail(`all.json[${item.id}]: family="${item.family}" != catalog "${cat.family}"`);
     }
   }
 }
@@ -169,31 +200,60 @@ if (all) {
 // ───────────────────────── browse.json (Tier-1 index for the lazy-loaded app) ─────────────────────────
 const browse = readJson('browse.json');
 if (browse) {
-  if (browse.count !== C.TRADITIONS.length) fail(`browse.json count=${browse.count}, catalog has ${C.TRADITIONS.length}`);
+  if (browse.count !== C.TRADITIONS.length)
+    fail(`browse.json count=${browse.count}, catalog has ${C.TRADITIONS.length}`);
   const items = Array.isArray(browse.items) ? browse.items : [];
-  if (items.length !== browse.count) fail(`browse.json: count=${browse.count} but items.length=${items.length}`);
-  diffIds('browse.json', items.map((x) => x.id), tradIds);
+  if (items.length !== browse.count)
+    fail(`browse.json: count=${browse.count} but items.length=${items.length}`);
+  diffIds(
+    'browse.json',
+    items.map((x) => x.id),
+    tradIds
+  );
   if (!Array.isArray(browse.axisKeys) || browse.axisKeys.length !== 13) {
-    fail(`browse.json: axisKeys must list 13 axes (got ${browse.axisKeys && browse.axisKeys.length})`);
+    fail(
+      `browse.json: axisKeys must list 13 axes (got ${browse.axisKeys && browse.axisKeys.length})`
+    );
   }
   const badAxes = items.filter((x) => !Array.isArray(x.axes) || x.axes.length !== 13);
-  if (badAxes.length) fail(`browse.json: ${badAxes.length} item(s) with axes != 13 ints (e.g. ${badAxes.slice(0, 5).map((x) => x.id).join(', ')})`);
+  if (badAxes.length)
+    fail(
+      `browse.json: ${badAxes.length} item(s) with axes != 13 ints (e.g. ${badAxes
+        .slice(0, 5)
+        .map((x) => x.id)
+        .join(', ')})`
+    );
   // The lazy-loaded app boots ENTIRELY from this index — every field its browse
   // surfaces read (search rank/render, tree leaves, find-similar) must be here.
   const badFields = items.filter(
-    (x) => typeof x.name !== 'string' || typeof x.family !== 'string' ||
-      typeof x.description !== 'string' || !Array.isArray(x.instruments) ||
-      !('lineage' in x) || !('parent' in x)
+    (x) =>
+      typeof x.name !== 'string' ||
+      typeof x.family !== 'string' ||
+      typeof x.description !== 'string' ||
+      !Array.isArray(x.instruments) ||
+      !('lineage' in x) ||
+      !('parent' in x)
   );
-  if (badFields.length) fail(`browse.json: ${badFields.length} item(s) missing app-facing fields (name/family/description/instruments/lineage/parent) (e.g. ${badFields.slice(0, 5).map((x) => x.id).join(', ')})`);
+  if (badFields.length)
+    fail(
+      `browse.json: ${badFields.length} item(s) missing app-facing fields (name/family/description/instruments/lineage/parent) (e.g. ${badFields
+        .slice(0, 5)
+        .map((x) => x.id)
+        .join(', ')})`
+    );
 }
 
 // ───────────────────────── instruments ─────────────────────────
 const iindex = readJson('instruments/index.json');
 if (iindex) {
-  if (iindex.count !== C.INSTRUMENTS.length) fail(`instruments/index.json count=${iindex.count}, catalog has ${C.INSTRUMENTS.length}`);
+  if (iindex.count !== C.INSTRUMENTS.length)
+    fail(`instruments/index.json count=${iindex.count}, catalog has ${C.INSTRUMENTS.length}`);
   const items = Array.isArray(iindex.items) ? iindex.items : [];
-  diffIds('instruments/index.json', items.map((x) => x.id), instIds);
+  diffIds(
+    'instruments/index.json',
+    items.map((x) => x.id),
+    instIds
+  );
   checkIndexItems('instruments/index.json', items, 'instruments', instById);
 
   // Per-instrument files are written VERBATIM from the catalog (no compute), so
@@ -220,8 +280,10 @@ if (iindex) {
 const index = readJson('index.json');
 if (index) {
   const c = index.counts || {};
-  if (c.traditions !== C.TRADITIONS.length) fail(`index.json counts.traditions=${c.traditions}, catalog has ${C.TRADITIONS.length}`);
-  if (c.instruments !== C.INSTRUMENTS.length) fail(`index.json counts.instruments=${c.instruments}, catalog has ${C.INSTRUMENTS.length}`);
+  if (c.traditions !== C.TRADITIONS.length)
+    fail(`index.json counts.traditions=${c.traditions}, catalog has ${C.TRADITIONS.length}`);
+  if (c.instruments !== C.INSTRUMENTS.length)
+    fail(`index.json counts.instruments=${c.instruments}, catalog has ${C.INSTRUMENTS.length}`);
 }
 
 // ───────────────────────── report ─────────────────────────
@@ -241,7 +303,12 @@ if (problems.length === 0) {
 }
 console.error(`FAIL — ${problems.length} contract violation(s):`);
 for (const p of problems.slice(0, MAX_SHOWN)) console.error(`  ✗ ${p}`);
-if (problems.length > MAX_SHOWN) console.error(`  … and ${problems.length - MAX_SHOWN} more (use --verbose).`);
-console.error(`\nThe published api/ has drifted from the catalog or broken a promise. Rebuild with`);
-console.error(`\`npm run build:api\` (which now self-verifies) and commit, or fix the offending data.`);
+if (problems.length > MAX_SHOWN)
+  console.error(`  … and ${problems.length - MAX_SHOWN} more (use --verbose).`);
+console.error(
+  `\nThe published api/ has drifted from the catalog or broken a promise. Rebuild with`
+);
+console.error(
+  `\`npm run build:api\` (which now self-verifies) and commit, or fix the offending data.`
+);
 process.exit(1);
