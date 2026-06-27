@@ -27,9 +27,9 @@ const C = require('./_loader.js');
 
 // Scoring weights. Hand-tuned in the layered scoring work; documented here
 // rather than inline so a calibration pass touches one place.
-const CANONICAL_CONFLICT_PENALTY = -0.05;  // sentence 1/2: bare canonical token contradicts variant — descriptor like "british" on an instrument tagged "american" gets this per token
-const NEIGHBOR_WEIGHT_FACTOR     = 0.15;   // nearest-neighbor traditions contribute this fraction of their own scoring signal to the focal variant
-const NEIGHBOR_BONUS_CAP_RATIO   = 0.30;   // neighbor bonus can never exceed this fraction of direct-scoring magnitude; prevents neighbors from dominating thin direct signals
+const CANONICAL_CONFLICT_PENALTY = -0.05; // sentence 1/2: bare canonical token contradicts variant — descriptor like "british" on an instrument tagged "american" gets this per token
+const NEIGHBOR_WEIGHT_FACTOR = 0.15; // nearest-neighbor traditions contribute this fraction of their own scoring signal to the focal variant
+const NEIGHBOR_BONUS_CAP_RATIO = 0.3; // neighbor bonus can never exceed this fraction of direct-scoring magnitude; prevents neighbors from dominating thin direct signals
 
 // Build the structural-context vocabulary for a tradition: the union of all
 // descriptor-relevant tokens we'd want a variant to overlap with.
@@ -46,7 +46,7 @@ function buildContext(tradId) {
   return result;
 }
 function _buildContextUncached(tradId) {
-  const t = C.TRADITIONS.find(x => x.id === tradId);
+  const t = C.TRADITIONS.find((x) => x.id === tradId);
   const e = C.TRADITION_EXTRAS[tradId] || {};
   if (!t) return null;
 
@@ -99,14 +99,30 @@ function _buildContextUncached(tradId) {
   if (t.family) addProse(t.family, 1.0);
   // Source 3: parent path → prose @ 1.5 (dot-split + camelCase-split)
   if (e.parent) {
-    const parts = e.parent.split('.').flatMap(s => s.replace(/([A-Z])/g, ' $1').toLowerCase().split(/\s+/)).filter(Boolean);
+    const parts = e.parent
+      .split('.')
+      .flatMap((s) =>
+        s
+          .replace(/([A-Z])/g, ' $1')
+          .toLowerCase()
+          .split(/\s+/)
+      )
+      .filter(Boolean);
     for (const w of parts) addProse(w, 1.5);
   }
   // Source 4: crossRefs → prose @ 0.7
-  for (const cr of (e.crossRefs || [])) {
-    const ref = typeof cr === 'string' ? cr : (cr && cr.ref);
+  for (const cr of e.crossRefs || []) {
+    const ref = typeof cr === 'string' ? cr : cr && cr.ref;
     if (!ref) continue;
-    const parts = ref.split('.').flatMap(s => s.replace(/([A-Z])/g, ' $1').toLowerCase().split(/\s+/)).filter(Boolean);
+    const parts = ref
+      .split('.')
+      .flatMap((s) =>
+        s
+          .replace(/([A-Z])/g, ' $1')
+          .toLowerCase()
+          .split(/\s+/)
+      )
+      .filter(Boolean);
     for (const w of parts) addProse(w, 0.7);
   }
   // Source 5: description → prose @ 0.3
@@ -116,15 +132,17 @@ function _buildContextUncached(tradId) {
 
   // Sources 6-9: room. Rooms are physical/acoustic spaces, not genre
   // classifiers — genre comes from the tradition itself.
-  const room = t.room ? C.ROOMS.find(r => r.id === t.room) : null;
+  const room = t.room ? C.ROOMS.find((r) => r.id === t.room) : null;
   if (room) {
     if (room.region) addSingle(room.region.toLowerCase(), 1.0);
-    if (room.era) addSingle(room.era, 0.8);  // case preserved
+    if (room.era) addSingle(room.era, 0.8); // case preserved
     if (room.scale_tier) routeFormal(room.scale_tier, 0.8);
-    for (const d of (room.descriptors || [])) routeFormal(d, 0.7);
+    for (const d of room.descriptors || []) routeFormal(d, 0.7);
   }
   // Sources 10-11: archetype.
-  const arch = t.chain_archetype ? C.CHAIN_ARCHETYPES.find(a => a.id === t.chain_archetype) : null;
+  const arch = t.chain_archetype
+    ? C.CHAIN_ARCHETYPES.find((a) => a.id === t.chain_archetype)
+    : null;
   if (arch) {
     if (arch.region) addSingle(arch.region.toLowerCase(), 1.0);
     if (arch.era) addSingle(arch.era, 0.8);
@@ -138,8 +156,8 @@ function _buildContextUncached(tradId) {
     prose,
     compounds,
     singles,
-    eraRange: arch ? parseEra(arch.era) : (room ? parseEra(room.era) : null),
-    region: arch ? arch.region : (room ? room.region : null),
+    eraRange: arch ? parseEra(arch.era) : room ? parseEra(room.era) : null,
+    region: arch ? arch.region : room ? room.region : null,
   };
 }
 
@@ -212,7 +230,6 @@ function _buildMergedContextUncached(tradIds, stapleWeight, exclude) {
   return merged;
 }
 
-
 // Identify which stapled traditions in `allTradIds` came in via a crossRef on
 // the primary marked as isolated for the given part. These are the tradition
 // ids that should be excluded from the merged context when scoring that part.
@@ -224,7 +241,7 @@ function _buildMergedContextUncached(tradIds, stapleWeight, exclude) {
 //
 // Mixed-form arrays are supported; each crossRef is independently string or object.
 function isolatedStaplesForPart(primaryTid, allTradIds, partId) {
-  const e = (typeof C !== 'undefined') && C.TRADITION_EXTRAS && C.TRADITION_EXTRAS[primaryTid];
+  const e = typeof C !== 'undefined' && C.TRADITION_EXTRAS && C.TRADITION_EXTRAS[primaryTid];
   if (!e || !Array.isArray(e.crossRefs)) return new Set();
   const isolatedRefs = new Set();
   for (const cr of e.crossRefs) {
@@ -251,7 +268,6 @@ function isolatedStaplesForPart(primaryTid, allTradIds, partId) {
   return exclude;
 }
 
-
 function parseEra(eraStr) {
   if (!eraStr) return null;
   const m = String(eraStr).match(/(\d{4})\s*[–-]\s*(\d{4}|present)/);
@@ -275,14 +291,14 @@ function getNeighbors(tradId, n = 5) {
   return result;
 }
 function _getNeighborsUncached(tradId, n = 5) {
-  const t = C.TRADITIONS.find(x => x.id === tradId);
+  const t = C.TRADITIONS.find((x) => x.id === tradId);
   const e = C.TRADITION_EXTRAS[tradId];
   if (!t || !e || !e.axes) return [];
 
   const candidates = [];
   // CrossRef targets — expand each crossRef tree-node to its traditions
-  for (const cr of (e.crossRefs || [])) {
-    const ref = typeof cr === 'string' ? cr : (cr && cr.ref);
+  for (const cr of e.crossRefs || []) {
+    const ref = typeof cr === 'string' ? cr : cr && cr.ref;
     if (!ref) continue;
     for (const otherTid of Object.keys(C.TRADITION_EXTRAS)) {
       const oe = C.TRADITION_EXTRAS[otherTid];
@@ -387,7 +403,10 @@ function _getEraYear(desc) {
   if (matches) {
     for (const ystr of matches) {
       const n = parseInt(ystr, 10);
-      if (n >= ERA_YEAR_MIN && n <= ERA_YEAR_MAX) { y = n; break; }
+      if (n >= ERA_YEAR_MIN && n <= ERA_YEAR_MAX) {
+        y = n;
+        break;
+      }
     }
   }
   _descEraYearCache.set(desc, y);
@@ -574,22 +593,33 @@ function scoreVariant(variant, context, options = {}) {
         const w = context.compounds.get(norm);
         const bonus = w * 1.5;
         score += bonus;
-        if (collectSignals) signals.push({ desc: ctag, tok: norm, w: bonus, src: 'canonical-compound-bonus' });
+        if (collectSignals)
+          signals.push({ desc: ctag, tok: norm, w: bonus, src: 'canonical-compound-bonus' });
       } else {
         let minWeight = Infinity;
         let allPresent = true;
         for (const sub of subtokens) {
-          if (!context.prose.has(sub)) { allPresent = false; break; }
+          if (!context.prose.has(sub)) {
+            allPresent = false;
+            break;
+          }
           const w = context.prose.get(sub);
           if (w < minWeight) minWeight = w;
         }
         if (allPresent) {
           const bonus = minWeight * 1.5;
           score += bonus;
-          if (collectSignals) signals.push({ desc: ctag, tok: norm, w: bonus, src: 'canonical-compound-bonus' });
+          if (collectSignals)
+            signals.push({ desc: ctag, tok: norm, w: bonus, src: 'canonical-compound-bonus' });
         } else {
           score += CANONICAL_CONFLICT_PENALTY;
-          if (collectSignals) signals.push({ desc: ctag, tok: norm, w: CANONICAL_CONFLICT_PENALTY, src: 'canonical-conflict' });
+          if (collectSignals)
+            signals.push({
+              desc: ctag,
+              tok: norm,
+              w: CANONICAL_CONFLICT_PENALTY,
+              src: 'canonical-conflict',
+            });
         }
       }
     } else {
@@ -611,7 +641,13 @@ function scoreVariant(variant, context, options = {}) {
         if (collectSignals) signals.push({ desc: ctag, tok, w: bonus, src: 'canonical-bonus' });
       } else {
         score += CANONICAL_CONFLICT_PENALTY;
-        if (collectSignals) signals.push({ desc: ctag, tok, w: CANONICAL_CONFLICT_PENALTY, src: 'canonical-conflict' });
+        if (collectSignals)
+          signals.push({
+            desc: ctag,
+            tok,
+            w: CANONICAL_CONFLICT_PENALTY,
+            src: 'canonical-conflict',
+          });
       }
     }
   }
@@ -624,7 +660,7 @@ function scoreVariant(variant, context, options = {}) {
   // anchor it. Empirical: removing this guard breaks 46 of 199 regression
   // fixtures, so the adjacency pathway is load-bearing across the catalog.
   if (options.useNeighbors && context.tradition) {
-    const directScore = score;  // capture before neighbor-bias is added
+    const directScore = score; // capture before neighbor-bias is added
     const neighbors = getNeighbors(context.tradition.id, 5);
     let neighborBonus = 0;
     for (const n of neighbors) {
@@ -663,48 +699,83 @@ for (let i = 0; i < args.length; i++) {
     if (eq > 0) flags[a.slice(2, eq)] = a.slice(eq + 1);
     else {
       const next = args[i + 1];
-      if (next && !next.startsWith('--')) { flags[a.slice(2)] = next; i++; }
-      else flags[a.slice(2)] = true;
+      if (next && !next.startsWith('--')) {
+        flags[a.slice(2)] = next;
+        i++;
+      } else flags[a.slice(2)] = true;
     }
   }
 }
 
 if (flags.variant && flags.instrument && flags.tradition) {
-  const inst = C.INSTRUMENTS.find(i => i.id === flags.instrument);
-  if (!inst) { console.error('Unknown instrument'); process.exit(2); }
+  const inst = C.INSTRUMENTS.find((i) => i.id === flags.instrument);
+  if (!inst) {
+    console.error('Unknown instrument');
+    process.exit(2);
+  }
   let variant = null;
   for (const p of inst.parts || []) {
-    const v = p.variants.find(x => x.id === flags.variant);
-    if (v) { variant = v; break; }
+    const v = p.variants.find((x) => x.id === flags.variant);
+    if (v) {
+      variant = v;
+      break;
+    }
   }
-  if (!variant) { console.error('Unknown variant for that instrument'); process.exit(2); }
+  if (!variant) {
+    console.error('Unknown variant for that instrument');
+    process.exit(2);
+  }
   const ctx = buildContext(flags.tradition);
-  if (!ctx) { console.error('Unknown tradition'); process.exit(2); }
+  if (!ctx) {
+    console.error('Unknown tradition');
+    process.exit(2);
+  }
   // Neighbor-bias ON by default to match the engine (and --rank-variants); the
   // bare --variant mode previously scored with neighbors OFF, so its number
   // disagreed with what the engine actually selects on. --no-neighbors opts out.
   const result = scoreVariant(variant, ctx, { useNeighbors: !flags['no-neighbors'] });
-  console.log(JSON.stringify({ variant: variant.id, descriptors: variant.descriptors, ...result }, null, 2));
+  console.log(
+    JSON.stringify({ variant: variant.id, descriptors: variant.descriptors, ...result }, null, 2)
+  );
   process.exit(0);
 }
 
 // --rank-variants: for an instrument's part within a tradition, rank all variants by score
 if (flags['rank-variants'] && flags.instrument && flags.part && flags.tradition) {
-  const inst = C.INSTRUMENTS.find(i => i.id === flags.instrument);
-  if (!inst) { console.error('Unknown instrument'); process.exit(2); }
-  const part = (inst.parts || []).find(p => p.id === flags.part);
-  if (!part) { console.error('Unknown part'); process.exit(2); }
+  const inst = C.INSTRUMENTS.find((i) => i.id === flags.instrument);
+  if (!inst) {
+    console.error('Unknown instrument');
+    process.exit(2);
+  }
+  const part = (inst.parts || []).find((p) => p.id === flags.part);
+  if (!part) {
+    console.error('Unknown part');
+    process.exit(2);
+  }
   const ctx = buildContext(flags.tradition);
-  if (!ctx) { console.error('Unknown tradition'); process.exit(2); }
+  if (!ctx) {
+    console.error('Unknown tradition');
+    process.exit(2);
+  }
 
-  const ranked = part.variants.map(v => {
-    const r = scoreVariant(v, ctx, { useNeighbors: !flags['no-neighbors'] });
-    return { id: v.id, name: v.name, descriptors: v.descriptors, score: r.score, signals: r.signals };
-  }).sort((a, b) => b.score - a.score);
+  const ranked = part.variants
+    .map((v) => {
+      const r = scoreVariant(v, ctx, { useNeighbors: !flags['no-neighbors'] });
+      return {
+        id: v.id,
+        name: v.name,
+        descriptors: v.descriptors,
+        score: r.score,
+        signals: r.signals,
+      };
+    })
+    .sort((a, b) => b.score - a.score);
 
   if (flags.json) console.log(JSON.stringify(ranked, null, 2));
   else {
-    console.log(`Ranked variants for ${flags.instrument}.${flags.part} in tradition ${flags.tradition}:`);
+    console.log(
+      `Ranked variants for ${flags.instrument}.${flags.part} in tradition ${flags.tradition}:`
+    );
     for (const r of ranked) {
       console.log(`  ${r.score.toFixed(2).padStart(6)}  ${r.id}  [${r.descriptors.join(', ')}]`);
     }
@@ -713,7 +784,14 @@ if (flags['rank-variants'] && flags.instrument && flags.part && flags.tradition)
 }
 
 // Export functions for use by search.js
-module.exports = { buildContext, buildMergedContext, isolatedStaplesForPart, scoreVariant, lookupDescriptor, parseEra };
+module.exports = {
+  buildContext,
+  buildMergedContext,
+  isolatedStaplesForPart,
+  scoreVariant,
+  lookupDescriptor,
+  parseEra,
+};
 
 if (require.main === module) {
   console.error('Usage:');

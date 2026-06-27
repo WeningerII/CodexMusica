@@ -4,7 +4,9 @@ All notable changes to this project are recorded here. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/). This file replaces the former
 `docs/plans/` collection of point-in-time planning documents.
 
-## [Unreleased] — production hardening
+## [Unreleased]
+
+## [2.0.0] — 2026-06-27 — production hardening
 
 ### Added
 - **Gate-lattice hardening: vacuous-pass guards + two-sided coverage of the full
@@ -19,7 +21,7 @@ All notable changes to this project are recorded here. Format loosely follows
   a defect across **19 gate-classes** (0 escapes, registry-completeness asserted) — new
   injections prove `check_app_parity`, `regression_prefaces`, `check_slot_picks`,
   `audit_dead_tokens`, and `check_workspace_ops` go red on planted drift, closing the
-  "two-sided by inspection only" tail (the AUDIT_REPORT H1 finding).
+  "two-sided by inspection only" tail.
 - **Connector rewrite: deterministic editable workspace (PR #49).** The MCP
   connector (`mcp/`) is now a headless driver of the same deterministic pipeline
   the browser app uses, not a hill-climb search. New tool surface: `start_recipe`
@@ -36,7 +38,7 @@ All notable changes to this project are recorded here. Format loosely follows
   `npm run test:connector` (incl. a headless app-vs-connector catalog-wide diff,
   `scripts/check_app_parity.js`). Shared SSOT renderer/seed/inverse-configure live
   in `scripts/_recipe_stack.js` / `_seed_workspace.js` / `_inverse_configure.js` /
-  `_workspace_ops.js`; design record in `CONNECTOR_WORKSPACE_PLAN.md`.
+  `_workspace_ops.js`.
 - **Genre expansion (focused everynoise cut) completed: six new traditions**
   (1113 → 1119): `gengetone` (revived from the PR #33 revert), `manele`,
   `chalga`, `marrabenta`, `murga_uruguaya`, `shangaan_electro` — the full
@@ -287,8 +289,8 @@ All notable changes to this project are recorded here. Format loosely follows
   theremin "Moog Music Etherwave … Robert Moog reissue" → "… reissue". Brand + model +
   year + place kept, personal name removed; variant ids unchanged (opaque keys). `api/`,
   `codex.html`, `sitemap.xml`, and the recipe snapshots regenerated from source.
-- **`main` is now the canonical / default branch.** Reconciled `main` with the former
-  auto-named default (`claude/loving-hawking-vq5m4`) so there is one source of truth; CI
+- **`main` is now the canonical / default branch.** Reconciled history so there is one
+  source of truth; CI
   and the `sync-pages` auto-publish target `main` (the live Pages / Render line).
 - Tradition defaults refined (61 traditions; recipe outputs re-snapshotted, all
   regression/equivalence gates green, `codex.html` rebuilt):
@@ -336,7 +338,7 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ### Removed
 - About 45 dead or vestigial files (~830 KB): `scripts/_one_off/`, orphaned scripts,
-  archived audit outputs, and the entire `docs/` tree.
+  archived audit outputs, and the legacy `docs/plans/` planning tree.
 - The `--extract` template-reconstruction bootstrap from `build_html.js`; templates are
   required source.
 - Dead code: a duplicate object key, several unused locals and parameters, and a dead

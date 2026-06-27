@@ -32,7 +32,7 @@ const Inst = (id) => (C.INSTRUMENTS || []).find((x) => x.id === id);
 const Tuning = (id) => (C.TUNINGS || []).find((x) => x.id === id);
 const Room = (id) => (C.ROOMS || []).find((x) => x.id === id);
 function ChainItem(stage, itemId) {
-  for (const sec of (C.CHAIN_SECTIONS || [])) {
+  for (const sec of C.CHAIN_SECTIONS || []) {
     if (sec.stage === stage || sec.id === stage) {
       const it = (sec.items || []).find((x) => x.id === itemId);
       if (it) return it;
@@ -61,11 +61,21 @@ function _suppressSubsumed(tokens) {
     if (drop.has(i)) continue;
     for (let j = 0; j < clean.length; j++) {
       if (i === j || drop.has(j) || segs[i].length >= segs[j].length) continue;
-      const a = segs[i]; const b = segs[j]; const m = a.length;
+      const a = segs[i];
+      const b = segs[j];
+      const m = a.length;
       for (let p = 0; p + m <= b.length; p++) {
         let match = true;
-        for (let k = 0; k < m; k++) { if (a[k] !== b[p + k]) { match = false; break; } }
-        if (match) { drop.add(i); break; }
+        for (let k = 0; k < m; k++) {
+          if (a[k] !== b[p + k]) {
+            match = false;
+            break;
+          }
+        }
+        if (match) {
+          drop.add(i);
+          break;
+        }
       }
       if (drop.has(i)) break;
     }
@@ -74,47 +84,226 @@ function _suppressSubsumed(tokens) {
 }
 
 const _MATERIAL_SEGMENTS = new Set([
-  'mahogany', 'spruce', 'cedar', 'maple', 'rosewood', 'walnut', 'oak', 'ash', 'alder',
-  'basswood', 'koa', 'ebony', 'pine', 'fir', 'beech', 'willow', 'sycamore', 'poplar',
-  'bamboo', 'teak', 'wood', 'tonewood', 'hardwood', 'softwood',
-  'padauk', 'bubinga', 'wenge', 'cherry', 'sapele', 'paulownia', 'birch', 'cocobolo',
-  'limba', 'korina',
-  'nickel', 'brass', 'bronze', 'phosphor', 'copper', 'silver', 'gold', 'iron', 'tin',
-  'steel', 'aluminum', 'aluminium', 'titanium', 'zinc', 'alnico', 'monel', 'tungsten',
-  'gut', 'sinew', 'horsehair', 'ivory', 'bone', 'horn', 'pearl', 'abalone', 'hide',
-  'rawhide', 'calfskin', 'goatskin', 'sheepskin', 'snakeskin', 'leather', 'wool', 'cotton', 'silk',
-  'flax', 'cane',
-  'nylon', 'plastic', 'lucite', 'fiberglass', 'kevlar', 'synthetic', 'polymer', 'carbon',
-  'acrylic', 'phenolic', 'mylar', 'ebonite', 'fluorocarbon',
-  'clay', 'ceramic', 'alabaster', 'marble', 'slate', 'stone', 'tile', 'concrete', 'brick',
+  'mahogany',
+  'spruce',
+  'cedar',
+  'maple',
+  'rosewood',
+  'walnut',
+  'oak',
+  'ash',
+  'alder',
+  'basswood',
+  'koa',
+  'ebony',
+  'pine',
+  'fir',
+  'beech',
+  'willow',
+  'sycamore',
+  'poplar',
+  'bamboo',
+  'teak',
+  'wood',
+  'tonewood',
+  'hardwood',
+  'softwood',
+  'padauk',
+  'bubinga',
+  'wenge',
+  'cherry',
+  'sapele',
+  'paulownia',
+  'birch',
+  'cocobolo',
+  'limba',
+  'korina',
+  'nickel',
+  'brass',
+  'bronze',
+  'phosphor',
+  'copper',
+  'silver',
+  'gold',
+  'iron',
+  'tin',
+  'steel',
+  'aluminum',
+  'aluminium',
+  'titanium',
+  'zinc',
+  'alnico',
+  'monel',
+  'tungsten',
+  'gut',
+  'sinew',
+  'horsehair',
+  'ivory',
+  'bone',
+  'horn',
+  'pearl',
+  'abalone',
+  'hide',
+  'rawhide',
+  'calfskin',
+  'goatskin',
+  'sheepskin',
+  'snakeskin',
+  'leather',
+  'wool',
+  'cotton',
+  'silk',
+  'flax',
+  'cane',
+  'nylon',
+  'plastic',
+  'lucite',
+  'fiberglass',
+  'kevlar',
+  'synthetic',
+  'polymer',
+  'carbon',
+  'acrylic',
+  'phenolic',
+  'mylar',
+  'ebonite',
+  'fluorocarbon',
+  'clay',
+  'ceramic',
+  'alabaster',
+  'marble',
+  'slate',
+  'stone',
+  'tile',
+  'concrete',
+  'brick',
   'terracotta',
   'gourd',
-  'tape', 'vinyl', 'lacquer', 'shellac', 'wax',
+  'tape',
+  'vinyl',
+  'lacquer',
+  'shellac',
+  'wax',
 ]);
 
 const _GEAR_SEGMENTS = new Set([
-  'neumann', 'telefunken', 'akg', 'shure', 'royer', 'sennheiser', 'beyerdynamic', 'rca',
-  'altec', 'sony', 'aiwa', 'tascam', 'portastudio', 'revox', 'studer', 'ampex', 'otari',
-  'mci', 'neve', 'api', 'ssl', 'trident', 'helios', 'soundcraft', 'soundtracs', 'mackie',
-  'tube-tech', 'manley', 'pultec', 'urei', 'dbx', 'fairchild', 'la-2a', 'la-3a', '1176',
-  'distressor', 'behringer', 'focusrite', 'rupert-neve', 'dda', 'daking', 'toft',
-  'dangerous', 'rnd', 'sphere',
+  'neumann',
+  'telefunken',
+  'akg',
+  'shure',
+  'royer',
+  'sennheiser',
+  'beyerdynamic',
+  'rca',
+  'altec',
+  'sony',
+  'aiwa',
+  'tascam',
+  'portastudio',
+  'revox',
+  'studer',
+  'ampex',
+  'otari',
+  'mci',
+  'neve',
+  'api',
+  'ssl',
+  'trident',
+  'helios',
+  'soundcraft',
+  'soundtracs',
+  'mackie',
+  'tube-tech',
+  'manley',
+  'pultec',
+  'urei',
+  'dbx',
+  'fairchild',
+  'la-2a',
+  'la-3a',
+  '1176',
+  'distressor',
+  'behringer',
+  'focusrite',
+  'rupert-neve',
+  'dda',
+  'daking',
+  'toft',
+  'dangerous',
+  'rnd',
+  'sphere',
 ]);
 
 const _SCAFFOLD_TOKENS = new Set([
-  'modern', 'traditional', 'classical', 'contemporary', 'vintage', 'standard',
-  'regional', 'folk', 'popular', 'folk-tradition', 'sacred', 'secular', 'ceremonial',
-  'concert', 'recital', 'accompaniment', 'lead', 'western', 'western-default',
-  'eastern', 'equal-tempered', 'modern-music', 'classical-western', 'tonal',
-  'monodic', 'polyphonic', 'art-music', 'vernacular',
+  'modern',
+  'traditional',
+  'classical',
+  'contemporary',
+  'vintage',
+  'standard',
+  'regional',
+  'folk',
+  'popular',
+  'folk-tradition',
+  'sacred',
+  'secular',
+  'ceremonial',
+  'concert',
+  'recital',
+  'accompaniment',
+  'lead',
+  'western',
+  'western-default',
+  'eastern',
+  'equal-tempered',
+  'modern-music',
+  'classical-western',
+  'tonal',
+  'monodic',
+  'polyphonic',
+  'art-music',
+  'vernacular',
 ]);
 
 const _TEXTURE_TOKENS = new Set([
-  'foundational', 'virtuoso', 'versatile', 'consistent', 'expressive', 'grounded',
-  'connected', 'meditative', 'deep', 'soulful', 'tender', 'intimate', 'powerful',
-  'evocative', 'emotive', 'sincere', 'heartfelt', 'rhythmic', 'melodic', 'articulate',
-  'lyrical', 'warm', 'dark', 'bright', 'smooth', 'harsh', 'clean', 'dirty', 'gritty',
-  'sweet', 'mellow', 'rich', 'full', 'open', 'tight', 'loose', 'airy', 'dense',
+  'foundational',
+  'virtuoso',
+  'versatile',
+  'consistent',
+  'expressive',
+  'grounded',
+  'connected',
+  'meditative',
+  'deep',
+  'soulful',
+  'tender',
+  'intimate',
+  'powerful',
+  'evocative',
+  'emotive',
+  'sincere',
+  'heartfelt',
+  'rhythmic',
+  'melodic',
+  'articulate',
+  'lyrical',
+  'warm',
+  'dark',
+  'bright',
+  'smooth',
+  'harsh',
+  'clean',
+  'dirty',
+  'gritty',
+  'sweet',
+  'mellow',
+  'rich',
+  'full',
+  'open',
+  'tight',
+  'loose',
+  'airy',
+  'dense',
 ]);
 
 function _descriptorTier(token) {
@@ -125,7 +314,8 @@ function _descriptorTier(token) {
   }
   if (/(?:^|-)(?:18|19|20)\d{2}s?(?:-|$)/.test(token)) return 1;
   if (/^\d{2,4}s$/.test(token)) return 1;
-  if (token.includes('century') || token.includes('-era-') || token.includes('mid-century')) return 1;
+  if (token.includes('century') || token.includes('-era-') || token.includes('mid-century'))
+    return 1;
   if (_SCAFFOLD_TOKENS.has(token)) return 3;
   if (_TEXTURE_TOKENS.has(token)) return 4;
   return 2;
@@ -136,17 +326,18 @@ function _ensureDF() {
   if (_DF !== null) return _DF;
   _DF = new Map();
   const bump = (d) => _DF.set(d, (_DF.get(d) || 0) + 1);
-  for (const inst of (C.INSTRUMENTS || [])) {
-    for (const part of (inst.parts || [])) {
-      for (const v of (part.variants || [])) {
+  for (const inst of C.INSTRUMENTS || []) {
+    for (const part of inst.parts || []) {
+      for (const v of part.variants || []) {
         if (v.expanded) continue; // universal cross-instrument materials don't shift corpus DF
-        for (const d of (v.descriptors || [])) bump(d);
+        for (const d of v.descriptors || []) bump(d);
       }
     }
   }
-  for (const t of (C.TUNINGS || [])) for (const d of (t.descriptors || [])) bump(d);
-  for (const r of (C.ROOMS || [])) for (const d of (r.descriptors || [])) bump(d);
-  for (const sec of (C.CHAIN_SECTIONS || [])) for (const it of (sec.items || [])) for (const d of (it.descriptors || [])) bump(d);
+  for (const t of C.TUNINGS || []) for (const d of t.descriptors || []) bump(d);
+  for (const r of C.ROOMS || []) for (const d of r.descriptors || []) bump(d);
+  for (const sec of C.CHAIN_SECTIONS || [])
+    for (const it of sec.items || []) for (const d of it.descriptors || []) bump(d);
   return _DF;
 }
 
@@ -163,11 +354,20 @@ function _sortDescriptorsByPriority(descs) {
   });
 }
 
-const _FILLERS = new Set(['canonical', 'standard', 'default', 'unmarked', 'normal', 'plain', 'none', 'minimal']);
+const _FILLERS = new Set([
+  'canonical',
+  'standard',
+  'default',
+  'unmarked',
+  'normal',
+  'plain',
+  'none',
+  'minimal',
+]);
 function _cleanDescriptors(descs) {
   const out = [];
   const seen = new Set();
-  for (const raw of (descs || [])) {
+  for (const raw of descs || []) {
     if (raw == null) continue;
     const stripped = String(raw).replace(/-canonical$/, '');
     if (!stripped) continue;
@@ -189,12 +389,16 @@ function buildStackParts(card) {
   if (!inst) return [];
   const out = [];
   const all = [];
-  for (const part of (inst.parts || [])) {
+  for (const part of inst.parts || []) {
     const v = (part.variants || []).find((x) => x.id === (card.parts || {})[part.id]);
     if (!v) continue;
     all.push(...(v.descriptors || []));
   }
-  out.push({ kind: 'instrument', label: inst.short || inst.name, descriptors: _cleanDescriptors(all) });
+  out.push({
+    kind: 'instrument',
+    label: inst.short || inst.name,
+    descriptors: _cleanDescriptors(all),
+  });
   if (card.tuning) {
     const t = Tuning(card.tuning);
     if (t) out.push({ kind: 'tuning', label: t.name, descriptors: _entryRenderDescs(t) });
@@ -204,15 +408,25 @@ function buildStackParts(card) {
     if (r) out.push({ kind: 'room', label: r.name, descriptors: _entryRenderDescs(r) });
   }
   const chain = card.chain || {};
-  for (const sec of (C.CHAIN_SECTIONS || [])) {
+  for (const sec of C.CHAIN_SECTIONS || []) {
     if (sec.multiSelect) {
-      for (const id of (chain[sec.id] || [])) {
+      for (const id of chain[sec.id] || []) {
         const it = ChainItem(sec.id, id);
-        if (it) out.push({ kind: sec.id, label: `${sec.name.toLowerCase()}: ${it.name}`, descriptors: _entryRenderDescs(it) });
+        if (it)
+          out.push({
+            kind: sec.id,
+            label: `${sec.name.toLowerCase()}: ${it.name}`,
+            descriptors: _entryRenderDescs(it),
+          });
       }
     } else if (chain[sec.id]) {
       const it = ChainItem(sec.id, chain[sec.id]);
-      if (it) out.push({ kind: sec.id, label: `${sec.name.toLowerCase()}: ${it.name}`, descriptors: _entryRenderDescs(it) });
+      if (it)
+        out.push({
+          kind: sec.id,
+          label: `${sec.name.toLowerCase()}: ${it.name}`,
+          descriptors: _entryRenderDescs(it),
+        });
     }
   }
   return out;
@@ -242,12 +456,15 @@ function assignDedupedPrefaces(cards) {
   // preface (engine `prefaces` / apply_preface) surfaces verbatim instead of
   // being overridden by a higher-precision auto-match.
   const lockedIds = new Set();
-  for (const c of (cards || [])) {
+  for (const c of cards || []) {
     if (c && c.prefaceLock && c.preface) lockedIds.add(_resolvePreface(c) || c.preface);
   }
   const slots = [];
-  for (const card of (cards || [])) {
-    if (card && card.prefaceLock && card.preface) { card.preface = _resolvePreface(card) || card.preface; continue; }
+  for (const card of cards || []) {
+    if (card && card.prefaceLock && card.preface) {
+      card.preface = _resolvePreface(card) || card.preface;
+      continue;
+    }
     let ranked = [];
     try {
       const descSet = cardDescriptors(card, C, SIGS);
@@ -259,8 +476,12 @@ function assignDedupedPrefaces(cards) {
       // the more-specific 9-shared one).
       ranked = rank(descSet, C.PREFACE_LEXICON)
         .map((r) => ({ ...r, shared: tokensOf(r.entry).filter((t) => descSet.has(t)).length }))
-        .sort((a, b) => b.score - a.score || b.shared - a.shared || a.entry.id.localeCompare(b.entry.id));
-    } catch { ranked = []; }
+        .sort(
+          (a, b) => b.score - a.score || b.shared - a.shared || a.entry.id.localeCompare(b.entry.id)
+        );
+    } catch {
+      ranked = [];
+    }
     let cursor = 0;
     while (cursor < ranked.length && lockedIds.has(ranked[cursor].entry.id)) cursor++;
     slots.push({ card, ranked, cursor, current: ranked[cursor] || null });
@@ -280,7 +501,12 @@ function assignDedupedPrefaces(cards) {
       group.sort((a, b) => b.current.score - a.current.score);
       for (let k = 1; k < group.length; k++) {
         const loser = group[k];
-        do { loser.cursor++; } while (loser.cursor < loser.ranked.length && lockedIds.has(loser.ranked[loser.cursor].entry.id));
+        do {
+          loser.cursor++;
+        } while (
+          loser.cursor < loser.ranked.length &&
+          lockedIds.has(loser.ranked[loser.cursor].entry.id)
+        );
         loser.current = loser.ranked[loser.cursor] || null;
       }
     }
@@ -325,8 +551,10 @@ function compressProseRecipe(cards, ceiling) {
   for (const c of rawChunks) {
     if (mergedByLabel.has(c.label)) {
       const existing = mergedByLabel.get(c.label);
-      for (const d of c.descriptors) if (!existing.descriptors.includes(d)) existing.descriptors.push(d);
-      if (c.preface && !existing.descriptors.includes(c.preface)) existing.descriptors.push(c.preface);
+      for (const d of c.descriptors)
+        if (!existing.descriptors.includes(d)) existing.descriptors.push(d);
+      if (c.preface && !existing.descriptors.includes(c.preface))
+        existing.descriptors.push(c.preface);
     } else {
       const cp = { kind: c.kind, label: c.label, descriptors: [...c.descriptors] };
       if (c.preface) cp.descriptors.push(c.preface);
@@ -367,7 +595,11 @@ function compressProseRecipe(cards, ceiling) {
       finalChunks.push({ kind: groupKind, trailingLabel: trailing, parts });
     } else {
       emitted.add(key);
-      finalChunks.push({ kind: c.kind, trailingLabel: c.label, parts: [{ descriptors: c.descriptors.slice(), innerLabel: null }] });
+      finalChunks.push({
+        kind: c.kind,
+        trailingLabel: c.label,
+        parts: [{ descriptors: c.descriptors.slice(), innerLabel: null }],
+      });
     }
   }
 
@@ -386,14 +618,20 @@ function compressProseRecipe(cards, ceiling) {
 
   let guard = 5000;
   while (renderAll().length > ceiling && guard-- > 0) {
-    let target = null; let targetTier = -Infinity; let targetLen = -1;
+    let target = null;
+    let targetTier = -Infinity;
+    let targetLen = -1;
     for (const c of finalChunks) {
       for (const part of c.parts) {
         if (part.descriptors.length === 0) continue;
         const last = part.descriptors[part.descriptors.length - 1];
         const t = _descriptorTier(last);
-        const better = (t > targetTier) || (t === targetTier && part.descriptors.length > targetLen);
-        if (better) { target = part; targetTier = t; targetLen = part.descriptors.length; }
+        const better = t > targetTier || (t === targetTier && part.descriptors.length > targetLen);
+        if (better) {
+          target = part;
+          targetTier = t;
+          targetLen = part.descriptors.length;
+        }
       }
     }
     if (!target) break;
@@ -404,7 +642,10 @@ function compressProseRecipe(cards, ceiling) {
 
   while (renderAll().length > ceiling && finalChunks.some((c) => c.kind === 'env')) {
     for (let i = finalChunks.length - 1; i >= 0; i--) {
-      if (finalChunks[i].kind === 'env') { finalChunks.splice(i, 1); break; }
+      if (finalChunks[i].kind === 'env') {
+        finalChunks.splice(i, 1);
+        break;
+      }
     }
   }
   output = renderAll();
@@ -414,7 +655,11 @@ function compressProseRecipe(cards, ceiling) {
     let popped = false;
     for (let i = finalChunks.length - 1; i >= 0; i--) {
       const c = finalChunks[i];
-      if (c.kind === 'inst' && c.parts.length > 1) { c.parts.pop(); popped = true; break; }
+      if (c.kind === 'inst' && c.parts.length > 1) {
+        c.parts.pop();
+        popped = true;
+        break;
+      }
     }
     if (!popped) break;
   }
@@ -434,7 +679,9 @@ function compressProseRecipe(cards, ceiling) {
 
 // ─────────────────────────── tags ───────────────────────────
 function _tagsChunk(label, descs, preface) {
-  const clean = _suppressSubsumed(descs).sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+  const clean = _suppressSubsumed(descs).sort((a, b) =>
+    a.toLowerCase().localeCompare(b.toLowerCase())
+  );
   const head = preface ? `${preface} ${_kebab(label)}` : _kebab(label);
   return clean.length === 0 ? head : `${head}: ${clean.join(' ')}`;
 }
@@ -457,51 +704,88 @@ function compressTagsRecipe(cards, ceiling) {
   const TRIM_TARGET = ceiling - 1;
   if (output.length <= TRIM_TARGET) return output + '.';
 
-  const rebuilt = cards.map((card) => {
-    const parts = buildStackParts(card);
-    const inst = parts.find((p) => p.kind === 'instrument');
-    return inst ? {
-      kind: 'inst', label: inst.label, preface: _resolvePreface(card),
-      descs: _suppressSubsumed(inst.descriptors).sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase())),
-    } : null;
-  }).filter(Boolean);
+  const rebuilt = cards
+    .map((card) => {
+      const parts = buildStackParts(card);
+      const inst = parts.find((p) => p.kind === 'instrument');
+      return inst
+        ? {
+            kind: 'inst',
+            label: inst.label,
+            preface: _resolvePreface(card),
+            descs: _suppressSubsumed(inst.descriptors).sort((a, b) =>
+              a.toLowerCase().localeCompare(b.toLowerCase())
+            ),
+          }
+        : null;
+    })
+    .filter(Boolean);
   if (cards.length > 0) {
     for (const p of buildStackParts(cards[0])) {
       if (p.kind === 'instrument') continue;
-      rebuilt.push({ kind: 'env', label: p.label, preface: null, descs: _suppressSubsumed(p.descriptors).sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase())) });
+      rebuilt.push({
+        kind: 'env',
+        label: p.label,
+        preface: null,
+        descs: _suppressSubsumed(p.descriptors).sort((a, b) =>
+          a.toLowerCase().localeCompare(b.toLowerCase())
+        ),
+      });
     }
   }
-  const renderAll = () => rebuilt.map((c) => {
-    const head = c.preface ? `${c.preface} ${_kebab(c.label)}` : _kebab(c.label);
-    return c.descs.length ? `${head}: ${c.descs.join(' ')}` : head;
-  }).join(', ');
+  const renderAll = () =>
+    rebuilt
+      .map((c) => {
+        const head = c.preface ? `${c.preface} ${_kebab(c.label)}` : _kebab(c.label);
+        return c.descs.length ? `${head}: ${c.descs.join(' ')}` : head;
+      })
+      .join(', ');
 
   let guard = 5000;
   while (renderAll().length > TRIM_TARGET && guard-- > 0) {
-    let target = -1; let targetMinLen = Infinity;
+    let target = -1;
+    let targetMinLen = Infinity;
     for (let i = 0; i < rebuilt.length; i++) {
       if (rebuilt[i].descs.length === 0) continue;
       let minLen = Infinity;
       for (const d of rebuilt[i].descs) if (d.length < minLen) minLen = d.length;
-      if (minLen < targetMinLen || (minLen === targetMinLen && rebuilt[i].descs.length > (rebuilt[target]?.descs.length || 0))) { target = i; targetMinLen = minLen; }
+      if (
+        minLen < targetMinLen ||
+        (minLen === targetMinLen && rebuilt[i].descs.length > (rebuilt[target]?.descs.length || 0))
+      ) {
+        target = i;
+        targetMinLen = minLen;
+      }
     }
     if (target < 0) break;
     const c = rebuilt[target];
     let shortIdx = 0;
-    for (let i = 1; i < c.descs.length; i++) if (c.descs[i].length < c.descs[shortIdx].length) shortIdx = i;
+    for (let i = 1; i < c.descs.length; i++)
+      if (c.descs[i].length < c.descs[shortIdx].length) shortIdx = i;
     c.descs.splice(shortIdx, 1);
   }
   while (renderAll().length > TRIM_TARGET && rebuilt.some((c) => c.kind === 'env')) {
-    for (let i = rebuilt.length - 1; i >= 0; i--) { if (rebuilt[i].kind === 'env') { rebuilt.splice(i, 1); break; } }
+    for (let i = rebuilt.length - 1; i >= 0; i--) {
+      if (rebuilt[i].kind === 'env') {
+        rebuilt.splice(i, 1);
+        break;
+      }
+    }
   }
   const noticeFor = (n) => (n > 0 ? ` [+${n} hidden]` : '');
   let droppedInst = 0;
   const finalLen = () => renderAll().length + 1 + noticeFor(droppedInst).length;
   while (rebuilt.length > 1 && finalLen() > ceiling) {
     let dropIdx = -1;
-    for (let i = rebuilt.length - 1; i >= 0; i--) { if (rebuilt[i].kind === 'inst') { dropIdx = i; break; } }
+    for (let i = rebuilt.length - 1; i >= 0; i--) {
+      if (rebuilt[i].kind === 'inst') {
+        dropIdx = i;
+        break;
+      }
+    }
     if (dropIdx < 0) break;
-    rebuilt.splice(dropIdx, 1); droppedInst++;
+    rebuilt.splice(dropIdx, 1);
+    droppedInst++;
   }
   let final = renderAll() + '.' + noticeFor(droppedInst);
   if (final.length > ceiling) final = final.slice(0, Math.max(0, ceiling - 16)) + '… [truncated]';
@@ -510,17 +794,23 @@ function compressTagsRecipe(cards, ceiling) {
 
 // ─────────────────────────── compact ───────────────────────────
 function compressCompactRecipe(cards, ceiling) {
-  let out = cards.map((card) => {
-    const preface = _resolvePreface(card);
-    return buildStackParts(card).map((p) => (p.kind === 'instrument' && preface) ? `${preface} ${p.label}` : p.label).join(' · ');
-  }).join('\n');
+  let out = cards
+    .map((card) => {
+      const preface = _resolvePreface(card);
+      return buildStackParts(card)
+        .map((p) => (p.kind === 'instrument' && preface ? `${preface} ${p.label}` : p.label))
+        .join(' · ');
+    })
+    .join('\n');
   if (out.length <= ceiling) return out;
-  out = cards.map((card) => {
-    const inst = buildStackParts(card).find((p) => p.kind === 'instrument');
-    if (!inst) return '?';
-    const preface = _resolvePreface(card);
-    return preface ? `${preface} ${inst.label}` : inst.label;
-  }).join('\n');
+  out = cards
+    .map((card) => {
+      const inst = buildStackParts(card).find((p) => p.kind === 'instrument');
+      if (!inst) return '?';
+      const preface = _resolvePreface(card);
+      return preface ? `${preface} ${inst.label}` : inst.label;
+    })
+    .join('\n');
   if (out.length <= ceiling) return out;
   return out.slice(0, ceiling - 16) + '\n[truncated]';
 }
@@ -532,7 +822,12 @@ function compressRichRecipe(cards, ceiling) {
     const parts = buildStackParts(card);
     const inst = parts.find((p) => p.kind === 'instrument');
     if (!inst) continue;
-    rawChunks.push({ kind: 'inst', label: _kebab(inst.label), preface: _resolvePreface(card) || null, descriptors: _suppressSubsumed(inst.descriptors).slice() });
+    rawChunks.push({
+      kind: 'inst',
+      label: _kebab(inst.label),
+      preface: _resolvePreface(card) || null,
+      descriptors: _suppressSubsumed(inst.descriptors).slice(),
+    });
   }
   if (cards.length > 0) {
     for (const p of buildStackParts(cards[0])) {
@@ -540,7 +835,12 @@ function compressRichRecipe(cards, ceiling) {
       let label = p.label;
       const colonIdx = label.indexOf(': ');
       if (colonIdx >= 0) label = label.slice(colonIdx + 2);
-      rawChunks.push({ kind: 'env', label: _kebab(label), preface: null, descriptors: _suppressSubsumed(p.descriptors).slice() });
+      rawChunks.push({
+        kind: 'env',
+        label: _kebab(label),
+        preface: null,
+        descriptors: _suppressSubsumed(p.descriptors).slice(),
+      });
     }
   }
 
@@ -552,7 +852,12 @@ function compressRichRecipe(cards, ceiling) {
       if (c.preface && !ex.prefaces.includes(c.preface)) ex.prefaces.push(c.preface);
       for (const d of c.descriptors) if (!ex.descriptors.includes(d)) ex.descriptors.push(d);
     } else {
-      byLabel.set(c.label, { kind: c.kind, label: c.label, prefaces: c.preface ? [c.preface] : [], descriptors: c.descriptors.slice() });
+      byLabel.set(c.label, {
+        kind: c.kind,
+        label: c.label,
+        prefaces: c.preface ? [c.preface] : [],
+        descriptors: c.descriptors.slice(),
+      });
       labelOrder.push(c.label);
     }
   }
@@ -583,14 +888,25 @@ function compressRichRecipe(cards, ceiling) {
         const memberSegs = m.label.split('-');
         const innerLabel = memberSegs.slice(0, -1).join('-') || null;
         parts.push({ prefaces: m.prefaces.slice(), innerLabel });
-        for (const d of m.descriptors) if (!pooledDescriptors.includes(d)) pooledDescriptors.push(d);
+        for (const d of m.descriptors)
+          if (!pooledDescriptors.includes(d)) pooledDescriptors.push(d);
         if (m.kind === 'env') groupKind = 'env';
         emitted.add(groupKey);
       }
-      finalChunks.push({ kind: groupKind, trailingLabel: trailing, parts, descriptors: pooledDescriptors });
+      finalChunks.push({
+        kind: groupKind,
+        trailingLabel: trailing,
+        parts,
+        descriptors: pooledDescriptors,
+      });
     } else {
       emitted.add(key);
-      finalChunks.push({ kind: c.kind, trailingLabel: c.label, parts: [{ prefaces: c.prefaces.slice(), innerLabel: null }], descriptors: c.descriptors.slice() });
+      finalChunks.push({
+        kind: c.kind,
+        trailingLabel: c.label,
+        parts: [{ prefaces: c.prefaces.slice(), innerLabel: null }],
+        descriptors: c.descriptors.slice(),
+      });
     }
   }
 
@@ -612,28 +928,47 @@ function compressRichRecipe(cards, ceiling) {
 
   let guard = 5000;
   while (renderAll().length > TRIM_TARGET && guard-- > 0) {
-    let target = -1; let targetTier = -Infinity;
+    let target = -1;
+    let targetTier = -Infinity;
     for (let i = 0; i < finalChunks.length; i++) {
       if (finalChunks[i].descriptors.length === 0) continue;
       const last = finalChunks[i].descriptors[finalChunks[i].descriptors.length - 1];
       const t = _descriptorTier(last);
-      const better = (t > targetTier) || (t === targetTier && finalChunks[i].descriptors.length > (target >= 0 ? finalChunks[target].descriptors.length : 0));
-      if (better) { target = i; targetTier = t; }
+      const better =
+        t > targetTier ||
+        (t === targetTier &&
+          finalChunks[i].descriptors.length >
+            (target >= 0 ? finalChunks[target].descriptors.length : 0));
+      if (better) {
+        target = i;
+        targetTier = t;
+      }
     }
     if (target < 0) break;
     finalChunks[target].descriptors.pop();
   }
   while (renderAll().length > TRIM_TARGET && finalChunks.some((c) => c.kind === 'env')) {
-    for (let i = finalChunks.length - 1; i >= 0; i--) { if (finalChunks[i].kind === 'env') { finalChunks.splice(i, 1); break; } }
+    for (let i = finalChunks.length - 1; i >= 0; i--) {
+      if (finalChunks[i].kind === 'env') {
+        finalChunks.splice(i, 1);
+        break;
+      }
+    }
   }
   const noticeFor = (n) => (n > 0 ? ` [+${n} hidden]` : '');
   let droppedInst = 0;
   const finalLen = () => renderAll().length + 1 + noticeFor(droppedInst).length;
   while (finalChunks.length > 1 && finalLen() > ceiling) {
     let dropIdx = -1;
-    for (let i = finalChunks.length - 1; i >= 0; i--) { if (finalChunks[i].kind === 'inst') { dropIdx = i; break; } }
+    for (let i = finalChunks.length - 1; i >= 0; i--) {
+      if (finalChunks[i].kind === 'inst') {
+        dropIdx = i;
+        break;
+      }
+    }
     if (dropIdx < 0) break;
-    finalChunks.splice(dropIdx, 1); droppedInst++;
+    finalChunks.splice(dropIdx, 1);
+    droppedInst++;
   }
   let final = renderAll() + '.' + noticeFor(droppedInst);
   if (final.length > ceiling) final = final.slice(0, Math.max(0, ceiling - 16)) + '… [truncated]';

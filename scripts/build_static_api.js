@@ -17,7 +17,13 @@ const path = require('path');
 const C = require('./_loader.js');
 const { search, seedFromTradition } = require('./search.js');
 const { translate } = require('./translate.js');
-const { buildResolver, recordProblems, traditionSource, RECIPE_CHAR_CEILING, stripExpandedVariants } = require('./_api_contract.js');
+const {
+  buildResolver,
+  recordProblems,
+  traditionSource,
+  RECIPE_CHAR_CEILING,
+  stripExpandedVariants,
+} = require('./_api_contract.js');
 
 const flags = {};
 for (const a of process.argv.slice(2)) {
@@ -50,7 +56,21 @@ function writeJson(p, obj) {
 // Canonical 13-axis order — the browse index stores axes as a compact array in
 // this order (named keys would repeat 13× per tradition and bloat the index at
 // scale). The app maps array→named on load via the file's `axisKeys` header.
-const AXIS_KEYS = ['harm', 'pitch', 'ornament', 'meter', 'density', 'transmission', 'improv', 'soundTech', 'intensity', 'voice', 'timbre', 'percussion', 'cyclicity'];
+const AXIS_KEYS = [
+  'harm',
+  'pitch',
+  'ornament',
+  'meter',
+  'density',
+  'transmission',
+  'improv',
+  'soundTech',
+  'intensity',
+  'voice',
+  'timbre',
+  'percussion',
+  'cyclicity',
+];
 
 function compileTradition(t) {
   const seed = seedFromTradition(t.id, [], EMPTY_OPTS);
@@ -219,10 +239,14 @@ function main() {
     for (const f of failures.slice(0, 20)) errs.push(`    ${f.id}: ${f.err}`);
   }
   if (isFull && bundle.length !== C.TRADITIONS.length) {
-    errs.push(`incomplete: built ${bundle.length} of ${C.TRADITIONS.length} traditions (the "all ${C.TRADITIONS.length}" promise)`);
+    errs.push(
+      `incomplete: built ${bundle.length} of ${C.TRADITIONS.length} traditions (the "all ${C.TRADITIONS.length}" promise)`
+    );
   }
   if (contract.length) {
-    errs.push(`${contract.length} record(s) break the API contract (<=${RECIPE_CHAR_CEILING} chars, resolvable ids):`);
+    errs.push(
+      `${contract.length} record(s) break the API contract (<=${RECIPE_CHAR_CEILING} chars, resolvable ids):`
+    );
     for (const p of contract.slice(0, 20)) errs.push(`    ${p}`);
   }
   if (errs.length) {

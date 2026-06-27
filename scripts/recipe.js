@@ -47,7 +47,15 @@ const positional = [];
 // dying with "--diff requires two tradition ids". Listing them lets the natural
 // `--diff <a> <b> [--weight=]` form work as documented (the `--diff --weight= <a> <b>`
 // form keeps working too).
-const BOOLEAN_FLAGS = new Set(['diff', 'json', 'trace', 'why', 'why-json', 'why-prefaces', 'why-prefaces-json']);
+const BOOLEAN_FLAGS = new Set([
+  'diff',
+  'json',
+  'trace',
+  'why',
+  'why-json',
+  'why-prefaces',
+  'why-prefaces-json',
+]);
 for (let i = 0; i < args.length; i++) {
   const a = args[i];
   if (a.startsWith('--')) {
@@ -56,8 +64,10 @@ for (let i = 0; i < args.length; i++) {
     else {
       const name = a.slice(2);
       const next = args[i + 1];
-      if (!BOOLEAN_FLAGS.has(name) && next && !next.startsWith('--')) { flags[name] = next; i++; }
-      else flags[name] = true;
+      if (!BOOLEAN_FLAGS.has(name) && next && !next.startsWith('--')) {
+        flags[name] = next;
+        i++;
+      } else flags[name] = true;
     }
   } else {
     positional.push(a);
@@ -95,9 +105,12 @@ function parseOpts(flags, _primaryTradId, _stapleIds) {
   const errors = [];
 
   if (flags['exclude-instrument']) {
-    const ids = String(flags['exclude-instrument']).split(',').map(s => s.trim()).filter(Boolean);
+    const ids = String(flags['exclude-instrument'])
+      .split(',')
+      .map((s) => s.trim())
+      .filter(Boolean);
     for (const iid of ids) {
-      if (!C.INSTRUMENTS.find(x => x.id === iid)) {
+      if (!C.INSTRUMENTS.find((x) => x.id === iid)) {
         errors.push(`Unknown instrument id: ${iid}`);
         continue;
       }
@@ -111,9 +124,12 @@ function parseOpts(flags, _primaryTradId, _stapleIds) {
   //   default lineup with cross-tradition instruments (e.g. accordion on a
   //   blues-rock recipe to express a Tom-Waits-style cabaret guest).
   if (flags['add-instrument']) {
-    const ids = String(flags['add-instrument']).split(',').map(s => s.trim()).filter(Boolean);
+    const ids = String(flags['add-instrument'])
+      .split(',')
+      .map((s) => s.trim())
+      .filter(Boolean);
     for (const iid of ids) {
-      if (!C.INSTRUMENTS.find(x => x.id === iid)) {
+      if (!C.INSTRUMENTS.find((x) => x.id === iid)) {
         errors.push(`Unknown instrument id (add): ${iid}`);
         continue;
       }
@@ -130,7 +146,7 @@ function parseOpts(flags, _primaryTradId, _stapleIds) {
   let arrangement = null;
   if (flags['arrangement']) {
     const aid = String(flags['arrangement']).trim();
-    const found = (C.ARRANGEMENTS || []).find(a => a.id === aid);
+    const found = (C.ARRANGEMENTS || []).find((a) => a.id === aid);
     if (!found) {
       errors.push(`Unknown arrangement id: ${aid}`);
     } else {
@@ -139,20 +155,32 @@ function parseOpts(flags, _primaryTradId, _stapleIds) {
   }
 
   if (flags['swap-variant']) {
-    const triples = String(flags['swap-variant']).split(';').map(s => s.trim()).filter(Boolean);
+    const triples = String(flags['swap-variant'])
+      .split(';')
+      .map((s) => s.trim())
+      .filter(Boolean);
     for (const triple of triples) {
       const parts = triple.split(':');
       if (parts.length !== 3) {
         errors.push(`Bad --swap-variant triple (need inst:part:variant): ${triple}`);
         continue;
       }
-      const [iid, pid, vid] = parts.map(s => s.trim());
-      const inst = C.INSTRUMENTS.find(x => x.id === iid);
-      if (!inst) { errors.push(`Unknown instrument: ${iid}`); continue; }
-      const part = (inst.parts || []).find(p => p.id === pid);
-      if (!part) { errors.push(`Instrument ${iid} has no part ${pid}`); continue; }
-      const variant = (part.variants || []).find(v => v.id === vid);
-      if (!variant) { errors.push(`${iid}.${pid} has no variant ${vid}`); continue; }
+      const [iid, pid, vid] = parts.map((s) => s.trim());
+      const inst = C.INSTRUMENTS.find((x) => x.id === iid);
+      if (!inst) {
+        errors.push(`Unknown instrument: ${iid}`);
+        continue;
+      }
+      const part = (inst.parts || []).find((p) => p.id === pid);
+      if (!part) {
+        errors.push(`Instrument ${iid} has no part ${pid}`);
+        continue;
+      }
+      const variant = (part.variants || []).find((v) => v.id === vid);
+      if (!variant) {
+        errors.push(`${iid}.${pid} has no variant ${vid}`);
+        continue;
+      }
       swap[iid] = swap[iid] || {};
       swap[iid][pid] = vid;
     }
@@ -205,7 +233,7 @@ function seedDiff(idA, idB, weight, opts) {
   if (!Number.isFinite(weight)) weight = 0.5;
   if (weight === 0) return seedFromTradition(idA, [], opts);
   if (weight === 1) return seedFromTradition(idB, [], opts);
-  const primaryId   = weight <= 0.5 ? idA : idB;
+  const primaryId = weight <= 0.5 ? idA : idB;
   const secondaryId = weight <= 0.5 ? idB : idA;
   const stapleWeight = Math.min(weight, 1 - weight) * 2;
   return seedFromTradition(primaryId, [secondaryId], { ...opts, stapleWeight });
@@ -223,8 +251,12 @@ let stapleIds = [];
 if (flags.tradition) {
   primaryTradId = flags.tradition;
 } else if (flags.traditions) {
-  const ids = String(flags.traditions).split(',').map(s => s.trim()).filter(Boolean);
-  primaryTradId = ids[0]; stapleIds = ids.slice(1);
+  const ids = String(flags.traditions)
+    .split(',')
+    .map((s) => s.trim())
+    .filter(Boolean);
+  primaryTradId = ids[0];
+  stapleIds = ids.slice(1);
 } else if (flags.diff) {
   [primaryTradId] = positional;
 } else if (flags['axis-target']) {
@@ -232,39 +264,68 @@ if (flags.tradition) {
 }
 const opts = parseOpts(flags, primaryTradId, stapleIds);
 
-const TRAD_IDS = new Set(C.TRADITIONS.map(t => t.id));
+const TRAD_IDS = new Set(C.TRADITIONS.map((t) => t.id));
 
 // Only --diff consumes positional args. In every other mode a stray positional
 // (e.g. `--tradition afrobeat post_punk`) was silently ignored — producing a
 // plausible but wrong recipe. Reject it, pointing at the blend form.
 if (!flags.diff && positional.length) {
   console.error(`Unexpected argument(s): ${positional.join(' ')}`);
-  console.error(`  (for a blend use: recipe.js --traditions ${[flags.tradition, ...positional].filter(Boolean).join(',')})`);
+  console.error(
+    `  (for a blend use: recipe.js --traditions ${[flags.tradition, ...positional].filter(Boolean).join(',')})`
+  );
   process.exit(2);
 }
 
 if (flags.tradition) {
   seed = seedFromTradition(flags.tradition, [], opts);
-  if (!seed) { console.error(`Unknown tradition: ${flags.tradition}`); process.exit(2); }
+  if (!seed) {
+    console.error(`Unknown tradition: ${flags.tradition}`);
+    process.exit(2);
+  }
 } else if (flags.traditions) {
-  const ids = String(flags.traditions).split(',').map(s => s.trim()).filter(Boolean);
-  if (ids.length === 0) { console.error('No tradition ids provided'); process.exit(2); }
+  const ids = String(flags.traditions)
+    .split(',')
+    .map((s) => s.trim())
+    .filter(Boolean);
+  if (ids.length === 0) {
+    console.error('No tradition ids provided');
+    process.exit(2);
+  }
   // Validate EVERY id, not just the primary. seedFromTradition silently drops an
   // unknown staple, so a typo'd genre in a blend would otherwise vanish with no
   // error (exit 0) — the blend promise quietly broken. Match the strictness of the
   // single --tradition path and of --exclude/--add/--swap.
-  const unknown = ids.filter(id => !TRAD_IDS.has(id));
-  if (unknown.length) { console.error(`Unknown tradition id(s): ${unknown.join(', ')}`); process.exit(2); }
-  if (ids.length > 3) console.error(`note: blending ${ids.length} traditions; recipes are tuned for up to 3, so output may be noisy.`);
+  const unknown = ids.filter((id) => !TRAD_IDS.has(id));
+  if (unknown.length) {
+    console.error(`Unknown tradition id(s): ${unknown.join(', ')}`);
+    process.exit(2);
+  }
+  if (ids.length > 3)
+    console.error(
+      `note: blending ${ids.length} traditions; recipes are tuned for up to 3, so output may be noisy.`
+    );
   seed = seedFromTradition(ids[0], ids.slice(1), opts);
-  if (!seed) { console.error(`Unknown tradition: ${ids[0]}`); process.exit(2); }
+  if (!seed) {
+    console.error(`Unknown tradition: ${ids[0]}`);
+    process.exit(2);
+  }
 } else if (flags.diff) {
   const [idA, idB, ...extra] = positional;
-  if (!idA || !idB) { console.error('--diff requires two tradition ids'); process.exit(2); }
-  if (extra.length) { console.error(`--diff takes exactly two tradition ids; unexpected: ${extra.join(', ')}`); process.exit(2); }
+  if (!idA || !idB) {
+    console.error('--diff requires two tradition ids');
+    process.exit(2);
+  }
+  if (extra.length) {
+    console.error(`--diff takes exactly two tradition ids; unexpected: ${extra.join(', ')}`);
+    process.exit(2);
+  }
   // Validate both ids — a bogus SECONDARY is otherwise silently dropped (exit 0).
-  const unknown = [idA, idB].filter(id => !TRAD_IDS.has(id));
-  if (unknown.length) { console.error(`Unknown tradition id(s): ${unknown.join(', ')}`); process.exit(2); }
+  const unknown = [idA, idB].filter((id) => !TRAD_IDS.has(id));
+  if (unknown.length) {
+    console.error(`Unknown tradition id(s): ${unknown.join(', ')}`);
+    process.exit(2);
+  }
   let weight = 0.5;
   if (flags.weight !== undefined) {
     weight = parseFloat(flags.weight);
@@ -274,10 +335,16 @@ if (flags.tradition) {
     }
   }
   seed = seedDiff(idA, idB, weight, opts);
-  if (!seed) { console.error('Unknown tradition'); process.exit(2); }
+  if (!seed) {
+    console.error('Unknown tradition');
+    process.exit(2);
+  }
 } else if (flags['axis-target']) {
   seed = seedFromAxisTarget(flags['axis-target'], opts);
-  if (!seed) { console.error('No tradition matches axis target'); process.exit(2); }
+  if (!seed) {
+    console.error('No tradition matches axis target');
+    process.exit(2);
+  }
   if (trace) console.error(`Seed tradition for axis target: ${seed.traditions[0]}`);
 } else {
   console.error('Usage:');
@@ -315,23 +382,26 @@ if (flags.why || flags['why-json']) {
 
   const slotDetails = []; // [{instId, partId, winner, runnerUp, third, pinned}]
   for (const inst of result.config.instruments) {
-    const cataInst = C.INSTRUMENTS.find(x => x.id === inst.id);
+    const cataInst = C.INSTRUMENTS.find((x) => x.id === inst.id);
     if (!cataInst) continue;
-    for (const part of (cataInst.parts || [])) {
+    for (const part of cataInst.parts || []) {
       const currentId = (inst.slots || {})[part.id];
       if (!currentId) continue;
       const ctx = getCtxForPart(part.id);
       const scored = [];
-      for (const v of (part.variants || [])) {
+      for (const v of part.variants || []) {
         if (v.auto === false) continue; // explicit-only: the engine never auto-picks these
         const r = scoreVariant(v, ctx, { useNeighbors: true, skipSignals: true });
         scored.push({ id: v.id, score: r.score, isDefault: !!v.default });
       }
-      scored.sort((a, b) => (b.score - a.score) || ((b.isDefault ? 1 : 0) - (a.isDefault ? 1 : 0)));
-      const winnerIdx = scored.findIndex(s => s.id === currentId);
+      scored.sort((a, b) => b.score - a.score || (b.isDefault ? 1 : 0) - (a.isDefault ? 1 : 0));
+      const winnerIdx = scored.findIndex((s) => s.id === currentId);
       const winner = scored[winnerIdx] || { id: currentId, score: 0, isDefault: false };
-      const pinned = !!(result.config.pinned && result.config.pinned[inst.id] &&
-                       result.config.pinned[inst.id].includes(part.id));
+      const pinned = !!(
+        result.config.pinned &&
+        result.config.pinned[inst.id] &&
+        result.config.pinned[inst.id].includes(part.id)
+      );
       // Top 3 by score (regardless of whether winner is in top 3 — usually it is)
       const top3 = scored.slice(0, 3);
       slotDetails.push({
@@ -349,13 +419,19 @@ if (flags.why || flags['why-json']) {
   }
 
   if (flags['why-json']) {
-    console.error(JSON.stringify({
-      traditions: result.config.traditions,
-      finalScore: result.score,
-      breakdown: result.breakdown,
-      trace: result.trace,
-      slots: slotDetails,
-    }, null, 2));
+    console.error(
+      JSON.stringify(
+        {
+          traditions: result.config.traditions,
+          finalScore: result.score,
+          breakdown: result.breakdown,
+          trace: result.trace,
+          slots: slotDetails,
+        },
+        null,
+        2
+      )
+    );
   } else {
     console.error('=== --why: per-slot variant selection ===');
     for (const sd of slotDetails) {
@@ -366,12 +442,17 @@ if (flags.why || flags['why-json']) {
         const delta = isWinner ? '' : ` (Δ ${(c.score - sd.winnerScore).toFixed(2)})`;
         const mark = isWinner ? '▸' : ' ';
         const defaultTag = c.isDefault ? ' [d]' : '';
-        console.error(`    ${mark} ${c.id.padEnd(36)} ${c.score.toFixed(2).padStart(7)}${defaultTag}${delta}`);
+        console.error(
+          `    ${mark} ${c.id.padEnd(36)} ${c.score.toFixed(2).padStart(7)}${defaultTag}${delta}`
+        );
       }
       if (sd.winnerRank > 1) {
-        const why = sd.pinned ? 'pinned via --swap-variant'
+        const why = sd.pinned
+          ? 'pinned via --swap-variant'
           : 'global search preferred it over the top local scorer';
-        console.error(`    (engine pick ranks ${sd.winnerRank} of ${sd.totalCandidates} in isolation — ${why})`);
+        console.error(
+          `    (engine pick ranks ${sd.winnerRank} of ${sd.totalCandidates} in isolation — ${why})`
+        );
       }
     }
     console.error('');
@@ -399,7 +480,9 @@ if (flags['why-prefaces'] || flags['why-prefaces-json']) {
   const M = require('./_matcher.js');
   const CD = require('./_card_descriptors.js');
   const PM = require('./_preface_match.js');
-  const sigs = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'references', '_tradition_signatures.json'), 'utf8'));
+  const sigs = JSON.parse(
+    fs.readFileSync(path.join(__dirname, '..', 'references', '_tradition_signatures.json'), 'utf8')
+  );
   const prefaceDetails = [];
   for (const inst of result.config.instruments) {
     const card = M.cardFromConfig(result.config, inst.id);
@@ -408,36 +491,50 @@ if (flags['why-prefaces'] || flags['why-prefaces-json']) {
     const ranked = PM.rank(descSet, C.PREFACE_LEXICON);
     prefaceDetails.push({
       instId: inst.id,
-      candidates: ranked.slice(0, 3).map(r => ({
+      candidates: ranked.slice(0, 3).map((r) => ({
         id: r.entry.id,
         score: r.score,
-        sharedCount: PM.tokensOf(r.entry).filter(t => descSet.has(t)).length,
+        sharedCount: PM.tokensOf(r.entry).filter((t) => descSet.has(t)).length,
         tokenCount: PM.tokensOf(r.entry).length,
       })),
       total: ranked.length,
     });
   }
   if (flags['why-prefaces-json']) {
-    console.error(JSON.stringify({
-      tradition: result.config.traditions[0],
-      prefaces: prefaceDetails,
-    }, null, 2));
+    console.error(
+      JSON.stringify(
+        {
+          tradition: result.config.traditions[0],
+          prefaces: prefaceDetails,
+        },
+        null,
+        2
+      )
+    );
   } else {
-    console.error('=== --why-prefaces: per-card preface winners (v2 precision-normalized scoring) ===');
+    console.error(
+      '=== --why-prefaces: per-card preface winners (v2 precision-normalized scoring) ==='
+    );
     for (const pd of prefaceDetails) {
       if (pd.candidates.length === 0) {
         console.error(`  ${pd.instId.padEnd(36)} (no preface scores > 0)`);
         continue;
       }
       const winner = pd.candidates[0];
-      console.error(`  ${pd.instId.padEnd(36)} ▸ ${winner.id.padEnd(20)} score=${winner.score.toFixed(3)} (${winner.sharedCount}/${winner.tokenCount} tokens)`);
+      console.error(
+        `  ${pd.instId.padEnd(36)} ▸ ${winner.id.padEnd(20)} score=${winner.score.toFixed(3)} (${winner.sharedCount}/${winner.tokenCount} tokens)`
+      );
       for (let i = 1; i < pd.candidates.length; i++) {
         const r = pd.candidates[i];
         const tieMark = r.score === winner.score ? ' [TIE — alphabetical tiebreak]' : '';
-        console.error(`  ${' '.repeat(38)}  ${r.id.padEnd(20)} score=${r.score.toFixed(3)} (${r.sharedCount}/${r.tokenCount} tokens)${tieMark}`);
+        console.error(
+          `  ${' '.repeat(38)}  ${r.id.padEnd(20)} score=${r.score.toFixed(3)} (${r.sharedCount}/${r.tokenCount} tokens)${tieMark}`
+        );
       }
       if (pd.total > pd.candidates.length) {
-        console.error(`  ${' '.repeat(38)}  (+${pd.total - pd.candidates.length} more scoring > 0)`);
+        console.error(
+          `  ${' '.repeat(38)}  (+${pd.total - pd.candidates.length} more scoring > 0)`
+        );
       }
     }
     console.error('');
@@ -445,7 +542,13 @@ if (flags['why-prefaces'] || flags['why-prefaces-json']) {
 }
 
 if (flags.json) {
-  console.log(JSON.stringify({ config: result.config, score: result.score, breakdown: result.breakdown }, null, 2));
+  console.log(
+    JSON.stringify(
+      { config: result.config, score: result.score, breakdown: result.breakdown },
+      null,
+      2
+    )
+  );
   process.exit(0);
 }
 

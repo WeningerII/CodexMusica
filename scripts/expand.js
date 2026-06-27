@@ -22,16 +22,18 @@ for (let i = 0; i < args.length; i++) {
       flags[a.slice(2, eq)] = a.slice(eq + 1);
     } else {
       const next = args[i + 1];
-      if (next && !next.startsWith('--')) { flags[a.slice(2)] = next; i++; }
-      else flags[a.slice(2)] = true;
+      if (next && !next.startsWith('--')) {
+        flags[a.slice(2)] = next;
+        i++;
+      } else flags[a.slice(2)] = true;
     }
   }
 }
 
 function resolveChainItem(sectionId, itemId) {
-  const sec = C.CHAIN_SECTIONS.find(s => s.id === sectionId);
+  const sec = C.CHAIN_SECTIONS.find((s) => s.id === sectionId);
   if (sec) {
-    const it = sec.items.find(x => x.id === itemId);
+    const it = sec.items.find((x) => x.id === itemId);
     if (it) return it;
   }
   return { id: itemId, name: '(unresolved)', descriptors: [] };
@@ -44,67 +46,112 @@ function resolveChainItem(sectionId, itemId) {
 // 65524. Letting the event loop flush stdout first avoids that. Error paths keep
 // `process.exit(2)`: they write a tiny message to stderr and must halt immediately.
 if (flags.tradition) {
-  const t = C.TRADITIONS.find(x => x.id === flags.tradition);
-  if (!t) { console.error(`Unknown tradition: ${flags.tradition}`); process.exit(2); }
+  const t = C.TRADITIONS.find((x) => x.id === flags.tradition);
+  if (!t) {
+    console.error(`Unknown tradition: ${flags.tradition}`);
+    process.exit(2);
+  }
   const e = C.TRADITION_EXTRAS[flags.tradition] || {};
-  const room = t.room ? C.ROOMS.find(r => r.id === t.room) : null;
-  const arch = t.chain_archetype ? C.CHAIN_ARCHETYPES.find(a => a.id === t.chain_archetype) : null;
-  const tuning = t.tuning ? C.TUNINGS.find(tu => tu.id === t.tuning) : null;
-  const aestheticId = Array.isArray(t.production_aesthetic) ? t.production_aesthetic[0] : t.production_aesthetic;
-  const aesthetic = aestheticId ? (C.PRODUCTION_AESTHETICS || []).find(p => p.id === aestheticId) : null;
-  const instruments = (t.instruments || []).map(iid => {
-    const i = C.INSTRUMENTS.find(x => x.id === iid);
-    return i ? { id: iid, name: i.short || i.name, family: i.family, parts: i.parts } : { id: iid, error: 'unresolved' };
+  const room = t.room ? C.ROOMS.find((r) => r.id === t.room) : null;
+  const arch = t.chain_archetype
+    ? C.CHAIN_ARCHETYPES.find((a) => a.id === t.chain_archetype)
+    : null;
+  const tuning = t.tuning ? C.TUNINGS.find((tu) => tu.id === t.tuning) : null;
+  const aestheticId = Array.isArray(t.production_aesthetic)
+    ? t.production_aesthetic[0]
+    : t.production_aesthetic;
+  const aesthetic = aestheticId
+    ? (C.PRODUCTION_AESTHETICS || []).find((p) => p.id === aestheticId)
+    : null;
+  const instruments = (t.instruments || []).map((iid) => {
+    const i = C.INSTRUMENTS.find((x) => x.id === iid);
+    return i
+      ? { id: iid, name: i.short || i.name, family: i.family, parts: i.parts }
+      : { id: iid, error: 'unresolved' };
   });
   const out = {
-    id: t.id, name: t.name, family: t.family, lineage: t.lineage,
-    parent: e.parent, axes: e.axes, description: e.description,
-    exemplars: e.exemplars, crossRefs: e.crossRefs, status: e.status,
+    id: t.id,
+    name: t.name,
+    family: t.family,
+    lineage: t.lineage,
+    parent: e.parent,
+    axes: e.axes,
+    description: e.description,
+    exemplars: e.exemplars,
+    crossRefs: e.crossRefs,
+    status: e.status,
     instruments,
-    room, chain_archetype: arch, tuning, aesthetic,
-    inline_chain: { mic: t.chain_mic, pre: t.chain_pre, console: t.chain_console, medium: t.chain_medium },
+    room,
+    chain_archetype: arch,
+    tuning,
+    aesthetic,
+    inline_chain: {
+      mic: t.chain_mic,
+      pre: t.chain_pre,
+      console: t.chain_console,
+      medium: t.chain_medium,
+    },
   };
   console.log(JSON.stringify(out, null, 2));
   process.exitCode = 0;
 } else if (flags.instrument) {
-  const i = C.INSTRUMENTS.find(x => x.id === flags.instrument);
-  if (!i) { console.error(`Unknown instrument: ${flags.instrument}`); process.exit(2); }
+  const i = C.INSTRUMENTS.find((x) => x.id === flags.instrument);
+  if (!i) {
+    console.error(`Unknown instrument: ${flags.instrument}`);
+    process.exit(2);
+  }
   console.log(JSON.stringify(i, null, 2));
   process.exitCode = 0;
 } else if (flags.room) {
-  const r = C.ROOMS.find(x => x.id === flags.room);
-  if (!r) { console.error(`Unknown room: ${flags.room}`); process.exit(2); }
-  const arch = r.default_chain_archetype ? C.CHAIN_ARCHETYPES.find(a => a.id === r.default_chain_archetype) : null;
+  const r = C.ROOMS.find((x) => x.id === flags.room);
+  if (!r) {
+    console.error(`Unknown room: ${flags.room}`);
+    process.exit(2);
+  }
+  const arch = r.default_chain_archetype
+    ? C.CHAIN_ARCHETYPES.find((a) => a.id === r.default_chain_archetype)
+    : null;
   const out = { ...r, default_chain_archetype_resolved: arch };
   console.log(JSON.stringify(out, null, 2));
   process.exitCode = 0;
 } else if (flags.archetype) {
-  const a = C.CHAIN_ARCHETYPES.find(x => x.id === flags.archetype);
-  if (!a) { console.error(`Unknown archetype: ${flags.archetype}`); process.exit(2); }
+  const a = C.CHAIN_ARCHETYPES.find((x) => x.id === flags.archetype);
+  if (!a) {
+    console.error(`Unknown archetype: ${flags.archetype}`);
+    process.exit(2);
+  }
   const resolved = {};
   for (const [k, v] of Object.entries(a.components)) {
-    if (Array.isArray(v)) resolved[k] = v.map(itemId => resolveChainItem(k, itemId));
+    if (Array.isArray(v)) resolved[k] = v.map((itemId) => resolveChainItem(k, itemId));
     else resolved[k] = resolveChainItem(k, v);
   }
   const out = { ...a, components_resolved: resolved };
   console.log(JSON.stringify(out, null, 2));
   process.exitCode = 0;
 } else if (flags.aesthetic) {
-  const p = (C.PRODUCTION_AESTHETICS || []).find(x => x.id === flags.aesthetic);
-  if (!p) { console.error(`Unknown aesthetic: ${flags.aesthetic}`); process.exit(2); }
+  const p = (C.PRODUCTION_AESTHETICS || []).find((x) => x.id === flags.aesthetic);
+  if (!p) {
+    console.error(`Unknown aesthetic: ${flags.aesthetic}`);
+    process.exit(2);
+  }
   console.log(JSON.stringify(p, null, 2));
   process.exitCode = 0;
 } else if (flags.tree) {
-  const n = C.TREE_NODES.find(x => x.id === flags.tree);
-  if (!n) { console.error(`Unknown tree node: ${flags.tree}`); process.exit(2); }
-  const children = C.TREE_NODES.filter(x => x.parent === n.id);
-  const traditions = C.TRADITIONS.filter(t => {
+  const n = C.TREE_NODES.find((x) => x.id === flags.tree);
+  if (!n) {
+    console.error(`Unknown tree node: ${flags.tree}`);
+    process.exit(2);
+  }
+  const children = C.TREE_NODES.filter((x) => x.parent === n.id);
+  const traditions = C.TRADITIONS.filter((t) => {
     const e = C.TRADITION_EXTRAS[t.id];
     return e && e.parent === n.id;
   });
-  console.log(JSON.stringify({ ...n, children, traditions: traditions.map(t => t.id) }, null, 2));
+  console.log(JSON.stringify({ ...n, children, traditions: traditions.map((t) => t.id) }, null, 2));
   process.exitCode = 0;
 } else {
-  console.error('Specify what to expand: --tradition, --instrument, --room, --archetype, --aesthetic, --tree');
+  console.error(
+    'Specify what to expand: --tradition, --instrument, --room, --archetype, --aesthetic, --tree'
+  );
   process.exit(2);
 }

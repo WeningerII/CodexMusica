@@ -16,19 +16,32 @@ const FILES = [
   '08_asset_manifest.js',
 ];
 
-const bundle = FILES.map(f => fs.readFileSync(path.join(REFS, f), 'utf8')).join('\n');
+const bundle = FILES.map((f) => fs.readFileSync(path.join(REFS, f), 'utf8')).join('\n');
 
 // The data files declare their tables with `const X = ...`. We promote them to
 // global scope so we can capture them after evaluation.
 const TABLES = [
   'INSTRUMENT_FAMILY_PARTS',
-  'INSTRUMENTS', 'INSTRUMENT_FAMILIES',
-  'ROOMS', 'ROOM_CLUSTERS', 'CHAIN_SECTIONS', 'TUNINGS',
-  'AXIS_DEFINITIONS', 'INSTRUMENT_AXIS_DEFINITIONS',
-  'CHAIN_ARCHETYPES', 'PRODUCTION_AESTHETICS', 'ARRANGEMENTS',
-  'TREE_NODES', 'TRADITIONS', 'TRADITION_EXTRAS',
+  'INSTRUMENTS',
+  'INSTRUMENT_FAMILIES',
+  'ROOMS',
+  'ROOM_CLUSTERS',
+  'CHAIN_SECTIONS',
+  'TUNINGS',
+  'AXIS_DEFINITIONS',
+  'INSTRUMENT_AXIS_DEFINITIONS',
+  'CHAIN_ARCHETYPES',
+  'PRODUCTION_AESTHETICS',
+  'ARRANGEMENTS',
+  'TREE_NODES',
+  'TRADITIONS',
+  'TRADITION_EXTRAS',
   'PREFACE_LEXICON',
-  'ICON_PATHS', 'ICON_ALIASES', 'EMOJI_SVGS', 'EMOJI_REGISTRY', 'FAMILY_FALLBACK_EMOJI',
+  'ICON_PATHS',
+  'ICON_ALIASES',
+  'EMOJI_SVGS',
+  'EMOJI_REGISTRY',
+  'FAMILY_FALLBACK_EMOJI',
 ];
 
 const re = new RegExp(`const (${TABLES.join('|')})`, 'g');

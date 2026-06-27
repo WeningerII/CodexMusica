@@ -45,7 +45,9 @@ function buildOutput() {
     '// Regenerate: node scripts/_gen_voice_parts.js\n' +
     "'use strict';\n\n" +
     blocks.join('\n\n') +
-    '\n\nmodule.exports = { ' + NAMES.join(', ') + ' };\n'
+    '\n\nmodule.exports = { ' +
+    NAMES.join(', ') +
+    ' };\n'
   );
 }
 
@@ -65,7 +67,9 @@ function main() {
       process.exit(0);
     }
     console.error(`VOICE-PARTS: FAIL — ${rel} is stale vs src/app.js.`);
-    console.error('  A voice-map edit in src/app.js was not regenerated. Fix: node scripts/_gen_voice_parts.js');
+    console.error(
+      '  A voice-map edit in src/app.js was not regenerated. Fix: node scripts/_gen_voice_parts.js'
+    );
     process.exit(1);
   }
 

@@ -1,7 +1,29 @@
+# Dependencies
 node_modules
+package-lock.json
+mcp/package-lock.json
+
+# Generated / published artifacts (rebuilt from source; byte-compared in CI)
+api
+*.html
+sitemap.xml
+llms.txt
+
+# Source data: the catalog and recipe snapshots are hand-maintained or generated,
+# not prose-formatted.
 references
 tests
-*.html
-api
-llms.txt
-sitemap.xml
+scripts/_instrument_asset_map_full.json
+scripts/_instrument_emoji_map.json
+
+# Generated source module — scripts/_gen_voice_parts.js owns its exact formatting
+# and re-checks it in CI (test:connector); auto-formatting it would break that gate.
+scripts/_voice_parts_data.js
+
+# Build-coupled: src/app.js is the source of the byte-compared codex.html and is
+# rewritten by scripts/build_signatures.js (signature inlining). Kept out of autoformat.
+src/app.js
+
+# Documentation is prose. SKILL.md / AGENTS.md / docs/ are CI-gated contracts
+# (scripts/check_docs.js); left to manual formatting so a reflow can't change gated content.
+*.md

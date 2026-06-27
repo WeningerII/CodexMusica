@@ -3,8 +3,8 @@
 // check_app_parity.js — the gold-standard gate: run the BROWSER app's OWN
 // importTradition + compileRecipeStack('rich') headlessly and assert the
 // connector's deterministic seed+render reproduces it, byte-for-byte, across the
-// whole catalog. This is the catalog-wide seed-parity gate of
-// CONNECTOR_WORKSPACE_PLAN.md §6.1 — it compares the app's actual inline code to
+// whole catalog. This is the catalog-wide seed-parity gate — it compares the app's
+// actual inline code to
 // the shared SSOT modules the connector uses, so any drift fails CI.
 //
 //   node scripts/check_app_parity.js              # all traditions
@@ -28,7 +28,7 @@ const flag = (name, def) => {
   const a = args.find((x) => x.startsWith(`--${name}=`));
   return a ? a.split('=')[1] : def;
 };
-const LIMIT = parseInt(flag('limit', '0'), 10) || 0;          // 0 = all
+const LIMIT = parseInt(flag('limit', '0'), 10) || 0; // 0 = all
 const SHOW = parseInt(flag('show', '3'), 10);
 
 // ── load the app's real functions headlessly ────────────────────────────────
@@ -41,7 +41,8 @@ function loadApp() {
   // is not idempotent — re-running it would corrupt the parts both sides read.
   const cdSource = fs.readFileSync(path.join(__dirname, '_card_descriptors.js'), 'utf8');
   const cdMatch = cdSource.match(/\/\* @inline-start[^\n]*\*\/\n([\s\S]*?)\n\/\* @inline-end \*\//);
-  if (!cdMatch) throw new Error('could not find @inline-start/@inline-end markers in _card_descriptors.js');
+  if (!cdMatch)
+    throw new Error('could not find @inline-start/@inline-end markers in _card_descriptors.js');
   const cardDescriptorsSnippet = `
 ${cdMatch[1]}
 function _cardDescriptorSet(card) {
@@ -63,16 +64,33 @@ function _cardDescriptorSet(card) {
     construct: () => sink,
   });
   const factory = new Function(
-    'document', 'window', 'requestAnimationFrame', 'cancelAnimationFrame',
-    'localStorage', 'navigator', 'fetch',
-    `${cardDescriptorsSnippet}\n${src}\n;return { importTradition, compileRecipeStack, app };`,
+    'document',
+    'window',
+    'requestAnimationFrame',
+    'cancelAnimationFrame',
+    'localStorage',
+    'navigator',
+    'fetch',
+    `${cardDescriptorsSnippet}\n${src}\n;return { importTradition, compileRecipeStack, app };`
   );
-  return factory(sink, sink, () => 0, () => {}, sink, sink, () => sink);
+  return factory(
+    sink,
+    sink,
+    () => 0,
+    () => {},
+    sink,
+    sink,
+    () => sink
+  );
 }
 
 let app;
-try { app = loadApp(); }
-catch (e) { console.error('Could not load src/app.js headlessly:\n  ' + e.message); process.exit(2); }
+try {
+  app = loadApp();
+} catch (e) {
+  console.error('Could not load src/app.js headlessly:\n  ' + e.message);
+  process.exit(2);
+}
 
 function appRecipe(id) {
   app.app.cards = [];
@@ -96,21 +114,45 @@ if (traditions.length === 0) {
   process.exit(1);
 }
 
-let match = 0, mismatch = 0, errored = 0, shown = 0;
-const firstDiff = (a, b) => { const n = Math.min(a.length, b.length); for (let i = 0; i < n; i++) if (a[i] !== b[i]) return i; return n; };
+let match = 0,
+  mismatch = 0,
+  errored = 0,
+  shown = 0;
+const firstDiff = (a, b) => {
+  const n = Math.min(a.length, b.length);
+  for (let i = 0; i < n; i++) if (a[i] !== b[i]) return i;
+  return n;
+};
 
 const t0 = Date.now();
 for (let i = 0; i < traditions.length; i++) {
   const id = traditions[i];
   let aRec, cRec;
-  try { aRec = appRecipe(id); } catch (e) { errored++; console.error(`  ! ${id}: app threw — ${e.message}`); continue; }
-  try { cRec = connectorRecipe(id); } catch (e) { errored++; console.error(`  ! ${id}: connector threw — ${e.message}`); continue; }
-  if (aRec === cRec) { match++; continue; }
+  try {
+    aRec = appRecipe(id);
+  } catch (e) {
+    errored++;
+    console.error(`  ! ${id}: app threw — ${e.message}`);
+    continue;
+  }
+  try {
+    cRec = connectorRecipe(id);
+  } catch (e) {
+    errored++;
+    console.error(`  ! ${id}: connector threw — ${e.message}`);
+    continue;
+  }
+  if (aRec === cRec) {
+    match++;
+    continue;
+  }
   mismatch++;
   if (shown < SHOW) {
     shown++;
     const d = firstDiff(aRec, cRec);
-    console.error(`\n  ✗ ${id} (diverges at char ${d}, app ${aRec.length} / connector ${cRec.length})`);
+    console.error(
+      `\n  ✗ ${id} (diverges at char ${d}, app ${aRec.length} / connector ${cRec.length})`
+    );
     console.error(`    app : …${JSON.stringify(aRec.slice(Math.max(0, d - 20), d + 40))}`);
     console.error(`    conn: …${JSON.stringify(cRec.slice(Math.max(0, d - 20), d + 40))}`);
   }
@@ -118,7 +160,12 @@ for (let i = 0; i < traditions.length; i++) {
 }
 const secs = ((Date.now() - t0) / 1000).toFixed(1);
 
-console.log(`\n${match}/${traditions.length} byte-identical to the app  (${mismatch} mismatch, ${errored} error, ${secs}s)`);
-if (mismatch === 0 && errored === 0) { console.log('PASS — connector seed+render reproduces the app Current Recipe catalog-wide'); process.exit(0); }
+console.log(
+  `\n${match}/${traditions.length} byte-identical to the app  (${mismatch} mismatch, ${errored} error, ${secs}s)`
+);
+if (mismatch === 0 && errored === 0) {
+  console.log('PASS — connector seed+render reproduces the app Current Recipe catalog-wide');
+  process.exit(0);
+}
 console.log('FAIL');
 process.exit(1);

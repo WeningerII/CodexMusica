@@ -34,7 +34,7 @@
 //   node scripts/build.js --skip-regression         # skip regression diff (use during major refactors)
 //   node scripts/build.js --skip-smoke              # skip catalog-wide smoke (saves ~16 min during iteration)
 //   node scripts/build.js --skip-ui-check           # skip UI reachability check (rarely needed)
-//   node scripts/build.js --with-lexicon-audits    # also run audit_dead_tokens + audit_profile_size (lexicon-correction WIP)
+//   node scripts/build.js --with-lexicon-audits    # also run audit_dead_tokens + audit_profile_size (extra lexicon checks)
 
 const { spawnSync } = require('child_process');
 const path = require('path');
@@ -58,7 +58,9 @@ for (let i = 0; i < args.length; i++) {
   if (a.startsWith('--')) {
     const eq = a.indexOf('=');
     if (eq > 0) flags[a.slice(2, eq)] = a.slice(eq + 1);
-    else { flags[a.slice(2)] = true; }
+    else {
+      flags[a.slice(2)] = true;
+    }
   }
 }
 

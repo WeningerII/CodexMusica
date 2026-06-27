@@ -6,3 +6,4 @@ node_modules/
 codex.zip
 /_dist
 /_dist_test
+.claude/

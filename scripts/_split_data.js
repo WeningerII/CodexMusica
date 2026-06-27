@@ -30,7 +30,7 @@ function parseTopLevelDeclaration(source) {
   const name = decl[2];
   const openChar = decl[3];
   const kind = openChar === '[' ? 'array' : 'object';
-  const openIdx = decl.index + decl[0].length - 1;  // index of `[` or `{`
+  const openIdx = decl.index + decl[0].length - 1; // index of `[` or `{`
 
   const leading = source.slice(0, openIdx);
 
@@ -50,16 +50,21 @@ function parseTopLevelDeclaration(source) {
   function skipWhitespaceFrom(p) {
     while (p < source.length) {
       const c = source[p];
-      if (c === ' ' || c === '\t' || c === '\n' || c === '\r') { p++; continue; }
+      if (c === ' ' || c === '\t' || c === '\n' || c === '\r') {
+        p++;
+        continue;
+      }
       if (c === '/' && source[p + 1] === '/') {
         const nl = source.indexOf('\n', p);
         if (nl === -1) return source.length;
-        p = nl + 1; continue;
+        p = nl + 1;
+        continue;
       }
       if (c === '/' && source[p + 1] === '*') {
         const end = source.indexOf('*/', p + 2);
         if (end === -1) return source.length;
-        p = end + 2; continue;
+        p = end + 2;
+        continue;
       }
       break;
     }
@@ -74,33 +79,75 @@ function parseTopLevelDeclaration(source) {
 
     if (state === 'line-comment') {
       if (c === '\n') state = 'regular';
-      i++; continue;
+      i++;
+      continue;
     }
     if (state === 'block-comment') {
-      if (c === '*' && next === '/') { state = 'regular'; i += 2; continue; }
-      i++; continue;
+      if (c === '*' && next === '/') {
+        state = 'regular';
+        i += 2;
+        continue;
+      }
+      i++;
+      continue;
     }
     if (state === 'single-string' || state === 'double-string') {
-      if (c === '\\') { i += 2; continue; }
+      if (c === '\\') {
+        i += 2;
+        continue;
+      }
       if ((state === 'single-string' && c === "'") || (state === 'double-string' && c === '"')) {
         state = 'regular';
       }
-      i++; continue;
+      i++;
+      continue;
     }
     if (state === 'template-string') {
-      if (c === '\\') { i += 2; continue; }
-      if (c === '`') { state = 'regular'; i++; continue; }
+      if (c === '\\') {
+        i += 2;
+        continue;
+      }
+      if (c === '`') {
+        state = 'regular';
+        i++;
+        continue;
+      }
       // Note: ignoring ${...} interpolation depth; data files don't use it.
-      i++; continue;
+      i++;
+      continue;
     }
 
     // state === 'regular'
-    if (c === '/' && next === '/') { state = 'line-comment'; i += 2; continue; }
-    if (c === '/' && next === '*') { state = 'block-comment'; i += 2; continue; }
-    if (c === "'") { state = 'single-string'; i++; continue; }
-    if (c === '"') { state = 'double-string'; i++; continue; }
-    if (c === '`') { state = 'template-string'; i++; continue; }
-    if (c === '[' || c === '{' || c === '(') { depth++; i++; continue; }
+    if (c === '/' && next === '/') {
+      state = 'line-comment';
+      i += 2;
+      continue;
+    }
+    if (c === '/' && next === '*') {
+      state = 'block-comment';
+      i += 2;
+      continue;
+    }
+    if (c === "'") {
+      state = 'single-string';
+      i++;
+      continue;
+    }
+    if (c === '"') {
+      state = 'double-string';
+      i++;
+      continue;
+    }
+    if (c === '`') {
+      state = 'template-string';
+      i++;
+      continue;
+    }
+    if (c === '[' || c === '{' || c === '(') {
+      depth++;
+      i++;
+      continue;
+    }
     if (c === ']' || c === '}' || c === ')') {
       depth--;
       if (depth === 0) {
@@ -111,7 +158,8 @@ function parseTopLevelDeclaration(source) {
         closeIdx = i;
         break;
       }
-      i++; continue;
+      i++;
+      continue;
     }
     if (c === ',' && depth === 1) {
       const el = source.slice(elementStart, i).trim();
@@ -125,7 +173,8 @@ function parseTopLevelDeclaration(source) {
     i++;
   }
 
-  if (closeIdx === -1) throw new Error('parseTopLevelDeclaration: never found matching close for ' + name);
+  if (closeIdx === -1)
+    throw new Error('parseTopLevelDeclaration: never found matching close for ' + name);
   const trailing = source.slice(closeIdx + 1);
 
   return { name, kind, elements, leading, trailing };
@@ -139,7 +188,7 @@ function chunkElements(elements, maxChars) {
   let current = [];
   let currentSize = 0;
   for (const el of elements) {
-    const elSize = el.length + 2;  // +2 for ", " separator overhead
+    const elSize = el.length + 2; // +2 for ", " separator overhead
     if (current.length > 0 && currentSize + elSize > maxChars) {
       chunks.push(current);
       current = [];
@@ -149,7 +198,7 @@ function chunkElements(elements, maxChars) {
     currentSize += elSize;
   }
   if (current.length > 0) chunks.push(current);
-  return chunks.map(c => c.join(',\n  '));
+  return chunks.map((c) => c.join(',\n  '));
 }
 
 // Emit the script-tag wrappers for a chunked declaration.
@@ -194,11 +243,11 @@ function splitFileIntoChunks(source, maxChars) {
   // include the semicolon that typically follows it.
   // Find the close + semicolon location by re-walking using the same depth
   // logic. Simpler: trailing starts right after closeChar, so:
-  const closeAt = source.length - trailing.length;  // index of `]` or `}` + 1
+  const closeAt = source.length - trailing.length; // index of `]` or `}` + 1
   // Include the trailing semicolon if present.
   let declEnd = closeAt;
   if (source[declEnd] === ';') declEnd++;
-  const declSource = source.slice(declStart, declEnd);  // `[...];` or `{...};`
+  const declSource = source.slice(declStart, declEnd); // `[...];` or `{...};`
 
   // If this single declaration fits within the threshold, return:
   //   - the leading (preamble + `const NAME = `) joined with the decl source
@@ -217,13 +266,19 @@ function splitFileIntoChunks(source, maxChars) {
   // sitting above a >600 KB table) would vanish silently — valid JS, lost
   // semantics. Convert that into a loud failure instead. (The fits-path above
   // keeps `leading` intact, so this only guards the chunked branch.)
-  const preamble = leading.replace(/(?:^|\n)[ \t]*(?:const|let|var)\s+[A-Za-z_$][\w$]*\s*=\s*$/, '');
-  const preambleCode = preamble.replace(/\/\*[\s\S]*?\*\//g, '').replace(/\/\/[^\n]*/g, '').trim();
+  const preamble = leading.replace(
+    /(?:^|\n)[ \t]*(?:const|let|var)\s+[A-Za-z_$][\w$]*\s*=\s*$/,
+    ''
+  );
+  const preambleCode = preamble
+    .replace(/\/\*[\s\S]*?\*\//g, '')
+    .replace(/\/\/[^\n]*/g, '')
+    .trim();
   if (preambleCode) {
     throw new Error(
       `splitFileIntoChunks: "${name}" must be chunked, but non-comment source precedes its ` +
-      `declaration and would be dropped: ${JSON.stringify(preambleCode.slice(0, 80))}… ` +
-      `Move it after the declaration (or keep the declaration under the chunk threshold).`
+        `declaration and would be dropped: ${JSON.stringify(preambleCode.slice(0, 80))}… ` +
+        `Move it after the declaration (or keep the declaration under the chunk threshold).`
     );
   }
   const chunks = chunkElements(elements, maxChars);
@@ -235,4 +290,9 @@ function splitFileIntoChunks(source, maxChars) {
   return [...declLines, ...restChunks];
 }
 
-module.exports = { parseTopLevelDeclaration, chunkElements, emitChunkedDeclaration, splitFileIntoChunks };
+module.exports = {
+  parseTopLevelDeclaration,
+  chunkElements,
+  emitChunkedDeclaration,
+  splitFileIntoChunks,
+};

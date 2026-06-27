@@ -12,8 +12,11 @@ const C = require('./_loader.js');
 const { tokensOf } = require('./_preface_match.js');
 
 const SIGS = (() => {
-  try { return require('../references/_tradition_signatures.json'); }
-  catch { return {}; }
+  try {
+    return require('../references/_tradition_signatures.json');
+  } catch {
+    return {};
+  }
 })();
 
 // Build a starting card. If a tradition is given, seed variants/tuning/room/chain
@@ -25,7 +28,7 @@ function seedCard(instrumentId, traditionId) {
   const trad = traditionId ? C.TRADITIONS.find((t) => t.id === traditionId) : null;
 
   const parts = {};
-  for (const part of (inst.parts || [])) {
+  for (const part of inst.parts || []) {
     const variants = part.variants || [];
     if (!variants.length) continue;
     const def = variants.find((v) => v.default) || variants[0];
@@ -56,7 +59,7 @@ function inverseConfigure(card, targetId, opts) {
   // contributes its descriptors to the score but is never reshaped. Kept in
   // lockstep with src/app.js:inverseConfigureForPreface (the browser passes pin
   // when a material edit triggers the cascade; the connector/CLI don't pin today).
-  const pinned = (opts && Array.isArray(opts.pin)) ? new Set(opts.pin) : null;
+  const pinned = opts && Array.isArray(opts.pin) ? new Set(opts.pin) : null;
   const target = (C.PREFACE_LEXICON || []).find((p) => p.id === targetId);
   if (!target) return null;
   const TARGET = new Set(tokensOf(target));
@@ -68,7 +71,7 @@ function inverseConfigure(card, targetId, opts) {
 
   // Axes: each part with ≥2 variants, plus tuning, room, contributing chain stages.
   const axes = [];
-  for (const part of (inst.parts || [])) {
+  for (const part of inst.parts || []) {
     const variants = part.variants || [];
     if (variants.length < 2) continue;
     // The universal cross-instrument materials are auto:false — the optimizer must
@@ -78,27 +81,51 @@ function inverseConfigure(card, targetId, opts) {
     const curVid = (card.parts || {})[part.id] || null;
     const choosable = variants.filter((v) => !v.expanded || v.id === curVid);
     axes.push({
-      kind: 'part', id: part.id, label: part.name || part.id,
-      options: choosable.map((v) => ({ id: v.id, label: v.name || v.id, contrib: new Set(v.descriptors || []) })),
+      kind: 'part',
+      id: part.id,
+      label: part.name || part.id,
+      options: choosable.map((v) => ({
+        id: v.id,
+        label: v.name || v.id,
+        contrib: new Set(v.descriptors || []),
+      })),
       current: curVid,
     });
   }
   axes.push({
-    kind: 'tuning', id: '__tuning__', label: 'Tuning',
-    options: (C.TUNINGS || []).map((t) => ({ id: t.id, label: t.name || t.id, contrib: new Set(t.descriptors || []) })),
+    kind: 'tuning',
+    id: '__tuning__',
+    label: 'Tuning',
+    options: (C.TUNINGS || []).map((t) => ({
+      id: t.id,
+      label: t.name || t.id,
+      contrib: new Set(t.descriptors || []),
+    })),
     current: card.tuning || null,
   });
   axes.push({
-    kind: 'room', id: '__room__', label: 'Room',
-    options: (C.ROOMS || []).map((r) => ({ id: r.id, label: r.name || r.id, contrib: new Set(r.descriptors || []) })),
+    kind: 'room',
+    id: '__room__',
+    label: 'Room',
+    options: (C.ROOMS || []).map((r) => ({
+      id: r.id,
+      label: r.name || r.id,
+      contrib: new Set(r.descriptors || []),
+    })),
     current: card.room || null,
   });
   for (const stageId of ['mic', 'pre', 'medium', 'console']) {
     const sec = (C.CHAIN_SECTIONS || []).find((s) => s.stage === stageId || s.id === stageId);
     if (!sec || !(sec.items || []).length) continue;
     axes.push({
-      kind: 'chain', id: stageId, label: 'Chain · ' + stageId,
-      options: sec.items.map((it) => ({ id: it.id, label: it.name || it.id, contrib: new Set(it.descriptors || []) })),
+      kind: 'chain',
+      id: stageId,
+      label: 'Chain · ' + stageId,
+      options: sec.items.map((it) => ({
+        id: it.id,
+        label: it.name || it.id,
+        contrib: new Set(it.descriptors || []),
+      })),
       current: (card.chain || {})[stageId] || null,
     });
   }
@@ -113,16 +140,22 @@ function inverseConfigure(card, targetId, opts) {
     }
     return D;
   };
-  const targetHits = (D) => { let n = 0; for (const t of TARGET) if (D.has(t)) n++; return n; };
+  const targetHits = (D) => {
+    let n = 0;
+    for (const t of TARGET) if (D.has(t)) n++;
+    return n;
+  };
 
   const chosen = {};
   for (const ax of axes) chosen[ax.id] = ax.current || null;
   let bestScore = targetHits(descriptorsFor(chosen));
   const startScore = bestScore;
 
-  let changed = true, iters = 0;
+  let changed = true,
+    iters = 0;
   while (changed && iters < 12) {
-    changed = false; iters++;
+    changed = false;
+    iters++;
     for (const ax of axes) {
       if (pinned && pinned.has(ax.id)) continue; // user-fixed axis — preserve the manual pick
       let bestId = chosen[ax.id];
@@ -132,9 +165,16 @@ function inverseConfigure(card, targetId, opts) {
         const trial = Object.assign({}, chosen);
         trial[ax.id] = opt.id;
         const s = targetHits(descriptorsFor(trial));
-        if (s > bestForAxis) { bestForAxis = s; bestId = opt.id; }
+        if (s > bestForAxis) {
+          bestForAxis = s;
+          bestId = opt.id;
+        }
       }
-      if (bestId !== chosen[ax.id]) { chosen[ax.id] = bestId; bestScore = bestForAxis; changed = true; }
+      if (bestId !== chosen[ax.id]) {
+        chosen[ax.id] = bestId;
+        bestScore = bestForAxis;
+        changed = true;
+      }
     }
   }
   const finalScore = bestScore;
@@ -157,17 +197,26 @@ function inverseConfigure(card, targetId, opts) {
     const toOpt = ax.options.find((o) => o.id === chosen[ax.id]);
     const cf = counterfactualForAxis(ax.id);
     const targetTokensAdded = [];
-    if (toOpt) for (const t of toOpt.contrib) if (TARGET.has(t) && !cf.has(t)) targetTokensAdded.push(t);
+    if (toOpt)
+      for (const t of toOpt.contrib) if (TARGET.has(t) && !cf.has(t)) targetTokensAdded.push(t);
     changes.push({
-      kind: ax.kind, axisLabel: ax.label,
-      fromLabel: fromOpt ? fromOpt.label : (ax.current || '(none)'),
-      toLabel: toOpt ? toOpt.label : (chosen[ax.id] || '(none)'),
+      kind: ax.kind,
+      axisLabel: ax.label,
+      fromLabel: fromOpt ? fromOpt.label : ax.current || '(none)',
+      toLabel: toOpt ? toOpt.label : chosen[ax.id] || '(none)',
       targetTokensAdded,
     });
   }
 
   // Materialize the resulting config.
-  const config = { instrumentId: card.instrumentId, traditionId: card.traditionId, parts: Object.assign({}, card.parts), tuning: card.tuning, room: card.room, chain: Object.assign({}, card.chain) };
+  const config = {
+    instrumentId: card.instrumentId,
+    traditionId: card.traditionId,
+    parts: Object.assign({}, card.parts),
+    tuning: card.tuning,
+    room: card.room,
+    chain: Object.assign({}, card.chain),
+  };
   for (const ax of axes) {
     const pick = chosen[ax.id];
     if (ax.kind === 'part') config.parts[ax.id] = pick;

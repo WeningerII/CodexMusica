@@ -31,11 +31,7 @@
 const { spawnSync } = require('child_process');
 const path = require('path');
 
-const args = [
-  path.join(__dirname, 'audit_picks.js'),
-  '--instrument=voice',
-  '--part=voice_quality',
-];
+const args = [path.join(__dirname, 'audit_picks.js'), '--instrument=voice', '--part=voice_quality'];
 for (const a of process.argv.slice(2)) args.push(a);
 
 const r = spawnSync('node', args, { stdio: 'inherit' });

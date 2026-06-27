@@ -47,13 +47,36 @@ const VERBOSE = process.argv.includes('--verbose');
 // Cross-family import sample: umbrella genre (pop), guitar-amp chain
 // (death_metal), acoustic/voice (delta_blues), electronic (detroit_techno),
 // non-12-TET tuning (hindustani), field/vocal polyphony (aka_baka_polyphony).
-const IMPORT_SAMPLE = ['pop', 'death_metal', 'delta_blues', 'detroit_techno', 'hindustani', 'aka_baka_polyphony'];
+const IMPORT_SAMPLE = [
+  'pop',
+  'death_metal',
+  'delta_blues',
+  'detroit_techno',
+  'hindustani',
+  'aka_baka_polyphony',
+];
 const SEARCH_QUERIES = ['', 'pop', 'metal', 'lo-fi'];
-const AXIS_KEYS = ['harm', 'pitch', 'ornament', 'meter', 'density', 'transmission', 'improv', 'soundTech', 'intensity', 'voice', 'timbre', 'percussion', 'cyclicity'];
+const AXIS_KEYS = [
+  'harm',
+  'pitch',
+  'ornament',
+  'meter',
+  'density',
+  'transmission',
+  'improv',
+  'soundTech',
+  'intensity',
+  'voice',
+  'timbre',
+  'percussion',
+  'cyclicity',
+];
 
 const problems = [];
 const fail = (msg) => problems.push(msg);
-const note = (msg) => { if (VERBOSE) console.error('  ' + msg); };
+const note = (msg) => {
+  if (VERBOSE) console.error('  ' + msg);
+};
 
 function buildTempHtml(lazy) {
   const tmp = path.join(os.tmpdir(), `codex_lazy_${lazy ? 'shell' : 'embed'}_${process.pid}.html`);
@@ -79,7 +102,13 @@ function makeFetchShim({ deny = [], log = [] } = {}) {
     return Promise.resolve().then(() => {
       const file = path.join(ROOT, rel);
       if (deny.includes(rel) || !file.startsWith(API_DIR) || !fs.existsSync(file)) {
-        return { ok: false, status: 404, json: async () => { throw new Error('404'); } };
+        return {
+          ok: false,
+          status: 404,
+          json: async () => {
+            throw new Error('404');
+          },
+        };
       }
       const data = JSON.parse(fs.readFileSync(file, 'utf8'));
       return { ok: true, status: 200, json: async () => data };
@@ -92,8 +121,23 @@ function bootDom(html, fetchShim) {
     runScripts: 'dangerously',
     pretendToBeVisual: true,
     beforeParse(w) {
-      w.storage = { async get() { return null; }, async set() {}, async delete() {}, async list() { return { keys: [] }; } };
-      w.matchMedia = () => ({ matches: false, addEventListener() {}, removeEventListener() {}, addListener() {}, removeListener() {} });
+      w.storage = {
+        async get() {
+          return null;
+        },
+        async set() {},
+        async delete() {},
+        async list() {
+          return { keys: [] };
+        },
+      };
+      w.matchMedia = () => ({
+        matches: false,
+        addEventListener() {},
+        removeEventListener() {},
+        addListener() {},
+        removeListener() {},
+      });
       w.scrollTo = () => {};
       if (fetchShim) w.fetch = fetchShim;
     },
@@ -115,8 +159,13 @@ function runProbe(dom, probeBody, timeoutMs = 15000) {
   return new Promise((resolve, reject) => {
     const t0 = Date.now();
     const poll = setInterval(() => {
-      if (dom.window.__probe !== undefined) { clearInterval(poll); resolve(dom.window.__probe); }
-      else if (Date.now() - t0 > timeoutMs) { clearInterval(poll); reject(new Error('probe timed out')); }
+      if (dom.window.__probe !== undefined) {
+        clearInterval(poll);
+        resolve(dom.window.__probe);
+      } else if (Date.now() - t0 > timeoutMs) {
+        clearInterval(poll);
+        reject(new Error('probe timed out'));
+      }
     }, 50);
   });
 }
@@ -169,7 +218,9 @@ function normCatalog(cat) {
   for (const id of Object.keys(cat).sort()) {
     const c = cat[id];
     out[id] = {
-      name: c.name, family: c.family, lineage: c.lineage,
+      name: c.name,
+      family: c.family,
+      lineage: c.lineage,
       instruments: c.instruments,
       parent: c.parent,
       axes: AXIS_KEYS.map((k) => (typeof c.axes[k] === 'number' ? c.axes[k] : 0)),
@@ -185,13 +236,18 @@ function normCatalog(cat) {
   console.error('Building embedded + lazy HTML…');
   const embedHtml = buildTempHtml(false);
   const lazyHtml = buildTempHtml(true);
-  note(`embedded ${(embedHtml.length / 1e6).toFixed(1)} MB, lazy shell ${(lazyHtml.length / 1e6).toFixed(1)} MB`);
+  note(
+    `embedded ${(embedHtml.length / 1e6).toFixed(1)} MB, lazy shell ${(lazyHtml.length / 1e6).toFixed(1)} MB`
+  );
 
   // ── parity: boot both, capture, compare ──
   const embedDom = bootDom(embedHtml, null);
   const lazyLog = [];
   const lazyDom = bootDom(lazyHtml, makeFetchShim({ log: lazyLog }));
-  const [embed, lazy] = await Promise.all([runProbe(embedDom, CAPTURE_PROBE), runProbe(lazyDom, CAPTURE_PROBE)]);
+  const [embed, lazy] = await Promise.all([
+    runProbe(embedDom, CAPTURE_PROBE),
+    runProbe(lazyDom, CAPTURE_PROBE),
+  ]);
   if (embed.__err) fail('embedded probe crashed: ' + embed.__err);
   if (lazy.__err) fail('lazy probe crashed: ' + lazy.__err);
 
@@ -219,9 +275,13 @@ function normCatalog(cat) {
         // Without this guard a missing #picker-trad would make BOTH builds record
         // the same sentinel and the comparison would pass vacuously — the rendered
         // surface half of the gate must actually render something.
-        fail(`renderTradPicker for query ${q}: #picker-trad element absent — comparison would be vacuous`);
+        fail(
+          `renderTradPicker for query ${q}: #picker-trad element absent — comparison would be vacuous`
+        );
       } else if (embed.pickers[q] !== lazy.pickers[q]) {
-        fail(`renderTradPicker drift for query ${q} — a browse render path read a field the index doesn't carry`);
+        fail(
+          `renderTradPicker drift for query ${q} — a browse render path read a field the index doesn't carry`
+        );
       } else {
         note(`picker ${q}: ${embed.pickers[q].length} chars, identical`);
       }
@@ -229,9 +289,13 @@ function normCatalog(cat) {
 
     // Import — cards + recipe string.
     if (JSON.stringify(embed.cards) !== JSON.stringify(lazy.cards)) {
-      fail(`imported cards drift across ${IMPORT_SAMPLE.length} traditions (tuning/room/parts/chain differ)`);
+      fail(
+        `imported cards drift across ${IMPORT_SAMPLE.length} traditions (tuning/room/parts/chain differ)`
+      );
     } else {
-      note(`import: ${embed.cards.length} cards identical across ${IMPORT_SAMPLE.length} traditions`);
+      note(
+        `import: ${embed.cards.length} cards identical across ${IMPORT_SAMPLE.length} traditions`
+      );
     }
     if (embed.recipe !== lazy.recipe) {
       fail('compressRichRecipe drift — the pasteable recipe differs between builds');
@@ -258,8 +322,13 @@ function normCatalog(cat) {
     const t0 = Date.now();
     const poll = setInterval(() => {
       const el = deadDom.window.document.getElementById('boot-error');
-      if (el) { clearInterval(poll); resolve(); }
-      else if (Date.now() - t0 > 10000) { clearInterval(poll); reject(new Error('no boot-error state')); }
+      if (el) {
+        clearInterval(poll);
+        resolve();
+      } else if (Date.now() - t0 > 10000) {
+        clearInterval(poll);
+        reject(new Error('no boot-error state'));
+      }
     }, 50);
   }).then(
     () => note('boot failure renders the error state'),
@@ -270,7 +339,9 @@ function normCatalog(cat) {
   // ── failure path: one tradition 404s → no cards + error toast ──
   const denyId = IMPORT_SAMPLE[2]; // delta_blues
   const dyingDom = bootDom(lazyHtml, makeFetchShim({ deny: [`api/traditions/${denyId}.json`] }));
-  const dying = await runProbe(dyingDom, `
+  const dying = await runProbe(
+    dyingDom,
+    `
     const before = app.cards.length;
     const created = await importTraditionWithFeedback(${JSON.stringify(denyId)});
     const toast = document.getElementById('toast');
@@ -279,17 +350,24 @@ function normCatalog(cat) {
       after: app.cards.length - before,
       toast: toast ? toast.textContent : '',
     };
-  `);
+  `
+  );
   if (dying.__err) {
     fail('tradition-404 probe crashed: ' + dying.__err);
   } else {
     if (dying.created !== 0 || dying.after !== 0) {
-      fail(`tradition-404 still created ${dying.created || dying.after} card(s) — import must not proceed on a failed fetch`);
+      fail(
+        `tradition-404 still created ${dying.created || dying.after} card(s) — import must not proceed on a failed fetch`
+      );
     }
     if (!/could not load tradition data/i.test(dying.toast)) {
       fail(`tradition-404 did not surface the error toast (toast="${dying.toast}")`);
     }
-    if (dying.created === 0 && dying.after === 0 && /could not load tradition data/i.test(dying.toast)) {
+    if (
+      dying.created === 0 &&
+      dying.after === 0 &&
+      /could not load tradition data/i.test(dying.toast)
+    ) {
       note('tradition 404: zero cards, error toast shown');
     }
   }
@@ -303,7 +381,10 @@ function normCatalog(cat) {
   }
   console.error(
     `LAZY-APP: PASS — lazy shell ≡ embedded app (catalog projection ×${Object.keys(embed.catalog || {}).length}, ` +
-    `${Object.keys(embed.pickers || {}).length} rendered surfaces, ${IMPORT_SAMPLE.length}-tradition import + recipe), ` +
-    `1 fetch per action (cached), honest failure states.`
+      `${Object.keys(embed.pickers || {}).length} rendered surfaces, ${IMPORT_SAMPLE.length}-tradition import + recipe), ` +
+      `1 fetch per action (cached), honest failure states.`
   );
-})().catch((e) => { console.error('LAZY-APP: harness crash — ' + ((e && e.stack) || e)); process.exit(1); });
+})().catch((e) => {
+  console.error('LAZY-APP: harness crash — ' + ((e && e.stack) || e));
+  process.exit(1);
+});

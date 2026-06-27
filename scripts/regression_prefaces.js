@@ -16,13 +16,21 @@ const M = require(path.join(__dirname, '_matcher.js'));
 // never crash with an uncaught readFileSync or pass vacuously on an empty set.
 function readJsonOrExit(p, label) {
   if (!fs.existsSync(p)) {
-    console.error(`PREFACE REGRESSION: FAIL — ${label} missing at ${p} (refusing to pass vacuously)`);
+    console.error(
+      `PREFACE REGRESSION: FAIL — ${label} missing at ${p} (refusing to pass vacuously)`
+    );
     process.exit(2);
   }
   return JSON.parse(fs.readFileSync(p, 'utf8'));
 }
-const sigs = readJsonOrExit(path.join(__dirname, '..', 'references', '_tradition_signatures.json'), 'tradition signatures');
-const fixtures = readJsonOrExit(path.join(__dirname, '..', 'tests', '_preface_regression_fixtures.json'), 'preface fixtures');
+const sigs = readJsonOrExit(
+  path.join(__dirname, '..', 'references', '_tradition_signatures.json'),
+  'tradition signatures'
+);
+const fixtures = readJsonOrExit(
+  path.join(__dirname, '..', 'tests', '_preface_regression_fixtures.json'),
+  'preface fixtures'
+);
 if (!Array.isArray(fixtures) || fixtures.length === 0) {
   console.error('PREFACE REGRESSION: FAIL — fixtures empty (refusing to pass vacuously)');
   process.exit(1);
@@ -44,17 +52,34 @@ function suggest(card) {
   return PM.suggest(CD.cardDescriptors(card, C, sigs), C.PREFACE_LEXICON);
 }
 
-let pass = 0, fail = 0;
+let pass = 0,
+  fail = 0;
 const failures = [];
 for (const f of fixtures) {
   const card = M.defaultCard(f.traditionId, f.instrumentId);
   const actual = suggest(card);
   if (actual === f.expectedPreface) pass++;
-  else { fail++; failures.push({ ...f, actual }); }
+  else {
+    fail++;
+    failures.push({ ...f, actual });
+  }
 }
 console.log('PREFACE REGRESSION:', pass + '/' + fixtures.length, fail === 0 ? 'PASS' : 'FAIL');
 if (failures.length) {
   console.log('failures:');
-  failures.forEach(f => console.log('  ' + f.traditionId + ' / ' + f.instrumentId + ' [' + f.instrumentClass + ']: expected=' + f.expectedPreface + ' actual=' + f.actual));
+  failures.forEach((f) =>
+    console.log(
+      '  ' +
+        f.traditionId +
+        ' / ' +
+        f.instrumentId +
+        ' [' +
+        f.instrumentClass +
+        ']: expected=' +
+        f.expectedPreface +
+        ' actual=' +
+        f.actual
+    )
+  );
 }
 process.exit(fail === 0 ? 0 : 1);

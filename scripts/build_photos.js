@@ -29,11 +29,17 @@ function fetchBuffer(url, attempt = 0) {
       if (res.statusCode === 429) {
         if (attempt >= 3) return reject(new Error('http_429_persistent'));
         const wait = 5000 * Math.pow(2, attempt); // 5s, 10s, 20s
-        return setTimeout(() => fetchBuffer(url, attempt + 1).then(resolve).catch(reject), wait);
+        return setTimeout(
+          () =>
+            fetchBuffer(url, attempt + 1)
+              .then(resolve)
+              .catch(reject),
+          wait
+        );
       }
       if (res.statusCode !== 200) return reject(new Error('http_' + res.statusCode));
       const chunks = [];
-      res.on('data', c => chunks.push(c));
+      res.on('data', (c) => chunks.push(c));
       res.on('end', () => resolve(Buffer.concat(chunks)));
     });
     req.setTimeout(30000, () => req.destroy(new Error('timeout')));
@@ -41,7 +47,9 @@ function fetchBuffer(url, attempt = 0) {
   });
 }
 
-function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+function sleep(ms) {
+  return new Promise((r) => setTimeout(r, ms));
+}
 
 async function processOne(entry) {
   // Resume: skip if .webp already on disk. Read it back into base64 for manifest.
@@ -65,8 +73,11 @@ async function processOne(entry) {
   if (!sourceUrl) return { id: entry.id, error: 'no_url' };
 
   let buf;
-  try { buf = await fetchBuffer(sourceUrl); }
-  catch (e) { return { id: entry.id, error: 'download_failed', detail: e.message }; }
+  try {
+    buf = await fetchBuffer(sourceUrl);
+  } catch (e) {
+    return { id: entry.id, error: 'download_failed', detail: e.message };
+  }
 
   // Sharp pipeline: cover-crop to 320×320, encode WebP q=80
   let webp;
@@ -125,17 +136,27 @@ async function main() {
   fs.mkdirSync(opts.photos_dir, { recursive: true });
 
   const fetchResults = JSON.parse(fs.readFileSync(opts.fetch_results, 'utf8'));
-  const picked = fetchResults.filter(r => r.pick);
+  const picked = fetchResults.filter((r) => r.pick);
   console.error('Processing ' + picked.length + ' picked images out of ' + fetchResults.length);
 
-  const ok = [], fail = [];
+  const ok = [],
+    fail = [];
   for (let i = 0; i < picked.length; i++) {
-    process.stderr.write('[' + (i + 1) + '/' + picked.length + '] ' + picked[i].id.padEnd(28) + ' ');
+    process.stderr.write(
+      '[' + (i + 1) + '/' + picked.length + '] ' + picked[i].id.padEnd(28) + ' '
+    );
     const t0 = Date.now();
     const r = await processOne(picked[i]);
     if (r.base64) {
       ok.push(r);
-      console.error((r.resumed ? '◯' : '✓') + ' ' + (r.bytes / 1024).toFixed(1) + ' KB [' + (Date.now() - t0) + 'ms]');
+      console.error(
+        (r.resumed ? '◯' : '✓') +
+          ' ' +
+          (r.bytes / 1024).toFixed(1) +
+          ' KB [' +
+          (Date.now() - t0) +
+          'ms]'
+      );
     } else {
       fail.push(r);
       console.error('✗ ' + r.error);
@@ -150,12 +171,15 @@ async function main() {
   console.error('\nSucceeded: ' + ok.length + ' · Failed: ' + fail.length);
   if (fail.length) {
     console.error('\nFailures:');
-    for (const f of fail) console.error('  ' + f.id + ': ' + f.error + (f.detail ? ' — ' + f.detail : ''));
+    for (const f of fail)
+      console.error('  ' + f.id + ': ' + f.error + (f.detail ? ' — ' + f.detail : ''));
   }
   console.error('\nManifest: ' + opts.manifest);
   const totalBytes = ok.reduce((sum, r) => sum + r.bytes, 0);
   console.error('Total photo bytes: ' + (totalBytes / 1024 / 1024).toFixed(1) + ' MB');
 }
 
-main().catch(e => { console.error(e); process.exit(1); });
-
+main().catch((e) => {
+  console.error(e);
+  process.exit(1);
+});

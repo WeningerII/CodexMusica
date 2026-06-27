@@ -2,7 +2,7 @@
 // _seed_workspace.js — deterministic, import-faithful workspace seeding + render.
 //
 // This is the Node side of the connector⇄"Current Recipe" parity work
-// (see CONNECTOR_WORKSPACE_PLAN.md). It mirrors the browser's deterministic
+// It mirrors the browser's deterministic
 // pipeline — NOT the engine's hill-climb search:
 //
 //   src/app.js importTradition() → makeCard()/defaultParts()/_voicePartsForTradition()
@@ -44,7 +44,16 @@ function defaultParts(inst) {
 }
 
 function emptyChain() {
-  return { fx: [], amp: null, mic: null, pre: null, comp: null, eq: null, medium: null, console: null };
+  return {
+    fx: [],
+    amp: null,
+    mic: null,
+    pre: null,
+    comp: null,
+    eq: null,
+    medium: null,
+    console: null,
+  };
 }
 
 // _voicePartsForTradition: TUNING_TO_VOICE_PARTS[tuning] < TRADITION_VOICE_OVERRIDES[id]
@@ -96,8 +105,11 @@ function resolveAmpVariant(inst, trad) {
   const valid = new Set(ampPart.variants.map((v) => v.id));
   const isBass = inst.id.includes('bass') || inst.id.includes('contrabass');
   const candidates = [];
-  if (isBass) { if (trad.chain_amp_bass) candidates.push(trad.chain_amp_bass); }
-  else { if (trad.chain_amp_guitar) candidates.push(trad.chain_amp_guitar); }
+  if (isBass) {
+    if (trad.chain_amp_bass) candidates.push(trad.chain_amp_bass);
+  } else {
+    if (trad.chain_amp_guitar) candidates.push(trad.chain_amp_guitar);
+  }
   const general = trad.chain_amp;
   if (Array.isArray(general)) candidates.push(...general);
   else if (typeof general === 'string') candidates.push(general);

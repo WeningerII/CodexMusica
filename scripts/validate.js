@@ -9,19 +9,19 @@ const C = require('./_loader.js');
 const errors = [];
 
 // ---- Build ID lookup sets ----
-const instIds = new Set(C.INSTRUMENTS.map(i => i.id));
-const familyIds = new Set(C.INSTRUMENT_FAMILIES.map(f => f.id));
-const roomIds = new Set(C.ROOMS.map(r => r.id));
-const roomClusterIds = new Set(C.ROOM_CLUSTERS.map(c => c.id));
-const tuningIds = new Set(C.TUNINGS.map(t => t.id));
-const treeIds = new Set(C.TREE_NODES.map(n => n.id));
-const tradIds = new Set(C.TRADITIONS.map(t => t.id));
-const archetypeIds = new Set((C.CHAIN_ARCHETYPES || []).map(a => a.id));
-const aestheticIds = new Set((C.PRODUCTION_AESTHETICS || []).map(p => p.id));
+const instIds = new Set(C.INSTRUMENTS.map((i) => i.id));
+const familyIds = new Set(C.INSTRUMENT_FAMILIES.map((f) => f.id));
+const roomIds = new Set(C.ROOMS.map((r) => r.id));
+const roomClusterIds = new Set(C.ROOM_CLUSTERS.map((c) => c.id));
+const tuningIds = new Set(C.TUNINGS.map((t) => t.id));
+const treeIds = new Set(C.TREE_NODES.map((n) => n.id));
+const tradIds = new Set(C.TRADITIONS.map((t) => t.id));
+const archetypeIds = new Set((C.CHAIN_ARCHETYPES || []).map((a) => a.id));
+const aestheticIds = new Set((C.PRODUCTION_AESTHETICS || []).map((p) => p.id));
 
 // CHAIN_SECTIONS items are nested per-section
 const chainIds = {};
-for (const sec of C.CHAIN_SECTIONS) chainIds[sec.id] = new Set(sec.items.map(i => i.id));
+for (const sec of C.CHAIN_SECTIONS) chainIds[sec.id] = new Set(sec.items.map((i) => i.id));
 
 // amp_make part-variant ids — the namespace tradition.chain_amp_guitar /
 // chain_amp_bass draw from (the app matches them against each instrument's
@@ -29,23 +29,38 @@ for (const sec of C.CHAIN_SECTIONS) chainIds[sec.id] = new Set(sec.items.map(i =
 // here so the per-instrument amp fields get the same broken-ref guard as chain_amp.
 const ampMakeVariantIds = new Set();
 for (const inst of C.INSTRUMENTS) {
-  for (const p of (inst.parts || [])) {
-    if (p.id === 'amp_make') for (const v of (p.variants || [])) ampMakeVariantIds.add(v.id);
+  for (const p of inst.parts || []) {
+    if (p.id === 'amp_make') for (const v of p.variants || []) ampMakeVariantIds.add(v.id);
   }
 }
 
 // ---- Instrument validation ----
-const REQ_INST_AXES = ['pitchFix','sustain','polyphony','harmonicity','register','range','articulation','transduction','dynamics'];
+const REQ_INST_AXES = [
+  'pitchFix',
+  'sustain',
+  'polyphony',
+  'harmonicity',
+  'register',
+  'range',
+  'articulation',
+  'transduction',
+  'dynamics',
+];
 const seenInst = new Set();
 for (const i of C.INSTRUMENTS) {
   if (seenInst.has(i.id)) errors.push(['DUPLICATE_ID', 'instrument', i.id]);
   seenInst.add(i.id);
-  if (i.family && !familyIds.has(i.family)) errors.push(['BROKEN_REF', 'instrument.family', i.id, i.family]);
-  if (!i.axes) { errors.push(['MISSING_AXES', 'instrument', i.id]); continue; }
+  if (i.family && !familyIds.has(i.family))
+    errors.push(['BROKEN_REF', 'instrument.family', i.id, i.family]);
+  if (!i.axes) {
+    errors.push(['MISSING_AXES', 'instrument', i.id]);
+    continue;
+  }
   for (const ax of REQ_INST_AXES) {
     const v = i.axes[ax];
     if (v === undefined || v === null) errors.push(['MISSING_AXIS', 'instrument', i.id, ax]);
-    else if (!Number.isInteger(v) || v < -2 || v > 2) errors.push(['AXIS_OUT_OF_RANGE', 'instrument', i.id, `${ax}=${v}`]);
+    else if (!Number.isInteger(v) || v < -2 || v > 2)
+      errors.push(['AXIS_OUT_OF_RANGE', 'instrument', i.id, `${ax}=${v}`]);
   }
   for (const ax of Object.keys(i.axes)) {
     if (!REQ_INST_AXES.includes(ax)) errors.push(['UNKNOWN_AXIS', 'instrument', i.id, ax]);
@@ -57,76 +72,110 @@ const seenRoom = new Set();
 for (const r of C.ROOMS) {
   if (seenRoom.has(r.id)) errors.push(['DUPLICATE_ID', 'room', r.id]);
   seenRoom.add(r.id);
-  if (r.cluster && !roomClusterIds.has(r.cluster)) errors.push(['BROKEN_REF', 'room.cluster', r.id, r.cluster]);
+  if (r.cluster && !roomClusterIds.has(r.cluster))
+    errors.push(['BROKEN_REF', 'room.cluster', r.id, r.cluster]);
   if (r.default_chain_archetype && !archetypeIds.has(r.default_chain_archetype)) {
     errors.push(['BROKEN_REF', 'room.default_chain_archetype', r.id, r.default_chain_archetype]);
   }
 }
 
 // ---- Chain archetype validation ----
-for (const a of (C.CHAIN_ARCHETYPES || [])) {
-  if (!a.components) { errors.push(['MISSING_FIELD', 'chain_archetype', a.id, 'components']); continue; }
+for (const a of C.CHAIN_ARCHETYPES || []) {
+  if (!a.components) {
+    errors.push(['MISSING_FIELD', 'chain_archetype', a.id, 'components']);
+    continue;
+  }
   const c = a.components;
-  if (c.mic && chainIds.mic && !chainIds.mic.has(c.mic)) errors.push(['BROKEN_REF', 'chain_archetype.mic', a.id, c.mic]);
-  if (c.pre && chainIds.pre && !chainIds.pre.has(c.pre)) errors.push(['BROKEN_REF', 'chain_archetype.pre', a.id, c.pre]);
-  if (c.console && chainIds.console && !chainIds.console.has(c.console)) errors.push(['BROKEN_REF', 'chain_archetype.console', a.id, c.console]);
-  if (c.comp && chainIds.comp && !chainIds.comp.has(c.comp)) errors.push(['BROKEN_REF', 'chain_archetype.comp', a.id, c.comp]);
-  if (c.eq && chainIds.eq && !chainIds.eq.has(c.eq)) errors.push(['BROKEN_REF', 'chain_archetype.eq', a.id, c.eq]);
-  if (c.medium && chainIds.medium && !chainIds.medium.has(c.medium)) errors.push(['BROKEN_REF', 'chain_archetype.medium', a.id, c.medium]);
+  if (c.mic && chainIds.mic && !chainIds.mic.has(c.mic))
+    errors.push(['BROKEN_REF', 'chain_archetype.mic', a.id, c.mic]);
+  if (c.pre && chainIds.pre && !chainIds.pre.has(c.pre))
+    errors.push(['BROKEN_REF', 'chain_archetype.pre', a.id, c.pre]);
+  if (c.console && chainIds.console && !chainIds.console.has(c.console))
+    errors.push(['BROKEN_REF', 'chain_archetype.console', a.id, c.console]);
+  if (c.comp && chainIds.comp && !chainIds.comp.has(c.comp))
+    errors.push(['BROKEN_REF', 'chain_archetype.comp', a.id, c.comp]);
+  if (c.eq && chainIds.eq && !chainIds.eq.has(c.eq))
+    errors.push(['BROKEN_REF', 'chain_archetype.eq', a.id, c.eq]);
+  if (c.medium && chainIds.medium && !chainIds.medium.has(c.medium))
+    errors.push(['BROKEN_REF', 'chain_archetype.medium', a.id, c.medium]);
   if (Array.isArray(c.fx)) {
     for (const fxId of c.fx) {
-      if (chainIds.fx && !chainIds.fx.has(fxId)) errors.push(['BROKEN_REF', 'chain_archetype.fx', a.id, fxId]);
+      if (chainIds.fx && !chainIds.fx.has(fxId))
+        errors.push(['BROKEN_REF', 'chain_archetype.fx', a.id, fxId]);
     }
   }
 }
 
 // ---- Production aesthetic validation ----
-const REQ_AESTHETIC = ['id','name','era','description','characteristic_techniques','exemplar_recordings','production_locus'];
-for (const p of (C.PRODUCTION_AESTHETICS || [])) {
+const REQ_AESTHETIC = [
+  'id',
+  'name',
+  'era',
+  'description',
+  'characteristic_techniques',
+  'exemplar_recordings',
+  'production_locus',
+];
+for (const p of C.PRODUCTION_AESTHETICS || []) {
   for (const f of REQ_AESTHETIC) {
-    if (p[f] === undefined || p[f] === null) errors.push(['MISSING_FIELD', 'production_aesthetic', p.id, f]);
+    if (p[f] === undefined || p[f] === null)
+      errors.push(['MISSING_FIELD', 'production_aesthetic', p.id, f]);
   }
 }
 
 // ---- Tree node validation ----
 for (const n of C.TREE_NODES) {
-  if (n.parent && !treeIds.has(n.parent)) errors.push(['BROKEN_REF', 'tree_node.parent', n.id, n.parent]);
+  if (n.parent && !treeIds.has(n.parent))
+    errors.push(['BROKEN_REF', 'tree_node.parent', n.id, n.parent]);
 }
 
 // ---- Tradition validation ----
 for (const t of C.TRADITIONS) {
-  if (t.tuning && !tuningIds.has(t.tuning)) errors.push(['BROKEN_REF', 'tradition.tuning', t.id, t.tuning]);
+  if (t.tuning && !tuningIds.has(t.tuning))
+    errors.push(['BROKEN_REF', 'tradition.tuning', t.id, t.tuning]);
   if (t.room && !roomIds.has(t.room)) errors.push(['BROKEN_REF', 'tradition.room', t.id, t.room]);
   if (t.chain_archetype && !archetypeIds.has(t.chain_archetype)) {
     errors.push(['BROKEN_REF', 'tradition.chain_archetype', t.id, t.chain_archetype]);
   }
   if (t.production_aesthetic) {
-    const refs = Array.isArray(t.production_aesthetic) ? t.production_aesthetic : [t.production_aesthetic];
+    const refs = Array.isArray(t.production_aesthetic)
+      ? t.production_aesthetic
+      : [t.production_aesthetic];
     for (const r of refs) {
-      if (!aestheticIds.has(r)) errors.push(['BROKEN_REF', 'tradition.production_aesthetic', t.id, r]);
+      if (!aestheticIds.has(r))
+        errors.push(['BROKEN_REF', 'tradition.production_aesthetic', t.id, r]);
     }
   }
-  if (t.chain_mic && chainIds.mic && !chainIds.mic.has(t.chain_mic)) errors.push(['BROKEN_REF', 'tradition.chain_mic', t.id, t.chain_mic]);
-  if (t.chain_pre && chainIds.pre && !chainIds.pre.has(t.chain_pre)) errors.push(['BROKEN_REF', 'tradition.chain_pre', t.id, t.chain_pre]);
-  if (t.chain_medium && chainIds.medium && !chainIds.medium.has(t.chain_medium)) errors.push(['BROKEN_REF', 'tradition.chain_medium', t.id, t.chain_medium]);
-  if (t.chain_console && chainIds.console && !chainIds.console.has(t.chain_console)) errors.push(['BROKEN_REF', 'tradition.chain_console', t.id, t.chain_console]);
-  if (t.chain_comp && chainIds.comp && !chainIds.comp.has(t.chain_comp)) errors.push(['BROKEN_REF', 'tradition.chain_comp', t.id, t.chain_comp]);
-  if (t.chain_eq && chainIds.eq && !chainIds.eq.has(t.chain_eq)) errors.push(['BROKEN_REF', 'tradition.chain_eq', t.id, t.chain_eq]);
-  if (t.chain_amp && chainIds.amp && !chainIds.amp.has(t.chain_amp)) errors.push(['BROKEN_REF', 'tradition.chain_amp', t.id, t.chain_amp]);
+  if (t.chain_mic && chainIds.mic && !chainIds.mic.has(t.chain_mic))
+    errors.push(['BROKEN_REF', 'tradition.chain_mic', t.id, t.chain_mic]);
+  if (t.chain_pre && chainIds.pre && !chainIds.pre.has(t.chain_pre))
+    errors.push(['BROKEN_REF', 'tradition.chain_pre', t.id, t.chain_pre]);
+  if (t.chain_medium && chainIds.medium && !chainIds.medium.has(t.chain_medium))
+    errors.push(['BROKEN_REF', 'tradition.chain_medium', t.id, t.chain_medium]);
+  if (t.chain_console && chainIds.console && !chainIds.console.has(t.chain_console))
+    errors.push(['BROKEN_REF', 'tradition.chain_console', t.id, t.chain_console]);
+  if (t.chain_comp && chainIds.comp && !chainIds.comp.has(t.chain_comp))
+    errors.push(['BROKEN_REF', 'tradition.chain_comp', t.id, t.chain_comp]);
+  if (t.chain_eq && chainIds.eq && !chainIds.eq.has(t.chain_eq))
+    errors.push(['BROKEN_REF', 'tradition.chain_eq', t.id, t.chain_eq]);
+  if (t.chain_amp && chainIds.amp && !chainIds.amp.has(t.chain_amp))
+    errors.push(['BROKEN_REF', 'tradition.chain_amp', t.id, t.chain_amp]);
   // chain_fx is an ARRAY of fx-section ids. Previously unguarded — that gap let
   // `fx_`-prefixed ids (e.g. `fx_spring_reverb` vs the real `spring_reverb`) ride
   // along and get silently dropped at render time, omitting intended fx.
   if (Array.isArray(t.chain_fx)) {
     for (const fxId of t.chain_fx) {
-      if (chainIds.fx && !chainIds.fx.has(fxId)) errors.push(['BROKEN_REF', 'tradition.chain_fx', t.id, fxId]);
+      if (chainIds.fx && !chainIds.fx.has(fxId))
+        errors.push(['BROKEN_REF', 'tradition.chain_fx', t.id, fxId]);
     }
   }
   // Per-instrument amp fields resolve against the amp_make variant namespace.
   for (const ampField of ['chain_amp_guitar', 'chain_amp_bass']) {
     const val = t[ampField];
     if (val == null) continue;
-    for (const ampId of (Array.isArray(val) ? val : [val])) {
-      if (!ampMakeVariantIds.has(ampId)) errors.push(['BROKEN_REF', `tradition.${ampField}`, t.id, ampId]);
+    for (const ampId of Array.isArray(val) ? val : [val]) {
+      if (!ampMakeVariantIds.has(ampId))
+        errors.push(['BROKEN_REF', `tradition.${ampField}`, t.id, ampId]);
     }
   }
   if (Array.isArray(t.instruments)) {
@@ -146,8 +195,8 @@ for (const t of C.TRADITIONS) {
     // Collect all (part_id, variant_id) pairs valid for any of this tradition's
     // instruments. Lookup helper accessing the C.INSTRUMENTS index.
     const validPairs = new Set();
-    for (const iid of (t.instruments || [])) {
-      const inst = C.INSTRUMENTS.find(i => i.id === iid);
+    for (const iid of t.instruments || []) {
+      const inst = C.INSTRUMENTS.find((i) => i.id === iid);
       if (!inst) continue;
       for (const p of inst.parts) {
         for (const v of p.variants) validPairs.add(p.id + '::' + v.id);
@@ -195,7 +244,21 @@ for (const t of C.TRADITIONS) {
 }
 
 // ---- Tradition extras validation ----
-const REQ_AXES = ['harm','pitch','ornament','meter','density','transmission','improv','soundTech','intensity','voice','timbre','percussion','cyclicity'];
+const REQ_AXES = [
+  'harm',
+  'pitch',
+  'ornament',
+  'meter',
+  'density',
+  'transmission',
+  'improv',
+  'soundTech',
+  'intensity',
+  'voice',
+  'timbre',
+  'percussion',
+  'cyclicity',
+];
 
 // Bidirectional bijection: TRADITIONS ↔ TRADITION_EXTRAS. Historically only the
 // extras → tradition direction was checked (orphan-extras catch). The reverse
@@ -206,13 +269,20 @@ const REQ_AXES = ['harm','pitch','ornament','meter','density','transmission','im
 // must have parent (tree placement), axes (find-similar), description.
 for (const t of C.TRADITIONS) {
   if (!Object.prototype.hasOwnProperty.call(C.TRADITION_EXTRAS, t.id)) {
-    errors.push(['MISSING_EXTRAS', 'tradition', t.id, 'no_extras_entry — tradition will be UI-invisible in tree browse']);
+    errors.push([
+      'MISSING_EXTRAS',
+      'tradition',
+      t.id,
+      'no_extras_entry — tradition will be UI-invisible in tree browse',
+    ]);
   }
 }
 for (const tid of Object.keys(C.TRADITION_EXTRAS)) {
   const e = C.TRADITION_EXTRAS[tid];
-  if (!tradIds.has(tid)) errors.push(['ORPHAN_EXTRAS', 'tradition_extras', tid, 'no_matching_tradition']);
-  if (e.parent && !treeIds.has(e.parent)) errors.push(['BROKEN_REF', 'extras.parent', tid, e.parent]);
+  if (!tradIds.has(tid))
+    errors.push(['ORPHAN_EXTRAS', 'tradition_extras', tid, 'no_matching_tradition']);
+  if (e.parent && !treeIds.has(e.parent))
+    errors.push(['BROKEN_REF', 'extras.parent', tid, e.parent]);
   if (Array.isArray(e.crossRefs)) {
     for (const cr of e.crossRefs) {
       // crossRefs can be either:
@@ -226,7 +296,12 @@ for (const tid of Object.keys(C.TRADITION_EXTRAS)) {
       } else if (cr && typeof cr === 'object') {
         ref = cr.ref;
         if (typeof ref !== 'string') {
-          errors.push(['MALFORMED_CROSSREF', 'extras.crossRefs', tid, 'object form requires string `ref` field']);
+          errors.push([
+            'MALFORMED_CROSSREF',
+            'extras.crossRefs',
+            tid,
+            'object form requires string `ref` field',
+          ]);
           continue;
         }
         // Reject unknown fields to catch typos early
@@ -236,8 +311,16 @@ for (const tid of Object.keys(C.TRADITION_EXTRAS)) {
           }
         }
         if ('isolated_parts' in cr) {
-          if (!Array.isArray(cr.isolated_parts) || !cr.isolated_parts.every(p => typeof p === 'string' && p.length > 0)) {
-            errors.push(['MALFORMED_CROSSREF', 'extras.crossRefs', tid, 'isolated_parts must be non-empty array of strings']);
+          if (
+            !Array.isArray(cr.isolated_parts) ||
+            !cr.isolated_parts.every((p) => typeof p === 'string' && p.length > 0)
+          ) {
+            errors.push([
+              'MALFORMED_CROSSREF',
+              'extras.crossRefs',
+              tid,
+              'isolated_parts must be non-empty array of strings',
+            ]);
           }
         }
       } else {
@@ -258,7 +341,8 @@ for (const tid of Object.keys(C.TRADITION_EXTRAS)) {
     for (const ax of REQ_AXES) {
       const v = e.axes[ax];
       if (v === undefined || v === null) errors.push(['MISSING_AXIS', 'extras.axes', tid, ax]);
-      else if (!Number.isInteger(v) || v < -2 || v > 2) errors.push(['AXIS_OUT_OF_RANGE', 'extras.axes', tid, `${ax}=${v}`]);
+      else if (!Number.isInteger(v) || v < -2 || v > 2)
+        errors.push(['AXIS_OUT_OF_RANGE', 'extras.axes', tid, `${ax}=${v}`]);
     }
   }
 }
@@ -268,9 +352,9 @@ for (const tid of Object.keys(C.TRADITION_EXTRAS)) {
 // least one applies_to entry must be a member of the part's family (otherwise
 // the variant is dead — applies_to filtering happens after family-membership
 // filtering, so a variant whose applies_to has zero family-members is unreachable).
-const allInstIds = new Set((C.INSTRUMENTS || []).map(i => i.id));
+const allInstIds = new Set((C.INSTRUMENTS || []).map((i) => i.id));
 const familyMembersByFamily = {};
-for (const i of (C.INSTRUMENTS || [])) {
+for (const i of C.INSTRUMENTS || []) {
   if (!familyMembersByFamily[i.family]) familyMembersByFamily[i.family] = new Set();
   familyMembersByFamily[i.family].add(i.id);
 }
@@ -278,16 +362,21 @@ const fp = C.INSTRUMENT_FAMILY_PARTS || {};
 for (const fam of Object.keys(fp)) {
   const members = familyMembersByFamily[fam] || new Set();
   for (const part of fp[fam]) {
-    for (const v of (part.variants || [])) {
+    for (const v of part.variants || []) {
       if (!Array.isArray(v.applies_to)) continue;
       for (const target of v.applies_to) {
         if (!allInstIds.has(target)) {
           errors.push(['BROKEN_REF', 'family_parts.applies_to', `${fam}.${v.id}`, target]);
         }
       }
-      const matchedInFam = v.applies_to.filter(t => members.has(t));
+      const matchedInFam = v.applies_to.filter((t) => members.has(t));
       if (matchedInFam.length === 0) {
-        errors.push(['ORPHAN_VARIANT', 'family_parts.applies_to', `${fam}.${v.id}`, `applies_to=[${v.applies_to.join(',')}] matches no ${fam}-family instrument`]);
+        errors.push([
+          'ORPHAN_VARIANT',
+          'family_parts.applies_to',
+          `${fam}.${v.id}`,
+          `applies_to=[${v.applies_to.join(',')}] matches no ${fam}-family instrument`,
+        ]);
       }
     }
   }
@@ -307,19 +396,29 @@ const familyPartsKeys = new Set(Object.keys(C.INSTRUMENT_FAMILY_PARTS || {}));
 for (const fam of C.INSTRUMENT_FAMILIES) {
   if (familyPartsKeys.has(fam.id)) continue;
   if (AGGREGATE_FAMILIES_NO_PARTS.has(fam.id)) continue;
-  errors.push(['MISSING_FAMILY_PARTS', 'family', fam.id, 'no INSTRUMENT_FAMILY_PARTS entry — add either an entry or to AGGREGATE_FAMILIES_NO_PARTS in validate.js']);
+  errors.push([
+    'MISSING_FAMILY_PARTS',
+    'family',
+    fam.id,
+    'no INSTRUMENT_FAMILY_PARTS entry — add either an entry or to AGGREGATE_FAMILIES_NO_PARTS in validate.js',
+  ]);
 }
 for (const fam of familyPartsKeys) {
-  if (!familyIds.has(fam)) errors.push(['ORPHAN_FAMILY_PARTS', 'family_parts', fam, 'no matching INSTRUMENT_FAMILIES entry']);
+  if (!familyIds.has(fam))
+    errors.push([
+      'ORPHAN_FAMILY_PARTS',
+      'family_parts',
+      fam,
+      'no matching INSTRUMENT_FAMILIES entry',
+    ]);
 }
-
 
 // At most one variant per part may carry `default: true`. Two defaults is
 // ambiguous — the engine picks the first encountered, which silently masks
 // authoring intent. Also catches the common copy-paste authoring failure.
-for (const i of (C.INSTRUMENTS || [])) {
-  for (const part of (i.parts || [])) {
-    const defaults = (part.variants || []).filter(v => v.default === true).map(v => v.id);
+for (const i of C.INSTRUMENTS || []) {
+  for (const part of i.parts || []) {
+    const defaults = (part.variants || []).filter((v) => v.default === true).map((v) => v.id);
     if (defaults.length > 1) {
       errors.push(['MULTIPLE_DEFAULTS', 'instrument', `${i.id}.${part.id}`, defaults.join(',')]);
     }
@@ -332,19 +431,24 @@ for (const i of (C.INSTRUMENTS || [])) {
 // canonical preference. Family-part defaults filtered by applies_to can leave
 // instruments orphaned; the engine supports own-part annotations of the form
 // `{ id: '<part_id>', default_variant: '<variant_id>' }` to fill these gaps.
-for (const i of (C.INSTRUMENTS || [])) {
-  for (const part of (i.parts || [])) {
+for (const i of C.INSTRUMENTS || []) {
+  for (const part of i.parts || []) {
     const variants = part.variants || [];
     if (variants.length < 2) continue;
-    const defaults = variants.filter(v => v.default === true);
+    const defaults = variants.filter((v) => v.default === true);
     if (defaults.length === 0) {
-      errors.push(['MISSING_DEFAULT', 'instrument', `${i.id}.${part.id}`, `${variants.length} variants, no default — add own-part annotation { id: '${part.id}', default_variant: '<canonical>' }`]);
+      errors.push([
+        'MISSING_DEFAULT',
+        'instrument',
+        `${i.id}.${part.id}`,
+        `${variants.length} variants, no default — add own-part annotation { id: '${part.id}', default_variant: '<canonical>' }`,
+      ]);
     }
   }
 }
 for (const fam of Object.keys(C.INSTRUMENT_FAMILY_PARTS || {})) {
-  for (const part of (C.INSTRUMENT_FAMILY_PARTS[fam] || [])) {
-    const defaultVariants = (part.variants || []).filter(v => v.default === true);
+  for (const part of C.INSTRUMENT_FAMILY_PARTS[fam] || []) {
+    const defaultVariants = (part.variants || []).filter((v) => v.default === true);
     if (defaultVariants.length <= 1) continue;
     // Check whether any pair of defaults could coexist on a single instrument.
     // A variant without `applies_to` is family-wide and always coexists.
@@ -366,12 +470,20 @@ for (const fam of Object.keys(C.INSTRUMENT_FAMILY_PARTS || {})) {
         }
         // Otherwise check intersection
         for (const x of sa) {
-          if (sb.has(x)) { conflictPair = [defaultVariants[a].id, defaultVariants[b].id]; break; }
+          if (sb.has(x)) {
+            conflictPair = [defaultVariants[a].id, defaultVariants[b].id];
+            break;
+          }
         }
       }
     }
     if (conflictPair) {
-      errors.push(['MULTIPLE_DEFAULTS', 'family_parts', `${fam}.${part.id}`, conflictPair.join(',')]);
+      errors.push([
+        'MULTIPLE_DEFAULTS',
+        'family_parts',
+        `${fam}.${part.id}`,
+        conflictPair.join(','),
+      ]);
     }
   }
 }
@@ -384,13 +496,21 @@ for (const fam of Object.keys(C.INSTRUMENT_FAMILY_PARTS || {})) {
 {
   const fs = require('fs');
   const path = require('path');
-  const extrasSrc = fs.readFileSync(path.join(__dirname, '..', 'references', '06_extras.js'), 'utf8');
+  const extrasSrc = fs.readFileSync(
+    path.join(__dirname, '..', 'references', '06_extras.js'),
+    'utf8'
+  );
   const seenKey = new Set();
   const keyRe = /^ {2}'([a-z0-9_]+)':\s*\{/gm;
   let km;
   while ((km = keyRe.exec(extrasSrc)) !== null) {
     if (seenKey.has(km[1])) {
-      errors.push(['DUPLICATE_KEY', 'extras_source', km[1], 'two entries in 06_extras.js — the later one silently wins on eval']);
+      errors.push([
+        'DUPLICATE_KEY',
+        'extras_source',
+        km[1],
+        'two entries in 06_extras.js — the later one silently wins on eval',
+      ]);
     }
     seenKey.add(km[1]);
   }
@@ -400,7 +520,9 @@ for (const fam of Object.keys(C.INSTRUMENT_FAMILY_PARTS || {})) {
 if (errors.length === 0) {
   const archCount = (C.CHAIN_ARCHETYPES || []).length;
   const paCount = (C.PRODUCTION_AESTHETICS || []).length;
-  console.log(`VALID — ${C.TRADITIONS.length} traditions, ${C.TREE_NODES.length} tree nodes, ${C.INSTRUMENTS.length} instruments, ${C.ROOMS.length} rooms, ${archCount} chain archetypes, ${paCount} production aesthetics. All refs resolve.`);
+  console.log(
+    `VALID — ${C.TRADITIONS.length} traditions, ${C.TREE_NODES.length} tree nodes, ${C.INSTRUMENTS.length} instruments, ${C.ROOMS.length} rooms, ${archCount} chain archetypes, ${paCount} production aesthetics. All refs resolve.`
+  );
   process.exit(0);
 }
 

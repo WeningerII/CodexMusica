@@ -37,43 +37,43 @@ const SNAPSHOT_PATH = path.join(SNAPSHOT_DIR, 'regression_snapshot.json');
 
 const FIXTURES = [
   // Single-tradition fixtures spanning major branches of the tree
-  { id: 'afrobeat',          traditions: ['afrobeat'] },
-  { id: 'khayal',            traditions: ['khayal'] },
-  { id: 'fado',              traditions: ['fado'] },
-  { id: 'klezmer',           traditions: ['klezmer'] },
-  { id: 'reggae_roots',      traditions: ['reggae_roots'] },
-  { id: 'bluegrass',         traditions: ['bluegrass'] },
-  { id: 'post_punk',         traditions: ['post_punk'] },
-  { id: 'southern_trap',     traditions: ['southern_trap'] },
-  { id: 'mariachi',          traditions: ['mariachi'] },
-  { id: 'tropicalia',        traditions: ['tropicalia'] },
-  { id: 'hardcore_punk',     traditions: ['hardcore_punk'] },
-  { id: 'shoegaze',          traditions: ['shoegaze'] },
-  { id: 'chicago_blues',     traditions: ['chicago_blues'] },
-  { id: 'bluegrass_gospel',  traditions: ['bluegrass_gospel'] },
-  { id: 'mande_griot',       traditions: ['mande_griot'] },
-  { id: 'laiko',             traditions: ['laiko'] },
-  { id: 'rockabilly_50s',    traditions: ['rockabilly_50s'] },
-  { id: 'jibaro',            traditions: ['jibaro'] },
-  { id: 'wenrenyue',         traditions: ['wenrenyue'] },
-  { id: 'bambuco',           traditions: ['bambuco'] },
-  { id: 'qawwali',           traditions: ['qawwali'] },
-  { id: 'sufi_sama',         traditions: ['sufi_sama'] },
+  { id: 'afrobeat', traditions: ['afrobeat'] },
+  { id: 'khayal', traditions: ['khayal'] },
+  { id: 'fado', traditions: ['fado'] },
+  { id: 'klezmer', traditions: ['klezmer'] },
+  { id: 'reggae_roots', traditions: ['reggae_roots'] },
+  { id: 'bluegrass', traditions: ['bluegrass'] },
+  { id: 'post_punk', traditions: ['post_punk'] },
+  { id: 'southern_trap', traditions: ['southern_trap'] },
+  { id: 'mariachi', traditions: ['mariachi'] },
+  { id: 'tropicalia', traditions: ['tropicalia'] },
+  { id: 'hardcore_punk', traditions: ['hardcore_punk'] },
+  { id: 'shoegaze', traditions: ['shoegaze'] },
+  { id: 'chicago_blues', traditions: ['chicago_blues'] },
+  { id: 'bluegrass_gospel', traditions: ['bluegrass_gospel'] },
+  { id: 'mande_griot', traditions: ['mande_griot'] },
+  { id: 'laiko', traditions: ['laiko'] },
+  { id: 'rockabilly_50s', traditions: ['rockabilly_50s'] },
+  { id: 'jibaro', traditions: ['jibaro'] },
+  { id: 'wenrenyue', traditions: ['wenrenyue'] },
+  { id: 'bambuco', traditions: ['bambuco'] },
+  { id: 'qawwali', traditions: ['qawwali'] },
+  { id: 'sufi_sama', traditions: ['sufi_sama'] },
   { id: 'southern_gospel_quartet', traditions: ['southern_gospel_quartet'] },
-  { id: 'sahel_praise',      traditions: ['sahel_praise'] },
-  { id: 'pentecostal_gospel',traditions: ['pentecostal_gospel'] },
-  { id: 'arena_rock',        traditions: ['arena_rock'] },
-  { id: 'hair_metal',        traditions: ['hair_metal'] },
-  { id: 'aor',               traditions: ['aor'] },
-  { id: 'heartland_rock',    traditions: ['heartland_rock'] },
-  { id: 'jingju',            traditions: ['jingju'] },
+  { id: 'sahel_praise', traditions: ['sahel_praise'] },
+  { id: 'pentecostal_gospel', traditions: ['pentecostal_gospel'] },
+  { id: 'arena_rock', traditions: ['arena_rock'] },
+  { id: 'hair_metal', traditions: ['hair_metal'] },
+  { id: 'aor', traditions: ['aor'] },
+  { id: 'heartland_rock', traditions: ['heartland_rock'] },
+  { id: 'jingju', traditions: ['jingju'] },
   { id: 'mongolian_long_song', traditions: ['mongolian_long_song'] },
-  { id: 'galician_kantautor',traditions: ['galician_kantautor'] },
-  { id: 'wassoulou',         traditions: ['wassoulou'] },
-  { id: 'samba',             traditions: ['samba'] },
-  { id: 'tango',             traditions: ['tango'] },
-  { id: 'hindustani',        traditions: ['hindustani'] },
-  { id: 'new_orleans',       traditions: ['new_orleans'] },
+  { id: 'galician_kantautor', traditions: ['galician_kantautor'] },
+  { id: 'wassoulou', traditions: ['wassoulou'] },
+  { id: 'samba', traditions: ['samba'] },
+  { id: 'tango', traditions: ['tango'] },
+  { id: 'hindustani', traditions: ['hindustani'] },
+  { id: 'new_orleans', traditions: ['new_orleans'] },
   { id: 'chinese_traditional_ensemble', traditions: ['chinese_traditional_ensemble'] },
   { id: 'vietnamese_traditional', traditions: ['vietnamese_traditional'] },
   { id: 'bengali_baul', traditions: ['bengali_baul'] },
@@ -95,260 +95,271 @@ const FIXTURES = [
   { id: 'american_drumline', traditions: ['american_drumline'] },
   { id: 'tango_traditional', traditions: ['tango_traditional'] },
   // Stapled-tradition fixture (tests the merge-context path)
-  { id: 'greenwich_village_confessional+delta_blues',
-    traditions: ['greenwich_village_confessional', 'delta_blues'] },
+  {
+    id: 'greenwich_village_confessional+delta_blues',
+    traditions: ['greenwich_village_confessional', 'delta_blues'],
+  },
   // Layer 11 expansion — one representative per previously-uncovered tree branch
   // (top-2 branch with ≥3 traditions and zero fixture coverage). Plus the three
   // traditions added this session (jamaican_dancehall, philly_soul_intl, hawaiian_slack_key).
-  { id: 'jamaican_dancehall',          traditions: ['jamaican_dancehall'] },
-  { id: 'philly_soul_intl',            traditions: ['philly_soul_intl'] },
-  { id: 'hawaiian_slack_key',          traditions: ['hawaiian_slack_key'] },
-  { id: 'doom',                        traditions: ['doom'] },
-  { id: 'son_cubano',                  traditions: ['son_cubano'] },
-  { id: 'chicago_house',               traditions: ['chicago_house'] },
-  { id: 'calypso',                     traditions: ['calypso'] },
+  { id: 'jamaican_dancehall', traditions: ['jamaican_dancehall'] },
+  { id: 'philly_soul_intl', traditions: ['philly_soul_intl'] },
+  { id: 'hawaiian_slack_key', traditions: ['hawaiian_slack_key'] },
+  { id: 'doom', traditions: ['doom'] },
+  { id: 'son_cubano', traditions: ['son_cubano'] },
+  { id: 'chicago_house', traditions: ['chicago_house'] },
+  { id: 'calypso', traditions: ['calypso'] },
   { id: 'greenwich_village_confessional', traditions: ['greenwich_village_confessional'] },
-  { id: 'dream_pop',                   traditions: ['dream_pop'] },
-  { id: 'candomble_ceremonial',        traditions: ['candomble_ceremonial'] },
-  { id: 'rai',                         traditions: ['rai'] },
-  { id: 'cumbia_colombiana',           traditions: ['cumbia_colombiana'] },
-  { id: 'delta_blues',                 traditions: ['delta_blues'] },
-  { id: 'highlife',                    traditions: ['highlife'] },
-  { id: 'bhajan',                      traditions: ['bhajan'] },
-  { id: 'city_pop',                    traditions: ['city_pop'] },
-  { id: 'psychedelic_rock',            traditions: ['psychedelic_rock'] },
-  { id: 'tibetan_gyuto',               traditions: ['tibetan_gyuto'] },
-  { id: 'eurovision_pop',              traditions: ['eurovision_pop'] },
-  { id: 'psytrance',                   traditions: ['psytrance'] },
-  { id: 'baile_funk',                  traditions: ['baile_funk'] },
-  { id: 'vaporwave',                   traditions: ['vaporwave'] },
-  { id: 'soukous',                     traditions: ['soukous'] },
-  { id: 'bachata',                     traditions: ['bachata'] },
-  { id: 'eurodance_90s',               traditions: ['eurodance_90s'] },
-  { id: 'uk_garage_2step',             traditions: ['uk_garage_2step'] },
-  { id: 'lovers_rock',                 traditions: ['lovers_rock'] },
-  { id: 'cantorial_khazonus',          traditions: ['cantorial_khazonus'] },
-  { id: 'quranic_recitation_tajweed',  traditions: ['quranic_recitation_tajweed'] },
-  { id: 'uilleann_pipe_solo',          traditions: ['uilleann_pipe_solo'] },
-  { id: 'cloud_rap_experimental',      traditions: ['cloud_rap_experimental'] },
-  { id: 'j_rock',                      traditions: ['j_rock'] },
-  { id: 'tuvan_throat',                traditions: ['tuvan_throat'] },
-  { id: 'amapiano',                    traditions: ['amapiano'] },
-  { id: 'jam_band',                    traditions: ['jam_band'] },
-  { id: 'musique_concrete',            traditions: ['musique_concrete'] },
+  { id: 'dream_pop', traditions: ['dream_pop'] },
+  { id: 'candomble_ceremonial', traditions: ['candomble_ceremonial'] },
+  { id: 'rai', traditions: ['rai'] },
+  { id: 'cumbia_colombiana', traditions: ['cumbia_colombiana'] },
+  { id: 'delta_blues', traditions: ['delta_blues'] },
+  { id: 'highlife', traditions: ['highlife'] },
+  { id: 'bhajan', traditions: ['bhajan'] },
+  { id: 'city_pop', traditions: ['city_pop'] },
+  { id: 'psychedelic_rock', traditions: ['psychedelic_rock'] },
+  { id: 'tibetan_gyuto', traditions: ['tibetan_gyuto'] },
+  { id: 'eurovision_pop', traditions: ['eurovision_pop'] },
+  { id: 'psytrance', traditions: ['psytrance'] },
+  { id: 'baile_funk', traditions: ['baile_funk'] },
+  { id: 'vaporwave', traditions: ['vaporwave'] },
+  { id: 'soukous', traditions: ['soukous'] },
+  { id: 'bachata', traditions: ['bachata'] },
+  { id: 'eurodance_90s', traditions: ['eurodance_90s'] },
+  { id: 'uk_garage_2step', traditions: ['uk_garage_2step'] },
+  { id: 'lovers_rock', traditions: ['lovers_rock'] },
+  { id: 'cantorial_khazonus', traditions: ['cantorial_khazonus'] },
+  { id: 'quranic_recitation_tajweed', traditions: ['quranic_recitation_tajweed'] },
+  { id: 'uilleann_pipe_solo', traditions: ['uilleann_pipe_solo'] },
+  { id: 'cloud_rap_experimental', traditions: ['cloud_rap_experimental'] },
+  { id: 'j_rock', traditions: ['j_rock'] },
+  { id: 'tuvan_throat', traditions: ['tuvan_throat'] },
+  { id: 'amapiano', traditions: ['amapiano'] },
+  { id: 'jam_band', traditions: ['jam_band'] },
+  { id: 'musique_concrete', traditions: ['musique_concrete'] },
   // Layer 11 expansion — covers traditions fixed during Layer 13 sweep
   // (genre-pollution corrections, room/instrument fixes) so future regressions
   // catch any reversion of those fixes
-  { id: 'basque_kantautor',            traditions: ['basque_kantautor'] },
-  { id: 'polish_poezja_spiewana',      traditions: ['polish_poezja_spiewana'] },
-  { id: 'fusion',                      traditions: ['fusion'] },
-  { id: 'jersey_club',                 traditions: ['jersey_club'] },
-  { id: 'garifuna_paranda',            traditions: ['garifuna_paranda'] },
-  { id: 'hi_nrg',                      traditions: ['hi_nrg'] },
-  { id: 'shomyo_japanese',             traditions: ['shomyo_japanese'] },
-  { id: 'algerian_rap',                traditions: ['algerian_rap'] },
-  { id: 'cumbia_peruvian',             traditions: ['cumbia_peruvian'] },
-  { id: 'jangle_pop',                  traditions: ['jangle_pop'] },
-  { id: 'k_pop_modern',                traditions: ['k_pop_modern'] },
+  { id: 'basque_kantautor', traditions: ['basque_kantautor'] },
+  { id: 'polish_poezja_spiewana', traditions: ['polish_poezja_spiewana'] },
+  { id: 'fusion', traditions: ['fusion'] },
+  { id: 'jersey_club', traditions: ['jersey_club'] },
+  { id: 'garifuna_paranda', traditions: ['garifuna_paranda'] },
+  { id: 'hi_nrg', traditions: ['hi_nrg'] },
+  { id: 'shomyo_japanese', traditions: ['shomyo_japanese'] },
+  { id: 'algerian_rap', traditions: ['algerian_rap'] },
+  { id: 'cumbia_peruvian', traditions: ['cumbia_peruvian'] },
+  { id: 'jangle_pop', traditions: ['jangle_pop'] },
+  { id: 'k_pop_modern', traditions: ['k_pop_modern'] },
   // Layer 11 expansion — broader uncovered-tradition stratified sample
-  { id: 'country_rap_hick_hop',        traditions: ['country_rap_hick_hop'] },
-  { id: 'russian_bard_song',           traditions: ['russian_bard_song'] },
-  { id: 'javali',                      traditions: ['javali'] },
-  { id: 'pansori',                     traditions: ['pansori'] },
-  { id: 'mandopop',                    traditions: ['mandopop'] },
-  { id: 'bossa_nova',                  traditions: ['bossa_nova'] },
-  { id: 'salsa_cubana_timba',          traditions: ['salsa_cubana_timba'] },
-  { id: 'schlager_german',             traditions: ['schlager_german'] },
-  { id: 'pre_commercial_country',      traditions: ['pre_commercial_country'] },
-  { id: 'parang_trini',                traditions: ['parang_trini'] },
-  { id: 'nashville_sound',             traditions: ['nashville_sound'] },
-  { id: 'ethio_pop_modern',            traditions: ['ethio_pop_modern'] },
-  { id: 'guqin',                       traditions: ['guqin'] },
-  { id: 'power_pop',                   traditions: ['power_pop'] },
-  { id: 'candombe_uruguayan',          traditions: ['candombe_uruguayan'] },
-  { id: 'newfoundland_outport',        traditions: ['newfoundland_outport'] },
-  { id: 'red_dirt',                    traditions: ['red_dirt'] },
+  { id: 'country_rap_hick_hop', traditions: ['country_rap_hick_hop'] },
+  { id: 'russian_bard_song', traditions: ['russian_bard_song'] },
+  { id: 'javali', traditions: ['javali'] },
+  { id: 'pansori', traditions: ['pansori'] },
+  { id: 'mandopop', traditions: ['mandopop'] },
+  { id: 'bossa_nova', traditions: ['bossa_nova'] },
+  { id: 'salsa_cubana_timba', traditions: ['salsa_cubana_timba'] },
+  { id: 'schlager_german', traditions: ['schlager_german'] },
+  { id: 'pre_commercial_country', traditions: ['pre_commercial_country'] },
+  { id: 'parang_trini', traditions: ['parang_trini'] },
+  { id: 'nashville_sound', traditions: ['nashville_sound'] },
+  { id: 'ethio_pop_modern', traditions: ['ethio_pop_modern'] },
+  { id: 'guqin', traditions: ['guqin'] },
+  { id: 'power_pop', traditions: ['power_pop'] },
+  { id: 'candombe_uruguayan', traditions: ['candombe_uruguayan'] },
+  { id: 'newfoundland_outport', traditions: ['newfoundland_outport'] },
+  { id: 'red_dirt', traditions: ['red_dirt'] },
   // Layer 11 expansion — recently-fixed traditions and rare-instrument coverage
-  { id: 'fado_coimbra_university',     traditions: ['fado_coimbra_university'] },
-  { id: 'koto',                        traditions: ['koto'] },
-  { id: 'kulintang',                   traditions: ['kulintang'] },
-  { id: 'krautrock',                   traditions: ['krautrock'] },
-  { id: 'twee_pop',                    traditions: ['twee_pop'] },
-  { id: 'sophisti_pop',                traditions: ['sophisti_pop'] },
-  { id: 'noise_music',                 traditions: ['noise_music'] },
-  { id: 'idm',                         traditions: ['idm'] },
-  { id: 'hyperpop',                    traditions: ['hyperpop'] },
-  { id: 'hyperpop_rap',                traditions: ['hyperpop_rap'] },
-  { id: 'rage_rap',                    traditions: ['rage_rap'] },
-  { id: 'sami_yoik',                   traditions: ['sami_yoik'] },
-  { id: 'sevdalinka',                  traditions: ['sevdalinka'] },
-  { id: 'rebetiko',                    traditions: ['rebetiko'] },
-  { id: 'taarab',                      traditions: ['taarab'] },
-  { id: 'persian_dastgah',             traditions: ['persian_dastgah'] },
-  { id: 'turkish_makam',               traditions: ['turkish_makam'] },
-  { id: 'sardinian_polyphony',         traditions: ['sardinian_polyphony'] },
-  { id: 'kirtan',                      traditions: ['kirtan'] },
-  { id: 'thumri',                      traditions: ['thumri'] },
-  { id: 'parchman_prison_song',        traditions: ['parchman_prison_song'] },
-  { id: 'piedmont_fingerpicking',      traditions: ['piedmont_fingerpicking'] },
-  { id: 'italo_dance',                 traditions: ['italo_dance'] },
-  { id: 'italo_house_piano',           traditions: ['italo_house_piano'] },
-  { id: 'lofi_house_aesthetic',        traditions: ['lofi_house_aesthetic'] },
-  { id: 'tech_house_classic',          traditions: ['tech_house_classic'] },
-  { id: 'microhouse',                  traditions: ['microhouse'] },
-  { id: 'progressive_trance',          traditions: ['progressive_trance'] },
-  { id: 'mbalax',                      traditions: ['mbalax'] },
-  { id: 'ndombolo',                    traditions: ['ndombolo'] },
-  { id: 'kuduro',                      traditions: ['kuduro'] },
-  { id: 'kwaito',                      traditions: ['kwaito'] },
-  { id: 'rumba_columbia',              traditions: ['rumba_columbia'] },
-  { id: 'rumba_yambu',                 traditions: ['rumba_yambu'] },
-  { id: 'choro',                       traditions: ['choro'] },
-  { id: 'mariachi_traditional',        traditions: ['mariachi_traditional'] },
-  { id: 'son_jarocho',                 traditions: ['son_jarocho'] },
+  { id: 'fado_coimbra_university', traditions: ['fado_coimbra_university'] },
+  { id: 'koto', traditions: ['koto'] },
+  { id: 'kulintang', traditions: ['kulintang'] },
+  { id: 'krautrock', traditions: ['krautrock'] },
+  { id: 'twee_pop', traditions: ['twee_pop'] },
+  { id: 'sophisti_pop', traditions: ['sophisti_pop'] },
+  { id: 'noise_music', traditions: ['noise_music'] },
+  { id: 'idm', traditions: ['idm'] },
+  { id: 'hyperpop', traditions: ['hyperpop'] },
+  { id: 'hyperpop_rap', traditions: ['hyperpop_rap'] },
+  { id: 'rage_rap', traditions: ['rage_rap'] },
+  { id: 'sami_yoik', traditions: ['sami_yoik'] },
+  { id: 'sevdalinka', traditions: ['sevdalinka'] },
+  { id: 'rebetiko', traditions: ['rebetiko'] },
+  { id: 'taarab', traditions: ['taarab'] },
+  { id: 'persian_dastgah', traditions: ['persian_dastgah'] },
+  { id: 'turkish_makam', traditions: ['turkish_makam'] },
+  { id: 'sardinian_polyphony', traditions: ['sardinian_polyphony'] },
+  { id: 'kirtan', traditions: ['kirtan'] },
+  { id: 'thumri', traditions: ['thumri'] },
+  { id: 'parchman_prison_song', traditions: ['parchman_prison_song'] },
+  { id: 'piedmont_fingerpicking', traditions: ['piedmont_fingerpicking'] },
+  { id: 'italo_dance', traditions: ['italo_dance'] },
+  { id: 'italo_house_piano', traditions: ['italo_house_piano'] },
+  { id: 'lofi_house_aesthetic', traditions: ['lofi_house_aesthetic'] },
+  { id: 'tech_house_classic', traditions: ['tech_house_classic'] },
+  { id: 'microhouse', traditions: ['microhouse'] },
+  { id: 'progressive_trance', traditions: ['progressive_trance'] },
+  { id: 'mbalax', traditions: ['mbalax'] },
+  { id: 'ndombolo', traditions: ['ndombolo'] },
+  { id: 'kuduro', traditions: ['kuduro'] },
+  { id: 'kwaito', traditions: ['kwaito'] },
+  { id: 'rumba_columbia', traditions: ['rumba_columbia'] },
+  { id: 'rumba_yambu', traditions: ['rumba_yambu'] },
+  { id: 'choro', traditions: ['choro'] },
+  { id: 'mariachi_traditional', traditions: ['mariachi_traditional'] },
+  { id: 'son_jarocho', traditions: ['son_jarocho'] },
   // Layer 11 second expansion — recently-fixed traditions and previously-buggy canaries
-  { id: 'baiao',                       traditions: ['baiao'] },
-  { id: 'javanese_gamelan',            traditions: ['javanese_gamelan'] },
-  { id: 'soca',                        traditions: ['soca'] },
-  { id: 'norwegian_2nd_wave_black',    traditions: ['norwegian_2nd_wave_black'] },
+  { id: 'baiao', traditions: ['baiao'] },
+  { id: 'javanese_gamelan', traditions: ['javanese_gamelan'] },
+  { id: 'soca', traditions: ['soca'] },
+  { id: 'norwegian_2nd_wave_black', traditions: ['norwegian_2nd_wave_black'] },
   { id: 'yemenite_torah_cantillation', traditions: ['yemenite_torah_cantillation'] },
-  { id: 'salsa_nuyorican',             traditions: ['salsa_nuyorican'] },
-  { id: 'gospel_quartet_male',         traditions: ['gospel_quartet_male'] },
-  { id: 'stoner_metal',                traditions: ['stoner_metal'] },
-  { id: 'bakersfield',                 traditions: ['bakersfield'] },
-  { id: 'charanga',                    traditions: ['charanga'] },
-  { id: 'vocal_trance',                traditions: ['vocal_trance'] },
-  { id: 'bubblegum_pop',               traditions: ['bubblegum_pop'] },
-  { id: 'hardanger_fiddle',            traditions: ['hardanger_fiddle'] },
-  { id: 'south_slavic_kantautor',      traditions: ['south_slavic_kantautor'] },
-  { id: 'palm_wine',                   traditions: ['palm_wine'] },
-  { id: 'mento',                       traditions: ['mento'] },
-  { id: 'gabber',                      traditions: ['gabber'] },
-  { id: 'maskandi',                    traditions: ['maskandi'] },
-  { id: 'bulgarian_womens_choir',      traditions: ['bulgarian_womens_choir'] },
-  { id: 'sacred_steel',                traditions: ['sacred_steel'] },
-  { id: 'danzon',                      traditions: ['danzon'] },
-  { id: 'czech_pisnicka',              traditions: ['czech_pisnicka'] },
-  { id: 'chanson_classique',           traditions: ['chanson_classique'] },
-  { id: 'mbira_tradition',             traditions: ['mbira_tradition'] },
-  { id: 'ethio_jazz',                  traditions: ['ethio_jazz'] },
-  { id: 'tin_pan_alley_song',          traditions: ['tin_pan_alley_song'] },
-  { id: 'vocaloid_synth_voice',        traditions: ['vocaloid_synth_voice'] },
-  { id: 'dhrupad',                     traditions: ['dhrupad'] },
-  { id: 'modal_jazz',                  traditions: ['modal_jazz'] },
+  { id: 'salsa_nuyorican', traditions: ['salsa_nuyorican'] },
+  { id: 'gospel_quartet_male', traditions: ['gospel_quartet_male'] },
+  { id: 'stoner_metal', traditions: ['stoner_metal'] },
+  { id: 'bakersfield', traditions: ['bakersfield'] },
+  { id: 'charanga', traditions: ['charanga'] },
+  { id: 'vocal_trance', traditions: ['vocal_trance'] },
+  { id: 'bubblegum_pop', traditions: ['bubblegum_pop'] },
+  { id: 'hardanger_fiddle', traditions: ['hardanger_fiddle'] },
+  { id: 'south_slavic_kantautor', traditions: ['south_slavic_kantautor'] },
+  { id: 'palm_wine', traditions: ['palm_wine'] },
+  { id: 'mento', traditions: ['mento'] },
+  { id: 'gabber', traditions: ['gabber'] },
+  { id: 'maskandi', traditions: ['maskandi'] },
+  { id: 'bulgarian_womens_choir', traditions: ['bulgarian_womens_choir'] },
+  { id: 'sacred_steel', traditions: ['sacred_steel'] },
+  { id: 'danzon', traditions: ['danzon'] },
+  { id: 'czech_pisnicka', traditions: ['czech_pisnicka'] },
+  { id: 'chanson_classique', traditions: ['chanson_classique'] },
+  { id: 'mbira_tradition', traditions: ['mbira_tradition'] },
+  { id: 'ethio_jazz', traditions: ['ethio_jazz'] },
+  { id: 'tin_pan_alley_song', traditions: ['tin_pan_alley_song'] },
+  { id: 'vocaloid_synth_voice', traditions: ['vocaloid_synth_voice'] },
+  { id: 'dhrupad', traditions: ['dhrupad'] },
+  { id: 'modal_jazz', traditions: ['modal_jazz'] },
   // Layer 11 third expansion — multi-tradition blend canaries (exercise staple selection more thoroughly)
-  { id: 'blend_afrobeat_fusion',       traditions: ['afrobeat', 'fusion'] },
-  { id: 'blend_qawwali_drone',         traditions: ['qawwali', 'mongolian_long_song'] },
-  { id: 'blend_chicago_blues_modern',  traditions: ['chicago_blues', 'modern_rb'] },
-  { id: 'blend_bossa_jazz',            traditions: ['bossa_nova', 'modal_jazz'] },
-  { id: 'blend_klezmer_balkan',        traditions: ['klezmer', 'sevdalinka'] },
-  { id: 'blend_synth_baroque',         traditions: ['synthwave', 'baroque_period'] },
-  { id: 'blend_postpunk_dub',          traditions: ['post_punk', 'dub'] },
-  { id: 'blend_carnatic_minimalist',   traditions: ['carnatic_vocal', 'minimalist'] },
-  { id: 'blend_techno_industrial',     traditions: ['detroit_techno', 'industrial'] },
-  { id: 'blend_country_jazz',          traditions: ['outlaw_country', 'gypsy_jazz'] },
-  { id: 'blend_fado_chanson',          traditions: ['fado', 'chanson_classique'] },
+  { id: 'blend_afrobeat_fusion', traditions: ['afrobeat', 'fusion'] },
+  { id: 'blend_qawwali_drone', traditions: ['qawwali', 'mongolian_long_song'] },
+  { id: 'blend_chicago_blues_modern', traditions: ['chicago_blues', 'modern_rb'] },
+  { id: 'blend_bossa_jazz', traditions: ['bossa_nova', 'modal_jazz'] },
+  { id: 'blend_klezmer_balkan', traditions: ['klezmer', 'sevdalinka'] },
+  { id: 'blend_synth_baroque', traditions: ['synthwave', 'baroque_period'] },
+  { id: 'blend_postpunk_dub', traditions: ['post_punk', 'dub'] },
+  { id: 'blend_carnatic_minimalist', traditions: ['carnatic_vocal', 'minimalist'] },
+  { id: 'blend_techno_industrial', traditions: ['detroit_techno', 'industrial'] },
+  { id: 'blend_country_jazz', traditions: ['outlaw_country', 'gypsy_jazz'] },
+  { id: 'blend_fado_chanson', traditions: ['fado', 'chanson_classique'] },
 
   // Layer 12 — 60 additional multi-tradition blend canaries (cross-era, cross-family, cross-region, modern fusions, recording-aesthetic crosses)
-  { id: 'blend_gagaku_ambient',                    traditions: ['gagaku', 'ambient'] },
-  { id: 'blend_dhrupad_drone',                     traditions: ['dhrupad', 'drone_dark_ambient'] },
-  { id: 'blend_ragtime_bebop',                     traditions: ['ragtime', 'bebop'] },
-  { id: 'blend_classic_blues_neo_soul',            traditions: ['classic_blues_women', 'neo_soul_classic'] },
-  { id: 'blend_doowop_modern_rb',                  traditions: ['doo_wop', 'modern_rb'] },
-  { id: 'blend_new_orleans_acid_jazz',             traditions: ['new_orleans', 'acid_jazz_uk_90s'] },
-  { id: 'blend_swing_west_coast_cool',             traditions: ['swing_big_band', 'cool_jazz_west_coast'] },
-  { id: 'blend_baroque_minimalist',                traditions: ['baroque_period', 'minimalist'] },
-  { id: 'blend_medieval_drone_metal',              traditions: ['medieval_latin_chant_organum', 'drone_metal'] },
-  { id: 'blend_tin_pan_synthpop',                  traditions: ['tin_pan_alley_song', 'synthpop_classic_80s'] },
-  { id: 'blend_thrash_opera_seria',                traditions: ['thrash_metal', 'opera_seria_baroque'] },
-  { id: 'blend_hardcore_boom_bap',                 traditions: ['hardcore_punk', 'boom_bap'] },
-  { id: 'blend_bluegrass_dub',                     traditions: ['bluegrass', 'dub'] },
-  { id: 'blend_gospel_house_chicago',              traditions: ['southern_gospel', 'chicago_house'] },
-  { id: 'blend_celtic_techno',                     traditions: ['celtic_irish_trad', 'detroit_techno'] },
-  { id: 'blend_classical_jazz_third_stream',       traditions: ['string_quartet', 'third_stream'] },
-  { id: 'blend_carnatic_jazz_fusion',              traditions: ['carnatic_vocal', 'fusion'] },
-  { id: 'blend_western_swing_outlaw',              traditions: ['western_swing', 'outlaw_country'] },
-  { id: 'blend_doom_drone_metal',                  traditions: ['doom', 'drone_metal'] },
-  { id: 'blend_gypsy_jazz_flamenco',               traditions: ['gypsy_jazz', 'flamenco'] },
-  { id: 'blend_pansori_blues',                     traditions: ['pansori', 'delta_blues'] },
-  { id: 'blend_taiko_metal',                       traditions: ['japanese_taiko_ensemble', 'thrash_metal'] },
-  { id: 'blend_baroque_metal_power',               traditions: ['baroque_period', 'power_metal_european'] },
-  { id: 'blend_funk_jazz_fusion',                  traditions: ['funk', 'fusion_70s_electric'] },
-  { id: 'blend_disco_house_garage',                traditions: ['disco', 'garage_house_paradise'] },
-  { id: 'blend_afrobeat_mande_griot',              traditions: ['afrobeat', 'mande_griot'] },
-  { id: 'blend_gnawa_qawwali_sufi',                traditions: ['gnawa', 'qawwali'] },
-  { id: 'blend_carnatic_hindustani',               traditions: ['carnatic_vocal', 'hindustani'] },
-  { id: 'blend_bossa_choro',                       traditions: ['bossa_nova', 'choro'] },
-  { id: 'blend_samba_pagode',                      traditions: ['samba', 'pagode'] },
-  { id: 'blend_tuvan_sami',                        traditions: ['tuvan_throat', 'sami_yoik'] },
-  { id: 'blend_persian_azerbaijan',                traditions: ['persian_dastgah', 'azerbaijani_mugham'] },
-  { id: 'blend_javanese_balinese',                 traditions: ['javanese_gamelan', 'balinese_gamelan'] },
-  { id: 'blend_jingju_cantonese_opera',            traditions: ['jingju', 'cantonese_opera'] },
-  { id: 'blend_thai_classical_thai_luk',           traditions: ['thai_classical', 'thai_luk_thung'] },
-  { id: 'blend_maracatu_candomble',                traditions: ['maracatu', 'candomble_ceremonial'] },
-  { id: 'blend_mariachi_ranchera',                 traditions: ['mariachi', 'ranchera'] },
-  { id: 'blend_amapiano_afro_house',               traditions: ['amapiano', 'afro_house'] },
-  { id: 'blend_afrobeats_atlanta_trap',            traditions: ['afrobeats_naija', 'atlanta_trap_modern'] },
-  { id: 'blend_reggaeton_dancehall',               traditions: ['reggaeton', 'jamaican_dancehall'] },
-  { id: 'blend_kpop_big_room',                     traditions: ['k_pop_modern', 'big_room_house'] },
-  { id: 'blend_bedroom_lofi_hip',                  traditions: ['bedroom_pop', 'lofi_hiphop'] },
-  { id: 'blend_vaporwave_drone_ambient',           traditions: ['vaporwave', 'drone_dark_ambient'] },
-  { id: 'blend_hyperpop_dance_pop',                traditions: ['hyperpop', 'dance_pop_2010s'] },
-  { id: 'blend_garage_revival_post_punk',          traditions: ['garage_rock_revival_2000s', 'post_punk'] },
-  { id: 'blend_uk_drill_brooklyn',                 traditions: ['uk_drill', 'brooklyn_drill'] },
-  { id: 'blend_phonk_drift_old_memphis',           traditions: ['drift_phonk_modern', 'phonk_old_memphis'] },
-  { id: 'blend_afro_cuban_bebop',                  traditions: ['latin_jazz', 'bebop'] },
-  { id: 'blend_spiritual_southern_gospel',         traditions: ['spiritual_jazz', 'southern_gospel'] },
-  { id: 'blend_punk_thrash',                       traditions: ['punk', 'thrash_metal'] },
-  { id: 'blend_ambient_dub_techno',                traditions: ['ambient', 'dub_techno'] },
-  { id: 'blend_post_rock_minimalist',              traditions: ['math_rock_post_rock', 'minimalist'] },
-  { id: 'blend_g_funk_west_coast',                 traditions: ['g_funk', 'west_coast_hip_hop_classic'] },
-  { id: 'blend_neo_soul_jazzy_hip_hop',            traditions: ['neo_soul_classic', 'jazzy_hip_hop'] },
-  { id: 'blend_emo_pop_punk',                      traditions: ['emo', 'pop_punk'] },
-  { id: 'blend_field_blues_studio_chicago',        traditions: ['delta_blues', 'chicago_blues'] },
-  { id: 'blend_ethnographic_studio_morna',         traditions: ['cape_verdean_funana_maritime', 'morna'] },
-  { id: 'blend_field_holler_spiritual',            traditions: ['field_holler_solo', 'spirituals_african_american'] },
-  { id: 'blend_acapella_doowop',                   traditions: ['barbershop_quartet', 'doo_wop'] },
-  { id: 'blend_jug_band_old_time',                 traditions: ['jug_band', 'old_time'] },
+  { id: 'blend_gagaku_ambient', traditions: ['gagaku', 'ambient'] },
+  { id: 'blend_dhrupad_drone', traditions: ['dhrupad', 'drone_dark_ambient'] },
+  { id: 'blend_ragtime_bebop', traditions: ['ragtime', 'bebop'] },
+  { id: 'blend_classic_blues_neo_soul', traditions: ['classic_blues_women', 'neo_soul_classic'] },
+  { id: 'blend_doowop_modern_rb', traditions: ['doo_wop', 'modern_rb'] },
+  { id: 'blend_new_orleans_acid_jazz', traditions: ['new_orleans', 'acid_jazz_uk_90s'] },
+  { id: 'blend_swing_west_coast_cool', traditions: ['swing_big_band', 'cool_jazz_west_coast'] },
+  { id: 'blend_baroque_minimalist', traditions: ['baroque_period', 'minimalist'] },
+  { id: 'blend_medieval_drone_metal', traditions: ['medieval_latin_chant_organum', 'drone_metal'] },
+  { id: 'blend_tin_pan_synthpop', traditions: ['tin_pan_alley_song', 'synthpop_classic_80s'] },
+  { id: 'blend_thrash_opera_seria', traditions: ['thrash_metal', 'opera_seria_baroque'] },
+  { id: 'blend_hardcore_boom_bap', traditions: ['hardcore_punk', 'boom_bap'] },
+  { id: 'blend_bluegrass_dub', traditions: ['bluegrass', 'dub'] },
+  { id: 'blend_gospel_house_chicago', traditions: ['southern_gospel', 'chicago_house'] },
+  { id: 'blend_celtic_techno', traditions: ['celtic_irish_trad', 'detroit_techno'] },
+  { id: 'blend_classical_jazz_third_stream', traditions: ['string_quartet', 'third_stream'] },
+  { id: 'blend_carnatic_jazz_fusion', traditions: ['carnatic_vocal', 'fusion'] },
+  { id: 'blend_western_swing_outlaw', traditions: ['western_swing', 'outlaw_country'] },
+  { id: 'blend_doom_drone_metal', traditions: ['doom', 'drone_metal'] },
+  { id: 'blend_gypsy_jazz_flamenco', traditions: ['gypsy_jazz', 'flamenco'] },
+  { id: 'blend_pansori_blues', traditions: ['pansori', 'delta_blues'] },
+  { id: 'blend_taiko_metal', traditions: ['japanese_taiko_ensemble', 'thrash_metal'] },
+  { id: 'blend_baroque_metal_power', traditions: ['baroque_period', 'power_metal_european'] },
+  { id: 'blend_funk_jazz_fusion', traditions: ['funk', 'fusion_70s_electric'] },
+  { id: 'blend_disco_house_garage', traditions: ['disco', 'garage_house_paradise'] },
+  { id: 'blend_afrobeat_mande_griot', traditions: ['afrobeat', 'mande_griot'] },
+  { id: 'blend_gnawa_qawwali_sufi', traditions: ['gnawa', 'qawwali'] },
+  { id: 'blend_carnatic_hindustani', traditions: ['carnatic_vocal', 'hindustani'] },
+  { id: 'blend_bossa_choro', traditions: ['bossa_nova', 'choro'] },
+  { id: 'blend_samba_pagode', traditions: ['samba', 'pagode'] },
+  { id: 'blend_tuvan_sami', traditions: ['tuvan_throat', 'sami_yoik'] },
+  { id: 'blend_persian_azerbaijan', traditions: ['persian_dastgah', 'azerbaijani_mugham'] },
+  { id: 'blend_javanese_balinese', traditions: ['javanese_gamelan', 'balinese_gamelan'] },
+  { id: 'blend_jingju_cantonese_opera', traditions: ['jingju', 'cantonese_opera'] },
+  { id: 'blend_thai_classical_thai_luk', traditions: ['thai_classical', 'thai_luk_thung'] },
+  { id: 'blend_maracatu_candomble', traditions: ['maracatu', 'candomble_ceremonial'] },
+  { id: 'blend_mariachi_ranchera', traditions: ['mariachi', 'ranchera'] },
+  { id: 'blend_amapiano_afro_house', traditions: ['amapiano', 'afro_house'] },
+  { id: 'blend_afrobeats_atlanta_trap', traditions: ['afrobeats_naija', 'atlanta_trap_modern'] },
+  { id: 'blend_reggaeton_dancehall', traditions: ['reggaeton', 'jamaican_dancehall'] },
+  { id: 'blend_kpop_big_room', traditions: ['k_pop_modern', 'big_room_house'] },
+  { id: 'blend_bedroom_lofi_hip', traditions: ['bedroom_pop', 'lofi_hiphop'] },
+  { id: 'blend_vaporwave_drone_ambient', traditions: ['vaporwave', 'drone_dark_ambient'] },
+  { id: 'blend_hyperpop_dance_pop', traditions: ['hyperpop', 'dance_pop_2010s'] },
+  { id: 'blend_garage_revival_post_punk', traditions: ['garage_rock_revival_2000s', 'post_punk'] },
+  { id: 'blend_uk_drill_brooklyn', traditions: ['uk_drill', 'brooklyn_drill'] },
+  { id: 'blend_phonk_drift_old_memphis', traditions: ['drift_phonk_modern', 'phonk_old_memphis'] },
+  { id: 'blend_afro_cuban_bebop', traditions: ['latin_jazz', 'bebop'] },
+  { id: 'blend_spiritual_southern_gospel', traditions: ['spiritual_jazz', 'southern_gospel'] },
+  { id: 'blend_punk_thrash', traditions: ['punk', 'thrash_metal'] },
+  { id: 'blend_ambient_dub_techno', traditions: ['ambient', 'dub_techno'] },
+  { id: 'blend_post_rock_minimalist', traditions: ['math_rock_post_rock', 'minimalist'] },
+  { id: 'blend_g_funk_west_coast', traditions: ['g_funk', 'west_coast_hip_hop_classic'] },
+  { id: 'blend_neo_soul_jazzy_hip_hop', traditions: ['neo_soul_classic', 'jazzy_hip_hop'] },
+  { id: 'blend_emo_pop_punk', traditions: ['emo', 'pop_punk'] },
+  { id: 'blend_field_blues_studio_chicago', traditions: ['delta_blues', 'chicago_blues'] },
+  { id: 'blend_ethnographic_studio_morna', traditions: ['cape_verdean_funana_maritime', 'morna'] },
+  {
+    id: 'blend_field_holler_spiritual',
+    traditions: ['field_holler_solo', 'spirituals_african_american'],
+  },
+  { id: 'blend_acapella_doowop', traditions: ['barbershop_quartet', 'doo_wop'] },
+  { id: 'blend_jug_band_old_time', traditions: ['jug_band', 'old_time'] },
 
   // Function-branch fixtures — solos + intra-function pairs + cross-style stacks
   // covering all 12 universal-function branches added in the rollout
-  { id: 'lullaby_japanese_komoriuta',         traditions: ['japanese_komoriuta'] },
-  { id: 'lullaby_persian_lalai',              traditions: ['persian_lalai'] },
-  { id: 'lullaby_cross_pair',                 traditions: ['scottish_gaelic_taladh', 'japanese_komoriuta'] },
-  { id: 'lament_persian_rowzeh',              traditions: ['persian_rowzehkhwani'] },
-  { id: 'lament_greek_moirologi',             traditions: ['greek_moirologi'] },
-  { id: 'lament_lullaby_cross',               traditions: ['greek_moirologi', 'spanish_nana'] },
-  { id: 'wedding_indian_baraat',              traditions: ['indian_baraat'] },
-  { id: 'wedding_klezmer_bulgar',             traditions: ['yiddish_wedding_bulgar'] },
-  { id: 'wedding_drinking_cross',             traditions: ['yiddish_wedding_bulgar', 'polish_biesiadne'] },
-  { id: 'protest_chilean_nueva_cancion',      traditions: ['chilean_nueva_cancion'] },
-  { id: 'protest_hip_hop',                    traditions: ['american_political_hip_hop'] },
-  { id: 'protest_anglo_pair',                 traditions: ['american_folk_revival_protest', 'irish_rebel_song'] },
-  { id: 'praise_mande_jeli',                  traditions: ['mande_jeli_praise'] },
-  { id: 'praise_yoruba_oriki',                traditions: ['yoruba_oriki'] },
-  { id: 'praise_three_continents',            traditions: ['mande_jeli_praise', 'hindu_stuti_bhajan', 'hawaiian_mele_inoa'] },
-  { id: 'nursery_english',                    traditions: ['english_nursery_rhyme'] },
-  { id: 'nursery_japanese_warabe',            traditions: ['japanese_warabe_uta'] },
-  { id: 'nursery_handgame_pair',              traditions: ['american_handgame_clapping', 'mexican_rondas'] },
-  { id: 'drinking_german_trinklied',          traditions: ['german_trinklied'] },
-  { id: 'drinking_georgian_supra',            traditions: ['georgian_supra_drinking'] },
-  { id: 'drinking_celtic_pair',               traditions: ['irish_pub_song', 'scottish_bothy_ballad'] },
-  { id: 'shanty_english_halyard',             traditions: ['english_halyard_shanty'] },
-  { id: 'shanty_russian_volga',               traditions: ['russian_volga_boat_song'] },
-  { id: 'shanty_atlantic_pair',               traditions: ['english_halyard_shanty', 'newfoundland_outport_shanty'] },
-  { id: 'carnival_trinidad_road',             traditions: ['trinidad_road_march'] },
-  { id: 'carnival_brazilian_samba',           traditions: ['brazilian_samba_school_enredo'] },
-  { id: 'carnival_caribbean_brazil',          traditions: ['trinidad_road_march', 'caribbean_junkanoo'] },
-  { id: 'fieldwork_delta_holler',             traditions: ['mississippi_delta_field_holler'] },
-  { id: 'fieldwork_bulgarian_zhetvarski',     traditions: ['bulgarian_zhetvarski'] },
-  { id: 'fieldwork_slavic_pair',              traditions: ['romanian_colinde_seceris', 'russian_zhnitvenye'] },
-  { id: 'hunting_mongolian_khoomei',          traditions: ['mongolian_hunting_khoomei'] },
-  { id: 'hunting_inuit_katajjaq',             traditions: ['inuit_katajjaq'] },
-  { id: 'hunting_subsaharan_pair',            traditions: ['baaka_hunting_polyphony', 'san_bushman_hunting'] },
-  { id: 'domestic_hebridean_waulking',        traditions: ['hebridean_waulking'] },
-  { id: 'domestic_andean_quechua',            traditions: ['andean_quechua_spinning'] },
-  { id: 'domestic_textile_cross',             traditions: ['romanian_cantece_de_tors', 'irish_spinning_song'] },
+  { id: 'lullaby_japanese_komoriuta', traditions: ['japanese_komoriuta'] },
+  { id: 'lullaby_persian_lalai', traditions: ['persian_lalai'] },
+  { id: 'lullaby_cross_pair', traditions: ['scottish_gaelic_taladh', 'japanese_komoriuta'] },
+  { id: 'lament_persian_rowzeh', traditions: ['persian_rowzehkhwani'] },
+  { id: 'lament_greek_moirologi', traditions: ['greek_moirologi'] },
+  { id: 'lament_lullaby_cross', traditions: ['greek_moirologi', 'spanish_nana'] },
+  { id: 'wedding_indian_baraat', traditions: ['indian_baraat'] },
+  { id: 'wedding_klezmer_bulgar', traditions: ['yiddish_wedding_bulgar'] },
+  { id: 'wedding_drinking_cross', traditions: ['yiddish_wedding_bulgar', 'polish_biesiadne'] },
+  { id: 'protest_chilean_nueva_cancion', traditions: ['chilean_nueva_cancion'] },
+  { id: 'protest_hip_hop', traditions: ['american_political_hip_hop'] },
+  { id: 'protest_anglo_pair', traditions: ['american_folk_revival_protest', 'irish_rebel_song'] },
+  { id: 'praise_mande_jeli', traditions: ['mande_jeli_praise'] },
+  { id: 'praise_yoruba_oriki', traditions: ['yoruba_oriki'] },
+  {
+    id: 'praise_three_continents',
+    traditions: ['mande_jeli_praise', 'hindu_stuti_bhajan', 'hawaiian_mele_inoa'],
+  },
+  { id: 'nursery_english', traditions: ['english_nursery_rhyme'] },
+  { id: 'nursery_japanese_warabe', traditions: ['japanese_warabe_uta'] },
+  { id: 'nursery_handgame_pair', traditions: ['american_handgame_clapping', 'mexican_rondas'] },
+  { id: 'drinking_german_trinklied', traditions: ['german_trinklied'] },
+  { id: 'drinking_georgian_supra', traditions: ['georgian_supra_drinking'] },
+  { id: 'drinking_celtic_pair', traditions: ['irish_pub_song', 'scottish_bothy_ballad'] },
+  { id: 'shanty_english_halyard', traditions: ['english_halyard_shanty'] },
+  { id: 'shanty_russian_volga', traditions: ['russian_volga_boat_song'] },
+  {
+    id: 'shanty_atlantic_pair',
+    traditions: ['english_halyard_shanty', 'newfoundland_outport_shanty'],
+  },
+  { id: 'carnival_trinidad_road', traditions: ['trinidad_road_march'] },
+  { id: 'carnival_brazilian_samba', traditions: ['brazilian_samba_school_enredo'] },
+  { id: 'carnival_caribbean_brazil', traditions: ['trinidad_road_march', 'caribbean_junkanoo'] },
+  { id: 'fieldwork_delta_holler', traditions: ['mississippi_delta_field_holler'] },
+  { id: 'fieldwork_bulgarian_zhetvarski', traditions: ['bulgarian_zhetvarski'] },
+  { id: 'fieldwork_slavic_pair', traditions: ['romanian_colinde_seceris', 'russian_zhnitvenye'] },
+  { id: 'hunting_mongolian_khoomei', traditions: ['mongolian_hunting_khoomei'] },
+  { id: 'hunting_inuit_katajjaq', traditions: ['inuit_katajjaq'] },
+  { id: 'hunting_subsaharan_pair', traditions: ['baaka_hunting_polyphony', 'san_bushman_hunting'] },
+  { id: 'domestic_hebridean_waulking', traditions: ['hebridean_waulking'] },
+  { id: 'domestic_andean_quechua', traditions: ['andean_quechua_spinning'] },
+  { id: 'domestic_textile_cross', traditions: ['romanian_cantece_de_tors', 'irish_spinning_song'] },
 
   // === Coverage expansion (2026-05-24) ===
   { id: 'girl_group_60s', traditions: ['girl_group_60s'] },
@@ -504,7 +515,6 @@ const FIXTURES = [
   { id: 'bedroom_pop', traditions: ['bedroom_pop'] },
   { id: 'ecm_jazz_aesthetic', traditions: ['ecm_jazz_aesthetic'] },
 
-
   // === Field-recording expansion (2026-05-24) ===
   { id: 'mongolian_khoomei', traditions: ['mongolian_khoomei'] },
   { id: 'mongolian_urtiin_duu', traditions: ['mongolian_urtiin_duu'] },
@@ -536,7 +546,10 @@ const FIXTURES = [
   { id: 'tahitian_himene_ru_au', traditions: ['tahitian_himene_ru_au'] },
   { id: 'polynesian_himene_tarava', traditions: ['polynesian_himene_tarava'] },
   { id: 'maori_waiata', traditions: ['maori_waiata'] },
-  { id: 'australian_didgeridoo_yidaki_extended', traditions: ['australian_didgeridoo_yidaki_extended'] },
+  {
+    id: 'australian_didgeridoo_yidaki_extended',
+    traditions: ['australian_didgeridoo_yidaki_extended'],
+  },
   { id: 'papua_new_guinean_polyphony', traditions: ['papua_new_guinean_polyphony'] },
   { id: 'solomon_islands_panpipe', traditions: ['solomon_islands_panpipe'] },
   { id: 'vanuatu_water_drumming', traditions: ['vanuatu_water_drumming'] },
@@ -590,7 +603,6 @@ const FIXTURES = [
   { id: 'umbanda_brazilian', traditions: ['umbanda_brazilian'] },
   { id: 'talking_blues_dustbowl', traditions: ['talking_blues_dustbowl'] },
   { id: 'bothy_ballad_doric', traditions: ['bothy_ballad_doric'] },
-
 
   // === Family rebalance expansion (2026-05-24) ===
   { id: 'baltimore_club', traditions: ['baltimore_club'] },
@@ -650,7 +662,6 @@ const FIXTURES = [
   { id: 'indeterminacy_aleatoric', traditions: ['indeterminacy_aleatoric'] },
   { id: 'ars_antiqua_organum', traditions: ['ars_antiqua_organum'] },
 
-
   // === Room coverage expansion (2026-05-24) ===
   { id: 'interior_confessional_60s', traditions: ['interior_confessional_60s'] },
   { id: 'azmari_ethiopian', traditions: ['azmari_ethiopian'] },
@@ -695,7 +706,6 @@ const FIXTURES = [
   { id: 'rapso', traditions: ['rapso'] },
   { id: 'art_pop', traditions: ['art_pop'] },
   { id: 'proto_punk', traditions: ['proto_punk'] },
-
 
   // === Variant coverage expansion (2026-05-24) ===
   { id: 'japanese_minyo', traditions: ['japanese_minyo'] },
@@ -773,7 +783,6 @@ const FIXTURES = [
 
   { id: 'rap_metal', traditions: ['rap_metal'] },
 
-
   // === Tree node coverage expansion (2026-05-24) ===
   { id: 'yacht_rock', traditions: ['yacht_rock'] },
   { id: 'ranchera', traditions: ['ranchera'] },
@@ -830,7 +839,6 @@ const FIXTURES = [
   { id: 'frevo', traditions: ['frevo'] },
   { id: 'indonesian_keroncong', traditions: ['indonesian_keroncong'] },
   { id: 'akan_kete_royal_praise', traditions: ['akan_kete_royal_praise'] },
-
 
   // === Fixture coverage push — 444 uncovered traditions ===
   { id: 'outlaw_country', traditions: ['outlaw_country'] },
@@ -1196,7 +1204,10 @@ const FIXTURES = [
   { id: 'argentine_canto_nuevo', traditions: ['argentine_canto_nuevo'] },
   { id: 'italian_canti_partigiani', traditions: ['italian_canti_partigiani'] },
   { id: 'catalan_nova_canco', traditions: ['catalan_nova_canco'] },
-  { id: 'egyptian_sayyed_darwish_sheikh_imam', traditions: ['egyptian_sayyed_darwish_sheikh_imam'] },
+  {
+    id: 'egyptian_sayyed_darwish_sheikh_imam',
+    traditions: ['egyptian_sayyed_darwish_sheikh_imam'],
+  },
   { id: 'polish_sung_poetry_protest', traditions: ['polish_sung_poetry_protest'] },
   { id: 'vietnamese_nhac_phan_chien', traditions: ['vietnamese_nhac_phan_chien'] },
   { id: 'american_political_hip_hop', traditions: ['american_political_hip_hop'] },
@@ -1251,7 +1262,10 @@ const FIXTURES = [
   { id: 'brazilian_samba_school_enredo', traditions: ['brazilian_samba_school_enredo'] },
   { id: 'new_orleans_brass_parade', traditions: ['new_orleans_brass_parade'] },
   { id: 'caribbean_junkanoo', traditions: ['caribbean_junkanoo'] },
-  { id: 'caribbean_carnival_steelpan_panorama', traditions: ['caribbean_carnival_steelpan_panorama'] },
+  {
+    id: 'caribbean_carnival_steelpan_panorama',
+    traditions: ['caribbean_carnival_steelpan_panorama'],
+  },
   { id: 'mississippi_delta_field_holler', traditions: ['mississippi_delta_field_holler'] },
   { id: 'bulgarian_zhetvarski', traditions: ['bulgarian_zhetvarski'] },
   { id: 'romanian_colinde_seceris', traditions: ['romanian_colinde_seceris'] },
@@ -1323,11 +1337,18 @@ function runFixturesParallel() {
       const w = new Worker(__filename, { workerData: { workerIndex: k, nWorkers } });
       w.on('message', (msg) => Object.assign(results, msg));
       w.on('error', (err) => {
-        if (!aborted) { aborted = true; reject(err); }
+        if (!aborted) {
+          aborted = true;
+          reject(err);
+        }
       });
       w.on('exit', (code) => {
         if (aborted) return;
-        if (code !== 0) { aborted = true; reject(new Error(`worker ${k} exited with code ${code}`)); return; }
+        if (code !== 0) {
+          aborted = true;
+          reject(new Error(`worker ${k} exited with code ${code}`));
+          return;
+        }
         if (++exited === nWorkers) resolve(results);
       });
     }
@@ -1359,10 +1380,10 @@ for (let i = 0; i < args.length; i++) {
 // inline on this thread. Both paths call the same computeFixture, so the
 // id→result map — and therefore the snapshot comparison — is identical either way.
 async function runFixtures(filter) {
-  const fixtures = filter ? FIXTURES.filter(f => f.id === filter) : FIXTURES;
+  const fixtures = filter ? FIXTURES.filter((f) => f.id === filter) : FIXTURES;
   if (filter && fixtures.length === 0) {
     console.error(`Unknown fixture: ${filter}`);
-    console.error(`Available: ${FIXTURES.map(f => f.id).join(', ')}`);
+    console.error(`Available: ${FIXTURES.map((f) => f.id).join(', ')}`);
     process.exit(2);
   }
   if (!filter && !process.env.REGRESSION_SERIAL && fixtures.length > 1) {
@@ -1374,106 +1395,115 @@ async function runFixtures(filter) {
 }
 
 (async () => {
-// ─────────────── --update mode ───────────────
-if (flags.update) {
-  if (!fs.existsSync(SNAPSHOT_DIR)) fs.mkdirSync(SNAPSHOT_DIR, { recursive: true });
-  const current = await runFixtures(flags.fixture);
-  // If updating a single fixture, merge into existing snapshot rather than overwriting
-  let snapshot = {};
-  if (flags.fixture && fs.existsSync(SNAPSHOT_PATH)) {
-    snapshot = JSON.parse(fs.readFileSync(SNAPSHOT_PATH, 'utf8'));
+  // ─────────────── --update mode ───────────────
+  if (flags.update) {
+    if (!fs.existsSync(SNAPSHOT_DIR)) fs.mkdirSync(SNAPSHOT_DIR, { recursive: true });
+    const current = await runFixtures(flags.fixture);
+    // If updating a single fixture, merge into existing snapshot rather than overwriting
+    let snapshot = {};
+    if (flags.fixture && fs.existsSync(SNAPSHOT_PATH)) {
+      snapshot = JSON.parse(fs.readFileSync(SNAPSHOT_PATH, 'utf8'));
+    }
+    for (const id of Object.keys(current)) snapshot[id] = current[id];
+    fs.writeFileSync(SNAPSHOT_PATH, JSON.stringify(snapshot, null, 2) + '\n');
+    console.log(`Snapshot updated: ${SNAPSHOT_PATH}`);
+    console.log(`  ${Object.keys(current).length} fixture(s) written`);
+    if (flags.verbose) {
+      for (const [id, r] of Object.entries(current)) {
+        console.log(`  ✓ ${id}`);
+        if (r.output) console.log(`      ${r.output}`);
+        if (r.error) console.log(`      ERROR: ${r.error}`);
+      }
+    }
+    process.exit(0);
   }
-  for (const id of Object.keys(current)) snapshot[id] = current[id];
-  fs.writeFileSync(SNAPSHOT_PATH, JSON.stringify(snapshot, null, 2) + '\n');
-  console.log(`Snapshot updated: ${SNAPSHOT_PATH}`);
-  console.log(`  ${Object.keys(current).length} fixture(s) written`);
+
+  // ─────────────── default mode: diff ───────────────
+  if (!fs.existsSync(SNAPSHOT_PATH)) {
+    console.error(`No snapshot at ${SNAPSHOT_PATH}`);
+    console.error(`Run with --update first to create one.`);
+    process.exit(2);
+  }
+
+  const snapshot = JSON.parse(fs.readFileSync(SNAPSHOT_PATH, 'utf8'));
+  const current = await runFixtures(flags.fixture);
+
+  const diffs = [];
+  const missing = [];
+  const newFixtures = [];
+
+  for (const [id, r] of Object.entries(current)) {
+    const snap = snapshot[id];
+    if (!snap) {
+      newFixtures.push(id);
+      continue;
+    }
+    if (r.error || snap.error) {
+      if ((r.error || '') !== (snap.error || '')) {
+        diffs.push({ id, expected: snap, actual: r });
+      }
+      continue;
+    }
+    if (r.output !== snap.output) {
+      diffs.push({ id, expected: snap.output, actual: r.output });
+    }
+  }
+  for (const id of Object.keys(snapshot)) {
+    if (!current[id] && !flags.fixture) missing.push(id);
+  }
+
+  // Report
+  const passCount = Object.keys(current).length - diffs.length - newFixtures.length;
+  console.log(
+    `REGRESSION: ${passCount}/${Object.keys(current).length} fixture(s) match snapshot.\n`
+  );
+
   if (flags.verbose) {
     for (const [id, r] of Object.entries(current)) {
-      console.log(`  ✓ ${id}`);
+      const status = diffs.find((d) => d.id === id) ? '✗' : newFixtures.includes(id) ? '?' : '✓';
+      console.log(`  ${status} ${id}`);
       if (r.output) console.log(`      ${r.output}`);
-      if (r.error)  console.log(`      ERROR: ${r.error}`);
     }
-  }
-  process.exit(0);
-}
-
-// ─────────────── default mode: diff ───────────────
-if (!fs.existsSync(SNAPSHOT_PATH)) {
-  console.error(`No snapshot at ${SNAPSHOT_PATH}`);
-  console.error(`Run with --update first to create one.`);
-  process.exit(2);
-}
-
-const snapshot = JSON.parse(fs.readFileSync(SNAPSHOT_PATH, 'utf8'));
-const current  = await runFixtures(flags.fixture);
-
-const diffs = [];
-const missing = [];
-const newFixtures = [];
-
-for (const [id, r] of Object.entries(current)) {
-  const snap = snapshot[id];
-  if (!snap) { newFixtures.push(id); continue; }
-  if (r.error || snap.error) {
-    if ((r.error || '') !== (snap.error || '')) {
-      diffs.push({ id, expected: snap, actual: r });
-    }
-    continue;
-  }
-  if (r.output !== snap.output) {
-    diffs.push({ id, expected: snap.output, actual: r.output });
-  }
-}
-for (const id of Object.keys(snapshot)) {
-  if (!current[id] && !flags.fixture) missing.push(id);
-}
-
-// Report
-const passCount = Object.keys(current).length - diffs.length - newFixtures.length;
-console.log(`REGRESSION: ${passCount}/${Object.keys(current).length} fixture(s) match snapshot.\n`);
-
-if (flags.verbose) {
-  for (const [id, r] of Object.entries(current)) {
-    const status = diffs.find(d => d.id === id) ? '✗' : (newFixtures.includes(id) ? '?' : '✓');
-    console.log(`  ${status} ${id}`);
-    if (r.output) console.log(`      ${r.output}`);
-  }
-  console.log('');
-}
-
-if (diffs.length > 0) {
-  console.log(`── DIFFS (${diffs.length}) ──\n`);
-  for (const d of diffs) {
-    console.log(`✗ ${d.id}`);
-    console.log(`  expected: ${typeof d.expected === 'string' ? d.expected : JSON.stringify(d.expected)}`);
-    console.log(`  actual:   ${typeof d.actual === 'string' ? d.actual : JSON.stringify(d.actual)}`);
     console.log('');
   }
-  console.log(`To accept these changes, run:`);
-  console.log(`  node scripts/regression_recipes.js --update`);
-  console.log(`Or for a single fixture:`);
-  console.log(`  node scripts/regression_recipes.js --update --fixture=<id>\n`);
-}
 
-if (newFixtures.length > 0) {
-  console.log(`── NEW FIXTURES (not yet snapshotted) ──`);
-  for (const id of newFixtures) console.log(`  ? ${id}`);
-  console.log(`  Run --update to add these to the snapshot.\n`);
-}
+  if (diffs.length > 0) {
+    console.log(`── DIFFS (${diffs.length}) ──\n`);
+    for (const d of diffs) {
+      console.log(`✗ ${d.id}`);
+      console.log(
+        `  expected: ${typeof d.expected === 'string' ? d.expected : JSON.stringify(d.expected)}`
+      );
+      console.log(
+        `  actual:   ${typeof d.actual === 'string' ? d.actual : JSON.stringify(d.actual)}`
+      );
+      console.log('');
+    }
+    console.log(`To accept these changes, run:`);
+    console.log(`  node scripts/regression_recipes.js --update`);
+    console.log(`Or for a single fixture:`);
+    console.log(`  node scripts/regression_recipes.js --update --fixture=<id>\n`);
+  }
 
-if (missing.length > 0) {
-  console.log(`── REMOVED FIXTURES (in snapshot but not in code) ──`);
-  for (const id of missing) console.log(`  - ${id}`);
-  console.log(`  These will persist in the snapshot until --update is run.\n`);
-}
+  if (newFixtures.length > 0) {
+    console.log(`── NEW FIXTURES (not yet snapshotted) ──`);
+    for (const id of newFixtures) console.log(`  ? ${id}`);
+    console.log(`  Run --update to add these to the snapshot.\n`);
+  }
 
-// A fixture present in code but ABSENT from the snapshot (newFixtures), or a
-// snapshot entry whose fixture vanished (missing), means the baseline no longer
-// covers what it claims to — an emptied or truncated snapshot would otherwise
-// make every fixture "new" and the run pass vacuously. Both are failures: the
-// only path to green is an explicit, reviewed --update.
-if (diffs.length > 0 || newFixtures.length > 0 || missing.length > 0) process.exit(1);
-process.exit(0);
+  if (missing.length > 0) {
+    console.log(`── REMOVED FIXTURES (in snapshot but not in code) ──`);
+    for (const id of missing) console.log(`  - ${id}`);
+    console.log(`  These will persist in the snapshot until --update is run.\n`);
+  }
+
+  // A fixture present in code but ABSENT from the snapshot (newFixtures), or a
+  // snapshot entry whose fixture vanished (missing), means the baseline no longer
+  // covers what it claims to — an emptied or truncated snapshot would otherwise
+  // make every fixture "new" and the run pass vacuously. Both are failures: the
+  // only path to green is an explicit, reviewed --update.
+  if (diffs.length > 0 || newFixtures.length > 0 || missing.length > 0) process.exit(1);
+  process.exit(0);
 })().catch((err) => {
   console.error('REGRESSION: harness error —', err && err.stack ? err.stack : err);
   process.exit(2);

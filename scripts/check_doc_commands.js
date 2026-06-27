@@ -29,8 +29,15 @@ const DOCS = ['AGENTS.md', 'llms.txt', 'README.md', 'SKILL.md'];
 
 // Read-only scripts that are safe (and fast) to execute as a doc-validity probe.
 const SAFE_SCRIPTS = new Set([
-  'recipe.js', 'list.js', 'expand.js', 'fingerprint.js', 'compare.js',
-  'inspect.js', 'nearest_neighbor.js', 'stack.js', 'placement_check.js',
+  'recipe.js',
+  'list.js',
+  'expand.js',
+  'fingerprint.js',
+  'compare.js',
+  'inspect.js',
+  'nearest_neighbor.js',
+  'stack.js',
+  'placement_check.js',
   'preface_configure.js',
 ]);
 // A command is illustrative-only (not runnable) if it carries a placeholder or
@@ -73,7 +80,9 @@ if (VERBOSE || fail) for (const r of results) console.log(r);
 // reliably carry several recipe.js examples), the doc formatting or CMD_RE drifted
 // and "PASS — all 0 ... exit 0" would be a false green. Fail loudly instead.
 if (cmds.size === 0) {
-  console.error('FAIL — extracted 0 runnable documented commands; the doc-scan regex or doc formatting drifted (expected several recipe.js examples).');
+  console.error(
+    'FAIL — extracted 0 runnable documented commands; the doc-scan regex or doc formatting drifted (expected several recipe.js examples).'
+  );
   process.exit(1);
 }
 if (fail === 0) {

@@ -12,4 +12,7 @@ for (const p of C.PREFACE_LEXICON) {
   }
 }
 if (issues === 0) console.log('PROFILE-SIZE AUDIT: CLEAN — all profiles exactly 9 tokens.');
-else { console.log('\nPROFILE-SIZE AUDIT: ' + issues + ' issues'); process.exit(1); }
+else {
+  console.log('\nPROFILE-SIZE AUDIT: ' + issues + ' issues');
+  process.exit(1);
+}

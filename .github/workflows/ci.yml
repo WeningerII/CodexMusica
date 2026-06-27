@@ -37,6 +37,9 @@ jobs:
       - name: Lint
         run: npm run lint
 
+      - name: Formatting (prettier --check)
+        run: npm run format:check
+
       - name: Validate references
         run: npm run validate
 
@@ -93,7 +96,7 @@ jobs:
       - name: Fault injection — every gate is two-sided (0 escapes)
         run: node scripts/faults.js --fresh-api="$RUNNER_TEMP/fresh/api" --fresh-html="$RUNNER_TEMP/fresh/codex.html"
 
-  # The catalog-wide smoke (~16 min, all 1090 traditions) is intentionally not
+  # The catalog-wide smoke (~16 min, all 1119 traditions) is intentionally not
   # on the per-push path. Run it on demand:
   #   npm run smoke            (smoke only)
   #   npm run build            (full canonical ship: everything above + smoke)

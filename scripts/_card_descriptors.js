@@ -44,23 +44,23 @@ function harvestDescriptors(card, lookups) {
   if (!inst) return set;
 
   // Variant descriptors (descriptors only — NOT match_tokens).
-  for (const partDef of (inst.parts || [])) {
+  for (const partDef of inst.parts || []) {
     const variantId = card.parts && card.parts[partDef.id];
     if (!variantId) continue;
     const variant = (partDef.variants || []).find((v) => v.id === variantId);
-    if (variant) for (const d of (variant.descriptors || [])) set.add(d);
+    if (variant) for (const d of variant.descriptors || []) set.add(d);
   }
 
   // Tuning descriptors.
   if (card.tuning) {
     const t = lookups.tuning(card.tuning);
-    if (t) for (const d of (t.descriptors || [])) set.add(d);
+    if (t) for (const d of t.descriptors || []) set.add(d);
   }
 
   // Room descriptors.
   if (card.room) {
     const r = lookups.room(card.room);
-    if (r) for (const d of (r.descriptors || [])) set.add(d);
+    if (r) for (const d of r.descriptors || []) set.add(d);
   }
 
   // Chain-stage item descriptors.
@@ -69,13 +69,13 @@ function harvestDescriptors(card, lookups) {
       const itemId = card.chain[stageId];
       if (!itemId) continue;
       const item = lookups.chainItem(stageId, itemId);
-      if (item) for (const d of (item.descriptors || [])) set.add(d);
+      if (item) for (const d of item.descriptors || []) set.add(d);
     }
   }
 
   // Tradition signature.
   if (card.traditionId) {
-    for (const d of (lookups.signature(card.traditionId) || [])) set.add(d);
+    for (const d of lookups.signature(card.traditionId) || []) set.add(d);
   }
 
   return set;

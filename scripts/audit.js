@@ -131,7 +131,7 @@ if (shouldRun('parent_crossref_redundant')) {
 if (shouldRun('duplicate_part_id')) {
   for (const inst of C.INSTRUMENTS) {
     const seen = new Map();
-    for (const p of (inst.parts || [])) {
+    for (const p of inst.parts || []) {
       if (!p || !p.id) continue;
       if (seen.has(p.id)) {
         errors.push({
@@ -152,7 +152,9 @@ function harvestContextTokens() {
   // Generic harvest: splits on whitespace, hyphens, underscores, common punctuation.
   const harvest = (s) => {
     if (!s) return;
-    for (const t of String(s).toLowerCase().split(/[\s\-_,.()/]+/)) {
+    for (const t of String(s)
+      .toLowerCase()
+      .split(/[\s\-_,.()/]+/)) {
       if (t && t.length > 2) tokens.add(t);
     }
   };
@@ -166,7 +168,10 @@ function harvestContextTokens() {
   const harvestParent = (s) => {
     if (!s) return;
     for (const seg of String(s).split('.')) {
-      const camelSplit = seg.replace(/([A-Z])/g, ' $1').toLowerCase().split(/\s+/);
+      const camelSplit = seg
+        .replace(/([A-Z])/g, ' $1')
+        .toLowerCase()
+        .split(/\s+/);
       for (const t of camelSplit) {
         if (t) tokens.add(t);
       }
@@ -177,23 +182,30 @@ function harvestContextTokens() {
   // preserved. Other fields keep the noise-reduction filter.
   const harvestId = (s) => {
     if (!s) return;
-    for (const t of String(s).toLowerCase().split(/[\s\-_,.()/]+/)) {
+    for (const t of String(s)
+      .toLowerCase()
+      .split(/[\s\-_,.()/]+/)) {
       if (t) tokens.add(t);
     }
   };
   for (const t of C.TRADITIONS) {
-    harvestId(t.id); harvest(t.name); harvest(t.lineage); harvest(t.family);
+    harvestId(t.id);
+    harvest(t.name);
+    harvest(t.lineage);
+    harvest(t.family);
     // tradition.canonical_tags are explicit context signals — harvest with no length filter
-    for (const tag of (t.canonical_tags || [])) harvestId(tag);
+    for (const tag of t.canonical_tags || []) harvestId(tag);
     const e = C.TRADITION_EXTRAS[t.id] || {};
-    harvestParent(e.parent); harvest(e.description);
-    for (const cr of (e.crossRefs || [])) harvestParent(crossRefRef(cr));
+    harvestParent(e.parent);
+    harvest(e.description);
+    for (const cr of e.crossRefs || []) harvestParent(crossRefRef(cr));
   }
-  for (const a of (C.CHAIN_ARCHETYPES || [])) {
-    harvest(a.id); harvest(a.name);
+  for (const a of C.CHAIN_ARCHETYPES || []) {
+    harvest(a.id);
+    harvest(a.name);
   }
   for (const r of C.ROOMS) {
-    for (const d of (r.descriptors || [])) harvest(d);
+    for (const d of r.descriptors || []) harvest(d);
   }
   return tokens;
 }
@@ -214,16 +226,21 @@ if (shouldRun('dead_canonical')) {
     }
   };
   for (const t of C.TRADITIONS) {
-    harvestFull(t.id); harvestFull(t.name); harvestFull(t.lineage); harvestFull(t.family);
+    harvestFull(t.id);
+    harvestFull(t.name);
+    harvestFull(t.lineage);
+    harvestFull(t.family);
     const e = C.TRADITION_EXTRAS[t.id] || {};
-    harvestFull(e.parent); harvestFull(e.description);
-    for (const cr of (e.crossRefs || [])) harvestFull(crossRefRef(cr));
+    harvestFull(e.parent);
+    harvestFull(e.description);
+    for (const cr of e.crossRefs || []) harvestFull(crossRefRef(cr));
   }
-  for (const a of (C.CHAIN_ARCHETYPES || [])) {
-    harvestFull(a.id); harvestFull(a.name);
+  for (const a of C.CHAIN_ARCHETYPES || []) {
+    harvestFull(a.id);
+    harvestFull(a.name);
   }
   for (const r of C.ROOMS) {
-    for (const d of (r.descriptors || [])) harvestFull(d);
+    for (const d of r.descriptors || []) harvestFull(d);
   }
 
   const checkCanonical = (canonical) => {
@@ -232,25 +249,30 @@ if (shouldRun('dead_canonical')) {
     // input slips through during transition.
     const stripped = canonical.replace(/-canonical$/, '').toLowerCase();
     // CITES regulatory tags (cites-app-i, cites-app-ii, cites-pre-1992-antique) are
-    // intentional metadata for the audit_cites.js gate, NOT scoring signals.
+    // intentional regulatory metadata, NOT scoring signals.
     // Exempt them from dead_canonical checks.
     if (stripped.startsWith('cites-')) return true;
     // Use-case / instrument-role classifier tags are equipment-classification metadata
     // and intentionally don't reference any tradition. Examples: 'drum-overhead'
     // tells us the mic is positioned as a drum overhead, not that some tradition is
     // called "drum overhead". Exempt these from dead_canonical checks.
-    if (/^(drum-(?:overhead|bus|bus-grit)|kick-drum-eq|tom-drum|snare-drum|hi-hat|cymbal-(?:air)|guitar-amp|bass-(?:direct|tracking|amp)|live|live-vocal|live-canonical|podcast|broadcast|broadcast-(?:presence|mastering|classical)|overhead|mastering(?:-(?:bus|bus-glue|bus-shaping|program-eq|reference|leaning|vocal|air|archive))?|mix-bus(?:-modern|-character)?|bus-tone-shaping|ssl-buscomp-alt|tape-warmth-emulation|tube-bus-tracking|modern-tracking-(?:boutique)?|modern-vocal(?:-(?:boutique|eq|air))?|r-and-b(?:-(?:vocal|eq|vocal-canonical))?|transparent-boost|jungle-tearout|truckdriver|demo-tape-vhs-audio|sacd-release|car-stereo|consumer-home-recording-90s|bedroom-archive-90s|drum|drums|electronic-direct|keyboard-direct|modern-tracking|tube-bus|british-60s-overhead|80s-mix-bus|90s-r-and-b-vocal)$/.test(stripped)) return true;
+    if (
+      /^(drum-(?:overhead|bus|bus-grit)|kick-drum-eq|tom-drum|snare-drum|hi-hat|cymbal-(?:air)|guitar-amp|bass-(?:direct|tracking|amp)|live|live-vocal|live-canonical|podcast|broadcast|broadcast-(?:presence|mastering|classical)|overhead|mastering(?:-(?:bus|bus-glue|bus-shaping|program-eq|reference|leaning|vocal|air|archive))?|mix-bus(?:-modern|-character)?|bus-tone-shaping|ssl-buscomp-alt|tape-warmth-emulation|tube-bus-tracking|modern-tracking-(?:boutique)?|modern-vocal(?:-(?:boutique|eq|air))?|r-and-b(?:-(?:vocal|eq|vocal-canonical))?|transparent-boost|jungle-tearout|truckdriver|demo-tape-vhs-audio|sacd-release|car-stereo|consumer-home-recording-90s|bedroom-archive-90s|drum|drums|electronic-direct|keyboard-direct|modern-tracking|tube-bus|british-60s-overhead|80s-mix-bus|90s-r-and-b-vocal)$/.test(
+        stripped
+      )
+    )
+      return true;
     if (ctxFullTokens.has(stripped)) return true;
     const tokens = stripped.split(/[-_]/);
-    return tokens.every(t => ctxTokens.has(t));
+    return tokens.every((t) => ctxTokens.has(t));
   };
 
   // Family-parts
   const fp = C.INSTRUMENT_FAMILY_PARTS || {};
   for (const fam of Object.keys(fp)) {
     for (const part of fp[fam]) {
-      for (const v of (part.variants || [])) {
-        for (const ct of (v.canonical_tags || [])) {
+      for (const v of part.variants || []) {
+        for (const ct of v.canonical_tags || []) {
           if (!checkCanonical(ct)) {
             warnings.push({
               section: 'dead_canonical',
@@ -264,8 +286,8 @@ if (shouldRun('dead_canonical')) {
   }
   // Chain sections
   for (const sec of C.CHAIN_SECTIONS) {
-    for (const it of (sec.items || [])) {
-      for (const ct of (it.canonical_tags || [])) {
+    for (const it of sec.items || []) {
+      for (const ct of it.canonical_tags || []) {
         if (!checkCanonical(ct)) {
           warnings.push({
             section: 'dead_canonical',
@@ -278,9 +300,9 @@ if (shouldRun('dead_canonical')) {
   }
   // Instruments (per-instrument parts only — family parts checked above)
   for (const inst of C.INSTRUMENTS) {
-    for (const part of (inst._ownParts || [])) {
-      for (const v of (part.variants || [])) {
-        for (const ct of (v.canonical_tags || [])) {
+    for (const part of inst._ownParts || []) {
+      for (const v of part.variants || []) {
+        for (const ct of v.canonical_tags || []) {
           if (!checkCanonical(ct)) {
             warnings.push({
               section: 'dead_canonical',
@@ -303,22 +325,22 @@ if (shouldRun('dead_whitelist')) {
   if (start > 0 && end > start) {
     const block = translateSrc.slice(start, end);
     const noComments = block.replace(/\/\/.*$/gm, '');
-    const whitelist = [...noComments.matchAll(/'([^']+)'/g)].map(x => x[1]);
+    const whitelist = [...noComments.matchAll(/'([^']+)'/g)].map((x) => x[1]);
 
     // Build set of all descriptor tokens used in catalog
     const allDescriptors = new Set();
     for (const inst of C.INSTRUMENTS) {
-      for (const part of (inst.parts || [])) {
-        for (const v of (part.variants || [])) {
-          for (const d of (v.descriptors || [])) {
+      for (const part of inst.parts || []) {
+        for (const v of part.variants || []) {
+          for (const d of v.descriptors || []) {
             allDescriptors.add(d.replace(/-canonical$/, '').toLowerCase());
           }
         }
       }
     }
     for (const sec of C.CHAIN_SECTIONS) {
-      for (const it of (sec.items || [])) {
-        for (const d of (it.descriptors || [])) {
+      for (const it of sec.items || []) {
+        for (const d of it.descriptors || []) {
           allDescriptors.add(d.replace(/-canonical$/, '').toLowerCase());
         }
       }
@@ -351,7 +373,7 @@ if (shouldRun('duplicate_descriptors')) {
   const checkDescriptorList = (location, descriptors) => {
     const seen = new Set();
     const dupes = new Set();
-    for (const d of (descriptors || [])) {
+    for (const d of descriptors || []) {
       if (seen.has(d)) dupes.add(d);
       seen.add(d);
     }
@@ -368,27 +390,26 @@ if (shouldRun('duplicate_descriptors')) {
   const fp = C.INSTRUMENT_FAMILY_PARTS || {};
   for (const fam of Object.keys(fp)) {
     for (const part of fp[fam]) {
-      for (const v of (part.variants || [])) {
+      for (const v of part.variants || []) {
         checkDescriptorList(`family_parts.${fam}.${v.id}`, v.descriptors);
       }
     }
   }
   // Chain sections
   for (const sec of C.CHAIN_SECTIONS) {
-    for (const it of (sec.items || [])) {
+    for (const it of sec.items || []) {
       checkDescriptorList(`chain.${sec.id}.${it.id}`, it.descriptors);
     }
   }
   // Instruments
   for (const inst of C.INSTRUMENTS) {
-    for (const part of (inst._ownParts || [])) {
-      for (const v of (part.variants || [])) {
+    for (const part of inst._ownParts || []) {
+      for (const v of part.variants || []) {
         checkDescriptorList(`instruments.${inst.id}.${part.id}.${v.id}`, v.descriptors);
       }
     }
   }
 }
-
 
 // ─── ACCEPTED_OVERLAPS — whitelisted parent_top_branch_overlap entries ───
 const ACCEPTED_OVERLAPS = new Set([
@@ -601,9 +622,9 @@ const ACCEPTED_OVERLAPS = new Set([
   'barbershop_quartet:functionalSong.country',
   'british_brass_band:artMusic.westernEarly',
   'american_drumline:groovePercussion.cuban',
-    // ─── Heterophonic-leaf-population follow-on ───
-  "mongolian_urtiin_duu:droneModal.vocal",
-// ─── Auto-added 270 overlaps from systematic curation review ───
+  // ─── Heterophonic-leaf-population follow-on ───
+  'mongolian_urtiin_duu:droneModal.vocal',
+  // ─── Auto-added 270 overlaps from systematic curation review ───
   'beijing_opera:artMusic.eastAsian.cantoneseOpera',
   'beijing_opera:artMusic.eastAsian.tibetanRitual',
   'cantonese_opera:artMusic.eastAsian.beijingOpera',
@@ -887,7 +908,7 @@ if (shouldRun('parent_top_branch_overlap')) {
       if (r === null) continue;
       if (r === e.parent) continue; // already caught by issue #1
       if (ACCEPTED_OVERLAPS.has(tid + ':' + r)) continue;
-        if (r.split('.')[0] === parentRoot) {
+      if (r.split('.')[0] === parentRoot) {
         warnings.push({
           section: 'parent_top_branch_overlap',
           tid,
@@ -947,7 +968,7 @@ if (sectionsToRun && sectionsToRun.has('circular_crossrefs')) {
         const bE = C.TRADITION_EXTRAS[bId];
         if (!bE.crossRefs) continue;
         // Normalize bE.crossRefs to plain ref strings for includes() check
-        const bRefs = bE.crossRefs.map(crossRefRef).filter(r => r !== null);
+        const bRefs = bE.crossRefs.map(crossRefRef).filter((r) => r !== null);
         if (bRefs.includes(aE.parent)) {
           // Cycle: A.parent ← B.crossRef AND B.parent ← A.crossRef
           const key = [aId, bId].sort().join('|');
@@ -979,10 +1000,10 @@ if (shouldRun('applies_to_family_mismatch')) {
   for (const fam of Object.keys(fp)) {
     const members = familyMembers[fam] || new Set();
     for (const part of fp[fam]) {
-      for (const v of (part.variants || [])) {
+      for (const v of part.variants || []) {
         if (!Array.isArray(v.applies_to)) continue;
-        const inFamily = v.applies_to.filter(t => members.has(t));
-        const outOfFamily = v.applies_to.filter(t => !members.has(t));
+        const inFamily = v.applies_to.filter((t) => members.has(t));
+        const outOfFamily = v.applies_to.filter((t) => !members.has(t));
         if (inFamily.length === 0 && outOfFamily.length > 0) {
           errors.push({
             section: 'applies_to_family_mismatch',
@@ -1226,10 +1247,10 @@ if (shouldRun('family_parts_coverage')) {
     const familyDef = fp[inst.family];
     if (!familyDef || familyDef.length === 0) continue; // family has no shared parts
     // Did any of inst's parts come from family inheritance?
-    const hasFamilyParts = (inst.parts || []).some(p => p._fromFamily);
+    const hasFamilyParts = (inst.parts || []).some((p) => p._fromFamily);
     if (!hasFamilyParts) {
       if (ACCEPTED_FAMILY_OVERRIDES.has(inst.id)) continue;
-        warnings.push({
+      warnings.push({
         section: 'family_parts_coverage',
         location: `instruments.${inst.id}`,
         detail: `instrument is in family '${inst.family}' (which has ${familyDef.length} shared part(s)) but inherits NONE — verify the override-by-id is intentional`,
@@ -1261,13 +1282,15 @@ if (shouldRun('coverage_gaps')) {
     if (t.room) usedRooms.add(t.room);
     if (t.chain_archetype) usedArchetypes.add(t.chain_archetype);
     if (t.production_aesthetic) {
-      const arr = Array.isArray(t.production_aesthetic) ? t.production_aesthetic : [t.production_aesthetic];
+      const arr = Array.isArray(t.production_aesthetic)
+        ? t.production_aesthetic
+        : [t.production_aesthetic];
       for (const a of arr) usedAesthetics.add(a);
     }
-    for (const i of (t.instruments || [])) usedInstruments.add(i);
+    for (const i of t.instruments || []) usedInstruments.add(i);
   }
   // Aesthetics: every aesthetic should be referenced by ≥1 tradition (high-signal — system only fires on reference)
-  for (const aesthetic of (C.PRODUCTION_AESTHETICS || [])) {
+  for (const aesthetic of C.PRODUCTION_AESTHETICS || []) {
     if (!usedAesthetics.has(aesthetic.id)) {
       warnings.push({
         section: 'coverage_gaps',
@@ -1277,7 +1300,7 @@ if (shouldRun('coverage_gaps')) {
     }
   }
   // Archetypes: every archetype should be referenced by ≥1 tradition
-  for (const arch of (C.CHAIN_ARCHETYPES || [])) {
+  for (const arch of C.CHAIN_ARCHETYPES || []) {
     if (!usedArchetypes.has(arch.id)) {
       warnings.push({
         section: 'coverage_gaps',
@@ -1288,7 +1311,6 @@ if (shouldRun('coverage_gaps')) {
   }
 }
 
-
 if (shouldRun('bare_genre_descriptors')) {
   // True genre-identifier tokens — words that only mean a genre (not a period
   // or aesthetic). When used as a descriptor without `-canonical`, they surface
@@ -1298,15 +1320,45 @@ if (shouldRun('bare_genre_descriptors')) {
   // that are correctly filtered as score-hints by the engine and aren't
   // authoring mistakes).
   const TRUE_GENRE_TOKENS = new Set([
-    'afrobeat', 'funk', 'jazz', 'rock', 'punk', 'metal', 'soul', 'motown', 'reggae',
-    'dub', 'fusion', 'gospel', 'country', 'hip-hop', 'electronic',
-    'shoegaze', 'post-punk', 'doom', 'noise', 'disco', 'bossa', 'flamenco',
-    'surf', 'bebop', 'swing', 'western-swing', 'blues',
-    'r&b', 'rnb', 'ska', 'rocksteady', 'mariachi', 'dixieland',
-    'cool-jazz', 'free-jazz', 'blues-rock',
+    'afrobeat',
+    'funk',
+    'jazz',
+    'rock',
+    'punk',
+    'metal',
+    'soul',
+    'motown',
+    'reggae',
+    'dub',
+    'fusion',
+    'gospel',
+    'country',
+    'hip-hop',
+    'electronic',
+    'shoegaze',
+    'post-punk',
+    'doom',
+    'noise',
+    'disco',
+    'bossa',
+    'flamenco',
+    'surf',
+    'bebop',
+    'swing',
+    'western-swing',
+    'blues',
+    'r&b',
+    'rnb',
+    'ska',
+    'rocksteady',
+    'mariachi',
+    'dixieland',
+    'cool-jazz',
+    'free-jazz',
+    'blues-rock',
   ]);
   const checkVariant = (location, descriptors, canonical_tags) => {
-    for (const d of (descriptors || [])) {
+    for (const d of descriptors || []) {
       const lc = String(d).toLowerCase();
       // Bare genre tokens in `descriptors` only contribute a weak token-overlap.
       // The canonical-bonus path (overlap + 1.5× boost) requires the same token
@@ -1314,7 +1366,7 @@ if (shouldRun('bare_genre_descriptors')) {
       // present in canonical_tags — they're almost certainly intended as canonical
       // claims and the boost was lost.
       if (TRUE_GENRE_TOKENS.has(lc)) {
-        const inCanonical = (canonical_tags || []).map(c => String(c).toLowerCase()).includes(lc);
+        const inCanonical = (canonical_tags || []).map((c) => String(c).toLowerCase()).includes(lc);
         if (!inCanonical) {
           warnings.push({
             section: 'bare_genre_descriptors',
@@ -1329,21 +1381,21 @@ if (shouldRun('bare_genre_descriptors')) {
   const fp = C.INSTRUMENT_FAMILY_PARTS || {};
   for (const fam of Object.keys(fp)) {
     for (const part of fp[fam]) {
-      for (const v of (part.variants || [])) {
+      for (const v of part.variants || []) {
         checkVariant(`family_parts.${fam}.${v.id}`, v.descriptors, v.canonical_tags);
       }
     }
   }
   // Chain
   for (const sec of C.CHAIN_SECTIONS) {
-    for (const it of (sec.items || [])) {
+    for (const it of sec.items || []) {
       checkVariant(`chain.${sec.id}.${it.id}`, it.descriptors, it.canonical_tags);
     }
   }
   // Instruments (own parts only)
   for (const inst of C.INSTRUMENTS) {
-    for (const part of (inst._ownParts || [])) {
-      for (const v of (part.variants || [])) {
+    for (const part of inst._ownParts || []) {
+      for (const v of part.variants || []) {
         checkVariant(`instruments.${inst.id}.${part.id}.${v.id}`, v.descriptors, v.canonical_tags);
       }
     }
@@ -1368,9 +1420,7 @@ if (shouldRun('unsurfaceable_variants')) {
   const wlStart = translateSrc.indexOf('TRUSTED_TECHNIQUE_DESCRIPTORS = new Set([');
   const wlEnd = translateSrc.indexOf(']);', wlStart);
   const wlBlock = translateSrc.slice(wlStart, wlEnd).replace(/\/\/.*$/gm, '');
-  const trustedTechs = new Set(
-    [...wlBlock.matchAll(/'([^']+)'/g)].map(m => m[1].toLowerCase())
-  );
+  const trustedTechs = new Set([...wlBlock.matchAll(/'([^']+)'/g)].map((m) => m[1].toLowerCase()));
   // Build all-tradition-context tokens
   const ctxTokens = harvestContextTokens();
 
@@ -1378,14 +1428,16 @@ if (shouldRun('unsurfaceable_variants')) {
     if (!descriptors || descriptors.length === 0) return;
     const idTokens = new Set(String(variantId).toLowerCase().split('_'));
     for (const d of descriptors) {
-      const lc = String(d).toLowerCase().replace(/-canonical$/, '');
+      const lc = String(d)
+        .toLowerCase()
+        .replace(/-canonical$/, '');
       // Check (a): shares token with variant id
       const dTokens = lc.split(/[-\s]/);
-      if (dTokens.some(t => idTokens.has(t))) return; // surfaceable
+      if (dTokens.some((t) => idTokens.has(t))) return; // surfaceable
       // Check (b): in trusted-technique whitelist
       if (trustedTechs.has(lc)) return;
       // Check (c): at least one token in tradition context
-      if (dTokens.some(t => ctxTokens.has(t))) return;
+      if (dTokens.some((t) => ctxTokens.has(t))) return;
     }
     // None of the descriptors can surface
     warnings.push({
@@ -1398,16 +1450,16 @@ if (shouldRun('unsurfaceable_variants')) {
   const fp = C.INSTRUMENT_FAMILY_PARTS || {};
   for (const fam of Object.keys(fp)) {
     for (const part of fp[fam]) {
-      for (const v of (part.variants || [])) {
+      for (const v of part.variants || []) {
         checkVariant(`family_parts.${fam}.${v.id}`, v.id, v.descriptors);
       }
     }
   }
   // Instruments
   for (const inst of C.INSTRUMENTS) {
-    for (const part of (inst._ownParts || [])) {
+    for (const part of inst._ownParts || []) {
       if (part.surface === false) continue;
-      for (const v of (part.variants || [])) {
+      for (const v of part.variants || []) {
         checkVariant(`instruments.${inst.id}.${part.id}.${v.id}`, v.id, v.descriptors);
       }
     }
@@ -1427,8 +1479,10 @@ if (shouldRun('redundant_descriptors_in_part')) {
     const counts = {};
     for (const v of variants) {
       const seen = new Set(); // count each descriptor once per variant
-      for (const d of (v.descriptors || [])) {
-        const lc = String(d).toLowerCase().replace(/-canonical$/, '');
+      for (const d of v.descriptors || []) {
+        const lc = String(d)
+          .toLowerCase()
+          .replace(/-canonical$/, '');
         if (seen.has(lc)) continue;
         seen.add(lc);
         counts[lc] = (counts[lc] || 0) + 1;
@@ -1454,7 +1508,7 @@ if (shouldRun('redundant_descriptors_in_part')) {
   }
   // Instruments
   for (const inst of C.INSTRUMENTS) {
-    for (const part of (inst._ownParts || [])) {
+    for (const part of inst._ownParts || []) {
       // Skip parts explicitly marked as non-surfacing — their descriptors
       // document role/character for humans and aren't expected to differentiate
       // for surfacing purposes.
@@ -1477,36 +1531,167 @@ if (shouldRun('redundant_descriptors_in_part')) {
 // - Whole-word match in description (no substrings)
 if (shouldRun('description_instrument_mismatch')) {
   const STOPLIST = new Set([
-    'voice', 'piano', 'organ', 'guitar', 'bass', 'drum', 'drums', 'horn',
-    'string', 'strings', 'pipe', 'flute', 'lute', 'pad', 'kit', 'chord',
-    'vocal', 'vocals', 'harmony', 'melody', 'chorus', 'rhythm', 'drone',
-    'ensemble', 'orchestra', 'band', 'choir', 'singing', 'singer',
-    'concert', 'classical', 'electric', 'acoustic', 'open', 'standard',
-    'modern', 'traditional', 'folk', 'jazz', 'rock', 'pop',
-    'blues', 'gospel', 'country', 'world', 'opera', 'sacred',
-    'small', 'large', 'high', 'low', 'fast', 'slow', 'long', 'short',
-    'bright', 'dark', 'warm', 'cold', 'central', 'south', 'north', 'east',
-    'west', 'machine', 'great', 'combo', 'three', 'four', 'five', 'twelve',
-    'sustain', 'extended', 'paired', 'multi', 'double', 'single', 'spike',
-    'based', 'scale', 'digital', 'chromatic', 'sample', 'samples', 'sampled',
-    'tube', 'analog', 'sustained', 'irish', 'mexican', 'indian', 'persian',
-    'arabic', 'korean', 'chinese', 'japanese', 'african', 'cuban', 'spanish',
-    'italian', 'french', 'german', 'russian', 'eastern', 'western', 'northern',
-    'southern', 'american', 'british', 'european', 'andean', 'celtic', 'balkan',
-    'arab', 'turkish', 'greek', 'persian',
-    'archtop', 'orchestral', 'parlor', 'romani', 'pentecostal', 'orthodox',
-    'baritone', 'fretless', 'tambourine', 'congregation', 'family',
-    'school', 'anglo', 'highland', 'circle', 'classic', 'hollow',
-    'mouth', 'gongs', 'talking', 'shape', 'frame', 'pedal', 'black',
-    'orleans', 'samba', 'carnatic', 'diatonic', 'wedding', 'sheng',
-    'mountain', 'resonator', 'xylophone', 'gaita',
+    'voice',
+    'piano',
+    'organ',
+    'guitar',
+    'bass',
+    'drum',
+    'drums',
+    'horn',
+    'string',
+    'strings',
+    'pipe',
+    'flute',
+    'lute',
+    'pad',
+    'kit',
+    'chord',
+    'vocal',
+    'vocals',
+    'harmony',
+    'melody',
+    'chorus',
+    'rhythm',
+    'drone',
+    'ensemble',
+    'orchestra',
+    'band',
+    'choir',
+    'singing',
+    'singer',
+    'concert',
+    'classical',
+    'electric',
+    'acoustic',
+    'open',
+    'standard',
+    'modern',
+    'traditional',
+    'folk',
+    'jazz',
+    'rock',
+    'pop',
+    'blues',
+    'gospel',
+    'country',
+    'world',
+    'opera',
+    'sacred',
+    'small',
+    'large',
+    'high',
+    'low',
+    'fast',
+    'slow',
+    'long',
+    'short',
+    'bright',
+    'dark',
+    'warm',
+    'cold',
+    'central',
+    'south',
+    'north',
+    'east',
+    'west',
+    'machine',
+    'great',
+    'combo',
+    'three',
+    'four',
+    'five',
+    'twelve',
+    'sustain',
+    'extended',
+    'paired',
+    'multi',
+    'double',
+    'single',
+    'spike',
+    'based',
+    'scale',
+    'digital',
+    'chromatic',
+    'sample',
+    'samples',
+    'sampled',
+    'tube',
+    'analog',
+    'sustained',
+    'irish',
+    'mexican',
+    'indian',
+    'persian',
+    'arabic',
+    'korean',
+    'chinese',
+    'japanese',
+    'african',
+    'cuban',
+    'spanish',
+    'italian',
+    'french',
+    'german',
+    'russian',
+    'eastern',
+    'western',
+    'northern',
+    'southern',
+    'american',
+    'british',
+    'european',
+    'andean',
+    'celtic',
+    'balkan',
+    'arab',
+    'turkish',
+    'greek',
+    'persian',
+    'archtop',
+    'orchestral',
+    'parlor',
+    'romani',
+    'pentecostal',
+    'orthodox',
+    'baritone',
+    'fretless',
+    'tambourine',
+    'congregation',
+    'family',
+    'school',
+    'anglo',
+    'highland',
+    'circle',
+    'classic',
+    'hollow',
+    'mouth',
+    'gongs',
+    'talking',
+    'shape',
+    'frame',
+    'pedal',
+    'black',
+    'orleans',
+    'samba',
+    'carnatic',
+    'diatonic',
+    'wedding',
+    'sheng',
+    'mountain',
+    'resonator',
+    'xylophone',
+    'gaita',
     // Tradition-name tokens that show up as comparative/contrast vocabulary,
     // not as instrument references (e.g. "Distinguished from mariachi", "neighboring gypsy-music"):
-    'mariachi', 'gypsy',
+    'mariachi',
+    'gypsy',
     // Proper-noun band-name tokens that survive lowercasing and create false matches
     // (e.g. "Cathedral Quartet" in southern_gospel exemplars, "Mother Father Sister Brother"
     // in philly_soul_intl, "Hawaiian Renaissance" cultural-revival period in hawaiian_slack_key):
-    'cathedral', 'brother', 'renaissance',
+    'cathedral',
+    'brother',
+    'renaissance',
     // Words used in context other than instrument references:
     // - 'dread' as existential dread, not acoustic_guitar_dread
     // - 'griot' as tradition reference (Tuareg-not-mande), not griot_voice
@@ -1517,20 +1702,35 @@ if (shouldRun('description_instrument_mismatch')) {
     // - 'biniou' as comparison reference ("Breton biniou koz"), not adopted instrument
     // - 'takht' as ensemble grouping description, not takht_arab as instrument
     // - 'marimba' as comparison ("marimba-like log-drum"), not marimba_orchestral
-    'dread', 'griot', 'colombiana', 'hammered', 'javanese', 'keyboard', 'biniou', 'takht', 'marimba',
+    'dread',
+    'griot',
+    'colombiana',
+    'hammered',
+    'javanese',
+    'keyboard',
+    'biniou',
+    'takht',
+    'marimba',
     // Further descriptor-context tokens added during Layer 3 description sweep:
     // - 'throat' as guttural-throat-resonance technique (sardinian_polyphony) not throat_singing_voice
     // - 'nylon' as string-material descriptor (koto) not classical_nylon_string_guitar
     // - 'balinese' as regional-comparison reference (javanese_gamelan distinguishing from Balinese)
     // - 'pipes' as bamboo-pipes-free-reed (mor_lam khaen) not uilleann_pipes
     // - 'jarocho' as son-jarocho-region reference (mariachi_traditional, joropo)
-    'throat', 'nylon', 'balinese', 'pipes', 'jarocho',
+    'throat',
+    'nylon',
+    'balinese',
+    'pipes',
+    'jarocho',
     // From layer-3 final-batch:
     // - 'quintet' as ensemble-comparison (string_quartet reference to string-quintet) not gypsy_jazz_quintet
     // - 'guzheng' as instrument-comparison (guqin distinguished from guzheng) not direct guzheng usage
     // - 'cubano' as son-cubano-tradition comparison (son_jarocho distinguished from son cubano) not tres_cubano
     // - 'nyckelharpa' as hardanger-fiddle comparison (folk_metal_european legitimately uses it but is now in instruments[])
-    'quintet', 'guzheng', 'cubano', 'nyckelharpa',
+    'quintet',
+    'guzheng',
+    'cubano',
+    'nyckelharpa',
     // 'portuguese' as language/nationality token in descriptions
     // (Portuguese-language vocal performance, Portuguese trader influence, etc.) —
     // not portuguese_guitar identifier
@@ -1546,11 +1746,22 @@ if (shouldRun('description_instrument_mismatch')) {
     // - 'barbershop' as barbershop quartet GENRE reference, not the choir instrument
     // - 'monosynth' as generic monosynth (synthesizer type)
     // - 'bateria' as samba bateria genre reference
-    'chest', 'grand', 'replay', 'gender', 'rudra', 'gaida', 'taiko', 'barbershop', 'monosynth', 'bateria',
+    'chest',
+    'grand',
+    'replay',
+    'gender',
+    'rudra',
+    'gaida',
+    'taiko',
+    'barbershop',
+    'monosynth',
+    'bateria',
     // Words appearing in many tradition descriptions as common English referring to drum-section
     // or vocal/instrumental stack — these tokens are too generic to uniquely identify the
     // vocal_percussion_voice and multitrack_vocal_stack entries:
-    'percussion', 'stack', 'multitrack',
+    'percussion',
+    'stack',
+    'multitrack',
     // Regional adjectives that match instrument IDs by coincidence — they identify the region
     // in the description (a contrastive or genealogical reference), not the specific instrument:
     // - 'scottish' as Scottish-musical-tradition (in Irish/Galician/Breton/Norwegian comparisons), not scottish_smallpipes
@@ -1561,8 +1772,14 @@ if (shouldRun('description_instrument_mismatch')) {
     // - 'cajun' as Cajun-region reference in zydeco context, not cajun_accordion specifically
     // - 'tambora' as generic-tambora-drum reference (cumbia uses tambora-de-cumbia), not tambora_dominicana
     // - 'capoeira' as capoeira-tradition reference (capoeira_music is the tradition itself), not capoeira_roda
-    'scottish', 'flamenco', 'verdean', 'trinidadian', 'indonesian', 'cajun', 'tambora', 'capoeira',
-
+    'scottish',
+    'flamenco',
+    'verdean',
+    'trinidadian',
+    'indonesian',
+    'cajun',
+    'tambora',
+    'capoeira',
   ]);
   // Negated-context filter: a token preceded by "not-", "no-", "without ",
   // "absence of", "rather than ", "instead of " is being explicitly excluded
@@ -1571,11 +1788,10 @@ if (shouldRun('description_instrument_mismatch')) {
   function isNegatedContext(descLC, token) {
     const escaped = token.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     const negPatterns = [
-      
       // Lists after explicit negation: "NOT X / Y / Z / W" — token may appear later in the slash-separated list
       `\\bnot\\s+[\\w\\s/-]*?/\\s*${escaped}\\b`,
       `\\bnot\\b[^.]{0,80}\\b${escaped}\\b[^.]{0,40}\\bbelonging\\b`,
-`\\bnot[- ]${escaped}\\b`,
+      `\\bnot[- ]${escaped}\\b`,
       // Hyphen-compound negation: "not-X-and-${token}" or "not-${token}-and-X" or "X-not-Y-and-${token}"
       // Example: "jarana-not-violin-and-trumpet" should negate 'trumpet'
       `\\bnot[-\\s][\\w-]+(?:-and-|-or-)${escaped}\\b`,
@@ -1596,7 +1812,10 @@ if (shouldRun('description_instrument_mismatch')) {
   // Build token → instrument-id index from ID tokens only
   const tokenIndex = new Map();
   for (const inst of C.INSTRUMENTS) {
-    const idTokens = inst.id.toLowerCase().split('_').filter(t => t.length >= 5 && !STOPLIST.has(t));
+    const idTokens = inst.id
+      .toLowerCase()
+      .split('_')
+      .filter((t) => t.length >= 5 && !STOPLIST.has(t));
     for (const t of idTokens) {
       if (!tokenIndex.has(t)) tokenIndex.set(t, new Set());
       tokenIndex.get(t).add(inst.id);
@@ -1609,7 +1828,7 @@ if (shouldRun('description_instrument_mismatch')) {
   }
   for (const tid of Object.keys(C.TRADITION_EXTRAS)) {
     const e = C.TRADITION_EXTRAS[tid];
-    const t = C.TRADITIONS.find(x => x.id === tid);
+    const t = C.TRADITIONS.find((x) => x.id === tid);
     if (!t || !e.description) continue;
     const declared = new Set(t.instruments || []);
     const descLC = e.description.toLowerCase();
@@ -1644,11 +1863,18 @@ if (sectionsToRun && sectionsToRun.has('no_iconic_descriptor')) {
   const checkVariant = (location, variantId, variantName, descriptors) => {
     if (!descriptors || descriptors.length === 0) return;
     const idTokens = new Set(String(variantId).toLowerCase().split('_'));
-    const nameTokens = new Set(String(variantName || '').toLowerCase().split(/\W+/).filter(Boolean));
+    const nameTokens = new Set(
+      String(variantName || '')
+        .toLowerCase()
+        .split(/\W+/)
+        .filter(Boolean)
+    );
     for (const d of descriptors) {
-      const lc = String(d).toLowerCase().replace(/-canonical$/, '');
+      const lc = String(d)
+        .toLowerCase()
+        .replace(/-canonical$/, '');
       const dTokens = lc.split(/[-\s]/);
-      if (dTokens.some(t => idTokens.has(t) || nameTokens.has(t))) return; // has iconic
+      if (dTokens.some((t) => idTokens.has(t) || nameTokens.has(t))) return; // has iconic
     }
     warnings.push({
       section: 'no_iconic_descriptor',
@@ -1661,14 +1887,20 @@ if (sectionsToRun && sectionsToRun.has('no_iconic_descriptor')) {
     // path which takes the first non-default non-score-hint descriptor — they don't
     // need iconic descriptors at all. Skipping these saves ~1100 of the 1474
     // false-positive warnings (Layer 9A architectural fix).
-    const isVoiceLineage = inst.id === 'voice' || inst.id.endsWith('_voice') ||
-                           inst.id === 'choir_ensemble' || inst.id === 'choir_doo_wop_group' ||
-                           inst.id === 'choir_brother_duet' || inst.id === 'mariachi_full' ||
-                           inst.id === 'griot_voice' || inst.id === 'pansori_voice' ||
-                           inst.id === 'qawwal_voice' || inst.id === 'shape_note_voice' ||
-                           inst.id === 'throat_singing_voice';
+    const isVoiceLineage =
+      inst.id === 'voice' ||
+      inst.id.endsWith('_voice') ||
+      inst.id === 'choir_ensemble' ||
+      inst.id === 'choir_doo_wop_group' ||
+      inst.id === 'choir_brother_duet' ||
+      inst.id === 'mariachi_full' ||
+      inst.id === 'griot_voice' ||
+      inst.id === 'pansori_voice' ||
+      inst.id === 'qawwal_voice' ||
+      inst.id === 'shape_note_voice' ||
+      inst.id === 'throat_singing_voice';
     if (isVoiceLineage) continue;
-    for (const part of (inst._ownParts || [])) {
+    for (const part of inst._ownParts || []) {
       // Skip parts explicitly marked as non-surfacing (construction details)
       if (part.surface === false) continue;
       // Skip metadata-style parts whose suffix indicates context-not-iconic role.
@@ -1677,13 +1909,20 @@ if (sectionsToRun && sectionsToRun.has('no_iconic_descriptor')) {
       // value they encode (e.g. "kakaki_court" for court-context kakaki) rather than
       // for an iconic-musical-quality, so the iconic-descriptor check is misapplied.
       const partId = String(part.id || '');
-      const isMetadataPart = /_(context|repertoire|origin|role|region|school|size|era|use|amplification|orientation|position|scale_length|tuning_choice)$/.test(partId)
-        || partId === 'voice_register' || partId === 'voice_quality'
-        || partId === 'voice_vibrato' || partId === 'voice_articulation'
-        || partId === 'voice_microtone' || partId === 'members'
-        || partId === 'voicing' || partId === 'arrangement';
+      const isMetadataPart =
+        /_(context|repertoire|origin|role|region|school|size|era|use|amplification|orientation|position|scale_length|tuning_choice)$/.test(
+          partId
+        ) ||
+        partId === 'voice_register' ||
+        partId === 'voice_quality' ||
+        partId === 'voice_vibrato' ||
+        partId === 'voice_articulation' ||
+        partId === 'voice_microtone' ||
+        partId === 'members' ||
+        partId === 'voicing' ||
+        partId === 'arrangement';
       if (isMetadataPart) continue;
-      for (const v of (part.variants || [])) {
+      for (const v of part.variants || []) {
         checkVariant(`instruments.${inst.id}.${part.id}.${v.id}`, v.id, v.name, v.descriptors);
       }
     }
@@ -1697,11 +1936,25 @@ if (sectionsToRun && sectionsToRun.has('no_iconic_descriptor')) {
 // distinctions. Listed advisory so authors can decide case-by-case whether
 // to differentiate.
 if (shouldRun('duplicate_axes_signature')) {
-  const AXIS_KEYS = ['harm','pitch','ornament','meter','density','transmission','improv','soundTech','intensity','voice','timbre','percussion','cyclicity'];
+  const AXIS_KEYS = [
+    'harm',
+    'pitch',
+    'ornament',
+    'meter',
+    'density',
+    'transmission',
+    'improv',
+    'soundTech',
+    'intensity',
+    'voice',
+    'timbre',
+    'percussion',
+    'cyclicity',
+  ];
   const axesSig = new Map();
   for (const tid of Object.keys(C.TRADITION_EXTRAS || {})) {
     const ax = (C.TRADITION_EXTRAS[tid] || {}).axes || {};
-    const sig = AXIS_KEYS.map(k => ax[k]).join(',');
+    const sig = AXIS_KEYS.map((k) => ax[k]).join(',');
     if (sig.includes('undefined') || sig === ',,,,,,,,,,,,') continue;
     if (axesSig.has(sig)) {
       warnings.push({
@@ -1728,10 +1981,10 @@ if (sectionsToRun && sectionsToRun.has('variant_score_below_threshold')) {
   for (const t of C.TRADITIONS) {
     const seed = seedFromTradition(t.id);
     if (!seed) continue;
-    for (const inst of (seed.instruments || [])) {
-      const cataInst = C.INSTRUMENTS.find(i => i.id === inst.id);
+    for (const inst of seed.instruments || []) {
+      const cataInst = C.INSTRUMENTS.find((i) => i.id === inst.id);
       if (!cataInst) continue;
-      for (const part of (cataInst.parts || [])) {
+      for (const part of cataInst.parts || []) {
         if (part.surface === false) continue;
         const variantId = (inst.slots || {})[part.id];
         if (!variantId) continue;
@@ -1762,7 +2015,9 @@ if (sectionsToRun && sectionsToRun.has('coverage_gaps_runtime')) {
   const archetypeRefs = new Map();
   for (const t of C.TRADITIONS) {
     if (t.production_aesthetic) {
-      const arr = Array.isArray(t.production_aesthetic) ? t.production_aesthetic : [t.production_aesthetic];
+      const arr = Array.isArray(t.production_aesthetic)
+        ? t.production_aesthetic
+        : [t.production_aesthetic];
       for (const a of arr) {
         if (!aestheticRefs.has(a)) aestheticRefs.set(a, []);
         aestheticRefs.get(a).push(t.id);
@@ -1830,12 +2085,12 @@ if (sectionsToRun && sectionsToRun.has('multistart_divergent')) {
     try {
       const result = searchMultiStart(seed, { restarts, maxIters });
       if (result.multistart && result.multistart.multimodal) {
-        const sortedScores = [...result.multistart.scores].sort((a,b) => b - a);
+        const sortedScores = [...result.multistart.scores].sort((a, b) => b - a);
         warnings.push({
           section: 'multistart_divergent',
           location: `tradition.${t.id}`,
           tid: t.id,
-          detail: `score spread ${result.multistart.spread.toFixed(2)} across ${restarts} restarts (scores: ${sortedScores.map(s => s.toFixed(2)).join(', ')}) — recipe output may be seed-dependent`,
+          detail: `score spread ${result.multistart.spread.toFixed(2)} across ${restarts} restarts (scores: ${sortedScores.map((s) => s.toFixed(2)).join(', ')}) — recipe output may be seed-dependent`,
         });
       }
     } catch {
@@ -1857,9 +2112,18 @@ if (sectionsToRun && sectionsToRun.has('multistart_divergent')) {
 // Violations indicate an entry was added too thinly; the function-branch
 // rollout established these floors and any future authoring should hold them.
 const FUNCTION_BRANCHES = [
-  'lullaby', 'funeralLament', 'wedding', 'protestSong', 'praiseSong',
-  'nurseryRhyme', 'drinkingSong', 'seaShanty', 'carnivalProcessional',
-  'fieldWork', 'huntingSong', 'domesticRhythm'
+  'lullaby',
+  'funeralLament',
+  'wedding',
+  'protestSong',
+  'praiseSong',
+  'nurseryRhyme',
+  'drinkingSong',
+  'seaShanty',
+  'carnivalProcessional',
+  'fieldWork',
+  'huntingSong',
+  'domesticRhythm',
 ];
 
 if (shouldRun('function_branch_shape')) {
@@ -1870,7 +2134,7 @@ if (shouldRun('function_branch_shape')) {
     const topBranch = e.parent.split('.')[0];
     if (!FUNCTION_BRANCHES.includes(topBranch)) continue;
 
-    const trad = C.TRADITIONS.find(t => t.id === tid);
+    const trad = C.TRADITIONS.find((t) => t.id === tid);
     if (!trad) continue;
 
     const failures = [];
@@ -1925,7 +2189,7 @@ const errorsBySection = groupBySection(errors);
 const warningsBySection = groupBySection(warnings);
 
 const warningLimit = flags.full ? Infinity : 20;
-const errorLimit   = flags.full ? Infinity : 30;
+const errorLimit = flags.full ? Infinity : 30;
 
 if (errors.length > 0) {
   console.log(`AUDIT — ${errors.length} error(s):\n`);

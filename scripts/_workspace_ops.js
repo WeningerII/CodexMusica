@@ -6,7 +6,7 @@
 // (no mutation of the input — the model threads the state). render() turns any
 // workspace into the "Current Recipe" via the shared SSOT renderer.
 //
-// These mirror the human affordances (CONNECTOR_WORKSPACE_PLAN.md §3), all
+// These mirror the human affordances, all
 // deterministic — no search, no auto-staple:
 //   seed / add_tradition / remove_tradition   — rosters (1..n traditions, explicit)
 //   add_instrument / remove_instrument        — per-instrument cards
@@ -30,7 +30,9 @@ const instById = (id) => (C.INSTRUMENTS || []).find((i) => i.id === id);
 const tradById = (id) => (C.TRADITIONS || []).find((t) => t.id === id);
 const prefaceById = (id) => (C.PREFACE_LEXICON || []).find((p) => p.id === id);
 
-function emptyWorkspace() { return { cards: [] }; }
+function emptyWorkspace() {
+  return { cards: [] };
+}
 
 // Deep-ish clone so an op never mutates the caller's workspace (state-passing).
 function clone(ws) {
@@ -45,7 +47,7 @@ function clone(ws) {
 
 // Resolve a card reference: card id first, then instrument id (first match).
 function findCard(ws, ref) {
-  return (ws.cards.find((x) => x.id === ref) || ws.cards.find((x) => x.instrumentId === ref) || null);
+  return ws.cards.find((x) => x.id === ref) || ws.cards.find((x) => x.instrumentId === ref) || null;
 }
 
 // ── rosters ─────────────────────────────────────────────────────────────────
@@ -92,7 +94,9 @@ function addInstrument(ws, instrumentId, opts = {}) {
     if (!trad) throw new WorkspaceError(`Unknown tradition context: "${opts.tradition}"`);
     const seeded = seedTraditionCards(opts.tradition) || [];
     const match = seeded.find((c) => c.instrumentId === instrumentId);
-    card = match || makeCard(instrumentId, { traditionId: opts.tradition, tuning: trad.tuning, room: trad.room });
+    card =
+      match ||
+      makeCard(instrumentId, { traditionId: opts.tradition, tuning: trad.tuning, room: trad.room });
   } else {
     card = makeCard(instrumentId, {});
   }
@@ -130,11 +134,13 @@ function setEnvironment(ws, cardRef, { room, tuning, chain } = {}) {
   const card = findCard(next, cardRef);
   if (!card) throw new WorkspaceError(`No card matching "${cardRef}"`);
   if (room !== undefined) {
-    if (room !== null && !(C.ROOMS || []).find((r) => r.id === room)) throw new WorkspaceError(`Unknown room: "${room}"`);
+    if (room !== null && !(C.ROOMS || []).find((r) => r.id === room))
+      throw new WorkspaceError(`Unknown room: "${room}"`);
     card.room = room;
   }
   if (tuning !== undefined) {
-    if (tuning !== null && !(C.TUNINGS || []).find((t) => t.id === tuning)) throw new WorkspaceError(`Unknown tuning: "${tuning}"`);
+    if (tuning !== null && !(C.TUNINGS || []).find((t) => t.id === tuning))
+      throw new WorkspaceError(`Unknown tuning: "${tuning}"`);
     card.tuning = tuning;
   }
   if (chain && typeof chain === 'object') {
@@ -150,13 +156,14 @@ function setPreface(ws, cardRef, prefaceId) {
   const card = findCard(next, cardRef);
   if (!card) throw new WorkspaceError(`No card matching "${cardRef}"`);
   const res = inverseConfigure(card, prefaceId);
-  if (!res) throw new WorkspaceError(`Cannot apply preface "${prefaceId}" to "${card.instrumentId}"`);
+  if (!res)
+    throw new WorkspaceError(`Cannot apply preface "${prefaceId}" to "${card.instrumentId}"`);
   card.parts = { ...res.config.parts };
   card.tuning = res.config.tuning;
   card.room = res.config.room;
   card.chain = { ...res.config.chain };
   card.preface = prefaceId;
-  card.prefaceLock = true;   // renderer surfaces it verbatim; others dedup around it
+  card.prefaceLock = true; // renderer surfaces it verbatim; others dedup around it
   card.prefaceAuto = false;
   return next;
 }

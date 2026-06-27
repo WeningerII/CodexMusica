@@ -35,7 +35,7 @@ function main() {
   // Read all vendored emoji SVGs once, keyed by codepoint. This is the
   // single source of truth for inner-SVG content; everything else stores
   // codepoint string references that resolve through this table.
-  const svgs = {};  // codepoint hex string → inner SVG markup
+  const svgs = {}; // codepoint hex string → inner SVG markup
   let missingFiles = [];
 
   // Collect every codepoint referenced by either per-instrument or family
@@ -52,13 +52,16 @@ function main() {
 
   for (const codepoint of referencedCodepoints) {
     const svgPath = path.join(EMOJI_DIR, codepoint + '.svg');
-    if (!fs.existsSync(svgPath)) { missingFiles.push(codepoint); continue; }
+    if (!fs.existsSync(svgPath)) {
+      missingFiles.push(codepoint);
+      continue;
+    }
     svgs[codepoint] = extractInner(fs.readFileSync(svgPath, 'utf8'));
   }
 
   // Per-instrument mappings now store just the codepoint string (~5 bytes)
   // instead of the full 2-3 KB SVG content. ~530 KB saved.
-  const registry = {};  // instrument_id → codepoint string
+  const registry = {}; // instrument_id → codepoint string
   for (const group of Object.keys(map)) {
     if (group.startsWith('_')) continue;
     const codepoint = group.split('_').pop();
@@ -75,7 +78,10 @@ function main() {
   for (const family of Object.keys(fallbackSpec)) {
     if (family.startsWith('_')) continue;
     const codepoint = fallbackSpec[family];
-    if (!svgs[codepoint]) { console.warn('  ! family fallback ' + family + ' missing ' + codepoint); continue; }
+    if (!svgs[codepoint]) {
+      console.warn('  ! family fallback ' + family + ' missing ' + codepoint);
+      continue;
+    }
     familyFallback[family] = codepoint;
   }
 
@@ -88,8 +94,8 @@ function main() {
   let validIds;
   try {
     const C = require('./_loader.js');
-    validIds = new Set(C.INSTRUMENTS.map(i => i.id));
-    const orphans = Object.keys(registry).filter(id => !validIds.has(id));
+    validIds = new Set(C.INSTRUMENTS.map((i) => i.id));
+    const orphans = Object.keys(registry).filter((id) => !validIds.has(id));
     if (orphans.length) {
       console.warn('  ! ' + orphans.length + ' mappings reference non-existent IDs:');
       for (const o of orphans.slice(0, 10)) console.warn('      ' + o);
@@ -122,7 +128,7 @@ function main() {
   lines.push('const EMOJI_SVGS = {');
   for (const cp of Object.keys(svgs).sort()) {
     const safe = svgs[cp].replace(/'/g, "\\'");
-    lines.push('  ' + JSON.stringify(cp) + ': \'' + safe + '\',');
+    lines.push('  ' + JSON.stringify(cp) + ": '" + safe + "',");
   }
   lines.push('};');
   lines.push('');
@@ -141,8 +147,12 @@ function main() {
 
   fs.writeFileSync(MANIFEST, cleaned + lines.join('\n'));
   console.log('Wrote EMOJI_SVGS: ' + Object.keys(svgs).length + ' unique SVG blobs');
-  console.log('Wrote EMOJI_REGISTRY: ' + Object.keys(registry).length + ' instrument → codepoint mappings');
-  console.log('Wrote FAMILY_FALLBACK_EMOJI: ' + Object.keys(familyFallback).length + ' family fallbacks');
+  console.log(
+    'Wrote EMOJI_REGISTRY: ' + Object.keys(registry).length + ' instrument → codepoint mappings'
+  );
+  console.log(
+    'Wrote FAMILY_FALLBACK_EMOJI: ' + Object.keys(familyFallback).length + ' family fallbacks'
+  );
   console.log('  Manifest: ' + MANIFEST);
 }
 

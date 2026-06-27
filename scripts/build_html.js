@@ -79,8 +79,10 @@ for (let i = 0; i < args.length; i++) {
     if (eq > 0) flags[a.slice(2, eq)] = a.slice(eq + 1);
     else {
       const next = args[i + 1];
-      if (next && !next.startsWith('--')) { flags[a.slice(2)] = next; i++; }
-      else flags[a.slice(2)] = true;
+      if (next && !next.startsWith('--')) {
+        flags[a.slice(2)] = next;
+        i++;
+      } else flags[a.slice(2)] = true;
     }
   }
 }
@@ -166,7 +168,7 @@ for (const f of SOURCE_FILES) {
 
   const chunks = splitFileIntoChunks(content, MAX_SCRIPT_CHARS);
   for (let i = 0; i < chunks.length; i++) {
-    if (!chunks[i].trim()) continue;  // skip empty splits
+    if (!chunks[i].trim()) continue; // skip empty splits
     const label = chunks.length === 1 ? f : `${f} [${i + 1}/${chunks.length}]`;
     dataParts.push(`</script>`);
     dataParts.push(`<script>// ─── ${label} ───`);
@@ -190,9 +192,13 @@ const dataBlock = dataParts.join('\n');
 // region between the @inline markers in _merge.js is the only copy of this
 // algorithm; this build extracts and inlines it verbatim.
 const mergeSource = fs.readFileSync(path.join(__dirname, '_merge.js'), 'utf8');
-const mergeMatch = mergeSource.match(/\/\* @inline-start[^\n]*\*\/\n([\s\S]*?)\n\/\* @inline-end \*\//);
+const mergeMatch = mergeSource.match(
+  /\/\* @inline-start[^\n]*\*\/\n([\s\S]*?)\n\/\* @inline-end \*\//
+);
 if (!mergeMatch) {
-  console.error('build_html: could not find @inline-start/@inline-end markers in scripts/_merge.js');
+  console.error(
+    'build_html: could not find @inline-start/@inline-end markers in scripts/_merge.js'
+  );
   process.exit(5);
 }
 const FAMILY_PARTS_MERGE_SNIPPET = `
@@ -208,7 +214,9 @@ if (typeof INSTRUMENT_FAMILY_PARTS !== 'undefined') mergeFamilyParts(INSTRUMENTS
 const cdSource = fs.readFileSync(path.join(__dirname, '_card_descriptors.js'), 'utf8');
 const cdMatch = cdSource.match(/\/\* @inline-start[^\n]*\*\/\n([\s\S]*?)\n\/\* @inline-end \*\//);
 if (!cdMatch) {
-  console.error('build_html: could not find @inline-start/@inline-end markers in scripts/_card_descriptors.js');
+  console.error(
+    'build_html: could not find @inline-start/@inline-end markers in scripts/_card_descriptors.js'
+  );
   process.exit(5);
 }
 const CARD_DESCRIPTORS_SNIPPET = `
@@ -230,7 +238,10 @@ function _cardDescriptorSet(card) {
 // Function replacement: the injected data/app contains `$` sequences
 // (template literals, regex) that String.replace would special-case — a
 // function replacement returns the string verbatim.
-const html = template.replace(CODEX_BODY_MARKER, () => dataBlock + FAMILY_PARTS_MERGE_SNIPPET + CARD_DESCRIPTORS_SNIPPET + appJs);
+const html = template.replace(
+  CODEX_BODY_MARKER,
+  () => dataBlock + FAMILY_PARTS_MERGE_SNIPPET + CARD_DESCRIPTORS_SNIPPET + appJs
+);
 
 // Write
 const outDir = path.dirname(outputPath);
@@ -248,7 +259,7 @@ console.error(`Built ${outputPath} (${html.length.toLocaleString()} bytes)`);
   if (!process.env.CI && path.resolve(outputPath) !== path.resolve(repoHtml)) {
     console.error(
       'note: that is the resolved output dir, not the committed ./codex.html — that file is unchanged.\n' +
-      '      to update it: CODEX_OUT_DIR="$(pwd)" node scripts/build_html.js   (or --out=codex.html)',
+        '      to update it: CODEX_OUT_DIR="$(pwd)" node scripts/build_html.js   (or --out=codex.html)'
     );
   }
 }
@@ -262,7 +273,14 @@ if (!flags.quiet) {
   console.error('  data block:');
   for (const s of sourceSizes) {
     const pct = ((s.bytes / totalData) * 100).toFixed(1);
-    console.error('    ' + s.name.padEnd(28) + s.bytes.toLocaleString().padStart(10) + '  ' + pct.padStart(4) + '%');
+    console.error(
+      '    ' +
+        s.name.padEnd(28) +
+        s.bytes.toLocaleString().padStart(10) +
+        '  ' +
+        pct.padStart(4) +
+        '%'
+    );
   }
   console.error('    ' + '(data total)'.padEnd(28) + totalData.toLocaleString().padStart(10));
 }
@@ -285,7 +303,7 @@ if (runCheck) {
   // _loader.js) so the post-eval size assertions can actually read the tables.
   const checkJs = dataBlock
     .split('\n')
-    .filter(line => line !== '</script>' && !line.startsWith('<script>'))
+    .filter((line) => line !== '</script>' && !line.startsWith('<script>'))
     .join('\n')
     .replace(/^const (\w+) =/gm, 'globalThis.$1 =');
   const sandbox = {};
@@ -305,15 +323,21 @@ if (runCheck) {
     process.exit(4);
   }
   const checks = [];
-  if (LAZY)                                         checks.push(`mode:              lazy shell (traditions/extras via api/)`);
-  if (Array.isArray(sandbox.TRADITIONS))            checks.push(`TRADITIONS:        ${sandbox.TRADITIONS.length}`);
-  if (Array.isArray(sandbox.INSTRUMENTS))           checks.push(`INSTRUMENTS:       ${sandbox.INSTRUMENTS.length}`);
-  if (Array.isArray(sandbox.ROOMS))                 checks.push(`ROOMS:             ${sandbox.ROOMS.length}`);
-  if (Array.isArray(sandbox.TUNINGS))               checks.push(`TUNINGS:           ${sandbox.TUNINGS.length}`);
-  if (Array.isArray(sandbox.CHAIN_ARCHETYPES))      checks.push(`CHAIN_ARCHETYPES:  ${sandbox.CHAIN_ARCHETYPES.length}`);
-  if (Array.isArray(sandbox.CHAIN_SECTIONS))        checks.push(`CHAIN_SECTIONS:    ${sandbox.CHAIN_SECTIONS.length}`);
-  if (Array.isArray(sandbox.PRODUCTION_AESTHETICS)) checks.push(`PROD_AESTHETICS:   ${sandbox.PRODUCTION_AESTHETICS.length}`);
-  if (Array.isArray(sandbox.PREFACE_LEXICON))       checks.push(`PREFACE_LEXICON:   ${sandbox.PREFACE_LEXICON.length}`);
+  if (LAZY) checks.push(`mode:              lazy shell (traditions/extras via api/)`);
+  if (Array.isArray(sandbox.TRADITIONS))
+    checks.push(`TRADITIONS:        ${sandbox.TRADITIONS.length}`);
+  if (Array.isArray(sandbox.INSTRUMENTS))
+    checks.push(`INSTRUMENTS:       ${sandbox.INSTRUMENTS.length}`);
+  if (Array.isArray(sandbox.ROOMS)) checks.push(`ROOMS:             ${sandbox.ROOMS.length}`);
+  if (Array.isArray(sandbox.TUNINGS)) checks.push(`TUNINGS:           ${sandbox.TUNINGS.length}`);
+  if (Array.isArray(sandbox.CHAIN_ARCHETYPES))
+    checks.push(`CHAIN_ARCHETYPES:  ${sandbox.CHAIN_ARCHETYPES.length}`);
+  if (Array.isArray(sandbox.CHAIN_SECTIONS))
+    checks.push(`CHAIN_SECTIONS:    ${sandbox.CHAIN_SECTIONS.length}`);
+  if (Array.isArray(sandbox.PRODUCTION_AESTHETICS))
+    checks.push(`PROD_AESTHETICS:   ${sandbox.PRODUCTION_AESTHETICS.length}`);
+  if (Array.isArray(sandbox.PREFACE_LEXICON))
+    checks.push(`PREFACE_LEXICON:   ${sandbox.PREFACE_LEXICON.length}`);
   if (sandbox.TRADITION_EXTRAS && typeof sandbox.TRADITION_EXTRAS === 'object') {
     checks.push(`TRADITION_EXTRAS:  ${Object.keys(sandbox.TRADITION_EXTRAS).length}`);
   }

@@ -137,8 +137,11 @@ function mergeFamilyParts(instruments, familyParts) {
   // "Body type", "Top skin", the "Body" archetype list, etc. never match — and
   // only the wood variants of a qualifying part travel (synthetic/composite tops
   // stay put).
-  const WOOD = /(spruce|cedar|cedrillo|redwood|\bfir\b|larch|\bpine\b|pinho|juniper|cypress|alpine|mahogany|caoba|sapele|khaya|maple|sycamore|rosewood|palisander|jacarand|dalbergia|sheesham|pau.?ferro|palo escrito|huanghuali|kingwood|violetwood|cocobolo|bubinga|imbuia|\bkoa\b|acacia|walnut|butternut|ebony|blackwood|grenadilla|mpingo|zitan|sandalwood|paulownia|\bkiri\b|wutong|tongmu|mulberry|kuwa|zelkova|keyaki|cherry|yamazakura|apricot|\bplum\b|\bpear|boxwood|cornel|birch|alder|basswood|linden|poplar|willow|beech|\boak\b|chestnut|hornbeam|\bash\b|teak|jack.?wood|padauk|korina|limba|agathis|\bnato\b|okoume|\byew\b|ironwood|agave|eucalyptus|corymbia|bloodwood|naranjillo|yagrumo|cap[aá]|olive|laurel|lingue|rauli|aacha|hardwickia|\btun\b|hardwood|\bfig\b|plywood|laminate)/i;
-  const isWoodVariant = function (v) { return WOOD.test(v.name || v.label || ''); };
+  const WOOD =
+    /(spruce|cedar|cedrillo|redwood|\bfir\b|larch|\bpine\b|pinho|juniper|cypress|alpine|mahogany|caoba|sapele|khaya|maple|sycamore|rosewood|palisander|jacarand|dalbergia|sheesham|pau.?ferro|palo escrito|huanghuali|kingwood|violetwood|cocobolo|bubinga|imbuia|\bkoa\b|acacia|walnut|butternut|ebony|blackwood|grenadilla|mpingo|zitan|sandalwood|paulownia|\bkiri\b|wutong|tongmu|mulberry|kuwa|zelkova|keyaki|cherry|yamazakura|apricot|\bplum\b|\bpear|boxwood|cornel|birch|alder|basswood|linden|poplar|willow|beech|\boak\b|chestnut|hornbeam|\bash\b|teak|jack.?wood|padauk|korina|limba|agathis|\bnato\b|okoume|\byew\b|ironwood|agave|eucalyptus|corymbia|bloodwood|naranjillo|yagrumo|cap[aá]|olive|laurel|lingue|rauli|aacha|hardwickia|\btun\b|hardwood|\bfig\b|plywood|laminate)/i;
+  const isWoodVariant = function (v) {
+    return WOOD.test(v.name || v.label || '');
+  };
   const isTonewoodPart = function (p) {
     const nm = p.name || p.label || p.id || '';
     if (!(p.variants || []).some((v) => !v.expanded && isWoodVariant(v))) return false;

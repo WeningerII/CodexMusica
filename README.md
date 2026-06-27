@@ -1,4 +1,4 @@
-# Codex Music Tool
+# Codex Musica
 
 A structured catalog of recorded-music traditions in 13-dimensional parameter space,
 and an engine that turns a song specification into a tightly compressed structural

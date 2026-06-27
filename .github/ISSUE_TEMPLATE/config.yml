@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Question or support
+    url: https://github.com/WeningerII/CodexMusica/blob/main/SUPPORT.md
+    about: How to get help, and how to check service status.
+  - name: Report a security vulnerability
+    url: https://github.com/WeningerII/CodexMusica/security/advisories/new
+    about: Report a security issue privately. Please do not open a public issue.

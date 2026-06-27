@@ -108,7 +108,9 @@ function main() {
   if (flags.has('reconcile')) {
     const merged = reconcileIntoJson(realIds);
     writeAppBlock(merged);
-    console.log(`reconciled: ${Object.keys(merged).length} tradition signatures (JSON now canonical), app.js block regenerated.`);
+    console.log(
+      `reconciled: ${Object.keys(merged).length} tradition signatures (JSON now canonical), app.js block regenerated.`
+    );
     return;
   }
 
@@ -116,10 +118,14 @@ function main() {
 
   if (flags.has('check')) {
     if (currentAppMatchesJson(sigs)) {
-      console.log(`signatures parity OK — app.js block matches JSON (${Object.keys(sigs).length} traditions).`);
+      console.log(
+        `signatures parity OK — app.js block matches JSON (${Object.keys(sigs).length} traditions).`
+      );
       process.exit(0);
     }
-    console.error('signatures DRIFT — src/app.js TRADITION_SIGNATURES != references/_tradition_signatures.json.');
+    console.error(
+      'signatures DRIFT — src/app.js TRADITION_SIGNATURES != references/_tradition_signatures.json.'
+    );
     console.error('  run: node scripts/build_signatures.js   (to regenerate the app.js block)');
     process.exit(1);
   }
@@ -130,7 +136,9 @@ function main() {
     console.error('regeneration failed self-check — app.js block still != JSON.');
     process.exit(1);
   }
-  console.log(`regenerated src/app.js TRADITION_SIGNATURES from JSON (${Object.keys(sigs).length} traditions).`);
+  console.log(
+    `regenerated src/app.js TRADITION_SIGNATURES from JSON (${Object.keys(sigs).length} traditions).`
+  );
 }
 
 main();

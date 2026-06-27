@@ -34,7 +34,7 @@ const M = require('./_matcher.js');
 function traditionCard(traditionId, instrumentId) {
   const card = M.defaultCard(traditionId, instrumentId);
   if (!card) return null;
-  const t = C.TRADITIONS.find(x => x.id === traditionId);
+  const t = C.TRADITIONS.find((x) => x.id === traditionId);
   if (t && t.parts) {
     for (const [partId, variantId] of Object.entries(t.parts)) {
       if (card.parts && card.parts[partId] !== undefined) card.parts[partId] = variantId;
@@ -44,14 +44,15 @@ function traditionCard(traditionId, instrumentId) {
 }
 
 const allCard = new Set();
-for (const t of C.TRADITIONS) for (const iid of (t.instruments || [])) {
-  for (const tok of M.cardDescriptors(traditionCard(t.id, iid))) allCard.add(tok);
-}
+for (const t of C.TRADITIONS)
+  for (const iid of t.instruments || []) {
+    for (const tok of M.cardDescriptors(traditionCard(t.id, iid))) allCard.add(tok);
+  }
 
 const issues = [];
 for (const e of C.PREFACE_LEXICON) {
   const tokens = Array.isArray(e.tokens) ? e.tokens : [];
-  const dead = tokens.filter(t => !allCard.has(t));
+  const dead = tokens.filter((t) => !allCard.has(t));
   if (dead.length > 0) issues.push({ id: e.id, dead });
 }
 
@@ -59,7 +60,9 @@ if (issues.length === 0) {
   console.log('DEAD-TOKEN AUDIT: CLEAN — all profile tokens match at least one card descriptor.');
   process.exit(0);
 }
-console.log('DEAD-TOKEN AUDIT: FAIL — ' + issues.length + ' preface(s) reference tokens no card produces.');
-console.log('Dead tokens fire on nothing; they\'re aspirational vocabulary doing no work.\n');
+console.log(
+  'DEAD-TOKEN AUDIT: FAIL — ' + issues.length + ' preface(s) reference tokens no card produces.'
+);
+console.log("Dead tokens fire on nothing; they're aspirational vocabulary doing no work.\n");
 for (const i of issues) console.log('  ' + i.id + ': ' + i.dead.join(', '));
 process.exit(1);

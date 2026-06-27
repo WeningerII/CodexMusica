@@ -36,9 +36,7 @@ const fixtures = JSON.parse(
   fs.readFileSync(path.join(__dirname, '..', 'tests', 'calibration_fixtures.json'), 'utf8')
 ).fixtures;
 
-const targets = flags.fixture
-  ? fixtures.filter(f => f.id === flags.fixture)
-  : fixtures;
+const targets = flags.fixture ? fixtures.filter((f) => f.id === flags.fixture) : fixtures;
 
 if (flags.fixture && targets.length === 0) {
   console.error(`No fixture with id "${flags.fixture}". Available:`);
@@ -80,13 +78,13 @@ for (const fixture of targets) {
     actual,
     error,
     check,
-    pass: check ? check.missing.length === 0 : false
+    pass: check ? check.missing.length === 0 : false,
   });
 }
 
 if (flags.json) {
   console.log(JSON.stringify(results, null, 2));
-  process.exit(results.some(r => !r.pass) ? 1 : 0);
+  process.exit(results.some((r) => !r.pass) ? 1 : 0);
 }
 
 // Human-readable side-by-side output
@@ -131,7 +129,9 @@ for (const r of results) {
 
 console.log('\n' + sep);
 console.log(`  Calibration: ${passCount}/${results.length} pass mechanical check`);
-console.log(`  ${failCount > 0 ? 'Review failures + side-by-side comparisons above.' : 'Mechanical checks clean. Review side-by-side comparisons for quality.'}`);
+console.log(
+  `  ${failCount > 0 ? 'Review failures + side-by-side comparisons above.' : 'Mechanical checks clean. Review side-by-side comparisons for quality.'}`
+);
 console.log(sep);
 console.log('  Discrepancy taxonomy when reviewing differences (see SKILL.md):');
 console.log('    1. Catalog issue   — fix the data');

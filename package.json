@@ -1,6 +1,6 @@
 {
   "name": "codex-music-tool",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "description": "Compressed song-recipe descriptor engine over a 1119-tradition / 419-instrument music codex. Generates structural production blueprints, blends traditions, matches axis profiles, and ships a lazy-loading browseable HTML catalog app over a static, server-free JSON API.",
   "license": "UNLICENSED",
@@ -41,7 +41,7 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "ci": "npm run lint && npm run build",
+    "ci": "npm run lint && npm run format:check && npm run build",
     "assets:emoji": "node scripts/build_emoji.js",
     "assets:icons": "node scripts/build_assets.js",
     "assets:photos": "node scripts/build_photos.js",
