@@ -1,7 +1,28 @@
 # CodexMusica — Claude Connectors Directory submission package
 
-Paste-ready answers for the directory submission form, plus the reviewer-facing
+Paste-ready answers for the in-app directory submission, plus the reviewer-facing
 notes. Everything here reflects the deployed server (`mcp/` over Streamable HTTP).
+
+> **Where to submit:** Claude → **Organization settings → Directory** (requires
+> **Admin/Owner on a Team or Enterprise plan**). Remote MCP servers are submitted
+> from that portal; the form asks for the URLs and confirmations below.
+
+---
+
+## Paste-ready URLs
+
+| Field | Value |
+|---|---|
+| **Server / endpoint URL** | `https://codex-musica-mcp.onrender.com/mcp` |
+| **Health check** | `https://codex-musica-mcp.onrender.com/health` |
+| **Website** | `https://weningerii.github.io/CodexMusica` |
+| **Documentation URL** | `https://github.com/WeningerII/CodexMusica/blob/main/docs/connector.md` |
+| **Privacy policy URL** | `https://github.com/WeningerII/CodexMusica/blob/main/PRIVACY.md` |
+| **Support URL** | `https://github.com/WeningerII/CodexMusica/blob/main/SUPPORT.md` (issues: `https://github.com/WeningerII/CodexMusica/issues`) |
+| **Source repository** | `https://github.com/WeningerII/CodexMusica` (public) |
+| **Icon** | `assets/icon-1024.png` (1024×1024) — also `assets/icon-512.png`, source `assets/icon.svg` |
+
+All doc/privacy/support URLs are live and public (the repo is public).
 
 ---
 
@@ -12,15 +33,10 @@ notes. Everything here reflects the deployed server (`mcp/` over Streamable HTTP
 | **Name** | CodexMusica |
 | **Tagline** | Turn a plain-language vibe into a precise recording recipe. |
 | **Category** | Creative / Music production |
-| **Endpoint** | `https://codex-musica-mcp.onrender.com/mcp` |
-| **Health check** | `https://codex-musica-mcp.onrender.com/health` |
 | **Transport** | Streamable HTTP (stateless — a fresh server/transport per request, no sessions) |
 | **Authentication** | **None** — open, read-only compute. No accounts, no user data accessed. |
 | **Read / write** | **Read-only.** Every tool is annotated `readOnlyHint: true`, `idempotentHint: true`, `openWorldHint: false`, each with a human-readable `title`. |
 | **External calls** | None. Closed-world; zero runtime dependencies; responses are derived entirely from the bundled catalog. |
-| **Documentation** | `docs/connector.md` (publish at `https://github.com/WeningerII/CodexMusica/blob/main/docs/connector.md` or the GitHub Pages site) |
-| **Support** | `SUPPORT.md` — GitHub Issues (add a non-personal support email if desired) |
-| **Privacy policy** | `PRIVACY.md` |
 
 ### Short description (≈50 words)
 
@@ -88,6 +104,52 @@ with a human-readable `title`.
 
 ---
 
+## Reviewer test / access instructions (authless)
+
+**No credentials are required** — the server is open, read-only, and stateless.
+
+1. Add `https://codex-musica-mcp.onrender.com/mcp` as a custom connector in Claude
+   (**Settings → Connectors → Add custom connector**), or point **MCP Inspector**
+   (or any MCP client) at that URL. No sign-in, no API key.
+2. The endpoint is kept warm (no cold-start spin-down), so the handshake responds
+   immediately.
+3. Suggested end-to-end exercise of every tool:
+   - `list_options` with `kind: "families"` → see the option spaces.
+   - `search_catalog` `"face-melting sitar"` → resolves request words to real ids.
+   - `search_prefaces` `"satirical"` → ranked preface ids.
+   - `list_traditions` filter `"blues"`; `get_tradition` `delta_blues`;
+     `get_instrument` `electric_guitar`.
+   - `start_recipe` with `tradition_ids: ["delta_blues"]` → returns a recipe +
+     `workspace`.
+   - `edit_recipe` on that `workspace` (e.g. `set_preface` toward a mood, or
+     `set_environment` to override the room) → re-rendered recipe.
+   - `render_recipe` on the workspace with a different `max_chars`.
+
+Every call is idempotent and side-effect-free; repeat freely.
+
+---
+
+## Policy acknowledgments (the form requires all seven)
+
+1. **Directory guidelines** — compliant; read-only creative/reference tool.
+2. **First-party API usage** — the server computes entirely from its own bundled,
+   immutable catalog. It proxies no third-party API and makes **no outbound
+   network calls**.
+3. **No financial transactions** — the connector moves no money, crypto, or
+   financial assets.
+4. **No AI media generation** — it returns **deterministic text** recording
+   *recipes/descriptors*; it does not generate audio, images, or video via AI
+   models.
+5. **Prompt-injection safety** — read-only, closed-world, no external actions; the
+   worst case of any tool is returning catalog-derived text. No tool can write,
+   delete, spend, or call out.
+6. **Conversation data collection** — none. Stateless; request content is not
+   persisted or used for training (see PRIVACY.md).
+7. **Public documentation** — `docs/connector.md` and `PRIVACY.md` are public
+   (URLs above).
+
+---
+
 ## Reviewer notes
 
 - **Stateless & safe to call repeatedly.** No sessions, no persistence, no side
@@ -102,10 +164,10 @@ with a human-readable `title`.
   are set on every tool (`mcp/tools.js`), which is the metadata the directory
   review weighs most heavily.
 - **Auth note.** This is an authless read-only server. That is permitted for the
-  directory (OAuth is only required when a connector accesses private user data),
-  but be aware some org-managed/Desktop admin flows currently assume OAuth 2.1 +
-  Dynamic Client Registration; the web custom-connector and directory paths handle
-  authless servers fine.
+  directory (OAuth is only required when a connector accesses private user data);
+  the web custom-connector and directory paths handle authless servers fine.
+
+---
 
 ## Pre-submission checklist
 
@@ -113,10 +175,12 @@ with a human-readable `title`.
 - [x] Every tool has a `title` + `readOnlyHint`/`destructiveHint` annotation
 - [x] Human-readable tool names and descriptions
 - [x] Read-only; no private user data; no external calls
-- [ ] Public documentation URL live (publish `docs/connector.md`)
-- [ ] Privacy policy URL live (publish `PRIVACY.md`)
-- [ ] Support channel reachable (confirm `SUPPORT.md` contact)
-- [ ] Hosting kept warm during review (Render starter spins down on idle — bump
-      the plan or add a keep-warm ping so reviewers don't hit a cold start)
-- [ ] Submitting from a **Team or Enterprise** Claude org with directory-management
-      access (org Owner by default)
+- [x] Public documentation URL live (`docs/connector.md`, repo is public)
+- [x] Privacy policy URL live (`PRIVACY.md`, repo is public)
+- [x] Support channel reachable (`SUPPORT.md` → GitHub Issues)
+- [x] Hosting kept warm during review (endpoint configured not to spin down)
+- [ ] **Owner action — listing icon:** attach the chosen square icon at submit time
+- [ ] **Owner action — submit** from a **Team or Enterprise** Claude org with
+      directory-management access (Admin/Owner), via Organization settings → Directory
+- [ ] **Owner action — self-attest** you've run every tool (MCP Inspector or as a
+      custom connector) — see the test instructions above
