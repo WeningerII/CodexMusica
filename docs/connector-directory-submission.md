@@ -20,7 +20,7 @@ notes. Everything here reflects the deployed server (`mcp/` over Streamable HTTP
 | **Privacy policy URL** | `https://github.com/WeningerII/CodexMusica/blob/main/PRIVACY.md` |
 | **Support URL** | `https://github.com/WeningerII/CodexMusica/blob/main/SUPPORT.md` (issues: `https://github.com/WeningerII/CodexMusica/issues`) |
 | **Source repository** | `https://github.com/WeningerII/CodexMusica` (public) |
-| **Icon** | _attach the chosen square icon (PNG/SVG) at submit time_ |
+| **Icon** | `assets/icon-1024.png` (1024×1024) — also `assets/icon-512.png`, source `assets/icon.svg` |
 
 All doc/privacy/support URLs are live and public (the repo is public).
 
