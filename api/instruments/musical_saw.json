@@ -1,0 +1,154 @@
+{
+  "id": "musical_saw",
+  "name": "Musical saw",
+  "family": "percussion",
+  "class": "tuned_percussion",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "saw",
+  "parts": [
+    {
+      "id": "musical_saw_excitation",
+      "name": "Excitation",
+      "surface": false,
+      "variants": [
+        {
+          "id": "musical_saw_bowed",
+          "default": true,
+          "name": "Bowed",
+          "descriptors": [
+            "saw-bowed",
+            "wailing",
+            "theremin-like"
+          ],
+          "match_tokens": [
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "musical_saw_mallet_struck",
+          "default": false,
+          "name": "Mallet-struck",
+          "descriptors": [
+            "mallet-struck",
+            "ping",
+            "bell-like"
+          ],
+          "match_tokens": [
+            "tuned-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "musical_saw_type",
+      "name": "Type",
+      "surface": false,
+      "variants": [
+        {
+          "id": "musical_saw_hand_saw",
+          "default": true,
+          "name": "Ordinary hand saw",
+          "descriptors": [
+            "hand-saw",
+            "rustic",
+            "folk"
+          ],
+          "match_tokens": [
+            "folk-context"
+          ]
+        },
+        {
+          "id": "musical_saw_dedicated",
+          "default": false,
+          "name": "Dedicated musical saw",
+          "descriptors": [
+            "saw-dedicated",
+            "wide-range",
+            "singing"
+          ],
+          "match_tokens": [
+            "sustained-tone"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "musical_saw_excitation",
+      "name": "Excitation",
+      "surface": false,
+      "variants": [
+        {
+          "id": "musical_saw_bowed",
+          "default": true,
+          "name": "Bowed",
+          "descriptors": [
+            "saw-bowed",
+            "wailing",
+            "theremin-like"
+          ],
+          "match_tokens": [
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "musical_saw_mallet_struck",
+          "default": false,
+          "name": "Mallet-struck",
+          "descriptors": [
+            "mallet-struck",
+            "ping",
+            "bell-like"
+          ],
+          "match_tokens": [
+            "tuned-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "musical_saw_type",
+      "name": "Type",
+      "surface": false,
+      "variants": [
+        {
+          "id": "musical_saw_hand_saw",
+          "default": true,
+          "name": "Ordinary hand saw",
+          "descriptors": [
+            "hand-saw",
+            "rustic",
+            "folk"
+          ],
+          "match_tokens": [
+            "folk-context"
+          ]
+        },
+        {
+          "id": "musical_saw_dedicated",
+          "default": false,
+          "name": "Dedicated musical saw",
+          "descriptors": [
+            "saw-dedicated",
+            "wide-range",
+            "singing"
+          ],
+          "match_tokens": [
+            "sustained-tone"
+          ]
+        }
+      ]
+    }
+  ]
+}

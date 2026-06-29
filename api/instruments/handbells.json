@@ -1,0 +1,182 @@
+{
+  "id": "handbells",
+  "name": "Handbells",
+  "family": "percussion",
+  "class": "tuned_percussion",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "handbells",
+  "parts": [
+    {
+      "id": "handbells_set",
+      "name": "Set",
+      "surface": false,
+      "variants": [
+        {
+          "id": "handbells_diatonic",
+          "default": true,
+          "name": "Diatonic set",
+          "descriptors": [
+            "handbells-diatonic",
+            "ringing",
+            "choir"
+          ],
+          "match_tokens": [
+            "sacred-traditional",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "handbells_chromatic_extended",
+          "default": false,
+          "name": "Chromatic extended",
+          "descriptors": [
+            "chromatic-extended",
+            "full-range",
+            "versatile"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "handbells_technique",
+      "name": "Technique",
+      "surface": false,
+      "variants": [
+        {
+          "id": "handbells_rung",
+          "default": true,
+          "name": "Rung (swung)",
+          "descriptors": [
+            "handbells-rung",
+            "sustained",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "sacred-traditional"
+          ]
+        },
+        {
+          "id": "handbells_malleted_table",
+          "default": false,
+          "name": "Malleted on table",
+          "descriptors": [
+            "malleted-table",
+            "defined",
+            "staccato"
+          ],
+          "match_tokens": [
+            "tuned-attack"
+          ]
+        },
+        {
+          "id": "handbells_martellato_damped",
+          "default": false,
+          "name": "Martellato / damped",
+          "descriptors": [
+            "martellato-damped",
+            "short",
+            "crisp"
+          ],
+          "match_tokens": [
+            "tuned-attack"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "handbells_set",
+      "name": "Set",
+      "surface": false,
+      "variants": [
+        {
+          "id": "handbells_diatonic",
+          "default": true,
+          "name": "Diatonic set",
+          "descriptors": [
+            "handbells-diatonic",
+            "ringing",
+            "choir"
+          ],
+          "match_tokens": [
+            "sacred-traditional",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "handbells_chromatic_extended",
+          "default": false,
+          "name": "Chromatic extended",
+          "descriptors": [
+            "chromatic-extended",
+            "full-range",
+            "versatile"
+          ],
+          "match_tokens": [
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "handbells_technique",
+      "name": "Technique",
+      "surface": false,
+      "variants": [
+        {
+          "id": "handbells_rung",
+          "default": true,
+          "name": "Rung (swung)",
+          "descriptors": [
+            "handbells-rung",
+            "sustained",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "sacred-traditional"
+          ]
+        },
+        {
+          "id": "handbells_malleted_table",
+          "default": false,
+          "name": "Malleted on table",
+          "descriptors": [
+            "malleted-table",
+            "defined",
+            "staccato"
+          ],
+          "match_tokens": [
+            "tuned-attack"
+          ]
+        },
+        {
+          "id": "handbells_martellato_damped",
+          "default": false,
+          "name": "Martellato / damped",
+          "descriptors": [
+            "martellato-damped",
+            "short",
+            "crisp"
+          ],
+          "match_tokens": [
+            "tuned-attack"
+          ]
+        }
+      ]
+    }
+  ]
+}

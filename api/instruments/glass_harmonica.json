@@ -1,0 +1,180 @@
+{
+  "id": "glass_harmonica",
+  "name": "Glass harmonica / armonica",
+  "family": "percussion",
+  "class": "tuned_percussion",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "glassarmonica",
+  "parts": [
+    {
+      "id": "glass_harmonica_type",
+      "name": "Type",
+      "surface": false,
+      "variants": [
+        {
+          "id": "glass_harmonica_spun_bowls",
+          "default": true,
+          "name": "Franklin spun bowls",
+          "descriptors": [
+            "spun-bowls",
+            "ethereal",
+            "pure"
+          ],
+          "match_tokens": [
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "glass_harmonica_glasses_rim",
+          "default": false,
+          "name": "Rubbed wine glasses",
+          "descriptors": [
+            "glasses-rim",
+            "fragile",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "glass_harmonica_verrophone_struck",
+          "default": false,
+          "name": "Verrophone (struck/bowed glass)",
+          "descriptors": [
+            "verrophone-struck",
+            "glassy",
+            "haunting"
+          ],
+          "match_tokens": [
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "glass_harmonica_technique",
+      "name": "Excitation",
+      "surface": false,
+      "variants": [
+        {
+          "id": "glass_harmonica_wetted_finger",
+          "default": true,
+          "name": "Wetted finger",
+          "descriptors": [
+            "wetted-finger",
+            "singing",
+            "continuous"
+          ],
+          "match_tokens": [
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "glass_harmonica_bowed",
+          "default": false,
+          "name": "Bowed",
+          "descriptors": [
+            "harmonica-bowed",
+            "eerie",
+            "swelling"
+          ],
+          "match_tokens": [
+            "sustained-tone"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "glass_harmonica_type",
+      "name": "Type",
+      "surface": false,
+      "variants": [
+        {
+          "id": "glass_harmonica_spun_bowls",
+          "default": true,
+          "name": "Franklin spun bowls",
+          "descriptors": [
+            "spun-bowls",
+            "ethereal",
+            "pure"
+          ],
+          "match_tokens": [
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "glass_harmonica_glasses_rim",
+          "default": false,
+          "name": "Rubbed wine glasses",
+          "descriptors": [
+            "glasses-rim",
+            "fragile",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "glass_harmonica_verrophone_struck",
+          "default": false,
+          "name": "Verrophone (struck/bowed glass)",
+          "descriptors": [
+            "verrophone-struck",
+            "glassy",
+            "haunting"
+          ],
+          "match_tokens": [
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "glass_harmonica_technique",
+      "name": "Excitation",
+      "surface": false,
+      "variants": [
+        {
+          "id": "glass_harmonica_wetted_finger",
+          "default": true,
+          "name": "Wetted finger",
+          "descriptors": [
+            "wetted-finger",
+            "singing",
+            "continuous"
+          ],
+          "match_tokens": [
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "glass_harmonica_bowed",
+          "default": false,
+          "name": "Bowed",
+          "descriptors": [
+            "harmonica-bowed",
+            "eerie",
+            "swelling"
+          ],
+          "match_tokens": [
+            "sustained-tone"
+          ]
+        }
+      ]
+    }
+  ]
+}

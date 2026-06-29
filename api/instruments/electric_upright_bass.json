@@ -1,0 +1,182 @@
+{
+  "id": "electric_upright_bass",
+  "name": "Electric upright bass",
+  "family": "electric_strings",
+  "class": "bass",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": -2,
+    "range": 1,
+    "articulation": 0,
+    "transduction": 2,
+    "dynamics": 1
+  },
+  "short": "eub",
+  "parts": [
+    {
+      "id": "electric_upright_bass_type",
+      "name": "Type",
+      "surface": false,
+      "variants": [
+        {
+          "id": "electric_upright_bass_solid_body",
+          "default": true,
+          "name": "Solid-body EUB",
+          "descriptors": [
+            "solid-body",
+            "woody",
+            "punchy"
+          ],
+          "match_tokens": [
+            "jazz-context",
+            "low-end"
+          ]
+        },
+        {
+          "id": "electric_upright_bass_frameless_stick",
+          "default": false,
+          "name": "Frameless stick EUB",
+          "descriptors": [
+            "frameless-stick",
+            "compact",
+            "modern"
+          ],
+          "match_tokens": [
+            "low-end"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "electric_upright_bass_technique",
+      "name": "Technique",
+      "surface": false,
+      "variants": [
+        {
+          "id": "electric_upright_bass_jazz_pizz",
+          "default": true,
+          "name": "Jazz pizzicato",
+          "descriptors": [
+            "jazz-pizz",
+            "walking",
+            "round"
+          ],
+          "match_tokens": [
+            "jazz-context"
+          ]
+        },
+        {
+          "id": "electric_upright_bass_arco_bowed",
+          "default": false,
+          "name": "Arco (bowed)",
+          "descriptors": [
+            "arco-bowed",
+            "singing",
+            "sustained"
+          ],
+          "match_tokens": [
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "electric_upright_bass_slap",
+          "default": false,
+          "name": "Rockabilly slap",
+          "descriptors": [
+            "bass-slap",
+            "percussive",
+            "snapping"
+          ],
+          "match_tokens": [
+            "rockabilly-context"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "electric_upright_bass_type",
+      "name": "Type",
+      "surface": false,
+      "variants": [
+        {
+          "id": "electric_upright_bass_solid_body",
+          "default": true,
+          "name": "Solid-body EUB",
+          "descriptors": [
+            "solid-body",
+            "woody",
+            "punchy"
+          ],
+          "match_tokens": [
+            "jazz-context",
+            "low-end"
+          ]
+        },
+        {
+          "id": "electric_upright_bass_frameless_stick",
+          "default": false,
+          "name": "Frameless stick EUB",
+          "descriptors": [
+            "frameless-stick",
+            "compact",
+            "modern"
+          ],
+          "match_tokens": [
+            "low-end"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "electric_upright_bass_technique",
+      "name": "Technique",
+      "surface": false,
+      "variants": [
+        {
+          "id": "electric_upright_bass_jazz_pizz",
+          "default": true,
+          "name": "Jazz pizzicato",
+          "descriptors": [
+            "jazz-pizz",
+            "walking",
+            "round"
+          ],
+          "match_tokens": [
+            "jazz-context"
+          ]
+        },
+        {
+          "id": "electric_upright_bass_arco_bowed",
+          "default": false,
+          "name": "Arco (bowed)",
+          "descriptors": [
+            "arco-bowed",
+            "singing",
+            "sustained"
+          ],
+          "match_tokens": [
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "electric_upright_bass_slap",
+          "default": false,
+          "name": "Rockabilly slap",
+          "descriptors": [
+            "bass-slap",
+            "percussive",
+            "snapping"
+          ],
+          "match_tokens": [
+            "rockabilly-context"
+          ]
+        }
+      ]
+    }
+  ]
+}

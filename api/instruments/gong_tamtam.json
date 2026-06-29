@@ -1,0 +1,210 @@
+{
+  "id": "gong_tamtam",
+  "name": "Gong / tam-tam",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "gong",
+  "parts": [
+    {
+      "id": "gong_type",
+      "name": "Type",
+      "surface": false,
+      "variants": [
+        {
+          "id": "gong_tam_tam",
+          "default": true,
+          "name": "Tam-tam (indefinite pitch)",
+          "descriptors": [
+            "tam-tam",
+            "washing",
+            "cavernous"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "gong_chau",
+          "default": false,
+          "name": "Chau gong (Chinese)",
+          "descriptors": [
+            "gong-chau",
+            "crashing",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "east-asian-context"
+          ]
+        },
+        {
+          "id": "gong_nipple_pitched",
+          "default": false,
+          "name": "Nipple gong (definite pitch)",
+          "descriptors": [
+            "nipple-pitched",
+            "focused",
+            "tuned"
+          ],
+          "match_tokens": [
+            "tuned-attack",
+            "east-asian-context"
+          ]
+        },
+        {
+          "id": "gong_opera_bending",
+          "default": false,
+          "name": "Opera gong (pitch-bending da/xiao luo)",
+          "descriptors": [
+            "opera-bending",
+            "swooping",
+            "theatrical"
+          ],
+          "match_tokens": [
+            "east-asian-context"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gong_striker",
+      "name": "Striker",
+      "surface": false,
+      "variants": [
+        {
+          "id": "gong_soft_mallet",
+          "default": true,
+          "name": "Soft mallet",
+          "descriptors": [
+            "soft-mallet",
+            "swelling",
+            "dark"
+          ],
+          "match_tokens": [
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "gong_hard_beater",
+          "default": false,
+          "name": "Hard beater",
+          "descriptors": [
+            "hard-beater",
+            "crashing",
+            "immediate"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "gong_type",
+      "name": "Type",
+      "surface": false,
+      "variants": [
+        {
+          "id": "gong_tam_tam",
+          "default": true,
+          "name": "Tam-tam (indefinite pitch)",
+          "descriptors": [
+            "tam-tam",
+            "washing",
+            "cavernous"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "gong_chau",
+          "default": false,
+          "name": "Chau gong (Chinese)",
+          "descriptors": [
+            "gong-chau",
+            "crashing",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "east-asian-context"
+          ]
+        },
+        {
+          "id": "gong_nipple_pitched",
+          "default": false,
+          "name": "Nipple gong (definite pitch)",
+          "descriptors": [
+            "nipple-pitched",
+            "focused",
+            "tuned"
+          ],
+          "match_tokens": [
+            "tuned-attack",
+            "east-asian-context"
+          ]
+        },
+        {
+          "id": "gong_opera_bending",
+          "default": false,
+          "name": "Opera gong (pitch-bending da/xiao luo)",
+          "descriptors": [
+            "opera-bending",
+            "swooping",
+            "theatrical"
+          ],
+          "match_tokens": [
+            "east-asian-context"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gong_striker",
+      "name": "Striker",
+      "surface": false,
+      "variants": [
+        {
+          "id": "gong_soft_mallet",
+          "default": true,
+          "name": "Soft mallet",
+          "descriptors": [
+            "soft-mallet",
+            "swelling",
+            "dark"
+          ],
+          "match_tokens": [
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "gong_hard_beater",
+          "default": false,
+          "name": "Hard beater",
+          "descriptors": [
+            "hard-beater",
+            "crashing",
+            "immediate"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ]
+}

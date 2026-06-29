@@ -1,0 +1,130 @@
+{
+  "id": "oboe_damore",
+  "name": "Oboe d’amore",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 2,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "oboedamore",
+  "parts": [
+    {
+      "id": "oboe_damore_pitch",
+      "name": "Pitch",
+      "surface": false,
+      "variants": [
+        {
+          "id": "oboe_damore_a",
+          "default": true,
+          "name": "A oboe d’amore",
+          "descriptors": [
+            "damore-a",
+            "mellow",
+            "tender"
+          ],
+          "match_tokens": [
+            "baroque-context",
+            "orchestral"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oboe_damore_style",
+      "name": "Style",
+      "surface": false,
+      "variants": [
+        {
+          "id": "oboe_damore_baroque_legato",
+          "default": true,
+          "name": "Baroque legato",
+          "descriptors": [
+            "baroque-legato",
+            "sweet",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "baroque-context"
+          ]
+        },
+        {
+          "id": "oboe_damore_romantic",
+          "default": false,
+          "name": "Romantic",
+          "descriptors": [
+            "damore-romantic",
+            "warm",
+            "expressive"
+          ],
+          "match_tokens": [
+            "orchestral"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "oboe_damore_pitch",
+      "name": "Pitch",
+      "surface": false,
+      "variants": [
+        {
+          "id": "oboe_damore_a",
+          "default": true,
+          "name": "A oboe d’amore",
+          "descriptors": [
+            "damore-a",
+            "mellow",
+            "tender"
+          ],
+          "match_tokens": [
+            "baroque-context",
+            "orchestral"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oboe_damore_style",
+      "name": "Style",
+      "surface": false,
+      "variants": [
+        {
+          "id": "oboe_damore_baroque_legato",
+          "default": true,
+          "name": "Baroque legato",
+          "descriptors": [
+            "baroque-legato",
+            "sweet",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "baroque-context"
+          ]
+        },
+        {
+          "id": "oboe_damore_romantic",
+          "default": false,
+          "name": "Romantic",
+          "descriptors": [
+            "damore-romantic",
+            "warm",
+            "expressive"
+          ],
+          "match_tokens": [
+            "orchestral"
+          ]
+        }
+      ]
+    }
+  ]
+}

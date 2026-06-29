@@ -1,0 +1,156 @@
+{
+  "id": "tubular_bells",
+  "name": "Tubular bells / chimes",
+  "family": "percussion",
+  "class": "tuned_percussion",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": 1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "chimes",
+  "parts": [
+    {
+      "id": "tubular_bells_striker",
+      "name": "Striker",
+      "surface": false,
+      "variants": [
+        {
+          "id": "tubular_bells_rawhide_mallet",
+          "default": true,
+          "name": "Rawhide mallet",
+          "descriptors": [
+            "rawhide-mallet",
+            "clangorous",
+            "orchestral"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "tuned-attack"
+          ]
+        },
+        {
+          "id": "tubular_bells_plastic_mallet",
+          "default": false,
+          "name": "Plastic mallet",
+          "descriptors": [
+            "plastic-mallet",
+            "bright",
+            "cutting"
+          ],
+          "match_tokens": [
+            "tuned-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tubular_bells_range",
+      "name": "Range",
+      "surface": false,
+      "variants": [
+        {
+          "id": "tubular_bells_chromatic_18",
+          "default": true,
+          "name": "Standard chromatic (1.5 oct)",
+          "descriptors": [
+            "chromatic-18",
+            "standard",
+            "church"
+          ],
+          "match_tokens": [
+            "orchestral"
+          ]
+        },
+        {
+          "id": "tubular_bells_extended",
+          "default": false,
+          "name": "Extended range",
+          "descriptors": [
+            "bells-extended",
+            "wide",
+            "concert"
+          ],
+          "match_tokens": [
+            "orchestral"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tubular_bells_striker",
+      "name": "Striker",
+      "surface": false,
+      "variants": [
+        {
+          "id": "tubular_bells_rawhide_mallet",
+          "default": true,
+          "name": "Rawhide mallet",
+          "descriptors": [
+            "rawhide-mallet",
+            "clangorous",
+            "orchestral"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "tuned-attack"
+          ]
+        },
+        {
+          "id": "tubular_bells_plastic_mallet",
+          "default": false,
+          "name": "Plastic mallet",
+          "descriptors": [
+            "plastic-mallet",
+            "bright",
+            "cutting"
+          ],
+          "match_tokens": [
+            "tuned-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tubular_bells_range",
+      "name": "Range",
+      "surface": false,
+      "variants": [
+        {
+          "id": "tubular_bells_chromatic_18",
+          "default": true,
+          "name": "Standard chromatic (1.5 oct)",
+          "descriptors": [
+            "chromatic-18",
+            "standard",
+            "church"
+          ],
+          "match_tokens": [
+            "orchestral"
+          ]
+        },
+        {
+          "id": "tubular_bells_extended",
+          "default": false,
+          "name": "Extended range",
+          "descriptors": [
+            "bells-extended",
+            "wide",
+            "concert"
+          ],
+          "match_tokens": [
+            "orchestral"
+          ]
+        }
+      ]
+    }
+  ]
+}

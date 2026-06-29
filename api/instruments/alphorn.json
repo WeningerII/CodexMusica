@@ -1,0 +1,156 @@
+{
+  "id": "alphorn",
+  "name": "Alphorn",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "alphorn",
+  "parts": [
+    {
+      "id": "alphorn_length",
+      "name": "Length / pitch",
+      "surface": false,
+      "variants": [
+        {
+          "id": "alphorn_fis_3_4m",
+          "default": true,
+          "name": "F♯ (~3.4 m)",
+          "descriptors": [
+            "3-4m",
+            "alpine",
+            "calling"
+          ],
+          "match_tokens": [
+            "outdoor-field"
+          ]
+        },
+        {
+          "id": "alphorn_f_long",
+          "default": false,
+          "name": "F (longer)",
+          "descriptors": [
+            "f-long",
+            "deep",
+            "sonorous"
+          ],
+          "match_tokens": [
+            "outdoor-field"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "alphorn_material",
+      "name": "Material",
+      "surface": false,
+      "variants": [
+        {
+          "id": "alphorn_carved_spruce",
+          "default": true,
+          "name": "Carved spruce",
+          "descriptors": [
+            "carved-spruce",
+            "woody",
+            "resonant"
+          ],
+          "match_tokens": [
+            "outdoor-field",
+            "folk-context"
+          ]
+        },
+        {
+          "id": "alphorn_carbon_modern",
+          "default": false,
+          "name": "Carbon-fibre modern",
+          "descriptors": [
+            "carbon-modern",
+            "even",
+            "projecting"
+          ],
+          "match_tokens": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "alphorn_length",
+      "name": "Length / pitch",
+      "surface": false,
+      "variants": [
+        {
+          "id": "alphorn_fis_3_4m",
+          "default": true,
+          "name": "F♯ (~3.4 m)",
+          "descriptors": [
+            "3-4m",
+            "alpine",
+            "calling"
+          ],
+          "match_tokens": [
+            "outdoor-field"
+          ]
+        },
+        {
+          "id": "alphorn_f_long",
+          "default": false,
+          "name": "F (longer)",
+          "descriptors": [
+            "f-long",
+            "deep",
+            "sonorous"
+          ],
+          "match_tokens": [
+            "outdoor-field"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "alphorn_material",
+      "name": "Material",
+      "surface": false,
+      "variants": [
+        {
+          "id": "alphorn_carved_spruce",
+          "default": true,
+          "name": "Carved spruce",
+          "descriptors": [
+            "carved-spruce",
+            "woody",
+            "resonant"
+          ],
+          "match_tokens": [
+            "outdoor-field",
+            "folk-context"
+          ]
+        },
+        {
+          "id": "alphorn_carbon_modern",
+          "default": false,
+          "name": "Carbon-fibre modern",
+          "descriptors": [
+            "carbon-modern",
+            "even",
+            "projecting"
+          ],
+          "match_tokens": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

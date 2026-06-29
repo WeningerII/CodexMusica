@@ -1,0 +1,177 @@
+{
+  "id": "clavichord",
+  "name": "Clavichord",
+  "family": "keyboard",
+  "class": "keyboard_acoustic",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 2,
+    "harmonicity": 2,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -2
+  },
+  "short": "clavichord",
+  "parts": [
+    {
+      "id": "keyboard_technique",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "keyboard_block_chord_pop",
+          "default": true,
+          "name": "Block-chord pop",
+          "descriptors": [
+            "block-chord"
+          ],
+          "match_tokens": [
+            "chordal",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "pop",
+            "singer-songwriter"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "clavichord_type",
+      "name": "Type",
+      "surface": false,
+      "variants": [
+        {
+          "id": "clavichord_fretted",
+          "default": true,
+          "name": "Fretted",
+          "descriptors": [
+            "clavichord-fretted",
+            "intimate",
+            "delicate"
+          ],
+          "match_tokens": [
+            "early-music-context"
+          ]
+        },
+        {
+          "id": "clavichord_unfretted",
+          "default": false,
+          "name": "Unfretted",
+          "descriptors": [
+            "clavichord-unfretted",
+            "flexible",
+            "expressive"
+          ],
+          "match_tokens": [
+            "early-music-context"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clavichord_technique",
+      "name": "Technique",
+      "surface": false,
+      "variants": [
+        {
+          "id": "clavichord_bebung_vibrato",
+          "default": true,
+          "name": "Bebung vibrato",
+          "descriptors": [
+            "bebung-vibrato",
+            "touch-sensitive",
+            "singing"
+          ],
+          "match_tokens": [
+            "early-music-context"
+          ]
+        },
+        {
+          "id": "clavichord_baroque_intimate",
+          "default": false,
+          "name": "Baroque intimate",
+          "descriptors": [
+            "baroque-intimate",
+            "quiet",
+            "private"
+          ],
+          "match_tokens": [
+            "baroque-context"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "clavichord_type",
+      "name": "Type",
+      "surface": false,
+      "variants": [
+        {
+          "id": "clavichord_fretted",
+          "default": true,
+          "name": "Fretted",
+          "descriptors": [
+            "clavichord-fretted",
+            "intimate",
+            "delicate"
+          ],
+          "match_tokens": [
+            "early-music-context"
+          ]
+        },
+        {
+          "id": "clavichord_unfretted",
+          "default": false,
+          "name": "Unfretted",
+          "descriptors": [
+            "clavichord-unfretted",
+            "flexible",
+            "expressive"
+          ],
+          "match_tokens": [
+            "early-music-context"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clavichord_technique",
+      "name": "Technique",
+      "surface": false,
+      "variants": [
+        {
+          "id": "clavichord_bebung_vibrato",
+          "default": true,
+          "name": "Bebung vibrato",
+          "descriptors": [
+            "bebung-vibrato",
+            "touch-sensitive",
+            "singing"
+          ],
+          "match_tokens": [
+            "early-music-context"
+          ]
+        },
+        {
+          "id": "clavichord_baroque_intimate",
+          "default": false,
+          "name": "Baroque intimate",
+          "descriptors": [
+            "baroque-intimate",
+            "quiet",
+            "private"
+          ],
+          "match_tokens": [
+            "baroque-context"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,154 @@
+{
+  "id": "electric_sitar",
+  "name": "Electric sitar",
+  "family": "electric_strings",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": 1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": 2,
+    "dynamics": 0
+  },
+  "short": "electricsitar",
+  "parts": [
+    {
+      "id": "electric_sitar_type",
+      "name": "Type",
+      "surface": false,
+      "variants": [
+        {
+          "id": "electric_sitar_coral",
+          "default": true,
+          "name": "Coral electric sitar",
+          "descriptors": [
+            "sitar-coral",
+            "buzzing",
+            "exotic"
+          ],
+          "match_tokens": [
+            "psych-context"
+          ]
+        },
+        {
+          "id": "electric_sitar_jerry_jones",
+          "default": false,
+          "name": "Jerry Jones repro",
+          "descriptors": [
+            "jerry-jones",
+            "rich",
+            "jangly"
+          ],
+          "match_tokens": [
+            "psych-context"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "electric_sitar_feature",
+      "name": "Feature",
+      "surface": false,
+      "variants": [
+        {
+          "id": "electric_sitar_buzz_bridge",
+          "default": true,
+          "name": "Buzz bridge drone",
+          "descriptors": [
+            "buzz-bridge",
+            "twangy",
+            "sympathetic"
+          ],
+          "match_tokens": [
+            "psych-context"
+          ]
+        },
+        {
+          "id": "electric_sitar_sympathetic_strings",
+          "default": false,
+          "name": "Sympathetic strings",
+          "descriptors": [
+            "sympathetic-strings",
+            "resonant",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "psych-context"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "electric_sitar_type",
+      "name": "Type",
+      "surface": false,
+      "variants": [
+        {
+          "id": "electric_sitar_coral",
+          "default": true,
+          "name": "Coral electric sitar",
+          "descriptors": [
+            "sitar-coral",
+            "buzzing",
+            "exotic"
+          ],
+          "match_tokens": [
+            "psych-context"
+          ]
+        },
+        {
+          "id": "electric_sitar_jerry_jones",
+          "default": false,
+          "name": "Jerry Jones repro",
+          "descriptors": [
+            "jerry-jones",
+            "rich",
+            "jangly"
+          ],
+          "match_tokens": [
+            "psych-context"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "electric_sitar_feature",
+      "name": "Feature",
+      "surface": false,
+      "variants": [
+        {
+          "id": "electric_sitar_buzz_bridge",
+          "default": true,
+          "name": "Buzz bridge drone",
+          "descriptors": [
+            "buzz-bridge",
+            "twangy",
+            "sympathetic"
+          ],
+          "match_tokens": [
+            "psych-context"
+          ]
+        },
+        {
+          "id": "electric_sitar_sympathetic_strings",
+          "default": false,
+          "name": "Sympathetic strings",
+          "descriptors": [
+            "sympathetic-strings",
+            "resonant",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "psych-context"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,236 @@
+{
+  "id": "foot_stomp",
+  "name": "Foot stomp",
+  "family": "percussion",
+  "class": "foot_percussion",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": -2,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "stomp",
+  "parts": [
+    {
+      "id": "stomp_footwear",
+      "name": "Footwear",
+      "surface": false,
+      "variants": [
+        {
+          "id": "stomp_bare_foot",
+          "default": true,
+          "name": "Bare foot",
+          "descriptors": [
+            "bare-foot",
+            "thudding",
+            "earthy"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "foot-percussion"
+          ]
+        },
+        {
+          "id": "stomp_boot",
+          "default": false,
+          "name": "Heavy boot",
+          "descriptors": [
+            "stomp-boot",
+            "hard",
+            "cracking"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "stomp_gumboot",
+          "default": false,
+          "name": "Gumboot (wellington)",
+          "descriptors": [
+            "stomp-gumboot",
+            "slapping",
+            "resonant"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "african-context"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stomp_surface",
+      "name": "Surface / ground",
+      "surface": false,
+      "variants": [
+        {
+          "id": "stomp_wood_stage",
+          "default": true,
+          "name": "Wooden stage",
+          "descriptors": [
+            "wood-stage",
+            "boomy",
+            "resonant"
+          ],
+          "match_tokens": [
+            "room-forward"
+          ]
+        },
+        {
+          "id": "stomp_earth_ground",
+          "default": false,
+          "name": "Earth / ground",
+          "descriptors": [
+            "earth-ground",
+            "dull",
+            "soft"
+          ],
+          "match_tokens": [
+            "outdoor-field"
+          ]
+        },
+        {
+          "id": "stomp_floorboard_porch",
+          "default": false,
+          "name": "Porch floorboard",
+          "descriptors": [
+            "floorboard-porch",
+            "hollow",
+            "rattly"
+          ],
+          "match_tokens": [
+            "old-time-context"
+          ]
+        },
+        {
+          "id": "stomp_hollow_platform",
+          "default": false,
+          "name": "Hollow platform / riser",
+          "descriptors": [
+            "hollow-platform",
+            "booming",
+            "amplified"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "stomp_footwear",
+      "name": "Footwear",
+      "surface": false,
+      "variants": [
+        {
+          "id": "stomp_bare_foot",
+          "default": true,
+          "name": "Bare foot",
+          "descriptors": [
+            "bare-foot",
+            "thudding",
+            "earthy"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "foot-percussion"
+          ]
+        },
+        {
+          "id": "stomp_boot",
+          "default": false,
+          "name": "Heavy boot",
+          "descriptors": [
+            "stomp-boot",
+            "hard",
+            "cracking"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "stomp_gumboot",
+          "default": false,
+          "name": "Gumboot (wellington)",
+          "descriptors": [
+            "stomp-gumboot",
+            "slapping",
+            "resonant"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "african-context"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stomp_surface",
+      "name": "Surface / ground",
+      "surface": false,
+      "variants": [
+        {
+          "id": "stomp_wood_stage",
+          "default": true,
+          "name": "Wooden stage",
+          "descriptors": [
+            "wood-stage",
+            "boomy",
+            "resonant"
+          ],
+          "match_tokens": [
+            "room-forward"
+          ]
+        },
+        {
+          "id": "stomp_earth_ground",
+          "default": false,
+          "name": "Earth / ground",
+          "descriptors": [
+            "earth-ground",
+            "dull",
+            "soft"
+          ],
+          "match_tokens": [
+            "outdoor-field"
+          ]
+        },
+        {
+          "id": "stomp_floorboard_porch",
+          "default": false,
+          "name": "Porch floorboard",
+          "descriptors": [
+            "floorboard-porch",
+            "hollow",
+            "rattly"
+          ],
+          "match_tokens": [
+            "old-time-context"
+          ]
+        },
+        {
+          "id": "stomp_hollow_platform",
+          "default": false,
+          "name": "Hollow platform / riser",
+          "descriptors": [
+            "hollow-platform",
+            "booming",
+            "amplified"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ]
+}

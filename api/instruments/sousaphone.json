@@ -1,0 +1,158 @@
+{
+  "id": "sousaphone",
+  "name": "Sousaphone",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": -2,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "sousaphone",
+  "parts": [
+    {
+      "id": "sousaphone_bore",
+      "name": "Pitch / bore",
+      "surface": false,
+      "variants": [
+        {
+          "id": "sousaphone_bb_contrabass",
+          "default": true,
+          "name": "BB♭ contrabass",
+          "descriptors": [
+            "bb-contrabass",
+            "foundational",
+            "oompah"
+          ],
+          "match_tokens": [
+            "low-end",
+            "brass-section"
+          ]
+        },
+        {
+          "id": "sousaphone_eb_bass",
+          "default": false,
+          "name": "E♭ bass",
+          "descriptors": [
+            "eb-bass",
+            "agile",
+            "higher"
+          ],
+          "match_tokens": [
+            "brass-section"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sousaphone_context",
+      "name": "Context",
+      "surface": false,
+      "variants": [
+        {
+          "id": "sousaphone_oompah_march",
+          "default": true,
+          "name": "Marching oompah",
+          "descriptors": [
+            "oompah-march",
+            "marching",
+            "driving"
+          ],
+          "match_tokens": [
+            "brass-section"
+          ]
+        },
+        {
+          "id": "sousaphone_nola_brass_band",
+          "default": false,
+          "name": "New Orleans brass band",
+          "descriptors": [
+            "brass-band",
+            "funky",
+            "syncopated"
+          ],
+          "match_tokens": [
+            "brass-section",
+            "nola-context"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sousaphone_bore",
+      "name": "Pitch / bore",
+      "surface": false,
+      "variants": [
+        {
+          "id": "sousaphone_bb_contrabass",
+          "default": true,
+          "name": "BB♭ contrabass",
+          "descriptors": [
+            "bb-contrabass",
+            "foundational",
+            "oompah"
+          ],
+          "match_tokens": [
+            "low-end",
+            "brass-section"
+          ]
+        },
+        {
+          "id": "sousaphone_eb_bass",
+          "default": false,
+          "name": "E♭ bass",
+          "descriptors": [
+            "eb-bass",
+            "agile",
+            "higher"
+          ],
+          "match_tokens": [
+            "brass-section"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sousaphone_context",
+      "name": "Context",
+      "surface": false,
+      "variants": [
+        {
+          "id": "sousaphone_oompah_march",
+          "default": true,
+          "name": "Marching oompah",
+          "descriptors": [
+            "oompah-march",
+            "marching",
+            "driving"
+          ],
+          "match_tokens": [
+            "brass-section"
+          ]
+        },
+        {
+          "id": "sousaphone_nola_brass_band",
+          "default": false,
+          "name": "New Orleans brass band",
+          "descriptors": [
+            "brass-band",
+            "funky",
+            "syncopated"
+          ],
+          "match_tokens": [
+            "brass-section",
+            "nola-context"
+          ]
+        }
+      ]
+    }
+  ]
+}

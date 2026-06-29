@@ -1,0 +1,116 @@
+{
+  "id": "hambone_body",
+  "name": "Hambone / body percussion",
+  "family": "percussion",
+  "class": "body_percussion",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -1,
+    "harmonicity": -2,
+    "register": 0,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "hambone",
+  "parts": [
+    {
+      "id": "hambone_technique",
+      "name": "Technique",
+      "surface": false,
+      "variants": [
+        {
+          "id": "hambone_thigh_chest",
+          "default": true,
+          "name": "Thigh + chest patted (pattin’ juba)",
+          "descriptors": [
+            "thigh-chest",
+            "slapping",
+            "syncopated"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "body-percussion"
+          ]
+        },
+        {
+          "id": "hambone_thigh_slap_patsch",
+          "default": false,
+          "name": "Thigh-slap patsch (Alpine)",
+          "descriptors": [
+            "slap-patsch",
+            "crisp",
+            "alternating"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "hambone_cheek_pop_added",
+          "default": false,
+          "name": "With cheek pops",
+          "descriptors": [
+            "pop-added",
+            "popping",
+            "playful"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "hambone_technique",
+      "name": "Technique",
+      "surface": false,
+      "variants": [
+        {
+          "id": "hambone_thigh_chest",
+          "default": true,
+          "name": "Thigh + chest patted (pattin’ juba)",
+          "descriptors": [
+            "thigh-chest",
+            "slapping",
+            "syncopated"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "body-percussion"
+          ]
+        },
+        {
+          "id": "hambone_thigh_slap_patsch",
+          "default": false,
+          "name": "Thigh-slap patsch (Alpine)",
+          "descriptors": [
+            "slap-patsch",
+            "crisp",
+            "alternating"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "hambone_cheek_pop_added",
+          "default": false,
+          "name": "With cheek pops",
+          "descriptors": [
+            "pop-added",
+            "popping",
+            "playful"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ]
+}

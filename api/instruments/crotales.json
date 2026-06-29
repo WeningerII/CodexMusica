@@ -1,0 +1,156 @@
+{
+  "id": "crotales",
+  "name": "Crotales (antique cymbals)",
+  "family": "percussion",
+  "class": "tuned_percussion",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 1,
+    "polyphony": -1,
+    "harmonicity": 1,
+    "register": 2,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "crotales",
+  "parts": [
+    {
+      "id": "crotales_excitation",
+      "name": "Excitation",
+      "surface": false,
+      "variants": [
+        {
+          "id": "crotales_mallet_struck",
+          "default": true,
+          "name": "Mallet-struck",
+          "descriptors": [
+            "mallet-struck",
+            "glistening",
+            "pinging"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "tuned-attack"
+          ]
+        },
+        {
+          "id": "crotales_bowed_shimmer",
+          "default": false,
+          "name": "Bowed (sustained shimmer)",
+          "descriptors": [
+            "bowed-shimmer",
+            "shimmering",
+            "eerie"
+          ],
+          "match_tokens": [
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "crotales_set",
+      "name": "Set",
+      "surface": false,
+      "variants": [
+        {
+          "id": "crotales_one_octave",
+          "default": true,
+          "name": "One octave",
+          "descriptors": [
+            "one-octave",
+            "standard",
+            "sparkling"
+          ],
+          "match_tokens": [
+            "orchestral"
+          ]
+        },
+        {
+          "id": "crotales_two_octave",
+          "default": false,
+          "name": "Two octave",
+          "descriptors": [
+            "two-octave",
+            "extended",
+            "celestial"
+          ],
+          "match_tokens": [
+            "orchestral"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "crotales_excitation",
+      "name": "Excitation",
+      "surface": false,
+      "variants": [
+        {
+          "id": "crotales_mallet_struck",
+          "default": true,
+          "name": "Mallet-struck",
+          "descriptors": [
+            "mallet-struck",
+            "glistening",
+            "pinging"
+          ],
+          "match_tokens": [
+            "orchestral",
+            "tuned-attack"
+          ]
+        },
+        {
+          "id": "crotales_bowed_shimmer",
+          "default": false,
+          "name": "Bowed (sustained shimmer)",
+          "descriptors": [
+            "bowed-shimmer",
+            "shimmering",
+            "eerie"
+          ],
+          "match_tokens": [
+            "sustained-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "crotales_set",
+      "name": "Set",
+      "surface": false,
+      "variants": [
+        {
+          "id": "crotales_one_octave",
+          "default": true,
+          "name": "One octave",
+          "descriptors": [
+            "one-octave",
+            "standard",
+            "sparkling"
+          ],
+          "match_tokens": [
+            "orchestral"
+          ]
+        },
+        {
+          "id": "crotales_two_octave",
+          "default": false,
+          "name": "Two octave",
+          "descriptors": [
+            "two-octave",
+            "extended",
+            "celestial"
+          ],
+          "match_tokens": [
+            "orchestral"
+          ]
+        }
+      ]
+    }
+  ]
+}

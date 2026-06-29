@@ -1,0 +1,180 @@
+{
+  "id": "mark_tree",
+  "name": "Mark tree / wind chimes",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": 2,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "marktree",
+  "parts": [
+    {
+      "id": "mark_tree_type",
+      "name": "Type",
+      "surface": false,
+      "variants": [
+        {
+          "id": "mark_tree_bar_chimes",
+          "default": true,
+          "name": "Metal bar chimes",
+          "descriptors": [
+            "bar-chimes",
+            "cascading",
+            "glittering"
+          ],
+          "match_tokens": [
+            "effect-color"
+          ]
+        },
+        {
+          "id": "mark_tree_shell_chimes",
+          "default": false,
+          "name": "Shell wind chimes",
+          "descriptors": [
+            "shell-chimes",
+            "organic",
+            "clattering"
+          ],
+          "match_tokens": [
+            "effect-color"
+          ]
+        },
+        {
+          "id": "mark_tree_glass_chimes",
+          "default": false,
+          "name": "Glass chimes",
+          "descriptors": [
+            "glass-chimes",
+            "delicate",
+            "tinkling"
+          ],
+          "match_tokens": [
+            "effect-color"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mark_tree_gesture",
+      "name": "Gesture",
+      "surface": false,
+      "variants": [
+        {
+          "id": "mark_tree_glissando_swept",
+          "default": true,
+          "name": "Swept glissando",
+          "descriptors": [
+            "glissando-swept",
+            "shimmering",
+            "sweep"
+          ],
+          "match_tokens": [
+            "effect-color"
+          ]
+        },
+        {
+          "id": "mark_tree_single_struck",
+          "default": false,
+          "name": "Single struck",
+          "descriptors": [
+            "single-struck",
+            "accent",
+            "sparkle"
+          ],
+          "match_tokens": [
+            "effect-color"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "mark_tree_type",
+      "name": "Type",
+      "surface": false,
+      "variants": [
+        {
+          "id": "mark_tree_bar_chimes",
+          "default": true,
+          "name": "Metal bar chimes",
+          "descriptors": [
+            "bar-chimes",
+            "cascading",
+            "glittering"
+          ],
+          "match_tokens": [
+            "effect-color"
+          ]
+        },
+        {
+          "id": "mark_tree_shell_chimes",
+          "default": false,
+          "name": "Shell wind chimes",
+          "descriptors": [
+            "shell-chimes",
+            "organic",
+            "clattering"
+          ],
+          "match_tokens": [
+            "effect-color"
+          ]
+        },
+        {
+          "id": "mark_tree_glass_chimes",
+          "default": false,
+          "name": "Glass chimes",
+          "descriptors": [
+            "glass-chimes",
+            "delicate",
+            "tinkling"
+          ],
+          "match_tokens": [
+            "effect-color"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mark_tree_gesture",
+      "name": "Gesture",
+      "surface": false,
+      "variants": [
+        {
+          "id": "mark_tree_glissando_swept",
+          "default": true,
+          "name": "Swept glissando",
+          "descriptors": [
+            "glissando-swept",
+            "shimmering",
+            "sweep"
+          ],
+          "match_tokens": [
+            "effect-color"
+          ]
+        },
+        {
+          "id": "mark_tree_single_struck",
+          "default": false,
+          "name": "Single struck",
+          "descriptors": [
+            "single-struck",
+            "accent",
+            "sparkle"
+          ],
+          "match_tokens": [
+            "effect-color"
+          ]
+        }
+      ]
+    }
+  ]
+}

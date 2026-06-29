@@ -1,0 +1,212 @@
+{
+  "id": "foot_tap",
+  "name": "Foot tap / tap & clog",
+  "family": "percussion",
+  "class": "foot_percussion",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 0,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "tap",
+  "parts": [
+    {
+      "id": "tap_striker",
+      "name": "Footwear / striker",
+      "surface": false,
+      "variants": [
+        {
+          "id": "tap_metal_taps",
+          "default": true,
+          "name": "Metal tap shoes",
+          "descriptors": [
+            "metal-taps",
+            "ringing",
+            "sharp"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "foot-percussion"
+          ]
+        },
+        {
+          "id": "tap_hard_shoe_leather",
+          "default": false,
+          "name": "Hard-shoe leather (Irish)",
+          "descriptors": [
+            "shoe-leather",
+            "woody",
+            "clattering"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "celtic-context"
+          ]
+        },
+        {
+          "id": "tap_soft_shoe",
+          "default": false,
+          "name": "Soft-shoe",
+          "descriptors": [
+            "soft-shoe",
+            "brushed",
+            "gentle"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "tap_clog_wooden",
+          "default": false,
+          "name": "Wooden clog / flatfoot",
+          "descriptors": [
+            "clog-wooden",
+            "knocking",
+            "rustic"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "old-time-context"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tap_surface",
+      "name": "Surface",
+      "surface": false,
+      "variants": [
+        {
+          "id": "tap_sprung_wood_floor",
+          "default": true,
+          "name": "Sprung wood floor",
+          "descriptors": [
+            "wood-floor",
+            "resonant",
+            "bright"
+          ],
+          "match_tokens": [
+            "room-forward"
+          ]
+        },
+        {
+          "id": "tap_board_plywood",
+          "default": false,
+          "name": "Portable board",
+          "descriptors": [
+            "board-plywood",
+            "tight",
+            "projecting"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tap_striker",
+      "name": "Footwear / striker",
+      "surface": false,
+      "variants": [
+        {
+          "id": "tap_metal_taps",
+          "default": true,
+          "name": "Metal tap shoes",
+          "descriptors": [
+            "metal-taps",
+            "ringing",
+            "sharp"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "foot-percussion"
+          ]
+        },
+        {
+          "id": "tap_hard_shoe_leather",
+          "default": false,
+          "name": "Hard-shoe leather (Irish)",
+          "descriptors": [
+            "shoe-leather",
+            "woody",
+            "clattering"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "celtic-context"
+          ]
+        },
+        {
+          "id": "tap_soft_shoe",
+          "default": false,
+          "name": "Soft-shoe",
+          "descriptors": [
+            "soft-shoe",
+            "brushed",
+            "gentle"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "tap_clog_wooden",
+          "default": false,
+          "name": "Wooden clog / flatfoot",
+          "descriptors": [
+            "clog-wooden",
+            "knocking",
+            "rustic"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "old-time-context"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tap_surface",
+      "name": "Surface",
+      "surface": false,
+      "variants": [
+        {
+          "id": "tap_sprung_wood_floor",
+          "default": true,
+          "name": "Sprung wood floor",
+          "descriptors": [
+            "wood-floor",
+            "resonant",
+            "bright"
+          ],
+          "match_tokens": [
+            "room-forward"
+          ]
+        },
+        {
+          "id": "tap_board_plywood",
+          "default": false,
+          "name": "Portable board",
+          "descriptors": [
+            "board-plywood",
+            "tight",
+            "projecting"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ]
+}

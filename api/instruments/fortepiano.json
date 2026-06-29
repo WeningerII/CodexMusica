@@ -1,0 +1,177 @@
+{
+  "id": "fortepiano",
+  "name": "Fortepiano",
+  "family": "keyboard",
+  "class": "keyboard_acoustic",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 1,
+    "polyphony": 2,
+    "harmonicity": 2,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "fortepiano",
+  "parts": [
+    {
+      "id": "keyboard_technique",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "keyboard_block_chord_pop",
+          "default": true,
+          "name": "Block-chord pop",
+          "descriptors": [
+            "block-chord"
+          ],
+          "match_tokens": [
+            "chordal",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "pop",
+            "singer-songwriter"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "fortepiano_action",
+      "name": "Action",
+      "surface": false,
+      "variants": [
+        {
+          "id": "fortepiano_viennese_action",
+          "default": true,
+          "name": "Viennese action",
+          "descriptors": [
+            "viennese-action",
+            "light",
+            "crisp"
+          ],
+          "match_tokens": [
+            "classical-context"
+          ]
+        },
+        {
+          "id": "fortepiano_english_action",
+          "default": false,
+          "name": "English action",
+          "descriptors": [
+            "english-action",
+            "robust",
+            "fuller"
+          ],
+          "match_tokens": [
+            "classical-context"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fortepiano_era",
+      "name": "Era / compass",
+      "surface": false,
+      "variants": [
+        {
+          "id": "fortepiano_classical_5_octave",
+          "default": true,
+          "name": "Classical 5-octave",
+          "descriptors": [
+            "5-octave",
+            "mozartean",
+            "clear"
+          ],
+          "match_tokens": [
+            "classical-context"
+          ]
+        },
+        {
+          "id": "fortepiano_early_romantic_6_octave",
+          "default": false,
+          "name": "Early-romantic 6-octave",
+          "descriptors": [
+            "6-octave",
+            "expanded",
+            "singing"
+          ],
+          "match_tokens": [
+            "classical-context"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "fortepiano_action",
+      "name": "Action",
+      "surface": false,
+      "variants": [
+        {
+          "id": "fortepiano_viennese_action",
+          "default": true,
+          "name": "Viennese action",
+          "descriptors": [
+            "viennese-action",
+            "light",
+            "crisp"
+          ],
+          "match_tokens": [
+            "classical-context"
+          ]
+        },
+        {
+          "id": "fortepiano_english_action",
+          "default": false,
+          "name": "English action",
+          "descriptors": [
+            "english-action",
+            "robust",
+            "fuller"
+          ],
+          "match_tokens": [
+            "classical-context"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fortepiano_era",
+      "name": "Era / compass",
+      "surface": false,
+      "variants": [
+        {
+          "id": "fortepiano_classical_5_octave",
+          "default": true,
+          "name": "Classical 5-octave",
+          "descriptors": [
+            "5-octave",
+            "mozartean",
+            "clear"
+          ],
+          "match_tokens": [
+            "classical-context"
+          ]
+        },
+        {
+          "id": "fortepiano_early_romantic_6_octave",
+          "default": false,
+          "name": "Early-romantic 6-octave",
+          "descriptors": [
+            "6-octave",
+            "expanded",
+            "singing"
+          ],
+          "match_tokens": [
+            "classical-context"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "id": "vibraslap",
+  "name": "Vibraslap",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 0,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "vibraslap",
+  "parts": [
+    {
+      "id": "vibraslap_strike",
+      "name": "Strike",
+      "surface": false,
+      "variants": [
+        {
+          "id": "vibraslap_palm_struck",
+          "default": true,
+          "name": "Palm-struck",
+          "descriptors": [
+            "palm-struck",
+            "rattling",
+            "buzzy"
+          ],
+          "match_tokens": [
+            "effect-color",
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "vibraslap_knee_struck",
+          "default": false,
+          "name": "Knee-struck",
+          "descriptors": [
+            "knee-struck",
+            "sharp",
+            "sudden"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "vibraslap_strike",
+      "name": "Strike",
+      "surface": false,
+      "variants": [
+        {
+          "id": "vibraslap_palm_struck",
+          "default": true,
+          "name": "Palm-struck",
+          "descriptors": [
+            "palm-struck",
+            "rattling",
+            "buzzy"
+          ],
+          "match_tokens": [
+            "effect-color",
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "vibraslap_knee_struck",
+          "default": false,
+          "name": "Knee-struck",
+          "descriptors": [
+            "knee-struck",
+            "sharp",
+            "sudden"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ]
+}

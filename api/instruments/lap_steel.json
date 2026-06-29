@@ -1,0 +1,206 @@
+{
+  "id": "lap_steel",
+  "name": "Lap steel guitar",
+  "family": "electric_strings",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 0,
+    "transduction": 2,
+    "dynamics": 1
+  },
+  "short": "lapsteel",
+  "parts": [
+    {
+      "id": "lap_steel_tuning",
+      "name": "Tuning",
+      "surface": false,
+      "variants": [
+        {
+          "id": "lap_steel_c6",
+          "default": true,
+          "name": "C6",
+          "descriptors": [
+            "steel-c6",
+            "western-swing",
+            "sweet"
+          ],
+          "match_tokens": [
+            "country-context"
+          ]
+        },
+        {
+          "id": "lap_steel_open_e",
+          "default": false,
+          "name": "Open E",
+          "descriptors": [
+            "open-e",
+            "bluesy",
+            "wailing"
+          ],
+          "match_tokens": [
+            "blues-context"
+          ]
+        },
+        {
+          "id": "lap_steel_open_g_dobro",
+          "default": false,
+          "name": "Open G (dobro-style)",
+          "descriptors": [
+            "g-dobro",
+            "twangy",
+            "resonant"
+          ],
+          "match_tokens": [
+            "old-time-context"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lap_steel_style",
+      "name": "Style",
+      "surface": false,
+      "variants": [
+        {
+          "id": "lap_steel_hawaiian_slack",
+          "default": true,
+          "name": "Hawaiian / slack",
+          "descriptors": [
+            "hawaiian-slack",
+            "gliding",
+            "languid"
+          ],
+          "match_tokens": [
+            "hawaiian-context"
+          ]
+        },
+        {
+          "id": "lap_steel_western_swing",
+          "default": false,
+          "name": "Western swing",
+          "descriptors": [
+            "western-swing",
+            "jazzy",
+            "lilting"
+          ],
+          "match_tokens": [
+            "country-context"
+          ]
+        },
+        {
+          "id": "lap_steel_sacred_steel",
+          "default": false,
+          "name": "Sacred steel",
+          "descriptors": [
+            "sacred-steel",
+            "vocal",
+            "ecstatic"
+          ],
+          "match_tokens": [
+            "gospel-rooted"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "lap_steel_tuning",
+      "name": "Tuning",
+      "surface": false,
+      "variants": [
+        {
+          "id": "lap_steel_c6",
+          "default": true,
+          "name": "C6",
+          "descriptors": [
+            "steel-c6",
+            "western-swing",
+            "sweet"
+          ],
+          "match_tokens": [
+            "country-context"
+          ]
+        },
+        {
+          "id": "lap_steel_open_e",
+          "default": false,
+          "name": "Open E",
+          "descriptors": [
+            "open-e",
+            "bluesy",
+            "wailing"
+          ],
+          "match_tokens": [
+            "blues-context"
+          ]
+        },
+        {
+          "id": "lap_steel_open_g_dobro",
+          "default": false,
+          "name": "Open G (dobro-style)",
+          "descriptors": [
+            "g-dobro",
+            "twangy",
+            "resonant"
+          ],
+          "match_tokens": [
+            "old-time-context"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lap_steel_style",
+      "name": "Style",
+      "surface": false,
+      "variants": [
+        {
+          "id": "lap_steel_hawaiian_slack",
+          "default": true,
+          "name": "Hawaiian / slack",
+          "descriptors": [
+            "hawaiian-slack",
+            "gliding",
+            "languid"
+          ],
+          "match_tokens": [
+            "hawaiian-context"
+          ]
+        },
+        {
+          "id": "lap_steel_western_swing",
+          "default": false,
+          "name": "Western swing",
+          "descriptors": [
+            "western-swing",
+            "jazzy",
+            "lilting"
+          ],
+          "match_tokens": [
+            "country-context"
+          ]
+        },
+        {
+          "id": "lap_steel_sacred_steel",
+          "default": false,
+          "name": "Sacred steel",
+          "descriptors": [
+            "sacred-steel",
+            "vocal",
+            "ecstatic"
+          ],
+          "match_tokens": [
+            "gospel-rooted"
+          ]
+        }
+      ]
+    }
+  ]
+}

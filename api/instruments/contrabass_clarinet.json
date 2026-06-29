@@ -1,0 +1,158 @@
+{
+  "id": "contrabass_clarinet",
+  "name": "Contrabass clarinet",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 2,
+    "register": -2,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "contraclarinet",
+  "parts": [
+    {
+      "id": "contrabass_clarinet_type",
+      "name": "Type",
+      "surface": false,
+      "variants": [
+        {
+          "id": "contrabass_clarinet_bbb",
+          "default": true,
+          "name": "BBB♭ contrabass",
+          "descriptors": [
+            "clarinet-bbb",
+            "subterranean",
+            "huge"
+          ],
+          "match_tokens": [
+            "low-end",
+            "orchestral"
+          ]
+        },
+        {
+          "id": "contrabass_clarinet_eeb_contralto",
+          "default": false,
+          "name": "EE♭ contra-alto",
+          "descriptors": [
+            "eeb-contralto",
+            "deep",
+            "rich"
+          ],
+          "match_tokens": [
+            "low-end",
+            "orchestral"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "contrabass_clarinet_material",
+      "name": "Material",
+      "surface": false,
+      "variants": [
+        {
+          "id": "contrabass_clarinet_metal_body",
+          "default": true,
+          "name": "Metal body (paperclip)",
+          "descriptors": [
+            "metal-body",
+            "projecting",
+            "modern"
+          ],
+          "match_tokens": [
+            "orchestral"
+          ]
+        },
+        {
+          "id": "contrabass_clarinet_grenadilla",
+          "default": false,
+          "name": "Grenadilla",
+          "descriptors": [
+            "clarinet-grenadilla",
+            "warm",
+            "woody"
+          ],
+          "match_tokens": [
+            "orchestral"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "contrabass_clarinet_type",
+      "name": "Type",
+      "surface": false,
+      "variants": [
+        {
+          "id": "contrabass_clarinet_bbb",
+          "default": true,
+          "name": "BBB♭ contrabass",
+          "descriptors": [
+            "clarinet-bbb",
+            "subterranean",
+            "huge"
+          ],
+          "match_tokens": [
+            "low-end",
+            "orchestral"
+          ]
+        },
+        {
+          "id": "contrabass_clarinet_eeb_contralto",
+          "default": false,
+          "name": "EE♭ contra-alto",
+          "descriptors": [
+            "eeb-contralto",
+            "deep",
+            "rich"
+          ],
+          "match_tokens": [
+            "low-end",
+            "orchestral"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "contrabass_clarinet_material",
+      "name": "Material",
+      "surface": false,
+      "variants": [
+        {
+          "id": "contrabass_clarinet_metal_body",
+          "default": true,
+          "name": "Metal body (paperclip)",
+          "descriptors": [
+            "metal-body",
+            "projecting",
+            "modern"
+          ],
+          "match_tokens": [
+            "orchestral"
+          ]
+        },
+        {
+          "id": "contrabass_clarinet_grenadilla",
+          "default": false,
+          "name": "Grenadilla",
+          "descriptors": [
+            "clarinet-grenadilla",
+            "warm",
+            "woody"
+          ],
+          "match_tokens": [
+            "orchestral"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,154 @@
+{
+  "id": "chapman_stick",
+  "name": "Chapman Stick",
+  "family": "electric_strings",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": 1,
+    "transduction": 2,
+    "dynamics": 0
+  },
+  "short": "stick",
+  "parts": [
+    {
+      "id": "chapman_stick_strings",
+      "name": "Strings",
+      "surface": false,
+      "variants": [
+        {
+          "id": "chapman_stick_ten_string",
+          "default": true,
+          "name": "10-string",
+          "descriptors": [
+            "ten-string",
+            "two-hand",
+            "wide"
+          ],
+          "match_tokens": [
+            "modern"
+          ]
+        },
+        {
+          "id": "chapman_stick_twelve_string",
+          "default": false,
+          "name": "12-string",
+          "descriptors": [
+            "twelve-string",
+            "orchestral",
+            "extended"
+          ],
+          "match_tokens": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapman_stick_technique",
+      "name": "Technique",
+      "surface": false,
+      "variants": [
+        {
+          "id": "chapman_stick_two_hand_tap",
+          "default": true,
+          "name": "Two-hand tapping",
+          "descriptors": [
+            "hand-tap",
+            "independent",
+            "fluid"
+          ],
+          "match_tokens": [
+            "modern"
+          ]
+        },
+        {
+          "id": "chapman_stick_bass_plus_melody",
+          "default": false,
+          "name": "Bass + melody split",
+          "descriptors": [
+            "plus-melody",
+            "self-contained",
+            "contrapuntal"
+          ],
+          "match_tokens": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "chapman_stick_strings",
+      "name": "Strings",
+      "surface": false,
+      "variants": [
+        {
+          "id": "chapman_stick_ten_string",
+          "default": true,
+          "name": "10-string",
+          "descriptors": [
+            "ten-string",
+            "two-hand",
+            "wide"
+          ],
+          "match_tokens": [
+            "modern"
+          ]
+        },
+        {
+          "id": "chapman_stick_twelve_string",
+          "default": false,
+          "name": "12-string",
+          "descriptors": [
+            "twelve-string",
+            "orchestral",
+            "extended"
+          ],
+          "match_tokens": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chapman_stick_technique",
+      "name": "Technique",
+      "surface": false,
+      "variants": [
+        {
+          "id": "chapman_stick_two_hand_tap",
+          "default": true,
+          "name": "Two-hand tapping",
+          "descriptors": [
+            "hand-tap",
+            "independent",
+            "fluid"
+          ],
+          "match_tokens": [
+            "modern"
+          ]
+        },
+        {
+          "id": "chapman_stick_bass_plus_melody",
+          "default": false,
+          "name": "Bass + melody split",
+          "descriptors": [
+            "plus-melody",
+            "self-contained",
+            "contrapuntal"
+          ],
+          "match_tokens": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}
