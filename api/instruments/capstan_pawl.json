@@ -1,0 +1,162 @@
+{
+  "id": "capstan_pawl",
+  "name": "Capstan pawl ratchet",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 0,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "capstan",
+  "parts": [
+    {
+      "id": "capstan_pawl_mechanism",
+      "name": "Mechanism",
+      "surface": false,
+      "variants": [
+        {
+          "id": "capstan_pawl_iron",
+          "default": true,
+          "name": "Iron pawl",
+          "descriptors": [
+            "pawl-iron",
+            "clicking",
+            "ratcheting"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "capstan_pawl_wood_drumhead",
+          "default": false,
+          "name": "Wood drumhead",
+          "descriptors": [
+            "wood-drumhead",
+            "knocking",
+            "woody"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "capstan_pawl_pace",
+      "name": "Pace",
+      "surface": false,
+      "variants": [
+        {
+          "id": "capstan_pawl_heave_walk",
+          "default": true,
+          "name": "Heave-walk",
+          "descriptors": [
+            "heave-walk",
+            "plodding",
+            "steady"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "capstan_pawl_surge",
+          "default": false,
+          "name": "Surge",
+          "descriptors": [
+            "pawl-surge",
+            "quickening",
+            "urgent"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "capstan_pawl_mechanism",
+      "name": "Mechanism",
+      "surface": false,
+      "variants": [
+        {
+          "id": "capstan_pawl_iron",
+          "default": true,
+          "name": "Iron pawl",
+          "descriptors": [
+            "pawl-iron",
+            "clicking",
+            "ratcheting"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "capstan_pawl_wood_drumhead",
+          "default": false,
+          "name": "Wood drumhead",
+          "descriptors": [
+            "wood-drumhead",
+            "knocking",
+            "woody"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "capstan_pawl_pace",
+      "name": "Pace",
+      "surface": false,
+      "variants": [
+        {
+          "id": "capstan_pawl_heave_walk",
+          "default": true,
+          "name": "Heave-walk",
+          "descriptors": [
+            "heave-walk",
+            "plodding",
+            "steady"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "capstan_pawl_surge",
+          "default": false,
+          "name": "Surge",
+          "descriptors": [
+            "pawl-surge",
+            "quickening",
+            "urgent"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    }
+  ]
+}

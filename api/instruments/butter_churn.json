@@ -1,0 +1,162 @@
+{
+  "id": "butter_churn",
+  "name": "Butter churn",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 0,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "churn",
+  "parts": [
+    {
+      "id": "butter_churn_type",
+      "name": "Type",
+      "surface": false,
+      "variants": [
+        {
+          "id": "butter_churn_dash",
+          "default": true,
+          "name": "Dash churn",
+          "descriptors": [
+            "churn-dash",
+            "plunging",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "butter_churn_barrel",
+          "default": false,
+          "name": "Barrel churn",
+          "descriptors": [
+            "churn-barrel",
+            "rolling",
+            "sloshing"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "butter_churn_stage",
+      "name": "Stage",
+      "surface": false,
+      "variants": [
+        {
+          "id": "butter_churn_thin_slosh",
+          "default": true,
+          "name": "Thin slosh",
+          "descriptors": [
+            "thin-slosh",
+            "liquid",
+            "splashing"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "butter_churn_thick_clump",
+          "default": false,
+          "name": "Thick clump",
+          "descriptors": [
+            "thick-clump",
+            "dense",
+            "thudding"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "butter_churn_type",
+      "name": "Type",
+      "surface": false,
+      "variants": [
+        {
+          "id": "butter_churn_dash",
+          "default": true,
+          "name": "Dash churn",
+          "descriptors": [
+            "churn-dash",
+            "plunging",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "butter_churn_barrel",
+          "default": false,
+          "name": "Barrel churn",
+          "descriptors": [
+            "churn-barrel",
+            "rolling",
+            "sloshing"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "butter_churn_stage",
+      "name": "Stage",
+      "surface": false,
+      "variants": [
+        {
+          "id": "butter_churn_thin_slosh",
+          "default": true,
+          "name": "Thin slosh",
+          "descriptors": [
+            "thin-slosh",
+            "liquid",
+            "splashing"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "butter_churn_thick_clump",
+          "default": false,
+          "name": "Thick clump",
+          "descriptors": [
+            "thick-clump",
+            "dense",
+            "thudding"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,162 @@
+{
+  "id": "train_whistle",
+  "name": "Steam train whistle",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": -1,
+    "register": 1,
+    "range": -1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "trainwhistle",
+  "parts": [
+    {
+      "id": "train_whistle_type",
+      "name": "Type",
+      "surface": false,
+      "variants": [
+        {
+          "id": "train_whistle_multi_chime",
+          "default": true,
+          "name": "Multi-chime steam",
+          "descriptors": [
+            "multi-chime",
+            "chordal",
+            "mournful"
+          ],
+          "match_tokens": [
+            "industrial",
+            "wind"
+          ]
+        },
+        {
+          "id": "train_whistle_peanut",
+          "default": false,
+          "name": "Single-note peanut",
+          "descriptors": [
+            "whistle-peanut",
+            "shrill",
+            "plain"
+          ],
+          "match_tokens": [
+            "industrial",
+            "wind"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_whistle_articulation",
+      "name": "Articulation",
+      "surface": false,
+      "variants": [
+        {
+          "id": "train_whistle_long_wail",
+          "default": true,
+          "name": "Long wail",
+          "descriptors": [
+            "long-wail",
+            "sustained",
+            "fading"
+          ],
+          "match_tokens": [
+            "industrial",
+            "wind"
+          ]
+        },
+        {
+          "id": "train_whistle_short_signal",
+          "default": false,
+          "name": "Short signal",
+          "descriptors": [
+            "short-signal",
+            "clipped",
+            "urgent"
+          ],
+          "match_tokens": [
+            "industrial",
+            "wind"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "train_whistle_type",
+      "name": "Type",
+      "surface": false,
+      "variants": [
+        {
+          "id": "train_whistle_multi_chime",
+          "default": true,
+          "name": "Multi-chime steam",
+          "descriptors": [
+            "multi-chime",
+            "chordal",
+            "mournful"
+          ],
+          "match_tokens": [
+            "industrial",
+            "wind"
+          ]
+        },
+        {
+          "id": "train_whistle_peanut",
+          "default": false,
+          "name": "Single-note peanut",
+          "descriptors": [
+            "whistle-peanut",
+            "shrill",
+            "plain"
+          ],
+          "match_tokens": [
+            "industrial",
+            "wind"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "train_whistle_articulation",
+      "name": "Articulation",
+      "surface": false,
+      "variants": [
+        {
+          "id": "train_whistle_long_wail",
+          "default": true,
+          "name": "Long wail",
+          "descriptors": [
+            "long-wail",
+            "sustained",
+            "fading"
+          ],
+          "match_tokens": [
+            "industrial",
+            "wind"
+          ]
+        },
+        {
+          "id": "train_whistle_short_signal",
+          "default": false,
+          "name": "Short signal",
+          "descriptors": [
+            "short-signal",
+            "clipped",
+            "urgent"
+          ],
+          "match_tokens": [
+            "industrial",
+            "wind"
+          ]
+        }
+      ]
+    }
+  ]
+}

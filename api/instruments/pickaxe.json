@@ -1,0 +1,218 @@
+{
+  "id": "pickaxe",
+  "name": "Pickaxe / mattock",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": -1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "pickaxe",
+  "parts": [
+    {
+      "id": "pickaxe_surface",
+      "name": "Struck surface",
+      "surface": false,
+      "variants": [
+        {
+          "id": "pickaxe_limestone",
+          "default": true,
+          "name": "Limestone",
+          "descriptors": [
+            "pickaxe-limestone",
+            "ringing",
+            "quarry"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "pickaxe_granite",
+          "default": false,
+          "name": "Granite",
+          "descriptors": [
+            "pickaxe-granite",
+            "hard",
+            "sharp"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "pickaxe_compacted_earth",
+          "default": false,
+          "name": "Compacted earth",
+          "descriptors": [
+            "compacted-earth",
+            "dull",
+            "thudding"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "pickaxe_scree_gravel",
+          "default": false,
+          "name": "Scree / gravel",
+          "descriptors": [
+            "scree-gravel",
+            "scattering",
+            "loose"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pickaxe_tool",
+      "name": "Tool",
+      "surface": false,
+      "variants": [
+        {
+          "id": "pickaxe_pick_point",
+          "default": true,
+          "name": "Pick point",
+          "descriptors": [
+            "pick-point",
+            "pointed",
+            "biting"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "pickaxe_mattock_blade",
+          "default": false,
+          "name": "Mattock blade",
+          "descriptors": [
+            "mattock-blade",
+            "broad",
+            "chopping"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "pickaxe_surface",
+      "name": "Struck surface",
+      "surface": false,
+      "variants": [
+        {
+          "id": "pickaxe_limestone",
+          "default": true,
+          "name": "Limestone",
+          "descriptors": [
+            "pickaxe-limestone",
+            "ringing",
+            "quarry"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "pickaxe_granite",
+          "default": false,
+          "name": "Granite",
+          "descriptors": [
+            "pickaxe-granite",
+            "hard",
+            "sharp"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "pickaxe_compacted_earth",
+          "default": false,
+          "name": "Compacted earth",
+          "descriptors": [
+            "compacted-earth",
+            "dull",
+            "thudding"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "pickaxe_scree_gravel",
+          "default": false,
+          "name": "Scree / gravel",
+          "descriptors": [
+            "scree-gravel",
+            "scattering",
+            "loose"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pickaxe_tool",
+      "name": "Tool",
+      "surface": false,
+      "variants": [
+        {
+          "id": "pickaxe_pick_point",
+          "default": true,
+          "name": "Pick point",
+          "descriptors": [
+            "pick-point",
+            "pointed",
+            "biting"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "pickaxe_mattock_blade",
+          "default": false,
+          "name": "Mattock blade",
+          "descriptors": [
+            "mattock-blade",
+            "broad",
+            "chopping"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    }
+  ]
+}

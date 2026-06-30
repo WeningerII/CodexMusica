@@ -1,0 +1,246 @@
+{
+  "id": "horse_hooves",
+  "name": "Horse hooves",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 0,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "hooves",
+  "parts": [
+    {
+      "id": "horse_hooves_surface",
+      "name": "Surface",
+      "surface": false,
+      "variants": [
+        {
+          "id": "horse_hooves_cobblestone",
+          "default": true,
+          "name": "Cobblestone",
+          "descriptors": [
+            "hooves-cobblestone",
+            "clopping",
+            "sharp"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "horse_hooves_wet_mud",
+          "default": false,
+          "name": "Wet mud",
+          "descriptors": [
+            "wet-mud",
+            "squelching",
+            "soft"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "horse_hooves_packed_road",
+          "default": false,
+          "name": "Packed road",
+          "descriptors": [
+            "packed-road",
+            "drumming",
+            "steady"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "horse_hooves_turf",
+          "default": false,
+          "name": "Turf",
+          "descriptors": [
+            "hooves-turf",
+            "muffled",
+            "soft"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "horse_hooves_gait",
+      "name": "Gait",
+      "surface": false,
+      "variants": [
+        {
+          "id": "horse_hooves_walk",
+          "default": true,
+          "name": "Walk",
+          "descriptors": [
+            "hooves-walk",
+            "ambling",
+            "even"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "horse_hooves_trot",
+          "default": false,
+          "name": "Trot",
+          "descriptors": [
+            "hooves-trot",
+            "rhythmic",
+            "two-beat"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "horse_hooves_canter",
+          "default": false,
+          "name": "Canter",
+          "descriptors": [
+            "hooves-canter",
+            "rolling",
+            "three-beat"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "horse_hooves_surface",
+      "name": "Surface",
+      "surface": false,
+      "variants": [
+        {
+          "id": "horse_hooves_cobblestone",
+          "default": true,
+          "name": "Cobblestone",
+          "descriptors": [
+            "hooves-cobblestone",
+            "clopping",
+            "sharp"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "horse_hooves_wet_mud",
+          "default": false,
+          "name": "Wet mud",
+          "descriptors": [
+            "wet-mud",
+            "squelching",
+            "soft"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "horse_hooves_packed_road",
+          "default": false,
+          "name": "Packed road",
+          "descriptors": [
+            "packed-road",
+            "drumming",
+            "steady"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "horse_hooves_turf",
+          "default": false,
+          "name": "Turf",
+          "descriptors": [
+            "hooves-turf",
+            "muffled",
+            "soft"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "horse_hooves_gait",
+      "name": "Gait",
+      "surface": false,
+      "variants": [
+        {
+          "id": "horse_hooves_walk",
+          "default": true,
+          "name": "Walk",
+          "descriptors": [
+            "hooves-walk",
+            "ambling",
+            "even"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "horse_hooves_trot",
+          "default": false,
+          "name": "Trot",
+          "descriptors": [
+            "hooves-trot",
+            "rhythmic",
+            "two-beat"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "horse_hooves_canter",
+          "default": false,
+          "name": "Canter",
+          "descriptors": [
+            "hooves-canter",
+            "rolling",
+            "three-beat"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    }
+  ]
+}

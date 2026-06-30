@@ -1,5 +1,5 @@
 {
-  "count": 463,
+  "count": 490,
   "items": [
     {
       "id": "choir_ensemble",
@@ -2778,6 +2778,168 @@
       "name": "Toy piano",
       "family": "keyboard",
       "href": "instruments/toy_piano.json"
+    },
+    {
+      "id": "pickaxe",
+      "name": "Pickaxe / mattock",
+      "family": "percussion",
+      "href": "instruments/pickaxe.json"
+    },
+    {
+      "id": "sledge_spike",
+      "name": "Sledgehammer on spike (steel-driving)",
+      "family": "percussion",
+      "href": "instruments/sledge_spike.json"
+    },
+    {
+      "id": "felling_axe",
+      "name": "Felling axe / maul",
+      "family": "percussion",
+      "href": "instruments/felling_axe.json"
+    },
+    {
+      "id": "work_hoe",
+      "name": "Hoe / adze chop",
+      "family": "percussion",
+      "href": "instruments/work_hoe.json"
+    },
+    {
+      "id": "stonemason_chisel",
+      "name": "Stonemason hammer & chisel",
+      "family": "percussion",
+      "href": "instruments/stonemason_chisel.json"
+    },
+    {
+      "id": "capstan_pawl",
+      "name": "Capstan pawl ratchet",
+      "family": "percussion",
+      "href": "instruments/capstan_pawl.json"
+    },
+    {
+      "id": "block_tackle",
+      "name": "Block-and-tackle creak",
+      "family": "percussion",
+      "href": "instruments/block_tackle.json"
+    },
+    {
+      "id": "oar_rowlock",
+      "name": "Oar in rowlock",
+      "family": "percussion",
+      "href": "instruments/oar_rowlock.json"
+    },
+    {
+      "id": "waulking_board",
+      "name": "Waulking / milling board",
+      "family": "percussion",
+      "href": "instruments/waulking_board.json"
+    },
+    {
+      "id": "quern_grindstone",
+      "name": "Quern / grinding stone",
+      "family": "percussion",
+      "href": "instruments/quern_grindstone.json"
+    },
+    {
+      "id": "mortar_pestle",
+      "name": "Mortar & pestle pound",
+      "family": "percussion",
+      "href": "instruments/mortar_pestle.json"
+    },
+    {
+      "id": "threshing_flail",
+      "name": "Threshing flail",
+      "family": "percussion",
+      "href": "instruments/threshing_flail.json"
+    },
+    {
+      "id": "butter_churn",
+      "name": "Butter churn",
+      "family": "percussion",
+      "href": "instruments/butter_churn.json"
+    },
+    {
+      "id": "laundry_beetle",
+      "name": "Laundry beetle / paddle",
+      "family": "percussion",
+      "href": "instruments/laundry_beetle.json"
+    },
+    {
+      "id": "loom_shuttle",
+      "name": "Loom (shuttle & beater)",
+      "family": "percussion",
+      "href": "instruments/loom_shuttle.json"
+    },
+    {
+      "id": "spinning_wheel",
+      "name": "Spinning wheel",
+      "family": "percussion",
+      "href": "instruments/spinning_wheel.json"
+    },
+    {
+      "id": "broom_sweep",
+      "name": "Broom sweep",
+      "family": "percussion",
+      "href": "instruments/broom_sweep.json"
+    },
+    {
+      "id": "whetstone",
+      "name": "Whetstone / scythe sharpening",
+      "family": "percussion",
+      "href": "instruments/whetstone.json"
+    },
+    {
+      "id": "marching_gang",
+      "name": "Marching / coffle gang tramp",
+      "family": "percussion",
+      "href": "instruments/marching_gang.json"
+    },
+    {
+      "id": "shackle_chains",
+      "name": "Shackle / leg-iron chains",
+      "family": "percussion",
+      "href": "instruments/shackle_chains.json"
+    },
+    {
+      "id": "horse_hooves",
+      "name": "Horse hooves",
+      "family": "percussion",
+      "href": "instruments/horse_hooves.json"
+    },
+    {
+      "id": "exertion_grunt",
+      "name": "Exertion grunt (axe-fall huh)",
+      "family": "voice",
+      "href": "instruments/exertion_grunt.json"
+    },
+    {
+      "id": "train_whistle",
+      "name": "Steam train whistle",
+      "family": "wind",
+      "href": "instruments/train_whistle.json"
+    },
+    {
+      "id": "steam_chuff",
+      "name": "Steam piston chuff",
+      "family": "percussion",
+      "href": "instruments/steam_chuff.json"
+    },
+    {
+      "id": "wheel_clatter",
+      "name": "Wheel-on-rail clatter",
+      "family": "percussion",
+      "href": "instruments/wheel_clatter.json"
+    },
+    {
+      "id": "foghorn",
+      "name": "Foghorn",
+      "family": "wind",
+      "href": "instruments/foghorn.json"
+    },
+    {
+      "id": "ships_bell",
+      "name": "Ship's / buoy bell",
+      "family": "percussion",
+      "href": "instruments/ships_bell.json"
     }
   ]
 }

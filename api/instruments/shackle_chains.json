@@ -1,0 +1,218 @@
+{
+  "id": "shackle_chains",
+  "name": "Shackle / leg-iron chains",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "shackles",
+  "parts": [
+    {
+      "id": "shackle_chains_type",
+      "name": "Chain",
+      "surface": false,
+      "variants": [
+        {
+          "id": "shackle_chains_leg_irons",
+          "default": true,
+          "name": "Leg irons",
+          "descriptors": [
+            "leg-irons",
+            "clanking",
+            "dragging"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "shackle_chains_wrist",
+          "default": false,
+          "name": "Wrist chains",
+          "descriptors": [
+            "chains-wrist",
+            "jangling",
+            "light"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "shackle_chains_ball",
+          "default": false,
+          "name": "Ball and chain",
+          "descriptors": [
+            "chains-ball",
+            "heavy",
+            "thudding"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shackle_chains_motion",
+      "name": "Motion",
+      "surface": false,
+      "variants": [
+        {
+          "id": "shackle_chains_walking",
+          "default": true,
+          "name": "Walking rhythm",
+          "descriptors": [
+            "chains-walking",
+            "shuffling",
+            "measured"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "shackle_chains_dragging",
+          "default": false,
+          "name": "Dragging",
+          "descriptors": [
+            "chains-dragging",
+            "scraping",
+            "laboured"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "shackle_chains_shaken",
+          "default": false,
+          "name": "Shaken",
+          "descriptors": [
+            "chains-shaken",
+            "rattling",
+            "sharp"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "shackle_chains_type",
+      "name": "Chain",
+      "surface": false,
+      "variants": [
+        {
+          "id": "shackle_chains_leg_irons",
+          "default": true,
+          "name": "Leg irons",
+          "descriptors": [
+            "leg-irons",
+            "clanking",
+            "dragging"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "shackle_chains_wrist",
+          "default": false,
+          "name": "Wrist chains",
+          "descriptors": [
+            "chains-wrist",
+            "jangling",
+            "light"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "shackle_chains_ball",
+          "default": false,
+          "name": "Ball and chain",
+          "descriptors": [
+            "chains-ball",
+            "heavy",
+            "thudding"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shackle_chains_motion",
+      "name": "Motion",
+      "surface": false,
+      "variants": [
+        {
+          "id": "shackle_chains_walking",
+          "default": true,
+          "name": "Walking rhythm",
+          "descriptors": [
+            "chains-walking",
+            "shuffling",
+            "measured"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "shackle_chains_dragging",
+          "default": false,
+          "name": "Dragging",
+          "descriptors": [
+            "chains-dragging",
+            "scraping",
+            "laboured"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "shackle_chains_shaken",
+          "default": false,
+          "name": "Shaken",
+          "descriptors": [
+            "chains-shaken",
+            "rattling",
+            "sharp"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    }
+  ]
+}

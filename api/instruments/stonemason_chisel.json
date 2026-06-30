@@ -1,0 +1,190 @@
+{
+  "id": "stonemason_chisel",
+  "name": "Stonemason hammer & chisel",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "chisel",
+  "parts": [
+    {
+      "id": "stonemason_chisel_stone",
+      "name": "Stone",
+      "surface": false,
+      "variants": [
+        {
+          "id": "stonemason_chisel_granite",
+          "default": true,
+          "name": "Granite",
+          "descriptors": [
+            "chisel-granite",
+            "ringing",
+            "hard"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "stonemason_chisel_marble",
+          "default": false,
+          "name": "Marble",
+          "descriptors": [
+            "chisel-marble",
+            "bright",
+            "crystalline"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "stonemason_chisel_sandstone",
+          "default": false,
+          "name": "Sandstone",
+          "descriptors": [
+            "chisel-sandstone",
+            "soft",
+            "gritty"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stonemason_chisel_stroke",
+      "name": "Stroke",
+      "surface": false,
+      "variants": [
+        {
+          "id": "stonemason_chisel_driving",
+          "default": true,
+          "name": "Driving blows",
+          "descriptors": [
+            "chisel-driving",
+            "forceful",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "stonemason_chisel_dressing",
+          "default": false,
+          "name": "Fine dressing",
+          "descriptors": [
+            "chisel-dressing",
+            "tapping",
+            "delicate"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "stonemason_chisel_stone",
+      "name": "Stone",
+      "surface": false,
+      "variants": [
+        {
+          "id": "stonemason_chisel_granite",
+          "default": true,
+          "name": "Granite",
+          "descriptors": [
+            "chisel-granite",
+            "ringing",
+            "hard"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "stonemason_chisel_marble",
+          "default": false,
+          "name": "Marble",
+          "descriptors": [
+            "chisel-marble",
+            "bright",
+            "crystalline"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "stonemason_chisel_sandstone",
+          "default": false,
+          "name": "Sandstone",
+          "descriptors": [
+            "chisel-sandstone",
+            "soft",
+            "gritty"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stonemason_chisel_stroke",
+      "name": "Stroke",
+      "surface": false,
+      "variants": [
+        {
+          "id": "stonemason_chisel_driving",
+          "default": true,
+          "name": "Driving blows",
+          "descriptors": [
+            "chisel-driving",
+            "forceful",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "stonemason_chisel_dressing",
+          "default": false,
+          "name": "Fine dressing",
+          "descriptors": [
+            "chisel-dressing",
+            "tapping",
+            "delicate"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    }
+  ]
+}

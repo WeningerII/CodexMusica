@@ -1,0 +1,190 @@
+{
+  "id": "whetstone",
+  "name": "Whetstone / scythe sharpening",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -2,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "whetstone",
+  "parts": [
+    {
+      "id": "whetstone_blade",
+      "name": "Blade",
+      "surface": false,
+      "variants": [
+        {
+          "id": "whetstone_scythe",
+          "default": true,
+          "name": "Scythe",
+          "descriptors": [
+            "whetstone-scythe",
+            "ringing",
+            "long"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "whetstone_knife",
+          "default": false,
+          "name": "Knife",
+          "descriptors": [
+            "whetstone-knife",
+            "quick",
+            "fine"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "whetstone_axe_head",
+          "default": false,
+          "name": "Axe head",
+          "descriptors": [
+            "axe-head",
+            "broad",
+            "rasping"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "whetstone_stroke",
+      "name": "Stroke",
+      "surface": false,
+      "variants": [
+        {
+          "id": "whetstone_long_draw",
+          "default": true,
+          "name": "Long draw",
+          "descriptors": [
+            "long-draw",
+            "sweeping",
+            "singing"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "whetstone_quick_hone",
+          "default": false,
+          "name": "Quick hone",
+          "descriptors": [
+            "quick-hone",
+            "rapid",
+            "scraping"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "whetstone_blade",
+      "name": "Blade",
+      "surface": false,
+      "variants": [
+        {
+          "id": "whetstone_scythe",
+          "default": true,
+          "name": "Scythe",
+          "descriptors": [
+            "whetstone-scythe",
+            "ringing",
+            "long"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "whetstone_knife",
+          "default": false,
+          "name": "Knife",
+          "descriptors": [
+            "whetstone-knife",
+            "quick",
+            "fine"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "whetstone_axe_head",
+          "default": false,
+          "name": "Axe head",
+          "descriptors": [
+            "axe-head",
+            "broad",
+            "rasping"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "whetstone_stroke",
+      "name": "Stroke",
+      "surface": false,
+      "variants": [
+        {
+          "id": "whetstone_long_draw",
+          "default": true,
+          "name": "Long draw",
+          "descriptors": [
+            "long-draw",
+            "sweeping",
+            "singing"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "whetstone_quick_hone",
+          "default": false,
+          "name": "Quick hone",
+          "descriptors": [
+            "quick-hone",
+            "rapid",
+            "scraping"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+{
+  "id": "exertion_grunt",
+  "name": "Exertion grunt (axe-fall huh)",
+  "family": "voice",
+  "class": "vocal_percussion",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": -1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "grunt",
+  "parts": [
+    {
+      "id": "exertion_grunt_effort",
+      "name": "Effort",
+      "surface": false,
+      "variants": [
+        {
+          "id": "exertion_grunt_axe_fall",
+          "default": true,
+          "name": "Axe-fall huh",
+          "descriptors": [
+            "axe-fall",
+            "explosive",
+            "downbeat"
+          ],
+          "match_tokens": [
+            "vocal-percussion",
+            "work-song"
+          ]
+        },
+        {
+          "id": "exertion_grunt_heaving_haul",
+          "default": false,
+          "name": "Heaving haul",
+          "descriptors": [
+            "heaving-haul",
+            "straining",
+            "sustained"
+          ],
+          "match_tokens": [
+            "vocal-percussion",
+            "work-song"
+          ]
+        },
+        {
+          "id": "exertion_grunt_rhythmic_pant",
+          "default": false,
+          "name": "Rhythmic pant",
+          "descriptors": [
+            "rhythmic-pant",
+            "breathy",
+            "driving"
+          ],
+          "match_tokens": [
+            "vocal-percussion",
+            "work-song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "exertion_grunt_voicing",
+      "name": "Voicing",
+      "surface": false,
+      "variants": [
+        {
+          "id": "exertion_grunt_single",
+          "default": true,
+          "name": "Single worker",
+          "descriptors": [
+            "grunt-single",
+            "lone",
+            "personal"
+          ],
+          "match_tokens": [
+            "vocal-percussion"
+          ]
+        },
+        {
+          "id": "exertion_grunt_gang_unison",
+          "default": false,
+          "name": "Gang unison",
+          "descriptors": [
+            "gang-unison",
+            "collective",
+            "massed"
+          ],
+          "match_tokens": [
+            "vocal-percussion"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "exertion_grunt_effort",
+      "name": "Effort",
+      "surface": false,
+      "variants": [
+        {
+          "id": "exertion_grunt_axe_fall",
+          "default": true,
+          "name": "Axe-fall huh",
+          "descriptors": [
+            "axe-fall",
+            "explosive",
+            "downbeat"
+          ],
+          "match_tokens": [
+            "vocal-percussion",
+            "work-song"
+          ]
+        },
+        {
+          "id": "exertion_grunt_heaving_haul",
+          "default": false,
+          "name": "Heaving haul",
+          "descriptors": [
+            "heaving-haul",
+            "straining",
+            "sustained"
+          ],
+          "match_tokens": [
+            "vocal-percussion",
+            "work-song"
+          ]
+        },
+        {
+          "id": "exertion_grunt_rhythmic_pant",
+          "default": false,
+          "name": "Rhythmic pant",
+          "descriptors": [
+            "rhythmic-pant",
+            "breathy",
+            "driving"
+          ],
+          "match_tokens": [
+            "vocal-percussion",
+            "work-song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "exertion_grunt_voicing",
+      "name": "Voicing",
+      "surface": false,
+      "variants": [
+        {
+          "id": "exertion_grunt_single",
+          "default": true,
+          "name": "Single worker",
+          "descriptors": [
+            "grunt-single",
+            "lone",
+            "personal"
+          ],
+          "match_tokens": [
+            "vocal-percussion"
+          ]
+        },
+        {
+          "id": "exertion_grunt_gang_unison",
+          "default": false,
+          "name": "Gang unison",
+          "descriptors": [
+            "gang-unison",
+            "collective",
+            "massed"
+          ],
+          "match_tokens": [
+            "vocal-percussion"
+          ]
+        }
+      ]
+    }
+  ]
+}

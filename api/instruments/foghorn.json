@@ -1,0 +1,186 @@
+{
+  "id": "foghorn",
+  "name": "Foghorn",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": -2,
+    "range": -2,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "foghorn",
+  "parts": [
+    {
+      "id": "foghorn_type",
+      "name": "Type",
+      "surface": false,
+      "variants": [
+        {
+          "id": "foghorn_diaphone",
+          "default": true,
+          "name": "Diaphone two-tone",
+          "descriptors": [
+            "foghorn-diaphone",
+            "groaning",
+            "grunt-ending"
+          ],
+          "match_tokens": [
+            "maritime",
+            "wind"
+          ]
+        },
+        {
+          "id": "foghorn_reed",
+          "default": false,
+          "name": "Reed horn",
+          "descriptors": [
+            "foghorn-reed",
+            "buzzing",
+            "nasal"
+          ],
+          "match_tokens": [
+            "maritime",
+            "wind"
+          ]
+        },
+        {
+          "id": "foghorn_steam_siren",
+          "default": false,
+          "name": "Steam siren",
+          "descriptors": [
+            "steam-siren",
+            "wailing",
+            "rising"
+          ],
+          "match_tokens": [
+            "maritime",
+            "wind"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "foghorn_blast",
+      "name": "Blast",
+      "surface": false,
+      "variants": [
+        {
+          "id": "foghorn_long_single",
+          "default": true,
+          "name": "Long single",
+          "descriptors": [
+            "long-single",
+            "sustained",
+            "lonely"
+          ],
+          "match_tokens": [
+            "maritime"
+          ]
+        },
+        {
+          "id": "foghorn_grouped",
+          "default": false,
+          "name": "Grouped blasts",
+          "descriptors": [
+            "foghorn-grouped",
+            "signalling",
+            "patterned"
+          ],
+          "match_tokens": [
+            "maritime"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "foghorn_type",
+      "name": "Type",
+      "surface": false,
+      "variants": [
+        {
+          "id": "foghorn_diaphone",
+          "default": true,
+          "name": "Diaphone two-tone",
+          "descriptors": [
+            "foghorn-diaphone",
+            "groaning",
+            "grunt-ending"
+          ],
+          "match_tokens": [
+            "maritime",
+            "wind"
+          ]
+        },
+        {
+          "id": "foghorn_reed",
+          "default": false,
+          "name": "Reed horn",
+          "descriptors": [
+            "foghorn-reed",
+            "buzzing",
+            "nasal"
+          ],
+          "match_tokens": [
+            "maritime",
+            "wind"
+          ]
+        },
+        {
+          "id": "foghorn_steam_siren",
+          "default": false,
+          "name": "Steam siren",
+          "descriptors": [
+            "steam-siren",
+            "wailing",
+            "rising"
+          ],
+          "match_tokens": [
+            "maritime",
+            "wind"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "foghorn_blast",
+      "name": "Blast",
+      "surface": false,
+      "variants": [
+        {
+          "id": "foghorn_long_single",
+          "default": true,
+          "name": "Long single",
+          "descriptors": [
+            "long-single",
+            "sustained",
+            "lonely"
+          ],
+          "match_tokens": [
+            "maritime"
+          ]
+        },
+        {
+          "id": "foghorn_grouped",
+          "default": false,
+          "name": "Grouped blasts",
+          "descriptors": [
+            "foghorn-grouped",
+            "signalling",
+            "patterned"
+          ],
+          "match_tokens": [
+            "maritime"
+          ]
+        }
+      ]
+    }
+  ]
+}

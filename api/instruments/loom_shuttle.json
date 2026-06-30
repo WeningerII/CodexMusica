@@ -1,0 +1,190 @@
+{
+  "id": "loom_shuttle",
+  "name": "Loom (shuttle & beater)",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "loom",
+  "parts": [
+    {
+      "id": "loom_shuttle_type",
+      "name": "Loom",
+      "surface": false,
+      "variants": [
+        {
+          "id": "loom_shuttle_handloom",
+          "default": true,
+          "name": "Handloom",
+          "descriptors": [
+            "shuttle-handloom",
+            "clacking",
+            "wooden"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "loom_shuttle_treadle",
+          "default": false,
+          "name": "Treadle loom",
+          "descriptors": [
+            "shuttle-treadle",
+            "rhythmic",
+            "pedaled"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "loom_shuttle_backstrap",
+          "default": false,
+          "name": "Backstrap",
+          "descriptors": [
+            "shuttle-backstrap",
+            "light",
+            "intimate"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "loom_shuttle_stroke",
+      "name": "Stroke",
+      "surface": false,
+      "variants": [
+        {
+          "id": "loom_shuttle_pass",
+          "default": true,
+          "name": "Shuttle pass",
+          "descriptors": [
+            "shuttle-pass",
+            "skittering",
+            "quick"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "loom_shuttle_beater_beat",
+          "default": false,
+          "name": "Beater beat",
+          "descriptors": [
+            "beater-beat",
+            "thwacking",
+            "firm"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "loom_shuttle_type",
+      "name": "Loom",
+      "surface": false,
+      "variants": [
+        {
+          "id": "loom_shuttle_handloom",
+          "default": true,
+          "name": "Handloom",
+          "descriptors": [
+            "shuttle-handloom",
+            "clacking",
+            "wooden"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "loom_shuttle_treadle",
+          "default": false,
+          "name": "Treadle loom",
+          "descriptors": [
+            "shuttle-treadle",
+            "rhythmic",
+            "pedaled"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "loom_shuttle_backstrap",
+          "default": false,
+          "name": "Backstrap",
+          "descriptors": [
+            "shuttle-backstrap",
+            "light",
+            "intimate"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "loom_shuttle_stroke",
+      "name": "Stroke",
+      "surface": false,
+      "variants": [
+        {
+          "id": "loom_shuttle_pass",
+          "default": true,
+          "name": "Shuttle pass",
+          "descriptors": [
+            "shuttle-pass",
+            "skittering",
+            "quick"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "loom_shuttle_beater_beat",
+          "default": false,
+          "name": "Beater beat",
+          "descriptors": [
+            "beater-beat",
+            "thwacking",
+            "firm"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    }
+  ]
+}

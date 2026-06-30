@@ -1,0 +1,162 @@
+{
+  "id": "block_tackle",
+  "name": "Block-and-tackle creak",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 0,
+    "range": -2,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "blocktackle",
+  "parts": [
+    {
+      "id": "block_tackle_line",
+      "name": "Line",
+      "surface": false,
+      "variants": [
+        {
+          "id": "block_tackle_tarred_hemp",
+          "default": true,
+          "name": "Tarred hemp",
+          "descriptors": [
+            "tarred-hemp",
+            "groaning",
+            "rough"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "block_tackle_manila",
+          "default": false,
+          "name": "Manila",
+          "descriptors": [
+            "tackle-manila",
+            "creaking",
+            "dry"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "block_tackle_load",
+      "name": "Load",
+      "surface": false,
+      "variants": [
+        {
+          "id": "block_tackle_steady_haul",
+          "default": true,
+          "name": "Steady haul",
+          "descriptors": [
+            "steady-haul",
+            "sustained",
+            "straining"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "block_tackle_jerking_swig",
+          "default": false,
+          "name": "Jerking swig",
+          "descriptors": [
+            "jerking-swig",
+            "lurching",
+            "sudden"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "block_tackle_line",
+      "name": "Line",
+      "surface": false,
+      "variants": [
+        {
+          "id": "block_tackle_tarred_hemp",
+          "default": true,
+          "name": "Tarred hemp",
+          "descriptors": [
+            "tarred-hemp",
+            "groaning",
+            "rough"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "block_tackle_manila",
+          "default": false,
+          "name": "Manila",
+          "descriptors": [
+            "tackle-manila",
+            "creaking",
+            "dry"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "block_tackle_load",
+      "name": "Load",
+      "surface": false,
+      "variants": [
+        {
+          "id": "block_tackle_steady_haul",
+          "default": true,
+          "name": "Steady haul",
+          "descriptors": [
+            "steady-haul",
+            "sustained",
+            "straining"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "block_tackle_jerking_swig",
+          "default": false,
+          "name": "Jerking swig",
+          "descriptors": [
+            "jerking-swig",
+            "lurching",
+            "sudden"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    }
+  ]
+}

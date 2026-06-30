@@ -16474,6 +16474,2745 @@ INSTRUMENTS.push({
         ]
       }
     ]
+  },
+  {
+    "id": "pickaxe",
+    "name": "Pickaxe / mattock",
+    "family": "percussion",
+    "class": "idiophone",
+    "axes": {
+      "pitchFix": -2,
+      "sustain": -2,
+      "polyphony": -2,
+      "harmonicity": -2,
+      "register": -1,
+      "range": -2,
+      "articulation": 2,
+      "transduction": -2,
+      "dynamics": 2
+    },
+    "short": "pickaxe",
+    "parts": [
+      {
+        "id": "pickaxe_surface",
+        "name": "Struck surface",
+        "surface": false,
+        "variants": [
+          {
+            "id": "pickaxe_limestone",
+            "default": true,
+            "name": "Limestone",
+            "descriptors": [
+              "pickaxe-limestone",
+              "ringing",
+              "quarry"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "pickaxe_granite",
+            "default": false,
+            "name": "Granite",
+            "descriptors": [
+              "pickaxe-granite",
+              "hard",
+              "sharp"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "pickaxe_compacted_earth",
+            "default": false,
+            "name": "Compacted earth",
+            "descriptors": [
+              "compacted-earth",
+              "dull",
+              "thudding"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "pickaxe_scree_gravel",
+            "default": false,
+            "name": "Scree / gravel",
+            "descriptors": [
+              "scree-gravel",
+              "scattering",
+              "loose"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "pickaxe_tool",
+        "name": "Tool",
+        "surface": false,
+        "variants": [
+          {
+            "id": "pickaxe_pick_point",
+            "default": true,
+            "name": "Pick point",
+            "descriptors": [
+              "pick-point",
+              "pointed",
+              "biting"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "pickaxe_mattock_blade",
+            "default": false,
+            "name": "Mattock blade",
+            "descriptors": [
+              "mattock-blade",
+              "broad",
+              "chopping"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sledge_spike",
+    "name": "Sledgehammer on spike (steel-driving)",
+    "family": "percussion",
+    "class": "idiophone",
+    "axes": {
+      "pitchFix": -2,
+      "sustain": -2,
+      "polyphony": -2,
+      "harmonicity": -2,
+      "register": -1,
+      "range": -2,
+      "articulation": 2,
+      "transduction": -2,
+      "dynamics": 2
+    },
+    "short": "sledgespike",
+    "parts": [
+      {
+        "id": "sledge_spike_target",
+        "name": "Target",
+        "surface": false,
+        "variants": [
+          {
+            "id": "sledge_spike_steel_spike",
+            "default": true,
+            "name": "Steel spike",
+            "descriptors": [
+              "steel-spike",
+              "ringing",
+              "anvil-like"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "sledge_spike_rail_track",
+            "default": false,
+            "name": "Rail track",
+            "descriptors": [
+              "rail-track",
+              "clanging",
+              "metallic"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "sledge_spike_stone",
+            "default": false,
+            "name": "Stone",
+            "descriptors": [
+              "spike-stone",
+              "cracking",
+              "dull"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "sledge_spike_crew",
+        "name": "Crew",
+        "surface": false,
+        "variants": [
+          {
+            "id": "sledge_spike_single_jack",
+            "default": true,
+            "name": "Single-jack",
+            "descriptors": [
+              "single-jack",
+              "steady",
+              "lone"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "sledge_spike_double_jack",
+            "default": false,
+            "name": "Double-jack relay",
+            "descriptors": [
+              "double-jack",
+              "interlocking",
+              "driving"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "felling_axe",
+    "name": "Felling axe / maul",
+    "family": "percussion",
+    "class": "idiophone",
+    "axes": {
+      "pitchFix": -2,
+      "sustain": -2,
+      "polyphony": -2,
+      "harmonicity": -2,
+      "register": 0,
+      "range": -2,
+      "articulation": 2,
+      "transduction": -2,
+      "dynamics": 2
+    },
+    "short": "axe",
+    "parts": [
+      {
+        "id": "felling_axe_wood",
+        "name": "Timber",
+        "surface": false,
+        "variants": [
+          {
+            "id": "felling_axe_hardwood",
+            "default": true,
+            "name": "Hardwood log",
+            "descriptors": [
+              "axe-hardwood",
+              "solid",
+              "resonant"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "felling_axe_softwood",
+            "default": false,
+            "name": "Softwood",
+            "descriptors": [
+              "axe-softwood",
+              "splitting",
+              "bright"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "felling_axe_frozen",
+            "default": false,
+            "name": "Frozen timber",
+            "descriptors": [
+              "axe-frozen",
+              "cracking",
+              "brittle"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "felling_axe_stroke",
+        "name": "Stroke",
+        "surface": false,
+        "variants": [
+          {
+            "id": "felling_axe_full_overhead",
+            "default": true,
+            "name": "Full overhead",
+            "descriptors": [
+              "full-overhead",
+              "heavy",
+              "arcing"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "felling_axe_short_chop",
+            "default": false,
+            "name": "Short chop",
+            "descriptors": [
+              "short-chop",
+              "quick",
+              "biting"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "work_hoe",
+    "name": "Hoe / adze chop",
+    "family": "percussion",
+    "class": "idiophone",
+    "axes": {
+      "pitchFix": -2,
+      "sustain": -2,
+      "polyphony": -2,
+      "harmonicity": -2,
+      "register": 0,
+      "range": -2,
+      "articulation": 2,
+      "transduction": -2,
+      "dynamics": 1
+    },
+    "short": "hoe",
+    "parts": [
+      {
+        "id": "work_hoe_ground",
+        "name": "Ground",
+        "surface": false,
+        "variants": [
+          {
+            "id": "work_hoe_hard_clay",
+            "default": true,
+            "name": "Hard clay",
+            "descriptors": [
+              "hard-clay",
+              "thudding",
+              "packed"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "work_hoe_root_soil",
+            "default": false,
+            "name": "Root-packed soil",
+            "descriptors": [
+              "root-soil",
+              "tearing",
+              "fibrous"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "work_hoe_sand",
+            "default": false,
+            "name": "Sand",
+            "descriptors": [
+              "hoe-sand",
+              "soft",
+              "shushing"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "work_hoe_tool",
+        "name": "Tool",
+        "surface": false,
+        "variants": [
+          {
+            "id": "work_hoe_field_hoe",
+            "default": true,
+            "name": "Field hoe",
+            "descriptors": [
+              "field-hoe",
+              "chopping",
+              "flat"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "work_hoe_adze",
+            "default": false,
+            "name": "Adze",
+            "descriptors": [
+              "hoe-adze",
+              "scooping",
+              "curved"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "stonemason_chisel",
+    "name": "Stonemason hammer & chisel",
+    "family": "percussion",
+    "class": "idiophone",
+    "axes": {
+      "pitchFix": -2,
+      "sustain": -2,
+      "polyphony": -2,
+      "harmonicity": -2,
+      "register": 1,
+      "range": -2,
+      "articulation": 2,
+      "transduction": -2,
+      "dynamics": 0
+    },
+    "short": "chisel",
+    "parts": [
+      {
+        "id": "stonemason_chisel_stone",
+        "name": "Stone",
+        "surface": false,
+        "variants": [
+          {
+            "id": "stonemason_chisel_granite",
+            "default": true,
+            "name": "Granite",
+            "descriptors": [
+              "chisel-granite",
+              "ringing",
+              "hard"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "stonemason_chisel_marble",
+            "default": false,
+            "name": "Marble",
+            "descriptors": [
+              "chisel-marble",
+              "bright",
+              "crystalline"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "stonemason_chisel_sandstone",
+            "default": false,
+            "name": "Sandstone",
+            "descriptors": [
+              "chisel-sandstone",
+              "soft",
+              "gritty"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "stonemason_chisel_stroke",
+        "name": "Stroke",
+        "surface": false,
+        "variants": [
+          {
+            "id": "stonemason_chisel_driving",
+            "default": true,
+            "name": "Driving blows",
+            "descriptors": [
+              "chisel-driving",
+              "forceful",
+              "rhythmic"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "stonemason_chisel_dressing",
+            "default": false,
+            "name": "Fine dressing",
+            "descriptors": [
+              "chisel-dressing",
+              "tapping",
+              "delicate"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "capstan_pawl",
+    "name": "Capstan pawl ratchet",
+    "family": "percussion",
+    "class": "idiophone",
+    "axes": {
+      "pitchFix": -2,
+      "sustain": -2,
+      "polyphony": -2,
+      "harmonicity": -2,
+      "register": 0,
+      "range": -2,
+      "articulation": 2,
+      "transduction": -2,
+      "dynamics": 1
+    },
+    "short": "capstan",
+    "parts": [
+      {
+        "id": "capstan_pawl_mechanism",
+        "name": "Mechanism",
+        "surface": false,
+        "variants": [
+          {
+            "id": "capstan_pawl_iron",
+            "default": true,
+            "name": "Iron pawl",
+            "descriptors": [
+              "pawl-iron",
+              "clicking",
+              "ratcheting"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "capstan_pawl_wood_drumhead",
+            "default": false,
+            "name": "Wood drumhead",
+            "descriptors": [
+              "wood-drumhead",
+              "knocking",
+              "woody"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "capstan_pawl_pace",
+        "name": "Pace",
+        "surface": false,
+        "variants": [
+          {
+            "id": "capstan_pawl_heave_walk",
+            "default": true,
+            "name": "Heave-walk",
+            "descriptors": [
+              "heave-walk",
+              "plodding",
+              "steady"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "capstan_pawl_surge",
+            "default": false,
+            "name": "Surge",
+            "descriptors": [
+              "pawl-surge",
+              "quickening",
+              "urgent"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "block_tackle",
+    "name": "Block-and-tackle creak",
+    "family": "percussion",
+    "class": "idiophone",
+    "axes": {
+      "pitchFix": -2,
+      "sustain": 1,
+      "polyphony": -2,
+      "harmonicity": -2,
+      "register": 0,
+      "range": -2,
+      "articulation": 0,
+      "transduction": -2,
+      "dynamics": 0
+    },
+    "short": "blocktackle",
+    "parts": [
+      {
+        "id": "block_tackle_line",
+        "name": "Line",
+        "surface": false,
+        "variants": [
+          {
+            "id": "block_tackle_tarred_hemp",
+            "default": true,
+            "name": "Tarred hemp",
+            "descriptors": [
+              "tarred-hemp",
+              "groaning",
+              "rough"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "block_tackle_manila",
+            "default": false,
+            "name": "Manila",
+            "descriptors": [
+              "tackle-manila",
+              "creaking",
+              "dry"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "block_tackle_load",
+        "name": "Load",
+        "surface": false,
+        "variants": [
+          {
+            "id": "block_tackle_steady_haul",
+            "default": true,
+            "name": "Steady haul",
+            "descriptors": [
+              "steady-haul",
+              "sustained",
+              "straining"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "block_tackle_jerking_swig",
+            "default": false,
+            "name": "Jerking swig",
+            "descriptors": [
+              "jerking-swig",
+              "lurching",
+              "sudden"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "oar_rowlock",
+    "name": "Oar in rowlock",
+    "family": "percussion",
+    "class": "idiophone",
+    "axes": {
+      "pitchFix": -2,
+      "sustain": -2,
+      "polyphony": -2,
+      "harmonicity": -2,
+      "register": 0,
+      "range": -2,
+      "articulation": 2,
+      "transduction": -2,
+      "dynamics": 1
+    },
+    "short": "oar",
+    "parts": [
+      {
+        "id": "oar_rowlock_pivot",
+        "name": "Rowlock",
+        "surface": false,
+        "variants": [
+          {
+            "id": "oar_rowlock_thole_pin",
+            "default": true,
+            "name": "Wood thole-pin",
+            "descriptors": [
+              "thole-pin",
+              "knocking",
+              "woody"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "oar_rowlock_iron_oarlock",
+            "default": false,
+            "name": "Iron oarlock",
+            "descriptors": [
+              "iron-oarlock",
+              "clunking",
+              "metallic"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "oar_rowlock_stroke",
+        "name": "Stroke",
+        "surface": false,
+        "variants": [
+          {
+            "id": "oar_rowlock_long_pull",
+            "default": true,
+            "name": "Long pull",
+            "descriptors": [
+              "long-pull",
+              "heavy",
+              "measured"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "oar_rowlock_quick_stroke",
+            "default": false,
+            "name": "Quick stroke",
+            "descriptors": [
+              "quick-stroke",
+              "rapid",
+              "light"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "waulking_board",
+    "name": "Waulking / milling board",
+    "family": "percussion",
+    "class": "idiophone",
+    "axes": {
+      "pitchFix": -2,
+      "sustain": -2,
+      "polyphony": -2,
+      "harmonicity": -2,
+      "register": 0,
+      "range": -2,
+      "articulation": 2,
+      "transduction": -2,
+      "dynamics": 1
+    },
+    "short": "waulking",
+    "parts": [
+      {
+        "id": "waulking_board_cloth",
+        "name": "Cloth",
+        "surface": false,
+        "variants": [
+          {
+            "id": "waulking_board_wet_tweed",
+            "default": true,
+            "name": "Wet tweed",
+            "descriptors": [
+              "wet-tweed",
+              "sodden",
+              "slapping"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "waulking_board_heavy_wool",
+            "default": false,
+            "name": "Heavy wool",
+            "descriptors": [
+              "heavy-wool",
+              "thick",
+              "muffled"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "waulking_board_action",
+        "name": "Action",
+        "surface": false,
+        "variants": [
+          {
+            "id": "waulking_board_thump_down",
+            "default": true,
+            "name": "Thump down",
+            "descriptors": [
+              "thump-down",
+              "pounding",
+              "unison"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "waulking_board_rub_pass",
+            "default": false,
+            "name": "Rub-pass",
+            "descriptors": [
+              "rub-pass",
+              "scuffing",
+              "rotary"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "quern_grindstone",
+    "name": "Quern / grinding stone",
+    "family": "percussion",
+    "class": "idiophone",
+    "axes": {
+      "pitchFix": -2,
+      "sustain": 1,
+      "polyphony": -2,
+      "harmonicity": -2,
+      "register": -1,
+      "range": -2,
+      "articulation": 0,
+      "transduction": -2,
+      "dynamics": 0
+    },
+    "short": "quern",
+    "parts": [
+      {
+        "id": "quern_grindstone_stone",
+        "name": "Stone",
+        "surface": false,
+        "variants": [
+          {
+            "id": "quern_grindstone_granite",
+            "default": true,
+            "name": "Granite quern",
+            "descriptors": [
+              "grindstone-granite",
+              "rumbling",
+              "gritty"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "quern_grindstone_saddle",
+            "default": false,
+            "name": "Sandstone saddle",
+            "descriptors": [
+              "grindstone-saddle",
+              "scraping",
+              "coarse"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "quern_grindstone_grain",
+        "name": "Grain",
+        "surface": false,
+        "variants": [
+          {
+            "id": "quern_grindstone_dry_grain",
+            "default": true,
+            "name": "Dry grain",
+            "descriptors": [
+              "dry-grain",
+              "rasping",
+              "husky"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "quern_grindstone_damp_mash",
+            "default": false,
+            "name": "Damp mash",
+            "descriptors": [
+              "damp-mash",
+              "squelching",
+              "heavy"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "mortar_pestle",
+    "name": "Mortar & pestle pound",
+    "family": "percussion",
+    "class": "idiophone",
+    "axes": {
+      "pitchFix": -2,
+      "sustain": -2,
+      "polyphony": -2,
+      "harmonicity": -2,
+      "register": -1,
+      "range": -2,
+      "articulation": 2,
+      "transduction": -2,
+      "dynamics": 2
+    },
+    "short": "pestle",
+    "parts": [
+      {
+        "id": "mortar_pestle_vessel",
+        "name": "Mortar",
+        "surface": false,
+        "variants": [
+          {
+            "id": "mortar_pestle_wood",
+            "default": true,
+            "name": "Wood mortar",
+            "descriptors": [
+              "pestle-wood",
+              "booming",
+              "hollow"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "mortar_pestle_stone",
+            "default": false,
+            "name": "Stone mortar",
+            "descriptors": [
+              "pestle-stone",
+              "knocking",
+              "hard"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "mortar_pestle_content",
+        "name": "Content",
+        "surface": false,
+        "variants": [
+          {
+            "id": "mortar_pestle_grain",
+            "default": true,
+            "name": "Grain",
+            "descriptors": [
+              "pestle-grain",
+              "crushing",
+              "dry"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "mortar_pestle_fufu",
+            "default": false,
+            "name": "Fufu / starch",
+            "descriptors": [
+              "pestle-fufu",
+              "squelching",
+              "sticky"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "mortar_pestle_spice",
+            "default": false,
+            "name": "Dry spice",
+            "descriptors": [
+              "pestle-spice",
+              "cracking",
+              "brittle"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "threshing_flail",
+    "name": "Threshing flail",
+    "family": "percussion",
+    "class": "idiophone",
+    "axes": {
+      "pitchFix": -2,
+      "sustain": -2,
+      "polyphony": -2,
+      "harmonicity": -2,
+      "register": 0,
+      "range": -2,
+      "articulation": 2,
+      "transduction": -2,
+      "dynamics": 1
+    },
+    "short": "flail",
+    "parts": [
+      {
+        "id": "threshing_flail_floor",
+        "name": "Floor",
+        "surface": false,
+        "variants": [
+          {
+            "id": "threshing_flail_wood",
+            "default": true,
+            "name": "Threshing floor (wood)",
+            "descriptors": [
+              "flail-wood",
+              "booming",
+              "resonant"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "threshing_flail_earth",
+            "default": false,
+            "name": "Packed earth",
+            "descriptors": [
+              "flail-earth",
+              "dull",
+              "soft"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "threshing_flail_stone",
+            "default": false,
+            "name": "Stone",
+            "descriptors": [
+              "flail-stone",
+              "cracking",
+              "hard"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "threshing_flail_crew",
+        "name": "Crew",
+        "surface": false,
+        "variants": [
+          {
+            "id": "threshing_flail_single",
+            "default": true,
+            "name": "Single",
+            "descriptors": [
+              "flail-single",
+              "steady",
+              "lone"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "threshing_flail_pair",
+            "default": false,
+            "name": "Alternating pair",
+            "descriptors": [
+              "flail-pair",
+              "interlocking",
+              "rolling"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "butter_churn",
+    "name": "Butter churn",
+    "family": "percussion",
+    "class": "idiophone",
+    "axes": {
+      "pitchFix": -2,
+      "sustain": -2,
+      "polyphony": -2,
+      "harmonicity": -2,
+      "register": 0,
+      "range": -2,
+      "articulation": 2,
+      "transduction": -2,
+      "dynamics": 0
+    },
+    "short": "churn",
+    "parts": [
+      {
+        "id": "butter_churn_type",
+        "name": "Type",
+        "surface": false,
+        "variants": [
+          {
+            "id": "butter_churn_dash",
+            "default": true,
+            "name": "Dash churn",
+            "descriptors": [
+              "churn-dash",
+              "plunging",
+              "rhythmic"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "butter_churn_barrel",
+            "default": false,
+            "name": "Barrel churn",
+            "descriptors": [
+              "churn-barrel",
+              "rolling",
+              "sloshing"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "butter_churn_stage",
+        "name": "Stage",
+        "surface": false,
+        "variants": [
+          {
+            "id": "butter_churn_thin_slosh",
+            "default": true,
+            "name": "Thin slosh",
+            "descriptors": [
+              "thin-slosh",
+              "liquid",
+              "splashing"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "butter_churn_thick_clump",
+            "default": false,
+            "name": "Thick clump",
+            "descriptors": [
+              "thick-clump",
+              "dense",
+              "thudding"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "laundry_beetle",
+    "name": "Laundry beetle / paddle",
+    "family": "percussion",
+    "class": "idiophone",
+    "axes": {
+      "pitchFix": -2,
+      "sustain": -2,
+      "polyphony": -2,
+      "harmonicity": -2,
+      "register": 0,
+      "range": -2,
+      "articulation": 2,
+      "transduction": -2,
+      "dynamics": 1
+    },
+    "short": "beetle",
+    "parts": [
+      {
+        "id": "laundry_beetle_surface",
+        "name": "Surface",
+        "surface": false,
+        "variants": [
+          {
+            "id": "laundry_beetle_stone",
+            "default": true,
+            "name": "Wet cloth on stone",
+            "descriptors": [
+              "beetle-stone",
+              "slapping",
+              "wet"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "laundry_beetle_wood_board",
+            "default": false,
+            "name": "Wash-board wood",
+            "descriptors": [
+              "wood-board",
+              "knocking",
+              "woody"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "laundry_beetle_river_rock",
+            "default": false,
+            "name": "River rock",
+            "descriptors": [
+              "river-rock",
+              "echoing",
+              "open"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "laundry_beetle_tool",
+        "name": "Tool",
+        "surface": false,
+        "variants": [
+          {
+            "id": "laundry_beetle_wooden",
+            "default": true,
+            "name": "Wooden beetle",
+            "descriptors": [
+              "beetle-wooden",
+              "heavy",
+              "thudding"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "laundry_beetle_flat_paddle",
+            "default": false,
+            "name": "Flat paddle",
+            "descriptors": [
+              "flat-paddle",
+              "flapping",
+              "broad"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "loom_shuttle",
+    "name": "Loom (shuttle & beater)",
+    "family": "percussion",
+    "class": "idiophone",
+    "axes": {
+      "pitchFix": -2,
+      "sustain": -2,
+      "polyphony": -2,
+      "harmonicity": -2,
+      "register": 1,
+      "range": -2,
+      "articulation": 2,
+      "transduction": -2,
+      "dynamics": 0
+    },
+    "short": "loom",
+    "parts": [
+      {
+        "id": "loom_shuttle_type",
+        "name": "Loom",
+        "surface": false,
+        "variants": [
+          {
+            "id": "loom_shuttle_handloom",
+            "default": true,
+            "name": "Handloom",
+            "descriptors": [
+              "shuttle-handloom",
+              "clacking",
+              "wooden"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "loom_shuttle_treadle",
+            "default": false,
+            "name": "Treadle loom",
+            "descriptors": [
+              "shuttle-treadle",
+              "rhythmic",
+              "pedaled"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "loom_shuttle_backstrap",
+            "default": false,
+            "name": "Backstrap",
+            "descriptors": [
+              "shuttle-backstrap",
+              "light",
+              "intimate"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "loom_shuttle_stroke",
+        "name": "Stroke",
+        "surface": false,
+        "variants": [
+          {
+            "id": "loom_shuttle_pass",
+            "default": true,
+            "name": "Shuttle pass",
+            "descriptors": [
+              "shuttle-pass",
+              "skittering",
+              "quick"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "loom_shuttle_beater_beat",
+            "default": false,
+            "name": "Beater beat",
+            "descriptors": [
+              "beater-beat",
+              "thwacking",
+              "firm"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "spinning_wheel",
+    "name": "Spinning wheel",
+    "family": "percussion",
+    "class": "idiophone",
+    "axes": {
+      "pitchFix": -2,
+      "sustain": 1,
+      "polyphony": -2,
+      "harmonicity": -2,
+      "register": 1,
+      "range": -2,
+      "articulation": 0,
+      "transduction": -2,
+      "dynamics": -1
+    },
+    "short": "spinningwheel",
+    "parts": [
+      {
+        "id": "spinning_wheel_type",
+        "name": "Type",
+        "surface": false,
+        "variants": [
+          {
+            "id": "spinning_wheel_treadle",
+            "default": true,
+            "name": "Treadle wheel",
+            "descriptors": [
+              "wheel-treadle",
+              "whirring",
+              "steady"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "spinning_wheel_great_wheel",
+            "default": false,
+            "name": "Great walking wheel",
+            "descriptors": [
+              "great-wheel",
+              "humming",
+              "large"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "spinning_wheel_sound",
+        "name": "Sound",
+        "surface": false,
+        "variants": [
+          {
+            "id": "spinning_wheel_steady_whir",
+            "default": true,
+            "name": "Steady whir",
+            "descriptors": [
+              "steady-whir",
+              "continuous",
+              "soft"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "spinning_wheel_treadle_knock",
+            "default": false,
+            "name": "Treadle knock",
+            "descriptors": [
+              "treadle-knock",
+              "ticking",
+              "mechanical"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "broom_sweep",
+    "name": "Broom sweep",
+    "family": "percussion",
+    "class": "idiophone",
+    "axes": {
+      "pitchFix": -2,
+      "sustain": 0,
+      "polyphony": -2,
+      "harmonicity": -2,
+      "register": 1,
+      "range": -2,
+      "articulation": 0,
+      "transduction": -2,
+      "dynamics": -1
+    },
+    "short": "broom",
+    "parts": [
+      {
+        "id": "broom_sweep_bristle",
+        "name": "Bristle",
+        "surface": false,
+        "variants": [
+          {
+            "id": "broom_sweep_straw",
+            "default": true,
+            "name": "Straw broom",
+            "descriptors": [
+              "sweep-straw",
+              "swishing",
+              "soft"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "broom_sweep_besom",
+            "default": false,
+            "name": "Twig besom",
+            "descriptors": [
+              "sweep-besom",
+              "scratchy",
+              "coarse"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "broom_sweep_synthetic",
+            "default": false,
+            "name": "Stiff synthetic",
+            "descriptors": [
+              "sweep-synthetic",
+              "scrubbing",
+              "sharp"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "broom_sweep_floor",
+        "name": "Floor",
+        "surface": false,
+        "variants": [
+          {
+            "id": "broom_sweep_wood_plank",
+            "default": true,
+            "name": "Wood plank",
+            "descriptors": [
+              "wood-plank",
+              "hollow",
+              "resonant"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "broom_sweep_stone_flag",
+            "default": false,
+            "name": "Stone flag",
+            "descriptors": [
+              "stone-flag",
+              "gritty",
+              "dry"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "broom_sweep_packed_earth",
+            "default": false,
+            "name": "Packed earth",
+            "descriptors": [
+              "packed-earth",
+              "dusty",
+              "muffled"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "whetstone",
+    "name": "Whetstone / scythe sharpening",
+    "family": "percussion",
+    "class": "idiophone",
+    "axes": {
+      "pitchFix": -2,
+      "sustain": 0,
+      "polyphony": -2,
+      "harmonicity": -2,
+      "register": 1,
+      "range": -2,
+      "articulation": 0,
+      "transduction": -2,
+      "dynamics": -1
+    },
+    "short": "whetstone",
+    "parts": [
+      {
+        "id": "whetstone_blade",
+        "name": "Blade",
+        "surface": false,
+        "variants": [
+          {
+            "id": "whetstone_scythe",
+            "default": true,
+            "name": "Scythe",
+            "descriptors": [
+              "whetstone-scythe",
+              "ringing",
+              "long"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "whetstone_knife",
+            "default": false,
+            "name": "Knife",
+            "descriptors": [
+              "whetstone-knife",
+              "quick",
+              "fine"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "whetstone_axe_head",
+            "default": false,
+            "name": "Axe head",
+            "descriptors": [
+              "axe-head",
+              "broad",
+              "rasping"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "whetstone_stroke",
+        "name": "Stroke",
+        "surface": false,
+        "variants": [
+          {
+            "id": "whetstone_long_draw",
+            "default": true,
+            "name": "Long draw",
+            "descriptors": [
+              "long-draw",
+              "sweeping",
+              "singing"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "whetstone_quick_hone",
+            "default": false,
+            "name": "Quick hone",
+            "descriptors": [
+              "quick-hone",
+              "rapid",
+              "scraping"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "marching_gang",
+    "name": "Marching / coffle gang tramp",
+    "family": "percussion",
+    "class": "foot_percussion",
+    "axes": {
+      "pitchFix": -2,
+      "sustain": -2,
+      "polyphony": -2,
+      "harmonicity": -2,
+      "register": -1,
+      "range": -2,
+      "articulation": 2,
+      "transduction": -2,
+      "dynamics": 2
+    },
+    "short": "marchgang",
+    "parts": [
+      {
+        "id": "marching_gang_surface",
+        "name": "Surface",
+        "surface": false,
+        "variants": [
+          {
+            "id": "marching_gang_gravel",
+            "default": true,
+            "name": "Gravel",
+            "descriptors": [
+              "gang-gravel",
+              "crunching",
+              "massed"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "marching_gang_packed_earth",
+            "default": false,
+            "name": "Packed earth",
+            "descriptors": [
+              "packed-earth",
+              "thudding",
+              "dull"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "marching_gang_mud",
+            "default": false,
+            "name": "Mud",
+            "descriptors": [
+              "gang-mud",
+              "squelching",
+              "heavy"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "marching_gang_cobblestone",
+            "default": false,
+            "name": "Cobblestone",
+            "descriptors": [
+              "gang-cobblestone",
+              "clattering",
+              "hard"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "marching_gang_footwear",
+        "name": "Footwear",
+        "surface": false,
+        "variants": [
+          {
+            "id": "marching_gang_heavy_boots",
+            "default": true,
+            "name": "Heavy boots",
+            "descriptors": [
+              "heavy-boots",
+              "stamping",
+              "unison"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "marching_gang_bare_feet",
+            "default": false,
+            "name": "Bare feet",
+            "descriptors": [
+              "bare-feet",
+              "slapping",
+              "soft"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "marching_gang_work_shoes",
+            "default": false,
+            "name": "Work shoes",
+            "descriptors": [
+              "work-shoes",
+              "shuffling",
+              "worn"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "shackle_chains",
+    "name": "Shackle / leg-iron chains",
+    "family": "percussion",
+    "class": "idiophone",
+    "axes": {
+      "pitchFix": -2,
+      "sustain": -2,
+      "polyphony": -2,
+      "harmonicity": -2,
+      "register": 1,
+      "range": -2,
+      "articulation": 2,
+      "transduction": -2,
+      "dynamics": 1
+    },
+    "short": "shackles",
+    "parts": [
+      {
+        "id": "shackle_chains_type",
+        "name": "Chain",
+        "surface": false,
+        "variants": [
+          {
+            "id": "shackle_chains_leg_irons",
+            "default": true,
+            "name": "Leg irons",
+            "descriptors": [
+              "leg-irons",
+              "clanking",
+              "dragging"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "shackle_chains_wrist",
+            "default": false,
+            "name": "Wrist chains",
+            "descriptors": [
+              "chains-wrist",
+              "jangling",
+              "light"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "shackle_chains_ball",
+            "default": false,
+            "name": "Ball and chain",
+            "descriptors": [
+              "chains-ball",
+              "heavy",
+              "thudding"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "shackle_chains_motion",
+        "name": "Motion",
+        "surface": false,
+        "variants": [
+          {
+            "id": "shackle_chains_walking",
+            "default": true,
+            "name": "Walking rhythm",
+            "descriptors": [
+              "chains-walking",
+              "shuffling",
+              "measured"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "shackle_chains_dragging",
+            "default": false,
+            "name": "Dragging",
+            "descriptors": [
+              "chains-dragging",
+              "scraping",
+              "laboured"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "shackle_chains_shaken",
+            "default": false,
+            "name": "Shaken",
+            "descriptors": [
+              "chains-shaken",
+              "rattling",
+              "sharp"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "horse_hooves",
+    "name": "Horse hooves",
+    "family": "percussion",
+    "class": "idiophone",
+    "axes": {
+      "pitchFix": -2,
+      "sustain": -2,
+      "polyphony": -2,
+      "harmonicity": -2,
+      "register": 0,
+      "range": -2,
+      "articulation": 2,
+      "transduction": -2,
+      "dynamics": 1
+    },
+    "short": "hooves",
+    "parts": [
+      {
+        "id": "horse_hooves_surface",
+        "name": "Surface",
+        "surface": false,
+        "variants": [
+          {
+            "id": "horse_hooves_cobblestone",
+            "default": true,
+            "name": "Cobblestone",
+            "descriptors": [
+              "hooves-cobblestone",
+              "clopping",
+              "sharp"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "horse_hooves_wet_mud",
+            "default": false,
+            "name": "Wet mud",
+            "descriptors": [
+              "wet-mud",
+              "squelching",
+              "soft"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "horse_hooves_packed_road",
+            "default": false,
+            "name": "Packed road",
+            "descriptors": [
+              "packed-road",
+              "drumming",
+              "steady"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "horse_hooves_turf",
+            "default": false,
+            "name": "Turf",
+            "descriptors": [
+              "hooves-turf",
+              "muffled",
+              "soft"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "horse_hooves_gait",
+        "name": "Gait",
+        "surface": false,
+        "variants": [
+          {
+            "id": "horse_hooves_walk",
+            "default": true,
+            "name": "Walk",
+            "descriptors": [
+              "hooves-walk",
+              "ambling",
+              "even"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "horse_hooves_trot",
+            "default": false,
+            "name": "Trot",
+            "descriptors": [
+              "hooves-trot",
+              "rhythmic",
+              "two-beat"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          },
+          {
+            "id": "horse_hooves_canter",
+            "default": false,
+            "name": "Canter",
+            "descriptors": [
+              "hooves-canter",
+              "rolling",
+              "three-beat"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "work-song"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "exertion_grunt",
+    "name": "Exertion grunt (axe-fall huh)",
+    "family": "voice",
+    "class": "vocal_percussion",
+    "axes": {
+      "pitchFix": -2,
+      "sustain": -1,
+      "polyphony": -2,
+      "harmonicity": -2,
+      "register": -1,
+      "range": -2,
+      "articulation": 2,
+      "transduction": -2,
+      "dynamics": 1
+    },
+    "short": "grunt",
+    "parts": [
+      {
+        "id": "exertion_grunt_effort",
+        "name": "Effort",
+        "surface": false,
+        "variants": [
+          {
+            "id": "exertion_grunt_axe_fall",
+            "default": true,
+            "name": "Axe-fall huh",
+            "descriptors": [
+              "axe-fall",
+              "explosive",
+              "downbeat"
+            ],
+            "match_tokens": [
+              "vocal-percussion",
+              "work-song"
+            ]
+          },
+          {
+            "id": "exertion_grunt_heaving_haul",
+            "default": false,
+            "name": "Heaving haul",
+            "descriptors": [
+              "heaving-haul",
+              "straining",
+              "sustained"
+            ],
+            "match_tokens": [
+              "vocal-percussion",
+              "work-song"
+            ]
+          },
+          {
+            "id": "exertion_grunt_rhythmic_pant",
+            "default": false,
+            "name": "Rhythmic pant",
+            "descriptors": [
+              "rhythmic-pant",
+              "breathy",
+              "driving"
+            ],
+            "match_tokens": [
+              "vocal-percussion",
+              "work-song"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "exertion_grunt_voicing",
+        "name": "Voicing",
+        "surface": false,
+        "variants": [
+          {
+            "id": "exertion_grunt_single",
+            "default": true,
+            "name": "Single worker",
+            "descriptors": [
+              "grunt-single",
+              "lone",
+              "personal"
+            ],
+            "match_tokens": [
+              "vocal-percussion"
+            ]
+          },
+          {
+            "id": "exertion_grunt_gang_unison",
+            "default": false,
+            "name": "Gang unison",
+            "descriptors": [
+              "gang-unison",
+              "collective",
+              "massed"
+            ],
+            "match_tokens": [
+              "vocal-percussion"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "train_whistle",
+    "name": "Steam train whistle",
+    "family": "wind",
+    "class": "wind_blown",
+    "axes": {
+      "pitchFix": 0,
+      "sustain": 2,
+      "polyphony": 0,
+      "harmonicity": -1,
+      "register": 1,
+      "range": -1,
+      "articulation": 0,
+      "transduction": -2,
+      "dynamics": 2
+    },
+    "short": "trainwhistle",
+    "parts": [
+      {
+        "id": "train_whistle_type",
+        "name": "Type",
+        "surface": false,
+        "variants": [
+          {
+            "id": "train_whistle_multi_chime",
+            "default": true,
+            "name": "Multi-chime steam",
+            "descriptors": [
+              "multi-chime",
+              "chordal",
+              "mournful"
+            ],
+            "match_tokens": [
+              "industrial",
+              "wind"
+            ]
+          },
+          {
+            "id": "train_whistle_peanut",
+            "default": false,
+            "name": "Single-note peanut",
+            "descriptors": [
+              "whistle-peanut",
+              "shrill",
+              "plain"
+            ],
+            "match_tokens": [
+              "industrial",
+              "wind"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "train_whistle_articulation",
+        "name": "Articulation",
+        "surface": false,
+        "variants": [
+          {
+            "id": "train_whistle_long_wail",
+            "default": true,
+            "name": "Long wail",
+            "descriptors": [
+              "long-wail",
+              "sustained",
+              "fading"
+            ],
+            "match_tokens": [
+              "industrial",
+              "wind"
+            ]
+          },
+          {
+            "id": "train_whistle_short_signal",
+            "default": false,
+            "name": "Short signal",
+            "descriptors": [
+              "short-signal",
+              "clipped",
+              "urgent"
+            ],
+            "match_tokens": [
+              "industrial",
+              "wind"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "steam_chuff",
+    "name": "Steam piston chuff",
+    "family": "percussion",
+    "class": "idiophone",
+    "axes": {
+      "pitchFix": -2,
+      "sustain": -2,
+      "polyphony": -2,
+      "harmonicity": -2,
+      "register": -1,
+      "range": -2,
+      "articulation": 2,
+      "transduction": -2,
+      "dynamics": 1
+    },
+    "short": "chuff",
+    "parts": [
+      {
+        "id": "steam_chuff_pace",
+        "name": "Pace",
+        "surface": false,
+        "variants": [
+          {
+            "id": "steam_chuff_slow_start",
+            "default": true,
+            "name": "Slow start",
+            "descriptors": [
+              "slow-start",
+              "labouring",
+              "spaced"
+            ],
+            "match_tokens": [
+              "industrial",
+              "work-song"
+            ]
+          },
+          {
+            "id": "steam_chuff_running",
+            "default": false,
+            "name": "Running rhythm",
+            "descriptors": [
+              "chuff-running",
+              "rolling",
+              "driving"
+            ],
+            "match_tokens": [
+              "industrial",
+              "work-song"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "steam_chuff_load",
+        "name": "Load",
+        "surface": false,
+        "variants": [
+          {
+            "id": "steam_chuff_light",
+            "default": true,
+            "name": "Light",
+            "descriptors": [
+              "chuff-light",
+              "easy",
+              "crisp"
+            ],
+            "match_tokens": [
+              "industrial"
+            ]
+          },
+          {
+            "id": "steam_chuff_heavy",
+            "default": false,
+            "name": "Heavy pull",
+            "descriptors": [
+              "chuff-heavy",
+              "straining",
+              "deep"
+            ],
+            "match_tokens": [
+              "industrial"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "wheel_clatter",
+    "name": "Wheel-on-rail clatter",
+    "family": "percussion",
+    "class": "idiophone",
+    "axes": {
+      "pitchFix": -2,
+      "sustain": -2,
+      "polyphony": -2,
+      "harmonicity": -2,
+      "register": -1,
+      "range": -2,
+      "articulation": 2,
+      "transduction": -2,
+      "dynamics": 1
+    },
+    "short": "railclatter",
+    "parts": [
+      {
+        "id": "wheel_clatter_joint",
+        "name": "Joint",
+        "surface": false,
+        "variants": [
+          {
+            "id": "wheel_clatter_jointed_rail",
+            "default": true,
+            "name": "Jointed-rail clack",
+            "descriptors": [
+              "jointed-rail",
+              "clacking",
+              "periodic"
+            ],
+            "match_tokens": [
+              "industrial",
+              "work-song"
+            ]
+          },
+          {
+            "id": "wheel_clatter_points",
+            "default": false,
+            "name": "Points / crossing",
+            "descriptors": [
+              "clatter-points",
+              "jolting",
+              "irregular"
+            ],
+            "match_tokens": [
+              "industrial"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "wheel_clatter_speed",
+        "name": "Speed",
+        "surface": false,
+        "variants": [
+          {
+            "id": "wheel_clatter_slow_roll",
+            "default": true,
+            "name": "Slow roll",
+            "descriptors": [
+              "slow-roll",
+              "measured",
+              "heavy"
+            ],
+            "match_tokens": [
+              "industrial"
+            ]
+          },
+          {
+            "id": "wheel_clatter_fast_run",
+            "default": false,
+            "name": "Fast run",
+            "descriptors": [
+              "fast-run",
+              "racing",
+              "blurring"
+            ],
+            "match_tokens": [
+              "industrial"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "foghorn",
+    "name": "Foghorn",
+    "family": "wind",
+    "class": "wind_blown",
+    "axes": {
+      "pitchFix": -1,
+      "sustain": 2,
+      "polyphony": -2,
+      "harmonicity": 0,
+      "register": -2,
+      "range": -2,
+      "articulation": 0,
+      "transduction": -2,
+      "dynamics": 2
+    },
+    "short": "foghorn",
+    "parts": [
+      {
+        "id": "foghorn_type",
+        "name": "Type",
+        "surface": false,
+        "variants": [
+          {
+            "id": "foghorn_diaphone",
+            "default": true,
+            "name": "Diaphone two-tone",
+            "descriptors": [
+              "foghorn-diaphone",
+              "groaning",
+              "grunt-ending"
+            ],
+            "match_tokens": [
+              "maritime",
+              "wind"
+            ]
+          },
+          {
+            "id": "foghorn_reed",
+            "default": false,
+            "name": "Reed horn",
+            "descriptors": [
+              "foghorn-reed",
+              "buzzing",
+              "nasal"
+            ],
+            "match_tokens": [
+              "maritime",
+              "wind"
+            ]
+          },
+          {
+            "id": "foghorn_steam_siren",
+            "default": false,
+            "name": "Steam siren",
+            "descriptors": [
+              "steam-siren",
+              "wailing",
+              "rising"
+            ],
+            "match_tokens": [
+              "maritime",
+              "wind"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "foghorn_blast",
+        "name": "Blast",
+        "surface": false,
+        "variants": [
+          {
+            "id": "foghorn_long_single",
+            "default": true,
+            "name": "Long single",
+            "descriptors": [
+              "long-single",
+              "sustained",
+              "lonely"
+            ],
+            "match_tokens": [
+              "maritime"
+            ]
+          },
+          {
+            "id": "foghorn_grouped",
+            "default": false,
+            "name": "Grouped blasts",
+            "descriptors": [
+              "foghorn-grouped",
+              "signalling",
+              "patterned"
+            ],
+            "match_tokens": [
+              "maritime"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ships_bell",
+    "name": "Ship's / buoy bell",
+    "family": "percussion",
+    "class": "tuned_percussion",
+    "axes": {
+      "pitchFix": 1,
+      "sustain": 1,
+      "polyphony": -2,
+      "harmonicity": 0,
+      "register": 1,
+      "range": -2,
+      "articulation": 1,
+      "transduction": -2,
+      "dynamics": 1
+    },
+    "short": "shipsbell",
+    "parts": [
+      {
+        "id": "ships_bell_type",
+        "name": "Bell",
+        "surface": false,
+        "variants": [
+          {
+            "id": "ships_bell_ships",
+            "default": true,
+            "name": "Ship's bell",
+            "descriptors": [
+              "bell-ships",
+              "clear",
+              "brass"
+            ],
+            "match_tokens": [
+              "maritime"
+            ]
+          },
+          {
+            "id": "ships_bell_buoy",
+            "default": false,
+            "name": "Buoy bell",
+            "descriptors": [
+              "bell-buoy",
+              "swaying",
+              "random"
+            ],
+            "match_tokens": [
+              "maritime"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ships_bell_pattern",
+        "name": "Pattern",
+        "surface": false,
+        "variants": [
+          {
+            "id": "ships_bell_single",
+            "default": true,
+            "name": "Single strike",
+            "descriptors": [
+              "bell-single",
+              "marking",
+              "lone"
+            ],
+            "match_tokens": [
+              "maritime"
+            ]
+          },
+          {
+            "id": "ships_bell_watch_paired",
+            "default": false,
+            "name": "Watch bells (paired)",
+            "descriptors": [
+              "watch-paired",
+              "paired",
+              "ritual"
+            ],
+            "match_tokens": [
+              "maritime"
+            ]
+          }
+        ]
+      }
+    ]
   });
 </script>
 <script>// ─── 03_rooms_chains_tunings.js ───

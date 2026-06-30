@@ -1,0 +1,156 @@
+{
+  "id": "wheel_clatter",
+  "name": "Wheel-on-rail clatter",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": -1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "railclatter",
+  "parts": [
+    {
+      "id": "wheel_clatter_joint",
+      "name": "Joint",
+      "surface": false,
+      "variants": [
+        {
+          "id": "wheel_clatter_jointed_rail",
+          "default": true,
+          "name": "Jointed-rail clack",
+          "descriptors": [
+            "jointed-rail",
+            "clacking",
+            "periodic"
+          ],
+          "match_tokens": [
+            "industrial",
+            "work-song"
+          ]
+        },
+        {
+          "id": "wheel_clatter_points",
+          "default": false,
+          "name": "Points / crossing",
+          "descriptors": [
+            "clatter-points",
+            "jolting",
+            "irregular"
+          ],
+          "match_tokens": [
+            "industrial"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wheel_clatter_speed",
+      "name": "Speed",
+      "surface": false,
+      "variants": [
+        {
+          "id": "wheel_clatter_slow_roll",
+          "default": true,
+          "name": "Slow roll",
+          "descriptors": [
+            "slow-roll",
+            "measured",
+            "heavy"
+          ],
+          "match_tokens": [
+            "industrial"
+          ]
+        },
+        {
+          "id": "wheel_clatter_fast_run",
+          "default": false,
+          "name": "Fast run",
+          "descriptors": [
+            "fast-run",
+            "racing",
+            "blurring"
+          ],
+          "match_tokens": [
+            "industrial"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "wheel_clatter_joint",
+      "name": "Joint",
+      "surface": false,
+      "variants": [
+        {
+          "id": "wheel_clatter_jointed_rail",
+          "default": true,
+          "name": "Jointed-rail clack",
+          "descriptors": [
+            "jointed-rail",
+            "clacking",
+            "periodic"
+          ],
+          "match_tokens": [
+            "industrial",
+            "work-song"
+          ]
+        },
+        {
+          "id": "wheel_clatter_points",
+          "default": false,
+          "name": "Points / crossing",
+          "descriptors": [
+            "clatter-points",
+            "jolting",
+            "irregular"
+          ],
+          "match_tokens": [
+            "industrial"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wheel_clatter_speed",
+      "name": "Speed",
+      "surface": false,
+      "variants": [
+        {
+          "id": "wheel_clatter_slow_roll",
+          "default": true,
+          "name": "Slow roll",
+          "descriptors": [
+            "slow-roll",
+            "measured",
+            "heavy"
+          ],
+          "match_tokens": [
+            "industrial"
+          ]
+        },
+        {
+          "id": "wheel_clatter_fast_run",
+          "default": false,
+          "name": "Fast run",
+          "descriptors": [
+            "fast-run",
+            "racing",
+            "blurring"
+          ],
+          "match_tokens": [
+            "industrial"
+          ]
+        }
+      ]
+    }
+  ]
+}

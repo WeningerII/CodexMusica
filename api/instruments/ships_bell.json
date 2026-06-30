@@ -1,0 +1,154 @@
+{
+  "id": "ships_bell",
+  "name": "Ship's / buoy bell",
+  "family": "percussion",
+  "class": "tuned_percussion",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 1,
+    "range": -2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "shipsbell",
+  "parts": [
+    {
+      "id": "ships_bell_type",
+      "name": "Bell",
+      "surface": false,
+      "variants": [
+        {
+          "id": "ships_bell_ships",
+          "default": true,
+          "name": "Ship's bell",
+          "descriptors": [
+            "bell-ships",
+            "clear",
+            "brass"
+          ],
+          "match_tokens": [
+            "maritime"
+          ]
+        },
+        {
+          "id": "ships_bell_buoy",
+          "default": false,
+          "name": "Buoy bell",
+          "descriptors": [
+            "bell-buoy",
+            "swaying",
+            "random"
+          ],
+          "match_tokens": [
+            "maritime"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ships_bell_pattern",
+      "name": "Pattern",
+      "surface": false,
+      "variants": [
+        {
+          "id": "ships_bell_single",
+          "default": true,
+          "name": "Single strike",
+          "descriptors": [
+            "bell-single",
+            "marking",
+            "lone"
+          ],
+          "match_tokens": [
+            "maritime"
+          ]
+        },
+        {
+          "id": "ships_bell_watch_paired",
+          "default": false,
+          "name": "Watch bells (paired)",
+          "descriptors": [
+            "watch-paired",
+            "paired",
+            "ritual"
+          ],
+          "match_tokens": [
+            "maritime"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ships_bell_type",
+      "name": "Bell",
+      "surface": false,
+      "variants": [
+        {
+          "id": "ships_bell_ships",
+          "default": true,
+          "name": "Ship's bell",
+          "descriptors": [
+            "bell-ships",
+            "clear",
+            "brass"
+          ],
+          "match_tokens": [
+            "maritime"
+          ]
+        },
+        {
+          "id": "ships_bell_buoy",
+          "default": false,
+          "name": "Buoy bell",
+          "descriptors": [
+            "bell-buoy",
+            "swaying",
+            "random"
+          ],
+          "match_tokens": [
+            "maritime"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ships_bell_pattern",
+      "name": "Pattern",
+      "surface": false,
+      "variants": [
+        {
+          "id": "ships_bell_single",
+          "default": true,
+          "name": "Single strike",
+          "descriptors": [
+            "bell-single",
+            "marking",
+            "lone"
+          ],
+          "match_tokens": [
+            "maritime"
+          ]
+        },
+        {
+          "id": "ships_bell_watch_paired",
+          "default": false,
+          "name": "Watch bells (paired)",
+          "descriptors": [
+            "watch-paired",
+            "paired",
+            "ritual"
+          ],
+          "match_tokens": [
+            "maritime"
+          ]
+        }
+      ]
+    }
+  ]
+}

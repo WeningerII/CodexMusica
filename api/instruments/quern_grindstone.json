@@ -1,0 +1,162 @@
+{
+  "id": "quern_grindstone",
+  "name": "Quern / grinding stone",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": -1,
+    "range": -2,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "quern",
+  "parts": [
+    {
+      "id": "quern_grindstone_stone",
+      "name": "Stone",
+      "surface": false,
+      "variants": [
+        {
+          "id": "quern_grindstone_granite",
+          "default": true,
+          "name": "Granite quern",
+          "descriptors": [
+            "grindstone-granite",
+            "rumbling",
+            "gritty"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "quern_grindstone_saddle",
+          "default": false,
+          "name": "Sandstone saddle",
+          "descriptors": [
+            "grindstone-saddle",
+            "scraping",
+            "coarse"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quern_grindstone_grain",
+      "name": "Grain",
+      "surface": false,
+      "variants": [
+        {
+          "id": "quern_grindstone_dry_grain",
+          "default": true,
+          "name": "Dry grain",
+          "descriptors": [
+            "dry-grain",
+            "rasping",
+            "husky"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "quern_grindstone_damp_mash",
+          "default": false,
+          "name": "Damp mash",
+          "descriptors": [
+            "damp-mash",
+            "squelching",
+            "heavy"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "quern_grindstone_stone",
+      "name": "Stone",
+      "surface": false,
+      "variants": [
+        {
+          "id": "quern_grindstone_granite",
+          "default": true,
+          "name": "Granite quern",
+          "descriptors": [
+            "grindstone-granite",
+            "rumbling",
+            "gritty"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "quern_grindstone_saddle",
+          "default": false,
+          "name": "Sandstone saddle",
+          "descriptors": [
+            "grindstone-saddle",
+            "scraping",
+            "coarse"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quern_grindstone_grain",
+      "name": "Grain",
+      "surface": false,
+      "variants": [
+        {
+          "id": "quern_grindstone_dry_grain",
+          "default": true,
+          "name": "Dry grain",
+          "descriptors": [
+            "dry-grain",
+            "rasping",
+            "husky"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "quern_grindstone_damp_mash",
+          "default": false,
+          "name": "Damp mash",
+          "descriptors": [
+            "damp-mash",
+            "squelching",
+            "heavy"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    }
+  ]
+}
