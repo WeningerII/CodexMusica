@@ -1,0 +1,184 @@
+{
+  "id": "wagner_tuba",
+  "name": "Wagner tuba",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "wagnertuba",
+  "parts": [
+    {
+      "id": "wagner_tuba_pitch",
+      "name": "Pitch",
+      "surface": false,
+      "variants": [
+        {
+          "id": "wagner_tuba_bb_tenor",
+          "default": true,
+          "name": "B♭ tenor",
+          "descriptors": [
+            "bb-tenor",
+            "heroic",
+            "horn-like"
+          ],
+          "match_tokens": [
+            "brass-section",
+            "orchestral"
+          ]
+        },
+        {
+          "id": "wagner_tuba_f_bass",
+          "default": false,
+          "name": "F bass",
+          "descriptors": [
+            "f-bass",
+            "dark",
+            "noble"
+          ],
+          "match_tokens": [
+            "low-end",
+            "orchestral"
+          ]
+        },
+        {
+          "id": "wagner_tuba_double_bb_f",
+          "default": false,
+          "name": "Double B♭/F",
+          "descriptors": [
+            "bb-f",
+            "versatile",
+            "rich"
+          ],
+          "match_tokens": [
+            "orchestral"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wagner_tuba_context",
+      "name": "Context",
+      "surface": false,
+      "variants": [
+        {
+          "id": "wagner_tuba_horn_section_blend",
+          "default": true,
+          "name": "Horn-section blend",
+          "descriptors": [
+            "section-blend",
+            "blended",
+            "warm"
+          ],
+          "match_tokens": [
+            "orchestral"
+          ]
+        },
+        {
+          "id": "wagner_tuba_heroic_legato",
+          "default": false,
+          "name": "Heroic legato",
+          "descriptors": [
+            "heroic-legato",
+            "romantic",
+            "sweeping"
+          ],
+          "match_tokens": [
+            "orchestral"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "wagner_tuba_pitch",
+      "name": "Pitch",
+      "surface": false,
+      "variants": [
+        {
+          "id": "wagner_tuba_bb_tenor",
+          "default": true,
+          "name": "B♭ tenor",
+          "descriptors": [
+            "bb-tenor",
+            "heroic",
+            "horn-like"
+          ],
+          "match_tokens": [
+            "brass-section",
+            "orchestral"
+          ]
+        },
+        {
+          "id": "wagner_tuba_f_bass",
+          "default": false,
+          "name": "F bass",
+          "descriptors": [
+            "f-bass",
+            "dark",
+            "noble"
+          ],
+          "match_tokens": [
+            "low-end",
+            "orchestral"
+          ]
+        },
+        {
+          "id": "wagner_tuba_double_bb_f",
+          "default": false,
+          "name": "Double B♭/F",
+          "descriptors": [
+            "bb-f",
+            "versatile",
+            "rich"
+          ],
+          "match_tokens": [
+            "orchestral"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wagner_tuba_context",
+      "name": "Context",
+      "surface": false,
+      "variants": [
+        {
+          "id": "wagner_tuba_horn_section_blend",
+          "default": true,
+          "name": "Horn-section blend",
+          "descriptors": [
+            "section-blend",
+            "blended",
+            "warm"
+          ],
+          "match_tokens": [
+            "orchestral"
+          ]
+        },
+        {
+          "id": "wagner_tuba_heroic_legato",
+          "default": false,
+          "name": "Heroic legato",
+          "descriptors": [
+            "heroic-legato",
+            "romantic",
+            "sweeping"
+          ],
+          "match_tokens": [
+            "orchestral"
+          ]
+        }
+      ]
+    }
+  ]
+}

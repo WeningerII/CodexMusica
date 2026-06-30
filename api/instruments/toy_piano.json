@@ -1,0 +1,177 @@
+{
+  "id": "toy_piano",
+  "name": "Toy piano",
+  "family": "keyboard",
+  "class": "keyboard_acoustic",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": 1,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "toypiano",
+  "parts": [
+    {
+      "id": "keyboard_technique",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "keyboard_block_chord_pop",
+          "default": true,
+          "name": "Block-chord pop",
+          "descriptors": [
+            "block-chord"
+          ],
+          "match_tokens": [
+            "chordal",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "pop",
+            "singer-songwriter"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "toy_piano_type",
+      "name": "Type",
+      "surface": false,
+      "variants": [
+        {
+          "id": "toy_piano_schoenhut_rods",
+          "default": true,
+          "name": "Schoenhut struck-rods",
+          "descriptors": [
+            "schoenhut-rods",
+            "plinky",
+            "naive"
+          ],
+          "match_tokens": [
+            "effect-color"
+          ]
+        },
+        {
+          "id": "toy_piano_generic_metal_rods",
+          "default": false,
+          "name": "Generic metal-rod",
+          "descriptors": [
+            "metal-rods",
+            "tinkling",
+            "lo-fi"
+          ],
+          "match_tokens": [
+            "effect-color"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "toy_piano_aesthetic",
+      "name": "Aesthetic",
+      "surface": false,
+      "variants": [
+        {
+          "id": "toy_piano_naive_celeste",
+          "default": true,
+          "name": "Naïve celeste",
+          "descriptors": [
+            "naive-celeste",
+            "childlike",
+            "music-box"
+          ],
+          "match_tokens": [
+            "effect-color"
+          ]
+        },
+        {
+          "id": "toy_piano_prepared_experimental",
+          "default": false,
+          "name": "Prepared / experimental",
+          "descriptors": [
+            "prepared-experimental",
+            "clangy",
+            "avant"
+          ],
+          "match_tokens": [
+            "experimental-context"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "toy_piano_type",
+      "name": "Type",
+      "surface": false,
+      "variants": [
+        {
+          "id": "toy_piano_schoenhut_rods",
+          "default": true,
+          "name": "Schoenhut struck-rods",
+          "descriptors": [
+            "schoenhut-rods",
+            "plinky",
+            "naive"
+          ],
+          "match_tokens": [
+            "effect-color"
+          ]
+        },
+        {
+          "id": "toy_piano_generic_metal_rods",
+          "default": false,
+          "name": "Generic metal-rod",
+          "descriptors": [
+            "metal-rods",
+            "tinkling",
+            "lo-fi"
+          ],
+          "match_tokens": [
+            "effect-color"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "toy_piano_aesthetic",
+      "name": "Aesthetic",
+      "surface": false,
+      "variants": [
+        {
+          "id": "toy_piano_naive_celeste",
+          "default": true,
+          "name": "Naïve celeste",
+          "descriptors": [
+            "naive-celeste",
+            "childlike",
+            "music-box"
+          ],
+          "match_tokens": [
+            "effect-color"
+          ]
+        },
+        {
+          "id": "toy_piano_prepared_experimental",
+          "default": false,
+          "name": "Prepared / experimental",
+          "descriptors": [
+            "prepared-experimental",
+            "clangy",
+            "avant"
+          ],
+          "match_tokens": [
+            "experimental-context"
+          ]
+        }
+      ]
+    }
+  ]
+}

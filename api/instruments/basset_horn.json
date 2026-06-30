@@ -1,0 +1,128 @@
+{
+  "id": "basset_horn",
+  "name": "Basset horn",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 2,
+    "register": -1,
+    "range": 2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "bassethorn",
+  "parts": [
+    {
+      "id": "basset_horn_pitch",
+      "name": "Pitch",
+      "surface": false,
+      "variants": [
+        {
+          "id": "basset_horn_f",
+          "default": true,
+          "name": "F basset horn",
+          "descriptors": [
+            "horn-f",
+            "mellow",
+            "noble"
+          ],
+          "match_tokens": [
+            "orchestral"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "basset_horn_style",
+      "name": "Style",
+      "surface": false,
+      "variants": [
+        {
+          "id": "basset_horn_classical_chamber",
+          "default": true,
+          "name": "Classical chamber",
+          "descriptors": [
+            "classical-chamber",
+            "blended",
+            "graceful"
+          ],
+          "match_tokens": [
+            "orchestral"
+          ]
+        },
+        {
+          "id": "basset_horn_mozartean",
+          "default": false,
+          "name": "Mozartean",
+          "descriptors": [
+            "horn-mozartean",
+            "serene",
+            "singing"
+          ],
+          "match_tokens": [
+            "orchestral"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "basset_horn_pitch",
+      "name": "Pitch",
+      "surface": false,
+      "variants": [
+        {
+          "id": "basset_horn_f",
+          "default": true,
+          "name": "F basset horn",
+          "descriptors": [
+            "horn-f",
+            "mellow",
+            "noble"
+          ],
+          "match_tokens": [
+            "orchestral"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "basset_horn_style",
+      "name": "Style",
+      "surface": false,
+      "variants": [
+        {
+          "id": "basset_horn_classical_chamber",
+          "default": true,
+          "name": "Classical chamber",
+          "descriptors": [
+            "classical-chamber",
+            "blended",
+            "graceful"
+          ],
+          "match_tokens": [
+            "orchestral"
+          ]
+        },
+        {
+          "id": "basset_horn_mozartean",
+          "default": false,
+          "name": "Mozartean",
+          "descriptors": [
+            "horn-mozartean",
+            "serene",
+            "singing"
+          ],
+          "match_tokens": [
+            "orchestral"
+          ]
+        }
+      ]
+    }
+  ]
+}

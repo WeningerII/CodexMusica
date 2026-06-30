@@ -1,0 +1,158 @@
+{
+  "id": "bass_trombone",
+  "name": "Bass trombone",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": -2,
+    "range": 2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "basstrombone",
+  "parts": [
+    {
+      "id": "bass_trombone_valves",
+      "name": "Valves",
+      "surface": false,
+      "variants": [
+        {
+          "id": "bass_trombone_single_trigger",
+          "default": true,
+          "name": "Single trigger",
+          "descriptors": [
+            "single-trigger",
+            "rich",
+            "broad"
+          ],
+          "match_tokens": [
+            "low-end",
+            "brass-section"
+          ]
+        },
+        {
+          "id": "bass_trombone_double_trigger",
+          "default": false,
+          "name": "Double trigger",
+          "descriptors": [
+            "double-trigger",
+            "extended",
+            "pedal"
+          ],
+          "match_tokens": [
+            "low-end",
+            "brass-section"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bass_trombone_context",
+      "name": "Context",
+      "surface": false,
+      "variants": [
+        {
+          "id": "bass_trombone_orchestral_legato",
+          "default": true,
+          "name": "Orchestral legato",
+          "descriptors": [
+            "orchestral-legato",
+            "noble",
+            "sustained"
+          ],
+          "match_tokens": [
+            "orchestral"
+          ]
+        },
+        {
+          "id": "bass_trombone_big_band_section",
+          "default": false,
+          "name": "Big-band section",
+          "descriptors": [
+            "band-section",
+            "punchy",
+            "fat"
+          ],
+          "match_tokens": [
+            "brass-section"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "bass_trombone_valves",
+      "name": "Valves",
+      "surface": false,
+      "variants": [
+        {
+          "id": "bass_trombone_single_trigger",
+          "default": true,
+          "name": "Single trigger",
+          "descriptors": [
+            "single-trigger",
+            "rich",
+            "broad"
+          ],
+          "match_tokens": [
+            "low-end",
+            "brass-section"
+          ]
+        },
+        {
+          "id": "bass_trombone_double_trigger",
+          "default": false,
+          "name": "Double trigger",
+          "descriptors": [
+            "double-trigger",
+            "extended",
+            "pedal"
+          ],
+          "match_tokens": [
+            "low-end",
+            "brass-section"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bass_trombone_context",
+      "name": "Context",
+      "surface": false,
+      "variants": [
+        {
+          "id": "bass_trombone_orchestral_legato",
+          "default": true,
+          "name": "Orchestral legato",
+          "descriptors": [
+            "orchestral-legato",
+            "noble",
+            "sustained"
+          ],
+          "match_tokens": [
+            "orchestral"
+          ]
+        },
+        {
+          "id": "bass_trombone_big_band_section",
+          "default": false,
+          "name": "Big-band section",
+          "descriptors": [
+            "band-section",
+            "punchy",
+            "fat"
+          ],
+          "match_tokens": [
+            "brass-section"
+          ]
+        }
+      ]
+    }
+  ]
+}

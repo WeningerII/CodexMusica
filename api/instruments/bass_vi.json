@@ -1,0 +1,154 @@
+{
+  "id": "bass_vi",
+  "name": "Bass VI (baritone)",
+  "family": "electric_strings",
+  "class": "bass",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 2,
+    "articulation": 1,
+    "transduction": 2,
+    "dynamics": 0
+  },
+  "short": "bassvi",
+  "parts": [
+    {
+      "id": "bass_vi_technique",
+      "name": "Technique",
+      "surface": false,
+      "variants": [
+        {
+          "id": "bass_vi_tic_tac_baritone",
+          "default": true,
+          "name": "Tic-tac baritone",
+          "descriptors": [
+            "tac-baritone",
+            "twangy",
+            "clicking"
+          ],
+          "match_tokens": [
+            "country-context"
+          ]
+        },
+        {
+          "id": "bass_vi_surf_lead",
+          "default": false,
+          "name": "Surf lead",
+          "descriptors": [
+            "surf-lead",
+            "reverby",
+            "melodic"
+          ],
+          "match_tokens": [
+            "surf-context"
+          ]
+        },
+        {
+          "id": "bass_vi_doom_chords",
+          "default": false,
+          "name": "Doom chords",
+          "descriptors": [
+            "doom-chords",
+            "heavy",
+            "dark"
+          ],
+          "match_tokens": [
+            "metal-context"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bass_vi_pickups",
+      "name": "Pickups",
+      "surface": false,
+      "variants": [
+        {
+          "id": "bass_vi_three_single_coil",
+          "default": true,
+          "name": "Three single-coils",
+          "descriptors": [
+            "single-coil",
+            "bright",
+            "jangly"
+          ],
+          "match_tokens": [
+            "country-context"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "bass_vi_technique",
+      "name": "Technique",
+      "surface": false,
+      "variants": [
+        {
+          "id": "bass_vi_tic_tac_baritone",
+          "default": true,
+          "name": "Tic-tac baritone",
+          "descriptors": [
+            "tac-baritone",
+            "twangy",
+            "clicking"
+          ],
+          "match_tokens": [
+            "country-context"
+          ]
+        },
+        {
+          "id": "bass_vi_surf_lead",
+          "default": false,
+          "name": "Surf lead",
+          "descriptors": [
+            "surf-lead",
+            "reverby",
+            "melodic"
+          ],
+          "match_tokens": [
+            "surf-context"
+          ]
+        },
+        {
+          "id": "bass_vi_doom_chords",
+          "default": false,
+          "name": "Doom chords",
+          "descriptors": [
+            "doom-chords",
+            "heavy",
+            "dark"
+          ],
+          "match_tokens": [
+            "metal-context"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bass_vi_pickups",
+      "name": "Pickups",
+      "surface": false,
+      "variants": [
+        {
+          "id": "bass_vi_three_single_coil",
+          "default": true,
+          "name": "Three single-coils",
+          "descriptors": [
+            "single-coil",
+            "bright",
+            "jangly"
+          ],
+          "match_tokens": [
+            "country-context"
+          ]
+        }
+      ]
+    }
+  ]
+}

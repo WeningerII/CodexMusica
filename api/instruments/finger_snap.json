@@ -1,0 +1,118 @@
+{
+  "id": "finger_snap",
+  "name": "Finger snap",
+  "family": "percussion",
+  "class": "body_percussion",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "snap",
+  "parts": [
+    {
+      "id": "snap_technique",
+      "name": "Technique",
+      "surface": false,
+      "variants": [
+        {
+          "id": "snap_single_finger",
+          "default": true,
+          "name": "Single-finger snap (pitos)",
+          "descriptors": [
+            "single-finger",
+            "crisp",
+            "pointed"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-percussion"
+          ]
+        },
+        {
+          "id": "snap_double_hand",
+          "default": false,
+          "name": "Two-hand alternating",
+          "descriptors": [
+            "double-hand",
+            "rolling",
+            "groove"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "snap_group_snaps",
+          "default": false,
+          "name": "Group snaps",
+          "descriptors": [
+            "group-snaps",
+            "cool",
+            "unison"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "doo-wop-context"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "snap_technique",
+      "name": "Technique",
+      "surface": false,
+      "variants": [
+        {
+          "id": "snap_single_finger",
+          "default": true,
+          "name": "Single-finger snap (pitos)",
+          "descriptors": [
+            "single-finger",
+            "crisp",
+            "pointed"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-percussion"
+          ]
+        },
+        {
+          "id": "snap_double_hand",
+          "default": false,
+          "name": "Two-hand alternating",
+          "descriptors": [
+            "double-hand",
+            "rolling",
+            "groove"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "snap_group_snaps",
+          "default": false,
+          "name": "Group snaps",
+          "descriptors": [
+            "group-snaps",
+            "cool",
+            "unison"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "doo-wop-context"
+          ]
+        }
+      ]
+    }
+  ]
+}

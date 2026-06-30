@@ -1,0 +1,182 @@
+{
+  "id": "seven_string_electric",
+  "name": "7-string electric guitar",
+  "family": "electric_strings",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 2,
+    "articulation": 1,
+    "transduction": 2,
+    "dynamics": 1
+  },
+  "short": "sevenstring",
+  "parts": [
+    {
+      "id": "seven_string_tuning",
+      "name": "Tuning",
+      "surface": false,
+      "variants": [
+        {
+          "id": "seven_string_low_b",
+          "default": true,
+          "name": "Low-B standard",
+          "descriptors": [
+            "low-b",
+            "extended",
+            "heavy"
+          ],
+          "match_tokens": [
+            "metal-context",
+            "low-end"
+          ]
+        },
+        {
+          "id": "seven_string_drop_a",
+          "default": false,
+          "name": "Drop A",
+          "descriptors": [
+            "drop-a",
+            "chugging",
+            "brutal"
+          ],
+          "match_tokens": [
+            "metal-context"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "seven_string_technique",
+      "name": "Technique",
+      "surface": false,
+      "variants": [
+        {
+          "id": "seven_string_djent_palm_mute",
+          "default": true,
+          "name": "Djent palm-mute",
+          "descriptors": [
+            "palm-mute",
+            "percussive",
+            "tight"
+          ],
+          "match_tokens": [
+            "metal-context"
+          ]
+        },
+        {
+          "id": "seven_string_prog_lead",
+          "default": false,
+          "name": "Prog lead",
+          "descriptors": [
+            "prog-lead",
+            "fluid",
+            "virtuosic"
+          ],
+          "match_tokens": [
+            "metal-context"
+          ]
+        },
+        {
+          "id": "seven_string_jazz_chord_melody",
+          "default": false,
+          "name": "Jazz chord-melody",
+          "descriptors": [
+            "chord-melody",
+            "lush",
+            "extended-range"
+          ],
+          "match_tokens": [
+            "jazz-context"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "seven_string_tuning",
+      "name": "Tuning",
+      "surface": false,
+      "variants": [
+        {
+          "id": "seven_string_low_b",
+          "default": true,
+          "name": "Low-B standard",
+          "descriptors": [
+            "low-b",
+            "extended",
+            "heavy"
+          ],
+          "match_tokens": [
+            "metal-context",
+            "low-end"
+          ]
+        },
+        {
+          "id": "seven_string_drop_a",
+          "default": false,
+          "name": "Drop A",
+          "descriptors": [
+            "drop-a",
+            "chugging",
+            "brutal"
+          ],
+          "match_tokens": [
+            "metal-context"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "seven_string_technique",
+      "name": "Technique",
+      "surface": false,
+      "variants": [
+        {
+          "id": "seven_string_djent_palm_mute",
+          "default": true,
+          "name": "Djent palm-mute",
+          "descriptors": [
+            "palm-mute",
+            "percussive",
+            "tight"
+          ],
+          "match_tokens": [
+            "metal-context"
+          ]
+        },
+        {
+          "id": "seven_string_prog_lead",
+          "default": false,
+          "name": "Prog lead",
+          "descriptors": [
+            "prog-lead",
+            "fluid",
+            "virtuosic"
+          ],
+          "match_tokens": [
+            "metal-context"
+          ]
+        },
+        {
+          "id": "seven_string_jazz_chord_melody",
+          "default": false,
+          "name": "Jazz chord-melody",
+          "descriptors": [
+            "chord-melody",
+            "lush",
+            "extended-range"
+          ],
+          "match_tokens": [
+            "jazz-context"
+          ]
+        }
+      ]
+    }
+  ]
+}

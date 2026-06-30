@@ -1,0 +1,210 @@
+{
+  "id": "kalimba",
+  "name": "Kalimba (thumb piano)",
+  "family": "percussion",
+  "class": "tuned_percussion",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "kalimba",
+  "parts": [
+    {
+      "id": "kalimba_type",
+      "name": "Type",
+      "surface": false,
+      "variants": [
+        {
+          "id": "kalimba_treble_17",
+          "default": true,
+          "name": "17-key treble",
+          "descriptors": [
+            "treble-17",
+            "plinky",
+            "sweet"
+          ],
+          "match_tokens": [
+            "tuned-attack",
+            "modern"
+          ]
+        },
+        {
+          "id": "kalimba_alto",
+          "default": false,
+          "name": "Alto",
+          "descriptors": [
+            "kalimba-alto",
+            "warm",
+            "rounded"
+          ],
+          "match_tokens": [
+            "tuned-attack"
+          ]
+        },
+        {
+          "id": "kalimba_electro_pickup",
+          "default": false,
+          "name": "Electro-acoustic (pickup)",
+          "descriptors": [
+            "electro-pickup",
+            "amplified",
+            "ambient"
+          ],
+          "match_tokens": [
+            "tuned-attack",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kalimba_tuning",
+      "name": "Tuning",
+      "surface": false,
+      "variants": [
+        {
+          "id": "kalimba_c_major",
+          "default": true,
+          "name": "C major",
+          "descriptors": [
+            "c-major",
+            "bright",
+            "diatonic"
+          ],
+          "match_tokens": [
+            "tuned-attack"
+          ]
+        },
+        {
+          "id": "kalimba_pentatonic",
+          "default": false,
+          "name": "Pentatonic",
+          "descriptors": [
+            "kalimba-pentatonic",
+            "open",
+            "meditative"
+          ],
+          "match_tokens": [
+            "tuned-attack"
+          ]
+        },
+        {
+          "id": "kalimba_minor",
+          "default": false,
+          "name": "Minor",
+          "descriptors": [
+            "kalimba-minor",
+            "wistful",
+            "shadowed"
+          ],
+          "match_tokens": [
+            "tuned-attack"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kalimba_type",
+      "name": "Type",
+      "surface": false,
+      "variants": [
+        {
+          "id": "kalimba_treble_17",
+          "default": true,
+          "name": "17-key treble",
+          "descriptors": [
+            "treble-17",
+            "plinky",
+            "sweet"
+          ],
+          "match_tokens": [
+            "tuned-attack",
+            "modern"
+          ]
+        },
+        {
+          "id": "kalimba_alto",
+          "default": false,
+          "name": "Alto",
+          "descriptors": [
+            "kalimba-alto",
+            "warm",
+            "rounded"
+          ],
+          "match_tokens": [
+            "tuned-attack"
+          ]
+        },
+        {
+          "id": "kalimba_electro_pickup",
+          "default": false,
+          "name": "Electro-acoustic (pickup)",
+          "descriptors": [
+            "electro-pickup",
+            "amplified",
+            "ambient"
+          ],
+          "match_tokens": [
+            "tuned-attack",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kalimba_tuning",
+      "name": "Tuning",
+      "surface": false,
+      "variants": [
+        {
+          "id": "kalimba_c_major",
+          "default": true,
+          "name": "C major",
+          "descriptors": [
+            "c-major",
+            "bright",
+            "diatonic"
+          ],
+          "match_tokens": [
+            "tuned-attack"
+          ]
+        },
+        {
+          "id": "kalimba_pentatonic",
+          "default": false,
+          "name": "Pentatonic",
+          "descriptors": [
+            "kalimba-pentatonic",
+            "open",
+            "meditative"
+          ],
+          "match_tokens": [
+            "tuned-attack"
+          ]
+        },
+        {
+          "id": "kalimba_minor",
+          "default": false,
+          "name": "Minor",
+          "descriptors": [
+            "kalimba-minor",
+            "wistful",
+            "shadowed"
+          ],
+          "match_tokens": [
+            "tuned-attack"
+          ]
+        }
+      ]
+    }
+  ]
+}

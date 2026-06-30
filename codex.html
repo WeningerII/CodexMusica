@@ -12493,6 +12493,3987 @@ INSTRUMENTS.push({
         { id: 'trong_chau_ca_tru_patron_response_canonical', default: true, name: 'Ca trù patron-response signaling (canonical)', descriptors: ['ca-tru-patron-response-canonical-vietnamese'], match_tokens: ['hand-drum', 'vietnamese-ca-tru-tradition'] },
       ] },
     ]
+  },
+  {
+    "id": "hand_clap",
+    "name": "Hand clap",
+    "family": "percussion",
+    "class": "body_percussion",
+    "axes": {
+      "pitchFix": -2,
+      "sustain": -2,
+      "polyphony": -2,
+      "harmonicity": -2,
+      "register": 0,
+      "range": -2,
+      "articulation": 2,
+      "transduction": -2,
+      "dynamics": 1
+    },
+    "short": "clap",
+    "parts": [
+      {
+        "id": "clap_technique",
+        "name": "Technique",
+        "surface": false,
+        "variants": [
+          {
+            "id": "clap_flat_sharp",
+            "default": true,
+            "name": "Flat sharp clap",
+            "descriptors": [
+              "flat-sharp",
+              "bright",
+              "cracking"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "hand-percussion"
+            ]
+          },
+          {
+            "id": "clap_cupped_muffled",
+            "default": false,
+            "name": "Cupped / muffled (palmas sordas)",
+            "descriptors": [
+              "cupped-muffled",
+              "rounded",
+              "low"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "flamenco-context"
+            ]
+          },
+          {
+            "id": "clap_fingers_to_palm",
+            "default": false,
+            "name": "Fingers-to-palm (high crack)",
+            "descriptors": [
+              "to-palm",
+              "snappy",
+              "thin"
+            ],
+            "match_tokens": [
+              "percussive-attack"
+            ]
+          },
+          {
+            "id": "clap_group_massed",
+            "default": false,
+            "name": "Massed group claps",
+            "descriptors": [
+              "group-massed",
+              "communal",
+              "wide"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "gospel-rooted",
+              "call-response"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "clap_capture",
+        "name": "Capture context",
+        "surface": false,
+        "variants": [
+          {
+            "id": "clap_room_natural",
+            "default": true,
+            "name": "Natural room",
+            "descriptors": [
+              "room-natural",
+              "live",
+              "ambient"
+            ],
+            "match_tokens": [
+              "room-forward"
+            ]
+          },
+          {
+            "id": "clap_close_dry",
+            "default": false,
+            "name": "Close / dry",
+            "descriptors": [
+              "close-dry",
+              "tight",
+              "upfront"
+            ],
+            "match_tokens": [
+              "dry"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "finger_snap",
+    "name": "Finger snap",
+    "family": "percussion",
+    "class": "body_percussion",
+    "axes": {
+      "pitchFix": -2,
+      "sustain": -2,
+      "polyphony": -2,
+      "harmonicity": -2,
+      "register": 1,
+      "range": -2,
+      "articulation": 2,
+      "transduction": -2,
+      "dynamics": -1
+    },
+    "short": "snap",
+    "parts": [
+      {
+        "id": "snap_technique",
+        "name": "Technique",
+        "surface": false,
+        "variants": [
+          {
+            "id": "snap_single_finger",
+            "default": true,
+            "name": "Single-finger snap (pitos)",
+            "descriptors": [
+              "single-finger",
+              "crisp",
+              "pointed"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "hand-percussion"
+            ]
+          },
+          {
+            "id": "snap_double_hand",
+            "default": false,
+            "name": "Two-hand alternating",
+            "descriptors": [
+              "double-hand",
+              "rolling",
+              "groove"
+            ],
+            "match_tokens": [
+              "percussive-attack"
+            ]
+          },
+          {
+            "id": "snap_group_snaps",
+            "default": false,
+            "name": "Group snaps",
+            "descriptors": [
+              "group-snaps",
+              "cool",
+              "unison"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "doo-wop-context"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "foot_stomp",
+    "name": "Foot stomp",
+    "family": "percussion",
+    "class": "foot_percussion",
+    "axes": {
+      "pitchFix": -2,
+      "sustain": -2,
+      "polyphony": -2,
+      "harmonicity": -2,
+      "register": -2,
+      "range": -2,
+      "articulation": 2,
+      "transduction": -2,
+      "dynamics": 2
+    },
+    "short": "stomp",
+    "parts": [
+      {
+        "id": "stomp_footwear",
+        "name": "Footwear",
+        "surface": false,
+        "variants": [
+          {
+            "id": "stomp_bare_foot",
+            "default": true,
+            "name": "Bare foot",
+            "descriptors": [
+              "bare-foot",
+              "thudding",
+              "earthy"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "foot-percussion"
+            ]
+          },
+          {
+            "id": "stomp_boot",
+            "default": false,
+            "name": "Heavy boot",
+            "descriptors": [
+              "stomp-boot",
+              "hard",
+              "cracking"
+            ],
+            "match_tokens": [
+              "percussive-attack"
+            ]
+          },
+          {
+            "id": "stomp_gumboot",
+            "default": false,
+            "name": "Gumboot (wellington)",
+            "descriptors": [
+              "stomp-gumboot",
+              "slapping",
+              "resonant"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "african-context"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "stomp_surface",
+        "name": "Surface / ground",
+        "surface": false,
+        "variants": [
+          {
+            "id": "stomp_wood_stage",
+            "default": true,
+            "name": "Wooden stage",
+            "descriptors": [
+              "wood-stage",
+              "boomy",
+              "resonant"
+            ],
+            "match_tokens": [
+              "room-forward"
+            ]
+          },
+          {
+            "id": "stomp_earth_ground",
+            "default": false,
+            "name": "Earth / ground",
+            "descriptors": [
+              "earth-ground",
+              "dull",
+              "soft"
+            ],
+            "match_tokens": [
+              "outdoor-field"
+            ]
+          },
+          {
+            "id": "stomp_floorboard_porch",
+            "default": false,
+            "name": "Porch floorboard",
+            "descriptors": [
+              "floorboard-porch",
+              "hollow",
+              "rattly"
+            ],
+            "match_tokens": [
+              "old-time-context"
+            ]
+          },
+          {
+            "id": "stomp_hollow_platform",
+            "default": false,
+            "name": "Hollow platform / riser",
+            "descriptors": [
+              "hollow-platform",
+              "booming",
+              "amplified"
+            ],
+            "match_tokens": [
+              "percussive-attack"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "foot_tap",
+    "name": "Foot tap / tap & clog",
+    "family": "percussion",
+    "class": "foot_percussion",
+    "axes": {
+      "pitchFix": -2,
+      "sustain": -2,
+      "polyphony": -2,
+      "harmonicity": -2,
+      "register": 0,
+      "range": -1,
+      "articulation": 2,
+      "transduction": -2,
+      "dynamics": 1
+    },
+    "short": "tap",
+    "parts": [
+      {
+        "id": "tap_striker",
+        "name": "Footwear / striker",
+        "surface": false,
+        "variants": [
+          {
+            "id": "tap_metal_taps",
+            "default": true,
+            "name": "Metal tap shoes",
+            "descriptors": [
+              "metal-taps",
+              "ringing",
+              "sharp"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "foot-percussion"
+            ]
+          },
+          {
+            "id": "tap_hard_shoe_leather",
+            "default": false,
+            "name": "Hard-shoe leather (Irish)",
+            "descriptors": [
+              "shoe-leather",
+              "woody",
+              "clattering"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "celtic-context"
+            ]
+          },
+          {
+            "id": "tap_soft_shoe",
+            "default": false,
+            "name": "Soft-shoe",
+            "descriptors": [
+              "soft-shoe",
+              "brushed",
+              "gentle"
+            ],
+            "match_tokens": [
+              "percussive-attack"
+            ]
+          },
+          {
+            "id": "tap_clog_wooden",
+            "default": false,
+            "name": "Wooden clog / flatfoot",
+            "descriptors": [
+              "clog-wooden",
+              "knocking",
+              "rustic"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "old-time-context"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "tap_surface",
+        "name": "Surface",
+        "surface": false,
+        "variants": [
+          {
+            "id": "tap_sprung_wood_floor",
+            "default": true,
+            "name": "Sprung wood floor",
+            "descriptors": [
+              "wood-floor",
+              "resonant",
+              "bright"
+            ],
+            "match_tokens": [
+              "room-forward"
+            ]
+          },
+          {
+            "id": "tap_board_plywood",
+            "default": false,
+            "name": "Portable board",
+            "descriptors": [
+              "board-plywood",
+              "tight",
+              "projecting"
+            ],
+            "match_tokens": [
+              "percussive-attack"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "spoons",
+    "name": "Spoons",
+    "family": "percussion",
+    "class": "idiophone",
+    "axes": {
+      "pitchFix": -2,
+      "sustain": -2,
+      "polyphony": -2,
+      "harmonicity": -2,
+      "register": 1,
+      "range": -2,
+      "articulation": 2,
+      "transduction": -2,
+      "dynamics": 0
+    },
+    "short": "spoons",
+    "parts": [
+      {
+        "id": "spoons_material",
+        "name": "Material",
+        "surface": false,
+        "variants": [
+          {
+            "id": "spoons_wooden",
+            "default": true,
+            "name": "Wooden spoons",
+            "descriptors": [
+              "spoons-wooden",
+              "woody",
+              "warm"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "folk-context"
+            ]
+          },
+          {
+            "id": "spoons_metal",
+            "default": false,
+            "name": "Metal spoons",
+            "descriptors": [
+              "spoons-metal",
+              "clicky",
+              "bright"
+            ],
+            "match_tokens": [
+              "percussive-attack"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "spoons_playing",
+        "name": "Playing position",
+        "surface": false,
+        "variants": [
+          {
+            "id": "spoons_paired_hand",
+            "default": true,
+            "name": "Paired in hand",
+            "descriptors": [
+              "paired-hand",
+              "rattling",
+              "rolling"
+            ],
+            "match_tokens": [
+              "percussive-attack"
+            ]
+          },
+          {
+            "id": "spoons_knee_and_hand",
+            "default": false,
+            "name": "Knee-and-hand",
+            "descriptors": [
+              "and-hand",
+              "galloping",
+              "syncopated"
+            ],
+            "match_tokens": [
+              "percussive-attack"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rhythm_bones",
+    "name": "Rhythm bones",
+    "family": "percussion",
+    "class": "idiophone",
+    "axes": {
+      "pitchFix": -2,
+      "sustain": -2,
+      "polyphony": -2,
+      "harmonicity": -2,
+      "register": 0,
+      "range": -2,
+      "articulation": 2,
+      "transduction": -2,
+      "dynamics": 0
+    },
+    "short": "bones",
+    "parts": [
+      {
+        "id": "bones_material",
+        "name": "Material",
+        "surface": false,
+        "variants": [
+          {
+            "id": "bones_rib_bone",
+            "default": true,
+            "name": "Actual rib bone",
+            "descriptors": [
+              "rib-bone",
+              "dry",
+              "clacking"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "old-time-context"
+            ]
+          },
+          {
+            "id": "bones_ebony_hardwood",
+            "default": false,
+            "name": "Ebony / hardwood",
+            "descriptors": [
+              "ebony-hardwood",
+              "mellow",
+              "rounded"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "celtic-context"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "bones_pair",
+        "name": "Configuration",
+        "surface": false,
+        "variants": [
+          {
+            "id": "bones_single_pair",
+            "default": true,
+            "name": "Single pair (one hand)",
+            "descriptors": [
+              "single-pair",
+              "rolling",
+              "triplet"
+            ],
+            "match_tokens": [
+              "percussive-attack"
+            ]
+          },
+          {
+            "id": "bones_double_pair",
+            "default": false,
+            "name": "Double pair (both hands)",
+            "descriptors": [
+              "double-pair",
+              "dense",
+              "cascading"
+            ],
+            "match_tokens": [
+              "percussive-attack"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "hambone_body",
+    "name": "Hambone / body percussion",
+    "family": "percussion",
+    "class": "body_percussion",
+    "axes": {
+      "pitchFix": -2,
+      "sustain": -2,
+      "polyphony": -1,
+      "harmonicity": -2,
+      "register": 0,
+      "range": -1,
+      "articulation": 2,
+      "transduction": -2,
+      "dynamics": 1
+    },
+    "short": "hambone",
+    "parts": [
+      {
+        "id": "hambone_technique",
+        "name": "Technique",
+        "surface": false,
+        "variants": [
+          {
+            "id": "hambone_thigh_chest",
+            "default": true,
+            "name": "Thigh + chest patted (pattin’ juba)",
+            "descriptors": [
+              "thigh-chest",
+              "slapping",
+              "syncopated"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "body-percussion"
+            ]
+          },
+          {
+            "id": "hambone_thigh_slap_patsch",
+            "default": false,
+            "name": "Thigh-slap patsch (Alpine)",
+            "descriptors": [
+              "slap-patsch",
+              "crisp",
+              "alternating"
+            ],
+            "match_tokens": [
+              "percussive-attack"
+            ]
+          },
+          {
+            "id": "hambone_cheek_pop_added",
+            "default": false,
+            "name": "With cheek pops",
+            "descriptors": [
+              "pop-added",
+              "popping",
+              "playful"
+            ],
+            "match_tokens": [
+              "percussive-attack"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "stomp_box",
+    "name": "Stomp box",
+    "family": "percussion",
+    "class": "foot_percussion",
+    "axes": {
+      "pitchFix": -2,
+      "sustain": -2,
+      "polyphony": -2,
+      "harmonicity": -2,
+      "register": -2,
+      "range": -2,
+      "articulation": 2,
+      "transduction": -1,
+      "dynamics": 1
+    },
+    "short": "stompbox",
+    "parts": [
+      {
+        "id": "stomp_box_construction",
+        "name": "Construction",
+        "surface": false,
+        "variants": [
+          {
+            "id": "stomp_box_wood_piezo",
+            "default": true,
+            "name": "Wood box w/ piezo",
+            "descriptors": [
+              "wood-piezo",
+              "thumping",
+              "amplified"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "busker-context"
+            ]
+          },
+          {
+            "id": "stomp_box_tambourine_foot",
+            "default": false,
+            "name": "Foot tambourine",
+            "descriptors": [
+              "tambourine-foot",
+              "jingling",
+              "backbeat"
+            ],
+            "match_tokens": [
+              "percussive-attack"
+            ]
+          },
+          {
+            "id": "stomp_box_multi_pad",
+            "default": false,
+            "name": "Multi-pad stomp",
+            "descriptors": [
+              "multi-pad",
+              "versatile",
+              "kit-like"
+            ],
+            "match_tokens": [
+              "percussive-attack"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "stomp_box_material",
+        "name": "Body material",
+        "surface": false,
+        "variants": [
+          {
+            "id": "stomp_box_plywood",
+            "default": true,
+            "name": "Plywood",
+            "descriptors": [
+              "box-plywood",
+              "boxy",
+              "mid"
+            ],
+            "match_tokens": [
+              "percussive-attack"
+            ]
+          },
+          {
+            "id": "stomp_box_hardwood",
+            "default": false,
+            "name": "Hardwood",
+            "descriptors": [
+              "box-hardwood",
+              "deep",
+              "resonant"
+            ],
+            "match_tokens": [
+              "percussive-attack"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "handbells",
+    "name": "Handbells",
+    "family": "percussion",
+    "class": "tuned_percussion",
+    "axes": {
+      "pitchFix": 2,
+      "sustain": 1,
+      "polyphony": 1,
+      "harmonicity": 1,
+      "register": 1,
+      "range": 1,
+      "articulation": 1,
+      "transduction": -2,
+      "dynamics": 0
+    },
+    "short": "handbells",
+    "parts": [
+      {
+        "id": "handbells_set",
+        "name": "Set",
+        "surface": false,
+        "variants": [
+          {
+            "id": "handbells_diatonic",
+            "default": true,
+            "name": "Diatonic set",
+            "descriptors": [
+              "handbells-diatonic",
+              "ringing",
+              "choir"
+            ],
+            "match_tokens": [
+              "sacred-traditional",
+              "ensemble"
+            ]
+          },
+          {
+            "id": "handbells_chromatic_extended",
+            "default": false,
+            "name": "Chromatic extended",
+            "descriptors": [
+              "chromatic-extended",
+              "full-range",
+              "versatile"
+            ],
+            "match_tokens": [
+              "ensemble"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "handbells_technique",
+        "name": "Technique",
+        "surface": false,
+        "variants": [
+          {
+            "id": "handbells_rung",
+            "default": true,
+            "name": "Rung (swung)",
+            "descriptors": [
+              "handbells-rung",
+              "sustained",
+              "shimmering"
+            ],
+            "match_tokens": [
+              "sacred-traditional"
+            ]
+          },
+          {
+            "id": "handbells_malleted_table",
+            "default": false,
+            "name": "Malleted on table",
+            "descriptors": [
+              "malleted-table",
+              "defined",
+              "staccato"
+            ],
+            "match_tokens": [
+              "tuned-attack"
+            ]
+          },
+          {
+            "id": "handbells_martellato_damped",
+            "default": false,
+            "name": "Martellato / damped",
+            "descriptors": [
+              "martellato-damped",
+              "short",
+              "crisp"
+            ],
+            "match_tokens": [
+              "tuned-attack"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tubular_bells",
+    "name": "Tubular bells / chimes",
+    "family": "percussion",
+    "class": "tuned_percussion",
+    "axes": {
+      "pitchFix": 2,
+      "sustain": 2,
+      "polyphony": -1,
+      "harmonicity": 0,
+      "register": 1,
+      "range": 1,
+      "articulation": 1,
+      "transduction": -2,
+      "dynamics": 2
+    },
+    "short": "chimes",
+    "parts": [
+      {
+        "id": "tubular_bells_striker",
+        "name": "Striker",
+        "surface": false,
+        "variants": [
+          {
+            "id": "tubular_bells_rawhide_mallet",
+            "default": true,
+            "name": "Rawhide mallet",
+            "descriptors": [
+              "rawhide-mallet",
+              "clangorous",
+              "orchestral"
+            ],
+            "match_tokens": [
+              "orchestral",
+              "tuned-attack"
+            ]
+          },
+          {
+            "id": "tubular_bells_plastic_mallet",
+            "default": false,
+            "name": "Plastic mallet",
+            "descriptors": [
+              "plastic-mallet",
+              "bright",
+              "cutting"
+            ],
+            "match_tokens": [
+              "tuned-attack"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "tubular_bells_range",
+        "name": "Range",
+        "surface": false,
+        "variants": [
+          {
+            "id": "tubular_bells_chromatic_18",
+            "default": true,
+            "name": "Standard chromatic (1.5 oct)",
+            "descriptors": [
+              "chromatic-18",
+              "standard",
+              "church"
+            ],
+            "match_tokens": [
+              "orchestral"
+            ]
+          },
+          {
+            "id": "tubular_bells_extended",
+            "default": false,
+            "name": "Extended range",
+            "descriptors": [
+              "bells-extended",
+              "wide",
+              "concert"
+            ],
+            "match_tokens": [
+              "orchestral"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "carillon",
+    "name": "Carillon",
+    "family": "percussion",
+    "class": "tuned_percussion",
+    "axes": {
+      "pitchFix": 2,
+      "sustain": 2,
+      "polyphony": 2,
+      "harmonicity": -1,
+      "register": 0,
+      "range": 2,
+      "articulation": 1,
+      "transduction": -2,
+      "dynamics": 2
+    },
+    "short": "carillon",
+    "parts": [
+      {
+        "id": "carillon_action",
+        "name": "Action",
+        "surface": false,
+        "variants": [
+          {
+            "id": "carillon_baton_clavier",
+            "default": true,
+            "name": "Baton clavier (played)",
+            "descriptors": [
+              "baton-clavier",
+              "expressive",
+              "tower"
+            ],
+            "match_tokens": [
+              "sacred-traditional"
+            ]
+          },
+          {
+            "id": "carillon_automatic_drum",
+            "default": false,
+            "name": "Automatic drum",
+            "descriptors": [
+              "automatic-drum",
+              "mechanical",
+              "chiming"
+            ],
+            "match_tokens": [
+              "sacred-traditional"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "carillon_size",
+        "name": "Size",
+        "surface": false,
+        "variants": [
+          {
+            "id": "carillon_traditional_47",
+            "default": true,
+            "name": "Traditional (~47 bells)",
+            "descriptors": [
+              "traditional-47",
+              "grand",
+              "resonant"
+            ],
+            "match_tokens": [
+              "orchestral"
+            ]
+          },
+          {
+            "id": "carillon_grand_bourdon",
+            "default": false,
+            "name": "Grand w/ heavy bourdon",
+            "descriptors": [
+              "grand-bourdon",
+              "massive",
+              "cavernous"
+            ],
+            "match_tokens": [
+              "orchestral"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "glass_harmonica",
+    "name": "Glass harmonica / armonica",
+    "family": "percussion",
+    "class": "tuned_percussion",
+    "axes": {
+      "pitchFix": 2,
+      "sustain": 2,
+      "polyphony": 1,
+      "harmonicity": 1,
+      "register": 1,
+      "range": 1,
+      "articulation": -1,
+      "transduction": -2,
+      "dynamics": -1
+    },
+    "short": "glassarmonica",
+    "parts": [
+      {
+        "id": "glass_harmonica_type",
+        "name": "Type",
+        "surface": false,
+        "variants": [
+          {
+            "id": "glass_harmonica_spun_bowls",
+            "default": true,
+            "name": "Franklin spun bowls",
+            "descriptors": [
+              "spun-bowls",
+              "ethereal",
+              "pure"
+            ],
+            "match_tokens": [
+              "sustained-tone"
+            ]
+          },
+          {
+            "id": "glass_harmonica_glasses_rim",
+            "default": false,
+            "name": "Rubbed wine glasses",
+            "descriptors": [
+              "glasses-rim",
+              "fragile",
+              "shimmering"
+            ],
+            "match_tokens": [
+              "sustained-tone"
+            ]
+          },
+          {
+            "id": "glass_harmonica_verrophone_struck",
+            "default": false,
+            "name": "Verrophone (struck/bowed glass)",
+            "descriptors": [
+              "verrophone-struck",
+              "glassy",
+              "haunting"
+            ],
+            "match_tokens": [
+              "sustained-tone"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "glass_harmonica_technique",
+        "name": "Excitation",
+        "surface": false,
+        "variants": [
+          {
+            "id": "glass_harmonica_wetted_finger",
+            "default": true,
+            "name": "Wetted finger",
+            "descriptors": [
+              "wetted-finger",
+              "singing",
+              "continuous"
+            ],
+            "match_tokens": [
+              "sustained-tone"
+            ]
+          },
+          {
+            "id": "glass_harmonica_bowed",
+            "default": false,
+            "name": "Bowed",
+            "descriptors": [
+              "harmonica-bowed",
+              "eerie",
+              "swelling"
+            ],
+            "match_tokens": [
+              "sustained-tone"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "musical_saw",
+    "name": "Musical saw",
+    "family": "percussion",
+    "class": "tuned_percussion",
+    "axes": {
+      "pitchFix": 1,
+      "sustain": 2,
+      "polyphony": -2,
+      "harmonicity": 1,
+      "register": 1,
+      "range": 1,
+      "articulation": -1,
+      "transduction": -2,
+      "dynamics": 0
+    },
+    "short": "saw",
+    "parts": [
+      {
+        "id": "musical_saw_excitation",
+        "name": "Excitation",
+        "surface": false,
+        "variants": [
+          {
+            "id": "musical_saw_bowed",
+            "default": true,
+            "name": "Bowed",
+            "descriptors": [
+              "saw-bowed",
+              "wailing",
+              "theremin-like"
+            ],
+            "match_tokens": [
+              "sustained-tone"
+            ]
+          },
+          {
+            "id": "musical_saw_mallet_struck",
+            "default": false,
+            "name": "Mallet-struck",
+            "descriptors": [
+              "mallet-struck",
+              "ping",
+              "bell-like"
+            ],
+            "match_tokens": [
+              "tuned-attack"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "musical_saw_type",
+        "name": "Type",
+        "surface": false,
+        "variants": [
+          {
+            "id": "musical_saw_hand_saw",
+            "default": true,
+            "name": "Ordinary hand saw",
+            "descriptors": [
+              "hand-saw",
+              "rustic",
+              "folk"
+            ],
+            "match_tokens": [
+              "folk-context"
+            ]
+          },
+          {
+            "id": "musical_saw_dedicated",
+            "default": false,
+            "name": "Dedicated musical saw",
+            "descriptors": [
+              "saw-dedicated",
+              "wide-range",
+              "singing"
+            ],
+            "match_tokens": [
+              "sustained-tone"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "gong_tamtam",
+    "name": "Gong / tam-tam",
+    "family": "percussion",
+    "class": "idiophone",
+    "axes": {
+      "pitchFix": -1,
+      "sustain": 2,
+      "polyphony": -2,
+      "harmonicity": -1,
+      "register": -1,
+      "range": 1,
+      "articulation": 0,
+      "transduction": -2,
+      "dynamics": 2
+    },
+    "short": "gong",
+    "parts": [
+      {
+        "id": "gong_type",
+        "name": "Type",
+        "surface": false,
+        "variants": [
+          {
+            "id": "gong_tam_tam",
+            "default": true,
+            "name": "Tam-tam (indefinite pitch)",
+            "descriptors": [
+              "tam-tam",
+              "washing",
+              "cavernous"
+            ],
+            "match_tokens": [
+              "orchestral",
+              "sustained-tone"
+            ]
+          },
+          {
+            "id": "gong_chau",
+            "default": false,
+            "name": "Chau gong (Chinese)",
+            "descriptors": [
+              "gong-chau",
+              "crashing",
+              "shimmering"
+            ],
+            "match_tokens": [
+              "east-asian-context"
+            ]
+          },
+          {
+            "id": "gong_nipple_pitched",
+            "default": false,
+            "name": "Nipple gong (definite pitch)",
+            "descriptors": [
+              "nipple-pitched",
+              "focused",
+              "tuned"
+            ],
+            "match_tokens": [
+              "tuned-attack",
+              "east-asian-context"
+            ]
+          },
+          {
+            "id": "gong_opera_bending",
+            "default": false,
+            "name": "Opera gong (pitch-bending da/xiao luo)",
+            "descriptors": [
+              "opera-bending",
+              "swooping",
+              "theatrical"
+            ],
+            "match_tokens": [
+              "east-asian-context"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "gong_striker",
+        "name": "Striker",
+        "surface": false,
+        "variants": [
+          {
+            "id": "gong_soft_mallet",
+            "default": true,
+            "name": "Soft mallet",
+            "descriptors": [
+              "soft-mallet",
+              "swelling",
+              "dark"
+            ],
+            "match_tokens": [
+              "sustained-tone"
+            ]
+          },
+          {
+            "id": "gong_hard_beater",
+            "default": false,
+            "name": "Hard beater",
+            "descriptors": [
+              "hard-beater",
+              "crashing",
+              "immediate"
+            ],
+            "match_tokens": [
+              "percussive-attack"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kalimba",
+    "name": "Kalimba (thumb piano)",
+    "family": "percussion",
+    "class": "tuned_percussion",
+    "axes": {
+      "pitchFix": 2,
+      "sustain": 1,
+      "polyphony": 1,
+      "harmonicity": 1,
+      "register": 1,
+      "range": 0,
+      "articulation": 1,
+      "transduction": -2,
+      "dynamics": -1
+    },
+    "short": "kalimba",
+    "parts": [
+      {
+        "id": "kalimba_type",
+        "name": "Type",
+        "surface": false,
+        "variants": [
+          {
+            "id": "kalimba_treble_17",
+            "default": true,
+            "name": "17-key treble",
+            "descriptors": [
+              "treble-17",
+              "plinky",
+              "sweet"
+            ],
+            "match_tokens": [
+              "tuned-attack",
+              "modern"
+            ]
+          },
+          {
+            "id": "kalimba_alto",
+            "default": false,
+            "name": "Alto",
+            "descriptors": [
+              "kalimba-alto",
+              "warm",
+              "rounded"
+            ],
+            "match_tokens": [
+              "tuned-attack"
+            ]
+          },
+          {
+            "id": "kalimba_electro_pickup",
+            "default": false,
+            "name": "Electro-acoustic (pickup)",
+            "descriptors": [
+              "electro-pickup",
+              "amplified",
+              "ambient"
+            ],
+            "match_tokens": [
+              "tuned-attack",
+              "modern"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "kalimba_tuning",
+        "name": "Tuning",
+        "surface": false,
+        "variants": [
+          {
+            "id": "kalimba_c_major",
+            "default": true,
+            "name": "C major",
+            "descriptors": [
+              "c-major",
+              "bright",
+              "diatonic"
+            ],
+            "match_tokens": [
+              "tuned-attack"
+            ]
+          },
+          {
+            "id": "kalimba_pentatonic",
+            "default": false,
+            "name": "Pentatonic",
+            "descriptors": [
+              "kalimba-pentatonic",
+              "open",
+              "meditative"
+            ],
+            "match_tokens": [
+              "tuned-attack"
+            ]
+          },
+          {
+            "id": "kalimba_minor",
+            "default": false,
+            "name": "Minor",
+            "descriptors": [
+              "kalimba-minor",
+              "wistful",
+              "shadowed"
+            ],
+            "match_tokens": [
+              "tuned-attack"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "crotales",
+    "name": "Crotales (antique cymbals)",
+    "family": "percussion",
+    "class": "tuned_percussion",
+    "axes": {
+      "pitchFix": 2,
+      "sustain": 1,
+      "polyphony": -1,
+      "harmonicity": 1,
+      "register": 2,
+      "range": 0,
+      "articulation": 1,
+      "transduction": -2,
+      "dynamics": 0
+    },
+    "short": "crotales",
+    "parts": [
+      {
+        "id": "crotales_excitation",
+        "name": "Excitation",
+        "surface": false,
+        "variants": [
+          {
+            "id": "crotales_mallet_struck",
+            "default": true,
+            "name": "Mallet-struck",
+            "descriptors": [
+              "mallet-struck",
+              "glistening",
+              "pinging"
+            ],
+            "match_tokens": [
+              "orchestral",
+              "tuned-attack"
+            ]
+          },
+          {
+            "id": "crotales_bowed_shimmer",
+            "default": false,
+            "name": "Bowed (sustained shimmer)",
+            "descriptors": [
+              "bowed-shimmer",
+              "shimmering",
+              "eerie"
+            ],
+            "match_tokens": [
+              "sustained-tone"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "crotales_set",
+        "name": "Set",
+        "surface": false,
+        "variants": [
+          {
+            "id": "crotales_one_octave",
+            "default": true,
+            "name": "One octave",
+            "descriptors": [
+              "one-octave",
+              "standard",
+              "sparkling"
+            ],
+            "match_tokens": [
+              "orchestral"
+            ]
+          },
+          {
+            "id": "crotales_two_octave",
+            "default": false,
+            "name": "Two octave",
+            "descriptors": [
+              "two-octave",
+              "extended",
+              "celestial"
+            ],
+            "match_tokens": [
+              "orchestral"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "flexatone",
+    "name": "Flexatone",
+    "family": "percussion",
+    "class": "idiophone",
+    "axes": {
+      "pitchFix": 1,
+      "sustain": 1,
+      "polyphony": -2,
+      "harmonicity": -1,
+      "register": 1,
+      "range": 0,
+      "articulation": 0,
+      "transduction": -2,
+      "dynamics": -1
+    },
+    "short": "flexatone",
+    "parts": [
+      {
+        "id": "flexatone_technique",
+        "name": "Technique",
+        "surface": false,
+        "variants": [
+          {
+            "id": "flexatone_shaken_wobble",
+            "default": true,
+            "name": "Shaken wobble",
+            "descriptors": [
+              "shaken-wobble",
+              "warbling",
+              "comic"
+            ],
+            "match_tokens": [
+              "effect-color"
+            ]
+          },
+          {
+            "id": "flexatone_thumb_bent",
+            "default": false,
+            "name": "Thumb-bent pitch",
+            "descriptors": [
+              "thumb-bent",
+              "swooping",
+              "eerie"
+            ],
+            "match_tokens": [
+              "effect-color"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "vibraslap",
+    "name": "Vibraslap",
+    "family": "percussion",
+    "class": "idiophone",
+    "axes": {
+      "pitchFix": -2,
+      "sustain": 1,
+      "polyphony": -2,
+      "harmonicity": -2,
+      "register": 0,
+      "range": -2,
+      "articulation": 2,
+      "transduction": -2,
+      "dynamics": 1
+    },
+    "short": "vibraslap",
+    "parts": [
+      {
+        "id": "vibraslap_strike",
+        "name": "Strike",
+        "surface": false,
+        "variants": [
+          {
+            "id": "vibraslap_palm_struck",
+            "default": true,
+            "name": "Palm-struck",
+            "descriptors": [
+              "palm-struck",
+              "rattling",
+              "buzzy"
+            ],
+            "match_tokens": [
+              "effect-color",
+              "percussive-attack"
+            ]
+          },
+          {
+            "id": "vibraslap_knee_struck",
+            "default": false,
+            "name": "Knee-struck",
+            "descriptors": [
+              "knee-struck",
+              "sharp",
+              "sudden"
+            ],
+            "match_tokens": [
+              "percussive-attack"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "mark_tree",
+    "name": "Mark tree / wind chimes",
+    "family": "percussion",
+    "class": "idiophone",
+    "axes": {
+      "pitchFix": 1,
+      "sustain": 1,
+      "polyphony": 1,
+      "harmonicity": 0,
+      "register": 2,
+      "range": 1,
+      "articulation": 1,
+      "transduction": -2,
+      "dynamics": -1
+    },
+    "short": "marktree",
+    "parts": [
+      {
+        "id": "mark_tree_type",
+        "name": "Type",
+        "surface": false,
+        "variants": [
+          {
+            "id": "mark_tree_bar_chimes",
+            "default": true,
+            "name": "Metal bar chimes",
+            "descriptors": [
+              "bar-chimes",
+              "cascading",
+              "glittering"
+            ],
+            "match_tokens": [
+              "effect-color"
+            ]
+          },
+          {
+            "id": "mark_tree_shell_chimes",
+            "default": false,
+            "name": "Shell wind chimes",
+            "descriptors": [
+              "shell-chimes",
+              "organic",
+              "clattering"
+            ],
+            "match_tokens": [
+              "effect-color"
+            ]
+          },
+          {
+            "id": "mark_tree_glass_chimes",
+            "default": false,
+            "name": "Glass chimes",
+            "descriptors": [
+              "glass-chimes",
+              "delicate",
+              "tinkling"
+            ],
+            "match_tokens": [
+              "effect-color"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "mark_tree_gesture",
+        "name": "Gesture",
+        "surface": false,
+        "variants": [
+          {
+            "id": "mark_tree_glissando_swept",
+            "default": true,
+            "name": "Swept glissando",
+            "descriptors": [
+              "glissando-swept",
+              "shimmering",
+              "sweep"
+            ],
+            "match_tokens": [
+              "effect-color"
+            ]
+          },
+          {
+            "id": "mark_tree_single_struck",
+            "default": false,
+            "name": "Single struck",
+            "descriptors": [
+              "single-struck",
+              "accent",
+              "sparkle"
+            ],
+            "match_tokens": [
+              "effect-color"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "anvil",
+    "name": "Anvil",
+    "family": "percussion",
+    "class": "idiophone",
+    "axes": {
+      "pitchFix": 0,
+      "sustain": -1,
+      "polyphony": -2,
+      "harmonicity": -1,
+      "register": 0,
+      "range": -2,
+      "articulation": 2,
+      "transduction": -2,
+      "dynamics": 2
+    },
+    "short": "anvil",
+    "parts": [
+      {
+        "id": "anvil_type",
+        "name": "Type",
+        "surface": false,
+        "variants": [
+          {
+            "id": "anvil_real",
+            "default": true,
+            "name": "Real anvil",
+            "descriptors": [
+              "anvil-real",
+              "clanging",
+              "industrial"
+            ],
+            "match_tokens": [
+              "percussive-attack",
+              "orchestral"
+            ]
+          },
+          {
+            "id": "anvil_brake_drum",
+            "default": false,
+            "name": "Brake drum",
+            "descriptors": [
+              "brake-drum",
+              "ringing",
+              "gritty"
+            ],
+            "match_tokens": [
+              "percussive-attack"
+            ]
+          },
+          {
+            "id": "anvil_steel_pipe",
+            "default": false,
+            "name": "Steel pipe",
+            "descriptors": [
+              "steel-pipe",
+              "pitched",
+              "metallic"
+            ],
+            "match_tokens": [
+              "percussive-attack"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "anvil_striker",
+        "name": "Striker",
+        "surface": false,
+        "variants": [
+          {
+            "id": "anvil_hammer",
+            "default": true,
+            "name": "Hammer",
+            "descriptors": [
+              "anvil-hammer",
+              "heavy",
+              "forceful"
+            ],
+            "match_tokens": [
+              "percussive-attack"
+            ]
+          },
+          {
+            "id": "anvil_metal_beater",
+            "default": false,
+            "name": "Metal beater",
+            "descriptors": [
+              "metal-beater",
+              "bright",
+              "cutting"
+            ],
+            "match_tokens": [
+              "percussive-attack"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sousaphone",
+    "name": "Sousaphone",
+    "family": "wind",
+    "class": "wind_blown",
+    "axes": {
+      "pitchFix": 1,
+      "sustain": 2,
+      "polyphony": -2,
+      "harmonicity": 1,
+      "register": -2,
+      "range": 1,
+      "articulation": 1,
+      "transduction": -2,
+      "dynamics": 2
+    },
+    "short": "sousaphone",
+    "parts": [
+      {
+        "id": "sousaphone_bore",
+        "name": "Pitch / bore",
+        "surface": false,
+        "variants": [
+          {
+            "id": "sousaphone_bb_contrabass",
+            "default": true,
+            "name": "BB♭ contrabass",
+            "descriptors": [
+              "bb-contrabass",
+              "foundational",
+              "oompah"
+            ],
+            "match_tokens": [
+              "low-end",
+              "brass-section"
+            ]
+          },
+          {
+            "id": "sousaphone_eb_bass",
+            "default": false,
+            "name": "E♭ bass",
+            "descriptors": [
+              "eb-bass",
+              "agile",
+              "higher"
+            ],
+            "match_tokens": [
+              "brass-section"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "sousaphone_context",
+        "name": "Context",
+        "surface": false,
+        "variants": [
+          {
+            "id": "sousaphone_oompah_march",
+            "default": true,
+            "name": "Marching oompah",
+            "descriptors": [
+              "oompah-march",
+              "marching",
+              "driving"
+            ],
+            "match_tokens": [
+              "brass-section"
+            ]
+          },
+          {
+            "id": "sousaphone_nola_brass_band",
+            "default": false,
+            "name": "New Orleans brass band",
+            "descriptors": [
+              "brass-band",
+              "funky",
+              "syncopated"
+            ],
+            "match_tokens": [
+              "brass-section",
+              "nola-context"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "mellophone",
+    "name": "Mellophone (marching horn)",
+    "family": "wind",
+    "class": "wind_blown",
+    "axes": {
+      "pitchFix": 1,
+      "sustain": 2,
+      "polyphony": -2,
+      "harmonicity": 1,
+      "register": 0,
+      "range": 1,
+      "articulation": 1,
+      "transduction": -2,
+      "dynamics": 2
+    },
+    "short": "mellophone",
+    "parts": [
+      {
+        "id": "mellophone_use",
+        "name": "Use",
+        "surface": false,
+        "variants": [
+          {
+            "id": "mellophone_marching_band",
+            "default": true,
+            "name": "Marching band",
+            "descriptors": [
+              "marching-band",
+              "projecting",
+              "midvoice"
+            ],
+            "match_tokens": [
+              "brass-section"
+            ]
+          },
+          {
+            "id": "mellophone_drum_corps",
+            "default": false,
+            "name": "Drum corps",
+            "descriptors": [
+              "drum-corps",
+              "powerful",
+              "blended"
+            ],
+            "match_tokens": [
+              "brass-section"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "mellophone_mouthpiece",
+        "name": "Mouthpiece",
+        "surface": false,
+        "variants": [
+          {
+            "id": "mellophone_trumpet_style",
+            "default": true,
+            "name": "Trumpet-style",
+            "descriptors": [
+              "trumpet-style",
+              "bright",
+              "direct"
+            ],
+            "match_tokens": [
+              "brass-section"
+            ]
+          },
+          {
+            "id": "mellophone_horn_style",
+            "default": false,
+            "name": "Horn-style adapter",
+            "descriptors": [
+              "horn-style",
+              "rounded",
+              "mellow"
+            ],
+            "match_tokens": [
+              "brass-section"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "alphorn",
+    "name": "Alphorn",
+    "family": "wind",
+    "class": "wind_blown",
+    "axes": {
+      "pitchFix": 0,
+      "sustain": 2,
+      "polyphony": -2,
+      "harmonicity": 1,
+      "register": -1,
+      "range": 1,
+      "articulation": 0,
+      "transduction": -2,
+      "dynamics": 2
+    },
+    "short": "alphorn",
+    "parts": [
+      {
+        "id": "alphorn_length",
+        "name": "Length / pitch",
+        "surface": false,
+        "variants": [
+          {
+            "id": "alphorn_fis_3_4m",
+            "default": true,
+            "name": "F♯ (~3.4 m)",
+            "descriptors": [
+              "3-4m",
+              "alpine",
+              "calling"
+            ],
+            "match_tokens": [
+              "outdoor-field"
+            ]
+          },
+          {
+            "id": "alphorn_f_long",
+            "default": false,
+            "name": "F (longer)",
+            "descriptors": [
+              "f-long",
+              "deep",
+              "sonorous"
+            ],
+            "match_tokens": [
+              "outdoor-field"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "alphorn_material",
+        "name": "Material",
+        "surface": false,
+        "variants": [
+          {
+            "id": "alphorn_carved_spruce",
+            "default": true,
+            "name": "Carved spruce",
+            "descriptors": [
+              "carved-spruce",
+              "woody",
+              "resonant"
+            ],
+            "match_tokens": [
+              "outdoor-field",
+              "folk-context"
+            ]
+          },
+          {
+            "id": "alphorn_carbon_modern",
+            "default": false,
+            "name": "Carbon-fibre modern",
+            "descriptors": [
+              "carbon-modern",
+              "even",
+              "projecting"
+            ],
+            "match_tokens": [
+              "modern"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "bass_trombone",
+    "name": "Bass trombone",
+    "family": "wind",
+    "class": "wind_blown",
+    "axes": {
+      "pitchFix": 1,
+      "sustain": 2,
+      "polyphony": -2,
+      "harmonicity": 1,
+      "register": -2,
+      "range": 2,
+      "articulation": 1,
+      "transduction": -2,
+      "dynamics": 2
+    },
+    "short": "basstrombone",
+    "parts": [
+      {
+        "id": "bass_trombone_valves",
+        "name": "Valves",
+        "surface": false,
+        "variants": [
+          {
+            "id": "bass_trombone_single_trigger",
+            "default": true,
+            "name": "Single trigger",
+            "descriptors": [
+              "single-trigger",
+              "rich",
+              "broad"
+            ],
+            "match_tokens": [
+              "low-end",
+              "brass-section"
+            ]
+          },
+          {
+            "id": "bass_trombone_double_trigger",
+            "default": false,
+            "name": "Double trigger",
+            "descriptors": [
+              "double-trigger",
+              "extended",
+              "pedal"
+            ],
+            "match_tokens": [
+              "low-end",
+              "brass-section"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "bass_trombone_context",
+        "name": "Context",
+        "surface": false,
+        "variants": [
+          {
+            "id": "bass_trombone_orchestral_legato",
+            "default": true,
+            "name": "Orchestral legato",
+            "descriptors": [
+              "orchestral-legato",
+              "noble",
+              "sustained"
+            ],
+            "match_tokens": [
+              "orchestral"
+            ]
+          },
+          {
+            "id": "bass_trombone_big_band_section",
+            "default": false,
+            "name": "Big-band section",
+            "descriptors": [
+              "band-section",
+              "punchy",
+              "fat"
+            ],
+            "match_tokens": [
+              "brass-section"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "piccolo_trumpet",
+    "name": "Piccolo trumpet",
+    "family": "wind",
+    "class": "wind_blown",
+    "axes": {
+      "pitchFix": 1,
+      "sustain": 2,
+      "polyphony": -2,
+      "harmonicity": 1,
+      "register": 2,
+      "range": 1,
+      "articulation": 2,
+      "transduction": -2,
+      "dynamics": 1
+    },
+    "short": "piccolotrumpet",
+    "parts": [
+      {
+        "id": "piccolo_trumpet_pitch",
+        "name": "Pitch",
+        "surface": false,
+        "variants": [
+          {
+            "id": "piccolo_trumpet_bb_a",
+            "default": true,
+            "name": "B♭/A piccolo",
+            "descriptors": [
+              "bb-a",
+              "brilliant",
+              "piercing"
+            ],
+            "match_tokens": [
+              "high-register",
+              "brass-section"
+            ]
+          },
+          {
+            "id": "piccolo_trumpet_g_soprano",
+            "default": false,
+            "name": "G soprano",
+            "descriptors": [
+              "g-soprano",
+              "stratospheric",
+              "cutting"
+            ],
+            "match_tokens": [
+              "high-register"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "piccolo_trumpet_context",
+        "name": "Context",
+        "surface": false,
+        "variants": [
+          {
+            "id": "piccolo_trumpet_baroque_clarino",
+            "default": true,
+            "name": "Baroque clarino",
+            "descriptors": [
+              "baroque-clarino",
+              "ornate",
+              "regal"
+            ],
+            "match_tokens": [
+              "baroque-context"
+            ]
+          },
+          {
+            "id": "piccolo_trumpet_pop_lead",
+            "default": false,
+            "name": "Pop lead (Penny-Lane)",
+            "descriptors": [
+              "pop-lead",
+              "bright",
+              "hooky"
+            ],
+            "match_tokens": [
+              "high-register"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "serpent",
+    "name": "Serpent",
+    "family": "wind",
+    "class": "wind_blown",
+    "axes": {
+      "pitchFix": 1,
+      "sustain": 2,
+      "polyphony": -2,
+      "harmonicity": 0,
+      "register": -2,
+      "range": 1,
+      "articulation": 0,
+      "transduction": -2,
+      "dynamics": 1
+    },
+    "short": "serpent",
+    "parts": [
+      {
+        "id": "serpent_type",
+        "name": "Type",
+        "surface": false,
+        "variants": [
+          {
+            "id": "serpent_church",
+            "default": true,
+            "name": "Church serpent",
+            "descriptors": [
+              "serpent-church",
+              "woolly",
+              "ancient"
+            ],
+            "match_tokens": [
+              "low-end",
+              "early-music-context"
+            ]
+          },
+          {
+            "id": "serpent_military",
+            "default": false,
+            "name": "Military serpent",
+            "descriptors": [
+              "serpent-military",
+              "robust",
+              "outdoor"
+            ],
+            "match_tokens": [
+              "low-end"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "serpent_material",
+        "name": "Material",
+        "surface": false,
+        "variants": [
+          {
+            "id": "serpent_leather_wrapped_wood",
+            "default": true,
+            "name": "Leather-wrapped wood",
+            "descriptors": [
+              "wrapped-wood",
+              "organic",
+              "covered"
+            ],
+            "match_tokens": [
+              "early-music-context"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cornetto",
+    "name": "Cornetto / zink",
+    "family": "wind",
+    "class": "wind_blown",
+    "axes": {
+      "pitchFix": 1,
+      "sustain": 2,
+      "polyphony": -2,
+      "harmonicity": 1,
+      "register": 1,
+      "range": 1,
+      "articulation": 1,
+      "transduction": -2,
+      "dynamics": 0
+    },
+    "short": "cornetto",
+    "parts": [
+      {
+        "id": "cornetto_type",
+        "name": "Type",
+        "surface": false,
+        "variants": [
+          {
+            "id": "cornetto_treble",
+            "default": true,
+            "name": "Treble cornetto",
+            "descriptors": [
+              "cornetto-treble",
+              "vocal",
+              "agile"
+            ],
+            "match_tokens": [
+              "early-music-context"
+            ]
+          },
+          {
+            "id": "cornetto_mute",
+            "default": false,
+            "name": "Mute cornetto",
+            "descriptors": [
+              "cornetto-mute",
+              "soft",
+              "veiled"
+            ],
+            "match_tokens": [
+              "early-music-context"
+            ]
+          },
+          {
+            "id": "cornetto_tenor_lysarden",
+            "default": false,
+            "name": "Tenor (lysarden)",
+            "descriptors": [
+              "tenor-lysarden",
+              "lower",
+              "mellow"
+            ],
+            "match_tokens": [
+              "early-music-context"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "cornetto_material",
+        "name": "Material",
+        "surface": false,
+        "variants": [
+          {
+            "id": "cornetto_wood_leather",
+            "default": true,
+            "name": "Wood + leather",
+            "descriptors": [
+              "wood-leather",
+              "warm",
+              "historical"
+            ],
+            "match_tokens": [
+              "early-music-context"
+            ]
+          },
+          {
+            "id": "cornetto_resin_modern",
+            "default": false,
+            "name": "Resin (modern repro)",
+            "descriptors": [
+              "resin-modern",
+              "even",
+              "stable"
+            ],
+            "match_tokens": [
+              "early-music-context"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "natural_trumpet",
+    "name": "Natural / baroque trumpet",
+    "family": "wind",
+    "class": "wind_blown",
+    "axes": {
+      "pitchFix": 0,
+      "sustain": 2,
+      "polyphony": -2,
+      "harmonicity": 1,
+      "register": 1,
+      "range": 1,
+      "articulation": 1,
+      "transduction": -2,
+      "dynamics": 1
+    },
+    "short": "naturaltrumpet",
+    "parts": [
+      {
+        "id": "natural_trumpet_type",
+        "name": "Type",
+        "surface": false,
+        "variants": [
+          {
+            "id": "natural_trumpet_baroque",
+            "default": true,
+            "name": "Baroque natural",
+            "descriptors": [
+              "trumpet-baroque",
+              "valveless",
+              "noble"
+            ],
+            "match_tokens": [
+              "baroque-context"
+            ]
+          },
+          {
+            "id": "natural_trumpet_vented_repro",
+            "default": false,
+            "name": "Vented modern repro",
+            "descriptors": [
+              "vented-repro",
+              "secure",
+              "period"
+            ],
+            "match_tokens": [
+              "baroque-context"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "natural_trumpet_register",
+        "name": "Register / role",
+        "surface": false,
+        "variants": [
+          {
+            "id": "natural_trumpet_clarino_high",
+            "default": true,
+            "name": "Clarino (high)",
+            "descriptors": [
+              "clarino-high",
+              "florid",
+              "brilliant"
+            ],
+            "match_tokens": [
+              "high-register",
+              "baroque-context"
+            ]
+          },
+          {
+            "id": "natural_trumpet_principale_low",
+            "default": false,
+            "name": "Principale (low)",
+            "descriptors": [
+              "principale-low",
+              "fanfare",
+              "foundational"
+            ],
+            "match_tokens": [
+              "baroque-context"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "wagner_tuba",
+    "name": "Wagner tuba",
+    "family": "wind",
+    "class": "wind_blown",
+    "axes": {
+      "pitchFix": 1,
+      "sustain": 2,
+      "polyphony": -2,
+      "harmonicity": 1,
+      "register": -1,
+      "range": 1,
+      "articulation": 0,
+      "transduction": -2,
+      "dynamics": 1
+    },
+    "short": "wagnertuba",
+    "parts": [
+      {
+        "id": "wagner_tuba_pitch",
+        "name": "Pitch",
+        "surface": false,
+        "variants": [
+          {
+            "id": "wagner_tuba_bb_tenor",
+            "default": true,
+            "name": "B♭ tenor",
+            "descriptors": [
+              "bb-tenor",
+              "heroic",
+              "horn-like"
+            ],
+            "match_tokens": [
+              "brass-section",
+              "orchestral"
+            ]
+          },
+          {
+            "id": "wagner_tuba_f_bass",
+            "default": false,
+            "name": "F bass",
+            "descriptors": [
+              "f-bass",
+              "dark",
+              "noble"
+            ],
+            "match_tokens": [
+              "low-end",
+              "orchestral"
+            ]
+          },
+          {
+            "id": "wagner_tuba_double_bb_f",
+            "default": false,
+            "name": "Double B♭/F",
+            "descriptors": [
+              "bb-f",
+              "versatile",
+              "rich"
+            ],
+            "match_tokens": [
+              "orchestral"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "wagner_tuba_context",
+        "name": "Context",
+        "surface": false,
+        "variants": [
+          {
+            "id": "wagner_tuba_horn_section_blend",
+            "default": true,
+            "name": "Horn-section blend",
+            "descriptors": [
+              "section-blend",
+              "blended",
+              "warm"
+            ],
+            "match_tokens": [
+              "orchestral"
+            ]
+          },
+          {
+            "id": "wagner_tuba_heroic_legato",
+            "default": false,
+            "name": "Heroic legato",
+            "descriptors": [
+              "heroic-legato",
+              "romantic",
+              "sweeping"
+            ],
+            "match_tokens": [
+              "orchestral"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "vuvuzela",
+    "name": "Vuvuzela",
+    "family": "wind",
+    "class": "wind_blown",
+    "axes": {
+      "pitchFix": -1,
+      "sustain": 1,
+      "polyphony": -2,
+      "harmonicity": 0,
+      "register": 0,
+      "range": -2,
+      "articulation": 0,
+      "transduction": -2,
+      "dynamics": 2
+    },
+    "short": "vuvuzela",
+    "parts": [
+      {
+        "id": "vuvuzela_material",
+        "name": "Material",
+        "surface": false,
+        "variants": [
+          {
+            "id": "vuvuzela_plastic_stadium",
+            "default": true,
+            "name": "Plastic stadium horn",
+            "descriptors": [
+              "plastic-stadium",
+              "monotone",
+              "blaring"
+            ],
+            "match_tokens": [
+              "outdoor-field"
+            ]
+          },
+          {
+            "id": "vuvuzela_kudu_horn",
+            "default": false,
+            "name": "Kudu horn (traditional)",
+            "descriptors": [
+              "kudu-horn",
+              "organic",
+              "calling"
+            ],
+            "match_tokens": [
+              "outdoor-field",
+              "african-context"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "vuvuzela_technique",
+        "name": "Technique",
+        "surface": false,
+        "variants": [
+          {
+            "id": "vuvuzela_sustained_blast",
+            "default": true,
+            "name": "Sustained blast",
+            "descriptors": [
+              "sustained-blast",
+              "droning",
+              "massed"
+            ],
+            "match_tokens": [
+              "outdoor-field"
+            ]
+          },
+          {
+            "id": "vuvuzela_rhythmic_pulses",
+            "default": false,
+            "name": "Rhythmic pulses",
+            "descriptors": [
+              "rhythmic-pulses",
+              "chanting",
+              "crowd"
+            ],
+            "match_tokens": [
+              "outdoor-field"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "seven_string_electric",
+    "name": "7-string electric guitar",
+    "family": "electric_strings",
+    "class": "plucked_string_lead",
+    "axes": {
+      "pitchFix": 1,
+      "sustain": 1,
+      "polyphony": 1,
+      "harmonicity": 1,
+      "register": -1,
+      "range": 2,
+      "articulation": 1,
+      "transduction": 2,
+      "dynamics": 1
+    },
+    "short": "sevenstring",
+    "parts": [
+      {
+        "id": "seven_string_tuning",
+        "name": "Tuning",
+        "surface": false,
+        "variants": [
+          {
+            "id": "seven_string_low_b",
+            "default": true,
+            "name": "Low-B standard",
+            "descriptors": [
+              "low-b",
+              "extended",
+              "heavy"
+            ],
+            "match_tokens": [
+              "metal-context",
+              "low-end"
+            ]
+          },
+          {
+            "id": "seven_string_drop_a",
+            "default": false,
+            "name": "Drop A",
+            "descriptors": [
+              "drop-a",
+              "chugging",
+              "brutal"
+            ],
+            "match_tokens": [
+              "metal-context"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "seven_string_technique",
+        "name": "Technique",
+        "surface": false,
+        "variants": [
+          {
+            "id": "seven_string_djent_palm_mute",
+            "default": true,
+            "name": "Djent palm-mute",
+            "descriptors": [
+              "palm-mute",
+              "percussive",
+              "tight"
+            ],
+            "match_tokens": [
+              "metal-context"
+            ]
+          },
+          {
+            "id": "seven_string_prog_lead",
+            "default": false,
+            "name": "Prog lead",
+            "descriptors": [
+              "prog-lead",
+              "fluid",
+              "virtuosic"
+            ],
+            "match_tokens": [
+              "metal-context"
+            ]
+          },
+          {
+            "id": "seven_string_jazz_chord_melody",
+            "default": false,
+            "name": "Jazz chord-melody",
+            "descriptors": [
+              "chord-melody",
+              "lush",
+              "extended-range"
+            ],
+            "match_tokens": [
+              "jazz-context"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "eight_string_electric",
+    "name": "8-string electric guitar",
+    "family": "electric_strings",
+    "class": "plucked_string_lead",
+    "axes": {
+      "pitchFix": 1,
+      "sustain": 1,
+      "polyphony": 1,
+      "harmonicity": 1,
+      "register": -2,
+      "range": 2,
+      "articulation": 1,
+      "transduction": 2,
+      "dynamics": 1
+    },
+    "short": "eightstring",
+    "parts": [
+      {
+        "id": "eight_string_tuning",
+        "name": "Tuning",
+        "surface": false,
+        "variants": [
+          {
+            "id": "eight_string_low_f_sharp",
+            "default": true,
+            "name": "Low F♯ standard",
+            "descriptors": [
+              "f-sharp",
+              "subterranean",
+              "massive"
+            ],
+            "match_tokens": [
+              "metal-context",
+              "low-end"
+            ]
+          },
+          {
+            "id": "eight_string_drop_e",
+            "default": false,
+            "name": "Drop E",
+            "descriptors": [
+              "drop-e",
+              "crushing",
+              "djent"
+            ],
+            "match_tokens": [
+              "metal-context"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "eight_string_technique",
+        "name": "Technique",
+        "surface": false,
+        "variants": [
+          {
+            "id": "eight_string_djent_chug",
+            "default": true,
+            "name": "Djent chug",
+            "descriptors": [
+              "djent-chug",
+              "mechanical",
+              "percussive"
+            ],
+            "match_tokens": [
+              "metal-context"
+            ]
+          },
+          {
+            "id": "eight_string_ambient_clean",
+            "default": false,
+            "name": "Ambient clean",
+            "descriptors": [
+              "ambient-clean",
+              "spacious",
+              "shimmering"
+            ],
+            "match_tokens": [
+              "ambient-context"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "lap_steel",
+    "name": "Lap steel guitar",
+    "family": "electric_strings",
+    "class": "plucked_string_lead",
+    "axes": {
+      "pitchFix": 1,
+      "sustain": 2,
+      "polyphony": 1,
+      "harmonicity": 1,
+      "register": 1,
+      "range": 1,
+      "articulation": 0,
+      "transduction": 2,
+      "dynamics": 1
+    },
+    "short": "lapsteel",
+    "parts": [
+      {
+        "id": "lap_steel_tuning",
+        "name": "Tuning",
+        "surface": false,
+        "variants": [
+          {
+            "id": "lap_steel_c6",
+            "default": true,
+            "name": "C6",
+            "descriptors": [
+              "steel-c6",
+              "western-swing",
+              "sweet"
+            ],
+            "match_tokens": [
+              "country-context"
+            ]
+          },
+          {
+            "id": "lap_steel_open_e",
+            "default": false,
+            "name": "Open E",
+            "descriptors": [
+              "open-e",
+              "bluesy",
+              "wailing"
+            ],
+            "match_tokens": [
+              "blues-context"
+            ]
+          },
+          {
+            "id": "lap_steel_open_g_dobro",
+            "default": false,
+            "name": "Open G (dobro-style)",
+            "descriptors": [
+              "g-dobro",
+              "twangy",
+              "resonant"
+            ],
+            "match_tokens": [
+              "old-time-context"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "lap_steel_style",
+        "name": "Style",
+        "surface": false,
+        "variants": [
+          {
+            "id": "lap_steel_hawaiian_slack",
+            "default": true,
+            "name": "Hawaiian / slack",
+            "descriptors": [
+              "hawaiian-slack",
+              "gliding",
+              "languid"
+            ],
+            "match_tokens": [
+              "hawaiian-context"
+            ]
+          },
+          {
+            "id": "lap_steel_western_swing",
+            "default": false,
+            "name": "Western swing",
+            "descriptors": [
+              "western-swing",
+              "jazzy",
+              "lilting"
+            ],
+            "match_tokens": [
+              "country-context"
+            ]
+          },
+          {
+            "id": "lap_steel_sacred_steel",
+            "default": false,
+            "name": "Sacred steel",
+            "descriptors": [
+              "sacred-steel",
+              "vocal",
+              "ecstatic"
+            ],
+            "match_tokens": [
+              "gospel-rooted"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "chapman_stick",
+    "name": "Chapman Stick",
+    "family": "electric_strings",
+    "class": "plucked_string_lead",
+    "axes": {
+      "pitchFix": 1,
+      "sustain": 1,
+      "polyphony": 2,
+      "harmonicity": 1,
+      "register": 0,
+      "range": 2,
+      "articulation": 1,
+      "transduction": 2,
+      "dynamics": 0
+    },
+    "short": "stick",
+    "parts": [
+      {
+        "id": "chapman_stick_strings",
+        "name": "Strings",
+        "surface": false,
+        "variants": [
+          {
+            "id": "chapman_stick_ten_string",
+            "default": true,
+            "name": "10-string",
+            "descriptors": [
+              "ten-string",
+              "two-hand",
+              "wide"
+            ],
+            "match_tokens": [
+              "modern"
+            ]
+          },
+          {
+            "id": "chapman_stick_twelve_string",
+            "default": false,
+            "name": "12-string",
+            "descriptors": [
+              "twelve-string",
+              "orchestral",
+              "extended"
+            ],
+            "match_tokens": [
+              "modern"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "chapman_stick_technique",
+        "name": "Technique",
+        "surface": false,
+        "variants": [
+          {
+            "id": "chapman_stick_two_hand_tap",
+            "default": true,
+            "name": "Two-hand tapping",
+            "descriptors": [
+              "hand-tap",
+              "independent",
+              "fluid"
+            ],
+            "match_tokens": [
+              "modern"
+            ]
+          },
+          {
+            "id": "chapman_stick_bass_plus_melody",
+            "default": false,
+            "name": "Bass + melody split",
+            "descriptors": [
+              "plus-melody",
+              "self-contained",
+              "contrapuntal"
+            ],
+            "match_tokens": [
+              "modern"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "electric_upright_bass",
+    "name": "Electric upright bass",
+    "family": "electric_strings",
+    "class": "bass",
+    "axes": {
+      "pitchFix": 1,
+      "sustain": 1,
+      "polyphony": -2,
+      "harmonicity": 1,
+      "register": -2,
+      "range": 1,
+      "articulation": 0,
+      "transduction": 2,
+      "dynamics": 1
+    },
+    "short": "eub",
+    "parts": [
+      {
+        "id": "electric_upright_bass_type",
+        "name": "Type",
+        "surface": false,
+        "variants": [
+          {
+            "id": "electric_upright_bass_solid_body",
+            "default": true,
+            "name": "Solid-body EUB",
+            "descriptors": [
+              "solid-body",
+              "woody",
+              "punchy"
+            ],
+            "match_tokens": [
+              "jazz-context",
+              "low-end"
+            ]
+          },
+          {
+            "id": "electric_upright_bass_frameless_stick",
+            "default": false,
+            "name": "Frameless stick EUB",
+            "descriptors": [
+              "frameless-stick",
+              "compact",
+              "modern"
+            ],
+            "match_tokens": [
+              "low-end"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "electric_upright_bass_technique",
+        "name": "Technique",
+        "surface": false,
+        "variants": [
+          {
+            "id": "electric_upright_bass_jazz_pizz",
+            "default": true,
+            "name": "Jazz pizzicato",
+            "descriptors": [
+              "jazz-pizz",
+              "walking",
+              "round"
+            ],
+            "match_tokens": [
+              "jazz-context"
+            ]
+          },
+          {
+            "id": "electric_upright_bass_arco_bowed",
+            "default": false,
+            "name": "Arco (bowed)",
+            "descriptors": [
+              "arco-bowed",
+              "singing",
+              "sustained"
+            ],
+            "match_tokens": [
+              "sustained-tone"
+            ]
+          },
+          {
+            "id": "electric_upright_bass_slap",
+            "default": false,
+            "name": "Rockabilly slap",
+            "descriptors": [
+              "bass-slap",
+              "percussive",
+              "snapping"
+            ],
+            "match_tokens": [
+              "rockabilly-context"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "electric_sitar",
+    "name": "Electric sitar",
+    "family": "electric_strings",
+    "class": "plucked_string_lead",
+    "axes": {
+      "pitchFix": 1,
+      "sustain": 1,
+      "polyphony": 1,
+      "harmonicity": 0,
+      "register": 1,
+      "range": 1,
+      "articulation": 1,
+      "transduction": 2,
+      "dynamics": 0
+    },
+    "short": "electricsitar",
+    "parts": [
+      {
+        "id": "electric_sitar_type",
+        "name": "Type",
+        "surface": false,
+        "variants": [
+          {
+            "id": "electric_sitar_coral",
+            "default": true,
+            "name": "Coral electric sitar",
+            "descriptors": [
+              "sitar-coral",
+              "buzzing",
+              "exotic"
+            ],
+            "match_tokens": [
+              "psych-context"
+            ]
+          },
+          {
+            "id": "electric_sitar_jerry_jones",
+            "default": false,
+            "name": "Jerry Jones repro",
+            "descriptors": [
+              "jerry-jones",
+              "rich",
+              "jangly"
+            ],
+            "match_tokens": [
+              "psych-context"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "electric_sitar_feature",
+        "name": "Feature",
+        "surface": false,
+        "variants": [
+          {
+            "id": "electric_sitar_buzz_bridge",
+            "default": true,
+            "name": "Buzz bridge drone",
+            "descriptors": [
+              "buzz-bridge",
+              "twangy",
+              "sympathetic"
+            ],
+            "match_tokens": [
+              "psych-context"
+            ]
+          },
+          {
+            "id": "electric_sitar_sympathetic_strings",
+            "default": false,
+            "name": "Sympathetic strings",
+            "descriptors": [
+              "sympathetic-strings",
+              "resonant",
+              "shimmering"
+            ],
+            "match_tokens": [
+              "psych-context"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "bass_vi",
+    "name": "Bass VI (baritone)",
+    "family": "electric_strings",
+    "class": "bass",
+    "axes": {
+      "pitchFix": 1,
+      "sustain": 1,
+      "polyphony": 1,
+      "harmonicity": 1,
+      "register": -1,
+      "range": 2,
+      "articulation": 1,
+      "transduction": 2,
+      "dynamics": 0
+    },
+    "short": "bassvi",
+    "parts": [
+      {
+        "id": "bass_vi_technique",
+        "name": "Technique",
+        "surface": false,
+        "variants": [
+          {
+            "id": "bass_vi_tic_tac_baritone",
+            "default": true,
+            "name": "Tic-tac baritone",
+            "descriptors": [
+              "tac-baritone",
+              "twangy",
+              "clicking"
+            ],
+            "match_tokens": [
+              "country-context"
+            ]
+          },
+          {
+            "id": "bass_vi_surf_lead",
+            "default": false,
+            "name": "Surf lead",
+            "descriptors": [
+              "surf-lead",
+              "reverby",
+              "melodic"
+            ],
+            "match_tokens": [
+              "surf-context"
+            ]
+          },
+          {
+            "id": "bass_vi_doom_chords",
+            "default": false,
+            "name": "Doom chords",
+            "descriptors": [
+              "doom-chords",
+              "heavy",
+              "dark"
+            ],
+            "match_tokens": [
+              "metal-context"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "bass_vi_pickups",
+        "name": "Pickups",
+        "surface": false,
+        "variants": [
+          {
+            "id": "bass_vi_three_single_coil",
+            "default": true,
+            "name": "Three single-coils",
+            "descriptors": [
+              "single-coil",
+              "bright",
+              "jangly"
+            ],
+            "match_tokens": [
+              "country-context"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "bass_clarinet",
+    "name": "Bass clarinet",
+    "family": "wind",
+    "class": "wind_blown",
+    "axes": {
+      "pitchFix": 2,
+      "sustain": 2,
+      "polyphony": -2,
+      "harmonicity": 2,
+      "register": -2,
+      "range": 2,
+      "articulation": 1,
+      "transduction": -2,
+      "dynamics": 1
+    },
+    "short": "bassclarinet",
+    "parts": [
+      {
+        "id": "bass_clarinet_range",
+        "name": "Range",
+        "surface": false,
+        "variants": [
+          {
+            "id": "bass_clarinet_to_low_c",
+            "default": true,
+            "name": "To low C",
+            "descriptors": [
+              "low-c",
+              "extended",
+              "sonorous"
+            ],
+            "match_tokens": [
+              "low-end",
+              "orchestral"
+            ]
+          },
+          {
+            "id": "bass_clarinet_to_low_eb",
+            "default": false,
+            "name": "To low E♭",
+            "descriptors": [
+              "low-eb",
+              "standard",
+              "woody"
+            ],
+            "match_tokens": [
+              "orchestral"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "bass_clarinet_style",
+        "name": "Style",
+        "surface": false,
+        "variants": [
+          {
+            "id": "bass_clarinet_classical_legato",
+            "default": true,
+            "name": "Classical legato",
+            "descriptors": [
+              "classical-legato",
+              "dark",
+              "smooth"
+            ],
+            "match_tokens": [
+              "orchestral"
+            ]
+          },
+          {
+            "id": "bass_clarinet_jazz",
+            "default": false,
+            "name": "Jazz",
+            "descriptors": [
+              "clarinet-jazz",
+              "fluid",
+              "expressive"
+            ],
+            "match_tokens": [
+              "jazz-context"
+            ]
+          },
+          {
+            "id": "bass_clarinet_klezmer",
+            "default": false,
+            "name": "Klezmer",
+            "descriptors": [
+              "clarinet-klezmer",
+              "wailing",
+              "ornamented"
+            ],
+            "match_tokens": [
+              "klezmer-context"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "contrabass_clarinet",
+    "name": "Contrabass clarinet",
+    "family": "wind",
+    "class": "wind_blown",
+    "axes": {
+      "pitchFix": 2,
+      "sustain": 2,
+      "polyphony": -2,
+      "harmonicity": 2,
+      "register": -2,
+      "range": 1,
+      "articulation": 0,
+      "transduction": -2,
+      "dynamics": 1
+    },
+    "short": "contraclarinet",
+    "parts": [
+      {
+        "id": "contrabass_clarinet_type",
+        "name": "Type",
+        "surface": false,
+        "variants": [
+          {
+            "id": "contrabass_clarinet_bbb",
+            "default": true,
+            "name": "BBB♭ contrabass",
+            "descriptors": [
+              "clarinet-bbb",
+              "subterranean",
+              "huge"
+            ],
+            "match_tokens": [
+              "low-end",
+              "orchestral"
+            ]
+          },
+          {
+            "id": "contrabass_clarinet_eeb_contralto",
+            "default": false,
+            "name": "EE♭ contra-alto",
+            "descriptors": [
+              "eeb-contralto",
+              "deep",
+              "rich"
+            ],
+            "match_tokens": [
+              "low-end",
+              "orchestral"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "contrabass_clarinet_material",
+        "name": "Material",
+        "surface": false,
+        "variants": [
+          {
+            "id": "contrabass_clarinet_metal_body",
+            "default": true,
+            "name": "Metal body (paperclip)",
+            "descriptors": [
+              "metal-body",
+              "projecting",
+              "modern"
+            ],
+            "match_tokens": [
+              "orchestral"
+            ]
+          },
+          {
+            "id": "contrabass_clarinet_grenadilla",
+            "default": false,
+            "name": "Grenadilla",
+            "descriptors": [
+              "clarinet-grenadilla",
+              "warm",
+              "woody"
+            ],
+            "match_tokens": [
+              "orchestral"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "basset_horn",
+    "name": "Basset horn",
+    "family": "wind",
+    "class": "wind_blown",
+    "axes": {
+      "pitchFix": 2,
+      "sustain": 2,
+      "polyphony": -2,
+      "harmonicity": 2,
+      "register": -1,
+      "range": 2,
+      "articulation": 1,
+      "transduction": -2,
+      "dynamics": 0
+    },
+    "short": "bassethorn",
+    "parts": [
+      {
+        "id": "basset_horn_pitch",
+        "name": "Pitch",
+        "surface": false,
+        "variants": [
+          {
+            "id": "basset_horn_f",
+            "default": true,
+            "name": "F basset horn",
+            "descriptors": [
+              "horn-f",
+              "mellow",
+              "noble"
+            ],
+            "match_tokens": [
+              "orchestral"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "basset_horn_style",
+        "name": "Style",
+        "surface": false,
+        "variants": [
+          {
+            "id": "basset_horn_classical_chamber",
+            "default": true,
+            "name": "Classical chamber",
+            "descriptors": [
+              "classical-chamber",
+              "blended",
+              "graceful"
+            ],
+            "match_tokens": [
+              "orchestral"
+            ]
+          },
+          {
+            "id": "basset_horn_mozartean",
+            "default": false,
+            "name": "Mozartean",
+            "descriptors": [
+              "horn-mozartean",
+              "serene",
+              "singing"
+            ],
+            "match_tokens": [
+              "orchestral"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "oboe_damore",
+    "name": "Oboe d’amore",
+    "family": "wind",
+    "class": "wind_blown",
+    "axes": {
+      "pitchFix": 2,
+      "sustain": 2,
+      "polyphony": -2,
+      "harmonicity": 2,
+      "register": 0,
+      "range": 1,
+      "articulation": 1,
+      "transduction": -2,
+      "dynamics": 0
+    },
+    "short": "oboedamore",
+    "parts": [
+      {
+        "id": "oboe_damore_pitch",
+        "name": "Pitch",
+        "surface": false,
+        "variants": [
+          {
+            "id": "oboe_damore_a",
+            "default": true,
+            "name": "A oboe d’amore",
+            "descriptors": [
+              "damore-a",
+              "mellow",
+              "tender"
+            ],
+            "match_tokens": [
+              "baroque-context",
+              "orchestral"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "oboe_damore_style",
+        "name": "Style",
+        "surface": false,
+        "variants": [
+          {
+            "id": "oboe_damore_baroque_legato",
+            "default": true,
+            "name": "Baroque legato",
+            "descriptors": [
+              "baroque-legato",
+              "sweet",
+              "plaintive"
+            ],
+            "match_tokens": [
+              "baroque-context"
+            ]
+          },
+          {
+            "id": "oboe_damore_romantic",
+            "default": false,
+            "name": "Romantic",
+            "descriptors": [
+              "damore-romantic",
+              "warm",
+              "expressive"
+            ],
+            "match_tokens": [
+              "orchestral"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "clavichord",
+    "name": "Clavichord",
+    "family": "keyboard",
+    "class": "keyboard_acoustic",
+    "axes": {
+      "pitchFix": 2,
+      "sustain": -1,
+      "polyphony": 2,
+      "harmonicity": 2,
+      "register": 0,
+      "range": 1,
+      "articulation": 1,
+      "transduction": -2,
+      "dynamics": -2
+    },
+    "short": "clavichord",
+    "parts": [
+      {
+        "id": "clavichord_type",
+        "name": "Type",
+        "surface": false,
+        "variants": [
+          {
+            "id": "clavichord_fretted",
+            "default": true,
+            "name": "Fretted",
+            "descriptors": [
+              "clavichord-fretted",
+              "intimate",
+              "delicate"
+            ],
+            "match_tokens": [
+              "early-music-context"
+            ]
+          },
+          {
+            "id": "clavichord_unfretted",
+            "default": false,
+            "name": "Unfretted",
+            "descriptors": [
+              "clavichord-unfretted",
+              "flexible",
+              "expressive"
+            ],
+            "match_tokens": [
+              "early-music-context"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "clavichord_technique",
+        "name": "Technique",
+        "surface": false,
+        "variants": [
+          {
+            "id": "clavichord_bebung_vibrato",
+            "default": true,
+            "name": "Bebung vibrato",
+            "descriptors": [
+              "bebung-vibrato",
+              "touch-sensitive",
+              "singing"
+            ],
+            "match_tokens": [
+              "early-music-context"
+            ]
+          },
+          {
+            "id": "clavichord_baroque_intimate",
+            "default": false,
+            "name": "Baroque intimate",
+            "descriptors": [
+              "baroque-intimate",
+              "quiet",
+              "private"
+            ],
+            "match_tokens": [
+              "baroque-context"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "fortepiano",
+    "name": "Fortepiano",
+    "family": "keyboard",
+    "class": "keyboard_acoustic",
+    "axes": {
+      "pitchFix": 2,
+      "sustain": 1,
+      "polyphony": 2,
+      "harmonicity": 2,
+      "register": 0,
+      "range": 1,
+      "articulation": 1,
+      "transduction": -2,
+      "dynamics": 1
+    },
+    "short": "fortepiano",
+    "parts": [
+      {
+        "id": "fortepiano_action",
+        "name": "Action",
+        "surface": false,
+        "variants": [
+          {
+            "id": "fortepiano_viennese_action",
+            "default": true,
+            "name": "Viennese action",
+            "descriptors": [
+              "viennese-action",
+              "light",
+              "crisp"
+            ],
+            "match_tokens": [
+              "classical-context"
+            ]
+          },
+          {
+            "id": "fortepiano_english_action",
+            "default": false,
+            "name": "English action",
+            "descriptors": [
+              "english-action",
+              "robust",
+              "fuller"
+            ],
+            "match_tokens": [
+              "classical-context"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "fortepiano_era",
+        "name": "Era / compass",
+        "surface": false,
+        "variants": [
+          {
+            "id": "fortepiano_classical_5_octave",
+            "default": true,
+            "name": "Classical 5-octave",
+            "descriptors": [
+              "5-octave",
+              "mozartean",
+              "clear"
+            ],
+            "match_tokens": [
+              "classical-context"
+            ]
+          },
+          {
+            "id": "fortepiano_early_romantic_6_octave",
+            "default": false,
+            "name": "Early-romantic 6-octave",
+            "descriptors": [
+              "6-octave",
+              "expanded",
+              "singing"
+            ],
+            "match_tokens": [
+              "classical-context"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "toy_piano",
+    "name": "Toy piano",
+    "family": "keyboard",
+    "class": "keyboard_acoustic",
+    "axes": {
+      "pitchFix": 2,
+      "sustain": -1,
+      "polyphony": 1,
+      "harmonicity": 0,
+      "register": 1,
+      "range": -1,
+      "articulation": 1,
+      "transduction": -2,
+      "dynamics": -1
+    },
+    "short": "toypiano",
+    "parts": [
+      {
+        "id": "toy_piano_type",
+        "name": "Type",
+        "surface": false,
+        "variants": [
+          {
+            "id": "toy_piano_schoenhut_rods",
+            "default": true,
+            "name": "Schoenhut struck-rods",
+            "descriptors": [
+              "schoenhut-rods",
+              "plinky",
+              "naive"
+            ],
+            "match_tokens": [
+              "effect-color"
+            ]
+          },
+          {
+            "id": "toy_piano_generic_metal_rods",
+            "default": false,
+            "name": "Generic metal-rod",
+            "descriptors": [
+              "metal-rods",
+              "tinkling",
+              "lo-fi"
+            ],
+            "match_tokens": [
+              "effect-color"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "toy_piano_aesthetic",
+        "name": "Aesthetic",
+        "surface": false,
+        "variants": [
+          {
+            "id": "toy_piano_naive_celeste",
+            "default": true,
+            "name": "Naïve celeste",
+            "descriptors": [
+              "naive-celeste",
+              "childlike",
+              "music-box"
+            ],
+            "match_tokens": [
+              "effect-color"
+            ]
+          },
+          {
+            "id": "toy_piano_prepared_experimental",
+            "default": false,
+            "name": "Prepared / experimental",
+            "descriptors": [
+              "prepared-experimental",
+              "clangy",
+              "avant"
+            ],
+            "match_tokens": [
+              "experimental-context"
+            ]
+          }
+        ]
+      }
+    ]
   });
 </script>
 <script>// ─── 03_rooms_chains_tunings.js ───

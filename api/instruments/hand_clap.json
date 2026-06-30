@@ -1,0 +1,214 @@
+{
+  "id": "hand_clap",
+  "name": "Hand clap",
+  "family": "percussion",
+  "class": "body_percussion",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 0,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "clap",
+  "parts": [
+    {
+      "id": "clap_technique",
+      "name": "Technique",
+      "surface": false,
+      "variants": [
+        {
+          "id": "clap_flat_sharp",
+          "default": true,
+          "name": "Flat sharp clap",
+          "descriptors": [
+            "flat-sharp",
+            "bright",
+            "cracking"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-percussion"
+          ]
+        },
+        {
+          "id": "clap_cupped_muffled",
+          "default": false,
+          "name": "Cupped / muffled (palmas sordas)",
+          "descriptors": [
+            "cupped-muffled",
+            "rounded",
+            "low"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "flamenco-context"
+          ]
+        },
+        {
+          "id": "clap_fingers_to_palm",
+          "default": false,
+          "name": "Fingers-to-palm (high crack)",
+          "descriptors": [
+            "to-palm",
+            "snappy",
+            "thin"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "clap_group_massed",
+          "default": false,
+          "name": "Massed group claps",
+          "descriptors": [
+            "group-massed",
+            "communal",
+            "wide"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "gospel-rooted",
+            "call-response"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clap_capture",
+      "name": "Capture context",
+      "surface": false,
+      "variants": [
+        {
+          "id": "clap_room_natural",
+          "default": true,
+          "name": "Natural room",
+          "descriptors": [
+            "room-natural",
+            "live",
+            "ambient"
+          ],
+          "match_tokens": [
+            "room-forward"
+          ]
+        },
+        {
+          "id": "clap_close_dry",
+          "default": false,
+          "name": "Close / dry",
+          "descriptors": [
+            "close-dry",
+            "tight",
+            "upfront"
+          ],
+          "match_tokens": [
+            "dry"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "clap_technique",
+      "name": "Technique",
+      "surface": false,
+      "variants": [
+        {
+          "id": "clap_flat_sharp",
+          "default": true,
+          "name": "Flat sharp clap",
+          "descriptors": [
+            "flat-sharp",
+            "bright",
+            "cracking"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "hand-percussion"
+          ]
+        },
+        {
+          "id": "clap_cupped_muffled",
+          "default": false,
+          "name": "Cupped / muffled (palmas sordas)",
+          "descriptors": [
+            "cupped-muffled",
+            "rounded",
+            "low"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "flamenco-context"
+          ]
+        },
+        {
+          "id": "clap_fingers_to_palm",
+          "default": false,
+          "name": "Fingers-to-palm (high crack)",
+          "descriptors": [
+            "to-palm",
+            "snappy",
+            "thin"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "clap_group_massed",
+          "default": false,
+          "name": "Massed group claps",
+          "descriptors": [
+            "group-massed",
+            "communal",
+            "wide"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "gospel-rooted",
+            "call-response"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clap_capture",
+      "name": "Capture context",
+      "surface": false,
+      "variants": [
+        {
+          "id": "clap_room_natural",
+          "default": true,
+          "name": "Natural room",
+          "descriptors": [
+            "room-natural",
+            "live",
+            "ambient"
+          ],
+          "match_tokens": [
+            "room-forward"
+          ]
+        },
+        {
+          "id": "clap_close_dry",
+          "default": false,
+          "name": "Close / dry",
+          "descriptors": [
+            "close-dry",
+            "tight",
+            "upfront"
+          ],
+          "match_tokens": [
+            "dry"
+          ]
+        }
+      ]
+    }
+  ]
+}

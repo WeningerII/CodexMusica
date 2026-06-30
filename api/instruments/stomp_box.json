@@ -1,0 +1,182 @@
+{
+  "id": "stomp_box",
+  "name": "Stomp box",
+  "family": "percussion",
+  "class": "foot_percussion",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": -2,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -1,
+    "dynamics": 1
+  },
+  "short": "stompbox",
+  "parts": [
+    {
+      "id": "stomp_box_construction",
+      "name": "Construction",
+      "surface": false,
+      "variants": [
+        {
+          "id": "stomp_box_wood_piezo",
+          "default": true,
+          "name": "Wood box w/ piezo",
+          "descriptors": [
+            "wood-piezo",
+            "thumping",
+            "amplified"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "busker-context"
+          ]
+        },
+        {
+          "id": "stomp_box_tambourine_foot",
+          "default": false,
+          "name": "Foot tambourine",
+          "descriptors": [
+            "tambourine-foot",
+            "jingling",
+            "backbeat"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "stomp_box_multi_pad",
+          "default": false,
+          "name": "Multi-pad stomp",
+          "descriptors": [
+            "multi-pad",
+            "versatile",
+            "kit-like"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stomp_box_material",
+      "name": "Body material",
+      "surface": false,
+      "variants": [
+        {
+          "id": "stomp_box_plywood",
+          "default": true,
+          "name": "Plywood",
+          "descriptors": [
+            "box-plywood",
+            "boxy",
+            "mid"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "stomp_box_hardwood",
+          "default": false,
+          "name": "Hardwood",
+          "descriptors": [
+            "box-hardwood",
+            "deep",
+            "resonant"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "stomp_box_construction",
+      "name": "Construction",
+      "surface": false,
+      "variants": [
+        {
+          "id": "stomp_box_wood_piezo",
+          "default": true,
+          "name": "Wood box w/ piezo",
+          "descriptors": [
+            "wood-piezo",
+            "thumping",
+            "amplified"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "busker-context"
+          ]
+        },
+        {
+          "id": "stomp_box_tambourine_foot",
+          "default": false,
+          "name": "Foot tambourine",
+          "descriptors": [
+            "tambourine-foot",
+            "jingling",
+            "backbeat"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "stomp_box_multi_pad",
+          "default": false,
+          "name": "Multi-pad stomp",
+          "descriptors": [
+            "multi-pad",
+            "versatile",
+            "kit-like"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stomp_box_material",
+      "name": "Body material",
+      "surface": false,
+      "variants": [
+        {
+          "id": "stomp_box_plywood",
+          "default": true,
+          "name": "Plywood",
+          "descriptors": [
+            "box-plywood",
+            "boxy",
+            "mid"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "stomp_box_hardwood",
+          "default": false,
+          "name": "Hardwood",
+          "descriptors": [
+            "box-hardwood",
+            "deep",
+            "resonant"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ]
+}

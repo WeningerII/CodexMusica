@@ -1,5 +1,5 @@
 {
-  "count": 419,
+  "count": 463,
   "items": [
     {
       "id": "choir_ensemble",
@@ -2514,6 +2514,270 @@
       "name": "Trống chầu (Vietnamese ca trù praise-drum)",
       "family": "percussion",
       "href": "instruments/trong_chau.json"
+    },
+    {
+      "id": "hand_clap",
+      "name": "Hand clap",
+      "family": "percussion",
+      "href": "instruments/hand_clap.json"
+    },
+    {
+      "id": "finger_snap",
+      "name": "Finger snap",
+      "family": "percussion",
+      "href": "instruments/finger_snap.json"
+    },
+    {
+      "id": "foot_stomp",
+      "name": "Foot stomp",
+      "family": "percussion",
+      "href": "instruments/foot_stomp.json"
+    },
+    {
+      "id": "foot_tap",
+      "name": "Foot tap / tap & clog",
+      "family": "percussion",
+      "href": "instruments/foot_tap.json"
+    },
+    {
+      "id": "spoons",
+      "name": "Spoons",
+      "family": "percussion",
+      "href": "instruments/spoons.json"
+    },
+    {
+      "id": "rhythm_bones",
+      "name": "Rhythm bones",
+      "family": "percussion",
+      "href": "instruments/rhythm_bones.json"
+    },
+    {
+      "id": "hambone_body",
+      "name": "Hambone / body percussion",
+      "family": "percussion",
+      "href": "instruments/hambone_body.json"
+    },
+    {
+      "id": "stomp_box",
+      "name": "Stomp box",
+      "family": "percussion",
+      "href": "instruments/stomp_box.json"
+    },
+    {
+      "id": "handbells",
+      "name": "Handbells",
+      "family": "percussion",
+      "href": "instruments/handbells.json"
+    },
+    {
+      "id": "tubular_bells",
+      "name": "Tubular bells / chimes",
+      "family": "percussion",
+      "href": "instruments/tubular_bells.json"
+    },
+    {
+      "id": "carillon",
+      "name": "Carillon",
+      "family": "percussion",
+      "href": "instruments/carillon.json"
+    },
+    {
+      "id": "glass_harmonica",
+      "name": "Glass harmonica / armonica",
+      "family": "percussion",
+      "href": "instruments/glass_harmonica.json"
+    },
+    {
+      "id": "musical_saw",
+      "name": "Musical saw",
+      "family": "percussion",
+      "href": "instruments/musical_saw.json"
+    },
+    {
+      "id": "gong_tamtam",
+      "name": "Gong / tam-tam",
+      "family": "percussion",
+      "href": "instruments/gong_tamtam.json"
+    },
+    {
+      "id": "kalimba",
+      "name": "Kalimba (thumb piano)",
+      "family": "percussion",
+      "href": "instruments/kalimba.json"
+    },
+    {
+      "id": "crotales",
+      "name": "Crotales (antique cymbals)",
+      "family": "percussion",
+      "href": "instruments/crotales.json"
+    },
+    {
+      "id": "flexatone",
+      "name": "Flexatone",
+      "family": "percussion",
+      "href": "instruments/flexatone.json"
+    },
+    {
+      "id": "vibraslap",
+      "name": "Vibraslap",
+      "family": "percussion",
+      "href": "instruments/vibraslap.json"
+    },
+    {
+      "id": "mark_tree",
+      "name": "Mark tree / wind chimes",
+      "family": "percussion",
+      "href": "instruments/mark_tree.json"
+    },
+    {
+      "id": "anvil",
+      "name": "Anvil",
+      "family": "percussion",
+      "href": "instruments/anvil.json"
+    },
+    {
+      "id": "sousaphone",
+      "name": "Sousaphone",
+      "family": "wind",
+      "href": "instruments/sousaphone.json"
+    },
+    {
+      "id": "mellophone",
+      "name": "Mellophone (marching horn)",
+      "family": "wind",
+      "href": "instruments/mellophone.json"
+    },
+    {
+      "id": "alphorn",
+      "name": "Alphorn",
+      "family": "wind",
+      "href": "instruments/alphorn.json"
+    },
+    {
+      "id": "bass_trombone",
+      "name": "Bass trombone",
+      "family": "wind",
+      "href": "instruments/bass_trombone.json"
+    },
+    {
+      "id": "piccolo_trumpet",
+      "name": "Piccolo trumpet",
+      "family": "wind",
+      "href": "instruments/piccolo_trumpet.json"
+    },
+    {
+      "id": "serpent",
+      "name": "Serpent",
+      "family": "wind",
+      "href": "instruments/serpent.json"
+    },
+    {
+      "id": "cornetto",
+      "name": "Cornetto / zink",
+      "family": "wind",
+      "href": "instruments/cornetto.json"
+    },
+    {
+      "id": "natural_trumpet",
+      "name": "Natural / baroque trumpet",
+      "family": "wind",
+      "href": "instruments/natural_trumpet.json"
+    },
+    {
+      "id": "wagner_tuba",
+      "name": "Wagner tuba",
+      "family": "wind",
+      "href": "instruments/wagner_tuba.json"
+    },
+    {
+      "id": "vuvuzela",
+      "name": "Vuvuzela",
+      "family": "wind",
+      "href": "instruments/vuvuzela.json"
+    },
+    {
+      "id": "seven_string_electric",
+      "name": "7-string electric guitar",
+      "family": "electric_strings",
+      "href": "instruments/seven_string_electric.json"
+    },
+    {
+      "id": "eight_string_electric",
+      "name": "8-string electric guitar",
+      "family": "electric_strings",
+      "href": "instruments/eight_string_electric.json"
+    },
+    {
+      "id": "lap_steel",
+      "name": "Lap steel guitar",
+      "family": "electric_strings",
+      "href": "instruments/lap_steel.json"
+    },
+    {
+      "id": "chapman_stick",
+      "name": "Chapman Stick",
+      "family": "electric_strings",
+      "href": "instruments/chapman_stick.json"
+    },
+    {
+      "id": "electric_upright_bass",
+      "name": "Electric upright bass",
+      "family": "electric_strings",
+      "href": "instruments/electric_upright_bass.json"
+    },
+    {
+      "id": "electric_sitar",
+      "name": "Electric sitar",
+      "family": "electric_strings",
+      "href": "instruments/electric_sitar.json"
+    },
+    {
+      "id": "bass_vi",
+      "name": "Bass VI (baritone)",
+      "family": "electric_strings",
+      "href": "instruments/bass_vi.json"
+    },
+    {
+      "id": "bass_clarinet",
+      "name": "Bass clarinet",
+      "family": "wind",
+      "href": "instruments/bass_clarinet.json"
+    },
+    {
+      "id": "contrabass_clarinet",
+      "name": "Contrabass clarinet",
+      "family": "wind",
+      "href": "instruments/contrabass_clarinet.json"
+    },
+    {
+      "id": "basset_horn",
+      "name": "Basset horn",
+      "family": "wind",
+      "href": "instruments/basset_horn.json"
+    },
+    {
+      "id": "oboe_damore",
+      "name": "Oboe d’amore",
+      "family": "wind",
+      "href": "instruments/oboe_damore.json"
+    },
+    {
+      "id": "clavichord",
+      "name": "Clavichord",
+      "family": "keyboard",
+      "href": "instruments/clavichord.json"
+    },
+    {
+      "id": "fortepiano",
+      "name": "Fortepiano",
+      "family": "keyboard",
+      "href": "instruments/fortepiano.json"
+    },
+    {
+      "id": "toy_piano",
+      "name": "Toy piano",
+      "family": "keyboard",
+      "href": "instruments/toy_piano.json"
     }
   ]
 }

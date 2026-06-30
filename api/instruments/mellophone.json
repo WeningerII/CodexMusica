@@ -1,0 +1,154 @@
+{
+  "id": "mellophone",
+  "name": "Mellophone (marching horn)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "mellophone",
+  "parts": [
+    {
+      "id": "mellophone_use",
+      "name": "Use",
+      "surface": false,
+      "variants": [
+        {
+          "id": "mellophone_marching_band",
+          "default": true,
+          "name": "Marching band",
+          "descriptors": [
+            "marching-band",
+            "projecting",
+            "midvoice"
+          ],
+          "match_tokens": [
+            "brass-section"
+          ]
+        },
+        {
+          "id": "mellophone_drum_corps",
+          "default": false,
+          "name": "Drum corps",
+          "descriptors": [
+            "drum-corps",
+            "powerful",
+            "blended"
+          ],
+          "match_tokens": [
+            "brass-section"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mellophone_mouthpiece",
+      "name": "Mouthpiece",
+      "surface": false,
+      "variants": [
+        {
+          "id": "mellophone_trumpet_style",
+          "default": true,
+          "name": "Trumpet-style",
+          "descriptors": [
+            "trumpet-style",
+            "bright",
+            "direct"
+          ],
+          "match_tokens": [
+            "brass-section"
+          ]
+        },
+        {
+          "id": "mellophone_horn_style",
+          "default": false,
+          "name": "Horn-style adapter",
+          "descriptors": [
+            "horn-style",
+            "rounded",
+            "mellow"
+          ],
+          "match_tokens": [
+            "brass-section"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "mellophone_use",
+      "name": "Use",
+      "surface": false,
+      "variants": [
+        {
+          "id": "mellophone_marching_band",
+          "default": true,
+          "name": "Marching band",
+          "descriptors": [
+            "marching-band",
+            "projecting",
+            "midvoice"
+          ],
+          "match_tokens": [
+            "brass-section"
+          ]
+        },
+        {
+          "id": "mellophone_drum_corps",
+          "default": false,
+          "name": "Drum corps",
+          "descriptors": [
+            "drum-corps",
+            "powerful",
+            "blended"
+          ],
+          "match_tokens": [
+            "brass-section"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mellophone_mouthpiece",
+      "name": "Mouthpiece",
+      "surface": false,
+      "variants": [
+        {
+          "id": "mellophone_trumpet_style",
+          "default": true,
+          "name": "Trumpet-style",
+          "descriptors": [
+            "trumpet-style",
+            "bright",
+            "direct"
+          ],
+          "match_tokens": [
+            "brass-section"
+          ]
+        },
+        {
+          "id": "mellophone_horn_style",
+          "default": false,
+          "name": "Horn-style adapter",
+          "descriptors": [
+            "horn-style",
+            "rounded",
+            "mellow"
+          ],
+          "match_tokens": [
+            "brass-section"
+          ]
+        }
+      ]
+    }
+  ]
+}

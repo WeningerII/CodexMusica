@@ -1,0 +1,156 @@
+{
+  "id": "vuvuzela",
+  "name": "Vuvuzela",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": -2,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "vuvuzela",
+  "parts": [
+    {
+      "id": "vuvuzela_material",
+      "name": "Material",
+      "surface": false,
+      "variants": [
+        {
+          "id": "vuvuzela_plastic_stadium",
+          "default": true,
+          "name": "Plastic stadium horn",
+          "descriptors": [
+            "plastic-stadium",
+            "monotone",
+            "blaring"
+          ],
+          "match_tokens": [
+            "outdoor-field"
+          ]
+        },
+        {
+          "id": "vuvuzela_kudu_horn",
+          "default": false,
+          "name": "Kudu horn (traditional)",
+          "descriptors": [
+            "kudu-horn",
+            "organic",
+            "calling"
+          ],
+          "match_tokens": [
+            "outdoor-field",
+            "african-context"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vuvuzela_technique",
+      "name": "Technique",
+      "surface": false,
+      "variants": [
+        {
+          "id": "vuvuzela_sustained_blast",
+          "default": true,
+          "name": "Sustained blast",
+          "descriptors": [
+            "sustained-blast",
+            "droning",
+            "massed"
+          ],
+          "match_tokens": [
+            "outdoor-field"
+          ]
+        },
+        {
+          "id": "vuvuzela_rhythmic_pulses",
+          "default": false,
+          "name": "Rhythmic pulses",
+          "descriptors": [
+            "rhythmic-pulses",
+            "chanting",
+            "crowd"
+          ],
+          "match_tokens": [
+            "outdoor-field"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "vuvuzela_material",
+      "name": "Material",
+      "surface": false,
+      "variants": [
+        {
+          "id": "vuvuzela_plastic_stadium",
+          "default": true,
+          "name": "Plastic stadium horn",
+          "descriptors": [
+            "plastic-stadium",
+            "monotone",
+            "blaring"
+          ],
+          "match_tokens": [
+            "outdoor-field"
+          ]
+        },
+        {
+          "id": "vuvuzela_kudu_horn",
+          "default": false,
+          "name": "Kudu horn (traditional)",
+          "descriptors": [
+            "kudu-horn",
+            "organic",
+            "calling"
+          ],
+          "match_tokens": [
+            "outdoor-field",
+            "african-context"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vuvuzela_technique",
+      "name": "Technique",
+      "surface": false,
+      "variants": [
+        {
+          "id": "vuvuzela_sustained_blast",
+          "default": true,
+          "name": "Sustained blast",
+          "descriptors": [
+            "sustained-blast",
+            "droning",
+            "massed"
+          ],
+          "match_tokens": [
+            "outdoor-field"
+          ]
+        },
+        {
+          "id": "vuvuzela_rhythmic_pulses",
+          "default": false,
+          "name": "Rhythmic pulses",
+          "descriptors": [
+            "rhythmic-pulses",
+            "chanting",
+            "crowd"
+          ],
+          "match_tokens": [
+            "outdoor-field"
+          ]
+        }
+      ]
+    }
+  ]
+}

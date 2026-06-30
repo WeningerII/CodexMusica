@@ -1,0 +1,182 @@
+{
+  "id": "anvil",
+  "name": "Anvil",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "anvil",
+  "parts": [
+    {
+      "id": "anvil_type",
+      "name": "Type",
+      "surface": false,
+      "variants": [
+        {
+          "id": "anvil_real",
+          "default": true,
+          "name": "Real anvil",
+          "descriptors": [
+            "anvil-real",
+            "clanging",
+            "industrial"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "orchestral"
+          ]
+        },
+        {
+          "id": "anvil_brake_drum",
+          "default": false,
+          "name": "Brake drum",
+          "descriptors": [
+            "brake-drum",
+            "ringing",
+            "gritty"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "anvil_steel_pipe",
+          "default": false,
+          "name": "Steel pipe",
+          "descriptors": [
+            "steel-pipe",
+            "pitched",
+            "metallic"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "anvil_striker",
+      "name": "Striker",
+      "surface": false,
+      "variants": [
+        {
+          "id": "anvil_hammer",
+          "default": true,
+          "name": "Hammer",
+          "descriptors": [
+            "anvil-hammer",
+            "heavy",
+            "forceful"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "anvil_metal_beater",
+          "default": false,
+          "name": "Metal beater",
+          "descriptors": [
+            "metal-beater",
+            "bright",
+            "cutting"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "anvil_type",
+      "name": "Type",
+      "surface": false,
+      "variants": [
+        {
+          "id": "anvil_real",
+          "default": true,
+          "name": "Real anvil",
+          "descriptors": [
+            "anvil-real",
+            "clanging",
+            "industrial"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "orchestral"
+          ]
+        },
+        {
+          "id": "anvil_brake_drum",
+          "default": false,
+          "name": "Brake drum",
+          "descriptors": [
+            "brake-drum",
+            "ringing",
+            "gritty"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "anvil_steel_pipe",
+          "default": false,
+          "name": "Steel pipe",
+          "descriptors": [
+            "steel-pipe",
+            "pitched",
+            "metallic"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "anvil_striker",
+      "name": "Striker",
+      "surface": false,
+      "variants": [
+        {
+          "id": "anvil_hammer",
+          "default": true,
+          "name": "Hammer",
+          "descriptors": [
+            "anvil-hammer",
+            "heavy",
+            "forceful"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "anvil_metal_beater",
+          "default": false,
+          "name": "Metal beater",
+          "descriptors": [
+            "metal-beater",
+            "bright",
+            "cutting"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,156 @@
+{
+  "id": "natural_trumpet",
+  "name": "Natural / baroque trumpet",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "naturaltrumpet",
+  "parts": [
+    {
+      "id": "natural_trumpet_type",
+      "name": "Type",
+      "surface": false,
+      "variants": [
+        {
+          "id": "natural_trumpet_baroque",
+          "default": true,
+          "name": "Baroque natural",
+          "descriptors": [
+            "trumpet-baroque",
+            "valveless",
+            "noble"
+          ],
+          "match_tokens": [
+            "baroque-context"
+          ]
+        },
+        {
+          "id": "natural_trumpet_vented_repro",
+          "default": false,
+          "name": "Vented modern repro",
+          "descriptors": [
+            "vented-repro",
+            "secure",
+            "period"
+          ],
+          "match_tokens": [
+            "baroque-context"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "natural_trumpet_register",
+      "name": "Register / role",
+      "surface": false,
+      "variants": [
+        {
+          "id": "natural_trumpet_clarino_high",
+          "default": true,
+          "name": "Clarino (high)",
+          "descriptors": [
+            "clarino-high",
+            "florid",
+            "brilliant"
+          ],
+          "match_tokens": [
+            "high-register",
+            "baroque-context"
+          ]
+        },
+        {
+          "id": "natural_trumpet_principale_low",
+          "default": false,
+          "name": "Principale (low)",
+          "descriptors": [
+            "principale-low",
+            "fanfare",
+            "foundational"
+          ],
+          "match_tokens": [
+            "baroque-context"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "natural_trumpet_type",
+      "name": "Type",
+      "surface": false,
+      "variants": [
+        {
+          "id": "natural_trumpet_baroque",
+          "default": true,
+          "name": "Baroque natural",
+          "descriptors": [
+            "trumpet-baroque",
+            "valveless",
+            "noble"
+          ],
+          "match_tokens": [
+            "baroque-context"
+          ]
+        },
+        {
+          "id": "natural_trumpet_vented_repro",
+          "default": false,
+          "name": "Vented modern repro",
+          "descriptors": [
+            "vented-repro",
+            "secure",
+            "period"
+          ],
+          "match_tokens": [
+            "baroque-context"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "natural_trumpet_register",
+      "name": "Register / role",
+      "surface": false,
+      "variants": [
+        {
+          "id": "natural_trumpet_clarino_high",
+          "default": true,
+          "name": "Clarino (high)",
+          "descriptors": [
+            "clarino-high",
+            "florid",
+            "brilliant"
+          ],
+          "match_tokens": [
+            "high-register",
+            "baroque-context"
+          ]
+        },
+        {
+          "id": "natural_trumpet_principale_low",
+          "default": false,
+          "name": "Principale (low)",
+          "descriptors": [
+            "principale-low",
+            "fanfare",
+            "foundational"
+          ],
+          "match_tokens": [
+            "baroque-context"
+          ]
+        }
+      ]
+    }
+  ]
+}

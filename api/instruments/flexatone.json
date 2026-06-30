@@ -1,0 +1,88 @@
+{
+  "id": "flexatone",
+  "name": "Flexatone",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 1,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "flexatone",
+  "parts": [
+    {
+      "id": "flexatone_technique",
+      "name": "Technique",
+      "surface": false,
+      "variants": [
+        {
+          "id": "flexatone_shaken_wobble",
+          "default": true,
+          "name": "Shaken wobble",
+          "descriptors": [
+            "shaken-wobble",
+            "warbling",
+            "comic"
+          ],
+          "match_tokens": [
+            "effect-color"
+          ]
+        },
+        {
+          "id": "flexatone_thumb_bent",
+          "default": false,
+          "name": "Thumb-bent pitch",
+          "descriptors": [
+            "thumb-bent",
+            "swooping",
+            "eerie"
+          ],
+          "match_tokens": [
+            "effect-color"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "flexatone_technique",
+      "name": "Technique",
+      "surface": false,
+      "variants": [
+        {
+          "id": "flexatone_shaken_wobble",
+          "default": true,
+          "name": "Shaken wobble",
+          "descriptors": [
+            "shaken-wobble",
+            "warbling",
+            "comic"
+          ],
+          "match_tokens": [
+            "effect-color"
+          ]
+        },
+        {
+          "id": "flexatone_thumb_bent",
+          "default": false,
+          "name": "Thumb-bent pitch",
+          "descriptors": [
+            "thumb-bent",
+            "swooping",
+            "eerie"
+          ],
+          "match_tokens": [
+            "effect-color"
+          ]
+        }
+      ]
+    }
+  ]
+}

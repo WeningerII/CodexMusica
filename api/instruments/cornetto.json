@@ -1,0 +1,180 @@
+{
+  "id": "cornetto",
+  "name": "Cornetto / zink",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "cornetto",
+  "parts": [
+    {
+      "id": "cornetto_type",
+      "name": "Type",
+      "surface": false,
+      "variants": [
+        {
+          "id": "cornetto_treble",
+          "default": true,
+          "name": "Treble cornetto",
+          "descriptors": [
+            "cornetto-treble",
+            "vocal",
+            "agile"
+          ],
+          "match_tokens": [
+            "early-music-context"
+          ]
+        },
+        {
+          "id": "cornetto_mute",
+          "default": false,
+          "name": "Mute cornetto",
+          "descriptors": [
+            "cornetto-mute",
+            "soft",
+            "veiled"
+          ],
+          "match_tokens": [
+            "early-music-context"
+          ]
+        },
+        {
+          "id": "cornetto_tenor_lysarden",
+          "default": false,
+          "name": "Tenor (lysarden)",
+          "descriptors": [
+            "tenor-lysarden",
+            "lower",
+            "mellow"
+          ],
+          "match_tokens": [
+            "early-music-context"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cornetto_material",
+      "name": "Material",
+      "surface": false,
+      "variants": [
+        {
+          "id": "cornetto_wood_leather",
+          "default": true,
+          "name": "Wood + leather",
+          "descriptors": [
+            "wood-leather",
+            "warm",
+            "historical"
+          ],
+          "match_tokens": [
+            "early-music-context"
+          ]
+        },
+        {
+          "id": "cornetto_resin_modern",
+          "default": false,
+          "name": "Resin (modern repro)",
+          "descriptors": [
+            "resin-modern",
+            "even",
+            "stable"
+          ],
+          "match_tokens": [
+            "early-music-context"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "cornetto_type",
+      "name": "Type",
+      "surface": false,
+      "variants": [
+        {
+          "id": "cornetto_treble",
+          "default": true,
+          "name": "Treble cornetto",
+          "descriptors": [
+            "cornetto-treble",
+            "vocal",
+            "agile"
+          ],
+          "match_tokens": [
+            "early-music-context"
+          ]
+        },
+        {
+          "id": "cornetto_mute",
+          "default": false,
+          "name": "Mute cornetto",
+          "descriptors": [
+            "cornetto-mute",
+            "soft",
+            "veiled"
+          ],
+          "match_tokens": [
+            "early-music-context"
+          ]
+        },
+        {
+          "id": "cornetto_tenor_lysarden",
+          "default": false,
+          "name": "Tenor (lysarden)",
+          "descriptors": [
+            "tenor-lysarden",
+            "lower",
+            "mellow"
+          ],
+          "match_tokens": [
+            "early-music-context"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cornetto_material",
+      "name": "Material",
+      "surface": false,
+      "variants": [
+        {
+          "id": "cornetto_wood_leather",
+          "default": true,
+          "name": "Wood + leather",
+          "descriptors": [
+            "wood-leather",
+            "warm",
+            "historical"
+          ],
+          "match_tokens": [
+            "early-music-context"
+          ]
+        },
+        {
+          "id": "cornetto_resin_modern",
+          "default": false,
+          "name": "Resin (modern repro)",
+          "descriptors": [
+            "resin-modern",
+            "even",
+            "stable"
+          ],
+          "match_tokens": [
+            "early-music-context"
+          ]
+        }
+      ]
+    }
+  ]
+}

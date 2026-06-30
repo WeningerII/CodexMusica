@@ -1,0 +1,156 @@
+{
+  "id": "piccolo_trumpet",
+  "name": "Piccolo trumpet",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 2,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "piccolotrumpet",
+  "parts": [
+    {
+      "id": "piccolo_trumpet_pitch",
+      "name": "Pitch",
+      "surface": false,
+      "variants": [
+        {
+          "id": "piccolo_trumpet_bb_a",
+          "default": true,
+          "name": "B♭/A piccolo",
+          "descriptors": [
+            "bb-a",
+            "brilliant",
+            "piercing"
+          ],
+          "match_tokens": [
+            "high-register",
+            "brass-section"
+          ]
+        },
+        {
+          "id": "piccolo_trumpet_g_soprano",
+          "default": false,
+          "name": "G soprano",
+          "descriptors": [
+            "g-soprano",
+            "stratospheric",
+            "cutting"
+          ],
+          "match_tokens": [
+            "high-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "piccolo_trumpet_context",
+      "name": "Context",
+      "surface": false,
+      "variants": [
+        {
+          "id": "piccolo_trumpet_baroque_clarino",
+          "default": true,
+          "name": "Baroque clarino",
+          "descriptors": [
+            "baroque-clarino",
+            "ornate",
+            "regal"
+          ],
+          "match_tokens": [
+            "baroque-context"
+          ]
+        },
+        {
+          "id": "piccolo_trumpet_pop_lead",
+          "default": false,
+          "name": "Pop lead (Penny-Lane)",
+          "descriptors": [
+            "pop-lead",
+            "bright",
+            "hooky"
+          ],
+          "match_tokens": [
+            "high-register"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "piccolo_trumpet_pitch",
+      "name": "Pitch",
+      "surface": false,
+      "variants": [
+        {
+          "id": "piccolo_trumpet_bb_a",
+          "default": true,
+          "name": "B♭/A piccolo",
+          "descriptors": [
+            "bb-a",
+            "brilliant",
+            "piercing"
+          ],
+          "match_tokens": [
+            "high-register",
+            "brass-section"
+          ]
+        },
+        {
+          "id": "piccolo_trumpet_g_soprano",
+          "default": false,
+          "name": "G soprano",
+          "descriptors": [
+            "g-soprano",
+            "stratospheric",
+            "cutting"
+          ],
+          "match_tokens": [
+            "high-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "piccolo_trumpet_context",
+      "name": "Context",
+      "surface": false,
+      "variants": [
+        {
+          "id": "piccolo_trumpet_baroque_clarino",
+          "default": true,
+          "name": "Baroque clarino",
+          "descriptors": [
+            "baroque-clarino",
+            "ornate",
+            "regal"
+          ],
+          "match_tokens": [
+            "baroque-context"
+          ]
+        },
+        {
+          "id": "piccolo_trumpet_pop_lead",
+          "default": false,
+          "name": "Pop lead (Penny-Lane)",
+          "descriptors": [
+            "pop-lead",
+            "bright",
+            "hooky"
+          ],
+          "match_tokens": [
+            "high-register"
+          ]
+        }
+      ]
+    }
+  ]
+}

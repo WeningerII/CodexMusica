@@ -1,0 +1,156 @@
+{
+  "id": "spoons",
+  "name": "Spoons",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "spoons",
+  "parts": [
+    {
+      "id": "spoons_material",
+      "name": "Material",
+      "surface": false,
+      "variants": [
+        {
+          "id": "spoons_wooden",
+          "default": true,
+          "name": "Wooden spoons",
+          "descriptors": [
+            "spoons-wooden",
+            "woody",
+            "warm"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "folk-context"
+          ]
+        },
+        {
+          "id": "spoons_metal",
+          "default": false,
+          "name": "Metal spoons",
+          "descriptors": [
+            "spoons-metal",
+            "clicky",
+            "bright"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "spoons_playing",
+      "name": "Playing position",
+      "surface": false,
+      "variants": [
+        {
+          "id": "spoons_paired_hand",
+          "default": true,
+          "name": "Paired in hand",
+          "descriptors": [
+            "paired-hand",
+            "rattling",
+            "rolling"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "spoons_knee_and_hand",
+          "default": false,
+          "name": "Knee-and-hand",
+          "descriptors": [
+            "and-hand",
+            "galloping",
+            "syncopated"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "spoons_material",
+      "name": "Material",
+      "surface": false,
+      "variants": [
+        {
+          "id": "spoons_wooden",
+          "default": true,
+          "name": "Wooden spoons",
+          "descriptors": [
+            "spoons-wooden",
+            "woody",
+            "warm"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "folk-context"
+          ]
+        },
+        {
+          "id": "spoons_metal",
+          "default": false,
+          "name": "Metal spoons",
+          "descriptors": [
+            "spoons-metal",
+            "clicky",
+            "bright"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "spoons_playing",
+      "name": "Playing position",
+      "surface": false,
+      "variants": [
+        {
+          "id": "spoons_paired_hand",
+          "default": true,
+          "name": "Paired in hand",
+          "descriptors": [
+            "paired-hand",
+            "rattling",
+            "rolling"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "spoons_knee_and_hand",
+          "default": false,
+          "name": "Knee-and-hand",
+          "descriptors": [
+            "and-hand",
+            "galloping",
+            "syncopated"
+          ],
+          "match_tokens": [
+            "percussive-attack"
+          ]
+        }
+      ]
+    }
+  ]
+}

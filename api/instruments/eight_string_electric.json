@@ -1,0 +1,156 @@
+{
+  "id": "eight_string_electric",
+  "name": "8-string electric guitar",
+  "family": "electric_strings",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": -2,
+    "range": 2,
+    "articulation": 1,
+    "transduction": 2,
+    "dynamics": 1
+  },
+  "short": "eightstring",
+  "parts": [
+    {
+      "id": "eight_string_tuning",
+      "name": "Tuning",
+      "surface": false,
+      "variants": [
+        {
+          "id": "eight_string_low_f_sharp",
+          "default": true,
+          "name": "Low F♯ standard",
+          "descriptors": [
+            "f-sharp",
+            "subterranean",
+            "massive"
+          ],
+          "match_tokens": [
+            "metal-context",
+            "low-end"
+          ]
+        },
+        {
+          "id": "eight_string_drop_e",
+          "default": false,
+          "name": "Drop E",
+          "descriptors": [
+            "drop-e",
+            "crushing",
+            "djent"
+          ],
+          "match_tokens": [
+            "metal-context"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eight_string_technique",
+      "name": "Technique",
+      "surface": false,
+      "variants": [
+        {
+          "id": "eight_string_djent_chug",
+          "default": true,
+          "name": "Djent chug",
+          "descriptors": [
+            "djent-chug",
+            "mechanical",
+            "percussive"
+          ],
+          "match_tokens": [
+            "metal-context"
+          ]
+        },
+        {
+          "id": "eight_string_ambient_clean",
+          "default": false,
+          "name": "Ambient clean",
+          "descriptors": [
+            "ambient-clean",
+            "spacious",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "ambient-context"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "eight_string_tuning",
+      "name": "Tuning",
+      "surface": false,
+      "variants": [
+        {
+          "id": "eight_string_low_f_sharp",
+          "default": true,
+          "name": "Low F♯ standard",
+          "descriptors": [
+            "f-sharp",
+            "subterranean",
+            "massive"
+          ],
+          "match_tokens": [
+            "metal-context",
+            "low-end"
+          ]
+        },
+        {
+          "id": "eight_string_drop_e",
+          "default": false,
+          "name": "Drop E",
+          "descriptors": [
+            "drop-e",
+            "crushing",
+            "djent"
+          ],
+          "match_tokens": [
+            "metal-context"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eight_string_technique",
+      "name": "Technique",
+      "surface": false,
+      "variants": [
+        {
+          "id": "eight_string_djent_chug",
+          "default": true,
+          "name": "Djent chug",
+          "descriptors": [
+            "djent-chug",
+            "mechanical",
+            "percussive"
+          ],
+          "match_tokens": [
+            "metal-context"
+          ]
+        },
+        {
+          "id": "eight_string_ambient_clean",
+          "default": false,
+          "name": "Ambient clean",
+          "descriptors": [
+            "ambient-clean",
+            "spacious",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "ambient-context"
+          ]
+        }
+      ]
+    }
+  ]
+}
