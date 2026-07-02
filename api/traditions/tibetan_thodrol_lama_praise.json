@@ -5,7 +5,7 @@
   "lineage": "Tibetan-Buddhist praise-recitation tradition continuous from 8th-9th century Indo-Tibetan-Buddhist-foundation era through 11th-14th century Sarma-school monastery-formalization era into modern Tibetan-Buddhist-monastic and Tibetan-Buddhist-diaspora practice; thödröl (\"liberation through hearing\") and broader lama-praise repertoires constitute the praise-vocabulary",
   "recipe": "classic Northeast Asian modern tibetan thödröl praise-recitation, praise Song, indian subcontinent branch, buddhist ritual devotional, overtone drone modal, east Asian Tibetan ritual khöömii tuvan kargyraa subharmonic throat-singing. sygyt, false fold engaged, overtone rich sustained, continuous-phonation. tibetan monastery assembly. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 465,
-  "score": 251.875,
+  "score": 244.465,
   "config": {
     "traditions": [
       "tibetan_thodrol_lama_praise",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 34.63,
-          "voice_quality": 40.105000000000004,
+          "voice_register": 33.175,
+          "voice_quality": 39.370000000000005,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 8.19,
           "voice_articulation": 1.345,
-          "voice_microtone": 13.639999999999999,
-          "voice_tradition": 33.675,
-          "voice_mechanism_compound": 35.015,
+          "voice_microtone": 13.489999999999998,
+          "voice_tradition": 32.265,
+          "voice_mechanism_compound": 32.989999999999995,
           "voice_estill_quality": 5.525,
           "voice_speech_song": 16.119999999999997,
           "voice_ensemble_config": 15.079999999999997,
           "voice_ornament_system": 3.2750000000000004,
-          "voice_pitch_organization": 33.94499999999999,
+          "voice_pitch_organization": 32.309999999999995,
           "voice_processing_chain": 3.835,
           "voice_multitrack_stack": 5.07
         }

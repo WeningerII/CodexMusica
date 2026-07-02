@@ -1,0 +1,97 @@
+{
+  "id": "kutiyattam_recitation",
+  "name": "Kutiyattam Sanskrit recitation",
+  "family": "classical",
+  "lineage": "Kutiyattam is the Sanskrit temple theatre of Kerala in southwestern India, the oldest continuously performed classical theatre tradition of the subcontinent, staged in the kuttampalam theatres of Hindu temples and transmitted through the Chakyar and Nangyar hereditary performer families. Its recitation delivers Sanskrit and Prakrit verse in stylized, raga-based intonation with greatly elongated syllables, accompanied by the mizhavu copper drum, so that a single verse may be expanded across many hours of vachika (vocal) and angika (gestural) elaboration. The guru Ammannur Madhava Chakyar (1917-2008) is the emblematic 20th-century master. It is documented under UNESCO's intangible-cultural-heritage inscription (2001/2008) and in the Margi and Kerala Kalamandalam training institutions.",
+  "recipe": "classic South Asian early-1910s kutiyattam sanskrit recitation, art Music, south Asian branch thai classical telugu kirtana. vocal fry, declaimed, chest resonance low mid, microtonal. chennai madras music academy sabha. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 349,
+  "score": 203.882,
+  "config": {
+    "traditions": [
+      "kutiyattam_recitation",
+      "thai_classical",
+      "telugu_kirtana"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "shruti_inflected",
+          "voice_tradition": "carnatic_classical_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_carnatic_gamaka",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_unison_double_take"
+        },
+        "scores": {
+          "voice_register": 1.69,
+          "voice_quality": 3.6350000000000007,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 8.709999999999999,
+          "voice_articulation": 0.325,
+          "voice_microtone": 2.925,
+          "voice_tradition": 35.075,
+          "voice_mechanism_compound": 16.65,
+          "voice_estill_quality": 18.9,
+          "voice_speech_song": 20.345000000000006,
+          "voice_ensemble_config": 18.330000000000005,
+          "voice_ornament_system": 32.387499999999996,
+          "voice_pitch_organization": 32.6275,
+          "voice_processing_chain": 2.4699999999999998,
+          "voice_multitrack_stack": 3.2615000000000003
+        }
+      }
+    ],
+    "room": "chennai_madras_music_academy_sabha",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "shruti_22",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "shruti_22",
+    "room": "chennai_madras_music_academy_sabha",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "speech_voice",
+      "voice_speech_song": "voice_ametrical_chant",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "shruti_inflected",
+      "voice_ornament_system": "voice_ornament_carnatic_gamaka",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "voice_effort": "effort_projected",
+      "voice_articulation": "narrative_voice"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

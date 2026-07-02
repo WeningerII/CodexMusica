@@ -3,9 +3,9 @@
   "name": "Gagaku",
   "family": "classical",
   "lineage": "Japanese imperial court music tradition codified during the Nara and Heian periods (eighth through twelfth centuries CE) drawing on Tang Chinese, Korean, and indigenous Japanese ceremonial-court repertoire — preserved continuously through the Imperial Household Music Department (Kunaichō Gakubu) lineage in Tokyo, with characteristic ensemble of shō mouth-organ, hichiriki double-reed, ryūteki transverse flute, biwa lute, koto zither, kakko drum, and shōko gong",
-  "recipe": "classic East Asian modern gagaku, art Music, east Asian branch, buddhist ritual devotional. cluster chord bamboo sho mouth organ, bamboo cherry bark binding canonical gagaku yoshi arundo donax canonical gagaku imperial court continuous-airflow legato hichiriki double reed, silk biwa lute, cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk kodo sado island lineage taiko drum. noh stage japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 559,
-  "score": 42.179,
+  "recipe": "classic East Asian modern gagaku, art Music, east Asian branch, buddhist ritual devotional. cluster chord bamboo sho mouth organ, bamboo cherry bark binding canonical gagaku yoshi arundo donax canonical gagaku imperial court continuous-airflow legato hichiriki double reed, biwa lute, cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk kodo sado island lineage taiko drum. noh stage japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 554,
+  "score": 41.544,
   "config": {
     "traditions": [
       "gagaku"
@@ -34,11 +34,11 @@
           "hichiriki_reed": "hichiriki_arundo_yoshi"
         },
         "scores": {
-          "wind_articulation": 3.597714285714286,
+          "wind_articulation": 3.5347142857142857,
           "hichiriki_double_reed_size": 1.345,
           "hichiriki_double_reed_context": 1.3,
           "hichiriki_body_wood": 1.69,
-          "hichiriki_reed": 8.438642857142856
+          "hichiriki_reed": 8.228642857142855
         }
       },
       {
@@ -53,9 +53,9 @@
         "scores": {
           "plucked_traditional_technique": 3.5500000000000003,
           "biwa_type": 2.08,
-          "biwa_plectrum": 0.2415,
-          "biwa_body_wood": 0.8314285714285714,
-          "biwa_strings": 1.0026428571428572
+          "biwa_plectrum": 0.0315,
+          "biwa_body_wood": 0.7264285714285714,
+          "biwa_strings": 0.7611428571428571
         }
       },
       {
@@ -71,7 +71,7 @@
           "taiko_size": 0.8012142857142855,
           "taiko_skin": 3.769999999999999,
           "taiko_shell_wood": 3.769999999999999,
-          "taiko_lineage": 1.7504285714285714,
+          "taiko_lineage": 1.9454285714285715,
           "taiko_technique": 1.69
         }
       }

@@ -1,0 +1,96 @@
+{
+  "id": "appalachian_square_dance_calling",
+  "name": "Appalachian square-dance calling",
+  "family": "country",
+  "lineage": "The caller's rhythmic patter directing figures for old-time Appalachian square and big-circle dances, delivered in strict time over a string band of fiddle and banjo. It descends from Anglo-Celtic and French quadrille calling adapted in the southern mountains, where the caller became an improvising rhythmic voice rather than a mere prompter. The running-set dancing that underlies it was documented by Cecil Sharp during his 1916 to 1918 Appalachian fieldwork, and figures such as Bascom Lamar Lunsford institutionalized the practice through the Asheville Mountain Dance and Folk Festival from 1928. Calls are locked to the reel's meter, blending fixed figure-names with spontaneous filler.",
+  "recipe": "classic mid-1910s appalachian square-dance calling, ballad Poetry, anglo singer song branch cape verdean batuko of santiago island classic blues women. thick, blues-shouter, melodic, punctuated. wooden barn. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 337,
+  "score": 184.735,
+  "config": {
+    "traditions": [
+      "appalachian_square_dance_calling",
+      "cape_verdean_batuko",
+      "classic_blues_women"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "blues_shouter_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 29.915500000000005,
+          "voice_quality": 9.425000000000006,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.4165,
+          "voice_articulation": 4.3265,
+          "voice_microtone": 10.010000000000003,
+          "voice_tradition": 24.31,
+          "voice_mechanism_compound": 6.565000000000001,
+          "voice_estill_quality": 10.334999999999999,
+          "voice_speech_song": 28.664999999999996,
+          "voice_ensemble_config": 25.935,
+          "voice_ornament_system": 3.6900000000000004,
+          "voice_pitch_organization": 3.250000000000001,
+          "voice_processing_chain": 5.6175,
+          "voice_multitrack_stack": 7.749
+        }
+      }
+    ],
+    "room": "wooden_barn",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "wooden_barn",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "speech_voice",
+      "voice_speech_song": "voice_rhythmic_spoken_flow",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "voice_effort": "effort_projected"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

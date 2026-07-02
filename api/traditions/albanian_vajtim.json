@@ -3,24 +3,24 @@
   "name": "Albanian vajtim (lament)",
   "family": "global",
   "lineage": "Albanian mourning-song tradition continuous from medieval Albanian rural practice through 19th-20th century continuous performance; particularly preserved in Northern Albanian highland zones (Mirdita, Dukagjin) and in Albanian-language Kosovo and South-Italian Arbëresh diaspora communities",
-  "recipe": "classic modern albanian vajtim, funeral Lament, European branch, middle eastern funeral lament, vocal drone modal, Mediterranean ballad ballad poetry sardinian cantu a tenore and launeddas sevdalinka. vocal fry, false fold engaged, melodic, continuous-phonation. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 401,
-  "score": 116.302,
+  "recipe": "classic modern albanian vajtim, funeral Lament, European branch, middle eastern funeral lament, vocal drone modal, Mediterranean ballad ballad poetry skolt sámi leuʹdd silbo gomero whistled language. vocal fry, declaimed, chest resonance low mid, continuous-phonation. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 407,
+  "score": 122.373,
   "config": {
     "traditions": [
       "albanian_vajtim",
-      "sardinian_traditional",
-      "sevdalinka"
+      "sami_skolt_leudd",
+      "silbo_gomero"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "vocal_fry",
-          "voice_quality": "false_fold_voice",
+          "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "slow_vibrato",
           "voice_articulation": "legato_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "mediterranean_demotic_tradition",
@@ -28,28 +28,28 @@
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_bel_canto",
-          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_ornament_system": "voice_ornament_sami_yoik",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_plate_reverb_medium",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 3.445,
-          "voice_quality": 10.984999999999998,
+          "voice_register": 7.865000000000001,
+          "voice_quality": 5.750000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.6249999999999998,
-          "voice_articulation": 3.6649999999999996,
-          "voice_microtone": 1.9849999999999999,
-          "voice_tradition": 34.807500000000005,
-          "voice_mechanism_compound": 6.5,
-          "voice_estill_quality": 6.185,
-          "voice_speech_song": 15.014999999999997,
-          "voice_ensemble_config": 17.744999999999997,
-          "voice_ornament_system": 4.7,
-          "voice_pitch_organization": 3.769999999999999,
-          "voice_processing_chain": 3.3150000000000004,
-          "voice_multitrack_stack": 3.8349999999999995
+          "voice_vibrato": 0.845,
+          "voice_articulation": 4.164999999999999,
+          "voice_microtone": 2.71,
+          "voice_tradition": 25.642500000000002,
+          "voice_mechanism_compound": 6.565000000000001,
+          "voice_estill_quality": 8.585,
+          "voice_speech_song": 14.884999999999998,
+          "voice_ensemble_config": 13.714999999999998,
+          "voice_ornament_system": 3.785,
+          "voice_pitch_organization": 5.775,
+          "voice_processing_chain": 6.890000000000001,
+          "voice_multitrack_stack": 7.67
         }
       }
     ],

@@ -1,0 +1,96 @@
+{
+  "id": "maori_whaikorero_oratory",
+  "name": "Māori whaikōrero oratory",
+  "family": "global",
+  "lineage": "The formal oratory of the marae ātea (forecourt) in Māori ceremonial encounter (pōwhiri) in Aotearoa/New Zealand, performed by male speakers (kaikōrero) following the women's karanga. A whaikōrero is structured through a formulaic opening (tauparapara), recitation of whakapapa (genealogy), acknowledgement of the dead and the living, and the matter at hand, and is typically sealed by a sung waiata supported by the speaker's group. It is a primary vehicle of mana, whakapapa, and tikanga Māori, transmitted orally from senior orators to successors. Both an art of memory and of improvised response, it draws freely on proverb (whakataukī) and chanted passages.",
+  "recipe": "classic Oceanian modern māori whaikōrero oratory, praise Song, oceania pacific branch xhosa iimbongi praise oratory hawaiian haʻa ancestral chant. vocal fry, declaimed, overtone rich sustained, continuous-phonation. marae forecourt. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 362,
+  "score": 129.758,
+  "config": {
+    "traditions": [
+      "maori_whaikorero_oratory",
+      "xhosa_iimbongi",
+      "hawaiian_haa_ancestral_chant"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "shruti_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_polynesian_falsetto",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 1.69,
+          "voice_quality": 21.234499999999993,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.3715,
+          "voice_articulation": 4.056,
+          "voice_microtone": 0.22499999999999998,
+          "voice_tradition": 15.4375,
+          "voice_mechanism_compound": 1.8,
+          "voice_estill_quality": 2.34,
+          "voice_speech_song": 27.625000000000004,
+          "voice_ensemble_config": 21.84,
+          "voice_ornament_system": 5.6515,
+          "voice_pitch_organization": 4.056,
+          "voice_processing_chain": 6.861,
+          "voice_multitrack_stack": 0.845
+        }
+      }
+    ],
+    "room": "marae_forecourt",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "marae_forecourt",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "speech_voice",
+      "voice_speech_song": "voice_heightened_speech",
+      "voice_tradition": "polynesian_oli_tradition",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "voice_effort": "effort_projected"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

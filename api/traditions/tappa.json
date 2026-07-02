@@ -3,21 +3,21 @@
   "name": "Tappa (Punjabi-origin Hindustani semi-classical)",
   "family": "global",
   "lineage": "Hindustani semi-classical vocal genre originating in late-18th-century Punjab through Mian Ghulam Nabi Shori (Shori Mian), who adapted Punjabi camel-driver folk songs into a fast-melisma classical-vocal genre — characterized by its rapid-fire intricate ornamental melisma patterns (different from khayal sustained-then-fast structure) and continued through the Banaras gharana lineage (Girija Devi, Naina Devi, Shobha Gurtu)",
-  "recipe": "classic South Asian mid-1930s tappa, improv On Frame, indian classical improv branch, south Asian art music sinhala vannama telugu kirtana. vocal fry, declaimed, chest resonance low mid, ornamental. indian rosewood rosewood copper tabla, vocal male straight harmonium indian, gut 3 main playing strings tun cedar legato sarangi. varanasi benares gharana baithak. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 435,
-  "score": 261.646,
+  "recipe": "classic South Asian mid-1930s tappa, improv On Frame, indian classical improv branch, south Asian art music kutiyattam sanskrit recitation sinhala vannama. vocal fry, low dynamic level, chest resonance low mid, ornamental. indian rosewood rosewood copper tabla, vocal male straight harmonium indian, gut 3 main playing strings tun cedar legato sarangi. varanasi benares gharana baithak. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 459,
+  "score": 250.073,
   "config": {
     "traditions": [
       "tappa",
-      "sinhala_vannama",
-      "telugu_kirtana"
+      "kutiyattam_recitation",
+      "sinhala_vannama"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "vocal_fry",
-          "voice_quality": "praise_voice",
+          "voice_quality": "crooner_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
@@ -28,28 +28,28 @@
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_recitative_free_rhythm",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_carnatic_gamaka",
+          "voice_ornament_system": "voice_ornament_hindustani_meend_gamak",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_plate_reverb_medium",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 2.9899999999999998,
-          "voice_quality": 5.592500000000001,
+          "voice_register": 3.8349999999999995,
+          "voice_quality": 2.34,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 9.23,
           "voice_articulation": 0.9814999999999999,
           "voice_microtone": 2.145,
-          "voice_tradition": 37.857,
+          "voice_tradition": 30.210499999999996,
           "voice_mechanism_compound": 17.65,
           "voice_estill_quality": 18.668999999999997,
-          "voice_speech_song": 18.384499999999996,
-          "voice_ensemble_config": 8.254999999999999,
-          "voice_ornament_system": 31.781,
-          "voice_pitch_organization": 31.906999999999996,
-          "voice_processing_chain": 2.8600000000000003,
-          "voice_multitrack_stack": 4.225
+          "voice_speech_song": 18.289999999999996,
+          "voice_ensemble_config": 11.244999999999997,
+          "voice_ornament_system": 27.685999999999996,
+          "voice_pitch_organization": 22.282499999999995,
+          "voice_processing_chain": 3.705,
+          "voice_multitrack_stack": 5.069999999999999
         }
       },
       {
@@ -61,8 +61,8 @@
         },
         "scores": {
           "tabla_dayan": 11.504999999999999,
-          "tabla_bayan": 9.23,
-          "tabla_syahi": 2.535
+          "tabla_bayan": 10.075,
+          "tabla_syahi": 5.720000000000001
         }
       },
       {
@@ -74,10 +74,10 @@
           "harmonium_use": "harmonium_classical"
         },
         "scores": {
-          "free_reed_technique": 3.9690000000000003,
-          "harmonium_action": 4.29,
-          "harmonium_voicing": 3.8349999999999995,
-          "harmonium_use": 12.219999999999999
+          "free_reed_technique": 3.9060000000000006,
+          "harmonium_action": 5.135,
+          "harmonium_voicing": 4.68,
+          "harmonium_use": 13.064999999999998
         }
       },
       {
@@ -92,11 +92,11 @@
         },
         "scores": {
           "bowed_technique": 18.7815,
-          "sarangi_belly": 2.9899999999999998,
-          "sarangi_taraf": 0.0315,
+          "sarangi_belly": 3.8349999999999995,
+          "sarangi_taraf": 0.845,
           "sarangi_bow": 0.1365,
           "sarangi_main_strings": 5.46,
-          "sarangi_body_wood": 2.5349999999999997
+          "sarangi_body_wood": 1.6899999999999997
         }
       }
     ],

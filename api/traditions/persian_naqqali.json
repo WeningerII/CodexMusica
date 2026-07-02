@@ -1,0 +1,97 @@
+{
+  "id": "persian_naqqali",
+  "name": "Persian naqqāli (Shahnameh dramatic recitation)",
+  "family": "global",
+  "lineage": "Iranian dramatic storytelling, the oldest form of dramatic performance in Iran, in which the naqqal recites and enacts episodes of the national epic — above all Ferdowsi's Shahnameh — with declamatory verse, prose bridging, vivid gesture and, traditionally, a painted scroll or coffeehouse-painting backdrop (pardeh) as visual aid. Performed historically in the qahveh-khaneh (coffeehouse) and public square, it was inscribed on the UNESCO List of Intangible Cultural Heritage in Need of Urgent Safeguarding in 2011. Delivery moves between elevated chanted verse and animated spoken narration, the naqqal shifting stance and register to voice heroes, demons and kings.",
+  "recipe": "classic Middle Eastern early-2010s persian naqqāli, ballad Poetry, med east poetic branch swedish kulning herding-call jeju haenyeo songs. thick, chest mix belt, chest resonance low mid, narrative. tehran classical dastgah context. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 361,
+  "score": 172.426,
+  "config": {
+    "traditions": [
+      "persian_naqqali",
+      "swedish_kulning",
+      "jeju_haenyeo_songs"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "chest_mix_belt_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_persian_dastgah",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 9.5515,
+          "voice_quality": 6.539500000000002,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.9899999999999998,
+          "voice_articulation": 5.525000000000001,
+          "voice_microtone": 4.1315,
+          "voice_tradition": 17.744999999999997,
+          "voice_mechanism_compound": 5.135,
+          "voice_estill_quality": 7.475,
+          "voice_speech_song": 43.81000000000002,
+          "voice_ensemble_config": 33.28000000000001,
+          "voice_ornament_system": 3.445,
+          "voice_pitch_organization": 4.363,
+          "voice_processing_chain": 6.695,
+          "voice_multitrack_stack": 2.9899999999999998
+        }
+      }
+    ],
+    "room": "tehran_classical_dastgah_context",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "tehran_classical_dastgah_context",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "speech_voice",
+      "voice_speech_song": "voice_heightened_speech",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "voice_articulation": "narrative_voice",
+      "voice_effort": "effort_projected"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

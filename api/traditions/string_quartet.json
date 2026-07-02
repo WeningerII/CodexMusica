@@ -5,7 +5,7 @@
   "lineage": "Western chamber music tradition for two violins, viola, and cello, codified by Haydn in his sixty-eight quartets (1762-1803) — the form's most consequential codifiers include Mozart (the six Haydn quartets), Beethoven (the sixteen quartets including the late opp. 127-135), Schubert (Death and the Maiden), Bartók (six quartets), Shostakovich (fifteen quartets), and continuing through contemporary composers",
   "recipe": "classic early-1760s string quartet, art Music, western common practice branch, western early art music, western modern art music minimalist holy minimalism. synthetic sitka spruce bigleaf maple western maple oil varnish violin orchestral, tungsten wound larsen spirocore viola c canon Italian alpine spruce val di fiemme viola classical, synthetic Italian alpine spruce val di fiemme European maple sycamore maple cello. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 572,
-  "score": 285.928,
+  "score": 285.723,
   "config": {
     "traditions": [
       "string_quartet",
@@ -28,16 +28,16 @@
           "orch_rosin": "magic_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 7.900000000000001,
+          "bowed_technique": 7.750000000000001,
           "orch_strings": 1.3649999999999998,
-          "orch_top_wood": 8.365,
+          "orch_top_wood": 8.754999999999999,
           "orch_back_wood": 14.714375,
           "orch_varnish": 13.5,
-          "orch_setup_period": 14.021875,
+          "orch_setup_period": 13.991875,
           "orch_bow": 0.78,
           "orch_bow_stick": 15.693125,
           "orch_articulation": 1.3649999999999998,
-          "orch_rosin": 14.690000000000001
+          "orch_rosin": 14.664375000000001
         }
       },
       {
@@ -54,15 +54,15 @@
           "viola_rosin": "viola_larsen_rosin"
         },
         "scores": {
-          "bowed_technique": 7.900000000000001,
+          "bowed_technique": 7.750000000000001,
           "viola_size": 1.6,
           "viola_strings": 3.12,
           "viola_top_wood": 8.176875,
           "viola_back_wood": 14.335,
           "viola_varnish": 13.5,
-          "viola_setup_period": 14.021875,
+          "viola_setup_period": 13.991875,
           "viola_bow_stick": 15.693125,
-          "viola_rosin": 15.325000000000001
+          "viola_rosin": 15.295000000000002
         }
       },
       {
@@ -79,12 +79,12 @@
           "cello_bow_stick": "pernambuco_stick_cello"
         },
         "scores": {
-          "bowed_technique": 7.900000000000001,
+          "bowed_technique": 7.750000000000001,
           "cello_strings": 4.615,
           "cello_top_wood": 8.176875,
           "cello_back_wood": 14.335,
           "cello_varnish": 13.5,
-          "cello_setup_period": 14.021875,
+          "cello_setup_period": 13.991875,
           "cello_bow_grip": 3.7700000000000005,
           "cello_rosin": 15.100000000000001,
           "cello_bow_stick": 15.693125

@@ -3,14 +3,14 @@
   "name": "Sakha olonkho heroic epic",
   "family": "global",
   "lineage": "Sakha (Yakut) olonkho heroic-epic recital tradition of the Republic of Sakha (Yakutia, far-eastern Siberia, Russian Federation). Olonkhosut epic-reciters perform multi-day continuous recitations of heroic-epic cycles — Nyurgun Bootur the Swift, the canonical olonkho narrative codified in the twentieth-century thirty-six-thousand-verse recension by Platon Oiunsky (1893-1939, founding Sakha writer), provides the type-specimen. Performance alternates between sung-melodic passages for character-voices (each major character has an assigned melodic-mode signature) and rhythmic-recitation narrative passages for the omniscient narrator. Sung passages employ the kylyhakh ornamental vibrato — a characteristic Sakha throat-ornament with a tight, fluttering quality — and the Sakha pentatonic modal vocabulary. The olonkho cycles preserve pre-Christian Sakha cosmology (the three-world division: upper-world abaahy spirits, middle-world humans, lower-world demons), with the Tengrist sky-religion still legible in the cosmographic framing. Performance traditionally in winter, in the balagan log-and-earth dwelling, lasting multiple nights. V.L. Seroshevsky's 1896 ethnography Yakuts is the foundational Russian scholarly documentation; the Soviet-era Sakha Republic cultural-revival institutions provide ongoing transmission infrastructure. Distinguished from Mongolian and Kyrgyz heroic-epic traditions by Sakha-language-specific narrative-cadence grammar and kylyhakh-vibrato vocal-ornament signature; distinguished from Buryat-Mongol epic by Sakha-Yakutia far-eastern Siberian regional dialect.",
-  "recipe": "classic Northeast Asian early-1890s sakha olonkho heroic epic, ballad Poetry, Slavic bard branch, indigenous ritual devotional, med east poetic ballad poetry inuit katajjaq throat-singing game shipibo-conibo icaros healing songs. sygyt, declaimed, melodic, narrative. wooden balagan. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 413,
-  "score": 199.506,
+  "recipe": "classic Northeast Asian early-1890s sakha olonkho heroic epic, ballad Poetry, Slavic bard branch, indigenous ritual devotional, med east poetic ballad poetry shipibo-conibo icaros healing songs mapuche tayil genealogical chant. sygyt, declaimed, melodic, narrative. wooden balagan. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 411,
+  "score": 155.184,
   "config": {
     "traditions": [
       "sakha_olonkho_epic",
-      "inuit_katajjaq_games",
-      "shipibo_icaros"
+      "shipibo_icaros",
+      "mapuche_tayil_ritual"
     ],
     "instruments": [
       {
@@ -22,34 +22,34 @@
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "narrative_voice",
-          "voice_microtone": "overtone_singing",
-          "voice_tradition": "inuit_katajjaq_tradition",
+          "voice_microtone": "shruti_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_sami_yoik",
-          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 9.365,
-          "voice_quality": 8.75125,
+          "voice_register": 3.1200000000000006,
+          "voice_quality": 9.401250000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.965,
+          "voice_vibrato": 4.81,
           "voice_articulation": 4.317500000000001,
-          "voice_microtone": 7.395000000000001,
-          "voice_tradition": 34.74625,
-          "voice_mechanism_compound": 21.695,
-          "voice_estill_quality": 7.43,
-          "voice_speech_song": 25.48,
-          "voice_ensemble_config": 24.18,
-          "voice_ornament_system": 8.915,
-          "voice_pitch_organization": 9.74125,
+          "voice_microtone": 1.69,
+          "voice_tradition": 23.139999999999997,
+          "voice_mechanism_compound": 10.770000000000001,
+          "voice_estill_quality": 7.930000000000001,
+          "voice_speech_song": 21.644999999999996,
+          "voice_ensemble_config": 20.54,
+          "voice_ornament_system": 8.700000000000001,
+          "voice_pitch_organization": 3.5900000000000007,
           "voice_processing_chain": 8.58,
-          "voice_multitrack_stack": 7.669999999999999
+          "voice_multitrack_stack": 7.475
         }
       }
     ],

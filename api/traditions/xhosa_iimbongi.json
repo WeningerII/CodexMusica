@@ -1,0 +1,97 @@
+{
+  "id": "xhosa_iimbongi",
+  "name": "Xhosa iimbongi praise oratory",
+  "family": "global",
+  "lineage": "Praise-oratory of the imbongi (plural iimbongi), the Xhosa praise-poet of the Eastern Cape of South Africa, who delivers izibongo — improvised, high-energy declamatory praises of chiefs, ancestors and, in the modern era, political leaders — often clad in animal skins and carrying spears, appearing at installations, funerals and public gatherings. A living tradition documented by scholars such as Jeff Opland and embodied by figures like S.E.K. Mqhayi and, in the democratic era, the praise-poet at Nelson Mandela's 1994 inauguration. Delivery is rapid, loud, rhythmically-surging spoken praise, rich in metaphor and delivered in a single sustained breath-driven flow.",
+  "recipe": "classic Southern African mid-1990s xhosa iimbongi praise oratory, praise Song, sub saharan African branch zulu izibongo yoruba oríkì. extended whistle, declaimed, tasteful, continuous-phonation. eastern cape outdoor grassland. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 356,
+  "score": 207.867,
+  "config": {
+    "traditions": [
+      "xhosa_iimbongi",
+      "zulu_izibongo",
+      "yoruba_oriki"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "praise_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_yodel_M1_M2_alternation",
+          "voice_estill_quality": "voice_estill_oral_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 2.683,
+          "voice_quality": 44.22400000000002,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.575,
+          "voice_articulation": 3.3799999999999994,
+          "voice_microtone": 0.7014999999999997,
+          "voice_tradition": 59.67,
+          "voice_mechanism_compound": 2.275,
+          "voice_estill_quality": 1.603,
+          "voice_speech_song": 22.359999999999992,
+          "voice_ensemble_config": 14.949999999999996,
+          "voice_ornament_system": 22.7175,
+          "voice_pitch_organization": 12.495999999999997,
+          "voice_processing_chain": 4.036999999999999,
+          "voice_multitrack_stack": 1.4949999999999992
+        }
+      }
+    ],
+    "room": "eastern_cape_outdoor_grassland",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "eastern_cape_outdoor_grassland",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "praise_voice",
+      "voice_speech_song": "voice_heightened_speech",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "voice_articulation": "shouted_voice",
+      "voice_effort": "effort_projected"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

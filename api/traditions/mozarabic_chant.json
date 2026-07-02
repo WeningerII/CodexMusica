@@ -5,7 +5,7 @@
   "lineage": "Iberian liturgical chant tradition of the pre-Roman-rite-imposition Hispanic Christian church, in continuous use in parts of Spain from late-antiquity through eleventh-century Roman-rite imposition. Survived after the eleventh-century replacement in restricted use at the Corpus Christi Chapel of Toledo Cathedral (where six Mozarabic chaplaincies were maintained) and the parish of Saints Justa and Rufina in Toledo. The post-Vatican-II 1988 Liber Antiphonarius Officii Mozarabici codified the modern recension. Distinguished from Gregorian by Mozarabic's distinct neume-notation system and Visigothic-Hispanic liturgical structure.",
   "recipe": "classic late-1980s mozarabic chant, ritual Devotional, christian gospel branch, western early art music ars antiqua and organum ars nova. thick, declaimed, chest resonance low mid, ornamental. mixed satb canonical 4 part western four voice polyphonic regional svanetian complex three voice highland polyphonic choir ensemble. parish church. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 413,
-  "score": 125.36,
+  "score": 125.555,
   "config": {
     "traditions": [
       "mozarabic_chant",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 10.335,
+          "voice_register": 10.530000000000001,
           "voice_quality": 11.040000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,

@@ -5,7 +5,7 @@
   "lineage": "Bengali cradle-song tradition continuous from medieval Bengal domestic-vocal practice through Rabindra-sangeet appropriation (Tagore composed multiple cradle-songs) into modern Bangla-language domestic singing across West Bengal and Bangladesh",
   "recipe": "classic modern bengali ghum-paranir gan, lullaby, south Asian branch, indian bard ballad poetry, south Asian art music, south Asian pop functional song rabindra sangeet hindi filmi. thick, declaimed, chest resonance low mid, continuous-phonation. carpeted bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 394,
-  "score": 163.445,
+  "score": 163.01,
   "config": {
     "traditions": [
       "bengali_ghum_paranir_gan",
@@ -40,16 +40,16 @@
           "voice_effort": 0,
           "voice_vibrato": 3.769999999999999,
           "voice_articulation": 1.495,
-          "voice_microtone": 12,
-          "voice_tradition": 27.915000000000003,
+          "voice_microtone": 11.805000000000001,
+          "voice_tradition": 28.065,
           "voice_mechanism_compound": 7.149999999999999,
           "voice_estill_quality": 9.224999999999998,
           "voice_speech_song": 23.985,
           "voice_ensemble_config": 14.364999999999997,
-          "voice_ornament_system": 17.32,
-          "voice_pitch_organization": 17.064999999999998,
+          "voice_ornament_system": 16.93,
+          "voice_pitch_organization": 16.869999999999997,
           "voice_processing_chain": 7.915,
-          "voice_multitrack_stack": 4.63
+          "voice_multitrack_stack": 4.824999999999999
         }
       }
     ],

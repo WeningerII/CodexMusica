@@ -1,0 +1,97 @@
+{
+  "id": "shakespearean_verse_declamation",
+  "name": "Shakespearean verse declamation",
+  "family": "classical",
+  "lineage": "Shakespearean verse declamation is the stage delivery of English Renaissance blank verse, unrhymed iambic pentameter, as developed in the London playhouses of the 1590s to 1610s and transmitted through four centuries of Anglophone theatre practice. Modern declamatory technique, associated with the Royal Shakespeare Company and conservatoires such as RADA, foregrounds the metrical line, caesura, and end-stopping while projecting to an unamplified house. The delivery is heightened spoken speech rather than song, though its scansion is metrically governed. It is documented in recorded stage and broadcast performances by actors such as John Gielgud, Laurence Olivier, and Ian McKellen.",
+  "recipe": "classic mid-1590s shakespearean verse declamation, art Music, western early branch thai classical tibetan ache lhamo opera. thick, pressed, chest resonance low mid, narrative. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 327,
+  "score": 196.638,
+  "config": {
+    "traditions": [
+      "shakespearean_verse_declamation",
+      "thai_classical",
+      "tibetan_ache_lhamo"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "pressed_phonation_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "chinese_classical_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_unison_double_take"
+        },
+        "scores": {
+          "voice_register": 8.216000000000001,
+          "voice_quality": 1.8,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 7.019999999999998,
+          "voice_articulation": 2.250000000000001,
+          "voice_microtone": 9.262500000000001,
+          "voice_tradition": 25.934999999999995,
+          "voice_mechanism_compound": 14.049999999999997,
+          "voice_estill_quality": 26.204499999999996,
+          "voice_speech_song": 30.550000000000008,
+          "voice_ensemble_config": 27.3,
+          "voice_ornament_system": 16.324999999999996,
+          "voice_pitch_organization": 13.986499999999996,
+          "voice_processing_chain": 5.273,
+          "voice_multitrack_stack": 2.9899999999999998
+        }
+      }
+    ],
+    "room": "concert_hall_shoebox",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "speech_voice",
+      "voice_speech_song": "voice_heightened_speech",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "voice_effort": "effort_projected",
+      "voice_articulation": "narrative_voice"
+    },
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "tube_pre",
+    "chain_medium": "digital_std",
+    "chain_console": "clean"
+  }
+}

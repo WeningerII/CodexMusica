@@ -5,7 +5,7 @@
   "lineage": "Egyptian Sufi inshad devotional vocal tradition, comprising the canonical liturgical-and-devotional song repertoire of the Egyptian Sufi orders (Shadhili, Qadiri, Rifa'i, Burhani). Performance contexts include the mawlid annual saint-celebrations (especially at Sayyida Zaynab and Hussein in Cairo, and Tanta and Desouk), the dhikr collective remembrance-of-God sessions, and the nightly hadra circle-gatherings. The munshid Sufi-singer-specialist trains in classical Arabic poetic meter, Egyptian maqam modal system, and the canonical mystical-poetic corpus of Ibn al-Farid and al-Busiri.",
   "recipe": "classic North African mid-1930s sufi inshad, ritual Devotional, Sufi branch, islamic ritual devotional were music naʿat. vocal fry, declaimed, chest resonance low mid, maqam neutral step. walnut bent frame canonical Iranian goat skin canonical Sufi tar frame drum. coptic basilica. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 354,
-  "score": 218.091,
+  "score": 218.991,
   "config": {
     "traditions": [
       "sufi_inshad_egyptian",
@@ -35,20 +35,20 @@
         },
         "scores": {
           "voice_register": 1.885,
-          "voice_quality": 27.949374999999996,
+          "voice_quality": 27.924999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.69,
           "voice_articulation": 0.2265,
-          "voice_microtone": 22.965,
-          "voice_tradition": 35.33824999999999,
+          "voice_microtone": 23.16,
+          "voice_tradition": 35.65512499999999,
           "voice_mechanism_compound": 3.599375,
-          "voice_estill_quality": 5.688625000000001,
-          "voice_speech_song": 22.450875000000003,
+          "voice_estill_quality": 5.664250000000001,
+          "voice_speech_song": 22.620000000000005,
           "voice_ensemble_config": 17.875,
-          "voice_ornament_system": 32.25999999999999,
-          "voice_pitch_organization": 12.5035,
-          "voice_processing_chain": 5.0625,
+          "voice_ornament_system": 32.45499999999999,
+          "voice_pitch_organization": 12.6985,
+          "voice_processing_chain": 4.989375,
           "voice_multitrack_stack": 1.885
         }
       },
@@ -66,7 +66,7 @@
           "tar_size": 8.6565,
           "tar_frame_drum_context": 6.305000000000001,
           "tar_frame_shell_wood": 4.419999999999999,
-          "tar_frame_head": 11.580124999999997
+          "tar_frame_head": 11.531374999999997
         }
       }
     ],

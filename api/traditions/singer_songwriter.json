@@ -5,7 +5,7 @@
   "lineage": "Post-folk-revival American songwriter tradition combining Greenwich Village 60s confessional vocabulary with Laurel Canyon 70s intimate production aesthetic — voice and acoustic guitar at minimum, often expanded with piano and modest band",
   "recipe": "classic North American mid-1950s singer-songwriter folk, ballad Poetry, anglo singer song branch, americana country gothic country. thick, incomplete closure resting, melodic, narrative. walnut fingerpicked acoustic guitar, pearwood marine band tradition brass traditional straight harmonica, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano. hollywood flagship 1958-present major-flagship sunset sound studios hollywood. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 568,
-  "score": 249.713,
+  "score": 249.902,
   "config": {
     "traditions": [
       "singer_songwriter",
@@ -38,12 +38,12 @@
           "voice_quality": 9.754500000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 12.85242857142857,
+          "voice_vibrato": 12.845999999999998,
           "voice_articulation": 0.7149999999999997,
           "voice_microtone": 2.7135000000000007,
-          "voice_tradition": 15.983142857142857,
+          "voice_tradition": 15.99,
           "voice_mechanism_compound": 4.029999999999999,
-          "voice_estill_quality": 16.84810714285714,
+          "voice_estill_quality": 16.952999999999996,
           "voice_speech_song": 13.065000000000001,
           "voice_ensemble_config": 8.32,
           "voice_ornament_system": 4.94,
@@ -64,10 +64,10 @@
         },
         "scores": {
           "acoustic_technique": 25.5965,
-          "string_tuning": 0.9099999999999999,
+          "string_tuning": 0.889,
           "top_wood": 0.21449999999999997,
           "back_sides": 1.2349999999999999,
-          "string_acoustic": 0.46125,
+          "string_acoustic": 0.4575,
           "acoustic_om_technique": 25.5965
         }
       },
@@ -83,11 +83,11 @@
           "harmonica_tuning": "harmonica_richter_canonical"
         },
         "scores": {
-          "free_reed_technique": 27.19771428571428,
+          "free_reed_technique": 27.194499999999994,
           "harmonica_type": 0.39,
           "harmonica_comb": 5.785,
           "harmonica_reed": 1.7145000000000001,
-          "harmonica_technique": 27.19771428571428,
+          "harmonica_technique": 27.194499999999994,
           "harmonica_maker_school": 0.9099999999999999,
           "harmonica_tuning": 0.65
         }
@@ -109,7 +109,7 @@
           "keyboard_technique": 4.05,
           "grand_piano_size": 0.21449999999999997,
           "grand_piano_brand": 1.235,
-          "piano_hammer": 3.212428571428571,
+          "piano_hammer": 3.3275,
           "piano_rim": 3.7700000000000005,
           "piano_soundboard": 1.8199999999999998,
           "piano_pinblock": -0.05,

@@ -1,6 +1,6 @@
 {
   "name": "Codex Musica — browse index (Tier-1 data for the lazy-loaded app)",
-  "generated": "2026-06-30",
+  "generated": "2026-07-02",
   "axisKeys": [
     "harm",
     "pitch",
@@ -16,7 +16,7 @@
     "percussion",
     "cyclicity"
   ],
-  "count": 1119,
+  "count": 1176,
   "items": [
     {
       "id": "honky_tonk",
@@ -43707,6 +43707,1659 @@
       "crossRefs": [
         "groovePercussion.centralEastSouthAfrican",
         "electronicDance.footwork"
+      ]
+    },
+    {
+      "id": "homeric_rhapsode",
+      "name": "Homeric rhapsode recitation",
+      "family": "global",
+      "lineage": "Ancient Greek professional epic-recitation practice: the rhapsode (rhapsoidos, 'song-stitcher') declaimed the Iliad and Odyssey and the Hesiodic and Cyclic poems in dactylic hexameter, holding a staff (rhabdos) rather than the earlier aoidos's lyre. Attested from the Archaic period through the Classical, most vividly in Plato's dialogue Ion, which portrays the rhapsode Ion of Ephesus competing at the Panathenaic festival in Athens where the Homeric text was recited in fixed relay. The delivery was a heightened, cantillated speech built on oral-formulaic diction, the compositional system reconstructed by Milman Parry and Albert Lord from South Slavic guslar analogues.",
+      "parent": "balladPoetry.mediterraneanBallad",
+      "axes": [
+        -2,
+        0,
+        0,
+        1,
+        -2,
+        2,
+        2,
+        -2,
+        1,
+        2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Ancient Greek professional epic-recitation practice: the rhapsode (rhapsoidos, 'song-stitcher') declaimed the Iliad and Odyssey and the Hesiodic and Cyclic poems in dactylic hexameter, holding a staff (rhabdos) rather than the earlier aoidos's lyre. Attested from the Archaic period through the Classical, most vividly in Plato's dialogue Ion, which portrays the rhapsode Ion of Ephesus competing at the Panathenaic festival in Athens where the Homeric text was recited in fixed relay. The delivery was a heightened, cantillated speech built on oral-formulaic diction, the compositional system reconstructed by Milman Parry and Albert Lord from South Slavic guslar analogues.",
+      "crossRefs": [
+        "balladPoetry"
+      ]
+    },
+    {
+      "id": "old_norse_skaldic",
+      "name": "Old Norse skaldic recitation",
+      "family": "global",
+      "lineage": "Court-poetry recitation of the Viking-Age and medieval Scandinavian skald, the named professional poet attached to a king or jarl who composed and delivered praise-poems (drapa) in the intricate drottkvaett 'court metre' — a syllable-counting, internally-rhymed, alliterative stanza dense with kennings and heiti. Flourishing c. 9th-13th centuries in Norway and Iceland, the corpus survives through Icelandic manuscript transmission, above all Snorri Sturluson's Prose Edda (Skaldskaparmal) and the kings' sagas (Heimskringla), where verses of skalds such as Egill Skallagrimsson and Bragi Boddason are quoted. Delivery was fixed spoken declamation of an exactly-wrought text rather than improvised song.",
+      "parent": "balladPoetry.slavicBard",
+      "axes": [
+        -2,
+        -1,
+        1,
+        2,
+        -1,
+        2,
+        -1,
+        -2,
+        0,
+        2,
+        0,
+        -2,
+        -1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Court-poetry recitation of the Viking-Age and medieval Scandinavian skald, the named professional poet attached to a king or jarl who composed and delivered praise-poems (drapa) in the intricate drottkvaett 'court metre' — a syllable-counting, internally-rhymed, alliterative stanza dense with kennings and heiti. Flourishing c. 9th-13th centuries in Norway and Iceland, the corpus survives through Icelandic manuscript transmission, above all Snorri Sturluson's Prose Edda (Skaldskaparmal) and the kings' sagas (Heimskringla), where verses of skalds such as Egill Skallagrimsson and Bragi Boddason are quoted. Delivery was fixed spoken declamation of an exactly-wrought text rather than improvised s",
+      "crossRefs": [
+        "balladPoetry"
+      ]
+    },
+    {
+      "id": "anglo_saxon_scop",
+      "name": "Anglo-Saxon scop epic recitation",
+      "family": "global",
+      "lineage": "Oral heroic-verse recitation of the scop, the poet-performer of the Anglo-Saxon (Old English) mead-hall, c. 7th-11th centuries in early medieval England. The verse is unrhymed alliterative long-line (two half-lines bridged by alliteration and four stresses), preserved in Beowulf, Widsith, Deor and The Battle of Maldon; Widsith and the Beowulf scenes at Heorot are the tradition's self-portrait of the singer 'unwinding' word-hoards to the harp. The compositional idiom is oral-formulaic, and although a hearpe may have accompanied, the surviving character is that of chanted, stress-timed declamation.",
+      "parent": "balladPoetry.angloSingerSong",
+      "axes": [
+        -2,
+        -1,
+        0,
+        1,
+        -2,
+        2,
+        1,
+        -2,
+        0,
+        2,
+        0,
+        -2,
+        -1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Oral heroic-verse recitation of the scop, the poet-performer of the Anglo-Saxon (Old English) mead-hall, c. 7th-11th centuries in early medieval England. The verse is unrhymed alliterative long-line (two half-lines bridged by alliteration and four stresses), preserved in Beowulf, Widsith, Deor and The Battle of Maldon; Widsith and the Beowulf scenes at Heorot are the tradition's self-portrait of the singer 'unwinding' word-hoards to the harp. The compositional idiom is oral-formulaic, and although a hearpe may have accompanied, the surviving character is that of chanted, stress-timed declamation.",
+      "crossRefs": [
+        "balladPoetry"
+      ]
+    },
+    {
+      "id": "irish_fili_bardic",
+      "name": "Irish filí / bardic recitation",
+      "family": "global",
+      "lineage": "Recitation practice of the Gaelic learned poet — the fili (plural filid) and later bard — of medieval and early-modern Ireland (and Gaelic Scotland), a hereditary professional trained for years in bardic schools to compose in the strict syllabic metres of dan direach. The fili's social power lay in praise-poetry for a chieftain patron and in the feared aer (satire) believed capable of raising blisters or destroying reputation; the tradition ran from the early medieval period to the collapse of the Gaelic order after 1600, documented in the Book of the Dean of Lismore and the bardic duanaireacht. Poems were declaimed, often to harp accompaniment by a separate reacaire (reciter), as measured heightened speech.",
+      "parent": "balladPoetry.celticBalladic",
+      "axes": [
+        -2,
+        -1,
+        1,
+        2,
+        -2,
+        2,
+        0,
+        -2,
+        1,
+        2,
+        0,
+        -2,
+        -1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Recitation practice of the Gaelic learned poet — the fili (plural filid) and later bard — of medieval and early-modern Ireland (and Gaelic Scotland), a hereditary professional trained for years in bardic schools to compose in the strict syllabic metres of dan direach. The fili's social power lay in praise-poetry for a chieftain patron and in the feared aer (satire) believed capable of raising blisters or destroying reputation; the tradition ran from the early medieval period to the collapse of the Gaelic order after 1600, documented in the Book of the Dean of Lismore and the bardic duanaireacht. Poems were declaimed, often to harp accompaniment by a separate reacaire (reciter), as measured h",
+      "crossRefs": [
+        "balladPoetry"
+      ]
+    },
+    {
+      "id": "welsh_eisteddfod_cerdd_dafod",
+      "name": "Welsh eisteddfod cerdd dafod recitation",
+      "family": "global",
+      "lineage": "Competitive spoken recitation (llefaru) of Welsh strict-metre poetry — cerdd dafod, 'the craft of tongue' — governed by cynghanedd, the exacting system of consonantal and stress correspondence within the line codified across the twenty-four traditional metres. Rooted in the medieval bardic order and revived and institutionalised through the National Eisteddfod of Wales, whose central rite is the chairing (cadeirio) of the bard for the best awdl in cynghanedd. Modern practice ranges from the crowning ceremony to competitive verse-speaking, with masters such as the twentieth-century pencerdd tradition; delivery is elevated, sound-patterned declamation foregrounding the aural architecture of the line.",
+      "parent": "balladPoetry.celticBalladic",
+      "axes": [
+        -2,
+        0,
+        2,
+        2,
+        -2,
+        2,
+        -1,
+        -2,
+        1,
+        2,
+        0,
+        -2,
+        -1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Competitive spoken recitation (llefaru) of Welsh strict-metre poetry — cerdd dafod, 'the craft of tongue' — governed by cynghanedd, the exacting system of consonantal and stress correspondence within the line codified across the twenty-four traditional metres. Rooted in the medieval bardic order and revived and institutionalised through the National Eisteddfod of Wales, whose central rite is the chairing (cadeirio) of the bard for the best awdl in cynghanedd. Modern practice ranges from the crowning ceremony to competitive verse-speaking, with masters such as the twentieth-century pencerdd tradition; delivery is elevated, sound-patterned declamation foregrounding the aural architecture of th",
+      "crossRefs": [
+        "balladPoetry"
+      ]
+    },
+    {
+      "id": "serbian_guslar_epic",
+      "name": "Serbian guslar epic recitation",
+      "family": "global",
+      "lineage": "South Slavic heroic-epic performance in which the guslar chants decasyllabic (deseterac) narrative to the drone of the gusle, a single-string bowed lute, in the Dinaric zone of Serbia, Montenegro, Bosnia and Croatia. The living oral-formulaic technique of these singers is the empirical basis of the Parry-Lord theory, documented in Milman Parry and Albert Lord's 1930s Yugoslav fieldwork (the Parry Collection at Harvard) with singers such as Avdo Mededovic. Cycles center on the Battle of Kosovo (1389) and the hajduk outlaw heroes; delivery is a spoken-sung recitative, each line launched and closed against the gusle's held tone.",
+      "parent": "balladPoetry.slavicBard",
+      "axes": [
+        -1,
+        1,
+        0,
+        1,
+        -2,
+        2,
+        2,
+        -2,
+        1,
+        2,
+        1,
+        -1,
+        1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "South Slavic heroic-epic performance in which the guslar chants decasyllabic (deseterac) narrative to the drone of the gusle, a single-string bowed lute, in the Dinaric zone of Serbia, Montenegro, Bosnia and Croatia. The living oral-formulaic technique of these singers is the empirical basis of the Parry-Lord theory, documented in Milman Parry and Albert Lord's 1930s Yugoslav fieldwork (the Parry Collection at Harvard) with singers such as Avdo Mededovic. Cycles center on the Battle of Kosovo (1389) and the hajduk outlaw heroes; delivery is a spoken-sung recitative, each line launched and closed against the gusle's held tone.",
+      "crossRefs": [
+        "balladPoetry"
+      ]
+    },
+    {
+      "id": "turkish_meddah",
+      "name": "Turkish meddah storytelling",
+      "family": "global",
+      "lineage": "One-man dramatic storytelling of the Ottoman and Turkish coffeehouse, in which the meddah ('panegyrist, eulogist') narrates a tale while impersonating every character through shifts of voice, dialect and gesture, using only a handkerchief (mendil) and a staff (baston) as props. Rooted in the medieval Islamic panegyric-storyteller and flourishing in Istanbul kahvehane through the nineteenth century, the art was recognised by UNESCO on the Representative List of the Intangible Cultural Heritage of Humanity in 2008. The delivery is improvisatory spoken theatre, opening with formulaic patter and rich in mimicry and topical comic aside.",
+      "parent": "balladPoetry.medEastPoetic",
+      "axes": [
+        -2,
+        -1,
+        0,
+        -1,
+        -2,
+        1,
+        2,
+        -2,
+        1,
+        2,
+        1,
+        -2,
+        -1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "One-man dramatic storytelling of the Ottoman and Turkish coffeehouse, in which the meddah ('panegyrist, eulogist') narrates a tale while impersonating every character through shifts of voice, dialect and gesture, using only a handkerchief (mendil) and a staff (baston) as props. Rooted in the medieval Islamic panegyric-storyteller and flourishing in Istanbul kahvehane through the nineteenth century, the art was recognised by UNESCO on the Representative List of the Intangible Cultural Heritage of Humanity in 2008. The delivery is improvisatory spoken theatre, opening with formulaic patter and rich in mimicry and topical comic aside.",
+      "crossRefs": [
+        "balladPoetry"
+      ]
+    },
+    {
+      "id": "persian_naqqali",
+      "name": "Persian naqqāli (Shahnameh dramatic recitation)",
+      "family": "global",
+      "lineage": "Iranian dramatic storytelling, the oldest form of dramatic performance in Iran, in which the naqqal recites and enacts episodes of the national epic — above all Ferdowsi's Shahnameh — with declamatory verse, prose bridging, vivid gesture and, traditionally, a painted scroll or coffeehouse-painting backdrop (pardeh) as visual aid. Performed historically in the qahveh-khaneh (coffeehouse) and public square, it was inscribed on the UNESCO List of Intangible Cultural Heritage in Need of Urgent Safeguarding in 2011. Delivery moves between elevated chanted verse and animated spoken narration, the naqqal shifting stance and register to voice heroes, demons and kings.",
+      "parent": "balladPoetry.medEastPoetic",
+      "axes": [
+        -2,
+        0,
+        1,
+        0,
+        -2,
+        2,
+        1,
+        -2,
+        2,
+        2,
+        1,
+        -2,
+        -1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Iranian dramatic storytelling, the oldest form of dramatic performance in Iran, in which the naqqal recites and enacts episodes of the national epic — above all Ferdowsi's Shahnameh — with declamatory verse, prose bridging, vivid gesture and, traditionally, a painted scroll or coffeehouse-painting backdrop (pardeh) as visual aid. Performed historically in the qahveh-khaneh (coffeehouse) and public square, it was inscribed on the UNESCO List of Intangible Cultural Heritage in Need of Urgent Safeguarding in 2011. Delivery moves between elevated chanted verse and animated spoken narration, the naqqal shifting stance and register to voice heroes, demons and kings.",
+      "crossRefs": [
+        "balladPoetry"
+      ]
+    },
+    {
+      "id": "arabic_hakawati",
+      "name": "Arabic hakawati coffeehouse storytelling",
+      "family": "global",
+      "lineage": "Traditional Arab coffeehouse storytelling of the Levant, Egypt and the wider Arab world, in which the hakawati ('teller') serialises long popular epics — the Sirat Bani Hilal, the exploits of Antar ibn Shaddad, Baybars, and tales from the Thousand and One Nights — across nightly installments, often reading from a chapbook while embellishing in performance. Seated on a raised chair with a cane or sword as prop, the teller times cliffhangers to the audience and the coffee trade; the art was near-extinct by the late twentieth century and is associated with figures such as Damascus's Abu Shadi (Rashid al-Hallak). Delivery is expressive spoken narration marked by direct address, formulaic openings and pious interjection.",
+      "parent": "balladPoetry.medEastPoetic",
+      "axes": [
+        -2,
+        -1,
+        0,
+        -1,
+        -2,
+        1,
+        2,
+        -2,
+        1,
+        2,
+        1,
+        -2,
+        -1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Traditional Arab coffeehouse storytelling of the Levant, Egypt and the wider Arab world, in which the hakawati ('teller') serialises long popular epics — the Sirat Bani Hilal, the exploits of Antar ibn Shaddad, Baybars, and tales from the Thousand and One Nights — across nightly installments, often reading from a chapbook while embellishing in performance. Seated on a raised chair with a cane or sword as prop, the teller times cliffhangers to the audience and the coffee trade; the art was near-extinct by the late twentieth century and is associated with figures such as Damascus's Abu Shadi (Rashid al-Hallak). Delivery is expressive spoken narration marked by direct address, formulaic opening",
+      "crossRefs": [
+        "balladPoetry"
+      ]
+    },
+    {
+      "id": "japanese_rakugo",
+      "name": "Japanese rakugo",
+      "family": "global",
+      "lineage": "Japanese comic monologue storytelling performed by a lone seated rakugoka in formal kimono at a low cushion (zabuton) on the yose stage, using only a folding fan (sensu) and hand-towel (tenugui) as props. Developed from Edo-period temple-sermon anecdote into an urban entertainment codified in Edo (Tokyo) and Osaka lineages, its repertoire divides into classical koten and newly-written shinsaku pieces, each ending in the ochi (punch-line 'fall') that gives the form its name. The teller enacts a whole dialogue of characters by turning the head and shifting voice, all from the seated position; the delivery is naturalistic conversational speech shaped for comic timing.",
+      "parent": "artMusic.eastAsian",
+      "axes": [
+        -2,
+        -1,
+        0,
+        -1,
+        -2,
+        1,
+        1,
+        -1,
+        0,
+        2,
+        1,
+        -2,
+        -1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Japanese comic monologue storytelling performed by a lone seated rakugoka in formal kimono at a low cushion (zabuton) on the yose stage, using only a folding fan (sensu) and hand-towel (tenugui) as props. Developed from Edo-period temple-sermon anecdote into an urban entertainment codified in Edo (Tokyo) and Osaka lineages, its repertoire divides into classical koten and newly-written shinsaku pieces, each ending in the ochi (punch-line 'fall') that gives the form its name. The teller enacts a whole dialogue of characters by turning the head and shifting voice, all from the seated position; the delivery is naturalistic conversational speech shaped for comic timing.",
+      "crossRefs": [
+        "artMusic"
+      ]
+    },
+    {
+      "id": "japanese_kodan",
+      "name": "Japanese kōdan",
+      "family": "global",
+      "lineage": "Japanese historical-narrative recitation in which the koshi (kodan-shi) narrates war-chronicles, vendetta tales, biographies and political-society stories from behind a small reading-desk (shakudai), beating a rhythmic pulse on it with a paper fan or wooden clapper (hariogi). Descended from Edo-period military-chronicle lecturing (koshaku) and distinct from the comic rakugo, it prizes cadenced, driving delivery and dramatic set-pieces; the tradition runs through named koshi lineages and enjoyed a broadcast heyday on early Japanese radio. The voice is a measured, rhythmically-propelled declamation punctuated by the desk-beat.",
+      "parent": "artMusic.eastAsian",
+      "axes": [
+        -2,
+        -1,
+        0,
+        1,
+        -2,
+        1,
+        0,
+        -2,
+        1,
+        2,
+        1,
+        0,
+        -1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Japanese historical-narrative recitation in which the koshi (kodan-shi) narrates war-chronicles, vendetta tales, biographies and political-society stories from behind a small reading-desk (shakudai), beating a rhythmic pulse on it with a paper fan or wooden clapper (hariogi). Descended from Edo-period military-chronicle lecturing (koshaku) and distinct from the comic rakugo, it prizes cadenced, driving delivery and dramatic set-pieces; the tradition runs through named koshi lineages and enjoyed a broadcast heyday on early Japanese radio. The voice is a measured, rhythmically-propelled declamation punctuated by the desk-beat.",
+      "crossRefs": [
+        "artMusic"
+      ]
+    },
+    {
+      "id": "chinese_pingshu",
+      "name": "Chinese pingshu storytelling",
+      "family": "global",
+      "lineage": "Northern Chinese solo oral storytelling (pingshu, 'commentary-book'), in which a standing teller serialises long historical and martial-heroic novels — Romance of the Three Kingdoms, Water Margin, Generals of the Yang Family — over many nightly episodes, traditionally in teahouses using a folding fan, a handkerchief and a wooden waking-block (xingmu) rapped for emphasis. A Beijing-Tianjin Mandarin-language art distinct from the southern sung tanci, it reached mass audiences through radio and television, with Yuan Kuocheng and Shan Tianfang among its best-known twentieth-century masters. Delivery is vivid narrative speech with sudden gesture, mimicry and the crack of the block to mark suspense.",
+      "parent": "artMusic.eastAsian",
+      "axes": [
+        -2,
+        -1,
+        0,
+        0,
+        -2,
+        1,
+        1,
+        -2,
+        1,
+        2,
+        1,
+        -1,
+        -1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Northern Chinese solo oral storytelling (pingshu, 'commentary-book'), in which a standing teller serialises long historical and martial-heroic novels — Romance of the Three Kingdoms, Water Margin, Generals of the Yang Family — over many nightly episodes, traditionally in teahouses using a folding fan, a handkerchief and a wooden waking-block (xingmu) rapped for emphasis. A Beijing-Tianjin Mandarin-language art distinct from the southern sung tanci, it reached mass audiences through radio and television, with Yuan Kuocheng and Shan Tianfang among its best-known twentieth-century masters. Delivery is vivid narrative speech with sudden gesture, mimicry and the crack of the block to mark suspens",
+      "crossRefs": [
+        "artMusic"
+      ]
+    },
+    {
+      "id": "chinese_xiangsheng",
+      "name": "Chinese xiangsheng crosstalk",
+      "family": "global",
+      "lineage": "Chinese comic dialogue (xiangsheng, 'crosstalk'), most characteristically the two-person duikou form in which a lead funnyman (dougen) and a straight-man feed (penggen) trade rapid witty patter, wordplay, mimicry and song at a small table on stage. A Beijing-Tianjin vernacular art crystallised in the late Qing and Republican eras and canonised through masters such as Hou Baolin, its skills are summed as the four arts of speaking, imitating, teasing and singing (shuo, xue, dou, chang), including tongue-twisting guankou set-pieces. Delivery is fast, rhythmic conversational comedy built on precise timing between the two voices.",
+      "parent": "artMusic.eastAsian",
+      "axes": [
+        -2,
+        -1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        -2,
+        1,
+        2,
+        1,
+        -2,
+        -1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Chinese comic dialogue (xiangsheng, 'crosstalk'), most characteristically the two-person duikou form in which a lead funnyman (dougen) and a straight-man feed (penggen) trade rapid witty patter, wordplay, mimicry and song at a small table on stage. A Beijing-Tianjin vernacular art crystallised in the late Qing and Republican eras and canonised through masters such as Hou Baolin, its skills are summed as the four arts of speaking, imitating, teasing and singing (shuo, xue, dou, chang), including tongue-twisting guankou set-pieces. Delivery is fast, rhythmic conversational comedy built on precise timing between the two voices.",
+      "crossRefs": [
+        "artMusic"
+      ]
+    },
+    {
+      "id": "japanese_kamishibai",
+      "name": "Japanese kamishibai narration",
+      "family": "global",
+      "lineage": "Japanese 'paper-play' storytelling in which a narrator performs a tale by sliding illustrated cards through a small wooden proscenium (butai), reading the text printed on the back while showing the picture in front. Popularised by itinerant street performers in the 1920s-1950s who drew children with candy sales before the advent of television, and later adapted for classroom and library use, it is a documented Showa-era mass-entertainment form. Delivery is animated, dramatic spoken narration timed to the beat of each card-change, with distinct character voices and cliffhanger pacing.",
+      "parent": "artMusic.eastAsian",
+      "axes": [
+        -2,
+        -1,
+        0,
+        -1,
+        -2,
+        1,
+        0,
+        -1,
+        1,
+        2,
+        1,
+        -2,
+        -1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Japanese 'paper-play' storytelling in which a narrator performs a tale by sliding illustrated cards through a small wooden proscenium (butai), reading the text printed on the back while showing the picture in front. Popularised by itinerant street performers in the 1920s-1950s who drew children with candy sales before the advent of television, and later adapted for classroom and library use, it is a documented Showa-era mass-entertainment form. Delivery is animated, dramatic spoken narration timed to the beat of each card-change, with distinct character voices and cliffhanger pacing.",
+      "crossRefs": [
+        "artMusic"
+      ]
+    },
+    {
+      "id": "somali_gabay",
+      "name": "Somali gabay poetic recitation",
+      "family": "global",
+      "lineage": "Recitation of the gabay, the most prestigious and formally demanding genre of Somali oral poetry — long, alliterative, quantitative-metre verse on weighty themes of politics, philosophy, war and reconciliation, composed by a named poet (abwaan) and transmitted verbatim by memoriser-reciters. Central to Somali public life across the Horn of Africa, the tradition produced figures such as Sayyid Mohammed Abdullah Hassan and sustained the twentieth-century 'chain' poem-debates (silsilad); every line must alliterate on a chosen consonant throughout the poem. Delivery is grave, measured, elevated speech in which the poem's argument and its exact wording carry the art.",
+      "parent": "balladPoetry.medEastPoetic",
+      "axes": [
+        -2,
+        -1,
+        1,
+        1,
+        -2,
+        2,
+        0,
+        -2,
+        1,
+        2,
+        0,
+        -2,
+        -1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Recitation of the gabay, the most prestigious and formally demanding genre of Somali oral poetry — long, alliterative, quantitative-metre verse on weighty themes of politics, philosophy, war and reconciliation, composed by a named poet (abwaan) and transmitted verbatim by memoriser-reciters. Central to Somali public life across the Horn of Africa, the tradition produced figures such as Sayyid Mohammed Abdullah Hassan and sustained the twentieth-century 'chain' poem-debates (silsilad); every line must alliterate on a chosen consonant throughout the poem. Delivery is grave, measured, elevated speech in which the poem's argument and its exact wording carry the art.",
+      "crossRefs": [
+        "balladPoetry"
+      ]
+    },
+    {
+      "id": "xhosa_iimbongi",
+      "name": "Xhosa iimbongi praise oratory",
+      "family": "global",
+      "lineage": "Praise-oratory of the imbongi (plural iimbongi), the Xhosa praise-poet of the Eastern Cape of South Africa, who delivers izibongo — improvised, high-energy declamatory praises of chiefs, ancestors and, in the modern era, political leaders — often clad in animal skins and carrying spears, appearing at installations, funerals and public gatherings. A living tradition documented by scholars such as Jeff Opland and embodied by figures like S.E.K. Mqhayi and, in the democratic era, the praise-poet at Nelson Mandela's 1994 inauguration. Delivery is rapid, loud, rhythmically-surging spoken praise, rich in metaphor and delivered in a single sustained breath-driven flow.",
+      "parent": "praiseSong.subSaharanAfrican",
+      "axes": [
+        -2,
+        0,
+        0,
+        0,
+        -1,
+        2,
+        2,
+        -2,
+        2,
+        2,
+        1,
+        -2,
+        -1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Praise-oratory of the imbongi (plural iimbongi), the Xhosa praise-poet of the Eastern Cape of South Africa, who delivers izibongo — improvised, high-energy declamatory praises of chiefs, ancestors and, in the modern era, political leaders — often clad in animal skins and carrying spears, appearing at installations, funerals and public gatherings. A living tradition documented by scholars such as Jeff Opland and embodied by figures like S.E.K. Mqhayi and, in the democratic era, the praise-poet at Nelson Mandela's 1994 inauguration. Delivery is rapid, loud, rhythmically-surging spoken praise, rich in metaphor and delivered in a single sustained breath-driven flow.",
+      "crossRefs": [
+        "praiseSong"
+      ]
+    },
+    {
+      "id": "mande_griot_epic_narrative",
+      "name": "Mande griot narrative epic recitation",
+      "family": "global",
+      "lineage": "The spoken narrative art of the Mande jeli (griot) of West Africa (Mali, Guinea, Senegal, The Gambia), focused here on the recited-and-declaimed telling of the great epic of Sunjata Keita, founder of the thirteenth-century Mali Empire, as distinct from the griot's sung and kora-accompanied music. A hereditary caste of oral historians, genealogists and spokespersons, the jeliw transmit the Sunjata cycle through generations, canonically documented in Djibril Tamsir Niane's rendering of the telling by Mamadou Kouyate of Djeliba Koro. Delivery is heightened, cadenced narration, often supported by a naamu-namina respondent who punctuates the teller with affirmations.",
+      "parent": "balladPoetry.westAfricanGriot",
+      "axes": [
+        -2,
+        0,
+        1,
+        0,
+        -2,
+        2,
+        1,
+        -2,
+        1,
+        2,
+        1,
+        -2,
+        0
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "The spoken narrative art of the Mande jeli (griot) of West Africa (Mali, Guinea, Senegal, The Gambia), focused here on the recited-and-declaimed telling of the great epic of Sunjata Keita, founder of the thirteenth-century Mali Empire, as distinct from the griot's sung and kora-accompanied music. A hereditary caste of oral historians, genealogists and spokespersons, the jeliw transmit the Sunjata cycle through generations, canonically documented in Djibril Tamsir Niane's rendering of the telling by Mamadou Kouyate of Djeliba Koro. Delivery is heightened, cadenced narration, often supported by a naamu-namina respondent who punctuates the teller with affirmations.",
+      "crossRefs": [
+        "balladPoetry"
+      ]
+    },
+    {
+      "id": "urdu_dastangoi",
+      "name": "Indian dastangoi / qissa Urdu storytelling",
+      "family": "global",
+      "lineage": "Urdu-Persian oral storytelling of the North Indian and Pakistani world, in which the dastango narrates the dastan — vast fantastical romance-cycles, above all the Dastan-e Amir Hamza and its magical Tilism-e Hoshruba — in ornate rhymed and rhythmic prose (saj). A coffeehouse and courtly art at its height in nineteenth-century Delhi and Lucknow, it faded after the death of the last classical dastango, Mir Baqir Ali, in 1928, and was revived in the 2000s by Mahmood Farooqui and S.R. Faruqi, often as a two-teller performance in white kurta on a plain sheet. Delivery is virtuosic, escalating declamation prizing verbal ornament, suspense and the sheer momentum of the narrating voice.",
+      "parent": "balladPoetry.indianBard",
+      "axes": [
+        -2,
+        -1,
+        1,
+        0,
+        -1,
+        2,
+        1,
+        -2,
+        2,
+        2,
+        1,
+        -2,
+        -1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Urdu-Persian oral storytelling of the North Indian and Pakistani world, in which the dastango narrates the dastan — vast fantastical romance-cycles, above all the Dastan-e Amir Hamza and its magical Tilism-e Hoshruba — in ornate rhymed and rhythmic prose (saj). A coffeehouse and courtly art at its height in nineteenth-century Delhi and Lucknow, it faded after the death of the last classical dastango, Mir Baqir Ali, in 1928, and was revived in the 2000s by Mahmood Farooqui and S.R. Faruqi, often as a two-teller performance in white kurta on a plain sheet. Delivery is virtuosic, escalating declamation prizing verbal ornament, suspense and the sheer momentum of the narrating voice.",
+      "crossRefs": [
+        "balladPoetry"
+      ]
+    },
+    {
+      "id": "norse_galdr",
+      "name": "Old Norse galdr incantation",
+      "family": "global",
+      "lineage": "Old Norse galdr was a form of magical charm-chanting practiced across Viking-Age and medieval Scandinavia and Iceland, attested in Eddic poems such as Hávamál (the Ljóðatal charm-list), Grógaldr, and Sigrdrífumál. The verb gala ('to crow, screech') gives the genre its name, and the associated meter galdralag (an incantatory variant of ljóðaháttr with a repeated fourth line) marks its heightened, metrically-bound delivery. Charms were intoned by a specialist to bind, heal, curse, or raise the dead, often paired with runic inscription. Modern knowledge derives from the Poetic Edda manuscript tradition and philological reconstruction rather than sound recordings; contemporary Heathen revival practice reconstructs delivery from these textual sources.",
+      "parent": "ritualDevotional.indigenous",
+      "axes": [
+        -2,
+        -1,
+        0,
+        0,
+        -2,
+        2,
+        1,
+        -2,
+        1,
+        2,
+        1,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Old Norse galdr was a form of magical charm-chanting practiced across Viking-Age and medieval Scandinavia and Iceland, attested in Eddic poems such as Hávamál (the Ljóðatal charm-list), Grógaldr, and Sigrdrífumál. The verb gala ('to crow, screech') gives the genre its name, and the associated meter galdralag (an incantatory variant of ljóðaháttr with a repeated fourth line) marks its heightened, metrically-bound delivery. Charms were intoned by a specialist to bind, heal, curse, or raise the dead, often paired with runic inscription. Modern knowledge derives from the Poetic Edda manuscript tradition and philological reconstruction rather than sound recordings; contemporary Heathen revival pr",
+      "crossRefs": [
+        "ritualDevotional"
+      ]
+    },
+    {
+      "id": "norse_seidr",
+      "name": "Old Norse seiðr ritual vocalization",
+      "family": "global",
+      "lineage": "Seiðr was an Old Norse shamanic ritual practice associated chiefly with the völva (seeress) and the goddess Freyja, attested most fully in the account of Þorbjörg lítilvölva in Eiríks saga rauða and scattered through Ynglinga saga and Eddic material. Central to the rite were varðlokkur ('ward-songs'), sung to attract helping spirits so the seeress on her raised seiðhjallr platform could prophesy; in the saga a chorus of women sings while the völva works. The practice carried strong gender associations (ergi) and was linked to trance and spirit-travel, placing it alongside circumpolar shamanic vocalization. It survives only through medieval Icelandic prose and is reconstructed by scholars and modern practitioners.",
+      "parent": "ritualDevotional.indigenous.arctic",
+      "axes": [
+        -2,
+        -1,
+        1,
+        -1,
+        -1,
+        2,
+        2,
+        -2,
+        1,
+        2,
+        1,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Seiðr was an Old Norse shamanic ritual practice associated chiefly with the völva (seeress) and the goddess Freyja, attested most fully in the account of Þorbjörg lítilvölva in Eiríks saga rauða and scattered through Ynglinga saga and Eddic material. Central to the rite were varðlokkur ('ward-songs'), sung to attract helping spirits so the seeress on her raised seiðhjallr platform could prophesy; in the saga a chorus of women sings while the völva works. The practice carried strong gender associations (ergi) and was linked to trance and spirit-travel, placing it alongside circumpolar shamanic vocalization. It survives only through medieval Icelandic prose and is reconstructed by scholars and",
+      "crossRefs": [
+        "ritualDevotional.indigenous"
+      ]
+    },
+    {
+      "id": "norse_blot",
+      "name": "Old Norse blót invocation",
+      "family": "global",
+      "lineage": "Blót was the central sacrificial rite of Old Norse religion, a communal offering to the Æsir, Vanir, and land-spirits attested in Heimskringla (Hákonar saga góða describes the Trøndelag blót feasts), Eyrbyggja saga, and Adam of Bremen's account of the Uppsala temple. The gothi or chieftain-priest led the assembly, sprinkling sacrificial blood (hlaut) and pronouncing invocations and full (ceremonial toasts) over the ale to Óðinn, Njörðr, and Freyr for victory and good harvest. Delivery was declamatory rather than melodic, a heightened public oratory answered by the gathered community. The tradition is known from Old Norse-Icelandic prose sources and is reconstructed in modern Heathen practice.",
+      "parent": "ritualDevotional.indigenous",
+      "axes": [
+        -2,
+        -1,
+        0,
+        0,
+        -1,
+        2,
+        1,
+        -2,
+        1,
+        2,
+        0,
+        -2,
+        0
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Blót was the central sacrificial rite of Old Norse religion, a communal offering to the Æsir, Vanir, and land-spirits attested in Heimskringla (Hákonar saga góða describes the Trøndelag blót feasts), Eyrbyggja saga, and Adam of Bremen's account of the Uppsala temple. The gothi or chieftain-priest led the assembly, sprinkling sacrificial blood (hlaut) and pronouncing invocations and full (ceremonial toasts) over the ale to Óðinn, Njörðr, and Freyr for victory and good harvest. Delivery was declamatory rather than melodic, a heightened public oratory answered by the gathered community. The tradition is known from Old Norse-Icelandic prose sources and is reconstructed in modern Heathen practice",
+      "crossRefs": [
+        "ritualDevotional"
+      ]
+    },
+    {
+      "id": "druidic_invocation",
+      "name": "Druidic / neo-druid ritual invocation",
+      "family": "global",
+      "lineage": "Neo-druidic ritual invocation is a modern revival practice descending from the eighteenth- and nineteenth-century Druid revival, notably Iolo Morganwg's Barddas and the Gorsedd of Bards founded in 1792, and organized today through bodies such as the Ancient Order of Druids and the Order of Bards, Ovates and Druids. Ritual centers on spoken invocation of the quarters, the Druid's Prayer, and the sustained chanting of Awen (the three-syllable 'aah-ee-en' inspiration-sound) in an open-air ceremonial circle. While the ancient Iron-Age druids left no liturgical texts (their teaching being oral, per Caesar's Gallic War), the contemporary tradition draws on Welsh and Brythonic bardic material and eisteddfod ceremony. Delivery is declamatory heightened speech in English or Welsh, often responsorial with a group.",
+      "parent": "ritualDevotional.indigenous",
+      "axes": [
+        -1,
+        0,
+        0,
+        0,
+        -1,
+        1,
+        1,
+        -2,
+        0,
+        2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Neo-druidic ritual invocation is a modern revival practice descending from the eighteenth- and nineteenth-century Druid revival, notably Iolo Morganwg's Barddas and the Gorsedd of Bards founded in 1792, and organized today through bodies such as the Ancient Order of Druids and the Order of Bards, Ovates and Druids. Ritual centers on spoken invocation of the quarters, the Druid's Prayer, and the sustained chanting of Awen (the three-syllable 'aah-ee-en' inspiration-sound) in an open-air ceremonial circle. While the ancient Iron-Age druids left no liturgical texts (their teaching being oral, per Caesar's Gallic War), the contemporary tradition draws on Welsh and Brythonic bardic material and e",
+      "crossRefs": [
+        "ritualDevotional"
+      ]
+    },
+    {
+      "id": "wiccan_chant_circle",
+      "name": "Wiccan chant-circle incantation",
+      "family": "global",
+      "lineage": "Wiccan chant-circle incantation is the communal vocal practice of modern Wicca, the initiatory witchcraft religion codified by Gerald Gardner in England in the 1950s (Gardnerian tradition) and expanded through Alexandrian, Dianic, and later Reclaiming lineages. In circle, participants raise energy through repeated metrical chants — 'The Witches' Rune,' goddess-name chants such as the 'Isis Astarte' chant, and Reclaiming/Starhawk material like 'We Are a Circle' — sung in unison and accelerating toward a peak ('raising the cone of power'). Delivery is rhythmic, mantra-like, and group-based rather than soloistic, drawing on ceremonial-magic invocation and folk-revival song. The repertoire is documented in Gardner's Book of Shadows tradition and later published Wiccan liturgies.",
+      "parent": "ritualDevotional.indigenous",
+      "axes": [
+        -1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        -2,
+        1,
+        2,
+        0,
+        -1,
+        2
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Wiccan chant-circle incantation is the communal vocal practice of modern Wicca, the initiatory witchcraft religion codified by Gerald Gardner in England in the 1950s (Gardnerian tradition) and expanded through Alexandrian, Dianic, and later Reclaiming lineages. In circle, participants raise energy through repeated metrical chants — 'The Witches' Rune,' goddess-name chants such as the 'Isis Astarte' chant, and Reclaiming/Starhawk material like 'We Are a Circle' — sung in unison and accelerating toward a peak ('raising the cone of power'). Delivery is rhythmic, mantra-like, and group-based rather than soloistic, drawing on ceremonial-magic invocation and folk-revival song. The repertoire is do",
+      "crossRefs": [
+        "ritualDevotional"
+      ]
+    },
+    {
+      "id": "shinto_norito",
+      "name": "Shinto norito prayer recitation",
+      "family": "global",
+      "lineage": "Norito are the formal ritual prayers of Japanese Shinto, addressed by a kannushi (priest) to the kami during matsuri and purification rites, with a textual core reaching back to the Engishiki (compiled 927 CE), which preserves the oldest liturgical norito including the Ōharae no kotoba (Great Purification formula). Delivery is a slow, sustained, near-monotone intonation in archaic classical Japanese, projected with deliberate solemnity before the sanctuary. The recitation is unaccompanied and ametrical, its authority resting on precise archaic wording and priestly transmission through shrine lineages and the Jinja Honcho institutional tradition. It remains a living practice performed daily at shrines throughout Japan.",
+      "parent": "ritualDevotional.indigenous",
+      "axes": [
+        -2,
+        -1,
+        0,
+        -1,
+        -2,
+        2,
+        0,
+        -2,
+        0,
+        2,
+        1,
+        -2,
+        0
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Norito are the formal ritual prayers of Japanese Shinto, addressed by a kannushi (priest) to the kami during matsuri and purification rites, with a textual core reaching back to the Engishiki (compiled 927 CE), which preserves the oldest liturgical norito including the Ōharae no kotoba (Great Purification formula). Delivery is a slow, sustained, near-monotone intonation in archaic classical Japanese, projected with deliberate solemnity before the sanctuary. The recitation is unaccompanied and ametrical, its authority resting on precise archaic wording and priestly transmission through shrine lineages and the Jinja Honcho institutional tradition. It remains a living practice performed daily a",
+      "crossRefs": [
+        "ritualDevotional"
+      ]
+    },
+    {
+      "id": "onmyodo_incantation",
+      "name": "Onmyōdō incantation",
+      "family": "global",
+      "lineage": "Onmyōdō ('the way of yin and yang') was the Japanese esoteric cosmological practice of the Heian-period court, institutionalized in the Onmyōryō bureau and epitomized by the tenth-century master Abe no Seimei, blending Chinese yin-yang and Five-Phase theory with Daoist, Shinto, and Buddhist elements. Its ritual voice includes spells (ju), the recitation of formulae, and protective incantations accompanying divination, exorcism, and star-worship (such as rites to the Northern Dipper). Delivery is a measured, metrically-bound intonation of classical Chinese and Japanese formulae, learned through hereditary specialist lineages (the Abe/Tsuchimikado and Kamo houses). The tradition is documented in Heian court records and ritual manuals and persists in attenuated folk and reconstructed forms.",
+      "parent": "ritualDevotional.indigenous",
+      "axes": [
+        -2,
+        -1,
+        0,
+        0,
+        -2,
+        2,
+        1,
+        -2,
+        1,
+        2,
+        1,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Onmyōdō ('the way of yin and yang') was the Japanese esoteric cosmological practice of the Heian-period court, institutionalized in the Onmyōryō bureau and epitomized by the tenth-century master Abe no Seimei, blending Chinese yin-yang and Five-Phase theory with Daoist, Shinto, and Buddhist elements. Its ritual voice includes spells (ju), the recitation of formulae, and protective incantations accompanying divination, exorcism, and star-worship (such as rites to the Northern Dipper). Delivery is a measured, metrically-bound intonation of classical Chinese and Japanese formulae, learned through hereditary specialist lineages (the Abe/Tsuchimikado and Kamo houses). The tradition is documented ",
+      "crossRefs": [
+        "ritualDevotional"
+      ]
+    },
+    {
+      "id": "zoroastrian_avestan_recitation",
+      "name": "Zoroastrian Avestan liturgical recitation",
+      "family": "global",
+      "lineage": "Zoroastrian liturgical recitation is the priestly intonation of the Avesta, the sacred corpus of the ancient Iranian religion, whose oldest layer — the Gathas attributed to Zarathustra — was transmitted orally for centuries before being committed to the Avestan script under the Sasanians. Mobeds (priests) recite the Yasna, Visperad, and Vendidad in the Yazishn-gah of the fire temple, chiefly during the daily Yasna ceremony, on a narrow band of pitches close to intoned speech. The tradition is a sibling of Vedic Sanskrit recitation within the Indo-Iranian priestly-oral family, sharing the premium placed on phonetic exactness over textual comprehension. It survives among Parsi and Irani Zoroastrian communities and is documented in ethnomusicological and Avestan philological scholarship.",
+      "parent": "ritualDevotional.hindu",
+      "axes": [
+        -2,
+        -1,
+        0,
+        -1,
+        -2,
+        2,
+        0,
+        -2,
+        0,
+        2,
+        1,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Zoroastrian liturgical recitation is the priestly intonation of the Avesta, the sacred corpus of the ancient Iranian religion, whose oldest layer — the Gathas attributed to Zarathustra — was transmitted orally for centuries before being committed to the Avestan script under the Sasanians. Mobeds (priests) recite the Yasna, Visperad, and Vendidad in the Yazishn-gah of the fire temple, chiefly during the daily Yasna ceremony, on a narrow band of pitches close to intoned speech. The tradition is a sibling of Vedic Sanskrit recitation within the Indo-Iranian priestly-oral family, sharing the premium placed on phonetic exactness over textual comprehension. It survives among Parsi and Irani Zoroas",
+      "crossRefs": [
+        "ritualDevotional"
+      ]
+    },
+    {
+      "id": "jewish_kaddish",
+      "name": "Jewish Kaddish mourner recitation",
+      "family": "global",
+      "lineage": "The Kaddish is a doxology in Aramaic and Hebrew central to Jewish liturgy, its best-known form the Mourner's Kaddish (Kaddish Yatom) recited by the bereaved during the eleven months of mourning and on the yahrzeit. The text sanctifies God's name and, notably, contains no mention of death; it is delivered by the mourner in a rapid, low, rhythmic spoken flow, with the congregation answering the responsorial refrain 'Yehei shmei rabba mevarach.' Its melodic contours vary by rite (Ashkenazi, Sephardi, Yemenite) but the mourner's form leans toward recitation rather than song. The tradition is documented across the siddur manuscript tradition and centuries of synagogue practice.",
+      "parent": "ritualDevotional.jewish",
+      "axes": [
+        -2,
+        -1,
+        0,
+        0,
+        -1,
+        2,
+        0,
+        -2,
+        0,
+        2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "The Kaddish is a doxology in Aramaic and Hebrew central to Jewish liturgy, its best-known form the Mourner's Kaddish (Kaddish Yatom) recited by the bereaved during the eleven months of mourning and on the yahrzeit. The text sanctifies God's name and, notably, contains no mention of death; it is delivered by the mourner in a rapid, low, rhythmic spoken flow, with the congregation answering the responsorial refrain 'Yehei shmei rabba mevarach.' Its melodic contours vary by rite (Ashkenazi, Sephardi, Yemenite) but the mourner's form leans toward recitation rather than song. The tradition is documented across the siddur manuscript tradition and centuries of synagogue practice.",
+      "crossRefs": [
+        "ritualDevotional"
+      ]
+    },
+    {
+      "id": "latin_exorcism_rite",
+      "name": "Latin Rituale Romanum exorcism recitation",
+      "family": "global",
+      "lineage": "The Latin exorcism recitation is the imprecatory liturgy of the Roman Catholic Rituale Romanum, whose exorcism section (De exorcizandis obsessis a daemonio) was codified in 1614 and revised in 1999. Performed by a priest with the bishop's mandate, it interleaves psalmody, Gospel readings, and the imperative deprecatory-and-imperative formulae addressed directly to the demon ('Exorcizo te, immundissime spiritus'). Delivery is forceful heightened Latin declamation in a resonant church interior, punctuated by the sign of the cross and sprinkling of holy water. The rite is documented in the Rituale itself and in the Church's liturgical-law tradition.",
+      "parent": "ritualDevotional.christianGospel",
+      "axes": [
+        -2,
+        -1,
+        0,
+        0,
+        -2,
+        2,
+        0,
+        -2,
+        1,
+        2,
+        1,
+        -2,
+        0
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "The Latin exorcism recitation is the imprecatory liturgy of the Roman Catholic Rituale Romanum, whose exorcism section (De exorcizandis obsessis a daemonio) was codified in 1614 and revised in 1999. Performed by a priest with the bishop's mandate, it interleaves psalmody, Gospel readings, and the imperative deprecatory-and-imperative formulae addressed directly to the demon ('Exorcizo te, immundissime spiritus'). Delivery is forceful heightened Latin declamation in a resonant church interior, punctuated by the sign of the cross and sprinkling of holy water. The rite is documented in the Rituale itself and in the Church's liturgical-law tradition.",
+      "crossRefs": [
+        "ritualDevotional"
+      ]
+    },
+    {
+      "id": "korean_muga",
+      "name": "Korean muga shamanic ritual narrative",
+      "family": "global",
+      "lineage": "Muga are the sung and chanted ritual songs of the Korean mudang (shaman), performed within the kut ceremony to invoke, entertain, and petition the spirits (gods, ancestors, and the dead). Regional forms range from the hereditary tradition of the southwestern seseummu to the possession-based gangsinmu of the north, and the repertoire encompasses invocation, narrative epic (such as the Bari Gongju abandoned-princess myth), and divination speech, all accompanied by janggu and other percussion. Muga is widely regarded as a root source of pansori epic singing and of shinawi and sinawi-derived instrumental music. It is documented through twentieth-century field recordings and the scholarship of Korean folklorists and is designated within the Important Intangible Cultural Property system.",
+      "parent": "ritualDevotional.indigenous",
+      "axes": [
+        -2,
+        0,
+        1,
+        1,
+        -1,
+        2,
+        2,
+        -2,
+        1,
+        2,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Muga are the sung and chanted ritual songs of the Korean mudang (shaman), performed within the kut ceremony to invoke, entertain, and petition the spirits (gods, ancestors, and the dead). Regional forms range from the hereditary tradition of the southwestern seseummu to the possession-based gangsinmu of the north, and the repertoire encompasses invocation, narrative epic (such as the Bari Gongju abandoned-princess myth), and divination speech, all accompanied by janggu and other percussion. Muga is widely regarded as a root source of pansori epic singing and of shinawi and sinawi-derived instrumental music. It is documented through twentieth-century field recordings and the scholarship of Ko",
+      "crossRefs": [
+        "ritualDevotional"
+      ]
+    },
+    {
+      "id": "mongolian_boo_invocation",
+      "name": "Mongolian böö shamanic invocation",
+      "family": "global",
+      "lineage": "Böö mörgöl is the indigenous shamanism of the Mongols and neighboring Buryat and Darkhad peoples, in which the böö (shaman) invokes and embodies spirits (ongod) to heal, divine, and mediate with the sky-father Tengri and the master-spirits of place. The ritual voice combines invocatory calls (duudlaga), praise and summoning of the ongod, and glossolalic utterance during trance, historically accompanied by the frame drum (khengereg) and jingling costume. Suppressed under the twentieth-century socialist state, the tradition has seen a strong post-1990 revival across Mongolia and Buryatia. It is documented through ethnographic fieldwork and recordings of Inner Asian shamanic practice.",
+      "parent": "ritualDevotional.indigenous.arctic",
+      "axes": [
+        -2,
+        -1,
+        1,
+        0,
+        -1,
+        2,
+        2,
+        -2,
+        1,
+        2,
+        1,
+        0,
+        1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Böö mörgöl is the indigenous shamanism of the Mongols and neighboring Buryat and Darkhad peoples, in which the böö (shaman) invokes and embodies spirits (ongod) to heal, divine, and mediate with the sky-father Tengri and the master-spirits of place. The ritual voice combines invocatory calls (duudlaga), praise and summoning of the ongod, and glossolalic utterance during trance, historically accompanied by the frame drum (khengereg) and jingling costume. Suppressed under the twentieth-century socialist state, the tradition has seen a strong post-1990 revival across Mongolia and Buryatia. It is documented through ethnographic fieldwork and recordings of Inner Asian shamanic practice.",
+      "crossRefs": [
+        "ritualDevotional.indigenous"
+      ]
+    },
+    {
+      "id": "sami_noaidi_drum_journey",
+      "name": "Sami noaidi drum-journey joik-chant",
+      "family": "global",
+      "lineage": "The noaidi was the shaman of the Sami peoples of northern Fennoscandia, who entered trance to travel to the spirit worlds — for healing, hunting-luck, and mediation with the dead — often falling into ecstatic stillness while helpers sang. The rite combined the runebomme (frame drum, whose membrane bore a painted cosmological map read with a vuorbi pointer) with joik, the characteristically non-lexical, circular Sami vocal genre. Christian missionary campaigns from the seventeenth century onward suppressed the drums and demonized joik, and much is reconstructed from missionary accounts, confiscated drums, and later joik documentation. The associated joik tradition survives strongly and is documented in extensive twentieth-century field recordings.",
+      "parent": "ritualDevotional.indigenous.arctic",
+      "axes": [
+        -2,
+        0,
+        1,
+        -1,
+        -2,
+        2,
+        2,
+        -2,
+        1,
+        2,
+        1,
+        -1,
+        2
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "The noaidi was the shaman of the Sami peoples of northern Fennoscandia, who entered trance to travel to the spirit worlds — for healing, hunting-luck, and mediation with the dead — often falling into ecstatic stillness while helpers sang. The rite combined the runebomme (frame drum, whose membrane bore a painted cosmological map read with a vuorbi pointer) with joik, the characteristically non-lexical, circular Sami vocal genre. Christian missionary campaigns from the seventeenth century onward suppressed the drums and demonized joik, and much is reconstructed from missionary accounts, confiscated drums, and later joik documentation. The associated joik tradition survives strongly and is doc",
+      "crossRefs": [
+        "ritualDevotional.indigenous"
+      ]
+    },
+    {
+      "id": "navajo_blessingway",
+      "name": "Navajo Blessingway (Hózhǫ́ǫ́jí) recitation",
+      "family": "global",
+      "lineage": "Blessingway (Hózhǫ́ǫ́jí) is the central ceremony of the Diné (Navajo), a rite for restoring and maintaining hózhǫ́ (beauty, harmony, balance) used at childbirth, marriage, girls' puberty (Kinaaldá), and to sanctify life-passages, rather than to cure illness. Led by a hataałii (singer/medicine person) in the hogan over one or two nights, it consists of long fixed sequences of sung prayer and recited text recounting the emergence and the deeds of Changing Woman, learned through years of apprenticeship. The songs and prayers must be delivered in exact order and wording. The tradition is documented in the scholarship of Washington Matthews, Leland Wyman, and Father Berard Haile, and remains a living practice.",
+      "parent": "ritualDevotional.indigenous",
+      "axes": [
+        -2,
+        0,
+        0,
+        1,
+        -1,
+        2,
+        0,
+        -2,
+        0,
+        2,
+        1,
+        -1,
+        2
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Blessingway (Hózhǫ́ǫ́jí) is the central ceremony of the Diné (Navajo), a rite for restoring and maintaining hózhǫ́ (beauty, harmony, balance) used at childbirth, marriage, girls' puberty (Kinaaldá), and to sanctify life-passages, rather than to cure illness. Led by a hataałii (singer/medicine person) in the hogan over one or two nights, it consists of long fixed sequences of sung prayer and recited text recounting the emergence and the deeds of Changing Woman, learned through years of apprenticeship. The songs and prayers must be delivered in exact order and wording. The tradition is documented in the scholarship of Washington Matthews, Leland Wyman, and Father Berard Haile, and remains a li",
+      "crossRefs": [
+        "ritualDevotional"
+      ]
+    },
+    {
+      "id": "nahua_flower_song",
+      "name": "Nahua/Aztec flower-song (in xochitl in cuicatl) oratory",
+      "family": "global",
+      "lineage": "In xochitl in cuicatl ('flower and song') is the Nahua difrasismo for poetry and sung oratory, the elevated verbal art of the Aztec (Mexica) and wider Nahuatl-speaking world of central Mexico. The corpus survives chiefly in two sixteenth-century manuscripts, the Cantares Mexicanos and the Romances de los señores de la Nueva España, transcribed after the conquest and preserving pre-Hispanic and early-colonial song-poems on transience, war, and the divine, alongside the huehuetlahtolli oratory of the elders. In performance, poet-singers (cuicapicqueh) declaimed and sang these texts, historically to the huehuetl and teponaztli drums whose beat patterns are notated by syllables in the manuscripts. The tradition is reconstructed from these codices and the scholarship of Ángel María Garibay and Miguel León-Portilla.",
+      "parent": "ritualDevotional.indigenous",
+      "axes": [
+        -1,
+        -1,
+        0,
+        0,
+        -1,
+        1,
+        1,
+        -2,
+        1,
+        2,
+        0,
+        0,
+        0
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "In xochitl in cuicatl ('flower and song') is the Nahua difrasismo for poetry and sung oratory, the elevated verbal art of the Aztec (Mexica) and wider Nahuatl-speaking world of central Mexico. The corpus survives chiefly in two sixteenth-century manuscripts, the Cantares Mexicanos and the Romances de los señores de la Nueva España, transcribed after the conquest and preserving pre-Hispanic and early-colonial song-poems on transience, war, and the divine, alongside the huehuetlahtolli oratory of the elders. In performance, poet-singers (cuicapicqueh) declaimed and sang these texts, historically to the huehuetl and teponaztli drums whose beat patterns are notated by syllables in the manuscript",
+      "crossRefs": [
+        "ritualDevotional"
+      ]
+    },
+    {
+      "id": "ethiopian_debtera_incantation",
+      "name": "Ethiopian debtera liturgical incantation",
+      "family": "global",
+      "lineage": "The debtera is the learned non-ordained cleric of the Ethiopian Orthodox Tewahedo Church, trained for many years in the church schools to master the Ge'ez liturgy, the zema chant of Saint Yared, aquaquam liturgical dance, and qene sacred poetry. Beyond the sanctioned liturgy, debtera are also the authors and reciters of asmat prayers and protective magical scrolls (ketab), an esoteric incantatory practice invoking secret names of God and angels for healing and protection. Their liturgical voice moves in the three qenet modal families of Ethiopian chant. The tradition is documented in Ge'ez manuscript scholarship and ethnographies of Ethiopian Christianity, and is a sibling of the Coptic Egyptian rite.",
+      "parent": "ritualDevotional.christianGospel.coptic",
+      "axes": [
+        -2,
+        0,
+        1,
+        0,
+        -1,
+        2,
+        1,
+        -2,
+        1,
+        2,
+        1,
+        -1,
+        1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "The debtera is the learned non-ordained cleric of the Ethiopian Orthodox Tewahedo Church, trained for many years in the church schools to master the Ge'ez liturgy, the zema chant of Saint Yared, aquaquam liturgical dance, and qene sacred poetry. Beyond the sanctioned liturgy, debtera are also the authors and reciters of asmat prayers and protective magical scrolls (ketab), an esoteric incantatory practice invoking secret names of God and angels for healing and protection. Their liturgical voice moves in the three qenet modal families of Ethiopian chant. The tradition is documented in Ge'ez manuscript scholarship and ethnographies of Ethiopian Christianity, and is a sibling of the Coptic Egyp",
+      "crossRefs": [
+        "ritualDevotional.christianGospel"
+      ]
+    },
+    {
+      "id": "tibetan_chod_rite",
+      "name": "Tibetan chöd rite (voice with damaru and kangling)",
+      "family": "global",
+      "lineage": "Chöd ('cutting') is a Tibetan Buddhist tantric practice systematized in the eleventh–twelfth centuries by the female adept Machig Labdrön, in which the practitioner symbolically severs ego-attachment by visualizing the offering of the body to spirits, often performed in charnel grounds and wild places. The sadhana is sung to characteristic melodic chant lines while the practitioner plays the damaru (double-headed hand drum) and the kangling (thighbone trumpet), whose blasts summon the guests to the feast. It crosses lineage boundaries (Nyingma, Kagyü, Gelug) and combines melodic yang-style chant with deep resonant vocalization. The tradition is transmitted through empowerment and practice-text lineages and documented in Tibetan liturgical manuscripts and modern ethnomusicology.",
+      "parent": "ritualDevotional.buddhist",
+      "axes": [
+        -2,
+        0,
+        1,
+        0,
+        -1,
+        2,
+        0,
+        -2,
+        1,
+        2,
+        2,
+        0,
+        1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Chöd ('cutting') is a Tibetan Buddhist tantric practice systematized in the eleventh–twelfth centuries by the female adept Machig Labdrön, in which the practitioner symbolically severs ego-attachment by visualizing the offering of the body to spirits, often performed in charnel grounds and wild places. The sadhana is sung to characteristic melodic chant lines while the practitioner plays the damaru (double-headed hand drum) and the kangling (thighbone trumpet), whose blasts summon the guests to the feast. It crosses lineage boundaries (Nyingma, Kagyü, Gelug) and combines melodic yang-style chant with deep resonant vocalization. The tradition is transmitted through empowerment and practice-te",
+      "crossRefs": [
+        "ritualDevotional"
+      ]
+    },
+    {
+      "id": "palo_mayombe_mambo",
+      "name": "Palo Mayombe Kongo mambo ritual chant",
+      "family": "global",
+      "lineage": "Palo (Las Reglas de Congo), of which Mayombe is a principal branch, is the Afro-Cuban religion derived from Kikongo-speaking Bantu peoples of Central Africa, brought to Cuba under slavery and centered on the nganga (prenda) spirit-vessel and the dead (nfumbi). Its ritual songs, called mambos, are call-and-response chants in a Kikongo-derived liturgical language (habla congo) led by a soloist and answered by the chorus over Palo drums (ngoma) and iron, to summon, praise, and work with the mpungu forces and the spirits. Delivery is metrical, percussive, and communal, driving the ceremony toward possession. The tradition is documented in the ethnographic work of Lydia Cabrera (El Monte) and later scholars of Afro-Cuban religion.",
+      "parent": "ritualDevotional.afroDiasporic",
+      "axes": [
+        -1,
+        0,
+        0,
+        1,
+        0,
+        2,
+        1,
+        -2,
+        2,
+        2,
+        1,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Palo (Las Reglas de Congo), of which Mayombe is a principal branch, is the Afro-Cuban religion derived from Kikongo-speaking Bantu peoples of Central Africa, brought to Cuba under slavery and centered on the nganga (prenda) spirit-vessel and the dead (nfumbi). Its ritual songs, called mambos, are call-and-response chants in a Kikongo-derived liturgical language (habla congo) led by a soloist and answered by the chorus over Palo drums (ngoma) and iron, to summon, praise, and work with the mpungu forces and the spirits. Delivery is metrical, percussive, and communal, driving the ceremony toward possession. The tradition is documented in the ethnographic work of Lydia Cabrera (El Monte) and lat",
+      "crossRefs": [
+        "ritualDevotional"
+      ]
+    },
+    {
+      "id": "icelandic_kvaedi_thula",
+      "name": "Icelandic kvæði / þula recitation",
+      "family": "global",
+      "lineage": "Kvæði are the traditional chanted narrative poems of Iceland, most importantly the rímur — long metrical verse-cycles retelling sagas and romances — performed in the distinctive kvæðaskapur (rímnalag) manner of half-sung, half-spoken chanting on a narrow set of stemmur (tune-formulae). The þula is a related genre of catalog- or rigmarole-poem, often a strung list of names or lore chanted rhythmically, historically used within the home. These forms flourished from the late medieval period through the nineteenth century as Iceland's principal domestic evening entertainment (kvöldvaka). They are documented in extensive manuscript collections and in twentieth-century field recordings held by the Árni Magnússon Institute.",
+      "parent": "balladPoetry.slavicBard",
+      "axes": [
+        -2,
+        0,
+        0,
+        1,
+        -2,
+        2,
+        0,
+        -2,
+        0,
+        2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Kvæði are the traditional chanted narrative poems of Iceland, most importantly the rímur — long metrical verse-cycles retelling sagas and romances — performed in the distinctive kvæðaskapur (rímnalag) manner of half-sung, half-spoken chanting on a narrow set of stemmur (tune-formulae). The þula is a related genre of catalog- or rigmarole-poem, often a strung list of names or lore chanted rhythmically, historically used within the home. These forms flourished from the late medieval period through the nineteenth century as Iceland's principal domestic evening entertainment (kvöldvaka). They are documented in extensive manuscript collections and in twentieth-century field recordings held by the",
+      "crossRefs": [
+        "balladPoetry"
+      ]
+    },
+    {
+      "id": "kabuki_tsurane",
+      "name": "Kabuki tsurane declamation (aragoto)",
+      "family": "classical",
+      "lineage": "Tsurane are the extended rhetorical set-speeches of the aragoto ('rough business') style of kabuki, the bravura acting mode created by Ichikawa Danjuro I in late-17th-century Edo and carried through the Ichikawa Danjuro line to the present. Delivered by the leading male-role actor in exaggerated, rhythmically pointed declamation, often as a boastful self-introduction punctuated by the mie pose and tsuke wooden clappers, the tsurane is stage-speech distinct from the sung nagauta and chanted gidayu music that accompany the play. Canonical examples occur in the 'Shibaraku' interlude and other Kabuki Juhachiban 'eighteen great plays' of the Ichikawa house. It is documented in the Kabuki-za and National Theatre of Japan performance records and the Shochiku theatrical archive.",
+      "parent": "artMusic.eastAsian",
+      "axes": [
+        -2,
+        0,
+        1,
+        0,
+        -1,
+        2,
+        -1,
+        -1,
+        2,
+        2,
+        1,
+        -1,
+        -1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Tsurane are the extended rhetorical set-speeches of the aragoto ('rough business') style of kabuki, the bravura acting mode created by Ichikawa Danjuro I in late-17th-century Edo and carried through the Ichikawa Danjuro line to the present. Delivered by the leading male-role actor in exaggerated, rhythmically pointed declamation, often as a boastful self-introduction punctuated by the mie pose and tsuke wooden clappers, the tsurane is stage-speech distinct from the sung nagauta and chanted gidayu music that accompany the play. Canonical examples occur in the 'Shibaraku' interlude and other Kabuki Juhachiban 'eighteen great plays' of the Ichikawa house. It is documented in the Kabuki-za and N",
+      "crossRefs": [
+        "artMusic"
+      ]
+    },
+    {
+      "id": "kyogen_declamation",
+      "name": "Kyogen comic declamation",
+      "family": "classical",
+      "lineage": "Kyogen is the comic spoken-theatre form performed as interludes between the solemn noh plays on the same stage, codified in Muromachi-period Japan (14th to 16th centuries) and transmitted through the Okura and Izumi hereditary schools. Its dialogue is delivered in a highly stylized, clearly projected declamation with fixed cadences and stock phrases such as the entrance line 'Kore wa kono atari no mono de gozaru', serving as the spoken counterpart to noh's chanted utai. Performers train from childhood in the family line, with the Nomura and Shigeyama families among the best-known modern lineages. It is documented in the repertories of the Nohgaku Performers' Association and UNESCO's Nogaku intangible-heritage inscription (2001/2008).",
+      "parent": "artMusic.eastAsian",
+      "axes": [
+        -2,
+        0,
+        0,
+        0,
+        -1,
+        2,
+        0,
+        -1,
+        1,
+        2,
+        0,
+        -2,
+        -1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Kyogen is the comic spoken-theatre form performed as interludes between the solemn noh plays on the same stage, codified in Muromachi-period Japan (14th to 16th centuries) and transmitted through the Okura and Izumi hereditary schools. Its dialogue is delivered in a highly stylized, clearly projected declamation with fixed cadences and stock phrases such as the entrance line 'Kore wa kono atari no mono de gozaru', serving as the spoken counterpart to noh's chanted utai. Performers train from childhood in the family line, with the Nomura and Shigeyama families among the best-known modern lineages. It is documented in the repertories of the Nohgaku Performers' Association and UNESCO's Nogaku i",
+      "crossRefs": [
+        "artMusic"
+      ]
+    },
+    {
+      "id": "noh_kotoba",
+      "name": "Noh kotoba spoken declamation",
+      "family": "classical",
+      "lineage": "In noh, the classical masked music-drama codified by Kan'ami and Zeami in 14th-century Japan, kotoba denotes the spoken (rather than chanted) passages of the text, delivered in a heightened, slow, resonant declamation with a characteristically lowered larynx and darkened timbre. Kotoba alternates with the melodic utai chant and is set against the hayashi ensemble of flute and drums, but is itself stylized speech governed by the strict schools Kanze, Hosho, Konparu, Kongo, and Kita. It is transmitted through hereditary iemoto lineages and preserved in centuries of utaibon libretti. It is documented in the National Noh Theatre records and the Nogaku UNESCO inscription.",
+      "parent": "artMusic.eastAsian",
+      "axes": [
+        -2,
+        0,
+        1,
+        -1,
+        -2,
+        2,
+        -1,
+        -1,
+        1,
+        2,
+        2,
+        -2,
+        -1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "In noh, the classical masked music-drama codified by Kan'ami and Zeami in 14th-century Japan, kotoba denotes the spoken (rather than chanted) passages of the text, delivered in a heightened, slow, resonant declamation with a characteristically lowered larynx and darkened timbre. Kotoba alternates with the melodic utai chant and is set against the hayashi ensemble of flute and drums, but is itself stylized speech governed by the strict schools Kanze, Hosho, Konparu, Kongo, and Kita. It is transmitted through hereditary iemoto lineages and preserved in centuries of utaibon libretti. It is documented in the National Noh Theatre records and the Nogaku UNESCO inscription.",
+      "crossRefs": [
+        "artMusic"
+      ]
+    },
+    {
+      "id": "shakespearean_verse_declamation",
+      "name": "Shakespearean verse declamation",
+      "family": "classical",
+      "lineage": "Shakespearean verse declamation is the stage delivery of English Renaissance blank verse, unrhymed iambic pentameter, as developed in the London playhouses of the 1590s to 1610s and transmitted through four centuries of Anglophone theatre practice. Modern declamatory technique, associated with the Royal Shakespeare Company and conservatoires such as RADA, foregrounds the metrical line, caesura, and end-stopping while projecting to an unamplified house. The delivery is heightened spoken speech rather than song, though its scansion is metrically governed. It is documented in recorded stage and broadcast performances by actors such as John Gielgud, Laurence Olivier, and Ian McKellen.",
+      "parent": "artMusic.westernEarly",
+      "axes": [
+        -2,
+        -1,
+        0,
+        1,
+        -1,
+        2,
+        -1,
+        -1,
+        1,
+        2,
+        0,
+        -2,
+        -1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Shakespearean verse declamation is the stage delivery of English Renaissance blank verse, unrhymed iambic pentameter, as developed in the London playhouses of the 1590s to 1610s and transmitted through four centuries of Anglophone theatre practice. Modern declamatory technique, associated with the Royal Shakespeare Company and conservatoires such as RADA, foregrounds the metrical line, caesura, and end-stopping while projecting to an unamplified house. The delivery is heightened spoken speech rather than song, though its scansion is metrically governed. It is documented in recorded stage and broadcast performances by actors such as John Gielgud, Laurence Olivier, and Ian McKellen.",
+      "crossRefs": [
+        "artMusic"
+      ]
+    },
+    {
+      "id": "greek_tragic_chorus",
+      "name": "Greek tragic chorus declamation",
+      "family": "classical",
+      "lineage": "The choral declamation of ancient Greek tragedy, composed for the Athenian dramatic festivals of the 5th century BCE by Aeschylus, Sophocles, and Euripides, was delivered by a chorus of twelve to fifteen members in rhythmically measured, metrically strict group utterance occupying a register between speech and song. Reconstructions informed by surviving metrical texts, vase iconography, and the scholarship of Martin West render the parodos and stasima as unison or antiphonal declaimed verse. Modern staging traditions, from 19th-century revivals to the Cambridge Greek Play and the Epidaurus festival, preserve the practice. It is documented in performance recordings and in West's 'Ancient Greek Music' (1992).",
+      "parent": "artMusic.westernEarly",
+      "axes": [
+        -1,
+        0,
+        0,
+        1,
+        0,
+        2,
+        -1,
+        -1,
+        1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "The choral declamation of ancient Greek tragedy, composed for the Athenian dramatic festivals of the 5th century BCE by Aeschylus, Sophocles, and Euripides, was delivered by a chorus of twelve to fifteen members in rhythmically measured, metrically strict group utterance occupying a register between speech and song. Reconstructions informed by surviving metrical texts, vase iconography, and the scholarship of Martin West render the parodos and stasima as unison or antiphonal declaimed verse. Modern staging traditions, from 19th-century revivals to the Cambridge Greek Play and the Epidaurus festival, preserve the practice. It is documented in performance recordings and in West's 'Ancient Gree",
+      "crossRefs": [
+        "artMusic"
+      ]
+    },
+    {
+      "id": "kutiyattam_recitation",
+      "name": "Kutiyattam Sanskrit recitation",
+      "family": "classical",
+      "lineage": "Kutiyattam is the Sanskrit temple theatre of Kerala in southwestern India, the oldest continuously performed classical theatre tradition of the subcontinent, staged in the kuttampalam theatres of Hindu temples and transmitted through the Chakyar and Nangyar hereditary performer families. Its recitation delivers Sanskrit and Prakrit verse in stylized, raga-based intonation with greatly elongated syllables, accompanied by the mizhavu copper drum, so that a single verse may be expanded across many hours of vachika (vocal) and angika (gestural) elaboration. The guru Ammannur Madhava Chakyar (1917-2008) is the emblematic 20th-century master. It is documented under UNESCO's intangible-cultural-heritage inscription (2001/2008) and in the Margi and Kerala Kalamandalam training institutions.",
+      "parent": "artMusic.southAsian",
+      "axes": [
+        -2,
+        1,
+        2,
+        -1,
+        -1,
+        2,
+        1,
+        -1,
+        2,
+        2,
+        2,
+        0,
+        -1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Kutiyattam is the Sanskrit temple theatre of Kerala in southwestern India, the oldest continuously performed classical theatre tradition of the subcontinent, staged in the kuttampalam theatres of Hindu temples and transmitted through the Chakyar and Nangyar hereditary performer families. Its recitation delivers Sanskrit and Prakrit verse in stylized, raga-based intonation with greatly elongated syllables, accompanied by the mizhavu copper drum, so that a single verse may be expanded across many hours of vachika (vocal) and angika (gestural) elaboration. The guru Ammannur Madhava Chakyar (1917-2008) is the emblematic 20th-century master. It is documented under UNESCO's intangible-cultural-her",
+      "crossRefs": [
+        "artMusic"
+      ]
+    },
+    {
+      "id": "wayang_dalang_narration",
+      "name": "Wayang kulit dalang narration",
+      "family": "classical",
+      "lineage": "In Javanese wayang kulit shadow-puppet theatre, the dalang (puppeteer-narrator) delivers the story through janturan and carita narration, heightened descriptive speech intoned over the soft grimingan shimmer of the gamelan, alternating with sulukan mood-songs and character dialogue across an all-night performance. The dalang is simultaneously narrator, voice of every character, conductor of the gamelan, and manipulator of the puppets, working within the court traditions of Surakarta and Yogyakarta in central Java. Ki Nartosabdho (1925-1985) is among the most celebrated 20th-century dalang. It is documented under UNESCO's Wayang intangible-heritage inscription (2003/2008).",
+      "parent": "artMusic.southeastAsian",
+      "axes": [
+        -1,
+        0,
+        1,
+        0,
+        0,
+        2,
+        2,
+        -1,
+        1,
+        2,
+        1,
+        1,
+        0
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "In Javanese wayang kulit shadow-puppet theatre, the dalang (puppeteer-narrator) delivers the story through janturan and carita narration, heightened descriptive speech intoned over the soft grimingan shimmer of the gamelan, alternating with sulukan mood-songs and character dialogue across an all-night performance. The dalang is simultaneously narrator, voice of every character, conductor of the gamelan, and manipulator of the puppets, working within the court traditions of Surakarta and Yogyakarta in central Java. Ki Nartosabdho (1925-1985) is among the most celebrated 20th-century dalang. It is documented under UNESCO's Wayang intangible-heritage inscription (2003/2008).",
+      "crossRefs": [
+        "artMusic"
+      ]
+    },
+    {
+      "id": "hat_boi_tuong",
+      "name": "Hat boi (tuong) declamation",
+      "family": "classical",
+      "lineage": "Hat boi (also tuong) is the classical theatre of Vietnam, a heroic-historical stage form crystallized under the Nguyen court in central Vietnam (Binh Dinh province and the imperial capital Hue) in the 18th and 19th centuries. Its declamation delivers stylized, emphatic, tonally shaped stage-speech, loud and rhetorically pointed for warrior and loyal-minister roles, alternating with sung passages and set against a percussion-led ensemble dominated by the trong chau drum. It is distinct from the later southern reformed opera cai luong and from the northern comic-satirical cheo. It is documented in the repertories of the Vietnam Tuong Theatre and in Vietnamese Institute of Musicology field recordings.",
+      "parent": "artMusic.southeastAsian",
+      "axes": [
+        -1,
+        0,
+        1,
+        0,
+        -1,
+        2,
+        0,
+        -1,
+        2,
+        2,
+        1,
+        1,
+        -1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Hat boi (also tuong) is the classical theatre of Vietnam, a heroic-historical stage form crystallized under the Nguyen court in central Vietnam (Binh Dinh province and the imperial capital Hue) in the 18th and 19th centuries. Its declamation delivers stylized, emphatic, tonally shaped stage-speech, loud and rhetorically pointed for warrior and loyal-minister roles, alternating with sung passages and set against a percussion-led ensemble dominated by the trong chau drum. It is distinct from the later southern reformed opera cai luong and from the northern comic-satirical cheo. It is documented in the repertories of the Vietnam Tuong Theatre and in Vietnamese Institute of Musicology field reco",
+      "crossRefs": [
+        "artMusic"
+      ]
+    },
+    {
+      "id": "jingju_yunbai",
+      "name": "Jingju yunbai stage-speech",
+      "family": "classical",
+      "lineage": "In jingju (Beijing/Peking opera), which crystallized in the Qing capital after the 1790 arrival of the Anhui troupes, stage-speech falls into two registers: yunbai, a heightened stylized declamation using an archaic rhyme-speech pronunciation, and jingbai, closer to colloquial Beijing dialect used chiefly by clown (chou) and certain female roles. Both are delivered with bright, forward, tonally exaggerated projection, are role-type specific, and are set against the jinghu fiddle and percussion, as codified as the sung arias themselves. Actors train by role-type in academies descending from masters such as Mei Lanfang (1894-1961). It is documented in the China National Peking Opera Company records and extensive 20th-century recordings.",
+      "parent": "artMusic.eastAsian",
+      "axes": [
+        -1,
+        0,
+        1,
+        0,
+        -1,
+        2,
+        -1,
+        -1,
+        2,
+        2,
+        2,
+        1,
+        -1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "In jingju (Beijing/Peking opera), which crystallized in the Qing capital after the 1790 arrival of the Anhui troupes, stage-speech falls into two registers: yunbai, a heightened stylized declamation using an archaic rhyme-speech pronunciation, and jingbai, closer to colloquial Beijing dialect used chiefly by clown (chou) and certain female roles. Both are delivered with bright, forward, tonally exaggerated projection, are role-type specific, and are set against the jinghu fiddle and percussion, as codified as the sung arias themselves. Actors train by role-type in academies descending from masters such as Mei Lanfang (1894-1961). It is documented in the China National Peking Opera Company re",
+      "crossRefs": [
+        "artMusic"
+      ]
+    },
+    {
+      "id": "commedia_lazzi",
+      "name": "Commedia dell'arte lazzi delivery",
+      "family": "classical",
+      "lineage": "Commedia dell'arte was the professional improvised masked comedy of Italy from the mid-16th to the 18th century, performed by touring troupes such as the Gelosi and Confidenti on temporary trestle stages in piazzas and courts. Lazzi are the codified comic bits, verbal set-pieces, puns, and rhetorical riffs delivered by the stock masks (Arlecchino, Pantalone, il Dottore, Brighella), declaimed with broad, projected, dialect-inflected exaggeration and improvised around a scenario (canovaccio) rather than a fixed script. The tradition is documented in surviving scenario collections such as Flaminio Scala's 'Il teatro delle favole rappresentative' (1611) and in the modern revival led by Giorgio Strehler's Piccolo Teatro di Milano.",
+      "parent": "artMusic.westernEarly",
+      "axes": [
+        -2,
+        0,
+        0,
+        0,
+        -1,
+        2,
+        2,
+        -1,
+        2,
+        2,
+        0,
+        -2,
+        -1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Commedia dell'arte was the professional improvised masked comedy of Italy from the mid-16th to the 18th century, performed by touring troupes such as the Gelosi and Confidenti on temporary trestle stages in piazzas and courts. Lazzi are the codified comic bits, verbal set-pieces, puns, and rhetorical riffs delivered by the stock masks (Arlecchino, Pantalone, il Dottore, Brighella), declaimed with broad, projected, dialect-inflected exaggeration and improvised around a scenario (canovaccio) rather than a fixed script. The tradition is documented in surviving scenario collections such as Flaminio Scala's 'Il teatro delle favole rappresentative' (1611) and in the modern revival led by Giorgio S",
+      "crossRefs": [
+        "artMusic"
+      ]
+    },
+    {
+      "id": "black_gospel_whooping_sermon",
+      "name": "Black gospel whooping sermon",
+      "family": "blues_gospel",
+      "lineage": "African-American Baptist and Pentecostal folk-preaching tradition whose sermonic climax shifts from spoken prose into a metered, pitched chant known as whooping (also zooning or tuning-up), delivered in call-and-response with the congregation and frequently doubled by the Hammond organ. Documented from the earliest race-record sermons of Rev. J. M. Gates and Rev. J. C. Burnett in the 1920s through the mid-century recorded sermons of Rev. C. L. Franklin on Chess and Jewel. The chanted-preaching form and its formulaic building-blocks were analyzed by Bruce Rosenberg in The Art of the American Folk Preacher (1970). The preacher improvises within stock cadential formulas, accelerating and rising in pitch until the congregation's shouts and the organ carry the room.",
+      "parent": "ritualDevotional.christianGospel",
+      "axes": [
+        -2,
+        0,
+        1,
+        -1,
+        -1,
+        2,
+        2,
+        -1,
+        2,
+        2,
+        1,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "African-American Baptist and Pentecostal folk-preaching tradition whose sermonic climax shifts from spoken prose into a metered, pitched chant known as whooping (also zooning or tuning-up), delivered in call-and-response with the congregation and frequently doubled by the Hammond organ. Documented from the earliest race-record sermons of Rev. J. M. Gates and Rev. J. C. Burnett in the 1920s through the mid-century recorded sermons of Rev. C. L. Franklin on Chess and Jewel. The chanted-preaching form and its formulaic building-blocks were analyzed by Bruce Rosenberg in The Art of the American Folk Preacher (1970). The preacher improvises within stock cadential formulas, accelerating and rising",
+      "crossRefs": [
+        "ritualDevotional"
+      ]
+    },
+    {
+      "id": "fire_and_brimstone_revival_sermon",
+      "name": "Fire-and-brimstone revival sermon",
+      "family": "blues_gospel",
+      "lineage": "Hortatory evangelical preaching of the American revival and camp-meeting tradition, marked by vivid imagery of judgment and hellfire delivered at high projected volume in rhythmic, accelerating cadences. Traces from the 18th-century Great Awakening (Jonathan Edwards's Sinners in the Hands of an Angry God, 1741) through the 19th-century frontier camp meetings to the 20th-century tent-revival and radio evangelists such as Billy Sunday and Oral Roberts. The delivery relies on repeated exhortation, dramatic pauses, and congregational punctuation with cries of amen and hallelujah. It is a foundational strand of Protestant evangelical oratory in the United States.",
+      "parent": "ritualDevotional.christianGospel",
+      "axes": [
+        -2,
+        -1,
+        0,
+        -1,
+        -1,
+        2,
+        1,
+        -1,
+        2,
+        2,
+        1,
+        -2,
+        -1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Hortatory evangelical preaching of the American revival and camp-meeting tradition, marked by vivid imagery of judgment and hellfire delivered at high projected volume in rhythmic, accelerating cadences. Traces from the 18th-century Great Awakening (Jonathan Edwards's Sinners in the Hands of an Angry God, 1741) through the 19th-century frontier camp meetings to the 20th-century tent-revival and radio evangelists such as Billy Sunday and Oral Roberts. The delivery relies on repeated exhortation, dramatic pauses, and congregational punctuation with cries of amen and hallelujah. It is a foundational strand of Protestant evangelical oratory in the United States.",
+      "crossRefs": [
+        "ritualDevotional"
+      ]
+    },
+    {
+      "id": "jewish_maggid_preaching",
+      "name": "Jewish maggid homiletic preaching",
+      "family": "global",
+      "lineage": "The derashah of the itinerant Ashkenazi preacher (maggid) of Eastern Europe, a homiletic sermon weaving Torah, Talmud, and midrash with moral exhortation, typically delivered in Yiddish with a distinctive study-chant cadence derived from the lernen (Gemara) shteyger. The form flourished from the 17th through 19th centuries; the Dubner Maggid (Jacob Kranz, d. 1804) was celebrated for his mashal parables, and the Maggid of Mezeritch was central to the spread of early Hasidism. The delivery moves fluidly between conversational speech and a rising, questioning recitative melody used to voice textual argument. It survives today in yeshiva drashot and Hasidic gatherings.",
+      "parent": "ritualDevotional.jewish",
+      "axes": [
+        -2,
+        -1,
+        0,
+        -2,
+        -2,
+        2,
+        1,
+        -2,
+        0,
+        2,
+        0,
+        -2,
+        -1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "The derashah of the itinerant Ashkenazi preacher (maggid) of Eastern Europe, a homiletic sermon weaving Torah, Talmud, and midrash with moral exhortation, typically delivered in Yiddish with a distinctive study-chant cadence derived from the lernen (Gemara) shteyger. The form flourished from the 17th through 19th centuries; the Dubner Maggid (Jacob Kranz, d. 1804) was celebrated for his mashal parables, and the Maggid of Mezeritch was central to the spread of early Hasidism. The delivery moves fluidly between conversational speech and a rising, questioning recitative melody used to voice textual argument. It survives today in yeshiva drashot and Hasidic gatherings.",
+      "crossRefs": [
+        "ritualDevotional"
+      ]
+    },
+    {
+      "id": "islamic_khutbah_sermon",
+      "name": "Islamic khutbah sermon",
+      "family": "global",
+      "lineage": "The formal Friday (jumuah) and Eid sermon delivered by the khatib from the minbar, a two-part homily of praise, Qur'anic citation, exhortation, and supplication codified from the earliest Medinan community. It is delivered in heightened, projected Arabic oratory that frequently cadences into maqam-inflected dua and quoted Qur'anic verse. The rhetorical structure — opening hamd and salawat, admonition, and closing prayer for the community — is preserved across the Sunni and Shia worlds. It stands alongside the adhan and tajwid recitation as a central genre of Islamic vocal practice, though speech-centered rather than fully melodic.",
+      "parent": "ritualDevotional.islamic",
+      "axes": [
+        -2,
+        0,
+        1,
+        -2,
+        -2,
+        2,
+        1,
+        -1,
+        1,
+        2,
+        1,
+        -2,
+        -1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "The formal Friday (jumuah) and Eid sermon delivered by the khatib from the minbar, a two-part homily of praise, Qur'anic citation, exhortation, and supplication codified from the earliest Medinan community. It is delivered in heightened, projected Arabic oratory that frequently cadences into maqam-inflected dua and quoted Qur'anic verse. The rhetorical structure — opening hamd and salawat, admonition, and closing prayer for the community — is preserved across the Sunni and Shia worlds. It stands alongside the adhan and tajwid recitation as a central genre of Islamic vocal practice, though speech-centered rather than fully melodic.",
+      "crossRefs": [
+        "ritualDevotional"
+      ]
+    },
+    {
+      "id": "american_political_stump_oratory",
+      "name": "American political stump oratory",
+      "family": "vernacular",
+      "lineage": "The campaign stump speech of United States electoral politics, from 19th-century torchlight-rally and Chautauqua oratory through populist and civil-rights platform styles to the modern televised rally. The name derives from candidates literally standing on tree stumps to address frontier gatherings. It is characterized by projected, persuasive delivery, memorable refrains and applause-lines, escalating cadence, and call-and-response engagement with the crowd. The genre spans a rhetorical continuum from plain conversational address to near-chanted, revival-inflected peroration.",
+      "parent": "protestSong.european",
+      "axes": [
+        -2,
+        -1,
+        0,
+        -1,
+        -2,
+        2,
+        1,
+        -1,
+        1,
+        2,
+        0,
+        -2,
+        -1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "The campaign stump speech of United States electoral politics, from 19th-century torchlight-rally and Chautauqua oratory through populist and civil-rights platform styles to the modern televised rally. The name derives from candidates literally standing on tree stumps to address frontier gatherings. It is characterized by projected, persuasive delivery, memorable refrains and applause-lines, escalating cadence, and call-and-response engagement with the crowd. The genre spans a rhetorical continuum from plain conversational address to near-chanted, revival-inflected peroration.",
+      "crossRefs": [
+        "protestSong"
+      ]
+    },
+    {
+      "id": "tobacco_livestock_auctioneer_chant",
+      "name": "Tobacco and livestock auctioneer chant",
+      "family": "vernacular",
+      "lineage": "The rapid rhythmic auction cry, or bid-calling, of North American tobacco warehouses and livestock sale barns, alternating spoken numbers with sustained filler syllables held on a single pitch to keep bidding momentum. The style was carried into national awareness by the Lucky Strike radio advertisements featuring auctioneers L. A. Speed Riggs and F. E. Boone, whose Sold, American! tag became a catchphrase in the 1930s through 1950s. It is taught systematically at modern auction schools as a controlled breath-and-rhythm technique and is frequently cited as a vernacular precursor to the rhythmic speech-flow of rap. The chant balances legible numbers against a percussive stream of connective vocables.",
+      "parent": "mcRhythm.usHipHop.southern",
+      "axes": [
+        -2,
+        -1,
+        0,
+        1,
+        -1,
+        1,
+        1,
+        -2,
+        1,
+        2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "The rapid rhythmic auction cry, or bid-calling, of North American tobacco warehouses and livestock sale barns, alternating spoken numbers with sustained filler syllables held on a single pitch to keep bidding momentum. The style was carried into national awareness by the Lucky Strike radio advertisements featuring auctioneers L. A. Speed Riggs and F. E. Boone, whose Sold, American! tag became a catchphrase in the 1930s through 1950s. It is taught systematically at modern auction schools as a controlled breath-and-rhythm technique and is frequently cited as a vernacular precursor to the rhythmic speech-flow of rap. The chant balances legible numbers against a percussive stream of connective v",
+      "crossRefs": [
+        "mcRhythm.usHipHop"
+      ]
+    },
+    {
+      "id": "appalachian_square_dance_calling",
+      "name": "Appalachian square-dance calling",
+      "family": "country",
+      "lineage": "The caller's rhythmic patter directing figures for old-time Appalachian square and big-circle dances, delivered in strict time over a string band of fiddle and banjo. It descends from Anglo-Celtic and French quadrille calling adapted in the southern mountains, where the caller became an improvising rhythmic voice rather than a mere prompter. The running-set dancing that underlies it was documented by Cecil Sharp during his 1916 to 1918 Appalachian fieldwork, and figures such as Bascom Lamar Lunsford institutionalized the practice through the Asheville Mountain Dance and Folk Festival from 1928. Calls are locked to the reel's meter, blending fixed figure-names with spontaneous filler.",
+      "parent": "balladPoetry.angloSingerSong",
+      "axes": [
+        -2,
+        -1,
+        0,
+        2,
+        0,
+        2,
+        1,
+        -2,
+        1,
+        2,
+        0,
+        0,
+        1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "The caller's rhythmic patter directing figures for old-time Appalachian square and big-circle dances, delivered in strict time over a string band of fiddle and banjo. It descends from Anglo-Celtic and French quadrille calling adapted in the southern mountains, where the caller became an improvising rhythmic voice rather than a mere prompter. The running-set dancing that underlies it was documented by Cecil Sharp during his 1916 to 1918 Appalachian fieldwork, and figures such as Bascom Lamar Lunsford institutionalized the practice through the Asheville Mountain Dance and Folk Festival from 1928. Calls are locked to the reel's meter, blending fixed figure-names with spontaneous filler.",
+      "crossRefs": [
+        "balladPoetry"
+      ]
+    },
+    {
+      "id": "spoken_word_jazz_poetry",
+      "name": "Spoken-word jazz-poetry",
+      "family": "jazz",
+      "lineage": "African-American declamatory poetry performed over jazz, funk, and hand percussion, the direct proto-hip-hop lineage of The Last Poets (formed 1968 in Harlem) and Gil Scott-Heron with Brian Jackson (e.g. The Revolution Will Not Be Televised, 1970). Politically charged, rhythmically delivered spoken verse rides congas and jazz-funk grooves, growing out of the Black Arts Movement and Harlem's earlier Beat and jazz-poetry readings. The delivery foregrounds cadence, repetition, and rhetorical build over sung melody, and it is widely regarded as a foundational ancestor of rap. Recordings were often cut in loft and small studio settings in New York.",
+      "parent": "mcRhythm.usHipHop.southern",
+      "axes": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        2,
+        1,
+        -1,
+        1,
+        2,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "African-American declamatory poetry performed over jazz, funk, and hand percussion, the direct proto-hip-hop lineage of The Last Poets (formed 1968 in Harlem) and Gil Scott-Heron with Brian Jackson (e.g. The Revolution Will Not Be Televised, 1970). Politically charged, rhythmically delivered spoken verse rides congas and jazz-funk grooves, growing out of the Black Arts Movement and Harlem's earlier Beat and jazz-poetry readings. The delivery foregrounds cadence, repetition, and rhetorical build over sung melody, and it is widely regarded as a foundational ancestor of rap. Recordings were often cut in loft and small studio settings in New York.",
+      "crossRefs": [
+        "mcRhythm.usHipHop"
+      ]
+    },
+    {
+      "id": "maori_whaikorero_oratory",
+      "name": "Māori whaikōrero oratory",
+      "family": "global",
+      "lineage": "The formal oratory of the marae ātea (forecourt) in Māori ceremonial encounter (pōwhiri) in Aotearoa/New Zealand, performed by male speakers (kaikōrero) following the women's karanga. A whaikōrero is structured through a formulaic opening (tauparapara), recitation of whakapapa (genealogy), acknowledgement of the dead and the living, and the matter at hand, and is typically sealed by a sung waiata supported by the speaker's group. It is a primary vehicle of mana, whakapapa, and tikanga Māori, transmitted orally from senior orators to successors. Both an art of memory and of improvised response, it draws freely on proverb (whakataukī) and chanted passages.",
+      "parent": "praiseSong.oceaniaPacific",
+      "axes": [
+        -2,
+        0,
+        1,
+        -1,
+        -1,
+        2,
+        1,
+        -2,
+        1,
+        2,
+        1,
+        -2,
+        -1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "The formal oratory of the marae ātea (forecourt) in Māori ceremonial encounter (pōwhiri) in Aotearoa/New Zealand, performed by male speakers (kaikōrero) following the women's karanga. A whaikōrero is structured through a formulaic opening (tauparapara), recitation of whakapapa (genealogy), acknowledgement of the dead and the living, and the matter at hand, and is typically sealed by a sung waiata supported by the speaker's group. It is a primary vehicle of mana, whakapapa, and tikanga Māori, transmitted orally from senior orators to successors. Both an art of memory and of improvised response, it draws freely on proverb (whakataukī) and chanted passages.",
+      "crossRefs": [
+        "praiseSong"
+      ]
+    },
+    {
+      "id": "hawaiian_haa_ancestral_chant",
+      "name": "Hawaiian haʻa ancestral chant",
+      "family": "global",
+      "lineage": "Sacred Hawaiian chant (oli) performed in the low, bent-knee haʻa posture reserved for akua and ancestors, encompassing genealogical (koʻihonua) and name (mele inoa) chants that transmit lineage and cosmology. The style is marked by sustained, measured vocal delivery and stylized ornaments such as the ʻiʻi trill, and was traditionally taught within the hula hālau under a kumu hula. The corpus and its performance practice were documented in Nathaniel B. Emerson's Unwritten Literature of Hawaii (1909) and in the later scholarship of Mary Kawena Pukui. Chant carried genealogy, prayer, and place-lore as authoritative oral record in pre-literate Hawaiʻi.",
+      "parent": "praiseSong.oceaniaPacific",
+      "axes": [
+        -2,
+        0,
+        1,
+        -1,
+        -2,
+        2,
+        0,
+        -2,
+        1,
+        2,
+        1,
+        -2,
+        -1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Sacred Hawaiian chant (oli) performed in the low, bent-knee haʻa posture reserved for akua and ancestors, encompassing genealogical (koʻihonua) and name (mele inoa) chants that transmit lineage and cosmology. The style is marked by sustained, measured vocal delivery and stylized ornaments such as the ʻiʻi trill, and was traditionally taught within the hula hālau under a kumu hula. The corpus and its performance practice were documented in Nathaniel B. Emerson's Unwritten Literature of Hawaii (1909) and in the later scholarship of Mary Kawena Pukui. Chant carried genealogy, prayer, and place-lore as authoritative oral record in pre-literate Hawaiʻi.",
+      "crossRefs": [
+        "praiseSong"
       ]
     }
   ]

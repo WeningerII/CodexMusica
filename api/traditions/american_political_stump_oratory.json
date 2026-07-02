@@ -1,0 +1,96 @@
+{
+  "id": "american_political_stump_oratory",
+  "name": "American political stump oratory",
+  "family": "vernacular",
+  "lineage": "The campaign stump speech of United States electoral politics, from 19th-century torchlight-rally and Chautauqua oratory through populist and civil-rights platform styles to the modern televised rally. The name derives from candidates literally standing on tree stumps to address frontier gatherings. It is characterized by projected, persuasive delivery, memorable refrains and applause-lines, escalating cadence, and call-and-response engagement with the crowd. The genre spans a rhetorical continuum from plain conversational address to near-chanted, revival-inflected peroration.",
+  "recipe": "classic North American modern american political stump oratory, protest Song, European branch american folk-revival protest song egyptian sayyed darwish and sheikh imam political-vocal lineage. thick, incomplete closure resting, tasteful, continuous-phonation. us uk civic amateur band hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 421,
+  "score": 103.873,
+  "config": {
+    "traditions": [
+      "american_political_stump_oratory",
+      "american_folk_revival_protest",
+      "egyptian_sayyed_darwish_sheikh_imam"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "incomplete_closure_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 6.77,
+          "voice_quality": 3.2249999999999996,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.535,
+          "voice_articulation": 2.5349999999999997,
+          "voice_microtone": 8.624999999999998,
+          "voice_tradition": 12.09,
+          "voice_mechanism_compound": 2.275,
+          "voice_estill_quality": 7.133,
+          "voice_speech_song": 26.91,
+          "voice_ensemble_config": 15.079999999999995,
+          "voice_ornament_system": 3.5749999999999997,
+          "voice_pitch_organization": 3.5749999999999997,
+          "voice_processing_chain": 3.3149999999999995,
+          "voice_multitrack_stack": 2.0799999999999996
+        }
+      }
+    ],
+    "room": "us_uk_civic_amateur_band_hall",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "us_uk_civic_amateur_band_hall",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "speech_voice",
+      "voice_speech_song": "voice_heightened_speech",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "voice_effort": "effort_projected"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

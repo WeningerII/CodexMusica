@@ -5,7 +5,7 @@
   "lineage": "Vietnamese ca trù chamber-vocal tradition of northern Vietnam. The form crystallized in the fifteenth century in Hanoi guild-house culture and developed through the late-imperial Lê and Nguyễn dynasties as the canonical literary-chamber form for the male literati class. Performance configuration: a female singer (ả đào) accompanies herself on the phách bamboo clapper (struck with a hardwood stick to mark cadence), with a male instrumentalist on đàn đáy (three-string long-necked fretted lute with unusually high frets enabling string-bending ornament) and a male patron-listener on the trống chầu praise-drum (struck to signal critical acclaim during performance — the patron is structurally part of the ensemble through this critical-response convention). The repertoire comprises forty-six canonical \"thể-types\" (poetic-meter categories) including hát nói (sung-recitation), múa bài bông (flower-offering dance accompaniment), hát giai (banquet song), and others — each thể with characteristic rhythmic-and-melodic conventions. Lyric base draws on classical Sino-Vietnamese poetic-meter forms. The mid-twentieth-century revolutionary-period cultural-policy suppressed ca trù as feudal, leading to near-extinction; the post-1990 revival under the guild-house Câu Lạc Bộ Ca Trù Hà Nội (Hanoi Ca Trù Club) and master-singer Quách Thị Hồ (1909-2001) restored continuity. Distinguished from southern Vietnamese hát ả đào by northern-dialect-specific cadential conventions; distinguished from chèo folk-opera by ca trù's solo-singer-with-chamber-trio (vs ensemble-theatrical) configuration; distinguished from quan họ by literary-chamber (vs village-festival-call-and-response) functional context.",
   "recipe": "classic Southeast Asian early-1900s vietnamese ca trù, art Music, southeast Asian branch, indian bard ballad poetry rajasthani manganiyar tradition cambodian chapei dang veng. thick, declaimed, chest resonance low mid, narrative. three string long neck fretted canonical Vietnamese ca tru accompaniment high fret bending dan day, bamboo clapper struck hardwood stick canonical Vietnamese ca tru singer held cadence canonical Vietnamese phach, small praise drum patron struck canonical Vietnamese ca tru patron response canonical Vietnamese trong chau. wooden ca tru house. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 702,
-  "score": 344.505,
+  "score": 340.502,
   "config": {
     "traditions": [
       "vietnamese_ca_tru",
@@ -23,7 +23,7 @@
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "narrative_voice",
           "voice_microtone": "tempered_voice",
-          "voice_tradition": "chinese_classical_vocal_tradition",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -41,9 +41,9 @@
           "voice_vibrato": 6.954999999999999,
           "voice_articulation": 4.2250000000000005,
           "voice_microtone": 3.0875,
-          "voice_tradition": 24.31,
-          "voice_mechanism_compound": 11.634999999999998,
-          "voice_estill_quality": 25.502,
+          "voice_tradition": 23.919999999999998,
+          "voice_mechanism_compound": 11.5915,
+          "voice_estill_quality": 25.186999999999998,
           "voice_speech_song": 29.705000000000002,
           "voice_ensemble_config": 25.805,
           "voice_ornament_system": 14.2,
@@ -59,8 +59,8 @@
           "dan_day_tradition": "dan_day_ca_tru_canonical"
         },
         "scores": {
-          "dan_day_body": 21.063,
-          "dan_day_tradition": 17.788999999999998
+          "dan_day_body": 20.275499999999997,
+          "dan_day_tradition": 17.6525
         }
       },
       {
@@ -70,8 +70,8 @@
           "phach_tradition": "phach_ca_tru_canonical"
         },
         "scores": {
-          "phach_body": 19.371499999999997,
-          "phach_tradition": 24.7615
+          "phach_body": 18.857,
+          "phach_tradition": 24.110500000000002
         }
       },
       {
@@ -81,8 +81,8 @@
           "trong_chau_tradition": "trong_chau_ca_tru_patron_response_canonical"
         },
         "scores": {
-          "trong_chau_body": 26.6795,
-          "trong_chau_tradition": 28.351499999999998
+          "trong_chau_body": 26.165000000000003,
+          "trong_chau_tradition": 27.700499999999998
         }
       }
     ],

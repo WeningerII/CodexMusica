@@ -5,7 +5,7 @@
   "lineage": "Maronite Catholic liturgical chant of the Maronite Church (the largest Eastern Catholic Church, in full communion with Rome, centered in Lebanon). Lineage descends from the broader West-Syriac Antiochene rite. The Beth Gazo eight-mode oktoechos system is shared with Syriac Orthodox but with Maronite-Lebanese recension and Latin-rite influences from post-twelfth-century communion with Rome. The Quzhaya monastery in the Qadisha Valley (founded sixteenth century) and Patriarchal seat at Bkerké anchor institutional transmission. Liturgical language is Syriac for the Eucharistic anaphora and Arabic for most other content.",
   "recipe": "classic Caucasian modern maronite liturgical chant, ritual Devotional, coptic branch, western early art music ars antiqua and organum ars nova. thick, declaimed, chest resonance low mid, ornamental. mixed satb canonical 4 part western four voice polyphonic regional svanetian complex three voice highland polyphonic choir ensemble. stone armenian church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 484,
-  "score": 136.434,
+  "score": 136.629,
   "config": {
     "traditions": [
       "maronite_chant",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 8.335,
+          "voice_register": 8.530000000000001,
           "voice_quality": 11.040000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,

@@ -5,7 +5,7 @@
   "lineage": "South Indian classical vocal tradition organized around the 72-melakarta scale system codified by Venkatamakhin in 1620 and the kriti-composition canon of the early-19th-century Trinity (Tyagaraja, Muthuswami Dikshitar, Syama Sastri); 20th-century lineage M.S. Subbulakshmi, D.K. Pattammal, M.D. Ramanathan, T.N. Krishnan, Semmangudi Srinivasa Iyer, T.R. Mahalingam",
   "recipe": "classic South Asian early-1620s carnatic vocal, improv On Frame, indian classical improv branch, south Asian art music, hindu ritual devotional sinhala vannama telugu kirtana. vocal fry, declaimed, chest resonance low mid, punctuated. jackwood barrel canonical carnatic goat buffalo rice paste karanai palghat lineage canonical carnatic mridangam, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic, suited to female vocal bronze steel mix gourd body canonical traditional tanpura, ghatam, jackwood barrel canonical Tamil buffalo goat thumb cap canonical periya melam thavil, jackwood frame canonical carnatic brass jingle pair kanjira. chennai madras music academy sabha. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 779,
-  "score": 353.85,
+  "score": 352.065,
   "config": {
     "traditions": [
       "carnatic_vocal",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 3.5899999999999994,
+          "voice_register": 3.769999999999999,
           "voice_quality": 6.0200000000000005,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 8.319999999999999,
           "voice_articulation": 0.845,
           "voice_microtone": 2.0149999999999997,
-          "voice_tradition": 42.325,
+          "voice_tradition": 42.205,
           "voice_mechanism_compound": 15.149999999999999,
-          "voice_estill_quality": 16.769999999999996,
+          "voice_estill_quality": 16.574999999999996,
           "voice_speech_song": 15.749999999999996,
           "voice_ensemble_config": 10.205,
           "voice_ornament_system": 34.81999999999999,
-          "voice_pitch_organization": 35.989999999999995,
-          "voice_processing_chain": 3.4899999999999998,
+          "voice_pitch_organization": 35.16499999999999,
+          "voice_processing_chain": 3.6399999999999997,
           "voice_multitrack_stack": 5.2749999999999995
         }
       },
@@ -109,11 +109,11 @@
         "id": "ghatam",
         "slots": {
           "ghatam_school": "ghatam_trichy",
-          "ghatam_technique": "ghatam_mouth"
+          "ghatam_technique": "ghatam_full"
         },
         "scores": {
-          "ghatam_school": 0.39,
-          "ghatam_technique": 0.8249999999999998
+          "ghatam_school": 0.195,
+          "ghatam_technique": 0.045
         }
       },
       {

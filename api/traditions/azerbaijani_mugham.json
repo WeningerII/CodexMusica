@@ -5,7 +5,7 @@
   "lineage": "Azerbaijani classical modal art-music tradition of the modal-improvisatory dastgah suite system. The seven-dastgah canonical sequence — Rast, Shur, Segah, Chargah, Bayati-Shiraz, Shushtar, Humayun — each suite built from a tonal-center microtonal modal vocabulary with characteristic shifted-third intervals, extended through gushe sub-section sequences. Khananda singer-led trio with tar long-necked plucked lute (eleven-or-twelve-string mulberry-wood double-bowl body, redesigned by Sadigjan in the 1870s into its modern form) and kamancha four-string spike fiddle, with the khananda holding a gaval frame-drum. The Shusha \"conservatory of the East\" lineage established the Garabagh school as the canonical performance dialect. Twentieth-century founding figures include Jabbar Garyaghdioglu (1861-1944), Khan Shushinski (1901-1979), Seyid Shushinski, with Uzeyir Hajibeyov (1885-1948) founding the symphonic mugham and the 1908 opera Leyli and Majnun. Distinguished from Iraqi maqam by Garabagh-Shusha dialect-specific gushe-sequence conventions; distinguished from Persian radif by Azerbaijani-Turkic vocal-ornamentation grammar; distinguished from Turkish makam by the dastgah modal-cycle structural framework",
   "recipe": "classic Caucasian early-1860s azerbaijani mugham, art Music, middle eastern classical branch, south Asian art music, Persian arab improv improv on frame tarab telugu kirtana. vocal fry, declaimed, chest resonance low mid, maqam neutral step. synthetic brass mulberry bowl canonical double bowl steel bronze mix tar persian, walnut bowl skin faced canonical caucasian four string silk or steel canonical mugham trio garabagh shusha mugham school canonical azerbaijani legato kamancha, walnut bent frame canonical Persian goat skin tacked brass rings canonical Iranian daf, wooden frame internal jingles canonical azerbaijani khananda held canonical garabagh school gaval. shusha garabagh mugham conservatory. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 854,
-  "score": 448.266,
+  "score": 442.236,
   "config": {
     "traditions": [
       "azerbaijani_mugham",
@@ -39,15 +39,15 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 9.879999999999999,
-          "voice_articulation": 0.31875,
-          "voice_microtone": 15.080375,
-          "voice_tradition": 48.03524999999999,
-          "voice_mechanism_compound": 28.762749999999997,
-          "voice_estill_quality": 25.450374999999994,
+          "voice_articulation": 0.195,
+          "voice_microtone": 14.672,
+          "voice_tradition": 47.04374999999999,
+          "voice_mechanism_compound": 28.639,
+          "voice_estill_quality": 25.289499999999997,
           "voice_speech_song": 21.825,
           "voice_ensemble_config": 10.984999999999996,
-          "voice_ornament_system": 32.662749999999996,
-          "voice_pitch_organization": 34.580625,
+          "voice_ornament_system": 32.16775,
+          "voice_pitch_organization": 34.494,
           "voice_processing_chain": 7.6049999999999995,
           "voice_multitrack_stack": 3.835
         }
@@ -65,10 +65,10 @@
         "scores": {
           "plucked_traditional_technique": 18.625,
           "tar_belly": 1,
-          "tar_pick": 21.505999999999993,
-          "tar_body_wood": 8.125,
+          "tar_pick": 21.256999999999994,
+          "tar_body_wood": 7.83325,
           "tar_string_material": 5.525,
-          "tar_tradition": 17.779875
+          "tar_tradition": 17.1735
         }
       },
       {
@@ -82,8 +82,8 @@
         "scores": {
           "bowed_technique": 18.625,
           "kamancha_body": 5.525,
-          "kamancha_string": 14.884999999999998,
-          "kamancha_tradition": 18.752875
+          "kamancha_string": 13.728749999999998,
+          "kamancha_tradition": 18.1465
         }
       },
       {
@@ -96,7 +96,7 @@
           "daf_jingle_metal": "daf_brass_rings"
         },
         "scores": {
-          "daf_rings": 0.33375,
+          "daf_rings": 0.21,
           "daf_context": 22.944999999999997,
           "daf_shell_wood": 11.375,
           "daf_head_material": 4.225,
@@ -111,7 +111,7 @@
         },
         "scores": {
           "gaval_body": 12.48,
-          "gaval_tradition": 11.894625
+          "gaval_tradition": 11.28825
         }
       }
     ],

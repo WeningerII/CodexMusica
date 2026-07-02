@@ -3,14 +3,14 @@
   "name": "Hungarian cimbalom (verbunkos and nóta)",
   "family": "global",
   "lineage": "Hungarian-Romani (cigány) urban-restaurant ensemble tradition centered on the primás-led band with concert-pedal cimbalom (Schunda 1874 design), violin, viola (kontra), and bass (bőgő); repertoire spans verbunkos (18th-century military recruiting dance), magyar nóta (Hungarian art-song), csárdás (national dance), and the Liszt Hungarian Rhapsodies / Brahms Hungarian Dances arrangements of this repertoire",
-  "recipe": "classic Central European mid-1870s hungarian cimbalom, improv On Frame, klezmer improv branch, Slavic bard ballad poetry russian folk balalaika and choral south slavic kantautor. thick, low dynamic level, ornamental, equal tempered. sustained and staccato hungarian tradition concert pedal cimbalom large frame pedal damper cimbalom, hard rock maple acer saccharum Baroque setup short neck shorter fingerboard violin orchestral, drone like fiddle, upright bass. budapest carpathian csarda tavern. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 569,
-  "score": 113.557,
+  "recipe": "classic Central European mid-1870s hungarian cimbalom, improv On Frame, klezmer improv branch, Slavic bard ballad poetry russian folk balalaika and choral serbian guslar epic recitation. thick, low dynamic level, ornamental, Scottish Gaelic vocal. sustained and staccato hungarian tradition concert pedal cimbalom large frame pedal damper cimbalom, Baroque setup short neck shorter fingerboard lighter bass bar ornamented violin orchestral, drone like fiddle, upright bass. budapest carpathian csarda tavern. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 581,
+  "score": 99.76,
   "config": {
     "traditions": [
       "hungarian_cimbalom_trad",
       "russian_folk_balalaika_choir",
-      "south_slavic_kantautor"
+      "serbian_guslar_epic"
     ],
     "instruments": [
       {
@@ -22,34 +22,34 @@
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "melisma_voice",
-          "voice_microtone": "tempered_voice",
-          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 8.149999999999999,
+          "voice_register": 5.674999999999999,
           "voice_quality": 2.7300000000000004,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.195,
           "voice_articulation": 1.0699999999999998,
-          "voice_microtone": 2.255000000000001,
-          "voice_tradition": 12.1875,
-          "voice_mechanism_compound": 1.885,
-          "voice_estill_quality": 1.6899999999999997,
-          "voice_speech_song": 14.429999999999996,
-          "voice_ensemble_config": 13.129999999999997,
-          "voice_ornament_system": 1.2349999999999999,
+          "voice_microtone": 0.39,
+          "voice_tradition": 11.894999999999998,
+          "voice_mechanism_compound": 2.34,
+          "voice_estill_quality": 2.1449999999999996,
+          "voice_speech_song": 12.154999999999998,
+          "voice_ensemble_config": 10.205,
+          "voice_ornament_system": 0.795,
           "voice_pitch_organization": 0.9099999999999997,
-          "voice_processing_chain": 2.5349999999999997,
-          "voice_multitrack_stack": 1.17
+          "voice_processing_chain": 1.755,
+          "voice_multitrack_stack": 0.975
         }
       },
       {
@@ -59,8 +59,8 @@
           "cimbalom_mallet": "cimbalom_cotton_wound"
         },
         "scores": {
-          "cimbalom_size": 33.605,
-          "cimbalom_mallet": 0
+          "cimbalom_size": 30.095,
+          "cimbalom_mallet": 0.65
         }
       },
       {
@@ -68,26 +68,26 @@
         "slots": {
           "bowed_technique": "bowed_klezmer_ornamented",
           "orch_strings": "plain_beef_gut_violin",
-          "orch_top_wood": "carpathian_spruce_violin",
-          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_top_wood": "sitka_spruce_violin_top",
+          "orch_back_wood": "european_maple_general_violin",
           "orch_varnish": "spirit_varnish_violin",
           "orch_setup_period": "baroque_setup_violin",
           "orch_bow": "baroque_bow",
           "orch_bow_stick": "brazilwood_stick_orch",
           "orch_articulation": "arco_orch",
-          "orch_rosin": "bernardel_rosin_orch"
+          "orch_rosin": "magic_rosin_orch"
         },
         "scores": {
           "bowed_technique": 4.2,
           "orch_strings": 0.78,
-          "orch_top_wood": 0.7149999999999999,
-          "orch_back_wood": 1.17,
+          "orch_top_wood": 0.78,
+          "orch_back_wood": 0.605,
           "orch_varnish": -0.035,
           "orch_setup_period": 2.1950000000000003,
           "orch_bow": 3.4449999999999994,
           "orch_bow_stick": -0.05,
           "orch_articulation": 0.585,
-          "orch_rosin": 0.12999999999999998
+          "orch_rosin": 0.1299999999999999
         }
       },
       {
@@ -100,9 +100,9 @@
           "fiddle_articulation": "arco"
         },
         "scores": {
-          "bowed_technique": 6.374999999999998,
+          "bowed_technique": 6.649999999999999,
           "fiddle_strings": 0.195,
-          "fiddle_bow": 0.195,
+          "fiddle_bow": 0.045,
           "fiddle_mute": 0.195,
           "fiddle_articulation": 0.585
         }
@@ -116,7 +116,7 @@
         },
         "scores": {
           "acoustic_technique": -0.035,
-          "upright_strings": 0.195,
+          "upright_strings": 0.045,
           "upright_play": 0.39
         }
       }

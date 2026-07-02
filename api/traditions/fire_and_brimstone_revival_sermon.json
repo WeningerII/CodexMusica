@@ -1,0 +1,96 @@
+{
+  "id": "fire_and_brimstone_revival_sermon",
+  "name": "Fire-and-brimstone revival sermon",
+  "family": "blues_gospel",
+  "lineage": "Hortatory evangelical preaching of the American revival and camp-meeting tradition, marked by vivid imagery of judgment and hellfire delivered at high projected volume in rhythmic, accelerating cadences. Traces from the 18th-century Great Awakening (Jonathan Edwards's Sinners in the Hands of an Angry God, 1741) through the 19th-century frontier camp meetings to the 20th-century tent-revival and radio evangelists such as Billy Sunday and Oral Roberts. The delivery relies on repeated exhortation, dramatic pauses, and congregational punctuation with cries of amen and hallelujah. It is a foundational strand of Protestant evangelical oratory in the United States.",
+  "recipe": "classic early-1740s fire-and-brimstone revival sermon, ritual Devotional, christian gospel branch bluegrass gospel southern gospel quartet. thick, declaimed, chest resonance low mid, ornamental. country church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 340,
+  "score": 219.677,
+  "config": {
+    "traditions": [
+      "fire_and_brimstone_revival_sermon",
+      "bluegrass_gospel",
+      "southern_gospel_quartet"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "shruti_inflected",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 25.675000000000004,
+          "voice_quality": 36.975000000000016,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.4734999999999996,
+          "voice_articulation": 25.581500000000002,
+          "voice_microtone": 0.3315,
+          "voice_tradition": 29.356500000000004,
+          "voice_mechanism_compound": 2.925,
+          "voice_estill_quality": 27.000000000000004,
+          "voice_speech_song": 19.175,
+          "voice_ensemble_config": 25.4815,
+          "voice_ornament_system": 10.025000000000002,
+          "voice_pitch_organization": 0.9945,
+          "voice_processing_chain": 6.044999999999998,
+          "voice_multitrack_stack": 3.763
+        }
+      }
+    ],
+    "room": "wooden_country_church",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "wooden_country_church",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "blues_shouter_voice",
+      "voice_speech_song": "voice_heightened_speech",
+      "voice_tradition": "gospel_pentecostal_tradition",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_responsorial_cantor",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_belt",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "voice_effort": "effort_pressed_maximal"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

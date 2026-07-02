@@ -5,7 +5,7 @@
   "lineage": "Pre-Gregorian liturgical chant tradition of Benevento and southern Italian Lombard-Beneventan duchies (sixth-thirteenth centuries), preserved fragmentarily in Beneventan-script manuscripts of the Benevento Cathedral Library and Montecassino Abbey. Replaced by Roman-rite Gregorian chant after eleventh-century imposition, but with significant Beneventan-melodic-material absorbed into the broader Italian Gregorian recension. Distinguished from Gregorian by Beneventan's distinct melodic style, narrower range, characteristic ornamental conventions, and Lombard-script notational tradition.",
   "recipe": "classic mid-1910s beneventan chant, ritual Devotional, christian gospel branch, western early art music ars antiqua and organum renaissance sacred polyphony. thick, declaimed, melodic, ornamental. mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. parish church. acoustic horn. 78rpm shellac.",
   "recipe_chars": 397,
-  "score": 181.943,
+  "score": 181.98,
   "config": {
     "traditions": [
       "beneventan_chant",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 8.335,
+          "voice_register": 8.530000000000001,
           "voice_quality": 11.040000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 5.004999999999999,
           "voice_articulation": 7.040000000000001,
           "voice_microtone": 7.280000000000002,
-          "voice_tradition": 18.592499999999998,
+          "voice_tradition": 18.599999999999998,
           "voice_mechanism_compound": 5.915,
-          "voice_estill_quality": 19.340500000000002,
+          "voice_estill_quality": 19.36,
           "voice_speech_song": 16.64,
           "voice_ensemble_config": 23.985,
           "voice_ornament_system": 15.575,
           "voice_pitch_organization": 7.735,
           "voice_processing_chain": 7.6049999999999995,
-          "voice_multitrack_stack": 5.06025
+          "voice_multitrack_stack": 4.875
         }
       },
       {

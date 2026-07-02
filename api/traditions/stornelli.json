@@ -5,7 +5,7 @@
   "lineage": "Italian stornelli improvised-couplet folk-song tradition of central Italy (Tuscany, Umbria, Lazio, Marche, Abruzzo) and adjacent regions, in which singer-poets improvise short rhymed verse-couplets (typically tripartite three-line stanzas) on assigned topics, often in competitive dialogic-exchange between two singers. Performance: unaccompanied or minimally-accompanied solo voice, with the canonical poetic-meter conventions strictly governing the improvisation. The genre survived the twentieth-century rural-urbanization period as a vestigial folk practice and entered the post-1970s Italian folk-revival under researchers Roberto Leydi and Diego Carpitella. Distinguished from broader Italian regional-folk-song by stornelli's specifically-improvisational structural framework.",
   "recipe": "classic Southern European mid-1970s stornelli, ballad Poetry, Mediterranean ballad branch, med east poetic ballad poetry cypriot tsiattista basque bertsolaritza. thick, declaimed, melodic, blues inflected. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 426,
-  "score": 144.231,
+  "score": 143.371,
   "config": {
     "traditions": [
       "stornelli",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
           "voice_register": 15.844999999999997,
           "voice_quality": 2.5999999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.0280000000000005,
-          "voice_articulation": 0.03899999999999999,
-          "voice_microtone": 1.405,
-          "voice_tradition": 37.184,
+          "voice_vibrato": 3.9650000000000003,
+          "voice_articulation": 0,
+          "voice_microtone": 1.495,
+          "voice_tradition": 36.1575,
           "voice_mechanism_compound": 3.38,
-          "voice_estill_quality": 16.70375,
+          "voice_estill_quality": 16.89875,
           "voice_speech_song": 17.679999999999996,
           "voice_ensemble_config": 15.924999999999995,
           "voice_ornament_system": 13.774999999999999,
           "voice_pitch_organization": 2.209999999999999,
           "voice_processing_chain": 3.38,
-          "voice_multitrack_stack": 1.5759999999999998
+          "voice_multitrack_stack": 1.5600000000000003
         }
       }
     ],

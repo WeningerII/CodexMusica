@@ -5,7 +5,7 @@
   "lineage": "Liturgical chant of the Ambrosian rite of Milan, attributed in legend to Saint Ambrose (Bishop of Milan 374-397), preserved in continuous use in the Archdiocese of Milan and adjacent dioceses of Lombardy (Italy) and Lugano (Switzerland). Distinguished from Gregorian chant by Ambrosian's distinct repertoire (with different proper-of-the-mass texts and melodic content), the eight Ambrosian modes (related to but distinct from Gregorian modes), and Milanese-specific liturgical structure. Survived medieval-and-Tridentine liturgical reforms as one of only two surviving Latin liturgical-music-traditions.",
   "recipe": "classic mid-1930s ambrosian chant, ritual Devotional, christian gospel branch, western early art music ars antiqua and organum renaissance sacred polyphony. thick, declaimed, melodic, ornamental. a cappella small 3 to 8 one per part four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. parish church. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 440,
-  "score": 167.838,
+  "score": 167.865,
   "config": {
     "traditions": [
       "ambrosian_chant_milanese",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 8.335,
+          "voice_register": 8.530000000000001,
           "voice_quality": 11.040000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -43,7 +43,7 @@
           "voice_microtone": 7.280000000000002,
           "voice_tradition": 9.4575,
           "voice_mechanism_compound": 5.915,
-          "voice_estill_quality": 12.569999999999999,
+          "voice_estill_quality": 12.772499999999999,
           "voice_speech_song": 20.019999999999996,
           "voice_ensemble_config": 27.365000000000002,
           "voice_ornament_system": 6.575,
@@ -64,7 +64,7 @@
           "choir_size": 9.294999999999998,
           "choir_polyphonic_configuration": 7.6049999999999995,
           "choir_regional_canonical_configuration": 7.214999999999998,
-          "choir_ensemble_repertoire": 11.180499999999999
+          "choir_ensemble_repertoire": 10.809999999999999
         }
       }
     ],

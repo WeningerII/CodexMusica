@@ -5,7 +5,7 @@
   "lineage": "English Anglican choral evensong service-music tradition codified in the Book of Common Prayer (1549, 1662) with characteristic Magnificat and Nunc Dimittis canticle settings — sung daily across the cathedral foundations of the Church of England with characteristic boy-treble-and-adult-male-alto-tenor-bass voicing, Anglican-chant psalmody, and an unbroken liturgical-music transmission from the Reformation through the present including settings by Tallis, Gibbons, Stanford, Howells, and Britten",
   "recipe": "classic late-1540s anglican choral evensong, ritual Devotional, anglican choral branch, western early art music burgundian school renaissance madrigal. thick, declaimed, chest resonance low mid, ornamental. a cappella small 3 to 8 one per part four voice polyphonic regional kakhetian three voice two soloists choral drone global traditional polyphonic choir ensemble, silbermann saxon canonical bach era central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque mechanical tracker canonical Baroque direct touch pipe organ, choir cathedral satb. cathedral. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 796,
-  "score": 166.015,
+  "score": 166.497,
   "config": {
     "traditions": [
       "anglican_choral_evensong",
@@ -49,8 +49,8 @@
           "voice_multitrack_stack": "voice_multitrack_unison_double_take"
         },
         "scores": {
-          "voice_register": 6.610000000000001,
-          "voice_quality": 9.29375,
+          "voice_register": 6.8050000000000015,
+          "voice_quality": 9.29,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.145,
@@ -58,7 +58,7 @@
           "voice_microtone": 4.485000000000001,
           "voice_tradition": 9.1,
           "voice_mechanism_compound": 3.445,
-          "voice_estill_quality": 13.001249999999999,
+          "voice_estill_quality": 13.2925,
           "voice_speech_song": 15.404999999999994,
           "voice_ensemble_config": 17.419999999999995,
           "voice_ornament_system": 8.625,

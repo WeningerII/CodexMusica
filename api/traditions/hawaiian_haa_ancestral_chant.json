@@ -1,0 +1,95 @@
+{
+  "id": "hawaiian_haa_ancestral_chant",
+  "name": "Hawaiian haʻa ancestral chant",
+  "family": "global",
+  "lineage": "Sacred Hawaiian chant (oli) performed in the low, bent-knee haʻa posture reserved for akua and ancestors, encompassing genealogical (koʻihonua) and name (mele inoa) chants that transmit lineage and cosmology. The style is marked by sustained, measured vocal delivery and stylized ornaments such as the ʻiʻi trill, and was traditionally taught within the hula hālau under a kumu hula. The corpus and its performance practice were documented in Nathaniel B. Emerson's Unwritten Literature of Hawaii (1909) and in the later scholarship of Mary Kawena Pukui. Chant carried genealogy, prayer, and place-lore as authoritative oral record in pre-literate Hawaiʻi.",
+  "recipe": "classic Oceanian late-1900s hawaiian haʻa ancestral chant, praise Song, oceania pacific branch xhosa iimbongi praise oratory arabic madh and qasida. vocal fry, declaimed, chest resonance low mid, continuous-phonation. hawaiian heiau outdoor lava stone temple. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 389,
+  "score": 181.245,
+  "config": {
+    "traditions": [
+      "hawaiian_haa_ancestral_chant",
+      "xhosa_iimbongi",
+      "arabic_madh_qasida"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 3.575,
+          "voice_quality": 28.727999999999994,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.61,
+          "voice_articulation": 1.6899999999999997,
+          "voice_microtone": 9.569999999999997,
+          "voice_tradition": 21.839999999999996,
+          "voice_mechanism_compound": 6.4014999999999995,
+          "voice_estill_quality": 6.9355,
+          "voice_speech_song": 30.615000000000006,
+          "voice_ensemble_config": 21.580000000000002,
+          "voice_ornament_system": 14.544999999999996,
+          "voice_pitch_organization": 14.544999999999996,
+          "voice_processing_chain": 3.5749999999999993,
+          "voice_multitrack_stack": 1.885
+        }
+      }
+    ],
+    "room": "hawaiian_heiau_outdoor_lava_stone_temple",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "hawaiian_heiau_outdoor_lava_stone_temple",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "speech_voice",
+      "voice_speech_song": "voice_ametrical_chant",
+      "voice_tradition": "polynesian_oli_tradition",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "oscillating_vibrato",
+      "voice_mechanism_compound": "voice_mechanism_single_source"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "id": "korean_muga",
+  "name": "Korean muga shamanic ritual narrative",
+  "family": "global",
+  "lineage": "Muga are the sung and chanted ritual songs of the Korean mudang (shaman), performed within the kut ceremony to invoke, entertain, and petition the spirits (gods, ancestors, and the dead). Regional forms range from the hereditary tradition of the southwestern seseummu to the possession-based gangsinmu of the north, and the repertoire encompasses invocation, narrative epic (such as the Bari Gongju abandoned-princess myth), and divination speech, all accompanied by janggu and other percussion. Muga is widely regarded as a root source of pansori epic singing and of shinawi and sinawi-derived instrumental music. It is documented through twentieth-century field recordings and the scholarship of Korean folklorists and is designated within the Important Intangible Cultural Property system.",
+  "recipe": "classic East Asian modern korean muga shamanic ritual narrative, ritual Devotional, indigenous branch mongolian böö shamanic invocation ethiopian debtera liturgical incantation. thick, declaimed, pure, unrestrained. korean gugak hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 364,
+  "score": 168.232,
+  "config": {
+    "traditions": [
+      "korean_muga",
+      "mongolian_boo_invocation",
+      "ethiopian_debtera_incantation"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "shouted_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "polynesian_oli_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 5.105000000000002,
+          "voice_quality": 17.064,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.6315,
+          "voice_articulation": 3.5815,
+          "voice_microtone": 1.0999999999999999,
+          "voice_tradition": 15.372500000000002,
+          "voice_mechanism_compound": 10.2815,
+          "voice_estill_quality": 4.875,
+          "voice_speech_song": 32.500000000000014,
+          "voice_ensemble_config": 32.43500000000002,
+          "voice_ornament_system": 10.900000000000002,
+          "voice_pitch_organization": 7.643,
+          "voice_processing_chain": 3.25,
+          "voice_multitrack_stack": 7.267499999999999
+        }
+      }
+    ],
+    "room": "korean_gugak_hall",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "korean_minsogak_modes",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "korean_minsogak_modes",
+    "room": "korean_gugak_hall",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "speech_voice",
+      "voice_speech_song": "voice_recitative_free_rhythm",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

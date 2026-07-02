@@ -3,14 +3,14 @@
   "name": "Vedic chant",
   "family": "global",
   "lineage": "Vedic chant — the canonical three-thousand-year-continuous Sanskrit recitation tradition for the four Vedas (Rgveda, Yajurveda, Sāmaveda, Atharvaveda) preserved through the gurukula master-disciple oral-transmission lineage; defined by the three-tone udatta-anudatta-svarita pitch-accent system (udatta the raised pitch, anudatta the lower pitch, svarita the falling-pitch tone) inherited from Proto-Indo-European prosody, with the additional Sāmaveda musical-melodic elaboration (the Sāman chant tradition that uses seven svaras and is considered the source of later Indian classical raga); transmission preserved through the canonical paṭha (recitation-style) variants — Saṃhitā (continuous), Padapāṭha (word-by-word), Krama-pāṭha (interlocking pairs), Jaṭā-pāṭha (woven pattern), and Ghana-pāṭha (dense pattern) — each designed to lock the text against transmission error; the Nambudiri Brahmin community of Kerala preserves the most archaic Sāmavedic chanting layer, with parallel Tamil-Brahmin, Maharashtrian, and Kashi (Banaras) regional preservation lineages",
-  "recipe": "classic modern vedic chant, ritual Devotional, hindu branch, south Asian art music sinhala vannama telugu kirtana. declaimed, chest resonance low mid, continuous-phonation, bend inflected. mixed satb canonical 4 part western three voice polyphonic regional andean three voice parallel thirds quechua aymara global traditional polyphonic choir ensemble. field recording. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 499,
-  "score": 206.023,
+  "recipe": "classic modern vedic chant, ritual Devotional, hindu branch, south Asian art music sinhala vannama kutiyattam sanskrit recitation. vocal fry, declaimed, chest resonance low mid, continuous-phonation. mixed satb canonical 4 part western three voice polyphonic regional andean three voice parallel thirds quechua aymara global traditional polyphonic choir ensemble. field recording. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 510,
+  "score": 187.549,
   "config": {
     "traditions": [
       "vedic_chant",
       "sinhala_vannama",
-      "telugu_kirtana"
+      "kutiyattam_recitation"
     ],
     "instruments": [
       {
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_carnatic_gamaka",
-          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
-          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_formant_shifted_double_stereo"
         },
         "scores": {
-          "voice_register": 0.483,
-          "voice_quality": 8.756499999999997,
+          "voice_register": 0.845,
+          "voice_quality": 4.9750000000000005,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 4.68,
           "voice_articulation": 2.9314999999999993,
           "voice_microtone": 5.449999999999999,
-          "voice_tradition": 28.506000000000004,
+          "voice_tradition": 20.93,
           "voice_mechanism_compound": 8.9,
           "voice_estill_quality": 11.503,
-          "voice_speech_song": 21.384999999999998,
-          "voice_ensemble_config": 13.714999999999998,
-          "voice_ornament_system": 24.039,
-          "voice_pitch_organization": 29.570499999999996,
-          "voice_processing_chain": 5.2905,
-          "voice_multitrack_stack": 6.376499999999999
+          "voice_speech_song": 22.879999999999992,
+          "voice_ensemble_config": 16.705,
+          "voice_ornament_system": 14.614,
+          "voice_pitch_organization": 28.3315,
+          "voice_processing_chain": 5.328249999999999,
+          "voice_multitrack_stack": 6.345
         }
       },
       {
@@ -61,10 +61,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
         },
         "scores": {
-          "choir_size": 5.65625,
-          "choir_polyphonic_configuration": 10.3535,
+          "choir_size": 5.00625,
+          "choir_polyphonic_configuration": 9.703499999999998,
           "choir_regional_canonical_configuration": 4.7764999999999995,
-          "choir_ensemble_repertoire": 7.1754999999999995
+          "choir_ensemble_repertoire": 6.369999999999999
         }
       }
     ],

@@ -3,20 +3,20 @@
   "name": "Zulu izibongo (praise-poetry)",
   "family": "global",
   "lineage": "Zulu izibongo praise-poetry tradition continuous from pre-colonial Zulu royal-court praise-singer (imbongi) practice through 19th-century Shaka-kaSenzangakhona-era continuous performance into modern South-African Zulu cultural-practice; the imbongi is the hereditary praise-poetry-and-political-orator role",
-  "recipe": "classic Southern African modern zulu izibongo, praise Song, sub saharan African branch, oceania pacific praise song, west African griot ballad poetry, African pop isicathamiya māori waiata mōteatea / patere mandé jeli. extended whistle, declaimed, tasteful, continuous-phonation. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 494,
-  "score": 162.107,
+  "recipe": "classic Southern African modern zulu izibongo, praise Song, sub saharan African branch, oceania pacific praise song, west African griot ballad poetry, African pop isicathamiya māori waiata mōteatea / patere. thick, declaimed, tasteful, continuous-phonation. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 472,
+  "score": 163.21,
   "config": {
     "traditions": [
       "zulu_izibongo",
       "maori_waiata_moteatea_patere",
-      "mande_griot"
+      "isicathamiya"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "extended_whistle_register",
+          "voice_register": "chest_voice",
           "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 3.5199999999999996,
-          "voice_quality": 44.77000000000001,
+          "voice_register": 5.700000000000002,
+          "voice_quality": 37.945000000000014,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.12,
           "voice_articulation": 4.68,
-          "voice_microtone": 2.3750000000000004,
-          "voice_tradition": 50.7,
-          "voice_mechanism_compound": 2.075,
-          "voice_estill_quality": 3.1200000000000006,
-          "voice_speech_song": 14.559999999999999,
-          "voice_ensemble_config": 7.475000000000001,
-          "voice_ornament_system": 11.924999999999997,
+          "voice_microtone": 3.750000000000001,
+          "voice_tradition": 48.55499999999999,
+          "voice_mechanism_compound": 1.925,
+          "voice_estill_quality": 3.9000000000000012,
+          "voice_speech_song": 17.615,
+          "voice_ensemble_config": 9.36,
+          "voice_ornament_system": 8.675,
           "voice_pitch_organization": 4.68,
-          "voice_processing_chain": 2.7625,
-          "voice_multitrack_stack": 1.7199999999999998
+          "voice_processing_chain": 3.6850000000000005,
+          "voice_multitrack_stack": 3.1950000000000003
         }
       }
     ],

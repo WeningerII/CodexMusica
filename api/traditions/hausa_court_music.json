@@ -5,7 +5,7 @@
   "lineage": "Sahelian-Hausa royal-court ceremonial tradition centered on the emirates of northern Nigeria and southern Niger (Kano, Katsina, Sokoto, Zaria, Daura) — characterized by kakaki long-trumpet fanfares, talking-drum (kalangu) praise-singing, ganga and tambari drum ensembles announcing emir presence; ritual functions tied to the masu sarauta court-titled-officials system",
   "recipe": "classic North American mid-1990s hausa court music, ballad Poetry, west African griot branch, islamic ritual devotional, west African groove percussion were music acehnese saman. vocal fry, declaimed, pure, rhythmic. sheet brass canonical hausa fulani hammered tube call ritual kakaki, iroko alternative west African talking drum, griot voice. adobe room. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 502,
-  "score": 170.45,
+  "score": 171.485,
   "config": {
     "traditions": [
       "hausa_court_music",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 1.14,
+          "voice_register": 1.245,
           "voice_quality": 18.019999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.845,
           "voice_articulation": 0.845,
-          "voice_microtone": 1.565,
+          "voice_microtone": 1.7599999999999998,
           "voice_tradition": 39.845,
           "voice_mechanism_compound": 1.69,
           "voice_estill_quality": 1.885,
           "voice_speech_song": 15.08,
           "voice_ensemble_config": 12.479999999999997,
-          "voice_ornament_system": 11.259999999999998,
-          "voice_pitch_organization": 9.174999999999997,
+          "voice_ornament_system": 11.454999999999998,
+          "voice_pitch_organization": 8.979999999999997,
           "voice_processing_chain": 4.415,
-          "voice_multitrack_stack": 1.74
+          "voice_multitrack_stack": 1.9500000000000002
         }
       },
       {
@@ -61,7 +61,7 @@
           "kakaki_bell_metal": "kakaki_brass_canonical"
         },
         "scores": {
-          "wind_articulation": 12.53,
+          "wind_articulation": 12.86,
           "kakaki_length": 6.25,
           "kakaki_context": 2.5999999999999996,
           "kakaki_bell_metal": 4.18
@@ -76,7 +76,7 @@
           "talking_drum_head": "talking_drum_goat_skin_canonical"
         },
         "scores": {
-          "talking_drum_origin": 2.35,
+          "talking_drum_origin": 2.545,
           "talking_drum_context": 0.845,
           "talking_drum_shell_wood": 7.540000000000001,
           "talking_drum_head": 0.845

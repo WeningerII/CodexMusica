@@ -3,53 +3,53 @@
   "name": "Sinhala vannama (Sri Lankan court dance-song)",
   "family": "classical",
   "lineage": "Sinhala vannama Sri Lankan classical court dance-song tradition, comprising eighteen canonical pieces composed in the seventeenth-eighteenth centuries at the Kandyan royal court for performance at state ceremonies. Each of the eighteen vannamas evokes a specific subject (gaja-vannama elephant, ashva-vannama horse, mayura-vannama peacock, sinha-vannama lion, etc.) through characteristic melodic-and-rhythmic gesture and stylized choreographic movement. Performance combines solo male voice with geta-bera double-headed barrel drum and elaborate choreography. The Sri Lankan Cultural Department and Royal Asiatic Society preserve the canonical transmission.",
-  "recipe": "classic Southeast Asian modern sinhala vannama, art Music, south Asian branch, indigenous ritual devotional ju|'hoansi healing songs inuit katajjaq throat-singing game. sygyt, declaimed, chest resonance low mid, punctuated. goat skin syahi rope laced steel ring dholak. wooden pagoda hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 419,
-  "score": 198.499,
+  "recipe": "classic Southeast Asian modern sinhala vannama, art Music, south Asian branch, indigenous ritual devotional ju|'hoansi healing songs shipibo-conibo icaros healing songs. vocal fry, declaimed, chest resonance low mid, punctuated. goat skin syahi rope laced steel ring dholak. wooden pagoda hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 424,
+  "score": 159.788,
   "config": {
     "traditions": [
       "sinhala_vannama",
       "juhoansi_healing_nom",
-      "inuit_katajjaq_games"
+      "shipibo_icaros"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "sygyt_register",
+          "voice_register": "vocal_fry",
           "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "staccato_voice",
-          "voice_microtone": "overtone_singing",
-          "voice_tradition": "inuit_katajjaq_tradition",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "chinese_classical_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_carnatic_gamaka",
-          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 8.68875,
-          "voice_quality": 7.139375000000001,
+          "voice_register": 1.95,
+          "voice_quality": 8.889375000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.364375,
-          "voice_articulation": 2.535,
-          "voice_microtone": 7.880000000000002,
-          "voice_tradition": 33.244375,
-          "voice_mechanism_compound": 18.705,
-          "voice_estill_quality": 11.634999999999996,
-          "voice_speech_song": 28.080000000000002,
-          "voice_ensemble_config": 29.055,
+          "voice_articulation": 1.69,
+          "voice_microtone": 1.3,
+          "voice_tradition": 15.664999999999996,
+          "voice_mechanism_compound": 10.405000000000001,
+          "voice_estill_quality": 11.179999999999996,
+          "voice_speech_song": 26.585,
+          "voice_ensemble_config": 26.715,
           "voice_ornament_system": 7.95,
-          "voice_pitch_organization": 9.251875,
+          "voice_pitch_organization": 8.88,
           "voice_processing_chain": 4.29,
-          "voice_multitrack_stack": 5.525
+          "voice_multitrack_stack": 5.135
         }
       },
       {
@@ -61,10 +61,10 @@
           "dholak_tensioning": "dholak_rope_tuning"
         },
         "scores": {
-          "dholak_use": 3.38,
-          "dholak_construction": 1.3,
-          "dholak_head": 3.3799999999999994,
-          "dholak_tensioning": 5.069999999999999
+          "dholak_use": 4.03,
+          "dholak_construction": 1.2299999999999998,
+          "dholak_head": 4.029999999999999,
+          "dholak_tensioning": 5.5737499999999995
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Isan (Northeast Thailand) and Lao traditional and popular vocal-and-khaen tradition — mor lam literally means expert singer in Lao; the Isan/Lao genre built on the khaen (bamboo mouth-organ with 16 pipes in two rows) and the lead-vocal improvising long-form Lao-language sung-poetry over the khaen drone-and-melody foundation; figures Banyen Rakkaen, Pornsak Songsang, Chaweewan Damnern, and the modern Jintara Poonlarp",
   "recipe": "classic Southeast Asian modern mor lam, drone Modal, vocal branch, med east poetic ballad poetry pontic greek music ethiopian azmari minstrel-poet. vocal fry, declaimed, pure, narrative. khaen, bamboo bars low register canonical pinpeat second voice pinpeat counterpoint to roneat ek lead roneat thung. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 527,
-  "score": 163.852,
+  "score": 162.56,
   "config": {
     "traditions": [
       "mor_lam",
@@ -25,7 +25,7 @@
           "voice_microtone": "tempered_voice",
           "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
@@ -35,15 +35,15 @@
         },
         "scores": {
           "voice_register": 4.55,
-          "voice_quality": 5.050000000000001,
+          "voice_quality": 5.245000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.69,
           "voice_articulation": 0.9749999999999996,
           "voice_microtone": 3.7399999999999998,
-          "voice_tradition": 30.29,
+          "voice_tradition": 28.685000000000002,
           "voice_mechanism_compound": 7.865,
-          "voice_estill_quality": 4.875,
+          "voice_estill_quality": 5.025,
           "voice_speech_song": 26.585000000000008,
           "voice_ensemble_config": 25.480000000000008,
           "voice_ornament_system": 2.09,
@@ -61,7 +61,7 @@
         },
         "scores": {
           "free_reed_technique": 0.8449999999999999,
-          "khaen_size": 9.221499999999997,
+          "khaen_size": 9.189999999999998,
           "khaen_context": 2.925
         }
       },

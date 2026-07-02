@@ -5,7 +5,7 @@
   "lineage": "Mongolian throat-singing overtone-vocal-technique tradition, the canonical method of simultaneous fundamental-and-formant-overtone production via aryepiglottic-fold steppe-narrowing of the throat. Eight named sub-techniques: kharkhiraa deep-low-fundamental-with-loud-overtones, sygyt high-melodic-overtone-isolation, ezengileer rhythmic-jaw-vibration, dumchuktaar nasal-passage technique, shahaa fluttering-overtone-modulation, khoomei middle-register basic-style, bagalzuuryn-khoomei smooth-style, and khamryn-khoomei nostril-and-mouth combined-resonance. Practiced traditionally by Western-Mongolian Khalkha-Oirat herder communities, contextualized within nomadic-pastoralist horse-and-livestock work-song repertoire and shamanic-spirit-communication ritual.",
   "recipe": "classic Northeast Asian modern khöömii, drone Modal, overtone branch, buddhist ritual devotional beompae shōmyō. m1 modal compound with overtone tuning khoomei foundational mechanism 8th to 12th partial overtone range himalayan ritual chant subharmonic monastic throat singing voice, long song morin khuur sycamore canonical mongolian horsehair 118 130 strands morin khuur, traditional mongolian tuvan tradition tovshuur. mongolian ger interior. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 575,
-  "score": 84.022,
+  "score": 82.929,
   "config": {
     "traditions": [
       "mongolian_xoomii",
@@ -31,15 +31,15 @@
         "slots": {
           "bowed_technique": "bowed_rough_drone",
           "morin_khuur_use": "morin_khuur_long_song",
-          "morin_khuur_construction": "morin_khuur_modern_wood",
+          "morin_khuur_construction": "morin_khuur_synthetic",
           "morin_khuur_body_wood": "morin_khuur_sycamore",
           "morin_khuur_strings": "morin_khuur_horsehair_canonical"
         },
         "scores": {
           "bowed_technique": 1.8199999999999998,
-          "morin_khuur_use": 14.752875,
+          "morin_khuur_use": 14.133375000000001,
           "morin_khuur_construction": 0.845,
-          "morin_khuur_body_wood": 6.24,
+          "morin_khuur_body_wood": 6.03975,
           "morin_khuur_strings": 2.795
         }
       },
@@ -51,7 +51,7 @@
         },
         "scores": {
           "tovshuur_strings": 8.059999999999999,
-          "tovshuur_body": 0.8218124999999998
+          "tovshuur_body": 0.5488124999999999
         }
       }
     ],

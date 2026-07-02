@@ -1,0 +1,96 @@
+{
+  "id": "irish_fili_bardic",
+  "name": "Irish filí / bardic recitation",
+  "family": "global",
+  "lineage": "Recitation practice of the Gaelic learned poet — the fili (plural filid) and later bard — of medieval and early-modern Ireland (and Gaelic Scotland), a hereditary professional trained for years in bardic schools to compose in the strict syllabic metres of dan direach. The fili's social power lay in praise-poetry for a chieftain patron and in the feared aer (satire) believed capable of raising blisters or destroying reputation; the tradition ran from the early medieval period to the collapse of the Gaelic order after 1600, documented in the Book of the Dean of Lismore and the bardic duanaireacht. Poems were declaimed, often to harp accompaniment by a separate reacaire (reciter), as measured heightened speech.",
+  "recipe": "classic Northern European early-1600s irish filí / bardic recitation, ballad Poetry, Celtic balladic branch jeju haenyeo songs latvian dainas. thick, declaimed, melodic, narrative. connemara kitchen sean nos. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 338,
+  "score": 156.962,
+  "config": {
+    "traditions": [
+      "irish_fili_bardic",
+      "jeju_haenyeo_songs",
+      "latvian_dainas"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 9.45,
+          "voice_quality": 6.388000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.3150000000000004,
+          "voice_articulation": 1.6899999999999997,
+          "voice_microtone": 2.558,
+          "voice_tradition": 28.43749999999999,
+          "voice_mechanism_compound": 4.484999999999999,
+          "voice_estill_quality": 7.145375,
+          "voice_speech_song": 31.654999999999998,
+          "voice_ensemble_config": 20.669999999999998,
+          "voice_ornament_system": 6.4350000000000005,
+          "voice_pitch_organization": 5.914999999999998,
+          "voice_processing_chain": 4.68,
+          "voice_multitrack_stack": 3.6130000000000004
+        }
+      }
+    ],
+    "room": "connemara_kitchen_sean_nos",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "connemara_kitchen_sean_nos",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "speech_voice",
+      "voice_speech_song": "voice_heightened_speech",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "voice_articulation": "narrative_voice"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

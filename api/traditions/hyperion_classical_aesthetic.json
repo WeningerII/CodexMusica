@@ -5,7 +5,7 @@
   "lineage": "Hyperion Records (British classical label founded 1980) audiophile-canon production aesthetic for Western classical chamber and song repertoire — characterized by intimate close-miked sound stage, transparent capture without console coloration, minimal post-processing, and exploratory programming covering obscure and rediscovered repertoire alongside the standard canon",
   "recipe": "classic early-1980s hyperion-school classical-recording aesthetic, art Music, western common practice branch, western early art music historically-informed performance recording baroque period-instrument. thick, declaimed, chest resonance low mid, ornamental. beech laminated maple laminated European tradition European spruce norway spruce grand piano, synthetic norway spruce European alpine European maple bosnian source violin orchestral, gut norway spruce European alpine European maple bosnian source cello. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 665,
-  "score": 545.852,
+  "score": 547.764,
   "config": {
     "traditions": [
       "hyperion_classical_aesthetic",
@@ -34,17 +34,17 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 9.119000000000002,
+          "voice_register": 9.314000000000002,
           "voice_quality": 1.7899999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 7.0200000000000005,
           "voice_articulation": 1.9149999999999998,
-          "voice_microtone": 16.982000000000003,
+          "voice_microtone": 16.943,
           "voice_tradition": 25.453500000000002,
           "voice_mechanism_compound": 13.400000000000002,
-          "voice_estill_quality": 18.685000000000002,
-          "voice_speech_song": 18.570000000000004,
+          "voice_estill_quality": 19.075,
+          "voice_speech_song": 18.960000000000004,
           "voice_ensemble_config": 10.205,
           "voice_ornament_system": 15.125000000000002,
           "voice_pitch_organization": 14.245000000000003,
@@ -69,12 +69,12 @@
           "keyboard_technique": 13.500000000000002,
           "grand_piano_size": 1.8199999999999998,
           "grand_piano_brand": 1.885,
-          "piano_hammer": 17.1255,
+          "piano_hammer": 17.2395,
           "piano_rim": 16.2495,
           "piano_soundboard": 17.1245,
           "piano_pinblock": 14.96,
-          "piano_plate": 15.704,
-          "piano_pitch_standard": 18.461
+          "piano_plate": 15.815000000000001,
+          "piano_pitch_standard": 18.424999999999997
         }
       },
       {
@@ -93,13 +93,13 @@
         },
         "scores": {
           "bowed_technique": 13.500000000000002,
-          "orch_strings": 1.91,
+          "orch_strings": 2.015,
           "orch_top_wood": 18.75,
           "orch_back_wood": 19.144500000000004,
-          "orch_varnish": 17.805000000000003,
+          "orch_varnish": 18.000000000000004,
           "orch_setup_period": 15.235,
           "orch_bow": 4.614999999999999,
-          "orch_bow_stick": 17.5555,
+          "orch_bow_stick": 17.6695,
           "orch_articulation": 3.575,
           "orch_rosin": 22.1085
         }
@@ -122,11 +122,11 @@
           "cello_strings": 4.614999999999999,
           "cello_top_wood": 18.75,
           "cello_back_wood": 19.144500000000004,
-          "cello_varnish": 17.805000000000003,
+          "cello_varnish": 18.000000000000004,
           "cello_setup_period": 14.934999999999999,
-          "cello_bow_grip": 8.2555,
+          "cello_bow_grip": 8.32,
           "cello_rosin": 20.983500000000003,
-          "cello_bow_stick": 17.5555
+          "cello_bow_stick": 17.6695
         }
       }
     ],

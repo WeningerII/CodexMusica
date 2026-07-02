@@ -5,7 +5,7 @@
   "lineage": "Greek-Cretan tabachaniotika (urban-Cretan sea-faring-and-port-side song) tradition continuous from late-19th-and-early-20th century Cretan-urban-port (Heraklion, Chania, Rethymno) song-and-tavern tradition through Cretan-Greek-Turkish population-exchange 1923-aftermath integration with Asia-Minor refugees into modern Cretan-folk-revival continuous practice; the tabachaniotika is the canonical Cretan-port-side-and-sea-faring repertoire",
   "recipe": "classic Southern European early-1920s greek cretan tabachaniotika, sea Shanty, Mediterranean branch, balkan drinking song, European protest song, Mediterranean ballad ballad poetry sevdalinka georgian supra feast-singing. thick, low dynamic level, tasteful, continuous-phonation. mulberry canonical cretan gut pre modern cretan cretan lyra, mahogany modern alternative Lebanese cedar eastern Mediterranean brass wound bass oud. athens piraeus rebetadika. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 584,
-  "score": 193.907,
+  "score": 193.78,
   "config": {
     "traditions": [
       "greek_tabachaniotika",
@@ -34,16 +34,16 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 4.075000000000001,
-          "voice_quality": 3.8200000000000007,
+          "voice_register": 4.270000000000001,
+          "voice_quality": 3.835000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.185,
           "voice_articulation": 6.109999999999999,
           "voice_microtone": 5.295,
-          "voice_tradition": 39.345,
+          "voice_tradition": 38.97,
           "voice_mechanism_compound": 4.96,
-          "voice_estill_quality": 7.67,
+          "voice_estill_quality": 7.865,
           "voice_speech_song": 28.794999999999995,
           "voice_ensemble_config": 19.174999999999994,
           "voice_ornament_system": 1.6899999999999997,
@@ -66,7 +66,7 @@
           "lyra_strings": 2.08,
           "lyra_use": 2.08,
           "lyra_body_wood": 12.135000000000007,
-          "lyra_string_material": 13.970000000000004
+          "lyra_string_material": 14.165000000000004
         }
       },
       {
@@ -81,12 +81,12 @@
           "oud_string_material": "oud_brass_wound_bass"
         },
         "scores": {
-          "plucked_traditional_technique": 2.5674999999999994,
-          "oud_school": 1.8849999999999998,
+          "plucked_traditional_technique": 2.5449999999999995,
+          "oud_school": 1.7799999999999998,
           "oud_strings": 4.03,
           "oud_pick": 0.845,
           "oud_body_wood": 3.185,
-          "oud_soundboard_wood": 4.045,
+          "oud_soundboard_wood": 3.82,
           "oud_string_material": 3.185
         }
       }

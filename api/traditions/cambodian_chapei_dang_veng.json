@@ -3,24 +3,24 @@
   "name": "Cambodian chapei dang veng",
   "family": "global",
   "lineage": "Cambodian chapei dang veng narrative-and-improvisatory song tradition. The chapei (two-string long-neck fretted plucked lute) accompanies a single male singer-performer who alternates between strophic-narrative verse passages (drawing on Khmer historical-epic, Reamker / Ramayana, and contemporary-social-commentary repertoires) and improvised satirical-and-praise-poetry verses that respond to the present audience and occasion. The form is genealogically connected to broader Southeast-Asian narrative-poet traditions (the Lao mor lam genealogically adjacent, the Thai mor lam-thai also related) and to the Indic-derived bardic-poet lineages that traveled along the Theravada Buddhist transmission routes. Performance contexts span village wedding feasts, temple-festival night entertainments, and the post-1980 revival concert circuit. The Khmer Rouge era 1975-1979 nearly extinguished the tradition (only a handful of master practitioners survived); the post-1980 revival has been driven by master Kong Nay (born 1944, blind from childhood, the canonical twentieth-century chapei singer) and his students under the Cambodian Living Arts foundation. Modal vocabulary draws on the seven-equal-tempered tuning shared with broader Khmer classical traditions. Distinguished from pinpeat by chapei's solo-narrative-with-lute (vs court-ensemble) configuration; distinguished from Lao mor lam by Khmer-language repertoire and chapei (vs khaen mouth-organ) instrumental accompaniment; distinguished from Cambodian smot Buddhist-chant by chapei's secular-narrative (vs liturgical) functional context.",
-  "recipe": "classic Southeast Asian 1975-1979 cambodian chapei dang veng, ballad Poetry, indian bard branch, west African griot ballad poetry, med east poetic ballad poetry tigrinya music donsongoni hunter's harp. vocal fry, declaimed, pure, narrative. two string long neck fretted canonical khmer narrative dang veng narrative singing canonical cambodian chapei lute. wooden pagoda hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 506,
-  "score": 199.359,
+  "recipe": "classic Southeast Asian 1975-1979 cambodian chapei dang veng, ballad Poetry, indian bard branch, west African griot ballad poetry, med east poetic ballad poetry mande griot narrative epic recitation tigrinya music. kargyraa, declaimed, chest resonance low mid, narrative. two string long neck fretted canonical khmer narrative dang veng narrative singing canonical cambodian chapei lute. wooden pagoda hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 537,
+  "score": 209.414,
   "config": {
     "traditions": [
       "cambodian_chapei_dang_veng",
-      "tigrinya_music_eritrean",
-      "donsongoni_hunter_harp"
+      "mande_griot_epic_narrative",
+      "tigrinya_music_eritrean"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
+          "voice_register": "kargyraa_register",
           "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "straight_tone",
+          "voice_vibrato": "slow_vibrato",
           "voice_articulation": "narrative_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "mande_jeli_vocal_tradition",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_unison_double_take"
         },
         "scores": {
-          "voice_register": 1.69,
-          "voice_quality": 13.269499999999995,
+          "voice_register": 1.4949999999999999,
+          "voice_quality": 15.919499999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.145,
-          "voice_articulation": 5.7,
+          "voice_vibrato": 1.3,
+          "voice_articulation": 6.85,
           "voice_microtone": 2.1224999999999996,
-          "voice_tradition": 39.585,
+          "voice_tradition": 43.55,
           "voice_mechanism_compound": 7.279999999999999,
           "voice_estill_quality": 11.102,
-          "voice_speech_song": 24.960000000000008,
-          "voice_ensemble_config": 21.515000000000004,
-          "voice_ornament_system": 6.3149999999999995,
+          "voice_speech_song": 24.115000000000006,
+          "voice_ensemble_config": 20.67,
+          "voice_ornament_system": 6.914999999999999,
           "voice_pitch_organization": 8.50075,
-          "voice_processing_chain": 7.280000000000001,
+          "voice_processing_chain": 8.125,
           "voice_multitrack_stack": 2.645
         }
       },
@@ -59,8 +59,8 @@
           "chapei_lute_tradition": "chapei_lute_dang_veng_canonical"
         },
         "scores": {
-          "chapei_lute_body": 22.40325,
-          "chapei_lute_tradition": 16.59625
+          "chapei_lute_body": 22.903249999999996,
+          "chapei_lute_tradition": 17.74625
         }
       }
     ],

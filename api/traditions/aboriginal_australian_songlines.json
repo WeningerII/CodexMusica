@@ -5,7 +5,7 @@
   "lineage": "Aboriginal Australian hunting-and-songlines tradition continuous from at-least-65,000-year-continuous Indigenous-Australian cultural-practice through colonial-era continuous performance into modern Aboriginal-and-Torres-Strait-Islander continuous practice",
   "recipe": "classic Oceanian modern aboriginal australian hunting songlines, hunting Song, indigenous branch, arctic hunting song, sub saharan African hunting song, oceania pacific praise song māori waiata mōteatea / patere san (khoisan) hunting and trance song. vocal fry, declaimed, tasteful, continuous-phonation. eucalyptus tetrodonta yidaki canon northeast arnhem sugarbag beeswax native bee wax didgeridoo, claves. arctic arnhem indigenous outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 572,
-  "score": 156.736,
+  "score": 157.111,
   "config": {
     "traditions": [
       "aboriginal_australian_songlines",
@@ -35,14 +35,14 @@
         },
         "scores": {
           "voice_register": 0.78,
-          "voice_quality": 15.470249999999997,
+          "voice_quality": 15.657749999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.38,
           "voice_articulation": 10.139999999999999,
           "voice_microtone": 0.045,
           "voice_tradition": 21.515,
-          "voice_mechanism_compound": 12.225,
+          "voice_mechanism_compound": 12.42,
           "voice_estill_quality": 1.56,
           "voice_speech_song": 21.58,
           "voice_ensemble_config": 10.399999999999997,
@@ -75,7 +75,7 @@
         },
         "scores": {
           "claves_pattern": 2.7299999999999995,
-          "claves_wood": 0.5025
+          "claves_wood": 0.49499999999999994
         }
       }
     ],

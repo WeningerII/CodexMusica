@@ -5,7 +5,7 @@
   "lineage": "Irish traditional instrumental dance-tune session tradition — modal melodies (Dorian and Mixolydian dominant) played on fiddle, tin whistle, flute, uilleann pipes, button accordion, concertina, bodhrán, and (in the post-Bothy-Band revival era) bouzouki and guitar in DADGAD tuning — revived from the 1960s-70s through Sean Ó Riada, Ceoltóirí Chualann, the Chieftains, the Bothy Band, Planxty, Altan, and the broader Doolin / Clare / Galway pub-session circuit",
   "recipe": "classic Northern European mid-1960s irish trad session, improv On Frame, Celtic traditional branch, string drone modal polish village fiddle huayno. magic rosin modern acrylic base double stops fiddle, African blackwood boxwood premium pre modern melodic tin whistle, flute, leather castagnari Italian premium folk music drone like accordion, dadgad tuning fingerpicked parlor acoustic guitar, low mid rich spectrum traditional gut gut string celtic harp, drone like concertina english, goat skin canonical Irish ash pre modern traditional Irish bodhran, melodic tin whistle low, full band African blackwood canonical Irish modern cane arundo donax canonical Irish leather canonical Irish bellows fed rowsome dublin tradition uilleann pipes. irish pub doolin clare session. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 920,
-  "score": 168.175,
+  "score": 168.136,
   "config": {
     "traditions": [
       "celtic_irish_trad",
@@ -40,7 +40,7 @@
         },
         "scores": {
           "wind_articulation": 5.92,
-          "whistle_key": 6.098214285714285,
+          "whistle_key": 6.094999999999999,
           "whistle_ornament": 3.715,
           "whistle_body_material": 1.755
         }
@@ -55,7 +55,7 @@
           "flute_maker_school": "flute_powell_boston"
         },
         "scores": {
-          "wind_articulation": 0.8607142857142857,
+          "wind_articulation": 0.85,
           "flute_size": 0.65,
           "flute_material": 0.7799999999999998,
           "flute_technique": 0.585,
@@ -93,7 +93,7 @@
           "string_acoustic_parlor": "coated_nano_p"
         },
         "scores": {
-          "acoustic_technique": 3.0475,
+          "acoustic_technique": 3.0399999999999996,
           "string_tuning": 10.59,
           "top_wood_parlor": 0.45499999999999996,
           "back_sides_parlor": 0.12999999999999998,
@@ -136,7 +136,7 @@
         "scores": {
           "bodhran_play": 5.525,
           "bodhran_skin": 8.895,
-          "bodhran_shell_wood": 8.168857142857142
+          "bodhran_shell_wood": 8.168
         }
       },
       {
@@ -148,7 +148,7 @@
         },
         "scores": {
           "wind_articulation": 5.92,
-          "tin_whistle_low_pitch": 6.098214285714285,
+          "tin_whistle_low_pitch": 6.094999999999999,
           "tin_whistle_low_context": 3.8999999999999995
         }
       },
@@ -165,7 +165,7 @@
         },
         "scores": {
           "wind_articulation": 5.92,
-          "uilleann_set": 5.503928571428571,
+          "uilleann_set": 5.489999999999999,
           "uilleann_pipes_pitch": 5.654999999999999,
           "uilleann_chanter_wood": 4.16,
           "uilleann_reed": 3.4,

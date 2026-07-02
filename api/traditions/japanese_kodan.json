@@ -1,0 +1,96 @@
+{
+  "id": "japanese_kodan",
+  "name": "Japanese kōdan",
+  "family": "global",
+  "lineage": "Japanese historical-narrative recitation in which the koshi (kodan-shi) narrates war-chronicles, vendetta tales, biographies and political-society stories from behind a small reading-desk (shakudai), beating a rhythmic pulse on it with a paper fan or wooden clapper (hariogi). Descended from Edo-period military-chronicle lecturing (koshaku) and distinct from the comic rakugo, it prizes cadenced, driving delivery and dramatic set-pieces; the tradition runs through named koshi lineages and enjoyed a broadcast heyday on early Japanese radio. The voice is a measured, rhythmically-propelled declamation punctuated by the desk-beat.",
+  "recipe": "classic East Asian modern japanese kōdan, art Music, east Asian branch beijing opera tibetan ache lhamo opera. thick, pressed, melodic, punctuated. tatami parlor japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 301,
+  "score": 162.184,
+  "config": {
+    "traditions": [
+      "japanese_kodan",
+      "beijing_opera",
+      "tibetan_ache_lhamo"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "pressed_phonation_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "chinese_classical_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 2.3075,
+          "voice_quality": 11.074999999999998,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.5100000000000002,
+          "voice_articulation": 3.57925,
+          "voice_microtone": 0.7557499999999999,
+          "voice_tradition": 31.7525,
+          "voice_mechanism_compound": 7.049999999999999,
+          "voice_estill_quality": 20.388624999999994,
+          "voice_speech_song": 21.84,
+          "voice_ensemble_config": 25.089999999999996,
+          "voice_ornament_system": 16.205,
+          "voice_pitch_organization": 7.8505,
+          "voice_processing_chain": 4.81,
+          "voice_multitrack_stack": 3.4450000000000003
+        }
+      }
+    ],
+    "room": "tatami_parlor_japanese",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "tatami_parlor_japanese",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "speech_voice",
+      "voice_speech_song": "voice_rhythmic_spoken_flow",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "voice_articulation": "narrative_voice"
+    },
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "tube_pre",
+    "chain_medium": "digital_std",
+    "chain_console": "clean"
+  }
+}

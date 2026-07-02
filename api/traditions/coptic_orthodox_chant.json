@@ -5,7 +5,7 @@
   "lineage": "Coptic Orthodox liturgical chant tradition of the Egyptian Christian community, the canonical sacred-music tradition of the Coptic Orthodox Church (founded by tradition by Saint Mark in Alexandria in the first century, with continuous liturgical-music transmission from at least the Hellenistic-late-antique period). The Coptic liturgical year follows an eight-mode oktoechos modal-cycle structure (parallel to but distinct from the Byzantine and Syriac oktoechoi), with mode-specific cadential formulae governing each of the canonical liturgical hours and the principal cycles of the Sundays of Lent, the Holy Week, the Easter season, and the regular Sunday Divine Liturgy. Performance configuration: a male choir of cantor-and-chorus (the muallim head-cantor with his assistant cantors and the broader congregation), with characteristic percussion-only instrumental accompaniment — sanj small bronze paired hand-cymbals, muthallath metal triangle struck with rod, and the canonical kūz pottery-jar struck on specific Lenten and funeral hymns. Vocal architecture features microtonal modal-melodic vocabulary with characteristic shifted-third intervals and quarter-tone-and-three-quarter-tone microtonal inflections that no Western tempered transcription captures faithfully — Ragheb Moftah (1898-2001) led the twentieth-century institutional preservation project at the Institute of Coptic Studies (Cairo, 1926-2001), with English transcription-and-notation collaborator Ernest Newlandsmith (Cairo transcriptions 1926-1936) and Hungarian musicologist Margit Tóth (from 1970 onward) producing the canonical published documentary corpus, culminating in the 1998 AUC Press publication The Coptic Orthodox Liturgy of St. Basil: With Complete Musical Transcription. Distinguished from Byzantine chant by Coptic's Egyptian-Arabic-and-Coptic-Bohairic liturgical-language base (vs Greek), characteristic Coptic cymbal-and-triangle percussion accompaniment, and Egyptian-specific modal vocabulary; distinguished from Ethiopian Tewahedo zema by Coptic's eight-mode oktoechos system (vs Tewahedo's threefold ge'ez-ezel-araray); distinguished from Syriac and Maronite chant by Coptic's Egyptian regional rite and characteristic instrumental percussion presence.",
   "recipe": "classic North African early-1890s coptic orthodox liturgical chant, ritual Devotional, coptic branch, western early art music ars antiqua and organum renaissance sacred polyphony. thick, declaimed, melodic, ornamental. mixed satb canonical 4 part western three voice polyphonic regional andean three voice parallel thirds quechua aymara sacred liturgical global choir ensemble, paired bronze small canonical coptic orthodox coptic liturgical hymn canonical Egyptian orthodox sanj, metal triangle struck rod canonical coptic liturgical coptic specific hymn canonical Egyptian orthodox muthallath. coptic basilica. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 742,
-  "score": 420.719,
+  "score": 412.76,
   "config": {
     "traditions": [
       "coptic_orthodox_chant",
@@ -23,7 +23,7 @@
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "melisma_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_tradition": "chinese_classical_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -34,16 +34,16 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 8.335,
+          "voice_register": 8.530000000000001,
           "voice_quality": 11.040000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 5.004999999999999,
           "voice_articulation": 5.74,
           "voice_microtone": 13.149999999999999,
-          "voice_tradition": 17.315499999999997,
-          "voice_mechanism_compound": 18.910500000000003,
-          "voice_estill_quality": 13.275500000000001,
+          "voice_tradition": 16.964999999999996,
+          "voice_mechanism_compound": 18.735,
+          "voice_estill_quality": 13.100000000000001,
           "voice_speech_song": 32.760000000000005,
           "voice_ensemble_config": 40.105000000000004,
           "voice_ornament_system": 7.950000000000001,
@@ -64,7 +64,7 @@
           "choir_size": 11.83,
           "choir_polyphonic_configuration": 15.34,
           "choir_regional_canonical_configuration": 6.825,
-          "choir_ensemble_repertoire": 14.808249999999997
+          "choir_ensemble_repertoire": 14.109999999999998
         }
       },
       {
@@ -74,8 +74,8 @@
           "sanj_tradition": "sanj_coptic_liturgical_canonical"
         },
         "scores": {
-          "sanj_body": 32.768,
-          "sanj_tradition": 42.961
+          "sanj_body": 31.115000000000002,
+          "sanj_tradition": 40.795
         }
       },
       {
@@ -85,8 +85,8 @@
           "muthallath_tradition": "muthallath_coptic_specific_hymn_canonical"
         },
         "scores": {
-          "muthallath_body": 38.8825,
-          "muthallath_tradition": 35.623000000000005
+          "muthallath_body": 37.6,
+          "muthallath_tradition": 33.970000000000006
         }
       }
     ],

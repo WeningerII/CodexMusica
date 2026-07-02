@@ -5,7 +5,7 @@
   "lineage": "Romanian lăutari (Roma professional-musician-class) tavern-band-and-wedding-music tradition of Romania and Moldova, performed by predominantly Roma musicians serving the broader Romanian agricultural-and-urban communities. The taraf ensemble centers on violin (sometimes multiple violins in heterophonic relationship), cimbalom hammered-dulcimer (the larger Hungarian-Romanian concert variant of the broader dulcimer family), accordion, double-bass, and voice. Repertoire spans the canonical doina free-rhythm lament solo-vocal-or-violin form, the hora circle-dance, the brâu chain-dance, and the broader Romanian regional-folk repertoire. The post-1989 international circulation through the Taraf de Haïdouks ensemble brought the lăutari tradition into the world-music circuit.",
   "recipe": "classic Southern European late-1980s romanian lăutari, functional Song, europop branch, med east poetic ballad poetry pontic greek music ethiopian azmari minstrel-poet. thick, declaimed, pure, narrative. sitka spruce Baroque setup short neck shorter fingerboard lighter bass bar violin orchestral, sustained and staccato hungarian tradition concert pedal cimbalom large frame pedal damper cimbalom, castagnari Italian premium folk music straight accordion. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 620,
-  "score": 179.905,
+  "score": 179.203,
   "config": {
     "traditions": [
       "romanian_lautari",
@@ -34,14 +34,14 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 2.8265000000000007,
-          "voice_quality": 4.750000000000001,
+          "voice_register": 2.795000000000001,
+          "voice_quality": 4.9075000000000015,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.69,
           "voice_articulation": 0.585,
           "voice_microtone": 1.6700000000000002,
-          "voice_tradition": 30.626000000000005,
+          "voice_tradition": 30.185000000000006,
           "voice_mechanism_compound": 4.225,
           "voice_estill_quality": 3.185,
           "voice_speech_song": 23.855,
@@ -74,9 +74,9 @@
           "orch_varnish": 0.7149999999999994,
           "orch_setup_period": 1.2449999999999999,
           "orch_bow": 4.289999999999999,
-          "orch_bow_stick": -0.035,
-          "orch_articulation": 0.4215,
-          "orch_rosin": -0.035
+          "orch_bow_stick": -0.05,
+          "orch_articulation": 0.39,
+          "orch_rosin": -0.05
         }
       },
       {
@@ -96,16 +96,16 @@
           "free_reed_technique": "free_reed_folk_first_position",
           "accordion_reed_material": "steel_reeds",
           "musette_offset": "scottish_musette",
-          "reed_config": "lmmm",
+          "reed_config": "lmm",
           "bellows": "cardboard_leather",
           "voicing_chamber": "no_cassotto",
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 3.5715000000000003,
+          "free_reed_technique": 3.5400000000000005,
           "accordion_reed_material": 0.585,
-          "musette_offset": 0.6164999999999999,
-          "reed_config": 0.2625,
+          "musette_offset": 0.585,
+          "reed_config": 0,
           "bellows": 0,
           "voicing_chamber": 0.585,
           "accordion_maker_school": 10.549999999999999

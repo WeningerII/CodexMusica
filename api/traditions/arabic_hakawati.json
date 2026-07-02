@@ -1,0 +1,96 @@
+{
+  "id": "arabic_hakawati",
+  "name": "Arabic hakawati coffeehouse storytelling",
+  "family": "global",
+  "lineage": "Traditional Arab coffeehouse storytelling of the Levant, Egypt and the wider Arab world, in which the hakawati ('teller') serialises long popular epics — the Sirat Bani Hilal, the exploits of Antar ibn Shaddad, Baybars, and tales from the Thousand and One Nights — across nightly installments, often reading from a chapbook while embellishing in performance. Seated on a raised chair with a cane or sword as prop, the teller times cliffhangers to the audience and the coffee trade; the art was near-extinct by the late twentieth century and is associated with figures such as Damascus's Abu Shadi (Rashid al-Hallak). Delivery is expressive spoken narration marked by direct address, formulaic openings and pious interjection.",
+  "recipe": "classic North African modern arabic hakawati coffeehouse storytelling, ballad Poetry, med east poetic branch cape verdean batuko of santiago island jeju haenyeo songs. thick, declaimed, chest resonance low mid, narrative. stone plaster medina room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 378,
+  "score": 164.837,
+  "config": {
+    "traditions": [
+      "arabic_hakawati",
+      "cape_verdean_batuko",
+      "jeju_haenyeo_songs"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
+        },
+        "scores": {
+          "voice_register": 4.001500000000001,
+          "voice_quality": 3.1525000000000003,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.535,
+          "voice_articulation": 3.7050000000000005,
+          "voice_microtone": 4.1815,
+          "voice_tradition": 19.694999999999997,
+          "voice_mechanism_compound": 9.165,
+          "voice_estill_quality": 8.515,
+          "voice_speech_song": 38.480000000000004,
+          "voice_ensemble_config": 28.860000000000003,
+          "voice_ornament_system": 5.3315,
+          "voice_pitch_organization": 5.3315,
+          "voice_processing_chain": 6.7235,
+          "voice_multitrack_stack": 5.135
+        }
+      }
+    ],
+    "room": "stone_plaster_medina_room",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "stone_plaster_medina_room",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "speech_voice",
+      "voice_speech_song": "voice_pure_spoken_no_pitch",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "voice_articulation": "narrative_voice"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}
