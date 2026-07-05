@@ -3,20 +3,20 @@
   "name": "Hausa court music (roķon Sarkin Kano)",
   "family": "global",
   "lineage": "Sahelian-Hausa royal-court ceremonial tradition centered on the emirates of northern Nigeria and southern Niger (Kano, Katsina, Sokoto, Zaria, Daura) — characterized by kakaki long-trumpet fanfares, talking-drum (kalangu) praise-singing, ganga and tambari drum ensembles announcing emir presence; ritual functions tied to the masu sarauta court-titled-officials system",
-  "recipe": "classic North American mid-1990s hausa court music, ballad Poetry, west African griot branch, islamic ritual devotional, west African groove percussion were music acehnese saman. vocal fry, declaimed, pure, rhythmic. sheet brass canonical hausa fulani hammered tube call ritual kakaki, iroko alternative west African talking drum, griot voice. adobe room. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 502,
-  "score": 171.485,
+  "recipe": "classic North American mid-1990s hausa court music, ballad Poetry, west African griot branch, islamic ritual devotional, west African groove percussion yoruba dùndún surrogate speech were music. thick, declaimed, pure, rhythmic. sheet brass canonical hausa fulani hammered tube call ritual kakaki, iroko alternative west African goat skin leather tension cords canonical pressure bend talking drum, griot voice. adobe room. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 570,
+  "score": 188.825,
   "config": {
     "traditions": [
       "hausa_court_music",
-      "were_music_yoruba",
-      "acehnese_saman"
+      "yoruba_dundun_surrogate_speech",
+      "were_music_yoruba"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
+          "voice_register": "chest_voice",
           "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -28,27 +28,27 @@
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 1.245,
-          "voice_quality": 18.019999999999996,
+          "voice_register": 1.4899999999999993,
+          "voice_quality": 16.145,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.845,
-          "voice_articulation": 0.845,
+          "voice_articulation": 0.525,
           "voice_microtone": 1.7599999999999998,
-          "voice_tradition": 39.845,
-          "voice_mechanism_compound": 1.69,
-          "voice_estill_quality": 1.885,
-          "voice_speech_song": 15.08,
-          "voice_ensemble_config": 12.479999999999997,
-          "voice_ornament_system": 11.454999999999998,
-          "voice_pitch_organization": 8.979999999999997,
-          "voice_processing_chain": 4.415,
+          "voice_tradition": 48.7175,
+          "voice_mechanism_compound": 0.845,
+          "voice_estill_quality": 4.0600000000000005,
+          "voice_speech_song": 14.689999999999996,
+          "voice_ensemble_config": 10.594999999999995,
+          "voice_ornament_system": 9.934999999999999,
+          "voice_pitch_organization": 15.104999999999995,
+          "voice_processing_chain": 3.7649999999999997,
           "voice_multitrack_stack": 1.9500000000000002
         }
       },
@@ -61,7 +61,7 @@
           "kakaki_bell_metal": "kakaki_brass_canonical"
         },
         "scores": {
-          "wind_articulation": 12.86,
+          "wind_articulation": 11.115,
           "kakaki_length": 6.25,
           "kakaki_context": 2.5999999999999996,
           "kakaki_bell_metal": 4.18
@@ -71,15 +71,15 @@
         "id": "talking_drum",
         "slots": {
           "talking_drum_origin": "gangan_yoruba",
-          "talking_drum_context": "talking_drum_juju",
+          "talking_drum_context": "talking_drum_praise",
           "talking_drum_shell_wood": "talking_drum_iroko_alt",
           "talking_drum_head": "talking_drum_goat_skin_canonical"
         },
         "scores": {
-          "talking_drum_origin": 2.545,
-          "talking_drum_context": 0.845,
-          "talking_drum_shell_wood": 7.540000000000001,
-          "talking_drum_head": 0.845
+          "talking_drum_origin": 4.345,
+          "talking_drum_context": 1.9949999999999999,
+          "talking_drum_shell_wood": 8.58,
+          "talking_drum_head": 2.4450000000000003
         }
       },
       {

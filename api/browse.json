@@ -1,6 +1,6 @@
 {
   "name": "Codex Musica — browse index (Tier-1 data for the lazy-loaded app)",
-  "generated": "2026-07-02",
+  "generated": "2026-07-05",
   "axisKeys": [
     "harm",
     "pitch",
@@ -16,7 +16,7 @@
     "percussion",
     "cyclicity"
   ],
-  "count": 1176,
+  "count": 1195,
   "items": [
     {
       "id": "honky_tonk",
@@ -45360,6 +45360,559 @@
       "description": "Sacred Hawaiian chant (oli) performed in the low, bent-knee haʻa posture reserved for akua and ancestors, encompassing genealogical (koʻihonua) and name (mele inoa) chants that transmit lineage and cosmology. The style is marked by sustained, measured vocal delivery and stylized ornaments such as the ʻiʻi trill, and was traditionally taught within the hula hālau under a kumu hula. The corpus and its performance practice were documented in Nathaniel B. Emerson's Unwritten Literature of Hawaii (1909) and in the later scholarship of Mary Kawena Pukui. Chant carried genealogy, prayer, and place-lore as authoritative oral record in pre-literate Hawaiʻi.",
       "crossRefs": [
         "praiseSong"
+      ]
+    },
+    {
+      "id": "audiobook_narration",
+      "name": "Audiobook narration",
+      "family": "global",
+      "lineage": "Solo long-form literary narration tradition rooted in the 1932 American Foundation for the Blind / Library of Congress talking-book program for blind readers and in the 1952 founding of Caedmon Records, whose Dylan Thomas reading of A Child's Christmas in Wales is the commonly cited commercial origin point. It grew through the Books on Tape cassette-rental era of the 1970s-80s into the Audible-era digital industry, with the narrator working alone in a dry, heavily damped close-miked booth, sustaining a consistent voice, pacing, and character palette across many hours of finished audio. Canonical narrators include Jim Dale and Stephen Fry (the US and UK Harry Potter cycles respectively), George Guidall, and Barbara Rosenblat.",
+      "parent": "spokenWord.narration",
+      "axes": [
+        -2,
+        -2,
+        -2,
+        -2,
+        -2,
+        -2,
+        -2,
+        2,
+        -1,
+        2,
+        0,
+        -2,
+        -2
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Solo long-form literary narration tradition rooted in the 1932 American Foundation for the Blind / Library of Congress talking-book program for blind readers and in the 1952 founding of Caedmon Records, whose Dylan Thomas reading of A Child's Christmas in Wales is the commonly cited commercial origin point. It grew through the Books on Tape cassette-rental era of the 1970s-80s into the Audible-era digital industry, with the narrator working alone in a dry, heavily damped close-miked booth, sustaining a consistent voice, pacing, and character palette across many hours of finished audio. Canonical narrators include Jim Dale and Stephen Fry (the US and UK Harry Potter cycles respectively), Geor",
+      "crossRefs": [
+        "spokenWord"
+      ]
+    },
+    {
+      "id": "documentary_voiceover",
+      "name": "Documentary voiceover",
+      "family": "global",
+      "lineage": "Authoritative scripted narration read over documentary picture, descending from 1930s-40s newsreel narration such as Westbrook Van Voorhis's reads for The March of Time into postwar television nature and history documentary. Canonical exemplars include David Attenborough's intimate-authoritative BBC natural-history narration (Life on Earth, 1979, through the Planet Earth series), David McCullough's narration of Ken Burns's The Civil War (1990) and Peter Coyote's later Burns work, and Morgan Freeman's March of the Penguins (2005) as the popular touchstone of the warm 'voice of God' register. The performer reads alone to picture in a dry, treated studio, balancing measured pacing and low, resonant delivery against the score and location-sound bed.",
+      "parent": "spokenWord.narration",
+      "axes": [
+        -2,
+        -2,
+        -2,
+        -2,
+        -2,
+        -2,
+        -2,
+        2,
+        0,
+        2,
+        1,
+        -2,
+        -2
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Authoritative scripted narration read over documentary picture, descending from 1930s-40s newsreel narration such as Westbrook Van Voorhis's reads for The March of Time into postwar television nature and history documentary. Canonical exemplars include David Attenborough's intimate-authoritative BBC natural-history narration (Life on Earth, 1979, through the Planet Earth series), David McCullough's narration of Ken Burns's The Civil War (1990) and Peter Coyote's later Burns work, and Morgan Freeman's March of the Penguins (2005) as the popular touchstone of the warm 'voice of God' register. The performer reads alone to picture in a dry, treated studio, balancing measured pacing and low, reso",
+      "crossRefs": [
+        "spokenWord"
+      ]
+    },
+    {
+      "id": "oldtime_radio_announcer",
+      "name": "Old-time radio announcer",
+      "family": "global",
+      "lineage": "American network-radio announcer style of the 1930s-50s NBC and CBS era, delivered in projected, precisely articulated diction — often the cultivated Mid-Atlantic ('transatlantic') accent taught in period broadcast and elocution training — into RCA 44 and 77 ribbon microphones. Staff and program announcers such as Don Wilson (The Jack Benny Program), Harry von Zell, Ken Carpenter, and Milton Cross (the Metropolitan Opera broadcasts) defined the register across variety-show openings, drama introductions, station identifications, and live commercial reads; Orson Welles's 1938 Mercury Theatre on the Air 'War of the Worlds' broadcast famously exploited the authority this announcer voice carried. The sound is inseparable from the period transmission chain: ribbon mic, tube electronics, and bandwidth-limited live AM air or transcription disc.",
+      "parent": "spokenWord.narration",
+      "axes": [
+        -2,
+        -1,
+        -2,
+        -1,
+        -2,
+        -1,
+        -1,
+        1,
+        1,
+        2,
+        1,
+        -2,
+        -2
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "American network-radio announcer style of the 1930s-50s NBC and CBS era, delivered in projected, precisely articulated diction — often the cultivated Mid-Atlantic ('transatlantic') accent taught in period broadcast and elocution training — into RCA 44 and 77 ribbon microphones. Staff and program announcers such as Don Wilson (The Jack Benny Program), Harry von Zell, Ken Carpenter, and Milton Cross (the Metropolitan Opera broadcasts) defined the register across variety-show openings, drama introductions, station identifications, and live commercial reads; Orson Welles's 1938 Mercury Theatre on the Air 'War of the Worlds' broadcast famously exploited the authority this announcer voice carried.",
+      "crossRefs": [
+        "spokenWord"
+      ]
+    },
+    {
+      "id": "radio_drama_golden_age",
+      "name": "Golden-age radio drama",
+      "family": "global",
+      "lineage": "American network radio drama of the 1930s-1950s: full-cast actors performing live-to-air around ribbon microphones in large broadcast studios, with foley artists creating door slams, footsteps, and storms in real time and organ or orchestra cues stitching scenes together. The canonical exemplar is Orson Welles's Mercury Theatre on the Air, whose 'The War of the Worlds' broadcast (CBS, 30 October 1938) demonstrated the form's power, alongside Norman Corwin's poetic productions and long-running series such as Suspense and The Shadow. A parallel BBC radio drama tradition continued in Britain after American network drama faded with television in the late 1950s. Actors worked the mic distance itself as a dramatic instrument, stepping in for intimacy and off-axis for exits.",
+      "parent": "spokenWord.broadcast",
+      "axes": [
+        -2,
+        -2,
+        -2,
+        -2,
+        0,
+        -2,
+        -2,
+        1,
+        1,
+        2,
+        1,
+        -1,
+        -2
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "American network radio drama of the 1930s-1950s: full-cast actors performing live-to-air around ribbon microphones in large broadcast studios, with foley artists creating door slams, footsteps, and storms in real time and organ or orchestra cues stitching scenes together. The canonical exemplar is Orson Welles's Mercury Theatre on the Air, whose 'The War of the Worlds' broadcast (CBS, 30 October 1938) demonstrated the form's power, alongside Norman Corwin's poetic productions and long-running series such as Suspense and The Shadow. A parallel BBC radio drama tradition continued in Britain after American network drama faded with television in the late 1950s. Actors worked the mic distance its",
+      "crossRefs": [
+        "spokenWord"
+      ]
+    },
+    {
+      "id": "podcast_conversation",
+      "name": "Podcast conversation",
+      "family": "global",
+      "lineage": "Long-form conversational talk distributed as on-demand internet audio, emerging with RSS audio enclosures in the mid-2000s and codified as a two-plus-voice close-mic form by shows like Marc Maron's WTF (2009) and The Joe Rogan Experience (2009). The signature sound is each speaker on their own close dynamic microphone (the Shure SM7B became the emblematic choice) in a dry treated room, mixed in a DAW and delivered as compressed digital files. Remote 'double-ender' recording, where each participant captures their own local track over an internet call, became standard practice in the 2010s and expanded the form globally. Unscripted turn-taking conversation, running one to three-plus hours, is the defining performance mode.",
+      "parent": "spokenWord.broadcast",
+      "axes": [
+        -2,
+        -2,
+        -2,
+        -2,
+        -1,
+        -2,
+        2,
+        1,
+        -1,
+        2,
+        0,
+        -2,
+        -2
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Long-form conversational talk distributed as on-demand internet audio, emerging with RSS audio enclosures in the mid-2000s and codified as a two-plus-voice close-mic form by shows like Marc Maron's WTF (2009) and The Joe Rogan Experience (2009). The signature sound is each speaker on their own close dynamic microphone (the Shure SM7B became the emblematic choice) in a dry treated room, mixed in a DAW and delivered as compressed digital files. Remote 'double-ender' recording, where each participant captures their own local track over an internet call, became standard practice in the 2010s and expanded the form globally. Unscripted turn-taking conversation, running one to three-plus hours, is ",
+      "crossRefs": [
+        "spokenWord"
+      ]
+    },
+    {
+      "id": "sports_play_by_play",
+      "name": "Sports play-by-play commentary",
+      "family": "global",
+      "lineage": "Live-event narration born on 1920s American AM radio, with KDKA Pittsburgh's 1921 boxing and baseball broadcasts and NBC's Graham McNamee establishing the announcer role. The mid-century canon runs through Red Barber and Mel Allen in baseball, Foster Hewitt's 'He shoots, he scores!' in Canadian hockey, and Vin Scully's 67 seasons with the Brooklyn and Los Angeles Dodgers (1950-2016). The craft is fully improvised real-time description whose pitch, tempo, and volume escalate with game action, delivered from a booth headset microphone riding above continuous crowd roar. The form spread worldwide, with national schools such as the melismatic 'gooooal' call of Latin American football commentary.",
+      "parent": "spokenWord.broadcast",
+      "axes": [
+        -2,
+        -1,
+        -1,
+        -2,
+        -1,
+        -1,
+        2,
+        1,
+        2,
+        2,
+        1,
+        -2,
+        -2
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Live-event narration born on 1920s American AM radio, with KDKA Pittsburgh's 1921 boxing and baseball broadcasts and NBC's Graham McNamee establishing the announcer role. The mid-century canon runs through Red Barber and Mel Allen in baseball, Foster Hewitt's 'He shoots, he scores!' in Canadian hockey, and Vin Scully's 67 seasons with the Brooklyn and Los Angeles Dodgers (1950-2016). The craft is fully improvised real-time description whose pitch, tempo, and volume escalate with game action, delivered from a booth headset microphone riding above continuous crowd roar. The form spread worldwide, with national schools such as the melismatic 'gooooal' call of Latin American football commentary.",
+      "crossRefs": [
+        "spokenWord"
+      ]
+    },
+    {
+      "id": "numbers_station_broadcast",
+      "name": "Numbers-station shortwave broadcast",
+      "family": "global",
+      "lineage": "Cold War-era shortwave espionage broadcasts, active from the 1950s onward and still transmitting (Cuba's HM01 continues today): flat monotone read or machine-generated numeral groups sent to field agents for one-time-pad decryption. Stations announce themselves with repeating interval signals such as the 'Lincolnshire Poacher' folk-tune ident and the 'Swedish Rhapsody' music box, then recite number groups at a fixed metronomic pace before signing off. The aesthetic — affectless voice buried in shortwave carrier hiss, heterodyne whistles, and fading — was canonized by The Conet Project (Irdial-Discs, 1997), a four-CD anthology of off-air recordings that made the genre a touchstone for experimental musicians. Operating agencies almost never acknowledge the stations, and their purpose is known largely through espionage trials and defector accounts.",
+      "parent": "spokenWord.broadcast",
+      "axes": [
+        -2,
+        -2,
+        -2,
+        0,
+        -2,
+        -2,
+        -2,
+        2,
+        -2,
+        2,
+        -1,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Cold War-era shortwave espionage broadcasts, active from the 1950s onward and still transmitting (Cuba's HM01 continues today): flat monotone read or machine-generated numeral groups sent to field agents for one-time-pad decryption. Stations announce themselves with repeating interval signals such as the 'Lincolnshire Poacher' folk-tune ident and the 'Swedish Rhapsody' music box, then recite number groups at a fixed metronomic pace before signing off. The aesthetic — affectless voice buried in shortwave carrier hiss, heterodyne whistles, and fading — was canonized by The Conet Project (Irdial-Discs, 1997), a four-CD anthology of off-air recordings that made the genre a touchstone for experim",
+      "crossRefs": [
+        "spokenWord"
+      ]
+    },
+    {
+      "id": "shipping_forecast_cadence",
+      "name": "Shipping forecast cadence",
+      "family": "global",
+      "lineage": "The Met Office marine weather bulletin broadcast on BBC radio since the mid-1920s, read in a measured, deliberately calm cadence over long wave for mariners around the British Isles. The forecast names its 31 sea areas in a fixed roughly clockwise order — Viking, North Utsire, South Utsire, Forties, Cromarty, Forth, Tyne, Dogger, Fisher, German Bight and onward — within a strict word limit, so the litany's rhythm barely varies from bulletin to bulletin. The 0048 Radio 4 broadcast, preceded by the light-orchestral tune 'Sailing By', has become a secular bedtime liturgy for British listeners far beyond its maritime audience, its cadence quoted by poets and musicians alike. Delivery is neutral continuity-announcer speech: unhurried, evenly stressed, pitch-flat, with terminal falls closing each area's report.",
+      "parent": "spokenWord.broadcast",
+      "axes": [
+        -2,
+        -2,
+        -2,
+        -1,
+        -2,
+        -2,
+        -2,
+        1,
+        -2,
+        2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "The Met Office marine weather bulletin broadcast on BBC radio since the mid-1920s, read in a measured, deliberately calm cadence over long wave for mariners around the British Isles. The forecast names its 31 sea areas in a fixed roughly clockwise order — Viking, North Utsire, South Utsire, Forties, Cromarty, Forth, Tyne, Dogger, Fisher, German Bight and onward — within a strict word limit, so the litany's rhythm barely varies from bulletin to bulletin. The 0048 Radio 4 broadcast, preceded by the light-orchestral tune 'Sailing By', has become a secular bedtime liturgy for British listeners far beyond its maritime audience, its cadence quoted by poets and musicians alike. Delivery is neutral ",
+      "crossRefs": [
+        "spokenWord"
+      ]
+    },
+    {
+      "id": "asmr_whisper_triggers",
+      "name": "ASMR whisper and trigger audio",
+      "family": "global",
+      "lineage": "Internet-native whisper-and-trigger audio form that coalesced on YouTube around 2009-2010; Jennifer Allen coined the term 'autonomous sensory meridian response' in 2010 to name the tingling relaxation response the recordings aim to elicit. Performers whisper directly into binaural microphone rigs (dummy-head and 3Dio ear-shaped arrays) and foreground mouth sounds, tapping, scratching, and prop crinkles as the primary sonic content, panned for close in-ear headphone listening. Canonical early channels include GentleWhispering (Maria Viktorovna) and WhispersRed (Emma Smith), with the form professionalizing across YouTube and streaming platforms through the 2010s.",
+      "parent": "spokenWord.intimateVoice",
+      "axes": [
+        -2,
+        -2,
+        -2,
+        -2,
+        -2,
+        -2,
+        0,
+        2,
+        -2,
+        2,
+        2,
+        0,
+        0
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Internet-native whisper-and-trigger audio form that coalesced on YouTube around 2009-2010; Jennifer Allen coined the term 'autonomous sensory meridian response' in 2010 to name the tingling relaxation response the recordings aim to elicit. Performers whisper directly into binaural microphone rigs (dummy-head and 3Dio ear-shaped arrays) and foreground mouth sounds, tapping, scratching, and prop crinkles as the primary sonic content, panned for close in-ear headphone listening. Canonical early channels include GentleWhispering (Maria Viktorovna) and WhispersRed (Emma Smith), with the form professionalizing across YouTube and streaming platforms through the 2010s.",
+      "crossRefs": [
+        "spokenWord"
+      ]
+    },
+    {
+      "id": "guided_meditation",
+      "name": "Guided meditation",
+      "family": "global",
+      "lineage": "Recorded spoken instruction guiding a listener through relaxation and meditation practice, descending from 1970s self-help relaxation cassettes and the secular-mindfulness turn led by Jon Kabat-Zinn, whose Mindfulness-Based Stress Reduction program (University of Massachusetts, 1979) circulated body-scan recordings as core practice material. Delivery is slow, low-register, and deliberately under-projected, with long structured silences left between instructions. The 2010s app era — Headspace with Andy Puddicombe, Calm with Tamara Levitt — turned the form into a mass studio-produced voice genre.",
+      "parent": "spokenWord.intimateVoice",
+      "axes": [
+        -2,
+        -2,
+        -2,
+        -2,
+        -2,
+        -1,
+        -1,
+        1,
+        -2,
+        2,
+        0,
+        -2,
+        -1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Recorded spoken instruction guiding a listener through relaxation and meditation practice, descending from 1970s self-help relaxation cassettes and the secular-mindfulness turn led by Jon Kabat-Zinn, whose Mindfulness-Based Stress Reduction program (University of Massachusetts, 1979) circulated body-scan recordings as core practice material. Delivery is slow, low-register, and deliberately under-projected, with long structured silences left between instructions. The 2010s app era — Headspace with Andy Puddicombe, Calm with Tamara Levitt — turned the form into a mass studio-produced voice genre.",
+      "crossRefs": [
+        "spokenWord"
+      ]
+    },
+    {
+      "id": "hypnosis_induction",
+      "name": "Hypnotic induction",
+      "family": "global",
+      "lineage": "Clinical and stage tradition of spoken hypnotic induction descending from Franz Mesmer's eighteenth-century salons through James Braid, the Manchester surgeon who coined 'hypnotism' in the 1840s, into twentieth-century American practice. Milton H. Erickson developed conversational, indirect induction while Dave Elman codified rapid inductions for physicians; both styles rely on monotone, descending-cadence suggestion delivery, progressive-relaxation deepeners, and counted descents. From the 1970s onward the form also became a mass-market audio genre through self-hypnosis cassettes and later digital downloads.",
+      "parent": "spokenWord.intimateVoice",
+      "axes": [
+        -2,
+        -2,
+        -2,
+        -2,
+        -2,
+        0,
+        1,
+        0,
+        -2,
+        2,
+        0,
+        -2,
+        1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Clinical and stage tradition of spoken hypnotic induction descending from Franz Mesmer's eighteenth-century salons through James Braid, the Manchester surgeon who coined 'hypnotism' in the 1840s, into twentieth-century American practice. Milton H. Erickson developed conversational, indirect induction while Dave Elman codified rapid inductions for physicians; both styles rely on monotone, descending-cadence suggestion delivery, progressive-relaxation deepeners, and counted descents. From the 1970s onward the form also became a mass-market audio genre through self-hypnosis cassettes and later digital downloads.",
+      "crossRefs": [
+        "spokenWord"
+      ]
+    },
+    {
+      "id": "standup_comedy",
+      "name": "Stand-up comedy",
+      "family": "vernacular",
+      "lineage": "American solo comic form descending from vaudeville and Borscht Belt monologists through 1950s-60s nightclub soloists like Mort Sahl and Lenny Bruce, who replaced setup-punchline joke telling with personal, conversational material. The craft is built in comedy clubs — The Improv (New York, 1963) and The Comedy Store (Los Angeles, 1972) anchoring the club boom — where a comic works a single handheld microphone against live crowd response, honing timing across nightly sets. Richard Pryor's and George Carlin's early-1970s live albums fixed the recorded canon of the form.",
+      "parent": "spokenWord.stagePerformance",
+      "axes": [
+        -2,
+        -2,
+        -1,
+        -2,
+        -2,
+        1,
+        1,
+        -1,
+        1,
+        2,
+        1,
+        -2,
+        -1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "American solo comic form descending from vaudeville and Borscht Belt monologists through 1950s-60s nightclub soloists like Mort Sahl and Lenny Bruce, who replaced setup-punchline joke telling with personal, conversational material. The craft is built in comedy clubs — The Improv (New York, 1963) and The Comedy Store (Los Angeles, 1972) anchoring the club boom — where a comic works a single handheld microphone against live crowd response, honing timing across nightly sets. Richard Pryor's and George Carlin's early-1970s live albums fixed the recorded canon of the form.",
+      "crossRefs": [
+        "spokenWord"
+      ]
+    },
+    {
+      "id": "poetry_slam",
+      "name": "Poetry slam / performance poetry",
+      "family": "vernacular",
+      "lineage": "Competitive performance-poetry format created by Chicago poet Marc Kelly Smith, who launched the Uptown Poetry Slam at the Green Mill jazz club in 1986 after workshopping the format at the Get Me High Lounge. Poets perform original memorized work within a time limit, scored by randomly selected audience judges, and the format spread through New York's Nuyorican Poets Cafe and the National Poetry Slam (from 1990). Delivery favors rhythmic build, anaphora, and projected direct address, drawing on Beat reading culture, Black Arts spoken word, and hip-hop cadence; Saul Williams and HBO's Def Poetry Jam carried the style to wide audiences.",
+      "parent": "spokenWord.stagePerformance",
+      "axes": [
+        -2,
+        -1,
+        -1,
+        0,
+        -2,
+        1,
+        0,
+        -1,
+        2,
+        2,
+        1,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Competitive performance-poetry format created by Chicago poet Marc Kelly Smith, who launched the Uptown Poetry Slam at the Green Mill jazz club in 1986 after workshopping the format at the Get Me High Lounge. Poets perform original memorized work within a time limit, scored by randomly selected audience judges, and the format spread through New York's Nuyorican Poets Cafe and the National Poetry Slam (from 1990). Delivery favors rhythmic build, anaphora, and projected direct address, drawing on Beat reading culture, Black Arts spoken word, and hip-hop cadence; Saul Williams and HBO's Def Poetry Jam carried the style to wide audiences.",
+      "crossRefs": [
+        "spokenWord"
+      ]
+    },
+    {
+      "id": "greek_tragedy_chorus",
+      "name": "Greek tragedy chorus declamation",
+      "family": "classical",
+      "lineage": "Choral declamation of Athenian tragedy, 5th century BCE, performed by a chorus of twelve (later fifteen under Sophocles) in the circular orchestra of the Theatre of Dionysus during the City Dionysia festival. The chorus of the plays of Aeschylus, Sophocles, and Euripides moved between spoken dialogue, chanted anapestic recitation for entrances (parodos) and exits, and fully sung strophic odes accompanied by the aulos, with strophe and antistrophe mirrored in dance. No notated choral music survives beyond fragments, so modern practice is scholarly reconstruction, staged today in surviving open-air stone theatres such as Epidaurus, where unison declamation projected without amplification remains the defining sound.",
+      "parent": "artMusic.westernEarly",
+      "axes": [
+        -2,
+        -1,
+        -1,
+        1,
+        -1,
+        0,
+        -2,
+        -2,
+        1,
+        2,
+        0,
+        -1,
+        0
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Choral declamation of Athenian tragedy, 5th century BCE, performed by a chorus of twelve (later fifteen under Sophocles) in the circular orchestra of the Theatre of Dionysus during the City Dionysia festival. The chorus of the plays of Aeschylus, Sophocles, and Euripides moved between spoken dialogue, chanted anapestic recitation for entrances (parodos) and exits, and fully sung strophic odes accompanied by the aulos, with strophe and antistrophe mirrored in dance. No notated choral music survives beyond fragments, so modern practice is scholarly reconstruction, staged today in surviving open-air stone theatres such as Epidaurus, where unison declamation projected without amplification remai",
+      "crossRefs": [
+        "artMusic"
+      ]
+    },
+    {
+      "id": "victorian_melodrama_narration",
+      "name": "Victorian melodrama narration",
+      "family": "classical",
+      "lineage": "Heightened declamatory stage narration of 19th-century British melodrama and pantomime, the dominant popular theatre of Victorian London houses such as the Adelphi and Drury Lane. The form takes its name from melos plus drama: spoken text delivered over and between orchestral incidental-music cues, with 'melos' stings underscoring villain entrances, agitatos for chases, and tremolando strings beneath emotional speeches, so the narrator-actor's projected, rhetorically exaggerated delivery is timed against the pit. Dion Boucicault's plays and Henry Irving's celebrated vehicle The Bells (1871) exemplify the style, and the earliest sound recordings of veteran Victorian-trained actors preserve its swooping, oratorical cadence.",
+      "parent": "artMusic.westernEarly",
+      "axes": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        0,
+        -1,
+        -2,
+        1,
+        2,
+        0,
+        -2,
+        -1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Heightened declamatory stage narration of 19th-century British melodrama and pantomime, the dominant popular theatre of Victorian London houses such as the Adelphi and Drury Lane. The form takes its name from melos plus drama: spoken text delivered over and between orchestral incidental-music cues, with 'melos' stings underscoring villain entrances, agitatos for chases, and tremolando strings beneath emotional speeches, so the narrator-actor's projected, rhetorically exaggerated delivery is timed against the pit. Dion Boucicault's plays and Henry Irving's celebrated vehicle The Bells (1871) exemplify the style, and the earliest sound recordings of veteran Victorian-trained actors preserve it",
+      "crossRefs": [
+        "artMusic"
+      ]
+    },
+    {
+      "id": "manchu_shamanic_seance",
+      "name": "Manchu shamanic seance chant",
+      "family": "global",
+      "lineage": "Trance-seance chant of Manchu and related Tungusic peoples of Manchuria (northeast China) and adjacent Siberia — the culture from whose language the word 'shaman' (saman) entered Western usage. In the seance the shaman invokes clan and wild spirits in pulsed chanted verse driven by a hand-held frame drum and jingling waist bells, building toward possession-trance, with assistants answering the shaman's calls in fixed responses. Domestic clan rites were codified under the Qing dynasty in an imperially commissioned 18th-century ritual code, while the ecstatic wild-spirit seances survived in village practice; S. M. Shirokogoroff's Psychomental Complex of the Tungus (1935) remains the canonical ethnographic documentation.",
+      "parent": "ritualDevotional.indigenous",
+      "axes": [
+        -2,
+        -1,
+        0,
+        1,
+        -1,
+        2,
+        1,
+        -2,
+        1,
+        2,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Trance-seance chant of Manchu and related Tungusic peoples of Manchuria (northeast China) and adjacent Siberia — the culture from whose language the word 'shaman' (saman) entered Western usage. In the seance the shaman invokes clan and wild spirits in pulsed chanted verse driven by a hand-held frame drum and jingling waist bells, building toward possession-trance, with assistants answering the shaman's calls in fixed responses. Domestic clan rites were codified under the Qing dynasty in an imperially commissioned 18th-century ritual code, while the ecstatic wild-spirit seances survived in village practice; S. M. Shirokogoroff's Psychomental Complex of the Tungus (1935) remains the canonical ",
+      "crossRefs": [
+        "ritualDevotional"
+      ]
+    },
+    {
+      "id": "mongolian_boo_murgel_invocation",
+      "name": "Mongolian böö mörgöl invocation",
+      "family": "global",
+      "lineage": "Spirit-calling invocation chant of Mongolian shamanism (böö mörgöl), in which the shaman (böö, or female udgan) summons ancestral ongon spirits with rhythmic chanted verse over a single-headed frame drum, wearing a fringed costume and mirror-hung regalia inside the ger or at outdoor ovoo cairns. The invocation begins as measured praise and petition naming the spirit's lineage and mountains, accelerating with the drum toward possession, after which the shaman speaks in the voice of the arrived spirit. The tradition is strongest among the Darkhad of Khövsgöl province and the Buryats, and after decades of socialist-era suppression it has undergone a marked post-1990 revival in Ulaanbaatar and the countryside.",
+      "parent": "ritualDevotional.indigenous",
+      "axes": [
+        -2,
+        0,
+        0,
+        1,
+        -1,
+        2,
+        1,
+        -2,
+        1,
+        2,
+        1,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice"
+      ],
+      "description": "Spirit-calling invocation chant of Mongolian shamanism (böö mörgöl), in which the shaman (böö, or female udgan) summons ancestral ongon spirits with rhythmic chanted verse over a single-headed frame drum, wearing a fringed costume and mirror-hung regalia inside the ger or at outdoor ovoo cairns. The invocation begins as measured praise and petition naming the spirit's lineage and mountains, accelerating with the drum toward possession, after which the shaman speaks in the voice of the arrived spirit. The tradition is strongest among the Darkhad of Khövsgöl province and the Buryats, and after decades of socialist-era suppression it has undergone a marked post-1990 revival in Ulaanbaatar and t",
+      "crossRefs": [
+        "ritualDevotional"
+      ]
+    },
+    {
+      "id": "yoruba_dundun_surrogate_speech",
+      "name": "Yoruba dùndún surrogate speech",
+      "family": "global",
+      "lineage": "Surrogate-speech practice of the Yoruba dùndún hourglass tension-drum family of southwestern Nigeria, in which the lead ìyá ìlù drummer squeezes the drum's lacing cords to glide pitch across the three tone levels of spoken Yoruba, literally 'talking' proverbs (òwe), oríkì praise epithets, and Ifá verses to listeners who decode the drummed speech. Drumming is the hereditary craft of àyàn lineages, who trace their art to the drum ancestor-spirit Àyàngalú, performing at royal courts, festivals, and ceremonies since at least the era of the Oyo empire. Akin Euba's monograph Yoruba Drumming: The Dùndún Tradition (1990) is the canonical scholarly study, and the idiom feeds directly into the talking-drum roles of jùjú and fújì popular music.",
+      "parent": "groovePercussion.westAfrican",
+      "axes": [
+        -2,
+        0,
+        1,
+        2,
+        0,
+        2,
+        1,
+        -2,
+        1,
+        1,
+        1,
+        2,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "talking_drum"
+      ],
+      "description": "Surrogate-speech practice of the Yoruba dùndún hourglass tension-drum family of southwestern Nigeria, in which the lead ìyá ìlù drummer squeezes the drum's lacing cords to glide pitch across the three tone levels of spoken Yoruba, literally 'talking' proverbs (òwe), oríkì praise epithets, and Ifá verses to listeners who decode the drummed speech. Drumming is the hereditary craft of àyàn lineages, who trace their art to the drum ancestor-spirit Àyàngalú, performing at royal courts, festivals, and ceremonies since at least the era of the Oyo empire. Akin Euba's monograph Yoruba Drumming: The Dùndún Tradition (1990) is the canonical scholarly study, and the idiom feeds directly into the talking",
+      "crossRefs": [
+        "groovePercussion"
+      ]
+    },
+    {
+      "id": "proto_rap_spoken_word",
+      "name": "Proto-rap spoken word",
+      "family": "hip_hop",
+      "lineage": "Militant Black Arts Movement poetry declaimed over conga vamps in late-1960s and early-1970s New York, the most-cited direct ancestor of rap MCing. The Last Poets formed in Harlem in 1968 and their self-titled 1970 debut set traded, chanted verses over hand percussion, while Gil Scott-Heron's 'The Revolution Will Not Be Televised' first appeared on Small Talk at 125th and Lenox (Flying Dutchman, 1970) with only congas behind the voice; the Watts Prophets carried the parallel West Coast strand. The delivery is rhythmically locked to the drum pulse but spoken rather than sung, with group members answering the lead line in call-and-response, and the records circulated through Black radio and community networks into the record crates of the first Bronx DJs.",
+      "parent": "mcRhythm.usHipHop",
+      "axes": [
+        -1,
+        -1,
+        -1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        2,
+        2,
+        0,
+        1,
+        1
+      ],
+      "instruments": [
+        "voice",
+        "congas"
+      ],
+      "description": "Militant Black Arts Movement poetry declaimed over conga vamps in late-1960s and early-1970s New York, the most-cited direct ancestor of rap MCing. The Last Poets formed in Harlem in 1968 and their self-titled 1970 debut set traded, chanted verses over hand percussion, while Gil Scott-Heron's 'The Revolution Will Not Be Televised' first appeared on Small Talk at 125th and Lenox (Flying Dutchman, 1970) with only congas behind the voice; the Watts Prophets carried the parallel West Coast strand. The delivery is rhythmically locked to the drum pulse but spoken rather than sung, with group members answering the lead line in call-and-response, and the records circulated through Black radio and co",
+      "crossRefs": [
+        "mcRhythm"
       ]
     }
   ]

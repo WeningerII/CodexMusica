@@ -1,0 +1,97 @@
+{
+  "id": "oldtime_radio_announcer",
+  "name": "Old-time radio announcer",
+  "family": "global",
+  "lineage": "American network-radio announcer style of the 1930s-50s NBC and CBS era, delivered in projected, precisely articulated diction — often the cultivated Mid-Atlantic ('transatlantic') accent taught in period broadcast and elocution training — into RCA 44 and 77 ribbon microphones. Staff and program announcers such as Don Wilson (The Jack Benny Program), Harry von Zell, Ken Carpenter, and Milton Cross (the Metropolitan Opera broadcasts) defined the register across variety-show openings, drama introductions, station identifications, and live commercial reads; Orson Welles's 1938 Mercury Theatre on the Air 'War of the Worlds' broadcast famously exploited the authority this announcer voice carried. The sound is inseparable from the period transmission chain: ribbon mic, tube electronics, and bandwidth-limited live AM air or transcription disc.",
+  "recipe": "classic North American mid-1930s old-time radio announcer, spoken Word, narration branch documentary voiceover golden-age radio drama. vocal fry, register break ornamental, melodic, Baroque ornamental. am radio booth. passive ribbon, tube pre, German tube console. Studer 30ips tape.",
+  "recipe_chars": 283,
+  "score": 85.392,
+  "config": {
+    "traditions": [
+      "oldtime_radio_announcer",
+      "documentary_voiceover",
+      "radio_drama_golden_age"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "register_break_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "legato_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "baroque_ornamental_tradition",
+          "voice_mechanism_compound": "voice_mechanism_yodel_M1_M2_alternation",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_lo_fi_narrow_AM",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+        },
+        "scores": {
+          "voice_register": 0.845,
+          "voice_quality": 3.9976160714285713,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.5949999999999998,
+          "voice_articulation": 0.2071875,
+          "voice_microtone": 0.2071875,
+          "voice_tradition": 4.04,
+          "voice_mechanism_compound": 2.535,
+          "voice_estill_quality": 6.630000000000001,
+          "voice_speech_song": 19.435,
+          "voice_ensemble_config": 21.904999999999998,
+          "voice_ornament_system": 3.1500000000000004,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 6.629999999999999,
+          "voice_multitrack_stack": 3.2500000000000004
+        }
+      }
+    ],
+    "room": "am_radio_booth",
+    "archetype": "arch_swing_era_live_studio",
+    "inline_chain": {
+      "mic": "mic_rca_44bx_ribbon",
+      "pre": "tube_pre",
+      "console": "console_german_tube_50s",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "am_radio_booth",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "speech_voice",
+      "voice_speech_song": "voice_pure_spoken_no_pitch",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "voice_articulation": "narrative_voice",
+      "voice_effort": "effort_projected"
+    },
+    "chain_mic": "mic_rca_44bx_ribbon",
+    "chain_pre": "tube_pre",
+    "chain_medium": "shellac_78",
+    "chain_console": "console_german_tube_50s"
+  }
+}

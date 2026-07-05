@@ -15,6 +15,7 @@
 import express from 'express';
 import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js';
 import { buildServer } from './tools.js';
+import { counts } from './engine.js';
 
 const PORT = process.env.PORT || 3000;
 const MCP_PATH = process.env.MCP_PATH || '/mcp';
@@ -43,7 +44,7 @@ app.get('/.well-known/mcp.json', (_req, res) =>
     name: 'io.github.weningerii/codex-musica',
     title: 'Codex Musica',
     description:
-      'Deterministic recording-recipe workspace: seed a recipe from any of 1119 music ' +
+      `Deterministic recording-recipe workspace: seed a recipe from any of ${counts.traditions} music ` +
       'traditions and edit it (prefaces, part variants, room/chain/tuning, instruments) — ' +
       'the headless twin of the browser app, read-only and reproducible.',
     version: '2.0.0',

@@ -3,21 +3,21 @@
   "name": "Yoruba aso ebi wedding music",
   "family": "global",
   "lineage": "Yoruba wedding-music tradition continuous from pre-colonial Yoruba ritual-practice through 19th-20th century continuous performance into modern Yoruba-and-Yoruba-diaspora domestic practice across southwestern Nigeria, Benin, Togo, and the Atlantic Afro-diaspora; the aso ebi (unified-dress) wedding tradition emphasizes group-celebration vocal-and-drumming participation",
-  "recipe": "classic modern yoruba aso ebi wedding music, wedding, African diasporic branch, south Asian wedding, African pop functional song, west African groove percussion congolese rumba mbaqanga. thick, low dynamic level, tasteful, continuous-phonation. iroko alternative west African goat skin leather tension cords canonical pressure bend talking drum, modern revival iroko west African premium cowhide rope lacing canonical mande dunun, foundational bass rhythm calabash shekere. festival stage. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 619,
-  "score": 252.128,
+  "recipe": "classic modern yoruba aso ebi wedding music, wedding, African diasporic branch, south Asian wedding, African pop functional song, west African groove percussion yoruba dùndún surrogate speech congolese rumba. thick, rap, tasteful, continuous-phonation. omo cedrela odorata canonical Yoruba dundun goat skin leather tension cords canonical pressure bend talking drum, iroko west African premium cowhide rope lacing canonical mande dunun, shekere. festival stage. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 591,
+  "score": 255.895,
   "config": {
     "traditions": [
       "yoruba_aso_ebi_wedding",
-      "congolese_rumba",
-      "mbaqanga"
+      "yoruba_dundun_surrogate_speech",
+      "congolese_rumba"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "crooner_voice",
+          "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
@@ -25,31 +25,31 @@
           "voice_microtone": "tempered_voice",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_sob",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 13.379999999999997,
-          "voice_quality": 2.7300000000000004,
+          "voice_register": 12.429999999999998,
+          "voice_quality": 3.575,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.08,
           "voice_articulation": 2.9899999999999998,
-          "voice_microtone": 14.235,
-          "voice_tradition": 61.91,
-          "voice_mechanism_compound": 2.2749999999999995,
-          "voice_estill_quality": 3.25,
-          "voice_speech_song": 23.075,
-          "voice_ensemble_config": 19.694999999999997,
-          "voice_ornament_system": 7.3999999999999995,
-          "voice_pitch_organization": 21.194999999999993,
-          "voice_processing_chain": 6.759999999999999,
-          "voice_multitrack_stack": 5.882499999999999
+          "voice_microtone": 10.835,
+          "voice_tradition": 63.884999999999984,
+          "voice_mechanism_compound": 0.585,
+          "voice_estill_quality": 3.575,
+          "voice_speech_song": 24.634999999999998,
+          "voice_ensemble_config": 18.654999999999998,
+          "voice_ornament_system": 9.849999999999996,
+          "voice_pitch_organization": 27.96999999999999,
+          "voice_processing_chain": 3.3850000000000007,
+          "voice_multitrack_stack": 3.93
         }
       },
       {
@@ -57,40 +57,40 @@
         "slots": {
           "talking_drum_origin": "gangan_yoruba",
           "talking_drum_context": "talking_drum_juju",
-          "talking_drum_shell_wood": "talking_drum_iroko_alt",
+          "talking_drum_shell_wood": "talking_drum_omo_canonical",
           "talking_drum_head": "talking_drum_goat_skin_canonical"
         },
         "scores": {
-          "talking_drum_origin": 0.39,
-          "talking_drum_context": 7.734999999999999,
-          "talking_drum_shell_wood": 11.309999999999999,
-          "talking_drum_head": 1.6899999999999997
+          "talking_drum_origin": 2.2499999999999996,
+          "talking_drum_context": 3.5100000000000002,
+          "talking_drum_shell_wood": 10.934999999999999,
+          "talking_drum_head": 2.3850000000000002
         }
       },
       {
         "id": "dunun",
         "slots": {
           "dunun_size": "sangban",
-          "dunun_bell": "dunun_double_bell",
+          "dunun_bell": "dunun_no_bell",
           "dunun_shell_wood": "dunun_iroko",
           "dunun_head": "dunun_cowhide_canonical"
         },
         "scores": {
           "dunun_size": 0.39,
-          "dunun_bell": 3.3149999999999995,
-          "dunun_shell_wood": 11.309999999999999,
-          "dunun_head": 1.6899999999999997
+          "dunun_bell": 3.2749999999999995,
+          "dunun_shell_wood": 9.49,
+          "dunun_head": 1.69
         }
       },
       {
         "id": "shekere",
         "slots": {
-          "shekere_size": "shekere_large",
+          "shekere_size": "shekere_medium",
           "shekere_beads": "shekere_cowrie"
         },
         "scores": {
-          "shekere_size": 3.964999999999999,
-          "shekere_beads": 19.025
+          "shekere_size": 1.365,
+          "shekere_beads": 25.15
         }
       }
     ],

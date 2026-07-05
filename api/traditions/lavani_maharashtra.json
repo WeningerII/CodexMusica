@@ -5,7 +5,7 @@
   "lineage": "Lavani Marathi women's song-and-dance tradition of Maharashtra, characterized by powerful and often erotically suggestive female lead-singer-dancer performance accompanied by dholak two-headed barrel drum and tabla. Two main streams: nirguni lavani (philosophical-devotional) and shringari lavani (romantic-erotic, more popularly known). Performance traditionally occurs in folk-theatre tamasha contexts in nineteenth-and-twentieth-century rural Maharashtra, with the kalavantin dancer-singer holding a respected (if socially marginalized) professional role. Mid-twentieth-century Marathi-cinema adopted lavani as iconic regional cultural-form.",
   "recipe": "classic South Asian mid-1930s lavani, functional Song, south Asian pop branch, west African groove percussion indonesian jaipongan fújì. thick, declaimed, chest resonance low mid, rhythmic. dholak, dark folk clay tabla. mumbai bombay filmi defining 1940-present major-flagship mumbai bombay filmi studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 377,
-  "score": 134.688,
+  "score": 136.005,
   "config": {
     "traditions": [
       "lavani_maharashtra",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 9.065000000000001,
+          "voice_register": 9.605,
           "voice_quality": 5.915,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -43,11 +43,11 @@
           "voice_microtone": 4.3450000000000015,
           "voice_tradition": 28.632499999999997,
           "voice_mechanism_compound": 4.225,
-          "voice_estill_quality": 5.855,
+          "voice_estill_quality": 5.915,
           "voice_speech_song": 19.694999999999993,
           "voice_ensemble_config": 16.379999999999995,
           "voice_ornament_system": 4.9,
-          "voice_pitch_organization": 8.334999999999997,
+          "voice_pitch_organization": 8.724999999999998,
           "voice_processing_chain": 6.044999999999999,
           "voice_multitrack_stack": 3.0875
         }
@@ -63,8 +63,8 @@
         "scores": {
           "dholak_use": 1.345,
           "dholak_construction": 7.109999999999999,
-          "dholak_head": 0.195,
-          "dholak_tensioning": 0.24
+          "dholak_head": 0.39,
+          "dholak_tensioning": 0.435
         }
       },
       {
@@ -76,7 +76,7 @@
         },
         "scores": {
           "tabla_dayan": 0.24,
-          "tabla_bayan": 2.208,
+          "tabla_bayan": 2.145,
           "tabla_syahi": 5.265
         }
       }

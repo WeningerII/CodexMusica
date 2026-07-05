@@ -5,7 +5,7 @@
   "lineage": "Subgenre of deep-and-tech-house emerging from late 2000s through 2010s, integrating West, Central, and Southern African percussion-and-vocal influences into deep-house structural-and-tempo framework (118-126 BPM). Black Coffee (South African DJ-producer Nkosinathi Maphumulo) inaugurated the international Afro house ambassador role through his 2005-onward career; Themba, Caiiro, Da Capo, and the broader Innervisions, Get Physical, and Stay True Sounds labels anchor the canonical sound.",
   "recipe": "classic West African modern afro house, electronic Dance, house branch, west African groove percussion indonesian jaipongan jùjú. vocal fry, declaimed, melodic, rhythmic. TR-808, analog synth, log drum. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 413,
-  "score": 150.613,
+  "score": 151.783,
   "config": {
     "traditions": [
       "afro_house",
@@ -47,9 +47,9 @@
           "voice_speech_song": 17.614999999999995,
           "voice_ensemble_config": 16.899999999999995,
           "voice_ornament_system": 2.73,
-          "voice_pitch_organization": 8.485,
+          "voice_pitch_organization": 8.874999999999998,
           "voice_processing_chain": 11.92,
-          "voice_multitrack_stack": 5.975000000000001
+          "voice_multitrack_stack": 6.170000000000001
         }
       },
       {
@@ -79,7 +79,7 @@
           "oscillator": 0.46499999999999997,
           "filter_topology": 0.845,
           "envelope": 1.2349999999999999,
-          "modulation": 0
+          "modulation": 0.5849999999999999
         }
       },
       {

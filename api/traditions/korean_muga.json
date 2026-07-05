@@ -5,7 +5,7 @@
   "lineage": "Muga are the sung and chanted ritual songs of the Korean mudang (shaman), performed within the kut ceremony to invoke, entertain, and petition the spirits (gods, ancestors, and the dead). Regional forms range from the hereditary tradition of the southwestern seseummu to the possession-based gangsinmu of the north, and the repertoire encompasses invocation, narrative epic (such as the Bari Gongju abandoned-princess myth), and divination speech, all accompanied by janggu and other percussion. Muga is widely regarded as a root source of pansori epic singing and of shinawi and sinawi-derived instrumental music. It is documented through twentieth-century field recordings and the scholarship of Korean folklorists and is designated within the Important Intangible Cultural Property system.",
   "recipe": "classic East Asian modern korean muga shamanic ritual narrative, ritual Devotional, indigenous branch mongolian böö shamanic invocation ethiopian debtera liturgical incantation. thick, declaimed, pure, unrestrained. korean gugak hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 364,
-  "score": 168.232,
+  "score": 168.086,
   "config": {
     "traditions": [
       "korean_muga",
@@ -34,12 +34,12 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 5.105000000000002,
+          "voice_register": 4.850000000000002,
           "voice_quality": 17.064,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.6315,
-          "voice_articulation": 3.5815,
+          "voice_articulation": 3.9455,
           "voice_microtone": 1.0999999999999999,
           "voice_tradition": 15.372500000000002,
           "voice_mechanism_compound": 10.2815,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 10.900000000000002,
           "voice_pitch_organization": 7.643,
           "voice_processing_chain": 3.25,
-          "voice_multitrack_stack": 7.267499999999999
+          "voice_multitrack_stack": 7.012499999999999
         }
       }
     ],

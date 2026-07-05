@@ -5,7 +5,7 @@
   "lineage": "Saharan Tamasheq ishumar / tishoumaren electric-guitar tradition codified through Tinariwen (formed 1979 in Algerian refugee camps among Tuareg exiles) — characterized by hypnotic modal pentatonic guitar figures, call-and-response Tamasheq vocals, and dry desert-room production aesthetic; Bombino, Mdou Moctar, and Etran Finatawa extending the lineage post-2000s",
   "recipe": "classic North African mid-2000s tuareg desert blues, drone Modal, modal electric branch, west African groove percussion palm-wine guitar jùjú. thick, declaimed, melodic, rhythmic. dry roasted maple maple single coil electric guitar, rock canon ernie ball slinky electric bass, foundational low fundamental tuning deep calabash inverted calabash, horsehair bow canonical tuareg tuareg women canonical solo imzad, call-and-response xalam. cement block broadcast booth. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 596,
-  "score": 203.284,
+  "score": 205.132,
   "config": {
     "traditions": [
       "desert_blues",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 9.739999999999995,
-          "voice_quality": 2.6445000000000007,
+          "voice_register": 10.279999999999994,
+          "voice_quality": 2.6400000000000006,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.7224999999999997,
           "voice_articulation": 0.975,
           "voice_microtone": 2.7950000000000004,
           "voice_tradition": 48.1,
-          "voice_mechanism_compound": 8.77975,
-          "voice_estill_quality": 4.8999999999999995,
+          "voice_mechanism_compound": 8.76625,
+          "voice_estill_quality": 5.4399999999999995,
           "voice_speech_song": 17.614999999999995,
           "voice_ensemble_config": 16.249999999999993,
           "voice_ornament_system": 7.312499999999999,
-          "voice_pitch_organization": 7.773749999999999,
-          "voice_processing_chain": 7.30575,
-          "voice_multitrack_stack": 5.42875
+          "voice_pitch_organization": 7.968749999999998,
+          "voice_processing_chain": 7.27875,
+          "voice_multitrack_stack": 5.62375
         }
       },
       {
@@ -80,7 +80,7 @@
           "bridge": 0.45499999999999996,
           "scale_length": 0.39,
           "finish": 0.45499999999999996,
-          "string_tuning": 5.289999999999999
+          "string_tuning": 5.484999999999999
         }
       },
       {
@@ -98,12 +98,12 @@
         "scores": {
           "electric_technique": 0.27499999999999997,
           "amp_make": 1.885,
-          "body_wood": 0.41400000000000003,
+          "body_wood": 0.39,
           "pickup_config": 0.195,
-          "string_type": 1.1744999999999999,
+          "string_type": 1.0499999999999998,
           "scale_length_b": 0.78,
           "fretted_or_not": 0.845,
-          "bass_technique": 0.7044999999999999
+          "bass_technique": 0.7
         }
       },
       {
@@ -129,9 +129,9 @@
         "scores": {
           "bowed_technique": -0.05,
           "imzad_body": 0.78,
-          "imzad_string": 0.0045,
-          "imzad_bow": 4.294999999999999,
-          "imzad_tradition": 4.599499999999999
+          "imzad_string": 0,
+          "imzad_bow": 4.489999999999998,
+          "imzad_tradition": 4.789999999999998
         }
       },
       {

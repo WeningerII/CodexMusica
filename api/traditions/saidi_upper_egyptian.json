@@ -5,7 +5,7 @@
   "lineage": "Saidi music of Upper Egypt (south of Cairo extending to Aswan), the canonical pre-modern rural musical tradition of the Egyptian Nile Valley peasant Saidi communities. Performance centers on the mizmar pair (loud double-reed conical-bore aerophone played in heterophonic-melodic-elaboration) over tabla baladi or tabla dohola two-headed barrel-drum. Repertoire spans wedding-celebration cycles, mawwal vocal-lament solo declamations (free-rhythm extended-melismatic-ornament register), and tahtib stick-dance accompaniment cycles for which Saidi music is particularly known.",
   "recipe": "classic North African mid-1950s saidi music, functional Song, mid east n African pop branch, west African groove percussion indonesian jaipongan fújì. thick, declaimed, chest resonance low mid, rhythmic. walnut bent frame canonical Iranian goat skin canonical Sufi tar frame drum, tabla, apricot canonical Egyptian arundo donax canonical nile delta mizmar. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 542,
-  "score": 128.876,
+  "score": 130.347,
   "config": {
     "traditions": [
       "saidi_upper_egyptian",
@@ -31,11 +31,11 @@
           "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
           "voice_pitch_organization": "voice_pitch_slendro_5",
           "voice_processing_chain": "voice_processing_talkbox",
-          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 7.8465000000000025,
-          "voice_quality": 5.345250000000001,
+          "voice_register": 8.355000000000002,
+          "voice_quality": 5.3137500000000015,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.795,
@@ -47,9 +47,9 @@
           "voice_speech_song": 9.945,
           "voice_ensemble_config": 7.93,
           "voice_ornament_system": 4.16,
-          "voice_pitch_organization": 8.469999999999999,
-          "voice_processing_chain": 5.3195,
-          "voice_multitrack_stack": 5.54125
+          "voice_pitch_organization": 8.859999999999998,
+          "voice_processing_chain": 5.225,
+          "voice_multitrack_stack": 5.459999999999999
         }
       },
       {
@@ -65,8 +65,8 @@
           "percussion_technique": -0.07,
           "tar_size": 0.845,
           "tar_frame_drum_context": 0.9099999999999999,
-          "tar_frame_shell_wood": 1.69,
-          "tar_frame_head": 1.495
+          "tar_frame_shell_wood": 1.885,
+          "tar_frame_head": 1.69
         }
       },
       {
@@ -95,8 +95,8 @@
           "wind_articulation": -0.10500000000000002,
           "mizmar_pitch": 0.195,
           "mizmar_context": 3.625,
-          "mizmar_body_wood": 3.7949999999999995,
-          "mizmar_reed": 2.795
+          "mizmar_body_wood": 3.9899999999999998,
+          "mizmar_reed": 2.99
         }
       }
     ],

@@ -187,12 +187,12 @@ add('S18 preface_configure: voice/belting (afrobeat)', () => {
 });
 
 // ── static API ───────────────────────────────────────────────────────────────
-add('S19 api/all.json: count 1176, every recipe <=1000', () => {
+add('S19 api/all.json: count 1195, every recipe <=1000', () => {
   const j = apiJson('all.json');
   const items = Array.isArray(j) ? j : j.items || j.traditions || [];
   const over = items.filter((x) => (x.recipe || '').length > CEIL).length;
   const n = items.length;
-  return { pass: n === 1176 && over === 0, ev: `count ${n}, over-ceiling ${over}` };
+  return { pass: n === 1195 && over === 0, ev: `count ${n}, over-ceiling ${over}` };
 });
 add('S20 api/index.json: valid endpoint map + counts', () => {
   const j = apiJson('index.json');

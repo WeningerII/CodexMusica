@@ -131,7 +131,7 @@ const DOTTED_NODE_COUNT = C.TREE_NODES.filter((n) => n.id.includes('.')).length;
 
 const COUNT_CHECKS = [
   // "N traditions" with optional in-between modifiers ("recorded-music", "music")
-  // and \s+ so a line-wrapped "all 1176\ntraditions" still matches — both forms
+  // and \s+ so a line-wrapped "all 1195\ntraditions" still matches — both forms
   // drifted silently before this pattern was widened.
   {
     phrase: new RegExp(`(\\d+)(?:\\s+(?:recorded-music|music))?\\s+traditions\\b${Q_NEG}`, 'g'),
@@ -174,13 +174,13 @@ const COUNT_CHECKS = [
     expected: Object.keys(C).length,
     kind: 'catalog_tables',
   },
-  // Adjectival forms ("1176-tradition / 490-instrument codex", "312-node genre
+  // Adjectival forms ("1195-tradition / 490-instrument codex", "312-node genre
   // tree"). ≥3 digits so hypothetical example builds ("a 5-tradition build")
   // aren't mistaken for catalog totals.
   { phrase: /(\d{3,})-tradition\b/g, expected: C.TRADITIONS.length, kind: 'traditions_adj' },
   { phrase: /(\d{3,})-instrument\b/g, expected: C.INSTRUMENTS.length, kind: 'instruments_adj' },
   { phrase: /(\d+)-node genre tree/g, expected: C.TREE_NODES.length, kind: 'tree_nodes_adj' },
-  // SKILL.md §1 table rows ("| traditions | 1176 |")
+  // SKILL.md §1 table rows ("| traditions | 1195 |")
   {
     phrase: /\|\s*traditions\s*\|\s*(\d+)\s*\|/g,
     expected: C.TRADITIONS.length,
@@ -201,10 +201,10 @@ const COUNT_CHECKS = [
     expected: C.TREE_NODES.length,
     kind: 'tree_nodes_table',
   },
-  // Loader-output shorthand ("loaded: 490 insts, 1176 trads" — anchored on
+  // Loader-output shorthand ("loaded: 490 insts, 1195 trads" — anchored on
   // "loaded:"/"insts," so per-tradition roster counts like "9 insts" don't
   // false-positive) and derived facts that drift when traditions/nodes are
-  // added ("global dominates at 719/1176", "288 of 312 ids contain dots").
+  // added ("global dominates at 733/1195", "288 of 312 ids contain dots").
   { phrase: /loaded: (\d+) insts\b/g, expected: C.INSTRUMENTS.length, kind: 'insts_short' },
   { phrase: /insts, (\d+) trads\b/g, expected: C.TRADITIONS.length, kind: 'trads_short' },
   {

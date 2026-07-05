@@ -1,8 +1,8 @@
 {
   "name": "Codex Musica — all recipes",
   "description": "Every tradition with its compressed recording recipe, in one file. For full structured arrangements per tradition, fetch traditions/{id}.json.",
-  "generated": "2026-07-02",
-  "count": 1176,
+  "generated": "2026-07-05",
+  "count": 1195,
   "items": [
     {
       "id": "honky_tonk",
@@ -3291,7 +3291,7 @@
       "id": "mande_griot",
       "name": "Mandé jeli",
       "family": "global",
-      "recipe": "classic West African modern mandé jeli, ballad Poetry, west African griot branch, west African groove percussion, Sufi ritual devotional, African pop functional song congolese rumba sufi inshad. griot voice, nylon fishing line cowhide mande traditional mande hardwood kora, balafon, calabash gourd canonical bambara cowhide nylon modern call-and-response ngoni, donso ritual large calabash mande call-and-response donso ngoni, bell on shell iroko west African premium cowhide rope lacing canonical mande dunun, goat skin canonical jola call-and-response akonting, gourd cowhide call-and-response xalam. bamako griot jeli compound. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe": "classic West African modern mandé jeli, ballad Poetry, west African griot branch, west African groove percussion, Sufi ritual devotional, African pop functional song sufi inshad congolese rumba. griot voice, nylon fishing line cowhide mande traditional mande hardwood kora, balafon, calabash gourd canonical bambara cowhide nylon modern call-and-response ngoni, donso ritual large calabash mande call-and-response donso ngoni, bell on shell iroko west African premium cowhide rope lacing canonical mande dunun, goat skin canonical jola call-and-response akonting, gourd cowhide call-and-response xalam. bamako griot jeli compound. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
       "recipe_chars": 760
     },
     {
@@ -3452,8 +3452,8 @@
       "id": "hausa_court_music",
       "name": "Hausa court music (roķon Sarkin Kano)",
       "family": "global",
-      "recipe": "classic North American mid-1990s hausa court music, ballad Poetry, west African griot branch, islamic ritual devotional, west African groove percussion were music acehnese saman. vocal fry, declaimed, pure, rhythmic. sheet brass canonical hausa fulani hammered tube call ritual kakaki, iroko alternative west African talking drum, griot voice. adobe room. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-      "recipe_chars": 502
+      "recipe": "classic North American mid-1990s hausa court music, ballad Poetry, west African griot branch, islamic ritual devotional, west African groove percussion yoruba dùndún surrogate speech were music. thick, declaimed, pure, rhythmic. sheet brass canonical hausa fulani hammered tube call ritual kakaki, iroko alternative west African goat skin leather tension cords canonical pressure bend talking drum, griot voice. adobe room. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+      "recipe_chars": 570
     },
     {
       "id": "barbershop_quartet",
@@ -3662,8 +3662,8 @@
       "id": "berber_ahidus_ahwash",
       "name": "Berber ahidus and ahwash (Atlas Mountains)",
       "family": "global",
-      "recipe": "classic North African mid-1990s berber ahidus and ahwash, ballad Poetry, Mediterranean ballad branch, west African groove percussion indonesian jaipongan fújì. vocal fry, declaimed, melodic, callresponse articulation. juniper bent frame canonical Maghrebi synthetic remo modern world music bendir, olive Mediterranean alternative arundo donax canonical Maghrebi ghaita. atlas mountain village square. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 530
+      "recipe": "classic North African mid-1990s berber ahidus and ahwash, ballad Poetry, Mediterranean ballad branch, west African groove percussion indonesian jaipongan yoruba dùndún surrogate speech. thick, rap, melodic, callresponse articulation. juniper bent frame canonical Maghrebi synthetic remo modern world music bendir, olive Mediterranean alternative arundo donax canonical Maghrebi ghaita. atlas mountain village square. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 546
     },
     {
       "id": "mongolian_urtiin_duu",
@@ -3991,8 +3991,8 @@
       "id": "nubian_music_nile",
       "name": "Nubian music (Egyptian-Sudanese Nile Valley)",
       "family": "global",
-      "recipe": "classic North African mid-1960s nubian music, ballad Poetry, west African griot branch, west African groove percussion indonesian jaipongan fújì. vocal fry, declaimed, chest resonance low mid, rhythmic. mahogany modern alternative western red cedar oud, clay pre modern traditional fish skin pre modern Egyptian traditional Egyptian sombaty canonical mid east open slap hand drum darbuka, walnut bent frame canonical Iranian calfskin deeper alternative tar frame drum. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 689
+      "recipe": "classic North African mid-1960s nubian music, ballad Poetry, west African griot branch, west African groove percussion indonesian jaipongan fújì. thick, declaimed, chest resonance low mid, rhythmic. mahogany modern alternative western red cedar oud, clay pre modern traditional fish skin pre modern Egyptian traditional Egyptian sombaty canonical mid east open slap hand drum darbuka, walnut bent frame canonical Iranian calfskin deeper alternative tar frame drum. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 685
     },
     {
       "id": "sabar_drumming_wolof",
@@ -4019,15 +4019,15 @@
       "id": "sakara_yoruba",
       "name": "Sákárà (Yoruba Muslim frame-drum song)",
       "family": "global",
-      "recipe": "classic West African mid-1930s sákárà, functional Song, African pop branch, west African groove percussion indonesian jaipongan fújì. thick, declaimed, melodic, punctuated. walnut bent frame canonical Iranian calfskin deeper alternative tar frame drum. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
-      "recipe_chars": 475
+      "recipe": "classic West African mid-1930s sákárà, functional Song, African pop branch, west African groove percussion indonesian jaipongan fújì. thick, declaimed, melodic, rhythmic. walnut bent frame canonical Iranian calfskin deeper alternative tar frame drum. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+      "recipe_chars": 473
     },
     {
       "id": "were_music_yoruba",
       "name": "Were music (Yoruba Ramadan procession)",
       "family": "global",
-      "recipe": "classic North African modern were music, ritual Devotional, islamic branch, west African groove percussion indonesian jaipongan fújì. vocal fry, declaimed, pure, rhythmic. walnut bent frame canonical Iranian calfskin deeper alternative tar frame drum. atlas mountain village square. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 412
+      "recipe": "classic North African modern were music, ritual Devotional, islamic branch, west African groove percussion indonesian jaipongan yoruba dùndún surrogate speech. thick, declaimed, pure, rhythmic. walnut bent frame canonical Iranian tar frame drum. atlas mountain village square. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 406
     },
     {
       "id": "coupe_decale_ivorian",
@@ -4194,8 +4194,8 @@
       "id": "powada_marathi",
       "name": "Powada (Marathi heroic-ballad)",
       "family": "global",
-      "recipe": "classic South Asian early-1670s powada, ballad Poetry, Slavic bard branch, west African groove percussion fújì indonesian jaipongan. vocal fry, low dynamic level, chest resonance low mid, narrative. goat skin syahi rope laced steel ring dholak. mumbai bombay filmi defining 1940-present major-flagship mumbai bombay filmi studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 459
+      "recipe": "classic South Asian early-1670s powada, ballad Poetry, Slavic bard branch, west African groove percussion yoruba dùndún surrogate speech fújì. thick, low dynamic level, nervy, narrative. goat skin syahi rope laced steel ring dholak. mumbai bombay filmi defining 1940-present major-flagship mumbai bombay filmi studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 447
     },
     {
       "id": "borgeet_assamese",
@@ -4502,8 +4502,8 @@
       "id": "vanuatu_water_drumming",
       "name": "Vanuatu water drumming and sand drawing",
       "family": "global",
-      "recipe": "classic Southeast Asian modern vanuatu water drumming and sand drawing, ritual Devotional, indigenous branch, west African groove percussion fújì indonesian jaipongan. vocal fry, declaimed, chest resonance low mid, punctuated. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 451
+      "recipe": "classic Southeast Asian modern vanuatu water drumming and sand drawing, ritual Devotional, indigenous branch, west African groove percussion yoruba dùndún surrogate speech fújì. thick, declaimed, chest resonance low mid, punctuated. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 457
     },
     {
       "id": "lakota_peyote_song",
@@ -4712,8 +4712,8 @@
       "id": "cretan_lyra",
       "name": "Cretan lyra (Cretan pear-shaped fiddle)",
       "family": "global",
-      "recipe": "classic Southern European modern cretan lyra, ballad Poetry, Mediterranean ballad branch, west African groove percussion indonesian jaipongan fújì. vocal fry, declaimed, chest resonance low mid, punctuated. walnut ribs canonical mid tier spruce face pyramid nylon oud, sitka spruce hard rock maple acer saccharum Baroque setup short neck violin orchestral, mulberry canonical cretan gut pre modern cretan cretan lyra. athens major label 1955-1985 mid tier athens minos studios 60s 70s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 615
+      "recipe": "classic Southern European modern cretan lyra, ballad Poetry, Mediterranean ballad branch, west African groove percussion indonesian jaipongan fújì. thick, declaimed, chest resonance low mid, punctuated. walnut ribs canonical mid tier spruce face pyramid nylon oud, sitka spruce hard rock maple acer saccharum Baroque setup short neck violin orchestral, mulberry canonical cretan gut pre modern cretan cretan lyra. athens major label 1955-1985 mid tier athens minos studios 60s 70s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 611
     },
     {
       "id": "pontic_greek",
@@ -6791,8 +6791,8 @@
       "id": "berber_ahidus_wedding",
       "name": "Berber Amazigh ahidus (wedding dance)",
       "family": "global",
-      "recipe": "classic North African modern berber amazigh ahidus, wedding, middle eastern branch, west African groove percussion, islamic ritual devotional, med east poetic ballad poetry were music palm-wine guitar. thick, declaimed, melodic, continuous-phonation. beech mass produced modern synthetic remo modern world music bendir, walnut bent frame canonical Iranian synthetic remo modern tar frame drum. atlas mountain village square. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 554
+      "recipe": "classic North African modern berber amazigh ahidus, wedding, middle eastern branch, west African groove percussion, islamic ritual devotional, med east poetic ballad poetry were music yoruba dùndún surrogate speech. thick, declaimed, melodic, continuous-phonation. juniper bent frame canonical Maghrebi synthetic remo modern world music bendir, walnut bent frame canonical Iranian synthetic remo modern tar frame drum. atlas mountain village square. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 579
     },
     {
       "id": "indian_sangeet",
@@ -6826,8 +6826,8 @@
       "id": "yoruba_aso_ebi_wedding",
       "name": "Yoruba aso ebi wedding music",
       "family": "global",
-      "recipe": "classic modern yoruba aso ebi wedding music, wedding, African diasporic branch, south Asian wedding, African pop functional song, west African groove percussion congolese rumba mbaqanga. thick, low dynamic level, tasteful, continuous-phonation. iroko alternative west African goat skin leather tension cords canonical pressure bend talking drum, modern revival iroko west African premium cowhide rope lacing canonical mande dunun, foundational bass rhythm calabash shekere. festival stage. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 619
+      "recipe": "classic modern yoruba aso ebi wedding music, wedding, African diasporic branch, south Asian wedding, African pop functional song, west African groove percussion yoruba dùndún surrogate speech congolese rumba. thick, rap, tasteful, continuous-phonation. omo cedrela odorata canonical Yoruba dundun goat skin leather tension cords canonical pressure bend talking drum, iroko west African premium cowhide rope lacing canonical mande dunun, shekere. festival stage. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 591
     },
     {
       "id": "ethiopian_eskista_wedding",
@@ -6973,8 +6973,8 @@
       "id": "akan_kete_royal_praise",
       "name": "Akan-Asante kete royal praise music",
       "family": "global",
-      "recipe": "classic West African modern akan-asante kete royal praise music, praise Song, sub saharan African branch, African diasporic wedding, west African groove percussion, indigenous ritual devotional yoruba aso ebi wedding music palm-wine guitar. thick, declaimed, melodic, continuous-phonation. iroko alternative west African talking drum, modern revival iroko west African premium dunun. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 594
+      "recipe": "classic West African modern akan-asante kete royal praise music, praise Song, sub saharan African branch, African diasporic wedding, west African groove percussion, indigenous ritual devotional yoruba aso ebi wedding music yoruba dùndún surrogate speech. thick, declaimed, tasteful, continuous-phonation. iroko alternative west African goat skin leather tension cords canonical pressure bend talking drum, iroko west African premium cowhide rope lacing canonical mande dunun. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 686
     },
     {
       "id": "shona_mbira_praise",
@@ -8235,6 +8235,139 @@
       "family": "global",
       "recipe": "classic Oceanian late-1900s hawaiian haʻa ancestral chant, praise Song, oceania pacific branch xhosa iimbongi praise oratory arabic madh and qasida. vocal fry, declaimed, chest resonance low mid, continuous-phonation. hawaiian heiau outdoor lava stone temple. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
       "recipe_chars": 389
+    },
+    {
+      "id": "audiobook_narration",
+      "name": "Audiobook narration",
+      "family": "global",
+      "recipe": "classic mid-1970s audiobook narration, spoken Word, narration branch guided meditation podcast conversation. vocal fry, unvoiced, chest resonance low mid, rhythmic. closet booth. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 308
+    },
+    {
+      "id": "documentary_voiceover",
+      "name": "Documentary voiceover",
+      "family": "global",
+      "recipe": "classic mid-1930s documentary voiceover, spoken Word, narration branch audiobook narration old-time radio announcer. vocal fry, register break ornamental, chest resonance low mid, Scottish Gaelic vocal. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 348
+    },
+    {
+      "id": "oldtime_radio_announcer",
+      "name": "Old-time radio announcer",
+      "family": "global",
+      "recipe": "classic North American mid-1930s old-time radio announcer, spoken Word, narration branch documentary voiceover golden-age radio drama. vocal fry, register break ornamental, melodic, Baroque ornamental. am radio booth. passive ribbon, tube pre, German tube console. Studer 30ips tape.",
+      "recipe_chars": 283
+    },
+    {
+      "id": "radio_drama_golden_age",
+      "name": "Golden-age radio drama",
+      "family": "global",
+      "recipe": "classic North American 1957-1959 golden-age radio drama, spoken Word, broadcast branch guided meditation asmr whisper and trigger audio. vocal fry, intimate aspirated, chest resonance low mid, blues inflected. voluminous 1935-1955 major-flagship swing live room. passive ribbon, tube pre, German tube console. Studer 30ips tape.",
+      "recipe_chars": 328
+    },
+    {
+      "id": "podcast_conversation",
+      "name": "Podcast conversation",
+      "family": "global",
+      "recipe": "classic 2004-2006 podcast conversation, spoken Word, broadcast branch sports play-by-play commentary guided meditation. extended whistle, low dynamic level, chest resonance low mid, rhythmic. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 337
+    },
+    {
+      "id": "sports_play_by_play",
+      "name": "Sports play-by-play commentary",
+      "family": "global",
+      "recipe": "classic North American early-1950s sports play-by-play commentary, spoken Word, broadcast branch old-time radio announcer podcast conversation. extended whistle, low dynamic level, chest resonance low mid, continuous-phonation. gymnasium. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+      "recipe_chars": 333
+    },
+    {
+      "id": "numbers_station_broadcast",
+      "name": "Numbers-station shortwave broadcast",
+      "family": "global",
+      "recipe": "classic North African mid-1950s numbers-station shortwave broadcast, spoken Word, broadcast branch audiobook narration guided meditation. thick, fry bleed, chest resonance low mid, unrestrained. cement block broadcast booth. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
+      "recipe_chars": 320
+    },
+    {
+      "id": "shipping_forecast_cadence",
+      "name": "Shipping forecast cadence",
+      "family": "global",
+      "recipe": "classic British 1924-1926 shipping forecast cadence, spoken Word, broadcast branch numbers-station shortwave broadcast guided meditation. thick, low dynamic level, chest resonance low mid, unrestrained. am radio booth. large-diaphragm condenser, tube pre, German tube console. tape 15ips echo plate reverb.",
+      "recipe_chars": 306
+    },
+    {
+      "id": "asmr_whisper_triggers",
+      "name": "ASMR whisper and trigger audio",
+      "family": "global",
+      "recipe": "classic 2009-2010 asmr whisper and trigger audio, spoken Word, intimate voice branch audiobook narration guided meditation. vocal fry, unvoiced, chest resonance low mid, rhythmic. carpeted bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+      "recipe_chars": 296
+    },
+    {
+      "id": "guided_meditation",
+      "name": "Guided meditation",
+      "family": "global",
+      "recipe": "classic mid-1970s guided meditation, spoken Word, intimate voice branch audiobook narration shipping forecast cadence. vocal fry, low dynamic level, chest resonance low mid, rhythmic. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 329
+    },
+    {
+      "id": "hypnosis_induction",
+      "name": "Hypnotic induction",
+      "family": "global",
+      "recipe": "classic mid-1840s hypnotic induction, spoken Word, intimate voice branch guided meditation audiobook narration. vocal fry, low dynamic level, chest resonance low mid, rhythmic. closet booth. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 320
+    },
+    {
+      "id": "standup_comedy",
+      "name": "Stand-up comedy",
+      "family": "vernacular",
+      "recipe": "classic North American 1970-1973 stand-up comedy, spoken Word, stage performance branch sports play-by-play commentary poetry slam / performance poetry. extended whistle, conversational, chest resonance low mid, rhythmic. jazz club. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+      "recipe_chars": 364
+    },
+    {
+      "id": "poetry_slam",
+      "name": "Poetry slam / performance poetry",
+      "family": "vernacular",
+      "recipe": "classic mid-1980s poetry slam / performance poetry, spoken Word, stage performance branch old-time radio announcer sports play-by-play commentary. thick, rap, chest resonance low mid, narrative. jazz club. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 335
+    },
+    {
+      "id": "greek_tragedy_chorus",
+      "name": "Greek tragedy chorus declamation",
+      "family": "classical",
+      "recipe": "classic Southern European modern greek tragedy chorus declamation, art Music, western early branch thai classical beijing opera. thick, pressed, chest resonance low mid, rhythmic. outdoor dalmatian square. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 335
+    },
+    {
+      "id": "victorian_melodrama_narration",
+      "name": "Victorian melodrama narration",
+      "family": "classical",
+      "recipe": "classic early-1870s victorian melodrama narration, art Music, western early branch thai classical beijing opera. thick, pressed, chest resonance low mid, narrative. shoebox concert hall. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+      "recipe_chars": 259
+    },
+    {
+      "id": "manchu_shamanic_seance",
+      "name": "Manchu shamanic seance chant",
+      "family": "global",
+      "recipe": "classic Northeast Asian mid-1930s manchu shamanic seance chant, ritual Devotional, indigenous branch mongolian böö shamanic invocation shipibo-conibo icaros healing songs. sygyt, declaimed, overtone rich sustained, punctuated. wooden balagan. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 372
+    },
+    {
+      "id": "mongolian_boo_murgel_invocation",
+      "name": "Mongolian böö mörgöl invocation",
+      "family": "global",
+      "recipe": "classic Northeast Asian early-1990s mongolian böö mörgöl invocation, ritual Devotional, indigenous branch mongolian böö shamanic invocation shipibo-conibo icaros healing songs. sygyt, declaimed, overtone rich sustained, punctuated. mongolian ger interior. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 385
+    },
+    {
+      "id": "yoruba_dundun_surrogate_speech",
+      "name": "Yoruba dùndún surrogate speech",
+      "family": "global",
+      "recipe": "classic early-1990s yoruba dùndún surrogate speech, groove Percussion, west African branch sabar drumming fújì. thick, rap, chest resonance low mid, rhythmic. omo cedrela odorata canonical Yoruba dundun goat skin leather tension cords canonical pressure bend talking drum. field recording. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 419
+    },
+    {
+      "id": "proto_rap_spoken_word",
+      "name": "Proto-rap spoken word",
+      "family": "hip_hop",
+      "recipe": "classic North American 1967-1969 proto-rap spoken word, mc Rhythm, us hip hop branch conscious hip-hop gangsta rap. thick, rap, pure, narrative. lead open slap hand drum congas. independent loft jazz 1971-1978 indie-commercial strata east loft nyc. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+      "recipe_chars": 380
     }
   ]
 }

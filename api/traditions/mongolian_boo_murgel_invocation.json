@@ -1,0 +1,95 @@
+{
+  "id": "mongolian_boo_murgel_invocation",
+  "name": "Mongolian böö mörgöl invocation",
+  "family": "global",
+  "lineage": "Spirit-calling invocation chant of Mongolian shamanism (böö mörgöl), in which the shaman (böö, or female udgan) summons ancestral ongon spirits with rhythmic chanted verse over a single-headed frame drum, wearing a fringed costume and mirror-hung regalia inside the ger or at outdoor ovoo cairns. The invocation begins as measured praise and petition naming the spirit's lineage and mountains, accelerating with the drum toward possession, after which the shaman speaks in the voice of the arrived spirit. The tradition is strongest among the Darkhad of Khövsgöl province and the Buryats, and after decades of socialist-era suppression it has undergone a marked post-1990 revival in Ulaanbaatar and the countryside.",
+  "recipe": "classic Northeast Asian early-1990s mongolian böö mörgöl invocation, ritual Devotional, indigenous branch mongolian böö shamanic invocation shipibo-conibo icaros healing songs. sygyt, declaimed, overtone rich sustained, punctuated. mongolian ger interior. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 385,
+  "score": 172.807,
+  "config": {
+    "traditions": [
+      "mongolian_boo_murgel_invocation",
+      "mongolian_boo_invocation",
+      "shipibo_icaros"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "sygyt_register",
+          "voice_quality": "praise_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "shruti_inflected",
+          "voice_tradition": "polynesian_oli_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_bitcrusher",
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+        },
+        "scores": {
+          "voice_register": 8.626125,
+          "voice_quality": 18.389,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.765,
+          "voice_articulation": 1.69,
+          "voice_microtone": 0.6629999999999999,
+          "voice_tradition": 22.360000000000003,
+          "voice_mechanism_compound": 16.055875,
+          "voice_estill_quality": 6.369999999999999,
+          "voice_speech_song": 26.259999999999998,
+          "voice_ensemble_config": 28.535,
+          "voice_ornament_system": 11.775,
+          "voice_pitch_organization": 8.417625,
+          "voice_processing_chain": 3.185,
+          "voice_multitrack_stack": 2.34
+        }
+      }
+    ],
+    "room": "mongolian_ger_interior",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "mongolian_pentatonic_long_song",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "mongolian_pentatonic_long_song",
+    "room": "mongolian_ger_interior",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "speech_voice",
+      "voice_speech_song": "voice_metrical_chant",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

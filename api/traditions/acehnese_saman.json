@@ -5,7 +5,7 @@
   "lineage": "Acehnese saman seated-rhythmic-dance-and-song tradition of the Gayo people of central Aceh province, northern Sumatra, Indonesia. Performance configuration: a tightly packed row of 10-20 male dancers seated cross-legged on the floor, performing extremely fast and precise synchronized hand-clapping, chest-slapping, thigh-slapping, and arm-movement choreography while singing Islamic-devotional verse in the Gayo language. The form emerged in the thirteenth-fourteenth century with Islamic missionary activity in Aceh; the canonical genre features rapid acceleration through the performance and characteristic call-and-response between the leader-syech and the body of dancers.",
   "recipe": "classic Southeast Asian modern acehnese saman, ritual Devotional, islamic branch, west African groove percussion fújì sabar drumming. vocal fry, declaimed, chest resonance low mid, punctuated. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 417,
-  "score": 127.387,
+  "score": 127.462,
   "config": {
     "traditions": [
       "acehnese_saman",
@@ -38,7 +38,7 @@
           "voice_quality": 8.14,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.3035,
+          "voice_vibrato": 3.23,
           "voice_articulation": 1.69,
           "voice_microtone": 1.345,
           "voice_tradition": 32.8575,
@@ -46,9 +46,9 @@
           "voice_estill_quality": 4.875,
           "voice_speech_song": 20.669999999999998,
           "voice_ensemble_config": 17.224999999999994,
-          "voice_ornament_system": 7.8065,
-          "voice_pitch_organization": 9.229642857142856,
-          "voice_processing_chain": 3.505000000000001,
+          "voice_ornament_system": 7.7749999999999995,
+          "voice_pitch_organization": 9.424642857142857,
+          "voice_processing_chain": 3.4900000000000007,
           "voice_multitrack_stack": 2.08
         }
       }

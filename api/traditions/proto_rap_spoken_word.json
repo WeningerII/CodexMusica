@@ -1,0 +1,111 @@
+{
+  "id": "proto_rap_spoken_word",
+  "name": "Proto-rap spoken word",
+  "family": "hip_hop",
+  "lineage": "Militant Black Arts Movement poetry declaimed over conga vamps in late-1960s and early-1970s New York, the most-cited direct ancestor of rap MCing. The Last Poets formed in Harlem in 1968 and their self-titled 1970 debut set traded, chanted verses over hand percussion, while Gil Scott-Heron's 'The Revolution Will Not Be Televised' first appeared on Small Talk at 125th and Lenox (Flying Dutchman, 1970) with only congas behind the voice; the Watts Prophets carried the parallel West Coast strand. The delivery is rhythmically locked to the drum pulse but spoken rather than sung, with group members answering the lead line in call-and-response, and the records circulated through Black radio and community networks into the record crates of the first Bronx DJs.",
+  "recipe": "classic North American 1967-1969 proto-rap spoken word, mc Rhythm, us hip hop branch conscious hip-hop gangsta rap. thick, rap, pure, narrative. lead open slap hand drum congas. independent loft jazz 1971-1978 indie-commercial strata east loft nyc. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 380,
+  "score": 221.005,
+  "config": {
+    "traditions": [
+      "proto_rap_spoken_word",
+      "conscious_hip_hop",
+      "gangsta_rap"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "straight_tone",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "beatboxing_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+        },
+        "scores": {
+          "voice_register": 8.930714285714282,
+          "voice_quality": 38.95128571428571,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.4949999999999999,
+          "voice_articulation": 17.705,
+          "voice_microtone": 4.549999999999999,
+          "voice_tradition": 12.85,
+          "voice_mechanism_compound": 6.694999999999999,
+          "voice_estill_quality": 5.005,
+          "voice_speech_song": 40.66628571428571,
+          "voice_ensemble_config": 24.569999999999993,
+          "voice_ornament_system": 1.475,
+          "voice_pitch_organization": 2.34,
+          "voice_processing_chain": 26.839999999999996,
+          "voice_multitrack_stack": 6.855000000000001
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "quinto",
+          "conga_skin": "conga_mule_hide",
+          "conga_shell_wood": "conga_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": 4.290000000000001,
+          "conga_set": 1.885,
+          "conga_skin": 0.9944999999999999,
+          "conga_shell_wood": 0.9944999999999999
+        }
+      }
+    ],
+    "room": "strata_east_loft_nyc",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "mic_u87_condenser_neumann",
+      "pre": "pre_api_312",
+      "console": "console_american_op_amp",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "funk_one_drop_syncopated_4_4",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "funk_one_drop_syncopated_4_4",
+    "room": "strata_east_loft_nyc",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "speech_voice",
+      "voice_speech_song": "voice_rhythmic_spoken_flow",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "voice_effort": "effort_projected"
+    },
+    "chain_mic": "mic_u87_condenser_neumann",
+    "chain_pre": "pre_api_312",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_american_op_amp"
+  }
+}

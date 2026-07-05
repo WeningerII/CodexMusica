@@ -1,0 +1,95 @@
+{
+  "id": "radio_drama_golden_age",
+  "name": "Golden-age radio drama",
+  "family": "global",
+  "lineage": "American network radio drama of the 1930s-1950s: full-cast actors performing live-to-air around ribbon microphones in large broadcast studios, with foley artists creating door slams, footsteps, and storms in real time and organ or orchestra cues stitching scenes together. The canonical exemplar is Orson Welles's Mercury Theatre on the Air, whose 'The War of the Worlds' broadcast (CBS, 30 October 1938) demonstrated the form's power, alongside Norman Corwin's poetic productions and long-running series such as Suspense and The Shadow. A parallel BBC radio drama tradition continued in Britain after American network drama faded with television in the late 1950s. Actors worked the mic distance itself as a dramatic instrument, stepping in for intimacy and off-axis for exits.",
+  "recipe": "classic North American 1957-1959 golden-age radio drama, spoken Word, broadcast branch guided meditation asmr whisper and trigger audio. vocal fry, intimate aspirated, chest resonance low mid, blues inflected. voluminous 1935-1955 major-flagship swing live room. passive ribbon, tube pre, German tube console. Studer 30ips tape.",
+  "recipe_chars": 328,
+  "score": 76.696,
+  "config": {
+    "traditions": [
+      "radio_drama_golden_age",
+      "guided_meditation",
+      "asmr_whisper_triggers"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_granular_texture"
+        },
+        "scores": {
+          "voice_register": 0.845,
+          "voice_quality": 1.5599999999999996,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.845,
+          "voice_articulation": 0.34125000000000005,
+          "voice_microtone": 0.845,
+          "voice_tradition": 6.175,
+          "voice_mechanism_compound": 6.759999999999999,
+          "voice_estill_quality": 6.5649999999999995,
+          "voice_speech_song": 17.095,
+          "voice_ensemble_config": 18.979999999999997,
+          "voice_ornament_system": 2.6650000000000005,
+          "voice_pitch_organization": 3.38,
+          "voice_processing_chain": 5.85,
+          "voice_multitrack_stack": 1.69
+        }
+      }
+    ],
+    "room": "studio_swing_live_room",
+    "archetype": "arch_swing_era_live_studio",
+    "inline_chain": {
+      "mic": "mic_rca_44bx_ribbon",
+      "pre": "tube_pre",
+      "console": "console_german_tube_50s",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "shellac_78"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "studio_swing_live_room",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "speech_voice",
+      "voice_speech_song": "voice_pure_spoken_no_pitch",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source"
+    },
+    "chain_mic": "mic_rca_44bx_ribbon",
+    "chain_pre": "tube_pre",
+    "chain_medium": "shellac_78",
+    "chain_console": "console_german_tube_50s"
+  }
+}

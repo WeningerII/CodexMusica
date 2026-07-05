@@ -3,53 +3,53 @@
   "name": "Powada (Marathi heroic-ballad)",
   "family": "global",
   "lineage": "Powada Marathi heroic-ballad tradition of Maharashtra, celebrating military and historical-political figures through declamatory narrative-and-call-and-response song. The canonical core centers on the seventeenth-century Maratha-Empire founder Chhatrapati Shivaji Maharaj — the powada of Tanaji Malusare's heroic death at the 1670 Battle of Sinhagad is most internationally circulated. Performance: male lead-singer-narrator (shahir) with chorus and dholak percussion, vigorous declamatory delivery, and audience call-and-response. The shahir is historically a respected community-poet-historian; nineteenth-century social-reformer Jyotirao Phule used powada for political consciousness-raising.",
-  "recipe": "classic South Asian early-1670s powada, ballad Poetry, Slavic bard branch, west African groove percussion fújì indonesian jaipongan. vocal fry, low dynamic level, chest resonance low mid, narrative. goat skin syahi rope laced steel ring dholak. mumbai bombay filmi defining 1940-present major-flagship mumbai bombay filmi studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 459,
-  "score": 116.73,
+  "recipe": "classic South Asian early-1670s powada, ballad Poetry, Slavic bard branch, west African groove percussion yoruba dùndún surrogate speech fújì. thick, low dynamic level, nervy, narrative. goat skin syahi rope laced steel ring dholak. mumbai bombay filmi defining 1940-present major-flagship mumbai bombay filmi studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 447,
+  "score": 134.39,
   "config": {
     "traditions": [
       "powada_marathi",
-      "fuji",
-      "indonesian_jaipongan"
+      "yoruba_dundun_surrogate_speech",
+      "fuji"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
+          "voice_register": "chest_voice",
           "voice_quality": "crooner_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "fast_vibrato",
           "voice_articulation": "narrative_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_microtone": "bend_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
-          "voice_pitch_organization": "voice_pitch_slendro_5",
-          "voice_processing_chain": "voice_processing_talkbox",
-          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 2.0799999999999996,
-          "voice_quality": 3.925,
+          "voice_register": 2.275000000000001,
+          "voice_quality": 3.185,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.845,
+          "voice_vibrato": 0.65,
           "voice_articulation": 3.7,
-          "voice_microtone": 0.45499999999999996,
-          "voice_tradition": 35.3925,
-          "voice_mechanism_compound": 4.225,
-          "voice_estill_quality": 4.225000000000001,
-          "voice_speech_song": 18.134999999999998,
-          "voice_ensemble_config": 16.379999999999995,
-          "voice_ornament_system": 2.469999999999999,
-          "voice_pitch_organization": 8.334999999999997,
-          "voice_processing_chain": 5.225,
-          "voice_multitrack_stack": 3.0875
+          "voice_microtone": 0.78,
+          "voice_tradition": 41.66499999999999,
+          "voice_mechanism_compound": 2.535,
+          "voice_estill_quality": 5.07,
+          "voice_speech_song": 21.124999999999996,
+          "voice_ensemble_config": 16.184999999999995,
+          "voice_ornament_system": 5.654999999999999,
+          "voice_pitch_organization": 13.589999999999995,
+          "voice_processing_chain": 2.19,
+          "voice_multitrack_stack": 3.3200000000000003
         }
       },
       {
@@ -63,8 +63,8 @@
         "scores": {
           "dholak_use": 0.51,
           "dholak_construction": 4.029999999999999,
-          "dholak_head": 1.495,
-          "dholak_tensioning": 1.54
+          "dholak_head": 2.3400000000000003,
+          "dholak_tensioning": 2.3850000000000002
         }
       }
     ],

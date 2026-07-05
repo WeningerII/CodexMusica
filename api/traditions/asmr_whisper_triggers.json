@@ -1,0 +1,96 @@
+{
+  "id": "asmr_whisper_triggers",
+  "name": "ASMR whisper and trigger audio",
+  "family": "global",
+  "lineage": "Internet-native whisper-and-trigger audio form that coalesced on YouTube around 2009-2010; Jennifer Allen coined the term 'autonomous sensory meridian response' in 2010 to name the tingling relaxation response the recordings aim to elicit. Performers whisper directly into binaural microphone rigs (dummy-head and 3Dio ear-shaped arrays) and foreground mouth sounds, tapping, scratching, and prop crinkles as the primary sonic content, panned for close in-ear headphone listening. Canonical early channels include GentleWhispering (Maria Viktorovna) and WhispersRed (Emma Smith), with the form professionalizing across YouTube and streaming platforms through the 2010s.",
+  "recipe": "classic 2009-2010 asmr whisper and trigger audio, spoken Word, intimate voice branch audiobook narration guided meditation. vocal fry, unvoiced, chest resonance low mid, rhythmic. carpeted bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 296,
+  "score": 89.566,
+  "config": {
+    "traditions": [
+      "asmr_whisper_triggers",
+      "audiobook_narration",
+      "guided_meditation"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "whisper_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "carnatic_classical_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 1.69,
+          "voice_quality": 2.535,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.845,
+          "voice_articulation": 0.5265,
+          "voice_microtone": 0.845,
+          "voice_tradition": 4.9399999999999995,
+          "voice_mechanism_compound": 5.915,
+          "voice_estill_quality": 4.875,
+          "voice_speech_song": 18.785,
+          "voice_ensemble_config": 22.489999999999995,
+          "voice_ornament_system": 4.485,
+          "voice_pitch_organization": 3.8545,
+          "voice_processing_chain": 5.4275,
+          "voice_multitrack_stack": 6.10244696969697
+        }
+      }
+    ],
+    "room": "carpeted_bedroom",
+    "archetype": "arch_minimal_daw_bedroom",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "transformerless",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "carpeted_bedroom",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "whisper_voice",
+      "voice_speech_song": "voice_pure_spoken_no_pitch",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "voice_effort": "effort_minimal_undersung"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "transformerless",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

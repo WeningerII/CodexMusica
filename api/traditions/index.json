@@ -1,5 +1,5 @@
 {
-  "count": 1176,
+  "count": 1195,
   "items": [
     {
       "id": "honky_tonk",
@@ -7056,6 +7056,120 @@
       "name": "Hawaiian haʻa ancestral chant",
       "family": "global",
       "href": "traditions/hawaiian_haa_ancestral_chant.json"
+    },
+    {
+      "id": "audiobook_narration",
+      "name": "Audiobook narration",
+      "family": "global",
+      "href": "traditions/audiobook_narration.json"
+    },
+    {
+      "id": "documentary_voiceover",
+      "name": "Documentary voiceover",
+      "family": "global",
+      "href": "traditions/documentary_voiceover.json"
+    },
+    {
+      "id": "oldtime_radio_announcer",
+      "name": "Old-time radio announcer",
+      "family": "global",
+      "href": "traditions/oldtime_radio_announcer.json"
+    },
+    {
+      "id": "radio_drama_golden_age",
+      "name": "Golden-age radio drama",
+      "family": "global",
+      "href": "traditions/radio_drama_golden_age.json"
+    },
+    {
+      "id": "podcast_conversation",
+      "name": "Podcast conversation",
+      "family": "global",
+      "href": "traditions/podcast_conversation.json"
+    },
+    {
+      "id": "sports_play_by_play",
+      "name": "Sports play-by-play commentary",
+      "family": "global",
+      "href": "traditions/sports_play_by_play.json"
+    },
+    {
+      "id": "numbers_station_broadcast",
+      "name": "Numbers-station shortwave broadcast",
+      "family": "global",
+      "href": "traditions/numbers_station_broadcast.json"
+    },
+    {
+      "id": "shipping_forecast_cadence",
+      "name": "Shipping forecast cadence",
+      "family": "global",
+      "href": "traditions/shipping_forecast_cadence.json"
+    },
+    {
+      "id": "asmr_whisper_triggers",
+      "name": "ASMR whisper and trigger audio",
+      "family": "global",
+      "href": "traditions/asmr_whisper_triggers.json"
+    },
+    {
+      "id": "guided_meditation",
+      "name": "Guided meditation",
+      "family": "global",
+      "href": "traditions/guided_meditation.json"
+    },
+    {
+      "id": "hypnosis_induction",
+      "name": "Hypnotic induction",
+      "family": "global",
+      "href": "traditions/hypnosis_induction.json"
+    },
+    {
+      "id": "standup_comedy",
+      "name": "Stand-up comedy",
+      "family": "vernacular",
+      "href": "traditions/standup_comedy.json"
+    },
+    {
+      "id": "poetry_slam",
+      "name": "Poetry slam / performance poetry",
+      "family": "vernacular",
+      "href": "traditions/poetry_slam.json"
+    },
+    {
+      "id": "greek_tragedy_chorus",
+      "name": "Greek tragedy chorus declamation",
+      "family": "classical",
+      "href": "traditions/greek_tragedy_chorus.json"
+    },
+    {
+      "id": "victorian_melodrama_narration",
+      "name": "Victorian melodrama narration",
+      "family": "classical",
+      "href": "traditions/victorian_melodrama_narration.json"
+    },
+    {
+      "id": "manchu_shamanic_seance",
+      "name": "Manchu shamanic seance chant",
+      "family": "global",
+      "href": "traditions/manchu_shamanic_seance.json"
+    },
+    {
+      "id": "mongolian_boo_murgel_invocation",
+      "name": "Mongolian böö mörgöl invocation",
+      "family": "global",
+      "href": "traditions/mongolian_boo_murgel_invocation.json"
+    },
+    {
+      "id": "yoruba_dundun_surrogate_speech",
+      "name": "Yoruba dùndún surrogate speech",
+      "family": "global",
+      "href": "traditions/yoruba_dundun_surrogate_speech.json"
+    },
+    {
+      "id": "proto_rap_spoken_word",
+      "name": "Proto-rap spoken word",
+      "family": "hip_hop",
+      "href": "traditions/proto_rap_spoken_word.json"
     }
   ]
 }
