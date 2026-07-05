@@ -3,26 +3,26 @@
   "name": "Akan-Asante kete royal praise music",
   "family": "global",
   "lineage": "Akan-Asante royal court-music tradition continuous from pre-colonial Asantehene court-music practice (17th-19th century Asante Empire era) through colonial-period continuous performance into modern Ghanaian Asante cultural-practice; the kete ensemble is the royal-court praise-music ensemble",
-  "recipe": "classic West African modern akan-asante kete royal praise music, praise Song, sub saharan African branch, African diasporic wedding, west African groove percussion, indigenous ritual devotional yoruba aso ebi wedding music inuit katajjaq throat-singing game. kargyraa, declaimed, tasteful, continuous-phonation. iroko alternative west African talking drum, modern revival iroko west African premium dunun. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 616,
-  "score": 201.141,
+  "recipe": "classic West African modern akan-asante kete royal praise music, praise Song, sub saharan African branch, African diasporic wedding, west African groove percussion, indigenous ritual devotional yoruba aso ebi wedding music yoruba dùndún surrogate speech. thick, declaimed, tasteful, continuous-phonation. iroko alternative west African goat skin leather tension cords canonical pressure bend talking drum, iroko west African premium cowhide rope lacing canonical mande dunun. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 686,
+  "score": 200.244,
   "config": {
     "traditions": [
       "akan_kete_royal_praise",
       "yoruba_aso_ebi_wedding",
-      "inuit_katajjaq_games"
+      "yoruba_dundun_surrogate_speech"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "kargyraa_register",
+          "voice_register": "chest_voice",
           "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "legato_voice",
-          "voice_microtone": "overtone_singing",
+          "voice_microtone": "tempered_voice",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
           "voice_estill_quality": "voice_estill_opera",
@@ -30,56 +30,56 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 6.065,
-          "voice_quality": 16.914999999999992,
+          "voice_register": 5.963750000000002,
+          "voice_quality": 16.664999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.73,
-          "voice_articulation": 5.2124999999999995,
-          "voice_microtone": 6.200000000000001,
-          "voice_tradition": 48.425,
-          "voice_mechanism_compound": 15.299999999999997,
-          "voice_estill_quality": 3.6100000000000003,
-          "voice_speech_song": 18.005,
-          "voice_ensemble_config": 15.989999999999998,
-          "voice_ornament_system": 11.504999999999997,
-          "voice_pitch_organization": 12.538749999999997,
-          "voice_processing_chain": 2.925,
-          "voice_multitrack_stack": 4.29
+          "voice_articulation": 4.7124999999999995,
+          "voice_microtone": 3.825,
+          "voice_tradition": 59.31249999999999,
+          "voice_mechanism_compound": 1.65,
+          "voice_estill_quality": 2.73,
+          "voice_speech_song": 15.144999999999996,
+          "voice_ensemble_config": 9.294999999999998,
+          "voice_ornament_system": 14.212499999999997,
+          "voice_pitch_organization": 18.813749999999995,
+          "voice_processing_chain": 1.885,
+          "voice_multitrack_stack": 2.6
         }
       },
       {
         "id": "talking_drum",
         "slots": {
-          "talking_drum_origin": "tama_senegal",
-          "talking_drum_context": "talking_drum_juju",
+          "talking_drum_origin": "gangan_yoruba",
+          "talking_drum_context": "talking_drum_world",
           "talking_drum_shell_wood": "talking_drum_iroko_alt",
           "talking_drum_head": "talking_drum_goat_skin_canonical"
         },
         "scores": {
-          "talking_drum_origin": 0.6,
-          "talking_drum_context": 3.835,
-          "talking_drum_shell_wood": 7.0200000000000005,
-          "talking_drum_head": 0.435
+          "talking_drum_origin": 2.2387499999999996,
+          "talking_drum_context": 2.73,
+          "talking_drum_shell_wood": 8.97,
+          "talking_drum_head": 2.3850000000000002
         }
       },
       {
         "id": "dunun",
         "slots": {
-          "dunun_size": "kenkeni",
-          "dunun_bell": "dunun_double_bell",
+          "dunun_size": "sangban",
+          "dunun_bell": "dunun_no_bell",
           "dunun_shell_wood": "dunun_iroko",
           "dunun_head": "dunun_cowhide_canonical"
         },
         "scores": {
-          "dunun_size": 0.845,
-          "dunun_bell": 3.575,
-          "dunun_shell_wood": 7.0200000000000005,
-          "dunun_head": 0.525
+          "dunun_size": 0.51,
+          "dunun_bell": 5.135,
+          "dunun_shell_wood": 8.97,
+          "dunun_head": 1.69
         }
       }
     ],

@@ -1,0 +1,97 @@
+{
+  "id": "greek_tragic_chorus",
+  "name": "Greek tragic chorus declamation",
+  "family": "classical",
+  "lineage": "The choral declamation of ancient Greek tragedy, composed for the Athenian dramatic festivals of the 5th century BCE by Aeschylus, Sophocles, and Euripides, was delivered by a chorus of twelve to fifteen members in rhythmically measured, metrically strict group utterance occupying a register between speech and song. Reconstructions informed by surviving metrical texts, vase iconography, and the scholarship of Martin West render the parodos and stasima as unison or antiphonal declaimed verse. Modern staging traditions, from 19th-century revivals to the Cambridge Greek Play and the Epidaurus festival, preserve the practice. It is documented in performance recordings and in West's 'Ancient Greek Music' (1992).",
+  "recipe": "classic early-1990s greek tragic chorus declamation, art Music, western early branch tibetan ache lhamo opera thai classical. thick, low dynamic level, chest resonance low mid, callresponse articulation. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 355,
+  "score": 209.343,
+  "config": {
+    "traditions": [
+      "greek_tragic_chorus",
+      "tibetan_ache_lhamo",
+      "thai_classical"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "crooner_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "call_response_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "chinese_classical_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_unison_double_take"
+        },
+        "scores": {
+          "voice_register": 8.23225,
+          "voice_quality": 4.03,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 7.019999999999998,
+          "voice_articulation": 1.625,
+          "voice_microtone": 9.262500000000001,
+          "voice_tradition": 25.934999999999995,
+          "voice_mechanism_compound": 14.049999999999997,
+          "voice_estill_quality": 26.236999999999995,
+          "voice_speech_song": 33.93000000000001,
+          "voice_ensemble_config": 27.3,
+          "voice_ornament_system": 16.324999999999996,
+          "voice_pitch_organization": 13.986499999999996,
+          "voice_processing_chain": 7.994999999999998,
+          "voice_multitrack_stack": 2.9899999999999998
+        }
+      }
+    ],
+    "room": "concert_hall_shoebox",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "concert_hall_shoebox",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "speech_voice",
+      "voice_speech_song": "voice_metrical_chant",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_gang_vocal_unison",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "voice_effort": "effort_projected",
+      "voice_articulation": "narrative_voice"
+    },
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "tube_pre",
+    "chain_medium": "digital_std",
+    "chain_console": "clean"
+  }
+}

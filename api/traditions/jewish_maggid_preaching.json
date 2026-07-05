@@ -1,0 +1,96 @@
+{
+  "id": "jewish_maggid_preaching",
+  "name": "Jewish maggid homiletic preaching",
+  "family": "global",
+  "lineage": "The derashah of the itinerant Ashkenazi preacher (maggid) of Eastern Europe, a homiletic sermon weaving Torah, Talmud, and midrash with moral exhortation, typically delivered in Yiddish with a distinctive study-chant cadence derived from the lernen (Gemara) shteyger. The form flourished from the 17th through 19th centuries; the Dubner Maggid (Jacob Kranz, d. 1804) was celebrated for his mashal parables, and the Maggid of Mezeritch was central to the spread of early Hasidism. The delivery moves fluidly between conversational speech and a rising, questioning recitative melody used to voice textual argument. It survives today in yeshiva drashot and Hasidic gatherings.",
+  "recipe": "classic Eastern European mid-1800s jewish maggid homiletic preaching, ritual Devotional, Jewish branch shipibo-conibo icaros healing songs mapuche tayil genealogical chant. thick, declaimed, melodic, rhythmic. eastern european chassidic farbrengen. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 378,
+  "score": 140.444,
+  "config": {
+    "traditions": [
+      "jewish_maggid_preaching",
+      "shipibo_icaros",
+      "mapuche_tayil_ritual"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 2.636500000000002,
+          "voice_quality": 11.826,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.4299999999999997,
+          "voice_articulation": 1.6315,
+          "voice_microtone": 1.5115,
+          "voice_tradition": 21.319999999999997,
+          "voice_mechanism_compound": 9.555,
+          "voice_estill_quality": 9.165,
+          "voice_speech_song": 23.205,
+          "voice_ensemble_config": 22.1,
+          "voice_ornament_system": 10.900000000000002,
+          "voice_pitch_organization": 3.803000000000001,
+          "voice_processing_chain": 4.29,
+          "voice_multitrack_stack": 2.795
+        }
+      }
+    ],
+    "room": "eastern_european_chassidic_farbrengen",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "eastern_european_chassidic_farbrengen",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "speech_voice",
+      "voice_speech_song": "voice_recitative_free_rhythm",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "voice_effort": "effort_projected"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

@@ -5,7 +5,7 @@
   "lineage": "Medieval Western European liturgical music tradition spanning monophonic Gregorian chant (canonized late ninth century, eight church modes, Latin liturgical text) and the early-polyphonic organum that emerged from it. Ninth-century parallel organum (the chant doubled at the fifth or fourth, with optional octave doubling); twelfth-century melismatic organum (the chant slowed to drone-tone in the lower voice while the upper voice elaborates ornamentally over each chant pitch). The Notre Dame school, Paris, c.1160-1250, codified the rhythmic-modes system and expanded to three-and-four-voice organum: Léonin (c.1135-1201), credited with the Magnus Liber Organi (the great book of organum), set the two-voice canonical repertoire; Pérotin (fl. c.1200), expanded to three and four voices and composed canonical large-scale organum-quadruplum settings of Viderunt omnes (1198) and Sederunt principes. Cantus firmus practice: the chant melody remains in one voice (typically the tenor) while the other voices counterpoint above. Anonymous IV (English theorist, c.1270s, his treatise survives in a thirteenth-century Bury St Edmunds manuscript) preserves the attribution of these works to Léonin and Pérotin. Distinguished from Renaissance sacred polyphony by limited-voice-count and modal-not-tonal harmonic vocabulary; distinguished from Byzantine chant by Latin-language and Roman-rite cantus-firmus framing; distinguished from Old Roman chant by Frankish-redacted melodic-formulae lineage",
   "recipe": "classic early-1160s medieval latin chant and notre dame organum, art Music, western early branch, christian gospel anglican choral anglican choral evensong. thick, declaimed, melodic, ornamental. a cappella small 3 to 8 one per part four voice polyphonic regional kakhetian three voice two soloists choral drone choir ensemble, silbermann saxon canonical bach era central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque pneumatic canonical late 19th century romantic pipe organ. cathedral. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 730,
-  "score": 267.023,
+  "score": 268.225,
   "config": {
     "traditions": [
       "medieval_latin_chant_organum",
@@ -33,7 +33,7 @@
           "voice_multitrack_stack": "voice_multitrack_octave_double_self"
         },
         "scores": {
-          "voice_register": 4.874500000000001,
+          "voice_register": 5.011000000000001,
           "voice_quality": 8.3365,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -42,9 +42,9 @@
           "voice_microtone": 5.720000000000001,
           "voice_tradition": 13.522285714285717,
           "voice_mechanism_compound": 6.369999999999999,
-          "voice_estill_quality": 9.19,
+          "voice_estill_quality": 9.4435,
           "voice_speech_song": 22.490000000000006,
-          "voice_ensemble_config": 35.50335714285714,
+          "voice_ensemble_config": 36.14,
           "voice_ornament_system": 8.424285714285713,
           "voice_pitch_organization": 9.165,
           "voice_processing_chain": 10.183785714285714,
@@ -60,10 +60,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_romantic"
         },
         "scores": {
-          "choir_size": 10.128214285714286,
-          "choir_polyphonic_configuration": 16.83307142857143,
+          "choir_size": 10.362214285714286,
+          "choir_polyphonic_configuration": 16.930571428571426,
           "choir_regional_canonical_configuration": 17.653285714285715,
-          "choir_ensemble_repertoire": 7.3999999999999995
+          "choir_ensemble_repertoire": 7.360999999999999
         }
       },
       {
@@ -82,9 +82,9 @@
           "pipe_organ_class": 0.9694285714285713,
           "pipe_organ_context": 12.025,
           "pipe_organ_voicing_school": 14.235,
-          "pipe_organ_pipe_alloy": 11.998357142857142,
+          "pipe_organ_pipe_alloy": 11.939857142857141,
           "pipe_organ_temperament": 9.165,
-          "pipe_organ_action": 10.698357142857141
+          "pipe_organ_action": 10.63985714285714
         }
       }
     ],

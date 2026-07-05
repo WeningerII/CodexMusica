@@ -1,0 +1,96 @@
+{
+  "id": "mande_griot_epic_narrative",
+  "name": "Mande griot narrative epic recitation",
+  "family": "global",
+  "lineage": "The spoken narrative art of the Mande jeli (griot) of West Africa (Mali, Guinea, Senegal, The Gambia), focused here on the recited-and-declaimed telling of the great epic of Sunjata Keita, founder of the thirteenth-century Mali Empire, as distinct from the griot's sung and kora-accompanied music. A hereditary caste of oral historians, genealogists and spokespersons, the jeliw transmit the Sunjata cycle through generations, canonically documented in Djibril Tamsir Niane's rendering of the telling by Mamadou Kouyate of Djeliba Koro. Delivery is heightened, cadenced narration, often supported by a naamu-namina respondent who punctuates the teller with affirmations.",
+  "recipe": "classic West African modern mande griot narrative epic recitation, ballad Poetry, west African griot branch jeju haenyeo songs swedish kulning herding-call. thick, declaimed, chest resonance low mid, narrative. bamako griot jeli compound. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 368,
+  "score": 196.254,
+  "config": {
+    "traditions": [
+      "mande_griot_epic_narrative",
+      "jeju_haenyeo_songs",
+      "swedish_kulning"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "mande_jeli_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 9.475000000000001,
+          "voice_quality": 21.940999999999995,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.6315,
+          "voice_articulation": 4.457500000000001,
+          "voice_microtone": 3.0865,
+          "voice_tradition": 42.185,
+          "voice_mechanism_compound": 5.135,
+          "voice_estill_quality": 5.785,
+          "voice_speech_song": 37.05000000000001,
+          "voice_ensemble_config": 26.520000000000007,
+          "voice_ornament_system": 6.0775,
+          "voice_pitch_organization": 1.8499999999999996,
+          "voice_processing_chain": 7.669999999999999,
+          "voice_multitrack_stack": 2.9899999999999998
+        }
+      }
+    ],
+    "room": "bamako_griot_jeli_compound",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "bamako_griot_jeli_compound",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "praise_voice",
+      "voice_speech_song": "voice_heightened_speech",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "voice_articulation": "narrative_voice"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

@@ -5,7 +5,7 @@
   "lineage": "20th-century-codified Chinese national-music conservatory ensemble form anchored at the Central Conservatory Beijing and Shanghai Conservatory",
   "recipe": "classic modern chinese conservatory traditional ensemble, art Music, east Asian branch, south Asian art music sinhala vannama telugu kirtana. balanced, declaimed, chest resonance low mid, punctuated. python skin snake skin bamboo silk red sandalwood zitan erhu, silk red sandalwood zitan premium pipa, shell wutong paulownia rosewood frame canonical decorative steel wound guzheng, nylon steel wound ruan, python skin silk canonical traditional sanxian, no membrane buzz bitter bamboo phyllostachys nigra canonical jiangnan suzhou qudi southern jiangnan kunqu canonical lyrical continuous-airflow legato dizi, traditional bamboo pipes copper brass free reeds canonical Chinese sheng, modern concert bamboo yangqin, bawu, hulusi. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 880,
-  "score": 281.517,
+  "score": 280.045,
   "config": {
     "traditions": [
       "chinese_traditional_ensemble",
@@ -35,19 +35,19 @@
         },
         "scores": {
           "voice_register": 0.7629999999999999,
-          "voice_quality": 4.666,
+          "voice_quality": 4.561000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.3799999999999994,
           "voice_articulation": 0.845,
           "voice_microtone": 0.845,
-          "voice_tradition": 23.772499999999997,
+          "voice_tradition": 23.545999999999996,
           "voice_mechanism_compound": 5.6499999999999995,
-          "voice_estill_quality": 8.3615,
+          "voice_estill_quality": 7.7315000000000005,
           "voice_speech_song": 10.464999999999998,
           "voice_ensemble_config": 8.645,
           "voice_ornament_system": 20.525,
-          "voice_pitch_organization": 21.2705,
+          "voice_pitch_organization": 21.165499999999998,
           "voice_processing_chain": 2.3399999999999994,
           "voice_multitrack_stack": 1.2349999999999999
         }
@@ -101,7 +101,7 @@
         "scores": {
           "plucked_traditional_technique": 5.813,
           "guzheng_strings": 4.225,
-          "guzheng_picks": 1.4809999999999999,
+          "guzheng_picks": 1.376,
           "guzheng_top_wood": 2.5349999999999997,
           "guzheng_frame": 2.4699999999999998,
           "guzheng_string_material": 1.625
@@ -118,7 +118,7 @@
         },
         "scores": {
           "plucked_traditional_technique": 5.813,
-          "ruan_size": 4.123999999999999,
+          "ruan_size": 3.9139999999999993,
           "ruan_context": 12.934999999999999,
           "ruan_body_wood": 0,
           "ruan_strings": 2.5349999999999997
@@ -140,7 +140,7 @@
           "sanxian_context": 3.3149999999999995,
           "sanxian_head": 2.4699999999999998,
           "sanxian_strings": 3.8349999999999995,
-          "sanxian_body_wood": 0.39
+          "sanxian_body_wood": 0.3
         }
       },
       {

@@ -5,7 +5,7 @@
   "lineage": "European art-music period c.1750-1820 centered on Vienna, codifying balanced sonata-form, periodic-phrase symmetry, and the Classical orchestra (strings, paired woodwinds and brass, timpani). The Haydn-Mozart-Beethoven trinity established the canonical symphony, string quartet, sonata, and piano concerto repertoires. Distinguished from preceding Baroque by Classical period's homophonic textures, clear cadential punctuation, and dramatic-rhetorical phrase structure.",
   "recipe": "classic classical period, art Music, western common practice branch, western early art music renaissance madrigal burgundian school. thick, low dynamic level, chest resonance low mid, ornamental. beech laminated maple laminated European tradition European spruce norway spruce grand piano, synthetic Italian alpine spruce val di fiemme European maple bosnian source violin orchestral, gut Italian alpine spruce val di fiemme European maple bosnian source cello, timpani. shoebox concert hall. acoustic horn. 78rpm shellac.",
   "recipe_chars": 522,
-  "score": 586.011,
+  "score": 584.915,
   "config": {
     "traditions": [
       "classical_period_18c",
@@ -34,17 +34,17 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 6.910000000000001,
+          "voice_register": 7.105000000000001,
           "voice_quality": 2.99,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 8.125,
           "voice_articulation": 1.1149999999999998,
           "voice_microtone": 11.7,
-          "voice_tradition": 26.74,
+          "voice_tradition": 26.529999999999998,
           "voice_mechanism_compound": 13.899999999999999,
-          "voice_estill_quality": 24.295999999999996,
-          "voice_speech_song": 20.695,
+          "voice_estill_quality": 24.559999999999995,
+          "voice_speech_song": 21.085,
           "voice_ensemble_config": 15.079999999999997,
           "voice_ornament_system": 20.124999999999996,
           "voice_pitch_organization": 14.245,
@@ -69,12 +69,12 @@
           "keyboard_technique": 13.999999999999998,
           "grand_piano_size": 1.8199999999999998,
           "grand_piano_brand": 4.029999999999999,
-          "piano_hammer": 18.663999999999994,
-          "piano_rim": 16.962999999999997,
-          "piano_soundboard": 17.837999999999997,
+          "piano_hammer": 18.204999999999995,
+          "piano_rim": 16.794999999999995,
+          "piano_soundboard": 17.669999999999998,
           "piano_pinblock": 14.444999999999997,
-          "piano_plate": 14.993499999999996,
-          "piano_pitch_standard": 18.122999999999998
+          "piano_plate": 15.114999999999997,
+          "piano_pitch_standard": 17.955
         }
       },
       {
@@ -93,15 +93,15 @@
         },
         "scores": {
           "bowed_technique": 13.999999999999998,
-          "orch_strings": 2.6334999999999997,
+          "orch_strings": 2.6649999999999996,
           "orch_top_wood": 21.65,
           "orch_back_wood": 21.24,
-          "orch_varnish": 21.371499999999997,
-          "orch_setup_period": 15.7515,
-          "orch_bow": 4.68,
-          "orch_bow_stick": 16.220499999999998,
+          "orch_varnish": 21.535,
+          "orch_setup_period": 15.72,
+          "orch_bow": 4.664999999999999,
+          "orch_bow_stick": 15.834999999999997,
           "orch_articulation": 2.275,
-          "orch_rosin": 25.845
+          "orch_rosin": 25.634999999999998
         }
       },
       {
@@ -119,14 +119,14 @@
         },
         "scores": {
           "bowed_technique": 13.999999999999998,
-          "cello_strings": 4.68,
+          "cello_strings": 4.664999999999999,
           "cello_top_wood": 21.65,
           "cello_back_wood": 21.24,
-          "cello_varnish": 21.371499999999997,
+          "cello_varnish": 21.535,
           "cello_setup_period": 15.72,
           "cello_bow_grip": 7.279999999999999,
-          "cello_rosin": 23.069999999999997,
-          "cello_bow_stick": 16.220499999999998
+          "cello_rosin": 22.86,
+          "cello_bow_stick": 15.834999999999997
         }
       },
       {

@@ -5,7 +5,7 @@
   "lineage": "Andalusian alegría (\"happiness\") flamenco palo of the cantiñas family, developed in nineteenth-century Cádiz from the older Castilian jota and northern-Spanish folk-dance-forms adapted to Andalusian flamenco-compás framework. Characterized by twelve-beat alegría compás (accents on 3, 6, 8, 10, 12 like soleá but with major-key feel and bright tempo), upbeat lyrical content addressing happiness, the sea, the city of Cádiz, and Andalusian regional pride. Performance integrates the canonical alegría dance (one of the foundational baile flamenco choreographic forms) with vocal and guitar accompaniment. Distinguished from soleá by alegría's major-key brighter (vs Phrygian-mode darker) tonal register and Cádiz-regional cultural-identity.",
   "recipe": "classic North African mid-1930s alegría, ballad Poetry, Mediterranean ballad branch, west African groove percussion fújì indonesian jaipongan. thick, nasal, chest resonance low mid, rhythmic. cypress body percussive attack strong flamenco tradition low action golpe tap plate flamenco guitar. casablanca and marrakech recording 1970-present indie-commercial casablanca chaabi moroccan studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 465,
-  "score": 160.458,
+  "score": 160.562,
   "config": {
     "traditions": [
       "flamenco_alegria",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 5.265000000000001,
+          "voice_register": 5.805000000000001,
           "voice_quality": 12.295,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.845,
           "voice_articulation": 0.845,
-          "voice_microtone": 12.43525,
+          "voice_microtone": 12.445,
           "voice_tradition": 30.322499999999998,
           "voice_mechanism_compound": 5.915,
-          "voice_estill_quality": 18.3705,
+          "voice_estill_quality": 18,
           "voice_speech_song": 14.754999999999997,
           "voice_ensemble_config": 14.689999999999996,
           "voice_ornament_system": 12.2,
-          "voice_pitch_organization": 8.57,
+          "voice_pitch_organization": 8.764999999999999,
           "voice_processing_chain": 6.12,
           "voice_multitrack_stack": 4.615
         }
@@ -60,7 +60,7 @@
           "flamenco_technique": "flamenco_rasgueado_picado_alzapua"
         },
         "scores": {
-          "flamenco_body": 7.409999999999999,
+          "flamenco_body": 7.14,
           "flamenco_features": 4.094999999999999,
           "flamenco_technique": 5.334999999999999
         }

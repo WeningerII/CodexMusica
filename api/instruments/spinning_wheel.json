@@ -1,0 +1,162 @@
+{
+  "id": "spinning_wheel",
+  "name": "Spinning wheel",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -2,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "spinningwheel",
+  "parts": [
+    {
+      "id": "spinning_wheel_type",
+      "name": "Type",
+      "surface": false,
+      "variants": [
+        {
+          "id": "spinning_wheel_treadle",
+          "default": true,
+          "name": "Treadle wheel",
+          "descriptors": [
+            "wheel-treadle",
+            "whirring",
+            "steady"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "spinning_wheel_great_wheel",
+          "default": false,
+          "name": "Great walking wheel",
+          "descriptors": [
+            "great-wheel",
+            "humming",
+            "large"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "spinning_wheel_sound",
+      "name": "Sound",
+      "surface": false,
+      "variants": [
+        {
+          "id": "spinning_wheel_steady_whir",
+          "default": true,
+          "name": "Steady whir",
+          "descriptors": [
+            "steady-whir",
+            "continuous",
+            "soft"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "spinning_wheel_treadle_knock",
+          "default": false,
+          "name": "Treadle knock",
+          "descriptors": [
+            "treadle-knock",
+            "ticking",
+            "mechanical"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "spinning_wheel_type",
+      "name": "Type",
+      "surface": false,
+      "variants": [
+        {
+          "id": "spinning_wheel_treadle",
+          "default": true,
+          "name": "Treadle wheel",
+          "descriptors": [
+            "wheel-treadle",
+            "whirring",
+            "steady"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "spinning_wheel_great_wheel",
+          "default": false,
+          "name": "Great walking wheel",
+          "descriptors": [
+            "great-wheel",
+            "humming",
+            "large"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "spinning_wheel_sound",
+      "name": "Sound",
+      "surface": false,
+      "variants": [
+        {
+          "id": "spinning_wheel_steady_whir",
+          "default": true,
+          "name": "Steady whir",
+          "descriptors": [
+            "steady-whir",
+            "continuous",
+            "soft"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "spinning_wheel_treadle_knock",
+          "default": false,
+          "name": "Treadle knock",
+          "descriptors": [
+            "treadle-knock",
+            "ticking",
+            "mechanical"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    }
+  ]
+}

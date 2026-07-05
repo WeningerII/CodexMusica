@@ -1,0 +1,96 @@
+{
+  "id": "somali_gabay",
+  "name": "Somali gabay poetic recitation",
+  "family": "global",
+  "lineage": "Recitation of the gabay, the most prestigious and formally demanding genre of Somali oral poetry — long, alliterative, quantitative-metre verse on weighty themes of politics, philosophy, war and reconciliation, composed by a named poet (abwaan) and transmitted verbatim by memoriser-reciters. Central to Somali public life across the Horn of Africa, the tradition produced figures such as Sayyid Mohammed Abdullah Hassan and sustained the twentieth-century 'chain' poem-debates (silsilad); every line must alliterate on a chosen consonant throughout the poem. Delivery is grave, measured, elevated speech in which the poem's argument and its exact wording carry the art.",
+  "recipe": "classic Middle Eastern modern somali gabay poetic recitation, ballad Poetry, med east poetic branch jeju haenyeo songs latvian dainas. thick, chest mix belt, overtone rich sustained, narrative. qat chew majlis room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 345,
+  "score": 124.472,
+  "config": {
+    "traditions": [
+      "somali_gabay",
+      "jeju_haenyeo_songs",
+      "latvian_dainas"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "chest_mix_belt_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 9.8265,
+          "voice_quality": 3.5100000000000025,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.6315,
+          "voice_articulation": 1.6899999999999997,
+          "voice_microtone": 2.4815,
+          "voice_tradition": 16.737499999999997,
+          "voice_mechanism_compound": 4.484999999999999,
+          "voice_estill_quality": 4.485,
+          "voice_speech_song": 32.045,
+          "voice_ensemble_config": 20.669999999999998,
+          "voice_ornament_system": 1.4949999999999999,
+          "voice_pitch_organization": 2.5349999999999997,
+          "voice_processing_chain": 6.369999999999999,
+          "voice_multitrack_stack": 3.835
+        }
+      }
+    ],
+    "room": "qat_chew_majlis_room",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "qat_chew_majlis_room",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "speech_voice",
+      "voice_speech_song": "voice_heightened_speech",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "voice_articulation": "narrative_voice"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

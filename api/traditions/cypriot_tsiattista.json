@@ -3,79 +3,79 @@
   "name": "Cypriot tsiattista (improvised dueling couplets)",
   "family": "global",
   "lineage": "Cypriot tsiattista improvised-couplet poetic-dueling tradition of Cyprus (Greek-Cypriot communities), Performance: two poet-singers face off in extempore Greek-Cypriot-dialect rhymed-couplet exchange, each turn answering the previous while introducing new poetic-and-philosophical-and-humorous-and-mocking material, accompanied by violin and laouto. The genre is structurally parallel to other improvised-poetic-dueling Mediterranean traditions (Basque bertsolaritza, Italian stornelli, Sardinian gara poetica, Sicilian mottetto), but with Cypriot-Greek dialect register and tetraposyllabos-fifteen-syllable-line characteristic poetic-meter. Performance contexts: weddings, agricultural festivals, and the annual Tsiattistakia festivals in Cyprus.",
-  "recipe": "classic Southern European modern cypriot tsiattista, ballad Poetry, med east poetic branch, indigenous ritual devotional inuit katajjaq throat-singing game shipibo-conibo icaros healing songs. kargyraa, false fold engaged, overtone rich sustained, punctuated. gut sitka spruce spirit varnish shellac alcohol violin orchestral, spruce face oud. athens major label 1955-1985 mid tier athens minos studios 60s 70s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 541,
-  "score": 213.94,
+  "recipe": "classic Southern European modern cypriot tsiattista, ballad Poetry, med east poetic branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. kargyraa, declaimed, melodic, punctuated. sitka spruce spirit varnish shellac alcohol violin orchestral, spruce face oud. athens major label 1955-1985 mid tier athens minos studios 60s 70s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 510,
+  "score": 169.195,
   "config": {
     "traditions": [
       "cypriot_tsiattista",
-      "inuit_katajjaq_games",
-      "shipibo_icaros"
+      "shipibo_icaros",
+      "mapuche_tayil_ritual"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "kargyraa_register",
-          "voice_quality": "false_fold_voice",
+          "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "diaphragm_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "staccato_voice",
-          "voice_microtone": "overtone_singing",
-          "voice_tradition": "inuit_katajjaq_tradition",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 7.71,
-          "voice_quality": 9.895,
+          "voice_register": 1.4949999999999999,
+          "voice_quality": 10.165,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.7550000000000001,
-          "voice_articulation": 0.845,
-          "voice_microtone": 7.880000000000002,
-          "voice_tradition": 37.595000000000006,
-          "voice_mechanism_compound": 22.58,
-          "voice_estill_quality": 12.22,
-          "voice_speech_song": 27.04,
-          "voice_ensemble_config": 27.43,
+          "voice_vibrato": 1.4299999999999997,
+          "voice_articulation": 0.9750000000000001,
+          "voice_microtone": 0.39,
+          "voice_tradition": 31.914999999999996,
+          "voice_mechanism_compound": 11.655000000000001,
+          "voice_estill_quality": 11.765,
+          "voice_speech_song": 23.205,
+          "voice_ensemble_config": 23.789999999999996,
           "voice_ornament_system": 7.15,
-          "voice_pitch_organization": 7.620000000000001,
+          "voice_pitch_organization": 4.355000000000001,
           "voice_processing_chain": 5.9799999999999995,
-          "voice_multitrack_stack": 2.9899999999999998
+          "voice_multitrack_stack": 2.795
         }
       },
       {
         "id": "violin_orchestral",
         "slots": {
-          "bowed_technique": "bowed_chopped_old_time",
-          "orch_strings": "gut_strings_orch",
+          "bowed_technique": "bowed_legato_classical",
+          "orch_strings": "synthetic_orch",
           "orch_top_wood": "sitka_spruce_violin_top",
-          "orch_back_wood": "hard_rock_maple_violin_back",
+          "orch_back_wood": "bigleaf_western_maple_violin",
           "orch_varnish": "spirit_varnish_violin",
           "orch_setup_period": "modern_setup_violin",
           "orch_bow": "baroque_bow",
           "orch_bow_stick": "carbon_fiber_stick_orch",
-          "orch_articulation": "sul_pont_orch",
+          "orch_articulation": "arco_orch",
           "orch_rosin": "bernardel_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 0.7149999999999999,
-          "orch_strings": 1.69,
-          "orch_top_wood": 6.76,
-          "orch_back_wood": 0.78,
-          "orch_varnish": 2.2749999999999995,
+          "bowed_technique": -0.035,
+          "orch_strings": 0,
+          "orch_top_wood": 4.615,
+          "orch_back_wood": 0.585,
+          "orch_varnish": 4.74,
           "orch_setup_period": -0.07,
           "orch_bow": 1.17,
           "orch_bow_stick": -0.035,
-          "orch_articulation": 1.7550000000000001,
+          "orch_articulation": 1.4949999999999999,
           "orch_rosin": 0.585
         }
       },
@@ -91,12 +91,12 @@
           "oud_string_material": "oud_pyramid_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": 0.7799999999999998,
-          "oud_school": 1.4949999999999999,
+          "plucked_traditional_technique": 0.52,
+          "oud_school": 1.3,
           "oud_strings": 0.195,
           "oud_pick": 0.65,
           "oud_body_wood": 0.65,
-          "oud_soundboard_wood": 4.029999999999999,
+          "oud_soundboard_wood": 2.34,
           "oud_string_material": 0.65
         }
       }

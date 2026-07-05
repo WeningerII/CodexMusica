@@ -1,0 +1,96 @@
+{
+  "id": "chinese_pingshu",
+  "name": "Chinese pingshu storytelling",
+  "family": "global",
+  "lineage": "Northern Chinese solo oral storytelling (pingshu, 'commentary-book'), in which a standing teller serialises long historical and martial-heroic novels — Romance of the Three Kingdoms, Water Margin, Generals of the Yang Family — over many nightly episodes, traditionally in teahouses using a folding fan, a handkerchief and a wooden waking-block (xingmu) rapped for emphasis. A Beijing-Tianjin Mandarin-language art distinct from the southern sung tanci, it reached mass audiences through radio and television, with Yuan Kuocheng and Shan Tianfang among its best-known twentieth-century masters. Delivery is vivid narrative speech with sudden gesture, mimicry and the crack of the block to mark suspense.",
+  "recipe": "classic East Asian modern chinese pingshu storytelling, art Music, east Asian branch beijing opera cantonese opera. thick, pressed, chest resonance low mid, narrative. chinese traditional teahouse. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 327,
+  "score": 192.68,
+  "config": {
+    "traditions": [
+      "chinese_pingshu",
+      "beijing_opera",
+      "cantonese_opera"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "pressed_phonation_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "chinese_classical_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_recitative_free_rhythm",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 2.372499999999999,
+          "voice_quality": 24.5,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.77,
+          "voice_articulation": 4.7383750000000004,
+          "voice_microtone": 0.8035,
+          "voice_tradition": 41.5675,
+          "voice_mechanism_compound": 5.525,
+          "voice_estill_quality": 22.086,
+          "voice_speech_song": 21.593875,
+          "voice_ensemble_config": 20.214999999999996,
+          "voice_ornament_system": 21.4095,
+          "voice_pitch_organization": 18.411499999999997,
+          "voice_processing_chain": 3.8025,
+          "voice_multitrack_stack": 2.535
+        }
+      }
+    ],
+    "room": "chinese_traditional_teahouse",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "tube_pre",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_std"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "chinese_traditional_teahouse",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "speech_voice",
+      "voice_speech_song": "voice_pure_spoken_no_pitch",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "voice_articulation": "narrative_voice"
+    },
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "tube_pre",
+    "chain_medium": "digital_std",
+    "chain_console": "clean"
+  }
+}

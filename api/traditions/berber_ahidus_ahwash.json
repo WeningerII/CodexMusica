@@ -3,26 +3,26 @@
   "name": "Berber ahidus and ahwash (Atlas Mountains)",
   "family": "global",
   "lineage": "Berber (Imazighen / Amazigh) collective song-and-dance tradition of the Atlas Mountain ranges across Morocco, with ahidus the central-and-northern Middle-Atlas form (Tamazight-speaking populations) and ahwash the Souss-region southern-Atlas form (Tashelhiyt-speaking populations). Performance involves two facing rows of dancers (mixed men and women in ahidus, often single-sex in ahwash) executing synchronized arm-and-shoulder choreography while singing antiphonal call-and-response over bendir frame-drum accompaniment, with the amdyaz (poet-leader) improvising the opening verse-line that the chorus answers in unison. Modal vocabulary draws on regional pentatonic frameworks with characteristic Atlas-region melodic-contour conventions. The amzwaj poetic-form (couplet-and-response architecture) governs verse structure, with seasonal-and-occasional repertoires for harvest, wedding, and tribal-assembly contexts. Miriam Rovsing Olsen's 1990s Atlas fieldwork (published as Chants et danses de l'Atlas, Actes Sud / Cité de la musique 1997, with Ocora-Radio France C 559035 companion recordings) is the principal scholarly documentation. Distinguished from Berber Rif and Kabyle vocal traditions by Atlas-region poly-strophic verse structure and bendir-frame-drum-dominant percussion; distinguished from Andalusi-Maghrebi nuba by Tamazight-language and outdoor-village (not court-and-chamber) performance context; distinguished from Tuareg by sedentary-village (not nomadic-pastoral) base and bendir (vs tendé pestle-drum) percussion.",
-  "recipe": "classic North African mid-1990s berber ahidus and ahwash, ballad Poetry, Mediterranean ballad branch, west African groove percussion indonesian jaipongan fújì. vocal fry, declaimed, melodic, callresponse articulation. juniper bent frame canonical Maghrebi synthetic remo modern world music bendir, olive Mediterranean alternative arundo donax canonical Maghrebi ghaita. atlas mountain village square. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 530,
-  "score": 183.525,
+  "recipe": "classic North African mid-1990s berber ahidus and ahwash, ballad Poetry, Mediterranean ballad branch, west African groove percussion indonesian jaipongan yoruba dùndún surrogate speech. thick, rap, melodic, callresponse articulation. juniper bent frame canonical Maghrebi synthetic remo modern world music bendir, olive Mediterranean alternative arundo donax canonical Maghrebi ghaita. atlas mountain village square. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 546,
+  "score": 193.86,
   "config": {
     "traditions": [
       "berber_ahidus_ahwash",
       "indonesian_jaipongan",
-      "fuji"
+      "yoruba_dundun_surrogate_speech"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
-          "voice_quality": "praise_voice",
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "call_response_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_microtone": "bend_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 3.3799999999999994,
-          "voice_quality": 2.6965,
+          "voice_register": 3.8024999999999998,
+          "voice_quality": 3.055,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.47,
           "voice_articulation": 1.25,
-          "voice_microtone": 0.45499999999999996,
-          "voice_tradition": 35.912499999999994,
-          "voice_mechanism_compound": 11.0415,
-          "voice_estill_quality": 9.165000000000001,
-          "voice_speech_song": 29.835000000000008,
-          "voice_ensemble_config": 28.080000000000005,
-          "voice_ornament_system": 2.469999999999999,
-          "voice_pitch_organization": 8.334999999999997,
-          "voice_processing_chain": 6.5649999999999995,
-          "voice_multitrack_stack": 5.069999999999999
+          "voice_microtone": 0.78,
+          "voice_tradition": 36.30250000000001,
+          "voice_mechanism_compound": 10.254999999999999,
+          "voice_estill_quality": 8.32,
+          "voice_speech_song": 33.215,
+          "voice_ensemble_config": 28.275000000000006,
+          "voice_ornament_system": 2.99,
+          "voice_pitch_organization": 10.024999999999999,
+          "voice_processing_chain": 5.59,
+          "voice_multitrack_stack": 4.68
         }
       },
       {
@@ -61,10 +61,10 @@
           "bendir_head": "bendir_synthetic_modern"
         },
         "scores": {
-          "bendir_snares": 9.42,
+          "bendir_snares": 11.309999999999999,
           "bendir_context": 1.3,
-          "bendir_shell_wood": 3.6899999999999995,
-          "bendir_head": 4.225
+          "bendir_shell_wood": 4.385,
+          "bendir_head": 3.1849999999999996
         }
       },
       {
@@ -78,10 +78,10 @@
         },
         "scores": {
           "wind_articulation": -0.10500000000000002,
-          "ghaita_region": 3.924,
-          "ghaita_context": 3.7779999999999996,
-          "ghaita_body_wood": 2.6975,
-          "ghaita_reed": 1.195
+          "ghaita_region": 4.580000000000001,
+          "ghaita_context": 3.4149999999999996,
+          "ghaita_body_wood": 2.3899999999999997,
+          "ghaita_reed": 2.04
         }
       }
     ],

@@ -3,53 +3,53 @@
   "name": "Noh utai (Noh theatre chant)",
   "family": "classical",
   "lineage": "Japanese Noh utai sung-and-chanted vocal tradition of the canonical Noh theatre form, codified in the fourteenth-fifteenth centuries by Zeami Motokiyo (1363-1443). Performance integrates the male shite-actor's utai chant (the central narrative-and-character voice) with the jiutai chorus (typically eight male singers seated stage-right), supported by the hayashi instrumental ensemble (nohkan flute, ko-tsuzumi shoulder-drum, o-tsuzumi hip-drum, taiko stick-drum). Vocal architecture features extremely slow tempi, characteristic narrow-range melodic vocabulary in the yowagin \"weak-style\" and tsuyogin \"strong-style\" registers, with strictly codified breath-pause and vibrato conventions.",
-  "recipe": "classic East Asian early-1360s noh utai, art Music, east Asian branch, buddhist ritual devotional theravada pali chant gyütö multiphonic chant. sygyt, declaimed, melodic, narrative. cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk oedo sukeroku canonical kumi daiko modern ensemble taiko drum. noh stage japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 477,
-  "score": 112.809,
+  "recipe": "classic East Asian early-1360s noh utai, art Music, east Asian branch, buddhist ritual devotional theravada pali chant tibetan chöd rite. vocal fry, declaimed, melodic, narrative. cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk oedo sukeroku canonical kumi daiko modern ensemble taiko drum. noh stage japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 475,
+  "score": 119.835,
   "config": {
     "traditions": [
       "japanese_noh_utai",
       "theravada_pali_chant",
-      "tibetan_gyuto"
+      "tibetan_chod_rite"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "sygyt_register",
+          "voice_register": "vocal_fry",
           "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "narrative_voice",
-          "voice_microtone": "blue_notes",
+          "voice_microtone": "tempered_voice",
           "voice_tradition": "chinese_classical_vocal_tradition",
-          "voice_mechanism_compound": "voice_mechanism_overtone_isolation_F2",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 4.918,
-          "voice_quality": 7.58075,
+          "voice_register": 3.5749999999999993,
+          "voice_quality": 7.530749999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.015,
+          "voice_vibrato": 3.705,
           "voice_articulation": 1.2365,
-          "voice_microtone": 0.258,
-          "voice_tradition": 15.307500000000001,
-          "voice_mechanism_compound": 7.51,
-          "voice_estill_quality": 4.225,
-          "voice_speech_song": 11.829999999999997,
-          "voice_ensemble_config": 13.454999999999997,
-          "voice_ornament_system": 5.4,
-          "voice_pitch_organization": 5.5935,
-          "voice_processing_chain": 4.874999999999999,
-          "voice_multitrack_stack": 6.305
+          "voice_microtone": 0.65,
+          "voice_tradition": 14.657499999999999,
+          "voice_mechanism_compound": 5.525,
+          "voice_estill_quality": 5.654999999999999,
+          "voice_speech_song": 14.949999999999998,
+          "voice_ensemble_config": 15.989999999999997,
+          "voice_ornament_system": 6.2749999999999995,
+          "voice_pitch_organization": 2.8702500000000004,
+          "voice_processing_chain": 5.914999999999998,
+          "voice_multitrack_stack": 7.344999999999999
         }
       },
       {
@@ -62,11 +62,11 @@
           "taiko_technique": "taiko_kumi_daiko"
         },
         "scores": {
-          "taiko_size": 2.535,
-          "taiko_skin": 4.03,
-          "taiko_shell_wood": 4.68,
-          "taiko_lineage": 2.34,
-          "taiko_technique": 1.69
+          "taiko_size": 1.69,
+          "taiko_skin": 3.38,
+          "taiko_shell_wood": 3.38,
+          "taiko_lineage": 1.69,
+          "taiko_technique": 2.34
         }
       }
     ],

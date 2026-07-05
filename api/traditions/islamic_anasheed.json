@@ -5,7 +5,7 @@
   "lineage": "Islamic instrument-free devotional vocal tradition (nashīd plural anāshīd: \"hymns\") characterized by male-chorus a cappella or daff frame-drum accompaniment — codified through Sami Yusuf’s 2003 Al-Mu’allim record, Maher Zain, and Mesut Kurtis as canonical late-twentieth-century English-Arabic-bilingual exponents",
   "recipe": "classic early-2000s anāshīd, ritual Devotional, islamic branch, Sufi ritual devotional qawwali sufi inshad. vocal fry, declaimed, chest resonance low mid, maqam neutral step. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble, walnut bent frame canonical Persian goat skin tacked brass rings canonical Iranian daf. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 585,
-  "score": 198.837,
+  "score": 200.058,
   "config": {
     "traditions": [
       "islamic_anasheed",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 3.450375,
-          "voice_quality": 27.935624999999995,
+          "voice_register": 3.575625,
+          "voice_quality": 27.929999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.4949999999999999,
           "voice_articulation": 0.25,
-          "voice_microtone": 11.808,
-          "voice_tradition": 38.74412499999999,
+          "voice_microtone": 11.944500000000001,
+          "voice_tradition": 38.93499999999999,
           "voice_mechanism_compound": 3.1999999999999997,
-          "voice_estill_quality": 5.351,
+          "voice_estill_quality": 5.3397499999999996,
           "voice_speech_song": 14.559999999999999,
           "voice_ensemble_config": 11.894999999999998,
-          "voice_ornament_system": 27.7745,
-          "voice_pitch_organization": 8.776,
-          "voice_processing_chain": 3.3503750000000005,
-          "voice_multitrack_stack": 4.183875
+          "voice_ornament_system": 27.910999999999998,
+          "voice_pitch_organization": 8.9125,
+          "voice_processing_chain": 3.4756250000000004,
+          "voice_multitrack_stack": 4.445625
         }
       },
       {
@@ -62,7 +62,7 @@
         },
         "scores": {
           "choir_size": 4.225,
-          "choir_polyphonic_configuration": 3.450375,
+          "choir_polyphonic_configuration": 3.575625,
           "choir_regional_canonical_configuration": 1.2349999999999999,
           "choir_ensemble_repertoire": 6.24
         }

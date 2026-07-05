@@ -1,0 +1,190 @@
+{
+  "id": "threshing_flail",
+  "name": "Threshing flail",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 0,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "flail",
+  "parts": [
+    {
+      "id": "threshing_flail_floor",
+      "name": "Floor",
+      "surface": false,
+      "variants": [
+        {
+          "id": "threshing_flail_wood",
+          "default": true,
+          "name": "Threshing floor (wood)",
+          "descriptors": [
+            "flail-wood",
+            "booming",
+            "resonant"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "threshing_flail_earth",
+          "default": false,
+          "name": "Packed earth",
+          "descriptors": [
+            "flail-earth",
+            "dull",
+            "soft"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "threshing_flail_stone",
+          "default": false,
+          "name": "Stone",
+          "descriptors": [
+            "flail-stone",
+            "cracking",
+            "hard"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "threshing_flail_crew",
+      "name": "Crew",
+      "surface": false,
+      "variants": [
+        {
+          "id": "threshing_flail_single",
+          "default": true,
+          "name": "Single",
+          "descriptors": [
+            "flail-single",
+            "steady",
+            "lone"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "threshing_flail_pair",
+          "default": false,
+          "name": "Alternating pair",
+          "descriptors": [
+            "flail-pair",
+            "interlocking",
+            "rolling"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "threshing_flail_floor",
+      "name": "Floor",
+      "surface": false,
+      "variants": [
+        {
+          "id": "threshing_flail_wood",
+          "default": true,
+          "name": "Threshing floor (wood)",
+          "descriptors": [
+            "flail-wood",
+            "booming",
+            "resonant"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "threshing_flail_earth",
+          "default": false,
+          "name": "Packed earth",
+          "descriptors": [
+            "flail-earth",
+            "dull",
+            "soft"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "threshing_flail_stone",
+          "default": false,
+          "name": "Stone",
+          "descriptors": [
+            "flail-stone",
+            "cracking",
+            "hard"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "threshing_flail_crew",
+      "name": "Crew",
+      "surface": false,
+      "variants": [
+        {
+          "id": "threshing_flail_single",
+          "default": true,
+          "name": "Single",
+          "descriptors": [
+            "flail-single",
+            "steady",
+            "lone"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "threshing_flail_pair",
+          "default": false,
+          "name": "Alternating pair",
+          "descriptors": [
+            "flail-pair",
+            "interlocking",
+            "rolling"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    }
+  ]
+}

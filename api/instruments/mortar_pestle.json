@@ -1,0 +1,190 @@
+{
+  "id": "mortar_pestle",
+  "name": "Mortar & pestle pound",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": -1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "pestle",
+  "parts": [
+    {
+      "id": "mortar_pestle_vessel",
+      "name": "Mortar",
+      "surface": false,
+      "variants": [
+        {
+          "id": "mortar_pestle_wood",
+          "default": true,
+          "name": "Wood mortar",
+          "descriptors": [
+            "pestle-wood",
+            "booming",
+            "hollow"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "mortar_pestle_stone",
+          "default": false,
+          "name": "Stone mortar",
+          "descriptors": [
+            "pestle-stone",
+            "knocking",
+            "hard"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mortar_pestle_content",
+      "name": "Content",
+      "surface": false,
+      "variants": [
+        {
+          "id": "mortar_pestle_grain",
+          "default": true,
+          "name": "Grain",
+          "descriptors": [
+            "pestle-grain",
+            "crushing",
+            "dry"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "mortar_pestle_fufu",
+          "default": false,
+          "name": "Fufu / starch",
+          "descriptors": [
+            "pestle-fufu",
+            "squelching",
+            "sticky"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "mortar_pestle_spice",
+          "default": false,
+          "name": "Dry spice",
+          "descriptors": [
+            "pestle-spice",
+            "cracking",
+            "brittle"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "mortar_pestle_vessel",
+      "name": "Mortar",
+      "surface": false,
+      "variants": [
+        {
+          "id": "mortar_pestle_wood",
+          "default": true,
+          "name": "Wood mortar",
+          "descriptors": [
+            "pestle-wood",
+            "booming",
+            "hollow"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "mortar_pestle_stone",
+          "default": false,
+          "name": "Stone mortar",
+          "descriptors": [
+            "pestle-stone",
+            "knocking",
+            "hard"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mortar_pestle_content",
+      "name": "Content",
+      "surface": false,
+      "variants": [
+        {
+          "id": "mortar_pestle_grain",
+          "default": true,
+          "name": "Grain",
+          "descriptors": [
+            "pestle-grain",
+            "crushing",
+            "dry"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "mortar_pestle_fufu",
+          "default": false,
+          "name": "Fufu / starch",
+          "descriptors": [
+            "pestle-fufu",
+            "squelching",
+            "sticky"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "mortar_pestle_spice",
+          "default": false,
+          "name": "Dry spice",
+          "descriptors": [
+            "pestle-spice",
+            "cracking",
+            "brittle"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    }
+  ]
+}

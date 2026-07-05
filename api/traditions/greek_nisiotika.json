@@ -5,7 +5,7 @@
   "lineage": "Greek nisiotika (\"island music\") folk-popular music tradition of the Greek Aegean Sea islands — Naxos, Mykonos, Tinos, Andros, Skyros, Lesbos, Chios, Samos, and adjacent islands — distinguished from mainland Greek demotic music by characteristic island-dance-rhythm repertoire (the syrtos, sousta, ballos), instrumental signature (lyra Cretan-style three-string fiddle on some islands, violin elsewhere, laouto long-neck lute, and santouri hammered-dulcimer), and the broader Aegean-island maritime-cultural orientation. The mid-twentieth-century commercial-recording era at Columbia, HMV, and Pathé Athens documented the canonical island repertoire. Distinguished from the parallel Cretan lyra tradition by nisiotika's broader-Aegean-island-network and lighter dance-emphasis register.",
   "recipe": "classic Southern European modern greek nisiotika, ballad Poetry, Mediterranean ballad branch, west African groove percussion indonesian jaipongan fújì. thick, declaimed, chest resonance low mid, rhythmic. walnut ribs canonical mid tier western red cedar modern alternative pyramid oud, sitka spruce Baroque setup short neck shorter fingerboard lighter bass bar violin orchestral, sustained and staccato hungarian tradition concert pedal cimbalom large frame pedal damper cimbalom, mulberry canonical cretan gut pre modern cretan cretan lyra. athens major label 1955-1985 mid tier athens minos studios 60s 70s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 739,
-  "score": 173.233,
+  "score": 174.79,
   "config": {
     "traditions": [
       "greek_nisiotika",
@@ -23,7 +23,7 @@
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "spoken_voice",
           "voice_microtone": "tempered_voice",
-          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 5.265000000000001,
-          "voice_quality": 3.9965000000000015,
+          "voice_register": 5.805000000000001,
+          "voice_quality": 3.9650000000000016,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.535,
           "voice_articulation": 0.845,
           "voice_microtone": 0.45499999999999996,
-          "voice_tradition": 30.4185,
+          "voice_tradition": 30.322499999999998,
           "voice_mechanism_compound": 2.535,
           "voice_estill_quality": 2.5350000000000006,
           "voice_speech_song": 14.754999999999995,
           "voice_ensemble_config": 14.689999999999994,
           "voice_ornament_system": 2.469999999999999,
-          "voice_pitch_organization": 8.334999999999997,
-          "voice_processing_chain": 6.270000000000001,
+          "voice_pitch_organization": 8.724999999999998,
+          "voice_processing_chain": 6.465000000000001,
           "voice_multitrack_stack": 3.0875
         }
       },
@@ -68,9 +68,9 @@
           "oud_school": 4.615,
           "oud_strings": 0.65,
           "oud_pick": 3.38,
-          "oud_body_wood": 3.835,
+          "oud_body_wood": 4.03,
           "oud_soundboard_wood": 1.8850000000000002,
-          "oud_string_material": 1.495
+          "oud_string_material": 1.69
         }
       },
       {
@@ -80,7 +80,7 @@
           "orch_strings": "steel_orch",
           "orch_top_wood": "sitka_spruce_violin_top",
           "orch_back_wood": "bigleaf_western_maple_violin",
-          "orch_varnish": "french_polish_violin",
+          "orch_varnish": "spirit_varnish_violin",
           "orch_setup_period": "baroque_setup_violin",
           "orch_bow": "baroque_bow",
           "orch_bow_stick": "brazilwood_stick_orch",
@@ -93,10 +93,10 @@
           "orch_top_wood": 1.625,
           "orch_back_wood": 0.78,
           "orch_varnish": -0.035,
-          "orch_setup_period": 5.470000000000001,
+          "orch_setup_period": 5.665000000000001,
           "orch_bow": 5.915,
           "orch_bow_stick": 2.245,
-          "orch_articulation": 0.573,
+          "orch_articulation": 0.51,
           "orch_rosin": 0.78
         }
       },
@@ -122,10 +122,10 @@
         },
         "scores": {
           "bowed_technique": -0.05,
-          "lyra_strings": 2.208,
-          "lyra_use": 3.233,
-          "lyra_body_wood": 4.095,
-          "lyra_string_material": 3.4265
+          "lyra_strings": 2.145,
+          "lyra_use": 3.17,
+          "lyra_body_wood": 4.289999999999999,
+          "lyra_string_material": 3.3949999999999996
         }
       }
     ],

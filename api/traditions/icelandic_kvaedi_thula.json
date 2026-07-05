@@ -1,0 +1,95 @@
+{
+  "id": "icelandic_kvaedi_thula",
+  "name": "Icelandic kvæði / þula recitation",
+  "family": "global",
+  "lineage": "Kvæði are the traditional chanted narrative poems of Iceland, most importantly the rímur — long metrical verse-cycles retelling sagas and romances — performed in the distinctive kvæðaskapur (rímnalag) manner of half-sung, half-spoken chanting on a narrow set of stemmur (tune-formulae). The þula is a related genre of catalog- or rigmarole-poem, often a strung list of names or lore chanted rhythmically, historically used within the home. These forms flourished from the late medieval period through the nineteenth century as Iceland's principal domestic evening entertainment (kvöldvaka). They are documented in extensive manuscript collections and in twentieth-century field recordings held by the Árni Magnússon Institute.",
+  "recipe": "classic modern icelandic kvæði / þula recitation, ballad Poetry, Slavic bard branch latvian dainas jeju haenyeo songs. thick, low dynamic level, melodic, unrestrained. field recording. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 314,
+  "score": 116.263,
+  "config": {
+    "traditions": [
+      "icelandic_kvaedi_thula",
+      "latvian_dainas",
+      "jeju_haenyeo_songs"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "crooner_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "shouted_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 8.450000000000001,
+          "voice_quality": 3.185,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.3150000000000004,
+          "voice_articulation": 4.5,
+          "voice_microtone": 2.795,
+          "voice_tradition": 16.737499999999997,
+          "voice_mechanism_compound": 4.484999999999999,
+          "voice_estill_quality": 2.99,
+          "voice_speech_song": 25.285,
+          "voice_ensemble_config": 15.6,
+          "voice_ornament_system": 1.4949999999999999,
+          "voice_pitch_organization": 2.5349999999999997,
+          "voice_processing_chain": 4.68,
+          "voice_multitrack_stack": 3.835
+        }
+      }
+    ],
+    "room": "field_recording",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "field_recording",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "speech_voice",
+      "voice_speech_song": "voice_metrical_chant",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

@@ -3,24 +3,24 @@
   "name": "Scottish coronach (Highland lament)",
   "family": "global",
   "lineage": "Scottish Highland mourning-song tradition continuous from medieval clan-mourning practice (the coronach was performed at the head of the funeral procession by family-women and was supplemented by the pìobaireachd piped lament from the Great Highland bagpipes); documented in 18th-19th century Highland-Romantic literature and continued partially through Gaelic-folk-revival",
-  "recipe": "classic Northern European modern scottish coronach, funeral Lament, European branch, wind pipe drone modal, Celtic balladic ballad poetry, vocal drone modal sean-nós solo singing gwerz breton. thick, lament wail, nervy, narrative. African blackwood grenadilla canonical Scottish synthetic drone reeds ezeedrone selbie synthetic bannatyne ross canonical modern melodic highland bagpipes. scottish bothy farmhouse kitchen. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 550,
-  "score": 143.588,
+  "recipe": "classic Northern European modern scottish coronach, funeral Lament, European branch, wind pipe drone modal, Celtic balladic ballad poetry, vocal drone modal sean-nós solo singing child ballad revival. thick, incomplete closure resting, melodic, narrative. African blackwood grenadilla canonical Scottish cane drone reeds traditional arundo donax melodic highland bagpipes. scottish bothy farmhouse kitchen. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 536,
+  "score": 138.963,
   "config": {
     "traditions": [
       "scottish_coronach",
       "sean_nos_solo",
-      "gwerz_breton"
+      "child_ballad_revival"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "fado_voice",
+          "voice_quality": "incomplete_closure_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "fast_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "narrative_voice",
           "voice_microtone": "shruti_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
@@ -29,26 +29,26 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 2.750000000000001,
-          "voice_quality": 6.995,
+          "voice_register": 5.125,
+          "voice_quality": 6.289999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.8,
-          "voice_articulation": 3.9650000000000007,
+          "voice_vibrato": 0.5199999999999999,
+          "voice_articulation": 2.2099999999999995,
           "voice_microtone": 0.045,
-          "voice_tradition": 43.45250000000001,
-          "voice_mechanism_compound": 5.525,
-          "voice_estill_quality": 3.705,
-          "voice_speech_song": 10.984999999999996,
-          "voice_ensemble_config": 10.724999999999998,
-          "voice_ornament_system": 15.225000000000001,
-          "voice_pitch_organization": 4.030000000000001,
-          "voice_processing_chain": 5.784999999999999,
+          "voice_tradition": 46.3775,
+          "voice_mechanism_compound": 4.42,
+          "voice_estill_quality": 3.055,
+          "voice_speech_song": 11.374999999999995,
+          "voice_ensemble_config": 9.165,
+          "voice_ornament_system": 11.95,
+          "voice_pitch_organization": 2.2749999999999995,
+          "voice_processing_chain": 6.369999999999999,
           "voice_multitrack_stack": 3.2299999999999995
         }
       },
@@ -58,17 +58,17 @@
           "wind_articulation": "wind_folk_melodic",
           "highland_drones": "highland_3_drones",
           "highland_chanter": "highland_blackwood",
-          "highland_drone_reeds": "highland_synthetic_drone_reeds",
+          "highland_drone_reeds": "highland_cane_drone_reeds",
           "highland_chanter_reed": "highland_cane_chanter_reed",
-          "highland_bag": "highland_synthetic_bag"
+          "highland_bag": "highland_hide_bag"
         },
         "scores": {
-          "wind_articulation": 11.895000000000001,
+          "wind_articulation": 12.145000000000001,
           "highland_drones": 0.885,
-          "highland_chanter": 6.564999999999999,
-          "highland_drone_reeds": 3.7049999999999996,
-          "highland_chanter_reed": 0.95,
-          "highland_bag": 1.145
+          "highland_chanter": 8.124999999999998,
+          "highland_drone_reeds": 3.25,
+          "highland_chanter_reed": 0.3,
+          "highland_bag": 0.975
         }
       }
     ],

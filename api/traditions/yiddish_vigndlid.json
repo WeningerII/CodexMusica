@@ -5,7 +5,7 @@
   "lineage": "Yiddish-Ashkenazi cradle-song tradition continuous from medieval-and-early-modern shtetl domestic practice through 19th-and-20th-century Yiddish-theater and Klezmer-vocal-music intersection",
   "recipe": "classic modern yiddish vigndlid, lullaby, European branch, middle eastern lullaby, Jewish ritual devotional, chanson fado ballad poetry persian lālā'ī arabic tahwidah. vocal fry, declaimed, tasteful, continuous-phonation. klezmer ensemble. carpeted bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 387,
-  "score": 149.57,
+  "score": 149.225,
   "config": {
     "traditions": [
       "yiddish_vigndlid",
@@ -35,10 +35,10 @@
         },
         "scores": {
           "voice_register": 4.03,
-          "voice_quality": 3.8,
+          "voice_quality": 3.65,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.73,
+          "voice_vibrato": 2.535,
           "voice_articulation": 2.3850000000000002,
           "voice_microtone": 12.989999999999998,
           "voice_tradition": 20.914999999999996,

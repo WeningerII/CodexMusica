@@ -1,0 +1,95 @@
+{
+  "id": "ethiopian_debtera_incantation",
+  "name": "Ethiopian debtera liturgical incantation",
+  "family": "global",
+  "lineage": "The debtera is the learned non-ordained cleric of the Ethiopian Orthodox Tewahedo Church, trained for many years in the church schools to master the Ge'ez liturgy, the zema chant of Saint Yared, aquaquam liturgical dance, and qene sacred poetry. Beyond the sanctioned liturgy, debtera are also the authors and reciters of asmat prayers and protective magical scrolls (ketab), an esoteric incantatory practice invoking secret names of God and angels for healing and protection. Their liturgical voice moves in the three qenet modal families of Ethiopian chant. The tradition is documented in Ge'ez manuscript scholarship and ethnographies of Ethiopian Christianity, and is a sibling of the Coptic Egyptian rite.",
+  "recipe": "classic East African modern ethiopian debtera liturgical incantation, ritual Devotional, coptic branch, christian gospel ritual devotional gospel quartet black gospel. thick, declaimed, chest resonance low mid, ornamental. lalibela rock hewn church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 379,
+  "score": 271.012,
+  "config": {
+    "traditions": [
+      "ethiopian_debtera_incantation",
+      "gospel_quartet_male",
+      "black_gospel_choir"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_processing_chain": "voice_processing_tape_saturation",
+          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+        },
+        "scores": {
+          "voice_register": 35.72500000000001,
+          "voice_quality": 39.363000000000014,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.025,
+          "voice_articulation": 28.505000000000003,
+          "voice_microtone": 3.3149999999999995,
+          "voice_tradition": 40.5895,
+          "voice_mechanism_compound": 3.38,
+          "voice_estill_quality": 31.518,
+          "voice_speech_song": 20.15,
+          "voice_ensemble_config": 29.171500000000005,
+          "voice_ornament_system": 10.025000000000002,
+          "voice_pitch_organization": 15.769499999999999,
+          "voice_processing_chain": 2.3800000000000003,
+          "voice_multitrack_stack": 1.17
+        }
+      }
+    ],
+    "room": "lalibela_rock_hewn_church",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "ethio_qenet_unified",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "ethio_qenet_unified",
+    "room": "lalibela_rock_hewn_church",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "speech_voice",
+      "voice_speech_song": "voice_ametrical_chant",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

@@ -5,7 +5,7 @@
   "lineage": "Algerian raï tradition from its 1920s-1930s Oran-region origin as Bedouin-Andalusian women's-tradition through 1970s-1980s pre-commercial cheikha-and-cheb politicization era; the political-and-anti-clerical content of pre-commercial raï made it a target of both Algerian-state censorship and Islamist-fundamentalist violence including the 1994 assassination of Cheb Hasni",
   "recipe": "classic West African mid-1920s algerian raï, protest Song, middle east n African branch, European protest song, mid east n African pop functional song, Persian arab improv improv on frame tarab khaliji. extended whistle, low dynamic level, chest resonance low mid, continuous-phonation. walnut ribs canonical mid tier pyramid nylon arab school oud, clay pre modern traditional fish skin pre modern Egyptian traditional Egyptian sombaty canonical mid east darbuka, weltmeister east German mid tier vintage volk ensemble accordion. dakar senegal mbalax defining 1979-present indie-commercial dakar mbalax oran rai studio. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 714,
-  "score": 241.125,
+  "score": 240.045,
   "config": {
     "traditions": [
       "algerian_rai_political",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 7.645,
+          "voice_register": 7.42,
           "voice_quality": 3.5750000000000006,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.025,
+          "voice_vibrato": 6.8,
           "voice_articulation": 2.235,
           "voice_microtone": 11.125,
-          "voice_tradition": 20.39,
+          "voice_tradition": 20.15,
           "voice_mechanism_compound": 15.095,
-          "voice_estill_quality": 9.824999999999998,
+          "voice_estill_quality": 10.409999999999998,
           "voice_speech_song": 22.489999999999995,
           "voice_ensemble_config": 16.639999999999993,
-          "voice_ornament_system": 20.310000000000002,
-          "voice_pitch_organization": 20.01,
+          "voice_ornament_system": 20.205000000000002,
+          "voice_pitch_organization": 19.905,
           "voice_processing_chain": 11.434999999999999,
           "voice_multitrack_stack": 5.98
         }
@@ -65,12 +65,12 @@
         },
         "scores": {
           "plucked_traditional_technique": 8.75,
-          "oud_school": 6.725,
+          "oud_school": 6.5,
           "oud_strings": 3.83,
           "oud_pick": 2.925,
           "oud_body_wood": 2.925,
           "oud_soundboard_wood": 0.9099999999999999,
-          "oud_string_material": 3.245
+          "oud_string_material": 3.14
         }
       },
       {
@@ -83,7 +83,7 @@
         },
         "scores": {
           "percussion_technique": -0.07,
-          "darbuka_material": 3.63,
+          "darbuka_material": 3.7049999999999996,
           "darbuka_skin": 5.2,
           "darbuka_regional_style": 10.010000000000002
         }
@@ -100,13 +100,13 @@
           "accordion_maker_school": "accordion_weltmeister"
         },
         "scores": {
-          "free_reed_technique": 10.045,
+          "free_reed_technique": 9.895,
           "accordion_reed_material": 2.925,
           "musette_offset": 0.345,
           "reed_config": 0.69,
           "bellows": 0.345,
           "voicing_chamber": 0.15,
-          "accordion_maker_school": 8.515
+          "accordion_maker_school": 8.155000000000001
         }
       }
     ],

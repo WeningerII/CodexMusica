@@ -5,7 +5,7 @@
   "lineage": "Algerian popular-music genre that emerged in Oran in the 1970s as modernization of older raï bedoui (rural bedouin praise-poetry) — codified through the Cheb generation of the 1980s: Cheb Khaled (the king of raï, his 1992 Didi the international breakthrough), Cheb Mami, Cheb Hasni (assassinated 1994 during the Algerian civil war), Chaba Fadela, Cheb Hamid",
   "recipe": "classic West African mid-1970s raï, functional Song, mid east n African pop branch, med east poetic ballad poetry ethiopian azmari minstrel-poet pontic greek music. extended whistle, declaimed, chest resonance low mid, narrative. weltmeister east German mid tier vintage volk accordion, goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka, singing lead analog poly synth. dakar senegal mbalax defining 1979-present indie-commercial dakar mbalax oran rai studio. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 583,
-  "score": 164.246,
+  "score": 163.73,
   "config": {
     "traditions": [
       "rai",
@@ -34,8 +34,8 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 9.915,
-          "voice_quality": 7.581500000000001,
+          "voice_register": 9.795,
+          "voice_quality": 7.745000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.575,
@@ -43,13 +43,13 @@
           "voice_microtone": 8.190000000000001,
           "voice_tradition": 23.139999999999997,
           "voice_mechanism_compound": 5.004999999999999,
-          "voice_estill_quality": 4.643,
+          "voice_estill_quality": 4.745,
           "voice_speech_song": 19.695000000000004,
           "voice_ensemble_config": 17.68,
-          "voice_ornament_system": 2.4684999999999997,
+          "voice_ornament_system": 2.3949999999999996,
           "voice_pitch_organization": 13.725,
           "voice_processing_chain": 11.35,
-          "voice_multitrack_stack": 6.4215
+          "voice_multitrack_stack": 6.285
         }
       },
       {
@@ -65,8 +65,8 @@
         },
         "scores": {
           "free_reed_technique": 1.8449999999999998,
-          "accordion_reed_material": 1.8465,
-          "musette_offset": 0.69,
+          "accordion_reed_material": 1.5,
+          "musette_offset": 0.585,
           "reed_config": 0.3,
           "bellows": 0.3,
           "voicing_chamber": 0.585,
@@ -93,7 +93,7 @@
         "slots": {
           "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "oberheim_obxa",
-          "poly_voices": "poly_16_voice",
+          "poly_voices": "poly_5_voice",
           "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {

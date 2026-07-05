@@ -1,0 +1,95 @@
+{
+  "id": "norse_blot",
+  "name": "Old Norse blót invocation",
+  "family": "global",
+  "lineage": "Blót was the central sacrificial rite of Old Norse religion, a communal offering to the Æsir, Vanir, and land-spirits attested in Heimskringla (Hákonar saga góða describes the Trøndelag blót feasts), Eyrbyggja saga, and Adam of Bremen's account of the Uppsala temple. The gothi or chieftain-priest led the assembly, sprinkling sacrificial blood (hlaut) and pronouncing invocations and full (ceremonial toasts) over the ale to Óðinn, Njörðr, and Freyr for victory and good harvest. Delivery was declamatory rather than melodic, a heightened public oratory answered by the gathered community. The tradition is known from Old Norse-Icelandic prose sources and is reconstructed in modern Heathen practice.",
+  "recipe": "classic modern old norse blót invocation, ritual Devotional, indigenous branch thiruvaachakam sufi inshad. vocal fry, declaimed, tasteful, narrative. forest clearing. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 296,
+  "score": 155.789,
+  "config": {
+    "traditions": [
+      "norse_blot",
+      "thiruvaachakam_shaivite",
+      "sufi_inshad_egyptian"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "qawwali_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        },
+        "scores": {
+          "voice_register": 0.845,
+          "voice_quality": 20.339,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 1.4299999999999997,
+          "voice_microtone": 8.3,
+          "voice_tradition": 20.085,
+          "voice_mechanism_compound": 5.212375000000001,
+          "voice_estill_quality": 9.522499999999999,
+          "voice_speech_song": 24.017500000000002,
+          "voice_ensemble_config": 20.15,
+          "voice_ornament_system": 20.325,
+          "voice_pitch_organization": 6.018000000000001,
+          "voice_processing_chain": 4.225,
+          "voice_multitrack_stack": 2.8293749999999998
+        }
+      }
+    ],
+    "room": "forest_clearing",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "forest_clearing",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "speech_voice",
+      "voice_speech_song": "voice_heightened_speech",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

@@ -1,0 +1,190 @@
+{
+  "id": "felling_axe",
+  "name": "Felling axe / maul",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 0,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "axe",
+  "parts": [
+    {
+      "id": "felling_axe_wood",
+      "name": "Timber",
+      "surface": false,
+      "variants": [
+        {
+          "id": "felling_axe_hardwood",
+          "default": true,
+          "name": "Hardwood log",
+          "descriptors": [
+            "axe-hardwood",
+            "solid",
+            "resonant"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "felling_axe_softwood",
+          "default": false,
+          "name": "Softwood",
+          "descriptors": [
+            "axe-softwood",
+            "splitting",
+            "bright"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "felling_axe_frozen",
+          "default": false,
+          "name": "Frozen timber",
+          "descriptors": [
+            "axe-frozen",
+            "cracking",
+            "brittle"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "felling_axe_stroke",
+      "name": "Stroke",
+      "surface": false,
+      "variants": [
+        {
+          "id": "felling_axe_full_overhead",
+          "default": true,
+          "name": "Full overhead",
+          "descriptors": [
+            "full-overhead",
+            "heavy",
+            "arcing"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "felling_axe_short_chop",
+          "default": false,
+          "name": "Short chop",
+          "descriptors": [
+            "short-chop",
+            "quick",
+            "biting"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "felling_axe_wood",
+      "name": "Timber",
+      "surface": false,
+      "variants": [
+        {
+          "id": "felling_axe_hardwood",
+          "default": true,
+          "name": "Hardwood log",
+          "descriptors": [
+            "axe-hardwood",
+            "solid",
+            "resonant"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "felling_axe_softwood",
+          "default": false,
+          "name": "Softwood",
+          "descriptors": [
+            "axe-softwood",
+            "splitting",
+            "bright"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "felling_axe_frozen",
+          "default": false,
+          "name": "Frozen timber",
+          "descriptors": [
+            "axe-frozen",
+            "cracking",
+            "brittle"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "felling_axe_stroke",
+      "name": "Stroke",
+      "surface": false,
+      "variants": [
+        {
+          "id": "felling_axe_full_overhead",
+          "default": true,
+          "name": "Full overhead",
+          "descriptors": [
+            "full-overhead",
+            "heavy",
+            "arcing"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "felling_axe_short_chop",
+          "default": false,
+          "name": "Short chop",
+          "descriptors": [
+            "short-chop",
+            "quick",
+            "biting"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    }
+  ]
+}

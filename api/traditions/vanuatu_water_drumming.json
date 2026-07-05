@@ -3,20 +3,20 @@
   "name": "Vanuatu water drumming and sand drawing",
   "family": "global",
   "lineage": "Vanuatu water drumming tradition of the Ranmwat Bay and Hog Harbour communities of north-central Espiritu Santo island, in which women stand thigh-deep in the sea or in a freshwater pool and strike the water surface with cupped hands producing distinctive low-pitched rhythmic-percussive patterns. Performance contexts span entertainment, ceremonial-celebration, and tourism-circuit demonstrations. Parallel to the water-drumming, Vanuatu preserves the canonical sand-drawing tradition in which elaborate diagrammatic geometric-and-mythological drawings are produced in sand with continuous-line technique. Distinguished from neighboring Melanesian water-percussion variants by Vanuatu-specific Ranmwat-Hog-Harbour stylistic conventions.",
-  "recipe": "classic Southeast Asian modern vanuatu water drumming and sand drawing, ritual Devotional, indigenous branch, west African groove percussion fújì indonesian jaipongan. vocal fry, declaimed, chest resonance low mid, punctuated. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 451,
-  "score": 119.534,
+  "recipe": "classic Southeast Asian modern vanuatu water drumming and sand drawing, ritual Devotional, indigenous branch, west African groove percussion yoruba dùndún surrogate speech fújì. thick, declaimed, chest resonance low mid, punctuated. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 457,
+  "score": 127.06,
   "config": {
     "traditions": [
       "vanuatu_water_drumming",
-      "fuji",
-      "indonesian_jaipongan"
+      "yoruba_dundun_surrogate_speech",
+      "fuji"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
+          "voice_register": "chest_voice",
           "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -28,28 +28,28 @@
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_slendro_5",
-          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 3.77,
-          "voice_quality": 6.571000000000001,
+          "voice_register": 2.275000000000001,
+          "voice_quality": 6.5150000000000015,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.535,
-          "voice_articulation": 3.955,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 3.3049999999999997,
           "voice_microtone": 1.345,
-          "voice_tradition": 30.322499999999998,
-          "voice_mechanism_compound": 5.915,
-          "voice_estill_quality": 5.906000000000001,
-          "voice_speech_song": 14.364999999999997,
-          "voice_ensemble_config": 14.299999999999995,
-          "voice_ornament_system": 5.4,
-          "voice_pitch_organization": 8.334999999999997,
-          "voice_processing_chain": 5.225,
-          "voice_multitrack_stack": 4.615
+          "voice_tradition": 36.595,
+          "voice_mechanism_compound": 4.225,
+          "voice_estill_quality": 6.76,
+          "voice_speech_song": 17.354999999999997,
+          "voice_ensemble_config": 14.104999999999995,
+          "voice_ornament_system": 5.654999999999999,
+          "voice_pitch_organization": 13.589999999999995,
+          "voice_processing_chain": 2.6649999999999996,
+          "voice_multitrack_stack": 2.08
         }
       }
     ],

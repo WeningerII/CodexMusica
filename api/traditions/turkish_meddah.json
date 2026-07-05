@@ -1,0 +1,96 @@
+{
+  "id": "turkish_meddah",
+  "name": "Turkish meddah storytelling",
+  "family": "global",
+  "lineage": "One-man dramatic storytelling of the Ottoman and Turkish coffeehouse, in which the meddah ('panegyrist, eulogist') narrates a tale while impersonating every character through shifts of voice, dialect and gesture, using only a handkerchief (mendil) and a staff (baston) as props. Rooted in the medieval Islamic panegyric-storyteller and flourishing in Istanbul kahvehane through the nineteenth century, the art was recognised by UNESCO on the Representative List of the Intangible Cultural Heritage of Humanity in 2008. The delivery is improvisatory spoken theatre, opening with formulaic patter and rich in mimicry and topical comic aside.",
+  "recipe": "classic North African late-2000s turkish meddah storytelling, ballad Poetry, med east poetic branch cape verdean batuko of santiago island jeju haenyeo songs. thick, declaimed, overtone rich sustained, narrative. stone plaster medina room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 369,
+  "score": 162.064,
+  "config": {
+    "traditions": [
+      "turkish_meddah",
+      "cape_verdean_batuko",
+      "jeju_haenyeo_songs"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "praise_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_none",
+          "voice_pitch_organization": "voice_pitch_turkish_makam_53_comma",
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
+        },
+        "scores": {
+          "voice_register": 4.001500000000001,
+          "voice_quality": 3.1525000000000003,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.3,
+          "voice_articulation": 3.7050000000000005,
+          "voice_microtone": 5.9315,
+          "voice_tradition": 19.694999999999997,
+          "voice_mechanism_compound": 7.475,
+          "voice_estill_quality": 6.825000000000001,
+          "voice_speech_song": 38.870000000000005,
+          "voice_ensemble_config": 30.94,
+          "voice_ornament_system": 2.795,
+          "voice_pitch_organization": 6.363,
+          "voice_processing_chain": 5.2,
+          "voice_multitrack_stack": 5.135
+        }
+      }
+    ],
+    "room": "stone_plaster_medina_room",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "stone_plaster_medina_room",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "speech_voice",
+      "voice_speech_song": "voice_pure_spoken_no_pitch",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "voice_articulation": "narrative_voice"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

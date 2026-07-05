@@ -1,0 +1,97 @@
+{
+  "id": "wayang_dalang_narration",
+  "name": "Wayang kulit dalang narration",
+  "family": "classical",
+  "lineage": "In Javanese wayang kulit shadow-puppet theatre, the dalang (puppeteer-narrator) delivers the story through janturan and carita narration, heightened descriptive speech intoned over the soft grimingan shimmer of the gamelan, alternating with sulukan mood-songs and character dialogue across an all-night performance. The dalang is simultaneously narrator, voice of every character, conductor of the gamelan, and manipulator of the puppets, working within the court traditions of Surakarta and Yogyakarta in central Java. Ki Nartosabdho (1925-1985) is among the most celebrated 20th-century dalang. It is documented under UNESCO's Wayang intangible-heritage inscription (2003/2008).",
+  "recipe": "classic Southeast Asian early-1920s wayang kulit dalang narration, art Music, southeast Asian branch thai classical tibetan ache lhamo opera. thick, low dynamic level, chest resonance low mid, narrative. javanese pendopo pavilion. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 360,
+  "score": 176.089,
+  "config": {
+    "traditions": [
+      "wayang_dalang_narration",
+      "thai_classical",
+      "tibetan_ache_lhamo"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "crooner_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "narrative_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "chinese_classical_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_tube_saturation",
+          "voice_multitrack_stack": "voice_multitrack_granular_texture"
+        },
+        "scores": {
+          "voice_register": 3.2,
+          "voice_quality": 2.34,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 7.019999999999998,
+          "voice_articulation": 1.2349999999999997,
+          "voice_microtone": 1.8524999999999998,
+          "voice_tradition": 25.934999999999995,
+          "voice_mechanism_compound": 14.049999999999997,
+          "voice_estill_quality": 23.757499999999993,
+          "voice_speech_song": 24.635000000000005,
+          "voice_ensemble_config": 25.61,
+          "voice_ornament_system": 16.324999999999996,
+          "voice_pitch_organization": 14.139499999999995,
+          "voice_processing_chain": 4.439500000000001,
+          "voice_multitrack_stack": 2.5755000000000003
+        }
+      }
+    ],
+    "room": "javanese_pendopo_pavilion",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "pelog_slendro_javanese",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "pelog_slendro_javanese",
+    "room": "javanese_pendopo_pavilion",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "speech_voice",
+      "voice_speech_song": "voice_heightened_speech",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_pelog_7",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_accompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "voice_effort": "effort_projected",
+      "voice_articulation": "narrative_voice"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

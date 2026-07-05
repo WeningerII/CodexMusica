@@ -1,0 +1,95 @@
+{
+  "id": "numbers_station_broadcast",
+  "name": "Numbers-station shortwave broadcast",
+  "family": "global",
+  "lineage": "Cold War-era shortwave espionage broadcasts, active from the 1950s onward and still transmitting (Cuba's HM01 continues today): flat monotone read or machine-generated numeral groups sent to field agents for one-time-pad decryption. Stations announce themselves with repeating interval signals such as the 'Lincolnshire Poacher' folk-tune ident and the 'Swedish Rhapsody' music box, then recite number groups at a fixed metronomic pace before signing off. The aesthetic — affectless voice buried in shortwave carrier hiss, heterodyne whistles, and fading — was canonized by The Conet Project (Irdial-Discs, 1997), a four-CD anthology of off-air recordings that made the genre a touchstone for experimental musicians. Operating agencies almost never acknowledge the stations, and their purpose is known largely through espionage trials and defector accounts.",
+  "recipe": "classic North African mid-1950s numbers-station shortwave broadcast, spoken Word, broadcast branch audiobook narration guided meditation. thick, fry bleed, chest resonance low mid, unrestrained. cement block broadcast booth. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
+  "recipe_chars": 320,
+  "score": 87.874,
+  "config": {
+    "traditions": [
+      "numbers_station_broadcast",
+      "audiobook_narration",
+      "guided_meditation"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "fry_bleed_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "shouted_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_fall_off_400_cents",
+          "voice_processing_chain": "voice_processing_tape_saturation",
+          "voice_multitrack_stack": "voice_multitrack_granular_texture"
+        },
+        "scores": {
+          "voice_register": 3.023750000000001,
+          "voice_quality": 1.625,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.845,
+          "voice_articulation": 3.25,
+          "voice_microtone": 0.845,
+          "voice_tradition": 14.235,
+          "voice_mechanism_compound": 5.915,
+          "voice_estill_quality": 4.875,
+          "voice_speech_song": 15.014999999999999,
+          "voice_ensemble_config": 20.15,
+          "voice_ornament_system": 4.2250000000000005,
+          "voice_pitch_organization": 3.2449999999999997,
+          "voice_processing_chain": 5.135,
+          "voice_multitrack_stack": 1.69
+        }
+      }
+    ],
+    "room": "cement_block_broadcast_booth",
+    "archetype": "arch_pre_daw_electronic_pioneer",
+    "inline_chain": {
+      "mic": "dynamic_mic",
+      "pre": "transformer_solid_state",
+      "console": "broken",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "cassette_medium"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "cement_block_broadcast_booth",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "speech_voice",
+      "voice_speech_song": "voice_pure_spoken_no_pitch",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_lo_fi_narrow_AM",
+      "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source"
+    },
+    "chain_mic": "dynamic_mic",
+    "chain_pre": "transformer_solid_state",
+    "chain_medium": "cassette_medium",
+    "chain_console": "broken"
+  }
+}

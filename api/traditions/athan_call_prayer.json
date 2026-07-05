@@ -5,7 +5,7 @@
   "lineage": "Islamic ceremonial call-to-prayer (adhān) tradition broadcast five times daily from mosque minarets — codified through the seven phrases (takbīr, shahāda, hayya, etc.) in unmetered melismatic-modal singing, varying by regional tradition (Turkish, Egyptian, Maghrebi, Persian, Indo-Pakistani recitation schools)",
   "recipe": "classic modern athān, ritual Devotional, islamic branch, Sufi ritual devotional sufi inshad qawwali. vocal fry, declaimed, chest resonance low mid, maqam neutral step. cathedral. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 308,
-  "score": 153.782,
+  "score": 154.629,
   "config": {
     "traditions": [
       "athan_call_prayer",
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_persian_dastgah",
+          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
           "voice_register": 2.4699999999999998,
-          "voice_quality": 23.091249999999995,
+          "voice_quality": 23.074999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.4949999999999999,
           "voice_articulation": 0.195,
-          "voice_microtone": 16.13775,
-          "voice_tradition": 42.04624999999999,
+          "voice_microtone": 16.293750000000003,
+          "voice_tradition": 42.294,
           "voice_mechanism_compound": 6.449999999999999,
-          "voice_estill_quality": 7.378249999999999,
+          "voice_estill_quality": 7.366999999999999,
           "voice_speech_song": 12.869999999999997,
           "voice_ensemble_config": 10.205,
-          "voice_ornament_system": 19.80425,
-          "voice_pitch_organization": 7.231499999999999,
-          "voice_processing_chain": 3.249,
-          "voice_multitrack_stack": 3.4835
+          "voice_ornament_system": 19.96025,
+          "voice_pitch_organization": 7.24875,
+          "voice_processing_chain": 3.39,
+          "voice_multitrack_stack": 3.6399999999999997
         }
       }
     ],

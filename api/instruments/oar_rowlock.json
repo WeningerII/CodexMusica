@@ -1,0 +1,162 @@
+{
+  "id": "oar_rowlock",
+  "name": "Oar in rowlock",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 0,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "oar",
+  "parts": [
+    {
+      "id": "oar_rowlock_pivot",
+      "name": "Rowlock",
+      "surface": false,
+      "variants": [
+        {
+          "id": "oar_rowlock_thole_pin",
+          "default": true,
+          "name": "Wood thole-pin",
+          "descriptors": [
+            "thole-pin",
+            "knocking",
+            "woody"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "oar_rowlock_iron_oarlock",
+          "default": false,
+          "name": "Iron oarlock",
+          "descriptors": [
+            "iron-oarlock",
+            "clunking",
+            "metallic"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oar_rowlock_stroke",
+      "name": "Stroke",
+      "surface": false,
+      "variants": [
+        {
+          "id": "oar_rowlock_long_pull",
+          "default": true,
+          "name": "Long pull",
+          "descriptors": [
+            "long-pull",
+            "heavy",
+            "measured"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "oar_rowlock_quick_stroke",
+          "default": false,
+          "name": "Quick stroke",
+          "descriptors": [
+            "quick-stroke",
+            "rapid",
+            "light"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "oar_rowlock_pivot",
+      "name": "Rowlock",
+      "surface": false,
+      "variants": [
+        {
+          "id": "oar_rowlock_thole_pin",
+          "default": true,
+          "name": "Wood thole-pin",
+          "descriptors": [
+            "thole-pin",
+            "knocking",
+            "woody"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "oar_rowlock_iron_oarlock",
+          "default": false,
+          "name": "Iron oarlock",
+          "descriptors": [
+            "iron-oarlock",
+            "clunking",
+            "metallic"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oar_rowlock_stroke",
+      "name": "Stroke",
+      "surface": false,
+      "variants": [
+        {
+          "id": "oar_rowlock_long_pull",
+          "default": true,
+          "name": "Long pull",
+          "descriptors": [
+            "long-pull",
+            "heavy",
+            "measured"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "oar_rowlock_quick_stroke",
+          "default": false,
+          "name": "Quick stroke",
+          "descriptors": [
+            "quick-stroke",
+            "rapid",
+            "light"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    }
+  ]
+}

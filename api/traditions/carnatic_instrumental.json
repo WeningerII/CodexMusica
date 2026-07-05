@@ -3,9 +3,9 @@
   "name": "Carnatic instrumental",
   "family": "classical",
   "lineage": "South Indian classical instrumental tradition spanning veena (Saraswathi veena, the South Indian fretted long-neck lute), Carnatic violin (held in vertical Carnatic posture, codified by Baluswami Dikshitar in the early 19th century), bansuri flute (Carnatic flute is distinct from Hindustani in tuning), nadaswaram (temple double-reed), mandolin (U. Shrinivas adaptation), and even saxophone (Kadri Gopalnath South Indian classical saxophone), all interpreting the same 72-melakarta-and-kriti repertoire as the vocal tradition",
-  "recipe": "classic South Asian mid-1930s carnatic instrumental, improv On Frame, indian classical improv branch, south Asian art music, hindu ritual devotional telugu kirtana sinhala vannama. jackwood canonical thanjavur mysore thanjavur canonical south indian veena, jackwood barrel canonical carnatic goat buffalo rice paste karanai palghat lineage canonical carnatic mridangam, ghatam, jackwood frame canonical carnatic brass jingle pair kanjira, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic, German spruce classical leaning thomastik flatwound jazz mandolin mandolin, jackwood barrel canonical Tamil buffalo goat thumb cap canonical periya melam thavil, low overtone rich kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, gold brass warmer tone continuous-airflow legato saxophone, temple volume Tamil temple context periya melam thavil percussion pair temple procession nadaswaram.",
-  "recipe_chars": 977,
-  "score": 323.97,
+  "recipe": "classic South Asian mid-1930s carnatic instrumental, improv On Frame, indian classical improv branch, south Asian art music, hindu ritual devotional telugu kirtana sinhala vannama. jackwood canonical thanjavur mysore thanjavur canonical south indian veena, jackwood barrel canonical carnatic goat buffalo rice paste karanai palghat lineage canonical carnatic mridangam, ghatam, jackwood frame canonical carnatic brass jingle pair kanjira, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic, German spruce classical leaning thomastik flatwound jazz mandolin mandolin, jackwood barrel canonical Tamil buffalo goat thumb cap canonical periya melam thavil, low overtone rich kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, rose brass darker warmer continuous-airflow legato saxophone, temple volume Tamil temple context periya melam thavil percussion pair temple procession nadaswaram.",
+  "recipe_chars": 979,
+  "score": 321.425,
   "config": {
     "traditions": [
       "carnatic_instrumental",
@@ -28,10 +28,10 @@
           "plucked_traditional_technique": 17.75,
           "veena_construction": 0.845,
           "veena_resonator": 0,
-          "veena_pluck": 9.139999999999999,
+          "veena_pluck": 9.23,
           "veena_body_wood": 2.5349999999999997,
           "veena_strings": 0.5849999999999996,
-          "veena_lineage": 16.349999999999998
+          "veena_lineage": 15.884999999999998
         }
       },
       {
@@ -44,7 +44,7 @@
           "mridangam_lineage": "mridangam_palghat"
         },
         "scores": {
-          "mridangam_heads": 9.139999999999999,
+          "mridangam_heads": 9.23,
           "mridangam_use": 0,
           "mridangam_shell_wood": 14.235,
           "mridangam_heads_material": 2.5349999999999997,
@@ -55,11 +55,11 @@
         "id": "ghatam",
         "slots": {
           "ghatam_school": "ghatam_trichy",
-          "ghatam_technique": "ghatam_mouth"
+          "ghatam_technique": "ghatam_full"
         },
         "scores": {
-          "ghatam_school": 0.39,
-          "ghatam_technique": 0.8249999999999998
+          "ghatam_school": 0.195,
+          "ghatam_technique": 0.045
         }
       },
       {
@@ -72,7 +72,7 @@
         },
         "scores": {
           "kanjira_skin": 0.845,
-          "kanjira_context": 9.139999999999999,
+          "kanjira_context": 9.23,
           "kanjira_shell_wood": 15.73,
           "kanjira_jingle": 2.5349999999999997
         }
@@ -90,7 +90,7 @@
           "bowed_technique": 17.75,
           "violin_carnatic_tuning": 24.244999999999997,
           "violin_carnatic_posture": 3.51,
-          "violin_carnatic_strings": 11.374999999999998,
+          "violin_carnatic_strings": 11.299999999999999,
           "violin_carnatic_lineage": 13.389999999999999
         }
       },
@@ -98,7 +98,7 @@
         "id": "mandolin",
         "slots": {
           "acoustic_technique": "acoustic_chord_melody",
-          "mandolin_shape": "flat_back",
+          "mandolin_shape": "a_style",
           "mandolin_top": "german_spruce_m",
           "mandolin_back": "hard_rock_maple_mandolin",
           "mandolin_bracing": "mandolin_parallel_tone_bars_loar",
@@ -108,12 +108,12 @@
         },
         "scores": {
           "acoustic_technique": -0.035,
-          "mandolin_shape": 0.195,
-          "mandolin_top": 19.985,
+          "mandolin_shape": 0.045,
+          "mandolin_top": 19.94,
           "mandolin_back": 0,
-          "mandolin_bracing": -0.035,
+          "mandolin_bracing": -0.05,
           "mandolin_strings": 1.25,
-          "mandolin_fingerboard": 6.175,
+          "mandolin_fingerboard": 6.025,
           "mandolin_pickup": 10.009999999999998
         }
       },
@@ -142,10 +142,10 @@
           "bansuri_lineage": "bansuri_hariprasad_maihar"
         },
         "scores": {
-          "wind_articulation": 18.18,
+          "wind_articulation": 17.745,
           "bansuri_length": 1.2349999999999999,
-          "bansuri_ornament": 4.965000000000001,
-          "bansuri_body_material": 13.62,
+          "bansuri_ornament": 5.16,
+          "bansuri_body_material": 13.694999999999999,
           "bansuri_lineage": 4.615
         }
       },
@@ -155,16 +155,16 @@
           "wind_articulation": "wind_continuous_legato",
           "sax_size": "alto_sax",
           "sax_reed": "medium_reed",
-          "sax_body_alloy": "gold_brass_sax",
+          "sax_body_alloy": "rose_brass_sax",
           "sax_mouthpiece": "hard_rubber_mp",
           "sax_technique": "sax_cool_lyrical",
           "sax_maker_school": "sax_keilwerth_german"
         },
         "scores": {
-          "wind_articulation": 18.18,
+          "wind_articulation": 17.745,
           "sax_size": 0.78,
           "sax_reed": 0.845,
-          "sax_body_alloy": 18.09,
+          "sax_body_alloy": 17.75,
           "sax_mouthpiece": 0,
           "sax_technique": 0.78,
           "sax_maker_school": 0

@@ -1,0 +1,96 @@
+{
+  "id": "documentary_voiceover",
+  "name": "Documentary voiceover",
+  "family": "global",
+  "lineage": "Authoritative scripted narration read over documentary picture, descending from 1930s-40s newsreel narration such as Westbrook Van Voorhis's reads for The March of Time into postwar television nature and history documentary. Canonical exemplars include David Attenborough's intimate-authoritative BBC natural-history narration (Life on Earth, 1979, through the Planet Earth series), David McCullough's narration of Ken Burns's The Civil War (1990) and Peter Coyote's later Burns work, and Morgan Freeman's March of the Penguins (2005) as the popular touchstone of the warm 'voice of God' register. The performer reads alone to picture in a dry, treated studio, balancing measured pacing and low, resonant delivery against the score and location-sound bed.",
+  "recipe": "classic mid-1930s documentary voiceover, spoken Word, narration branch audiobook narration old-time radio announcer. vocal fry, register break ornamental, chest resonance low mid, Scottish Gaelic vocal. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 348,
+  "score": 89.718,
+  "config": {
+    "traditions": [
+      "documentary_voiceover",
+      "audiobook_narration",
+      "oldtime_radio_announcer"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "register_break_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_yodel_M1_M2_alternation",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_granular_texture"
+        },
+        "scores": {
+          "voice_register": 2.535,
+          "voice_quality": 3.2476160714285713,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.535,
+          "voice_articulation": 0.20583333333333334,
+          "voice_microtone": 0.2071875,
+          "voice_tradition": 4.875,
+          "voice_mechanism_compound": 2.535,
+          "voice_estill_quality": 5.362500000000001,
+          "voice_speech_song": 17.744999999999997,
+          "voice_ensemble_config": 21.06,
+          "voice_ornament_system": 3.2500000000000004,
+          "voice_pitch_organization": 2.535,
+          "voice_processing_chain": 7.56025,
+          "voice_multitrack_stack": 2.34
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_fet",
+      "pre": "pre_avalon_v737",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "lowered_larynx_voice",
+      "voice_speech_song": "voice_pure_spoken_no_pitch",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "voice_articulation": "narrative_voice"
+    },
+    "chain_mic": "condenser_fet",
+    "chain_pre": "pre_avalon_v737",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

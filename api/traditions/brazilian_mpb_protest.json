@@ -5,7 +5,7 @@
   "lineage": "Brazilian Música Popular Brasileira (MPB) protest-song tradition continuous from 1964-1985 Brazilian-military-dictatorship-era political-songwriter scene; centered on Chico Buarque (the foundational figure whose subtle-allegorical anti-dictatorship songs evaded censorship most consistently), Caetano Veloso, Gilberto Gil, Geraldo Vandré, Milton Nascimento, Edu Lobo",
   "recipe": "classic Southern American mid-1970s brazilian mpb-era protest, protest Song, iberian Latin branch, European protest song, Brazilian song functional song, Latin am troubadour ballad poetry milonga greek éntechno politicized. thick, intimate aspirated, chest resonance low mid, continuous-phonation. cedar fingerpicked classical nylon-string guitar, jacaranda rosewood canonical Portuguese strummed cavaquinho. estudios scatena sp. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 576,
-  "score": 134.772,
+  "score": 134.907,
   "config": {
     "traditions": [
       "brazilian_mpb_protest",
@@ -34,13 +34,13 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 3.268214285714286,
+          "voice_register": 3.463214285714286,
           "voice_quality": 8.569999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.78,
           "voice_articulation": 4.225,
-          "voice_microtone": 0.545,
+          "voice_microtone": 0.65,
           "voice_tradition": 16.444999999999997,
           "voice_mechanism_compound": 2.8599999999999994,
           "voice_estill_quality": 2.6650000000000005,
@@ -67,7 +67,7 @@
           "string_tuning": 0,
           "top_wood_classical": 1.4300000000000002,
           "bracing_classical": 0.78,
-          "string_classical": 0.7149999999999999,
+          "string_classical": 0.5499999999999999,
           "attack_technique_cl": 1.5
         }
       },

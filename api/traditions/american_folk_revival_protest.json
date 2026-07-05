@@ -5,7 +5,7 @@
   "lineage": "American protest-song tradition continuous from Industrial-Workers-of-the-World early-20th-century labor anthems (Joe Hill, \"Solidarity Forever\") through the 1930s Almanac Singers and Popular Front lineage through 1960s civil-rights-and-anti-war folk-revival continuous into the modern indie-protest singer-songwriter scene",
   "recipe": "classic North American mid-1930s american folk-revival protest song, protest Song, anglo American branch, iberian Latin protest song, European protest song, anglo singer song ballad poetry, americana country texas country-folk storyteller 1960s greenwich village confessional folk. thick, incomplete closure resting, melodic, continuous-phonation. martin lifespan fingerpicked acoustic guitar, pearwood marine band tradition stainless steel steel suzuki Japanese modern precision harmonica, walnut mid tier fluorocarbon modern open back scruggs stelling banjo 5 string. dry but alive 1948-1965 indie-commercial early tape us small. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 761,
-  "score": 346.736,
+  "score": 345.635,
   "config": {
     "traditions": [
       "american_folk_revival_protest",
@@ -34,19 +34,19 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 28.374999999999993,
+          "voice_register": 28.569999999999993,
           "voice_quality": 14.9,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 8.546375,
           "voice_articulation": 3.5749999999999993,
           "voice_microtone": 0.52,
-          "voice_tradition": 27.406624999999995,
+          "voice_tradition": 26.926624999999994,
           "voice_mechanism_compound": 0.975,
-          "voice_estill_quality": 9.341249999999997,
+          "voice_estill_quality": 9.236249999999997,
           "voice_speech_song": 22.099999999999994,
           "voice_ensemble_config": 9.944999999999997,
-          "voice_ornament_system": 5.540000000000001,
+          "voice_ornament_system": 5.075,
           "voice_pitch_organization": 3.5749999999999993,
           "voice_processing_chain": 2.73,
           "voice_multitrack_stack": 4.81
@@ -63,12 +63,12 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 39.439375,
+          "acoustic_technique": 39.349375,
           "string_tuning": 0.7249999999999998,
           "top_wood": 0.39,
           "back_sides": 0.39,
           "string_acoustic": 2.275,
-          "acoustic_om_technique": 39.439375
+          "acoustic_om_technique": 39.349375
         }
       },
       {
@@ -108,15 +108,15 @@
           "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
         "scores": {
-          "plucked_traditional_technique": 19.47,
+          "plucked_traditional_technique": 19.424999999999997,
           "banjo_back": 0.5654999999999999,
           "tone_ring": 0.5654999999999999,
           "banjo_head": 10.074999999999996,
           "banjo_pot": 0.975,
           "banjo_play": 0,
-          "banjo_rim_wood": 0.12999999999999998,
+          "banjo_rim_wood": 0.09999999999999999,
           "banjo_neck_wood": 1.04,
-          "banjo_strings": 1.87575,
+          "banjo_strings": 1.885,
           "banjo_bridge": 0,
           "banjo_setup_period": 9.619999999999997
         }

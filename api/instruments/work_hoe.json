@@ -1,0 +1,190 @@
+{
+  "id": "work_hoe",
+  "name": "Hoe / adze chop",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 0,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "hoe",
+  "parts": [
+    {
+      "id": "work_hoe_ground",
+      "name": "Ground",
+      "surface": false,
+      "variants": [
+        {
+          "id": "work_hoe_hard_clay",
+          "default": true,
+          "name": "Hard clay",
+          "descriptors": [
+            "hard-clay",
+            "thudding",
+            "packed"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "work_hoe_root_soil",
+          "default": false,
+          "name": "Root-packed soil",
+          "descriptors": [
+            "root-soil",
+            "tearing",
+            "fibrous"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "work_hoe_sand",
+          "default": false,
+          "name": "Sand",
+          "descriptors": [
+            "hoe-sand",
+            "soft",
+            "shushing"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "work_hoe_tool",
+      "name": "Tool",
+      "surface": false,
+      "variants": [
+        {
+          "id": "work_hoe_field_hoe",
+          "default": true,
+          "name": "Field hoe",
+          "descriptors": [
+            "field-hoe",
+            "chopping",
+            "flat"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "work_hoe_adze",
+          "default": false,
+          "name": "Adze",
+          "descriptors": [
+            "hoe-adze",
+            "scooping",
+            "curved"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "work_hoe_ground",
+      "name": "Ground",
+      "surface": false,
+      "variants": [
+        {
+          "id": "work_hoe_hard_clay",
+          "default": true,
+          "name": "Hard clay",
+          "descriptors": [
+            "hard-clay",
+            "thudding",
+            "packed"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "work_hoe_root_soil",
+          "default": false,
+          "name": "Root-packed soil",
+          "descriptors": [
+            "root-soil",
+            "tearing",
+            "fibrous"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "work_hoe_sand",
+          "default": false,
+          "name": "Sand",
+          "descriptors": [
+            "hoe-sand",
+            "soft",
+            "shushing"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "work_hoe_tool",
+      "name": "Tool",
+      "surface": false,
+      "variants": [
+        {
+          "id": "work_hoe_field_hoe",
+          "default": true,
+          "name": "Field hoe",
+          "descriptors": [
+            "field-hoe",
+            "chopping",
+            "flat"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "work_hoe_adze",
+          "default": false,
+          "name": "Adze",
+          "descriptors": [
+            "hoe-adze",
+            "scooping",
+            "curved"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    }
+  ]
+}

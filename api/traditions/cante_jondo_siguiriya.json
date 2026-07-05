@@ -3,53 +3,53 @@
   "name": "Cante jondo siguiriya (deepest flamenco)",
   "family": "global",
   "lineage": "Andalusian cante jondo siguiriya: the deepest, most tragic-emotional palo (song-form) of the cante jondo \"deep song\" flamenco core repertoire. Characterized by the canonical siguiriya twelve-beat compás (3+3+2+2+2), extended free-rhythm extended-melismatic introductory passages, and intense vocal-emotional projection registering the genre's anguished-lament aesthetic. Lyric content addresses death, the loss of loved ones, the pain of incarceration, the suffering of the Roma-Andalusian historical experience. Distinguished within the cante jondo palos by siguiriya's tragic-anguish (vs the soleá's graver-philosophical or the martinete's a-cappella-direct) emotional register. The canonical siguiriya repertoire descends through hereditary cantaor lineages with strict transmission-conservation conventions.",
-  "recipe": "classic North African modern cante jondo siguiriya, ballad Poetry, Mediterranean ballad branch, indigenous ritual devotional inuit katajjaq throat-singing game shipibo-conibo icaros healing songs. sygyt, declaimed, nervy, punctuated. cypress body percussive attack strong flamenco tradition rasgueado strum picado scale runs flamenco guitar. casablanca and marrakech recording 1970-present indie-commercial casablanca chaabi moroccan studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 571,
-  "score": 198.765,
+  "recipe": "classic North African modern cante jondo siguiriya, ballad Poetry, Mediterranean ballad branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. extended whistle, declaimed, nervy, punctuated. cypress body percussive attack strong flamenco tradition rasgueado strum picado scale runs flamenco guitar. casablanca and marrakech recording 1970-present indie-commercial casablanca chaabi moroccan studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 580,
+  "score": 156.24,
   "config": {
     "traditions": [
       "cante_jondo_siguiriya",
-      "inuit_katajjaq_games",
-      "shipibo_icaros"
+      "shipibo_icaros",
+      "mapuche_tayil_ritual"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "sygyt_register",
+          "voice_register": "extended_whistle_register",
           "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "fast_vibrato",
           "voice_articulation": "staccato_voice",
-          "voice_microtone": "overtone_singing",
-          "voice_tradition": "inuit_katajjaq_tradition",
+          "voice_microtone": "bend_inflected",
+          "voice_tradition": "flamenco_jondo_tradition",
           "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 8.72,
-          "voice_quality": 10.815,
+          "voice_register": 4.745,
+          "voice_quality": 11.465,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.5999999999999996,
-          "voice_articulation": 0.845,
-          "voice_microtone": 7.880000000000002,
-          "voice_tradition": 38.895,
-          "voice_mechanism_compound": 22.58,
-          "voice_estill_quality": 13.714999999999998,
-          "voice_speech_song": 21.970000000000002,
-          "voice_ensemble_config": 18.98,
+          "voice_articulation": 0.9750000000000001,
+          "voice_microtone": 6.29,
+          "voice_tradition": 21.689999999999998,
+          "voice_mechanism_compound": 11.655000000000001,
+          "voice_estill_quality": 14.559999999999997,
+          "voice_speech_song": 18.134999999999998,
+          "voice_ensemble_config": 15.339999999999998,
           "voice_ornament_system": 7.15,
-          "voice_pitch_organization": 7.620000000000001,
+          "voice_pitch_organization": 3.985,
           "voice_processing_chain": 7.67,
-          "voice_multitrack_stack": 4.68
+          "voice_multitrack_stack": 4.484999999999999
         }
       },
       {
@@ -60,9 +60,9 @@
           "flamenco_technique": "flamenco_rasgueado_picado_alzapua"
         },
         "scores": {
-          "flamenco_body": 6.629999999999999,
+          "flamenco_body": 5.9799999999999995,
           "flamenco_features": 0,
-          "flamenco_technique": 3.4899999999999998
+          "flamenco_technique": 3.9899999999999998
         }
       }
     ],

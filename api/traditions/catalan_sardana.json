@@ -5,7 +5,7 @@
   "lineage": "Catalan sardana circle-dance-and-music tradition of Catalonia (Spain), the canonical Catalan national-folk-dance form. Performance configuration: a cobla ensemble of eleven musicians playing tenora (Catalan oboe), tible (smaller oboe), trumpets, fiscorn (flugelhorn-like brass), trombone, contrabass, and the flabiol-and-tambori one-handed flute-and-drum combination played simultaneously by a single musician. Dancers stand in a circle holding hands, performing the precise counting-of-steps Catalan choreographic vocabulary. The sardana became politically significant during the Franco-period (1939-1975) suppression of Catalan culture, and post-1975 democratic-Catalonia consolidation. Distinguished from other Iberian circle-dance forms by sardana's eleven-instrument-cobla and precise-counted-step structural conventions.",
   "recipe": "classic North African early-1930s catalan sardana, functional Song, iberian branch, west African groove percussion indonesian jaipongan palm-wine guitar. thick, declaimed, melodic, rhythmic. silver powell boston canonical American orchestral flute, traditional mellow brass tambourine orch, boxwood canonical renaissance European arundo donax wooden pirouette canonical renaissance shawm, brass rose brass warmer canonical couesnon flugelhorn, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor student commercial trombone. casablanca and marrakech recording 1970-present indie-commercial casablanca chaabi moroccan studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 792,
-  "score": 149.14,
+  "score": 150.427,
   "config": {
     "traditions": [
       "catalan_sardana",
@@ -34,11 +34,11 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 9.071499999999999,
-          "voice_quality": 1.8214999999999995,
+          "voice_register": 9.579999999999998,
+          "voice_quality": 1.7899999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.7115,
+          "voice_vibrato": 3.68,
           "voice_articulation": 1.2349999999999999,
           "voice_microtone": 1.4699999999999998,
           "voice_tradition": 28.599999999999994,
@@ -47,7 +47,7 @@
           "voice_speech_song": 19.954999999999995,
           "voice_ensemble_config": 17.679999999999993,
           "voice_ornament_system": 6.949999999999999,
-          "voice_pitch_organization": 8.334999999999997,
+          "voice_pitch_organization": 8.724999999999998,
           "voice_processing_chain": 6.694999999999999,
           "voice_multitrack_stack": 3.5749999999999993
         }
@@ -64,9 +64,9 @@
         "scores": {
           "wind_articulation": -0.035,
           "flute_size": 0.8250000000000001,
-          "flute_material": 1.3245,
+          "flute_material": 1.02,
           "flute_technique": 1.8849999999999996,
-          "flute_maker_school": 1.69
+          "flute_maker_school": 1.885
         }
       },
       {
@@ -94,7 +94,7 @@
           "shawm_pitch": 0.65,
           "shawm_context": 1.4949999999999999,
           "shawm_body_wood": 1.69,
-          "shawm_reed": 1.495
+          "shawm_reed": 1.69
         }
       },
       {
@@ -109,9 +109,9 @@
         "scores": {
           "wind_articulation": -0.035,
           "flugel_use": 3.38,
-          "flugelhorn_pitch": 0.49949999999999994,
-          "flugelhorn_bell_metal": 3.12,
-          "flugelhorn_maker_school": 0.49949999999999994
+          "flugelhorn_pitch": 0.195,
+          "flugelhorn_bell_metal": 3.3150000000000004,
+          "flugelhorn_maker_school": 0.195
         }
       },
       {
@@ -129,10 +129,10 @@
           "wind_articulation": 1.4949999999999999,
           "trombone_type": 0.15,
           "trombone_mouthpiece": 1.8199999999999998,
-          "trombone_mute": 0.435,
+          "trombone_mute": 0.825,
           "trombone_technique": 0.845,
-          "trombone_bell_metal": 2.975,
-          "trombone_maker_school": 1.69
+          "trombone_bell_metal": 3.17,
+          "trombone_maker_school": 1.885
         }
       }
     ],

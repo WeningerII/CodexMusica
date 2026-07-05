@@ -3,14 +3,14 @@
   "name": "Dhrupad",
   "family": "classical",
   "lineage": "The oldest surviving North Indian classical vocal genre, dating from the 12-13th centuries and preserved through the Dagar Bani (Dagar family lineage, the modern dhrupad school) and the Bishnupur and Talwandi sub-traditions; characterized by an extended alap (40+ minutes free-meter), the dhamar / chautal / sultal metric sections with pakhawaj accompaniment, and the use of rudra veena, surbahar, or sursingar as alternative melodic instruments to vocal",
-  "recipe": "classic South Asian mid-1930s dhrupad, improv On Frame, indian classical improv branch, south Asian art music, hindu ritual devotional telugu kirtana sinhala vannama. vocal fry, declaimed, chest resonance low mid, punctuated. suited to female vocal bronze steel mix gourd body canonical traditional tanpura, goat skin syahi dagar dhrupad lineage pakhawaj, steel brass jackwood twin gourds dagar bani canonical dhrupad rudra veena. varanasi benares gharana baithak. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 537,
-  "score": 281.44,
+  "recipe": "classic South Asian mid-1930s dhrupad, improv On Frame, indian classical improv branch, south Asian art music, hindu ritual devotional kutiyattam sanskrit recitation telugu kirtana. vocal fry, declaimed, chest resonance low mid, punctuated. silvery treble-extended suited to female vocal tanpura, dagar dhrupad lineage pakhawaj, steel brass teak alternative dagar bani canonical dhrupad rudra veena. varanasi benares gharana baithak. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 506,
+  "score": 274.02,
   "config": {
     "traditions": [
       "dhrupad",
-      "telugu_kirtana",
-      "sinhala_vannama"
+      "kutiyattam_recitation",
+      "telugu_kirtana"
     ],
     "instruments": [
       {
@@ -22,7 +22,7 @@
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "staccato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_microtone": "shruti_inflected",
           "voice_tradition": "carnatic_classical_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 3.5899999999999994,
-          "voice_quality": 7.570000000000001,
+          "voice_register": 4.435,
+          "voice_quality": 6.695,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 7.540000000000001,
-          "voice_articulation": 0.845,
-          "voice_microtone": 1.295,
-          "voice_tradition": 37.075,
+          "voice_articulation": 0.54,
+          "voice_microtone": 2.08,
+          "voice_tradition": 36.955,
           "voice_mechanism_compound": 14.400000000000002,
-          "voice_estill_quality": 17.62,
-          "voice_speech_song": 18.33,
-          "voice_ensemble_config": 14.884999999999994,
+          "voice_estill_quality": 17.425,
+          "voice_speech_song": 18.134999999999998,
+          "voice_ensemble_config": 15.339999999999995,
           "voice_ornament_system": 30.82,
-          "voice_pitch_organization": 31.69,
-          "voice_processing_chain": 3.4899999999999998,
+          "voice_pitch_organization": 30.865000000000002,
+          "voice_processing_chain": 4.335,
           "voice_multitrack_stack": 5.674999999999999
         }
       },
@@ -64,11 +64,11 @@
         },
         "scores": {
           "plucked_traditional_technique": 14.500000000000002,
-          "tanpura_size": 7.15,
+          "tanpura_size": 7.994999999999999,
           "tanpura_jawari": 14.500000000000002,
-          "tanpura_strings": 2.4699999999999998,
-          "tanpura_string_material": 2.5349999999999997,
-          "tanpura_body_wood": 2.5349999999999997
+          "tanpura_strings": 2.47,
+          "tanpura_string_material": 0.845,
+          "tanpura_body_wood": 0.845
         }
       },
       {
@@ -82,8 +82,8 @@
         "scores": {
           "pakhawaj_context": 0.7200000000000001,
           "pakhawaj_construction": 0.95,
-          "pakhawaj_head": 2.5349999999999997,
-          "pakhawaj_lineage": 9.62
+          "pakhawaj_head": 0.845,
+          "pakhawaj_lineage": 7.735
         }
       },
       {
@@ -92,15 +92,15 @@
           "plucked_traditional_technique": "plucked_classical_idiom",
           "rudra_size": "wide_bridge",
           "rudra_strings": "brass_steel_rudra",
-          "rudra_veena_body_wood": "rudra_veena_jackwood",
+          "rudra_veena_body_wood": "rudra_veena_teak",
           "rudra_veena_lineage": "rudra_veena_dagar_bani"
         },
         "scores": {
           "plucked_traditional_technique": 14.500000000000002,
           "rudra_size": 2.8999999999999995,
           "rudra_strings": 7.540000000000001,
-          "rudra_veena_body_wood": 2.5349999999999997,
-          "rudra_veena_lineage": 8.825
+          "rudra_veena_body_wood": 1,
+          "rudra_veena_lineage": 7.134999999999999
         }
       }
     ],

@@ -1,0 +1,162 @@
+{
+  "id": "waulking_board",
+  "name": "Waulking / milling board",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 0,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "waulking",
+  "parts": [
+    {
+      "id": "waulking_board_cloth",
+      "name": "Cloth",
+      "surface": false,
+      "variants": [
+        {
+          "id": "waulking_board_wet_tweed",
+          "default": true,
+          "name": "Wet tweed",
+          "descriptors": [
+            "wet-tweed",
+            "sodden",
+            "slapping"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "waulking_board_heavy_wool",
+          "default": false,
+          "name": "Heavy wool",
+          "descriptors": [
+            "heavy-wool",
+            "thick",
+            "muffled"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "waulking_board_action",
+      "name": "Action",
+      "surface": false,
+      "variants": [
+        {
+          "id": "waulking_board_thump_down",
+          "default": true,
+          "name": "Thump down",
+          "descriptors": [
+            "thump-down",
+            "pounding",
+            "unison"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "waulking_board_rub_pass",
+          "default": false,
+          "name": "Rub-pass",
+          "descriptors": [
+            "rub-pass",
+            "scuffing",
+            "rotary"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "waulking_board_cloth",
+      "name": "Cloth",
+      "surface": false,
+      "variants": [
+        {
+          "id": "waulking_board_wet_tweed",
+          "default": true,
+          "name": "Wet tweed",
+          "descriptors": [
+            "wet-tweed",
+            "sodden",
+            "slapping"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "waulking_board_heavy_wool",
+          "default": false,
+          "name": "Heavy wool",
+          "descriptors": [
+            "heavy-wool",
+            "thick",
+            "muffled"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "waulking_board_action",
+      "name": "Action",
+      "surface": false,
+      "variants": [
+        {
+          "id": "waulking_board_thump_down",
+          "default": true,
+          "name": "Thump down",
+          "descriptors": [
+            "thump-down",
+            "pounding",
+            "unison"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "waulking_board_rub_pass",
+          "default": false,
+          "name": "Rub-pass",
+          "descriptors": [
+            "rub-pass",
+            "scuffing",
+            "rotary"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "id": "guided_meditation",
+  "name": "Guided meditation",
+  "family": "global",
+  "lineage": "Recorded spoken instruction guiding a listener through relaxation and meditation practice, descending from 1970s self-help relaxation cassettes and the secular-mindfulness turn led by Jon Kabat-Zinn, whose Mindfulness-Based Stress Reduction program (University of Massachusetts, 1979) circulated body-scan recordings as core practice material. Delivery is slow, low-register, and deliberately under-projected, with long structured silences left between instructions. The 2010s app era — Headspace with Andy Puddicombe, Calm with Tamara Levitt — turned the form into a mass studio-produced voice genre.",
+  "recipe": "classic mid-1970s guided meditation, spoken Word, intimate voice branch audiobook narration shipping forecast cadence. vocal fry, low dynamic level, chest resonance low mid, rhythmic. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 329,
+  "score": 94.435,
+  "config": {
+    "traditions": [
+      "guided_meditation",
+      "audiobook_narration",
+      "shipping_forecast_cadence"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "crooner_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "blue_notes",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 2.3684375,
+          "voice_quality": 2.34,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 2.535,
+          "voice_articulation": 0.5404285714285715,
+          "voice_microtone": 1.3,
+          "voice_tradition": 9.945,
+          "voice_mechanism_compound": 7.41,
+          "voice_estill_quality": 6.37,
+          "voice_speech_song": 19.2725,
+          "voice_ensemble_config": 15.144999999999996,
+          "voice_ornament_system": 5.6875,
+          "voice_pitch_organization": 2.34,
+          "voice_processing_chain": 5.301500000000001,
+          "voice_multitrack_stack": 5.005000000000001
+        }
+      }
+    ],
+    "room": "treated_studio",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_avalon_v737",
+      "console": "console_in_the_box",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "treated_studio",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "breath_admixed_voice",
+      "voice_speech_song": "voice_pure_spoken_no_pitch",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "voice_effort": "effort_minimal_undersung"
+    },
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_avalon_v737",
+    "chain_medium": "digital_high",
+    "chain_console": "console_in_the_box"
+  }
+}

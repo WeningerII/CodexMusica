@@ -1,0 +1,110 @@
+{
+  "id": "yoruba_dundun_surrogate_speech",
+  "name": "Yoruba dùndún surrogate speech",
+  "family": "global",
+  "lineage": "Surrogate-speech practice of the Yoruba dùndún hourglass tension-drum family of southwestern Nigeria, in which the lead ìyá ìlù drummer squeezes the drum's lacing cords to glide pitch across the three tone levels of spoken Yoruba, literally 'talking' proverbs (òwe), oríkì praise epithets, and Ifá verses to listeners who decode the drummed speech. Drumming is the hereditary craft of àyàn lineages, who trace their art to the drum ancestor-spirit Àyàngalú, performing at royal courts, festivals, and ceremonies since at least the era of the Oyo empire. Akin Euba's monograph Yoruba Drumming: The Dùndún Tradition (1990) is the canonical scholarly study, and the idiom feeds directly into the talking-drum roles of jùjú and fújì popular music.",
+  "recipe": "classic early-1990s yoruba dùndún surrogate speech, groove Percussion, west African branch sabar drumming fújì. thick, rap, chest resonance low mid, rhythmic. omo cedrela odorata canonical Yoruba dundun goat skin leather tension cords canonical pressure bend talking drum. field recording. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 419,
+  "score": 179.127,
+  "config": {
+    "traditions": [
+      "yoruba_dundun_surrogate_speech",
+      "sabar_drumming_wolof",
+      "fuji"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "rap_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "bend_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
+        },
+        "scores": {
+          "voice_register": 4.213000000000002,
+          "voice_quality": 5.005,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 1.7895000000000003,
+          "voice_microtone": 1.25,
+          "voice_tradition": 50.60249999999999,
+          "voice_mechanism_compound": 2.5349999999999997,
+          "voice_estill_quality": 6.76,
+          "voice_speech_song": 19.889999999999997,
+          "voice_ensemble_config": 13.454999999999995,
+          "voice_ornament_system": 8.84,
+          "voice_pitch_organization": 22.341499999999996,
+          "voice_processing_chain": 2.1315,
+          "voice_multitrack_stack": 3.38
+        }
+      },
+      {
+        "id": "talking_drum",
+        "slots": {
+          "talking_drum_origin": "gangan_yoruba",
+          "talking_drum_context": "talking_drum_praise",
+          "talking_drum_shell_wood": "talking_drum_omo_canonical",
+          "talking_drum_head": "talking_drum_goat_skin_canonical"
+        },
+        "scores": {
+          "talking_drum_origin": 4.808,
+          "talking_drum_context": 4.263,
+          "talking_drum_shell_wood": 12.415,
+          "talking_drum_head": 5.108000000000001
+        }
+      }
+    ],
+    "room": "field_recording",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "yoruba_juju_fuji_polyrhythmic",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "yoruba_juju_fuji_polyrhythmic",
+    "room": "field_recording",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "speech_voice",
+      "voice_speech_song": "voice_heightened_speech",
+      "voice_tradition": "yoruba_tonal_vocal_tradition",
+      "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

@@ -3,53 +3,53 @@
   "name": "Quechua wayno (traditional Andean)",
   "family": "global",
   "lineage": "Traditional Quechua wayno (also huayno, huayño) Andean folk-music form of the Quechua-and-Aymara-speaking populations of highland Peru, Bolivia, and Ecuador. The wayno is the canonical Andean dance-and-song form, in 2/4 meter with characteristic syncopation pattern, slow-to-medium tempo, and pentatonic-to-modal melodic vocabulary. Performance: small ensemble of quena end-blown notched flute, charango armadillo-shell ten-string-paired lute, bombo bass-drum, and voice — with the lyric content addressing rural-Andean life, love, mourning, and Quechua-cultural-identity. The mid-twentieth-century Cusco-and-Ayacucho-and-Huancayo regional canonical traditions are the most institutionally preserved; the Bolivian Cochabamba-and-Potosí lineages constitute the parallel highland-Bolivian tradition.",
-  "recipe": "classic Andean modern quechua wayno, ballad Poetry, Latin am troubadour branch, indigenous ritual devotional shipibo-conibo icaros healing songs inuit katajjaq throat-singing game. sygyt, forward-resonance, melodic, punctuated. bamboo melodic quena, naranjillo andean premium wood cedar andean andean classical charango, guanaco hide hide ceibo canonical Argentine leguero hollowed trunk bombo andino, call ritual conch shell horn, ceramic melodic ocarina. bogota colombian andean studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 618,
-  "score": 346.485,
+  "recipe": "classic Andean modern quechua wayno, ballad Poetry, Latin am troubadour branch, indigenous ritual devotional shipibo-conibo icaros healing songs fijian meke. thick, forward-resonance, melodic, punctuated. bamboo melodic quena, naranjillo andean premium wood cedar andean andean classical charango, guanaco hide hide ceibo canonical Argentine leguero hollowed trunk bombo andino, call ritual conch shell horn, ceramic melodic ocarina. bogota colombian andean studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 595,
+  "score": 315.203,
   "config": {
     "traditions": [
       "quechua_wayno_traditional",
       "shipibo_icaros",
-      "inuit_katajjaq_games"
+      "fijian_meke"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "sygyt_register",
+          "voice_register": "chest_voice",
           "voice_quality": "twang_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "staccato_voice",
-          "voice_microtone": "overtone_singing",
+          "voice_microtone": "blue_notes",
           "voice_tradition": "andean_quechua_tradition",
           "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
           "voice_estill_quality": "voice_estill_oral_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_andean_huayno",
-          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 7.445,
+          "voice_register": 2.750000000000001,
           "voice_quality": 15.299999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.275,
-          "voice_articulation": 0.845,
-          "voice_microtone": 7.880000000000002,
-          "voice_tradition": 41.410000000000004,
-          "voice_mechanism_compound": 23.880000000000003,
+          "voice_articulation": 0.9750000000000001,
+          "voice_microtone": 0.39,
+          "voice_tradition": 41.11000000000001,
+          "voice_mechanism_compound": 13.330000000000002,
           "voice_estill_quality": 13.034999999999998,
-          "voice_speech_song": 33.80000000000001,
-          "voice_ensemble_config": 34.19000000000001,
-          "voice_ornament_system": 22.605,
-          "voice_pitch_organization": 7.6625000000000005,
-          "voice_processing_chain": 4.29,
-          "voice_multitrack_stack": 4.68
+          "voice_speech_song": 32.82500000000002,
+          "voice_ensemble_config": 31.720000000000013,
+          "voice_ornament_system": 22.105,
+          "voice_pitch_organization": 4.635,
+          "voice_processing_chain": 4.485,
+          "voice_multitrack_stack": 3.445
         }
       },
       {
@@ -60,8 +60,8 @@
           "quena_pitch": "quena_g"
         },
         "scores": {
-          "wind_articulation": 7.647500000000001,
-          "quena_material": 3.3699999999999997,
+          "wind_articulation": 6.397500000000001,
+          "quena_material": 4.02,
           "quena_pitch": 3.25
         }
       },
@@ -75,11 +75,11 @@
           "charango_string_material": "charango_nylon_canonical"
         },
         "scores": {
-          "plucked_traditional_technique": 9.01,
+          "plucked_traditional_technique": 11.51,
           "charango_back": 4.8999999999999995,
-          "charango_top_wood": 8.735,
+          "charango_top_wood": 9.384999999999998,
           "charango_strings": 4.8999999999999995,
-          "charango_string_material": 3.835
+          "charango_string_material": 4.484999999999999
         }
       },
       {
@@ -92,7 +92,7 @@
         "scores": {
           "bombo_andino_construction": 4.324999999999999,
           "bombo_andino_skin": 5.624999999999999,
-          "bombo_andino_shell_wood": 3.9849999999999994
+          "bombo_andino_shell_wood": 4.635
         }
       },
       {
@@ -103,9 +103,9 @@
           "conch_shell_horn_region": "conch_shell_horn_polynesian"
         },
         "scores": {
-          "wind_articulation": 8.8075,
+          "wind_articulation": 7.9625,
           "conch_use": 1.39,
-          "conch_shell_horn_region": 32.17500000000001
+          "conch_shell_horn_region": 30.35500000000001
         }
       },
       {
@@ -116,7 +116,7 @@
           "ocarina_material": "ocarina_ceramic"
         },
         "scores": {
-          "wind_articulation": 7.647500000000001,
+          "wind_articulation": 6.397500000000001,
           "ocarina_chamber": 2.34,
           "ocarina_material": 3.2199999999999998
         }

@@ -5,7 +5,7 @@
   "lineage": "Detroit Michigan hip-hop tradition with distinct regional-aesthetic descended from J Dilla's 1990s-2000s production style — sampling jazz, soul, and funk records with deliberately-loose drum-quantization and \"behind-the-beat\" rhythmic feel. Slum Village (founded 1991 by J Dilla, T3, and Baatin), Royce da 5'9\", Black Milk, Danny Brown, and (later) 42 Dugg, Babyface Ray, and Tee Grizzley constitute the canonical roster. Eminem's parallel Detroit-based career operates as adjacent-but-distinct lineage.",
   "recipe": "classic Midwestern American mid-1990s detroit hip-hop, mc Rhythm, us hip hop branch, us hip hop conscious rap conscious hip-hop. thick, rap, narrative, equal tempered. chopped sampler, TR-808. converted house 2648 west grand blvd 1959-1972 mid tier hitsville usa motown detroit. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 408,
-  "score": 250.086,
+  "score": 252.396,
   "config": {
     "traditions": [
       "detroit_hip_hop",
@@ -34,16 +34,16 @@
         },
         "scores": {
           "voice_register": 14.099999999999998,
-          "voice_quality": 27.30725,
+          "voice_quality": 27.77975,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.45499999999999996,
           "voice_articulation": 19.1675,
           "voice_microtone": 7.425,
-          "voice_tradition": 11.862499999999999,
-          "voice_mechanism_compound": 3.6627499999999995,
+          "voice_tradition": 11.998999999999999,
+          "voice_mechanism_compound": 4.0722499999999995,
           "voice_estill_quality": 6.9475,
-          "voice_speech_song": 26.180749999999996,
+          "voice_speech_song": 26.65325,
           "voice_ensemble_config": 15.795,
           "voice_ornament_system": 1.15,
           "voice_pitch_organization": 1.69,
@@ -65,7 +65,7 @@
           "sampler_archetypes": 20.41,
           "sampler_bit_depth": 0.65,
           "sampler_workflow": 12.099999999999998,
-          "sampler_classic_context": 28.589
+          "sampler_classic_context": 29.407999999999998
         }
       },
       {

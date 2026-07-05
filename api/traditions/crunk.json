@@ -5,7 +5,7 @@
   "lineage": "Early-2000s Memphis-and-Atlanta hip-hop subgenre characterized by simple-aggressive shouted-call-and-response vocal-delivery, hyperactive drum-machine production with 808 bass emphasis, and explicit club-anthem function. Lil Jon and the East Side Boyz (Atlanta 1997-onward) inaugurated the canonical sound; Three 6 Mafia, Ying Yang Twins, and the broader BME Recordings roster constitute the canonical roster. The 2003 \"Get Low\" hit consolidated commercial peak.",
   "recipe": "classic Southern American crunk, mc Rhythm, southern branch, west African groove percussion mbalax indonesian jaipongan. vocal fry, rap, chest resonance low mid, narrative. TR-808, fast decay focused low sub bass analog synth. vocal booth isolated 2010-present mid-major atlanta trap commercial. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
   "recipe_chars": 420,
-  "score": 145.479,
+  "score": 146.015,
   "config": {
     "traditions": [
       "crunk",
@@ -34,8 +34,8 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 6.305,
-          "voice_quality": 7.901249999999999,
+          "voice_register": 6.2749999999999995,
+          "voice_quality": 7.799999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.73,
@@ -47,9 +47,9 @@
           "voice_speech_song": 14.819999999999997,
           "voice_ensemble_config": 14.299999999999995,
           "voice_ornament_system": 0.7749999999999999,
-          "voice_pitch_organization": 8.334999999999997,
-          "voice_processing_chain": 8.03025,
-          "voice_multitrack_stack": 7.4129999999999985
+          "voice_pitch_organization": 8.724999999999998,
+          "voice_processing_chain": 8.040000000000001,
+          "voice_multitrack_stack": 7.094999999999999
         }
       },
       {
@@ -79,7 +79,7 @@
           "oscillator": 2.415,
           "filter_topology": 4.615,
           "envelope": 1.8849999999999998,
-          "modulation": 0
+          "modulation": 0.5849999999999999
         }
       }
     ],

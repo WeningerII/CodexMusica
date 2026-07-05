@@ -1,0 +1,218 @@
+{
+  "id": "broom_sweep",
+  "name": "Broom sweep",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -2,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "broom",
+  "parts": [
+    {
+      "id": "broom_sweep_bristle",
+      "name": "Bristle",
+      "surface": false,
+      "variants": [
+        {
+          "id": "broom_sweep_straw",
+          "default": true,
+          "name": "Straw broom",
+          "descriptors": [
+            "sweep-straw",
+            "swishing",
+            "soft"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "broom_sweep_besom",
+          "default": false,
+          "name": "Twig besom",
+          "descriptors": [
+            "sweep-besom",
+            "scratchy",
+            "coarse"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "broom_sweep_synthetic",
+          "default": false,
+          "name": "Stiff synthetic",
+          "descriptors": [
+            "sweep-synthetic",
+            "scrubbing",
+            "sharp"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "broom_sweep_floor",
+      "name": "Floor",
+      "surface": false,
+      "variants": [
+        {
+          "id": "broom_sweep_wood_plank",
+          "default": true,
+          "name": "Wood plank",
+          "descriptors": [
+            "wood-plank",
+            "hollow",
+            "resonant"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "broom_sweep_stone_flag",
+          "default": false,
+          "name": "Stone flag",
+          "descriptors": [
+            "stone-flag",
+            "gritty",
+            "dry"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "broom_sweep_packed_earth",
+          "default": false,
+          "name": "Packed earth",
+          "descriptors": [
+            "packed-earth",
+            "dusty",
+            "muffled"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "broom_sweep_bristle",
+      "name": "Bristle",
+      "surface": false,
+      "variants": [
+        {
+          "id": "broom_sweep_straw",
+          "default": true,
+          "name": "Straw broom",
+          "descriptors": [
+            "sweep-straw",
+            "swishing",
+            "soft"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "broom_sweep_besom",
+          "default": false,
+          "name": "Twig besom",
+          "descriptors": [
+            "sweep-besom",
+            "scratchy",
+            "coarse"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "broom_sweep_synthetic",
+          "default": false,
+          "name": "Stiff synthetic",
+          "descriptors": [
+            "sweep-synthetic",
+            "scrubbing",
+            "sharp"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "broom_sweep_floor",
+      "name": "Floor",
+      "surface": false,
+      "variants": [
+        {
+          "id": "broom_sweep_wood_plank",
+          "default": true,
+          "name": "Wood plank",
+          "descriptors": [
+            "wood-plank",
+            "hollow",
+            "resonant"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "broom_sweep_stone_flag",
+          "default": false,
+          "name": "Stone flag",
+          "descriptors": [
+            "stone-flag",
+            "gritty",
+            "dry"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "broom_sweep_packed_earth",
+          "default": false,
+          "name": "Packed earth",
+          "descriptors": [
+            "packed-earth",
+            "dusty",
+            "muffled"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -3,14 +3,14 @@
   "name": "Sfyria whistled language (Antia, Greece)",
   "family": "global",
   "lineage": "Sfyria whistled-language tradition of Antia village on Mount Ochi in Evia island, Greece — a fully grammatical whistled register of the Greek language using turbulent lip-and-tongue-formed source to encode Greek phonemes across the mountain-and-canyon terrain of Mount Ochi; documented by the contemporary linguistic-anthropology lineage including Sotiris Apostolopoulos and the Onassis Foundation cultural-preservation initiatives; the smaller and more endangered sibling of Silbo Gomero, with only a handful of remaining fluent speakers in the Antia village; the whistled-language family includes the Kuşköy Turkish Black Sea whistled-Turkish tradition, the Hmong courtship-whistle, Mazatec, and other documented whistled-languages globally",
-  "recipe": "classic modern sfyria whistled language, drone Modal, vocal branch, indigenous ritual devotional shipibo-conibo icaros healing songs inuit katajjaq throat-singing game. sygyt, declaimed, overtone rich sustained, unrestrained. lip aperture turbulent source whistled language signal communication whistled voice. canyon. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 448,
-  "score": 224.91,
+  "recipe": "classic modern sfyria whistled language, drone Modal, vocal branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, declaimed, melodic, punctuated. lip aperture turbulent source whistled language signal communication whistled voice. canyon. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 432,
+  "score": 190.655,
   "config": {
     "traditions": [
       "sfyria_antia",
       "shipibo_icaros",
-      "inuit_katajjaq_games"
+      "mapuche_tayil_ritual"
     ],
     "instruments": [
       {
@@ -20,47 +20,47 @@
           "whistled_voice_context": "whistled_voice_signal_communication"
         },
         "scores": {
-          "whistled_voice_source": 10.465,
-          "whistled_voice_context": 21.394999999999996
+          "whistled_voice_source": 10.27,
+          "whistled_voice_context": 22.394999999999996
         }
       },
       {
         "id": "voice",
         "slots": {
-          "voice_register": "sygyt_register",
+          "voice_register": "vocal_fry",
           "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "diaphragm_vibrato",
-          "voice_articulation": "shouted_voice",
-          "voice_microtone": "overtone_singing",
-          "voice_tradition": "inuit_katajjaq_tradition",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "staccato_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 8.72,
-          "voice_quality": 9.514999999999999,
+          "voice_register": 3.6399999999999997,
+          "voice_quality": 10.165,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.7550000000000001,
-          "voice_articulation": 1.79,
-          "voice_microtone": 7.880000000000002,
-          "voice_tradition": 37.895,
-          "voice_mechanism_compound": 22.58,
-          "voice_estill_quality": 7.930000000000001,
-          "voice_speech_song": 25.740000000000002,
-          "voice_ensemble_config": 27.820000000000004,
+          "voice_vibrato": 1.4299999999999997,
+          "voice_articulation": 0.9750000000000001,
+          "voice_microtone": 6.35,
+          "voice_tradition": 29.119999999999994,
+          "voice_mechanism_compound": 11.655000000000001,
+          "voice_estill_quality": 7.475,
+          "voice_speech_song": 21.904999999999998,
+          "voice_ensemble_config": 24.179999999999996,
           "voice_ornament_system": 7.15,
-          "voice_pitch_organization": 9.120000000000001,
+          "voice_pitch_organization": 8.585,
           "voice_processing_chain": 7.15,
-          "voice_multitrack_stack": 5.329999999999999
+          "voice_multitrack_stack": 5.135
         }
       }
     ],

@@ -3,14 +3,14 @@
   "name": "Berber Amazigh ahidus (wedding dance)",
   "family": "global",
   "lineage": "Berber-Amazigh wedding-music tradition continuous from pre-Islamic North African Berber rural practice through Islamic-period continuous performance into modern Tamazight-speaking Moroccan and Algerian Berber-zone domestic practice; particularly preserved in the Atlas Mountains (Middle and High Atlas Tamazight zones) and the Kabyle Algeria",
-  "recipe": "classic North African modern berber amazigh ahidus, wedding, middle eastern branch, west African groove percussion, islamic ritual devotional, med east poetic ballad poetry were music palm-wine guitar. thick, declaimed, melodic, continuous-phonation. beech mass produced modern synthetic remo modern world music bendir, walnut bent frame canonical Iranian synthetic remo modern tar frame drum. atlas mountain village square. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 554,
-  "score": 136.898,
+  "recipe": "classic North African modern berber amazigh ahidus, wedding, middle eastern branch, west African groove percussion, islamic ritual devotional, med east poetic ballad poetry were music yoruba dùndún surrogate speech. thick, declaimed, melodic, continuous-phonation. juniper bent frame canonical Maghrebi synthetic remo modern world music bendir, walnut bent frame canonical Iranian synthetic remo modern tar frame drum. atlas mountain village square. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 579,
+  "score": 149.967,
   "config": {
     "traditions": [
       "berber_ahidus_wedding",
       "were_music_yoruba",
-      "palm_wine"
+      "yoruba_dundun_surrogate_speech"
     ],
     "instruments": [
       {
@@ -24,32 +24,32 @@
           "voice_articulation": "legato_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_speech",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 3.6149999999999998,
-          "voice_quality": 8.789999999999997,
+          "voice_register": 4.18,
+          "voice_quality": 9.989999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.375,
+          "voice_vibrato": 2.015,
           "voice_articulation": 2.5999999999999996,
-          "voice_microtone": 3.8200000000000003,
-          "voice_tradition": 41.925,
-          "voice_mechanism_compound": 2.21,
-          "voice_estill_quality": 3.4125000000000005,
-          "voice_speech_song": 14.559999999999997,
-          "voice_ensemble_config": 13.389999999999997,
-          "voice_ornament_system": 9.819999999999999,
-          "voice_pitch_organization": 9.245,
-          "voice_processing_chain": 2.8600000000000003,
-          "voice_multitrack_stack": 2.6649999999999996
+          "voice_microtone": 3.7750000000000004,
+          "voice_tradition": 42.67249999999999,
+          "voice_mechanism_compound": 2.1500000000000004,
+          "voice_estill_quality": 2.34,
+          "voice_speech_song": 16.379999999999995,
+          "voice_ensemble_config": 12.284999999999997,
+          "voice_ornament_system": 9.774999999999999,
+          "voice_pitch_organization": 16.064999999999998,
+          "voice_processing_chain": 2.565,
+          "voice_multitrack_stack": 0.845
         }
       },
       {
@@ -57,14 +57,14 @@
         "slots": {
           "bendir_snares": "bendir_no_snares",
           "bendir_context": "bendir_folk",
-          "bendir_shell_wood": "bendir_beech",
+          "bendir_shell_wood": "bendir_juniper_canonical",
           "bendir_head": "bendir_synthetic_modern"
         },
         "scores": {
-          "bendir_snares": 1.8199999999999998,
+          "bendir_snares": 4.809999999999999,
           "bendir_context": 0.3,
-          "bendir_shell_wood": 1.495,
-          "bendir_head": 6.305
+          "bendir_shell_wood": 2.035,
+          "bendir_head": 6.369999999999999
         }
       },
       {
@@ -79,8 +79,8 @@
         "scores": {
           "percussion_technique": -0.07,
           "tar_size": 0.195,
-          "tar_frame_drum_context": 1.8849999999999998,
-          "tar_frame_shell_wood": 1.2349999999999999,
+          "tar_frame_drum_context": 1.66,
+          "tar_frame_shell_wood": 2.035,
           "tar_frame_head": 1.495
         }
       }

@@ -2,7 +2,7 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.weningerii/codex-musica",
   "title": "Codex Musica",
-  "description": "Deterministic recording-recipe workspace: seed a recipe from any of 1119 music traditions and edit it (prefaces, part variants, room/chain/tuning, instruments) — the headless twin of the browser app, read-only and reproducible.",
+  "description": "Deterministic recording-recipe workspace: seed a recipe from any of 1195 music traditions and edit it (prefaces, part variants, room/chain/tuning, instruments) — the headless twin of the browser app, read-only and reproducible.",
   "version": "2.0.0",
   "websiteUrl": "https://weningerii.github.io/CodexMusica",
   "repository": {

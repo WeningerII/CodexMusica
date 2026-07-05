@@ -1,0 +1,246 @@
+{
+  "id": "marching_gang",
+  "name": "Marching / coffle gang tramp",
+  "family": "percussion",
+  "class": "foot_percussion",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": -1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "marchgang",
+  "parts": [
+    {
+      "id": "marching_gang_surface",
+      "name": "Surface",
+      "surface": false,
+      "variants": [
+        {
+          "id": "marching_gang_gravel",
+          "default": true,
+          "name": "Gravel",
+          "descriptors": [
+            "gang-gravel",
+            "crunching",
+            "massed"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "marching_gang_packed_earth",
+          "default": false,
+          "name": "Packed earth",
+          "descriptors": [
+            "packed-earth",
+            "thudding",
+            "dull"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "marching_gang_mud",
+          "default": false,
+          "name": "Mud",
+          "descriptors": [
+            "gang-mud",
+            "squelching",
+            "heavy"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "marching_gang_cobblestone",
+          "default": false,
+          "name": "Cobblestone",
+          "descriptors": [
+            "gang-cobblestone",
+            "clattering",
+            "hard"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marching_gang_footwear",
+      "name": "Footwear",
+      "surface": false,
+      "variants": [
+        {
+          "id": "marching_gang_heavy_boots",
+          "default": true,
+          "name": "Heavy boots",
+          "descriptors": [
+            "heavy-boots",
+            "stamping",
+            "unison"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "marching_gang_bare_feet",
+          "default": false,
+          "name": "Bare feet",
+          "descriptors": [
+            "bare-feet",
+            "slapping",
+            "soft"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "marching_gang_work_shoes",
+          "default": false,
+          "name": "Work shoes",
+          "descriptors": [
+            "work-shoes",
+            "shuffling",
+            "worn"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "marching_gang_surface",
+      "name": "Surface",
+      "surface": false,
+      "variants": [
+        {
+          "id": "marching_gang_gravel",
+          "default": true,
+          "name": "Gravel",
+          "descriptors": [
+            "gang-gravel",
+            "crunching",
+            "massed"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "marching_gang_packed_earth",
+          "default": false,
+          "name": "Packed earth",
+          "descriptors": [
+            "packed-earth",
+            "thudding",
+            "dull"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "marching_gang_mud",
+          "default": false,
+          "name": "Mud",
+          "descriptors": [
+            "gang-mud",
+            "squelching",
+            "heavy"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "marching_gang_cobblestone",
+          "default": false,
+          "name": "Cobblestone",
+          "descriptors": [
+            "gang-cobblestone",
+            "clattering",
+            "hard"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marching_gang_footwear",
+      "name": "Footwear",
+      "surface": false,
+      "variants": [
+        {
+          "id": "marching_gang_heavy_boots",
+          "default": true,
+          "name": "Heavy boots",
+          "descriptors": [
+            "heavy-boots",
+            "stamping",
+            "unison"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "marching_gang_bare_feet",
+          "default": false,
+          "name": "Bare feet",
+          "descriptors": [
+            "bare-feet",
+            "slapping",
+            "soft"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        },
+        {
+          "id": "marching_gang_work_shoes",
+          "default": false,
+          "name": "Work shoes",
+          "descriptors": [
+            "work-shoes",
+            "shuffling",
+            "worn"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "work-song"
+          ]
+        }
+      ]
+    }
+  ]
+}

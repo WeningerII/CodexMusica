@@ -1,6 +1,6 @@
 // ============================================================
-// TREE_NODES — V6 12-family taxonomy with depth-2 sub-genres.
-// Hierarchical: each node has parent (or null at root).
+// TREE_NODES — hierarchical genre taxonomy (25 roots, depth ≤ 3).
+// Each node has parent (or null at root).
 // ============================================================
 
 const TREE_NODES = [
@@ -346,4 +346,9 @@ const TREE_NODES = [
   { id: 'carnivalProcessional.riverPlate', name: 'Río de la Plata carnival', parent: 'carnivalProcessional', description: 'Montevideo and Buenos Aires Carnaval stage-and-street traditions: murga chorus-theatre on the neighborhood tablados, alongside the candombe llamadas parade culture.' },
   { id: 'carnivalProcessional.eastAsian', name: 'East Asian festival processional', parent: 'carnivalProcessional', description: 'Korean daeboreum lunar-new-year and Japanese matsuri with taiko-and-fue.' },
   { id: 'carnivalProcessional.southAsian', name: 'South Asian festival processional', parent: 'carnivalProcessional', description: 'Indian Diwali and Holi processionals with shehnai and dhol.' },
+  { id: 'spokenWord', name: 'Spoken word and voice media', parent: null, description: 'The recorded voice as its own medium — narration, broadcast speech, intimate close-mic address, and stage spoken word. Traditions organized around delivery, cadence, and mic craft rather than melody or back-line; the recording chain IS the instrument.' },
+  { id: 'spokenWord.narration', name: 'Narration and voiceover', parent: 'spokenWord', description: 'Solo narrator addressing an unseen listener: audiobook narration, documentary voiceover, classic announcer read. Sustained long-form pacing, controlled sibilance, booth-dry capture.' },
+  { id: 'spokenWord.broadcast', name: 'Broadcast speech', parent: 'spokenWord', description: 'Voice shaped by the transmission medium and its rituals: golden-age radio drama, conversational podcast, sports play-by-play, shortwave numbers stations, the shipping-forecast litany. Cadence conventions born of airtime, signal, and audience distance.' },
+  { id: 'spokenWord.intimateVoice', name: 'Intimate close-voice', parent: 'spokenWord', description: 'Whisper-register address engineered for proximity: ASMR trigger work, guided meditation, hypnotic induction. Binaural or near-field capture where breath, mouth noise, and sub-speech texture are the content.' },
+  { id: 'spokenWord.stagePerformance', name: 'Stage spoken word', parent: 'spokenWord', description: 'Live solo voice holding a room without song: stand-up comedy and slam/performance poetry. Timing, crowd response, and the handheld-mic vernacular as core craft.' },
 ];

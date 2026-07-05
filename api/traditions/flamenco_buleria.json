@@ -5,7 +5,7 @@
   "lineage": "Andalusian bulería flamenco palo, the fast-tempo festive-celebratory form developed in late-nineteenth-century Jerez de la Frontera from the older soleá tradition. Characterized by the canonical twelve-beat bulería compás (accents shifted from soleá to beats 12, 3, 6, 8, 10 with characteristic rhythmic-displacement-and-suspension play), fast tempo, and improvisational-virtuosic vocal-and-guitar-and-palmas (hand-clapping) interplay. Lyric content spans humorous, romantic, and celebratory themes — much lighter than the cante jondo deep-songs. The bulería closes most flamenco performance sets as the festive-final palo. Distinguished from soleá by bulería's faster tempo, lighter emotional register, and the canonical Jerez-rhythmic-displacement-and-virtuosity practice.",
   "recipe": "classic North African mid-1930s bulería, ballad Poetry, Mediterranean ballad branch, west African groove percussion fújì indonesian jaipongan. vocal fry, nasal, chest resonance low mid, rhythmic. cypress body percussive attack strong flamenco tradition low action golpe tap plate flamenco guitar. casablanca and marrakech recording 1970-present indie-commercial casablanca chaabi moroccan studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 469,
-  "score": 159.808,
+  "score": 158.286,
   "config": {
     "traditions": [
       "flamenco_buleria",
@@ -40,15 +40,15 @@
           "voice_effort": 0,
           "voice_vibrato": 0.845,
           "voice_articulation": 4.135,
-          "voice_microtone": 9,
+          "voice_microtone": 9.195,
           "voice_tradition": 30.322499999999998,
           "voice_mechanism_compound": 4.225,
-          "voice_estill_quality": 13.79125,
+          "voice_estill_quality": 13.4695,
           "voice_speech_song": 18.134999999999998,
           "voice_ensemble_config": 18.069999999999997,
-          "voice_ornament_system": 9.556375,
-          "voice_pitch_organization": 8.334999999999997,
-          "voice_processing_chain": 6.2958750000000006,
+          "voice_ornament_system": 8.95,
+          "voice_pitch_organization": 8.724999999999998,
+          "voice_processing_chain": 6.135,
           "voice_multitrack_stack": 7.994999999999999
         }
       },
@@ -60,9 +60,9 @@
           "flamenco_technique": "flamenco_rasgueado_picado_alzapua"
         },
         "scores": {
-          "flamenco_body": 11.175374999999999,
+          "flamenco_body": 10.764,
           "flamenco_features": 4.094999999999999,
-          "flamenco_technique": 4.641375
+          "flamenco_technique": 4.034999999999999
         }
       }
     ],

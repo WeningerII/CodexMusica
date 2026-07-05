@@ -5,7 +5,7 @@
   "lineage": "Fijian meke collective chant-and-dance tradition of the Fijian iTaukei (indigenous Fijian) population. The meke comprises several sub-forms: meke wesi (spear-dance, male-warriors), meke iri (fan-dance, women), meke ni vakatara (sitting-dance), and seasea (women's standing-dance), each with distinct choreographic vocabulary and song-accompaniment. Performance involves a vakatara dance-troupe with parallel singing chorus and slit-drum-and-bamboo-stamping-tube percussion. The canonical post-independence Fiji-1970 cultural-revival under the Fiji Museum and the Pacific Theatre formed institutional preservation infrastructure. Distinguished from neighboring Tongan lakalaka by Fijian meke's warrior-and-women parallel-track choreographic structure and Fijian-language repertoire.",
   "recipe": "classic Southeast Asian early-1970s fijian meke, ritual Devotional, indigenous branch, west African groove percussion, vocal drone modal georgian three-voice polyphony macedonian glasoechko male diaphonic. kargyraa, declaimed, melodic, rhythmic. log drum. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 480,
-  "score": 179.05,
+  "score": 177.265,
   "config": {
     "traditions": [
       "fijian_meke",
@@ -39,15 +39,15 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.2749999999999995,
-          "voice_articulation": 0.975,
+          "voice_articulation": 0.885,
           "voice_microtone": 4.745000000000001,
-          "voice_tradition": 18.91,
-          "voice_mechanism_compound": 12.965,
-          "voice_estill_quality": 9.165,
+          "voice_tradition": 18.22,
+          "voice_mechanism_compound": 12.454999999999998,
+          "voice_estill_quality": 9,
           "voice_speech_song": 30.420000000000012,
-          "voice_ensemble_config": 42.45000000000002,
+          "voice_ensemble_config": 42.43500000000002,
           "voice_ornament_system": 10.545000000000002,
-          "voice_pitch_organization": 6.475,
+          "voice_pitch_organization": 6.25,
           "voice_processing_chain": 11.095000000000002,
           "voice_multitrack_stack": 5.3950000000000005
         }
@@ -59,7 +59,7 @@
           "log_drum_context": "log_drum_amapiano"
         },
         "scores": {
-          "log_drum_voice": 0.8850000000000001,
+          "log_drum_voice": 0.7950000000000002,
           "log_drum_context": 3.4450000000000003
         }
       }

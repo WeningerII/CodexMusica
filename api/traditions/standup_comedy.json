@@ -1,0 +1,96 @@
+{
+  "id": "standup_comedy",
+  "name": "Stand-up comedy",
+  "family": "vernacular",
+  "lineage": "American solo comic form descending from vaudeville and Borscht Belt monologists through 1950s-60s nightclub soloists like Mort Sahl and Lenny Bruce, who replaced setup-punchline joke telling with personal, conversational material. The craft is built in comedy clubs — The Improv (New York, 1963) and The Comedy Store (Los Angeles, 1972) anchoring the club boom — where a comic works a single handheld microphone against live crowd response, honing timing across nightly sets. Richard Pryor's and George Carlin's early-1970s live albums fixed the recorded canon of the form.",
+  "recipe": "classic North American 1970-1973 stand-up comedy, spoken Word, stage performance branch sports play-by-play commentary poetry slam / performance poetry. extended whistle, conversational, chest resonance low mid, rhythmic. jazz club. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 364,
+  "score": 81.365,
+  "config": {
+    "traditions": [
+      "standup_comedy",
+      "sports_play_by_play",
+      "poetry_slam"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "speech_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "spoken_voice",
+          "voice_microtone": "tempered_voice",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_speech_song": "voice_rhythmic_spoken_flow",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+        },
+        "scores": {
+          "voice_register": 2.24,
+          "voice_quality": 2.9185,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 0.845,
+          "voice_articulation": 2.4765,
+          "voice_microtone": 1.375,
+          "voice_tradition": 4.875,
+          "voice_mechanism_compound": 5.069999999999999,
+          "voice_estill_quality": 4.875,
+          "voice_speech_song": 19.305,
+          "voice_ensemble_config": 15.924999999999995,
+          "voice_ornament_system": 0.6499999999999999,
+          "voice_pitch_organization": 3.38,
+          "voice_processing_chain": 3.5400000000000005,
+          "voice_multitrack_stack": 3.5900000000000003
+        }
+      }
+    ],
+    "room": "jazz_club",
+    "archetype": "arch_late60s_us_multitrack",
+    "inline_chain": {
+      "mic": "mic_sm58_dynamic_shure",
+      "pre": "pre_api_312",
+      "console": "console_american_op_amp",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "tape_15ips"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "jazz_club",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "speech_voice",
+      "voice_speech_song": "voice_pure_spoken_no_pitch",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source",
+      "voice_effort": "effort_projected"
+    },
+    "chain_mic": "mic_sm58_dynamic_shure",
+    "chain_pre": "pre_api_312",
+    "chain_medium": "tape_15ips",
+    "chain_console": "console_american_op_amp"
+  }
+}

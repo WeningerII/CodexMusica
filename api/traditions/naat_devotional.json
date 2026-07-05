@@ -5,7 +5,7 @@
   "lineage": "Pan-Islamic devotional poetry-recitation tradition in praise of the Prophet Muhammad (Arabic naʿat literally means description / praise) — performed at Mawlid an-Nabi celebrations, milad-un-Nabi processions, private home and mosque gatherings; codified through the Urdu-language naat khwani tradition in Pakistan and India (reciters Owais Raza Qadri, Junaid Jamshed, Sami Yusuf), with parallel Arabic-and-Turkish-and-Indonesian language traditions across the broader Muslim world",
   "recipe": "classic South Asian mid-1930s naʿat, ritual Devotional, islamic branch, Sufi ritual devotional qawwali sufi inshad. vocal fry, declaimed, chest resonance low mid, maqam neutral step. mixed satb canonical 4 part western three voice polyphonic regional andean three voice parallel thirds quechua aymara global traditional polyphonic choir ensemble, walnut bent frame canonical Persian goat skin tacked brass rings canonical Iranian daf, low overtone rich vocal male harmonium indian. karachi lahore naat devotional majlis. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 593,
-  "score": 220.533,
+  "score": 221.19,
   "config": {
     "traditions": [
       "naat_devotional",
@@ -35,19 +35,19 @@
         },
         "scores": {
           "voice_register": 1.6899999999999997,
-          "voice_quality": 33.717000000000006,
+          "voice_quality": 33.712500000000006,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.4949999999999999,
           "voice_articulation": 0.195,
-          "voice_microtone": 17.659999999999997,
-          "voice_tradition": 39.05449999999999,
+          "voice_microtone": 17.776999999999997,
+          "voice_tradition": 39.27049999999999,
           "voice_mechanism_compound": 3.9499999999999993,
-          "voice_estill_quality": 5.574624999999999,
+          "voice_estill_quality": 5.570125,
           "voice_speech_song": 19.369999999999997,
           "voice_ensemble_config": 15.014999999999997,
-          "voice_ornament_system": 30.2745,
-          "voice_pitch_organization": 11.380499999999998,
+          "voice_ornament_system": 30.410999999999998,
+          "voice_pitch_organization": 11.444999999999999,
           "voice_processing_chain": 1.5599999999999996,
           "voice_multitrack_stack": 1.8849999999999996
         }
@@ -63,7 +63,7 @@
         "scores": {
           "choir_size": 1.6899999999999997,
           "choir_polyphonic_configuration": 1.6899999999999997,
-          "choir_regional_canonical_configuration": 1.041625,
+          "choir_regional_canonical_configuration": 1.037125,
           "choir_ensemble_repertoire": 4.9399999999999995
         }
       },
@@ -93,7 +93,7 @@
           "harmonium_use": "harmonium_kirtan"
         },
         "scores": {
-          "free_reed_technique": 0,
+          "free_reed_technique": 0.1365,
           "harmonium_action": 1.8849999999999996,
           "harmonium_voicing": 1.6899999999999997,
           "harmonium_use": 11.83

@@ -5,7 +5,7 @@
   "lineage": "1990s house subgenre developed in New York and Chicago characterized by heavy world-percussion sampling (Afro-Cuban congas, African djembe-and-talking-drum, Brazilian batucada), tribal-chant vocal-sampling, and minimalist-melodic-percussion-focused arrangement. Junior Vasquez, Danny Tenaglia, Roger Sanchez, and the Sound Factory NYC scene defined the canonical 1990s tribal house aesthetic.",
   "recipe": "classic mid-1990s tribal house, electronic Dance, house branch, west African groove percussion indonesian jaipongan jùjú. vocal fry, declaimed, melodic, rhythmic. TR-808, fast decay focused low analog synth, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, open slap hand drum djembe. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 518,
-  "score": 146.303,
+  "score": 147.492,
   "config": {
     "traditions": [
       "tribal_house",
@@ -47,7 +47,7 @@
           "voice_speech_song": 14.234999999999996,
           "voice_ensemble_config": 13.519999999999996,
           "voice_ornament_system": 2.73,
-          "voice_pitch_organization": 8.485,
+          "voice_pitch_organization": 8.874999999999998,
           "voice_processing_chain": 11.92,
           "voice_multitrack_stack": 5.85
         }
@@ -79,7 +79,7 @@
           "oscillator": 0.46499999999999997,
           "filter_topology": 0.845,
           "envelope": 1.585,
-          "modulation": 0
+          "modulation": 0.5849999999999999
         }
       },
       {
@@ -92,9 +92,9 @@
         },
         "scores": {
           "percussion_technique": 7.735,
-          "conga_set": 0.375,
-          "conga_skin": 3.17525,
-          "conga_shell_wood": 2.98025
+          "conga_set": 0.5700000000000001,
+          "conga_skin": 3.185,
+          "conga_shell_wood": 2.99
         }
       },
       {

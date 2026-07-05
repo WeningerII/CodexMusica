@@ -3,14 +3,14 @@
   "name": "Bulgarian women's choir",
   "family": "global",
   "lineage": "Bulgarian state-radio female-voice choir tradition codified by composer Philip Koutev from 1952 onward (Philip Koutev State Ensemble) and brought to international attention through Marcel Cellier (original 1975 Disques Cellier, 1987 Nonesuch Explorer) release Le Mystère des Voix Bulgares; reharmonizes Bulgarian village folk-song repertoire (Rhodope and Pirin regional traditions) for concert-stage female chorus",
-  "recipe": "classic Southern European early-1950s bulgarian women's choir, drone Modal, vocal branch, Slavic bard ballad poetry karelian rune-singing russian bard song. thick, low dynamic level, chest resonance low mid, narrative. choir bulgarian womens. bulgarian state radio choir hall. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
-  "recipe_chars": 364,
-  "score": 85.89,
+  "recipe": "classic Southern European early-1950s bulgarian women's choir, drone Modal, vocal branch, Slavic bard ballad poetry karelian rune-singing serbian guslar epic recitation. thick, low dynamic level, chest resonance low mid, narrative. choir bulgarian womens. bulgarian state radio choir hall. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 377,
+  "score": 88.205,
   "config": {
     "traditions": [
       "bulgarian_womens_choir",
       "karelian_rune_singing",
-      "russian_bard_song"
+      "serbian_guslar_epic"
     ],
     "instruments": [
       {
@@ -39,16 +39,16 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.845,
-          "voice_articulation": 1.4299999999999995,
+          "voice_articulation": 2.2749999999999995,
           "voice_microtone": 0.39,
-          "voice_tradition": 18.2,
-          "voice_mechanism_compound": 3.3799999999999994,
-          "voice_estill_quality": 4.68,
-          "voice_speech_song": 14.039999999999996,
-          "voice_ensemble_config": 14.949999999999996,
-          "voice_ornament_system": 3.7050000000000005,
-          "voice_pitch_organization": 3.5000000000000004,
-          "voice_processing_chain": 6.045,
+          "voice_tradition": 19.044999999999998,
+          "voice_mechanism_compound": 4.03,
+          "voice_estill_quality": 5.330000000000001,
+          "voice_speech_song": 13.324999999999998,
+          "voice_ensemble_config": 15.339999999999996,
+          "voice_ornament_system": 2.4050000000000002,
+          "voice_pitch_organization": 4.15,
+          "voice_processing_chain": 5.3950000000000005,
           "voice_multitrack_stack": 4.72
         }
       },

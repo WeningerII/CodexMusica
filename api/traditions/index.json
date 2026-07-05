@@ -1,5 +1,5 @@
 {
-  "count": 1119,
+  "count": 1195,
   "items": [
     {
       "id": "honky_tonk",
@@ -6714,6 +6714,462 @@
       "name": "Shangaan electro",
       "family": "electronic",
       "href": "traditions/shangaan_electro.json"
+    },
+    {
+      "id": "homeric_rhapsode",
+      "name": "Homeric rhapsode recitation",
+      "family": "global",
+      "href": "traditions/homeric_rhapsode.json"
+    },
+    {
+      "id": "old_norse_skaldic",
+      "name": "Old Norse skaldic recitation",
+      "family": "global",
+      "href": "traditions/old_norse_skaldic.json"
+    },
+    {
+      "id": "anglo_saxon_scop",
+      "name": "Anglo-Saxon scop epic recitation",
+      "family": "global",
+      "href": "traditions/anglo_saxon_scop.json"
+    },
+    {
+      "id": "irish_fili_bardic",
+      "name": "Irish filí / bardic recitation",
+      "family": "global",
+      "href": "traditions/irish_fili_bardic.json"
+    },
+    {
+      "id": "welsh_eisteddfod_cerdd_dafod",
+      "name": "Welsh eisteddfod cerdd dafod recitation",
+      "family": "global",
+      "href": "traditions/welsh_eisteddfod_cerdd_dafod.json"
+    },
+    {
+      "id": "serbian_guslar_epic",
+      "name": "Serbian guslar epic recitation",
+      "family": "global",
+      "href": "traditions/serbian_guslar_epic.json"
+    },
+    {
+      "id": "turkish_meddah",
+      "name": "Turkish meddah storytelling",
+      "family": "global",
+      "href": "traditions/turkish_meddah.json"
+    },
+    {
+      "id": "persian_naqqali",
+      "name": "Persian naqqāli (Shahnameh dramatic recitation)",
+      "family": "global",
+      "href": "traditions/persian_naqqali.json"
+    },
+    {
+      "id": "arabic_hakawati",
+      "name": "Arabic hakawati coffeehouse storytelling",
+      "family": "global",
+      "href": "traditions/arabic_hakawati.json"
+    },
+    {
+      "id": "japanese_rakugo",
+      "name": "Japanese rakugo",
+      "family": "global",
+      "href": "traditions/japanese_rakugo.json"
+    },
+    {
+      "id": "japanese_kodan",
+      "name": "Japanese kōdan",
+      "family": "global",
+      "href": "traditions/japanese_kodan.json"
+    },
+    {
+      "id": "chinese_pingshu",
+      "name": "Chinese pingshu storytelling",
+      "family": "global",
+      "href": "traditions/chinese_pingshu.json"
+    },
+    {
+      "id": "chinese_xiangsheng",
+      "name": "Chinese xiangsheng crosstalk",
+      "family": "global",
+      "href": "traditions/chinese_xiangsheng.json"
+    },
+    {
+      "id": "japanese_kamishibai",
+      "name": "Japanese kamishibai narration",
+      "family": "global",
+      "href": "traditions/japanese_kamishibai.json"
+    },
+    {
+      "id": "somali_gabay",
+      "name": "Somali gabay poetic recitation",
+      "family": "global",
+      "href": "traditions/somali_gabay.json"
+    },
+    {
+      "id": "xhosa_iimbongi",
+      "name": "Xhosa iimbongi praise oratory",
+      "family": "global",
+      "href": "traditions/xhosa_iimbongi.json"
+    },
+    {
+      "id": "mande_griot_epic_narrative",
+      "name": "Mande griot narrative epic recitation",
+      "family": "global",
+      "href": "traditions/mande_griot_epic_narrative.json"
+    },
+    {
+      "id": "urdu_dastangoi",
+      "name": "Indian dastangoi / qissa Urdu storytelling",
+      "family": "global",
+      "href": "traditions/urdu_dastangoi.json"
+    },
+    {
+      "id": "norse_galdr",
+      "name": "Old Norse galdr incantation",
+      "family": "global",
+      "href": "traditions/norse_galdr.json"
+    },
+    {
+      "id": "norse_seidr",
+      "name": "Old Norse seiðr ritual vocalization",
+      "family": "global",
+      "href": "traditions/norse_seidr.json"
+    },
+    {
+      "id": "norse_blot",
+      "name": "Old Norse blót invocation",
+      "family": "global",
+      "href": "traditions/norse_blot.json"
+    },
+    {
+      "id": "druidic_invocation",
+      "name": "Druidic / neo-druid ritual invocation",
+      "family": "global",
+      "href": "traditions/druidic_invocation.json"
+    },
+    {
+      "id": "wiccan_chant_circle",
+      "name": "Wiccan chant-circle incantation",
+      "family": "global",
+      "href": "traditions/wiccan_chant_circle.json"
+    },
+    {
+      "id": "shinto_norito",
+      "name": "Shinto norito prayer recitation",
+      "family": "global",
+      "href": "traditions/shinto_norito.json"
+    },
+    {
+      "id": "onmyodo_incantation",
+      "name": "Onmyōdō incantation",
+      "family": "global",
+      "href": "traditions/onmyodo_incantation.json"
+    },
+    {
+      "id": "zoroastrian_avestan_recitation",
+      "name": "Zoroastrian Avestan liturgical recitation",
+      "family": "global",
+      "href": "traditions/zoroastrian_avestan_recitation.json"
+    },
+    {
+      "id": "jewish_kaddish",
+      "name": "Jewish Kaddish mourner recitation",
+      "family": "global",
+      "href": "traditions/jewish_kaddish.json"
+    },
+    {
+      "id": "latin_exorcism_rite",
+      "name": "Latin Rituale Romanum exorcism recitation",
+      "family": "global",
+      "href": "traditions/latin_exorcism_rite.json"
+    },
+    {
+      "id": "korean_muga",
+      "name": "Korean muga shamanic ritual narrative",
+      "family": "global",
+      "href": "traditions/korean_muga.json"
+    },
+    {
+      "id": "mongolian_boo_invocation",
+      "name": "Mongolian böö shamanic invocation",
+      "family": "global",
+      "href": "traditions/mongolian_boo_invocation.json"
+    },
+    {
+      "id": "sami_noaidi_drum_journey",
+      "name": "Sami noaidi drum-journey joik-chant",
+      "family": "global",
+      "href": "traditions/sami_noaidi_drum_journey.json"
+    },
+    {
+      "id": "navajo_blessingway",
+      "name": "Navajo Blessingway (Hózhǫ́ǫ́jí) recitation",
+      "family": "global",
+      "href": "traditions/navajo_blessingway.json"
+    },
+    {
+      "id": "nahua_flower_song",
+      "name": "Nahua/Aztec flower-song (in xochitl in cuicatl) oratory",
+      "family": "global",
+      "href": "traditions/nahua_flower_song.json"
+    },
+    {
+      "id": "ethiopian_debtera_incantation",
+      "name": "Ethiopian debtera liturgical incantation",
+      "family": "global",
+      "href": "traditions/ethiopian_debtera_incantation.json"
+    },
+    {
+      "id": "tibetan_chod_rite",
+      "name": "Tibetan chöd rite (voice with damaru and kangling)",
+      "family": "global",
+      "href": "traditions/tibetan_chod_rite.json"
+    },
+    {
+      "id": "palo_mayombe_mambo",
+      "name": "Palo Mayombe Kongo mambo ritual chant",
+      "family": "global",
+      "href": "traditions/palo_mayombe_mambo.json"
+    },
+    {
+      "id": "icelandic_kvaedi_thula",
+      "name": "Icelandic kvæði / þula recitation",
+      "family": "global",
+      "href": "traditions/icelandic_kvaedi_thula.json"
+    },
+    {
+      "id": "kabuki_tsurane",
+      "name": "Kabuki tsurane declamation (aragoto)",
+      "family": "classical",
+      "href": "traditions/kabuki_tsurane.json"
+    },
+    {
+      "id": "kyogen_declamation",
+      "name": "Kyogen comic declamation",
+      "family": "classical",
+      "href": "traditions/kyogen_declamation.json"
+    },
+    {
+      "id": "noh_kotoba",
+      "name": "Noh kotoba spoken declamation",
+      "family": "classical",
+      "href": "traditions/noh_kotoba.json"
+    },
+    {
+      "id": "shakespearean_verse_declamation",
+      "name": "Shakespearean verse declamation",
+      "family": "classical",
+      "href": "traditions/shakespearean_verse_declamation.json"
+    },
+    {
+      "id": "greek_tragic_chorus",
+      "name": "Greek tragic chorus declamation",
+      "family": "classical",
+      "href": "traditions/greek_tragic_chorus.json"
+    },
+    {
+      "id": "kutiyattam_recitation",
+      "name": "Kutiyattam Sanskrit recitation",
+      "family": "classical",
+      "href": "traditions/kutiyattam_recitation.json"
+    },
+    {
+      "id": "wayang_dalang_narration",
+      "name": "Wayang kulit dalang narration",
+      "family": "classical",
+      "href": "traditions/wayang_dalang_narration.json"
+    },
+    {
+      "id": "hat_boi_tuong",
+      "name": "Hat boi (tuong) declamation",
+      "family": "classical",
+      "href": "traditions/hat_boi_tuong.json"
+    },
+    {
+      "id": "jingju_yunbai",
+      "name": "Jingju yunbai stage-speech",
+      "family": "classical",
+      "href": "traditions/jingju_yunbai.json"
+    },
+    {
+      "id": "commedia_lazzi",
+      "name": "Commedia dell'arte lazzi delivery",
+      "family": "classical",
+      "href": "traditions/commedia_lazzi.json"
+    },
+    {
+      "id": "black_gospel_whooping_sermon",
+      "name": "Black gospel whooping sermon",
+      "family": "blues_gospel",
+      "href": "traditions/black_gospel_whooping_sermon.json"
+    },
+    {
+      "id": "fire_and_brimstone_revival_sermon",
+      "name": "Fire-and-brimstone revival sermon",
+      "family": "blues_gospel",
+      "href": "traditions/fire_and_brimstone_revival_sermon.json"
+    },
+    {
+      "id": "jewish_maggid_preaching",
+      "name": "Jewish maggid homiletic preaching",
+      "family": "global",
+      "href": "traditions/jewish_maggid_preaching.json"
+    },
+    {
+      "id": "islamic_khutbah_sermon",
+      "name": "Islamic khutbah sermon",
+      "family": "global",
+      "href": "traditions/islamic_khutbah_sermon.json"
+    },
+    {
+      "id": "american_political_stump_oratory",
+      "name": "American political stump oratory",
+      "family": "vernacular",
+      "href": "traditions/american_political_stump_oratory.json"
+    },
+    {
+      "id": "tobacco_livestock_auctioneer_chant",
+      "name": "Tobacco and livestock auctioneer chant",
+      "family": "vernacular",
+      "href": "traditions/tobacco_livestock_auctioneer_chant.json"
+    },
+    {
+      "id": "appalachian_square_dance_calling",
+      "name": "Appalachian square-dance calling",
+      "family": "country",
+      "href": "traditions/appalachian_square_dance_calling.json"
+    },
+    {
+      "id": "spoken_word_jazz_poetry",
+      "name": "Spoken-word jazz-poetry",
+      "family": "jazz",
+      "href": "traditions/spoken_word_jazz_poetry.json"
+    },
+    {
+      "id": "maori_whaikorero_oratory",
+      "name": "Māori whaikōrero oratory",
+      "family": "global",
+      "href": "traditions/maori_whaikorero_oratory.json"
+    },
+    {
+      "id": "hawaiian_haa_ancestral_chant",
+      "name": "Hawaiian haʻa ancestral chant",
+      "family": "global",
+      "href": "traditions/hawaiian_haa_ancestral_chant.json"
+    },
+    {
+      "id": "audiobook_narration",
+      "name": "Audiobook narration",
+      "family": "global",
+      "href": "traditions/audiobook_narration.json"
+    },
+    {
+      "id": "documentary_voiceover",
+      "name": "Documentary voiceover",
+      "family": "global",
+      "href": "traditions/documentary_voiceover.json"
+    },
+    {
+      "id": "oldtime_radio_announcer",
+      "name": "Old-time radio announcer",
+      "family": "global",
+      "href": "traditions/oldtime_radio_announcer.json"
+    },
+    {
+      "id": "radio_drama_golden_age",
+      "name": "Golden-age radio drama",
+      "family": "global",
+      "href": "traditions/radio_drama_golden_age.json"
+    },
+    {
+      "id": "podcast_conversation",
+      "name": "Podcast conversation",
+      "family": "global",
+      "href": "traditions/podcast_conversation.json"
+    },
+    {
+      "id": "sports_play_by_play",
+      "name": "Sports play-by-play commentary",
+      "family": "global",
+      "href": "traditions/sports_play_by_play.json"
+    },
+    {
+      "id": "numbers_station_broadcast",
+      "name": "Numbers-station shortwave broadcast",
+      "family": "global",
+      "href": "traditions/numbers_station_broadcast.json"
+    },
+    {
+      "id": "shipping_forecast_cadence",
+      "name": "Shipping forecast cadence",
+      "family": "global",
+      "href": "traditions/shipping_forecast_cadence.json"
+    },
+    {
+      "id": "asmr_whisper_triggers",
+      "name": "ASMR whisper and trigger audio",
+      "family": "global",
+      "href": "traditions/asmr_whisper_triggers.json"
+    },
+    {
+      "id": "guided_meditation",
+      "name": "Guided meditation",
+      "family": "global",
+      "href": "traditions/guided_meditation.json"
+    },
+    {
+      "id": "hypnosis_induction",
+      "name": "Hypnotic induction",
+      "family": "global",
+      "href": "traditions/hypnosis_induction.json"
+    },
+    {
+      "id": "standup_comedy",
+      "name": "Stand-up comedy",
+      "family": "vernacular",
+      "href": "traditions/standup_comedy.json"
+    },
+    {
+      "id": "poetry_slam",
+      "name": "Poetry slam / performance poetry",
+      "family": "vernacular",
+      "href": "traditions/poetry_slam.json"
+    },
+    {
+      "id": "greek_tragedy_chorus",
+      "name": "Greek tragedy chorus declamation",
+      "family": "classical",
+      "href": "traditions/greek_tragedy_chorus.json"
+    },
+    {
+      "id": "victorian_melodrama_narration",
+      "name": "Victorian melodrama narration",
+      "family": "classical",
+      "href": "traditions/victorian_melodrama_narration.json"
+    },
+    {
+      "id": "manchu_shamanic_seance",
+      "name": "Manchu shamanic seance chant",
+      "family": "global",
+      "href": "traditions/manchu_shamanic_seance.json"
+    },
+    {
+      "id": "mongolian_boo_murgel_invocation",
+      "name": "Mongolian böö mörgöl invocation",
+      "family": "global",
+      "href": "traditions/mongolian_boo_murgel_invocation.json"
+    },
+    {
+      "id": "yoruba_dundun_surrogate_speech",
+      "name": "Yoruba dùndún surrogate speech",
+      "family": "global",
+      "href": "traditions/yoruba_dundun_surrogate_speech.json"
+    },
+    {
+      "id": "proto_rap_spoken_word",
+      "name": "Proto-rap spoken word",
+      "family": "hip_hop",
+      "href": "traditions/proto_rap_spoken_word.json"
     }
   ]
 }

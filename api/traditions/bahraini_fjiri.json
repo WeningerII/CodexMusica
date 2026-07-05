@@ -5,7 +5,7 @@
   "lineage": "Bahraini fjiri pearl-divers' work-song tradition, performed by the all-male crews of dhow boats conducting the annual ghaws pearl-diving season in the Persian Gulf during the pre-petroleum era (eighteenth-mid-twentieth centuries). Repertoire structured around the diving voyage cycle: departure songs, anchor-hauling songs, noon-prayer-pause songs, diver-hauling songs, homeward-return songs. Architecture features male lead singer (nahham) with chorus response, hand-clapping, tar frame-drum, and jahla clay-jar percussion. The 1930s-1950s closure of natural-pearl industry terminated functional context.",
   "recipe": "classic Middle Eastern mid-1930s bahraini fjiri, ballad Poetry, work song branch, med east poetic ballad poetry pontic greek music cypriot tsiattista. thick, worn fold, chest resonance low mid, narrative. walnut bent frame canonical Iranian tar frame drum. qat chew majlis room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 408,
-  "score": 101.258,
+  "score": 99.355,
   "config": {
     "traditions": [
       "bahraini_fjiri",
@@ -40,16 +40,16 @@
           "voice_effort": 0,
           "voice_vibrato": 1.69,
           "voice_articulation": 2.5350000000000006,
-          "voice_microtone": 1.95,
-          "voice_tradition": 30.086000000000006,
+          "voice_microtone": 1.695,
+          "voice_tradition": 28.910000000000004,
           "voice_mechanism_compound": 3.38,
-          "voice_estill_quality": 5.3625,
+          "voice_estill_quality": 5.25,
           "voice_speech_song": 16.705,
           "voice_ensemble_config": 11.699999999999996,
-          "voice_ornament_system": 3.5400000000000005,
-          "voice_pitch_organization": 3.5400000000000005,
+          "voice_ornament_system": 3.6900000000000004,
+          "voice_pitch_organization": 3.6900000000000004,
           "voice_processing_chain": 4.225,
-          "voice_multitrack_stack": 2.2845
+          "voice_multitrack_stack": 1.77
         }
       },
       {
@@ -57,14 +57,14 @@
         "slots": {
           "percussion_technique": "percussion_hands_layered",
           "tar_size": "tar_small",
-          "tar_frame_drum_context": "tar_frame_drum_art",
+          "tar_frame_drum_context": "tar_frame_drum_wedding",
           "tar_frame_shell_wood": "tar_frame_walnut",
           "tar_frame_head": "tar_frame_goat_skin"
         },
         "scores": {
           "percussion_technique": -0.1,
-          "tar_size": 0.495,
-          "tar_frame_drum_context": 0.885,
+          "tar_size": 0.39,
+          "tar_frame_drum_context": 0.845,
           "tar_frame_shell_wood": 2.535,
           "tar_frame_head": 0.63
         }

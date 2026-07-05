@@ -1,6 +1,6 @@
 ---
 name: codex-music-tool
-description: Query, compose, validate, and mutate the Codex Musica dataset — 1119 recorded-music traditions (in a 312-node genre tree, 13-axis space), 463 instruments across 11 families with shared parts/variants, 256 rooms, 22 chain archetypes, 21 production aesthetics, 120 tunings, and a 649-entry voice/preface lexicon. Use to look entries up, build an ensemble + room/chain/tuning setup from a tradition (or blend), compile a compressed descriptor-stack "recipe", validate every cross-reference and invariant, and safely add/edit/delete instruments, traditions, rooms, and other entities.
+description: Query, compose, validate, and mutate the Codex Musica dataset — 1195 recorded-music traditions (in a 317-node genre tree, 13-axis space), 490 instruments across 11 families with shared parts/variants, 256 rooms, 22 chain archetypes, 21 production aesthetics, 120 tunings, and a 649-entry voice/preface lexicon. Use to look entries up, build an ensemble + room/chain/tuning setup from a tradition (or blend), compile a compressed descriptor-stack "recipe", validate every cross-reference and invariant, and safely add/edit/delete instruments, traditions, rooms, and other entities.
 license: UNLICENSED
 ---
 
@@ -49,16 +49,16 @@ Hard rule: **anything you emit (recipe or arrangement) MUST pass §6 before you 
 |---|---|---|---|
 | instrument families | 11 | bare slug: `bowed`,`percussion`,`wind`,… | `INSTRUMENT_FAMILIES` (array) |
 | family part-groups | 9 | keyed by family slug | `INSTRUMENT_FAMILY_PARTS` (object) |
-| instruments | 463 | bare slug, e.g. `oud`, `electric_bass` | `INSTRUMENTS` (array) |
+| instruments | 490 | bare slug, e.g. `oud`, `electric_bass` | `INSTRUMENTS` (array) |
 | rooms | 256 | bare slug, e.g. `parlor` | `ROOMS` (array) |
 | chain archetypes | 22 | `arch_<slug>` | `CHAIN_ARCHETYPES` (array) |
 | chain sections (UI menus) | 8 | `mic`/`pre`/`fx`/… | `CHAIN_SECTIONS` (array) |
 | production aesthetics | 21 | bare slug, e.g. `wall_of_sound` | `PRODUCTION_AESTHETICS` (array) |
 | arrangement templates | 5 | bare slug | `ARRANGEMENTS` (array) |
 | tunings | 120 | bare slug, e.g. `twelve_tet` | `TUNINGS` (array) |
-| tree nodes | 312 | **full dotted path**, e.g. `groovePercussion.afroDiasporicElec` | `TREE_NODES` (array) |
-| traditions | 1119 | bare slug, e.g. `afrobeat` | `TRADITIONS` (array) |
-| tradition extras | 1119 | keyed by tradition id | `TRADITION_EXTRAS` (object) |
+| tree nodes | 317 | **full dotted path**, e.g. `groovePercussion.afroDiasporicElec` | `TREE_NODES` (array) |
+| traditions | 1195 | bare slug, e.g. `afrobeat` | `TRADITIONS` (array) |
+| tradition extras | 1195 | keyed by tradition id | `TRADITION_EXTRAS` (object) |
 | voice/preface lexicon | 649 | bare slug, e.g. `sobbing` | `PREFACE_LEXICON` (array) |
 | axis definitions | 13 (trad) / 9 (inst) | bare slug, e.g. `harm` | `AXIS_DEFINITIONS`, `INSTRUMENT_AXIS_DEFINITIONS` |
 
@@ -124,9 +124,9 @@ Facts that bite if you miss them:
 - **`instrument.family`** ∈ the 11-value `INSTRUMENT_FAMILIES` table (always resolves).
   **`tradition.family`** is a *different* 12-value vocabulary (`global, classical,
   rock_punk, electronic, hip_hop, vernacular, jazz, pop, blues_gospel, rock, country,
-  pop_rock`; `global` dominates at 678/1119) — a top-level genre bucket, NOT an
+  pop_rock`; `global` dominates at 733/1195) — a top-level genre bucket, NOT an
   instrument family.
-- **Tree-node ids are full dotted paths.** 288 of 312 ids contain dots
+- **Tree-node ids are full dotted paths.** 292 of 317 ids contain dots
   (`functionalSong.country.honkyTonkEra`); `extras.parent`/`crossRefs` hold such ids and
   resolve directly via `byNode[path]` — no path reconstruction.
 - **`crossRefs[]` is a mixed array**: mostly strings (node-id paths), but 67 entries
@@ -173,7 +173,7 @@ module.exports = T;
 ```bash
 CODEX_REF="$PWD/references" node -e 'const T=require("./load.js");
 console.log("loaded:",T.INSTRUMENTS.length,"insts,",T.TRADITIONS.length,"trads")'
-# → loaded: 463 insts, 1119 trads
+# → loaded: 490 insts, 1195 trads
 ```
 
 ### B. `require` for the preface lexicon only (it has `module.exports`)
@@ -827,7 +827,7 @@ name: Bill Monroe`, and the made-up archetype in `soft` (verified).
 - Load once with `q.js`; reuse `db.by*` and `db.partsFor`. Never re-parse the 1–2 MB
   bundles per query.
 - Project to `{id,name}` and `slice`/`head` before printing — never dump a full table
-  (463 instruments / 1119 traditions — a lot of tokens).
+  (490 instruments / 1195 traditions — a lot of tokens).
 - Prefer counts/samples while exploring; pull full records only for the few ids that
   land in the output.
 - For a single name lookup, `grep -oE "name: '…'"` beats spinning up node.

@@ -5,7 +5,7 @@
   "lineage": "Welsh medieval praise-poetry tradition continuous from 6th-7th-century Taliesin-and-Aneirin foundational era (the Cynfeirdd \"early-poets\") through 12th-13th century Gogynfeirdd \"poets-of-the-princes\" era of court-praise-poetry through continuous-Welsh-bardic transmission into modern penillion-singing and cerdd dant (\"string-craft\") harp-and-voice tradition",
   "recipe": "classic Northern European modern welsh moliannu and cerdd dant, praise Song, Celtic British branch, sub saharan African praise song, Celtic balladic ballad poetry, string drone modal zulu izibongo mande jeli / griot praise-song. extended whistle, declaimed, tasteful, continuous-phonation. nylon celtic harp, foundational foundational warm informal choir welsh male. uk folk revival club 60s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 522,
-  "score": 202.893,
+  "score": 203.298,
   "config": {
     "traditions": [
       "welsh_moliannu_cerdd_dant",
@@ -34,8 +34,8 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 1.5899999999999999,
-          "voice_quality": 45.54000000000002,
+          "voice_register": 1.755,
+          "voice_quality": 45.930000000000014,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.575,
@@ -48,7 +48,7 @@
           "voice_ensemble_config": 16.054999999999996,
           "voice_ornament_system": 17.42,
           "voice_pitch_organization": 6.759999999999999,
-          "voice_processing_chain": 2.23,
+          "voice_processing_chain": 2.08,
           "voice_multitrack_stack": 3.184999999999999
         }
       },

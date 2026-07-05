@@ -5,7 +5,7 @@
   "lineage": "Garifuna (Black-Carib) Spanish-Latin-influenced ballad tradition performed across the Garifuna diaspora in Belize, Honduras, Guatemala, Nicaragua, and the Garifuna emigrant communities in New York and Los Angeles — codified through Andy Palacio (the Belizean Garifuna paranda voice, 2007 Wátina album, his death in 2008 marking the end of the second-generation paranda era), Aurelio Martinez, the broader Stonetree Records catalog",
   "recipe": "classic Caribbean late-2000s paranda, ritual Devotional, Afro-diasporic branch, west African griot ballad poetry hausa court music wassoulou. thick, declaimed, tasteful, equal tempered. cedar concert modern carbon fiber fingerpicked classical nylon-string guitar, plastic synthetic maracas. trinidad calypso panyard outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 454,
-  "score": 94.981,
+  "score": 95.28,
   "config": {
     "traditions": [
       "garifuna_paranda",
@@ -34,8 +34,8 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 1.9864999999999997,
-          "voice_quality": 14.154999999999998,
+          "voice_register": 1.8499999999999996,
+          "voice_quality": 14.349999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.235,
@@ -47,7 +47,7 @@
           "voice_speech_song": 8.969999999999999,
           "voice_ensemble_config": 10.399999999999997,
           "voice_ornament_system": 4.647500000000001,
-          "voice_pitch_organization": 0.44999999999999996,
+          "voice_pitch_organization": 0.345,
           "voice_processing_chain": 2.08,
           "voice_multitrack_stack": 1.4949999999999999
         }
@@ -63,7 +63,7 @@
           "attack_technique_cl": "fingertip_only_cl"
         },
         "scores": {
-          "acoustic_technique": 3.1,
+          "acoustic_technique": 3.4450000000000003,
           "string_tuning": 0,
           "top_wood_classical": 4.68,
           "bracing_classical": 1.235,

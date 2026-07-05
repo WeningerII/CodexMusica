@@ -1,0 +1,158 @@
+{
+  "id": "steam_chuff",
+  "name": "Steam piston chuff",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": -1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "chuff",
+  "parts": [
+    {
+      "id": "steam_chuff_pace",
+      "name": "Pace",
+      "surface": false,
+      "variants": [
+        {
+          "id": "steam_chuff_slow_start",
+          "default": true,
+          "name": "Slow start",
+          "descriptors": [
+            "slow-start",
+            "labouring",
+            "spaced"
+          ],
+          "match_tokens": [
+            "industrial",
+            "work-song"
+          ]
+        },
+        {
+          "id": "steam_chuff_running",
+          "default": false,
+          "name": "Running rhythm",
+          "descriptors": [
+            "chuff-running",
+            "rolling",
+            "driving"
+          ],
+          "match_tokens": [
+            "industrial",
+            "work-song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "steam_chuff_load",
+      "name": "Load",
+      "surface": false,
+      "variants": [
+        {
+          "id": "steam_chuff_light",
+          "default": true,
+          "name": "Light",
+          "descriptors": [
+            "chuff-light",
+            "easy",
+            "crisp"
+          ],
+          "match_tokens": [
+            "industrial"
+          ]
+        },
+        {
+          "id": "steam_chuff_heavy",
+          "default": false,
+          "name": "Heavy pull",
+          "descriptors": [
+            "chuff-heavy",
+            "straining",
+            "deep"
+          ],
+          "match_tokens": [
+            "industrial"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "steam_chuff_pace",
+      "name": "Pace",
+      "surface": false,
+      "variants": [
+        {
+          "id": "steam_chuff_slow_start",
+          "default": true,
+          "name": "Slow start",
+          "descriptors": [
+            "slow-start",
+            "labouring",
+            "spaced"
+          ],
+          "match_tokens": [
+            "industrial",
+            "work-song"
+          ]
+        },
+        {
+          "id": "steam_chuff_running",
+          "default": false,
+          "name": "Running rhythm",
+          "descriptors": [
+            "chuff-running",
+            "rolling",
+            "driving"
+          ],
+          "match_tokens": [
+            "industrial",
+            "work-song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "steam_chuff_load",
+      "name": "Load",
+      "surface": false,
+      "variants": [
+        {
+          "id": "steam_chuff_light",
+          "default": true,
+          "name": "Light",
+          "descriptors": [
+            "chuff-light",
+            "easy",
+            "crisp"
+          ],
+          "match_tokens": [
+            "industrial"
+          ]
+        },
+        {
+          "id": "steam_chuff_heavy",
+          "default": false,
+          "name": "Heavy pull",
+          "descriptors": [
+            "chuff-heavy",
+            "straining",
+            "deep"
+          ],
+          "match_tokens": [
+            "industrial"
+          ]
+        }
+      ]
+    }
+  ]
+}

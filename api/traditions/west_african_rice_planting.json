@@ -5,7 +5,7 @@
   "lineage": "West-African Senegambian-Mande rice-planting song tradition continuous from premodern Senegambian-and-Guinean rice-agriculture village-labor practice through colonial-period continuous performance into modern West-African-rural continuous practice; the West-African Senegambian rice-planting song tradition was demonstrably the documented lineage origin point for the South-Carolina Lowcountry rice-cultivation work-songs continuous into the broader American-South work-song tradition",
   "recipe": "classic East African modern west-african rice-planting song, field Work, sub saharan African branch, American south field work, sub saharan African praise song, sub saharan African protest song zulu izibongo yoruba oríkì. extended whistle, declaimed, tasteful, continuous-phonation. calabash nylon fishing line cowhide mande traditional kora. tanzanian outdoor village clearing. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 508,
-  "score": 259.515,
+  "score": 262.288,
   "config": {
     "traditions": [
       "west_african_rice_planting",
@@ -35,19 +35,19 @@
         },
         "scores": {
           "voice_register": 1.2674999999999998,
-          "voice_quality": 22.520249999999994,
+          "voice_quality": 22.902749999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 4.355,
           "voice_articulation": 10.139999999999999,
           "voice_microtone": 0.6699999999999997,
-          "voice_tradition": 87.34049999999999,
+          "voice_tradition": 88.95049999999999,
           "voice_mechanism_compound": 1.365,
           "voice_estill_quality": 1.4299999999999997,
           "voice_speech_song": 20.019999999999996,
-          "voice_ensemble_config": 8.614,
-          "voice_ornament_system": 29.0545,
-          "voice_pitch_organization": 12.111249999999997,
+          "voice_ensemble_config": 8.6065,
+          "voice_ornament_system": 29.8495,
+          "voice_pitch_organization": 12.103749999999998,
           "voice_processing_chain": 1.7874999999999996,
           "voice_multitrack_stack": 0.78
         }

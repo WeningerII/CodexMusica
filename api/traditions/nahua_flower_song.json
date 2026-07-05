@@ -1,0 +1,95 @@
+{
+  "id": "nahua_flower_song",
+  "name": "Nahua/Aztec flower-song (in xochitl in cuicatl) oratory",
+  "family": "global",
+  "lineage": "In xochitl in cuicatl ('flower and song') is the Nahua difrasismo for poetry and sung oratory, the elevated verbal art of the Aztec (Mexica) and wider Nahuatl-speaking world of central Mexico. The corpus survives chiefly in two sixteenth-century manuscripts, the Cantares Mexicanos and the Romances de los señores de la Nueva España, transcribed after the conquest and preserving pre-Hispanic and early-colonial song-poems on transience, war, and the divine, alongside the huehuetlahtolli oratory of the elders. In performance, poet-singers (cuicapicqueh) declaimed and sang these texts, historically to the huehuetl and teponaztli drums whose beat patterns are notated by syllables in the manuscripts. The tradition is reconstructed from these codices and the scholarship of Ángel María Garibay and Miguel León-Portilla.",
+  "recipe": "classic modern nahua/aztec flower-song (in xochitl in cuicatl) oratory, ritual Devotional, indigenous branch mongolian böö shamanic invocation ethiopian debtera liturgical incantation. vocal fry, declaimed, overtone rich sustained, ornamental. adobe room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 385,
+  "score": 175.127,
+  "config": {
+    "traditions": [
+      "nahua_flower_song",
+      "mongolian_boo_invocation",
+      "ethiopian_debtera_incantation"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "vocal_fry",
+          "voice_quality": "praise_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "melisma_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "polynesian_oli_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_estill_quality": "voice_estill_belt",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+        },
+        "scores": {
+          "voice_register": 4.691999999999999,
+          "voice_quality": 18.71175,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 1.11275,
+          "voice_articulation": 2.75,
+          "voice_microtone": 1.0999999999999999,
+          "voice_tradition": 14.9825,
+          "voice_mechanism_compound": 10.2815,
+          "voice_estill_quality": 3.315000000000001,
+          "voice_speech_song": 38.48000000000002,
+          "voice_ensemble_config": 33.735000000000014,
+          "voice_ornament_system": 10.900000000000002,
+          "voice_pitch_organization": 7.643,
+          "voice_processing_chain": 2.535,
+          "voice_multitrack_stack": 7.3635
+        }
+      }
+    ],
+    "room": "adobe_room",
+    "archetype": "arch_modern_pro_daw_studio",
+    "inline_chain": {
+      "mic": "condenser_sdc",
+      "pre": "pre_field_recorder_portable",
+      "console": "clean",
+      "comp": null,
+      "eq": null,
+      "amp": null,
+      "medium": "digital_high"
+    },
+    "tuning": "twelve_tet",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": []
+  },
+  "source": {
+    "tuning": "twelve_tet",
+    "room": "adobe_room",
+    "parts": {
+      "voice_register": "chest_voice",
+      "voice_quality": "speech_voice",
+      "voice_speech_song": "voice_heightened_speech",
+      "voice_tradition": "modern_pop_vocal_training",
+      "voice_pitch_organization": "voice_pitch_equal_tempered_12",
+      "voice_processing_chain": "voice_processing_unprocessed",
+      "voice_ensemble_config": "voice_ensemble_solo_unaccompanied",
+      "voice_multitrack_stack": "voice_multitrack_single_lead",
+      "voice_microtone": "tempered_voice",
+      "voice_ornament_system": "voice_ornament_none",
+      "voice_estill_quality": "voice_estill_speech",
+      "voice_vibrato": "straight_tone",
+      "voice_mechanism_compound": "voice_mechanism_single_source"
+    },
+    "chain_mic": "condenser_sdc",
+    "chain_pre": "pre_field_recorder_portable",
+    "chain_medium": "digital_high",
+    "chain_console": "clean"
+  }
+}

@@ -5,7 +5,7 @@
   "lineage": "1990s-onward electronics-foregrounded improvisation tradition — codified through the Erstwhile Records catalog (Jon Abbey-curated), the Tokyo Off-Site scene (Otomo Yoshihide, Sachiko M, Toshimaru Nakamura), Berlin Echtzeitmusik scene, and Vienna sin: ned label; characterized by no-input-mixer feedback, contact-mic preparations, and sustained low-amplitude texture exploration",
   "recipe": "classic mid-1990s electroacoustic improvisation, improv On Frame, jam free branch, musique concrete experimental electric electroacoustic composition musique concrète. modular granular modular modular synth, modular eurorack modular, basswood mahogany ebony low output no compression nickel humbucker electric guitar. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 463,
-  "score": 45.158,
+  "score": 45.198,
   "config": {
     "traditions": [
       "electroacoustic_improv",
@@ -65,7 +65,7 @@
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "low_wind",
           "string_material": "pure_nickel_h",
-          "bridge": "string_thru",
+          "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_12_hum",
           "finish": "oil_satin_hum",
@@ -74,15 +74,15 @@
         "scores": {
           "electric_technique": 1.91,
           "amp_make": 1.9024999999999999,
-          "body_wood": 2.125208333333333,
-          "neck_wood": 1.001875,
+          "body_wood": 2.1349583333333335,
+          "neck_wood": 1.011625,
           "fretboard": 1.00375,
           "pickup_magnet": 0.9099999999999999,
-          "pickup_winding": 2.113125,
+          "pickup_winding": 2.122875,
           "string_material": 1,
-          "bridge": 1.00375,
+          "bridge": 1.011625,
           "scale_length": 2.21,
-          "string_gauge": 1.01025,
+          "string_gauge": 1.0135,
           "finish": 0.045,
           "string_tuning": 2.21
         }

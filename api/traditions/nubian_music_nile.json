@@ -3,9 +3,9 @@
   "name": "Nubian music (Egyptian-Sudanese Nile Valley)",
   "family": "global",
   "lineage": "Nubian music of the Mahas and Kunuz communities of the Nile Valley between Aswan and Dongola, with post-1964 Aswan High Dam relocation extending diaspora to Cairo and Khartoum. Performance integrates Nubian-language responsorial chorus with tar frame-drum and darbuka, plus twentieth-century urban-oud incorporation. Modal vocabulary draws on Nile Valley pentatonic-leaning tradition with distinct Nubian intervals. The post-1964 diaspora produced an exile-mourning lyric corpus addressing the loss of villages submerged by Lake Nasser. The aragid wedding-dance repertoire constitutes the core ceremonial layer.",
-  "recipe": "classic North African mid-1960s nubian music, ballad Poetry, west African griot branch, west African groove percussion indonesian jaipongan fújì. vocal fry, declaimed, chest resonance low mid, rhythmic. mahogany modern alternative western red cedar oud, clay pre modern traditional fish skin pre modern Egyptian traditional Egyptian sombaty canonical mid east open slap hand drum darbuka, walnut bent frame canonical Iranian calfskin deeper alternative tar frame drum. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 689,
-  "score": 152.156,
+  "recipe": "classic North African mid-1960s nubian music, ballad Poetry, west African griot branch, west African groove percussion indonesian jaipongan fújì. thick, declaimed, chest resonance low mid, rhythmic. mahogany modern alternative western red cedar oud, clay pre modern traditional fish skin pre modern Egyptian traditional Egyptian sombaty canonical mid east open slap hand drum darbuka, walnut bent frame canonical Iranian calfskin deeper alternative tar frame drum. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 685,
+  "score": 151.837,
   "config": {
     "traditions": [
       "nubian_music_nile",
@@ -16,7 +16,7 @@
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
+          "voice_register": "chest_voice",
           "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 2.0799999999999996,
+          "voice_register": 2.1125,
           "voice_quality": 7.7650000000000015,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -42,12 +42,12 @@
           "voice_articulation": 0.845,
           "voice_microtone": 2.35,
           "voice_tradition": 40.07249999999999,
-          "voice_mechanism_compound": 9.275500000000001,
+          "voice_mechanism_compound": 8.905000000000001,
           "voice_estill_quality": 6.565000000000001,
           "voice_speech_song": 14.754999999999997,
           "voice_ensemble_config": 12.999999999999995,
           "voice_ornament_system": 5.459999999999999,
-          "voice_pitch_organization": 8.57,
+          "voice_pitch_organization": 8.764999999999999,
           "voice_processing_chain": 5.225,
           "voice_multitrack_stack": 3.0875
         }
@@ -64,7 +64,7 @@
           "oud_string_material": "oud_brass_wound_bass"
         },
         "scores": {
-          "plucked_traditional_technique": 1.3852499999999999,
+          "plucked_traditional_technique": 1.2,
           "oud_school": 2.925,
           "oud_strings": 0.65,
           "oud_pick": 1.69,
@@ -101,7 +101,7 @@
           "percussion_technique": -0.07,
           "tar_size": 1.495,
           "tar_frame_drum_context": 0.9099999999999999,
-          "tar_frame_shell_wood": 1.8752499999999999,
+          "tar_frame_shell_wood": 1.885,
           "tar_frame_head": 1.04
         }
       }
