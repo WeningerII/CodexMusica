@@ -20,7 +20,9 @@
 //
 // The ceiling rules are NOT reinvented here — they are the app's: trim
 // low-information descriptor tokens first (by tier), then env chunks, then
-// trailing instruments with a `[+N hidden]` notice. Prefaces are never trimmed.
+// shed prefaces (rich), and only as a pathological last resort hide trailing
+// instruments behind a `[+N hidden]` notice — every instrument stays named
+// for any realistic blend.
 
 const C = require('./_loader.js');
 const { rank, tokensOf } = require('./_preface_match.js');
@@ -951,6 +953,35 @@ function compressRichRecipe(cards, ceiling) {
     for (let i = finalChunks.length - 1; i >= 0; i--) {
       if (finalChunks[i].kind === 'env') {
         finalChunks.splice(i, 1);
+        break;
+      }
+    }
+  }
+  // Phase D½ (preface shed): env exhausted, still over budget. Prefaces are
+  // decoration; an instrument's presence is recipe-identity — naming every
+  // instrument bare beats decorating some and hiding the rest behind a
+  // "[+N hidden]" notice. Shed one preface at a time: chunks holding the most
+  // pooled prefaces first (label-merges collect one per merged card), ties to
+  // the later chunk, popping from that chunk's tail part — so each card's
+  // primary preface survives longest and hiding becomes a pathological-only
+  // last resort. Mirrors src/app.js compressRichRecipe exactly.
+  const _prefaceTotal = (c) => c.parts.reduce((n, p) => n + p.prefaces.length, 0);
+  let shedGuard = 5000;
+  while (renderAll().length > TRIM_TARGET && shedGuard-- > 0) {
+    let target = -1;
+    let most = 0;
+    for (let i = 0; i < finalChunks.length; i++) {
+      const n = _prefaceTotal(finalChunks[i]);
+      if (n > 0 && n >= most) {
+        target = i;
+        most = n;
+      }
+    }
+    if (target < 0) break;
+    const parts = finalChunks[target].parts;
+    for (let j = parts.length - 1; j >= 0; j--) {
+      if (parts[j].prefaces.length > 0) {
+        parts[j].prefaces.pop();
         break;
       }
     }
