@@ -66,8 +66,35 @@ out, so thread the returned `workspace` into the next call.
 - **Server card** (capabilities, for clients that auto-discover): `https://codex-musica-mcp.onrender.com/.well-known/mcp.json`
 - **Tools:** `start_recipe`, `edit_recipe`, `render_recipe`, `search_catalog`, `search_prefaces`, `get_instrument`, `get_tradition`, `list_traditions`, `list_options`.
 
-Use the connector for *interactive* recipe-building; use the static JSON below when you
-just need to read the default recipe for a tradition.
+**The default seed is scaffolding, not the answer.** `start_recipe` returns a
+tradition's stock cards; the tool's job is to push them toward the user's words.
+Map intent to edits — each mapping below is one `edit_recipe` op:
+
+| The user said… | Do this |
+|---|---|
+| a mood / feel / aesthetic word ("bitter", "dreamy", "face-melting") | `search_prefaces` → `set_preface` on **each** instrument it should color — this re-derives that instrument's physical settings toward the word |
+| specific gear / material / technique ("brushes", "mahogany", "fingerpicked") | `get_instrument` → `set_variant` |
+| a space, era, or medium ("in a cathedral", "1950s broadcast", "on wax") | `set_environment` — any room, tuning, or chain stage |
+| an instrument to add or drop | `add_instrument` / `remove_instrument` — any instrument fits any tradition |
+| another style to fold in | `add_tradition` / `remove_tradition` |
+
+**There are no coherence fences.** Nothing is anachronistic, out-of-region, or
+physically impossible here — recipes are *words for audio generation*, so a
+Delta-blues igil through a cathedral chain onto shellac is exactly as renderable
+as the period-correct default. The catalog's researched defaults are flavor to
+keep or override, never a wall. Every id-valid combination renders; the only
+errors are unknown ids.
+
+A typical exchange ("haunted Appalachian murder ballad, banjo like it's underwater"):
+`search_catalog "appalachian ballad"` → `start_recipe {traditions:["appalachian_ballad_singing"]}`
+→ `search_prefaces "haunted eerie"` and `search_prefaces "underwater submerged"`
+→ one `edit_recipe` with `[{action:"set_preface", card:"voice", preface:"<haunted-hit>"},
+{action:"set_preface", card:"five_string_banjo", preface:"<underwater-hit>"}]`
+→ present the returned `recipe` verbatim. One search per user-word, one batched
+edit call, done.
+
+Use the connector for *composition*; the static JSON below is the browse layer —
+read it when you only need a tradition's default recipe as reference.
 
 ## Full functionality (clone & run)
 
