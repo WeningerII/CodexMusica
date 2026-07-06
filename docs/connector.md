@@ -46,6 +46,16 @@ re-deriving that instrument's variants, tuning, room, and chain.
 
 > *garage rock, but give the voice a "worn" sound and drop the organ*
 
+> *a Gregorian chant, but recorded like a 1970s dub plate — tape echo, bass-heavy,
+> in a concrete stairwell*
+
+The default seed is a **starting point, not the finished recipe.** Whatever you
+add — a mood, a piece of gear, a room, an era, an instrument that "doesn't belong"
+— becomes an edit on top. Nothing is off-limits: there are no period, region, or
+physical-plausibility walls, because a recipe is just words that drive audio
+generation. A sitar in a Norwegian black-metal chain, a shakuhachi through a
+guitar-amp — if you can say it, it renders.
+
 ## The tools
 
 | Tool | What it does |

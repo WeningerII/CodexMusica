@@ -4016,6 +4016,29 @@ function compressRichRecipe(cards, ceiling) {
     }
   }
 
+  // Phase D½ (preface shed): env exhausted, still over budget. Prefaces are
+  // decoration; an instrument's presence is recipe-identity — naming every
+  // instrument bare beats decorating some and hiding the rest behind a
+  // "[+N hidden]" notice. Shed one preface at a time: chunks holding the most
+  // pooled prefaces first (label-merges collect one per merged card), ties to
+  // the later chunk, popping from that chunk's tail part — so each card's
+  // primary preface survives longest and hiding becomes a pathological-only
+  // last resort.
+  const _prefaceTotal = (c) => c.parts.reduce((n, p) => n + p.prefaces.length, 0);
+  let shedGuard = 5000;
+  while (renderAll().length > TRIM_TARGET && shedGuard-- > 0) {
+    let target = -1; let most = 0;
+    for (let i = 0; i < finalChunks.length; i++) {
+      const n = _prefaceTotal(finalChunks[i]);
+      if (n > 0 && n >= most) { target = i; most = n; }
+    }
+    if (target < 0) break;
+    const parts = finalChunks[target].parts;
+    for (let j = parts.length - 1; j >= 0; j--) {
+      if (parts[j].prefaces.length > 0) { parts[j].prefaces.pop(); break; }
+    }
+  }
+
   // Phase E (inst drop): env chunks exhausted, still over budget. Drop
   // trailing inst chunks with hidden-count notice. Mirrors Tags Phase C.
   const noticeFor = (n) => n > 0 ? ` [+${n} hidden]` : '';

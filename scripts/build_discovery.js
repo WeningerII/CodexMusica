@@ -64,6 +64,15 @@ next call.
 - Server card (capabilities, for auto-discovery): https://codex-musica-mcp.onrender.com/.well-known/mcp.json
 - Tools: start_recipe, edit_recipe, render_recipe, search_catalog, search_prefaces, get_instrument, get_tradition, list_traditions, list_options.
 
+The default seed is SCAFFOLDING, not the answer: after start_recipe, push it toward the
+user's words with edit_recipe. Mood/aesthetic word -> search_prefaces then set_preface on
+each instrument it should color; specific gear/material/technique -> get_instrument then
+set_variant; space/era/medium -> set_environment; roster -> add/remove instruments and
+traditions. There are NO coherence fences — nothing is anachronistic, out-of-region, or
+physically impossible (it is words for audio generation); the researched defaults are
+flavor to keep or override, and every id-valid combination renders. Batch edits in one
+call; present the FINAL recipe verbatim.
+
 ## Full functionality (clone & run — for agents with a shell)
 The static JSON above is the DEFAULT recipe per tradition (read-only). The full engine —
 blend multiple genres, add/remove instruments, swap part variants, axis-target search,

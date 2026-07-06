@@ -108,9 +108,10 @@ export function registerTools(server) {
       title: 'Start a recipe from tradition(s)',
       description:
         'Seed a recording recipe from one or more traditions — deterministic default cards, identical to what a human sees in the ' +
-        'app ("Current Recipe"). First tradition is primary; any others are explicit staples (NOT auto-added). Returns the recipe ' +
-        "string, a per-card summary (with each instrument's preface), and the `workspace` to thread into edit_recipe. Resolve " +
-        'tradition names to ids with search_catalog first. Present the `recipe` to the user VERBATIM.',
+        'app ("Current Recipe"). This is the SCAFFOLD, not the finished answer: when the user gave any stylistic words (a mood, ' +
+        'gear, a space, an era), follow with edit_recipe to realize them before presenting. First tradition is primary; any ' +
+        "others are explicit staples (NOT auto-added). Returns the recipe string, a per-card summary (with each instrument's " +
+        'preface), and the `workspace` to thread into edit_recipe. Resolve tradition names to ids with search_catalog first.',
       inputSchema: {
         traditions: z
           .array(z.string())
@@ -126,13 +127,15 @@ export function registerTools(server) {
     server,
     'edit_recipe',
     {
-      title: 'Edit the recipe (human-style)',
+      title: 'Edit the recipe (the main tool)',
       description:
-        'Apply an ordered list of edits to a workspace and re-render — the headless equivalent of editing the app canvas. Edits: ' +
-        "set_preface (re-pick an instrument's preface — deterministically re-derives its variants/tuning/room/chain to match, then " +
-        'labels it verbatim), set_variant (swap one part), set_environment (room/tuning/chain), add_instrument / remove_instrument, ' +
-        'add_tradition / remove_tradition. Pass the `workspace` from the previous call; get back the edited workspace + new recipe. ' +
-        'Iterate freely. Present the `recipe` VERBATIM.',
+        "The main tool — push the scaffold toward the user's words with an ordered batch of edits in ONE call. Edits: set_preface " +
+        "(mood/aesthetic words land here — re-derives that instrument's variants/tuning/room/chain toward the preface, then labels " +
+        'it verbatim; apply per instrument, not just once), set_variant (swap one part: material, build, technique), ' +
+        'set_environment (any room/tuning/chain — freely across eras and regions; no combination is fenced), add_instrument / ' +
+        'remove_instrument (any instrument into any tradition), add_tradition / remove_tradition. Pass the `workspace` from the ' +
+        'previous call; get back the edited workspace + new recipe. Iterate until the recipe reflects every word the user said, ' +
+        'then present the final `recipe` string VERBATIM.',
       inputSchema: {
         workspace: workspaceSchema,
         edits: z.array(editSchema).min(1).describe('Edits applied in order.'),
@@ -196,7 +199,8 @@ export function registerTools(server) {
       title: 'Search prefaces (intent → preface id)',
       description:
         'Search the named prefaces (aesthetic/technique/delivery signatures: satirical, keening, brooding, …) by mood/feel words. ' +
-        'Take a preface id to edit_recipe set_preface to realize it on an instrument.',
+        'Reach for this whenever the user says ANY stylistic adjective — then realize the winning id on each relevant instrument ' +
+        'via edit_recipe set_preface. Any preface can target any instrument.',
       inputSchema: {
         query: z.string().describe('Mood/feel words, e.g. "worn bitter struggling".'),
         limit: z.number().int().positive().optional().describe('Max results (default 15).'),
@@ -278,14 +282,21 @@ export function buildServer() {
     { name: 'codex-musica', version: '2.0.0' },
     {
       instructions:
-        `CodexMusica is a deterministic recording-recipe workspace over ${E.counts.traditions} traditions, ` +
-        `${E.counts.instruments} instruments, and ${E.counts.prefaces} prefaces. It mirrors the browser app: ` +
-        `start_recipe seeds a tradition's default cards (the "Current Recipe"); edit_recipe applies human-style edits ` +
-        `(set_preface re-derives an instrument's settings toward a mood, set_variant/set_environment override knobs, ` +
-        `add/remove instruments and traditions). State is passed in and out — thread the 'workspace' from each recipe ` +
-        `call into the next. Resolve words to ids with search_catalog / search_prefaces (never guess). The 'recipe' ` +
-        `field is the finished deliverable — present it to the user VERBATIM. There is no scoring search and no ` +
-        `auto-staple: the recipe is reproducible and equal to what a human sees in the app.`,
+        `CodexMusica turns plain-language musical intent into a precise recording recipe over ${E.counts.traditions} ` +
+        `traditions, ${E.counts.instruments} instruments (each decomposed into swappable per-part variants), and ` +
+        `${E.counts.prefaces} prefaces (named mood/technique signatures). THE DEFAULT SEED IS SCAFFOLDING, NOT THE ` +
+        `ANSWER: start_recipe returns a tradition's stock cards, and if the user expressed ANY preference — a mood, an ` +
+        `adjective, a piece of gear, a material, a space, an era — follow with edit_recipe before presenting. Map ` +
+        `intent to edits: mood/feel/aesthetic words → search_prefaces, then set_preface on EACH instrument it should ` +
+        `color (this re-derives that instrument's physical settings toward the word); specific gear/material/technique ` +
+        `→ get_instrument, then set_variant; space/era/medium → set_environment (any room, tuning, or chain stage); ` +
+        `roster → add/remove_instrument and add/remove_tradition (any instrument fits any tradition). There are NO ` +
+        `coherence fences: nothing is anachronistic, out-of-region, or physically impossible here — the catalog's ` +
+        `period-accurate defaults are flavor to keep or override, and every id-valid combination renders. Batch ` +
+        `several edits in one edit_recipe call; thread the returned 'workspace' into the next call; resolve every word ` +
+        `to an id with search_catalog / search_prefaces (never guess ids). Deterministic and reproducible — identical ` +
+        `to what a human sees in the app. Present the FINAL recipe string to the user verbatim (exact characters) — ` +
+        `final meaning after your edits, not the untouched default.`,
     }
   );
   registerTools(server);

@@ -66,16 +66,29 @@ function cardsSummary(ws) {
 }
 
 // The standard recipe response: the deliverable string + the state to thread on.
-function shape(ws, params = {}) {
+function shape(ws, params = {}, meta = {}) {
   const format = params.format || 'rich';
   const ceiling = params.max_chars || 1000;
   const recipe = W.render(ws, { format, ceiling });
-  return {
+  const out = {
     recipe,
     recipe_chars: recipe.length,
     cards: cardsSummary(ws),
     workspace: ws,
   };
+  // Seed responses carry the edit affordance INSIDE the payload — it lands at
+  // the exact moment a model decides whether to stop at the default or push it
+  // toward the user's words. Deterministic (live catalog counts only).
+  if (meta.seeded) {
+    out.guidance =
+      `Default scaffold — if the user gave any stylistic words, edit before presenting: ` +
+      `set_preface per instrument (${(C.PREFACE_LEXICON || []).length} moods via search_prefaces), ` +
+      `set_variant per part (see get_instrument), set_environment (any of ` +
+      `${(C.ROOMS || []).length} rooms / ${(C.TUNINGS || []).length} tunings / any chain stage — ` +
+      `no era or region fences), add/remove instruments and traditions. ` +
+      `Batch edits in one edit_recipe call.`;
+  }
+  return out;
 }
 
 // Convert a WorkspaceError (bad id, etc.) into an actionable EngineError.
@@ -101,7 +114,7 @@ export function startRecipe(params = {}) {
     );
   }
   const ws = wrap(() => W.seed(ids));
-  return { mode: ids.length > 1 ? 'blend' : 'single', ...shape(ws, params) };
+  return { mode: ids.length > 1 ? 'blend' : 'single', ...shape(ws, params, { seeded: true }) };
 }
 
 const EDIT_ACTIONS = [
