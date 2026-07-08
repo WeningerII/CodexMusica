@@ -6,6 +6,19 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Added
+- **`tagelharpa` instrument** (490 → 491): the horsehair-strung Nordic/Baltic
+  bowed lyre was entirely missing — a catalog search returned zero hits, so the
+  nearest name-match a browse could surface was a generic plucked harp
+  (`celtic_harp` / `concert_harp`) standing in for a bowed instrument. Added to
+  the `bowed` family (modeled on `gusle`'s regional-form pattern) as one
+  instrument covering the **jouhikko** (Finnish/Karelian), **talharpa**
+  (Estonian-Swedish four-string), and **moraharpa** forms, with horsehair
+  ("tagel") strings as the canonical default, a drone-under-melody / ritual-
+  ostinato / lament playing-context part, and membership in the shared
+  `bowed_rough_drone` bow-technique pool. Used by no pre-existing tradition, so
+  zero recipe churn from the add itself.
+
 ## [2.0.0] — 2026-06-27 — production hardening
 
 ### Added

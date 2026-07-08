@@ -1,5 +1,5 @@
 {
-  "count": 490,
+  "count": 491,
   "items": [
     {
       "id": "choir_ensemble",
@@ -690,6 +690,12 @@
       "name": "Nyckelharpa (Swedish keyed fiddle)",
       "family": "bowed",
       "href": "instruments/nyckelharpa.json"
+    },
+    {
+      "id": "tagelharpa",
+      "name": "Tagelharpa / jouhikko (Nordic bowed lyre)",
+      "family": "bowed",
+      "href": "instruments/tagelharpa.json"
     },
     {
       "id": "violin_orchestral",

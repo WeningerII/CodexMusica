@@ -26,6 +26,7 @@
   "cretan_lyra":         ["bowed", "ornamented"],
   "morin_khuur":         ["bowed", "sustained-tone"],
   "nyckelharpa":         ["bowed", "sympathetic-resonant"],
+  "tagelharpa":          ["bowed", "rough-tone", "drone-foundation"],
   "violin_orchestral":   ["bowed", "sustained-tone", "classical-trained"],
   "rebab":               ["bowed", "shruti-inflected"],
   "sarangi":             ["bowed", "sympathetic-resonant", "ornamented"],
