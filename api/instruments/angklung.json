@@ -1,0 +1,380 @@
+{
+  "id": "angklung",
+  "name": "Angklung (Sundanese shaken bamboo idiophone)",
+  "family": "percussion",
+  "class": "shaken_bamboo_idiophone",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "angklung",
+  "parts": [
+    {
+      "id": "angklung_form",
+      "name": "Regional form / tuning tradition",
+      "variants": [
+        {
+          "id": "angklung_padaeng",
+          "default": true,
+          "name": "Angklung padaeng (chromatic diatonic ensemble)",
+          "descriptors": [
+            "chromatic",
+            "diatonic",
+            "ensemble-bright"
+          ],
+          "match_tokens": [
+            "shaken",
+            "tuned-bamboo",
+            "chromatic"
+          ],
+          "canonical_tags": [
+            "sundanese",
+            "indonesia",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "angklung_buncis",
+          "name": "Angklung buncis (Sundanese pentatonic village)",
+          "descriptors": [
+            "pentatonic",
+            "salendro",
+            "festive"
+          ],
+          "match_tokens": [
+            "shaken",
+            "tuned-bamboo",
+            "pentatonic"
+          ],
+          "canonical_tags": [
+            "sundanese",
+            "west-java",
+            "folk"
+          ]
+        },
+        {
+          "id": "angklung_dogdog_lojor",
+          "name": "Angklung dogdog lojor (Baduy sacred harvest)",
+          "descriptors": [
+            "archaic",
+            "ritual",
+            "droning"
+          ],
+          "match_tokens": [
+            "shaken",
+            "tuned-bamboo",
+            "ritual"
+          ],
+          "canonical_tags": [
+            "baduy",
+            "banten",
+            "sacred"
+          ]
+        },
+        {
+          "id": "angklung_bali",
+          "name": "Angklung Bali (four-tone Balinese)",
+          "descriptors": [
+            "shimmering",
+            "high-pitched",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "shaken",
+            "tuned-bamboo",
+            "balinese"
+          ],
+          "canonical_tags": [
+            "bali",
+            "ceremonial"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "angklung_playing",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "angklung_goyang",
+          "default": true,
+          "name": "Goyang / kurulung (continuous shake)",
+          "descriptors": [
+            "shaken",
+            "trembling",
+            "sustained-rattle"
+          ],
+          "match_tokens": [
+            "shaken",
+            "trembling",
+            "sustain"
+          ],
+          "canonical_tags": [
+            "technique"
+          ]
+        },
+        {
+          "id": "angklung_centok",
+          "name": "Centok (flicked staccato)",
+          "descriptors": [
+            "flicked",
+            "staccato",
+            "crisp-attack"
+          ],
+          "match_tokens": [
+            "struck",
+            "staccato",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "technique"
+          ]
+        },
+        {
+          "id": "angklung_interlock",
+          "name": "Interlocking hocket ensemble",
+          "descriptors": [
+            "interlocking",
+            "hocketed",
+            "one-note-per-player"
+          ],
+          "match_tokens": [
+            "shaken",
+            "interlocking",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "angklung_bamboo",
+      "surface": false,
+      "name": "Bamboo material",
+      "variants": [
+        {
+          "id": "angklung_awi_wulung",
+          "default": true,
+          "name": "Awi wulung (black bamboo)",
+          "descriptors": [
+            "black-bamboo",
+            "dark-toned",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bamboo",
+            "dark-tone"
+          ],
+          "canonical_tags": [
+            "material"
+          ]
+        },
+        {
+          "id": "angklung_awi_temen",
+          "name": "Awi temen (pale bamboo)",
+          "descriptors": [
+            "pale-bamboo",
+            "bright-toned"
+          ],
+          "match_tokens": [
+            "bamboo",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "material"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "angklung_form",
+      "name": "Regional form / tuning tradition",
+      "variants": [
+        {
+          "id": "angklung_padaeng",
+          "default": true,
+          "name": "Angklung padaeng (chromatic diatonic ensemble)",
+          "descriptors": [
+            "chromatic",
+            "diatonic",
+            "ensemble-bright"
+          ],
+          "match_tokens": [
+            "shaken",
+            "tuned-bamboo",
+            "chromatic"
+          ],
+          "canonical_tags": [
+            "sundanese",
+            "indonesia",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "angklung_buncis",
+          "name": "Angklung buncis (Sundanese pentatonic village)",
+          "descriptors": [
+            "pentatonic",
+            "salendro",
+            "festive"
+          ],
+          "match_tokens": [
+            "shaken",
+            "tuned-bamboo",
+            "pentatonic"
+          ],
+          "canonical_tags": [
+            "sundanese",
+            "west-java",
+            "folk"
+          ]
+        },
+        {
+          "id": "angklung_dogdog_lojor",
+          "name": "Angklung dogdog lojor (Baduy sacred harvest)",
+          "descriptors": [
+            "archaic",
+            "ritual",
+            "droning"
+          ],
+          "match_tokens": [
+            "shaken",
+            "tuned-bamboo",
+            "ritual"
+          ],
+          "canonical_tags": [
+            "baduy",
+            "banten",
+            "sacred"
+          ]
+        },
+        {
+          "id": "angklung_bali",
+          "name": "Angklung Bali (four-tone Balinese)",
+          "descriptors": [
+            "shimmering",
+            "high-pitched",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "shaken",
+            "tuned-bamboo",
+            "balinese"
+          ],
+          "canonical_tags": [
+            "bali",
+            "ceremonial"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "angklung_playing",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "angklung_goyang",
+          "default": true,
+          "name": "Goyang / kurulung (continuous shake)",
+          "descriptors": [
+            "shaken",
+            "trembling",
+            "sustained-rattle"
+          ],
+          "match_tokens": [
+            "shaken",
+            "trembling",
+            "sustain"
+          ],
+          "canonical_tags": [
+            "technique"
+          ]
+        },
+        {
+          "id": "angklung_centok",
+          "name": "Centok (flicked staccato)",
+          "descriptors": [
+            "flicked",
+            "staccato",
+            "crisp-attack"
+          ],
+          "match_tokens": [
+            "struck",
+            "staccato",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "technique"
+          ]
+        },
+        {
+          "id": "angklung_interlock",
+          "name": "Interlocking hocket ensemble",
+          "descriptors": [
+            "interlocking",
+            "hocketed",
+            "one-note-per-player"
+          ],
+          "match_tokens": [
+            "shaken",
+            "interlocking",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "angklung_bamboo",
+      "surface": false,
+      "name": "Bamboo material",
+      "variants": [
+        {
+          "id": "angklung_awi_wulung",
+          "default": true,
+          "name": "Awi wulung (black bamboo)",
+          "descriptors": [
+            "black-bamboo",
+            "dark-toned",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bamboo",
+            "dark-tone"
+          ],
+          "canonical_tags": [
+            "material"
+          ]
+        },
+        {
+          "id": "angklung_awi_temen",
+          "name": "Awi temen (pale bamboo)",
+          "descriptors": [
+            "pale-bamboo",
+            "bright-toned"
+          ],
+          "match_tokens": [
+            "bamboo",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "material"
+          ]
+        }
+      ]
+    }
+  ]
+}

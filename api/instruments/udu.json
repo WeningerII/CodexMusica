@@ -1,0 +1,378 @@
+{
+  "id": "udu",
+  "name": "Udu (Igbo clay pot drum)",
+  "family": "percussion",
+  "class": "clay_pot_drum",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "udu",
+  "parts": [
+    {
+      "id": "udu_form",
+      "name": "Pot form",
+      "variants": [
+        {
+          "id": "udu_abang",
+          "default": true,
+          "name": "Abang (traditional Igbo water-jar udu)",
+          "descriptors": [
+            "earthy",
+            "jar-bodied",
+            "deep-voiced"
+          ],
+          "match_tokens": [
+            "struck",
+            "clay-pot",
+            "bass-whoomp"
+          ],
+          "canonical_tags": [
+            "igbo",
+            "west_african"
+          ]
+        },
+        {
+          "id": "udu_kim_kim",
+          "name": "Kim kim (small high-pitched pot)",
+          "descriptors": [
+            "compact",
+            "bright",
+            "high-toned"
+          ],
+          "match_tokens": [
+            "struck",
+            "clay-pot",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "igbo"
+          ]
+        },
+        {
+          "id": "udu_double_chamber",
+          "name": "Double-chambered concert udu",
+          "descriptors": [
+            "twin-voiced",
+            "wide-ranging",
+            "modern"
+          ],
+          "match_tokens": [
+            "struck",
+            "clay-pot",
+            "bass-whoomp"
+          ],
+          "canonical_tags": [
+            "world-percussion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "udu_technique",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "udu_hole_bass",
+          "default": true,
+          "name": "Hole-and-palm bass 'whoomp'",
+          "descriptors": [
+            "booming",
+            "bendy-bass",
+            "resonant"
+          ],
+          "match_tokens": [
+            "struck",
+            "bass-whoomp",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "vessel-drum"
+          ]
+        },
+        {
+          "id": "udu_igbo_ceremony",
+          "name": "Igbo women's ceremonial ensemble",
+          "descriptors": [
+            "communal",
+            "interlocking",
+            "ancestral"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "interlocking"
+          ],
+          "canonical_tags": [
+            "igbo",
+            "ceremonial"
+          ]
+        },
+        {
+          "id": "udu_ambient_solo",
+          "name": "Meditative world-percussion solo",
+          "descriptors": [
+            "ambient",
+            "meditative",
+            "spacious"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "resonant"
+          ],
+          "canonical_tags": [
+            "world-percussion",
+            "ambient"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "udu_clay",
+      "surface": false,
+      "name": "Clay body material",
+      "variants": [
+        {
+          "id": "udu_terracotta",
+          "default": true,
+          "name": "Low-fired terracotta earthenware",
+          "descriptors": [
+            "warm",
+            "earthen",
+            "boomy"
+          ],
+          "match_tokens": [
+            "clay-pot",
+            "struck",
+            "resonant"
+          ],
+          "canonical_tags": [
+            "terracotta"
+          ]
+        },
+        {
+          "id": "udu_stoneware",
+          "name": "High-fired stoneware ceramic",
+          "descriptors": [
+            "hard-toned",
+            "bright",
+            "ringing"
+          ],
+          "match_tokens": [
+            "clay-pot",
+            "struck",
+            "resonant"
+          ],
+          "canonical_tags": [
+            "stoneware"
+          ]
+        },
+        {
+          "id": "udu_burnished",
+          "name": "Burnished blackware clay",
+          "descriptors": [
+            "smooth",
+            "dark",
+            "sustained"
+          ],
+          "match_tokens": [
+            "clay-pot",
+            "struck",
+            "bass-whoomp"
+          ],
+          "canonical_tags": [
+            "burnished"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "udu_form",
+      "name": "Pot form",
+      "variants": [
+        {
+          "id": "udu_abang",
+          "default": true,
+          "name": "Abang (traditional Igbo water-jar udu)",
+          "descriptors": [
+            "earthy",
+            "jar-bodied",
+            "deep-voiced"
+          ],
+          "match_tokens": [
+            "struck",
+            "clay-pot",
+            "bass-whoomp"
+          ],
+          "canonical_tags": [
+            "igbo",
+            "west_african"
+          ]
+        },
+        {
+          "id": "udu_kim_kim",
+          "name": "Kim kim (small high-pitched pot)",
+          "descriptors": [
+            "compact",
+            "bright",
+            "high-toned"
+          ],
+          "match_tokens": [
+            "struck",
+            "clay-pot",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "igbo"
+          ]
+        },
+        {
+          "id": "udu_double_chamber",
+          "name": "Double-chambered concert udu",
+          "descriptors": [
+            "twin-voiced",
+            "wide-ranging",
+            "modern"
+          ],
+          "match_tokens": [
+            "struck",
+            "clay-pot",
+            "bass-whoomp"
+          ],
+          "canonical_tags": [
+            "world-percussion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "udu_technique",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "udu_hole_bass",
+          "default": true,
+          "name": "Hole-and-palm bass 'whoomp'",
+          "descriptors": [
+            "booming",
+            "bendy-bass",
+            "resonant"
+          ],
+          "match_tokens": [
+            "struck",
+            "bass-whoomp",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "vessel-drum"
+          ]
+        },
+        {
+          "id": "udu_igbo_ceremony",
+          "name": "Igbo women's ceremonial ensemble",
+          "descriptors": [
+            "communal",
+            "interlocking",
+            "ancestral"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "interlocking"
+          ],
+          "canonical_tags": [
+            "igbo",
+            "ceremonial"
+          ]
+        },
+        {
+          "id": "udu_ambient_solo",
+          "name": "Meditative world-percussion solo",
+          "descriptors": [
+            "ambient",
+            "meditative",
+            "spacious"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "resonant"
+          ],
+          "canonical_tags": [
+            "world-percussion",
+            "ambient"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "udu_clay",
+      "surface": false,
+      "name": "Clay body material",
+      "variants": [
+        {
+          "id": "udu_terracotta",
+          "default": true,
+          "name": "Low-fired terracotta earthenware",
+          "descriptors": [
+            "warm",
+            "earthen",
+            "boomy"
+          ],
+          "match_tokens": [
+            "clay-pot",
+            "struck",
+            "resonant"
+          ],
+          "canonical_tags": [
+            "terracotta"
+          ]
+        },
+        {
+          "id": "udu_stoneware",
+          "name": "High-fired stoneware ceramic",
+          "descriptors": [
+            "hard-toned",
+            "bright",
+            "ringing"
+          ],
+          "match_tokens": [
+            "clay-pot",
+            "struck",
+            "resonant"
+          ],
+          "canonical_tags": [
+            "stoneware"
+          ]
+        },
+        {
+          "id": "udu_burnished",
+          "name": "Burnished blackware clay",
+          "descriptors": [
+            "smooth",
+            "dark",
+            "sustained"
+          ],
+          "match_tokens": [
+            "clay-pot",
+            "struck",
+            "bass-whoomp"
+          ],
+          "canonical_tags": [
+            "burnished"
+          ]
+        }
+      ]
+    }
+  ]
+}

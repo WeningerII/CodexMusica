@@ -1,0 +1,340 @@
+{
+  "id": "morsing",
+  "name": "Morsing (Carnatic jaw harp)",
+  "family": "percussion",
+  "class": "plucked_idiophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "morsing",
+  "parts": [
+    {
+      "id": "morsing_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "morsing_carnatic",
+          "default": true,
+          "name": "Carnatic concert morsing (South India)",
+          "descriptors": [
+            "classical",
+            "concert",
+            "forged-steel",
+            "deep-buzz"
+          ],
+          "match_tokens": [
+            "plucked",
+            "jaw-harp",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "south_asia",
+            "carnatic"
+          ]
+        },
+        {
+          "id": "morsing_morchang",
+          "name": "Rajasthani morchang (folk)",
+          "descriptors": [
+            "folk",
+            "rajasthani",
+            "bright-twang"
+          ],
+          "match_tokens": [
+            "plucked",
+            "jaw-harp",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "south_asia",
+            "rajasthani"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "morsing_technique",
+      "name": "Playing technique / repertoire",
+      "variants": [
+        {
+          "id": "morsing_laya_accompaniment",
+          "default": true,
+          "name": "Laya vadya accompaniment (sarvalaghu)",
+          "descriptors": [
+            "rhythmic",
+            "sarvalaghu",
+            "ensemble-locked"
+          ],
+          "match_tokens": [
+            "plucked",
+            "rhythmic",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "carnatic"
+          ]
+        },
+        {
+          "id": "morsing_thani_solo",
+          "name": "Thani avarthanam solo",
+          "descriptors": [
+            "virtuosic",
+            "improvised",
+            "korvai-cadence"
+          ],
+          "match_tokens": [
+            "plucked",
+            "rhythmic",
+            "virtuosic"
+          ],
+          "canonical_tags": [
+            "carnatic"
+          ]
+        },
+        {
+          "id": "morsing_overtone_melody",
+          "name": "Overtone / vowel-shaped melody",
+          "descriptors": [
+            "overtone-shaped",
+            "breath-modulated",
+            "droning"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "overtone",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "folk",
+            "fusion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "morsing_material",
+      "surface": false,
+      "name": "Frame material",
+      "variants": [
+        {
+          "id": "morsing_steel",
+          "default": true,
+          "name": "Forged high-carbon steel",
+          "descriptors": [
+            "forged-steel",
+            "resonant",
+            "durable"
+          ],
+          "match_tokens": [
+            "metallic",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "carnatic"
+          ]
+        },
+        {
+          "id": "morsing_brass",
+          "name": "Brass frame",
+          "descriptors": [
+            "brass",
+            "warm-tone",
+            "mellow"
+          ],
+          "match_tokens": [
+            "metallic",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        },
+        {
+          "id": "morsing_iron",
+          "name": "Hand-forged wrought iron",
+          "descriptors": [
+            "wrought-iron",
+            "rustic",
+            "archaic"
+          ],
+          "match_tokens": [
+            "metallic",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "rajasthani"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "morsing_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "morsing_carnatic",
+          "default": true,
+          "name": "Carnatic concert morsing (South India)",
+          "descriptors": [
+            "classical",
+            "concert",
+            "forged-steel",
+            "deep-buzz"
+          ],
+          "match_tokens": [
+            "plucked",
+            "jaw-harp",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "south_asia",
+            "carnatic"
+          ]
+        },
+        {
+          "id": "morsing_morchang",
+          "name": "Rajasthani morchang (folk)",
+          "descriptors": [
+            "folk",
+            "rajasthani",
+            "bright-twang"
+          ],
+          "match_tokens": [
+            "plucked",
+            "jaw-harp",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "south_asia",
+            "rajasthani"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "morsing_technique",
+      "name": "Playing technique / repertoire",
+      "variants": [
+        {
+          "id": "morsing_laya_accompaniment",
+          "default": true,
+          "name": "Laya vadya accompaniment (sarvalaghu)",
+          "descriptors": [
+            "rhythmic",
+            "sarvalaghu",
+            "ensemble-locked"
+          ],
+          "match_tokens": [
+            "plucked",
+            "rhythmic",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "carnatic"
+          ]
+        },
+        {
+          "id": "morsing_thani_solo",
+          "name": "Thani avarthanam solo",
+          "descriptors": [
+            "virtuosic",
+            "improvised",
+            "korvai-cadence"
+          ],
+          "match_tokens": [
+            "plucked",
+            "rhythmic",
+            "virtuosic"
+          ],
+          "canonical_tags": [
+            "carnatic"
+          ]
+        },
+        {
+          "id": "morsing_overtone_melody",
+          "name": "Overtone / vowel-shaped melody",
+          "descriptors": [
+            "overtone-shaped",
+            "breath-modulated",
+            "droning"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "overtone",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "folk",
+            "fusion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "morsing_material",
+      "surface": false,
+      "name": "Frame material",
+      "variants": [
+        {
+          "id": "morsing_steel",
+          "default": true,
+          "name": "Forged high-carbon steel",
+          "descriptors": [
+            "forged-steel",
+            "resonant",
+            "durable"
+          ],
+          "match_tokens": [
+            "metallic",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "carnatic"
+          ]
+        },
+        {
+          "id": "morsing_brass",
+          "name": "Brass frame",
+          "descriptors": [
+            "brass",
+            "warm-tone",
+            "mellow"
+          ],
+          "match_tokens": [
+            "metallic",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        },
+        {
+          "id": "morsing_iron",
+          "name": "Hand-forged wrought iron",
+          "descriptors": [
+            "wrought-iron",
+            "rustic",
+            "archaic"
+          ],
+          "match_tokens": [
+            "metallic",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "rajasthani"
+          ]
+        }
+      ]
+    }
+  ]
+}

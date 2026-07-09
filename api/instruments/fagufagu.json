@@ -1,0 +1,312 @@
+{
+  "id": "fagufagu",
+  "name": "Fagufagu (Samoan bamboo nose flute)",
+  "family": "wind",
+  "class": "nose_flute",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": -1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "fagufagu",
+  "parts": [
+    {
+      "id": "fagufagu_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "fagufagu_samoan",
+          "default": true,
+          "name": "Samoan fagufagu (open bamboo tube)",
+          "descriptors": [
+            "samoan",
+            "open-tube",
+            "gentle",
+            "breathy"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "nose-blown",
+            "breathy"
+          ],
+          "canonical_tags": [
+            "polynesian",
+            "samoan"
+          ]
+        },
+        {
+          "id": "fagufagu_tongan_fangufangu",
+          "name": "Tongan fangufangu (nodes both ends, hollow tone)",
+          "descriptors": [
+            "tongan",
+            "closed-tube",
+            "hollow-toned",
+            "archaic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "nose-blown",
+            "breathy"
+          ],
+          "canonical_tags": [
+            "polynesian",
+            "tongan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fagufagu_repertoire",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "fagufagu_siva",
+          "default": true,
+          "name": "Siva dance-song accompaniment",
+          "descriptors": [
+            "dance-accompaniment",
+            "melodic",
+            "soft"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "nose-blown",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "siva"
+          ]
+        },
+        {
+          "id": "fagufagu_dawn_waking",
+          "name": "Ceremonial dawn serenade (rousing of chiefs)",
+          "descriptors": [
+            "ceremonial",
+            "dawn-serenade",
+            "calm",
+            "airy"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "nose-blown",
+            "breathy"
+          ],
+          "canonical_tags": [
+            "ceremonial"
+          ]
+        },
+        {
+          "id": "fagufagu_solo_air",
+          "name": "Intimate solo air",
+          "descriptors": [
+            "intimate",
+            "solo",
+            "breathy",
+            "quiet"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "nose-blown",
+            "breathy"
+          ],
+          "canonical_tags": [
+            "solo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fagufagu_material",
+      "surface": false,
+      "name": "Bamboo material",
+      "variants": [
+        {
+          "id": "fagufagu_ofe",
+          "default": true,
+          "name": "ʻOfe bamboo internode (natural node stop)",
+          "descriptors": [
+            "bamboo",
+            "natural-node",
+            "warm"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "bamboo"
+          ],
+          "canonical_tags": [
+            "bamboo"
+          ]
+        },
+        {
+          "id": "fagufagu_seasoned_bamboo",
+          "name": "Seasoned fire-hardened bamboo (drier, brighter tone)",
+          "descriptors": [
+            "seasoned-bamboo",
+            "dry-toned",
+            "bright"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "bamboo"
+          ],
+          "canonical_tags": [
+            "bamboo"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "fagufagu_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "fagufagu_samoan",
+          "default": true,
+          "name": "Samoan fagufagu (open bamboo tube)",
+          "descriptors": [
+            "samoan",
+            "open-tube",
+            "gentle",
+            "breathy"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "nose-blown",
+            "breathy"
+          ],
+          "canonical_tags": [
+            "polynesian",
+            "samoan"
+          ]
+        },
+        {
+          "id": "fagufagu_tongan_fangufangu",
+          "name": "Tongan fangufangu (nodes both ends, hollow tone)",
+          "descriptors": [
+            "tongan",
+            "closed-tube",
+            "hollow-toned",
+            "archaic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "nose-blown",
+            "breathy"
+          ],
+          "canonical_tags": [
+            "polynesian",
+            "tongan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fagufagu_repertoire",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "fagufagu_siva",
+          "default": true,
+          "name": "Siva dance-song accompaniment",
+          "descriptors": [
+            "dance-accompaniment",
+            "melodic",
+            "soft"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "nose-blown",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "siva"
+          ]
+        },
+        {
+          "id": "fagufagu_dawn_waking",
+          "name": "Ceremonial dawn serenade (rousing of chiefs)",
+          "descriptors": [
+            "ceremonial",
+            "dawn-serenade",
+            "calm",
+            "airy"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "nose-blown",
+            "breathy"
+          ],
+          "canonical_tags": [
+            "ceremonial"
+          ]
+        },
+        {
+          "id": "fagufagu_solo_air",
+          "name": "Intimate solo air",
+          "descriptors": [
+            "intimate",
+            "solo",
+            "breathy",
+            "quiet"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "nose-blown",
+            "breathy"
+          ],
+          "canonical_tags": [
+            "solo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fagufagu_material",
+      "surface": false,
+      "name": "Bamboo material",
+      "variants": [
+        {
+          "id": "fagufagu_ofe",
+          "default": true,
+          "name": "ʻOfe bamboo internode (natural node stop)",
+          "descriptors": [
+            "bamboo",
+            "natural-node",
+            "warm"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "bamboo"
+          ],
+          "canonical_tags": [
+            "bamboo"
+          ]
+        },
+        {
+          "id": "fagufagu_seasoned_bamboo",
+          "name": "Seasoned fire-hardened bamboo (drier, brighter tone)",
+          "descriptors": [
+            "seasoned-bamboo",
+            "dry-toned",
+            "bright"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "bamboo"
+          ],
+          "canonical_tags": [
+            "bamboo"
+          ]
+        }
+      ]
+    }
+  ]
+}

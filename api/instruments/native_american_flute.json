@@ -1,0 +1,378 @@
+{
+  "id": "native_american_flute",
+  "name": "Native American flute (Plains courting / block flute)",
+  "family": "wind",
+  "class": "duct_flute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "native_american_flute",
+  "parts": [
+    {
+      "id": "native_american_flute_form",
+      "name": "Regional form / size",
+      "variants": [
+        {
+          "id": "native_american_flute_plains",
+          "default": true,
+          "name": "Plains courting flute (key of A, mid register)",
+          "descriptors": [
+            "courting",
+            "warm",
+            "mid-register"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "fipple-flute",
+            "breathy"
+          ],
+          "canonical_tags": [
+            "plains",
+            "lakota"
+          ]
+        },
+        {
+          "id": "native_american_flute_high",
+          "name": "High Plains flute (small bore, key of F#/G)",
+          "descriptors": [
+            "bright",
+            "high-pitched",
+            "small-bore"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "fipple-flute",
+            "bright"
+          ],
+          "canonical_tags": [
+            "plains"
+          ]
+        },
+        {
+          "id": "native_american_flute_drone",
+          "name": "Drone / double flute (two sound chambers)",
+          "descriptors": [
+            "droning",
+            "two-chambered",
+            "harmonizing"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "fipple-flute",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "double-flute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "native_american_flute_repertoire",
+      "name": "Playing context / technique",
+      "variants": [
+        {
+          "id": "native_american_flute_courting",
+          "default": true,
+          "name": "Courting song (breath vibrato, glissando ornaments)",
+          "descriptors": [
+            "love-song",
+            "breath-vibrato",
+            "glissando"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathy",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "courting"
+          ]
+        },
+        {
+          "id": "native_american_flute_meditative",
+          "name": "Flute-circle / meditative improvisation",
+          "descriptors": [
+            "ambient",
+            "free-rhythm",
+            "meditative"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathy",
+            "sustained"
+          ],
+          "canonical_tags": [
+            "flute-circle",
+            "revival"
+          ]
+        },
+        {
+          "id": "native_american_flute_ceremonial",
+          "name": "Prayerful / ceremonial melody",
+          "descriptors": [
+            "prayerful",
+            "sustained",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathy",
+            "solemn"
+          ],
+          "canonical_tags": [
+            "ceremonial"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "native_american_flute_body",
+      "surface": false,
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "native_american_flute_cedar",
+          "default": true,
+          "name": "Aromatic red cedar",
+          "descriptors": [
+            "cedar",
+            "warm",
+            "resonant"
+          ],
+          "match_tokens": [
+            "fipple-flute",
+            "warm",
+            "mellow"
+          ],
+          "canonical_tags": [
+            "cedar"
+          ]
+        },
+        {
+          "id": "native_american_flute_hardwood",
+          "name": "Walnut / dense hardwood",
+          "descriptors": [
+            "walnut",
+            "dense",
+            "focused-tone"
+          ],
+          "match_tokens": [
+            "fipple-flute",
+            "bright",
+            "focused"
+          ],
+          "canonical_tags": [
+            "hardwood"
+          ]
+        },
+        {
+          "id": "native_american_flute_rivercane",
+          "name": "Southeastern river cane",
+          "descriptors": [
+            "rivercane",
+            "reedy",
+            "archaic"
+          ],
+          "match_tokens": [
+            "fipple-flute",
+            "reedy",
+            "buzzy"
+          ],
+          "canonical_tags": [
+            "southeastern",
+            "cherokee"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "native_american_flute_form",
+      "name": "Regional form / size",
+      "variants": [
+        {
+          "id": "native_american_flute_plains",
+          "default": true,
+          "name": "Plains courting flute (key of A, mid register)",
+          "descriptors": [
+            "courting",
+            "warm",
+            "mid-register"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "fipple-flute",
+            "breathy"
+          ],
+          "canonical_tags": [
+            "plains",
+            "lakota"
+          ]
+        },
+        {
+          "id": "native_american_flute_high",
+          "name": "High Plains flute (small bore, key of F#/G)",
+          "descriptors": [
+            "bright",
+            "high-pitched",
+            "small-bore"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "fipple-flute",
+            "bright"
+          ],
+          "canonical_tags": [
+            "plains"
+          ]
+        },
+        {
+          "id": "native_american_flute_drone",
+          "name": "Drone / double flute (two sound chambers)",
+          "descriptors": [
+            "droning",
+            "two-chambered",
+            "harmonizing"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "fipple-flute",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "double-flute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "native_american_flute_repertoire",
+      "name": "Playing context / technique",
+      "variants": [
+        {
+          "id": "native_american_flute_courting",
+          "default": true,
+          "name": "Courting song (breath vibrato, glissando ornaments)",
+          "descriptors": [
+            "love-song",
+            "breath-vibrato",
+            "glissando"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathy",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "courting"
+          ]
+        },
+        {
+          "id": "native_american_flute_meditative",
+          "name": "Flute-circle / meditative improvisation",
+          "descriptors": [
+            "ambient",
+            "free-rhythm",
+            "meditative"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathy",
+            "sustained"
+          ],
+          "canonical_tags": [
+            "flute-circle",
+            "revival"
+          ]
+        },
+        {
+          "id": "native_american_flute_ceremonial",
+          "name": "Prayerful / ceremonial melody",
+          "descriptors": [
+            "prayerful",
+            "sustained",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathy",
+            "solemn"
+          ],
+          "canonical_tags": [
+            "ceremonial"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "native_american_flute_body",
+      "surface": false,
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "native_american_flute_cedar",
+          "default": true,
+          "name": "Aromatic red cedar",
+          "descriptors": [
+            "cedar",
+            "warm",
+            "resonant"
+          ],
+          "match_tokens": [
+            "fipple-flute",
+            "warm",
+            "mellow"
+          ],
+          "canonical_tags": [
+            "cedar"
+          ]
+        },
+        {
+          "id": "native_american_flute_hardwood",
+          "name": "Walnut / dense hardwood",
+          "descriptors": [
+            "walnut",
+            "dense",
+            "focused-tone"
+          ],
+          "match_tokens": [
+            "fipple-flute",
+            "bright",
+            "focused"
+          ],
+          "canonical_tags": [
+            "hardwood"
+          ]
+        },
+        {
+          "id": "native_american_flute_rivercane",
+          "name": "Southeastern river cane",
+          "descriptors": [
+            "rivercane",
+            "reedy",
+            "archaic"
+          ],
+          "match_tokens": [
+            "fipple-flute",
+            "reedy",
+            "buzzy"
+          ],
+          "canonical_tags": [
+            "southeastern",
+            "cherokee"
+          ]
+        }
+      ]
+    }
+  ]
+}

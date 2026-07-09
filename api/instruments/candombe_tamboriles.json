@@ -1,0 +1,418 @@
+{
+  "id": "candombe_tamboriles",
+  "name": "Candombe tamboriles (Uruguayan cuerda: chico, repique, piano)",
+  "family": "percussion",
+  "class": "single_headed_drum",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "candombe",
+  "parts": [
+    {
+      "id": "candombe_tamboriles_drum",
+      "name": "Drum of the cuerda",
+      "variants": [
+        {
+          "id": "candombe_tamboriles_cuerda",
+          "default": true,
+          "name": "Full cuerda de tambores (chico + repique + piano)",
+          "descriptors": [
+            "three-drum",
+            "interlocking",
+            "full-cuerda"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-and-stick",
+            "interlocking"
+          ],
+          "canonical_tags": [
+            "uruguayan",
+            "afro-uruguayan",
+            "rioplatense"
+          ]
+        },
+        {
+          "id": "candombe_tamboriles_piano",
+          "name": "Piano (largest, lowest — melodic-bass timeline)",
+          "descriptors": [
+            "low-bass",
+            "melodic-foundation",
+            "deep-toned"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-and-stick",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "uruguayan",
+            "afro-uruguayan"
+          ]
+        },
+        {
+          "id": "candombe_tamboriles_repique",
+          "name": "Repique (medium — improvising, syncopated lead)",
+          "descriptors": [
+            "mid-pitched",
+            "improvising",
+            "syncopated"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-and-stick",
+            "syncopated"
+          ],
+          "canonical_tags": [
+            "uruguayan",
+            "afro-uruguayan"
+          ]
+        },
+        {
+          "id": "candombe_tamboriles_chico",
+          "name": "Chico (smallest, highest — steady rapid pulse)",
+          "descriptors": [
+            "high-pitched",
+            "rapid-pulse",
+            "steady"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-and-stick",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "uruguayan",
+            "afro-uruguayan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "candombe_tamboriles_context",
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "candombe_tamboriles_llamada",
+          "default": true,
+          "name": "Llamada callejera (comparsa street procession)",
+          "descriptors": [
+            "processional",
+            "carnival",
+            "street-parade"
+          ],
+          "match_tokens": [
+            "struck",
+            "processional",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "uruguayan",
+            "carnival"
+          ]
+        },
+        {
+          "id": "candombe_tamboriles_salon",
+          "name": "Candombe de salón / escenario (staged cuerda)",
+          "descriptors": [
+            "staged",
+            "tight-cuerda",
+            "concert"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-and-stick",
+            "tight"
+          ],
+          "canonical_tags": [
+            "uruguayan",
+            "staged"
+          ]
+        },
+        {
+          "id": "candombe_tamboriles_cancion",
+          "name": "Candombe-canción (song accompaniment / fusion groove)",
+          "descriptors": [
+            "song-accompaniment",
+            "groove",
+            "fusion"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-and-stick",
+            "groove"
+          ],
+          "canonical_tags": [
+            "uruguayan",
+            "popular-song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "candombe_tamboriles_build",
+      "surface": false,
+      "name": "Shell & head material",
+      "variants": [
+        {
+          "id": "candombe_tamboriles_wood_cowhide",
+          "default": true,
+          "name": "Staved-wood shell, cowhide head (flame-tuned over brazier)",
+          "descriptors": [
+            "staved-wood",
+            "cowhide-head",
+            "flame-tuned"
+          ],
+          "match_tokens": [
+            "struck",
+            "rough-tone",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "candombe_tamboriles_plywood",
+          "name": "Laminated plywood shell (lighter comparsa build)",
+          "descriptors": [
+            "plywood-shell",
+            "lightweight",
+            "modern-build"
+          ],
+          "match_tokens": [
+            "struck",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "candombe_tamboriles_synthetic",
+          "name": "Synthetic head (weatherproof, stable tuning)",
+          "descriptors": [
+            "synthetic-head",
+            "weatherproof",
+            "durable"
+          ],
+          "match_tokens": [
+            "struck",
+            "sharp-attack"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "candombe_tamboriles_drum",
+      "name": "Drum of the cuerda",
+      "variants": [
+        {
+          "id": "candombe_tamboriles_cuerda",
+          "default": true,
+          "name": "Full cuerda de tambores (chico + repique + piano)",
+          "descriptors": [
+            "three-drum",
+            "interlocking",
+            "full-cuerda"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-and-stick",
+            "interlocking"
+          ],
+          "canonical_tags": [
+            "uruguayan",
+            "afro-uruguayan",
+            "rioplatense"
+          ]
+        },
+        {
+          "id": "candombe_tamboriles_piano",
+          "name": "Piano (largest, lowest — melodic-bass timeline)",
+          "descriptors": [
+            "low-bass",
+            "melodic-foundation",
+            "deep-toned"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-and-stick",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "uruguayan",
+            "afro-uruguayan"
+          ]
+        },
+        {
+          "id": "candombe_tamboriles_repique",
+          "name": "Repique (medium — improvising, syncopated lead)",
+          "descriptors": [
+            "mid-pitched",
+            "improvising",
+            "syncopated"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-and-stick",
+            "syncopated"
+          ],
+          "canonical_tags": [
+            "uruguayan",
+            "afro-uruguayan"
+          ]
+        },
+        {
+          "id": "candombe_tamboriles_chico",
+          "name": "Chico (smallest, highest — steady rapid pulse)",
+          "descriptors": [
+            "high-pitched",
+            "rapid-pulse",
+            "steady"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-and-stick",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "uruguayan",
+            "afro-uruguayan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "candombe_tamboriles_context",
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "candombe_tamboriles_llamada",
+          "default": true,
+          "name": "Llamada callejera (comparsa street procession)",
+          "descriptors": [
+            "processional",
+            "carnival",
+            "street-parade"
+          ],
+          "match_tokens": [
+            "struck",
+            "processional",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "uruguayan",
+            "carnival"
+          ]
+        },
+        {
+          "id": "candombe_tamboriles_salon",
+          "name": "Candombe de salón / escenario (staged cuerda)",
+          "descriptors": [
+            "staged",
+            "tight-cuerda",
+            "concert"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-and-stick",
+            "tight"
+          ],
+          "canonical_tags": [
+            "uruguayan",
+            "staged"
+          ]
+        },
+        {
+          "id": "candombe_tamboriles_cancion",
+          "name": "Candombe-canción (song accompaniment / fusion groove)",
+          "descriptors": [
+            "song-accompaniment",
+            "groove",
+            "fusion"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-and-stick",
+            "groove"
+          ],
+          "canonical_tags": [
+            "uruguayan",
+            "popular-song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "candombe_tamboriles_build",
+      "surface": false,
+      "name": "Shell & head material",
+      "variants": [
+        {
+          "id": "candombe_tamboriles_wood_cowhide",
+          "default": true,
+          "name": "Staved-wood shell, cowhide head (flame-tuned over brazier)",
+          "descriptors": [
+            "staved-wood",
+            "cowhide-head",
+            "flame-tuned"
+          ],
+          "match_tokens": [
+            "struck",
+            "rough-tone",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "candombe_tamboriles_plywood",
+          "name": "Laminated plywood shell (lighter comparsa build)",
+          "descriptors": [
+            "plywood-shell",
+            "lightweight",
+            "modern-build"
+          ],
+          "match_tokens": [
+            "struck",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "candombe_tamboriles_synthetic",
+          "name": "Synthetic head (weatherproof, stable tuning)",
+          "descriptors": [
+            "synthetic-head",
+            "weatherproof",
+            "durable"
+          ],
+          "match_tokens": [
+            "struck",
+            "sharp-attack"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

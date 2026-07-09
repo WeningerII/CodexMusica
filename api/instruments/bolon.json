@@ -1,0 +1,364 @@
+{
+  "id": "bolon",
+  "name": "Bolon (Mande arched bass harp)",
+  "family": "plucked_traditional",
+  "class": "arched_bass_harp",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": -2,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "bolon",
+  "parts": [
+    {
+      "id": "bolon_form",
+      "name": "Regional form / string count",
+      "variants": [
+        {
+          "id": "bolon_susu_maninka",
+          "default": true,
+          "name": "Susu/Maninka war bolon (Guinea, three strings)",
+          "descriptors": [
+            "archaic",
+            "martial",
+            "three-string"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bass-foundation"
+          ],
+          "canonical_tags": [
+            "west_africa",
+            "mande",
+            "guinea"
+          ]
+        },
+        {
+          "id": "bolon_bamana",
+          "name": "Bamana bolon (Mali, four-string hunters' bass)",
+          "descriptors": [
+            "earthy",
+            "four-string",
+            "hunters"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bass-foundation"
+          ],
+          "canonical_tags": [
+            "mande",
+            "mali",
+            "hunters"
+          ]
+        },
+        {
+          "id": "bolon_bolonba",
+          "name": "Bolonba (large deep-calabash bass harp)",
+          "descriptors": [
+            "booming",
+            "large-gourd",
+            "subterranean"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bass-foundation"
+          ],
+          "canonical_tags": [
+            "mande"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bolon_repertoire",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "bolon_warrior_praise",
+          "default": true,
+          "name": "Warriors' rallying praise (janjon / fasa)",
+          "descriptors": [
+            "exhortative",
+            "driving",
+            "martial"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bass-foundation",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "warrior",
+            "praise"
+          ]
+        },
+        {
+          "id": "bolon_hunters_ceremony",
+          "name": "Hunters' association ceremony ostinato",
+          "descriptors": [
+            "ritual",
+            "interlocking",
+            "dark"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bass-foundation"
+          ],
+          "canonical_tags": [
+            "hunters",
+            "ritual"
+          ]
+        },
+        {
+          "id": "bolon_calabash_groove",
+          "name": "Neck-flex & calabash-slap dance groove",
+          "descriptors": [
+            "percussive-slap",
+            "bent-pitch",
+            "groove"
+          ],
+          "match_tokens": [
+            "plucked",
+            "struck",
+            "bass-foundation"
+          ],
+          "canonical_tags": [
+            "dance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bolon_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "bolon_strings_rawhide",
+          "default": true,
+          "name": "Twisted rawhide / leather strings",
+          "descriptors": [
+            "gutty",
+            "muted",
+            "traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bass-foundation"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "bolon_strings_gut",
+          "name": "Twisted gut strings",
+          "descriptors": [
+            "warm",
+            "organic"
+          ],
+          "match_tokens": [
+            "plucked"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "bolon_strings_nylon",
+          "name": "Nylon / fishing-line strings",
+          "descriptors": [
+            "bright",
+            "sustaining",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "bolon_form",
+      "name": "Regional form / string count",
+      "variants": [
+        {
+          "id": "bolon_susu_maninka",
+          "default": true,
+          "name": "Susu/Maninka war bolon (Guinea, three strings)",
+          "descriptors": [
+            "archaic",
+            "martial",
+            "three-string"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bass-foundation"
+          ],
+          "canonical_tags": [
+            "west_africa",
+            "mande",
+            "guinea"
+          ]
+        },
+        {
+          "id": "bolon_bamana",
+          "name": "Bamana bolon (Mali, four-string hunters' bass)",
+          "descriptors": [
+            "earthy",
+            "four-string",
+            "hunters"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bass-foundation"
+          ],
+          "canonical_tags": [
+            "mande",
+            "mali",
+            "hunters"
+          ]
+        },
+        {
+          "id": "bolon_bolonba",
+          "name": "Bolonba (large deep-calabash bass harp)",
+          "descriptors": [
+            "booming",
+            "large-gourd",
+            "subterranean"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bass-foundation"
+          ],
+          "canonical_tags": [
+            "mande"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bolon_repertoire",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "bolon_warrior_praise",
+          "default": true,
+          "name": "Warriors' rallying praise (janjon / fasa)",
+          "descriptors": [
+            "exhortative",
+            "driving",
+            "martial"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bass-foundation",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "warrior",
+            "praise"
+          ]
+        },
+        {
+          "id": "bolon_hunters_ceremony",
+          "name": "Hunters' association ceremony ostinato",
+          "descriptors": [
+            "ritual",
+            "interlocking",
+            "dark"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bass-foundation"
+          ],
+          "canonical_tags": [
+            "hunters",
+            "ritual"
+          ]
+        },
+        {
+          "id": "bolon_calabash_groove",
+          "name": "Neck-flex & calabash-slap dance groove",
+          "descriptors": [
+            "percussive-slap",
+            "bent-pitch",
+            "groove"
+          ],
+          "match_tokens": [
+            "plucked",
+            "struck",
+            "bass-foundation"
+          ],
+          "canonical_tags": [
+            "dance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bolon_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "bolon_strings_rawhide",
+          "default": true,
+          "name": "Twisted rawhide / leather strings",
+          "descriptors": [
+            "gutty",
+            "muted",
+            "traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bass-foundation"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "bolon_strings_gut",
+          "name": "Twisted gut strings",
+          "descriptors": [
+            "warm",
+            "organic"
+          ],
+          "match_tokens": [
+            "plucked"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "bolon_strings_nylon",
+          "name": "Nylon / fishing-line strings",
+          "descriptors": [
+            "bright",
+            "sustaining",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

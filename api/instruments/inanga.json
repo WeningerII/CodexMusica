@@ -1,0 +1,344 @@
+{
+  "id": "inanga",
+  "name": "Inanga (Rwandan/Burundian trough zither)",
+  "family": "plucked_traditional",
+  "class": "trough_zither",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -2
+  },
+  "short": "inanga",
+  "parts": [
+    {
+      "id": "inanga_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "inanga_rwandan",
+          "default": true,
+          "name": "Rwandan inanga",
+          "descriptors": [
+            "courtly",
+            "concave-troughed",
+            "praise-toned"
+          ],
+          "match_tokens": [
+            "plucked",
+            "trough-zither",
+            "soft-toned"
+          ],
+          "canonical_tags": [
+            "rwanda",
+            "great-lakes"
+          ]
+        },
+        {
+          "id": "inanga_burundian",
+          "name": "Burundian inanga",
+          "descriptors": [
+            "courtly",
+            "whispering",
+            "intimate"
+          ],
+          "match_tokens": [
+            "plucked",
+            "trough-zither",
+            "intimate"
+          ],
+          "canonical_tags": [
+            "burundi",
+            "great-lakes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "inanga_repertoire",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "inanga_whispered_song",
+          "default": true,
+          "name": "Whispered self-accompanied song (kwishongora)",
+          "descriptors": [
+            "whispered",
+            "murmuring",
+            "intimate"
+          ],
+          "match_tokens": [
+            "plucked",
+            "soft-toned",
+            "intimate"
+          ],
+          "canonical_tags": [
+            "whispered-song",
+            "self-accompanied"
+          ]
+        },
+        {
+          "id": "inanga_praise_recitation",
+          "name": "Heroic praise-poetry accompaniment (ibyivugo/amazina)",
+          "descriptors": [
+            "declamatory",
+            "epic",
+            "assertive"
+          ],
+          "match_tokens": [
+            "plucked",
+            "assertive",
+            "trough-zither"
+          ],
+          "canonical_tags": [
+            "praise-poetry",
+            "recitation"
+          ]
+        },
+        {
+          "id": "inanga_concert",
+          "name": "Modern concert / ensemble performance",
+          "descriptors": [
+            "projected",
+            "bright",
+            "staged"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bright"
+          ],
+          "canonical_tags": [
+            "modern",
+            "staged"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "inanga_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "inanga_tendon",
+          "default": true,
+          "name": "Twisted cattle-tendon strings",
+          "descriptors": [
+            "mellow",
+            "soft-toned",
+            "traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "soft-toned"
+          ],
+          "canonical_tags": [
+            "sinew",
+            "tendon"
+          ]
+        },
+        {
+          "id": "inanga_gut",
+          "name": "Animal-gut strings",
+          "descriptors": [
+            "warm",
+            "organic",
+            "supple"
+          ],
+          "match_tokens": [
+            "plucked",
+            "warm"
+          ],
+          "canonical_tags": [
+            "gut"
+          ]
+        },
+        {
+          "id": "inanga_nylon",
+          "name": "Modern nylon strings",
+          "descriptors": [
+            "bright",
+            "clear",
+            "durable"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bright"
+          ],
+          "canonical_tags": [
+            "nylon",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "inanga_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "inanga_rwandan",
+          "default": true,
+          "name": "Rwandan inanga",
+          "descriptors": [
+            "courtly",
+            "concave-troughed",
+            "praise-toned"
+          ],
+          "match_tokens": [
+            "plucked",
+            "trough-zither",
+            "soft-toned"
+          ],
+          "canonical_tags": [
+            "rwanda",
+            "great-lakes"
+          ]
+        },
+        {
+          "id": "inanga_burundian",
+          "name": "Burundian inanga",
+          "descriptors": [
+            "courtly",
+            "whispering",
+            "intimate"
+          ],
+          "match_tokens": [
+            "plucked",
+            "trough-zither",
+            "intimate"
+          ],
+          "canonical_tags": [
+            "burundi",
+            "great-lakes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "inanga_repertoire",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "inanga_whispered_song",
+          "default": true,
+          "name": "Whispered self-accompanied song (kwishongora)",
+          "descriptors": [
+            "whispered",
+            "murmuring",
+            "intimate"
+          ],
+          "match_tokens": [
+            "plucked",
+            "soft-toned",
+            "intimate"
+          ],
+          "canonical_tags": [
+            "whispered-song",
+            "self-accompanied"
+          ]
+        },
+        {
+          "id": "inanga_praise_recitation",
+          "name": "Heroic praise-poetry accompaniment (ibyivugo/amazina)",
+          "descriptors": [
+            "declamatory",
+            "epic",
+            "assertive"
+          ],
+          "match_tokens": [
+            "plucked",
+            "assertive",
+            "trough-zither"
+          ],
+          "canonical_tags": [
+            "praise-poetry",
+            "recitation"
+          ]
+        },
+        {
+          "id": "inanga_concert",
+          "name": "Modern concert / ensemble performance",
+          "descriptors": [
+            "projected",
+            "bright",
+            "staged"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bright"
+          ],
+          "canonical_tags": [
+            "modern",
+            "staged"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "inanga_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "inanga_tendon",
+          "default": true,
+          "name": "Twisted cattle-tendon strings",
+          "descriptors": [
+            "mellow",
+            "soft-toned",
+            "traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "soft-toned"
+          ],
+          "canonical_tags": [
+            "sinew",
+            "tendon"
+          ]
+        },
+        {
+          "id": "inanga_gut",
+          "name": "Animal-gut strings",
+          "descriptors": [
+            "warm",
+            "organic",
+            "supple"
+          ],
+          "match_tokens": [
+            "plucked",
+            "warm"
+          ],
+          "canonical_tags": [
+            "gut"
+          ]
+        },
+        {
+          "id": "inanga_nylon",
+          "name": "Modern nylon strings",
+          "descriptors": [
+            "bright",
+            "clear",
+            "durable"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bright"
+          ],
+          "canonical_tags": [
+            "nylon",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

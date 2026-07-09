@@ -1,0 +1,382 @@
+{
+  "id": "khomus",
+  "name": "Khomus (Sakha/Turkic jaw harp)",
+  "family": "plucked_traditional",
+  "class": "jaw_harp",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -2
+  },
+  "short": "khomus",
+  "parts": [
+    {
+      "id": "khomus_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "khomus_sakha_temir",
+          "default": true,
+          "name": "Sakha temir khomus (Yakut iron jaw harp)",
+          "descriptors": [
+            "deep-resonant",
+            "voiced",
+            "shamanic",
+            "national-icon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "lamellophone",
+            "drone-foundation",
+            "overtone"
+          ],
+          "canonical_tags": [
+            "sakha",
+            "siberia"
+          ]
+        },
+        {
+          "id": "khomus_altai_komus",
+          "name": "Altai / Tuvan temir-komus",
+          "descriptors": [
+            "bright",
+            "rhythmic",
+            "steppe"
+          ],
+          "match_tokens": [
+            "plucked",
+            "lamellophone",
+            "overtone"
+          ],
+          "canonical_tags": [
+            "altai",
+            "tuva"
+          ]
+        },
+        {
+          "id": "khomus_bashkir_kubyz",
+          "name": "Bashkir kubyz (Volga-Ural metal jaw harp)",
+          "descriptors": [
+            "nasal",
+            "pastoral",
+            "bright"
+          ],
+          "match_tokens": [
+            "plucked",
+            "lamellophone",
+            "overtone"
+          ],
+          "canonical_tags": [
+            "bashkir",
+            "volga_ural"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "khomus_technique",
+      "name": "Playing technique / repertoire",
+      "variants": [
+        {
+          "id": "khomus_overtone_melody",
+          "default": true,
+          "name": "Overtone soundscape (imitative formant melody)",
+          "descriptors": [
+            "imitative",
+            "shimmering",
+            "programmatic",
+            "nature-mimicry"
+          ],
+          "match_tokens": [
+            "overtone",
+            "drone-foundation",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "imitative"
+          ]
+        },
+        {
+          "id": "khomus_breath_voice",
+          "name": "Breath-and-voice technique (voiced harmonics)",
+          "descriptors": [
+            "breathy",
+            "voiced",
+            "throat-colored"
+          ],
+          "match_tokens": [
+            "overtone",
+            "drone-foundation",
+            "breath-shaped"
+          ],
+          "canonical_tags": [
+            "voiced"
+          ]
+        },
+        {
+          "id": "khomus_rhythmic_flick",
+          "name": "Rhythmic tonguing / finger-flick drive",
+          "descriptors": [
+            "driving",
+            "staccato",
+            "rhythmic",
+            "dance"
+          ],
+          "match_tokens": [
+            "plucked",
+            "struck",
+            "rhythmic"
+          ],
+          "canonical_tags": [
+            "dance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "khomus_material",
+      "surface": false,
+      "name": "Frame & tongue material",
+      "variants": [
+        {
+          "id": "khomus_forged_steel",
+          "default": true,
+          "name": "Forged iron frame, spring-steel tongue",
+          "descriptors": [
+            "ringing",
+            "bright",
+            "durable"
+          ],
+          "match_tokens": [
+            "plucked",
+            "lamellophone"
+          ],
+          "canonical_tags": [
+            "metal"
+          ]
+        },
+        {
+          "id": "khomus_bronze_brass",
+          "name": "Bronze / brass frame (warm, archaic)",
+          "descriptors": [
+            "warm",
+            "mellow",
+            "archaic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "lamellophone"
+          ],
+          "canonical_tags": [
+            "metal"
+          ]
+        },
+        {
+          "id": "khomus_wood_agas",
+          "name": "Wooden idioglot agas khomus (archaic)",
+          "descriptors": [
+            "soft",
+            "muted",
+            "woody",
+            "archaic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "idioglot"
+          ],
+          "canonical_tags": [
+            "wood"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "khomus_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "khomus_sakha_temir",
+          "default": true,
+          "name": "Sakha temir khomus (Yakut iron jaw harp)",
+          "descriptors": [
+            "deep-resonant",
+            "voiced",
+            "shamanic",
+            "national-icon"
+          ],
+          "match_tokens": [
+            "plucked",
+            "lamellophone",
+            "drone-foundation",
+            "overtone"
+          ],
+          "canonical_tags": [
+            "sakha",
+            "siberia"
+          ]
+        },
+        {
+          "id": "khomus_altai_komus",
+          "name": "Altai / Tuvan temir-komus",
+          "descriptors": [
+            "bright",
+            "rhythmic",
+            "steppe"
+          ],
+          "match_tokens": [
+            "plucked",
+            "lamellophone",
+            "overtone"
+          ],
+          "canonical_tags": [
+            "altai",
+            "tuva"
+          ]
+        },
+        {
+          "id": "khomus_bashkir_kubyz",
+          "name": "Bashkir kubyz (Volga-Ural metal jaw harp)",
+          "descriptors": [
+            "nasal",
+            "pastoral",
+            "bright"
+          ],
+          "match_tokens": [
+            "plucked",
+            "lamellophone",
+            "overtone"
+          ],
+          "canonical_tags": [
+            "bashkir",
+            "volga_ural"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "khomus_technique",
+      "name": "Playing technique / repertoire",
+      "variants": [
+        {
+          "id": "khomus_overtone_melody",
+          "default": true,
+          "name": "Overtone soundscape (imitative formant melody)",
+          "descriptors": [
+            "imitative",
+            "shimmering",
+            "programmatic",
+            "nature-mimicry"
+          ],
+          "match_tokens": [
+            "overtone",
+            "drone-foundation",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "imitative"
+          ]
+        },
+        {
+          "id": "khomus_breath_voice",
+          "name": "Breath-and-voice technique (voiced harmonics)",
+          "descriptors": [
+            "breathy",
+            "voiced",
+            "throat-colored"
+          ],
+          "match_tokens": [
+            "overtone",
+            "drone-foundation",
+            "breath-shaped"
+          ],
+          "canonical_tags": [
+            "voiced"
+          ]
+        },
+        {
+          "id": "khomus_rhythmic_flick",
+          "name": "Rhythmic tonguing / finger-flick drive",
+          "descriptors": [
+            "driving",
+            "staccato",
+            "rhythmic",
+            "dance"
+          ],
+          "match_tokens": [
+            "plucked",
+            "struck",
+            "rhythmic"
+          ],
+          "canonical_tags": [
+            "dance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "khomus_material",
+      "surface": false,
+      "name": "Frame & tongue material",
+      "variants": [
+        {
+          "id": "khomus_forged_steel",
+          "default": true,
+          "name": "Forged iron frame, spring-steel tongue",
+          "descriptors": [
+            "ringing",
+            "bright",
+            "durable"
+          ],
+          "match_tokens": [
+            "plucked",
+            "lamellophone"
+          ],
+          "canonical_tags": [
+            "metal"
+          ]
+        },
+        {
+          "id": "khomus_bronze_brass",
+          "name": "Bronze / brass frame (warm, archaic)",
+          "descriptors": [
+            "warm",
+            "mellow",
+            "archaic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "lamellophone"
+          ],
+          "canonical_tags": [
+            "metal"
+          ]
+        },
+        {
+          "id": "khomus_wood_agas",
+          "name": "Wooden idioglot agas khomus (archaic)",
+          "descriptors": [
+            "soft",
+            "muted",
+            "woody",
+            "archaic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "idioglot"
+          ],
+          "canonical_tags": [
+            "wood"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,408 @@
+{
+  "id": "pacific_slit_gong",
+  "name": "Pacific slit-gong (pate / lali / toʻere / garamut)",
+  "family": "percussion",
+  "class": "slit_gong",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "slit_gong",
+  "parts": [
+    {
+      "id": "pacific_slit_gong_form",
+      "name": "Regional form / size",
+      "variants": [
+        {
+          "id": "pacific_slit_gong_pate",
+          "default": true,
+          "name": "Pate (Samoan / Cook Islands ensemble slit-gong)",
+          "descriptors": [
+            "ensemble-timekeeper",
+            "bright",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "struck",
+            "slit-gong",
+            "interlocking"
+          ],
+          "canonical_tags": [
+            "polynesia",
+            "samoa",
+            "cook_islands"
+          ]
+        },
+        {
+          "id": "pacific_slit_gong_toere",
+          "name": "Toʻere (Tahitian high dance slit-gong)",
+          "descriptors": [
+            "high-pitched",
+            "cutting",
+            "fast-dance"
+          ],
+          "match_tokens": [
+            "struck",
+            "slit-gong",
+            "bright"
+          ],
+          "canonical_tags": [
+            "polynesia",
+            "tahiti"
+          ]
+        },
+        {
+          "id": "pacific_slit_gong_lali",
+          "name": "Lali (Fijian large signal / meke slit-gong)",
+          "descriptors": [
+            "deep-toned",
+            "booming",
+            "resonant"
+          ],
+          "match_tokens": [
+            "struck",
+            "slit-gong",
+            "deep-boom"
+          ],
+          "canonical_tags": [
+            "melanesia",
+            "fiji"
+          ]
+        },
+        {
+          "id": "pacific_slit_gong_garamut",
+          "name": "Garamut (New Guinea carved log slit-gong)",
+          "descriptors": [
+            "massive",
+            "carved",
+            "signal-drum"
+          ],
+          "match_tokens": [
+            "struck",
+            "slit-gong",
+            "signal-drum"
+          ],
+          "canonical_tags": [
+            "melanesia",
+            "png"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pacific_slit_gong_role",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "pacific_slit_gong_dance",
+          "default": true,
+          "name": "Dance-ensemble drumming (interlocking ʻote'a / siva rhythms)",
+          "descriptors": [
+            "driving",
+            "interlocking",
+            "fast"
+          ],
+          "match_tokens": [
+            "struck",
+            "interlocking",
+            "bright"
+          ],
+          "canonical_tags": [
+            "dance"
+          ]
+        },
+        {
+          "id": "pacific_slit_gong_signal",
+          "name": "Signal / call drum (long-distance rhythmic calls)",
+          "descriptors": [
+            "commanding",
+            "resonant",
+            "signal-drum"
+          ],
+          "match_tokens": [
+            "struck",
+            "signal-drum",
+            "deep-boom"
+          ],
+          "canonical_tags": [
+            "signal"
+          ]
+        },
+        {
+          "id": "pacific_slit_gong_ceremonial",
+          "name": "Ceremonial / welcome & kava rhythms",
+          "descriptors": [
+            "stately",
+            "measured",
+            "ritual"
+          ],
+          "match_tokens": [
+            "struck",
+            "slit-gong",
+            "ceremonial"
+          ],
+          "canonical_tags": [
+            "ceremonial"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pacific_slit_gong_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "pacific_slit_gong_toa",
+          "default": true,
+          "name": "Toa / ironwood (Casuarina) body",
+          "descriptors": [
+            "dense",
+            "bright",
+            "cutting"
+          ],
+          "match_tokens": [
+            "wood-toned",
+            "bright"
+          ],
+          "canonical_tags": [
+            "hardwood"
+          ]
+        },
+        {
+          "id": "pacific_slit_gong_breadfruit",
+          "name": "Breadfruit-wood body",
+          "descriptors": [
+            "mellow",
+            "warm",
+            "softer-toned"
+          ],
+          "match_tokens": [
+            "wood-toned",
+            "warm"
+          ],
+          "canonical_tags": [
+            "softwood"
+          ]
+        },
+        {
+          "id": "pacific_slit_gong_miro",
+          "name": "Miro / tropical hardwood body",
+          "descriptors": [
+            "resonant",
+            "rounded"
+          ],
+          "match_tokens": [
+            "wood-toned",
+            "resonant"
+          ],
+          "canonical_tags": [
+            "hardwood"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "pacific_slit_gong_form",
+      "name": "Regional form / size",
+      "variants": [
+        {
+          "id": "pacific_slit_gong_pate",
+          "default": true,
+          "name": "Pate (Samoan / Cook Islands ensemble slit-gong)",
+          "descriptors": [
+            "ensemble-timekeeper",
+            "bright",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "struck",
+            "slit-gong",
+            "interlocking"
+          ],
+          "canonical_tags": [
+            "polynesia",
+            "samoa",
+            "cook_islands"
+          ]
+        },
+        {
+          "id": "pacific_slit_gong_toere",
+          "name": "Toʻere (Tahitian high dance slit-gong)",
+          "descriptors": [
+            "high-pitched",
+            "cutting",
+            "fast-dance"
+          ],
+          "match_tokens": [
+            "struck",
+            "slit-gong",
+            "bright"
+          ],
+          "canonical_tags": [
+            "polynesia",
+            "tahiti"
+          ]
+        },
+        {
+          "id": "pacific_slit_gong_lali",
+          "name": "Lali (Fijian large signal / meke slit-gong)",
+          "descriptors": [
+            "deep-toned",
+            "booming",
+            "resonant"
+          ],
+          "match_tokens": [
+            "struck",
+            "slit-gong",
+            "deep-boom"
+          ],
+          "canonical_tags": [
+            "melanesia",
+            "fiji"
+          ]
+        },
+        {
+          "id": "pacific_slit_gong_garamut",
+          "name": "Garamut (New Guinea carved log slit-gong)",
+          "descriptors": [
+            "massive",
+            "carved",
+            "signal-drum"
+          ],
+          "match_tokens": [
+            "struck",
+            "slit-gong",
+            "signal-drum"
+          ],
+          "canonical_tags": [
+            "melanesia",
+            "png"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pacific_slit_gong_role",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "pacific_slit_gong_dance",
+          "default": true,
+          "name": "Dance-ensemble drumming (interlocking ʻote'a / siva rhythms)",
+          "descriptors": [
+            "driving",
+            "interlocking",
+            "fast"
+          ],
+          "match_tokens": [
+            "struck",
+            "interlocking",
+            "bright"
+          ],
+          "canonical_tags": [
+            "dance"
+          ]
+        },
+        {
+          "id": "pacific_slit_gong_signal",
+          "name": "Signal / call drum (long-distance rhythmic calls)",
+          "descriptors": [
+            "commanding",
+            "resonant",
+            "signal-drum"
+          ],
+          "match_tokens": [
+            "struck",
+            "signal-drum",
+            "deep-boom"
+          ],
+          "canonical_tags": [
+            "signal"
+          ]
+        },
+        {
+          "id": "pacific_slit_gong_ceremonial",
+          "name": "Ceremonial / welcome & kava rhythms",
+          "descriptors": [
+            "stately",
+            "measured",
+            "ritual"
+          ],
+          "match_tokens": [
+            "struck",
+            "slit-gong",
+            "ceremonial"
+          ],
+          "canonical_tags": [
+            "ceremonial"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pacific_slit_gong_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "pacific_slit_gong_toa",
+          "default": true,
+          "name": "Toa / ironwood (Casuarina) body",
+          "descriptors": [
+            "dense",
+            "bright",
+            "cutting"
+          ],
+          "match_tokens": [
+            "wood-toned",
+            "bright"
+          ],
+          "canonical_tags": [
+            "hardwood"
+          ]
+        },
+        {
+          "id": "pacific_slit_gong_breadfruit",
+          "name": "Breadfruit-wood body",
+          "descriptors": [
+            "mellow",
+            "warm",
+            "softer-toned"
+          ],
+          "match_tokens": [
+            "wood-toned",
+            "warm"
+          ],
+          "canonical_tags": [
+            "softwood"
+          ]
+        },
+        {
+          "id": "pacific_slit_gong_miro",
+          "name": "Miro / tropical hardwood body",
+          "descriptors": [
+            "resonant",
+            "rounded"
+          ],
+          "match_tokens": [
+            "wood-toned",
+            "resonant"
+          ],
+          "canonical_tags": [
+            "hardwood"
+          ]
+        }
+      ]
+    }
+  ]
+}

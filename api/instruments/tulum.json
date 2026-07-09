@@ -1,0 +1,384 @@
+{
+  "id": "tulum",
+  "name": "Tulum (Black Sea double-chanter bagpipe)",
+  "family": "wind",
+  "class": "mouth_blown_bagpipe",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 1,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "tulum",
+  "parts": [
+    {
+      "id": "tulum_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "tulum_hemsin",
+          "default": true,
+          "name": "Hemşin / Rize tulum (eastern Black Sea)",
+          "descriptors": [
+            "eastern-black-sea",
+            "bright",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "wind-driven",
+            "double-chanter"
+          ],
+          "canonical_tags": [
+            "anatolia",
+            "black-sea",
+            "hemsin"
+          ]
+        },
+        {
+          "id": "tulum_laz",
+          "name": "Laz tulum (Artvin / Hopa)",
+          "descriptors": [
+            "laz",
+            "robust",
+            "insistent"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "reed-driven",
+            "double-chanter"
+          ],
+          "canonical_tags": [
+            "laz",
+            "caucasus",
+            "artvin"
+          ]
+        },
+        {
+          "id": "tulum_pontic",
+          "name": "Pontic tulum / angeion (Pontic Greek)",
+          "descriptors": [
+            "pontic",
+            "archaic",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "pontic",
+            "black-sea",
+            "diaspora"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tulum_play",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "tulum_horon",
+          "default": true,
+          "name": "Horon line-dance drive",
+          "descriptors": [
+            "relentless",
+            "interlocking",
+            "dance-pulse"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "bagpipe",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "horon",
+            "dance"
+          ]
+        },
+        {
+          "id": "tulum_hava",
+          "name": "Yol havası / free song-air",
+          "descriptors": [
+            "free-flowing",
+            "ornamented",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "sustained"
+          ],
+          "canonical_tags": [
+            "air",
+            "song"
+          ]
+        },
+        {
+          "id": "tulum_dugun",
+          "name": "Outdoor wedding / düğün processional",
+          "descriptors": [
+            "open-air",
+            "festive",
+            "loud-projection"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "loud-projection",
+            "bagpipe"
+          ],
+          "canonical_tags": [
+            "wedding",
+            "processional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tulum_skin_reed",
+      "surface": false,
+      "name": "Bag & reed material",
+      "variants": [
+        {
+          "id": "tulum_goatskin_cane",
+          "default": true,
+          "name": "Whole goatskin bag, twin cane idioglot reeds",
+          "descriptors": [
+            "goatskin",
+            "raw",
+            "beating-tone"
+          ],
+          "match_tokens": [
+            "single-reed",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "goatskin",
+            "cane"
+          ]
+        },
+        {
+          "id": "tulum_kidskin",
+          "name": "Kid / lamb-skin bag",
+          "descriptors": [
+            "fine-skin",
+            "brighter",
+            "supple"
+          ],
+          "match_tokens": [
+            "single-reed",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "kidskin"
+          ]
+        },
+        {
+          "id": "tulum_synthetic",
+          "name": "Modern synthetic bag, plastic reeds",
+          "descriptors": [
+            "synthetic",
+            "stable-tuning",
+            "revival"
+          ],
+          "match_tokens": [
+            "single-reed",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "synthetic",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tulum_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "tulum_hemsin",
+          "default": true,
+          "name": "Hemşin / Rize tulum (eastern Black Sea)",
+          "descriptors": [
+            "eastern-black-sea",
+            "bright",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "wind-driven",
+            "double-chanter"
+          ],
+          "canonical_tags": [
+            "anatolia",
+            "black-sea",
+            "hemsin"
+          ]
+        },
+        {
+          "id": "tulum_laz",
+          "name": "Laz tulum (Artvin / Hopa)",
+          "descriptors": [
+            "laz",
+            "robust",
+            "insistent"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "reed-driven",
+            "double-chanter"
+          ],
+          "canonical_tags": [
+            "laz",
+            "caucasus",
+            "artvin"
+          ]
+        },
+        {
+          "id": "tulum_pontic",
+          "name": "Pontic tulum / angeion (Pontic Greek)",
+          "descriptors": [
+            "pontic",
+            "archaic",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "bagpipe",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "pontic",
+            "black-sea",
+            "diaspora"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tulum_play",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "tulum_horon",
+          "default": true,
+          "name": "Horon line-dance drive",
+          "descriptors": [
+            "relentless",
+            "interlocking",
+            "dance-pulse"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "bagpipe",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "horon",
+            "dance"
+          ]
+        },
+        {
+          "id": "tulum_hava",
+          "name": "Yol havası / free song-air",
+          "descriptors": [
+            "free-flowing",
+            "ornamented",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "sustained"
+          ],
+          "canonical_tags": [
+            "air",
+            "song"
+          ]
+        },
+        {
+          "id": "tulum_dugun",
+          "name": "Outdoor wedding / düğün processional",
+          "descriptors": [
+            "open-air",
+            "festive",
+            "loud-projection"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "loud-projection",
+            "bagpipe"
+          ],
+          "canonical_tags": [
+            "wedding",
+            "processional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tulum_skin_reed",
+      "surface": false,
+      "name": "Bag & reed material",
+      "variants": [
+        {
+          "id": "tulum_goatskin_cane",
+          "default": true,
+          "name": "Whole goatskin bag, twin cane idioglot reeds",
+          "descriptors": [
+            "goatskin",
+            "raw",
+            "beating-tone"
+          ],
+          "match_tokens": [
+            "single-reed",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "goatskin",
+            "cane"
+          ]
+        },
+        {
+          "id": "tulum_kidskin",
+          "name": "Kid / lamb-skin bag",
+          "descriptors": [
+            "fine-skin",
+            "brighter",
+            "supple"
+          ],
+          "match_tokens": [
+            "single-reed",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "kidskin"
+          ]
+        },
+        {
+          "id": "tulum_synthetic",
+          "name": "Modern synthetic bag, plastic reeds",
+          "descriptors": [
+            "synthetic",
+            "stable-tuning",
+            "revival"
+          ],
+          "match_tokens": [
+            "single-reed",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "synthetic",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

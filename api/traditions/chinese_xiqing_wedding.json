@@ -3,9 +3,9 @@
   "name": "Chinese xǐqìng (喜慶) wedding music",
   "family": "global",
   "lineage": "Chinese wedding-music tradition continuous from imperial-era Chinese ceremonial-music practice through Republican-period and post-1949 evolution into modern Chinese-Mandarin-speaking domestic practice across mainland China, Taiwan, and Chinese-diaspora communities; the suona (Chinese shawm) is the canonical wedding-music instrument though here represented by sheng-and-dizi-and-erhu substitute ensemble",
-  "recipe": "classic East Asian late-1940s chinese xǐqìng (喜慶) wedding music, wedding, east Asian branch, south Asian wedding, east Asian art music, carnival processional beijing opera tibetan ache lhamo opera. thick, pressed, melodic, continuous-phonation. traditional bamboo pipes copper brass free reeds canonical Chinese straight sheng, no membrane buzz bitter bamboo phyllostachys nigra canonical jiangnan suzhou bangdi northern sharp opera percussive continuous-airflow legato dizi, python skin snake skin bamboo silk red sandalwood zitan erhu, silk red sandalwood zitan premium pipa. shanghai emi pathe 1930s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 733,
-  "score": 313.635,
+  "recipe": "classic East Asian late-1940s chinese xǐqìng (喜慶) wedding music, wedding, east Asian branch, south Asian wedding, east Asian art music, carnival processional beijing opera tibetan ache lhamo opera. thick, pressed, melodic, continuous-phonation. traditional bamboo pipes copper brass free reeds canonical Chinese straight sheng, no membrane buzz bitter bamboo phyllostachys nigra canonical jiangnan suzhou bangdi northern sharp opera percussive continuous-airflow legato dizi, python skin snake skin bamboo silk red sandalwood zitan erhu, silk red sandalwood zitan premium pipa, piercing shrill high suona. shanghai emi pathe 1930s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 761,
+  "score": 337.73,
   "config": {
     "traditions": [
       "chinese_xiqing_wedding",
@@ -118,6 +118,19 @@
           "pipa_strings": 4.744999999999999,
           "pipa_pick": 0.195,
           "pipa_body_wood": 2.7445000000000004
+        }
+      },
+      {
+        "id": "suona",
+        "slots": {
+          "suona_size": "suona_gaoyin",
+          "suona_context": "suona_opera_bangzi",
+          "suona_body": "suona_all_metal"
+        },
+        "scores": {
+          "suona_size": 4.13,
+          "suona_context": 13.994999999999997,
+          "suona_body": 5.97
         }
       }
     ],

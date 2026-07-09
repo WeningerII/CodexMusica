@@ -3,9 +3,9 @@
   "name": "Apàlà (Yoruba Muslim percussion-song)",
   "family": "global",
   "lineage": "Yoruba apàlà percussion-and-vocal genre originating in 1930s-1940s Ibadan as a Muslim-Yoruba devotional-and-praise music for post-Ramadan ìdí-l-Fitr celebrations. Performance centers on male lead singer with a battery of dùndún talking-drums (iyaalu mother-drum plus gangan pressure-drums), agogo bell, sekere shaker, and chorus response. The talking-drum lineage carries percussive-and-melodic-allusion content through standardized Yoruba drum-language. Distinguished from sákárà by apàlà's dùndún-talking-drum (vs sákárà's frame-drum-with-shawm) instrumental signature. Direct ancestor of later fuji genre.",
-  "recipe": "classic West African mid-1930s apàlà, functional Song, African pop branch, west African groove percussion indonesian jaipongan fújì. thick, declaimed, pure, punctuated. omo cedrela odorata canonical Yoruba dundun goat skin leather tension cords canonical pressure bend talking drum, agogo. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 500,
-  "score": 183.67,
+  "recipe": "classic West African mid-1930s apàlà, functional Song, African pop branch, west African groove percussion indonesian jaipongan fújì. thick, declaimed, pure, punctuated. omo cedrela odorata canonical Yoruba dundun goat skin leather tension cords canonical pressure bend talking drum, agogo, proto juju responsorial melodic bass found metal agidigbo. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 559,
+  "score": 239.255,
   "config": {
     "traditions": [
       "apala_yoruba",
@@ -76,6 +76,19 @@
         "scores": {
           "agogo_bell": 2.6,
           "agogo_context": 3.8349999999999995
+        }
+      },
+      {
+        "id": "agidigbo",
+        "slots": {
+          "agidigbo_tradition": "agidigbo_juju",
+          "agidigbo_playing": "agidigbo_riffs",
+          "agidigbo_lamella": "agidigbo_recycled_metal"
+        },
+        "scores": {
+          "agidigbo_tradition": 18.365,
+          "agidigbo_playing": 19.65,
+          "agidigbo_lamella": 17.57
         }
       }
     ],

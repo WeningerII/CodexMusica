@@ -1,0 +1,342 @@
+{
+  "id": "langspil",
+  "name": "Langspil (Icelandic drone zither)",
+  "family": "acoustic_strings",
+  "class": "drone_box_zither",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "langspil",
+  "parts": [
+    {
+      "id": "langspil_form",
+      "name": "Form / type",
+      "variants": [
+        {
+          "id": "langspil_threestring",
+          "default": true,
+          "name": "Three-string langspil (melody string over two drones)",
+          "descriptors": [
+            "droning",
+            "melody-over-drones",
+            "revived-standard"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "box-zither",
+            "bowed"
+          ],
+          "canonical_tags": [
+            "icelandic",
+            "nordic"
+          ]
+        },
+        {
+          "id": "langspil_monochord",
+          "name": "Archaic single-melody-string langspil",
+          "descriptors": [
+            "archaic",
+            "spare",
+            "one-melody-string"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "box-zither"
+          ],
+          "canonical_tags": [
+            "icelandic",
+            "historical"
+          ]
+        },
+        {
+          "id": "langspil_fidla",
+          "name": "Icelandic fidla (two-string bowed box zither cousin)",
+          "descriptors": [
+            "rectangular",
+            "two-string",
+            "bowed-cousin"
+          ],
+          "match_tokens": [
+            "bowed",
+            "box-zither",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "icelandic",
+            "nordic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "langspil_setting",
+      "name": "Playing technique & context",
+      "variants": [
+        {
+          "id": "langspil_bowed_hymn",
+          "default": true,
+          "name": "Bowed psalm accompaniment (salmasongur)",
+          "descriptors": [
+            "bowed",
+            "sustained-drone",
+            "hymn-accompaniment",
+            "meditative"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "icelandic",
+            "sacred",
+            "hymn"
+          ]
+        },
+        {
+          "id": "langspil_plucked_song",
+          "name": "Plucked / quill-strummed folk song",
+          "descriptors": [
+            "plucked",
+            "quill-strummed",
+            "rhythmic",
+            "secular"
+          ],
+          "match_tokens": [
+            "plucked",
+            "box-zither"
+          ],
+          "canonical_tags": [
+            "icelandic",
+            "folk-song"
+          ]
+        },
+        {
+          "id": "langspil_solo_air",
+          "name": "Solo modal air",
+          "descriptors": [
+            "modal",
+            "slow-air",
+            "heavy-drone",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "icelandic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "langspil_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "langspil_brass_strings",
+          "default": true,
+          "name": "Brass / steel wire strings",
+          "descriptors": [
+            "bright",
+            "ringing",
+            "metallic-drone"
+          ],
+          "match_tokens": [
+            "box-zither",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "icelandic"
+          ]
+        },
+        {
+          "id": "langspil_gut_strings",
+          "name": "Gut strings",
+          "descriptors": [
+            "warm",
+            "soft",
+            "archaic-tone"
+          ],
+          "match_tokens": [
+            "box-zither"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "langspil_form",
+      "name": "Form / type",
+      "variants": [
+        {
+          "id": "langspil_threestring",
+          "default": true,
+          "name": "Three-string langspil (melody string over two drones)",
+          "descriptors": [
+            "droning",
+            "melody-over-drones",
+            "revived-standard"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "box-zither",
+            "bowed"
+          ],
+          "canonical_tags": [
+            "icelandic",
+            "nordic"
+          ]
+        },
+        {
+          "id": "langspil_monochord",
+          "name": "Archaic single-melody-string langspil",
+          "descriptors": [
+            "archaic",
+            "spare",
+            "one-melody-string"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "box-zither"
+          ],
+          "canonical_tags": [
+            "icelandic",
+            "historical"
+          ]
+        },
+        {
+          "id": "langspil_fidla",
+          "name": "Icelandic fidla (two-string bowed box zither cousin)",
+          "descriptors": [
+            "rectangular",
+            "two-string",
+            "bowed-cousin"
+          ],
+          "match_tokens": [
+            "bowed",
+            "box-zither",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "icelandic",
+            "nordic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "langspil_setting",
+      "name": "Playing technique & context",
+      "variants": [
+        {
+          "id": "langspil_bowed_hymn",
+          "default": true,
+          "name": "Bowed psalm accompaniment (salmasongur)",
+          "descriptors": [
+            "bowed",
+            "sustained-drone",
+            "hymn-accompaniment",
+            "meditative"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "icelandic",
+            "sacred",
+            "hymn"
+          ]
+        },
+        {
+          "id": "langspil_plucked_song",
+          "name": "Plucked / quill-strummed folk song",
+          "descriptors": [
+            "plucked",
+            "quill-strummed",
+            "rhythmic",
+            "secular"
+          ],
+          "match_tokens": [
+            "plucked",
+            "box-zither"
+          ],
+          "canonical_tags": [
+            "icelandic",
+            "folk-song"
+          ]
+        },
+        {
+          "id": "langspil_solo_air",
+          "name": "Solo modal air",
+          "descriptors": [
+            "modal",
+            "slow-air",
+            "heavy-drone",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "icelandic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "langspil_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "langspil_brass_strings",
+          "default": true,
+          "name": "Brass / steel wire strings",
+          "descriptors": [
+            "bright",
+            "ringing",
+            "metallic-drone"
+          ],
+          "match_tokens": [
+            "box-zither",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "icelandic"
+          ]
+        },
+        {
+          "id": "langspil_gut_strings",
+          "name": "Gut strings",
+          "descriptors": [
+            "warm",
+            "soft",
+            "archaic-tone"
+          ],
+          "match_tokens": [
+            "box-zither"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        }
+      ]
+    }
+  ]
+}

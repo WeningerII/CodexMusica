@@ -3,9 +3,9 @@
   "name": "TikTok-era streaming pop",
   "family": "vernacular",
   "lineage": "2020s short-form-platform-native pop crafted for algorithmic discovery on TikTok and Instagram Reels — characterized by hook-foregrounded sub-thirty-second song structures, mid-song genre-and-tempo pivots, viral-dance-and-challenge-targeted composition, and rapid-iteration release cycles — exemplars include Olivia Rodrigo (SOUR 2021), Lil Nas X (Old Town Road 2019), Doja Cat, PinkPantheress, Ice Spice, with the form representing a structural shift from album-era pop construction",
-  "recipe": "classic mid-2020s tiktok-era streaming pop, functional Song, pop rock branch, pop experimental experimental electric hyperpop. extended whistle, low dynamic level, chest resonance low mid, equal tempered. field textural sampler, TR-808, plucked short envelope analog poly synth. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 417,
-  "score": 193.994,
+  "recipe": "classic mid-2020s tiktok-era streaming pop, functional Song, pop rock branch, pop experimental experimental electric hyperpop. extended whistle, low dynamic level, chest resonance low mid, equal tempered. field textural sampler, TR-808, plucked short envelope analog poly synth, ukulele. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 426,
+  "score": 195.111,
   "config": {
     "traditions": [
       "tiktok_era_streaming_pop",
@@ -94,6 +94,19 @@
           "poly_archetypes": 2.6,
           "poly_voices": 0.4725,
           "poly_maker_lineage": -0.7350000000000001
+        }
+      },
+      {
+        "id": "ukulele",
+        "slots": {
+          "ukulele_size": "ukulele_baritone",
+          "ukulele_style": "ukulele_campanella",
+          "ukulele_wood": "ukulele_koa"
+        },
+        "scores": {
+          "ukulele_size": 0.9555,
+          "ukulele_style": 0.0315,
+          "ukulele_wood": 0.12999999999999998
         }
       }
     ],

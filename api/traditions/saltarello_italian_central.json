@@ -3,9 +3,9 @@
   "name": "Saltarello (central Italian leaping dance)",
   "family": "global",
   "lineage": "Saltarello central-and-southern Italian folk-dance-and-music tradition of Lazio, Abruzzo, Marche, and Molise regions, characterized by fast triple-meter or 6/8 leaping-dance with characteristic accelerating tempo. Origin documented in fourteenth-century Italian musical manuscripts (the Saltarello primo and secondo in the Add MS 29987 British Library manuscript) and preserved in continuous folk-tradition through the medieval-Renaissance-modern transition. Performance: tambourine-led ensemble with accordion, fiddle, organetto button-accordion, and chorus. Distinguished from tarantella by saltarello's central-Italian regional base and characteristic standing-leap (vs spinning) choreographic register. The post-1970s Italian-folk-revival reactivated the genre in the original regional contexts.",
-  "recipe": "classic Southern European mid-1970s saltarello, ballad Poetry, Mediterranean ballad branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. thick, declaimed, tasteful, continuous-phonation. tambourine orch, castagnari Italian premium folk music straight accordion. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 536,
-  "score": 216.475,
+  "recipe": "classic Southern European mid-1970s saltarello, ballad Poetry, Mediterranean ballad branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. thick, declaimed, tasteful, continuous-phonation. central Italian healing rite synthetic head tammorra, castagnari Italian premium folk music straight accordion. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 573,
+  "score": 265.63,
   "config": {
     "traditions": [
       "saltarello_italian_central",
@@ -53,14 +53,16 @@
         }
       },
       {
-        "id": "tambourine_orch",
+        "id": "tammorra",
         "slots": {
-          "tambourine_orch_jingle": "tambourine_orch_brass",
-          "tambourine_orch_context": "tambourine_orch_orch"
+          "tammorra_form": "tammorra_tamburello_ciociaro",
+          "tammorra_context": "tammorra_pizzica_tarantata",
+          "tammorra_head": "tammorra_pelle_sintetica"
         },
         "scores": {
-          "tambourine_orch_jingle": 0.585,
-          "tambourine_orch_context": 0
+          "tammorra_form": 18.98,
+          "tammorra_context": 26.665000000000003,
+          "tammorra_head": 4.095000000000001
         }
       },
       {
@@ -120,9 +122,7 @@
       "voice_mechanism_compound": "voice_mechanism_single_source",
       "free_reed_technique": "free_reed_folk_first_position",
       "reed_config": "lmm",
-      "musette_offset": "dry_tuning",
-      "tambourine_orch_jingle": "tambourine_orch_brass",
-      "tambourine_orch_context": "tambourine_orch_orch"
+      "musette_offset": "dry_tuning"
     },
     "chain_mic": "condenser_sdc",
     "chain_pre": "pre_field_recorder_portable",

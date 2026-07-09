@@ -1,0 +1,374 @@
+{
+  "id": "guira_dominicana",
+  "name": "Güira (Dominican metal scraper)",
+  "family": "percussion",
+  "class": "metal_scraper",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "guira",
+  "parts": [
+    {
+      "id": "guira_dominicana_form",
+      "name": "Güira form / size",
+      "variants": [
+        {
+          "id": "guira_dominicana_tipico",
+          "default": true,
+          "name": "Merengue típico güira (perico ripiao)",
+          "descriptors": [
+            "rustic",
+            "driving",
+            "rapid-scrape",
+            "cutting"
+          ],
+          "match_tokens": [
+            "scraped",
+            "metallic-rasp",
+            "rasping"
+          ],
+          "canonical_tags": [
+            "dominican",
+            "caribbean"
+          ]
+        },
+        {
+          "id": "guira_dominicana_orquesta",
+          "name": "Orquesta merengue güira (big-band)",
+          "descriptors": [
+            "full-toned",
+            "polished",
+            "band"
+          ],
+          "match_tokens": [
+            "scraped",
+            "metallic-rasp"
+          ],
+          "canonical_tags": [
+            "dominican",
+            "caribbean"
+          ]
+        },
+        {
+          "id": "guira_dominicana_guayo",
+          "name": "Guayo (older grater-style form)",
+          "descriptors": [
+            "archaic",
+            "coarse",
+            "grating"
+          ],
+          "match_tokens": [
+            "scraped",
+            "rasping"
+          ],
+          "canonical_tags": [
+            "dominican",
+            "caribbean"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guira_dominicana_pattern",
+      "name": "Playing pattern",
+      "variants": [
+        {
+          "id": "guira_dominicana_merengue_drive",
+          "default": true,
+          "name": "Merengue drive (continuous straight scrape)",
+          "descriptors": [
+            "driving",
+            "relentless",
+            "fast-scrape",
+            "locked-with-tambora"
+          ],
+          "match_tokens": [
+            "scraped",
+            "metallic-rasp",
+            "struck"
+          ],
+          "canonical_tags": [
+            "merengue",
+            "dominican"
+          ]
+        },
+        {
+          "id": "guira_dominicana_bachata_pattern",
+          "name": "Bachata pattern (syncopated swing)",
+          "descriptors": [
+            "syncopated",
+            "laid-back",
+            "shuffling"
+          ],
+          "match_tokens": [
+            "scraped",
+            "rasping"
+          ],
+          "canonical_tags": [
+            "bachata",
+            "dominican"
+          ]
+        },
+        {
+          "id": "guira_dominicana_accent_breaks",
+          "name": "Accents & breaks (majao fills)",
+          "descriptors": [
+            "accented",
+            "flourishing",
+            "punctuating"
+          ],
+          "match_tokens": [
+            "scraped",
+            "struck",
+            "metallic-rasp"
+          ],
+          "canonical_tags": [
+            "merengue",
+            "dominican"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guira_dominicana_sheet",
+      "surface": false,
+      "name": "Sheet-metal material",
+      "variants": [
+        {
+          "id": "guira_dominicana_steel",
+          "default": true,
+          "name": "Tin / stainless-steel sheet",
+          "descriptors": [
+            "bright",
+            "hissing",
+            "modern"
+          ],
+          "match_tokens": [
+            "metallic-rasp",
+            "scraped"
+          ],
+          "canonical_tags": [
+            "dominican"
+          ]
+        },
+        {
+          "id": "guira_dominicana_brass",
+          "name": "Brass / copper sheet",
+          "descriptors": [
+            "warm",
+            "rounded"
+          ],
+          "match_tokens": [
+            "metallic-rasp",
+            "scraped"
+          ],
+          "canonical_tags": [
+            "dominican"
+          ]
+        },
+        {
+          "id": "guira_dominicana_galvanized",
+          "name": "Galvanized rough-punched sheet",
+          "descriptors": [
+            "coarse",
+            "dense-rasp",
+            "gritty"
+          ],
+          "match_tokens": [
+            "rasping",
+            "scraped"
+          ],
+          "canonical_tags": [
+            "dominican"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "guira_dominicana_form",
+      "name": "Güira form / size",
+      "variants": [
+        {
+          "id": "guira_dominicana_tipico",
+          "default": true,
+          "name": "Merengue típico güira (perico ripiao)",
+          "descriptors": [
+            "rustic",
+            "driving",
+            "rapid-scrape",
+            "cutting"
+          ],
+          "match_tokens": [
+            "scraped",
+            "metallic-rasp",
+            "rasping"
+          ],
+          "canonical_tags": [
+            "dominican",
+            "caribbean"
+          ]
+        },
+        {
+          "id": "guira_dominicana_orquesta",
+          "name": "Orquesta merengue güira (big-band)",
+          "descriptors": [
+            "full-toned",
+            "polished",
+            "band"
+          ],
+          "match_tokens": [
+            "scraped",
+            "metallic-rasp"
+          ],
+          "canonical_tags": [
+            "dominican",
+            "caribbean"
+          ]
+        },
+        {
+          "id": "guira_dominicana_guayo",
+          "name": "Guayo (older grater-style form)",
+          "descriptors": [
+            "archaic",
+            "coarse",
+            "grating"
+          ],
+          "match_tokens": [
+            "scraped",
+            "rasping"
+          ],
+          "canonical_tags": [
+            "dominican",
+            "caribbean"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guira_dominicana_pattern",
+      "name": "Playing pattern",
+      "variants": [
+        {
+          "id": "guira_dominicana_merengue_drive",
+          "default": true,
+          "name": "Merengue drive (continuous straight scrape)",
+          "descriptors": [
+            "driving",
+            "relentless",
+            "fast-scrape",
+            "locked-with-tambora"
+          ],
+          "match_tokens": [
+            "scraped",
+            "metallic-rasp",
+            "struck"
+          ],
+          "canonical_tags": [
+            "merengue",
+            "dominican"
+          ]
+        },
+        {
+          "id": "guira_dominicana_bachata_pattern",
+          "name": "Bachata pattern (syncopated swing)",
+          "descriptors": [
+            "syncopated",
+            "laid-back",
+            "shuffling"
+          ],
+          "match_tokens": [
+            "scraped",
+            "rasping"
+          ],
+          "canonical_tags": [
+            "bachata",
+            "dominican"
+          ]
+        },
+        {
+          "id": "guira_dominicana_accent_breaks",
+          "name": "Accents & breaks (majao fills)",
+          "descriptors": [
+            "accented",
+            "flourishing",
+            "punctuating"
+          ],
+          "match_tokens": [
+            "scraped",
+            "struck",
+            "metallic-rasp"
+          ],
+          "canonical_tags": [
+            "merengue",
+            "dominican"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guira_dominicana_sheet",
+      "surface": false,
+      "name": "Sheet-metal material",
+      "variants": [
+        {
+          "id": "guira_dominicana_steel",
+          "default": true,
+          "name": "Tin / stainless-steel sheet",
+          "descriptors": [
+            "bright",
+            "hissing",
+            "modern"
+          ],
+          "match_tokens": [
+            "metallic-rasp",
+            "scraped"
+          ],
+          "canonical_tags": [
+            "dominican"
+          ]
+        },
+        {
+          "id": "guira_dominicana_brass",
+          "name": "Brass / copper sheet",
+          "descriptors": [
+            "warm",
+            "rounded"
+          ],
+          "match_tokens": [
+            "metallic-rasp",
+            "scraped"
+          ],
+          "canonical_tags": [
+            "dominican"
+          ]
+        },
+        {
+          "id": "guira_dominicana_galvanized",
+          "name": "Galvanized rough-punched sheet",
+          "descriptors": [
+            "coarse",
+            "dense-rasp",
+            "gritty"
+          ],
+          "match_tokens": [
+            "rasping",
+            "scraped"
+          ],
+          "canonical_tags": [
+            "dominican"
+          ]
+        }
+      ]
+    }
+  ]
+}

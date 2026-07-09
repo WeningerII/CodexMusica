@@ -3,9 +3,9 @@
   "name": "Maya marimba (Guatemalan Highlands)",
   "family": "global",
   "lineage": "Guatemalan Highlands Maya marimba tradition (Quetzaltenango, Sololá, Huehuetenango departments) and adjacent Chiapas, featuring large wooden-resonator marimba ensembles played by three-to-four marimberos simultaneously (marimba doble or marimba grande). Instrument arrived through West-African enslaved-population introduction and was adopted as Guatemalan-cultural-marker. Repertoire spans son chapín nineteenth-and-twentieth-century Guatemalan national-popular forms, religious cofradía music, and contemporary dance-band material.",
-  "recipe": "classic Mexican modern maya marimba, groove Percussion, Latin am branch, Brazilian groove percussion pagode baião. marimba orchestral, venice catlin high twist renaissance bass kolstein bass specific double bass. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 426,
-  "score": 4.75,
+  "recipe": "classic Mexican modern maya marimba, groove Percussion, Latin am branch, Brazilian groove percussion pagode baião. chromatic ensemble grande multi player full ensemble marimba centroamericana, venice catlin high twist renaissance bass kolstein bass specific double bass. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 484,
+  "score": 11.975,
   "config": {
     "traditions": [
       "maya_marimba_guatemalteca",
@@ -14,16 +14,16 @@
     ],
     "instruments": [
       {
-        "id": "marimba_orchestral",
+        "id": "marimba_centroamericana",
         "slots": {
-          "percussion_technique": "percussion_mallets_orchestral",
-          "marimba_size": "marimba_4_octave",
-          "marimba_orchestral_bar": "marimba_orchestral_padauk"
+          "marimba_centroamericana_form": "marimba_centroamericana_doble",
+          "marimba_centroamericana_ensemble": "marimba_centroamericana_grande_tenor",
+          "marimba_centroamericana_material": "marimba_centroamericana_hormigo"
         },
         "scores": {
-          "percussion_technique": -0.05,
-          "marimba_size": 0.195,
-          "marimba_orchestral_bar": 0.15
+          "marimba_centroamericana_form": 5.9750000000000005,
+          "marimba_centroamericana_ensemble": 1.17,
+          "marimba_centroamericana_material": 0.375
         }
       },
       {
@@ -74,9 +74,6 @@
     "tuning": "twelve_tet",
     "room": "mexico_bolero_xochimilco_studio",
     "parts": {
-      "percussion_technique": "percussion_mallets_orchestral",
-      "marimba_size": "marimba_5_octave",
-      "marimba_orchestral_bar": "marimba_orchestral_honduran",
       "bowed_technique": "bowed_legato_classical",
       "bass_size": "bass_three_quarter",
       "bass_top_wood": "norway_spruce_alpine_bass",

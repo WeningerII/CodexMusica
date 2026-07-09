@@ -3,9 +3,9 @@
   "name": "Mbira tradition",
   "family": "global",
   "lineage": "Zimbabwean Shona spiritual mbira-dzavadzimu (ancestor-spirit lamellophone) ceremonial tradition, codified through the bira ritual context — Stella Chiweshe and Ephat Mujuru as the canonical 1970s-1980s exponents bringing Shona mbira to international audiences, with interlocking kushaura (first part) and kutsinhira (second part) patterns played at all-night ceremonies",
-  "recipe": "classic North American mid-1970s mbira tradition, drone Modal, string branch, central east south African groove percussion, Afro-diasporic ritual devotional palo mayombe kongo mambo ritual chant taarab. thick, declaimed, chest resonance low mid, punctuated. hardwood calabash mbira, shekere. wooden barn. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 451,
-  "score": 114.777,
+  "recipe": "classic North American mid-1970s mbira tradition, drone Modal, string branch, central east south African groove percussion, Afro-diasporic ritual devotional palo mayombe kongo mambo ritual chant taarab. thick, declaimed, chest resonance low mid, punctuated. hardwood calabash mbira, hosho. wooden barn. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 449,
+  "score": 147.757,
   "config": {
     "traditions": [
       "mbira_tradition",
@@ -68,14 +68,16 @@
         }
       },
       {
-        "id": "shekere",
+        "id": "hosho",
         "slots": {
-          "shekere_size": "shekere_medium",
-          "shekere_beads": "shekere_seed"
+          "hosho_form": "hosho_matched_pair",
+          "hosho_groove": "hosho_mbira_lock",
+          "hosho_filler": "hosho_hota_seeds"
         },
         "scores": {
-          "shekere_size": 2.145,
-          "shekere_beads": 4.55
+          "hosho_form": 10.82,
+          "hosho_groove": 21.319999999999993,
+          "hosho_filler": 7.534999999999998
         }
       }
     ],
@@ -112,8 +114,6 @@
       "voice_estill_quality": "voice_estill_speech",
       "voice_vibrato": "slow_vibrato",
       "voice_mechanism_compound": "voice_mechanism_single_source",
-      "shekere_size": "shekere_medium",
-      "shekere_beads": "shekere_cowrie",
       "tine_material": "iron_forged",
       "mbira_board": "mubvamaropa",
       "mbira_resonator": "deze_calabash",

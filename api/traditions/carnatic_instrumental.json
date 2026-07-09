@@ -5,7 +5,7 @@
   "lineage": "South Indian classical instrumental tradition spanning veena (Saraswathi veena, the South Indian fretted long-neck lute), Carnatic violin (held in vertical Carnatic posture, codified by Baluswami Dikshitar in the early 19th century), bansuri flute (Carnatic flute is distinct from Hindustani in tuning), nadaswaram (temple double-reed), mandolin (U. Shrinivas adaptation), and even saxophone (Kadri Gopalnath South Indian classical saxophone), all interpreting the same 72-melakarta-and-kriti repertoire as the vocal tradition",
   "recipe": "classic South Asian mid-1930s carnatic instrumental, improv On Frame, indian classical improv branch, south Asian art music, hindu ritual devotional telugu kirtana sinhala vannama. jackwood canonical thanjavur mysore thanjavur canonical south indian veena, jackwood barrel canonical carnatic goat buffalo rice paste karanai palghat lineage canonical carnatic mridangam, ghatam, jackwood frame canonical carnatic brass jingle pair kanjira, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic, German spruce classical leaning thomastik flatwound jazz mandolin mandolin, jackwood barrel canonical Tamil buffalo goat thumb cap canonical periya melam thavil, low overtone rich kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, rose brass darker warmer continuous-airflow legato saxophone, temple volume Tamil temple context periya melam thavil percussion pair temple procession nadaswaram.",
   "recipe_chars": 979,
-  "score": 321.425,
+  "score": 395.805,
   "config": {
     "traditions": [
       "carnatic_instrumental",
@@ -185,6 +185,19 @@
           "nadaswaram_body_wood": 3.3149999999999995,
           "nadaswaram_reed": 3.3149999999999995,
           "nadaswaram_lineage": 4.615
+        }
+      },
+      {
+        "id": "morsing",
+        "slots": {
+          "morsing_form": "morsing_carnatic",
+          "morsing_technique": "morsing_laya_accompaniment",
+          "morsing_material": "morsing_steel"
+        },
+        "scores": {
+          "morsing_form": 31.395,
+          "morsing_technique": 22.11,
+          "morsing_material": 20.875
         }
       }
     ],

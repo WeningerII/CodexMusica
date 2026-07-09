@@ -1,0 +1,372 @@
+{
+  "id": "panduri",
+  "name": "Panduri (Georgian fretted lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_lute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "panduri",
+  "parts": [
+    {
+      "id": "panduri_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "panduri_kakhuri",
+          "default": true,
+          "name": "Kartli-Kakheti panduri (three-string)",
+          "descriptors": [
+            "three-string",
+            "eastern-georgian",
+            "tied-fret"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fretted",
+            "strummed"
+          ],
+          "canonical_tags": [
+            "georgian",
+            "caucasus"
+          ]
+        },
+        {
+          "id": "panduri_chonguri",
+          "name": "Chonguri (West Georgian four-string)",
+          "descriptors": [
+            "four-string",
+            "droning",
+            "western-georgian"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "fretted"
+          ],
+          "canonical_tags": [
+            "georgian",
+            "caucasus"
+          ]
+        },
+        {
+          "id": "panduri_mtiuluri",
+          "name": "Mountain panduri (Pshav-Khevsureti)",
+          "descriptors": [
+            "archaic",
+            "highland",
+            "buzzing"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fretted",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "georgian",
+            "caucasus"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "panduri_repertoire",
+      "name": "Repertoire / playing context",
+      "variants": [
+        {
+          "id": "panduri_supra_song",
+          "default": true,
+          "name": "Supra table-song accompaniment",
+          "descriptors": [
+            "intimate",
+            "lyrical",
+            "strummed"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "song-accompaniment"
+          ],
+          "canonical_tags": [
+            "georgian"
+          ]
+        },
+        {
+          "id": "panduri_shairi",
+          "name": "Shairi verse-banter",
+          "descriptors": [
+            "witty",
+            "rhythmic",
+            "declamatory"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "rhythmic"
+          ],
+          "canonical_tags": [
+            "georgian"
+          ]
+        },
+        {
+          "id": "panduri_heroic_ballad",
+          "name": "Heroic / mountain ballad",
+          "descriptors": [
+            "epic",
+            "driving",
+            "narrative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "georgian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "panduri_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "panduri_nylon",
+          "default": true,
+          "name": "Nylon strings (modern standard)",
+          "descriptors": [
+            "soft",
+            "rounded",
+            "warm"
+          ],
+          "match_tokens": [
+            "plucked",
+            "mellow-tone"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "panduri_gut_silk",
+          "name": "Gut / silk strings (traditional)",
+          "descriptors": [
+            "mellow",
+            "warm",
+            "archaic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "panduri_metal",
+          "name": "Metal strings (bright)",
+          "descriptors": [
+            "bright",
+            "ringing",
+            "metallic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "mountain"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "panduri_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "panduri_kakhuri",
+          "default": true,
+          "name": "Kartli-Kakheti panduri (three-string)",
+          "descriptors": [
+            "three-string",
+            "eastern-georgian",
+            "tied-fret"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fretted",
+            "strummed"
+          ],
+          "canonical_tags": [
+            "georgian",
+            "caucasus"
+          ]
+        },
+        {
+          "id": "panduri_chonguri",
+          "name": "Chonguri (West Georgian four-string)",
+          "descriptors": [
+            "four-string",
+            "droning",
+            "western-georgian"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "fretted"
+          ],
+          "canonical_tags": [
+            "georgian",
+            "caucasus"
+          ]
+        },
+        {
+          "id": "panduri_mtiuluri",
+          "name": "Mountain panduri (Pshav-Khevsureti)",
+          "descriptors": [
+            "archaic",
+            "highland",
+            "buzzing"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fretted",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "georgian",
+            "caucasus"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "panduri_repertoire",
+      "name": "Repertoire / playing context",
+      "variants": [
+        {
+          "id": "panduri_supra_song",
+          "default": true,
+          "name": "Supra table-song accompaniment",
+          "descriptors": [
+            "intimate",
+            "lyrical",
+            "strummed"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "song-accompaniment"
+          ],
+          "canonical_tags": [
+            "georgian"
+          ]
+        },
+        {
+          "id": "panduri_shairi",
+          "name": "Shairi verse-banter",
+          "descriptors": [
+            "witty",
+            "rhythmic",
+            "declamatory"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "rhythmic"
+          ],
+          "canonical_tags": [
+            "georgian"
+          ]
+        },
+        {
+          "id": "panduri_heroic_ballad",
+          "name": "Heroic / mountain ballad",
+          "descriptors": [
+            "epic",
+            "driving",
+            "narrative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "georgian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "panduri_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "panduri_nylon",
+          "default": true,
+          "name": "Nylon strings (modern standard)",
+          "descriptors": [
+            "soft",
+            "rounded",
+            "warm"
+          ],
+          "match_tokens": [
+            "plucked",
+            "mellow-tone"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "panduri_gut_silk",
+          "name": "Gut / silk strings (traditional)",
+          "descriptors": [
+            "mellow",
+            "warm",
+            "archaic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "panduri_metal",
+          "name": "Metal strings (bright)",
+          "descriptors": [
+            "bright",
+            "ringing",
+            "metallic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "mountain"
+          ]
+        }
+      ]
+    }
+  ]
+}

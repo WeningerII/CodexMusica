@@ -3,9 +3,9 @@
   "name": "Burmese mahagita (classical canon)",
   "family": "classical",
   "lineage": "Burmese mahagita (\"great song\") classical Burmese art-music canon, comprising the codified repertoire of the late-Konbaung-dynasty (eighteenth-nineteenth century) royal court at Mandalay. The mahagita corpus is organized through several song-categories (kyò devotional-style, bwèh ceremonial-style, thachingan classical-song-form, etc.) with distinct modal-and-rhythmic conventions per category. Performance configuration ranges from solo voice with saung gauk arched-harp accompaniment (the most refined chamber form) to fuller ensembles with pat-tala xylophone, hsaing-waing drum-circle, and additional wind-instruments. The post-1885 British annexation of Burma terminated the royal-court patronage; the post-1962 Burma Socialist Programme cultural-policy and the State School of Music and Drama anchor modern transmission.",
-  "recipe": "classic Southeast Asian mid-1880s burmese mahagita, art Music, southeast Asian branch, east Asian art music beijing opera tibetan ache lhamo opera. thick, pressed, chest resonance low mid, rhythmic. sanxian, refined gamelan balinese full. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 406,
-  "score": 269.435,
+  "recipe": "classic Southeast Asian mid-1880s burmese mahagita, art Music, southeast Asian branch, east Asian art music beijing opera tibetan ache lhamo opera. thick, pressed, chest resonance low mid, rhythmic. sanxian, refined gamelan balinese full, court classical saung gauk, ornate gilded pattala. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 457,
+  "score": 370.205,
   "config": {
     "traditions": [
       "burmese_mahagita",
@@ -80,6 +80,32 @@
         "scores": {
           "type": 10.989999999999998,
           "characteristic": 0
+        }
+      },
+      {
+        "id": "saung_gauk",
+        "slots": {
+          "saung_gauk_form": "saung_gauk_thirteen_string",
+          "saung_gauk_role": "saung_gauk_mahagita_accompaniment",
+          "saung_gauk_strings": "saung_gauk_silk_strings"
+        },
+        "scores": {
+          "saung_gauk_form": 22.31,
+          "saung_gauk_role": 20.279999999999998,
+          "saung_gauk_strings": 9.33
+        }
+      },
+      {
+        "id": "pattala",
+        "slots": {
+          "pattala_type": "pattala_bamboo",
+          "pattala_repertoire": "pattala_mahagita",
+          "pattala_body": "pattala_gilt_box"
+        },
+        "scores": {
+          "pattala_type": 11.25,
+          "pattala_repertoire": 28.6,
+          "pattala_body": 9
         }
       }
     ],

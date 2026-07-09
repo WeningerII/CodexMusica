@@ -3,9 +3,9 @@
   "name": "Bhajan",
   "family": "global",
   "lineage": "Pan-Indian Hindu devotional song tradition setting Sanskrit, Hindi, Braj Bhasha, Marathi, Bengali, Tamil and other Indian-language devotional poetry by Surdas, Mirabai, Tulsidas, Tukaram, Kabir, the Alvar saints — performed in temple-and-domestic-shrine contexts across regional Hindu sub-traditions; modern voices Anup Jalota, Jagjit Singh (the late ghazal-bhajan crossover canon), and the Pushti Marg haveli sangeet tradition",
-  "recipe": "classic South Asian mid-1930s bhajan, ritual Devotional, hindu branch, vocal drone modal, indian subcontinent praise song hindu stuti and bhajan sikh shabad kirtan. vocal fry, declaimed, chest resonance low mid, continuous-phonation. low overtone rich vocal male harmonium indian, indian rosewood rosewood copper tabla, synthetic remo modern stable bolt tuned modern concert stable dholak. vrindavan braj mandir bhajan. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 492,
-  "score": 149.147,
+  "recipe": "classic South Asian mid-1930s bhajan, ritual Devotional, hindu branch, vocal drone modal, indian subcontinent praise song hindu stuti and bhajan sikh shabad kirtan. vocal fry, declaimed, chest resonance low mid, continuous-phonation. low overtone rich vocal male harmonium indian, indian rosewood rosewood copper tabla, synthetic remo modern stable bolt tuned modern concert stable dholak, small steady tala keeping ashtadhatu manjira. vrindavan braj mandir bhajan. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 538,
+  "score": 186.502,
   "config": {
     "traditions": [
       "bhajan",
@@ -93,6 +93,19 @@
           "dholak_construction": 3.769999999999999,
           "dholak_head": 1.0399999999999998,
           "dholak_tensioning": 1.0399999999999998
+        }
+      },
+      {
+        "id": "manjira",
+        "slots": {
+          "manjira_form": "manjira_taal_small",
+          "manjira_stroke": "manjira_tala_ostinato",
+          "manjira_metal": "manjira_ashtadhatu"
+        },
+        "scores": {
+          "manjira_form": 17.419999999999998,
+          "manjira_stroke": 14.125,
+          "manjira_metal": 5.8100000000000005
         }
       }
     ],

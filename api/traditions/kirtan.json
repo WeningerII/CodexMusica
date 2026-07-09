@@ -3,9 +3,9 @@
   "name": "Kīrtan",
   "family": "global",
   "lineage": "Indian devotional call-and-response congregational singing tradition with two principal branches: Hindu kirtan (Vaishnava Bengali kirtan tradition tracing to Chaitanya Mahaprabhu in 15th-century Bengal, performed at Krishna temple courtyards with khol drum and karatala cymbals; Maharashtrian abhang kirtan tradition tracing to Tukaram and Eknath; the broader Hare Krishna ISKCON tradition extending Bengali Vaishnava kirtan globally) and Sikh kirtan (shabad kirtan of the Guru Granth Sahib at gurdwaras worldwide)",
-  "recipe": "classic South Asian mid-1930s kīrtan, ritual Devotional, hindu branch, vocal drone modal, indian subcontinent praise song hindu stuti and bhajan sikh shabad kirtan. thick, declaimed, chest resonance low mid, continuous-phonation. low overtone rich vocal male harmonium indian, indian rosewood rosewood clay tabla, dholak. vrindavan braj mandir bhajan. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 424,
-  "score": 155.417,
+  "recipe": "classic South Asian mid-1930s kīrtan, ritual Devotional, hindu branch, vocal drone modal, indian subcontinent praise song hindu stuti and bhajan sikh shabad kirtan. thick, declaimed, chest resonance low mid, continuous-phonation. low overtone rich vocal male harmonium indian, indian rosewood rosewood clay tabla, dholak, fiberglass khol, bengali steady tala keeping ashtadhatu manjira. vrindavan braj mandir bhajan. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 489,
+  "score": 252.952,
   "config": {
     "traditions": [
       "kirtan",
@@ -93,6 +93,32 @@
           "dholak_construction": 4.68,
           "dholak_head": 0.195,
           "dholak_tensioning": 0.195
+        }
+      },
+      {
+        "id": "khol",
+        "slots": {
+          "khol_form": "khol_bengali",
+          "khol_repertoire": "khol_kirtan_drive",
+          "khol_body": "khol_body_fiberglass"
+        },
+        "scores": {
+          "khol_form": 11.504999999999999,
+          "khol_repertoire": 23.174999999999997,
+          "khol_body": 2.1950000000000003
+        }
+      },
+      {
+        "id": "manjira",
+        "slots": {
+          "manjira_form": "manjira_karatala",
+          "manjira_stroke": "manjira_tala_ostinato",
+          "manjira_metal": "manjira_ashtadhatu"
+        },
+        "scores": {
+          "manjira_form": 29.974999999999998,
+          "manjira_stroke": 25.624999999999996,
+          "manjira_metal": 5.0600000000000005
         }
       }
     ],

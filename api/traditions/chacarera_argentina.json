@@ -3,9 +3,9 @@
   "name": "Chacarera (Argentine northwest)",
   "family": "global",
   "lineage": "Argentine folk-dance-and-song tradition of northwestern provinces (Santiago del Estero, Tucumán, Salta, La Rioja). Characteristic 6/8 meter, fast-tempo paired-couple dance with handkerchiefs, lyrical content addressing rural-northwestern Argentine life. Voice with acoustic-guitar and bombo legüero large-frame-drum. Atahualpa Yupanqui and Los Hermanos Ábalos (founded 1932) consolidated canonical repertoire.",
-  "recipe": "classic Mexican early-1930s chacarera, ballad Poetry, Latin am troubadour branch, indigenous ritual devotional mongolian böö shamanic invocation inuit katajjaq throat-singing game. sygyt, declaimed, overtone rich sustained, punctuated. rosewood coated nanoweb fingerpicked parlor acoustic guitar, ceibo canonical Argentine leguero hollowed trunk bombo andino. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 573,
-  "score": 195.35,
+  "recipe": "classic Mexican early-1930s chacarera, ballad Poetry, Latin am troubadour branch, indigenous ritual devotional mongolian böö shamanic invocation inuit katajjaq throat-singing game. sygyt, declaimed, overtone rich sustained, punctuated. rosewood coated nanoweb fingerpicked parlor acoustic guitar, rim accented bombo leguero. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 538,
+  "score": 197.825,
   "config": {
     "traditions": [
       "chacarera_argentina",
@@ -70,16 +70,16 @@
         }
       },
       {
-        "id": "bombo_andino",
+        "id": "bombo_leguero",
         "slots": {
-          "bombo_andino_construction": "bombo_andino_leguero",
-          "bombo_andino_skin": "bombo_andino_llama",
-          "bombo_andino_shell_wood": "bombo_andino_ceibo"
+          "bombo_leguero_form": "bombo_leguero_santiagueno",
+          "bombo_leguero_style": "bombo_leguero_chacarera",
+          "bombo_leguero_head": "bombo_leguero_sintetico"
         },
         "scores": {
-          "bombo_andino_construction": 5.124999999999999,
-          "bombo_andino_skin": 0.22499999999999998,
-          "bombo_andino_shell_wood": 5.784999999999999
+          "bombo_leguero_form": 11.145,
+          "bombo_leguero_style": 2.5,
+          "bombo_leguero_head": -0.035
         }
       }
     ],
@@ -119,10 +119,7 @@
       "acoustic_technique": "acoustic_strummed_ringing",
       "top_wood_parlor": "sitka_p",
       "back_sides_parlor": "mahogany_bs_p",
-      "string_acoustic_parlor": "phosphor_p",
-      "bombo_andino_construction": "bombo_andino_leguero",
-      "bombo_andino_skin": "bombo_andino_llama",
-      "bombo_andino_shell_wood": "bombo_andino_ceibo"
+      "string_acoustic_parlor": "phosphor_p"
     },
     "chain_mic": "condenser_sdc",
     "chain_pre": "pre_field_recorder_portable",

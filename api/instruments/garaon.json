@@ -1,0 +1,384 @@
+{
+  "id": "garaon",
+  "name": "Garaon (Garifuna primero & segunda drums)",
+  "family": "percussion",
+  "class": "single_headed_hand_drum",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "garaon",
+  "parts": [
+    {
+      "id": "garaon_drum",
+      "name": "Drum role & size",
+      "variants": [
+        {
+          "id": "garaon_segunda",
+          "default": true,
+          "name": "Segunda (deep foundation bass)",
+          "descriptors": [
+            "deep-bass",
+            "foundation",
+            "steady-pulse"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "garifuna",
+            "caribbean"
+          ]
+        },
+        {
+          "id": "garaon_primero",
+          "name": "Primero (high improvising lead)",
+          "descriptors": [
+            "high-pitched",
+            "improvising",
+            "syncopated"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "lead-voice"
+          ],
+          "canonical_tags": [
+            "garifuna",
+            "caribbean"
+          ]
+        },
+        {
+          "id": "garaon_cuerda",
+          "name": "Matched pair (interlocking cuerda)",
+          "descriptors": [
+            "paired",
+            "interlocking",
+            "call-and-response"
+          ],
+          "match_tokens": [
+            "struck",
+            "ensemble",
+            "interlocking"
+          ],
+          "canonical_tags": [
+            "garifuna",
+            "caribbean"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "garaon_repertoire",
+      "name": "Rhythm & dance context",
+      "variants": [
+        {
+          "id": "garaon_punta",
+          "default": true,
+          "name": "Punta (fast celebratory dance)",
+          "descriptors": [
+            "driving",
+            "celebratory",
+            "fast"
+          ],
+          "match_tokens": [
+            "struck",
+            "dance-rhythm",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "punta",
+            "garifuna"
+          ]
+        },
+        {
+          "id": "garaon_paranda",
+          "name": "Paranda / hüngü-hüngü (song ballad)",
+          "descriptors": [
+            "laid-back",
+            "song-accompaniment",
+            "rolling"
+          ],
+          "match_tokens": [
+            "struck",
+            "song-accompaniment",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "paranda",
+            "garifuna"
+          ]
+        },
+        {
+          "id": "garaon_dugu",
+          "name": "Dügü / chugú (ancestral ceremony)",
+          "descriptors": [
+            "ceremonial",
+            "trance",
+            "ancestral"
+          ],
+          "match_tokens": [
+            "struck",
+            "ritual",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "ritual",
+            "garifuna"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "garaon_build",
+      "surface": false,
+      "name": "Shell & head material",
+      "variants": [
+        {
+          "id": "garaon_mahogany_deerskin",
+          "default": true,
+          "name": "Hollowed mahogany shell, deerskin head",
+          "descriptors": [
+            "hardwood-shell",
+            "deerskin-head",
+            "warm-tone"
+          ],
+          "match_tokens": [
+            "struck",
+            "wood-shell",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "garifuna"
+          ]
+        },
+        {
+          "id": "garaon_peccary_hide",
+          "name": "Peccary / wild-pig hide head",
+          "descriptors": [
+            "peccary-hide",
+            "dry-crack",
+            "tight"
+          ],
+          "match_tokens": [
+            "struck",
+            "hide-head",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "garifuna"
+          ]
+        },
+        {
+          "id": "garaon_snared",
+          "name": "Snare cords across the head (buzz)",
+          "descriptors": [
+            "snared",
+            "buzzing",
+            "rattling"
+          ],
+          "match_tokens": [
+            "struck",
+            "buzz-tone",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "garifuna"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "garaon_drum",
+      "name": "Drum role & size",
+      "variants": [
+        {
+          "id": "garaon_segunda",
+          "default": true,
+          "name": "Segunda (deep foundation bass)",
+          "descriptors": [
+            "deep-bass",
+            "foundation",
+            "steady-pulse"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "garifuna",
+            "caribbean"
+          ]
+        },
+        {
+          "id": "garaon_primero",
+          "name": "Primero (high improvising lead)",
+          "descriptors": [
+            "high-pitched",
+            "improvising",
+            "syncopated"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "lead-voice"
+          ],
+          "canonical_tags": [
+            "garifuna",
+            "caribbean"
+          ]
+        },
+        {
+          "id": "garaon_cuerda",
+          "name": "Matched pair (interlocking cuerda)",
+          "descriptors": [
+            "paired",
+            "interlocking",
+            "call-and-response"
+          ],
+          "match_tokens": [
+            "struck",
+            "ensemble",
+            "interlocking"
+          ],
+          "canonical_tags": [
+            "garifuna",
+            "caribbean"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "garaon_repertoire",
+      "name": "Rhythm & dance context",
+      "variants": [
+        {
+          "id": "garaon_punta",
+          "default": true,
+          "name": "Punta (fast celebratory dance)",
+          "descriptors": [
+            "driving",
+            "celebratory",
+            "fast"
+          ],
+          "match_tokens": [
+            "struck",
+            "dance-rhythm",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "punta",
+            "garifuna"
+          ]
+        },
+        {
+          "id": "garaon_paranda",
+          "name": "Paranda / hüngü-hüngü (song ballad)",
+          "descriptors": [
+            "laid-back",
+            "song-accompaniment",
+            "rolling"
+          ],
+          "match_tokens": [
+            "struck",
+            "song-accompaniment",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "paranda",
+            "garifuna"
+          ]
+        },
+        {
+          "id": "garaon_dugu",
+          "name": "Dügü / chugú (ancestral ceremony)",
+          "descriptors": [
+            "ceremonial",
+            "trance",
+            "ancestral"
+          ],
+          "match_tokens": [
+            "struck",
+            "ritual",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "ritual",
+            "garifuna"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "garaon_build",
+      "surface": false,
+      "name": "Shell & head material",
+      "variants": [
+        {
+          "id": "garaon_mahogany_deerskin",
+          "default": true,
+          "name": "Hollowed mahogany shell, deerskin head",
+          "descriptors": [
+            "hardwood-shell",
+            "deerskin-head",
+            "warm-tone"
+          ],
+          "match_tokens": [
+            "struck",
+            "wood-shell",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "garifuna"
+          ]
+        },
+        {
+          "id": "garaon_peccary_hide",
+          "name": "Peccary / wild-pig hide head",
+          "descriptors": [
+            "peccary-hide",
+            "dry-crack",
+            "tight"
+          ],
+          "match_tokens": [
+            "struck",
+            "hide-head",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "garifuna"
+          ]
+        },
+        {
+          "id": "garaon_snared",
+          "name": "Snare cords across the head (buzz)",
+          "descriptors": [
+            "snared",
+            "buzzing",
+            "rattling"
+          ],
+          "match_tokens": [
+            "struck",
+            "buzz-tone",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "garifuna"
+          ]
+        }
+      ]
+    }
+  ]
+}

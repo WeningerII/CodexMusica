@@ -1,0 +1,386 @@
+{
+  "id": "dhol",
+  "name": "Dhol (Punjabi double-headed barrel drum)",
+  "family": "percussion",
+  "class": "barrel_drum",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "dhol",
+  "parts": [
+    {
+      "id": "dhol_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "dhol_punjabi",
+          "default": true,
+          "name": "Punjabi bhangra dhol",
+          "descriptors": [
+            "loud",
+            "driving",
+            "bass-and-crack"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick-struck",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "punjab",
+            "south_asia",
+            "bhangra"
+          ]
+        },
+        {
+          "id": "dhol_maharashtrian",
+          "name": "Maharashtrian dhol (dhol-tasha pathak)",
+          "descriptors": [
+            "thunderous",
+            "massed",
+            "processional"
+          ],
+          "match_tokens": [
+            "struck",
+            "loud-projection",
+            "deep-bass"
+          ],
+          "canonical_tags": [
+            "maharashtra",
+            "ganpati"
+          ]
+        },
+        {
+          "id": "dhol_bihu",
+          "name": "Assamese Bihu dhol",
+          "descriptors": [
+            "folk",
+            "lilting",
+            "hand-and-stick"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "folk-pulse"
+          ],
+          "canonical_tags": [
+            "assam",
+            "bihu"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dhol_repertoire",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "dhol_bhangra_chaal",
+          "default": true,
+          "name": "Bhangra chaal (dagga bass beat, tihli whip)",
+          "descriptors": [
+            "driving",
+            "syncopated",
+            "dance-pulse"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick-struck",
+            "dance-pulse"
+          ],
+          "canonical_tags": [
+            "bhangra",
+            "chaal"
+          ]
+        },
+        {
+          "id": "dhol_baraat",
+          "name": "Wedding baraat procession",
+          "descriptors": [
+            "celebratory",
+            "outdoor",
+            "processional"
+          ],
+          "match_tokens": [
+            "struck",
+            "loud-projection",
+            "processional"
+          ],
+          "canonical_tags": [
+            "wedding",
+            "baraat"
+          ]
+        },
+        {
+          "id": "dhol_festival",
+          "name": "Festival drumming (Holi / Navratri / jago)",
+          "descriptors": [
+            "exuberant",
+            "festive",
+            "trance-building"
+          ],
+          "match_tokens": [
+            "struck",
+            "loud-projection",
+            "festival"
+          ],
+          "canonical_tags": [
+            "holi",
+            "navratri"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dhol_shell",
+      "surface": false,
+      "name": "Shell material",
+      "variants": [
+        {
+          "id": "dhol_sheesham",
+          "default": true,
+          "name": "Sheesham (Indian rosewood) shell",
+          "descriptors": [
+            "dense",
+            "resonant",
+            "traditional"
+          ],
+          "match_tokens": [
+            "struck",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "rosewood",
+            "sheesham"
+          ]
+        },
+        {
+          "id": "dhol_mango",
+          "name": "Mango-wood shell",
+          "descriptors": [
+            "lighter",
+            "bright",
+            "everyday"
+          ],
+          "match_tokens": [
+            "struck",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "mango-wood"
+          ]
+        },
+        {
+          "id": "dhol_fiberglass",
+          "name": "Fiberglass shell (modern)",
+          "descriptors": [
+            "weatherproof",
+            "cutting",
+            "modern"
+          ],
+          "match_tokens": [
+            "struck",
+            "loud-projection",
+            "modern"
+          ],
+          "canonical_tags": [
+            "fiberglass",
+            "synthetic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dhol_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "dhol_punjabi",
+          "default": true,
+          "name": "Punjabi bhangra dhol",
+          "descriptors": [
+            "loud",
+            "driving",
+            "bass-and-crack"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick-struck",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "punjab",
+            "south_asia",
+            "bhangra"
+          ]
+        },
+        {
+          "id": "dhol_maharashtrian",
+          "name": "Maharashtrian dhol (dhol-tasha pathak)",
+          "descriptors": [
+            "thunderous",
+            "massed",
+            "processional"
+          ],
+          "match_tokens": [
+            "struck",
+            "loud-projection",
+            "deep-bass"
+          ],
+          "canonical_tags": [
+            "maharashtra",
+            "ganpati"
+          ]
+        },
+        {
+          "id": "dhol_bihu",
+          "name": "Assamese Bihu dhol",
+          "descriptors": [
+            "folk",
+            "lilting",
+            "hand-and-stick"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "folk-pulse"
+          ],
+          "canonical_tags": [
+            "assam",
+            "bihu"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dhol_repertoire",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "dhol_bhangra_chaal",
+          "default": true,
+          "name": "Bhangra chaal (dagga bass beat, tihli whip)",
+          "descriptors": [
+            "driving",
+            "syncopated",
+            "dance-pulse"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick-struck",
+            "dance-pulse"
+          ],
+          "canonical_tags": [
+            "bhangra",
+            "chaal"
+          ]
+        },
+        {
+          "id": "dhol_baraat",
+          "name": "Wedding baraat procession",
+          "descriptors": [
+            "celebratory",
+            "outdoor",
+            "processional"
+          ],
+          "match_tokens": [
+            "struck",
+            "loud-projection",
+            "processional"
+          ],
+          "canonical_tags": [
+            "wedding",
+            "baraat"
+          ]
+        },
+        {
+          "id": "dhol_festival",
+          "name": "Festival drumming (Holi / Navratri / jago)",
+          "descriptors": [
+            "exuberant",
+            "festive",
+            "trance-building"
+          ],
+          "match_tokens": [
+            "struck",
+            "loud-projection",
+            "festival"
+          ],
+          "canonical_tags": [
+            "holi",
+            "navratri"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dhol_shell",
+      "surface": false,
+      "name": "Shell material",
+      "variants": [
+        {
+          "id": "dhol_sheesham",
+          "default": true,
+          "name": "Sheesham (Indian rosewood) shell",
+          "descriptors": [
+            "dense",
+            "resonant",
+            "traditional"
+          ],
+          "match_tokens": [
+            "struck",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "rosewood",
+            "sheesham"
+          ]
+        },
+        {
+          "id": "dhol_mango",
+          "name": "Mango-wood shell",
+          "descriptors": [
+            "lighter",
+            "bright",
+            "everyday"
+          ],
+          "match_tokens": [
+            "struck",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "mango-wood"
+          ]
+        },
+        {
+          "id": "dhol_fiberglass",
+          "name": "Fiberglass shell (modern)",
+          "descriptors": [
+            "weatherproof",
+            "cutting",
+            "modern"
+          ],
+          "match_tokens": [
+            "struck",
+            "loud-projection",
+            "modern"
+          ],
+          "canonical_tags": [
+            "fiberglass",
+            "synthetic"
+          ]
+        }
+      ]
+    }
+  ]
+}

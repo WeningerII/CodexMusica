@@ -1,0 +1,366 @@
+{
+  "id": "nyatiti",
+  "name": "Nyatiti (Luo bowl lyre)",
+  "family": "plucked_traditional",
+  "class": "plucked_lyre",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "nyatiti",
+  "parts": [
+    {
+      "id": "nyatiti_form",
+      "name": "Regional form & tuning",
+      "variants": [
+        {
+          "id": "nyatiti_luo_nyanza",
+          "default": true,
+          "name": "Kenyan Luo (Nyanza) eight-string nyatiti",
+          "descriptors": [
+            "eight-string",
+            "bowl-resonator",
+            "pentatonic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "lyre"
+          ],
+          "canonical_tags": [
+            "east_africa",
+            "luo"
+          ]
+        },
+        {
+          "id": "nyatiti_mara_tanzanian",
+          "name": "Tanzanian Luo (Mara) nyatiti",
+          "descriptors": [
+            "cross-border",
+            "village-tuned",
+            "warm-toned"
+          ],
+          "match_tokens": [
+            "plucked",
+            "lyre"
+          ],
+          "canonical_tags": [
+            "east_africa",
+            "luo"
+          ]
+        },
+        {
+          "id": "nyatiti_low_thum",
+          "name": "Deep-tuned thum (solemn praise)",
+          "descriptors": [
+            "deep-tuned",
+            "resonant",
+            "solemn"
+          ],
+          "match_tokens": [
+            "plucked",
+            "lyre",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "east_africa",
+            "luo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nyatiti_repertoire",
+      "name": "Playing context & technique",
+      "variants": [
+        {
+          "id": "nyatiti_pakruok_praise",
+          "default": true,
+          "name": "Pakruok self-praise accompaniment",
+          "descriptors": [
+            "cyclic-ostinato",
+            "praise-poetry",
+            "toe-ring-tap"
+          ],
+          "match_tokens": [
+            "plucked",
+            "cyclic-ostinato",
+            "rhythmic-drive"
+          ],
+          "canonical_tags": [
+            "luo",
+            "praise-song"
+          ]
+        },
+        {
+          "id": "nyatiti_dodo_dance",
+          "name": "Dodo dance-song groove",
+          "descriptors": [
+            "driving",
+            "danceable",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "plucked",
+            "rhythmic-drive"
+          ],
+          "canonical_tags": [
+            "luo",
+            "dance"
+          ]
+        },
+        {
+          "id": "nyatiti_benga_precursor",
+          "name": "Benga-guitar precursor riffing",
+          "descriptors": [
+            "melodic-lead",
+            "riffing",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "lyre"
+          ],
+          "canonical_tags": [
+            "benga",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nyatiti_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "nyatiti_strings_sisal",
+          "default": true,
+          "name": "Twisted sisal / gut strings",
+          "descriptors": [
+            "warm",
+            "buzzy",
+            "traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "nyatiti_strings_nylon",
+          "name": "Nylon / fishing-line strings",
+          "descriptors": [
+            "bright",
+            "clean",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "nyatiti_strings_wire",
+          "name": "Steel wire strings",
+          "descriptors": [
+            "metallic",
+            "cutting",
+            "bright"
+          ],
+          "match_tokens": [
+            "plucked"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "nyatiti_form",
+      "name": "Regional form & tuning",
+      "variants": [
+        {
+          "id": "nyatiti_luo_nyanza",
+          "default": true,
+          "name": "Kenyan Luo (Nyanza) eight-string nyatiti",
+          "descriptors": [
+            "eight-string",
+            "bowl-resonator",
+            "pentatonic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "lyre"
+          ],
+          "canonical_tags": [
+            "east_africa",
+            "luo"
+          ]
+        },
+        {
+          "id": "nyatiti_mara_tanzanian",
+          "name": "Tanzanian Luo (Mara) nyatiti",
+          "descriptors": [
+            "cross-border",
+            "village-tuned",
+            "warm-toned"
+          ],
+          "match_tokens": [
+            "plucked",
+            "lyre"
+          ],
+          "canonical_tags": [
+            "east_africa",
+            "luo"
+          ]
+        },
+        {
+          "id": "nyatiti_low_thum",
+          "name": "Deep-tuned thum (solemn praise)",
+          "descriptors": [
+            "deep-tuned",
+            "resonant",
+            "solemn"
+          ],
+          "match_tokens": [
+            "plucked",
+            "lyre",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "east_africa",
+            "luo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nyatiti_repertoire",
+      "name": "Playing context & technique",
+      "variants": [
+        {
+          "id": "nyatiti_pakruok_praise",
+          "default": true,
+          "name": "Pakruok self-praise accompaniment",
+          "descriptors": [
+            "cyclic-ostinato",
+            "praise-poetry",
+            "toe-ring-tap"
+          ],
+          "match_tokens": [
+            "plucked",
+            "cyclic-ostinato",
+            "rhythmic-drive"
+          ],
+          "canonical_tags": [
+            "luo",
+            "praise-song"
+          ]
+        },
+        {
+          "id": "nyatiti_dodo_dance",
+          "name": "Dodo dance-song groove",
+          "descriptors": [
+            "driving",
+            "danceable",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "plucked",
+            "rhythmic-drive"
+          ],
+          "canonical_tags": [
+            "luo",
+            "dance"
+          ]
+        },
+        {
+          "id": "nyatiti_benga_precursor",
+          "name": "Benga-guitar precursor riffing",
+          "descriptors": [
+            "melodic-lead",
+            "riffing",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "lyre"
+          ],
+          "canonical_tags": [
+            "benga",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nyatiti_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "nyatiti_strings_sisal",
+          "default": true,
+          "name": "Twisted sisal / gut strings",
+          "descriptors": [
+            "warm",
+            "buzzy",
+            "traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "nyatiti_strings_nylon",
+          "name": "Nylon / fishing-line strings",
+          "descriptors": [
+            "bright",
+            "clean",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "nyatiti_strings_wire",
+          "name": "Steel wire strings",
+          "descriptors": [
+            "metallic",
+            "cutting",
+            "bright"
+          ],
+          "match_tokens": [
+            "plucked"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

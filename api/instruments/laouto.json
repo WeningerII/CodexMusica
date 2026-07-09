@@ -1,0 +1,334 @@
+{
+  "id": "laouto",
+  "name": "Laouto (Greek/Cretan long-neck lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_lute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "laouto",
+  "parts": [
+    {
+      "id": "laouto_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "laouto_kritiko",
+          "default": true,
+          "name": "Cretan laouto (kritikó laoúto)",
+          "descriptors": [
+            "cretan",
+            "deep-bodied",
+            "lyra-partner"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "crete",
+            "greek"
+          ]
+        },
+        {
+          "id": "laouto_nisiotiko",
+          "name": "Island laouto (nisiótiko)",
+          "descriptors": [
+            "island",
+            "bright",
+            "violin-partner"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed"
+          ],
+          "canonical_tags": [
+            "aegean",
+            "greek"
+          ]
+        },
+        {
+          "id": "laouto_politiko",
+          "name": "Politiko laouto (Constantinopolitan)",
+          "descriptors": [
+            "urban",
+            "smyrneika",
+            "rebetiko-tinged"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed"
+          ],
+          "canonical_tags": [
+            "asia-minor",
+            "greek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "laouto_role",
+      "name": "Playing role",
+      "variants": [
+        {
+          "id": "laouto_synodeia",
+          "default": true,
+          "name": "Rhythmic-harmonic accompaniment (synodeía)",
+          "descriptors": [
+            "strummed",
+            "drone-and-chord",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "accompaniment"
+          ]
+        },
+        {
+          "id": "laouto_taximi",
+          "name": "Melodic taximi & solo (Cretan)",
+          "descriptors": [
+            "melodic",
+            "improvisatory",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "plucked",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "solo"
+          ]
+        },
+        {
+          "id": "laouto_glendi",
+          "name": "Feast-band drive (glendi)",
+          "descriptors": [
+            "driving",
+            "celebratory",
+            "loud-strum"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "dance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "laouto_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "laouto_strings_steel",
+          "default": true,
+          "name": "Steel & wound-bronze strings",
+          "descriptors": [
+            "bright",
+            "ringing",
+            "metallic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bright"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "laouto_strings_gut",
+          "name": "Gut & silk strings",
+          "descriptors": [
+            "warm",
+            "mellow",
+            "archaic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "warm"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "laouto_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "laouto_kritiko",
+          "default": true,
+          "name": "Cretan laouto (kritikó laoúto)",
+          "descriptors": [
+            "cretan",
+            "deep-bodied",
+            "lyra-partner"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "crete",
+            "greek"
+          ]
+        },
+        {
+          "id": "laouto_nisiotiko",
+          "name": "Island laouto (nisiótiko)",
+          "descriptors": [
+            "island",
+            "bright",
+            "violin-partner"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed"
+          ],
+          "canonical_tags": [
+            "aegean",
+            "greek"
+          ]
+        },
+        {
+          "id": "laouto_politiko",
+          "name": "Politiko laouto (Constantinopolitan)",
+          "descriptors": [
+            "urban",
+            "smyrneika",
+            "rebetiko-tinged"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed"
+          ],
+          "canonical_tags": [
+            "asia-minor",
+            "greek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "laouto_role",
+      "name": "Playing role",
+      "variants": [
+        {
+          "id": "laouto_synodeia",
+          "default": true,
+          "name": "Rhythmic-harmonic accompaniment (synodeía)",
+          "descriptors": [
+            "strummed",
+            "drone-and-chord",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "accompaniment"
+          ]
+        },
+        {
+          "id": "laouto_taximi",
+          "name": "Melodic taximi & solo (Cretan)",
+          "descriptors": [
+            "melodic",
+            "improvisatory",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "plucked",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "solo"
+          ]
+        },
+        {
+          "id": "laouto_glendi",
+          "name": "Feast-band drive (glendi)",
+          "descriptors": [
+            "driving",
+            "celebratory",
+            "loud-strum"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "dance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "laouto_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "laouto_strings_steel",
+          "default": true,
+          "name": "Steel & wound-bronze strings",
+          "descriptors": [
+            "bright",
+            "ringing",
+            "metallic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bright"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "laouto_strings_gut",
+          "name": "Gut & silk strings",
+          "descriptors": [
+            "warm",
+            "mellow",
+            "archaic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "warm"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        }
+      ]
+    }
+  ]
+}

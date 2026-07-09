@@ -1,0 +1,396 @@
+{
+  "id": "barril_de_bomba",
+  "name": "Barril de bomba (Puerto Rican bomba barrel drum)",
+  "family": "percussion",
+  "class": "barrel_drum",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "barril",
+  "parts": [
+    {
+      "id": "barril_de_bomba_form",
+      "name": "Drum role in the cuerda",
+      "variants": [
+        {
+          "id": "barril_de_bomba_subidor",
+          "default": true,
+          "name": "Subidor / primo (lead barrel)",
+          "descriptors": [
+            "improvising-lead",
+            "conversational",
+            "higher-pitched",
+            "talks-with-dancer"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "lead-drum"
+          ],
+          "canonical_tags": [
+            "puerto_rican",
+            "bomba",
+            "afro_caribbean"
+          ]
+        },
+        {
+          "id": "barril_de_bomba_buleador",
+          "name": "Buleador (timekeeping barrel)",
+          "descriptors": [
+            "timekeeping",
+            "deep",
+            "steady-ostinato",
+            "foundational"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "timekeeper"
+          ],
+          "canonical_tags": [
+            "puerto_rican",
+            "bomba",
+            "afro_caribbean"
+          ]
+        },
+        {
+          "id": "barril_de_bomba_cuerda",
+          "name": "Cuerda de barriles (paired set)",
+          "descriptors": [
+            "paired-set",
+            "interlocking",
+            "buleador-and-subidor"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "drum-ensemble"
+          ],
+          "canonical_tags": [
+            "puerto_rican",
+            "bomba"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "barril_de_bomba_repertoire",
+      "name": "Rhythm / playing context",
+      "variants": [
+        {
+          "id": "barril_de_bomba_sica",
+          "default": true,
+          "name": "Sicá seis (bright dance rhythm)",
+          "descriptors": [
+            "bright",
+            "danceable",
+            "moderate-tempo"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "dance-rhythm"
+          ],
+          "canonical_tags": [
+            "bomba",
+            "sica"
+          ]
+        },
+        {
+          "id": "barril_de_bomba_holande_yuba",
+          "name": "Holandé / Yubá (deep ancestral rhythms)",
+          "descriptors": [
+            "slow",
+            "solemn",
+            "ancestral",
+            "deep"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "bomba",
+            "yuba"
+          ]
+        },
+        {
+          "id": "barril_de_bomba_piquetes",
+          "name": "Piquetes (dancer dialogue)",
+          "descriptors": [
+            "improvised",
+            "call-and-response",
+            "accented",
+            "conversational"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "improvised"
+          ],
+          "canonical_tags": [
+            "bomba",
+            "piquete"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "barril_de_bomba_shell",
+      "surface": false,
+      "name": "Shell & head material",
+      "variants": [
+        {
+          "id": "barril_de_bomba_rum_barrel",
+          "default": true,
+          "name": "Repurposed rum/food barrel + goatskin",
+          "descriptors": [
+            "staved-wood",
+            "goatskin-head",
+            "repurposed-barrel",
+            "warm-tone"
+          ],
+          "match_tokens": [
+            "struck",
+            "wood-shell",
+            "goatskin"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "barril_de_bomba_stave_tunable",
+          "name": "Hand-built stave shell, tunable goatskin",
+          "descriptors": [
+            "hand-crafted",
+            "tunable",
+            "tension-mounted"
+          ],
+          "match_tokens": [
+            "struck",
+            "wood-shell",
+            "goatskin"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "barril_de_bomba_fiberglass",
+          "name": "Fiberglass shell",
+          "descriptors": [
+            "durable",
+            "bright",
+            "modern"
+          ],
+          "match_tokens": [
+            "struck",
+            "synthetic-shell"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "barril_de_bomba_form",
+      "name": "Drum role in the cuerda",
+      "variants": [
+        {
+          "id": "barril_de_bomba_subidor",
+          "default": true,
+          "name": "Subidor / primo (lead barrel)",
+          "descriptors": [
+            "improvising-lead",
+            "conversational",
+            "higher-pitched",
+            "talks-with-dancer"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "lead-drum"
+          ],
+          "canonical_tags": [
+            "puerto_rican",
+            "bomba",
+            "afro_caribbean"
+          ]
+        },
+        {
+          "id": "barril_de_bomba_buleador",
+          "name": "Buleador (timekeeping barrel)",
+          "descriptors": [
+            "timekeeping",
+            "deep",
+            "steady-ostinato",
+            "foundational"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "timekeeper"
+          ],
+          "canonical_tags": [
+            "puerto_rican",
+            "bomba",
+            "afro_caribbean"
+          ]
+        },
+        {
+          "id": "barril_de_bomba_cuerda",
+          "name": "Cuerda de barriles (paired set)",
+          "descriptors": [
+            "paired-set",
+            "interlocking",
+            "buleador-and-subidor"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "drum-ensemble"
+          ],
+          "canonical_tags": [
+            "puerto_rican",
+            "bomba"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "barril_de_bomba_repertoire",
+      "name": "Rhythm / playing context",
+      "variants": [
+        {
+          "id": "barril_de_bomba_sica",
+          "default": true,
+          "name": "Sicá seis (bright dance rhythm)",
+          "descriptors": [
+            "bright",
+            "danceable",
+            "moderate-tempo"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "dance-rhythm"
+          ],
+          "canonical_tags": [
+            "bomba",
+            "sica"
+          ]
+        },
+        {
+          "id": "barril_de_bomba_holande_yuba",
+          "name": "Holandé / Yubá (deep ancestral rhythms)",
+          "descriptors": [
+            "slow",
+            "solemn",
+            "ancestral",
+            "deep"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "bomba",
+            "yuba"
+          ]
+        },
+        {
+          "id": "barril_de_bomba_piquetes",
+          "name": "Piquetes (dancer dialogue)",
+          "descriptors": [
+            "improvised",
+            "call-and-response",
+            "accented",
+            "conversational"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "improvised"
+          ],
+          "canonical_tags": [
+            "bomba",
+            "piquete"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "barril_de_bomba_shell",
+      "surface": false,
+      "name": "Shell & head material",
+      "variants": [
+        {
+          "id": "barril_de_bomba_rum_barrel",
+          "default": true,
+          "name": "Repurposed rum/food barrel + goatskin",
+          "descriptors": [
+            "staved-wood",
+            "goatskin-head",
+            "repurposed-barrel",
+            "warm-tone"
+          ],
+          "match_tokens": [
+            "struck",
+            "wood-shell",
+            "goatskin"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "barril_de_bomba_stave_tunable",
+          "name": "Hand-built stave shell, tunable goatskin",
+          "descriptors": [
+            "hand-crafted",
+            "tunable",
+            "tension-mounted"
+          ],
+          "match_tokens": [
+            "struck",
+            "wood-shell",
+            "goatskin"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "barril_de_bomba_fiberglass",
+          "name": "Fiberglass shell",
+          "descriptors": [
+            "durable",
+            "bright",
+            "modern"
+          ],
+          "match_tokens": [
+            "struck",
+            "synthetic-shell"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

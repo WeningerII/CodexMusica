@@ -1,0 +1,376 @@
+{
+  "id": "sackpipa",
+  "name": "Säckpipa (Swedish bagpipe)",
+  "family": "wind",
+  "class": "reed-bagpipe",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "sackpipa",
+  "parts": [
+    {
+      "id": "sackpipa_pitch_form",
+      "name": "Pitch & size",
+      "variants": [
+        {
+          "id": "sackpipa_e",
+          "default": true,
+          "name": "E-pitched säckpipa (revival standard)",
+          "descriptors": [
+            "mellow",
+            "dance-tuned",
+            "single-drone"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation",
+            "single-reed"
+          ],
+          "canonical_tags": [
+            "nordic",
+            "dalarna",
+            "swedish"
+          ]
+        },
+        {
+          "id": "sackpipa_a",
+          "name": "A-pitched säckpipa (lower, broader-toned)",
+          "descriptors": [
+            "deeper",
+            "broad-toned",
+            "resonant-drone"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation",
+            "single-reed"
+          ],
+          "canonical_tags": [
+            "nordic",
+            "swedish"
+          ]
+        },
+        {
+          "id": "sackpipa_d",
+          "name": "D-pitched säckpipa (higher, brighter)",
+          "descriptors": [
+            "bright",
+            "higher-pitched",
+            "keen"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "nordic",
+            "swedish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sackpipa_repertoire",
+      "name": "Playing context & repertoire",
+      "variants": [
+        {
+          "id": "sackpipa_polska_dance",
+          "default": true,
+          "name": "Polska & bygdedans dance tunes",
+          "descriptors": [
+            "driving",
+            "dance-pulse",
+            "asymmetric-lilt"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "nordic",
+            "dance"
+          ]
+        },
+        {
+          "id": "sackpipa_marsch_ganglat",
+          "name": "Marsch & gånglåt (walking/processional tunes)",
+          "descriptors": [
+            "stately",
+            "walking-tempo",
+            "steady-drone"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "nordic",
+            "processional"
+          ]
+        },
+        {
+          "id": "sackpipa_fiddle_unison",
+          "name": "Unison with fiddle & nyckelharpa (revival ensemble)",
+          "descriptors": [
+            "ensemble-blend",
+            "layered-drone",
+            "folk-revival"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "nordic",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sackpipa_reeds",
+      "surface": false,
+      "name": "Reed material",
+      "variants": [
+        {
+          "id": "sackpipa_cane_reeds",
+          "default": true,
+          "name": "Cane single reeds",
+          "descriptors": [
+            "reedy",
+            "warm",
+            "buzzing"
+          ],
+          "match_tokens": [
+            "single-reed",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "nordic"
+          ]
+        },
+        {
+          "id": "sackpipa_elder_reeds",
+          "name": "Elder / juniper idioglot reeds (traditional)",
+          "descriptors": [
+            "rustic",
+            "archaic",
+            "rough-toned"
+          ],
+          "match_tokens": [
+            "single-reed",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "nordic",
+            "traditional"
+          ]
+        },
+        {
+          "id": "sackpipa_synthetic_reeds",
+          "name": "Synthetic reeds (stable tuning)",
+          "descriptors": [
+            "stable",
+            "even",
+            "modern"
+          ],
+          "match_tokens": [
+            "single-reed",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "nordic",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sackpipa_pitch_form",
+      "name": "Pitch & size",
+      "variants": [
+        {
+          "id": "sackpipa_e",
+          "default": true,
+          "name": "E-pitched säckpipa (revival standard)",
+          "descriptors": [
+            "mellow",
+            "dance-tuned",
+            "single-drone"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation",
+            "single-reed"
+          ],
+          "canonical_tags": [
+            "nordic",
+            "dalarna",
+            "swedish"
+          ]
+        },
+        {
+          "id": "sackpipa_a",
+          "name": "A-pitched säckpipa (lower, broader-toned)",
+          "descriptors": [
+            "deeper",
+            "broad-toned",
+            "resonant-drone"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation",
+            "single-reed"
+          ],
+          "canonical_tags": [
+            "nordic",
+            "swedish"
+          ]
+        },
+        {
+          "id": "sackpipa_d",
+          "name": "D-pitched säckpipa (higher, brighter)",
+          "descriptors": [
+            "bright",
+            "higher-pitched",
+            "keen"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "nordic",
+            "swedish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sackpipa_repertoire",
+      "name": "Playing context & repertoire",
+      "variants": [
+        {
+          "id": "sackpipa_polska_dance",
+          "default": true,
+          "name": "Polska & bygdedans dance tunes",
+          "descriptors": [
+            "driving",
+            "dance-pulse",
+            "asymmetric-lilt"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "nordic",
+            "dance"
+          ]
+        },
+        {
+          "id": "sackpipa_marsch_ganglat",
+          "name": "Marsch & gånglåt (walking/processional tunes)",
+          "descriptors": [
+            "stately",
+            "walking-tempo",
+            "steady-drone"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "nordic",
+            "processional"
+          ]
+        },
+        {
+          "id": "sackpipa_fiddle_unison",
+          "name": "Unison with fiddle & nyckelharpa (revival ensemble)",
+          "descriptors": [
+            "ensemble-blend",
+            "layered-drone",
+            "folk-revival"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "nordic",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sackpipa_reeds",
+      "surface": false,
+      "name": "Reed material",
+      "variants": [
+        {
+          "id": "sackpipa_cane_reeds",
+          "default": true,
+          "name": "Cane single reeds",
+          "descriptors": [
+            "reedy",
+            "warm",
+            "buzzing"
+          ],
+          "match_tokens": [
+            "single-reed",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "nordic"
+          ]
+        },
+        {
+          "id": "sackpipa_elder_reeds",
+          "name": "Elder / juniper idioglot reeds (traditional)",
+          "descriptors": [
+            "rustic",
+            "archaic",
+            "rough-toned"
+          ],
+          "match_tokens": [
+            "single-reed",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "nordic",
+            "traditional"
+          ]
+        },
+        {
+          "id": "sackpipa_synthetic_reeds",
+          "name": "Synthetic reeds (stable tuning)",
+          "descriptors": [
+            "stable",
+            "even",
+            "modern"
+          ],
+          "match_tokens": [
+            "single-reed",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "nordic",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -3,9 +3,9 @@
   "name": "Roma Balkan svatba (wedding music)",
   "family": "global",
   "lineage": "Roma-Balkan wedding-music tradition continuous from 19th-20th century Roma musical-professionalization across Bulgaria, Macedonia, Serbia, Romania, Turkey, and broader Balkan zones; particularly codified in the 1980s-2000s Goran-Bregović-era and the broader Balkan brass-band wedding tradition documented by Bartók and later ethnomusicologists",
-  "recipe": "classic mid-1980s roma balkan svatba, wedding, European branch, middle eastern wedding, Mediterranean ballad ballad poetry, string improv improv on frame lebanese-arab wedding takht persian aroosi. thick, low dynamic level, chest resonance low mid, continuous-phonation. brass castagnari Italian premium folk music ensemble accordion, synthetic magic rosin modern acrylic base legato fiddle, grenadilla African blackwood traditional continuous-airflow legato clarinet, brass warmer alternative synthetic remo mylar modern canonical Egyptian darbuka, yellow brass canonical 70 30 bach stradivarius yamaha xeno modern Japanese continuous-airflow legato student friendly trumpet, continuous-airflow legato kaval, yellow brass modern standard yamaha custom 875ex modern Japanese premium continuous-airflow legato saxophone. irish pub. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 960,
-  "score": 277.69,
+  "recipe": "classic mid-1980s roma balkan svatba, wedding, European branch, middle eastern wedding, Mediterranean ballad ballad poetry, string improv improv on frame lebanese-arab wedding takht persian aroosi. thick, low dynamic level, chest resonance low mid, continuous-phonation. brass castagnari Italian premium folk music ensemble accordion, synthetic magic rosin modern acrylic base legato fiddle, grenadilla African blackwood traditional continuous-airflow legato clarinet, brass warmer alternative synthetic remo mylar modern canonical Egyptian darbuka, yellow brass canonical 70 30 bach stradivarius yamaha xeno modern Japanese continuous-airflow legato student friendly trumpet, continuous-airflow legato kaval, yellow brass modern standard yamaha custom 875ex modern Japanese premium continuous-airflow legato saxophone, bolt tuned tapan. irish pub. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 978,
+  "score": 331.235,
   "config": {
     "traditions": [
       "roma_svatba_balkan",
@@ -177,6 +177,19 @@
           "sax_mouthpiece": 0.6,
           "sax_technique": 3.5100000000000002,
           "sax_maker_school": 1.2349999999999999
+        }
+      },
+      {
+        "id": "tapan",
+        "slots": {
+          "tapan_form": "tapan_balkan",
+          "tapan_role": "tapan_wedding_processional",
+          "tapan_build": "tapan_modern_tensioned"
+        },
+        "scores": {
+          "tapan_form": 15.014999999999997,
+          "tapan_role": 31.254999999999995,
+          "tapan_build": 7.275
         }
       }
     ],

@@ -3,9 +3,9 @@
   "name": "Indie pop (modern)",
   "family": "global",
   "lineage": "Post-2000 streaming-era indie-pop with bedroom-recording aesthetic and DIY production — codified through Vampire Weekend (Vampire Weekend 2008), Beach House (Teen Dream 2010), Grimes (Visions 2012), and the broader Pitchfork-canonical indie ecosystem; characterized by reverb-soaked guitars, drum-machine programming, and confessional first-person lyrical register",
-  "recipe": "classic early-2000s indie pop, functional Song, pop rock branch, alternative distorted rock bedroom pop dreampop. thick, incomplete closure resting, tasteful, rhythmic. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation clean single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric marshall plexi amp British rock amp humbucker roundwound short-scale short scale bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, singing lead analog poly synth. live tracking. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital klon centaur.",
-  "recipe_chars": 672,
-  "score": 450.853,
+  "recipe": "classic early-2000s indie pop, functional Song, pop rock branch, alternative distorted rock bedroom pop dreampop. thick, incomplete closure resting, tasteful, rhythmic. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation clean single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric marshall plexi amp British rock amp humbucker roundwound short-scale short scale bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, singing lead analog poly synth, ukulele. live tracking. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital klon centaur.",
+  "recipe_chars": 681,
+  "score": 452.413,
   "config": {
     "traditions": [
       "indie_pop_modern",
@@ -167,6 +167,19 @@
           "short_scale_bass_context": 8.564999999999998,
           "short_scale_bass_pickup": 1.17,
           "short_scale_bass_strings": 1.95
+        }
+      },
+      {
+        "id": "ukulele",
+        "slots": {
+          "ukulele_size": "ukulele_baritone",
+          "ukulele_style": "ukulele_fingerstyle",
+          "ukulele_wood": "ukulele_mahogany"
+        },
+        "scores": {
+          "ukulele_size": 0.78,
+          "ukulele_style": 0.78,
+          "ukulele_wood": 0
         }
       }
     ],

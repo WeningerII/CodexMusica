@@ -1,0 +1,380 @@
+{
+  "id": "tapan",
+  "name": "Tapan (Balkan double-headed slung bass drum)",
+  "family": "percussion",
+  "class": "double_headed_drum",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": -2,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "tapan",
+  "parts": [
+    {
+      "id": "tapan_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "tapan_balkan",
+          "default": true,
+          "name": "Balkan tăpan (Macedonian goč / Bulgarian tăpan)",
+          "descriptors": [
+            "slung",
+            "deep-boom",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "struck",
+            "double-headed",
+            "boom-and-crack"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "macedonian",
+            "bulgarian"
+          ]
+        },
+        {
+          "id": "tapan_davul_anatolian",
+          "name": "Anatolian davul (large koltuk davulu)",
+          "descriptors": [
+            "large-bore",
+            "cavernous",
+            "processional"
+          ],
+          "match_tokens": [
+            "struck",
+            "double-headed",
+            "bass-boom"
+          ],
+          "canonical_tags": [
+            "anatolian",
+            "turkish"
+          ]
+        },
+        {
+          "id": "tapan_daouli_greek",
+          "name": "Greek daoúli (village-dance drum)",
+          "descriptors": [
+            "shallow-shell",
+            "crisp",
+            "epirus-dance"
+          ],
+          "match_tokens": [
+            "struck",
+            "double-headed",
+            "whip-crack"
+          ],
+          "canonical_tags": [
+            "greek",
+            "epirus"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tapan_role",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "tapan_zurna_pair",
+          "default": true,
+          "name": "Zurna-tapan pair (oro / horo dance)",
+          "descriptors": [
+            "driving",
+            "two-stroke",
+            "open-air"
+          ],
+          "match_tokens": [
+            "struck",
+            "boom-and-crack",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "dance",
+            "zurna-tapan"
+          ]
+        },
+        {
+          "id": "tapan_brass_fanfara",
+          "name": "Balkan brass fanfara bass engine",
+          "descriptors": [
+            "low-pulse",
+            "booming",
+            "backbeat"
+          ],
+          "match_tokens": [
+            "struck",
+            "bass-boom",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "brass-band",
+            "romani"
+          ]
+        },
+        {
+          "id": "tapan_wedding_processional",
+          "name": "Roma wedding processional (svatba)",
+          "descriptors": [
+            "celebratory",
+            "marching",
+            "insistent"
+          ],
+          "match_tokens": [
+            "struck",
+            "boom-and-crack"
+          ],
+          "canonical_tags": [
+            "wedding",
+            "romani"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tapan_build",
+      "surface": false,
+      "name": "Shell & head material",
+      "variants": [
+        {
+          "id": "tapan_wood_goatskin",
+          "default": true,
+          "name": "Bent-wood shell, rope-laced goatskin heads",
+          "descriptors": [
+            "walnut-hoop",
+            "goatskin",
+            "rope-laced"
+          ],
+          "match_tokens": [
+            "struck",
+            "double-headed"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "tapan_asymmetric_skins",
+          "name": "Asymmetric heads (thin snap head + thick bass skin)",
+          "descriptors": [
+            "donkey-skin-bass",
+            "thin-treble",
+            "contrasting"
+          ],
+          "match_tokens": [
+            "struck",
+            "boom-and-crack"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "tapan_modern_tensioned",
+          "name": "Modern bolt-tuned folkloric tapan",
+          "descriptors": [
+            "plywood-shell",
+            "bolt-tuned",
+            "bright"
+          ],
+          "match_tokens": [
+            "struck",
+            "bass-boom"
+          ],
+          "canonical_tags": [
+            "modern",
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tapan_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "tapan_balkan",
+          "default": true,
+          "name": "Balkan tăpan (Macedonian goč / Bulgarian tăpan)",
+          "descriptors": [
+            "slung",
+            "deep-boom",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "struck",
+            "double-headed",
+            "boom-and-crack"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "macedonian",
+            "bulgarian"
+          ]
+        },
+        {
+          "id": "tapan_davul_anatolian",
+          "name": "Anatolian davul (large koltuk davulu)",
+          "descriptors": [
+            "large-bore",
+            "cavernous",
+            "processional"
+          ],
+          "match_tokens": [
+            "struck",
+            "double-headed",
+            "bass-boom"
+          ],
+          "canonical_tags": [
+            "anatolian",
+            "turkish"
+          ]
+        },
+        {
+          "id": "tapan_daouli_greek",
+          "name": "Greek daoúli (village-dance drum)",
+          "descriptors": [
+            "shallow-shell",
+            "crisp",
+            "epirus-dance"
+          ],
+          "match_tokens": [
+            "struck",
+            "double-headed",
+            "whip-crack"
+          ],
+          "canonical_tags": [
+            "greek",
+            "epirus"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tapan_role",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "tapan_zurna_pair",
+          "default": true,
+          "name": "Zurna-tapan pair (oro / horo dance)",
+          "descriptors": [
+            "driving",
+            "two-stroke",
+            "open-air"
+          ],
+          "match_tokens": [
+            "struck",
+            "boom-and-crack",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "dance",
+            "zurna-tapan"
+          ]
+        },
+        {
+          "id": "tapan_brass_fanfara",
+          "name": "Balkan brass fanfara bass engine",
+          "descriptors": [
+            "low-pulse",
+            "booming",
+            "backbeat"
+          ],
+          "match_tokens": [
+            "struck",
+            "bass-boom",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "brass-band",
+            "romani"
+          ]
+        },
+        {
+          "id": "tapan_wedding_processional",
+          "name": "Roma wedding processional (svatba)",
+          "descriptors": [
+            "celebratory",
+            "marching",
+            "insistent"
+          ],
+          "match_tokens": [
+            "struck",
+            "boom-and-crack"
+          ],
+          "canonical_tags": [
+            "wedding",
+            "romani"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tapan_build",
+      "surface": false,
+      "name": "Shell & head material",
+      "variants": [
+        {
+          "id": "tapan_wood_goatskin",
+          "default": true,
+          "name": "Bent-wood shell, rope-laced goatskin heads",
+          "descriptors": [
+            "walnut-hoop",
+            "goatskin",
+            "rope-laced"
+          ],
+          "match_tokens": [
+            "struck",
+            "double-headed"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "tapan_asymmetric_skins",
+          "name": "Asymmetric heads (thin snap head + thick bass skin)",
+          "descriptors": [
+            "donkey-skin-bass",
+            "thin-treble",
+            "contrasting"
+          ],
+          "match_tokens": [
+            "struck",
+            "boom-and-crack"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "tapan_modern_tensioned",
+          "name": "Modern bolt-tuned folkloric tapan",
+          "descriptors": [
+            "plywood-shell",
+            "bolt-tuned",
+            "bright"
+          ],
+          "match_tokens": [
+            "struck",
+            "bass-boom"
+          ],
+          "canonical_tags": [
+            "modern",
+            "ensemble"
+          ]
+        }
+      ]
+    }
+  ]
+}

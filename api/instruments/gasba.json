@@ -1,0 +1,354 @@
+{
+  "id": "gasba",
+  "name": "Gasba (Algerian/Tunisian open cane flute)",
+  "family": "wind",
+  "class": "end_blown_flute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "gasba",
+  "parts": [
+    {
+      "id": "gasba_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "gasba_form_bedoui",
+          "default": true,
+          "name": "Bedoui gasba (Algerian steppe)",
+          "descriptors": [
+            "husky",
+            "droning",
+            "pastoral"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "end-blown",
+            "breathy-tone"
+          ],
+          "canonical_tags": [
+            "algerian",
+            "maghreb"
+          ]
+        },
+        {
+          "id": "gasba_form_naili",
+          "name": "Naïli long gasba (Ouled Naïl / Djelfa)",
+          "descriptors": [
+            "deep-toned",
+            "plaintive",
+            "low"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathy-tone"
+          ],
+          "canonical_tags": [
+            "algerian",
+            "saharan"
+          ]
+        },
+        {
+          "id": "gasba_form_tunisian",
+          "name": "Tunisian gasba (mezoued ensemble)",
+          "descriptors": [
+            "earthy",
+            "festive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "end-blown"
+          ],
+          "canonical_tags": [
+            "tunisian",
+            "maghreb"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gasba_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "gasba_style_bedoui_trab",
+          "default": true,
+          "name": "Bedoui / trab raï accompaniment",
+          "descriptors": [
+            "melismatic",
+            "call-response",
+            "vocalized-drone"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathy-tone"
+          ],
+          "canonical_tags": [
+            "bedoui",
+            "rai"
+          ]
+        },
+        {
+          "id": "gasba_style_taksim",
+          "name": "Solo pastoral taqsim (free rhythm)",
+          "descriptors": [
+            "free-rhythm",
+            "meditative",
+            "pastoral"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathy-tone"
+          ],
+          "canonical_tags": [
+            "improvised"
+          ]
+        },
+        {
+          "id": "gasba_style_mezoued",
+          "name": "Mezoued festive dance drive",
+          "descriptors": [
+            "driving",
+            "festive",
+            "raspy"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathy-tone"
+          ],
+          "canonical_tags": [
+            "tunisian",
+            "dance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gasba_material",
+      "surface": false,
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "gasba_material_cane",
+          "default": true,
+          "name": "Giant reed cane (Arundo donax)",
+          "descriptors": [
+            "cane-bodied",
+            "natural-bore",
+            "warm"
+          ],
+          "match_tokens": [
+            "end-blown"
+          ],
+          "canonical_tags": [
+            "reed-cane"
+          ]
+        },
+        {
+          "id": "gasba_material_oiled",
+          "name": "Fire-cured / oiled cane",
+          "descriptors": [
+            "seasoned",
+            "mellow"
+          ],
+          "match_tokens": [
+            "end-blown"
+          ],
+          "canonical_tags": [
+            "reed-cane"
+          ]
+        },
+        {
+          "id": "gasba_material_metal",
+          "name": "Metal tube (modern)",
+          "descriptors": [
+            "bright",
+            "modern"
+          ],
+          "match_tokens": [
+            "end-blown"
+          ],
+          "canonical_tags": [
+            "metal"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "gasba_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "gasba_form_bedoui",
+          "default": true,
+          "name": "Bedoui gasba (Algerian steppe)",
+          "descriptors": [
+            "husky",
+            "droning",
+            "pastoral"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "end-blown",
+            "breathy-tone"
+          ],
+          "canonical_tags": [
+            "algerian",
+            "maghreb"
+          ]
+        },
+        {
+          "id": "gasba_form_naili",
+          "name": "Naïli long gasba (Ouled Naïl / Djelfa)",
+          "descriptors": [
+            "deep-toned",
+            "plaintive",
+            "low"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathy-tone"
+          ],
+          "canonical_tags": [
+            "algerian",
+            "saharan"
+          ]
+        },
+        {
+          "id": "gasba_form_tunisian",
+          "name": "Tunisian gasba (mezoued ensemble)",
+          "descriptors": [
+            "earthy",
+            "festive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "end-blown"
+          ],
+          "canonical_tags": [
+            "tunisian",
+            "maghreb"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gasba_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "gasba_style_bedoui_trab",
+          "default": true,
+          "name": "Bedoui / trab raï accompaniment",
+          "descriptors": [
+            "melismatic",
+            "call-response",
+            "vocalized-drone"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathy-tone"
+          ],
+          "canonical_tags": [
+            "bedoui",
+            "rai"
+          ]
+        },
+        {
+          "id": "gasba_style_taksim",
+          "name": "Solo pastoral taqsim (free rhythm)",
+          "descriptors": [
+            "free-rhythm",
+            "meditative",
+            "pastoral"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathy-tone"
+          ],
+          "canonical_tags": [
+            "improvised"
+          ]
+        },
+        {
+          "id": "gasba_style_mezoued",
+          "name": "Mezoued festive dance drive",
+          "descriptors": [
+            "driving",
+            "festive",
+            "raspy"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathy-tone"
+          ],
+          "canonical_tags": [
+            "tunisian",
+            "dance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gasba_material",
+      "surface": false,
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "gasba_material_cane",
+          "default": true,
+          "name": "Giant reed cane (Arundo donax)",
+          "descriptors": [
+            "cane-bodied",
+            "natural-bore",
+            "warm"
+          ],
+          "match_tokens": [
+            "end-blown"
+          ],
+          "canonical_tags": [
+            "reed-cane"
+          ]
+        },
+        {
+          "id": "gasba_material_oiled",
+          "name": "Fire-cured / oiled cane",
+          "descriptors": [
+            "seasoned",
+            "mellow"
+          ],
+          "match_tokens": [
+            "end-blown"
+          ],
+          "canonical_tags": [
+            "reed-cane"
+          ]
+        },
+        {
+          "id": "gasba_material_metal",
+          "name": "Metal tube (modern)",
+          "descriptors": [
+            "bright",
+            "modern"
+          ],
+          "match_tokens": [
+            "end-blown"
+          ],
+          "canonical_tags": [
+            "metal"
+          ]
+        }
+      ]
+    }
+  ]
+}

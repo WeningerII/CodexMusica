@@ -3,9 +3,9 @@
   "name": "Georgian supra feast-singing",
   "family": "global",
   "lineage": "Georgian supra-feast drinking-and-singing tradition continuous from medieval-Georgian feast-and-toast tradition through 19th-20th century continuous performance into modern Georgian-and-Georgian-diaspora continuous practice; the Georgian supra is the documented multi-hour ritual-feast-and-toast-ceremony where the tamada (toast-master) directs the extended-toast-and-song sequence",
-  "recipe": "classic modern georgian supra feast-singing, drinking Song, balkan branch, European drinking song, European wedding, middle east n African praise song sufi munajat and naat arabic madh and qasida. extended whistle, declaimed, tasteful, continuous-phonation. ayre and lieder yew ribs Italian brescian alpine spruce Italian fluorocarbon modern revival lute renaissance. irish pub. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 508,
-  "score": 217.02,
+  "recipe": "classic modern georgian supra feast-singing, drinking Song, balkan branch, European drinking song, European wedding, middle east n African praise song sufi munajat and naat arabic madh and qasida. extended whistle, declaimed, tasteful, continuous-phonation. eastern georgian three string panduri. irish pub. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 437,
+  "score": 236.38,
   "config": {
     "traditions": [
       "georgian_supra_drinking",
@@ -53,22 +53,16 @@
         }
       },
       {
-        "id": "lute_renaissance",
+        "id": "panduri",
         "slots": {
-          "plucked_traditional_technique": "plucked_classical_idiom",
-          "lute_courses": "lute_10_courses",
-          "lute_renaissance_context": "lute_renaissance_song",
-          "lute_renaissance_ribs": "lute_yew_ribs",
-          "lute_renaissance_soundboard": "lute_alpine_spruce",
-          "lute_renaissance_strings": "lute_fluorocarbon"
+          "panduri_form": "panduri_kakhuri",
+          "panduri_repertoire": "panduri_supra_song",
+          "panduri_strings": "panduri_nylon"
         },
         "scores": {
-          "plucked_traditional_technique": 6.2749999999999995,
-          "lute_courses": 1.995,
-          "lute_renaissance_context": 16.119999999999997,
-          "lute_renaissance_ribs": 2.5349999999999997,
-          "lute_renaissance_soundboard": 2.5349999999999997,
-          "lute_renaissance_strings": 3.38
+          "panduri_form": 23.3,
+          "panduri_repertoire": 22.400000000000002,
+          "panduri_strings": 6.5
         }
       }
     ],
@@ -105,13 +99,7 @@
       "voice_ornament_system": "voice_ornament_none",
       "voice_estill_quality": "voice_estill_speech",
       "voice_vibrato": "straight_tone",
-      "voice_mechanism_compound": "voice_mechanism_single_source",
-      "plucked_traditional_technique": "plucked_classical_idiom",
-      "lute_courses": "lute_6_courses",
-      "lute_renaissance_context": "lute_renaissance_consort",
-      "lute_renaissance_ribs": "lute_maple_ribs",
-      "lute_renaissance_soundboard": "lute_carpathian_spruce",
-      "lute_renaissance_strings": "lute_aquila_nylgut"
+      "voice_mechanism_compound": "voice_mechanism_single_source"
     },
     "chain_mic": "condenser_sdc",
     "chain_pre": "pre_field_recorder_portable",

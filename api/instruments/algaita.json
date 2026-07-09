@@ -1,0 +1,338 @@
+{
+  "id": "algaita",
+  "name": "Algaita (Hausa/Kanuri double-reed shawm)",
+  "family": "wind",
+  "class": "double_reed_shawm",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "algaita",
+  "parts": [
+    {
+      "id": "algaita_form",
+      "name": "Regional court form",
+      "variants": [
+        {
+          "id": "algaita_hausa",
+          "default": true,
+          "name": "Hausa emirate algaita (Kano / Katsina / Sokoto)",
+          "descriptors": [
+            "courtly",
+            "praise-driven",
+            "sahelian"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "west_africa",
+            "hausa"
+          ]
+        },
+        {
+          "id": "algaita_kanuri",
+          "name": "Kanuri Bornu algaita (Kanem-Bornu court)",
+          "descriptors": [
+            "archaic",
+            "imperial",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "west_africa",
+            "kanuri"
+          ]
+        },
+        {
+          "id": "algaita_songhai",
+          "name": "Songhai/Zarma alghaita (Niger bend, Gao–Timbuktu)",
+          "descriptors": [
+            "festive",
+            "riverine",
+            "sahelian"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "west_africa",
+            "songhai"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "algaita_context",
+      "name": "Playing context & technique",
+      "variants": [
+        {
+          "id": "algaita_royal_praise",
+          "default": true,
+          "name": "Royal praise fanfare (roƙon sarki, with kakaki)",
+          "descriptors": [
+            "ceremonial",
+            "processional",
+            "praise-driven"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "west_africa",
+            "hausa"
+          ]
+        },
+        {
+          "id": "algaita_speech_mimicry",
+          "name": "Speech-tone mimicry (circular-breath sliding melody)",
+          "descriptors": [
+            "vocal",
+            "sliding",
+            "melismatic",
+            "circular-breath"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "pitch-sliding",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "west_africa"
+          ]
+        },
+        {
+          "id": "algaita_durbar_dance",
+          "name": "Durbar/sara festival dance music",
+          "descriptors": [
+            "festive",
+            "dance-driving",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "west_africa"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "algaita_reed",
+      "surface": false,
+      "name": "Reed & staple material",
+      "variants": [
+        {
+          "id": "algaita_cane_reed",
+          "default": true,
+          "name": "Flattened cane double reed on metal staple",
+          "descriptors": [
+            "cane-reed",
+            "buzzing",
+            "nasal"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "nasal-buzz"
+          ],
+          "canonical_tags": [
+            "west_africa"
+          ]
+        },
+        {
+          "id": "algaita_stalk_reed",
+          "name": "Guinea-corn stalk / palm-leaf reed",
+          "descriptors": [
+            "plant-reed",
+            "raspy",
+            "rustic"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "nasal-buzz"
+          ],
+          "canonical_tags": [
+            "west_africa"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "algaita_form",
+      "name": "Regional court form",
+      "variants": [
+        {
+          "id": "algaita_hausa",
+          "default": true,
+          "name": "Hausa emirate algaita (Kano / Katsina / Sokoto)",
+          "descriptors": [
+            "courtly",
+            "praise-driven",
+            "sahelian"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "west_africa",
+            "hausa"
+          ]
+        },
+        {
+          "id": "algaita_kanuri",
+          "name": "Kanuri Bornu algaita (Kanem-Bornu court)",
+          "descriptors": [
+            "archaic",
+            "imperial",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "west_africa",
+            "kanuri"
+          ]
+        },
+        {
+          "id": "algaita_songhai",
+          "name": "Songhai/Zarma alghaita (Niger bend, Gao–Timbuktu)",
+          "descriptors": [
+            "festive",
+            "riverine",
+            "sahelian"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "west_africa",
+            "songhai"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "algaita_context",
+      "name": "Playing context & technique",
+      "variants": [
+        {
+          "id": "algaita_royal_praise",
+          "default": true,
+          "name": "Royal praise fanfare (roƙon sarki, with kakaki)",
+          "descriptors": [
+            "ceremonial",
+            "processional",
+            "praise-driven"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "west_africa",
+            "hausa"
+          ]
+        },
+        {
+          "id": "algaita_speech_mimicry",
+          "name": "Speech-tone mimicry (circular-breath sliding melody)",
+          "descriptors": [
+            "vocal",
+            "sliding",
+            "melismatic",
+            "circular-breath"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "pitch-sliding",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "west_africa"
+          ]
+        },
+        {
+          "id": "algaita_durbar_dance",
+          "name": "Durbar/sara festival dance music",
+          "descriptors": [
+            "festive",
+            "dance-driving",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "west_africa"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "algaita_reed",
+      "surface": false,
+      "name": "Reed & staple material",
+      "variants": [
+        {
+          "id": "algaita_cane_reed",
+          "default": true,
+          "name": "Flattened cane double reed on metal staple",
+          "descriptors": [
+            "cane-reed",
+            "buzzing",
+            "nasal"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "nasal-buzz"
+          ],
+          "canonical_tags": [
+            "west_africa"
+          ]
+        },
+        {
+          "id": "algaita_stalk_reed",
+          "name": "Guinea-corn stalk / palm-leaf reed",
+          "descriptors": [
+            "plant-reed",
+            "raspy",
+            "rustic"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "nasal-buzz"
+          ],
+          "canonical_tags": [
+            "west_africa"
+          ]
+        }
+      ]
+    }
+  ]
+}

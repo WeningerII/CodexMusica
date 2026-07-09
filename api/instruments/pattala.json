@@ -1,0 +1,336 @@
+{
+  "id": "pattala",
+  "name": "Pattala (Burmese bamboo xylophone)",
+  "family": "percussion",
+  "class": "bamboo_xylophone",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "pattala",
+  "parts": [
+    {
+      "id": "pattala_type",
+      "name": "Slat type",
+      "variants": [
+        {
+          "id": "pattala_bamboo",
+          "default": true,
+          "name": "Bamboo-slat pattala",
+          "descriptors": [
+            "mellow",
+            "sweet-toned",
+            "woody"
+          ],
+          "match_tokens": [
+            "struck",
+            "mallet-struck",
+            "woody"
+          ],
+          "canonical_tags": [
+            "burmese",
+            "southeast-asian"
+          ]
+        },
+        {
+          "id": "pattala_kyauk",
+          "name": "Kyauk pattala (stone-slab xylophone)",
+          "descriptors": [
+            "glassy",
+            "bright",
+            "stone-slab"
+          ],
+          "match_tokens": [
+            "struck",
+            "mallet-struck",
+            "bright"
+          ],
+          "canonical_tags": [
+            "burmese"
+          ]
+        },
+        {
+          "id": "pattala_metal",
+          "name": "Brass-slat pattala",
+          "descriptors": [
+            "ringing",
+            "metallic",
+            "brilliant"
+          ],
+          "match_tokens": [
+            "struck",
+            "mallet-struck",
+            "metallic"
+          ],
+          "canonical_tags": [
+            "burmese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pattala_repertoire",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "pattala_mahagita",
+          "default": true,
+          "name": "Mahagita chamber song",
+          "descriptors": [
+            "refined",
+            "lyrical",
+            "classical"
+          ],
+          "match_tokens": [
+            "struck",
+            "melodic",
+            "refined"
+          ],
+          "canonical_tags": [
+            "burmese",
+            "mahagita"
+          ]
+        },
+        {
+          "id": "pattala_hsaing",
+          "name": "Hsaing waing ensemble lead",
+          "descriptors": [
+            "driving",
+            "bright",
+            "ensemble-lead"
+          ],
+          "match_tokens": [
+            "struck",
+            "loud",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "burmese",
+            "hsaing-waing"
+          ]
+        },
+        {
+          "id": "pattala_solo",
+          "name": "Solo virtuoso display",
+          "descriptors": [
+            "virtuosic",
+            "cascading",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "struck",
+            "fast",
+            "virtuosic"
+          ],
+          "canonical_tags": [
+            "burmese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pattala_body",
+      "surface": false,
+      "name": "Resonator box",
+      "variants": [
+        {
+          "id": "pattala_gilt_box",
+          "default": true,
+          "name": "Gilded boat-shaped soundbox",
+          "descriptors": [
+            "gilded",
+            "ornate",
+            "glass-mosaic"
+          ],
+          "match_tokens": [
+            "resonant",
+            "woody"
+          ],
+          "canonical_tags": [
+            "burmese"
+          ]
+        },
+        {
+          "id": "pattala_plain_box",
+          "name": "Plain wooden soundbox",
+          "descriptors": [
+            "plain",
+            "utilitarian"
+          ],
+          "match_tokens": [
+            "woody"
+          ],
+          "canonical_tags": [
+            "burmese"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "pattala_type",
+      "name": "Slat type",
+      "variants": [
+        {
+          "id": "pattala_bamboo",
+          "default": true,
+          "name": "Bamboo-slat pattala",
+          "descriptors": [
+            "mellow",
+            "sweet-toned",
+            "woody"
+          ],
+          "match_tokens": [
+            "struck",
+            "mallet-struck",
+            "woody"
+          ],
+          "canonical_tags": [
+            "burmese",
+            "southeast-asian"
+          ]
+        },
+        {
+          "id": "pattala_kyauk",
+          "name": "Kyauk pattala (stone-slab xylophone)",
+          "descriptors": [
+            "glassy",
+            "bright",
+            "stone-slab"
+          ],
+          "match_tokens": [
+            "struck",
+            "mallet-struck",
+            "bright"
+          ],
+          "canonical_tags": [
+            "burmese"
+          ]
+        },
+        {
+          "id": "pattala_metal",
+          "name": "Brass-slat pattala",
+          "descriptors": [
+            "ringing",
+            "metallic",
+            "brilliant"
+          ],
+          "match_tokens": [
+            "struck",
+            "mallet-struck",
+            "metallic"
+          ],
+          "canonical_tags": [
+            "burmese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pattala_repertoire",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "pattala_mahagita",
+          "default": true,
+          "name": "Mahagita chamber song",
+          "descriptors": [
+            "refined",
+            "lyrical",
+            "classical"
+          ],
+          "match_tokens": [
+            "struck",
+            "melodic",
+            "refined"
+          ],
+          "canonical_tags": [
+            "burmese",
+            "mahagita"
+          ]
+        },
+        {
+          "id": "pattala_hsaing",
+          "name": "Hsaing waing ensemble lead",
+          "descriptors": [
+            "driving",
+            "bright",
+            "ensemble-lead"
+          ],
+          "match_tokens": [
+            "struck",
+            "loud",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "burmese",
+            "hsaing-waing"
+          ]
+        },
+        {
+          "id": "pattala_solo",
+          "name": "Solo virtuoso display",
+          "descriptors": [
+            "virtuosic",
+            "cascading",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "struck",
+            "fast",
+            "virtuosic"
+          ],
+          "canonical_tags": [
+            "burmese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pattala_body",
+      "surface": false,
+      "name": "Resonator box",
+      "variants": [
+        {
+          "id": "pattala_gilt_box",
+          "default": true,
+          "name": "Gilded boat-shaped soundbox",
+          "descriptors": [
+            "gilded",
+            "ornate",
+            "glass-mosaic"
+          ],
+          "match_tokens": [
+            "resonant",
+            "woody"
+          ],
+          "canonical_tags": [
+            "burmese"
+          ]
+        },
+        {
+          "id": "pattala_plain_box",
+          "name": "Plain wooden soundbox",
+          "descriptors": [
+            "plain",
+            "utilitarian"
+          ],
+          "match_tokens": [
+            "woody"
+          ],
+          "canonical_tags": [
+            "burmese"
+          ]
+        }
+      ]
+    }
+  ]
+}

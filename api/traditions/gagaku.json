@@ -3,9 +3,9 @@
   "name": "Gagaku",
   "family": "classical",
   "lineage": "Japanese imperial court music tradition codified during the Nara and Heian periods (eighth through twelfth centuries CE) drawing on Tang Chinese, Korean, and indigenous Japanese ceremonial-court repertoire — preserved continuously through the Imperial Household Music Department (Kunaichō Gakubu) lineage in Tokyo, with characteristic ensemble of shō mouth-organ, hichiriki double-reed, ryūteki transverse flute, biwa lute, koto zither, kakko drum, and shōko gong",
-  "recipe": "classic East Asian modern gagaku, art Music, east Asian branch, buddhist ritual devotional. cluster chord bamboo sho mouth organ, bamboo cherry bark binding canonical gagaku yoshi arundo donax canonical gagaku imperial court continuous-airflow legato hichiriki double reed, biwa lute, cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk kodo sado island lineage taiko drum. noh stage japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 554,
-  "score": 41.544,
+  "recipe": "classic East Asian modern gagaku, art Music, east Asian branch, buddhist ritual devotional. cluster chord bamboo sho mouth organ, bamboo cherry bark binding canonical gagaku yoshi arundo donax canonical gagaku imperial court continuous-airflow legato hichiriki double reed, biwa lute, cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk kodo sado island lineage taiko drum, Korean repertoire higher pitched six holed ryuteki. noh stage japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 606,
+  "score": 53.852,
   "config": {
     "traditions": [
       "gagaku"
@@ -73,6 +73,19 @@
           "taiko_shell_wood": 3.769999999999999,
           "taiko_lineage": 1.9454285714285715,
           "taiko_technique": 1.69
+        }
+      },
+      {
+        "id": "ryuteki",
+        "slots": {
+          "ryuteki_form": "ryuteki_komabue",
+          "ryuteki_style": "ryuteki_togaku",
+          "ryuteki_material": "ryuteki_bark_wrapped"
+        },
+        "scores": {
+          "ryuteki_form": 7.628142857142857,
+          "ryuteki_style": 3.895,
+          "ryuteki_material": 0.7847142857142857
         }
       }
     ],

@@ -1,0 +1,344 @@
+{
+  "id": "peyote_water_drum",
+  "name": "Peyote water drum (Native American Church kettle drum)",
+  "family": "percussion",
+  "class": "water_drum",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 1,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "peyote_water_drum",
+  "parts": [
+    {
+      "id": "peyote_water_drum_vessel",
+      "name": "Vessel form",
+      "variants": [
+        {
+          "id": "peyote_water_drum_iron_kettle",
+          "default": true,
+          "name": "Cast-iron three-legged kettle",
+          "descriptors": [
+            "cast-iron",
+            "three-legged",
+            "classic"
+          ],
+          "match_tokens": [
+            "struck",
+            "kettle-drum",
+            "water-drum"
+          ],
+          "canonical_tags": [
+            "native-american-church",
+            "plains"
+          ]
+        },
+        {
+          "id": "peyote_water_drum_brass_kettle",
+          "name": "Brass kettle",
+          "descriptors": [
+            "brass",
+            "bright-ring",
+            "polished"
+          ],
+          "match_tokens": [
+            "struck",
+            "kettle-drum",
+            "metallic"
+          ],
+          "canonical_tags": [
+            "native-american-church"
+          ]
+        },
+        {
+          "id": "peyote_water_drum_wood_keg",
+          "name": "Carved wooden keg body",
+          "descriptors": [
+            "wooden-keg",
+            "archaic",
+            "warm-tone"
+          ],
+          "match_tokens": [
+            "struck",
+            "water-drum",
+            "wooden"
+          ],
+          "canonical_tags": [
+            "woodland",
+            "archaic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "peyote_water_drum_way",
+      "name": "Ceremonial way / repertoire",
+      "variants": [
+        {
+          "id": "peyote_water_drum_half_moon",
+          "default": true,
+          "name": "Half Moon (tipi meeting)",
+          "descriptors": [
+            "half-moon",
+            "tipi-meeting",
+            "rapid-pulse"
+          ],
+          "match_tokens": [
+            "struck",
+            "water-drum",
+            "ritual"
+          ],
+          "canonical_tags": [
+            "native-american-church",
+            "kiowa-comanche"
+          ]
+        },
+        {
+          "id": "peyote_water_drum_cross_fire",
+          "name": "Cross Fire (Big Moon) way",
+          "descriptors": [
+            "cross-fire",
+            "big-moon",
+            "syncretic"
+          ],
+          "match_tokens": [
+            "struck",
+            "water-drum",
+            "ritual"
+          ],
+          "canonical_tags": [
+            "native-american-church"
+          ]
+        },
+        {
+          "id": "peyote_water_drum_daybreak",
+          "name": "Morning Water / daybreak songs",
+          "descriptors": [
+            "daybreak",
+            "morning-water",
+            "reflective"
+          ],
+          "match_tokens": [
+            "struck",
+            "water-drum",
+            "ritual"
+          ],
+          "canonical_tags": [
+            "native-american-church"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "peyote_water_drum_head",
+      "surface": false,
+      "name": "Head hide",
+      "variants": [
+        {
+          "id": "peyote_water_drum_buckskin",
+          "default": true,
+          "name": "Wet buckskin, marble-lashed",
+          "descriptors": [
+            "buckskin",
+            "wet-tuned",
+            "deerhide"
+          ],
+          "match_tokens": [
+            "struck",
+            "water-drum",
+            "wet-tone"
+          ],
+          "canonical_tags": [
+            "deerhide"
+          ]
+        },
+        {
+          "id": "peyote_water_drum_thin_scraped",
+          "name": "Thin scraped hide",
+          "descriptors": [
+            "thin-scraped",
+            "high-cry",
+            "taut"
+          ],
+          "match_tokens": [
+            "struck",
+            "water-drum",
+            "bright"
+          ],
+          "canonical_tags": [
+            "deerhide"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "peyote_water_drum_vessel",
+      "name": "Vessel form",
+      "variants": [
+        {
+          "id": "peyote_water_drum_iron_kettle",
+          "default": true,
+          "name": "Cast-iron three-legged kettle",
+          "descriptors": [
+            "cast-iron",
+            "three-legged",
+            "classic"
+          ],
+          "match_tokens": [
+            "struck",
+            "kettle-drum",
+            "water-drum"
+          ],
+          "canonical_tags": [
+            "native-american-church",
+            "plains"
+          ]
+        },
+        {
+          "id": "peyote_water_drum_brass_kettle",
+          "name": "Brass kettle",
+          "descriptors": [
+            "brass",
+            "bright-ring",
+            "polished"
+          ],
+          "match_tokens": [
+            "struck",
+            "kettle-drum",
+            "metallic"
+          ],
+          "canonical_tags": [
+            "native-american-church"
+          ]
+        },
+        {
+          "id": "peyote_water_drum_wood_keg",
+          "name": "Carved wooden keg body",
+          "descriptors": [
+            "wooden-keg",
+            "archaic",
+            "warm-tone"
+          ],
+          "match_tokens": [
+            "struck",
+            "water-drum",
+            "wooden"
+          ],
+          "canonical_tags": [
+            "woodland",
+            "archaic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "peyote_water_drum_way",
+      "name": "Ceremonial way / repertoire",
+      "variants": [
+        {
+          "id": "peyote_water_drum_half_moon",
+          "default": true,
+          "name": "Half Moon (tipi meeting)",
+          "descriptors": [
+            "half-moon",
+            "tipi-meeting",
+            "rapid-pulse"
+          ],
+          "match_tokens": [
+            "struck",
+            "water-drum",
+            "ritual"
+          ],
+          "canonical_tags": [
+            "native-american-church",
+            "kiowa-comanche"
+          ]
+        },
+        {
+          "id": "peyote_water_drum_cross_fire",
+          "name": "Cross Fire (Big Moon) way",
+          "descriptors": [
+            "cross-fire",
+            "big-moon",
+            "syncretic"
+          ],
+          "match_tokens": [
+            "struck",
+            "water-drum",
+            "ritual"
+          ],
+          "canonical_tags": [
+            "native-american-church"
+          ]
+        },
+        {
+          "id": "peyote_water_drum_daybreak",
+          "name": "Morning Water / daybreak songs",
+          "descriptors": [
+            "daybreak",
+            "morning-water",
+            "reflective"
+          ],
+          "match_tokens": [
+            "struck",
+            "water-drum",
+            "ritual"
+          ],
+          "canonical_tags": [
+            "native-american-church"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "peyote_water_drum_head",
+      "surface": false,
+      "name": "Head hide",
+      "variants": [
+        {
+          "id": "peyote_water_drum_buckskin",
+          "default": true,
+          "name": "Wet buckskin, marble-lashed",
+          "descriptors": [
+            "buckskin",
+            "wet-tuned",
+            "deerhide"
+          ],
+          "match_tokens": [
+            "struck",
+            "water-drum",
+            "wet-tone"
+          ],
+          "canonical_tags": [
+            "deerhide"
+          ]
+        },
+        {
+          "id": "peyote_water_drum_thin_scraped",
+          "name": "Thin scraped hide",
+          "descriptors": [
+            "thin-scraped",
+            "high-cry",
+            "taut"
+          ],
+          "match_tokens": [
+            "struck",
+            "water-drum",
+            "bright"
+          ],
+          "canonical_tags": [
+            "deerhide"
+          ]
+        }
+      ]
+    }
+  ]
+}

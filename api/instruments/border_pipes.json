@@ -1,0 +1,388 @@
+{
+  "id": "border_pipes",
+  "name": "Border pipes (Scottish Lowland bellows-blown bagpipe)",
+  "family": "wind",
+  "class": "bellows_bagpipe",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "border_pipes",
+  "parts": [
+    {
+      "id": "border_pipes_form",
+      "name": "Type & pitch",
+      "variants": [
+        {
+          "id": "border_pipes_a_revival",
+          "default": true,
+          "name": "Border pipes in A (modern revival standard)",
+          "descriptors": [
+            "conical-bore",
+            "bright-reedy",
+            "session-ready"
+          ],
+          "match_tokens": [
+            "bellows-blown",
+            "reed-driven",
+            "drone-foundation",
+            "conical-bore"
+          ],
+          "canonical_tags": [
+            "scottish",
+            "lowland",
+            "borders"
+          ]
+        },
+        {
+          "id": "border_pipes_d_bright",
+          "name": "Border pipes in D (higher-pitched folk-band set)",
+          "descriptors": [
+            "higher-pitched",
+            "cutting",
+            "fiddle-friendly"
+          ],
+          "match_tokens": [
+            "bellows-blown",
+            "reed-driven",
+            "bright"
+          ],
+          "canonical_tags": [
+            "scottish",
+            "revival"
+          ]
+        },
+        {
+          "id": "border_pipes_lowland_town",
+          "name": "Lowland pipes (historic three-drone town-piper form)",
+          "descriptors": [
+            "archaic",
+            "stately",
+            "common-stock-drones"
+          ],
+          "match_tokens": [
+            "bellows-blown",
+            "drone-foundation",
+            "archaic"
+          ],
+          "canonical_tags": [
+            "scottish",
+            "lowland",
+            "historic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "border_pipes_repertoire",
+      "name": "Repertoire & technique",
+      "variants": [
+        {
+          "id": "border_pipes_dance_tunes",
+          "default": true,
+          "name": "Borders dance tunes (reels, jigs, hornpipes)",
+          "descriptors": [
+            "dance-driving",
+            "gracenote-crisp",
+            "brisk"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "dance-driving",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "borders",
+            "dance"
+          ]
+        },
+        {
+          "id": "border_pipes_ballad_airs",
+          "name": "Border ballad airs & laments",
+          "descriptors": [
+            "lyrical",
+            "plaintive",
+            "song-like"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "drone-foundation",
+            "lyrical"
+          ],
+          "canonical_tags": [
+            "borders",
+            "song"
+          ]
+        },
+        {
+          "id": "border_pipes_folk_session",
+          "name": "Folk-band & session accompaniment (with fiddle, guitar, cittern)",
+          "descriptors": [
+            "ensemble-blend",
+            "revival",
+            "tune-driven"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "ensemble-blend",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "scottish",
+            "revival",
+            "session"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "border_pipes_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "border_pipes_blackwood",
+          "default": true,
+          "name": "African blackwood (modern standard)",
+          "descriptors": [
+            "dark-toned",
+            "dense",
+            "focused"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "dark-toned"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "border_pipes_laburnum",
+          "name": "Laburnum (traditional native Scots wood)",
+          "descriptors": [
+            "warm-toned",
+            "historic",
+            "mellow"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "warm-toned"
+          ],
+          "canonical_tags": [
+            "historic",
+            "scottish"
+          ]
+        },
+        {
+          "id": "border_pipes_boxwood",
+          "name": "Boxwood (pale historic turning wood)",
+          "descriptors": [
+            "soft-toned",
+            "rustic",
+            "period"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "soft-toned"
+          ],
+          "canonical_tags": [
+            "historic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "border_pipes_form",
+      "name": "Type & pitch",
+      "variants": [
+        {
+          "id": "border_pipes_a_revival",
+          "default": true,
+          "name": "Border pipes in A (modern revival standard)",
+          "descriptors": [
+            "conical-bore",
+            "bright-reedy",
+            "session-ready"
+          ],
+          "match_tokens": [
+            "bellows-blown",
+            "reed-driven",
+            "drone-foundation",
+            "conical-bore"
+          ],
+          "canonical_tags": [
+            "scottish",
+            "lowland",
+            "borders"
+          ]
+        },
+        {
+          "id": "border_pipes_d_bright",
+          "name": "Border pipes in D (higher-pitched folk-band set)",
+          "descriptors": [
+            "higher-pitched",
+            "cutting",
+            "fiddle-friendly"
+          ],
+          "match_tokens": [
+            "bellows-blown",
+            "reed-driven",
+            "bright"
+          ],
+          "canonical_tags": [
+            "scottish",
+            "revival"
+          ]
+        },
+        {
+          "id": "border_pipes_lowland_town",
+          "name": "Lowland pipes (historic three-drone town-piper form)",
+          "descriptors": [
+            "archaic",
+            "stately",
+            "common-stock-drones"
+          ],
+          "match_tokens": [
+            "bellows-blown",
+            "drone-foundation",
+            "archaic"
+          ],
+          "canonical_tags": [
+            "scottish",
+            "lowland",
+            "historic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "border_pipes_repertoire",
+      "name": "Repertoire & technique",
+      "variants": [
+        {
+          "id": "border_pipes_dance_tunes",
+          "default": true,
+          "name": "Borders dance tunes (reels, jigs, hornpipes)",
+          "descriptors": [
+            "dance-driving",
+            "gracenote-crisp",
+            "brisk"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "dance-driving",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "borders",
+            "dance"
+          ]
+        },
+        {
+          "id": "border_pipes_ballad_airs",
+          "name": "Border ballad airs & laments",
+          "descriptors": [
+            "lyrical",
+            "plaintive",
+            "song-like"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "drone-foundation",
+            "lyrical"
+          ],
+          "canonical_tags": [
+            "borders",
+            "song"
+          ]
+        },
+        {
+          "id": "border_pipes_folk_session",
+          "name": "Folk-band & session accompaniment (with fiddle, guitar, cittern)",
+          "descriptors": [
+            "ensemble-blend",
+            "revival",
+            "tune-driven"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "ensemble-blend",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "scottish",
+            "revival",
+            "session"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "border_pipes_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "border_pipes_blackwood",
+          "default": true,
+          "name": "African blackwood (modern standard)",
+          "descriptors": [
+            "dark-toned",
+            "dense",
+            "focused"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "dark-toned"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "border_pipes_laburnum",
+          "name": "Laburnum (traditional native Scots wood)",
+          "descriptors": [
+            "warm-toned",
+            "historic",
+            "mellow"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "warm-toned"
+          ],
+          "canonical_tags": [
+            "historic",
+            "scottish"
+          ]
+        },
+        {
+          "id": "border_pipes_boxwood",
+          "name": "Boxwood (pale historic turning wood)",
+          "descriptors": [
+            "soft-toned",
+            "rustic",
+            "period"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "soft-toned"
+          ],
+          "canonical_tags": [
+            "historic"
+          ]
+        }
+      ]
+    }
+  ]
+}

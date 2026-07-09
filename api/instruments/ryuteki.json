@@ -1,0 +1,410 @@
+{
+  "id": "ryuteki",
+  "name": "Ryūteki (Japanese gagaku transverse flute)",
+  "family": "wind",
+  "class": "transverse_flute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "ryuteki",
+  "parts": [
+    {
+      "id": "ryuteki_form",
+      "name": "Flute type",
+      "variants": [
+        {
+          "id": "ryuteki_ryuteki",
+          "default": true,
+          "name": "Ryūteki (tōgaku court flute)",
+          "descriptors": [
+            "courtly",
+            "soaring",
+            "tang-derived"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "melodic-lead"
+          ],
+          "canonical_tags": [
+            "gagaku",
+            "japan"
+          ]
+        },
+        {
+          "id": "ryuteki_komabue",
+          "name": "Komabue (komagaku flute, higher, six holes)",
+          "descriptors": [
+            "higher-pitched",
+            "six-holed",
+            "korean-repertoire"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "bright"
+          ],
+          "canonical_tags": [
+            "gagaku",
+            "japan"
+          ]
+        },
+        {
+          "id": "ryuteki_nohkan",
+          "name": "Nōkan (noh theatre flute with nodo throat)",
+          "descriptors": [
+            "piercing",
+            "non-harmonic-bore",
+            "theatrical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "piercing"
+          ],
+          "canonical_tags": [
+            "noh",
+            "japan"
+          ]
+        },
+        {
+          "id": "ryuteki_shinobue",
+          "name": "Shinobue (matsuri festival flute)",
+          "descriptors": [
+            "folk",
+            "festive",
+            "bright"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "folk"
+          ],
+          "canonical_tags": [
+            "matsuri",
+            "japan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ryuteki_style",
+      "name": "Playing style / repertoire",
+      "variants": [
+        {
+          "id": "ryuteki_togaku",
+          "default": true,
+          "name": "Gagaku tōgaku ensemble line",
+          "descriptors": [
+            "enbai-glides",
+            "breath-vibrato",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "legato",
+            "sustained"
+          ],
+          "canonical_tags": [
+            "gagaku"
+          ]
+        },
+        {
+          "id": "ryuteki_netori",
+          "name": "Netori / solo prelude",
+          "descriptors": [
+            "free-rhythm",
+            "meditative",
+            "unaccompanied"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "sustained",
+            "solo"
+          ],
+          "canonical_tags": [
+            "gagaku"
+          ]
+        },
+        {
+          "id": "ryuteki_hayashi",
+          "name": "Matsuri / hayashi festival lines",
+          "descriptors": [
+            "rhythmic",
+            "penetrating",
+            "hishigi-attack"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "bright",
+            "rhythmic"
+          ],
+          "canonical_tags": [
+            "matsuri",
+            "noh"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ryuteki_material",
+      "surface": false,
+      "name": "Body & binding material",
+      "variants": [
+        {
+          "id": "ryuteki_susudake",
+          "default": true,
+          "name": "Aged smoked-bamboo (susudake) body, lacquered bore",
+          "descriptors": [
+            "aged-bamboo",
+            "lacquered",
+            "warm"
+          ],
+          "match_tokens": [
+            "bamboo",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "japan"
+          ]
+        },
+        {
+          "id": "ryuteki_bark_wrapped",
+          "name": "Cherry-/birch-bark wrap with rattan (tō) binding rings",
+          "descriptors": [
+            "bark-wrapped",
+            "rattan-bound",
+            "traditional"
+          ],
+          "match_tokens": [
+            "bamboo",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "japan"
+          ]
+        },
+        {
+          "id": "ryuteki_resin",
+          "name": "Molded resin practice flute",
+          "descriptors": [
+            "resin",
+            "durable",
+            "student"
+          ],
+          "match_tokens": [
+            "bright-tone",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ryuteki_form",
+      "name": "Flute type",
+      "variants": [
+        {
+          "id": "ryuteki_ryuteki",
+          "default": true,
+          "name": "Ryūteki (tōgaku court flute)",
+          "descriptors": [
+            "courtly",
+            "soaring",
+            "tang-derived"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "melodic-lead"
+          ],
+          "canonical_tags": [
+            "gagaku",
+            "japan"
+          ]
+        },
+        {
+          "id": "ryuteki_komabue",
+          "name": "Komabue (komagaku flute, higher, six holes)",
+          "descriptors": [
+            "higher-pitched",
+            "six-holed",
+            "korean-repertoire"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "bright"
+          ],
+          "canonical_tags": [
+            "gagaku",
+            "japan"
+          ]
+        },
+        {
+          "id": "ryuteki_nohkan",
+          "name": "Nōkan (noh theatre flute with nodo throat)",
+          "descriptors": [
+            "piercing",
+            "non-harmonic-bore",
+            "theatrical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "piercing"
+          ],
+          "canonical_tags": [
+            "noh",
+            "japan"
+          ]
+        },
+        {
+          "id": "ryuteki_shinobue",
+          "name": "Shinobue (matsuri festival flute)",
+          "descriptors": [
+            "folk",
+            "festive",
+            "bright"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "transverse-flute",
+            "folk"
+          ],
+          "canonical_tags": [
+            "matsuri",
+            "japan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ryuteki_style",
+      "name": "Playing style / repertoire",
+      "variants": [
+        {
+          "id": "ryuteki_togaku",
+          "default": true,
+          "name": "Gagaku tōgaku ensemble line",
+          "descriptors": [
+            "enbai-glides",
+            "breath-vibrato",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "legato",
+            "sustained"
+          ],
+          "canonical_tags": [
+            "gagaku"
+          ]
+        },
+        {
+          "id": "ryuteki_netori",
+          "name": "Netori / solo prelude",
+          "descriptors": [
+            "free-rhythm",
+            "meditative",
+            "unaccompanied"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "sustained",
+            "solo"
+          ],
+          "canonical_tags": [
+            "gagaku"
+          ]
+        },
+        {
+          "id": "ryuteki_hayashi",
+          "name": "Matsuri / hayashi festival lines",
+          "descriptors": [
+            "rhythmic",
+            "penetrating",
+            "hishigi-attack"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "bright",
+            "rhythmic"
+          ],
+          "canonical_tags": [
+            "matsuri",
+            "noh"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ryuteki_material",
+      "surface": false,
+      "name": "Body & binding material",
+      "variants": [
+        {
+          "id": "ryuteki_susudake",
+          "default": true,
+          "name": "Aged smoked-bamboo (susudake) body, lacquered bore",
+          "descriptors": [
+            "aged-bamboo",
+            "lacquered",
+            "warm"
+          ],
+          "match_tokens": [
+            "bamboo",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "japan"
+          ]
+        },
+        {
+          "id": "ryuteki_bark_wrapped",
+          "name": "Cherry-/birch-bark wrap with rattan (tō) binding rings",
+          "descriptors": [
+            "bark-wrapped",
+            "rattan-bound",
+            "traditional"
+          ],
+          "match_tokens": [
+            "bamboo",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "japan"
+          ]
+        },
+        {
+          "id": "ryuteki_resin",
+          "name": "Molded resin practice flute",
+          "descriptors": [
+            "resin",
+            "durable",
+            "student"
+          ],
+          "match_tokens": [
+            "bright-tone",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

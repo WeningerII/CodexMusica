@@ -1,0 +1,336 @@
+{
+  "id": "mizwad",
+  "name": "Mizwad (Tunisian bagpipe)",
+  "family": "wind",
+  "class": "reed_bagpipe",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "mizwad",
+  "parts": [
+    {
+      "id": "mizwad_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "mizwad_tunisian_mezoued",
+          "default": true,
+          "name": "Tunisian mizwad (mezoued)",
+          "descriptors": [
+            "raspy",
+            "urban-popular",
+            "goatskin-bag"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "bag-blown",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "tunisian",
+            "maghrebi"
+          ]
+        },
+        {
+          "id": "mizwad_libyan_zukra",
+          "name": "Libyan zukra",
+          "descriptors": [
+            "archaic",
+            "ceremonial",
+            "droning"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "bag-blown",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "libyan",
+            "maghrebi"
+          ]
+        },
+        {
+          "id": "mizwad_bedouin_saharan",
+          "name": "Bedouin / southern zukra",
+          "descriptors": [
+            "rustic",
+            "open-air",
+            "pastoral"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "bag-blown"
+          ],
+          "canonical_tags": [
+            "bedouin",
+            "saharan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mizwad_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "mizwad_mezoued_dance",
+          "default": true,
+          "name": "Mezoued dance song",
+          "descriptors": [
+            "dance-driving",
+            "festive",
+            "looping"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "mezoued",
+            "popular"
+          ]
+        },
+        {
+          "id": "mizwad_sufi_hadhra",
+          "name": "Sufi hadhra / stambeli trance",
+          "descriptors": [
+            "trance",
+            "ceremonial",
+            "droning"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "sufi",
+            "ritual"
+          ]
+        },
+        {
+          "id": "mizwad_wedding_procession",
+          "name": "Wedding & street procession",
+          "descriptors": [
+            "outdoor",
+            "celebratory",
+            "piercing"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "processional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mizwad_pipe_build",
+      "surface": false,
+      "name": "Double chanter & bell",
+      "variants": [
+        {
+          "id": "mizwad_cane_horn_bell",
+          "default": true,
+          "name": "Twin cane pipes, cow-horn bell",
+          "descriptors": [
+            "cane-pipes",
+            "idioglot-reed",
+            "horn-bell",
+            "buzzing"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "raspy"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "mizwad_metal_bell",
+          "name": "Twin cane pipes, metal bell",
+          "descriptors": [
+            "metal-bell",
+            "bright-edge"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "mizwad_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "mizwad_tunisian_mezoued",
+          "default": true,
+          "name": "Tunisian mizwad (mezoued)",
+          "descriptors": [
+            "raspy",
+            "urban-popular",
+            "goatskin-bag"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "bag-blown",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "tunisian",
+            "maghrebi"
+          ]
+        },
+        {
+          "id": "mizwad_libyan_zukra",
+          "name": "Libyan zukra",
+          "descriptors": [
+            "archaic",
+            "ceremonial",
+            "droning"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "bag-blown",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "libyan",
+            "maghrebi"
+          ]
+        },
+        {
+          "id": "mizwad_bedouin_saharan",
+          "name": "Bedouin / southern zukra",
+          "descriptors": [
+            "rustic",
+            "open-air",
+            "pastoral"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "bag-blown"
+          ],
+          "canonical_tags": [
+            "bedouin",
+            "saharan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mizwad_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "mizwad_mezoued_dance",
+          "default": true,
+          "name": "Mezoued dance song",
+          "descriptors": [
+            "dance-driving",
+            "festive",
+            "looping"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "mezoued",
+            "popular"
+          ]
+        },
+        {
+          "id": "mizwad_sufi_hadhra",
+          "name": "Sufi hadhra / stambeli trance",
+          "descriptors": [
+            "trance",
+            "ceremonial",
+            "droning"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "sufi",
+            "ritual"
+          ]
+        },
+        {
+          "id": "mizwad_wedding_procession",
+          "name": "Wedding & street procession",
+          "descriptors": [
+            "outdoor",
+            "celebratory",
+            "piercing"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "processional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mizwad_pipe_build",
+      "surface": false,
+      "name": "Double chanter & bell",
+      "variants": [
+        {
+          "id": "mizwad_cane_horn_bell",
+          "default": true,
+          "name": "Twin cane pipes, cow-horn bell",
+          "descriptors": [
+            "cane-pipes",
+            "idioglot-reed",
+            "horn-bell",
+            "buzzing"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "raspy"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "mizwad_metal_bell",
+          "name": "Twin cane pipes, metal bell",
+          "descriptors": [
+            "metal-bell",
+            "bright-edge"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

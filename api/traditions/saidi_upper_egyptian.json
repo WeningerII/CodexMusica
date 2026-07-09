@@ -3,9 +3,9 @@
   "name": "Saidi music (Upper Egyptian)",
   "family": "global",
   "lineage": "Saidi music of Upper Egypt (south of Cairo extending to Aswan), the canonical pre-modern rural musical tradition of the Egyptian Nile Valley peasant Saidi communities. Performance centers on the mizmar pair (loud double-reed conical-bore aerophone played in heterophonic-melodic-elaboration) over tabla baladi or tabla dohola two-headed barrel-drum. Repertoire spans wedding-celebration cycles, mawwal vocal-lament solo declamations (free-rhythm extended-melismatic-ornament register), and tahtib stick-dance accompaniment cycles for which Saidi music is particularly known.",
-  "recipe": "classic North African mid-1950s saidi music, functional Song, mid east n African pop branch, west African groove percussion indonesian jaipongan fújì. thick, declaimed, chest resonance low mid, rhythmic. walnut bent frame canonical Iranian goat skin canonical Sufi tar frame drum, tabla, apricot canonical Egyptian arundo donax canonical nile delta mizmar. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 542,
-  "score": 130.347,
+  "recipe": "classic North African mid-1950s saidi music, functional Song, mid east n African pop branch, west African groove percussion indonesian jaipongan fújì. thick, declaimed, chest resonance low mid, rhythmic. walnut bent frame canonical Iranian goat skin canonical Sufi tar frame drum, tabla, apricot canonical Egyptian arundo donax canonical nile delta mizmar, arghul. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 550,
+  "score": 168.926,
   "config": {
     "traditions": [
       "saidi_upper_egyptian",
@@ -97,6 +97,19 @@
           "mizmar_context": 3.625,
           "mizmar_body_wood": 3.9899999999999998,
           "mizmar_reed": 2.99
+        }
+      },
+      {
+        "id": "arghul",
+        "slots": {
+          "arghul_form": "arghul_kebir",
+          "arghul_context": "arghul_saidi_dance",
+          "arghul_reed": "arghul_reed_idioglot"
+        },
+        "scores": {
+          "arghul_form": 20.433749999999996,
+          "arghul_context": 18.195,
+          "arghul_reed": -0.05
         }
       }
     ],

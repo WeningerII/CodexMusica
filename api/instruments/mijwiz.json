@@ -1,0 +1,340 @@
+{
+  "id": "mijwiz",
+  "name": "Mijwiz (Levantine twin-pipe single-reed clarinet)",
+  "family": "wind",
+  "class": "single_reed_double_clarinet",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "mijwiz",
+  "parts": [
+    {
+      "id": "mijwiz_form",
+      "name": "Type / regional form",
+      "variants": [
+        {
+          "id": "mijwiz_standard",
+          "default": true,
+          "name": "Twin equal-pipe mijwiz (Lebanese/Syrian)",
+          "descriptors": [
+            "buzzy",
+            "unison-doubled",
+            "dabke"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "twin-pipe",
+            "buzzy-drone"
+          ],
+          "canonical_tags": [
+            "levantine"
+          ]
+        },
+        {
+          "id": "mijwiz_arghul",
+          "name": "Arghul (melody pipe plus long detachable drone pipe)",
+          "descriptors": [
+            "droning",
+            "deep-buzz",
+            "bourdon"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "drone-foundation",
+            "buzzy-drone"
+          ],
+          "canonical_tags": [
+            "levantine",
+            "egyptian"
+          ]
+        },
+        {
+          "id": "mijwiz_zummara",
+          "name": "Zummara (plain unbelled twin cane reedpipe)",
+          "descriptors": [
+            "rustic",
+            "reedy",
+            "archaic"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "twin-pipe",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "arab"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mijwiz_setting",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "mijwiz_dabke",
+          "default": true,
+          "name": "Dabke dance lead (circular-breathed)",
+          "descriptors": [
+            "driving",
+            "festive",
+            "circular-breathed"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "loud-projection",
+            "relentless"
+          ],
+          "canonical_tags": [
+            "levantine",
+            "dance"
+          ]
+        },
+        {
+          "id": "mijwiz_ataba",
+          "name": "Ataba / mijana song accompaniment",
+          "descriptors": [
+            "plaintive",
+            "vocal-shadowing",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "melodic",
+            "expressive"
+          ],
+          "canonical_tags": [
+            "levantine",
+            "vocal"
+          ]
+        },
+        {
+          "id": "mijwiz_taqsim",
+          "name": "Unmetered solo taqsim",
+          "descriptors": [
+            "improvisatory",
+            "ornamented",
+            "free-rhythm"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "melodic",
+            "expressive"
+          ],
+          "canonical_tags": [
+            "levantine"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mijwiz_material",
+      "surface": false,
+      "name": "Pipe material",
+      "variants": [
+        {
+          "id": "mijwiz_cane_body",
+          "default": true,
+          "name": "River-cane (qasab) twin tubes with cut idioglot reeds",
+          "descriptors": [
+            "warm-buzz",
+            "organic",
+            "traditional"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "buzzy-drone"
+          ],
+          "canonical_tags": [
+            "cane"
+          ]
+        },
+        {
+          "id": "mijwiz_metal_body",
+          "name": "Modern metal-tube body",
+          "descriptors": [
+            "bright",
+            "louder",
+            "durable"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "mijwiz_form",
+      "name": "Type / regional form",
+      "variants": [
+        {
+          "id": "mijwiz_standard",
+          "default": true,
+          "name": "Twin equal-pipe mijwiz (Lebanese/Syrian)",
+          "descriptors": [
+            "buzzy",
+            "unison-doubled",
+            "dabke"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "twin-pipe",
+            "buzzy-drone"
+          ],
+          "canonical_tags": [
+            "levantine"
+          ]
+        },
+        {
+          "id": "mijwiz_arghul",
+          "name": "Arghul (melody pipe plus long detachable drone pipe)",
+          "descriptors": [
+            "droning",
+            "deep-buzz",
+            "bourdon"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "drone-foundation",
+            "buzzy-drone"
+          ],
+          "canonical_tags": [
+            "levantine",
+            "egyptian"
+          ]
+        },
+        {
+          "id": "mijwiz_zummara",
+          "name": "Zummara (plain unbelled twin cane reedpipe)",
+          "descriptors": [
+            "rustic",
+            "reedy",
+            "archaic"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "twin-pipe",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "arab"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mijwiz_setting",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "mijwiz_dabke",
+          "default": true,
+          "name": "Dabke dance lead (circular-breathed)",
+          "descriptors": [
+            "driving",
+            "festive",
+            "circular-breathed"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "loud-projection",
+            "relentless"
+          ],
+          "canonical_tags": [
+            "levantine",
+            "dance"
+          ]
+        },
+        {
+          "id": "mijwiz_ataba",
+          "name": "Ataba / mijana song accompaniment",
+          "descriptors": [
+            "plaintive",
+            "vocal-shadowing",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "melodic",
+            "expressive"
+          ],
+          "canonical_tags": [
+            "levantine",
+            "vocal"
+          ]
+        },
+        {
+          "id": "mijwiz_taqsim",
+          "name": "Unmetered solo taqsim",
+          "descriptors": [
+            "improvisatory",
+            "ornamented",
+            "free-rhythm"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "melodic",
+            "expressive"
+          ],
+          "canonical_tags": [
+            "levantine"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mijwiz_material",
+      "surface": false,
+      "name": "Pipe material",
+      "variants": [
+        {
+          "id": "mijwiz_cane_body",
+          "default": true,
+          "name": "River-cane (qasab) twin tubes with cut idioglot reeds",
+          "descriptors": [
+            "warm-buzz",
+            "organic",
+            "traditional"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "buzzy-drone"
+          ],
+          "canonical_tags": [
+            "cane"
+          ]
+        },
+        {
+          "id": "mijwiz_metal_body",
+          "name": "Modern metal-tube body",
+          "descriptors": [
+            "bright",
+            "louder",
+            "durable"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

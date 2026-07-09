@@ -3,9 +3,9 @@
   "name": "Nagauta (Kabuki long-song)",
   "family": "classical",
   "lineage": "Japanese nagauta (\"long song\") sung-and-shamisen narrative tradition serving as the principal musical accompaniment for Kabuki theatre dance-and-action sequences. Codified in mid-Edo period eighteenth century, with the canonical compositional lineages tracing to Kineya Kangoro and Kineya Saburousuke. Performance configuration: a row of male singers seated upstage on a raised platform (typically four-to-eight singers), with a parallel row of shamisen players, plus hayashi percussion ensemble (drums, flutes) on stage-right. Repertoire spans dance-piece accompaniment, dramatic-scene underscore, and standalone concert pieces (the gozen-engaku \"music for the lord\" reception genre). Kineya guild lineages maintain hereditary transmission.",
-  "recipe": "classic East Asian modern nagauta, art Music, east Asian branch, buddhist ritual devotional tibetan chöd rite himalayan vajrayana liturgy. declaimed, melodic, narrative, equal tempered. cat skin ivory red sandalwood premium silk shamisen. kabuki theater japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 393,
-  "score": 119.664,
+  "recipe": "classic East Asian modern nagauta, art Music, east Asian branch, buddhist ritual devotional tibetan chöd rite himalayan vajrayana liturgy. declaimed, melodic, narrative, equal tempered. cat skin ivory red sandalwood premium silk shamisen, tsuzumi. kabuki theater japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 402,
+  "score": 143.709,
   "config": {
     "traditions": [
       "japanese_nagauta_kabuki",
@@ -71,6 +71,19 @@
           "shamisen_neck_wood": 1.625,
           "shamisen_strings": 4.095,
           "shamisen_tradition": 9.726499999999998
+        }
+      },
+      {
+        "id": "tsuzumi",
+        "slots": {
+          "tsuzumi_type": "tsuzumi_otsuzumi",
+          "tsuzumi_context": "tsuzumi_kabuki",
+          "tsuzumi_body": "tsuzumi_cherry"
+        },
+        "scores": {
+          "tsuzumi_type": 9.063,
+          "tsuzumi_context": 11.6265,
+          "tsuzumi_body": 3.355
         }
       }
     ],

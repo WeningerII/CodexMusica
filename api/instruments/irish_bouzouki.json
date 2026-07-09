@@ -1,0 +1,336 @@
+{
+  "id": "irish_bouzouki",
+  "name": "Irish bouzouki (flat-back Celtic trad lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_lute",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "irish_bouzouki",
+  "parts": [
+    {
+      "id": "irish_bouzouki_form",
+      "name": "Type / size",
+      "variants": [
+        {
+          "id": "irish_bouzouki_standard",
+          "default": true,
+          "name": "Standard four-course flat-back (GDAD)",
+          "descriptors": [
+            "flat-back",
+            "gdad-tuned",
+            "ringing"
+          ],
+          "match_tokens": [
+            "plucked",
+            "steel-string",
+            "chordal-backing"
+          ],
+          "canonical_tags": [
+            "celtic_irish_trad"
+          ]
+        },
+        {
+          "id": "irish_bouzouki_octave_mandolin",
+          "name": "Octave mandolin (short-scale sibling, GDAE)",
+          "descriptors": [
+            "short-scale",
+            "brighter",
+            "compact"
+          ],
+          "match_tokens": [
+            "plucked",
+            "steel-string"
+          ],
+          "canonical_tags": [
+            "celtic_irish_trad"
+          ]
+        },
+        {
+          "id": "irish_bouzouki_five_course",
+          "name": "Five-course cittern-bouzouki (extended)",
+          "descriptors": [
+            "extended-range",
+            "cittern-like",
+            "fuller"
+          ],
+          "match_tokens": [
+            "plucked",
+            "steel-string"
+          ],
+          "canonical_tags": [
+            "celtic_irish_trad",
+            "british_celtic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "irish_bouzouki_playing",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "irish_bouzouki_backing",
+          "default": true,
+          "name": "Rhythmic chordal backing (droning open chords)",
+          "descriptors": [
+            "droning",
+            "rhythmic",
+            "open-chorded"
+          ],
+          "match_tokens": [
+            "plucked",
+            "chordal-backing",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "celtic_irish_trad"
+          ]
+        },
+        {
+          "id": "irish_bouzouki_countermelody",
+          "name": "Countermelody / ornamented single-line",
+          "descriptors": [
+            "melodic",
+            "triplet-ornamented",
+            "interweaving"
+          ],
+          "match_tokens": [
+            "plucked",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "celtic_irish_trad"
+          ]
+        },
+        {
+          "id": "irish_bouzouki_tremolo",
+          "name": "Sustained tremolo picking",
+          "descriptors": [
+            "tremolo",
+            "sustained",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ],
+          "canonical_tags": [
+            "celtic_irish_trad"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "irish_bouzouki_top_wood",
+      "surface": false,
+      "name": "Soundboard wood",
+      "variants": [
+        {
+          "id": "irish_bouzouki_spruce_top",
+          "default": true,
+          "name": "Spruce soundboard",
+          "descriptors": [
+            "bright",
+            "projecting",
+            "punchy"
+          ],
+          "match_tokens": [
+            "steel-string"
+          ]
+        },
+        {
+          "id": "irish_bouzouki_cedar_top",
+          "name": "Cedar soundboard",
+          "descriptors": [
+            "warm",
+            "mellow",
+            "soft-attack"
+          ],
+          "match_tokens": [
+            "steel-string"
+          ]
+        },
+        {
+          "id": "irish_bouzouki_carved_top",
+          "name": "Carved arched top (Sobell-style)",
+          "descriptors": [
+            "focused",
+            "carved-arched",
+            "tight"
+          ],
+          "match_tokens": [
+            "steel-string"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "irish_bouzouki_form",
+      "name": "Type / size",
+      "variants": [
+        {
+          "id": "irish_bouzouki_standard",
+          "default": true,
+          "name": "Standard four-course flat-back (GDAD)",
+          "descriptors": [
+            "flat-back",
+            "gdad-tuned",
+            "ringing"
+          ],
+          "match_tokens": [
+            "plucked",
+            "steel-string",
+            "chordal-backing"
+          ],
+          "canonical_tags": [
+            "celtic_irish_trad"
+          ]
+        },
+        {
+          "id": "irish_bouzouki_octave_mandolin",
+          "name": "Octave mandolin (short-scale sibling, GDAE)",
+          "descriptors": [
+            "short-scale",
+            "brighter",
+            "compact"
+          ],
+          "match_tokens": [
+            "plucked",
+            "steel-string"
+          ],
+          "canonical_tags": [
+            "celtic_irish_trad"
+          ]
+        },
+        {
+          "id": "irish_bouzouki_five_course",
+          "name": "Five-course cittern-bouzouki (extended)",
+          "descriptors": [
+            "extended-range",
+            "cittern-like",
+            "fuller"
+          ],
+          "match_tokens": [
+            "plucked",
+            "steel-string"
+          ],
+          "canonical_tags": [
+            "celtic_irish_trad",
+            "british_celtic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "irish_bouzouki_playing",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "irish_bouzouki_backing",
+          "default": true,
+          "name": "Rhythmic chordal backing (droning open chords)",
+          "descriptors": [
+            "droning",
+            "rhythmic",
+            "open-chorded"
+          ],
+          "match_tokens": [
+            "plucked",
+            "chordal-backing",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "celtic_irish_trad"
+          ]
+        },
+        {
+          "id": "irish_bouzouki_countermelody",
+          "name": "Countermelody / ornamented single-line",
+          "descriptors": [
+            "melodic",
+            "triplet-ornamented",
+            "interweaving"
+          ],
+          "match_tokens": [
+            "plucked",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "celtic_irish_trad"
+          ]
+        },
+        {
+          "id": "irish_bouzouki_tremolo",
+          "name": "Sustained tremolo picking",
+          "descriptors": [
+            "tremolo",
+            "sustained",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ],
+          "canonical_tags": [
+            "celtic_irish_trad"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "irish_bouzouki_top_wood",
+      "surface": false,
+      "name": "Soundboard wood",
+      "variants": [
+        {
+          "id": "irish_bouzouki_spruce_top",
+          "default": true,
+          "name": "Spruce soundboard",
+          "descriptors": [
+            "bright",
+            "projecting",
+            "punchy"
+          ],
+          "match_tokens": [
+            "steel-string"
+          ]
+        },
+        {
+          "id": "irish_bouzouki_cedar_top",
+          "name": "Cedar soundboard",
+          "descriptors": [
+            "warm",
+            "mellow",
+            "soft-attack"
+          ],
+          "match_tokens": [
+            "steel-string"
+          ]
+        },
+        {
+          "id": "irish_bouzouki_carved_top",
+          "name": "Carved arched top (Sobell-style)",
+          "descriptors": [
+            "focused",
+            "carved-arched",
+            "tight"
+          ],
+          "match_tokens": [
+            "steel-string"
+          ]
+        }
+      ]
+    }
+  ]
+}

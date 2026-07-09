@@ -1,0 +1,318 @@
+{
+  "id": "sakara_drum",
+  "name": "Sakara drum (Yoruba clay-framed drum)",
+  "family": "percussion",
+  "class": "frame_drum",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "sakara",
+  "parts": [
+    {
+      "id": "sakara_form",
+      "name": "Type & size",
+      "variants": [
+        {
+          "id": "sakara_form_lead",
+          "default": true,
+          "name": "Lead sakara (deep, pitch-bending voice)",
+          "descriptors": [
+            "deep-toned",
+            "expressive",
+            "lead-voice",
+            "pitch-bending"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick-struck",
+            "talking"
+          ],
+          "canonical_tags": [
+            "yoruba",
+            "west-african"
+          ]
+        },
+        {
+          "id": "sakara_form_support",
+          "name": "Supporting sakara (small, high, steady pulse)",
+          "descriptors": [
+            "high-pitched",
+            "steady",
+            "timekeeping",
+            "clipped"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick-struck",
+            "pulse"
+          ],
+          "canonical_tags": [
+            "yoruba",
+            "west-african"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sakara_stroke",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "sakara_stroke_talking",
+          "default": true,
+          "name": "Thumb-pressed 'talking' strokes (bent pitch)",
+          "descriptors": [
+            "talking",
+            "bent-pitch",
+            "vocal",
+            "inflected"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick-struck",
+            "talking"
+          ],
+          "canonical_tags": [
+            "yoruba"
+          ]
+        },
+        {
+          "id": "sakara_stroke_open",
+          "name": "Open ringing stick pulse",
+          "descriptors": [
+            "open-ringing",
+            "driving",
+            "sharp-attack"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick-struck",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "yoruba"
+          ]
+        },
+        {
+          "id": "sakara_stroke_muted",
+          "name": "Damped muted taps",
+          "descriptors": [
+            "muted",
+            "dry",
+            "clipped"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick-struck",
+            "muted"
+          ],
+          "canonical_tags": [
+            "yoruba"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sakara_frame",
+      "surface": false,
+      "name": "Frame material",
+      "variants": [
+        {
+          "id": "sakara_frame_clay",
+          "default": true,
+          "name": "Fired-clay / earthenware ring frame",
+          "descriptors": [
+            "clay-bodied",
+            "resonant",
+            "earthy",
+            "pot-toned"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "clay-bodied"
+          ],
+          "canonical_tags": [
+            "yoruba",
+            "traditional"
+          ]
+        },
+        {
+          "id": "sakara_frame_wood",
+          "name": "Wooden hoop frame",
+          "descriptors": [
+            "wood-framed",
+            "lighter",
+            "bright"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "wood-framed"
+          ],
+          "canonical_tags": [
+            "yoruba"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sakara_form",
+      "name": "Type & size",
+      "variants": [
+        {
+          "id": "sakara_form_lead",
+          "default": true,
+          "name": "Lead sakara (deep, pitch-bending voice)",
+          "descriptors": [
+            "deep-toned",
+            "expressive",
+            "lead-voice",
+            "pitch-bending"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick-struck",
+            "talking"
+          ],
+          "canonical_tags": [
+            "yoruba",
+            "west-african"
+          ]
+        },
+        {
+          "id": "sakara_form_support",
+          "name": "Supporting sakara (small, high, steady pulse)",
+          "descriptors": [
+            "high-pitched",
+            "steady",
+            "timekeeping",
+            "clipped"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick-struck",
+            "pulse"
+          ],
+          "canonical_tags": [
+            "yoruba",
+            "west-african"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sakara_stroke",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "sakara_stroke_talking",
+          "default": true,
+          "name": "Thumb-pressed 'talking' strokes (bent pitch)",
+          "descriptors": [
+            "talking",
+            "bent-pitch",
+            "vocal",
+            "inflected"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick-struck",
+            "talking"
+          ],
+          "canonical_tags": [
+            "yoruba"
+          ]
+        },
+        {
+          "id": "sakara_stroke_open",
+          "name": "Open ringing stick pulse",
+          "descriptors": [
+            "open-ringing",
+            "driving",
+            "sharp-attack"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick-struck",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "yoruba"
+          ]
+        },
+        {
+          "id": "sakara_stroke_muted",
+          "name": "Damped muted taps",
+          "descriptors": [
+            "muted",
+            "dry",
+            "clipped"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick-struck",
+            "muted"
+          ],
+          "canonical_tags": [
+            "yoruba"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sakara_frame",
+      "surface": false,
+      "name": "Frame material",
+      "variants": [
+        {
+          "id": "sakara_frame_clay",
+          "default": true,
+          "name": "Fired-clay / earthenware ring frame",
+          "descriptors": [
+            "clay-bodied",
+            "resonant",
+            "earthy",
+            "pot-toned"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "clay-bodied"
+          ],
+          "canonical_tags": [
+            "yoruba",
+            "traditional"
+          ]
+        },
+        {
+          "id": "sakara_frame_wood",
+          "name": "Wooden hoop frame",
+          "descriptors": [
+            "wood-framed",
+            "lighter",
+            "bright"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "wood-framed"
+          ],
+          "canonical_tags": [
+            "yoruba"
+          ]
+        }
+      ]
+    }
+  ]
+}

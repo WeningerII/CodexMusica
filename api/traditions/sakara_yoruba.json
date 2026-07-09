@@ -3,9 +3,9 @@
   "name": "Sákárà (Yoruba Muslim frame-drum song)",
   "family": "global",
   "lineage": "Yoruba sákárà Muslim-Yoruba vocal-and-percussion tradition of southwestern Nigeria, predating both apàlà and fuji as the earliest documented Yoruba urban-Muslim popular music — emerging in 1930s Lagos and Ibadan from rural Muslim-Yoruba devotional song. Performance: male lead singer with sákárà frame-drums (clay-bowled, single-headed, struck with curved stick) and goje one-string spike-fiddle providing melodic-counter-voice. Lyric base draws on Islamic-devotional praise, Yoruba moral-philosophical commentary, and social-political commentary on Nigerian urban life.",
-  "recipe": "classic West African mid-1930s sákárà, functional Song, African pop branch, west African groove percussion indonesian jaipongan fújì. thick, declaimed, melodic, rhythmic. walnut bent frame canonical Iranian calfskin deeper alternative tar frame drum. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 473,
-  "score": 194.226,
+  "recipe": "classic West African mid-1930s sákárà, functional Song, African pop branch, west African groove percussion indonesian jaipongan fújì. thick, declaimed, melodic, rhythmic. deep toned lead voice pitch bending talking bent pitch sakara drum, goje. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 467,
+  "score": 311.271,
   "config": {
     "traditions": [
       "sakara_yoruba",
@@ -53,20 +53,31 @@
         }
       },
       {
-        "id": "tar_frame_drum",
+        "id": "sakara_drum",
         "slots": {
-          "percussion_technique": "percussion_hands_layered",
-          "tar_size": "tar_small",
-          "tar_frame_drum_context": "tar_frame_drum_sufi",
-          "tar_frame_shell_wood": "tar_frame_walnut",
-          "tar_frame_head": "tar_frame_calfskin"
+          "sakara_form": "sakara_form_lead",
+          "sakara_stroke": "sakara_stroke_talking",
+          "sakara_frame": "sakara_frame_clay"
         },
         "scores": {
-          "percussion_technique": -0.07,
-          "tar_size": 0.845,
-          "tar_frame_drum_context": 0.9099999999999999,
-          "tar_frame_shell_wood": 2.885,
-          "tar_frame_head": 1.04
+          "sakara_form": 31.709999999999997,
+          "sakara_stroke": 29.7275,
+          "sakara_frame": 26.799999999999997
+        }
+      },
+      {
+        "id": "goje",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "goje_form": "goje_yoruba",
+          "goje_repertoire": "goje_praise",
+          "goje_material": "goje_lizard_membrane"
+        },
+        "scores": {
+          "bowed_technique": -0.05,
+          "goje_form": 26.664999999999996,
+          "goje_repertoire": 7.852499999999999,
+          "goje_material": -0.05
         }
       }
     ],
@@ -102,12 +113,7 @@
       "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
       "voice_estill_quality": "voice_estill_speech",
       "voice_vibrato": "slow_vibrato",
-      "voice_mechanism_compound": "voice_mechanism_single_source",
-      "percussion_technique": "percussion_hands_layered",
-      "tar_size": "tar_large",
-      "tar_frame_drum_context": "tar_frame_drum_art",
-      "tar_frame_shell_wood": "tar_frame_walnut",
-      "tar_frame_head": "tar_frame_goat_skin"
+      "voice_mechanism_compound": "voice_mechanism_single_source"
     },
     "chain_mic": "dynamic_mic",
     "chain_pre": "transformer_solid_state",

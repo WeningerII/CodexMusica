@@ -3,9 +3,9 @@
   "name": "Hungarian verbunkos (military-recruitment dance)",
   "family": "global",
   "lineage": "Hungarian verbunkos military-recruitment dance-music tradition emerging in late-eighteenth century Habsburg-Hungarian military-recruitment practice (the verbunk recruitment-event featured local musicians playing energetic dance-music to inspire young men to enlist). The genre developed canonical compositional conventions: characteristic dotted-rhythm (kuruc rhythm) opening, augmented-fourth Hungarian-Gypsy-scale modal coloring, and characteristic accelerating tempo arc. The verbunkos became the foundational nineteenth-century Hungarian art-music style (informing Franz Liszt's Hungarian Rhapsodies and Béla Bartók's ethnographic-research), and through Brahms's Hungarian Dances entered the broader European musical consciousness. Distinguished from later magyar nóta urban-popular form by verbunkos's late-eighteenth-century historical-recruitment-context origin.",
-  "recipe": "classic Central European mid-1930s hungarian verbunkos, functional Song, europop branch, western common practice art music the mighty handful british brass band. sitka spruce European maple sycamore maple oil varnish amber tinted violin orchestral, sustained and staccato hungarian tradition concert pedal cimbalom large frame pedal damper cimbalom, ebonite hard rubber klezmer tradition clarinet. prague state label studio 1948-present mid tier prague supraphon studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 543,
-  "score": 57.462,
+  "recipe": "classic Central European mid-1930s hungarian verbunkos, functional Song, europop branch, western common practice art music the mighty handful british brass band. sitka spruce European maple sycamore maple oil varnish amber tinted violin orchestral, sustained and staccato hungarian tradition concert pedal cimbalom large frame pedal damper cimbalom, ebonite hard rubber klezmer tradition clarinet, traditional tarogato. prague state label studio 1948-present mid tier prague supraphon studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 565,
+  "score": 138.963,
   "config": {
     "traditions": [
       "hungarian_verbunkos",
@@ -66,6 +66,19 @@
           "clarinet_size": 1.405,
           "clarinet_reed": 0.845,
           "clarinet_articulation": 0
+        }
+      },
+      {
+        "id": "tarogato",
+        "slots": {
+          "tarogato_type": "tarogato_historical_toroksip",
+          "tarogato_repertoire": "tarogato_verbunkos",
+          "tarogato_body_wood": "tarogato_plumwood"
+        },
+        "scores": {
+          "tarogato_type": 25.25,
+          "tarogato_repertoire": 34.25,
+          "tarogato_body_wood": 22
         }
       }
     ],

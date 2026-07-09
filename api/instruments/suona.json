@@ -1,0 +1,418 @@
+{
+  "id": "suona",
+  "name": "Suona (Chinese double-reed shawm)",
+  "family": "wind",
+  "class": "double_reed_shawm",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "suona",
+  "parts": [
+    {
+      "id": "suona_size",
+      "name": "Size / pitch class",
+      "variants": [
+        {
+          "id": "suona_zhongyin",
+          "default": true,
+          "name": "Zhongyin suona (medium alto folk shawm)",
+          "descriptors": [
+            "all-purpose",
+            "brassy",
+            "cutting"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "china",
+            "east-asia"
+          ]
+        },
+        {
+          "id": "suona_gaoyin",
+          "name": "Gaoyin xiaosuona (small high soprano)",
+          "descriptors": [
+            "piercing",
+            "shrill-high",
+            "bright"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "piercing",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "china",
+            "east-asia"
+          ]
+        },
+        {
+          "id": "suona_haidi",
+          "name": "Haidi (tiny screaming-high suona)",
+          "descriptors": [
+            "tiny",
+            "screaming-high",
+            "reedy"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "piercing",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "china",
+            "east-asia"
+          ]
+        },
+        {
+          "id": "suona_dasuona",
+          "name": "Dasuona (large low booming shawm)",
+          "descriptors": [
+            "deep-bodied",
+            "booming",
+            "broad"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "china",
+            "east-asia"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "suona_context",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "suona_guchui_band",
+          "default": true,
+          "name": "Guchui / chuida wind-and-percussion band (weddings & funerals)",
+          "descriptors": [
+            "celebratory",
+            "processional",
+            "raucous"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "loud-projection",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "china",
+            "folk-band"
+          ]
+        },
+        {
+          "id": "suona_opera_bangzi",
+          "name": "Northern clapper-opera accompaniment",
+          "descriptors": [
+            "operatic",
+            "cutting",
+            "declamatory"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "piercing",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "china",
+            "opera"
+          ]
+        },
+        {
+          "id": "suona_solo_showpiece",
+          "name": "Virtuoso solo (circular breathing, bird-call imitation)",
+          "descriptors": [
+            "virtuosic",
+            "imitative",
+            "flutter-tongued"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ornamented",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "china",
+            "solo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "suona_body",
+      "surface": false,
+      "name": "Body wood / bell material",
+      "variants": [
+        {
+          "id": "suona_rosewood_copper",
+          "default": true,
+          "name": "Hardwood (rosewood) body with flared copper bell",
+          "descriptors": [
+            "rosewood-bodied",
+            "copper-belled",
+            "resonant"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "china"
+          ]
+        },
+        {
+          "id": "suona_sandalwood",
+          "name": "Sandalwood body (warm dense tone)",
+          "descriptors": [
+            "dense-toned",
+            "warm-wood",
+            "focused"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "china"
+          ]
+        },
+        {
+          "id": "suona_all_metal",
+          "name": "All-metal (tin/copper) folk body",
+          "descriptors": [
+            "metallic",
+            "strident",
+            "raw-tone"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven",
+            "piercing"
+          ],
+          "canonical_tags": [
+            "china",
+            "folk"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "suona_size",
+      "name": "Size / pitch class",
+      "variants": [
+        {
+          "id": "suona_zhongyin",
+          "default": true,
+          "name": "Zhongyin suona (medium alto folk shawm)",
+          "descriptors": [
+            "all-purpose",
+            "brassy",
+            "cutting"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "china",
+            "east-asia"
+          ]
+        },
+        {
+          "id": "suona_gaoyin",
+          "name": "Gaoyin xiaosuona (small high soprano)",
+          "descriptors": [
+            "piercing",
+            "shrill-high",
+            "bright"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "piercing",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "china",
+            "east-asia"
+          ]
+        },
+        {
+          "id": "suona_haidi",
+          "name": "Haidi (tiny screaming-high suona)",
+          "descriptors": [
+            "tiny",
+            "screaming-high",
+            "reedy"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "piercing",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "china",
+            "east-asia"
+          ]
+        },
+        {
+          "id": "suona_dasuona",
+          "name": "Dasuona (large low booming shawm)",
+          "descriptors": [
+            "deep-bodied",
+            "booming",
+            "broad"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "china",
+            "east-asia"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "suona_context",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "suona_guchui_band",
+          "default": true,
+          "name": "Guchui / chuida wind-and-percussion band (weddings & funerals)",
+          "descriptors": [
+            "celebratory",
+            "processional",
+            "raucous"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "loud-projection",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "china",
+            "folk-band"
+          ]
+        },
+        {
+          "id": "suona_opera_bangzi",
+          "name": "Northern clapper-opera accompaniment",
+          "descriptors": [
+            "operatic",
+            "cutting",
+            "declamatory"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "piercing",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "china",
+            "opera"
+          ]
+        },
+        {
+          "id": "suona_solo_showpiece",
+          "name": "Virtuoso solo (circular breathing, bird-call imitation)",
+          "descriptors": [
+            "virtuosic",
+            "imitative",
+            "flutter-tongued"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ornamented",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "china",
+            "solo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "suona_body",
+      "surface": false,
+      "name": "Body wood / bell material",
+      "variants": [
+        {
+          "id": "suona_rosewood_copper",
+          "default": true,
+          "name": "Hardwood (rosewood) body with flared copper bell",
+          "descriptors": [
+            "rosewood-bodied",
+            "copper-belled",
+            "resonant"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "china"
+          ]
+        },
+        {
+          "id": "suona_sandalwood",
+          "name": "Sandalwood body (warm dense tone)",
+          "descriptors": [
+            "dense-toned",
+            "warm-wood",
+            "focused"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "china"
+          ]
+        },
+        {
+          "id": "suona_all_metal",
+          "name": "All-metal (tin/copper) folk body",
+          "descriptors": [
+            "metallic",
+            "strident",
+            "raw-tone"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven",
+            "piercing"
+          ],
+          "canonical_tags": [
+            "china",
+            "folk"
+          ]
+        }
+      ]
+    }
+  ]
+}

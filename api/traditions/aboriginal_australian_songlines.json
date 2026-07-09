@@ -3,9 +3,9 @@
   "name": "Aboriginal Australian hunting songlines",
   "family": "global",
   "lineage": "Aboriginal Australian hunting-and-songlines tradition continuous from at-least-65,000-year-continuous Indigenous-Australian cultural-practice through colonial-era continuous performance into modern Aboriginal-and-Torres-Strait-Islander continuous practice",
-  "recipe": "classic Oceanian modern aboriginal australian hunting songlines, hunting Song, indigenous branch, arctic hunting song, sub saharan African hunting song, oceania pacific praise song māori waiata mōteatea / patere san (khoisan) hunting and trance song. vocal fry, declaimed, tasteful, continuous-phonation. eucalyptus tetrodonta yidaki canon northeast arnhem sugarbag beeswax native bee wax didgeridoo, claves. arctic arnhem indigenous outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 572,
-  "score": 157.111,
+  "recipe": "classic Oceanian modern aboriginal australian hunting songlines, hunting Song, indigenous branch, arctic hunting song, sub saharan African hunting song, oceania pacific praise song māori waiata mōteatea / patere san (khoisan) hunting and trance song. vocal fry, declaimed, tasteful, continuous-phonation. eucalyptus tetrodonta yidaki canon northeast arnhem sugarbag beeswax native bee wax didgeridoo, desert boomerang pair song cycle clapsticks bilma. arctic arnhem indigenous outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 615,
+  "score": 172.431,
   "config": {
     "traditions": [
       "aboriginal_australian_songlines",
@@ -68,14 +68,16 @@
         }
       },
       {
-        "id": "claves",
+        "id": "clapsticks_bilma",
         "slots": {
-          "claves_pattern": "claves_bembe",
-          "claves_wood": "claves_cuban_hardwood"
+          "clapsticks_bilma_form": "clapsticks_bilma_boomerang",
+          "clapsticks_bilma_context": "clapsticks_bilma_manikay",
+          "clapsticks_bilma_wood": "clapsticks_bilma_ironwood"
         },
         "scores": {
-          "claves_pattern": 2.7299999999999995,
-          "claves_wood": 0.49499999999999994
+          "clapsticks_bilma_form": 7.220000000000001,
+          "clapsticks_bilma_context": 11.374999999999998,
+          "clapsticks_bilma_wood": -0.05
         }
       }
     ],
@@ -113,8 +115,6 @@
       "voice_estill_quality": "voice_estill_falsetto",
       "voice_vibrato": "straight_tone",
       "voice_mechanism_compound": "voice_mechanism_single_source",
-      "claves_pattern": "claves_son_3_2",
-      "claves_wood": "claves_cuban_hardwood",
       "wind_articulation": "wind_circular_breathing_drone",
       "didj_material": "eucalyptus_tetrodonta_yidaki",
       "didj_mouthpiece": "sugarbag_beeswax_mouthpiece",

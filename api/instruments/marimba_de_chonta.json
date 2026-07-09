@@ -1,0 +1,318 @@
+{
+  "id": "marimba_de_chonta",
+  "name": "Marimba de chonta (Colombian/Ecuadorian Pacific marimba)",
+  "family": "percussion",
+  "class": "tuned_percussion",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "chonta",
+  "parts": [
+    {
+      "id": "marimba_de_chonta_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "marimba_de_chonta_colombiana",
+          "default": true,
+          "name": "Colombian Pacific (Guapi / Cauca-Nariño), ceiling-hung",
+          "descriptors": [
+            "suspended",
+            "guadua-resonated",
+            "bright"
+          ],
+          "match_tokens": [
+            "struck",
+            "wooden-bars"
+          ],
+          "canonical_tags": [
+            "colombian-pacific",
+            "currulao"
+          ]
+        },
+        {
+          "id": "marimba_de_chonta_esmeraldena",
+          "name": "Ecuadorian Esmeraldas (marimba esmeraldeña), legged frame",
+          "descriptors": [
+            "seated",
+            "deep-toned",
+            "legged-frame"
+          ],
+          "match_tokens": [
+            "struck",
+            "wooden-bars"
+          ],
+          "canonical_tags": [
+            "ecuadorian",
+            "esmeraldas"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marimba_de_chonta_role",
+      "name": "Playing role / repertoire",
+      "variants": [
+        {
+          "id": "marimba_de_chonta_duet",
+          "default": true,
+          "name": "Two-player interlock (bordón + requinta)",
+          "descriptors": [
+            "interlocking",
+            "call-response",
+            "two-player"
+          ],
+          "match_tokens": [
+            "struck",
+            "interlocking"
+          ],
+          "canonical_tags": [
+            "currulao"
+          ]
+        },
+        {
+          "id": "marimba_de_chonta_bordon",
+          "name": "Bordón (low bass ostinato)",
+          "descriptors": [
+            "ostinato",
+            "low-driving",
+            "rhythmic-foundation"
+          ],
+          "match_tokens": [
+            "struck",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "currulao"
+          ]
+        },
+        {
+          "id": "marimba_de_chonta_requinta",
+          "name": "Requinta / glosa (high improvised lead)",
+          "descriptors": [
+            "improvised",
+            "high-melodic",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "struck",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "currulao",
+            "juga",
+            "bunde"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marimba_de_chonta_material",
+      "surface": false,
+      "name": "Bar and resonator material",
+      "variants": [
+        {
+          "id": "marimba_de_chonta_chonta_guadua",
+          "default": true,
+          "name": "Chonta-palm bars over guadua-bamboo tube resonators",
+          "descriptors": [
+            "palm-wood",
+            "bamboo-tubes",
+            "traditional"
+          ],
+          "match_tokens": [
+            "wooden-bars",
+            "resonated"
+          ],
+          "canonical_tags": [
+            "chonta",
+            "guadua"
+          ]
+        },
+        {
+          "id": "marimba_de_chonta_hardwood",
+          "name": "Substitute dense hardwood bars",
+          "descriptors": [
+            "substitute-hardwood",
+            "denser"
+          ],
+          "match_tokens": [
+            "wooden-bars"
+          ]
+        },
+        {
+          "id": "marimba_de_chonta_pvc",
+          "name": "Modern PVC-tube resonators",
+          "descriptors": [
+            "modern",
+            "pvc-tubes"
+          ],
+          "match_tokens": [
+            "resonated"
+          ],
+          "canonical_tags": [
+            "contemporary"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "marimba_de_chonta_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "marimba_de_chonta_colombiana",
+          "default": true,
+          "name": "Colombian Pacific (Guapi / Cauca-Nariño), ceiling-hung",
+          "descriptors": [
+            "suspended",
+            "guadua-resonated",
+            "bright"
+          ],
+          "match_tokens": [
+            "struck",
+            "wooden-bars"
+          ],
+          "canonical_tags": [
+            "colombian-pacific",
+            "currulao"
+          ]
+        },
+        {
+          "id": "marimba_de_chonta_esmeraldena",
+          "name": "Ecuadorian Esmeraldas (marimba esmeraldeña), legged frame",
+          "descriptors": [
+            "seated",
+            "deep-toned",
+            "legged-frame"
+          ],
+          "match_tokens": [
+            "struck",
+            "wooden-bars"
+          ],
+          "canonical_tags": [
+            "ecuadorian",
+            "esmeraldas"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marimba_de_chonta_role",
+      "name": "Playing role / repertoire",
+      "variants": [
+        {
+          "id": "marimba_de_chonta_duet",
+          "default": true,
+          "name": "Two-player interlock (bordón + requinta)",
+          "descriptors": [
+            "interlocking",
+            "call-response",
+            "two-player"
+          ],
+          "match_tokens": [
+            "struck",
+            "interlocking"
+          ],
+          "canonical_tags": [
+            "currulao"
+          ]
+        },
+        {
+          "id": "marimba_de_chonta_bordon",
+          "name": "Bordón (low bass ostinato)",
+          "descriptors": [
+            "ostinato",
+            "low-driving",
+            "rhythmic-foundation"
+          ],
+          "match_tokens": [
+            "struck",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "currulao"
+          ]
+        },
+        {
+          "id": "marimba_de_chonta_requinta",
+          "name": "Requinta / glosa (high improvised lead)",
+          "descriptors": [
+            "improvised",
+            "high-melodic",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "struck",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "currulao",
+            "juga",
+            "bunde"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marimba_de_chonta_material",
+      "surface": false,
+      "name": "Bar and resonator material",
+      "variants": [
+        {
+          "id": "marimba_de_chonta_chonta_guadua",
+          "default": true,
+          "name": "Chonta-palm bars over guadua-bamboo tube resonators",
+          "descriptors": [
+            "palm-wood",
+            "bamboo-tubes",
+            "traditional"
+          ],
+          "match_tokens": [
+            "wooden-bars",
+            "resonated"
+          ],
+          "canonical_tags": [
+            "chonta",
+            "guadua"
+          ]
+        },
+        {
+          "id": "marimba_de_chonta_hardwood",
+          "name": "Substitute dense hardwood bars",
+          "descriptors": [
+            "substitute-hardwood",
+            "denser"
+          ],
+          "match_tokens": [
+            "wooden-bars"
+          ]
+        },
+        {
+          "id": "marimba_de_chonta_pvc",
+          "name": "Modern PVC-tube resonators",
+          "descriptors": [
+            "modern",
+            "pvc-tubes"
+          ],
+          "match_tokens": [
+            "resonated"
+          ],
+          "canonical_tags": [
+            "contemporary"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,374 @@
+{
+  "id": "guellal",
+  "name": "Guellal (Algerian cylindrical clay drum)",
+  "family": "percussion",
+  "class": "cylindrical_drum",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "guellal",
+  "parts": [
+    {
+      "id": "guellal_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "guellal_bedoui",
+          "default": true,
+          "name": "Bedoui guellal (desert-steppe form, gasba partner)",
+          "descriptors": [
+            "desert-steppe",
+            "deep-warm",
+            "archaic"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "rhythmic-pulse"
+          ],
+          "canonical_tags": [
+            "maghreb",
+            "algerian",
+            "bedoui"
+          ]
+        },
+        {
+          "id": "guellal_oranais",
+          "name": "Oranais raï-trab guellal (western Algeria)",
+          "descriptors": [
+            "oranais",
+            "driving",
+            "festive"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "dance-pulse"
+          ],
+          "canonical_tags": [
+            "algerian",
+            "rai",
+            "oran"
+          ]
+        },
+        {
+          "id": "guellal_chaabi",
+          "name": "Chaabi guellal (Algiers urban accompaniment)",
+          "descriptors": [
+            "urban",
+            "accompanying",
+            "supple"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "algerian",
+            "chaabi",
+            "algiers"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guellal_stroke",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "guellal_dum_tak",
+          "default": true,
+          "name": "Dum-and-tak drive (warm centre, sharp rim)",
+          "descriptors": [
+            "dum-tak",
+            "steady-pulse",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "rhythmic-pulse"
+          ],
+          "canonical_tags": [
+            "maghreb"
+          ]
+        },
+        {
+          "id": "guellal_ornamented",
+          "name": "Ornamented finger-rolls (filling the gasba phrase)",
+          "descriptors": [
+            "ornamented",
+            "finger-roll",
+            "rapid"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "maghreb"
+          ]
+        },
+        {
+          "id": "guellal_processional",
+          "name": "Heavy festive beat (weddings, outdoor)",
+          "descriptors": [
+            "processional",
+            "heavy-beat",
+            "festive"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "maghreb",
+            "algerian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guellal_body",
+      "surface": false,
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "guellal_clay",
+          "default": true,
+          "name": "Fired terracotta body (classic, warm resonance)",
+          "descriptors": [
+            "terracotta",
+            "warm-resonant",
+            "traditional"
+          ],
+          "match_tokens": [
+            "struck",
+            "clay-body"
+          ],
+          "canonical_tags": [
+            "maghreb"
+          ]
+        },
+        {
+          "id": "guellal_wood",
+          "name": "Turned wood body (drier tone)",
+          "descriptors": [
+            "turned-wood",
+            "dry-tone"
+          ],
+          "match_tokens": [
+            "struck",
+            "wood-body"
+          ],
+          "canonical_tags": [
+            "maghreb"
+          ]
+        },
+        {
+          "id": "guellal_metal",
+          "name": "Metal-shell body (modern, brighter)",
+          "descriptors": [
+            "metal-body",
+            "modern",
+            "bright"
+          ],
+          "match_tokens": [
+            "struck",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "algerian"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "guellal_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "guellal_bedoui",
+          "default": true,
+          "name": "Bedoui guellal (desert-steppe form, gasba partner)",
+          "descriptors": [
+            "desert-steppe",
+            "deep-warm",
+            "archaic"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "rhythmic-pulse"
+          ],
+          "canonical_tags": [
+            "maghreb",
+            "algerian",
+            "bedoui"
+          ]
+        },
+        {
+          "id": "guellal_oranais",
+          "name": "Oranais raï-trab guellal (western Algeria)",
+          "descriptors": [
+            "oranais",
+            "driving",
+            "festive"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "dance-pulse"
+          ],
+          "canonical_tags": [
+            "algerian",
+            "rai",
+            "oran"
+          ]
+        },
+        {
+          "id": "guellal_chaabi",
+          "name": "Chaabi guellal (Algiers urban accompaniment)",
+          "descriptors": [
+            "urban",
+            "accompanying",
+            "supple"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "algerian",
+            "chaabi",
+            "algiers"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guellal_stroke",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "guellal_dum_tak",
+          "default": true,
+          "name": "Dum-and-tak drive (warm centre, sharp rim)",
+          "descriptors": [
+            "dum-tak",
+            "steady-pulse",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "rhythmic-pulse"
+          ],
+          "canonical_tags": [
+            "maghreb"
+          ]
+        },
+        {
+          "id": "guellal_ornamented",
+          "name": "Ornamented finger-rolls (filling the gasba phrase)",
+          "descriptors": [
+            "ornamented",
+            "finger-roll",
+            "rapid"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "maghreb"
+          ]
+        },
+        {
+          "id": "guellal_processional",
+          "name": "Heavy festive beat (weddings, outdoor)",
+          "descriptors": [
+            "processional",
+            "heavy-beat",
+            "festive"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "maghreb",
+            "algerian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "guellal_body",
+      "surface": false,
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "guellal_clay",
+          "default": true,
+          "name": "Fired terracotta body (classic, warm resonance)",
+          "descriptors": [
+            "terracotta",
+            "warm-resonant",
+            "traditional"
+          ],
+          "match_tokens": [
+            "struck",
+            "clay-body"
+          ],
+          "canonical_tags": [
+            "maghreb"
+          ]
+        },
+        {
+          "id": "guellal_wood",
+          "name": "Turned wood body (drier tone)",
+          "descriptors": [
+            "turned-wood",
+            "dry-tone"
+          ],
+          "match_tokens": [
+            "struck",
+            "wood-body"
+          ],
+          "canonical_tags": [
+            "maghreb"
+          ]
+        },
+        {
+          "id": "guellal_metal",
+          "name": "Metal-shell body (modern, brighter)",
+          "descriptors": [
+            "metal-body",
+            "modern",
+            "bright"
+          ],
+          "match_tokens": [
+            "struck",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "algerian"
+          ]
+        }
+      ]
+    }
+  ]
+}

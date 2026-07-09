@@ -1,0 +1,362 @@
+{
+  "id": "dombyra",
+  "name": "Dombyra (Kazakh dombra)",
+  "family": "plucked_traditional",
+  "class": "long_neck_lute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "dombyra",
+  "parts": [
+    {
+      "id": "dombyra_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "dombyra_western",
+          "default": true,
+          "name": "West Kazakh (Batys) teardrop dombyra",
+          "descriptors": [
+            "teardrop-bodied",
+            "long-necked",
+            "driving",
+            "resonant"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "long-neck-lute"
+          ],
+          "canonical_tags": [
+            "kazakh",
+            "central-asia",
+            "western-kazakh"
+          ]
+        },
+        {
+          "id": "dombyra_eastern",
+          "name": "East Kazakh (Shyghys) spade-body dombyra",
+          "descriptors": [
+            "spade-shaped",
+            "compact",
+            "delicate",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "two-string",
+            "long-neck-lute"
+          ],
+          "canonical_tags": [
+            "kazakh",
+            "central-asia",
+            "eastern-kazakh"
+          ]
+        },
+        {
+          "id": "dombyra_concert",
+          "name": "Standardized concert dombra (orchestral)",
+          "descriptors": [
+            "standardized",
+            "orchestral",
+            "bright",
+            "projecting"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed"
+          ],
+          "canonical_tags": [
+            "kazakh",
+            "orchestral"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dombyra_style",
+      "name": "Playing style / repertoire",
+      "variants": [
+        {
+          "id": "dombyra_tokpe",
+          "default": true,
+          "name": "Tökpe kúy (driving strummed instrumental)",
+          "descriptors": [
+            "driving",
+            "strummed",
+            "virtuosic",
+            "epic"
+          ],
+          "match_tokens": [
+            "strummed",
+            "plucked",
+            "two-string"
+          ],
+          "canonical_tags": [
+            "kazakh",
+            "kuy",
+            "tokpe"
+          ]
+        },
+        {
+          "id": "dombyra_shertpe",
+          "name": "Shertpe kúy (delicate finger-plucked lyrical)",
+          "descriptors": [
+            "delicate",
+            "finger-plucked",
+            "lyrical",
+            "intimate"
+          ],
+          "match_tokens": [
+            "plucked",
+            "two-string"
+          ],
+          "canonical_tags": [
+            "kazakh",
+            "kuy",
+            "shertpe"
+          ]
+        },
+        {
+          "id": "dombyra_terme",
+          "name": "Terme / zhyr song accompaniment (aqyn / zhyrau)",
+          "descriptors": [
+            "recitative",
+            "steady-strum",
+            "declamatory",
+            "supporting"
+          ],
+          "match_tokens": [
+            "strummed",
+            "plucked",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "kazakh",
+            "aitys",
+            "terme"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dombyra_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "dombyra_nylon",
+          "default": true,
+          "name": "Nylon / fishing-line strings (modern)",
+          "descriptors": [
+            "nylon-strung",
+            "bright",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "dombyra_gut",
+          "name": "Gut / sinew strings (traditional)",
+          "descriptors": [
+            "gut-strung",
+            "warm",
+            "archaic",
+            "mellow"
+          ],
+          "match_tokens": [
+            "plucked"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dombyra_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "dombyra_western",
+          "default": true,
+          "name": "West Kazakh (Batys) teardrop dombyra",
+          "descriptors": [
+            "teardrop-bodied",
+            "long-necked",
+            "driving",
+            "resonant"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "long-neck-lute"
+          ],
+          "canonical_tags": [
+            "kazakh",
+            "central-asia",
+            "western-kazakh"
+          ]
+        },
+        {
+          "id": "dombyra_eastern",
+          "name": "East Kazakh (Shyghys) spade-body dombyra",
+          "descriptors": [
+            "spade-shaped",
+            "compact",
+            "delicate",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "two-string",
+            "long-neck-lute"
+          ],
+          "canonical_tags": [
+            "kazakh",
+            "central-asia",
+            "eastern-kazakh"
+          ]
+        },
+        {
+          "id": "dombyra_concert",
+          "name": "Standardized concert dombra (orchestral)",
+          "descriptors": [
+            "standardized",
+            "orchestral",
+            "bright",
+            "projecting"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed"
+          ],
+          "canonical_tags": [
+            "kazakh",
+            "orchestral"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dombyra_style",
+      "name": "Playing style / repertoire",
+      "variants": [
+        {
+          "id": "dombyra_tokpe",
+          "default": true,
+          "name": "Tökpe kúy (driving strummed instrumental)",
+          "descriptors": [
+            "driving",
+            "strummed",
+            "virtuosic",
+            "epic"
+          ],
+          "match_tokens": [
+            "strummed",
+            "plucked",
+            "two-string"
+          ],
+          "canonical_tags": [
+            "kazakh",
+            "kuy",
+            "tokpe"
+          ]
+        },
+        {
+          "id": "dombyra_shertpe",
+          "name": "Shertpe kúy (delicate finger-plucked lyrical)",
+          "descriptors": [
+            "delicate",
+            "finger-plucked",
+            "lyrical",
+            "intimate"
+          ],
+          "match_tokens": [
+            "plucked",
+            "two-string"
+          ],
+          "canonical_tags": [
+            "kazakh",
+            "kuy",
+            "shertpe"
+          ]
+        },
+        {
+          "id": "dombyra_terme",
+          "name": "Terme / zhyr song accompaniment (aqyn / zhyrau)",
+          "descriptors": [
+            "recitative",
+            "steady-strum",
+            "declamatory",
+            "supporting"
+          ],
+          "match_tokens": [
+            "strummed",
+            "plucked",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "kazakh",
+            "aitys",
+            "terme"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dombyra_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "dombyra_nylon",
+          "default": true,
+          "name": "Nylon / fishing-line strings (modern)",
+          "descriptors": [
+            "nylon-strung",
+            "bright",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "dombyra_gut",
+          "name": "Gut / sinew strings (traditional)",
+          "descriptors": [
+            "gut-strung",
+            "warm",
+            "archaic",
+            "mellow"
+          ],
+          "match_tokens": [
+            "plucked"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        }
+      ]
+    }
+  ]
+}

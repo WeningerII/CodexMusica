@@ -3,9 +3,9 @@
   "name": "Italian southern folk (tarantella, pizzica)",
   "family": "global",
   "lineage": "Southern Italian traditional dance-and-song heritage — tarantella (the broad family of Southern Italian fast 6/8 dance-music, regional variants from Campania, Calabria, Apulia, Sicily), pizzica (the Salentine Apulian variant historically associated with tarantismo, the cultural-spider-bite-ritual of bitten women dancing the trance out of their bodies), and broader Italian southern pastoral tradition with zampogna (Southern Italian bagpipe with two chanters and drones) and ciaramella (the small shawm partner of zampogna in the Christmas-novena outdoor piping-couple); modern revival through the Notte della Taranta festival (Melpignano, since 1998) and the figures Antonio Castrignanò, Mauro Durante, Alla Bua",
-  "recipe": "classic Southern European late-1990s italian southern folk, ballad Poetry, Mediterranean ballad branch, christian gospel ritual devotional, Celtic balladic ballad poetry black gospel bluegrass gospel. thick, declaimed, tasteful, ornamental. olive wood canonical southern Italian cane arundo donax canonical Italian whole goatskin canonical southern Italian pastoral melodic zampogna, dance driving ciaramella, traditional mellow brass tambourine orch. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 615,
-  "score": 312.518,
+  "recipe": "classic Southern European late-1990s italian southern folk, ballad Poetry, Mediterranean ballad branch, christian gospel ritual devotional, Celtic balladic ballad poetry black gospel bluegrass gospel. thick, declaimed, tasteful, ornamental. olive wood canonical southern Italian cane arundo donax canonical Italian whole goatskin canonical southern Italian pastoral melodic zampogna, dance driving ciaramella, central Italian trance pulse synthetic head tammorra. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 627,
+  "score": 339.478,
   "config": {
     "traditions": [
       "italian_southern_folk",
@@ -83,14 +83,16 @@
         }
       },
       {
-        "id": "tambourine_orch",
+        "id": "tammorra",
         "slots": {
-          "tambourine_orch_jingle": "tambourine_orch_brass",
-          "tambourine_orch_context": "tambourine_orch_orch"
+          "tammorra_form": "tammorra_tamburello_ciociaro",
+          "tammorra_context": "tammorra_tammurriata",
+          "tammorra_head": "tammorra_pelle_sintetica"
         },
         "scores": {
-          "tambourine_orch_jingle": 1.115,
-          "tambourine_orch_context": 0.5945
+          "tammorra_form": 6.6945,
+          "tammorra_context": 16.974499999999995,
+          "tammorra_head": 5
         }
       }
     ],
@@ -127,8 +129,6 @@
       "voice_estill_quality": "voice_estill_oral_twang",
       "voice_vibrato": "slow_vibrato",
       "voice_mechanism_compound": "voice_mechanism_single_source",
-      "tambourine_orch_jingle": "tambourine_orch_brass",
-      "tambourine_orch_context": "tambourine_orch_orch",
       "ciaramella_use": "ciaramella_zampogna_pair",
       "zampogna_region": "zampogna_molisana",
       "zampogna_context": "zampogna_nativity",

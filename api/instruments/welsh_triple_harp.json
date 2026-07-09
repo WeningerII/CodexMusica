@@ -1,0 +1,382 @@
+{
+  "id": "welsh_triple_harp",
+  "name": "Welsh triple harp (telyn deires)",
+  "family": "acoustic_strings",
+  "class": "plucked_harp",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "telyn",
+  "parts": [
+    {
+      "id": "welsh_triple_harp_form",
+      "name": "Form & size",
+      "variants": [
+        {
+          "id": "welsh_triple_harp_concert",
+          "default": true,
+          "name": "Full-size floor triple harp",
+          "descriptors": [
+            "full-size",
+            "floor-standing",
+            "five-octave"
+          ],
+          "match_tokens": [
+            "plucked",
+            "triple-strung",
+            "wide-range"
+          ],
+          "canonical_tags": [
+            "welsh",
+            "concert"
+          ]
+        },
+        {
+          "id": "welsh_triple_harp_bardic",
+          "name": "Old-pattern bardic triple harp",
+          "descriptors": [
+            "archaic",
+            "straight-fronted",
+            "low-tension"
+          ],
+          "match_tokens": [
+            "plucked",
+            "gut-strung",
+            "mellow"
+          ],
+          "canonical_tags": [
+            "welsh",
+            "historical"
+          ]
+        },
+        {
+          "id": "welsh_triple_harp_lap",
+          "name": "Small portable triple harp (telyn fach)",
+          "descriptors": [
+            "portable",
+            "small-bodied",
+            "intimate"
+          ],
+          "match_tokens": [
+            "plucked",
+            "triple-strung",
+            "intimate"
+          ],
+          "canonical_tags": [
+            "welsh"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "welsh_triple_harp_repertoire",
+      "name": "Playing context & repertoire",
+      "variants": [
+        {
+          "id": "welsh_triple_harp_cerdd_dant",
+          "default": true,
+          "name": "Cerdd dant / penillion accompaniment",
+          "descriptors": [
+            "cerdd-dant",
+            "counter-melodic",
+            "measured"
+          ],
+          "match_tokens": [
+            "plucked",
+            "chordal",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "welsh",
+            "cerdd-dant"
+          ]
+        },
+        {
+          "id": "welsh_triple_harp_romani_dance",
+          "name": "Welsh Romani dance airs",
+          "descriptors": [
+            "romani",
+            "ornamented",
+            "dance-brisk"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "lively"
+          ],
+          "canonical_tags": [
+            "welsh",
+            "romani"
+          ]
+        },
+        {
+          "id": "welsh_triple_harp_hymn",
+          "name": "Chapel hymn & ballad accompaniment",
+          "descriptors": [
+            "chapel-hymn",
+            "chordal",
+            "devotional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "chordal",
+            "sacred"
+          ],
+          "canonical_tags": [
+            "welsh",
+            "hymn"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "welsh_triple_harp_stringing",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "welsh_triple_harp_gut",
+          "default": true,
+          "name": "Full gut stringing",
+          "descriptors": [
+            "gut-strung",
+            "warm",
+            "mellow"
+          ],
+          "match_tokens": [
+            "plucked",
+            "gut-strung",
+            "warm"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "welsh_triple_harp_overwound_bass",
+          "name": "Gut trebles with overwound basses",
+          "descriptors": [
+            "overwound-bass",
+            "full-bodied",
+            "resonant-low"
+          ],
+          "match_tokens": [
+            "plucked",
+            "warm",
+            "resonant"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "welsh_triple_harp_nylon",
+          "name": "Modern nylon stringing",
+          "descriptors": [
+            "nylon-strung",
+            "bright",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bright",
+            "clear"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "welsh_triple_harp_form",
+      "name": "Form & size",
+      "variants": [
+        {
+          "id": "welsh_triple_harp_concert",
+          "default": true,
+          "name": "Full-size floor triple harp",
+          "descriptors": [
+            "full-size",
+            "floor-standing",
+            "five-octave"
+          ],
+          "match_tokens": [
+            "plucked",
+            "triple-strung",
+            "wide-range"
+          ],
+          "canonical_tags": [
+            "welsh",
+            "concert"
+          ]
+        },
+        {
+          "id": "welsh_triple_harp_bardic",
+          "name": "Old-pattern bardic triple harp",
+          "descriptors": [
+            "archaic",
+            "straight-fronted",
+            "low-tension"
+          ],
+          "match_tokens": [
+            "plucked",
+            "gut-strung",
+            "mellow"
+          ],
+          "canonical_tags": [
+            "welsh",
+            "historical"
+          ]
+        },
+        {
+          "id": "welsh_triple_harp_lap",
+          "name": "Small portable triple harp (telyn fach)",
+          "descriptors": [
+            "portable",
+            "small-bodied",
+            "intimate"
+          ],
+          "match_tokens": [
+            "plucked",
+            "triple-strung",
+            "intimate"
+          ],
+          "canonical_tags": [
+            "welsh"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "welsh_triple_harp_repertoire",
+      "name": "Playing context & repertoire",
+      "variants": [
+        {
+          "id": "welsh_triple_harp_cerdd_dant",
+          "default": true,
+          "name": "Cerdd dant / penillion accompaniment",
+          "descriptors": [
+            "cerdd-dant",
+            "counter-melodic",
+            "measured"
+          ],
+          "match_tokens": [
+            "plucked",
+            "chordal",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "welsh",
+            "cerdd-dant"
+          ]
+        },
+        {
+          "id": "welsh_triple_harp_romani_dance",
+          "name": "Welsh Romani dance airs",
+          "descriptors": [
+            "romani",
+            "ornamented",
+            "dance-brisk"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented",
+            "lively"
+          ],
+          "canonical_tags": [
+            "welsh",
+            "romani"
+          ]
+        },
+        {
+          "id": "welsh_triple_harp_hymn",
+          "name": "Chapel hymn & ballad accompaniment",
+          "descriptors": [
+            "chapel-hymn",
+            "chordal",
+            "devotional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "chordal",
+            "sacred"
+          ],
+          "canonical_tags": [
+            "welsh",
+            "hymn"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "welsh_triple_harp_stringing",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "welsh_triple_harp_gut",
+          "default": true,
+          "name": "Full gut stringing",
+          "descriptors": [
+            "gut-strung",
+            "warm",
+            "mellow"
+          ],
+          "match_tokens": [
+            "plucked",
+            "gut-strung",
+            "warm"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "welsh_triple_harp_overwound_bass",
+          "name": "Gut trebles with overwound basses",
+          "descriptors": [
+            "overwound-bass",
+            "full-bodied",
+            "resonant-low"
+          ],
+          "match_tokens": [
+            "plucked",
+            "warm",
+            "resonant"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "welsh_triple_harp_nylon",
+          "name": "Modern nylon stringing",
+          "descriptors": [
+            "nylon-strung",
+            "bright",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bright",
+            "clear"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

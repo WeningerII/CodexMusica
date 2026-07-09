@@ -1,0 +1,290 @@
+{
+  "id": "tenor_banjo_irish",
+  "name": "Irish tenor banjo (GDAE four-string)",
+  "family": "plucked_traditional",
+  "class": "plucked_banjo",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -2,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "tenor_banjo",
+  "parts": [
+    {
+      "id": "tenor_banjo_irish_form",
+      "name": "Scale / type",
+      "variants": [
+        {
+          "id": "tenor_banjo_irish_19fret",
+          "default": true,
+          "name": "19-fret long-scale tenor (Barney McKenna standard)",
+          "descriptors": [
+            "long-scale",
+            "full-toned",
+            "resonant"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bright-cutting",
+            "drumhead-tone"
+          ],
+          "canonical_tags": [
+            "irish",
+            "celtic"
+          ]
+        },
+        {
+          "id": "tenor_banjo_irish_17fret",
+          "name": "17-fret short-scale tenor",
+          "descriptors": [
+            "short-scale",
+            "punchy",
+            "tight"
+          ],
+          "match_tokens": [
+            "plucked",
+            "staccato",
+            "bright-cutting"
+          ],
+          "canonical_tags": [
+            "irish",
+            "celtic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tenor_banjo_irish_style",
+      "name": "Playing style / repertoire",
+      "variants": [
+        {
+          "id": "tenor_banjo_irish_reels",
+          "default": true,
+          "name": "Session reels & jigs (single-string plectrum melody)",
+          "descriptors": [
+            "driving",
+            "dance-tune",
+            "single-string"
+          ],
+          "match_tokens": [
+            "plucked",
+            "staccato",
+            "bright-cutting"
+          ],
+          "canonical_tags": [
+            "irish-trad"
+          ]
+        },
+        {
+          "id": "tenor_banjo_irish_airs",
+          "name": "Ornamented airs & hornpipes (triplets and rolls)",
+          "descriptors": [
+            "ornamented",
+            "lilting",
+            "triplet-driven"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "irish-trad"
+          ]
+        },
+        {
+          "id": "tenor_banjo_irish_ballad",
+          "name": "Ballad-group strummed backing",
+          "descriptors": [
+            "strummed",
+            "rhythmic",
+            "chordal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed"
+          ],
+          "canonical_tags": [
+            "ballad",
+            "celtic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tenor_banjo_irish_head",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "tenor_banjo_irish_synthetic",
+          "default": true,
+          "name": "Synthetic Mylar head",
+          "descriptors": [
+            "bright",
+            "crisp",
+            "modern"
+          ],
+          "match_tokens": [
+            "drumhead-tone",
+            "bright-cutting"
+          ]
+        },
+        {
+          "id": "tenor_banjo_irish_calfskin",
+          "name": "Natural calfskin head",
+          "descriptors": [
+            "warm-toned",
+            "mellow",
+            "traditional"
+          ],
+          "match_tokens": [
+            "drumhead-tone",
+            "warm"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tenor_banjo_irish_form",
+      "name": "Scale / type",
+      "variants": [
+        {
+          "id": "tenor_banjo_irish_19fret",
+          "default": true,
+          "name": "19-fret long-scale tenor (Barney McKenna standard)",
+          "descriptors": [
+            "long-scale",
+            "full-toned",
+            "resonant"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bright-cutting",
+            "drumhead-tone"
+          ],
+          "canonical_tags": [
+            "irish",
+            "celtic"
+          ]
+        },
+        {
+          "id": "tenor_banjo_irish_17fret",
+          "name": "17-fret short-scale tenor",
+          "descriptors": [
+            "short-scale",
+            "punchy",
+            "tight"
+          ],
+          "match_tokens": [
+            "plucked",
+            "staccato",
+            "bright-cutting"
+          ],
+          "canonical_tags": [
+            "irish",
+            "celtic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tenor_banjo_irish_style",
+      "name": "Playing style / repertoire",
+      "variants": [
+        {
+          "id": "tenor_banjo_irish_reels",
+          "default": true,
+          "name": "Session reels & jigs (single-string plectrum melody)",
+          "descriptors": [
+            "driving",
+            "dance-tune",
+            "single-string"
+          ],
+          "match_tokens": [
+            "plucked",
+            "staccato",
+            "bright-cutting"
+          ],
+          "canonical_tags": [
+            "irish-trad"
+          ]
+        },
+        {
+          "id": "tenor_banjo_irish_airs",
+          "name": "Ornamented airs & hornpipes (triplets and rolls)",
+          "descriptors": [
+            "ornamented",
+            "lilting",
+            "triplet-driven"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "irish-trad"
+          ]
+        },
+        {
+          "id": "tenor_banjo_irish_ballad",
+          "name": "Ballad-group strummed backing",
+          "descriptors": [
+            "strummed",
+            "rhythmic",
+            "chordal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed"
+          ],
+          "canonical_tags": [
+            "ballad",
+            "celtic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tenor_banjo_irish_head",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "tenor_banjo_irish_synthetic",
+          "default": true,
+          "name": "Synthetic Mylar head",
+          "descriptors": [
+            "bright",
+            "crisp",
+            "modern"
+          ],
+          "match_tokens": [
+            "drumhead-tone",
+            "bright-cutting"
+          ]
+        },
+        {
+          "id": "tenor_banjo_irish_calfskin",
+          "name": "Natural calfskin head",
+          "descriptors": [
+            "warm-toned",
+            "mellow",
+            "traditional"
+          ],
+          "match_tokens": [
+            "drumhead-tone",
+            "warm"
+          ]
+        }
+      ]
+    }
+  ]
+}

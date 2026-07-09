@@ -3,9 +3,9 @@
   "name": "Shashmaqam (Tajik-Uzbek classical)",
   "family": "classical",
   "lineage": "Bukharan Central Asian classical six-modal-cycle tradition shared between Tajikistan and Uzbekistan. The six modal cycles — Buzruk, Rost, Navo, Dugoh, Segoh, Iroq — each a multi-movement suite structure. Origin in Bukhara city under the Bukharan emirate, present form crystallized in the eighteenth century. Canonical instrumentation: tanbur long-necked plucked lute as the primary maqom voice carrier, dutar two-string fretted lute, sato bowed tanbur, ghijak spike fiddle (analogue to Azerbaijani kamancha), doira frame-drum with internal jingles, nay end-blown reed flute. The Bukharan Jewish community preserved the most archaic transmission layer through Soviet-era suppression and subsequent diaspora-recovery in the United States and Israel. Twentieth-century master Turgun Alimatov (tanbur, dutar, sato virtuoso) anchored the post-Soviet revival. Distinguished from Azerbaijani mugham by six-maqom-cycle structure (vs Azerbaijani seven-dastgah); distinguished from Persian dastgah-i radif by Bukharan ensemble configuration and Tajik-Persian-language sufyiana-poetry textual base; distinguished from Uyghur muqam by Bukharan-Tajik dialect-specific cadential and modal vocabulary",
-  "recipe": "classic Central Asian mid-1990s shashmaqam, art Music, middle eastern classical branch, Persian arab improv improv on frame tarab turkish-romani çümbüş music. extended whistle, low dynamic level, chest resonance low mid, maqam neutral step. mulberry bowl canonical kurdish steel modern tanbur persian, mulberry pear body canonical bukharan shashmaqam silk canonical pre modern shashmaqam bukharan shashmaqam canonical uzbek tajik classical dutar, mulberry pear body long neck bowed tanbur shashmaqam canonical bukhara samarkand classical legato sato, walnut bowl skin faced canonical caucasian four string silk or steel canonical mugham trio Persian radif tradition tehran conservatory legato kamancha, walnut bent frame canonical Persian goat skin tacked brass rings canonical Iranian daf. bukhara shashmaqam courtyard chamber. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 975,
-  "score": 435.742,
+  "recipe": "classic Central Asian mid-1990s shashmaqam, art Music, middle eastern classical branch, Persian arab improv improv on frame tarab turkish-romani çümbüş music. extended whistle, low dynamic level, chest resonance low mid, maqam neutral step. mulberry bowl canonical kurdish steel modern tanbur persian, mulberry pear body canonical bukharan shashmaqam silk canonical pre modern shashmaqam bukharan shashmaqam canonical uzbek tajik classical dutar, mulberry pear body long neck bowed tanbur shashmaqam canonical bukhara samarkand classical legato sato, walnut bowl skin faced canonical caucasian four string silk or steel canonical mugham trio Persian radif tradition tehran conservatory legato kamancha, walnut bent frame canonical Persian goat skin tacked brass rings canonical Iranian daf, carved mulberry muqam ensemble melodic bright metallic rubab. bukhara shashmaqam courtyard chamber. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ.",
+  "recipe_chars": 991,
+  "score": 459.218,
   "config": {
     "traditions": [
       "shashmaqam_central_asian",
@@ -125,6 +125,19 @@
           "daf_shell_wood": 12.934999999999999,
           "daf_head_material": 1.69,
           "daf_jingle_metal": 1.69
+        }
+      },
+      {
+        "id": "rubab",
+        "slots": {
+          "rubab_form": "rubab_kabuli",
+          "rubab_style": "rubab_muqam_ensemble",
+          "rubab_strings": "rubab_steel"
+        },
+        "scores": {
+          "rubab_form": 9.36,
+          "rubab_style": 10.865125,
+          "rubab_strings": 3.25
         }
       }
     ],

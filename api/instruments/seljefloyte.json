@@ -1,0 +1,364 @@
+{
+  "id": "seljefloyte",
+  "name": "Seljefløyte (Norwegian willow overtone flute)",
+  "family": "wind",
+  "class": "overtone_flute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "seljefloyte",
+  "parts": [
+    {
+      "id": "seljefloyte_form",
+      "name": "Willow-flute form",
+      "variants": [
+        {
+          "id": "seljefloyte_norwegian",
+          "default": true,
+          "name": "Seljefløyte (Norwegian willow overtone flute)",
+          "descriptors": [
+            "pastoral",
+            "overblown",
+            "bright"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "overtone-series",
+            "breathy"
+          ],
+          "canonical_tags": [
+            "nordic_baltic",
+            "norwegian"
+          ]
+        },
+        {
+          "id": "seljefloyte_swedish_salgpipa",
+          "name": "Sälgpipa / sälgflöjt (Swedish willow flute)",
+          "descriptors": [
+            "folkloric",
+            "airy",
+            "droning"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "overtone-series",
+            "breathy"
+          ],
+          "canonical_tags": [
+            "nordic_baltic",
+            "swedish"
+          ]
+        },
+        {
+          "id": "seljefloyte_finnish_pajupilli",
+          "name": "Pajupilli (Finnish willow whistle)",
+          "descriptors": [
+            "rustic",
+            "short",
+            "reedy"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "overtone-series"
+          ],
+          "canonical_tags": [
+            "nordic_baltic",
+            "finnish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "seljefloyte_playing",
+      "name": "Playing technique / repertoire",
+      "variants": [
+        {
+          "id": "seljefloyte_open_overblow",
+          "default": true,
+          "name": "Open overblowing (harmonic-series climb)",
+          "descriptors": [
+            "overblown",
+            "harmonic-series",
+            "soaring"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "overtone-series",
+            "breathy"
+          ],
+          "canonical_tags": [
+            "pastoral"
+          ]
+        },
+        {
+          "id": "seljefloyte_stopped_end",
+          "name": "Stopped-end technique (finger over far hole)",
+          "descriptors": [
+            "stopped",
+            "microtonal",
+            "shifting"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "overtone-series"
+          ],
+          "canonical_tags": [
+            "technique"
+          ]
+        },
+        {
+          "id": "seljefloyte_lokk_pastoral",
+          "name": "Lokk herding-call repertoire",
+          "descriptors": [
+            "herding",
+            "echoing",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathy"
+          ],
+          "canonical_tags": [
+            "nordic_baltic",
+            "herding"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "seljefloyte_material",
+      "surface": false,
+      "name": "Tube material / construction",
+      "variants": [
+        {
+          "id": "seljefloyte_willow_bark",
+          "default": true,
+          "name": "Fresh willow/sallow bark tube (seasonal)",
+          "descriptors": [
+            "sappy",
+            "buzzy",
+            "ephemeral"
+          ],
+          "match_tokens": [
+            "breathy",
+            "overtone-series"
+          ],
+          "canonical_tags": [
+            "bark"
+          ]
+        },
+        {
+          "id": "seljefloyte_bored_wood",
+          "name": "Bored willow/elder wood (permanent)",
+          "descriptors": [
+            "stable",
+            "clear",
+            "warm"
+          ],
+          "match_tokens": [
+            "breathy"
+          ],
+          "canonical_tags": [
+            "wood"
+          ]
+        },
+        {
+          "id": "seljefloyte_modern_synthetic",
+          "name": "Modern PVC/wood build (revival)",
+          "descriptors": [
+            "durable",
+            "even",
+            "modern"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "seljefloyte_form",
+      "name": "Willow-flute form",
+      "variants": [
+        {
+          "id": "seljefloyte_norwegian",
+          "default": true,
+          "name": "Seljefløyte (Norwegian willow overtone flute)",
+          "descriptors": [
+            "pastoral",
+            "overblown",
+            "bright"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "overtone-series",
+            "breathy"
+          ],
+          "canonical_tags": [
+            "nordic_baltic",
+            "norwegian"
+          ]
+        },
+        {
+          "id": "seljefloyte_swedish_salgpipa",
+          "name": "Sälgpipa / sälgflöjt (Swedish willow flute)",
+          "descriptors": [
+            "folkloric",
+            "airy",
+            "droning"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "overtone-series",
+            "breathy"
+          ],
+          "canonical_tags": [
+            "nordic_baltic",
+            "swedish"
+          ]
+        },
+        {
+          "id": "seljefloyte_finnish_pajupilli",
+          "name": "Pajupilli (Finnish willow whistle)",
+          "descriptors": [
+            "rustic",
+            "short",
+            "reedy"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "overtone-series"
+          ],
+          "canonical_tags": [
+            "nordic_baltic",
+            "finnish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "seljefloyte_playing",
+      "name": "Playing technique / repertoire",
+      "variants": [
+        {
+          "id": "seljefloyte_open_overblow",
+          "default": true,
+          "name": "Open overblowing (harmonic-series climb)",
+          "descriptors": [
+            "overblown",
+            "harmonic-series",
+            "soaring"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "overtone-series",
+            "breathy"
+          ],
+          "canonical_tags": [
+            "pastoral"
+          ]
+        },
+        {
+          "id": "seljefloyte_stopped_end",
+          "name": "Stopped-end technique (finger over far hole)",
+          "descriptors": [
+            "stopped",
+            "microtonal",
+            "shifting"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "overtone-series"
+          ],
+          "canonical_tags": [
+            "technique"
+          ]
+        },
+        {
+          "id": "seljefloyte_lokk_pastoral",
+          "name": "Lokk herding-call repertoire",
+          "descriptors": [
+            "herding",
+            "echoing",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathy"
+          ],
+          "canonical_tags": [
+            "nordic_baltic",
+            "herding"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "seljefloyte_material",
+      "surface": false,
+      "name": "Tube material / construction",
+      "variants": [
+        {
+          "id": "seljefloyte_willow_bark",
+          "default": true,
+          "name": "Fresh willow/sallow bark tube (seasonal)",
+          "descriptors": [
+            "sappy",
+            "buzzy",
+            "ephemeral"
+          ],
+          "match_tokens": [
+            "breathy",
+            "overtone-series"
+          ],
+          "canonical_tags": [
+            "bark"
+          ]
+        },
+        {
+          "id": "seljefloyte_bored_wood",
+          "name": "Bored willow/elder wood (permanent)",
+          "descriptors": [
+            "stable",
+            "clear",
+            "warm"
+          ],
+          "match_tokens": [
+            "breathy"
+          ],
+          "canonical_tags": [
+            "wood"
+          ]
+        },
+        {
+          "id": "seljefloyte_modern_synthetic",
+          "name": "Modern PVC/wood build (revival)",
+          "descriptors": [
+            "durable",
+            "even",
+            "modern"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

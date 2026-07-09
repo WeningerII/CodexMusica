@@ -1,0 +1,372 @@
+{
+  "id": "rubab",
+  "name": "Rubab (Afghan/Uyghur plucked lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_lute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "rubab",
+  "parts": [
+    {
+      "id": "rubab_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "rubab_kabuli",
+          "default": true,
+          "name": "Kabuli / Afghan rubab (double-chamber carved mulberry, goatskin belly)",
+          "descriptors": [
+            "carved-mulberry",
+            "sympathetic-resonant",
+            "classical-lead"
+          ],
+          "match_tokens": [
+            "plucked",
+            "skin-bellied",
+            "bright-attack"
+          ],
+          "canonical_tags": [
+            "afghan",
+            "central-asia"
+          ]
+        },
+        {
+          "id": "rubab_kashgar",
+          "name": "Kashgar rubab (Uyghur muqam lute, long neck, deep skin bowl)",
+          "descriptors": [
+            "muqam-lead",
+            "long-necked",
+            "resonant"
+          ],
+          "match_tokens": [
+            "plucked",
+            "skin-bellied",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "uyghur",
+            "central-asia"
+          ]
+        },
+        {
+          "id": "rawap_uyghur",
+          "name": "Uyghur rawap (small round skin body, metal strings, piercing)",
+          "descriptors": [
+            "metal-strung",
+            "bright-metallic",
+            "piercing"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bright-attack"
+          ],
+          "canonical_tags": [
+            "uyghur"
+          ]
+        },
+        {
+          "id": "rubab_pamiri",
+          "name": "Pamiri rubob (Badakhshani devotional maddoh lute)",
+          "descriptors": [
+            "devotional",
+            "archaic",
+            "droning"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "pamir",
+            "ismaili"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rubab_style",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "rubab_naghma_lead",
+          "default": true,
+          "name": "Naghma classical instrumental lead (ornamented melodic solo)",
+          "descriptors": [
+            "ornamented",
+            "raga-derived",
+            "lead-melodic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bright-attack"
+          ],
+          "canonical_tags": [
+            "afghan",
+            "art-music"
+          ]
+        },
+        {
+          "id": "rubab_muqam_ensemble",
+          "name": "On Ikki Muqam ensemble melody (with drone strings ringing)",
+          "descriptors": [
+            "muqam",
+            "ensemble-melodic",
+            "resonant"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "uyghur",
+            "muqam"
+          ]
+        },
+        {
+          "id": "rubab_folk_strum",
+          "name": "Folk / dance rhythmic strumming (percussive right-hand shakal)",
+          "descriptors": [
+            "rhythmic-strum",
+            "percussive",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "plucked",
+            "struck",
+            "bright-attack"
+          ],
+          "canonical_tags": [
+            "folk",
+            "central-asia"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rubab_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "rubab_gut_nylon",
+          "default": true,
+          "name": "Gut / nylon melody strings (traditional, warm)",
+          "descriptors": [
+            "warm-tone",
+            "mellow",
+            "rounded"
+          ],
+          "match_tokens": [
+            "plucked",
+            "skin-bellied"
+          ],
+          "canonical_tags": [
+            "afghan"
+          ]
+        },
+        {
+          "id": "rubab_steel",
+          "name": "Steel melody strings (rawap-style, bright and metallic)",
+          "descriptors": [
+            "bright-metallic",
+            "piercing",
+            "cutting"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bright-attack"
+          ],
+          "canonical_tags": [
+            "uyghur"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "rubab_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "rubab_kabuli",
+          "default": true,
+          "name": "Kabuli / Afghan rubab (double-chamber carved mulberry, goatskin belly)",
+          "descriptors": [
+            "carved-mulberry",
+            "sympathetic-resonant",
+            "classical-lead"
+          ],
+          "match_tokens": [
+            "plucked",
+            "skin-bellied",
+            "bright-attack"
+          ],
+          "canonical_tags": [
+            "afghan",
+            "central-asia"
+          ]
+        },
+        {
+          "id": "rubab_kashgar",
+          "name": "Kashgar rubab (Uyghur muqam lute, long neck, deep skin bowl)",
+          "descriptors": [
+            "muqam-lead",
+            "long-necked",
+            "resonant"
+          ],
+          "match_tokens": [
+            "plucked",
+            "skin-bellied",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "uyghur",
+            "central-asia"
+          ]
+        },
+        {
+          "id": "rawap_uyghur",
+          "name": "Uyghur rawap (small round skin body, metal strings, piercing)",
+          "descriptors": [
+            "metal-strung",
+            "bright-metallic",
+            "piercing"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bright-attack"
+          ],
+          "canonical_tags": [
+            "uyghur"
+          ]
+        },
+        {
+          "id": "rubab_pamiri",
+          "name": "Pamiri rubob (Badakhshani devotional maddoh lute)",
+          "descriptors": [
+            "devotional",
+            "archaic",
+            "droning"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "pamir",
+            "ismaili"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rubab_style",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "rubab_naghma_lead",
+          "default": true,
+          "name": "Naghma classical instrumental lead (ornamented melodic solo)",
+          "descriptors": [
+            "ornamented",
+            "raga-derived",
+            "lead-melodic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bright-attack"
+          ],
+          "canonical_tags": [
+            "afghan",
+            "art-music"
+          ]
+        },
+        {
+          "id": "rubab_muqam_ensemble",
+          "name": "On Ikki Muqam ensemble melody (with drone strings ringing)",
+          "descriptors": [
+            "muqam",
+            "ensemble-melodic",
+            "resonant"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "uyghur",
+            "muqam"
+          ]
+        },
+        {
+          "id": "rubab_folk_strum",
+          "name": "Folk / dance rhythmic strumming (percussive right-hand shakal)",
+          "descriptors": [
+            "rhythmic-strum",
+            "percussive",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "plucked",
+            "struck",
+            "bright-attack"
+          ],
+          "canonical_tags": [
+            "folk",
+            "central-asia"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rubab_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "rubab_gut_nylon",
+          "default": true,
+          "name": "Gut / nylon melody strings (traditional, warm)",
+          "descriptors": [
+            "warm-tone",
+            "mellow",
+            "rounded"
+          ],
+          "match_tokens": [
+            "plucked",
+            "skin-bellied"
+          ],
+          "canonical_tags": [
+            "afghan"
+          ]
+        },
+        {
+          "id": "rubab_steel",
+          "name": "Steel melody strings (rawap-style, bright and metallic)",
+          "descriptors": [
+            "bright-metallic",
+            "piercing",
+            "cutting"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bright-attack"
+          ],
+          "canonical_tags": [
+            "uyghur"
+          ]
+        }
+      ]
+    }
+  ]
+}

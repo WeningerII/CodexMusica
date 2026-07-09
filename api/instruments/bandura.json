@@ -1,0 +1,406 @@
+{
+  "id": "bandura",
+  "name": "Bandura (Ukrainian plucked harp-lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_harp_lute",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "bandura",
+  "parts": [
+    {
+      "id": "bandura_form",
+      "name": "Regional form / type",
+      "variants": [
+        {
+          "id": "bandura_kyiv",
+          "default": true,
+          "name": "Kyiv-style chromatic concert bandura",
+          "descriptors": [
+            "chromatic",
+            "concert",
+            "tuning-levers",
+            "bright-ringing"
+          ],
+          "match_tokens": [
+            "plucked",
+            "chordal",
+            "open-string"
+          ],
+          "canonical_tags": [
+            "ukrainian",
+            "concert"
+          ]
+        },
+        {
+          "id": "bandura_kharkiv",
+          "name": "Kharkiv-style bandura (both-hands-over technique)",
+          "descriptors": [
+            "ambidextrous",
+            "virtuosic",
+            "expressive"
+          ],
+          "match_tokens": [
+            "plucked",
+            "chordal"
+          ],
+          "canonical_tags": [
+            "ukrainian",
+            "kharkiv"
+          ]
+        },
+        {
+          "id": "bandura_starosvitska",
+          "name": "Starosvitska (old-world diatonic kobzar bandura)",
+          "descriptors": [
+            "archaic",
+            "diatonic",
+            "folk",
+            "intimate"
+          ],
+          "match_tokens": [
+            "plucked",
+            "open-string",
+            "chordal"
+          ],
+          "canonical_tags": [
+            "ukrainian",
+            "kobzar"
+          ]
+        },
+        {
+          "id": "bandura_kobza",
+          "name": "Kobza (short-neck lute predecessor)",
+          "descriptors": [
+            "archaic",
+            "lute-like",
+            "rustic",
+            "strummed"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed"
+          ],
+          "canonical_tags": [
+            "ukrainian",
+            "kobza"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bandura_repertoire",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "bandura_duma",
+          "default": true,
+          "name": "Duma / epic recitation accompaniment (kobzar)",
+          "descriptors": [
+            "epic",
+            "declamatory",
+            "mournful",
+            "drone-and-chord"
+          ],
+          "match_tokens": [
+            "plucked",
+            "chordal"
+          ],
+          "canonical_tags": [
+            "kobzar",
+            "epic"
+          ]
+        },
+        {
+          "id": "bandura_concert",
+          "name": "Virtuosic concert / ensemble arpeggios",
+          "descriptors": [
+            "arpeggiated",
+            "virtuosic",
+            "cascading",
+            "bright"
+          ],
+          "match_tokens": [
+            "plucked",
+            "chordal"
+          ],
+          "canonical_tags": [
+            "concert"
+          ]
+        },
+        {
+          "id": "bandura_song",
+          "name": "Folk-song and romance accompaniment",
+          "descriptors": [
+            "lyrical",
+            "supportive",
+            "gentle"
+          ],
+          "match_tokens": [
+            "plucked",
+            "chordal"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bandura_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "bandura_wire",
+          "default": true,
+          "name": "Steel / bronze wire strings",
+          "descriptors": [
+            "bright",
+            "ringing",
+            "metallic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "open-string"
+          ],
+          "canonical_tags": [
+            "concert"
+          ]
+        },
+        {
+          "id": "bandura_gut",
+          "name": "Gut strings (historic)",
+          "descriptors": [
+            "mellow",
+            "warm",
+            "archaic"
+          ],
+          "match_tokens": [
+            "plucked"
+          ],
+          "canonical_tags": [
+            "kobzar"
+          ]
+        },
+        {
+          "id": "bandura_nylon",
+          "name": "Nylon strings (modern hybrid)",
+          "descriptors": [
+            "soft",
+            "rounded",
+            "muted"
+          ],
+          "match_tokens": [
+            "plucked"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "bandura_form",
+      "name": "Regional form / type",
+      "variants": [
+        {
+          "id": "bandura_kyiv",
+          "default": true,
+          "name": "Kyiv-style chromatic concert bandura",
+          "descriptors": [
+            "chromatic",
+            "concert",
+            "tuning-levers",
+            "bright-ringing"
+          ],
+          "match_tokens": [
+            "plucked",
+            "chordal",
+            "open-string"
+          ],
+          "canonical_tags": [
+            "ukrainian",
+            "concert"
+          ]
+        },
+        {
+          "id": "bandura_kharkiv",
+          "name": "Kharkiv-style bandura (both-hands-over technique)",
+          "descriptors": [
+            "ambidextrous",
+            "virtuosic",
+            "expressive"
+          ],
+          "match_tokens": [
+            "plucked",
+            "chordal"
+          ],
+          "canonical_tags": [
+            "ukrainian",
+            "kharkiv"
+          ]
+        },
+        {
+          "id": "bandura_starosvitska",
+          "name": "Starosvitska (old-world diatonic kobzar bandura)",
+          "descriptors": [
+            "archaic",
+            "diatonic",
+            "folk",
+            "intimate"
+          ],
+          "match_tokens": [
+            "plucked",
+            "open-string",
+            "chordal"
+          ],
+          "canonical_tags": [
+            "ukrainian",
+            "kobzar"
+          ]
+        },
+        {
+          "id": "bandura_kobza",
+          "name": "Kobza (short-neck lute predecessor)",
+          "descriptors": [
+            "archaic",
+            "lute-like",
+            "rustic",
+            "strummed"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed"
+          ],
+          "canonical_tags": [
+            "ukrainian",
+            "kobza"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bandura_repertoire",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "bandura_duma",
+          "default": true,
+          "name": "Duma / epic recitation accompaniment (kobzar)",
+          "descriptors": [
+            "epic",
+            "declamatory",
+            "mournful",
+            "drone-and-chord"
+          ],
+          "match_tokens": [
+            "plucked",
+            "chordal"
+          ],
+          "canonical_tags": [
+            "kobzar",
+            "epic"
+          ]
+        },
+        {
+          "id": "bandura_concert",
+          "name": "Virtuosic concert / ensemble arpeggios",
+          "descriptors": [
+            "arpeggiated",
+            "virtuosic",
+            "cascading",
+            "bright"
+          ],
+          "match_tokens": [
+            "plucked",
+            "chordal"
+          ],
+          "canonical_tags": [
+            "concert"
+          ]
+        },
+        {
+          "id": "bandura_song",
+          "name": "Folk-song and romance accompaniment",
+          "descriptors": [
+            "lyrical",
+            "supportive",
+            "gentle"
+          ],
+          "match_tokens": [
+            "plucked",
+            "chordal"
+          ],
+          "canonical_tags": [
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bandura_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "bandura_wire",
+          "default": true,
+          "name": "Steel / bronze wire strings",
+          "descriptors": [
+            "bright",
+            "ringing",
+            "metallic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "open-string"
+          ],
+          "canonical_tags": [
+            "concert"
+          ]
+        },
+        {
+          "id": "bandura_gut",
+          "name": "Gut strings (historic)",
+          "descriptors": [
+            "mellow",
+            "warm",
+            "archaic"
+          ],
+          "match_tokens": [
+            "plucked"
+          ],
+          "canonical_tags": [
+            "kobzar"
+          ]
+        },
+        {
+          "id": "bandura_nylon",
+          "name": "Nylon strings (modern hybrid)",
+          "descriptors": [
+            "soft",
+            "rounded",
+            "muted"
+          ],
+          "match_tokens": [
+            "plucked"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

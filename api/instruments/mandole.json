@@ -1,0 +1,342 @@
+{
+  "id": "mandole",
+  "name": "Mandole (Algerian mandole)",
+  "family": "plucked_traditional",
+  "class": "plucked_lute",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "mandole",
+  "parts": [
+    {
+      "id": "mandole_form",
+      "name": "Regional form / repertoire",
+      "variants": [
+        {
+          "id": "mandole_chaabi",
+          "default": true,
+          "name": "Chaabi mandole (Algiers, El Anka lineage)",
+          "descriptors": [
+            "urban",
+            "ornamented",
+            "modal",
+            "chaabi"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fretted",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "algerian",
+            "maghrebi",
+            "chaabi"
+          ]
+        },
+        {
+          "id": "mandole_kabyle",
+          "name": "Kabyle mandole (Cherif Kheddam / Idir lineage)",
+          "descriptors": [
+            "lyrical",
+            "folk-song",
+            "berber"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "fretted"
+          ],
+          "canonical_tags": [
+            "kabyle",
+            "berber",
+            "algerian"
+          ]
+        },
+        {
+          "id": "mandole_andalusi",
+          "name": "Andalusi-inflected mandole (gharnati / chaabi crossover)",
+          "descriptors": [
+            "andalusi",
+            "refined",
+            "nuba"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fretted"
+          ],
+          "canonical_tags": [
+            "andalusi",
+            "maghrebi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mandole_role",
+      "name": "Playing technique / role",
+      "variants": [
+        {
+          "id": "mandole_strummed",
+          "default": true,
+          "name": "Strummed chordal accompaniment (rhythmic backing)",
+          "descriptors": [
+            "rhythmic",
+            "chordal",
+            "driving"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "chordal"
+          ],
+          "canonical_tags": [
+            "accompaniment"
+          ]
+        },
+        {
+          "id": "mandole_melodic",
+          "name": "Melodic plectrum lead (istikhbar / solo line)",
+          "descriptors": [
+            "melodic",
+            "ornamented",
+            "single-line"
+          ],
+          "match_tokens": [
+            "plucked",
+            "melodic",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "melody"
+          ]
+        },
+        {
+          "id": "mandole_tremolo",
+          "name": "Tremolo-picked sustained melody",
+          "descriptors": [
+            "tremolo",
+            "sustained",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ],
+          "canonical_tags": [
+            "melody"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mandole_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "mandole_steel",
+          "default": true,
+          "name": "Plain steel strings (bright, cutting)",
+          "descriptors": [
+            "bright",
+            "metallic",
+            "cutting"
+          ],
+          "match_tokens": [
+            "metal-strung",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "steel"
+          ]
+        },
+        {
+          "id": "mandole_bronze",
+          "name": "Bronze-wound strings (warmer, rounded)",
+          "descriptors": [
+            "warm",
+            "mellow",
+            "rounded"
+          ],
+          "match_tokens": [
+            "metal-strung",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "bronze"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "mandole_form",
+      "name": "Regional form / repertoire",
+      "variants": [
+        {
+          "id": "mandole_chaabi",
+          "default": true,
+          "name": "Chaabi mandole (Algiers, El Anka lineage)",
+          "descriptors": [
+            "urban",
+            "ornamented",
+            "modal",
+            "chaabi"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fretted",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "algerian",
+            "maghrebi",
+            "chaabi"
+          ]
+        },
+        {
+          "id": "mandole_kabyle",
+          "name": "Kabyle mandole (Cherif Kheddam / Idir lineage)",
+          "descriptors": [
+            "lyrical",
+            "folk-song",
+            "berber"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "fretted"
+          ],
+          "canonical_tags": [
+            "kabyle",
+            "berber",
+            "algerian"
+          ]
+        },
+        {
+          "id": "mandole_andalusi",
+          "name": "Andalusi-inflected mandole (gharnati / chaabi crossover)",
+          "descriptors": [
+            "andalusi",
+            "refined",
+            "nuba"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fretted"
+          ],
+          "canonical_tags": [
+            "andalusi",
+            "maghrebi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mandole_role",
+      "name": "Playing technique / role",
+      "variants": [
+        {
+          "id": "mandole_strummed",
+          "default": true,
+          "name": "Strummed chordal accompaniment (rhythmic backing)",
+          "descriptors": [
+            "rhythmic",
+            "chordal",
+            "driving"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "chordal"
+          ],
+          "canonical_tags": [
+            "accompaniment"
+          ]
+        },
+        {
+          "id": "mandole_melodic",
+          "name": "Melodic plectrum lead (istikhbar / solo line)",
+          "descriptors": [
+            "melodic",
+            "ornamented",
+            "single-line"
+          ],
+          "match_tokens": [
+            "plucked",
+            "melodic",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "melody"
+          ]
+        },
+        {
+          "id": "mandole_tremolo",
+          "name": "Tremolo-picked sustained melody",
+          "descriptors": [
+            "tremolo",
+            "sustained",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ],
+          "canonical_tags": [
+            "melody"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mandole_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "mandole_steel",
+          "default": true,
+          "name": "Plain steel strings (bright, cutting)",
+          "descriptors": [
+            "bright",
+            "metallic",
+            "cutting"
+          ],
+          "match_tokens": [
+            "metal-strung",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "steel"
+          ]
+        },
+        {
+          "id": "mandole_bronze",
+          "name": "Bronze-wound strings (warmer, rounded)",
+          "descriptors": [
+            "warm",
+            "mellow",
+            "rounded"
+          ],
+          "match_tokens": [
+            "metal-strung",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "bronze"
+          ]
+        }
+      ]
+    }
+  ]
+}

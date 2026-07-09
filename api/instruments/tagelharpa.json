@@ -1,0 +1,453 @@
+{
+  "id": "tagelharpa",
+  "name": "Tagelharpa / jouhikko (Nordic bowed lyre)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "tagelharpa",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        },
+        {
+          "id": "bowed_rough_drone",
+          "name": "Rough drone",
+          "applies_to": [
+            "fiddle",
+            "gusle",
+            "kamancheh",
+            "rebab",
+            "morin_khuur",
+            "tagelharpa"
+          ],
+          "descriptors": [
+            "drone-like",
+            "raspy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "rough-tone",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "folk",
+            "medieval"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "tagelharpa_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "tagelharpa_modern_nordic",
+          "default": true,
+          "name": "Tagelharpa (modern Nordic 3-string revival)",
+          "descriptors": [
+            "archaic",
+            "droning",
+            "ritual"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "nordic",
+            "neofolk",
+            "nordic-ritual-folk"
+          ]
+        },
+        {
+          "id": "tagelharpa_jouhikko",
+          "name": "Jouhikko (Finnish / Karelian bowed lyre)",
+          "descriptors": [
+            "finnish",
+            "karelian",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "finnish",
+            "karelian"
+          ]
+        },
+        {
+          "id": "tagelharpa_talharpa",
+          "name": "Talharpa (Estonian-Swedish four-string bowed lyre)",
+          "descriptors": [
+            "estonian",
+            "swedish",
+            "four-string"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "estonian",
+            "swedish"
+          ]
+        },
+        {
+          "id": "tagelharpa_moraharpa",
+          "name": "Moraharpa (Swedish keyed-lyre ancestor of the nyckelharpa)",
+          "descriptors": [
+            "keyed",
+            "medieval-swedish"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "swedish",
+            "medieval"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tagelharpa_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "tagelharpa_drone_melody",
+          "default": true,
+          "name": "Drone string under fingernail-stopped melody",
+          "descriptors": [
+            "drone-under-melody",
+            "modal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "tagelharpa_ritual_ostinato",
+          "name": "Ritual ostinato / trance",
+          "descriptors": [
+            "hypnotic",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "trance-inducing"
+          ]
+        },
+        {
+          "id": "tagelharpa_lament",
+          "name": "Lament / mournful solo",
+          "descriptors": [
+            "mournful",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tagelharpa_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "tagelharpa_horsehair",
+          "default": true,
+          "name": "Horsehair bundle (canonical — \"tagel\")",
+          "descriptors": [
+            "horsehair-canonical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ]
+        },
+        {
+          "id": "tagelharpa_gut",
+          "name": "Gut (historical)",
+          "descriptors": [
+            "gut-historical"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        },
+        {
+          "id": "tagelharpa_steel_modern",
+          "name": "Steel (modern revival)",
+          "descriptors": [
+            "steel-modern"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tagelharpa_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "tagelharpa_alder_spruce",
+          "default": true,
+          "name": "Alder body + spruce soundboard (canonical Nordic)",
+          "descriptors": [
+            "alder-spruce-canonical-nordic"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        },
+        {
+          "id": "tagelharpa_birch_carved",
+          "name": "Birch carved (regional)",
+          "descriptors": [
+            "birch-carved-regional"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tagelharpa_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "tagelharpa_modern_nordic",
+          "default": true,
+          "name": "Tagelharpa (modern Nordic 3-string revival)",
+          "descriptors": [
+            "archaic",
+            "droning",
+            "ritual"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "nordic",
+            "neofolk",
+            "nordic-ritual-folk"
+          ]
+        },
+        {
+          "id": "tagelharpa_jouhikko",
+          "name": "Jouhikko (Finnish / Karelian bowed lyre)",
+          "descriptors": [
+            "finnish",
+            "karelian",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "finnish",
+            "karelian"
+          ]
+        },
+        {
+          "id": "tagelharpa_talharpa",
+          "name": "Talharpa (Estonian-Swedish four-string bowed lyre)",
+          "descriptors": [
+            "estonian",
+            "swedish",
+            "four-string"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "estonian",
+            "swedish"
+          ]
+        },
+        {
+          "id": "tagelharpa_moraharpa",
+          "name": "Moraharpa (Swedish keyed-lyre ancestor of the nyckelharpa)",
+          "descriptors": [
+            "keyed",
+            "medieval-swedish"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "swedish",
+            "medieval"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tagelharpa_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "tagelharpa_drone_melody",
+          "default": true,
+          "name": "Drone string under fingernail-stopped melody",
+          "descriptors": [
+            "drone-under-melody",
+            "modal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "tagelharpa_ritual_ostinato",
+          "name": "Ritual ostinato / trance",
+          "descriptors": [
+            "hypnotic",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "trance-inducing"
+          ]
+        },
+        {
+          "id": "tagelharpa_lament",
+          "name": "Lament / mournful solo",
+          "descriptors": [
+            "mournful",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tagelharpa_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "tagelharpa_horsehair",
+          "default": true,
+          "name": "Horsehair bundle (canonical — \"tagel\")",
+          "descriptors": [
+            "horsehair-canonical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ]
+        },
+        {
+          "id": "tagelharpa_gut",
+          "name": "Gut (historical)",
+          "descriptors": [
+            "gut-historical"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        },
+        {
+          "id": "tagelharpa_steel_modern",
+          "name": "Steel (modern revival)",
+          "descriptors": [
+            "steel-modern"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tagelharpa_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "tagelharpa_alder_spruce",
+          "default": true,
+          "name": "Alder body + spruce soundboard (canonical Nordic)",
+          "descriptors": [
+            "alder-spruce-canonical-nordic"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        },
+        {
+          "id": "tagelharpa_birch_carved",
+          "name": "Birch carved (regional)",
+          "descriptors": [
+            "birch-carved-regional"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    }
+  ]
+}

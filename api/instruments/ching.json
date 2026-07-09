@@ -1,0 +1,360 @@
+{
+  "id": "ching",
+  "name": "Ching (Thai/Khmer finger cymbals)",
+  "family": "percussion",
+  "class": "hand_cymbals",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 2,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "ching",
+  "parts": [
+    {
+      "id": "ching_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "ching_thai",
+          "default": true,
+          "name": "Thai ching (piphat)",
+          "descriptors": [
+            "bright-ring",
+            "central-thai",
+            "colotomic"
+          ],
+          "match_tokens": [
+            "struck",
+            "cupped-cymbals",
+            "metallic-ring"
+          ],
+          "canonical_tags": [
+            "thai",
+            "piphat"
+          ]
+        },
+        {
+          "id": "ching_khmer",
+          "name": "Khmer chhing (pinpeat)",
+          "descriptors": [
+            "ceremonial",
+            "temple",
+            "khmer"
+          ],
+          "match_tokens": [
+            "struck",
+            "cupped-cymbals",
+            "timekeeper"
+          ],
+          "canonical_tags": [
+            "khmer",
+            "pinpeat"
+          ]
+        },
+        {
+          "id": "ching_lao",
+          "name": "Lao sing",
+          "descriptors": [
+            "village",
+            "lilting",
+            "lao"
+          ],
+          "match_tokens": [
+            "struck",
+            "cupped-cymbals"
+          ],
+          "canonical_tags": [
+            "lao"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ching_stroke",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "ching_open_closed",
+          "default": true,
+          "name": "Open-closed 'ching-chap' stroke",
+          "descriptors": [
+            "ching-chap",
+            "open-and-damped",
+            "pulse-marking"
+          ],
+          "match_tokens": [
+            "struck",
+            "timekeeper",
+            "metallic-ring"
+          ],
+          "canonical_tags": [
+            "colotomic"
+          ]
+        },
+        {
+          "id": "ching_mahori",
+          "name": "Mahori / khruang sai (soft ensemble)",
+          "descriptors": [
+            "delicate",
+            "gentle",
+            "string-ensemble"
+          ],
+          "match_tokens": [
+            "struck",
+            "soft-timekeeper"
+          ],
+          "canonical_tags": [
+            "mahori"
+          ]
+        },
+        {
+          "id": "ching_ritual",
+          "name": "Ritual / theatrical (khon, sbek thom)",
+          "descriptors": [
+            "ceremonial",
+            "processional",
+            "sacred"
+          ],
+          "match_tokens": [
+            "struck",
+            "timekeeper"
+          ],
+          "canonical_tags": [
+            "ritual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ching_alloy",
+      "surface": false,
+      "name": "Cymbal alloy",
+      "variants": [
+        {
+          "id": "ching_bronze",
+          "default": true,
+          "name": "Thick bronze alloy",
+          "descriptors": [
+            "bronze",
+            "resonant",
+            "traditional"
+          ],
+          "match_tokens": [
+            "metallic-ring",
+            "cupped-cymbals"
+          ],
+          "canonical_tags": [
+            "bronze"
+          ]
+        },
+        {
+          "id": "ching_brass",
+          "name": "Brass",
+          "descriptors": [
+            "brass",
+            "brighter",
+            "lighter"
+          ],
+          "match_tokens": [
+            "metallic-ring"
+          ],
+          "canonical_tags": [
+            "brass"
+          ]
+        },
+        {
+          "id": "ching_iron",
+          "name": "Iron / steel (modern)",
+          "descriptors": [
+            "iron",
+            "harder-edge",
+            "modern"
+          ],
+          "match_tokens": [
+            "metallic-ring"
+          ],
+          "canonical_tags": [
+            "steel"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ching_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "ching_thai",
+          "default": true,
+          "name": "Thai ching (piphat)",
+          "descriptors": [
+            "bright-ring",
+            "central-thai",
+            "colotomic"
+          ],
+          "match_tokens": [
+            "struck",
+            "cupped-cymbals",
+            "metallic-ring"
+          ],
+          "canonical_tags": [
+            "thai",
+            "piphat"
+          ]
+        },
+        {
+          "id": "ching_khmer",
+          "name": "Khmer chhing (pinpeat)",
+          "descriptors": [
+            "ceremonial",
+            "temple",
+            "khmer"
+          ],
+          "match_tokens": [
+            "struck",
+            "cupped-cymbals",
+            "timekeeper"
+          ],
+          "canonical_tags": [
+            "khmer",
+            "pinpeat"
+          ]
+        },
+        {
+          "id": "ching_lao",
+          "name": "Lao sing",
+          "descriptors": [
+            "village",
+            "lilting",
+            "lao"
+          ],
+          "match_tokens": [
+            "struck",
+            "cupped-cymbals"
+          ],
+          "canonical_tags": [
+            "lao"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ching_stroke",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "ching_open_closed",
+          "default": true,
+          "name": "Open-closed 'ching-chap' stroke",
+          "descriptors": [
+            "ching-chap",
+            "open-and-damped",
+            "pulse-marking"
+          ],
+          "match_tokens": [
+            "struck",
+            "timekeeper",
+            "metallic-ring"
+          ],
+          "canonical_tags": [
+            "colotomic"
+          ]
+        },
+        {
+          "id": "ching_mahori",
+          "name": "Mahori / khruang sai (soft ensemble)",
+          "descriptors": [
+            "delicate",
+            "gentle",
+            "string-ensemble"
+          ],
+          "match_tokens": [
+            "struck",
+            "soft-timekeeper"
+          ],
+          "canonical_tags": [
+            "mahori"
+          ]
+        },
+        {
+          "id": "ching_ritual",
+          "name": "Ritual / theatrical (khon, sbek thom)",
+          "descriptors": [
+            "ceremonial",
+            "processional",
+            "sacred"
+          ],
+          "match_tokens": [
+            "struck",
+            "timekeeper"
+          ],
+          "canonical_tags": [
+            "ritual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ching_alloy",
+      "surface": false,
+      "name": "Cymbal alloy",
+      "variants": [
+        {
+          "id": "ching_bronze",
+          "default": true,
+          "name": "Thick bronze alloy",
+          "descriptors": [
+            "bronze",
+            "resonant",
+            "traditional"
+          ],
+          "match_tokens": [
+            "metallic-ring",
+            "cupped-cymbals"
+          ],
+          "canonical_tags": [
+            "bronze"
+          ]
+        },
+        {
+          "id": "ching_brass",
+          "name": "Brass",
+          "descriptors": [
+            "brass",
+            "brighter",
+            "lighter"
+          ],
+          "match_tokens": [
+            "metallic-ring"
+          ],
+          "canonical_tags": [
+            "brass"
+          ]
+        },
+        {
+          "id": "ching_iron",
+          "name": "Iron / steel (modern)",
+          "descriptors": [
+            "iron",
+            "harder-edge",
+            "modern"
+          ],
+          "match_tokens": [
+            "metallic-ring"
+          ],
+          "canonical_tags": [
+            "steel"
+          ]
+        }
+      ]
+    }
+  ]
+}

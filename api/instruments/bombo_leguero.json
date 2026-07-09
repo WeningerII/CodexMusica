@@ -1,0 +1,358 @@
+{
+  "id": "bombo_leguero",
+  "name": "Bombo legüero (Argentine folkloric bass drum)",
+  "family": "percussion",
+  "class": "bass_drum",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": -1,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "bombo_leguero",
+  "parts": [
+    {
+      "id": "bombo_leguero_form",
+      "name": "Form / size",
+      "variants": [
+        {
+          "id": "bombo_leguero_santiagueno",
+          "default": true,
+          "name": "Santiagueño (Santiago del Estero ceibo-trunk bombo)",
+          "descriptors": [
+            "earthy",
+            "folkloric",
+            "deep"
+          ],
+          "match_tokens": [
+            "struck",
+            "bass-drum"
+          ],
+          "canonical_tags": [
+            "argentine",
+            "santiago-del-estero"
+          ]
+        },
+        {
+          "id": "bombo_leguero_grande",
+          "name": "Bombo grande (large concert bombo)",
+          "descriptors": [
+            "booming",
+            "projecting",
+            "stage"
+          ],
+          "match_tokens": [
+            "struck",
+            "bass-drum",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "concert"
+          ]
+        },
+        {
+          "id": "bombo_leguero_moderno",
+          "name": "Modern laminated touring bombo",
+          "descriptors": [
+            "light",
+            "bright",
+            "modern"
+          ],
+          "match_tokens": [
+            "struck",
+            "bass-drum"
+          ],
+          "canonical_tags": [
+            "contemporary"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bombo_leguero_style",
+      "name": "Playing / repertoire",
+      "variants": [
+        {
+          "id": "bombo_leguero_chacarera",
+          "default": true,
+          "name": "Chacarera groove (head-and-rim ostinato)",
+          "descriptors": [
+            "driving",
+            "syncopated",
+            "rim-accented"
+          ],
+          "match_tokens": [
+            "struck",
+            "rim-and-head"
+          ],
+          "canonical_tags": [
+            "chacarera"
+          ]
+        },
+        {
+          "id": "bombo_leguero_zamba",
+          "name": "Zamba lilt (soft swaying pulse)",
+          "descriptors": [
+            "lilting",
+            "gentle",
+            "swaying"
+          ],
+          "match_tokens": [
+            "struck",
+            "bass-drum"
+          ],
+          "canonical_tags": [
+            "zamba"
+          ]
+        },
+        {
+          "id": "bombo_leguero_bombeo",
+          "name": "Solo bombeo / malambo (virtuoso showpiece)",
+          "descriptors": [
+            "virtuosic",
+            "rolling",
+            "showpiece"
+          ],
+          "match_tokens": [
+            "struck",
+            "rim-and-head"
+          ],
+          "canonical_tags": [
+            "malambo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bombo_leguero_head",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "bombo_leguero_cabra",
+          "default": true,
+          "name": "Goatskin heads with hair (pelo) left on",
+          "descriptors": [
+            "hairy-hide",
+            "woolly",
+            "warm"
+          ],
+          "match_tokens": [
+            "struck",
+            "bass-drum"
+          ],
+          "canonical_tags": [
+            "goatskin"
+          ]
+        },
+        {
+          "id": "bombo_leguero_vacuno",
+          "name": "Cowhide heads",
+          "descriptors": [
+            "tight",
+            "loud",
+            "bright"
+          ],
+          "match_tokens": [
+            "struck",
+            "bass-drum"
+          ],
+          "canonical_tags": [
+            "cowhide"
+          ]
+        },
+        {
+          "id": "bombo_leguero_sintetico",
+          "name": "Synthetic / mylar heads",
+          "descriptors": [
+            "consistent",
+            "weatherproof",
+            "modern"
+          ],
+          "match_tokens": [
+            "struck",
+            "bass-drum"
+          ],
+          "canonical_tags": [
+            "synthetic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "bombo_leguero_form",
+      "name": "Form / size",
+      "variants": [
+        {
+          "id": "bombo_leguero_santiagueno",
+          "default": true,
+          "name": "Santiagueño (Santiago del Estero ceibo-trunk bombo)",
+          "descriptors": [
+            "earthy",
+            "folkloric",
+            "deep"
+          ],
+          "match_tokens": [
+            "struck",
+            "bass-drum"
+          ],
+          "canonical_tags": [
+            "argentine",
+            "santiago-del-estero"
+          ]
+        },
+        {
+          "id": "bombo_leguero_grande",
+          "name": "Bombo grande (large concert bombo)",
+          "descriptors": [
+            "booming",
+            "projecting",
+            "stage"
+          ],
+          "match_tokens": [
+            "struck",
+            "bass-drum",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "concert"
+          ]
+        },
+        {
+          "id": "bombo_leguero_moderno",
+          "name": "Modern laminated touring bombo",
+          "descriptors": [
+            "light",
+            "bright",
+            "modern"
+          ],
+          "match_tokens": [
+            "struck",
+            "bass-drum"
+          ],
+          "canonical_tags": [
+            "contemporary"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bombo_leguero_style",
+      "name": "Playing / repertoire",
+      "variants": [
+        {
+          "id": "bombo_leguero_chacarera",
+          "default": true,
+          "name": "Chacarera groove (head-and-rim ostinato)",
+          "descriptors": [
+            "driving",
+            "syncopated",
+            "rim-accented"
+          ],
+          "match_tokens": [
+            "struck",
+            "rim-and-head"
+          ],
+          "canonical_tags": [
+            "chacarera"
+          ]
+        },
+        {
+          "id": "bombo_leguero_zamba",
+          "name": "Zamba lilt (soft swaying pulse)",
+          "descriptors": [
+            "lilting",
+            "gentle",
+            "swaying"
+          ],
+          "match_tokens": [
+            "struck",
+            "bass-drum"
+          ],
+          "canonical_tags": [
+            "zamba"
+          ]
+        },
+        {
+          "id": "bombo_leguero_bombeo",
+          "name": "Solo bombeo / malambo (virtuoso showpiece)",
+          "descriptors": [
+            "virtuosic",
+            "rolling",
+            "showpiece"
+          ],
+          "match_tokens": [
+            "struck",
+            "rim-and-head"
+          ],
+          "canonical_tags": [
+            "malambo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bombo_leguero_head",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "bombo_leguero_cabra",
+          "default": true,
+          "name": "Goatskin heads with hair (pelo) left on",
+          "descriptors": [
+            "hairy-hide",
+            "woolly",
+            "warm"
+          ],
+          "match_tokens": [
+            "struck",
+            "bass-drum"
+          ],
+          "canonical_tags": [
+            "goatskin"
+          ]
+        },
+        {
+          "id": "bombo_leguero_vacuno",
+          "name": "Cowhide heads",
+          "descriptors": [
+            "tight",
+            "loud",
+            "bright"
+          ],
+          "match_tokens": [
+            "struck",
+            "bass-drum"
+          ],
+          "canonical_tags": [
+            "cowhide"
+          ]
+        },
+        {
+          "id": "bombo_leguero_sintetico",
+          "name": "Synthetic / mylar heads",
+          "descriptors": [
+            "consistent",
+            "weatherproof",
+            "modern"
+          ],
+          "match_tokens": [
+            "struck",
+            "bass-drum"
+          ],
+          "canonical_tags": [
+            "synthetic"
+          ]
+        }
+      ]
+    }
+  ]
+}

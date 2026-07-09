@@ -1,0 +1,336 @@
+{
+  "id": "cobza",
+  "name": "Cobza (Romanian lăutari strummed lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_lute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "cobza",
+  "parts": [
+    {
+      "id": "cobza_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "cobza_moldavian",
+          "default": true,
+          "name": "Moldavian lăutari cobza",
+          "descriptors": [
+            "driving",
+            "tavern-band",
+            "romanian",
+            "percussive"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "percussive-strum",
+            "chordal"
+          ],
+          "canonical_tags": [
+            "romanian_lautari",
+            "balkan"
+          ]
+        },
+        {
+          "id": "cobza_transylvanian_koboz",
+          "name": "Transylvanian koboz (Hungarian revival)",
+          "descriptors": [
+            "archaic",
+            "folk-revival",
+            "mellow"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "gut-strung"
+          ],
+          "canonical_tags": [
+            "hungarian",
+            "transylvania"
+          ]
+        },
+        {
+          "id": "cobza_kobza_ukrainian",
+          "name": "Ukrainian kobza (archaic cognate)",
+          "descriptors": [
+            "archaic",
+            "bardic",
+            "droning"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed"
+          ],
+          "canonical_tags": [
+            "ukrainian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cobza_role",
+      "name": "Playing role",
+      "variants": [
+        {
+          "id": "cobza_rhythmic_strum",
+          "default": true,
+          "name": "Rhythmic chordal strum (band accompaniment)",
+          "descriptors": [
+            "percussive-strum",
+            "rhythmic-drive",
+            "chordal"
+          ],
+          "match_tokens": [
+            "strummed",
+            "percussive-strum",
+            "chordal"
+          ],
+          "canonical_tags": [
+            "romanian_lautari"
+          ]
+        },
+        {
+          "id": "cobza_melodic_tremolo",
+          "name": "Plectrum melodic tremolo",
+          "descriptors": [
+            "tremolo",
+            "ornamented",
+            "melody-doubling"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ],
+          "canonical_tags": [
+            "romanian_lautari"
+          ]
+        },
+        {
+          "id": "cobza_doina_free",
+          "name": "Doina free-rhythm accompaniment",
+          "descriptors": [
+            "free-rhythm",
+            "brooding",
+            "rubato"
+          ],
+          "match_tokens": [
+            "strummed",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "romanian_doina"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cobza_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "cobza_steel_wound",
+          "default": true,
+          "name": "Steel and wound-metal courses",
+          "descriptors": [
+            "bright",
+            "penetrating",
+            "metallic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bright"
+          ],
+          "canonical_tags": [
+            "romanian"
+          ]
+        },
+        {
+          "id": "cobza_gut_nylon",
+          "name": "Gut / nylon courses",
+          "descriptors": [
+            "warm",
+            "mellow",
+            "soft-toned"
+          ],
+          "match_tokens": [
+            "plucked",
+            "mellow"
+          ],
+          "canonical_tags": [
+            "hungarian"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "cobza_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "cobza_moldavian",
+          "default": true,
+          "name": "Moldavian lăutari cobza",
+          "descriptors": [
+            "driving",
+            "tavern-band",
+            "romanian",
+            "percussive"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "percussive-strum",
+            "chordal"
+          ],
+          "canonical_tags": [
+            "romanian_lautari",
+            "balkan"
+          ]
+        },
+        {
+          "id": "cobza_transylvanian_koboz",
+          "name": "Transylvanian koboz (Hungarian revival)",
+          "descriptors": [
+            "archaic",
+            "folk-revival",
+            "mellow"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "gut-strung"
+          ],
+          "canonical_tags": [
+            "hungarian",
+            "transylvania"
+          ]
+        },
+        {
+          "id": "cobza_kobza_ukrainian",
+          "name": "Ukrainian kobza (archaic cognate)",
+          "descriptors": [
+            "archaic",
+            "bardic",
+            "droning"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed"
+          ],
+          "canonical_tags": [
+            "ukrainian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cobza_role",
+      "name": "Playing role",
+      "variants": [
+        {
+          "id": "cobza_rhythmic_strum",
+          "default": true,
+          "name": "Rhythmic chordal strum (band accompaniment)",
+          "descriptors": [
+            "percussive-strum",
+            "rhythmic-drive",
+            "chordal"
+          ],
+          "match_tokens": [
+            "strummed",
+            "percussive-strum",
+            "chordal"
+          ],
+          "canonical_tags": [
+            "romanian_lautari"
+          ]
+        },
+        {
+          "id": "cobza_melodic_tremolo",
+          "name": "Plectrum melodic tremolo",
+          "descriptors": [
+            "tremolo",
+            "ornamented",
+            "melody-doubling"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo"
+          ],
+          "canonical_tags": [
+            "romanian_lautari"
+          ]
+        },
+        {
+          "id": "cobza_doina_free",
+          "name": "Doina free-rhythm accompaniment",
+          "descriptors": [
+            "free-rhythm",
+            "brooding",
+            "rubato"
+          ],
+          "match_tokens": [
+            "strummed",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "romanian_doina"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cobza_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "cobza_steel_wound",
+          "default": true,
+          "name": "Steel and wound-metal courses",
+          "descriptors": [
+            "bright",
+            "penetrating",
+            "metallic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bright"
+          ],
+          "canonical_tags": [
+            "romanian"
+          ]
+        },
+        {
+          "id": "cobza_gut_nylon",
+          "name": "Gut / nylon courses",
+          "descriptors": [
+            "warm",
+            "mellow",
+            "soft-toned"
+          ],
+          "match_tokens": [
+            "plucked",
+            "mellow"
+          ],
+          "canonical_tags": [
+            "hungarian"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,324 @@
+{
+  "id": "tenora",
+  "name": "Tenora (Catalan cobla shawm)",
+  "family": "wind",
+  "class": "double_reed_shawm",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "tenora",
+  "parts": [
+    {
+      "id": "tenora_form",
+      "name": "Cobla shawm size / register",
+      "variants": [
+        {
+          "id": "tenora_tenor",
+          "default": true,
+          "name": "Tenora (tenor conical shawm, in F, keyed, brass bell)",
+          "descriptors": [
+            "tenor",
+            "brass-belled",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "catalan",
+            "cobla"
+          ]
+        },
+        {
+          "id": "tenora_tible",
+          "name": "Tible (higher soprano partner shawm of the cobla)",
+          "descriptors": [
+            "soprano",
+            "bright",
+            "piercing"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "catalan",
+            "cobla"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tenora_context",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "tenora_ctx_sardana",
+          "default": true,
+          "name": "Sardana cobla dance (tirades curtes / llargues)",
+          "descriptors": [
+            "dance-driving",
+            "brilliant",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "loud-projection",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "catalan",
+            "sardana"
+          ]
+        },
+        {
+          "id": "tenora_ctx_solo",
+          "name": "Lyrical solo / concert voice (Pep Ventura style)",
+          "descriptors": [
+            "singing",
+            "expressive",
+            "romantic"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "melodic",
+            "lyrical"
+          ],
+          "canonical_tags": [
+            "catalan"
+          ]
+        },
+        {
+          "id": "tenora_ctx_processional",
+          "name": "Festa major processional / street playing",
+          "descriptors": [
+            "ceremonial",
+            "projecting",
+            "festive"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "loud-projection",
+            "outdoor"
+          ],
+          "canonical_tags": [
+            "catalan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tenora_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "tenora_wood_ginjoler",
+          "default": true,
+          "name": "Jujube wood (fusta de ginjoler)",
+          "descriptors": [
+            "dense",
+            "warm-toned",
+            "traditional"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "catalan"
+          ]
+        },
+        {
+          "id": "tenora_wood_grenadilla",
+          "name": "Grenadilla / African blackwood",
+          "descriptors": [
+            "hard",
+            "focused",
+            "modern"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "tenora_wood_boxwood",
+          "name": "Boxwood",
+          "descriptors": [
+            "mellow",
+            "historical"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tenora_form",
+      "name": "Cobla shawm size / register",
+      "variants": [
+        {
+          "id": "tenora_tenor",
+          "default": true,
+          "name": "Tenora (tenor conical shawm, in F, keyed, brass bell)",
+          "descriptors": [
+            "tenor",
+            "brass-belled",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "catalan",
+            "cobla"
+          ]
+        },
+        {
+          "id": "tenora_tible",
+          "name": "Tible (higher soprano partner shawm of the cobla)",
+          "descriptors": [
+            "soprano",
+            "bright",
+            "piercing"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "catalan",
+            "cobla"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tenora_context",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "tenora_ctx_sardana",
+          "default": true,
+          "name": "Sardana cobla dance (tirades curtes / llargues)",
+          "descriptors": [
+            "dance-driving",
+            "brilliant",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "loud-projection",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "catalan",
+            "sardana"
+          ]
+        },
+        {
+          "id": "tenora_ctx_solo",
+          "name": "Lyrical solo / concert voice (Pep Ventura style)",
+          "descriptors": [
+            "singing",
+            "expressive",
+            "romantic"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "melodic",
+            "lyrical"
+          ],
+          "canonical_tags": [
+            "catalan"
+          ]
+        },
+        {
+          "id": "tenora_ctx_processional",
+          "name": "Festa major processional / street playing",
+          "descriptors": [
+            "ceremonial",
+            "projecting",
+            "festive"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "loud-projection",
+            "outdoor"
+          ],
+          "canonical_tags": [
+            "catalan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tenora_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "tenora_wood_ginjoler",
+          "default": true,
+          "name": "Jujube wood (fusta de ginjoler)",
+          "descriptors": [
+            "dense",
+            "warm-toned",
+            "traditional"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "catalan"
+          ]
+        },
+        {
+          "id": "tenora_wood_grenadilla",
+          "name": "Grenadilla / African blackwood",
+          "descriptors": [
+            "hard",
+            "focused",
+            "modern"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "tenora_wood_boxwood",
+          "name": "Boxwood",
+          "descriptors": [
+            "mellow",
+            "historical"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven"
+          ]
+        }
+      ]
+    }
+  ]
+}

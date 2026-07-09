@@ -1,0 +1,390 @@
+{
+  "id": "davul",
+  "name": "Davul (Anatolian/Caucasus double-headed drum)",
+  "family": "percussion",
+  "class": "double_headed_drum",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": -2,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "davul",
+  "parts": [
+    {
+      "id": "davul_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "davul_anatolian",
+          "default": true,
+          "name": "Anatolian davul (Turkish)",
+          "descriptors": [
+            "booming",
+            "outdoor",
+            "zurna-partnered"
+          ],
+          "match_tokens": [
+            "struck",
+            "double-headed-drum",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "anatolia",
+            "turkish"
+          ]
+        },
+        {
+          "id": "davul_armenian",
+          "name": "Armenian dhol",
+          "descriptors": [
+            "ceremonial",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "struck",
+            "double-headed-drum"
+          ],
+          "canonical_tags": [
+            "armenia",
+            "caucasus"
+          ]
+        },
+        {
+          "id": "davul_kurdish",
+          "name": "Kurdish dahol (dohol)",
+          "descriptors": [
+            "driving",
+            "festive"
+          ],
+          "match_tokens": [
+            "struck",
+            "double-headed-drum",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "kurdish",
+            "anatolia"
+          ]
+        },
+        {
+          "id": "davul_koltuk",
+          "name": "Koltuk davulu (small under-arm)",
+          "descriptors": [
+            "small",
+            "under-arm",
+            "nimble"
+          ],
+          "match_tokens": [
+            "struck",
+            "double-headed-drum"
+          ],
+          "canonical_tags": [
+            "anatolia",
+            "turkish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "davul_context",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "davul_zurna_pairing",
+          "default": true,
+          "name": "Zurna-davul pair (wedding & halay)",
+          "descriptors": [
+            "boom-and-crack",
+            "two-stroke",
+            "processional"
+          ],
+          "match_tokens": [
+            "struck",
+            "loud-projection",
+            "two-stroke"
+          ],
+          "canonical_tags": [
+            "wedding",
+            "dance"
+          ]
+        },
+        {
+          "id": "davul_line_dance",
+          "name": "Line-dance drive (zeybek / govend / kochari)",
+          "descriptors": [
+            "driving",
+            "dance-pulse"
+          ],
+          "match_tokens": [
+            "struck",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "dance",
+            "folk"
+          ]
+        },
+        {
+          "id": "davul_mehter",
+          "name": "Mehter / ceremonial",
+          "descriptors": [
+            "martial",
+            "announcing"
+          ],
+          "match_tokens": [
+            "struck",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "ceremonial",
+            "ottoman"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "davul_head_material",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "davul_goatskin",
+          "default": true,
+          "name": "Goatskin heads",
+          "descriptors": [
+            "bright",
+            "penetrating-crack"
+          ],
+          "match_tokens": [
+            "struck",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "natural-skin"
+          ]
+        },
+        {
+          "id": "davul_sheepskin",
+          "name": "Sheepskin heads",
+          "descriptors": [
+            "warm",
+            "mellow"
+          ],
+          "match_tokens": [
+            "struck"
+          ],
+          "canonical_tags": [
+            "natural-skin"
+          ]
+        },
+        {
+          "id": "davul_synthetic",
+          "name": "Synthetic head",
+          "descriptors": [
+            "durable",
+            "weatherproof",
+            "bright"
+          ],
+          "match_tokens": [
+            "struck"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "davul_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "davul_anatolian",
+          "default": true,
+          "name": "Anatolian davul (Turkish)",
+          "descriptors": [
+            "booming",
+            "outdoor",
+            "zurna-partnered"
+          ],
+          "match_tokens": [
+            "struck",
+            "double-headed-drum",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "anatolia",
+            "turkish"
+          ]
+        },
+        {
+          "id": "davul_armenian",
+          "name": "Armenian dhol",
+          "descriptors": [
+            "ceremonial",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "struck",
+            "double-headed-drum"
+          ],
+          "canonical_tags": [
+            "armenia",
+            "caucasus"
+          ]
+        },
+        {
+          "id": "davul_kurdish",
+          "name": "Kurdish dahol (dohol)",
+          "descriptors": [
+            "driving",
+            "festive"
+          ],
+          "match_tokens": [
+            "struck",
+            "double-headed-drum",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "kurdish",
+            "anatolia"
+          ]
+        },
+        {
+          "id": "davul_koltuk",
+          "name": "Koltuk davulu (small under-arm)",
+          "descriptors": [
+            "small",
+            "under-arm",
+            "nimble"
+          ],
+          "match_tokens": [
+            "struck",
+            "double-headed-drum"
+          ],
+          "canonical_tags": [
+            "anatolia",
+            "turkish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "davul_context",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "davul_zurna_pairing",
+          "default": true,
+          "name": "Zurna-davul pair (wedding & halay)",
+          "descriptors": [
+            "boom-and-crack",
+            "two-stroke",
+            "processional"
+          ],
+          "match_tokens": [
+            "struck",
+            "loud-projection",
+            "two-stroke"
+          ],
+          "canonical_tags": [
+            "wedding",
+            "dance"
+          ]
+        },
+        {
+          "id": "davul_line_dance",
+          "name": "Line-dance drive (zeybek / govend / kochari)",
+          "descriptors": [
+            "driving",
+            "dance-pulse"
+          ],
+          "match_tokens": [
+            "struck",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "dance",
+            "folk"
+          ]
+        },
+        {
+          "id": "davul_mehter",
+          "name": "Mehter / ceremonial",
+          "descriptors": [
+            "martial",
+            "announcing"
+          ],
+          "match_tokens": [
+            "struck",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "ceremonial",
+            "ottoman"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "davul_head_material",
+      "surface": false,
+      "name": "Head material",
+      "variants": [
+        {
+          "id": "davul_goatskin",
+          "default": true,
+          "name": "Goatskin heads",
+          "descriptors": [
+            "bright",
+            "penetrating-crack"
+          ],
+          "match_tokens": [
+            "struck",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "natural-skin"
+          ]
+        },
+        {
+          "id": "davul_sheepskin",
+          "name": "Sheepskin heads",
+          "descriptors": [
+            "warm",
+            "mellow"
+          ],
+          "match_tokens": [
+            "struck"
+          ],
+          "canonical_tags": [
+            "natural-skin"
+          ]
+        },
+        {
+          "id": "davul_synthetic",
+          "name": "Synthetic head",
+          "descriptors": [
+            "durable",
+            "weatherproof",
+            "bright"
+          ],
+          "match_tokens": [
+            "struck"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

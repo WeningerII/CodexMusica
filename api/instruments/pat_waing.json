@@ -1,0 +1,342 @@
+{
+  "id": "pat_waing",
+  "name": "Pat waing (Burmese tuned drum circle)",
+  "family": "percussion",
+  "class": "tuned_drum_circle",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "pat_waing",
+  "parts": [
+    {
+      "id": "pat_waing_set",
+      "name": "Set size & configuration",
+      "variants": [
+        {
+          "id": "pat_waing_set_21",
+          "default": true,
+          "name": "Standard 21-drum classical set",
+          "descriptors": [
+            "full-range",
+            "classical",
+            "three-octave"
+          ],
+          "match_tokens": [
+            "struck",
+            "tuned-drums",
+            "melodic-lead"
+          ],
+          "canonical_tags": [
+            "burmese",
+            "southeast-asian"
+          ]
+        },
+        {
+          "id": "pat_waing_set_older",
+          "name": "Older reduced set (~19 drums)",
+          "descriptors": [
+            "archaic",
+            "narrower-range"
+          ],
+          "match_tokens": [
+            "struck",
+            "tuned-drums"
+          ],
+          "canonical_tags": [
+            "burmese",
+            "archaic"
+          ]
+        },
+        {
+          "id": "pat_waing_set_extended",
+          "name": "Extended with chauk lon pat bass drums",
+          "descriptors": [
+            "extended-bass",
+            "wide-range",
+            "booming-low-end"
+          ],
+          "match_tokens": [
+            "struck",
+            "tuned-drums",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "burmese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pat_waing_context",
+      "name": "Playing context & repertoire",
+      "variants": [
+        {
+          "id": "pat_waing_context_classical",
+          "default": true,
+          "name": "Mahagita classical chamber",
+          "descriptors": [
+            "refined",
+            "ornamented",
+            "melodic-lead"
+          ],
+          "match_tokens": [
+            "struck",
+            "melodic-lead",
+            "tuned-drums"
+          ],
+          "canonical_tags": [
+            "burmese",
+            "mahagita",
+            "classical"
+          ]
+        },
+        {
+          "id": "pat_waing_context_pwe",
+          "name": "Festival & theatre pwe (outdoor hsaing waing)",
+          "descriptors": [
+            "driving",
+            "celebratory",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "struck",
+            "melodic-lead",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "burmese",
+            "hsaing-waing",
+            "festival"
+          ]
+        },
+        {
+          "id": "pat_waing_context_solo",
+          "name": "Virtuosic solo display",
+          "descriptors": [
+            "virtuosic",
+            "rapid",
+            "ornament-heavy"
+          ],
+          "match_tokens": [
+            "struck",
+            "melodic-lead"
+          ],
+          "canonical_tags": [
+            "burmese",
+            "solo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pat_waing_head",
+      "surface": false,
+      "name": "Drumhead & tuning paste",
+      "variants": [
+        {
+          "id": "pat_waing_head_pahsa",
+          "default": true,
+          "name": "Cowhide heads tuned with pat-sa (rice-and-ash) paste",
+          "descriptors": [
+            "bright-pitched",
+            "precisely-tuned",
+            "singing-tone"
+          ],
+          "match_tokens": [
+            "struck",
+            "tuned-drums"
+          ],
+          "canonical_tags": [
+            "burmese"
+          ]
+        },
+        {
+          "id": "pat_waing_head_buffalo",
+          "name": "Thicker buffalo-hide heads",
+          "descriptors": [
+            "rounder",
+            "deeper",
+            "warm"
+          ],
+          "match_tokens": [
+            "struck",
+            "tuned-drums"
+          ],
+          "canonical_tags": [
+            "burmese"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "pat_waing_set",
+      "name": "Set size & configuration",
+      "variants": [
+        {
+          "id": "pat_waing_set_21",
+          "default": true,
+          "name": "Standard 21-drum classical set",
+          "descriptors": [
+            "full-range",
+            "classical",
+            "three-octave"
+          ],
+          "match_tokens": [
+            "struck",
+            "tuned-drums",
+            "melodic-lead"
+          ],
+          "canonical_tags": [
+            "burmese",
+            "southeast-asian"
+          ]
+        },
+        {
+          "id": "pat_waing_set_older",
+          "name": "Older reduced set (~19 drums)",
+          "descriptors": [
+            "archaic",
+            "narrower-range"
+          ],
+          "match_tokens": [
+            "struck",
+            "tuned-drums"
+          ],
+          "canonical_tags": [
+            "burmese",
+            "archaic"
+          ]
+        },
+        {
+          "id": "pat_waing_set_extended",
+          "name": "Extended with chauk lon pat bass drums",
+          "descriptors": [
+            "extended-bass",
+            "wide-range",
+            "booming-low-end"
+          ],
+          "match_tokens": [
+            "struck",
+            "tuned-drums",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "burmese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pat_waing_context",
+      "name": "Playing context & repertoire",
+      "variants": [
+        {
+          "id": "pat_waing_context_classical",
+          "default": true,
+          "name": "Mahagita classical chamber",
+          "descriptors": [
+            "refined",
+            "ornamented",
+            "melodic-lead"
+          ],
+          "match_tokens": [
+            "struck",
+            "melodic-lead",
+            "tuned-drums"
+          ],
+          "canonical_tags": [
+            "burmese",
+            "mahagita",
+            "classical"
+          ]
+        },
+        {
+          "id": "pat_waing_context_pwe",
+          "name": "Festival & theatre pwe (outdoor hsaing waing)",
+          "descriptors": [
+            "driving",
+            "celebratory",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "struck",
+            "melodic-lead",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "burmese",
+            "hsaing-waing",
+            "festival"
+          ]
+        },
+        {
+          "id": "pat_waing_context_solo",
+          "name": "Virtuosic solo display",
+          "descriptors": [
+            "virtuosic",
+            "rapid",
+            "ornament-heavy"
+          ],
+          "match_tokens": [
+            "struck",
+            "melodic-lead"
+          ],
+          "canonical_tags": [
+            "burmese",
+            "solo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pat_waing_head",
+      "surface": false,
+      "name": "Drumhead & tuning paste",
+      "variants": [
+        {
+          "id": "pat_waing_head_pahsa",
+          "default": true,
+          "name": "Cowhide heads tuned with pat-sa (rice-and-ash) paste",
+          "descriptors": [
+            "bright-pitched",
+            "precisely-tuned",
+            "singing-tone"
+          ],
+          "match_tokens": [
+            "struck",
+            "tuned-drums"
+          ],
+          "canonical_tags": [
+            "burmese"
+          ]
+        },
+        {
+          "id": "pat_waing_head_buffalo",
+          "name": "Thicker buffalo-hide heads",
+          "descriptors": [
+            "rounder",
+            "deeper",
+            "warm"
+          ],
+          "match_tokens": [
+            "struck",
+            "tuned-drums"
+          ],
+          "canonical_tags": [
+            "burmese"
+          ]
+        }
+      ]
+    }
+  ]
+}

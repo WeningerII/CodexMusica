@@ -1,0 +1,356 @@
+{
+  "id": "txistu",
+  "name": "Txistu (Basque three-hole tabor pipe)",
+  "family": "wind",
+  "class": "three_hole_tabor_pipe",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "txistu",
+  "parts": [
+    {
+      "id": "txistu_form",
+      "name": "Pipe type / size",
+      "variants": [
+        {
+          "id": "txistu_standard",
+          "default": true,
+          "name": "Txistu (standard three-hole pipe in F)",
+          "descriptors": [
+            "bright",
+            "piercing",
+            "civic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "fipple-flute",
+            "high-whistle"
+          ],
+          "canonical_tags": [
+            "basque"
+          ]
+        },
+        {
+          "id": "txistu_silbote",
+          "name": "Silbote (larger low-pitched txistu in C)",
+          "descriptors": [
+            "mellow",
+            "low-voiced",
+            "supporting"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "fipple-flute",
+            "lower-register"
+          ],
+          "canonical_tags": [
+            "basque"
+          ]
+        },
+        {
+          "id": "txistu_txirula",
+          "name": "Txirula (small high Zuberoan pipe)",
+          "descriptors": [
+            "shrill",
+            "tiny",
+            "archaic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "fipple-flute",
+            "very-high"
+          ],
+          "canonical_tags": [
+            "basque",
+            "souletin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "txistu_context",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "txistu_solo_tabor",
+          "default": true,
+          "name": "Solo pipe-and-tabor (txistulari, one hand on pipe, other on danbolin)",
+          "descriptors": [
+            "one-handed",
+            "self-accompanied",
+            "processional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "fipple-flute",
+            "tabor-paired"
+          ],
+          "canonical_tags": [
+            "basque"
+          ]
+        },
+        {
+          "id": "txistu_band",
+          "name": "Txistulari band ensemble (paired txistus, silbote and atabal)",
+          "descriptors": [
+            "layered",
+            "harmonized",
+            "festive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ensemble",
+            "fipple-flute"
+          ],
+          "canonical_tags": [
+            "basque"
+          ]
+        },
+        {
+          "id": "txistu_dance",
+          "name": "Dance repertoire (aurresku honor dance, fandango, arin-arin)",
+          "descriptors": [
+            "lilting",
+            "dance-driving",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "fipple-flute",
+            "dance"
+          ],
+          "canonical_tags": [
+            "basque"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "txistu_body",
+      "surface": false,
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "txistu_wood_boxwood",
+          "default": true,
+          "name": "Boxwood / fruitwood body (traditional)",
+          "descriptors": [
+            "warm",
+            "woody",
+            "traditional"
+          ],
+          "match_tokens": [
+            "fipple-flute",
+            "wooden-bore"
+          ],
+          "canonical_tags": [
+            "basque"
+          ]
+        },
+        {
+          "id": "txistu_hardwood_granadillo",
+          "name": "African blackwood / granadillo body",
+          "descriptors": [
+            "dense",
+            "focused",
+            "brilliant"
+          ],
+          "match_tokens": [
+            "fipple-flute",
+            "hardwood-bore"
+          ]
+        },
+        {
+          "id": "txistu_metal_nickel",
+          "name": "Nickel-silver metal body (modern)",
+          "descriptors": [
+            "bright",
+            "projecting",
+            "modern"
+          ],
+          "match_tokens": [
+            "fipple-flute",
+            "metal-bore"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "txistu_form",
+      "name": "Pipe type / size",
+      "variants": [
+        {
+          "id": "txistu_standard",
+          "default": true,
+          "name": "Txistu (standard three-hole pipe in F)",
+          "descriptors": [
+            "bright",
+            "piercing",
+            "civic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "fipple-flute",
+            "high-whistle"
+          ],
+          "canonical_tags": [
+            "basque"
+          ]
+        },
+        {
+          "id": "txistu_silbote",
+          "name": "Silbote (larger low-pitched txistu in C)",
+          "descriptors": [
+            "mellow",
+            "low-voiced",
+            "supporting"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "fipple-flute",
+            "lower-register"
+          ],
+          "canonical_tags": [
+            "basque"
+          ]
+        },
+        {
+          "id": "txistu_txirula",
+          "name": "Txirula (small high Zuberoan pipe)",
+          "descriptors": [
+            "shrill",
+            "tiny",
+            "archaic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "fipple-flute",
+            "very-high"
+          ],
+          "canonical_tags": [
+            "basque",
+            "souletin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "txistu_context",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "txistu_solo_tabor",
+          "default": true,
+          "name": "Solo pipe-and-tabor (txistulari, one hand on pipe, other on danbolin)",
+          "descriptors": [
+            "one-handed",
+            "self-accompanied",
+            "processional"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "fipple-flute",
+            "tabor-paired"
+          ],
+          "canonical_tags": [
+            "basque"
+          ]
+        },
+        {
+          "id": "txistu_band",
+          "name": "Txistulari band ensemble (paired txistus, silbote and atabal)",
+          "descriptors": [
+            "layered",
+            "harmonized",
+            "festive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ensemble",
+            "fipple-flute"
+          ],
+          "canonical_tags": [
+            "basque"
+          ]
+        },
+        {
+          "id": "txistu_dance",
+          "name": "Dance repertoire (aurresku honor dance, fandango, arin-arin)",
+          "descriptors": [
+            "lilting",
+            "dance-driving",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "fipple-flute",
+            "dance"
+          ],
+          "canonical_tags": [
+            "basque"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "txistu_body",
+      "surface": false,
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "txistu_wood_boxwood",
+          "default": true,
+          "name": "Boxwood / fruitwood body (traditional)",
+          "descriptors": [
+            "warm",
+            "woody",
+            "traditional"
+          ],
+          "match_tokens": [
+            "fipple-flute",
+            "wooden-bore"
+          ],
+          "canonical_tags": [
+            "basque"
+          ]
+        },
+        {
+          "id": "txistu_hardwood_granadillo",
+          "name": "African blackwood / granadillo body",
+          "descriptors": [
+            "dense",
+            "focused",
+            "brilliant"
+          ],
+          "match_tokens": [
+            "fipple-flute",
+            "hardwood-bore"
+          ]
+        },
+        {
+          "id": "txistu_metal_nickel",
+          "name": "Nickel-silver metal body (modern)",
+          "descriptors": [
+            "bright",
+            "projecting",
+            "modern"
+          ],
+          "match_tokens": [
+            "fipple-flute",
+            "metal-bore"
+          ]
+        }
+      ]
+    }
+  ]
+}
