@@ -1,0 +1,312 @@
+{
+  "id": "hne",
+  "name": "Hne (Burmese oboe/shawm)",
+  "family": "wind",
+  "class": "double_reed_shawm",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "hne",
+  "parts": [
+    {
+      "id": "hne_form",
+      "name": "Size / type",
+      "variants": [
+        {
+          "id": "hne_gyi",
+          "default": true,
+          "name": "Hne gyi (large hne)",
+          "descriptors": [
+            "deep-voiced",
+            "full-bodied",
+            "commanding"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "burmese",
+            "southeast-asian"
+          ]
+        },
+        {
+          "id": "hne_galay",
+          "name": "Hne galay (small hne)",
+          "descriptors": [
+            "high-pitched",
+            "piercing",
+            "bright"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "piercing",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "burmese",
+            "southeast-asian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hne_style",
+      "name": "Playing context / technique",
+      "variants": [
+        {
+          "id": "hne_hsaing_lead",
+          "default": true,
+          "name": "Hsaing waing melodic lead",
+          "descriptors": [
+            "ornamented",
+            "interlocking",
+            "ensemble-lead"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "burmese",
+            "hsaing-waing"
+          ]
+        },
+        {
+          "id": "hne_bent_ornamental",
+          "name": "Bent-note ornamental style",
+          "descriptors": [
+            "gliding",
+            "microtonal",
+            "expressive"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "reed-driven",
+            "pitch-bend"
+          ],
+          "canonical_tags": [
+            "burmese"
+          ]
+        },
+        {
+          "id": "hne_nat_pwe",
+          "name": "Nat pwe / festival processional",
+          "descriptors": [
+            "loud",
+            "outdoor",
+            "celebratory"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "loud-projection",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "burmese",
+            "processional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hne_reed",
+      "surface": false,
+      "name": "Reed material",
+      "variants": [
+        {
+          "id": "hne_reed_toddy_palm",
+          "default": true,
+          "name": "Toddy-palm leaf quadruple reed",
+          "descriptors": [
+            "reedy",
+            "nasal",
+            "buzzing"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "reed-driven",
+            "nasal"
+          ],
+          "canonical_tags": [
+            "burmese"
+          ]
+        },
+        {
+          "id": "hne_reed_seasoned",
+          "name": "Seasoned hardened leaf reed",
+          "descriptors": [
+            "bright",
+            "hard-edged",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "reed-driven",
+            "piercing"
+          ],
+          "canonical_tags": [
+            "burmese"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "hne_form",
+      "name": "Size / type",
+      "variants": [
+        {
+          "id": "hne_gyi",
+          "default": true,
+          "name": "Hne gyi (large hne)",
+          "descriptors": [
+            "deep-voiced",
+            "full-bodied",
+            "commanding"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "burmese",
+            "southeast-asian"
+          ]
+        },
+        {
+          "id": "hne_galay",
+          "name": "Hne galay (small hne)",
+          "descriptors": [
+            "high-pitched",
+            "piercing",
+            "bright"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "piercing",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "burmese",
+            "southeast-asian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hne_style",
+      "name": "Playing context / technique",
+      "variants": [
+        {
+          "id": "hne_hsaing_lead",
+          "default": true,
+          "name": "Hsaing waing melodic lead",
+          "descriptors": [
+            "ornamented",
+            "interlocking",
+            "ensemble-lead"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "wind-driven",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "burmese",
+            "hsaing-waing"
+          ]
+        },
+        {
+          "id": "hne_bent_ornamental",
+          "name": "Bent-note ornamental style",
+          "descriptors": [
+            "gliding",
+            "microtonal",
+            "expressive"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "reed-driven",
+            "pitch-bend"
+          ],
+          "canonical_tags": [
+            "burmese"
+          ]
+        },
+        {
+          "id": "hne_nat_pwe",
+          "name": "Nat pwe / festival processional",
+          "descriptors": [
+            "loud",
+            "outdoor",
+            "celebratory"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "loud-projection",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "burmese",
+            "processional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hne_reed",
+      "surface": false,
+      "name": "Reed material",
+      "variants": [
+        {
+          "id": "hne_reed_toddy_palm",
+          "default": true,
+          "name": "Toddy-palm leaf quadruple reed",
+          "descriptors": [
+            "reedy",
+            "nasal",
+            "buzzing"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "reed-driven",
+            "nasal"
+          ],
+          "canonical_tags": [
+            "burmese"
+          ]
+        },
+        {
+          "id": "hne_reed_seasoned",
+          "name": "Seasoned hardened leaf reed",
+          "descriptors": [
+            "bright",
+            "hard-edged",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "reed-driven",
+            "piercing"
+          ],
+          "canonical_tags": [
+            "burmese"
+          ]
+        }
+      ]
+    }
+  ]
+}

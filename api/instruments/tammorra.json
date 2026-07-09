@@ -1,0 +1,350 @@
+{
+  "id": "tammorra",
+  "name": "Tammorra / tamburello (Southern Italian frame drum)",
+  "family": "percussion",
+  "class": "frame_drum",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "tammorra",
+  "parts": [
+    {
+      "id": "tammorra_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "tammorra_grande",
+          "default": true,
+          "name": "Tammorra (Campanian tammurriata drum)",
+          "descriptors": [
+            "large-frame",
+            "deep-toned",
+            "campanian"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "low-boom"
+          ],
+          "canonical_tags": [
+            "southern-italy",
+            "campania"
+          ]
+        },
+        {
+          "id": "tammorra_tamburello_salentino",
+          "name": "Tamburello (Salento pizzica)",
+          "descriptors": [
+            "small-frame",
+            "bright",
+            "fast-whirring"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "jingle-shimmer"
+          ],
+          "canonical_tags": [
+            "southern-italy",
+            "salento",
+            "puglia"
+          ]
+        },
+        {
+          "id": "tammorra_tamburello_ciociaro",
+          "name": "Central-Italian saltarello tamburello",
+          "descriptors": [
+            "mid-frame",
+            "driving",
+            "central-italian"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "jingle-shimmer"
+          ],
+          "canonical_tags": [
+            "central-italy",
+            "lazio",
+            "abruzzo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tammorra_context",
+      "name": "Playing context / technique",
+      "variants": [
+        {
+          "id": "tammorra_tammurriata",
+          "default": true,
+          "name": "Tammurriata trance-dance",
+          "descriptors": [
+            "trance-pulse",
+            "thumb-rolled",
+            "festa"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "frame-drum"
+          ],
+          "canonical_tags": [
+            "dance",
+            "ritual"
+          ]
+        },
+        {
+          "id": "tammorra_pizzica_tarantata",
+          "name": "Pizzica / tarantism healing rite",
+          "descriptors": [
+            "fast-driving",
+            "relentless",
+            "healing-rite"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "frame-drum"
+          ],
+          "canonical_tags": [
+            "dance",
+            "ritual"
+          ]
+        },
+        {
+          "id": "tammorra_processione",
+          "name": "Devotional processional (paranza)",
+          "descriptors": [
+            "processional",
+            "devotional",
+            "steady-pulse"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "frame-drum"
+          ],
+          "canonical_tags": [
+            "religious",
+            "outdoor"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tammorra_head",
+      "surface": false,
+      "name": "Head skin",
+      "variants": [
+        {
+          "id": "tammorra_pelle_capra",
+          "default": true,
+          "name": "Goatskin head",
+          "descriptors": [
+            "goatskin-head",
+            "warm",
+            "fire-tuned"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum"
+          ],
+          "canonical_tags": [
+            "natural-skin"
+          ]
+        },
+        {
+          "id": "tammorra_pelle_sintetica",
+          "name": "Synthetic head",
+          "descriptors": [
+            "synthetic-head",
+            "bright",
+            "weatherproof"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tammorra_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "tammorra_grande",
+          "default": true,
+          "name": "Tammorra (Campanian tammurriata drum)",
+          "descriptors": [
+            "large-frame",
+            "deep-toned",
+            "campanian"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "low-boom"
+          ],
+          "canonical_tags": [
+            "southern-italy",
+            "campania"
+          ]
+        },
+        {
+          "id": "tammorra_tamburello_salentino",
+          "name": "Tamburello (Salento pizzica)",
+          "descriptors": [
+            "small-frame",
+            "bright",
+            "fast-whirring"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "jingle-shimmer"
+          ],
+          "canonical_tags": [
+            "southern-italy",
+            "salento",
+            "puglia"
+          ]
+        },
+        {
+          "id": "tammorra_tamburello_ciociaro",
+          "name": "Central-Italian saltarello tamburello",
+          "descriptors": [
+            "mid-frame",
+            "driving",
+            "central-italian"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "jingle-shimmer"
+          ],
+          "canonical_tags": [
+            "central-italy",
+            "lazio",
+            "abruzzo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tammorra_context",
+      "name": "Playing context / technique",
+      "variants": [
+        {
+          "id": "tammorra_tammurriata",
+          "default": true,
+          "name": "Tammurriata trance-dance",
+          "descriptors": [
+            "trance-pulse",
+            "thumb-rolled",
+            "festa"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "frame-drum"
+          ],
+          "canonical_tags": [
+            "dance",
+            "ritual"
+          ]
+        },
+        {
+          "id": "tammorra_pizzica_tarantata",
+          "name": "Pizzica / tarantism healing rite",
+          "descriptors": [
+            "fast-driving",
+            "relentless",
+            "healing-rite"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "frame-drum"
+          ],
+          "canonical_tags": [
+            "dance",
+            "ritual"
+          ]
+        },
+        {
+          "id": "tammorra_processione",
+          "name": "Devotional processional (paranza)",
+          "descriptors": [
+            "processional",
+            "devotional",
+            "steady-pulse"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "frame-drum"
+          ],
+          "canonical_tags": [
+            "religious",
+            "outdoor"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tammorra_head",
+      "surface": false,
+      "name": "Head skin",
+      "variants": [
+        {
+          "id": "tammorra_pelle_capra",
+          "default": true,
+          "name": "Goatskin head",
+          "descriptors": [
+            "goatskin-head",
+            "warm",
+            "fire-tuned"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum"
+          ],
+          "canonical_tags": [
+            "natural-skin"
+          ]
+        },
+        {
+          "id": "tammorra_pelle_sintetica",
+          "name": "Synthetic head",
+          "descriptors": [
+            "synthetic-head",
+            "bright",
+            "weatherproof"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

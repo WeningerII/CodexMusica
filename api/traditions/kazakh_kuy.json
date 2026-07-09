@@ -3,9 +3,9 @@
   "name": "Kazakh küy (instrumental dombyra art)",
   "family": "classical",
   "lineage": "Kazakh küy classical instrumental art-music tradition of Kazakhstan, performed on dombyra two-string long-necked fretted plucked lute as solo virtuoso narrative-programmatic compositions. Each küy narrates a historical-mythological story through purely instrumental means: the canonical \"Aksak Kulan\" tells of a son's death announced through dombyra after no one dared speak the news. Two regional schools: Western tökpe (more rhythmically vigorous) and Eastern shertpe (more lyrical-contemplative). Kurmangazy Sagyrbayuly (1818-1889) and Tattimbet Kazangapuly (1815-1862) are canonical composers.",
-  "recipe": "classic Northeast Asian early-1810s kazakh küy, art Music, middle eastern classical branch, Slavic bard ballad poetry icelandic rímur kyrgyz manas epic-recital. turkmen long necked bagshy tradition silk canonical pre modern shashmaqam bukharan shashmaqam canonical uzbek tajik classical dutar. open steppe outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 444,
-  "score": 28.845,
+  "recipe": "classic Northeast Asian early-1810s kazakh küy, art Music, middle eastern classical branch, Slavic bard ballad poetry icelandic rímur kyrgyz manas epic-recital. turkmen long necked bagshy tradition silk canonical pre modern shashmaqam bukharan shashmaqam canonical uzbek tajik classical dutar, spade shaped driving strummed dombyra. open steppe outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 483,
+  "score": 56.69,
   "config": {
     "traditions": [
       "kazakh_kuy",
@@ -24,6 +24,19 @@
           "dutar_body": 7.6049999999999995,
           "dutar_strings": 5.434999999999999,
           "dutar_tradition": 10.579999999999998
+        }
+      },
+      {
+        "id": "dombyra",
+        "slots": {
+          "dombyra_form": "dombyra_eastern",
+          "dombyra_style": "dombyra_tokpe",
+          "dombyra_strings": "dombyra_gut"
+        },
+        "scores": {
+          "dombyra_form": 12.825,
+          "dombyra_style": 15.054999999999996,
+          "dombyra_strings": -0.035
         }
       }
     ],

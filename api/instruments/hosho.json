@@ -1,0 +1,324 @@
+{
+  "id": "hosho",
+  "name": "Hosho (Shona gourd rattle)",
+  "family": "percussion",
+  "class": "gourd_rattle",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "hosho",
+  "parts": [
+    {
+      "id": "hosho_form",
+      "name": "Gourd form / pairing",
+      "variants": [
+        {
+          "id": "hosho_matched_pair",
+          "default": true,
+          "name": "Matched pair (one per hand)",
+          "descriptors": [
+            "paired",
+            "interlocking",
+            "driving"
+          ],
+          "match_tokens": [
+            "shaken",
+            "gourd-rattle",
+            "interlocking"
+          ],
+          "canonical_tags": [
+            "shona",
+            "zimbabwe"
+          ]
+        },
+        {
+          "id": "hosho_contrasting_pair",
+          "name": "Contrasting pair (deep + bright)",
+          "descriptors": [
+            "two-tone",
+            "contrasting"
+          ],
+          "match_tokens": [
+            "shaken",
+            "gourd-rattle"
+          ],
+          "canonical_tags": [
+            "shona"
+          ]
+        },
+        {
+          "id": "hosho_single",
+          "name": "Single large gourd",
+          "descriptors": [
+            "single",
+            "plain-pulse"
+          ],
+          "match_tokens": [
+            "shaken",
+            "gourd-rattle"
+          ],
+          "canonical_tags": [
+            "shona"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hosho_groove",
+      "name": "Playing context / rhythm",
+      "variants": [
+        {
+          "id": "hosho_mbira_lock",
+          "default": true,
+          "name": "Mbira pulse-lock",
+          "descriptors": [
+            "interlocking",
+            "triplet",
+            "hypnotic",
+            "driving"
+          ],
+          "match_tokens": [
+            "shaken",
+            "interlocking",
+            "pulse"
+          ],
+          "canonical_tags": [
+            "mbira",
+            "shona"
+          ]
+        },
+        {
+          "id": "hosho_bira_dance",
+          "name": "Bira ceremony drive",
+          "descriptors": [
+            "forceful",
+            "ceremonial",
+            "loud"
+          ],
+          "match_tokens": [
+            "shaken",
+            "loud"
+          ],
+          "canonical_tags": [
+            "ceremony",
+            "shona"
+          ]
+        },
+        {
+          "id": "hosho_chimurenga",
+          "name": "Chimurenga band groove",
+          "descriptors": [
+            "steady",
+            "amplified",
+            "groove"
+          ],
+          "match_tokens": [
+            "shaken",
+            "groove"
+          ],
+          "canonical_tags": [
+            "chimurenga",
+            "zimbabwe"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hosho_filler",
+      "surface": false,
+      "name": "Seed filler",
+      "variants": [
+        {
+          "id": "hosho_hota_seeds",
+          "default": true,
+          "name": "Hota (Canna) seeds",
+          "descriptors": [
+            "crisp",
+            "sharp",
+            "traditional"
+          ],
+          "match_tokens": [
+            "shaken",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "shona"
+          ]
+        },
+        {
+          "id": "hosho_stone_shot",
+          "name": "Small stones / shot",
+          "descriptors": [
+            "harsh",
+            "dense"
+          ],
+          "match_tokens": [
+            "shaken",
+            "rough-tone"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "hosho_form",
+      "name": "Gourd form / pairing",
+      "variants": [
+        {
+          "id": "hosho_matched_pair",
+          "default": true,
+          "name": "Matched pair (one per hand)",
+          "descriptors": [
+            "paired",
+            "interlocking",
+            "driving"
+          ],
+          "match_tokens": [
+            "shaken",
+            "gourd-rattle",
+            "interlocking"
+          ],
+          "canonical_tags": [
+            "shona",
+            "zimbabwe"
+          ]
+        },
+        {
+          "id": "hosho_contrasting_pair",
+          "name": "Contrasting pair (deep + bright)",
+          "descriptors": [
+            "two-tone",
+            "contrasting"
+          ],
+          "match_tokens": [
+            "shaken",
+            "gourd-rattle"
+          ],
+          "canonical_tags": [
+            "shona"
+          ]
+        },
+        {
+          "id": "hosho_single",
+          "name": "Single large gourd",
+          "descriptors": [
+            "single",
+            "plain-pulse"
+          ],
+          "match_tokens": [
+            "shaken",
+            "gourd-rattle"
+          ],
+          "canonical_tags": [
+            "shona"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hosho_groove",
+      "name": "Playing context / rhythm",
+      "variants": [
+        {
+          "id": "hosho_mbira_lock",
+          "default": true,
+          "name": "Mbira pulse-lock",
+          "descriptors": [
+            "interlocking",
+            "triplet",
+            "hypnotic",
+            "driving"
+          ],
+          "match_tokens": [
+            "shaken",
+            "interlocking",
+            "pulse"
+          ],
+          "canonical_tags": [
+            "mbira",
+            "shona"
+          ]
+        },
+        {
+          "id": "hosho_bira_dance",
+          "name": "Bira ceremony drive",
+          "descriptors": [
+            "forceful",
+            "ceremonial",
+            "loud"
+          ],
+          "match_tokens": [
+            "shaken",
+            "loud"
+          ],
+          "canonical_tags": [
+            "ceremony",
+            "shona"
+          ]
+        },
+        {
+          "id": "hosho_chimurenga",
+          "name": "Chimurenga band groove",
+          "descriptors": [
+            "steady",
+            "amplified",
+            "groove"
+          ],
+          "match_tokens": [
+            "shaken",
+            "groove"
+          ],
+          "canonical_tags": [
+            "chimurenga",
+            "zimbabwe"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hosho_filler",
+      "surface": false,
+      "name": "Seed filler",
+      "variants": [
+        {
+          "id": "hosho_hota_seeds",
+          "default": true,
+          "name": "Hota (Canna) seeds",
+          "descriptors": [
+            "crisp",
+            "sharp",
+            "traditional"
+          ],
+          "match_tokens": [
+            "shaken",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "shona"
+          ]
+        },
+        {
+          "id": "hosho_stone_shot",
+          "name": "Small stones / shot",
+          "descriptors": [
+            "harsh",
+            "dense"
+          ],
+          "match_tokens": [
+            "shaken",
+            "rough-tone"
+          ]
+        }
+      ]
+    }
+  ]
+}

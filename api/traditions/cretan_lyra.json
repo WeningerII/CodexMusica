@@ -3,9 +3,9 @@
   "name": "Cretan lyra (Cretan pear-shaped fiddle)",
   "family": "global",
   "lineage": "Cretan lyra solo-and-ensemble music tradition of Crete (Greece), centered on the pear-shaped three-string upright-played fiddle of unique Cretan construction (with the fingers stopping the strings from the side rather than pressing down, allowing characteristic Cretan-style pitch-glide ornament). Performance configuration: lyra leading with laouto long-neck-lute rhythmic-and-harmonic accompaniment, plus voice for sung repertoire. Repertoire spans the canonical Cretan dance-forms (pentozali fast-warrior-dance, syrtos slow-circle-dance, sousta), mantinada improvised-couplet form, and the rizitika hilltop-mountain-village ritual-song tradition. The post-twentieth-century Anogeia village and the Psarantonis-Xylouris family lineage anchor the canonical contemporary tradition. Distinguished from broader Greek nisiotika by Cretan-specific lyra-instrument signature.",
-  "recipe": "classic Southern European modern cretan lyra, ballad Poetry, Mediterranean ballad branch, west African groove percussion indonesian jaipongan fújì. thick, declaimed, chest resonance low mid, punctuated. walnut ribs canonical mid tier spruce face pyramid nylon oud, sitka spruce hard rock maple acer saccharum Baroque setup short neck violin orchestral, mulberry canonical cretan gut pre modern cretan cretan lyra. athens major label 1955-1985 mid tier athens minos studios 60s 70s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 611,
-  "score": 175.705,
+  "recipe": "classic Southern European modern cretan lyra, ballad Poetry, Mediterranean ballad branch, west African groove percussion indonesian jaipongan fújì. thick, declaimed, chest resonance low mid, punctuated. walnut ribs canonical mid tier spruce face pyramid nylon oud, sitka spruce hard rock maple acer saccharum Baroque setup short neck violin orchestral, mulberry canonical cretan gut pre modern cretan cretan lyra, cretan rhythmic laouto. athens major label 1955-1985 mid tier athens minos studios 60s 70s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 635,
+  "score": 215.445,
   "config": {
     "traditions": [
       "cretan_lyra",
@@ -115,6 +115,19 @@
           "lyra_use": 1.69,
           "lyra_body_wood": 11.49,
           "lyra_string_material": 9.295
+        }
+      },
+      {
+        "id": "laouto",
+        "slots": {
+          "laouto_form": "laouto_kritiko",
+          "laouto_role": "laouto_synodeia",
+          "laouto_strings": "laouto_strings_steel"
+        },
+        "scores": {
+          "laouto_form": 19.9,
+          "laouto_role": 19.889999999999997,
+          "laouto_strings": -0.05
         }
       }
     ],

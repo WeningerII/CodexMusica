@@ -3,9 +3,9 @@
   "name": "Uyghur On Ikki Muqam (Twelve Muqams)",
   "family": "classical",
   "lineage": "Uyghur On Ikki Muqam (\"Twelve Muqams\") classical Central Asian art-music tradition of the Uyghur Turkic-Muslim population of the Tarim Basin (Xinjiang). The twelve canonical muqamat — Rak, Chebbiyat, Mushavrek, Charigah, Pengigah, Ozhal, Echeh, Ushshaq, Bayat, Nava, Sigah, Iraq — each comprises three sections: chong naghma free-rhythm great-song suite; dastan metrically-bound narrative-song; faster mashrap social-dance section. Turdi Akhun in the 1950s codified recensions; the Xinjiang Muqam Ensemble anchors institutional transmission.",
-  "recipe": "classic Central Asian mid-1950s uyghur on ikki muqam, art Music, middle eastern classical branch, Persian arab improv improv on frame turkish-romani çümbüş music tarab. vocal fry, low dynamic level, chest resonance low mid, narrative. mulberry bowl canonical kurdish steel modern tanbur persian, turkmen long necked bagshy tradition silk canonical pre modern shashmaqam bukharan shashmaqam canonical uzbek tajik classical dutar, walnut bent frame canonical Persian goat skin tacked brass rings canonical Iranian daf, mulberry pear body long neck bowed tanbur shashmaqam canonical bukhara samarkand classical legato sato. bukhara shashmaqam courtyard chamber. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 788,
-  "score": 280.167,
+  "recipe": "classic Central Asian mid-1950s uyghur on ikki muqam, art Music, middle eastern classical branch, Persian arab improv improv on frame turkish-romani çümbüş music tarab. vocal fry, low dynamic level, chest resonance low mid, narrative. mulberry bowl canonical kurdish steel modern tanbur persian, turkmen long necked bagshy tradition silk canonical pre modern shashmaqam bukharan shashmaqam canonical uzbek tajik classical dutar, walnut bent frame canonical Persian goat skin tacked brass rings canonical Iranian daf, mulberry pear body long neck bowed tanbur shashmaqam canonical bukhara samarkand classical legato sato, muqam lead long necked muqam ensemble melodic bright metallic rubab. bukhara shashmaqam courtyard chamber. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 857,
+  "score": 324.266,
   "config": {
     "traditions": [
       "uyghur_muqam",
@@ -110,6 +110,19 @@
           "bowed_technique": 15.75,
           "sato_body": 1.6478749999999998,
           "sato_tradition": 9.879999999999999
+        }
+      },
+      {
+        "id": "rubab",
+        "slots": {
+          "rubab_form": "rubab_kashgar",
+          "rubab_style": "rubab_muqam_ensemble",
+          "rubab_strings": "rubab_steel"
+        },
+        "scores": {
+          "rubab_form": 13.455249999999998,
+          "rubab_style": 21.644,
+          "rubab_strings": 9
         }
       }
     ],

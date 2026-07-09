@@ -1,0 +1,372 @@
+{
+  "id": "nai_romanian",
+  "name": "Nai (Romanian pan flute)",
+  "family": "wind",
+  "class": "raft_panpipe",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "nai",
+  "parts": [
+    {
+      "id": "nai_romanian_form",
+      "name": "Form / type",
+      "variants": [
+        {
+          "id": "nai_romanian_concert",
+          "default": true,
+          "name": "Concert nai (curved 20-25 pipe virtuoso pan flute)",
+          "descriptors": [
+            "virtuosic",
+            "wide-range",
+            "curved-raft",
+            "chromatic-tilt"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "panpipe",
+            "breathy-tone"
+          ],
+          "canonical_tags": [
+            "romanian",
+            "balkan"
+          ]
+        },
+        {
+          "id": "nai_romanian_traditional",
+          "name": "Traditional lautari nai (~20 reed pipes)",
+          "descriptors": [
+            "folk",
+            "rustic",
+            "reedy"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "panpipe",
+            "breathy-tone"
+          ],
+          "canonical_tags": [
+            "romanian"
+          ]
+        },
+        {
+          "id": "nai_romanian_muscal",
+          "name": "Muscal (Moldavian pan flute, level-cut pipes)",
+          "descriptors": [
+            "archaic",
+            "moldavian",
+            "hollow-toned"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "panpipe"
+          ],
+          "canonical_tags": [
+            "romanian",
+            "moldavian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nai_romanian_repertoire",
+      "name": "Repertoire / technique",
+      "variants": [
+        {
+          "id": "nai_romanian_doina",
+          "default": true,
+          "name": "Doina (free-rhythm rubato, head-tilt glissando)",
+          "descriptors": [
+            "rubato",
+            "mournful",
+            "glissando",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathy-tone",
+            "melodic-lead"
+          ],
+          "canonical_tags": [
+            "romanian",
+            "doina"
+          ]
+        },
+        {
+          "id": "nai_romanian_hora",
+          "name": "Hora / sarba dance (metric, tongued staccato runs)",
+          "descriptors": [
+            "driving",
+            "virtuosic",
+            "staccato"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "melodic-lead",
+            "dance-pulse"
+          ],
+          "canonical_tags": [
+            "romanian",
+            "dance"
+          ]
+        },
+        {
+          "id": "nai_romanian_lautari",
+          "name": "Lautari tavern ensemble accompaniment",
+          "descriptors": [
+            "festive",
+            "ornamented",
+            "ensemble-blend"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "melodic-lead"
+          ],
+          "canonical_tags": [
+            "romanian",
+            "lautari"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nai_romanian_pipe_material",
+      "surface": false,
+      "name": "Pipe material",
+      "variants": [
+        {
+          "id": "nai_romanian_cane",
+          "default": true,
+          "name": "Reed / cane pipes (trestie)",
+          "descriptors": [
+            "cane",
+            "breathy",
+            "warm"
+          ],
+          "match_tokens": [
+            "panpipe",
+            "breathy-tone"
+          ],
+          "canonical_tags": [
+            "reed"
+          ]
+        },
+        {
+          "id": "nai_romanian_wood",
+          "name": "Wood-bodied pipes",
+          "descriptors": [
+            "wooden",
+            "mellow",
+            "dark"
+          ],
+          "match_tokens": [
+            "panpipe"
+          ],
+          "canonical_tags": [
+            "wood"
+          ]
+        },
+        {
+          "id": "nai_romanian_ebonite",
+          "name": "Ebonite / lined concert pipes",
+          "descriptors": [
+            "modern",
+            "focused",
+            "bright"
+          ],
+          "match_tokens": [
+            "panpipe"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "nai_romanian_form",
+      "name": "Form / type",
+      "variants": [
+        {
+          "id": "nai_romanian_concert",
+          "default": true,
+          "name": "Concert nai (curved 20-25 pipe virtuoso pan flute)",
+          "descriptors": [
+            "virtuosic",
+            "wide-range",
+            "curved-raft",
+            "chromatic-tilt"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "panpipe",
+            "breathy-tone"
+          ],
+          "canonical_tags": [
+            "romanian",
+            "balkan"
+          ]
+        },
+        {
+          "id": "nai_romanian_traditional",
+          "name": "Traditional lautari nai (~20 reed pipes)",
+          "descriptors": [
+            "folk",
+            "rustic",
+            "reedy"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "panpipe",
+            "breathy-tone"
+          ],
+          "canonical_tags": [
+            "romanian"
+          ]
+        },
+        {
+          "id": "nai_romanian_muscal",
+          "name": "Muscal (Moldavian pan flute, level-cut pipes)",
+          "descriptors": [
+            "archaic",
+            "moldavian",
+            "hollow-toned"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "panpipe"
+          ],
+          "canonical_tags": [
+            "romanian",
+            "moldavian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nai_romanian_repertoire",
+      "name": "Repertoire / technique",
+      "variants": [
+        {
+          "id": "nai_romanian_doina",
+          "default": true,
+          "name": "Doina (free-rhythm rubato, head-tilt glissando)",
+          "descriptors": [
+            "rubato",
+            "mournful",
+            "glissando",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathy-tone",
+            "melodic-lead"
+          ],
+          "canonical_tags": [
+            "romanian",
+            "doina"
+          ]
+        },
+        {
+          "id": "nai_romanian_hora",
+          "name": "Hora / sarba dance (metric, tongued staccato runs)",
+          "descriptors": [
+            "driving",
+            "virtuosic",
+            "staccato"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "melodic-lead",
+            "dance-pulse"
+          ],
+          "canonical_tags": [
+            "romanian",
+            "dance"
+          ]
+        },
+        {
+          "id": "nai_romanian_lautari",
+          "name": "Lautari tavern ensemble accompaniment",
+          "descriptors": [
+            "festive",
+            "ornamented",
+            "ensemble-blend"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "melodic-lead"
+          ],
+          "canonical_tags": [
+            "romanian",
+            "lautari"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nai_romanian_pipe_material",
+      "surface": false,
+      "name": "Pipe material",
+      "variants": [
+        {
+          "id": "nai_romanian_cane",
+          "default": true,
+          "name": "Reed / cane pipes (trestie)",
+          "descriptors": [
+            "cane",
+            "breathy",
+            "warm"
+          ],
+          "match_tokens": [
+            "panpipe",
+            "breathy-tone"
+          ],
+          "canonical_tags": [
+            "reed"
+          ]
+        },
+        {
+          "id": "nai_romanian_wood",
+          "name": "Wood-bodied pipes",
+          "descriptors": [
+            "wooden",
+            "mellow",
+            "dark"
+          ],
+          "match_tokens": [
+            "panpipe"
+          ],
+          "canonical_tags": [
+            "wood"
+          ]
+        },
+        {
+          "id": "nai_romanian_ebonite",
+          "name": "Ebonite / lined concert pipes",
+          "descriptors": [
+            "modern",
+            "focused",
+            "bright"
+          ],
+          "match_tokens": [
+            "panpipe"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,416 @@
+{
+  "id": "marimba_centroamericana",
+  "name": "Marimba (Central American / Guatemalan)",
+  "family": "percussion",
+  "class": "tuned_idiophone",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "marimba",
+  "parts": [
+    {
+      "id": "marimba_centroamericana_form",
+      "name": "Regional form / type",
+      "variants": [
+        {
+          "id": "marimba_centroamericana_doble",
+          "default": true,
+          "name": "Marimba doble (grande, chromatic double-keyboard)",
+          "descriptors": [
+            "chromatic",
+            "full-range",
+            "ensemble-grande",
+            "resonant"
+          ],
+          "match_tokens": [
+            "struck",
+            "tuned-bars",
+            "buzzing-resonator"
+          ],
+          "canonical_tags": [
+            "guatemala",
+            "chiapas"
+          ]
+        },
+        {
+          "id": "marimba_centroamericana_sencilla",
+          "name": "Marimba sencilla (diatonic single keyboard)",
+          "descriptors": [
+            "diatonic",
+            "single-keyboard",
+            "archaic",
+            "rustic"
+          ],
+          "match_tokens": [
+            "struck",
+            "tuned-bars",
+            "buzzing-resonator"
+          ],
+          "canonical_tags": [
+            "guatemala"
+          ]
+        },
+        {
+          "id": "marimba_centroamericana_tecomates",
+          "name": "Marimba de tecomates (gourd-resonator)",
+          "descriptors": [
+            "archaic",
+            "gourd-resonated",
+            "earthy",
+            "buzzing"
+          ],
+          "match_tokens": [
+            "struck",
+            "tuned-bars",
+            "gourd-resonated"
+          ],
+          "canonical_tags": [
+            "guatemala",
+            "maya"
+          ]
+        },
+        {
+          "id": "marimba_centroamericana_chiapaneca",
+          "name": "Marimba chiapaneca / oaxaqueña",
+          "descriptors": [
+            "chiapas-oaxaca",
+            "sweet-toned",
+            "son-istmeno"
+          ],
+          "match_tokens": [
+            "struck",
+            "tuned-bars",
+            "buzzing-resonator"
+          ],
+          "canonical_tags": [
+            "chiapas",
+            "oaxaca"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marimba_centroamericana_ensemble",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "marimba_centroamericana_grande_tenor",
+          "default": true,
+          "name": "Marimba grande + tenor ensemble (multi-player sones and dances)",
+          "descriptors": [
+            "multi-player",
+            "chordal",
+            "danceable",
+            "full-ensemble"
+          ],
+          "match_tokens": [
+            "struck",
+            "polyphonic",
+            "buzzing-resonator"
+          ],
+          "canonical_tags": [
+            "guatemala"
+          ]
+        },
+        {
+          "id": "marimba_centroamericana_son_istmeno",
+          "name": "Son istmeño / Oaxaca sones",
+          "descriptors": [
+            "tehuana-sones",
+            "lilting",
+            "festive"
+          ],
+          "match_tokens": [
+            "struck",
+            "tuned-bars"
+          ],
+          "canonical_tags": [
+            "oaxaca",
+            "istmo"
+          ]
+        },
+        {
+          "id": "marimba_centroamericana_orquesta",
+          "name": "Marimba orquesta / concert arrangements",
+          "descriptors": [
+            "arranged",
+            "virtuosic",
+            "concert",
+            "refined"
+          ],
+          "match_tokens": [
+            "struck",
+            "polyphonic"
+          ],
+          "canonical_tags": [
+            "concert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marimba_centroamericana_material",
+      "surface": false,
+      "name": "Bar wood & resonator construction",
+      "variants": [
+        {
+          "id": "marimba_centroamericana_hormigo",
+          "default": true,
+          "name": "Hormigo bars, cedar/pine box resonators with tela mirliton",
+          "descriptors": [
+            "hormigo-tonewood",
+            "box-resonated",
+            "warm",
+            "buzzing-tela"
+          ],
+          "match_tokens": [
+            "struck",
+            "buzzing-resonator"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "marimba_centroamericana_tecomate_gourd",
+          "name": "Hardwood bars over tuned gourd (tecomate) resonators + membrane",
+          "descriptors": [
+            "gourd-resonated",
+            "rustic",
+            "nasal-buzz"
+          ],
+          "match_tokens": [
+            "struck",
+            "gourd-resonated"
+          ],
+          "canonical_tags": [
+            "archaic"
+          ]
+        },
+        {
+          "id": "marimba_centroamericana_granadillo",
+          "name": "Granadillo / rosewood bars, wax-tuned resonators",
+          "descriptors": [
+            "granadillo",
+            "bright",
+            "hard-tone"
+          ],
+          "match_tokens": [
+            "struck",
+            "tuned-bars"
+          ],
+          "canonical_tags": [
+            "tonewood"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "marimba_centroamericana_form",
+      "name": "Regional form / type",
+      "variants": [
+        {
+          "id": "marimba_centroamericana_doble",
+          "default": true,
+          "name": "Marimba doble (grande, chromatic double-keyboard)",
+          "descriptors": [
+            "chromatic",
+            "full-range",
+            "ensemble-grande",
+            "resonant"
+          ],
+          "match_tokens": [
+            "struck",
+            "tuned-bars",
+            "buzzing-resonator"
+          ],
+          "canonical_tags": [
+            "guatemala",
+            "chiapas"
+          ]
+        },
+        {
+          "id": "marimba_centroamericana_sencilla",
+          "name": "Marimba sencilla (diatonic single keyboard)",
+          "descriptors": [
+            "diatonic",
+            "single-keyboard",
+            "archaic",
+            "rustic"
+          ],
+          "match_tokens": [
+            "struck",
+            "tuned-bars",
+            "buzzing-resonator"
+          ],
+          "canonical_tags": [
+            "guatemala"
+          ]
+        },
+        {
+          "id": "marimba_centroamericana_tecomates",
+          "name": "Marimba de tecomates (gourd-resonator)",
+          "descriptors": [
+            "archaic",
+            "gourd-resonated",
+            "earthy",
+            "buzzing"
+          ],
+          "match_tokens": [
+            "struck",
+            "tuned-bars",
+            "gourd-resonated"
+          ],
+          "canonical_tags": [
+            "guatemala",
+            "maya"
+          ]
+        },
+        {
+          "id": "marimba_centroamericana_chiapaneca",
+          "name": "Marimba chiapaneca / oaxaqueña",
+          "descriptors": [
+            "chiapas-oaxaca",
+            "sweet-toned",
+            "son-istmeno"
+          ],
+          "match_tokens": [
+            "struck",
+            "tuned-bars",
+            "buzzing-resonator"
+          ],
+          "canonical_tags": [
+            "chiapas",
+            "oaxaca"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marimba_centroamericana_ensemble",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "marimba_centroamericana_grande_tenor",
+          "default": true,
+          "name": "Marimba grande + tenor ensemble (multi-player sones and dances)",
+          "descriptors": [
+            "multi-player",
+            "chordal",
+            "danceable",
+            "full-ensemble"
+          ],
+          "match_tokens": [
+            "struck",
+            "polyphonic",
+            "buzzing-resonator"
+          ],
+          "canonical_tags": [
+            "guatemala"
+          ]
+        },
+        {
+          "id": "marimba_centroamericana_son_istmeno",
+          "name": "Son istmeño / Oaxaca sones",
+          "descriptors": [
+            "tehuana-sones",
+            "lilting",
+            "festive"
+          ],
+          "match_tokens": [
+            "struck",
+            "tuned-bars"
+          ],
+          "canonical_tags": [
+            "oaxaca",
+            "istmo"
+          ]
+        },
+        {
+          "id": "marimba_centroamericana_orquesta",
+          "name": "Marimba orquesta / concert arrangements",
+          "descriptors": [
+            "arranged",
+            "virtuosic",
+            "concert",
+            "refined"
+          ],
+          "match_tokens": [
+            "struck",
+            "polyphonic"
+          ],
+          "canonical_tags": [
+            "concert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marimba_centroamericana_material",
+      "surface": false,
+      "name": "Bar wood & resonator construction",
+      "variants": [
+        {
+          "id": "marimba_centroamericana_hormigo",
+          "default": true,
+          "name": "Hormigo bars, cedar/pine box resonators with tela mirliton",
+          "descriptors": [
+            "hormigo-tonewood",
+            "box-resonated",
+            "warm",
+            "buzzing-tela"
+          ],
+          "match_tokens": [
+            "struck",
+            "buzzing-resonator"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "marimba_centroamericana_tecomate_gourd",
+          "name": "Hardwood bars over tuned gourd (tecomate) resonators + membrane",
+          "descriptors": [
+            "gourd-resonated",
+            "rustic",
+            "nasal-buzz"
+          ],
+          "match_tokens": [
+            "struck",
+            "gourd-resonated"
+          ],
+          "canonical_tags": [
+            "archaic"
+          ]
+        },
+        {
+          "id": "marimba_centroamericana_granadillo",
+          "name": "Granadillo / rosewood bars, wax-tuned resonators",
+          "descriptors": [
+            "granadillo",
+            "bright",
+            "hard-tone"
+          ],
+          "match_tokens": [
+            "struck",
+            "tuned-bars"
+          ],
+          "canonical_tags": [
+            "tonewood"
+          ]
+        }
+      ]
+    }
+  ]
+}

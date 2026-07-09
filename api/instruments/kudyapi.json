@@ -1,0 +1,314 @@
+{
+  "id": "kudyapi",
+  "name": "Kudyapi (Philippine boat lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_boat_lute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "kudyapi",
+  "parts": [
+    {
+      "id": "kudyapi_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "kudyapi_maguindanao",
+          "default": true,
+          "name": "Maguindanao / Maranao kudyapi",
+          "descriptors": [
+            "courtly",
+            "maguindanao",
+            "kulintang-paired"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fretted",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "philippines",
+            "mindanao"
+          ]
+        },
+        {
+          "id": "kudyapi_tboli_hegelung",
+          "name": "T'boli hegelung (Lake Sebu)",
+          "descriptors": [
+            "tboli",
+            "hegelung",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fretted"
+          ],
+          "canonical_tags": [
+            "philippines",
+            "mindanao"
+          ]
+        },
+        {
+          "id": "kudyapi_manobo_faglong",
+          "name": "Manobo / B'laan faglong (kuglong)",
+          "descriptors": [
+            "manobo",
+            "faglong",
+            "folk-courtship"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fretted"
+          ],
+          "canonical_tags": [
+            "philippines",
+            "mindanao"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kudyapi_idiom",
+      "name": "Playing idiom / repertoire",
+      "variants": [
+        {
+          "id": "kudyapi_binalig",
+          "default": true,
+          "name": "Binalig improvisatory melody",
+          "descriptors": [
+            "binalig",
+            "improvisatory",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "mindanao"
+          ]
+        },
+        {
+          "id": "kudyapi_program_imitation",
+          "name": "Imitative program pieces",
+          "descriptors": [
+            "imitative",
+            "programmatic",
+            "birdsong"
+          ],
+          "match_tokens": [
+            "plucked"
+          ],
+          "canonical_tags": [
+            "mindanao"
+          ]
+        },
+        {
+          "id": "kudyapi_courtship_solo",
+          "name": "Solo courtship serenade",
+          "descriptors": [
+            "intimate",
+            "courtship",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "mindanao"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kudyapi_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "kudyapi_wire_strings",
+          "default": true,
+          "name": "Brass / steel wire strings",
+          "descriptors": [
+            "wire-strung",
+            "bright",
+            "buzzing"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fretted"
+          ]
+        },
+        {
+          "id": "kudyapi_abaca_strings",
+          "name": "Twisted abaca-fiber strings",
+          "descriptors": [
+            "abaca-fiber",
+            "mellow",
+            "archaic"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kudyapi_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "kudyapi_maguindanao",
+          "default": true,
+          "name": "Maguindanao / Maranao kudyapi",
+          "descriptors": [
+            "courtly",
+            "maguindanao",
+            "kulintang-paired"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fretted",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "philippines",
+            "mindanao"
+          ]
+        },
+        {
+          "id": "kudyapi_tboli_hegelung",
+          "name": "T'boli hegelung (Lake Sebu)",
+          "descriptors": [
+            "tboli",
+            "hegelung",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fretted"
+          ],
+          "canonical_tags": [
+            "philippines",
+            "mindanao"
+          ]
+        },
+        {
+          "id": "kudyapi_manobo_faglong",
+          "name": "Manobo / B'laan faglong (kuglong)",
+          "descriptors": [
+            "manobo",
+            "faglong",
+            "folk-courtship"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fretted"
+          ],
+          "canonical_tags": [
+            "philippines",
+            "mindanao"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kudyapi_idiom",
+      "name": "Playing idiom / repertoire",
+      "variants": [
+        {
+          "id": "kudyapi_binalig",
+          "default": true,
+          "name": "Binalig improvisatory melody",
+          "descriptors": [
+            "binalig",
+            "improvisatory",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "mindanao"
+          ]
+        },
+        {
+          "id": "kudyapi_program_imitation",
+          "name": "Imitative program pieces",
+          "descriptors": [
+            "imitative",
+            "programmatic",
+            "birdsong"
+          ],
+          "match_tokens": [
+            "plucked"
+          ],
+          "canonical_tags": [
+            "mindanao"
+          ]
+        },
+        {
+          "id": "kudyapi_courtship_solo",
+          "name": "Solo courtship serenade",
+          "descriptors": [
+            "intimate",
+            "courtship",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "mindanao"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kudyapi_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "kudyapi_wire_strings",
+          "default": true,
+          "name": "Brass / steel wire strings",
+          "descriptors": [
+            "wire-strung",
+            "bright",
+            "buzzing"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fretted"
+          ]
+        },
+        {
+          "id": "kudyapi_abaca_strings",
+          "name": "Twisted abaca-fiber strings",
+          "descriptors": [
+            "abaca-fiber",
+            "mellow",
+            "archaic"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,328 @@
+{
+  "id": "northumbrian_smallpipes",
+  "name": "Northumbrian smallpipes (bellows-blown closed-chanter bagpipe)",
+  "family": "wind",
+  "class": "bellows_bagpipe",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "smallpipes",
+  "parts": [
+    {
+      "id": "northumbrian_smallpipes_chanter_set",
+      "name": "Chanter set",
+      "variants": [
+        {
+          "id": "northumbrian_smallpipes_seventeen_key",
+          "default": true,
+          "name": "17-keyed chanter (standard modern set)",
+          "descriptors": [
+            "chromatic",
+            "refined",
+            "full-compass"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "closed-chanter",
+            "staccato"
+          ],
+          "canonical_tags": [
+            "british_isles",
+            "northumbria"
+          ]
+        },
+        {
+          "id": "northumbrian_smallpipes_seven_key",
+          "name": "7-keyed F chanter (traditional keyed set)",
+          "descriptors": [
+            "traditional",
+            "bright",
+            "modal"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "closed-chanter"
+          ],
+          "canonical_tags": [
+            "british_isles",
+            "northumbria"
+          ]
+        },
+        {
+          "id": "northumbrian_smallpipes_keyless_historic",
+          "name": "Keyless historic chanter (pre-1800 form)",
+          "descriptors": [
+            "archaic",
+            "diatonic",
+            "limited-compass"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "closed-chanter"
+          ],
+          "canonical_tags": [
+            "historic",
+            "northumbria"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "northumbrian_smallpipes_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "northumbrian_smallpipes_staccato_variations",
+          "default": true,
+          "name": "Staccato variation sets (closed fingering, solo)",
+          "descriptors": [
+            "crisp",
+            "staccato",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "staccato",
+            "closed-chanter"
+          ],
+          "canonical_tags": [
+            "variation-tradition"
+          ]
+        },
+        {
+          "id": "northumbrian_smallpipes_legato_airs",
+          "name": "Legato slow airs and laments",
+          "descriptors": [
+            "lyrical",
+            "smooth",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "sustained",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "airs"
+          ]
+        },
+        {
+          "id": "northumbrian_smallpipes_dance_rants",
+          "name": "Dance rants, reels and hornpipes",
+          "descriptors": [
+            "driving",
+            "rhythmic",
+            "sprightly"
+          ],
+          "match_tokens": [
+            "staccato",
+            "rhythmic"
+          ],
+          "canonical_tags": [
+            "dance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "northumbrian_smallpipes_body",
+      "surface": false,
+      "name": "Body & keywork",
+      "variants": [
+        {
+          "id": "northumbrian_smallpipes_blackwood_nickel",
+          "default": true,
+          "name": "African blackwood chanter with nickel keys and mounts",
+          "descriptors": [
+            "dense",
+            "dark-sweet",
+            "ornate-keywork"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "closed-chanter"
+          ],
+          "canonical_tags": [
+            "british_isles"
+          ]
+        },
+        {
+          "id": "northumbrian_smallpipes_boxwood_historic",
+          "name": "Boxwood body with brass keys (historic build)",
+          "descriptors": [
+            "mellow",
+            "pale-toned",
+            "period"
+          ],
+          "match_tokens": [
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "historic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "northumbrian_smallpipes_chanter_set",
+      "name": "Chanter set",
+      "variants": [
+        {
+          "id": "northumbrian_smallpipes_seventeen_key",
+          "default": true,
+          "name": "17-keyed chanter (standard modern set)",
+          "descriptors": [
+            "chromatic",
+            "refined",
+            "full-compass"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "closed-chanter",
+            "staccato"
+          ],
+          "canonical_tags": [
+            "british_isles",
+            "northumbria"
+          ]
+        },
+        {
+          "id": "northumbrian_smallpipes_seven_key",
+          "name": "7-keyed F chanter (traditional keyed set)",
+          "descriptors": [
+            "traditional",
+            "bright",
+            "modal"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "closed-chanter"
+          ],
+          "canonical_tags": [
+            "british_isles",
+            "northumbria"
+          ]
+        },
+        {
+          "id": "northumbrian_smallpipes_keyless_historic",
+          "name": "Keyless historic chanter (pre-1800 form)",
+          "descriptors": [
+            "archaic",
+            "diatonic",
+            "limited-compass"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "closed-chanter"
+          ],
+          "canonical_tags": [
+            "historic",
+            "northumbria"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "northumbrian_smallpipes_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "northumbrian_smallpipes_staccato_variations",
+          "default": true,
+          "name": "Staccato variation sets (closed fingering, solo)",
+          "descriptors": [
+            "crisp",
+            "staccato",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "staccato",
+            "closed-chanter"
+          ],
+          "canonical_tags": [
+            "variation-tradition"
+          ]
+        },
+        {
+          "id": "northumbrian_smallpipes_legato_airs",
+          "name": "Legato slow airs and laments",
+          "descriptors": [
+            "lyrical",
+            "smooth",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "sustained",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "airs"
+          ]
+        },
+        {
+          "id": "northumbrian_smallpipes_dance_rants",
+          "name": "Dance rants, reels and hornpipes",
+          "descriptors": [
+            "driving",
+            "rhythmic",
+            "sprightly"
+          ],
+          "match_tokens": [
+            "staccato",
+            "rhythmic"
+          ],
+          "canonical_tags": [
+            "dance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "northumbrian_smallpipes_body",
+      "surface": false,
+      "name": "Body & keywork",
+      "variants": [
+        {
+          "id": "northumbrian_smallpipes_blackwood_nickel",
+          "default": true,
+          "name": "African blackwood chanter with nickel keys and mounts",
+          "descriptors": [
+            "dense",
+            "dark-sweet",
+            "ornate-keywork"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "closed-chanter"
+          ],
+          "canonical_tags": [
+            "british_isles"
+          ]
+        },
+        {
+          "id": "northumbrian_smallpipes_boxwood_historic",
+          "name": "Boxwood body with brass keys (historic build)",
+          "descriptors": [
+            "mellow",
+            "pale-toned",
+            "period"
+          ],
+          "match_tokens": [
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "historic"
+          ]
+        }
+      ]
+    }
+  ]
+}

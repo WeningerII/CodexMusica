@@ -3,9 +3,9 @@
   "name": "Tunisian malouf (Andalusi classical)",
   "family": "classical",
   "lineage": "Tunisian malouf classical Andalusi-Arabic art-music tradition, the Tunisian recension of the broader Maghrebi-Andalusi nuba descended from medieval al-Andalus through the post-1492 expulsion-diaspora settlement (with Testour as a principal Andalusi-refugee settlement). The Tunisian repertoire comprises thirteen canonical nubat. The early-twentieth-century Rachidia Institute (Tunis, 1934) consolidated the canon. Performance integrates male choir-and-soloist with oud, rebab, qanun, nay, and darbuka. Distinguished from Moroccan al-Āla by Tunisian-specific suite-cycle and Rachidia-Institute-canonized repertoire.",
-  "recipe": "classic North African early-1490s tunisian malouf, art Music, middle eastern classical branch, Persian arab improv improv on frame tarab turkish-romani çümbüş music. vocal fry, low dynamic level, chest resonance low mid, maqam neutral step. rosewood premium iraqi Turkish Lebanese cedar eastern Mediterranean pyramid oud, carved hardwood canonical javanese goat skin canonical javanese gut yemeni pre modern arab legato rebab, metal finger picks rosewood body arab premium goat skin bridge plate qanun, spun aluminum Egyptian sombaty goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka. nuba courtyard hall. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 707,
-  "score": 347.054,
+  "recipe": "classic North African early-1490s tunisian malouf, art Music, middle eastern classical branch, Persian arab improv improv on frame tarab turkish-romani çümbüş music. vocal fry, low dynamic level, chest resonance low mid, maqam neutral step. rosewood premium iraqi Turkish Lebanese cedar eastern Mediterranean pyramid oud, heterophonic melodic lead legato rabab maghribi, metal finger picks rosewood body arab premium goat skin bridge plate qanun, spun aluminum Egyptian sombaty goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka. nuba courtyard hall. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 651,
+  "score": 345.64,
   "config": {
     "traditions": [
       "tunisian_malouf",
@@ -74,22 +74,18 @@
         }
       },
       {
-        "id": "rebab",
+        "id": "rabab_maghribi",
         "slots": {
           "bowed_technique": "bowed_legato_classical",
-          "rebab_region": "rebab_yemeni",
-          "rebab_context": "rebab_solo",
-          "rebab_body": "rebab_wood_carved",
-          "rebab_skin": "rebab_goat_skin",
-          "rebab_strings": "rebab_gut_yemeni"
+          "rabab_maghribi_form": "rabab_maghribi_andalusi",
+          "rabab_maghribi_role": "rabab_maghribi_nuba",
+          "rabab_maghribi_strings": "rabab_maghribi_gut"
         },
         "scores": {
           "bowed_technique": 18.25,
-          "rebab_region": 9.165,
-          "rebab_context": 5.135,
-          "rebab_body": 1.69,
-          "rebab_skin": 1.69,
-          "rebab_strings": 2.73
+          "rabab_maghribi_form": 15.192874999999995,
+          "rabab_maghribi_role": 3.838,
+          "rabab_maghribi_strings": -0.035
         }
       },
       {
@@ -168,12 +164,6 @@
       "darbuka_material": "darbuka_aluminum_sombaty",
       "darbuka_skin": "darbuka_synthetic_mylar",
       "darbuka_regional_style": "darbuka_egyptian_sombaty",
-      "bowed_technique": "bowed_microtonal_inflected",
-      "rebab_region": "rebab_malay",
-      "rebab_context": "rebab_solo",
-      "rebab_body": "rebab_wood_carved",
-      "rebab_skin": "rebab_goat_skin",
-      "rebab_strings": "rebab_steel_modern",
       "plucked_traditional_technique": "plucked_classical_idiom",
       "qanun_strings": "qanun_arab_72",
       "qanun_pick": "qanun_finger_picks",

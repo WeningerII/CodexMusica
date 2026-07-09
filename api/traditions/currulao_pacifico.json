@@ -3,9 +3,9 @@
   "name": "Currulao (Colombian Pacific)",
   "family": "global",
   "lineage": "Afro-Colombian marimba-and-percussion ensemble tradition of Pacific coastal region (Chocó, Valle del Cauca, Cauca, Nariño departments) and adjacent Ecuadorian Pacific coast. Marimba de chonta (wooden marimba with bamboo resonators), bombo and cununo drums, guasá tubular shakers, voice (often female-lead with chorus).",
-  "recipe": "classic Andean modern currulao, groove Percussion, Latin am branch, Brazilian groove percussion maracatu pagode. thick, intimate aspirated, chest resonance low mid, equal tempered. marimba orchestral, bombo andino. bogota colombian andean studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 376,
-  "score": 85.327,
+  "recipe": "classic Andean modern currulao, groove Percussion, Latin am branch, Brazilian groove percussion maracatu pagode. thick, intimate aspirated, chest resonance low mid, equal tempered. two player palm wood bamboo tubes marimba de chonta, bombo andino. bogota colombian andean studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 409,
+  "score": 100.177,
   "config": {
     "traditions": [
       "currulao_pacifico",
@@ -53,16 +53,16 @@
         }
       },
       {
-        "id": "marimba_orchestral",
+        "id": "marimba_de_chonta",
         "slots": {
-          "percussion_technique": "percussion_mallets_orchestral",
-          "marimba_size": "marimba_4_octave",
-          "marimba_orchestral_bar": "marimba_orchestral_padauk"
+          "marimba_de_chonta_form": "marimba_de_chonta_colombiana",
+          "marimba_de_chonta_role": "marimba_de_chonta_duet",
+          "marimba_de_chonta_material": "marimba_de_chonta_chonta_guadua"
         },
         "scores": {
-          "percussion_technique": -0.05,
-          "marimba_size": 0.195,
-          "marimba_orchestral_bar": 0.15
+          "marimba_de_chonta_form": 5.949999999999999,
+          "marimba_de_chonta_role": 4.455,
+          "marimba_de_chonta_material": 4.74
         }
       },
       {
@@ -112,9 +112,6 @@
       "voice_estill_quality": "voice_estill_speech",
       "voice_vibrato": "straight_tone",
       "voice_mechanism_compound": "voice_mechanism_single_source",
-      "percussion_technique": "percussion_mallets_orchestral",
-      "marimba_size": "marimba_5_octave",
-      "marimba_orchestral_bar": "marimba_orchestral_honduran",
       "bombo_andino_construction": "bombo_andino_leguero",
       "bombo_andino_skin": "bombo_andino_llama",
       "bombo_andino_shell_wood": "bombo_andino_ceibo"

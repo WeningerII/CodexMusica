@@ -1,0 +1,388 @@
+{
+  "id": "ukulele",
+  "name": "Ukulele (Hawaiian four-string)",
+  "family": "plucked_traditional",
+  "class": "plucked_lute",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "ukulele",
+  "parts": [
+    {
+      "id": "ukulele_size",
+      "name": "Size / body type",
+      "variants": [
+        {
+          "id": "ukulele_soprano",
+          "default": true,
+          "name": "Soprano (standard)",
+          "descriptors": [
+            "bright",
+            "jangly",
+            "compact",
+            "plinky"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bright-tone",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "hawaiian",
+            "oceania"
+          ]
+        },
+        {
+          "id": "ukulele_concert",
+          "name": "Concert",
+          "descriptors": [
+            "warmer",
+            "fuller",
+            "rounded"
+          ],
+          "match_tokens": [
+            "plucked",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "hawaiian"
+          ]
+        },
+        {
+          "id": "ukulele_tenor",
+          "name": "Tenor",
+          "descriptors": [
+            "rich",
+            "resonant",
+            "projecting"
+          ],
+          "match_tokens": [
+            "plucked",
+            "resonant"
+          ],
+          "canonical_tags": [
+            "hawaiian"
+          ]
+        },
+        {
+          "id": "ukulele_baritone",
+          "name": "Baritone (DGBE)",
+          "descriptors": [
+            "deep",
+            "guitar-like",
+            "mellow"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register",
+            "mellow"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ukulele_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "ukulele_strum",
+          "default": true,
+          "name": "Chord strumming",
+          "descriptors": [
+            "strummed",
+            "rhythmic",
+            "chordal",
+            "island-lilt"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "chordal"
+          ],
+          "canonical_tags": [
+            "hawaiian"
+          ]
+        },
+        {
+          "id": "ukulele_fingerstyle",
+          "name": "Fingerpicked (nahenahe)",
+          "descriptors": [
+            "fingerpicked",
+            "gentle",
+            "melodic",
+            "sweet"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "gentle"
+          ],
+          "canonical_tags": [
+            "hawaiian"
+          ]
+        },
+        {
+          "id": "ukulele_campanella",
+          "name": "Campanella (bell-like runs)",
+          "descriptors": [
+            "cascading",
+            "bell-like",
+            "ringing",
+            "overlapping"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing",
+            "cascading"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ukulele_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "ukulele_koa",
+          "default": true,
+          "name": "Hawaiian koa",
+          "descriptors": [
+            "koa",
+            "warm",
+            "traditional",
+            "balanced"
+          ],
+          "match_tokens": [
+            "plucked",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "hawaiian"
+          ]
+        },
+        {
+          "id": "ukulele_mahogany",
+          "name": "Mahogany",
+          "descriptors": [
+            "mahogany",
+            "mellow",
+            "woody",
+            "focused"
+          ],
+          "match_tokens": [
+            "plucked",
+            "mellow"
+          ]
+        },
+        {
+          "id": "ukulele_spruce",
+          "name": "Spruce top",
+          "descriptors": [
+            "spruce",
+            "bright",
+            "projecting",
+            "crisp"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bright-tone"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ukulele_size",
+      "name": "Size / body type",
+      "variants": [
+        {
+          "id": "ukulele_soprano",
+          "default": true,
+          "name": "Soprano (standard)",
+          "descriptors": [
+            "bright",
+            "jangly",
+            "compact",
+            "plinky"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bright-tone",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "hawaiian",
+            "oceania"
+          ]
+        },
+        {
+          "id": "ukulele_concert",
+          "name": "Concert",
+          "descriptors": [
+            "warmer",
+            "fuller",
+            "rounded"
+          ],
+          "match_tokens": [
+            "plucked",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "hawaiian"
+          ]
+        },
+        {
+          "id": "ukulele_tenor",
+          "name": "Tenor",
+          "descriptors": [
+            "rich",
+            "resonant",
+            "projecting"
+          ],
+          "match_tokens": [
+            "plucked",
+            "resonant"
+          ],
+          "canonical_tags": [
+            "hawaiian"
+          ]
+        },
+        {
+          "id": "ukulele_baritone",
+          "name": "Baritone (DGBE)",
+          "descriptors": [
+            "deep",
+            "guitar-like",
+            "mellow"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register",
+            "mellow"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ukulele_style",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "ukulele_strum",
+          "default": true,
+          "name": "Chord strumming",
+          "descriptors": [
+            "strummed",
+            "rhythmic",
+            "chordal",
+            "island-lilt"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "chordal"
+          ],
+          "canonical_tags": [
+            "hawaiian"
+          ]
+        },
+        {
+          "id": "ukulele_fingerstyle",
+          "name": "Fingerpicked (nahenahe)",
+          "descriptors": [
+            "fingerpicked",
+            "gentle",
+            "melodic",
+            "sweet"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "gentle"
+          ],
+          "canonical_tags": [
+            "hawaiian"
+          ]
+        },
+        {
+          "id": "ukulele_campanella",
+          "name": "Campanella (bell-like runs)",
+          "descriptors": [
+            "cascading",
+            "bell-like",
+            "ringing",
+            "overlapping"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing",
+            "cascading"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ukulele_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "ukulele_koa",
+          "default": true,
+          "name": "Hawaiian koa",
+          "descriptors": [
+            "koa",
+            "warm",
+            "traditional",
+            "balanced"
+          ],
+          "match_tokens": [
+            "plucked",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "hawaiian"
+          ]
+        },
+        {
+          "id": "ukulele_mahogany",
+          "name": "Mahogany",
+          "descriptors": [
+            "mahogany",
+            "mellow",
+            "woody",
+            "focused"
+          ],
+          "match_tokens": [
+            "plucked",
+            "mellow"
+          ]
+        },
+        {
+          "id": "ukulele_spruce",
+          "name": "Spruce top",
+          "descriptors": [
+            "spruce",
+            "bright",
+            "projecting",
+            "crisp"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bright-tone"
+          ]
+        }
+      ]
+    }
+  ]
+}

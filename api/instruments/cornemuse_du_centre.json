@@ -1,0 +1,396 @@
+{
+  "id": "cornemuse_du_centre",
+  "name": "Cornemuse du centre (central French bagpipe)",
+  "family": "wind",
+  "class": "reed_bagpipe",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "cornemuse",
+  "parts": [
+    {
+      "id": "cornemuse_du_centre_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "cornemuse_du_centre_berry",
+          "default": true,
+          "name": "Cornemuse du Berry (Berry-Bourbonnais type)",
+          "descriptors": [
+            "twin-drone",
+            "earthy",
+            "bal-folk"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "french",
+            "central-france"
+          ]
+        },
+        {
+          "id": "cornemuse_du_centre_chabrette",
+          "name": "Chabrette limousine (Limousin boîtier pipe)",
+          "descriptors": [
+            "boxed-drones",
+            "archaic",
+            "limousin"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "french",
+            "limousin"
+          ]
+        },
+        {
+          "id": "cornemuse_du_centre_cabrette",
+          "name": "Cabrette auvergnate (bellows-blown Auvergne musette)",
+          "descriptors": [
+            "bellows-blown",
+            "sweet-toned",
+            "auvergnat"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "bellows-driven"
+          ],
+          "canonical_tags": [
+            "french",
+            "auvergne"
+          ]
+        },
+        {
+          "id": "cornemuse_du_centre_bodega",
+          "name": "Bodega / craba (Occitan whole-goatskin pipe)",
+          "descriptors": [
+            "whole-goatskin",
+            "booming",
+            "occitan"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "french",
+            "occitan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cornemuse_du_centre_repertoire",
+      "name": "Repertoire & pairing",
+      "variants": [
+        {
+          "id": "cornemuse_du_centre_bourree",
+          "default": true,
+          "name": "Bourrée & bal-folk dance",
+          "descriptors": [
+            "driving",
+            "dance-pulse",
+            "hurdy-gurdy-paired"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "bal-folk"
+          ]
+        },
+        {
+          "id": "cornemuse_du_centre_marche",
+          "name": "Marche & slow air",
+          "descriptors": [
+            "stately",
+            "sustained",
+            "melodic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "sustained"
+          ],
+          "canonical_tags": [
+            "bal-folk"
+          ]
+        },
+        {
+          "id": "cornemuse_du_centre_menetrier",
+          "name": "Ménétrier wedding piping",
+          "descriptors": [
+            "processional",
+            "festive",
+            "rustic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "french"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cornemuse_du_centre_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "cornemuse_du_centre_prunier",
+          "default": true,
+          "name": "Plum wood (prunier)",
+          "descriptors": [
+            "warm",
+            "dense-grained",
+            "traditional"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "wood"
+          ]
+        },
+        {
+          "id": "cornemuse_du_centre_buis",
+          "name": "Boxwood (buis)",
+          "descriptors": [
+            "bright",
+            "mellow",
+            "pale-wood"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "wood"
+          ]
+        },
+        {
+          "id": "cornemuse_du_centre_ebene",
+          "name": "Ebony / blackwood",
+          "descriptors": [
+            "dark-toned",
+            "dense",
+            "luthier-grade"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "wood"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "cornemuse_du_centre_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "cornemuse_du_centre_berry",
+          "default": true,
+          "name": "Cornemuse du Berry (Berry-Bourbonnais type)",
+          "descriptors": [
+            "twin-drone",
+            "earthy",
+            "bal-folk"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "french",
+            "central-france"
+          ]
+        },
+        {
+          "id": "cornemuse_du_centre_chabrette",
+          "name": "Chabrette limousine (Limousin boîtier pipe)",
+          "descriptors": [
+            "boxed-drones",
+            "archaic",
+            "limousin"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "french",
+            "limousin"
+          ]
+        },
+        {
+          "id": "cornemuse_du_centre_cabrette",
+          "name": "Cabrette auvergnate (bellows-blown Auvergne musette)",
+          "descriptors": [
+            "bellows-blown",
+            "sweet-toned",
+            "auvergnat"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "bellows-driven"
+          ],
+          "canonical_tags": [
+            "french",
+            "auvergne"
+          ]
+        },
+        {
+          "id": "cornemuse_du_centre_bodega",
+          "name": "Bodega / craba (Occitan whole-goatskin pipe)",
+          "descriptors": [
+            "whole-goatskin",
+            "booming",
+            "occitan"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "french",
+            "occitan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cornemuse_du_centre_repertoire",
+      "name": "Repertoire & pairing",
+      "variants": [
+        {
+          "id": "cornemuse_du_centre_bourree",
+          "default": true,
+          "name": "Bourrée & bal-folk dance",
+          "descriptors": [
+            "driving",
+            "dance-pulse",
+            "hurdy-gurdy-paired"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "bal-folk"
+          ]
+        },
+        {
+          "id": "cornemuse_du_centre_marche",
+          "name": "Marche & slow air",
+          "descriptors": [
+            "stately",
+            "sustained",
+            "melodic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "sustained"
+          ],
+          "canonical_tags": [
+            "bal-folk"
+          ]
+        },
+        {
+          "id": "cornemuse_du_centre_menetrier",
+          "name": "Ménétrier wedding piping",
+          "descriptors": [
+            "processional",
+            "festive",
+            "rustic"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "french"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cornemuse_du_centre_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "cornemuse_du_centre_prunier",
+          "default": true,
+          "name": "Plum wood (prunier)",
+          "descriptors": [
+            "warm",
+            "dense-grained",
+            "traditional"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "wood"
+          ]
+        },
+        {
+          "id": "cornemuse_du_centre_buis",
+          "name": "Boxwood (buis)",
+          "descriptors": [
+            "bright",
+            "mellow",
+            "pale-wood"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "wood"
+          ]
+        },
+        {
+          "id": "cornemuse_du_centre_ebene",
+          "name": "Ebony / blackwood",
+          "descriptors": [
+            "dark-toned",
+            "dense",
+            "luthier-grade"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "wood"
+          ]
+        }
+      ]
+    }
+  ]
+}

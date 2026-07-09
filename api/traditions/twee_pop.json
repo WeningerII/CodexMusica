@@ -3,9 +3,9 @@
   "name": "Twee pop",
   "family": "global",
   "lineage": "1980s-onward fey indie-pop subgenre codified through C86 cassette (NME 1986) and the Sarah Records (Bristol 1987-1995) lineage — characterized by jangly minor-key guitar, soft male and female vocals, lo-fi production aesthetic, and twee-romantic lyrical subject matter; Belle and Sebastian, Tullycraft, Stars, and Camera Obscura extending the canon into the 2000s",
-  "recipe": "classic mid-1990s twee pop, functional Song, pop rock branch, anglo singer song indie folk freak folk. thick, incomplete closure resting, chest resonance low mid, equal tempered. cedar walnut phosphor bronze bronze fingerpicked acoustic marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 611,
-  "score": 415.444,
+  "recipe": "classic mid-1990s twee pop, functional Song, pop rock branch, anglo singer song indie folk freak folk. thick, incomplete closure resting, chest resonance low mid, equal tempered. cedar walnut phosphor bronze bronze fingerpicked acoustic marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, ukulele. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 620,
+  "score": 419.063,
   "config": {
     "traditions": [
       "twee_pop",
@@ -152,6 +152,19 @@
           "cymbal_lathing": 24.556624999999997,
           "cymbal_finish": 0.0315,
           "drum_technique": 16.964999999999993
+        }
+      },
+      {
+        "id": "ukulele",
+        "slots": {
+          "ukulele_size": "ukulele_baritone",
+          "ukulele_style": "ukulele_fingerstyle",
+          "ukulele_wood": "ukulele_spruce"
+        },
+        "scores": {
+          "ukulele_size": 2.925,
+          "ukulele_style": 0.325,
+          "ukulele_wood": 0.368625
         }
       }
     ],

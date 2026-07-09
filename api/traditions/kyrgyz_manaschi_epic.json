@@ -3,9 +3,9 @@
   "name": "Kyrgyz Manas epic-recital",
   "family": "global",
   "lineage": "Kyrgyz Manas heroic-epic recital tradition. The Manas trilogy — Manas, Semetey, Seytek — reaches up to 553,000 verse-lines in the canonical recension. Classical manaschi epic-reciter performs voice-only with hand-gesture and cadence patterning, often in near-trance state; the akyn improvising sung-poet variant accompanies with the komuz three-string fretless lute. Sometimes shamanic in framing — the manaschi receives the epic in dream-summons from the spirit of Manas. Twentieth-century canonical figures include Sagymbay Orozbakov (1867-1930), Sayakbay Karalaev (1911-1971, whose recension is the largest documented corpus and whose portrait appears on the 500-som banknote), and contemporary Talantaaly Bakchiev (born 1971). Bishkek State Manas Theater established as state-level performance venue. Distinguished from Turkic dastan traditions by the Kyrgyz-language-specific narrative-cadence grammar and the trance-summons performance framing; distinguished from Kazakh kuy by voice-led (vs instrumental-led) tradition structure",
-  "recipe": "classic Central Asian early-1860s kyrgyz manas epic-recital, ballad Poetry, Slavic bard branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. extended whistle, declaimed, chest resonance low mid, narrative. apricot juniper wood three gut strings canonical kyrgyz akyn kuu solo canonical kyrgyz instrumental narrative komuz. kyrgyz manaschi outdoor or state theater. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 548,
-  "score": 169.035,
+  "recipe": "classic Central Asian early-1860s kyrgyz manas epic-recital, ballad Poetry, Slavic bard branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. extended whistle, declaimed, chest resonance low mid, narrative. apricot juniper wood three gut strings canonical kyrgyz akyn kuu solo canonical kyrgyz instrumental narrative komuz, carved apricot hide faced droning epic accompaniment horsehair kyl kyyak. kyrgyz manaschi outdoor or state theater. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 622,
+  "score": 218.178,
   "config": {
     "traditions": [
       "kyrgyz_manaschi_epic",
@@ -61,6 +61,21 @@
         "scores": {
           "komuz_body": 9.469999999999999,
           "komuz_tradition": 12.897499999999999
+        }
+      },
+      {
+        "id": "kyl_kyyak",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "kyl_kyyak_form": "kyl_kyyak_traditional",
+          "kyl_kyyak_repertoire": "kyl_kyyak_epic",
+          "kyl_kyyak_strings": "kyl_kyyak_horsehair"
+        },
+        "scores": {
+          "bowed_technique": 3.705,
+          "kyl_kyyak_form": 9.6525,
+          "kyl_kyyak_repertoire": 34.535,
+          "kyl_kyyak_strings": 1.25
         }
       }
     ],

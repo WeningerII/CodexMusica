@@ -1,0 +1,378 @@
+{
+  "id": "concert_zither_alpine",
+  "name": "Concert zither (Alpine Konzertzither)",
+  "family": "plucked_traditional",
+  "class": "fretboard_zither",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "zither",
+  "parts": [
+    {
+      "id": "concert_zither_alpine_type",
+      "name": "Type & size",
+      "variants": [
+        {
+          "id": "concert_zither_alpine_diskant",
+          "default": true,
+          "name": "Discant (treble) concert zither",
+          "descriptors": [
+            "treble",
+            "bright",
+            "standard-solo"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fretboard-zither",
+            "bright"
+          ],
+          "canonical_tags": [
+            "alpine",
+            "austro-bavarian"
+          ]
+        },
+        {
+          "id": "concert_zither_alpine_elegie",
+          "name": "Elegie (alto) zither",
+          "descriptors": [
+            "alto",
+            "mellow",
+            "dark-toned"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fretboard-zither",
+            "mellow"
+          ],
+          "canonical_tags": [
+            "alpine"
+          ]
+        },
+        {
+          "id": "concert_zither_alpine_harfenzither",
+          "name": "Harp zither (Harfenzither)",
+          "descriptors": [
+            "extended-bass",
+            "resonant",
+            "harp-armed"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fretboard-zither",
+            "resonant"
+          ],
+          "canonical_tags": [
+            "alpine",
+            "austro-bavarian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "concert_zither_alpine_context",
+      "name": "Playing context & repertoire",
+      "variants": [
+        {
+          "id": "concert_zither_alpine_stubenmusik",
+          "default": true,
+          "name": "Alpine Stubenmusik parlor ensemble",
+          "descriptors": [
+            "parlor",
+            "gentle",
+            "harmonized"
+          ],
+          "match_tokens": [
+            "plucked",
+            "chordal",
+            "intimate"
+          ],
+          "canonical_tags": [
+            "alpine",
+            "stubenmusik"
+          ]
+        },
+        {
+          "id": "concert_zither_alpine_salon_solo",
+          "name": "Salon solo (Anton Karas / Third Man style)",
+          "descriptors": [
+            "melodic",
+            "vamping",
+            "cinematic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "self-accompanying",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "salon",
+            "viennese"
+          ]
+        },
+        {
+          "id": "concert_zither_alpine_volksmusik",
+          "name": "Village Volksmusik dance accompaniment",
+          "descriptors": [
+            "driving",
+            "strummed",
+            "dance-lilting"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "rhythmic"
+          ],
+          "canonical_tags": [
+            "volksmusik",
+            "tyrolean"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "concert_zither_alpine_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "concert_zither_alpine_strings_steel",
+          "default": true,
+          "name": "Steel melody & wound bass strings",
+          "descriptors": [
+            "bright",
+            "modern",
+            "ringing"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bright"
+          ],
+          "canonical_tags": [
+            "steel"
+          ]
+        },
+        {
+          "id": "concert_zither_alpine_strings_gut",
+          "name": "Gut-core melody strings (historical)",
+          "descriptors": [
+            "warm",
+            "soft",
+            "archaic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "warm"
+          ],
+          "canonical_tags": [
+            "gut",
+            "historical"
+          ]
+        },
+        {
+          "id": "concert_zither_alpine_strings_silverwound",
+          "name": "Silver-wound accompaniment strings",
+          "descriptors": [
+            "deep",
+            "resonant",
+            "full"
+          ],
+          "match_tokens": [
+            "plucked",
+            "resonant"
+          ],
+          "canonical_tags": [
+            "wound"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "concert_zither_alpine_type",
+      "name": "Type & size",
+      "variants": [
+        {
+          "id": "concert_zither_alpine_diskant",
+          "default": true,
+          "name": "Discant (treble) concert zither",
+          "descriptors": [
+            "treble",
+            "bright",
+            "standard-solo"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fretboard-zither",
+            "bright"
+          ],
+          "canonical_tags": [
+            "alpine",
+            "austro-bavarian"
+          ]
+        },
+        {
+          "id": "concert_zither_alpine_elegie",
+          "name": "Elegie (alto) zither",
+          "descriptors": [
+            "alto",
+            "mellow",
+            "dark-toned"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fretboard-zither",
+            "mellow"
+          ],
+          "canonical_tags": [
+            "alpine"
+          ]
+        },
+        {
+          "id": "concert_zither_alpine_harfenzither",
+          "name": "Harp zither (Harfenzither)",
+          "descriptors": [
+            "extended-bass",
+            "resonant",
+            "harp-armed"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fretboard-zither",
+            "resonant"
+          ],
+          "canonical_tags": [
+            "alpine",
+            "austro-bavarian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "concert_zither_alpine_context",
+      "name": "Playing context & repertoire",
+      "variants": [
+        {
+          "id": "concert_zither_alpine_stubenmusik",
+          "default": true,
+          "name": "Alpine Stubenmusik parlor ensemble",
+          "descriptors": [
+            "parlor",
+            "gentle",
+            "harmonized"
+          ],
+          "match_tokens": [
+            "plucked",
+            "chordal",
+            "intimate"
+          ],
+          "canonical_tags": [
+            "alpine",
+            "stubenmusik"
+          ]
+        },
+        {
+          "id": "concert_zither_alpine_salon_solo",
+          "name": "Salon solo (Anton Karas / Third Man style)",
+          "descriptors": [
+            "melodic",
+            "vamping",
+            "cinematic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "self-accompanying",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "salon",
+            "viennese"
+          ]
+        },
+        {
+          "id": "concert_zither_alpine_volksmusik",
+          "name": "Village Volksmusik dance accompaniment",
+          "descriptors": [
+            "driving",
+            "strummed",
+            "dance-lilting"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "rhythmic"
+          ],
+          "canonical_tags": [
+            "volksmusik",
+            "tyrolean"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "concert_zither_alpine_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "concert_zither_alpine_strings_steel",
+          "default": true,
+          "name": "Steel melody & wound bass strings",
+          "descriptors": [
+            "bright",
+            "modern",
+            "ringing"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bright"
+          ],
+          "canonical_tags": [
+            "steel"
+          ]
+        },
+        {
+          "id": "concert_zither_alpine_strings_gut",
+          "name": "Gut-core melody strings (historical)",
+          "descriptors": [
+            "warm",
+            "soft",
+            "archaic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "warm"
+          ],
+          "canonical_tags": [
+            "gut",
+            "historical"
+          ]
+        },
+        {
+          "id": "concert_zither_alpine_strings_silverwound",
+          "name": "Silver-wound accompaniment strings",
+          "descriptors": [
+            "deep",
+            "resonant",
+            "full"
+          ],
+          "match_tokens": [
+            "plucked",
+            "resonant"
+          ],
+          "canonical_tags": [
+            "wound"
+          ]
+        }
+      ]
+    }
+  ]
+}

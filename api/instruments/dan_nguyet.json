@@ -1,0 +1,308 @@
+{
+  "id": "dan_nguyet",
+  "name": "Đàn nguyệt (Vietnamese moon lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_lute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "dan_nguyet",
+  "parts": [
+    {
+      "id": "dan_nguyet_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "dan_nguyet_northern",
+          "default": true,
+          "name": "Northern đàn nguyệt (chầu văn & ca Huế chamber)",
+          "descriptors": [
+            "bright",
+            "ceremonial",
+            "crisply-ornamented"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fretted",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "northern"
+          ]
+        },
+        {
+          "id": "dan_nguyet_southern",
+          "name": "Southern đàn kìm (tài tử & cải lương)",
+          "descriptors": [
+            "deep-vibrato",
+            "melancholic",
+            "blue-note"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bending",
+            "melancholic"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "southern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dan_nguyet_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "dan_nguyet_nhan",
+          "default": true,
+          "name": "Nhấn bending & vibrato lead",
+          "descriptors": [
+            "expressive",
+            "pitch-bending",
+            "singing"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bending",
+            "lead-melody"
+          ],
+          "canonical_tags": [
+            "vietnam"
+          ]
+        },
+        {
+          "id": "dan_nguyet_vong_co",
+          "name": "Vọng cổ / oán chamber accompaniment",
+          "descriptors": [
+            "languid",
+            "microtonal",
+            "melancholic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "accompaniment",
+            "melancholic"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "tai_tu"
+          ]
+        },
+        {
+          "id": "dan_nguyet_chau_van",
+          "name": "Chầu văn ritual ostinato",
+          "descriptors": [
+            "trance-driving",
+            "insistent",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ostinato",
+            "ritual"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "ritual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dan_nguyet_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "dan_nguyet_nylon",
+          "default": true,
+          "name": "Nylon strings (modern)",
+          "descriptors": [
+            "bright",
+            "sustaining",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "dan_nguyet_silk",
+          "name": "Silk strings (historical)",
+          "descriptors": [
+            "mellow",
+            "warm",
+            "archaic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "soft-tone"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "dan_nguyet_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "dan_nguyet_northern",
+          "default": true,
+          "name": "Northern đàn nguyệt (chầu văn & ca Huế chamber)",
+          "descriptors": [
+            "bright",
+            "ceremonial",
+            "crisply-ornamented"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fretted",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "northern"
+          ]
+        },
+        {
+          "id": "dan_nguyet_southern",
+          "name": "Southern đàn kìm (tài tử & cải lương)",
+          "descriptors": [
+            "deep-vibrato",
+            "melancholic",
+            "blue-note"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bending",
+            "melancholic"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "southern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dan_nguyet_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "dan_nguyet_nhan",
+          "default": true,
+          "name": "Nhấn bending & vibrato lead",
+          "descriptors": [
+            "expressive",
+            "pitch-bending",
+            "singing"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bending",
+            "lead-melody"
+          ],
+          "canonical_tags": [
+            "vietnam"
+          ]
+        },
+        {
+          "id": "dan_nguyet_vong_co",
+          "name": "Vọng cổ / oán chamber accompaniment",
+          "descriptors": [
+            "languid",
+            "microtonal",
+            "melancholic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "accompaniment",
+            "melancholic"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "tai_tu"
+          ]
+        },
+        {
+          "id": "dan_nguyet_chau_van",
+          "name": "Chầu văn ritual ostinato",
+          "descriptors": [
+            "trance-driving",
+            "insistent",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ostinato",
+            "ritual"
+          ],
+          "canonical_tags": [
+            "vietnam",
+            "ritual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dan_nguyet_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "dan_nguyet_nylon",
+          "default": true,
+          "name": "Nylon strings (modern)",
+          "descriptors": [
+            "bright",
+            "sustaining",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "dan_nguyet_silk",
+          "name": "Silk strings (historical)",
+          "descriptors": [
+            "mellow",
+            "warm",
+            "archaic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "soft-tone"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        }
+      ]
+    }
+  ]
+}

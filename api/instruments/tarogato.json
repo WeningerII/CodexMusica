@@ -1,0 +1,362 @@
+{
+  "id": "tarogato",
+  "name": "Tárogató (Hungarian keyed reed woodwind)",
+  "family": "wind",
+  "class": "single_reed_conical",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "tarogato",
+  "parts": [
+    {
+      "id": "tarogato_type",
+      "name": "Type / build",
+      "variants": [
+        {
+          "id": "tarogato_schunda_soprano",
+          "default": true,
+          "name": "Schunda B♭ soprano tárogató (modern single-reed)",
+          "descriptors": [
+            "reedy",
+            "warm",
+            "saxophone-like"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "conical-bore"
+          ],
+          "canonical_tags": [
+            "hungarian"
+          ]
+        },
+        {
+          "id": "tarogato_historical_toroksip",
+          "name": "Historical tárogató / töröksíp (double-reed shawm)",
+          "descriptors": [
+            "archaic",
+            "strident",
+            "martial"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "double-reed",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "hungarian",
+            "kuruc"
+          ]
+        },
+        {
+          "id": "tarogato_tenor",
+          "name": "Tenor tárogató (lower Schunda-family member)",
+          "descriptors": [
+            "mellow",
+            "dark",
+            "low-lying"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "dark-reedy",
+            "tenor-register"
+          ],
+          "canonical_tags": [
+            "hungarian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tarogato_repertoire",
+      "name": "Repertoire / playing style",
+      "variants": [
+        {
+          "id": "tarogato_verbunkos",
+          "default": true,
+          "name": "Verbunkos recruiting-dance melody",
+          "descriptors": [
+            "ornamented",
+            "rubato",
+            "proud"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "melodic-lead",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "hungarian",
+            "verbunkos"
+          ]
+        },
+        {
+          "id": "tarogato_magyar_nota",
+          "name": "Magyar nóta / gypsy-band song",
+          "descriptors": [
+            "lyrical",
+            "sentimental",
+            "singing"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "melodic-lead",
+            "lyrical"
+          ],
+          "canonical_tags": [
+            "hungarian",
+            "nota"
+          ]
+        },
+        {
+          "id": "tarogato_kuruc_signal",
+          "name": "Kuruc heroic calls / Rákóczi signal",
+          "descriptors": [
+            "declamatory",
+            "heroic",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "loud-projection",
+            "signal"
+          ],
+          "canonical_tags": [
+            "hungarian",
+            "kuruc"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tarogato_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "tarogato_grenadilla",
+          "default": true,
+          "name": "Grenadilla / blackwood body",
+          "descriptors": [
+            "dense",
+            "focused",
+            "dark"
+          ],
+          "match_tokens": [
+            "wooden",
+            "dark-reedy"
+          ]
+        },
+        {
+          "id": "tarogato_plumwood",
+          "name": "Plum / rosewood body (traditional Schunda)",
+          "descriptors": [
+            "warm",
+            "resonant",
+            "traditional"
+          ],
+          "match_tokens": [
+            "wooden",
+            "warm"
+          ],
+          "canonical_tags": [
+            "hungarian"
+          ]
+        },
+        {
+          "id": "tarogato_ebonite",
+          "name": "Ebonite / hard-rubber body (modern reproduction)",
+          "descriptors": [
+            "bright",
+            "durable",
+            "modern"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "bright"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tarogato_type",
+      "name": "Type / build",
+      "variants": [
+        {
+          "id": "tarogato_schunda_soprano",
+          "default": true,
+          "name": "Schunda B♭ soprano tárogató (modern single-reed)",
+          "descriptors": [
+            "reedy",
+            "warm",
+            "saxophone-like"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "conical-bore"
+          ],
+          "canonical_tags": [
+            "hungarian"
+          ]
+        },
+        {
+          "id": "tarogato_historical_toroksip",
+          "name": "Historical tárogató / töröksíp (double-reed shawm)",
+          "descriptors": [
+            "archaic",
+            "strident",
+            "martial"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "double-reed",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "hungarian",
+            "kuruc"
+          ]
+        },
+        {
+          "id": "tarogato_tenor",
+          "name": "Tenor tárogató (lower Schunda-family member)",
+          "descriptors": [
+            "mellow",
+            "dark",
+            "low-lying"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "dark-reedy",
+            "tenor-register"
+          ],
+          "canonical_tags": [
+            "hungarian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tarogato_repertoire",
+      "name": "Repertoire / playing style",
+      "variants": [
+        {
+          "id": "tarogato_verbunkos",
+          "default": true,
+          "name": "Verbunkos recruiting-dance melody",
+          "descriptors": [
+            "ornamented",
+            "rubato",
+            "proud"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "melodic-lead",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "hungarian",
+            "verbunkos"
+          ]
+        },
+        {
+          "id": "tarogato_magyar_nota",
+          "name": "Magyar nóta / gypsy-band song",
+          "descriptors": [
+            "lyrical",
+            "sentimental",
+            "singing"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "melodic-lead",
+            "lyrical"
+          ],
+          "canonical_tags": [
+            "hungarian",
+            "nota"
+          ]
+        },
+        {
+          "id": "tarogato_kuruc_signal",
+          "name": "Kuruc heroic calls / Rákóczi signal",
+          "descriptors": [
+            "declamatory",
+            "heroic",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "loud-projection",
+            "signal"
+          ],
+          "canonical_tags": [
+            "hungarian",
+            "kuruc"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tarogato_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "tarogato_grenadilla",
+          "default": true,
+          "name": "Grenadilla / blackwood body",
+          "descriptors": [
+            "dense",
+            "focused",
+            "dark"
+          ],
+          "match_tokens": [
+            "wooden",
+            "dark-reedy"
+          ]
+        },
+        {
+          "id": "tarogato_plumwood",
+          "name": "Plum / rosewood body (traditional Schunda)",
+          "descriptors": [
+            "warm",
+            "resonant",
+            "traditional"
+          ],
+          "match_tokens": [
+            "wooden",
+            "warm"
+          ],
+          "canonical_tags": [
+            "hungarian"
+          ]
+        },
+        {
+          "id": "tarogato_ebonite",
+          "name": "Ebonite / hard-rubber body (modern reproduction)",
+          "descriptors": [
+            "bright",
+            "durable",
+            "modern"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "bright"
+          ]
+        }
+      ]
+    }
+  ]
+}

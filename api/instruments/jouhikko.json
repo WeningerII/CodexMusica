@@ -1,0 +1,429 @@
+{
+  "id": "jouhikko",
+  "name": "Jouhikko (Finnic bowed lyre)",
+  "family": "bowed",
+  "class": "bowed_lyre",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "jouhikko",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "jouhikko_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "jouhikko_suomi",
+          "default": true,
+          "name": "Finnish jouhikko (3-string)",
+          "descriptors": [
+            "finnish",
+            "three-string",
+            "droning"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "nordic_baltic",
+            "finnish"
+          ]
+        },
+        {
+          "id": "jouhikko_karelian",
+          "name": "Karelian jouhikko (runic-song lyre)",
+          "descriptors": [
+            "karelian",
+            "archaic",
+            "incantatory"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "archaic"
+          ],
+          "canonical_tags": [
+            "nordic_baltic",
+            "karelian"
+          ]
+        },
+        {
+          "id": "jouhikko_talharpa",
+          "name": "Estonian talharpa / hiiu kannel (4-string)",
+          "descriptors": [
+            "estonian",
+            "four-string",
+            "coastal-swedish"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "nordic_baltic",
+            "estonian"
+          ]
+        },
+        {
+          "id": "jouhikko_moraharpa",
+          "name": "Swedish moraharpa (archaic Dalarna form)",
+          "descriptors": [
+            "swedish",
+            "archaic",
+            "dalarna"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "archaic"
+          ],
+          "canonical_tags": [
+            "nordic_baltic",
+            "swedish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jouhikko_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "jouhikko_folk_dance",
+          "default": true,
+          "name": "Folk dance accompaniment (polska / minuet over drone)",
+          "descriptors": [
+            "dance-driving",
+            "droning",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "nordic_baltic",
+            "dance"
+          ]
+        },
+        {
+          "id": "jouhikko_runic_song",
+          "name": "Runic song / Kalevala-metre recitation",
+          "descriptors": [
+            "archaic",
+            "modal",
+            "incantatory"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "archaic"
+          ],
+          "canonical_tags": [
+            "nordic_baltic",
+            "runosong"
+          ]
+        },
+        {
+          "id": "jouhikko_revival_drone",
+          "name": "Nordic revival / ritual drone",
+          "descriptors": [
+            "ritual",
+            "hypnotic",
+            "neofolk"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "nordic_baltic",
+            "revival"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jouhikko_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "jouhikko_horsehair",
+          "default": true,
+          "name": "Bundled horsehair (tagel)",
+          "descriptors": [
+            "horsehair-strung",
+            "rough-tone",
+            "buzzing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "tagel"
+          ]
+        },
+        {
+          "id": "jouhikko_gut",
+          "name": "Gut strings",
+          "descriptors": [
+            "gut-strung",
+            "warm",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ]
+        },
+        {
+          "id": "jouhikko_wound_steel",
+          "name": "Modern wound steel/nylon",
+          "descriptors": [
+            "steel-wound",
+            "bright",
+            "stable"
+          ],
+          "match_tokens": [
+            "bowed"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "jouhikko_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "jouhikko_suomi",
+          "default": true,
+          "name": "Finnish jouhikko (3-string)",
+          "descriptors": [
+            "finnish",
+            "three-string",
+            "droning"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "nordic_baltic",
+            "finnish"
+          ]
+        },
+        {
+          "id": "jouhikko_karelian",
+          "name": "Karelian jouhikko (runic-song lyre)",
+          "descriptors": [
+            "karelian",
+            "archaic",
+            "incantatory"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "archaic"
+          ],
+          "canonical_tags": [
+            "nordic_baltic",
+            "karelian"
+          ]
+        },
+        {
+          "id": "jouhikko_talharpa",
+          "name": "Estonian talharpa / hiiu kannel (4-string)",
+          "descriptors": [
+            "estonian",
+            "four-string",
+            "coastal-swedish"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "nordic_baltic",
+            "estonian"
+          ]
+        },
+        {
+          "id": "jouhikko_moraharpa",
+          "name": "Swedish moraharpa (archaic Dalarna form)",
+          "descriptors": [
+            "swedish",
+            "archaic",
+            "dalarna"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "archaic"
+          ],
+          "canonical_tags": [
+            "nordic_baltic",
+            "swedish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jouhikko_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "jouhikko_folk_dance",
+          "default": true,
+          "name": "Folk dance accompaniment (polska / minuet over drone)",
+          "descriptors": [
+            "dance-driving",
+            "droning",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "nordic_baltic",
+            "dance"
+          ]
+        },
+        {
+          "id": "jouhikko_runic_song",
+          "name": "Runic song / Kalevala-metre recitation",
+          "descriptors": [
+            "archaic",
+            "modal",
+            "incantatory"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "archaic"
+          ],
+          "canonical_tags": [
+            "nordic_baltic",
+            "runosong"
+          ]
+        },
+        {
+          "id": "jouhikko_revival_drone",
+          "name": "Nordic revival / ritual drone",
+          "descriptors": [
+            "ritual",
+            "hypnotic",
+            "neofolk"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "nordic_baltic",
+            "revival"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jouhikko_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "jouhikko_horsehair",
+          "default": true,
+          "name": "Bundled horsehair (tagel)",
+          "descriptors": [
+            "horsehair-strung",
+            "rough-tone",
+            "buzzing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "tagel"
+          ]
+        },
+        {
+          "id": "jouhikko_gut",
+          "name": "Gut strings",
+          "descriptors": [
+            "gut-strung",
+            "warm",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ]
+        },
+        {
+          "id": "jouhikko_wound_steel",
+          "name": "Modern wound steel/nylon",
+          "descriptors": [
+            "steel-wound",
+            "bright",
+            "stable"
+          ],
+          "match_tokens": [
+            "bowed"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -3,9 +3,9 @@
   "name": "Palm-wine guitar",
   "family": "global",
   "lineage": "West African coastal acoustic-guitar songcraft tradition, codified through the early-twentieth-century Sierra Leonean and Liberian port-city repertoire and the Ghanaian Koo Nimo and the Sierra Leonean S.E. Rogie 1950s-1960s acoustic-guitar lineage — characterized by relaxed two-finger picking patterns over Krio/English-Creole melodic vocal lines, played at outdoor gatherings drinking the eponymous fermented palm sap",
-  "recipe": "classic British mid-1950s palm-wine guitar, groove Percussion, west African branch, African pop functional song congolese rumba isicathamiya. strummed open chord ringing overtones parlor acoustic guitar, pearwood marine band tradition double brass chromatic canon solo canonical chromatic harmonica. wooden barn. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 458,
-  "score": 39.983,
+  "recipe": "classic British mid-1950s palm-wine guitar, groove Percussion, west African branch, African pop functional song congolese rumba isicathamiya. strummed open chord ringing overtones parlor acoustic guitar, pearwood marine band tradition double brass chromatic canon solo canonical chromatic harmonica, proto juju responsorial melodic bass agidigbo. wooden barn. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 505,
+  "score": 44.178,
   "config": {
     "traditions": [
       "palm_wine",
@@ -49,6 +49,19 @@
           "harmonica_technique": 4.609,
           "harmonica_maker_school": 0.15,
           "harmonica_tuning": 4.214499999999999
+        }
+      },
+      {
+        "id": "agidigbo",
+        "slots": {
+          "agidigbo_tradition": "agidigbo_juju",
+          "agidigbo_playing": "agidigbo_riffs",
+          "agidigbo_lamella": "agidigbo_spring_steel"
+        },
+        "scores": {
+          "agidigbo_tradition": 1.4499999999999997,
+          "agidigbo_playing": 2.795,
+          "agidigbo_lamella": -0.05
         }
       }
     ],

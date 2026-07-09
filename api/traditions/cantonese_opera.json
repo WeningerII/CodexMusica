@@ -3,9 +3,9 @@
   "name": "Cantonese opera (yueju)",
   "family": "classical",
   "lineage": "Mid-19th-century onward Pearl-River-Delta Cantonese yueju operatic tradition centered on Guangdong, Guangzhou, and Hong Kong — codified through the 19th-century touring red-boat troupes (hongchuan) and the early-20th-century Hong Kong commercial recording era — characterized by literary-Cantonese sung text, gaohu-fiddle-and-percussion accompaniment, and the male / female / clown role types of jingju adapted to Cantonese language and aesthetic",
-  "recipe": "classic East Asian mid-1930s cantonese opera, art Music, Cantonese opera branch, east Asian beijing opera, east Asian Tibetan ritual tibetan ache lhamo opera. thick, pressed, chest resonance low mid, narrative. yueqin, python skin snake skin bamboo silk red sandalwood zitan erhu, silk mahogany commercial grade pipa, percussion section ban clapper luogu, yangqin. chinese traditional teahouse. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 467,
-  "score": 350.64,
+  "recipe": "classic East Asian mid-1930s cantonese opera, art Music, Cantonese opera branch, east Asian beijing opera, east Asian Tibetan ritual tibetan ache lhamo opera. thick, pressed, chest resonance low mid, narrative. yueqin, Cantonese silk and bamboo legato gaohu, silk mahogany commercial grade pipa, percussion section ban clapper luogu, yangqin. chinese traditional teahouse. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 445,
+  "score": 384.279,
   "config": {
     "traditions": [
       "cantonese_opera",
@@ -68,22 +68,18 @@
         }
       },
       {
-        "id": "erhu",
+        "id": "gaohu",
         "slots": {
           "bowed_technique": "bowed_legato_classical",
-          "erhu_skin": "erhu_python",
-          "erhu_use": "erhu_jiangnan",
-          "erhu_body_wood": "erhu_red_sandalwood",
-          "erhu_strings": "erhu_silk_historical",
-          "erhu_bow": "erhu_bamboo_horsehair"
+          "gaohu_type": "gaohu_cantonese",
+          "gaohu_setting": "gaohu_yinyue",
+          "gaohu_membrane": "gaohu_python"
         },
         "scores": {
           "bowed_technique": 10.499999999999998,
-          "erhu_skin": 8.6675,
-          "erhu_use": 2.53125,
-          "erhu_body_wood": 1.8112499999999998,
-          "erhu_strings": 0.5099999999999999,
-          "erhu_bow": 0.845
+          "gaohu_type": 23.36874999999999,
+          "gaohu_setting": 24.685000000000002,
+          "gaohu_membrane": -0.05
         }
       },
       {
@@ -159,12 +155,6 @@
       "voice_estill_quality": "voice_estill_nasal_twang",
       "voice_vibrato": "oscillating_vibrato",
       "voice_mechanism_compound": "voice_mechanism_single_source",
-      "bowed_technique": "bowed_microtonal_inflected",
-      "erhu_skin": "erhu_python",
-      "erhu_use": "erhu_classical",
-      "erhu_body_wood": "erhu_red_sandalwood",
-      "erhu_strings": "erhu_steel_modern",
-      "erhu_bow": "erhu_bamboo_horsehair",
       "plucked_traditional_technique": "plucked_classical_idiom",
       "pipa_frets": "pipa_modern_frets",
       "pipa_strings": "pipa_steel_nylon",

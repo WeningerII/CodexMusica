@@ -1,0 +1,389 @@
+{
+  "id": "crwth",
+  "name": "Crwth (Welsh bowed lyre)",
+  "family": "bowed",
+  "class": "bowed_lyre",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "crwth",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "crwth_form",
+      "name": "Form / stringing",
+      "variants": [
+        {
+          "id": "crwth_chwechtant",
+          "default": true,
+          "name": "Six-string crwth (crwth cyffredin)",
+          "descriptors": [
+            "four-melody-two-drone",
+            "flat-bridged",
+            "full-voiced"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "welsh",
+            "british_celtic"
+          ]
+        },
+        {
+          "id": "crwth_trithant",
+          "name": "Three-string crwth (crwth trithant)",
+          "descriptors": [
+            "archaic",
+            "medieval",
+            "spare"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "welsh",
+            "medieval"
+          ]
+        },
+        {
+          "id": "crwth_revival",
+          "name": "Modern revival crwth",
+          "descriptors": [
+            "reconstructed",
+            "folk-revival",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "welsh",
+            "revival"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "crwth_playing",
+      "name": "Playing context / technique",
+      "variants": [
+        {
+          "id": "crwth_cerdd_dant",
+          "default": true,
+          "name": "Cerdd dant bardic accompaniment",
+          "descriptors": [
+            "bardic",
+            "declamatory",
+            "drone-under-song"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "welsh",
+            "praise-poetry"
+          ]
+        },
+        {
+          "id": "crwth_dawns",
+          "name": "Dance-tune melody",
+          "descriptors": [
+            "lilting",
+            "dance-driving",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "welsh",
+            "dance"
+          ]
+        },
+        {
+          "id": "crwth_flat_bridge_scrub",
+          "name": "Flat-bridge drone-and-melody scrub",
+          "descriptors": [
+            "droning",
+            "scrubbing",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "welsh"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "crwth_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "crwth_gut",
+          "default": true,
+          "name": "Gut strings",
+          "descriptors": [
+            "warm",
+            "period-authentic",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed"
+          ],
+          "canonical_tags": [
+            "gut"
+          ]
+        },
+        {
+          "id": "crwth_horsehair",
+          "name": "Horsehair strings",
+          "descriptors": [
+            "archaic",
+            "rough-tone",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "horsehair"
+          ]
+        },
+        {
+          "id": "crwth_synthetic",
+          "name": "Nylon/synthetic revival strings",
+          "descriptors": [
+            "bright",
+            "stable",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed"
+          ],
+          "canonical_tags": [
+            "synthetic",
+            "revival"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "crwth_form",
+      "name": "Form / stringing",
+      "variants": [
+        {
+          "id": "crwth_chwechtant",
+          "default": true,
+          "name": "Six-string crwth (crwth cyffredin)",
+          "descriptors": [
+            "four-melody-two-drone",
+            "flat-bridged",
+            "full-voiced"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "welsh",
+            "british_celtic"
+          ]
+        },
+        {
+          "id": "crwth_trithant",
+          "name": "Three-string crwth (crwth trithant)",
+          "descriptors": [
+            "archaic",
+            "medieval",
+            "spare"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "welsh",
+            "medieval"
+          ]
+        },
+        {
+          "id": "crwth_revival",
+          "name": "Modern revival crwth",
+          "descriptors": [
+            "reconstructed",
+            "folk-revival",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "welsh",
+            "revival"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "crwth_playing",
+      "name": "Playing context / technique",
+      "variants": [
+        {
+          "id": "crwth_cerdd_dant",
+          "default": true,
+          "name": "Cerdd dant bardic accompaniment",
+          "descriptors": [
+            "bardic",
+            "declamatory",
+            "drone-under-song"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "welsh",
+            "praise-poetry"
+          ]
+        },
+        {
+          "id": "crwth_dawns",
+          "name": "Dance-tune melody",
+          "descriptors": [
+            "lilting",
+            "dance-driving",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "welsh",
+            "dance"
+          ]
+        },
+        {
+          "id": "crwth_flat_bridge_scrub",
+          "name": "Flat-bridge drone-and-melody scrub",
+          "descriptors": [
+            "droning",
+            "scrubbing",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "welsh"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "crwth_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "crwth_gut",
+          "default": true,
+          "name": "Gut strings",
+          "descriptors": [
+            "warm",
+            "period-authentic",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed"
+          ],
+          "canonical_tags": [
+            "gut"
+          ]
+        },
+        {
+          "id": "crwth_horsehair",
+          "name": "Horsehair strings",
+          "descriptors": [
+            "archaic",
+            "rough-tone",
+            "rustic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "horsehair"
+          ]
+        },
+        {
+          "id": "crwth_synthetic",
+          "name": "Nylon/synthetic revival strings",
+          "descriptors": [
+            "bright",
+            "stable",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed"
+          ],
+          "canonical_tags": [
+            "synthetic",
+            "revival"
+          ]
+        }
+      ]
+    }
+  ]
+}

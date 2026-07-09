@@ -18,6 +18,28 @@ All notable changes to this project are recorded here. Format loosely follows
   ostinato / lament playing-context part, and membership in the shared
   `bowed_rough_drone` bow-technique pool. Used by no pre-existing tradition, so
   zero recipe churn from the add itself.
+- **85 missing genre-iconic instruments** (491 → 576), found by a systematic
+  region-by-region audit of all 1195 traditions against the catalog. Every
+  addition is either an instrument that was entirely absent or one that a
+  *generic* instrument had been standing in for. By family: **28 percussion,
+  24 wind, 22 plucked-traditional, 7 bowed, 4 acoustic-strings**. Highlights:
+  the **Sámi frame drum** (goavddis), **gadulka**, **dombyra**, **suona**,
+  **dhol**, **davul**, **angklung**, **valiha**, **saung-gauk**, **ukulele**,
+  **crwth**, **Northumbrian smallpipes**, **säckpipa**, **native American
+  flute**, **bandura**, **khomus**, **taepyeongso**, and regional marimbas.
+  Each carries hand-authored regional-form / playing-context / material parts
+  and family-calibrated axes, following the `gusle` / `igil` template.
+- **18 generic-stand-in fixes**: where a tradition's roster used a generic
+  instrument in place of the specific one that defines its sound, the specific
+  instrument now replaces it — e.g. the **Welsh triple harp** replaces
+  `celtic_harp` in Welsh cerdd-dant/hymn-balladry, the **Azerbaijani tar**
+  replaces `tar_persian` in mugham, **folk marimbas** replace
+  `marimba_orchestral` in Maya/Pacific-coast traditions, **panduri** replaces
+  `lute_renaissance` in the Georgian supra, **gaohu** replaces `erhu` in
+  Cantonese opera, and **clapsticks** replace `claves` in Aboriginal
+  songlines. Orphaned per-instrument `parts` overrides pinned to the replaced
+  stand-ins were removed. Wired into 93 traditions; regression re-blessed
+  (104 fixtures: the wired traditions plus blends that stack them).
 
 ## [2.0.0] — 2026-06-27 — production hardening
 

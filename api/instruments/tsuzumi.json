@@ -1,0 +1,314 @@
+{
+  "id": "tsuzumi",
+  "name": "Tsuzumi (Japanese hourglass hand-drum)",
+  "family": "percussion",
+  "class": "hourglass_drum",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "tsuzumi",
+  "parts": [
+    {
+      "id": "tsuzumi_type",
+      "name": "Drum type / size",
+      "variants": [
+        {
+          "id": "tsuzumi_kotsuzumi",
+          "default": true,
+          "name": "Kotsuzumi (shoulder hand-drum)",
+          "descriptors": [
+            "moist-head",
+            "ringing-pon",
+            "pitch-bent",
+            "shoulder-held"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "pitch-bend"
+          ],
+          "canonical_tags": [
+            "japanese",
+            "noh"
+          ]
+        },
+        {
+          "id": "tsuzumi_otsuzumi",
+          "name": "Otsuzumi (hip hand-drum)",
+          "descriptors": [
+            "dry-head",
+            "hard-crack",
+            "high-tension",
+            "piercing"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "sharp-crack"
+          ],
+          "canonical_tags": [
+            "japanese",
+            "kabuki"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tsuzumi_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "tsuzumi_noh",
+          "default": true,
+          "name": "Noh hayashi (utai)",
+          "descriptors": [
+            "spacious",
+            "restrained",
+            "kakegoe-calls",
+            "ritual"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "sparse"
+          ],
+          "canonical_tags": [
+            "japanese",
+            "noh"
+          ]
+        },
+        {
+          "id": "tsuzumi_kabuki",
+          "name": "Nagauta / kabuki hayashi",
+          "descriptors": [
+            "driving",
+            "theatrical",
+            "ensemble-locked"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "japanese",
+            "kabuki"
+          ]
+        },
+        {
+          "id": "tsuzumi_minyo",
+          "name": "Min'yo / festival folk",
+          "descriptors": [
+            "lively",
+            "syncopated",
+            "celebratory"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "folk"
+          ],
+          "canonical_tags": [
+            "japanese",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tsuzumi_body",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "tsuzumi_cherry",
+          "default": true,
+          "name": "Carved cherry (sakura) shell",
+          "descriptors": [
+            "lacquered",
+            "gold-maki-e",
+            "warm-tone"
+          ],
+          "match_tokens": [
+            "struck",
+            "wood-body"
+          ],
+          "canonical_tags": [
+            "japanese"
+          ]
+        },
+        {
+          "id": "tsuzumi_zelkova",
+          "name": "Zelkova (keyaki) shell",
+          "descriptors": [
+            "dense-wood",
+            "bright-crack"
+          ],
+          "match_tokens": [
+            "struck",
+            "wood-body"
+          ],
+          "canonical_tags": [
+            "japanese"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tsuzumi_type",
+      "name": "Drum type / size",
+      "variants": [
+        {
+          "id": "tsuzumi_kotsuzumi",
+          "default": true,
+          "name": "Kotsuzumi (shoulder hand-drum)",
+          "descriptors": [
+            "moist-head",
+            "ringing-pon",
+            "pitch-bent",
+            "shoulder-held"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "pitch-bend"
+          ],
+          "canonical_tags": [
+            "japanese",
+            "noh"
+          ]
+        },
+        {
+          "id": "tsuzumi_otsuzumi",
+          "name": "Otsuzumi (hip hand-drum)",
+          "descriptors": [
+            "dry-head",
+            "hard-crack",
+            "high-tension",
+            "piercing"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "sharp-crack"
+          ],
+          "canonical_tags": [
+            "japanese",
+            "kabuki"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tsuzumi_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "tsuzumi_noh",
+          "default": true,
+          "name": "Noh hayashi (utai)",
+          "descriptors": [
+            "spacious",
+            "restrained",
+            "kakegoe-calls",
+            "ritual"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "sparse"
+          ],
+          "canonical_tags": [
+            "japanese",
+            "noh"
+          ]
+        },
+        {
+          "id": "tsuzumi_kabuki",
+          "name": "Nagauta / kabuki hayashi",
+          "descriptors": [
+            "driving",
+            "theatrical",
+            "ensemble-locked"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "japanese",
+            "kabuki"
+          ]
+        },
+        {
+          "id": "tsuzumi_minyo",
+          "name": "Min'yo / festival folk",
+          "descriptors": [
+            "lively",
+            "syncopated",
+            "celebratory"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "folk"
+          ],
+          "canonical_tags": [
+            "japanese",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tsuzumi_body",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "tsuzumi_cherry",
+          "default": true,
+          "name": "Carved cherry (sakura) shell",
+          "descriptors": [
+            "lacquered",
+            "gold-maki-e",
+            "warm-tone"
+          ],
+          "match_tokens": [
+            "struck",
+            "wood-body"
+          ],
+          "canonical_tags": [
+            "japanese"
+          ]
+        },
+        {
+          "id": "tsuzumi_zelkova",
+          "name": "Zelkova (keyaki) shell",
+          "descriptors": [
+            "dense-wood",
+            "bright-crack"
+          ],
+          "match_tokens": [
+            "struck",
+            "wood-body"
+          ],
+          "canonical_tags": [
+            "japanese"
+          ]
+        }
+      ]
+    }
+  ]
+}

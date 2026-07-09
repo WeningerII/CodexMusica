@@ -1,0 +1,343 @@
+{
+  "id": "gadulka",
+  "name": "Gadulka (Bulgarian bowed fiddle)",
+  "family": "bowed",
+  "class": "bowed_fiddle",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "gadulka",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "gadulka_form",
+      "name": "Regional form / size",
+      "variants": [
+        {
+          "id": "gadulka_thracian",
+          "default": true,
+          "name": "Thracian gadulka (standard three-string)",
+          "descriptors": [
+            "bright-tone",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "bulgarian",
+            "thracian"
+          ]
+        },
+        {
+          "id": "gadulka_kaba",
+          "name": "Kaba gadulka (Dobrudzha bass)",
+          "descriptors": [
+            "deep-toned",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "bulgarian",
+            "dobrudzha"
+          ]
+        },
+        {
+          "id": "gadulka_malka",
+          "name": "Small gadulka (gъdulka malka)",
+          "descriptors": [
+            "high-pitched",
+            "piercing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "bulgarian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gadulka_repertoire",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "gadulka_horo",
+          "default": true,
+          "name": "Horo dance playing",
+          "descriptors": [
+            "driving",
+            "fast-ornamented"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-rhythm"
+          ],
+          "canonical_tags": [
+            "bulgarian"
+          ]
+        },
+        {
+          "id": "gadulka_pripev",
+          "name": "Song accompaniment (drone-and-melody)",
+          "descriptors": [
+            "droning",
+            "voice-shadowing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "bulgarian"
+          ]
+        },
+        {
+          "id": "gadulka_bavna",
+          "name": "Slow solo lament (bavna pesen)",
+          "descriptors": [
+            "rubato",
+            "melismatic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "expressive"
+          ],
+          "canonical_tags": [
+            "bulgarian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gadulka_body",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "gadulka_walnut",
+          "default": true,
+          "name": "Walnut body (single-block carved)",
+          "descriptors": [
+            "warm",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        },
+        {
+          "id": "gadulka_maple",
+          "name": "Maple body",
+          "descriptors": [
+            "bright",
+            "focused"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        },
+        {
+          "id": "gadulka_mulberry",
+          "name": "Mulberry / plum body",
+          "descriptors": [
+            "mellow",
+            "old-world"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "gadulka_form",
+      "name": "Regional form / size",
+      "variants": [
+        {
+          "id": "gadulka_thracian",
+          "default": true,
+          "name": "Thracian gadulka (standard three-string)",
+          "descriptors": [
+            "bright-tone",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "balkan",
+            "bulgarian",
+            "thracian"
+          ]
+        },
+        {
+          "id": "gadulka_kaba",
+          "name": "Kaba gadulka (Dobrudzha bass)",
+          "descriptors": [
+            "deep-toned",
+            "archaic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "bulgarian",
+            "dobrudzha"
+          ]
+        },
+        {
+          "id": "gadulka_malka",
+          "name": "Small gadulka (gъdulka malka)",
+          "descriptors": [
+            "high-pitched",
+            "piercing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "bulgarian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gadulka_repertoire",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "gadulka_horo",
+          "default": true,
+          "name": "Horo dance playing",
+          "descriptors": [
+            "driving",
+            "fast-ornamented"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-rhythm"
+          ],
+          "canonical_tags": [
+            "bulgarian"
+          ]
+        },
+        {
+          "id": "gadulka_pripev",
+          "name": "Song accompaniment (drone-and-melody)",
+          "descriptors": [
+            "droning",
+            "voice-shadowing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "bulgarian"
+          ]
+        },
+        {
+          "id": "gadulka_bavna",
+          "name": "Slow solo lament (bavna pesen)",
+          "descriptors": [
+            "rubato",
+            "melismatic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "expressive"
+          ],
+          "canonical_tags": [
+            "bulgarian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gadulka_body",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "gadulka_walnut",
+          "default": true,
+          "name": "Walnut body (single-block carved)",
+          "descriptors": [
+            "warm",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        },
+        {
+          "id": "gadulka_maple",
+          "name": "Maple body",
+          "descriptors": [
+            "bright",
+            "focused"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        },
+        {
+          "id": "gadulka_mulberry",
+          "name": "Mulberry / plum body",
+          "descriptors": [
+            "mellow",
+            "old-world"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    }
+  ]
+}

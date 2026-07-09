@@ -3,9 +3,9 @@
   "name": "Bomba (Puerto Rican)",
   "family": "global",
   "lineage": "Afro-Puerto Rican drum-and-dance ritual tradition traced directly to West African Yoruba and Ashanti rhythmic-drum-and-call-response heritage brought through 17-18th-century enslaved African labor, with Loíza (the Black-majority town on the northeast coast), Mayagüez, Ponce, and Cataño as the bomba towns; played on the bomba barril (single-headed barrel drum carved from rum cask) with the soloist drummer (subidor or primo) tracing the dancers steps in real-time dialogue while a secondary drum (buleador) maintains rhythmic foundation, plus maracas and cuá (struck wood block) — preserved through the Cepeda and Ayala families and modern groups like Los Pleneros de la 21",
-  "recipe": "classic Caribbean modern bomba, ritual Devotional, Afro-diasporic branch, Caribbean groove percussion chouval-bwa plena. thick, declaimed, tasteful, punctuated. log drum, plastic synthetic maracas. san juan puerto rican bomba plena yard. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 367,
-  "score": 109.807,
+  "recipe": "classic Caribbean modern bomba, ritual Devotional, Afro-diasporic branch, Caribbean groove percussion chouval-bwa plena. thick, declaimed, tasteful, punctuated. log drum, plastic synthetic maracas, buleador and subidor paired set barril de bomba. san juan puerto rican bomba plena yard. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 416,
+  "score": 172.432,
   "config": {
     "traditions": [
       "bomba_puertorican",
@@ -72,6 +72,19 @@
         "scores": {
           "maracas_construction": 1.845,
           "maracas_filling": 4.52
+        }
+      },
+      {
+        "id": "barril_de_bomba",
+        "slots": {
+          "barril_de_bomba_form": "barril_de_bomba_cuerda",
+          "barril_de_bomba_repertoire": "barril_de_bomba_piquetes",
+          "barril_de_bomba_shell": "barril_de_bomba_fiberglass"
+        },
+        "scores": {
+          "barril_de_bomba_form": 29.139999999999997,
+          "barril_de_bomba_repertoire": 29.389999999999993,
+          "barril_de_bomba_shell": 4.095
         }
       }
     ],

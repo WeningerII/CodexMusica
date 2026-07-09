@@ -3,9 +3,9 @@
   "name": "Tarantella napoletana (Neapolitan)",
   "family": "global",
   "lineage": "Tarantella napoletana Southern Italian folk-dance-and-song tradition of the Naples region (Campania), characterized by fast 6/8 meter (or compound-duple), virtuoso mandolin-and-acoustic-guitar instrumental lead, and tambourine percussion (the tammorra and tamburello). Historically connected to the tarantismo ritual-healing dance-cure tradition of southern Italian rural communities (the dance ostensibly cured tarantism, the psychosomatic illness attributed to tarantula-bite). Performance contexts span village-festival celebrations, weddings, and the canonical Neapolitan urban-popular concertina contexts. Distinguished from pizzica salentina by tarantella napoletana's Campanian regional cadential-conventions and the broader Neapolitan canzone connection.",
-  "recipe": "classic Southern European modern tarantella napoletana, ballad Poetry, Mediterranean ballad branch, Brazilian groove percussion, iberian functional song catalan sardana canzone napoletana. thick, low dynamic level, pure, continuous-phonation. bowl back Italian Italian alpine spruce brescian calace x brace modern mandolin mandolin, tambourine orch, fingerpicked parlor acoustic guitar. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 607,
-  "score": 176.095,
+  "recipe": "classic Southern European modern tarantella napoletana, ballad Poetry, Mediterranean ballad branch, Brazilian groove percussion, iberian functional song catalan sardana canzone napoletana. thick, low dynamic level, pure, continuous-phonation. bowl back Italian Italian alpine spruce brescian calace x brace modern mandolin mandolin, campanian healing rite tammorra, fingerpicked parlor acoustic guitar. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 623,
+  "score": 203.685,
   "config": {
     "traditions": [
       "tarantella_napoletana",
@@ -76,14 +76,16 @@
         }
       },
       {
-        "id": "tambourine_orch",
+        "id": "tammorra",
         "slots": {
-          "tambourine_orch_jingle": "tambourine_orch_brass",
-          "tambourine_orch_context": "tambourine_orch_orch"
+          "tammorra_form": "tammorra_grande",
+          "tammorra_context": "tammorra_pizzica_tarantata",
+          "tammorra_head": "tammorra_pelle_capra"
         },
         "scores": {
-          "tambourine_orch_jingle": 0.78,
-          "tambourine_orch_context": 0.045
+          "tammorra_form": 6.23,
+          "tammorra_context": 22.22,
+          "tammorra_head": -0.035
         }
       },
       {
@@ -142,9 +144,7 @@
       "mandolin_bracing": "mandolin_x_brace",
       "top_wood_parlor": "sitka_p",
       "back_sides_parlor": "mahogany_bs_p",
-      "string_acoustic_parlor": "phosphor_p",
-      "tambourine_orch_jingle": "tambourine_orch_brass",
-      "tambourine_orch_context": "tambourine_orch_orch"
+      "string_acoustic_parlor": "phosphor_p"
     },
     "chain_mic": "condenser_sdc",
     "chain_pre": "pre_field_recorder_portable",

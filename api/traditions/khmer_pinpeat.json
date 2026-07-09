@@ -3,9 +3,9 @@
   "name": "Khmer pinpeat royal-court ensemble",
   "family": "classical",
   "lineage": "Khmer pinpeat ceremonial ensemble — the largest classical Cambodian instrumental tradition, accompanying the Royal Ballet of Cambodia and Sbek Thom shadow-puppet. Pre-Angkor Khmer roots; royal court and wat temple ceremonial repertoire. Canonical instrumentation of nine-to-ten instruments dominated by wind and percussion: roneat ek high bamboo xylophone (twenty-one bars, boat-shaped resonator, melodic lead), roneat thung low bamboo xylophone (second voice, counterpoint to ek), sralai quadruple-reed conical-bore oboe (palm-leaf reed, sustained melodic lead), sampho double-headed barrel timekeeper drum (sets tempo and cadence — ensemble leader), skor thom large barrel drum pair (stick-struck bass), kong vong thom large gong circle (sixteen tuned bronze bossed gongs in rattan frame — melodic skeleton sustaining the harmonic foundation), ching small finger cymbals (time-keeping). Seven-equal-tempered tuning shared with Thai piphat. The Khmer Rouge era 1975-1979 nearly destroyed the tradition; post-1980 reconstruction led by surviving masters including Chum Ngek, with the Royal University of Fine Arts Phnom Penh restoring transmission infrastructure. Distinguished from Thai piphat by Khmer-language repertoire and dialect-specific cadential conventions; distinguished from Lao seb-noi by the larger pinpeat ensemble configuration and royal-court ceremonial repertoire base",
-  "recipe": "classic Southeast Asian 1975-1979 khmer pinpeat royal-court ensemble, art Music, southeast Asian branch, southeast Asian Thai classical. twenty one bamboo bars boat resonator canonical pinpeat lead royal court pinpeat canonical pre 1975 lineage roneat ek, bamboo bars low register canonical pinpeat second voice pinpeat counterpoint to roneat ek lead roneat thung, palm leaf quadruple reed conical bore canonical khmer pinpeat melodic lead sustained voice sralai, double headed barrel tunable canonical pinpeat timekeeper pinpeat leader tempo cadence signal sampho, large barrel pair stick struck canonical pinpeat bass skor sixteen tuned bronze bossed gongs rattan frame canonical pinpeat melodic backbone pinpeat melodic skeleton sustains core under roneat elaboration kong vong thom. phnom penh royal pinpeat palace court. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 898,
-  "score": 181.173,
+  "recipe": "classic Southeast Asian 1975-1979 khmer pinpeat royal-court ensemble, art Music, southeast Asian branch, southeast Asian Thai classical. twenty one bamboo bars boat resonator canonical pinpeat lead royal court pinpeat canonical pre 1975 lineage roneat ek, bamboo bars low register canonical pinpeat second voice pinpeat counterpoint to roneat ek lead roneat thung, palm leaf quadruple reed conical bore canonical khmer pinpeat melodic lead sustained voice sralai, double headed barrel tunable canonical pinpeat timekeeper pinpeat leader tempo cadence signal sampho, large barrel pair stick struck canonical pinpeat bass skor sixteen tuned bronze bossed gongs rattan frame canonical pinpeat melodic backbone pinpeat melodic skeleton sustains core under roneat elaboration kong vong thom, khmer ching chap open and damped bronze ching. phnom penh royal pinpeat palace court. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 945,
+  "score": 237.212,
   "config": {
     "traditions": [
       "khmer_pinpeat",
@@ -74,6 +74,19 @@
         "scores": {
           "kong_vong_thom_construction": 23.1145,
           "kong_vong_thom_role": 13.466999999999999
+        }
+      },
+      {
+        "id": "ching",
+        "slots": {
+          "ching_form": "ching_khmer",
+          "ching_stroke": "ching_open_closed",
+          "ching_alloy": "ching_bronze"
+        },
+        "scores": {
+          "ching_form": 32.585499999999996,
+          "ching_stroke": 19.175,
+          "ching_alloy": 4.279
         }
       }
     ],

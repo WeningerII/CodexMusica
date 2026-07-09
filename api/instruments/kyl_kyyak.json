@@ -1,0 +1,359 @@
+{
+  "id": "kyl_kyyak",
+  "name": "Kyl-kyyak (Kyrgyz bowed fiddle)",
+  "family": "bowed",
+  "class": "bowed_fiddle",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "kyyak",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "kyl_kyyak_form",
+      "name": "Form / size",
+      "variants": [
+        {
+          "id": "kyl_kyyak_traditional",
+          "default": true,
+          "name": "Traditional carved kyl-kyyak (single-piece apricot, hide-faced)",
+          "descriptors": [
+            "archaic",
+            "carved-apricot",
+            "hide-faced",
+            "fingernail-stopped"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "horsehair-string"
+          ],
+          "canonical_tags": [
+            "kyrgyz",
+            "central-asian"
+          ]
+        },
+        {
+          "id": "kyl_kyyak_orchestral",
+          "name": "Reconstructed folk-orchestra kyl-kyyak (prima/alto/bass)",
+          "descriptors": [
+            "reconstructed",
+            "standardized",
+            "folk-orchestra"
+          ],
+          "match_tokens": [
+            "bowed"
+          ],
+          "canonical_tags": [
+            "kyrgyz",
+            "soviet-era"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kyl_kyyak_repertoire",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "kyl_kyyak_kuu",
+          "default": true,
+          "name": "Solo kuu (programmatic descriptive pieces)",
+          "descriptors": [
+            "programmatic",
+            "narrative",
+            "virtuosic",
+            "solo"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "kyrgyz",
+            "kuu"
+          ]
+        },
+        {
+          "id": "kyl_kyyak_epic",
+          "name": "Epic / akyn accompaniment (droning support)",
+          "descriptors": [
+            "droning",
+            "rhythmic",
+            "epic-accompaniment"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "kyrgyz",
+            "manas"
+          ]
+        },
+        {
+          "id": "kyl_kyyak_imitative",
+          "name": "Zoomorphic imitation (harmonics, glissandi)",
+          "descriptors": [
+            "imitative",
+            "gliding",
+            "harmonic-rich",
+            "zoomorphic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "kyrgyz"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kyl_kyyak_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "kyl_kyyak_horsehair",
+          "default": true,
+          "name": "Bundled horsehair strings (stallion tail)",
+          "descriptors": [
+            "horsehair",
+            "breathy",
+            "rough-tone"
+          ],
+          "match_tokens": [
+            "bowed",
+            "horsehair-string",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "kyl_kyyak_gut",
+          "name": "Gut strings",
+          "descriptors": [
+            "gut",
+            "warm",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        },
+        {
+          "id": "kyl_kyyak_nylon",
+          "name": "Modern nylon / synthetic strings",
+          "descriptors": [
+            "nylon",
+            "bright",
+            "clean"
+          ],
+          "match_tokens": [
+            "bowed"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kyl_kyyak_form",
+      "name": "Form / size",
+      "variants": [
+        {
+          "id": "kyl_kyyak_traditional",
+          "default": true,
+          "name": "Traditional carved kyl-kyyak (single-piece apricot, hide-faced)",
+          "descriptors": [
+            "archaic",
+            "carved-apricot",
+            "hide-faced",
+            "fingernail-stopped"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "horsehair-string"
+          ],
+          "canonical_tags": [
+            "kyrgyz",
+            "central-asian"
+          ]
+        },
+        {
+          "id": "kyl_kyyak_orchestral",
+          "name": "Reconstructed folk-orchestra kyl-kyyak (prima/alto/bass)",
+          "descriptors": [
+            "reconstructed",
+            "standardized",
+            "folk-orchestra"
+          ],
+          "match_tokens": [
+            "bowed"
+          ],
+          "canonical_tags": [
+            "kyrgyz",
+            "soviet-era"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kyl_kyyak_repertoire",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "kyl_kyyak_kuu",
+          "default": true,
+          "name": "Solo kuu (programmatic descriptive pieces)",
+          "descriptors": [
+            "programmatic",
+            "narrative",
+            "virtuosic",
+            "solo"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "kyrgyz",
+            "kuu"
+          ]
+        },
+        {
+          "id": "kyl_kyyak_epic",
+          "name": "Epic / akyn accompaniment (droning support)",
+          "descriptors": [
+            "droning",
+            "rhythmic",
+            "epic-accompaniment"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "kyrgyz",
+            "manas"
+          ]
+        },
+        {
+          "id": "kyl_kyyak_imitative",
+          "name": "Zoomorphic imitation (harmonics, glissandi)",
+          "descriptors": [
+            "imitative",
+            "gliding",
+            "harmonic-rich",
+            "zoomorphic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "kyrgyz"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kyl_kyyak_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "kyl_kyyak_horsehair",
+          "default": true,
+          "name": "Bundled horsehair strings (stallion tail)",
+          "descriptors": [
+            "horsehair",
+            "breathy",
+            "rough-tone"
+          ],
+          "match_tokens": [
+            "bowed",
+            "horsehair-string",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "kyl_kyyak_gut",
+          "name": "Gut strings",
+          "descriptors": [
+            "gut",
+            "warm",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed"
+          ],
+          "canonical_tags": [
+            "historical"
+          ]
+        },
+        {
+          "id": "kyl_kyyak_nylon",
+          "name": "Modern nylon / synthetic strings",
+          "descriptors": [
+            "nylon",
+            "bright",
+            "clean"
+          ],
+          "match_tokens": [
+            "bowed"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

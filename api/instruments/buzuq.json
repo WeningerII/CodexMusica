@@ -1,0 +1,346 @@
+{
+  "id": "buzuq",
+  "name": "Buzuq (Levantine long-necked fretted lute)",
+  "family": "plucked_traditional",
+  "class": "long_neck_lute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "buzuq",
+  "parts": [
+    {
+      "id": "buzuq_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "buzuq_lebanese",
+          "default": true,
+          "name": "Lebanese buzuq (Rahbani-era)",
+          "descriptors": [
+            "lyrical",
+            "bright",
+            "rahbani-era"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bright-tone",
+            "long-neck"
+          ],
+          "canonical_tags": [
+            "levantine",
+            "lebanese"
+          ]
+        },
+        {
+          "id": "buzuq_syrian",
+          "name": "Syrian / Aleppine buzuq",
+          "descriptors": [
+            "ottoman-levantine",
+            "maqam-refined"
+          ],
+          "match_tokens": [
+            "plucked",
+            "microtonal-frets",
+            "long-neck"
+          ],
+          "canonical_tags": [
+            "levantine",
+            "syrian"
+          ]
+        },
+        {
+          "id": "buzuq_iraqi",
+          "name": "Iraqi buzuq",
+          "descriptors": [
+            "deep-toned",
+            "folk-maqam"
+          ],
+          "match_tokens": [
+            "plucked",
+            "folk",
+            "long-neck"
+          ],
+          "canonical_tags": [
+            "iraqi",
+            "mesopotamian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "buzuq_repertoire",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "buzuq_taqsim",
+          "default": true,
+          "name": "Taqsim (solo maqam improvisation)",
+          "descriptors": [
+            "improvisatory",
+            "tremolo-driven",
+            "maqam-modal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "microtonal-frets"
+          ],
+          "canonical_tags": [
+            "art-music",
+            "taqsim"
+          ]
+        },
+        {
+          "id": "buzuq_dabke",
+          "name": "Dabke & mijana folk dance",
+          "descriptors": [
+            "driving",
+            "festive",
+            "dance-pulse"
+          ],
+          "match_tokens": [
+            "plucked",
+            "rhythmic",
+            "folk"
+          ],
+          "canonical_tags": [
+            "levantine-folk",
+            "dabke"
+          ]
+        },
+        {
+          "id": "buzuq_tarab",
+          "name": "Tarab song accompaniment",
+          "descriptors": [
+            "lyrical",
+            "song-supporting",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "plucked",
+            "melodic",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "tarab",
+            "song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "buzuq_frets",
+      "surface": false,
+      "name": "Fret type",
+      "variants": [
+        {
+          "id": "buzuq_frets_tied",
+          "default": true,
+          "name": "Tied movable gut/nylon frets",
+          "descriptors": [
+            "microtonal",
+            "adjustable",
+            "traditional"
+          ],
+          "match_tokens": [
+            "microtonal-frets",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "movable-frets"
+          ]
+        },
+        {
+          "id": "buzuq_frets_metal",
+          "name": "Fixed metal frets (concert reform)",
+          "descriptors": [
+            "bright",
+            "loud",
+            "modern"
+          ],
+          "match_tokens": [
+            "fretted",
+            "bright-tone",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "fixed-frets",
+            "concert"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "buzuq_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "buzuq_lebanese",
+          "default": true,
+          "name": "Lebanese buzuq (Rahbani-era)",
+          "descriptors": [
+            "lyrical",
+            "bright",
+            "rahbani-era"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bright-tone",
+            "long-neck"
+          ],
+          "canonical_tags": [
+            "levantine",
+            "lebanese"
+          ]
+        },
+        {
+          "id": "buzuq_syrian",
+          "name": "Syrian / Aleppine buzuq",
+          "descriptors": [
+            "ottoman-levantine",
+            "maqam-refined"
+          ],
+          "match_tokens": [
+            "plucked",
+            "microtonal-frets",
+            "long-neck"
+          ],
+          "canonical_tags": [
+            "levantine",
+            "syrian"
+          ]
+        },
+        {
+          "id": "buzuq_iraqi",
+          "name": "Iraqi buzuq",
+          "descriptors": [
+            "deep-toned",
+            "folk-maqam"
+          ],
+          "match_tokens": [
+            "plucked",
+            "folk",
+            "long-neck"
+          ],
+          "canonical_tags": [
+            "iraqi",
+            "mesopotamian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "buzuq_repertoire",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "buzuq_taqsim",
+          "default": true,
+          "name": "Taqsim (solo maqam improvisation)",
+          "descriptors": [
+            "improvisatory",
+            "tremolo-driven",
+            "maqam-modal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "microtonal-frets"
+          ],
+          "canonical_tags": [
+            "art-music",
+            "taqsim"
+          ]
+        },
+        {
+          "id": "buzuq_dabke",
+          "name": "Dabke & mijana folk dance",
+          "descriptors": [
+            "driving",
+            "festive",
+            "dance-pulse"
+          ],
+          "match_tokens": [
+            "plucked",
+            "rhythmic",
+            "folk"
+          ],
+          "canonical_tags": [
+            "levantine-folk",
+            "dabke"
+          ]
+        },
+        {
+          "id": "buzuq_tarab",
+          "name": "Tarab song accompaniment",
+          "descriptors": [
+            "lyrical",
+            "song-supporting",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "plucked",
+            "melodic",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "tarab",
+            "song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "buzuq_frets",
+      "surface": false,
+      "name": "Fret type",
+      "variants": [
+        {
+          "id": "buzuq_frets_tied",
+          "default": true,
+          "name": "Tied movable gut/nylon frets",
+          "descriptors": [
+            "microtonal",
+            "adjustable",
+            "traditional"
+          ],
+          "match_tokens": [
+            "microtonal-frets",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "movable-frets"
+          ]
+        },
+        {
+          "id": "buzuq_frets_metal",
+          "name": "Fixed metal frets (concert reform)",
+          "descriptors": [
+            "bright",
+            "loud",
+            "modern"
+          ],
+          "match_tokens": [
+            "fretted",
+            "bright-tone",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "fixed-frets",
+            "concert"
+          ]
+        }
+      ]
+    }
+  ]
+}

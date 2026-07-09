@@ -1,0 +1,313 @@
+{
+  "id": "gaohu",
+  "name": "Gaohu (Cantonese high-pitched fiddle)",
+  "family": "bowed",
+  "class": "bowed_fiddle",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "gaohu",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "gaohu_type",
+      "name": "Type / form",
+      "variants": [
+        {
+          "id": "gaohu_cantonese",
+          "default": true,
+          "name": "Cantonese gaohu (yuehu)",
+          "descriptors": [
+            "cantonese",
+            "knee-damped",
+            "sweet-toned"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "cantonese",
+            "guangdong"
+          ]
+        },
+        {
+          "id": "gaohu_orchestral",
+          "name": "Conservatory / orchestral gaohu",
+          "descriptors": [
+            "conservatory",
+            "ensemble-lead",
+            "refined"
+          ],
+          "match_tokens": [
+            "bowed",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "chinese-orchestra"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gaohu_setting",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "gaohu_yinyue",
+          "default": true,
+          "name": "Guangdong yinyue (silk-and-bamboo)",
+          "descriptors": [
+            "silk-and-bamboo",
+            "flowing",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "guangdong"
+          ]
+        },
+        {
+          "id": "gaohu_opera",
+          "name": "Cantonese opera accompaniment",
+          "descriptors": [
+            "operatic",
+            "voice-following",
+            "heterophonic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "cantonese-opera"
+          ]
+        },
+        {
+          "id": "gaohu_solo",
+          "name": "Virtuoso solo (Lü Wencheng school)",
+          "descriptors": [
+            "virtuosic",
+            "portamento-rich",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "expressive"
+          ],
+          "canonical_tags": [
+            "solo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gaohu_membrane",
+      "surface": false,
+      "name": "Soundboard / membrane material",
+      "variants": [
+        {
+          "id": "gaohu_python",
+          "default": true,
+          "name": "Python-skin soundboard",
+          "descriptors": [
+            "python-skin",
+            "resonant",
+            "traditional"
+          ],
+          "match_tokens": [
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "snakeskin"
+          ]
+        },
+        {
+          "id": "gaohu_wood",
+          "name": "Wooden / composite face",
+          "descriptors": [
+            "wood-faced",
+            "warm",
+            "modern"
+          ],
+          "match_tokens": [
+            "mellow-tone"
+          ],
+          "canonical_tags": [
+            "synthetic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "gaohu_type",
+      "name": "Type / form",
+      "variants": [
+        {
+          "id": "gaohu_cantonese",
+          "default": true,
+          "name": "Cantonese gaohu (yuehu)",
+          "descriptors": [
+            "cantonese",
+            "knee-damped",
+            "sweet-toned"
+          ],
+          "match_tokens": [
+            "bowed",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "cantonese",
+            "guangdong"
+          ]
+        },
+        {
+          "id": "gaohu_orchestral",
+          "name": "Conservatory / orchestral gaohu",
+          "descriptors": [
+            "conservatory",
+            "ensemble-lead",
+            "refined"
+          ],
+          "match_tokens": [
+            "bowed",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "chinese-orchestra"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gaohu_setting",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "gaohu_yinyue",
+          "default": true,
+          "name": "Guangdong yinyue (silk-and-bamboo)",
+          "descriptors": [
+            "silk-and-bamboo",
+            "flowing",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "guangdong"
+          ]
+        },
+        {
+          "id": "gaohu_opera",
+          "name": "Cantonese opera accompaniment",
+          "descriptors": [
+            "operatic",
+            "voice-following",
+            "heterophonic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "cantonese-opera"
+          ]
+        },
+        {
+          "id": "gaohu_solo",
+          "name": "Virtuoso solo (Lü Wencheng school)",
+          "descriptors": [
+            "virtuosic",
+            "portamento-rich",
+            "expressive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "expressive"
+          ],
+          "canonical_tags": [
+            "solo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gaohu_membrane",
+      "surface": false,
+      "name": "Soundboard / membrane material",
+      "variants": [
+        {
+          "id": "gaohu_python",
+          "default": true,
+          "name": "Python-skin soundboard",
+          "descriptors": [
+            "python-skin",
+            "resonant",
+            "traditional"
+          ],
+          "match_tokens": [
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "snakeskin"
+          ]
+        },
+        {
+          "id": "gaohu_wood",
+          "name": "Wooden / composite face",
+          "descriptors": [
+            "wood-faced",
+            "warm",
+            "modern"
+          ],
+          "match_tokens": [
+            "mellow-tone"
+          ],
+          "canonical_tags": [
+            "synthetic"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,356 @@
+{
+  "id": "arghul",
+  "name": "Arghul (Egyptian single-reed drone pipe)",
+  "family": "wind",
+  "class": "single_reed_droned_pipe",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "arghul",
+  "parts": [
+    {
+      "id": "arghul_form",
+      "name": "Size / form",
+      "variants": [
+        {
+          "id": "arghul_soghir",
+          "default": true,
+          "name": "Arghul el-soghir (small folk arghul)",
+          "descriptors": [
+            "reedy",
+            "penetrating",
+            "folk",
+            "drone-under-melody"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "egyptian",
+            "saidi"
+          ]
+        },
+        {
+          "id": "arghul_kebir",
+          "name": "Arghul el-kebir (great arghul, long extended bass drone)",
+          "descriptors": [
+            "deep-droning",
+            "booming",
+            "archaic",
+            "low-register"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "drone-foundation",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "egyptian",
+            "saidi"
+          ]
+        },
+        {
+          "id": "arghul_asghar",
+          "name": "Arghul el-asghar (smallest, high-pitched)",
+          "descriptors": [
+            "bright",
+            "shrill",
+            "high-register"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "high-pitched"
+          ],
+          "canonical_tags": [
+            "egyptian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arghul_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "arghul_saidi_dance",
+          "default": true,
+          "name": "Saidi rural dance & wedding",
+          "descriptors": [
+            "driving",
+            "outdoor",
+            "celebratory",
+            "circular-breathed"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "drone-foundation",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "egyptian",
+            "saidi"
+          ]
+        },
+        {
+          "id": "arghul_sufi_zikr",
+          "name": "Sufi zikr / inshad drone",
+          "descriptors": [
+            "hypnotic",
+            "meditative",
+            "continuous-drone",
+            "devotional"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "reed-driven",
+            "sustained"
+          ],
+          "canonical_tags": [
+            "egyptian",
+            "sufi"
+          ]
+        },
+        {
+          "id": "arghul_taqsim",
+          "name": "Solo taqsim (free-rhythm maqam)",
+          "descriptors": [
+            "improvisatory",
+            "unmetered",
+            "ornamented",
+            "microtonal"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "arab",
+            "maqam"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arghul_reed",
+      "surface": false,
+      "name": "Reed construction",
+      "variants": [
+        {
+          "id": "arghul_reed_idioglot",
+          "default": true,
+          "name": "Idioglot cane beating reed (cut from the cane)",
+          "descriptors": [
+            "buzzy",
+            "warm",
+            "archaic"
+          ],
+          "match_tokens": [
+            "single-reed",
+            "reed-driven",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "cane"
+          ]
+        },
+        {
+          "id": "arghul_reed_separate",
+          "name": "Separate inserted cane reed",
+          "descriptors": [
+            "bright",
+            "focused",
+            "replaceable"
+          ],
+          "match_tokens": [
+            "single-reed",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "cane"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "arghul_form",
+      "name": "Size / form",
+      "variants": [
+        {
+          "id": "arghul_soghir",
+          "default": true,
+          "name": "Arghul el-soghir (small folk arghul)",
+          "descriptors": [
+            "reedy",
+            "penetrating",
+            "folk",
+            "drone-under-melody"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "egyptian",
+            "saidi"
+          ]
+        },
+        {
+          "id": "arghul_kebir",
+          "name": "Arghul el-kebir (great arghul, long extended bass drone)",
+          "descriptors": [
+            "deep-droning",
+            "booming",
+            "archaic",
+            "low-register"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "drone-foundation",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "egyptian",
+            "saidi"
+          ]
+        },
+        {
+          "id": "arghul_asghar",
+          "name": "Arghul el-asghar (smallest, high-pitched)",
+          "descriptors": [
+            "bright",
+            "shrill",
+            "high-register"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "high-pitched"
+          ],
+          "canonical_tags": [
+            "egyptian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arghul_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "arghul_saidi_dance",
+          "default": true,
+          "name": "Saidi rural dance & wedding",
+          "descriptors": [
+            "driving",
+            "outdoor",
+            "celebratory",
+            "circular-breathed"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "drone-foundation",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "egyptian",
+            "saidi"
+          ]
+        },
+        {
+          "id": "arghul_sufi_zikr",
+          "name": "Sufi zikr / inshad drone",
+          "descriptors": [
+            "hypnotic",
+            "meditative",
+            "continuous-drone",
+            "devotional"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "reed-driven",
+            "sustained"
+          ],
+          "canonical_tags": [
+            "egyptian",
+            "sufi"
+          ]
+        },
+        {
+          "id": "arghul_taqsim",
+          "name": "Solo taqsim (free-rhythm maqam)",
+          "descriptors": [
+            "improvisatory",
+            "unmetered",
+            "ornamented",
+            "microtonal"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "arab",
+            "maqam"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arghul_reed",
+      "surface": false,
+      "name": "Reed construction",
+      "variants": [
+        {
+          "id": "arghul_reed_idioglot",
+          "default": true,
+          "name": "Idioglot cane beating reed (cut from the cane)",
+          "descriptors": [
+            "buzzy",
+            "warm",
+            "archaic"
+          ],
+          "match_tokens": [
+            "single-reed",
+            "reed-driven",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "cane"
+          ]
+        },
+        {
+          "id": "arghul_reed_separate",
+          "name": "Separate inserted cane reed",
+          "descriptors": [
+            "bright",
+            "focused",
+            "replaceable"
+          ],
+          "match_tokens": [
+            "single-reed",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "cane"
+          ]
+        }
+      ]
+    }
+  ]
+}

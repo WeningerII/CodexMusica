@@ -3,9 +3,9 @@
   "name": "Tyrolean Schuhplattler (slap-dance with music)",
   "family": "global",
   "lineage": "Tyrolean Schuhplattler folk-dance-and-music tradition of the Austrian Tyrol, South Tyrol (Italy), and Bavarian Alps, in which male dancers perform synchronized choreography involving rhythmic slapping of thighs, knees, and shoe-soles in characteristic accelerating patterns, accompanied by Stubenmusik chamber-ensemble of zither, hammered dulcimer (Hackbrett), accordion, double-bass, and voice. The tradition crystallized in seventeenth-eighteenth century Alpine villages from earlier courtship-display dance-forms. Performance contexts span the Heimatabend folkloric-evening tourist-demonstrations, village-festival celebrations, and the canonical Schuhplattlerverein dance-association competitions. Distinguished from broader German Alpine music by Schuhplattler's specific male-percussive-choreographic register.",
-  "recipe": "classic modern tyrolean schuhplattler, functional Song, europop branch, American marching groove percussion american drumline. thick, rap, punctuated, Scottish Gaelic vocal. melodic straight piano accordion, steel modern concert fingerpicked kantele, walnut spruce canonical appalachian steel bronze modern hammered dulcimer. mountain valley. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 472,
-  "score": 82.486,
+  "recipe": "classic modern tyrolean schuhplattler, functional Song, europop branch, American marching groove percussion american drumline. thick, rap, punctuated, Scottish Gaelic vocal. melodic straight piano accordion, steel modern concert fingerpicked kantele, walnut spruce canonical appalachian steel bronze modern hammered dulcimer, harp armed dance lilting concert zither alpine. mountain valley. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 520,
+  "score": 103.085,
   "config": {
     "traditions": [
       "tyrolean_schuhplattler",
@@ -94,6 +94,19 @@
           "hammer_material": 1.69,
           "hammered_dulcimer_body_wood": 1.69,
           "hammered_dulcimer_strings": 1.69
+        }
+      },
+      {
+        "id": "concert_zither_alpine",
+        "slots": {
+          "concert_zither_alpine_type": "concert_zither_alpine_harfenzither",
+          "concert_zither_alpine_context": "concert_zither_alpine_volksmusik",
+          "concert_zither_alpine_strings": "concert_zither_alpine_strings_steel"
+        },
+        "scores": {
+          "concert_zither_alpine_type": 8.731499999999999,
+          "concert_zither_alpine_context": 11.902,
+          "concert_zither_alpine_strings": -0.035
         }
       }
     ],

@@ -3,9 +3,9 @@
   "name": "Bulgarian dance traditional (horo, ruchenitsa)",
   "family": "global",
   "lineage": "Bulgarian village dance tradition built on aksak additive odd-meter rhythms (7/8 rachenitsa, 9/8 devetorka, 11/8 kopanitsa, 13/8 from Shopluk region) — performed at village celebrations, weddings, and (post-1944) on the State Ensemble stage circuit; characteristic instrumentation: gaida (bulgarian bagpipe), kaval (rim-blown flute), tambura, accordion, gadulka (bowed lute)",
-  "recipe": "classic Southern European mid-1940s bulgarian dance traditional, groove Percussion, Slavic bard ballad poetry, Mediterranean ballad ballad poetry berber ahidus and ahwash bulería. vocal fry, nasal, melodic, rhythmic. plum canonical rhodope cane arundo donax single reed canonical bulgarian whole goatskin fleece outside canonical rhodope gaida bulgarian, plum canonical bulgarian kaval, horo dance driving strummed tambura balkan, leather castagnari Italian premium folk music accordion. bulgarian state radio choir hall. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 594,
-  "score": 156.12,
+  "recipe": "classic Southern European mid-1940s bulgarian dance traditional, groove Percussion, Slavic bard ballad poetry, Mediterranean ballad ballad poetry berber ahidus and ahwash bulería. vocal fry, nasal, melodic, rhythmic. plum canonical rhodope cane arundo donax single reed canonical bulgarian whole goatskin fleece outside canonical rhodope gaida bulgarian, plum canonical bulgarian kaval, horo dance driving strummed tambura balkan, leather castagnari Italian premium folk music accordion, gadulka, bolt tuned tapan. bulgarian state radio choir hall. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 621,
+  "score": 204.135,
   "config": {
     "traditions": [
       "bulgarian_dance_traditional",
@@ -118,6 +118,34 @@
           "bellows": 1.24,
           "voicing_chamber": 0.045,
           "accordion_maker_school": 2.4699999999999998
+        }
+      },
+      {
+        "id": "gadulka",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "gadulka_form": "gadulka_thracian",
+          "gadulka_repertoire": "gadulka_horo",
+          "gadulka_body": "gadulka_mulberry"
+        },
+        "scores": {
+          "bowed_technique": -0.05,
+          "gadulka_form": 9.7,
+          "gadulka_repertoire": 10.799999999999999,
+          "gadulka_body": 0.7949999999999999
+        }
+      },
+      {
+        "id": "tapan",
+        "slots": {
+          "tapan_form": "tapan_balkan",
+          "tapan_role": "tapan_zurna_pair",
+          "tapan_build": "tapan_modern_tensioned"
+        },
+        "scores": {
+          "tapan_form": 13.599999999999998,
+          "tapan_role": 9.219999999999999,
+          "tapan_build": 3.95
         }
       }
     ],

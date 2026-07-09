@@ -1,0 +1,288 @@
+{
+  "id": "saung_gauk",
+  "name": "Saung-gauk (Burmese arched harp)",
+  "family": "acoustic_strings",
+  "class": "arched_harp",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "saung",
+  "parts": [
+    {
+      "id": "saung_gauk_form",
+      "name": "Form / string count",
+      "variants": [
+        {
+          "id": "saung_gauk_sixteen_string",
+          "default": true,
+          "name": "Sixteen-string modern concert saung",
+          "descriptors": [
+            "full-compass",
+            "concert-standard",
+            "refined"
+          ],
+          "match_tokens": [
+            "plucked",
+            "harp"
+          ],
+          "canonical_tags": [
+            "burmese",
+            "mahagita"
+          ]
+        },
+        {
+          "id": "saung_gauk_thirteen_string",
+          "name": "Thirteen/fourteen-string classical saung",
+          "descriptors": [
+            "archaic",
+            "narrow-compass",
+            "court-classical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "harp"
+          ],
+          "canonical_tags": [
+            "burmese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saung_gauk_role",
+      "name": "Playing role",
+      "variants": [
+        {
+          "id": "saung_gauk_mahagita_accompaniment",
+          "default": true,
+          "name": "Mahagita song accompaniment",
+          "descriptors": [
+            "vocal-doubling",
+            "pitch-bent-ornaments",
+            "gentle"
+          ],
+          "match_tokens": [
+            "plucked",
+            "harp",
+            "melody-lead"
+          ],
+          "canonical_tags": [
+            "burmese",
+            "mahagita"
+          ]
+        },
+        {
+          "id": "saung_gauk_solo_display",
+          "name": "Solo instrumental display",
+          "descriptors": [
+            "florid",
+            "melodic",
+            "virtuosic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "harp"
+          ],
+          "canonical_tags": [
+            "burmese"
+          ]
+        },
+        {
+          "id": "saung_gauk_chamber_ensemble",
+          "name": "Chamber ensemble with pattala and voice",
+          "descriptors": [
+            "interlocking",
+            "chamber",
+            "intimate"
+          ],
+          "match_tokens": [
+            "plucked",
+            "harp"
+          ],
+          "canonical_tags": [
+            "burmese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saung_gauk_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "saung_gauk_silk_strings",
+          "default": true,
+          "name": "Twisted silk strings",
+          "descriptors": [
+            "mellow",
+            "traditional",
+            "soft-decay"
+          ],
+          "match_tokens": [
+            "plucked",
+            "silk-strung"
+          ],
+          "canonical_tags": [
+            "burmese"
+          ]
+        },
+        {
+          "id": "saung_gauk_nylon_strings",
+          "name": "Modern nylon strings",
+          "descriptors": [
+            "bright",
+            "modern",
+            "durable"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "saung_gauk_form",
+      "name": "Form / string count",
+      "variants": [
+        {
+          "id": "saung_gauk_sixteen_string",
+          "default": true,
+          "name": "Sixteen-string modern concert saung",
+          "descriptors": [
+            "full-compass",
+            "concert-standard",
+            "refined"
+          ],
+          "match_tokens": [
+            "plucked",
+            "harp"
+          ],
+          "canonical_tags": [
+            "burmese",
+            "mahagita"
+          ]
+        },
+        {
+          "id": "saung_gauk_thirteen_string",
+          "name": "Thirteen/fourteen-string classical saung",
+          "descriptors": [
+            "archaic",
+            "narrow-compass",
+            "court-classical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "harp"
+          ],
+          "canonical_tags": [
+            "burmese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saung_gauk_role",
+      "name": "Playing role",
+      "variants": [
+        {
+          "id": "saung_gauk_mahagita_accompaniment",
+          "default": true,
+          "name": "Mahagita song accompaniment",
+          "descriptors": [
+            "vocal-doubling",
+            "pitch-bent-ornaments",
+            "gentle"
+          ],
+          "match_tokens": [
+            "plucked",
+            "harp",
+            "melody-lead"
+          ],
+          "canonical_tags": [
+            "burmese",
+            "mahagita"
+          ]
+        },
+        {
+          "id": "saung_gauk_solo_display",
+          "name": "Solo instrumental display",
+          "descriptors": [
+            "florid",
+            "melodic",
+            "virtuosic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "harp"
+          ],
+          "canonical_tags": [
+            "burmese"
+          ]
+        },
+        {
+          "id": "saung_gauk_chamber_ensemble",
+          "name": "Chamber ensemble with pattala and voice",
+          "descriptors": [
+            "interlocking",
+            "chamber",
+            "intimate"
+          ],
+          "match_tokens": [
+            "plucked",
+            "harp"
+          ],
+          "canonical_tags": [
+            "burmese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saung_gauk_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "saung_gauk_silk_strings",
+          "default": true,
+          "name": "Twisted silk strings",
+          "descriptors": [
+            "mellow",
+            "traditional",
+            "soft-decay"
+          ],
+          "match_tokens": [
+            "plucked",
+            "silk-strung"
+          ],
+          "canonical_tags": [
+            "burmese"
+          ]
+        },
+        {
+          "id": "saung_gauk_nylon_strings",
+          "name": "Modern nylon strings",
+          "descriptors": [
+            "bright",
+            "modern",
+            "durable"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -3,9 +3,9 @@
   "name": "Greek gamílio glendí (γαμήλιο γλέντι, wedding feast music)",
   "family": "global",
   "lineage": "Greek wedding-music tradition continuous from Byzantine-era through Ottoman-period through 19th-20th-century modern-Greek continuous practice; regionally distributed with strongest preservation in Crete, Mani, Epirus, and Pontic-Greek diaspora",
-  "recipe": "classic Southern European modern greek gamílio glendí, wedding, European branch, middle eastern wedding, Mediterranean ballad ballad poetry, vocal drone modal lebanese-arab wedding takht persian aroosi. thick, low dynamic level, chest resonance low mid, continuous-phonation. walnut staves canonical Greek steel canonical octave unison pairs ornamented bouzouki, mulberry canonical cretan steel modern legato cretan lyra, grenadilla African blackwood traditional continuous-airflow legato clarinet, castagnari Italian premium folk music ensemble accordion, clay pre modern traditional synthetic remo mylar modern canonical Egyptian Egyptian sombaty canonical mid east darbuka. athens piraeus rebetadika. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 833,
-  "score": 229.907,
+  "recipe": "classic Southern European modern greek gamílio glendí, wedding, European branch, middle eastern wedding, Mediterranean ballad ballad poetry, vocal drone modal lebanese-arab wedding takht persian aroosi. thick, low dynamic level, chest resonance low mid, continuous-phonation. walnut staves canonical Greek steel canonical octave unison pairs ornamented bouzouki, mulberry canonical cretan steel modern legato cretan lyra, grenadilla African blackwood traditional continuous-airflow legato clarinet, castagnari Italian premium folk music ensemble accordion, clay pre modern traditional synthetic remo mylar modern canonical Egyptian Egyptian sombaty canonical mid east darbuka, cretan rhythmic laouto. athens piraeus rebetadika. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 857,
+  "score": 264.955,
   "config": {
     "traditions": [
       "greek_gamilio_glendi",
@@ -137,6 +137,19 @@
           "darbuka_material": 2.73,
           "darbuka_skin": 3.9,
           "darbuka_regional_style": 1.365
+        }
+      },
+      {
+        "id": "laouto",
+        "slots": {
+          "laouto_form": "laouto_kritiko",
+          "laouto_role": "laouto_synodeia",
+          "laouto_strings": "laouto_strings_steel"
+        },
+        "scores": {
+          "laouto_form": 17.9,
+          "laouto_role": 12.122499999999997,
+          "laouto_strings": 5.025
         }
       }
     ],

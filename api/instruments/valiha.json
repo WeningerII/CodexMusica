@@ -1,0 +1,316 @@
+{
+  "id": "valiha",
+  "name": "Valiha (Malagasy bamboo tube zither)",
+  "family": "plucked_traditional",
+  "class": "tube_zither",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "valiha",
+  "parts": [
+    {
+      "id": "valiha_form",
+      "name": "Form / resonator",
+      "variants": [
+        {
+          "id": "valiha_tube",
+          "default": true,
+          "name": "Bamboo tube valiha",
+          "descriptors": [
+            "cylindrical",
+            "bright-shimmer",
+            "harp-like"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tube-zither",
+            "shimmering-tone"
+          ],
+          "canonical_tags": [
+            "madagascar",
+            "highland"
+          ]
+        },
+        {
+          "id": "valiha_marovany",
+          "name": "Marovany (rectangular box zither)",
+          "descriptors": [
+            "box-resonator",
+            "fuller-bodied",
+            "double-sided"
+          ],
+          "match_tokens": [
+            "plucked",
+            "box-zither",
+            "resonant"
+          ],
+          "canonical_tags": [
+            "madagascar",
+            "coastal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "valiha_repertoire",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "valiha_highland_song",
+          "default": true,
+          "name": "Highland Merina/Betsileo song accompaniment",
+          "descriptors": [
+            "intimate",
+            "lyrical",
+            "vocal-accompaniment"
+          ],
+          "match_tokens": [
+            "plucked",
+            "gentle",
+            "shimmering-tone"
+          ],
+          "canonical_tags": [
+            "merina",
+            "hira-gasy"
+          ]
+        },
+        {
+          "id": "valiha_tromba_trance",
+          "name": "Coastal tromba spirit-trance",
+          "descriptors": [
+            "hypnotic",
+            "cyclic",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "plucked",
+            "cyclic",
+            "trance"
+          ],
+          "canonical_tags": [
+            "sakalava",
+            "tromba"
+          ]
+        },
+        {
+          "id": "valiha_salegy_lead",
+          "name": "Salegy / modern Malagasy dance lead",
+          "descriptors": [
+            "driving",
+            "syncopated",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "plucked",
+            "syncopated",
+            "bright"
+          ],
+          "canonical_tags": [
+            "salegy",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "valiha_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "valiha_metal_strings",
+          "default": true,
+          "name": "Metal wire strings (bicycle brake cable)",
+          "descriptors": [
+            "bright",
+            "ringing",
+            "metallic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "metallic",
+            "shimmering-tone"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "valiha_idiochord",
+          "name": "Idiochordic bamboo-skin strings",
+          "descriptors": [
+            "archaic",
+            "soft",
+            "muted"
+          ],
+          "match_tokens": [
+            "plucked",
+            "soft",
+            "archaic"
+          ],
+          "canonical_tags": [
+            "traditional",
+            "idiochord"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "valiha_form",
+      "name": "Form / resonator",
+      "variants": [
+        {
+          "id": "valiha_tube",
+          "default": true,
+          "name": "Bamboo tube valiha",
+          "descriptors": [
+            "cylindrical",
+            "bright-shimmer",
+            "harp-like"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tube-zither",
+            "shimmering-tone"
+          ],
+          "canonical_tags": [
+            "madagascar",
+            "highland"
+          ]
+        },
+        {
+          "id": "valiha_marovany",
+          "name": "Marovany (rectangular box zither)",
+          "descriptors": [
+            "box-resonator",
+            "fuller-bodied",
+            "double-sided"
+          ],
+          "match_tokens": [
+            "plucked",
+            "box-zither",
+            "resonant"
+          ],
+          "canonical_tags": [
+            "madagascar",
+            "coastal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "valiha_repertoire",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "valiha_highland_song",
+          "default": true,
+          "name": "Highland Merina/Betsileo song accompaniment",
+          "descriptors": [
+            "intimate",
+            "lyrical",
+            "vocal-accompaniment"
+          ],
+          "match_tokens": [
+            "plucked",
+            "gentle",
+            "shimmering-tone"
+          ],
+          "canonical_tags": [
+            "merina",
+            "hira-gasy"
+          ]
+        },
+        {
+          "id": "valiha_tromba_trance",
+          "name": "Coastal tromba spirit-trance",
+          "descriptors": [
+            "hypnotic",
+            "cyclic",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "plucked",
+            "cyclic",
+            "trance"
+          ],
+          "canonical_tags": [
+            "sakalava",
+            "tromba"
+          ]
+        },
+        {
+          "id": "valiha_salegy_lead",
+          "name": "Salegy / modern Malagasy dance lead",
+          "descriptors": [
+            "driving",
+            "syncopated",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "plucked",
+            "syncopated",
+            "bright"
+          ],
+          "canonical_tags": [
+            "salegy",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "valiha_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "valiha_metal_strings",
+          "default": true,
+          "name": "Metal wire strings (bicycle brake cable)",
+          "descriptors": [
+            "bright",
+            "ringing",
+            "metallic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "metallic",
+            "shimmering-tone"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "valiha_idiochord",
+          "name": "Idiochordic bamboo-skin strings",
+          "descriptors": [
+            "archaic",
+            "soft",
+            "muted"
+          ],
+          "match_tokens": [
+            "plucked",
+            "soft",
+            "archaic"
+          ],
+          "canonical_tags": [
+            "traditional",
+            "idiochord"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,370 @@
+{
+  "id": "txalaparta",
+  "name": "Txalaparta (Basque struck-plank duet idiophone)",
+  "family": "percussion",
+  "class": "struck_idiophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": 0,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "txalaparta",
+  "parts": [
+    {
+      "id": "txalaparta_type",
+      "name": "Plank medium",
+      "variants": [
+        {
+          "id": "txalaparta_egur",
+          "default": true,
+          "name": "Egur txalaparta (wooden planks)",
+          "descriptors": [
+            "woody",
+            "dry-knock",
+            "warm-thud"
+          ],
+          "match_tokens": [
+            "struck",
+            "wood",
+            "idiophone"
+          ],
+          "canonical_tags": [
+            "basque"
+          ]
+        },
+        {
+          "id": "txalaparta_harri",
+          "name": "Harri-txalaparta (stone slabs)",
+          "descriptors": [
+            "ringing",
+            "bright",
+            "stony"
+          ],
+          "match_tokens": [
+            "struck",
+            "stone",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "basque"
+          ]
+        },
+        {
+          "id": "txalaparta_metal",
+          "name": "Tobera / metal txalaparta (iron bars)",
+          "descriptors": [
+            "metallic",
+            "clangorous",
+            "piercing"
+          ],
+          "match_tokens": [
+            "struck",
+            "metal",
+            "ringing"
+          ],
+          "canonical_tags": [
+            "basque"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "txalaparta_playing",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "txalaparta_interlock",
+          "default": true,
+          "name": "Ttakun/herrena interlocking duet",
+          "descriptors": [
+            "interlocking",
+            "hocketed",
+            "two-player"
+          ],
+          "match_tokens": [
+            "struck",
+            "interlocking",
+            "hocket"
+          ],
+          "canonical_tags": [
+            "basque"
+          ]
+        },
+        {
+          "id": "txalaparta_concert",
+          "name": "Melodic concert / improvised txalaparta",
+          "descriptors": [
+            "melodic",
+            "improvised",
+            "tuned"
+          ],
+          "match_tokens": [
+            "struck",
+            "interlocking",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "basque",
+            "revival"
+          ]
+        },
+        {
+          "id": "txalaparta_signal",
+          "name": "Festive announcing / outdoor signal",
+          "descriptors": [
+            "announcing",
+            "festive",
+            "far-carrying"
+          ],
+          "match_tokens": [
+            "struck",
+            "interlocking",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "basque",
+            "festive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "txalaparta_timber",
+      "surface": false,
+      "name": "Plank timber",
+      "variants": [
+        {
+          "id": "txalaparta_cherry",
+          "default": true,
+          "name": "Seasoned cherry planks",
+          "descriptors": [
+            "seasoned-cherry",
+            "resonant",
+            "warm-woody"
+          ],
+          "match_tokens": [
+            "struck",
+            "wood"
+          ],
+          "canonical_tags": [
+            "basque"
+          ]
+        },
+        {
+          "id": "txalaparta_ash",
+          "name": "Ash / beech planks",
+          "descriptors": [
+            "ash-hardwood",
+            "bright-woody",
+            "hard"
+          ],
+          "match_tokens": [
+            "struck",
+            "wood"
+          ],
+          "canonical_tags": [
+            "basque"
+          ]
+        },
+        {
+          "id": "txalaparta_reclaimed",
+          "name": "Weathered reclaimed boards",
+          "descriptors": [
+            "weathered-board",
+            "rustic",
+            "dry"
+          ],
+          "match_tokens": [
+            "struck",
+            "wood"
+          ],
+          "canonical_tags": [
+            "basque"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "txalaparta_type",
+      "name": "Plank medium",
+      "variants": [
+        {
+          "id": "txalaparta_egur",
+          "default": true,
+          "name": "Egur txalaparta (wooden planks)",
+          "descriptors": [
+            "woody",
+            "dry-knock",
+            "warm-thud"
+          ],
+          "match_tokens": [
+            "struck",
+            "wood",
+            "idiophone"
+          ],
+          "canonical_tags": [
+            "basque"
+          ]
+        },
+        {
+          "id": "txalaparta_harri",
+          "name": "Harri-txalaparta (stone slabs)",
+          "descriptors": [
+            "ringing",
+            "bright",
+            "stony"
+          ],
+          "match_tokens": [
+            "struck",
+            "stone",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "basque"
+          ]
+        },
+        {
+          "id": "txalaparta_metal",
+          "name": "Tobera / metal txalaparta (iron bars)",
+          "descriptors": [
+            "metallic",
+            "clangorous",
+            "piercing"
+          ],
+          "match_tokens": [
+            "struck",
+            "metal",
+            "ringing"
+          ],
+          "canonical_tags": [
+            "basque"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "txalaparta_playing",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "txalaparta_interlock",
+          "default": true,
+          "name": "Ttakun/herrena interlocking duet",
+          "descriptors": [
+            "interlocking",
+            "hocketed",
+            "two-player"
+          ],
+          "match_tokens": [
+            "struck",
+            "interlocking",
+            "hocket"
+          ],
+          "canonical_tags": [
+            "basque"
+          ]
+        },
+        {
+          "id": "txalaparta_concert",
+          "name": "Melodic concert / improvised txalaparta",
+          "descriptors": [
+            "melodic",
+            "improvised",
+            "tuned"
+          ],
+          "match_tokens": [
+            "struck",
+            "interlocking",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "basque",
+            "revival"
+          ]
+        },
+        {
+          "id": "txalaparta_signal",
+          "name": "Festive announcing / outdoor signal",
+          "descriptors": [
+            "announcing",
+            "festive",
+            "far-carrying"
+          ],
+          "match_tokens": [
+            "struck",
+            "interlocking",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "basque",
+            "festive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "txalaparta_timber",
+      "surface": false,
+      "name": "Plank timber",
+      "variants": [
+        {
+          "id": "txalaparta_cherry",
+          "default": true,
+          "name": "Seasoned cherry planks",
+          "descriptors": [
+            "seasoned-cherry",
+            "resonant",
+            "warm-woody"
+          ],
+          "match_tokens": [
+            "struck",
+            "wood"
+          ],
+          "canonical_tags": [
+            "basque"
+          ]
+        },
+        {
+          "id": "txalaparta_ash",
+          "name": "Ash / beech planks",
+          "descriptors": [
+            "ash-hardwood",
+            "bright-woody",
+            "hard"
+          ],
+          "match_tokens": [
+            "struck",
+            "wood"
+          ],
+          "canonical_tags": [
+            "basque"
+          ]
+        },
+        {
+          "id": "txalaparta_reclaimed",
+          "name": "Weathered reclaimed boards",
+          "descriptors": [
+            "weathered-board",
+            "rustic",
+            "dry"
+          ],
+          "match_tokens": [
+            "struck",
+            "wood"
+          ],
+          "canonical_tags": [
+            "basque"
+          ]
+        }
+      ]
+    }
+  ]
+}

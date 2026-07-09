@@ -1,0 +1,348 @@
+{
+  "id": "taepyeongso",
+  "name": "Taepyeongso (Korean conical double-reed shawm)",
+  "family": "wind",
+  "class": "double_reed_shawm",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "taepyeongso",
+  "parts": [
+    {
+      "id": "taepyeongso_form",
+      "name": "Regional form / type",
+      "variants": [
+        {
+          "id": "taepyeongso_traditional",
+          "default": true,
+          "name": "Traditional taepyeongso (8-hole folk shawm, hojok/nallari)",
+          "descriptors": [
+            "piercing",
+            "brash",
+            "pentatonic",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "korean",
+            "folk"
+          ]
+        },
+        {
+          "id": "taepyeongso_gaeryang",
+          "name": "Gaeryang taepyeongso (reformed keyed gugak-orchestra shawm)",
+          "descriptors": [
+            "reformed",
+            "chromatic",
+            "refined",
+            "concert"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "korean",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "taepyeongso_context",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "taepyeongso_pungmul",
+          "default": true,
+          "name": "Nongak / pungmul village-band lead",
+          "descriptors": [
+            "driving",
+            "festive",
+            "dance-leading",
+            "raucous"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "loud-projection",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "korean",
+            "nongak"
+          ]
+        },
+        {
+          "id": "taepyeongso_daechwita",
+          "name": "Daechwita military / royal processional",
+          "descriptors": [
+            "martial",
+            "fanfare",
+            "processional",
+            "commanding"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "korean",
+            "processional"
+          ]
+        },
+        {
+          "id": "taepyeongso_sinawi_ritual",
+          "name": "Shamanic sinawi / Buddhist ritual melody",
+          "descriptors": [
+            "ornamented",
+            "keening",
+            "improvisatory",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "korean",
+            "ritual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "taepyeongso_body",
+      "surface": false,
+      "name": "Body wood & bell",
+      "variants": [
+        {
+          "id": "taepyeongso_jujube_brass",
+          "default": true,
+          "name": "Jujube-wood body with flared brass bell (dongpalari)",
+          "descriptors": [
+            "dense-wood",
+            "brass-belled",
+            "bright"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "korean"
+          ]
+        },
+        {
+          "id": "taepyeongso_yellow_mulberry",
+          "name": "Yellow-mulberry / hardwood body",
+          "descriptors": [
+            "hardwood",
+            "warm-bodied",
+            "resonant"
+          ],
+          "match_tokens": [
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "korean"
+          ]
+        },
+        {
+          "id": "taepyeongso_copper_bell",
+          "name": "Copper / nickel-silver bell variant",
+          "descriptors": [
+            "metal-belled",
+            "ringing",
+            "cutting"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "korean"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "taepyeongso_form",
+      "name": "Regional form / type",
+      "variants": [
+        {
+          "id": "taepyeongso_traditional",
+          "default": true,
+          "name": "Traditional taepyeongso (8-hole folk shawm, hojok/nallari)",
+          "descriptors": [
+            "piercing",
+            "brash",
+            "pentatonic",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "korean",
+            "folk"
+          ]
+        },
+        {
+          "id": "taepyeongso_gaeryang",
+          "name": "Gaeryang taepyeongso (reformed keyed gugak-orchestra shawm)",
+          "descriptors": [
+            "reformed",
+            "chromatic",
+            "refined",
+            "concert"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "korean",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "taepyeongso_context",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "taepyeongso_pungmul",
+          "default": true,
+          "name": "Nongak / pungmul village-band lead",
+          "descriptors": [
+            "driving",
+            "festive",
+            "dance-leading",
+            "raucous"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "loud-projection",
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "korean",
+            "nongak"
+          ]
+        },
+        {
+          "id": "taepyeongso_daechwita",
+          "name": "Daechwita military / royal processional",
+          "descriptors": [
+            "martial",
+            "fanfare",
+            "processional",
+            "commanding"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "korean",
+            "processional"
+          ]
+        },
+        {
+          "id": "taepyeongso_sinawi_ritual",
+          "name": "Shamanic sinawi / Buddhist ritual melody",
+          "descriptors": [
+            "ornamented",
+            "keening",
+            "improvisatory",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "double-reed",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "korean",
+            "ritual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "taepyeongso_body",
+      "surface": false,
+      "name": "Body wood & bell",
+      "variants": [
+        {
+          "id": "taepyeongso_jujube_brass",
+          "default": true,
+          "name": "Jujube-wood body with flared brass bell (dongpalari)",
+          "descriptors": [
+            "dense-wood",
+            "brass-belled",
+            "bright"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "korean"
+          ]
+        },
+        {
+          "id": "taepyeongso_yellow_mulberry",
+          "name": "Yellow-mulberry / hardwood body",
+          "descriptors": [
+            "hardwood",
+            "warm-bodied",
+            "resonant"
+          ],
+          "match_tokens": [
+            "double-reed"
+          ],
+          "canonical_tags": [
+            "korean"
+          ]
+        },
+        {
+          "id": "taepyeongso_copper_bell",
+          "name": "Copper / nickel-silver bell variant",
+          "descriptors": [
+            "metal-belled",
+            "ringing",
+            "cutting"
+          ],
+          "match_tokens": [
+            "double-reed",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "korean"
+          ]
+        }
+      ]
+    }
+  ]
+}

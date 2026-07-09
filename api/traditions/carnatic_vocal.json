@@ -3,9 +3,9 @@
   "name": "Carnatic vocal",
   "family": "classical",
   "lineage": "South Indian classical vocal tradition organized around the 72-melakarta scale system codified by Venkatamakhin in 1620 and the kriti-composition canon of the early-19th-century Trinity (Tyagaraja, Muthuswami Dikshitar, Syama Sastri); 20th-century lineage M.S. Subbulakshmi, D.K. Pattammal, M.D. Ramanathan, T.N. Krishnan, Semmangudi Srinivasa Iyer, T.R. Mahalingam",
-  "recipe": "classic South Asian early-1620s carnatic vocal, improv On Frame, indian classical improv branch, south Asian art music, hindu ritual devotional sinhala vannama telugu kirtana. vocal fry, declaimed, chest resonance low mid, punctuated. jackwood barrel canonical carnatic goat buffalo rice paste karanai palghat lineage canonical carnatic mridangam, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic, suited to female vocal bronze steel mix gourd body canonical traditional tanpura, ghatam, jackwood barrel canonical Tamil buffalo goat thumb cap canonical periya melam thavil, jackwood frame canonical carnatic brass jingle pair kanjira. chennai madras music academy sabha. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 779,
-  "score": 352.065,
+  "recipe": "classic South Asian early-1620s carnatic vocal, improv On Frame, indian classical improv branch, south Asian art music, hindu ritual devotional sinhala vannama telugu kirtana. vocal fry, declaimed, chest resonance low mid, punctuated. jackwood barrel canonical carnatic goat buffalo rice paste karanai palghat lineage canonical carnatic mridangam, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic, suited to female vocal bronze steel mix gourd body canonical traditional tanpura, ghatam, jackwood barrel canonical Tamil buffalo goat thumb cap canonical periya melam thavil, jackwood frame canonical carnatic brass jingle pair kanjira, concert forged steel sarvalaghu morsing. chennai madras music academy sabha. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 820,
+  "score": 403.245,
   "config": {
     "traditions": [
       "carnatic_vocal",
@@ -144,6 +144,19 @@
           "kanjira_context": 7.93,
           "kanjira_shell_wood": 11.439999999999998,
           "kanjira_jingle": 2.5349999999999997
+        }
+      },
+      {
+        "id": "morsing",
+        "slots": {
+          "morsing_form": "morsing_carnatic",
+          "morsing_technique": "morsing_laya_accompaniment",
+          "morsing_material": "morsing_steel"
+        },
+        "scores": {
+          "morsing_form": 23.195,
+          "morsing_technique": 14.61,
+          "morsing_material": 13.374999999999998
         }
       }
     ],

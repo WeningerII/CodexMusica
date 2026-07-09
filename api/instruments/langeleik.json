@@ -1,0 +1,346 @@
+{
+  "id": "langeleik",
+  "name": "Langeleik / hummel (Nordic fretted drone zither)",
+  "family": "acoustic_strings",
+  "class": "fretted_drone_zither",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "langeleik",
+  "parts": [
+    {
+      "id": "langeleik_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "langeleik_valdres",
+          "default": true,
+          "name": "Valdres langeleik (Norwegian)",
+          "descriptors": [
+            "single-melody",
+            "droning",
+            "archaic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "fretted-zither"
+          ],
+          "canonical_tags": [
+            "norwegian",
+            "valdres",
+            "nordic"
+          ]
+        },
+        {
+          "id": "langeleik_hummel",
+          "name": "Swedish/Danish hummel (humle)",
+          "descriptors": [
+            "flat-bodied",
+            "paired-melody",
+            "folk"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "fretted-zither"
+          ],
+          "canonical_tags": [
+            "swedish",
+            "danish",
+            "nordic"
+          ]
+        },
+        {
+          "id": "langeleik_scheitholt",
+          "name": "Scheitholt (narrow-box ancestor)",
+          "descriptors": [
+            "narrow-box",
+            "archaic",
+            "reedy"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "fretted-zither"
+          ],
+          "canonical_tags": [
+            "germanic",
+            "early",
+            "ancestral"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "langeleik_repertoire",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "langeleik_dance_slatt",
+          "default": true,
+          "name": "Slatt dance tunes (springar/halling)",
+          "descriptors": [
+            "brisk",
+            "rhythmic",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "norwegian",
+            "dance"
+          ]
+        },
+        {
+          "id": "langeleik_hymn_lament",
+          "name": "Hymns and laments",
+          "descriptors": [
+            "slow",
+            "devotional",
+            "sustained-drone"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "sacred",
+            "lyric"
+          ]
+        },
+        {
+          "id": "langeleik_noter_quill",
+          "name": "Noter-stick melody, quill strum",
+          "descriptors": [
+            "noted-melody",
+            "quill-strummed",
+            "ringing"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed"
+          ],
+          "canonical_tags": [
+            "technique"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "langeleik_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "langeleik_steel_brass",
+          "default": true,
+          "name": "Steel melody, brass drones",
+          "descriptors": [
+            "bright",
+            "ringing",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked"
+          ],
+          "canonical_tags": [
+            "steel",
+            "brass"
+          ]
+        },
+        {
+          "id": "langeleik_brass_gut",
+          "name": "Brass and gut strings",
+          "descriptors": [
+            "mellow",
+            "soft",
+            "historical"
+          ],
+          "match_tokens": [
+            "plucked"
+          ],
+          "canonical_tags": [
+            "gut",
+            "historical"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "langeleik_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "langeleik_valdres",
+          "default": true,
+          "name": "Valdres langeleik (Norwegian)",
+          "descriptors": [
+            "single-melody",
+            "droning",
+            "archaic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "fretted-zither"
+          ],
+          "canonical_tags": [
+            "norwegian",
+            "valdres",
+            "nordic"
+          ]
+        },
+        {
+          "id": "langeleik_hummel",
+          "name": "Swedish/Danish hummel (humle)",
+          "descriptors": [
+            "flat-bodied",
+            "paired-melody",
+            "folk"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "fretted-zither"
+          ],
+          "canonical_tags": [
+            "swedish",
+            "danish",
+            "nordic"
+          ]
+        },
+        {
+          "id": "langeleik_scheitholt",
+          "name": "Scheitholt (narrow-box ancestor)",
+          "descriptors": [
+            "narrow-box",
+            "archaic",
+            "reedy"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "fretted-zither"
+          ],
+          "canonical_tags": [
+            "germanic",
+            "early",
+            "ancestral"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "langeleik_repertoire",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "langeleik_dance_slatt",
+          "default": true,
+          "name": "Slatt dance tunes (springar/halling)",
+          "descriptors": [
+            "brisk",
+            "rhythmic",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "norwegian",
+            "dance"
+          ]
+        },
+        {
+          "id": "langeleik_hymn_lament",
+          "name": "Hymns and laments",
+          "descriptors": [
+            "slow",
+            "devotional",
+            "sustained-drone"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "sacred",
+            "lyric"
+          ]
+        },
+        {
+          "id": "langeleik_noter_quill",
+          "name": "Noter-stick melody, quill strum",
+          "descriptors": [
+            "noted-melody",
+            "quill-strummed",
+            "ringing"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed"
+          ],
+          "canonical_tags": [
+            "technique"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "langeleik_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "langeleik_steel_brass",
+          "default": true,
+          "name": "Steel melody, brass drones",
+          "descriptors": [
+            "bright",
+            "ringing",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked"
+          ],
+          "canonical_tags": [
+            "steel",
+            "brass"
+          ]
+        },
+        {
+          "id": "langeleik_brass_gut",
+          "name": "Brass and gut strings",
+          "descriptors": [
+            "mellow",
+            "soft",
+            "historical"
+          ],
+          "match_tokens": [
+            "plucked"
+          ],
+          "canonical_tags": [
+            "gut",
+            "historical"
+          ]
+        }
+      ]
+    }
+  ]
+}

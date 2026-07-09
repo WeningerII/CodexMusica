@@ -1,0 +1,374 @@
+{
+  "id": "seperewa",
+  "name": "Seperewa (Akan/Asante harp-lute)",
+  "family": "plucked_traditional",
+  "class": "harp_lute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "seperewa",
+  "parts": [
+    {
+      "id": "seperewa_form",
+      "name": "Regional form & size",
+      "variants": [
+        {
+          "id": "seperewa_asante_six",
+          "default": true,
+          "name": "Asante six-string court seperewa",
+          "descriptors": [
+            "court",
+            "archaic",
+            "praise-accompaniment"
+          ],
+          "match_tokens": [
+            "plucked",
+            "harp-lute",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "akan",
+            "asante",
+            "ghana"
+          ]
+        },
+        {
+          "id": "seperewa_expanded_revival",
+          "name": "Expanded revival seperewa (10-14 strings)",
+          "descriptors": [
+            "revival",
+            "expanded-range",
+            "melodic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "harp-lute",
+            "chordal"
+          ],
+          "canonical_tags": [
+            "akan",
+            "ghana",
+            "revival"
+          ]
+        },
+        {
+          "id": "seperewa_fante_sanku",
+          "name": "Fante sanku",
+          "descriptors": [
+            "coastal",
+            "folk",
+            "lilting"
+          ],
+          "match_tokens": [
+            "plucked",
+            "harp-lute"
+          ],
+          "canonical_tags": [
+            "akan",
+            "fante",
+            "ghana"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "seperewa_role",
+      "name": "Playing context & repertoire",
+      "variants": [
+        {
+          "id": "seperewa_praise_minstrel",
+          "default": true,
+          "name": "Court praise-singing self-accompaniment",
+          "descriptors": [
+            "praise-song",
+            "self-accompanied",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "harp-lute"
+          ],
+          "canonical_tags": [
+            "akan",
+            "court"
+          ]
+        },
+        {
+          "id": "seperewa_kete_ensemble",
+          "name": "Royal kete / adowa ensemble",
+          "descriptors": [
+            "ceremonial",
+            "royal",
+            "ensemble"
+          ],
+          "match_tokens": [
+            "plucked",
+            "harp-lute"
+          ],
+          "canonical_tags": [
+            "asante",
+            "kete"
+          ]
+        },
+        {
+          "id": "seperewa_palmwine_lead",
+          "name": "Palm-wine / highlife melodic lead",
+          "descriptors": [
+            "palm-wine",
+            "lilting",
+            "melodic-lead"
+          ],
+          "match_tokens": [
+            "plucked",
+            "harp-lute",
+            "chordal"
+          ],
+          "canonical_tags": [
+            "ghana",
+            "highlife"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "seperewa_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "seperewa_gut_strings",
+          "default": true,
+          "name": "Twisted gut / plant-fibre strings",
+          "descriptors": [
+            "gut-strung",
+            "warm",
+            "archaic"
+          ],
+          "match_tokens": [
+            "plucked"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "seperewa_nylon_strings",
+          "name": "Nylon fishing-line strings",
+          "descriptors": [
+            "nylon-strung",
+            "bright",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked"
+          ],
+          "canonical_tags": [
+            "revival"
+          ]
+        },
+        {
+          "id": "seperewa_metal_strings",
+          "name": "Metal-wound strings",
+          "descriptors": [
+            "metal-strung",
+            "brighter",
+            "sustaining"
+          ],
+          "match_tokens": [
+            "plucked"
+          ],
+          "canonical_tags": [
+            "contemporary"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "seperewa_form",
+      "name": "Regional form & size",
+      "variants": [
+        {
+          "id": "seperewa_asante_six",
+          "default": true,
+          "name": "Asante six-string court seperewa",
+          "descriptors": [
+            "court",
+            "archaic",
+            "praise-accompaniment"
+          ],
+          "match_tokens": [
+            "plucked",
+            "harp-lute",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "akan",
+            "asante",
+            "ghana"
+          ]
+        },
+        {
+          "id": "seperewa_expanded_revival",
+          "name": "Expanded revival seperewa (10-14 strings)",
+          "descriptors": [
+            "revival",
+            "expanded-range",
+            "melodic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "harp-lute",
+            "chordal"
+          ],
+          "canonical_tags": [
+            "akan",
+            "ghana",
+            "revival"
+          ]
+        },
+        {
+          "id": "seperewa_fante_sanku",
+          "name": "Fante sanku",
+          "descriptors": [
+            "coastal",
+            "folk",
+            "lilting"
+          ],
+          "match_tokens": [
+            "plucked",
+            "harp-lute"
+          ],
+          "canonical_tags": [
+            "akan",
+            "fante",
+            "ghana"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "seperewa_role",
+      "name": "Playing context & repertoire",
+      "variants": [
+        {
+          "id": "seperewa_praise_minstrel",
+          "default": true,
+          "name": "Court praise-singing self-accompaniment",
+          "descriptors": [
+            "praise-song",
+            "self-accompanied",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "harp-lute"
+          ],
+          "canonical_tags": [
+            "akan",
+            "court"
+          ]
+        },
+        {
+          "id": "seperewa_kete_ensemble",
+          "name": "Royal kete / adowa ensemble",
+          "descriptors": [
+            "ceremonial",
+            "royal",
+            "ensemble"
+          ],
+          "match_tokens": [
+            "plucked",
+            "harp-lute"
+          ],
+          "canonical_tags": [
+            "asante",
+            "kete"
+          ]
+        },
+        {
+          "id": "seperewa_palmwine_lead",
+          "name": "Palm-wine / highlife melodic lead",
+          "descriptors": [
+            "palm-wine",
+            "lilting",
+            "melodic-lead"
+          ],
+          "match_tokens": [
+            "plucked",
+            "harp-lute",
+            "chordal"
+          ],
+          "canonical_tags": [
+            "ghana",
+            "highlife"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "seperewa_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "seperewa_gut_strings",
+          "default": true,
+          "name": "Twisted gut / plant-fibre strings",
+          "descriptors": [
+            "gut-strung",
+            "warm",
+            "archaic"
+          ],
+          "match_tokens": [
+            "plucked"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "seperewa_nylon_strings",
+          "name": "Nylon fishing-line strings",
+          "descriptors": [
+            "nylon-strung",
+            "bright",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked"
+          ],
+          "canonical_tags": [
+            "revival"
+          ]
+        },
+        {
+          "id": "seperewa_metal_strings",
+          "name": "Metal-wound strings",
+          "descriptors": [
+            "metal-strung",
+            "brighter",
+            "sustaining"
+          ],
+          "match_tokens": [
+            "plucked"
+          ],
+          "canonical_tags": [
+            "contemporary"
+          ]
+        }
+      ]
+    }
+  ]
+}

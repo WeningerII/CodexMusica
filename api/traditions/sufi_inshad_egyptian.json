@@ -3,9 +3,9 @@
   "name": "Sufi inshad (Egyptian devotional song)",
   "family": "global",
   "lineage": "Egyptian Sufi inshad devotional vocal tradition, comprising the canonical liturgical-and-devotional song repertoire of the Egyptian Sufi orders (Shadhili, Qadiri, Rifa'i, Burhani). Performance contexts include the mawlid annual saint-celebrations (especially at Sayyida Zaynab and Hussein in Cairo, and Tanta and Desouk), the dhikr collective remembrance-of-God sessions, and the nightly hadra circle-gatherings. The munshid Sufi-singer-specialist trains in classical Arabic poetic meter, Egyptian maqam modal system, and the canonical mystical-poetic corpus of Ibn al-Farid and al-Busiri.",
-  "recipe": "classic North African mid-1930s sufi inshad, ritual Devotional, Sufi branch, islamic ritual devotional were music naʿat. vocal fry, declaimed, chest resonance low mid, maqam neutral step. walnut bent frame canonical Iranian goat skin canonical Sufi tar frame drum. coptic basilica. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 354,
-  "score": 218.991,
+  "recipe": "classic North African mid-1930s sufi inshad, ritual Devotional, Sufi branch, islamic ritual devotional were music naʿat. vocal fry, declaimed, chest resonance low mid, maqam neutral step. walnut bent frame canonical Iranian goat skin canonical Sufi tar frame drum, folk continuous drone arghul. coptic basilica. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 384,
+  "score": 273.946,
   "config": {
     "traditions": [
       "sufi_inshad_egyptian",
@@ -67,6 +67,19 @@
           "tar_frame_drum_context": 6.305000000000001,
           "tar_frame_shell_wood": 4.419999999999999,
           "tar_frame_head": 11.531374999999997
+        }
+      },
+      {
+        "id": "arghul",
+        "slots": {
+          "arghul_form": "arghul_soghir",
+          "arghul_context": "arghul_sufi_zikr",
+          "arghul_reed": "arghul_reed_separate"
+        },
+        "scores": {
+          "arghul_form": 12.360875,
+          "arghul_context": 42.629124999999995,
+          "arghul_reed": -0.035
         }
       }
     ],

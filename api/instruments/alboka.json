@@ -1,0 +1,364 @@
+{
+  "id": "alboka",
+  "name": "Alboka (Basque single-reed double hornpipe)",
+  "family": "wind",
+  "class": "single_reed_hornpipe",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "alboka",
+  "parts": [
+    {
+      "id": "alboka_form",
+      "name": "Form / regional type",
+      "variants": [
+        {
+          "id": "alboka_biscayan",
+          "default": true,
+          "name": "Biscayan alboka (traditional 5+3 hole)",
+          "descriptors": [
+            "basque",
+            "pastoral",
+            "traditional"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "droning"
+          ],
+          "canonical_tags": [
+            "basque",
+            "iberian"
+          ]
+        },
+        {
+          "id": "alboka_revival_chromatic",
+          "name": "Revival extended/chromatic alboka",
+          "descriptors": [
+            "chromatic",
+            "extended-range",
+            "modern"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed"
+          ],
+          "canonical_tags": [
+            "basque"
+          ]
+        },
+        {
+          "id": "alboka_albogue",
+          "name": "Archaic albogue (medieval Iberian form)",
+          "descriptors": [
+            "archaic",
+            "medieval",
+            "iberian"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "droning"
+          ],
+          "canonical_tags": [
+            "iberian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "alboka_repertoire",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "alboka_dantza",
+          "default": true,
+          "name": "Dance suite (fandango / arin-arin)",
+          "descriptors": [
+            "dance-driving",
+            "rhythmic",
+            "festive"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "basque"
+          ]
+        },
+        {
+          "id": "alboka_pastoral_air",
+          "name": "Pastoral shepherd air",
+          "descriptors": [
+            "pastoral",
+            "plaintive",
+            "slow"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed"
+          ],
+          "canonical_tags": [
+            "basque"
+          ]
+        },
+        {
+          "id": "alboka_bertso_accompaniment",
+          "name": "Accompanying sung couplets (bertso)",
+          "descriptors": [
+            "accompanying",
+            "vocal-paired",
+            "cyclic"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "basque"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "alboka_material",
+      "surface": false,
+      "name": "Build / horn and pipe material",
+      "variants": [
+        {
+          "id": "alboka_cane_cowhorn",
+          "default": true,
+          "name": "Cane pipes with cow-horn bell and windcap",
+          "descriptors": [
+            "cane-piped",
+            "horn-belled",
+            "traditional-build"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed"
+          ],
+          "canonical_tags": [
+            "basque"
+          ]
+        },
+        {
+          "id": "alboka_oxhorn_bell",
+          "name": "Larger ox-horn bell",
+          "descriptors": [
+            "deep-toned",
+            "resonant",
+            "broad"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed"
+          ],
+          "canonical_tags": [
+            "basque"
+          ]
+        },
+        {
+          "id": "alboka_hardwood_yoke",
+          "name": "Hardwood-mounted revival build",
+          "descriptors": [
+            "sturdy",
+            "bright-toned",
+            "modern-build"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed"
+          ],
+          "canonical_tags": [
+            "basque"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "alboka_form",
+      "name": "Form / regional type",
+      "variants": [
+        {
+          "id": "alboka_biscayan",
+          "default": true,
+          "name": "Biscayan alboka (traditional 5+3 hole)",
+          "descriptors": [
+            "basque",
+            "pastoral",
+            "traditional"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "droning"
+          ],
+          "canonical_tags": [
+            "basque",
+            "iberian"
+          ]
+        },
+        {
+          "id": "alboka_revival_chromatic",
+          "name": "Revival extended/chromatic alboka",
+          "descriptors": [
+            "chromatic",
+            "extended-range",
+            "modern"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed"
+          ],
+          "canonical_tags": [
+            "basque"
+          ]
+        },
+        {
+          "id": "alboka_albogue",
+          "name": "Archaic albogue (medieval Iberian form)",
+          "descriptors": [
+            "archaic",
+            "medieval",
+            "iberian"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "droning"
+          ],
+          "canonical_tags": [
+            "iberian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "alboka_repertoire",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "alboka_dantza",
+          "default": true,
+          "name": "Dance suite (fandango / arin-arin)",
+          "descriptors": [
+            "dance-driving",
+            "rhythmic",
+            "festive"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "basque"
+          ]
+        },
+        {
+          "id": "alboka_pastoral_air",
+          "name": "Pastoral shepherd air",
+          "descriptors": [
+            "pastoral",
+            "plaintive",
+            "slow"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed"
+          ],
+          "canonical_tags": [
+            "basque"
+          ]
+        },
+        {
+          "id": "alboka_bertso_accompaniment",
+          "name": "Accompanying sung couplets (bertso)",
+          "descriptors": [
+            "accompanying",
+            "vocal-paired",
+            "cyclic"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "basque"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "alboka_material",
+      "surface": false,
+      "name": "Build / horn and pipe material",
+      "variants": [
+        {
+          "id": "alboka_cane_cowhorn",
+          "default": true,
+          "name": "Cane pipes with cow-horn bell and windcap",
+          "descriptors": [
+            "cane-piped",
+            "horn-belled",
+            "traditional-build"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed"
+          ],
+          "canonical_tags": [
+            "basque"
+          ]
+        },
+        {
+          "id": "alboka_oxhorn_bell",
+          "name": "Larger ox-horn bell",
+          "descriptors": [
+            "deep-toned",
+            "resonant",
+            "broad"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed"
+          ],
+          "canonical_tags": [
+            "basque"
+          ]
+        },
+        {
+          "id": "alboka_hardwood_yoke",
+          "name": "Hardwood-mounted revival build",
+          "descriptors": [
+            "sturdy",
+            "bright-toned",
+            "modern-build"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed"
+          ],
+          "canonical_tags": [
+            "basque"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,330 @@
+{
+  "id": "tar_azerbaijani",
+  "name": "Azerbaijani tar (Caucasian double-bowl lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_lute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "tar",
+  "parts": [
+    {
+      "id": "tar_azerbaijani_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "tar_azerbaijani_sadigjan",
+          "default": true,
+          "name": "Reformed Azerbaijani tar (Sadıqcan 11-string)",
+          "descriptors": [
+            "eleven-string",
+            "chest-held",
+            "reformed"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bright-metallic",
+            "drone-resonance"
+          ],
+          "canonical_tags": [
+            "azerbaijani",
+            "caucasus"
+          ]
+        },
+        {
+          "id": "tar_azerbaijani_armenian",
+          "name": "Armenian tar (extended-string Caucasian form)",
+          "descriptors": [
+            "extended-string",
+            "caucasian"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bright-metallic"
+          ],
+          "canonical_tags": [
+            "armenian",
+            "caucasus"
+          ]
+        },
+        {
+          "id": "tar_azerbaijani_georgian",
+          "name": "Georgian tar (Tbilisi urban form)",
+          "descriptors": [
+            "urban",
+            "caucasian"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bright-metallic"
+          ],
+          "canonical_tags": [
+            "georgian",
+            "caucasus"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tar_azerbaijani_repertoire",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "tar_azerbaijani_mugham",
+          "default": true,
+          "name": "Mugham dəstgah (with khananda and kamancha)",
+          "descriptors": [
+            "modal",
+            "improvisatory",
+            "microtonal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-resonance",
+            "bright-metallic"
+          ],
+          "canonical_tags": [
+            "mugham",
+            "art-music"
+          ]
+        },
+        {
+          "id": "tar_azerbaijani_reng",
+          "name": "Rəng and dance tunes",
+          "descriptors": [
+            "brisk",
+            "tremolo-driven",
+            "dance"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bright-metallic"
+          ],
+          "canonical_tags": [
+            "dance",
+            "folk"
+          ]
+        },
+        {
+          "id": "tar_azerbaijani_ensemble",
+          "name": "Notated folk-orchestra ensemble",
+          "descriptors": [
+            "notated",
+            "unison",
+            "conservatory"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bright-metallic"
+          ],
+          "canonical_tags": [
+            "ensemble",
+            "soviet-era"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tar_azerbaijani_membrane",
+      "surface": false,
+      "name": "Soundboard membrane",
+      "variants": [
+        {
+          "id": "tar_azerbaijani_heart_membrane",
+          "default": true,
+          "name": "Ox-pericardium (heart-membrane) soundboard on mulberry bowl",
+          "descriptors": [
+            "warm-ring",
+            "traditional"
+          ],
+          "match_tokens": [
+            "bright-metallic",
+            "resonant-membrane"
+          ],
+          "canonical_tags": [
+            "mulberry-body"
+          ]
+        },
+        {
+          "id": "tar_azerbaijani_fish_skin",
+          "name": "Fish-skin membrane soundboard on mulberry bowl",
+          "descriptors": [
+            "bright",
+            "taut"
+          ],
+          "match_tokens": [
+            "bright-metallic",
+            "resonant-membrane"
+          ],
+          "canonical_tags": [
+            "mulberry-body"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tar_azerbaijani_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "tar_azerbaijani_sadigjan",
+          "default": true,
+          "name": "Reformed Azerbaijani tar (Sadıqcan 11-string)",
+          "descriptors": [
+            "eleven-string",
+            "chest-held",
+            "reformed"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bright-metallic",
+            "drone-resonance"
+          ],
+          "canonical_tags": [
+            "azerbaijani",
+            "caucasus"
+          ]
+        },
+        {
+          "id": "tar_azerbaijani_armenian",
+          "name": "Armenian tar (extended-string Caucasian form)",
+          "descriptors": [
+            "extended-string",
+            "caucasian"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bright-metallic"
+          ],
+          "canonical_tags": [
+            "armenian",
+            "caucasus"
+          ]
+        },
+        {
+          "id": "tar_azerbaijani_georgian",
+          "name": "Georgian tar (Tbilisi urban form)",
+          "descriptors": [
+            "urban",
+            "caucasian"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bright-metallic"
+          ],
+          "canonical_tags": [
+            "georgian",
+            "caucasus"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tar_azerbaijani_repertoire",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "tar_azerbaijani_mugham",
+          "default": true,
+          "name": "Mugham dəstgah (with khananda and kamancha)",
+          "descriptors": [
+            "modal",
+            "improvisatory",
+            "microtonal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-resonance",
+            "bright-metallic"
+          ],
+          "canonical_tags": [
+            "mugham",
+            "art-music"
+          ]
+        },
+        {
+          "id": "tar_azerbaijani_reng",
+          "name": "Rəng and dance tunes",
+          "descriptors": [
+            "brisk",
+            "tremolo-driven",
+            "dance"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bright-metallic"
+          ],
+          "canonical_tags": [
+            "dance",
+            "folk"
+          ]
+        },
+        {
+          "id": "tar_azerbaijani_ensemble",
+          "name": "Notated folk-orchestra ensemble",
+          "descriptors": [
+            "notated",
+            "unison",
+            "conservatory"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bright-metallic"
+          ],
+          "canonical_tags": [
+            "ensemble",
+            "soviet-era"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tar_azerbaijani_membrane",
+      "surface": false,
+      "name": "Soundboard membrane",
+      "variants": [
+        {
+          "id": "tar_azerbaijani_heart_membrane",
+          "default": true,
+          "name": "Ox-pericardium (heart-membrane) soundboard on mulberry bowl",
+          "descriptors": [
+            "warm-ring",
+            "traditional"
+          ],
+          "match_tokens": [
+            "bright-metallic",
+            "resonant-membrane"
+          ],
+          "canonical_tags": [
+            "mulberry-body"
+          ]
+        },
+        {
+          "id": "tar_azerbaijani_fish_skin",
+          "name": "Fish-skin membrane soundboard on mulberry bowl",
+          "descriptors": [
+            "bright",
+            "taut"
+          ],
+          "match_tokens": [
+            "bright-metallic",
+            "resonant-membrane"
+          ],
+          "canonical_tags": [
+            "mulberry-body"
+          ]
+        }
+      ]
+    }
+  ]
+}

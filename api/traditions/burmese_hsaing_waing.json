@@ -3,9 +3,9 @@
   "name": "Burmese hsaing waing (drum-circle ensemble)",
   "family": "global",
   "lineage": "Burmese hsaing waing percussion-led ensemble tradition, the canonical Burmese folk-and-ceremonial instrumental form. The ensemble centers on the pat waing tuned-drum-circle (twenty-one tuned drums arranged in a horseshoe around the seated lead player) plus kyi waing tuned-gong-circle, hne double-reed shawm, chauk lon bat double-headed drum-pair, si small cymbals, and wa wooden-clappers. The pat waing drum-circle player is the de-facto ensemble leader, with the player simultaneously delivering melodic, rhythmic, and ensemble-cueing functions. Performance contexts span weddings, religious-festival celebrations, theatrical accompaniment (zat pwe), and the classical mahagita repertoire performance. Distinguished from neighboring Thai pi phat and Khmer pinpeat ensembles by Burmese hsaing waing's tuned-drum-circle (vs gong-circle-led) instrumental hierarchy.",
-  "recipe": "classic Southeast Asian mid-1930s burmese hsaing waing, groove Percussion, east Asian branch, southeast Asian Thai classical. refined gamelan balinese full, boxwood canonical renaissance European arundo donax wooden pirouette canonical renaissance shawm. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 422,
-  "score": 10.45,
+  "recipe": "classic Southeast Asian mid-1930s burmese hsaing waing, groove Percussion, east Asian branch, southeast Asian Thai classical. refined gamelan balinese full, ensemble lead hne, singing tone precisely tuned pat waing. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 383,
+  "score": 137.194,
   "config": {
     "traditions": [
       "burmese_hsaing_waing",
@@ -24,20 +24,29 @@
         }
       },
       {
-        "id": "shawm",
+        "id": "hne",
         "slots": {
-          "wind_articulation": "wind_ornament_heavy",
-          "shawm_pitch": "shawm_treble",
-          "shawm_context": "shawm_alta_capella",
-          "shawm_body_wood": "shawm_boxwood_canonical",
-          "shawm_reed": "shawm_arundo_pirouette"
+          "hne_form": "hne_galay",
+          "hne_style": "hne_hsaing_lead",
+          "hne_reed": "hne_reed_toddy_palm"
         },
         "scores": {
-          "wind_articulation": -0.15000000000000002,
-          "shawm_pitch": 0,
-          "shawm_context": 2.172857142857143,
-          "shawm_body_wood": 1.61625,
-          "shawm_reed": 2.7375000000000003
+          "hne_form": 15.237999999999998,
+          "hne_style": 29.596999999999994,
+          "hne_reed": 12.999999999999998
+        }
+      },
+      {
+        "id": "pat_waing",
+        "slots": {
+          "pat_waing_set": "pat_waing_set_21",
+          "pat_waing_context": "pat_waing_context_classical",
+          "pat_waing_head": "pat_waing_head_pahsa"
+        },
+        "scores": {
+          "pat_waing_set": 22.64142857142857,
+          "pat_waing_context": 32.949999999999996,
+          "pat_waing_head": 19.693999999999996
         }
       }
     ],
@@ -62,12 +71,7 @@
     "room": "jakarta_bangkok_southeast_asian_studio",
     "parts": {
       "type": "gb_gong_kebyar",
-      "characteristic": "gb_kotekan",
-      "wind_articulation": "wind_ornament_heavy",
-      "shawm_pitch": "shawm_treble",
-      "shawm_context": "shawm_alta_capella",
-      "shawm_body_wood": "shawm_boxwood_canonical",
-      "shawm_reed": "shawm_arundo_pirouette"
+      "characteristic": "gb_kotekan"
     },
     "chain_mic": "mic_u87_condenser_neumann",
     "chain_pre": "tube_pre",

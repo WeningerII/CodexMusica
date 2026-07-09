@@ -3,9 +3,9 @@
   "name": "Son istmeño (Oaxaca Isthmus)",
   "family": "global",
   "lineage": "Regional Mexican son tradition of the Isthmus of Tehuantepec (southeastern Oaxaca), the Zapotec-cultural-region southern-Mexican-Pacific lowland. Zapotec-language vocal repertoire alongside Spanish, characteristic 6/8 alternating-with-3/4, and Tehuana-feminine cultural register. Marimba ensemble (parallel to but distinct from Guatemalan Maya marimba), acoustic-guitar, voice. La Sandunga (Andrés Gutiérrez 1853) is the unofficial Zapotec anthem.",
-  "recipe": "classic Mexican early-1850s son istmeño, ballad Poetry, Latin am troubadour branch, Brazilian groove percussion pagode baião. vocal fry, intimate aspirated, punctuated, equal tempered. marimba orchestral, parlor acoustic guitar. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 442,
-  "score": 72.568,
+  "recipe": "classic Mexican early-1850s son istmeño, ballad Poetry, Latin am troubadour branch, Brazilian groove percussion pagode baião. vocal fry, intimate aspirated, punctuated, equal tempered. tehuana sones marimba centroamericana, parlor acoustic guitar. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 461,
+  "score": 87.648,
   "config": {
     "traditions": [
       "son_istmeno",
@@ -53,16 +53,16 @@
         }
       },
       {
-        "id": "marimba_orchestral",
+        "id": "marimba_centroamericana",
         "slots": {
-          "percussion_technique": "percussion_mallets_orchestral",
-          "marimba_size": "marimba_4_octave",
-          "marimba_orchestral_bar": "marimba_orchestral_padauk"
+          "marimba_centroamericana_form": "marimba_centroamericana_chiapaneca",
+          "marimba_centroamericana_ensemble": "marimba_centroamericana_son_istmeno",
+          "marimba_centroamericana_material": "marimba_centroamericana_hormigo"
         },
         "scores": {
-          "percussion_technique": -0.05,
-          "marimba_size": 0.195,
-          "marimba_orchestral_bar": 0.15
+          "marimba_centroamericana_form": 8,
+          "marimba_centroamericana_ensemble": 6.999999999999999,
+          "marimba_centroamericana_material": 0.375
         }
       },
       {
@@ -119,10 +119,7 @@
       "acoustic_technique": "acoustic_strummed_ringing",
       "top_wood_parlor": "sitka_p",
       "back_sides_parlor": "mahogany_bs_p",
-      "string_acoustic_parlor": "phosphor_p",
-      "percussion_technique": "percussion_mallets_orchestral",
-      "marimba_size": "marimba_5_octave",
-      "marimba_orchestral_bar": "marimba_orchestral_honduran"
+      "string_acoustic_parlor": "phosphor_p"
     },
     "chain_mic": "condenser_sdc",
     "chain_pre": "pre_field_recorder_portable",

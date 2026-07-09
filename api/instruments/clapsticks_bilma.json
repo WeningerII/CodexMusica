@@ -1,0 +1,348 @@
+{
+  "id": "clapsticks_bilma",
+  "name": "Clapsticks (bilma, Aboriginal Australian)",
+  "family": "percussion",
+  "class": "concussion_idiophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "clapsticks",
+  "parts": [
+    {
+      "id": "clapsticks_bilma_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "clapsticks_bilma_arnhem",
+          "default": true,
+          "name": "Arnhem Land bilma (paired hardwood sticks)",
+          "descriptors": [
+            "arnhem-land",
+            "yidaki-partner",
+            "resonant-clack"
+          ],
+          "match_tokens": [
+            "struck",
+            "concussion-idiophone",
+            "wooden"
+          ],
+          "canonical_tags": [
+            "aboriginal-australian",
+            "arnhem-land"
+          ]
+        },
+        {
+          "id": "clapsticks_bilma_boomerang",
+          "name": "Clapping boomerangs (Central/Western Desert)",
+          "descriptors": [
+            "desert",
+            "boomerang-pair",
+            "hollow-woody"
+          ],
+          "match_tokens": [
+            "struck",
+            "concussion-idiophone",
+            "wooden"
+          ],
+          "canonical_tags": [
+            "aboriginal-australian",
+            "central-desert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clapsticks_bilma_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "clapsticks_bilma_manikay",
+          "default": true,
+          "name": "Manikay / bunggul song cycle (with yidaki)",
+          "descriptors": [
+            "ceremonial",
+            "steady-pulse",
+            "song-cycle"
+          ],
+          "match_tokens": [
+            "struck",
+            "drone-foundation",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "ceremonial",
+            "songline"
+          ]
+        },
+        {
+          "id": "clapsticks_bilma_inma",
+          "name": "Inma / corroboree communal ceremony",
+          "descriptors": [
+            "corroboree",
+            "communal",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "struck",
+            "concussion-idiophone",
+            "driving"
+          ],
+          "canonical_tags": [
+            "ceremonial",
+            "communal"
+          ]
+        },
+        {
+          "id": "clapsticks_bilma_songman",
+          "name": "Solo songman tempo-keeping (voice-paired)",
+          "descriptors": [
+            "songman",
+            "tempo-keeping",
+            "voice-paired"
+          ],
+          "match_tokens": [
+            "struck",
+            "concussion-idiophone",
+            "sparse"
+          ],
+          "canonical_tags": [
+            "solo",
+            "songline"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clapsticks_bilma_wood",
+      "surface": false,
+      "name": "Timber",
+      "variants": [
+        {
+          "id": "clapsticks_bilma_ironwood",
+          "default": true,
+          "name": "Ironwood",
+          "descriptors": [
+            "ironwood",
+            "dense",
+            "bright-clack"
+          ],
+          "match_tokens": [
+            "struck",
+            "wooden",
+            "resonant"
+          ],
+          "canonical_tags": [
+            "hardwood"
+          ]
+        },
+        {
+          "id": "clapsticks_bilma_mulga",
+          "name": "Mulga (Acacia aneura)",
+          "descriptors": [
+            "mulga",
+            "acacia",
+            "warm-tone"
+          ],
+          "match_tokens": [
+            "struck",
+            "wooden",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "hardwood"
+          ]
+        },
+        {
+          "id": "clapsticks_bilma_eucalypt",
+          "name": "Eucalypt hardwood",
+          "descriptors": [
+            "eucalypt",
+            "bush-timber",
+            "mellow"
+          ],
+          "match_tokens": [
+            "struck",
+            "wooden",
+            "mellow"
+          ],
+          "canonical_tags": [
+            "hardwood"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "clapsticks_bilma_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "clapsticks_bilma_arnhem",
+          "default": true,
+          "name": "Arnhem Land bilma (paired hardwood sticks)",
+          "descriptors": [
+            "arnhem-land",
+            "yidaki-partner",
+            "resonant-clack"
+          ],
+          "match_tokens": [
+            "struck",
+            "concussion-idiophone",
+            "wooden"
+          ],
+          "canonical_tags": [
+            "aboriginal-australian",
+            "arnhem-land"
+          ]
+        },
+        {
+          "id": "clapsticks_bilma_boomerang",
+          "name": "Clapping boomerangs (Central/Western Desert)",
+          "descriptors": [
+            "desert",
+            "boomerang-pair",
+            "hollow-woody"
+          ],
+          "match_tokens": [
+            "struck",
+            "concussion-idiophone",
+            "wooden"
+          ],
+          "canonical_tags": [
+            "aboriginal-australian",
+            "central-desert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clapsticks_bilma_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "clapsticks_bilma_manikay",
+          "default": true,
+          "name": "Manikay / bunggul song cycle (with yidaki)",
+          "descriptors": [
+            "ceremonial",
+            "steady-pulse",
+            "song-cycle"
+          ],
+          "match_tokens": [
+            "struck",
+            "drone-foundation",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "ceremonial",
+            "songline"
+          ]
+        },
+        {
+          "id": "clapsticks_bilma_inma",
+          "name": "Inma / corroboree communal ceremony",
+          "descriptors": [
+            "corroboree",
+            "communal",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "struck",
+            "concussion-idiophone",
+            "driving"
+          ],
+          "canonical_tags": [
+            "ceremonial",
+            "communal"
+          ]
+        },
+        {
+          "id": "clapsticks_bilma_songman",
+          "name": "Solo songman tempo-keeping (voice-paired)",
+          "descriptors": [
+            "songman",
+            "tempo-keeping",
+            "voice-paired"
+          ],
+          "match_tokens": [
+            "struck",
+            "concussion-idiophone",
+            "sparse"
+          ],
+          "canonical_tags": [
+            "solo",
+            "songline"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clapsticks_bilma_wood",
+      "surface": false,
+      "name": "Timber",
+      "variants": [
+        {
+          "id": "clapsticks_bilma_ironwood",
+          "default": true,
+          "name": "Ironwood",
+          "descriptors": [
+            "ironwood",
+            "dense",
+            "bright-clack"
+          ],
+          "match_tokens": [
+            "struck",
+            "wooden",
+            "resonant"
+          ],
+          "canonical_tags": [
+            "hardwood"
+          ]
+        },
+        {
+          "id": "clapsticks_bilma_mulga",
+          "name": "Mulga (Acacia aneura)",
+          "descriptors": [
+            "mulga",
+            "acacia",
+            "warm-tone"
+          ],
+          "match_tokens": [
+            "struck",
+            "wooden",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "hardwood"
+          ]
+        },
+        {
+          "id": "clapsticks_bilma_eucalypt",
+          "name": "Eucalypt hardwood",
+          "descriptors": [
+            "eucalypt",
+            "bush-timber",
+            "mellow"
+          ],
+          "match_tokens": [
+            "struck",
+            "wooden",
+            "mellow"
+          ],
+          "canonical_tags": [
+            "hardwood"
+          ]
+        }
+      ]
+    }
+  ]
+}

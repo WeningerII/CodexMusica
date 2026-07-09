@@ -3,9 +3,9 @@
   "name": "Hausa court music (roķon Sarkin Kano)",
   "family": "global",
   "lineage": "Sahelian-Hausa royal-court ceremonial tradition centered on the emirates of northern Nigeria and southern Niger (Kano, Katsina, Sokoto, Zaria, Daura) — characterized by kakaki long-trumpet fanfares, talking-drum (kalangu) praise-singing, ganga and tambari drum ensembles announcing emir presence; ritual functions tied to the masu sarauta court-titled-officials system",
-  "recipe": "classic North American mid-1990s hausa court music, ballad Poetry, west African griot branch, islamic ritual devotional, west African groove percussion yoruba dùndún surrogate speech were music. thick, declaimed, pure, rhythmic. sheet brass canonical hausa fulani hammered tube call ritual kakaki, iroko alternative west African goat skin leather tension cords canonical pressure bend talking drum, griot voice. adobe room. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 570,
-  "score": 188.825,
+  "recipe": "classic North American mid-1990s hausa court music, ballad Poetry, west African griot branch, islamic ritual devotional, west African groove percussion yoruba dùndún surrogate speech were music. thick, declaimed, pure, rhythmic. sheet brass canonical hausa fulani hammered tube call ritual kakaki, iroko alternative west African goat skin leather tension cords canonical pressure bend talking drum, griot voice, goje, ceremonial praise driven algaita. adobe room. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 610,
+  "score": 234.035,
   "config": {
     "traditions": [
       "hausa_court_music",
@@ -91,6 +91,34 @@
         "scores": {
           "griot_origin": 5.525,
           "griot_voice_context": 2.35
+        }
+      },
+      {
+        "id": "goje",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "goje_form": "goje_yoruba",
+          "goje_repertoire": "goje_praise",
+          "goje_material": "goje_nylon_string"
+        },
+        "scores": {
+          "bowed_technique": -0.05,
+          "goje_form": 13.87,
+          "goje_repertoire": 7.895,
+          "goje_material": 0.325
+        }
+      },
+      {
+        "id": "algaita",
+        "slots": {
+          "algaita_form": "algaita_hausa",
+          "algaita_context": "algaita_royal_praise",
+          "algaita_reed": "algaita_cane_reed"
+        },
+        "scores": {
+          "algaita_form": 11.084999999999999,
+          "algaita_context": 12.135,
+          "algaita_reed": -0.05
         }
       }
     ],

@@ -1,0 +1,350 @@
+{
+  "id": "kangling",
+  "name": "Kangling (Tibetan thighbone trumpet)",
+  "family": "wind",
+  "class": "ritual_trumpet",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 1,
+    "range": -2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "kangling",
+  "parts": [
+    {
+      "id": "kangling_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "kangling_femur",
+          "default": true,
+          "name": "Human thighbone (femur)",
+          "descriptors": [
+            "bone-built",
+            "charnel-ground",
+            "archaic",
+            "raw-toned"
+          ],
+          "match_tokens": [
+            "lip-blown",
+            "natural-trumpet",
+            "shrill-wail",
+            "ritual-horn"
+          ],
+          "canonical_tags": [
+            "tibetan",
+            "himalayan"
+          ]
+        },
+        {
+          "id": "kangling_animal",
+          "name": "Tiger / animal thighbone",
+          "descriptors": [
+            "animal-bone",
+            "rustic",
+            "substitute"
+          ],
+          "match_tokens": [
+            "lip-blown",
+            "natural-trumpet",
+            "shrill-wail"
+          ],
+          "canonical_tags": [
+            "tibetan"
+          ]
+        },
+        {
+          "id": "kangling_metal",
+          "name": "Copper / brass metal (kangdung)",
+          "descriptors": [
+            "copper-bodied",
+            "bright-edged",
+            "monastic",
+            "brassy"
+          ],
+          "match_tokens": [
+            "lip-blown",
+            "natural-trumpet",
+            "brassy"
+          ],
+          "canonical_tags": [
+            "tibetan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kangling_practice",
+      "name": "Ritual practice",
+      "variants": [
+        {
+          "id": "kangling_chod",
+          "default": true,
+          "name": "Chöd offering (gcod)",
+          "descriptors": [
+            "summoning",
+            "fearless",
+            "ecstatic",
+            "charnel-ground"
+          ],
+          "match_tokens": [
+            "shrill-wail",
+            "ritual-horn",
+            "natural-trumpet"
+          ],
+          "canonical_tags": [
+            "chod",
+            "gcod"
+          ]
+        },
+        {
+          "id": "kangling_liturgy",
+          "name": "Monastic liturgical punctuation",
+          "descriptors": [
+            "liturgical",
+            "ceremonial",
+            "ensemble-punctuation"
+          ],
+          "match_tokens": [
+            "ritual-horn",
+            "lip-blown"
+          ],
+          "canonical_tags": [
+            "monastic"
+          ]
+        },
+        {
+          "id": "kangling_wrathful",
+          "name": "Wrathful / tantric invocation",
+          "descriptors": [
+            "wrathful",
+            "aggressive",
+            "invocatory"
+          ],
+          "match_tokens": [
+            "shrill-wail",
+            "natural-trumpet"
+          ],
+          "canonical_tags": [
+            "tantric",
+            "cham"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kangling_mount",
+      "surface": false,
+      "name": "Mount & wrap",
+      "variants": [
+        {
+          "id": "kangling_mount_plain",
+          "default": true,
+          "name": "Plain / unmounted",
+          "descriptors": [
+            "unadorned",
+            "austere"
+          ],
+          "match_tokens": [
+            "natural-trumpet"
+          ]
+        },
+        {
+          "id": "kangling_mount_silver",
+          "name": "Silver-mounted with turquoise/coral",
+          "descriptors": [
+            "silver-mounted",
+            "turquoise-inlaid",
+            "ornate"
+          ],
+          "match_tokens": [
+            "natural-trumpet"
+          ]
+        },
+        {
+          "id": "kangling_mount_brocade",
+          "name": "Brocade-wrapped grip with pendant cloth",
+          "descriptors": [
+            "brocade-wrapped",
+            "streamered",
+            "ritual-cloth"
+          ],
+          "match_tokens": [
+            "natural-trumpet"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kangling_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "kangling_femur",
+          "default": true,
+          "name": "Human thighbone (femur)",
+          "descriptors": [
+            "bone-built",
+            "charnel-ground",
+            "archaic",
+            "raw-toned"
+          ],
+          "match_tokens": [
+            "lip-blown",
+            "natural-trumpet",
+            "shrill-wail",
+            "ritual-horn"
+          ],
+          "canonical_tags": [
+            "tibetan",
+            "himalayan"
+          ]
+        },
+        {
+          "id": "kangling_animal",
+          "name": "Tiger / animal thighbone",
+          "descriptors": [
+            "animal-bone",
+            "rustic",
+            "substitute"
+          ],
+          "match_tokens": [
+            "lip-blown",
+            "natural-trumpet",
+            "shrill-wail"
+          ],
+          "canonical_tags": [
+            "tibetan"
+          ]
+        },
+        {
+          "id": "kangling_metal",
+          "name": "Copper / brass metal (kangdung)",
+          "descriptors": [
+            "copper-bodied",
+            "bright-edged",
+            "monastic",
+            "brassy"
+          ],
+          "match_tokens": [
+            "lip-blown",
+            "natural-trumpet",
+            "brassy"
+          ],
+          "canonical_tags": [
+            "tibetan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kangling_practice",
+      "name": "Ritual practice",
+      "variants": [
+        {
+          "id": "kangling_chod",
+          "default": true,
+          "name": "Chöd offering (gcod)",
+          "descriptors": [
+            "summoning",
+            "fearless",
+            "ecstatic",
+            "charnel-ground"
+          ],
+          "match_tokens": [
+            "shrill-wail",
+            "ritual-horn",
+            "natural-trumpet"
+          ],
+          "canonical_tags": [
+            "chod",
+            "gcod"
+          ]
+        },
+        {
+          "id": "kangling_liturgy",
+          "name": "Monastic liturgical punctuation",
+          "descriptors": [
+            "liturgical",
+            "ceremonial",
+            "ensemble-punctuation"
+          ],
+          "match_tokens": [
+            "ritual-horn",
+            "lip-blown"
+          ],
+          "canonical_tags": [
+            "monastic"
+          ]
+        },
+        {
+          "id": "kangling_wrathful",
+          "name": "Wrathful / tantric invocation",
+          "descriptors": [
+            "wrathful",
+            "aggressive",
+            "invocatory"
+          ],
+          "match_tokens": [
+            "shrill-wail",
+            "natural-trumpet"
+          ],
+          "canonical_tags": [
+            "tantric",
+            "cham"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kangling_mount",
+      "surface": false,
+      "name": "Mount & wrap",
+      "variants": [
+        {
+          "id": "kangling_mount_plain",
+          "default": true,
+          "name": "Plain / unmounted",
+          "descriptors": [
+            "unadorned",
+            "austere"
+          ],
+          "match_tokens": [
+            "natural-trumpet"
+          ]
+        },
+        {
+          "id": "kangling_mount_silver",
+          "name": "Silver-mounted with turquoise/coral",
+          "descriptors": [
+            "silver-mounted",
+            "turquoise-inlaid",
+            "ornate"
+          ],
+          "match_tokens": [
+            "natural-trumpet"
+          ]
+        },
+        {
+          "id": "kangling_mount_brocade",
+          "name": "Brocade-wrapped grip with pendant cloth",
+          "descriptors": [
+            "brocade-wrapped",
+            "streamered",
+            "ritual-cloth"
+          ],
+          "match_tokens": [
+            "natural-trumpet"
+          ]
+        }
+      ]
+    }
+  ]
+}

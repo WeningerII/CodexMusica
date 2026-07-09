@@ -1,0 +1,419 @@
+{
+  "id": "goje",
+  "name": "Goje (West African one-string bowed spike fiddle)",
+  "family": "bowed",
+  "class": "bowed_spike_fiddle",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "goje",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "goje_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "goje_hausa",
+          "default": true,
+          "name": "Hausa goge (Nigeria/Niger)",
+          "descriptors": [
+            "loud",
+            "bori-trance",
+            "entertainment"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "one-string"
+          ],
+          "canonical_tags": [
+            "west_africa",
+            "hausa"
+          ]
+        },
+        {
+          "id": "goje_dagbamba",
+          "name": "Dagbamba gondze / gonje (Ghana)",
+          "descriptors": [
+            "praise-singing",
+            "courtly",
+            "narrative"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "west_africa",
+            "dagbamba"
+          ]
+        },
+        {
+          "id": "goje_fulani_riti",
+          "name": "Fulani nyanyeru / Wolof riti (Senegambia)",
+          "descriptors": [
+            "pastoral",
+            "intimate",
+            "herders-fiddle"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "west_africa",
+            "fula"
+          ]
+        },
+        {
+          "id": "goje_yoruba",
+          "name": "Yoruba goje (sákárà)",
+          "descriptors": [
+            "nasal",
+            "urban",
+            "sakara"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "west_africa",
+            "yoruba"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "goje_repertoire",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "goje_praise",
+          "default": true,
+          "name": "Praise-song accompaniment",
+          "descriptors": [
+            "vocal-shadowing",
+            "melismatic",
+            "responsive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string"
+          ],
+          "canonical_tags": [
+            "praise"
+          ]
+        },
+        {
+          "id": "goje_bori",
+          "name": "Bori possession trance",
+          "descriptors": [
+            "trance",
+            "ostinato",
+            "hypnotic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "ritual"
+          ]
+        },
+        {
+          "id": "goje_dance",
+          "name": "Social dance entertainment",
+          "descriptors": [
+            "driving",
+            "rhythmic",
+            "festive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "dance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "goje_material",
+      "surface": false,
+      "name": "Membrane and string material",
+      "variants": [
+        {
+          "id": "goje_lizard_membrane",
+          "default": true,
+          "name": "Monitor-lizard skin over calabash, horsehair string",
+          "descriptors": [
+            "lizard-skin",
+            "buzzy",
+            "calabash-resonator"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "gourd-body"
+          ]
+        },
+        {
+          "id": "goje_goat_membrane",
+          "name": "Goatskin membrane",
+          "descriptors": [
+            "goatskin",
+            "warmer",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "gourd-body"
+          ]
+        },
+        {
+          "id": "goje_nylon_string",
+          "name": "Modern nylon / gut string",
+          "descriptors": [
+            "modern",
+            "nylon-string",
+            "brighter"
+          ],
+          "match_tokens": [
+            "bowed"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "goje_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "goje_hausa",
+          "default": true,
+          "name": "Hausa goge (Nigeria/Niger)",
+          "descriptors": [
+            "loud",
+            "bori-trance",
+            "entertainment"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "one-string"
+          ],
+          "canonical_tags": [
+            "west_africa",
+            "hausa"
+          ]
+        },
+        {
+          "id": "goje_dagbamba",
+          "name": "Dagbamba gondze / gonje (Ghana)",
+          "descriptors": [
+            "praise-singing",
+            "courtly",
+            "narrative"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "west_africa",
+            "dagbamba"
+          ]
+        },
+        {
+          "id": "goje_fulani_riti",
+          "name": "Fulani nyanyeru / Wolof riti (Senegambia)",
+          "descriptors": [
+            "pastoral",
+            "intimate",
+            "herders-fiddle"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "west_africa",
+            "fula"
+          ]
+        },
+        {
+          "id": "goje_yoruba",
+          "name": "Yoruba goje (sákárà)",
+          "descriptors": [
+            "nasal",
+            "urban",
+            "sakara"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "west_africa",
+            "yoruba"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "goje_repertoire",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "goje_praise",
+          "default": true,
+          "name": "Praise-song accompaniment",
+          "descriptors": [
+            "vocal-shadowing",
+            "melismatic",
+            "responsive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string"
+          ],
+          "canonical_tags": [
+            "praise"
+          ]
+        },
+        {
+          "id": "goje_bori",
+          "name": "Bori possession trance",
+          "descriptors": [
+            "trance",
+            "ostinato",
+            "hypnotic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "ritual"
+          ]
+        },
+        {
+          "id": "goje_dance",
+          "name": "Social dance entertainment",
+          "descriptors": [
+            "driving",
+            "rhythmic",
+            "festive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "dance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "goje_material",
+      "surface": false,
+      "name": "Membrane and string material",
+      "variants": [
+        {
+          "id": "goje_lizard_membrane",
+          "default": true,
+          "name": "Monitor-lizard skin over calabash, horsehair string",
+          "descriptors": [
+            "lizard-skin",
+            "buzzy",
+            "calabash-resonator"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "gourd-body"
+          ]
+        },
+        {
+          "id": "goje_goat_membrane",
+          "name": "Goatskin membrane",
+          "descriptors": [
+            "goatskin",
+            "warmer",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "gourd-body"
+          ]
+        },
+        {
+          "id": "goje_nylon_string",
+          "name": "Modern nylon / gut string",
+          "descriptors": [
+            "modern",
+            "nylon-string",
+            "brighter"
+          ],
+          "match_tokens": [
+            "bowed"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

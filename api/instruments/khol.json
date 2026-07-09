@@ -1,0 +1,374 @@
+{
+  "id": "khol",
+  "name": "Khol (Bengali clay-bodied kirtan drum)",
+  "family": "percussion",
+  "class": "two_headed_drum",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -2,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "khol",
+  "parts": [
+    {
+      "id": "khol_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "khol_bengali",
+          "default": true,
+          "name": "Bengali Gaudiya khol",
+          "descriptors": [
+            "devotional",
+            "bright-treble",
+            "ecstatic"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "two-headed-drum"
+          ],
+          "canonical_tags": [
+            "bengali",
+            "gaudiya-vaishnava"
+          ]
+        },
+        {
+          "id": "khol_assamese",
+          "name": "Assamese Sattriya khol",
+          "descriptors": [
+            "temple",
+            "liturgical",
+            "measured"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "assamese",
+            "sattriya"
+          ]
+        },
+        {
+          "id": "khol_manipuri_pung",
+          "name": "Manipuri pung",
+          "descriptors": [
+            "danced",
+            "resonant",
+            "processional"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "two-headed-drum"
+          ],
+          "canonical_tags": [
+            "manipuri",
+            "nata-sankirtana"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "khol_repertoire",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "khol_kirtan_drive",
+          "default": true,
+          "name": "Harinam sankirtan drive",
+          "descriptors": [
+            "accelerating",
+            "ecstatic",
+            "trance-building"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "kirtan"
+          ]
+        },
+        {
+          "id": "khol_borgeet_liturgical",
+          "name": "Borgeet liturgical song",
+          "descriptors": [
+            "stately",
+            "liturgical",
+            "measured"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "borgeet",
+            "devotional"
+          ]
+        },
+        {
+          "id": "khol_bol_solo",
+          "name": "Kholer bol solo",
+          "descriptors": [
+            "intricate",
+            "syllabic",
+            "showpiece"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "sharp-attack"
+          ],
+          "canonical_tags": [
+            "bol",
+            "solo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "khol_body",
+      "surface": false,
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "khol_body_clay",
+          "default": true,
+          "name": "Baked terracotta body",
+          "descriptors": [
+            "terracotta",
+            "warm",
+            "traditional"
+          ],
+          "match_tokens": [
+            "struck",
+            "clay-body"
+          ],
+          "canonical_tags": [
+            "terracotta"
+          ]
+        },
+        {
+          "id": "khol_body_wood",
+          "name": "Wooden shell",
+          "descriptors": [
+            "wooden",
+            "robust",
+            "resonant"
+          ],
+          "match_tokens": [
+            "struck",
+            "wood-body"
+          ],
+          "canonical_tags": [
+            "wood"
+          ]
+        },
+        {
+          "id": "khol_body_fiberglass",
+          "name": "Fiberglass body",
+          "descriptors": [
+            "fiberglass",
+            "durable",
+            "modern"
+          ],
+          "match_tokens": [
+            "struck",
+            "durable"
+          ],
+          "canonical_tags": [
+            "fiberglass",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "khol_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "khol_bengali",
+          "default": true,
+          "name": "Bengali Gaudiya khol",
+          "descriptors": [
+            "devotional",
+            "bright-treble",
+            "ecstatic"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "two-headed-drum"
+          ],
+          "canonical_tags": [
+            "bengali",
+            "gaudiya-vaishnava"
+          ]
+        },
+        {
+          "id": "khol_assamese",
+          "name": "Assamese Sattriya khol",
+          "descriptors": [
+            "temple",
+            "liturgical",
+            "measured"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "assamese",
+            "sattriya"
+          ]
+        },
+        {
+          "id": "khol_manipuri_pung",
+          "name": "Manipuri pung",
+          "descriptors": [
+            "danced",
+            "resonant",
+            "processional"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "two-headed-drum"
+          ],
+          "canonical_tags": [
+            "manipuri",
+            "nata-sankirtana"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "khol_repertoire",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "khol_kirtan_drive",
+          "default": true,
+          "name": "Harinam sankirtan drive",
+          "descriptors": [
+            "accelerating",
+            "ecstatic",
+            "trance-building"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "kirtan"
+          ]
+        },
+        {
+          "id": "khol_borgeet_liturgical",
+          "name": "Borgeet liturgical song",
+          "descriptors": [
+            "stately",
+            "liturgical",
+            "measured"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "borgeet",
+            "devotional"
+          ]
+        },
+        {
+          "id": "khol_bol_solo",
+          "name": "Kholer bol solo",
+          "descriptors": [
+            "intricate",
+            "syllabic",
+            "showpiece"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-struck",
+            "sharp-attack"
+          ],
+          "canonical_tags": [
+            "bol",
+            "solo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "khol_body",
+      "surface": false,
+      "name": "Body material",
+      "variants": [
+        {
+          "id": "khol_body_clay",
+          "default": true,
+          "name": "Baked terracotta body",
+          "descriptors": [
+            "terracotta",
+            "warm",
+            "traditional"
+          ],
+          "match_tokens": [
+            "struck",
+            "clay-body"
+          ],
+          "canonical_tags": [
+            "terracotta"
+          ]
+        },
+        {
+          "id": "khol_body_wood",
+          "name": "Wooden shell",
+          "descriptors": [
+            "wooden",
+            "robust",
+            "resonant"
+          ],
+          "match_tokens": [
+            "struck",
+            "wood-body"
+          ],
+          "canonical_tags": [
+            "wood"
+          ]
+        },
+        {
+          "id": "khol_body_fiberglass",
+          "name": "Fiberglass body",
+          "descriptors": [
+            "fiberglass",
+            "durable",
+            "modern"
+          ],
+          "match_tokens": [
+            "struck",
+            "durable"
+          ],
+          "canonical_tags": [
+            "fiberglass",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

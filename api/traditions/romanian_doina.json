@@ -3,9 +3,9 @@
   "name": "Romanian doina (free-rhythm lament)",
   "family": "global",
   "lineage": "Romanian doina free-rhythm extended-melismatic lament-and-pastoral solo vocal-or-instrumental tradition of Romania and Moldova. Performance: solo unaccompanied voice (or solo violin, solo wooden-flute caval, or solo wooden-clarinet) in characteristic free-rhythm parlando-rubato style with extensive ornamental-melismatic figuration on long vowels. The doina has multiple regional sub-traditions: doină de jale (lament-doina), doină ciobănească (shepherd-doina), doină haiducească (outlaw-doina), and doină de dragoste (love-doina), each with characteristic regional intonation conventions. Distinguished from broader Romanian folk-song by doina's strict free-rhythm extended-melismatic structural requirement.",
-  "recipe": "classic Southern European modern romanian doina, ballad Poetry, med east poetic branch, vocal drone modal armenian duduk-accompanied chant skolt sámi leuʹdd. vocal fry, declaimed, nervy, ornamental. silver wound lamb gut core sitka spruce hard rock maple acer saccharum violin orchestral, softer tone ebonite hard rubber klezmer tradition clarinet. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 569,
-  "score": 202.205,
+  "recipe": "classic Southern European modern romanian doina, ballad Poetry, med east poetic branch, vocal drone modal armenian duduk-accompanied chant skolt sámi leuʹdd. vocal fry, declaimed, nervy, ornamental. silver wound lamb gut core sitka spruce hard rock maple acer saccharum violin orchestral, softer tone ebonite hard rubber klezmer tradition clarinet, rubato free rhythm cobza, rubato glissando nai romanian. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 626,
+  "score": 277.8,
   "config": {
     "traditions": [
       "romanian_doina",
@@ -94,6 +94,32 @@
           "clarinet_size": 5.405,
           "clarinet_reed": 2.5999999999999996,
           "clarinet_articulation": 0.5
+        }
+      },
+      {
+        "id": "cobza",
+        "slots": {
+          "cobza_form": "cobza_moldavian",
+          "cobza_role": "cobza_doina_free",
+          "cobza_strings": "cobza_steel_wound"
+        },
+        "scores": {
+          "cobza_form": 3.68,
+          "cobza_role": 11.094999999999999,
+          "cobza_strings": 9.045
+        }
+      },
+      {
+        "id": "nai_romanian",
+        "slots": {
+          "nai_romanian_form": "nai_romanian_traditional",
+          "nai_romanian_repertoire": "nai_romanian_doina",
+          "nai_romanian_pipe_material": "nai_romanian_wood"
+        },
+        "scores": {
+          "nai_romanian_form": 11.805,
+          "nai_romanian_repertoire": 35.74500000000001,
+          "nai_romanian_pipe_material": 4.225
         }
       }
     ],

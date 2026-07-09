@@ -3,9 +3,9 @@
   "name": "Maghrebi Andalusi nuba",
   "family": "classical",
   "lineage": "Maghrebi Andalusi nuba (al-Āla in Moroccan usage, gharnati in Algerian, ma'luf in Tunisian and Libyan) classical modal-suite tradition descended directly from the medieval Andalusi music of al-Andalus (Muslim Spain, ninth-fifteenth centuries) through the post-1492 expulsion-diaspora that brought the Andalusi musical tradition to the North African Maghreb. Each of the four primary Maghrebi traditions preserves a regional-variant repertoire: Moroccan al-Āla preserves eleven canonical nubat (suites), Algerian gharnati and san'a preserve overlapping suite-cycles, Tunisian ma'luf preserves thirteen nubat, and Libyan ma'luf preserves a smaller set in the same family. Each nuba is a multi-movement suite organized around a single maqam (modal-cycle), comprising five canonical movements: mizan al-busayt (slow-opening rhythmic-movement), mizan al-qaim wa-nisf (mid-tempo movement), mizan al-btayhi (lighter-tempo middle movement), mizan al-darj (faster movement), and mizan al-quddam (concluding fast-tempo movement). Performance configuration: male choir of cantor-and-chorus (the singers carry the lyric verse, drawn from classical Arabic and Andalusi-period muwashshah strophic poetry and zajal vernacular-Arabic verse) accompanied by the canonical Andalusi ensemble — oud (the canonical Arabic-Andalusi lute), rebab (the two-string spike-fiddle), qanun (the trapezoidal box-zither), nay (the end-blown reed flute), and darbuka or tar percussion. Modal vocabulary draws on the Andalusi-specific tab' modal system (twenty-four named modes in the Moroccan recension), with characteristic microtonal intonation distinct from Mashriq Arabic maqam. Carl Davila's The Andalusian Music of Morocco: al-Āla (Reichert Verlag 2013) and the Maison des Cultures du Monde Inédit W260027 catalog constitute the principal Western-distributed scholarship and recordings. Distinguished from Mashriq Arabic maqam (Iraqi, Egyptian, Levantine) by Andalusi-specific suite-of-five-mizans (vs Mashriq tahrir-miyana-taslim) architecture and Andalusi-specific tab' modal vocabulary; distinguished from neighboring Saharan and West-African Sufi traditions by Andalusi nuba's elite-urban-court-and-chamber (vs popular-religious-or-pastoral) functional context.",
-  "recipe": "classic North African early-1490s maghrebi andalusi nuba, art Music, middle eastern classical branch, Persian arab improv improv on frame tarab turkish-romani çümbüş music. vocal fry, low dynamic level, chest resonance low mid, punctuated. a cappella small 3 to 8 one per part five voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble, walnut ribs canonical mid tier spruce face pyramid nylon oud, carved hardwood canonical javanese goat skin canonical javanese steel modern microtonal rebab, metal finger picks walnut body canonical decorative goat skin bridge plate gut historical qanun, spun aluminum Egyptian sombaty synthetic remo mylar modern canonical Egyptian Egyptian sombaty canonical mid east darbuka. nuba courtyard hall. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 872,
-  "score": 524.765,
+  "recipe": "classic North African early-1490s maghrebi andalusi nuba, art Music, middle eastern classical branch, Persian arab improv improv on frame tarab turkish-romani çümbüş music. vocal fry, low dynamic level, chest resonance low mid, punctuated. a cappella small 3 to 8 one per part five voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble, walnut ribs canonical mid tier spruce face pyramid nylon oud, heterophonic melodic lead legato rabab maghribi, metal finger picks walnut body canonical decorative goat skin bridge plate gut historical qanun, spun aluminum Egyptian sombaty synthetic remo mylar modern canonical Egyptian Egyptian sombaty canonical mid east darbuka. nuba courtyard hall. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 826,
+  "score": 533.853,
   "config": {
     "traditions": [
       "maghrebi_andalusi_nuba",
@@ -89,22 +89,18 @@
         }
       },
       {
-        "id": "rebab",
+        "id": "rabab_maghribi",
         "slots": {
-          "bowed_technique": "bowed_microtonal_inflected",
-          "rebab_region": "rebab_yemeni",
-          "rebab_context": "rebab_solo",
-          "rebab_body": "rebab_wood_carved",
-          "rebab_skin": "rebab_goat_skin",
-          "rebab_strings": "rebab_steel_modern"
+          "bowed_technique": "bowed_legato_classical",
+          "rabab_maghribi_form": "rabab_maghribi_andalusi",
+          "rabab_maghribi_role": "rabab_maghribi_nuba",
+          "rabab_maghribi_strings": "rabab_maghribi_gut"
         },
         "scores": {
-          "bowed_technique": 25.325,
-          "rebab_region": 17.745,
-          "rebab_context": 4.745,
-          "rebab_body": 5.404249999999999,
-          "rebab_skin": 5.404249999999999,
-          "rebab_strings": 3.9042499999999993
+          "bowed_technique": 18.25,
+          "rabab_maghribi_form": 41.31200000000001,
+          "rabab_maghribi_role": 12.088,
+          "rabab_maghribi_strings": -0.035
         }
       },
       {
@@ -185,12 +181,6 @@
       "darbuka_material": "darbuka_aluminum_sombaty",
       "darbuka_skin": "darbuka_synthetic_mylar",
       "darbuka_regional_style": "darbuka_egyptian_sombaty",
-      "bowed_technique": "bowed_microtonal_inflected",
-      "rebab_region": "rebab_malay",
-      "rebab_context": "rebab_solo",
-      "rebab_body": "rebab_wood_carved",
-      "rebab_skin": "rebab_goat_skin",
-      "rebab_strings": "rebab_steel_modern",
       "plucked_traditional_technique": "plucked_classical_idiom",
       "qanun_strings": "qanun_arab_72",
       "qanun_pick": "qanun_finger_picks",

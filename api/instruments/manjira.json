@@ -1,0 +1,414 @@
+{
+  "id": "manjira",
+  "name": "Manjira (Hindu brass hand cymbals)",
+  "family": "percussion",
+  "class": "hand_cymbals",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 2,
+    "range": -1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "manjira",
+  "parts": [
+    {
+      "id": "manjira_form",
+      "name": "Type & size",
+      "variants": [
+        {
+          "id": "manjira_taal_small",
+          "default": true,
+          "name": "Manjira / taal (small thick bhajan cymbals)",
+          "descriptors": [
+            "small",
+            "high-pitched",
+            "bright-ting"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-cymbals",
+            "metallic-ting"
+          ],
+          "canonical_tags": [
+            "south_asia",
+            "devotional"
+          ]
+        },
+        {
+          "id": "manjira_jalra",
+          "name": "Jalra (South Indian sampradaya bhajan cymbals)",
+          "descriptors": [
+            "thick",
+            "carnatic",
+            "cutting"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-cymbals",
+            "clashed"
+          ],
+          "canonical_tags": [
+            "south_india",
+            "bhajan"
+          ]
+        },
+        {
+          "id": "manjira_karatala",
+          "name": "Karatala (Gaudiya / Bengali kirtan cymbals)",
+          "descriptors": [
+            "bengali",
+            "broad-clash",
+            "vaishnava"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-cymbals",
+            "clashed"
+          ],
+          "canonical_tags": [
+            "bengal",
+            "kirtan"
+          ]
+        },
+        {
+          "id": "manjira_jhanj",
+          "name": "Jhanjh (larger heavy clash cymbals)",
+          "descriptors": [
+            "large",
+            "heavy",
+            "loud-clash"
+          ],
+          "match_tokens": [
+            "struck",
+            "clashed",
+            "metallic-ting"
+          ],
+          "canonical_tags": [
+            "processional",
+            "aarti"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "manjira_stroke",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "manjira_tala_ostinato",
+          "default": true,
+          "name": "Steady tala timekeeping (bhajan / kirtan)",
+          "descriptors": [
+            "steady",
+            "cyclic",
+            "tala-keeping"
+          ],
+          "match_tokens": [
+            "struck",
+            "time-keeping",
+            "hand-cymbals"
+          ],
+          "canonical_tags": [
+            "bhajan",
+            "kirtan"
+          ]
+        },
+        {
+          "id": "manjira_damped_edge",
+          "name": "Damped edge strokes (crisp closed clash)",
+          "descriptors": [
+            "damped",
+            "crisp",
+            "closed"
+          ],
+          "match_tokens": [
+            "struck",
+            "clashed",
+            "muted"
+          ],
+          "canonical_tags": [
+            "intimate"
+          ]
+        },
+        {
+          "id": "manjira_open_ringing",
+          "name": "Open ringing clashes (aarti / processional build)",
+          "descriptors": [
+            "open-ring",
+            "accelerating",
+            "fervent"
+          ],
+          "match_tokens": [
+            "struck",
+            "clashed",
+            "metallic-ting"
+          ],
+          "canonical_tags": [
+            "aarti",
+            "processional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "manjira_metal",
+      "surface": false,
+      "name": "Cymbal metal",
+      "variants": [
+        {
+          "id": "manjira_brass",
+          "default": true,
+          "name": "Brass",
+          "descriptors": [
+            "brass",
+            "bright",
+            "standard"
+          ],
+          "match_tokens": [
+            "metallic-ting",
+            "struck"
+          ],
+          "canonical_tags": [
+            "brass"
+          ]
+        },
+        {
+          "id": "manjira_bell_bronze",
+          "name": "Bell metal / kansa bronze",
+          "descriptors": [
+            "bell-metal",
+            "ringing",
+            "sustained"
+          ],
+          "match_tokens": [
+            "metallic-ting",
+            "struck"
+          ],
+          "canonical_tags": [
+            "bronze"
+          ]
+        },
+        {
+          "id": "manjira_ashtadhatu",
+          "name": "Ashtadhatu (eight-metal temple alloy)",
+          "descriptors": [
+            "ashtadhatu",
+            "sacred",
+            "complex-overtones"
+          ],
+          "match_tokens": [
+            "metallic-ting",
+            "struck"
+          ],
+          "canonical_tags": [
+            "temple",
+            "alloy"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "manjira_form",
+      "name": "Type & size",
+      "variants": [
+        {
+          "id": "manjira_taal_small",
+          "default": true,
+          "name": "Manjira / taal (small thick bhajan cymbals)",
+          "descriptors": [
+            "small",
+            "high-pitched",
+            "bright-ting"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-cymbals",
+            "metallic-ting"
+          ],
+          "canonical_tags": [
+            "south_asia",
+            "devotional"
+          ]
+        },
+        {
+          "id": "manjira_jalra",
+          "name": "Jalra (South Indian sampradaya bhajan cymbals)",
+          "descriptors": [
+            "thick",
+            "carnatic",
+            "cutting"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-cymbals",
+            "clashed"
+          ],
+          "canonical_tags": [
+            "south_india",
+            "bhajan"
+          ]
+        },
+        {
+          "id": "manjira_karatala",
+          "name": "Karatala (Gaudiya / Bengali kirtan cymbals)",
+          "descriptors": [
+            "bengali",
+            "broad-clash",
+            "vaishnava"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-cymbals",
+            "clashed"
+          ],
+          "canonical_tags": [
+            "bengal",
+            "kirtan"
+          ]
+        },
+        {
+          "id": "manjira_jhanj",
+          "name": "Jhanjh (larger heavy clash cymbals)",
+          "descriptors": [
+            "large",
+            "heavy",
+            "loud-clash"
+          ],
+          "match_tokens": [
+            "struck",
+            "clashed",
+            "metallic-ting"
+          ],
+          "canonical_tags": [
+            "processional",
+            "aarti"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "manjira_stroke",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "manjira_tala_ostinato",
+          "default": true,
+          "name": "Steady tala timekeeping (bhajan / kirtan)",
+          "descriptors": [
+            "steady",
+            "cyclic",
+            "tala-keeping"
+          ],
+          "match_tokens": [
+            "struck",
+            "time-keeping",
+            "hand-cymbals"
+          ],
+          "canonical_tags": [
+            "bhajan",
+            "kirtan"
+          ]
+        },
+        {
+          "id": "manjira_damped_edge",
+          "name": "Damped edge strokes (crisp closed clash)",
+          "descriptors": [
+            "damped",
+            "crisp",
+            "closed"
+          ],
+          "match_tokens": [
+            "struck",
+            "clashed",
+            "muted"
+          ],
+          "canonical_tags": [
+            "intimate"
+          ]
+        },
+        {
+          "id": "manjira_open_ringing",
+          "name": "Open ringing clashes (aarti / processional build)",
+          "descriptors": [
+            "open-ring",
+            "accelerating",
+            "fervent"
+          ],
+          "match_tokens": [
+            "struck",
+            "clashed",
+            "metallic-ting"
+          ],
+          "canonical_tags": [
+            "aarti",
+            "processional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "manjira_metal",
+      "surface": false,
+      "name": "Cymbal metal",
+      "variants": [
+        {
+          "id": "manjira_brass",
+          "default": true,
+          "name": "Brass",
+          "descriptors": [
+            "brass",
+            "bright",
+            "standard"
+          ],
+          "match_tokens": [
+            "metallic-ting",
+            "struck"
+          ],
+          "canonical_tags": [
+            "brass"
+          ]
+        },
+        {
+          "id": "manjira_bell_bronze",
+          "name": "Bell metal / kansa bronze",
+          "descriptors": [
+            "bell-metal",
+            "ringing",
+            "sustained"
+          ],
+          "match_tokens": [
+            "metallic-ting",
+            "struck"
+          ],
+          "canonical_tags": [
+            "bronze"
+          ]
+        },
+        {
+          "id": "manjira_ashtadhatu",
+          "name": "Ashtadhatu (eight-metal temple alloy)",
+          "descriptors": [
+            "ashtadhatu",
+            "sacred",
+            "complex-overtones"
+          ],
+          "match_tokens": [
+            "metallic-ting",
+            "struck"
+          ],
+          "canonical_tags": [
+            "temple",
+            "alloy"
+          ]
+        }
+      ]
+    }
+  ]
+}

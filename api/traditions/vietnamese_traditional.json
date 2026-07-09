@@ -3,9 +3,9 @@
   "name": "Vietnamese chamber (nhạc tài tử and ca trù)",
   "family": "global",
   "lineage": "Vietnamese traditional chamber-music heritage spanning two distinct regional traditions — nhạc tài tử (Music of the Talented Amateurs), the Southern Vietnamese (Mekong Delta) chamber tradition of the 19th-century educated-amateur scholar-musician class, performed in private homes with đàn tranh (16-string Vietnamese zither), đàn bầu (Vietnamese monochord), đàn nguyệt (moon-shaped lute), đàn tỳ bà (pear-shaped lute), sáo trúc (bamboo flute), with characteristic improvisation and modal variation; ca trù (the Northern Vietnamese sung-poetry tradition), performed by female ca nương vocalist accompanied by đàn đáy (three-string lute) and phách (wooden percussion clapper)",
-  "recipe": "classic Southeast Asian mid-1930s vietnamese chamber, art Music, southeast Asian branch, east Asian art music, south Asian art music beijing opera cantonese opera. vocal fry, pressed, chest resonance low mid, rhythmic. dan bau, paulownia dan tranh. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 416,
-  "score": 197.832,
+  "recipe": "classic Southeast Asian mid-1930s vietnamese chamber, art Music, southeast Asian branch, east Asian art music, south Asian art music beijing opera cantonese opera. vocal fry, pressed, chest resonance low mid, rhythmic. dan bau, paulownia dan tranh, dan nguyet. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 428,
+  "score": 204.127,
   "config": {
     "traditions": [
       "vietnamese_traditional",
@@ -78,6 +78,19 @@
           "dan_tranh_strings": 5.85,
           "dan_tranh_string_material": 0.39,
           "dan_tranh_body_wood": 1.6799999999999997
+        }
+      },
+      {
+        "id": "dan_nguyet",
+        "slots": {
+          "dan_nguyet_form": "dan_nguyet_southern",
+          "dan_nguyet_technique": "dan_nguyet_chau_van",
+          "dan_nguyet_strings": "dan_nguyet_silk"
+        },
+        "scores": {
+          "dan_nguyet_form": 3.394999999999999,
+          "dan_nguyet_technique": 2.15,
+          "dan_nguyet_strings": 0.75
         }
       }
     ],

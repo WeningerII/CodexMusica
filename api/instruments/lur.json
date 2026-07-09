@@ -1,0 +1,338 @@
+{
+  "id": "lur",
+  "name": "Lur (Nordic herding trumpet)",
+  "family": "wind",
+  "class": "natural_trumpet",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "lur",
+  "parts": [
+    {
+      "id": "lur_form",
+      "name": "Form / type",
+      "variants": [
+        {
+          "id": "lur_wooden_herding",
+          "default": true,
+          "name": "Wooden herding lur (split-conifer, bark-bound)",
+          "descriptors": [
+            "pastoral",
+            "broad-toned",
+            "far-carrying"
+          ],
+          "match_tokens": [
+            "lip-buzzed",
+            "natural-harmonics",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "nordic",
+            "scandinavian",
+            "herding"
+          ]
+        },
+        {
+          "id": "lur_neverlur_birchbark",
+          "name": "Neverlur (spiral-wound birch-bark trumpet)",
+          "descriptors": [
+            "bright",
+            "reedy",
+            "lightweight"
+          ],
+          "match_tokens": [
+            "lip-buzzed",
+            "natural-harmonics"
+          ],
+          "canonical_tags": [
+            "nordic",
+            "birch-bark",
+            "folk"
+          ]
+        },
+        {
+          "id": "lur_bronze_ancient",
+          "name": "Bronze lur (Bronze Age S-curved cast horn, played in pairs)",
+          "descriptors": [
+            "archaic",
+            "ceremonial",
+            "metallic-ring"
+          ],
+          "match_tokens": [
+            "lip-buzzed",
+            "natural-harmonics",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "nordic",
+            "bronze-age",
+            "ceremonial"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lur_repertoire",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "lur_herding_calls",
+          "default": true,
+          "name": "Herding calls (summoning livestock across the fabod)",
+          "descriptors": [
+            "calling",
+            "pastoral",
+            "long-breathed"
+          ],
+          "match_tokens": [
+            "natural-harmonics",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "herding",
+            "fabod",
+            "seter"
+          ]
+        },
+        {
+          "id": "lur_signal_fanfare",
+          "name": "Signal fanfares (warning / gathering motifs on 3-5 harmonics)",
+          "descriptors": [
+            "fanfare",
+            "signaling",
+            "martial"
+          ],
+          "match_tokens": [
+            "lip-buzzed",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "signal",
+            "fanfare"
+          ]
+        },
+        {
+          "id": "lur_paired_antiphonal",
+          "name": "Paired antiphonal calls (two lurs answering, ritual/ancient)",
+          "descriptors": [
+            "antiphonal",
+            "ritual",
+            "ancient"
+          ],
+          "match_tokens": [
+            "natural-harmonics",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "ceremonial",
+            "paired"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lur_mouthpiece",
+      "surface": false,
+      "name": "Mouthpiece construction",
+      "variants": [
+        {
+          "id": "lur_carved_rim",
+          "default": true,
+          "name": "Carved wooden rim / shallow cup",
+          "descriptors": [
+            "rustic",
+            "direct-buzz"
+          ],
+          "match_tokens": [
+            "lip-buzzed"
+          ],
+          "canonical_tags": [
+            "wooden"
+          ]
+        },
+        {
+          "id": "lur_cast_disc",
+          "name": "Integral cast disc mouthpiece (bronze lur)",
+          "descriptors": [
+            "cupped",
+            "focused"
+          ],
+          "match_tokens": [
+            "lip-buzzed"
+          ],
+          "canonical_tags": [
+            "bronze"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "lur_form",
+      "name": "Form / type",
+      "variants": [
+        {
+          "id": "lur_wooden_herding",
+          "default": true,
+          "name": "Wooden herding lur (split-conifer, bark-bound)",
+          "descriptors": [
+            "pastoral",
+            "broad-toned",
+            "far-carrying"
+          ],
+          "match_tokens": [
+            "lip-buzzed",
+            "natural-harmonics",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "nordic",
+            "scandinavian",
+            "herding"
+          ]
+        },
+        {
+          "id": "lur_neverlur_birchbark",
+          "name": "Neverlur (spiral-wound birch-bark trumpet)",
+          "descriptors": [
+            "bright",
+            "reedy",
+            "lightweight"
+          ],
+          "match_tokens": [
+            "lip-buzzed",
+            "natural-harmonics"
+          ],
+          "canonical_tags": [
+            "nordic",
+            "birch-bark",
+            "folk"
+          ]
+        },
+        {
+          "id": "lur_bronze_ancient",
+          "name": "Bronze lur (Bronze Age S-curved cast horn, played in pairs)",
+          "descriptors": [
+            "archaic",
+            "ceremonial",
+            "metallic-ring"
+          ],
+          "match_tokens": [
+            "lip-buzzed",
+            "natural-harmonics",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "nordic",
+            "bronze-age",
+            "ceremonial"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lur_repertoire",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "lur_herding_calls",
+          "default": true,
+          "name": "Herding calls (summoning livestock across the fabod)",
+          "descriptors": [
+            "calling",
+            "pastoral",
+            "long-breathed"
+          ],
+          "match_tokens": [
+            "natural-harmonics",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "herding",
+            "fabod",
+            "seter"
+          ]
+        },
+        {
+          "id": "lur_signal_fanfare",
+          "name": "Signal fanfares (warning / gathering motifs on 3-5 harmonics)",
+          "descriptors": [
+            "fanfare",
+            "signaling",
+            "martial"
+          ],
+          "match_tokens": [
+            "lip-buzzed",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "signal",
+            "fanfare"
+          ]
+        },
+        {
+          "id": "lur_paired_antiphonal",
+          "name": "Paired antiphonal calls (two lurs answering, ritual/ancient)",
+          "descriptors": [
+            "antiphonal",
+            "ritual",
+            "ancient"
+          ],
+          "match_tokens": [
+            "natural-harmonics",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "ceremonial",
+            "paired"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lur_mouthpiece",
+      "surface": false,
+      "name": "Mouthpiece construction",
+      "variants": [
+        {
+          "id": "lur_carved_rim",
+          "default": true,
+          "name": "Carved wooden rim / shallow cup",
+          "descriptors": [
+            "rustic",
+            "direct-buzz"
+          ],
+          "match_tokens": [
+            "lip-buzzed"
+          ],
+          "canonical_tags": [
+            "wooden"
+          ]
+        },
+        {
+          "id": "lur_cast_disc",
+          "name": "Integral cast disc mouthpiece (bronze lur)",
+          "descriptors": [
+            "cupped",
+            "focused"
+          ],
+          "match_tokens": [
+            "lip-buzzed"
+          ],
+          "canonical_tags": [
+            "bronze"
+          ]
+        }
+      ]
+    }
+  ]
+}

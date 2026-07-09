@@ -3,9 +3,9 @@
   "name": "Samoan siva and fagufagu (Polynesian dance-song)",
   "family": "global",
   "lineage": "Samoan siva (formal dance) and fagufagu (drum-led collective dance) Polynesian-cultural-performance traditions of the Samoan archipelago (Independent State of Samoa and American Samoa). The siva manaia is the standard performance featuring a single dancer (often the daughter of the host family in a fa'alavelave ceremonial gathering) accompanied by sung verses and slit-drum (pate) and rolled-mat (papa) percussion. The taualuga formal high-chief's-dance is the culminating ceremonial-form. Vocal repertoire features distinct fa'aluga (verse) and fa'amalama (refrain) structural sections. The post-twentieth-century Pacific-festival circuit and Polynesian Cultural Center anchor international circulation.",
-  "recipe": "classic Southeast Asian modern samoan siva and fagufagu, ritual Devotional, indigenous branch, vocal drone modal, blues narrative work song georgian three-voice polyphony corsican paghjella three-voice unaccompanied. vocal fry, declaimed, overtone rich sustained, narrative. log drum. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 509,
-  "score": 166.187,
+  "recipe": "classic Southeast Asian modern samoan siva and fagufagu, ritual Devotional, indigenous branch, vocal drone modal, blues narrative work song georgian three-voice polyphony corsican paghjella three-voice unaccompanied. vocal fry, declaimed, overtone rich sustained, narrative. high pitched fast dance interlocking pacific slit gong, samoan open tube dance accompaniment fagufagu. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 602,
+  "score": 217.987,
   "config": {
     "traditions": [
       "samoan_siva_fagufagu",
@@ -53,14 +53,29 @@
         }
       },
       {
-        "id": "log_drum",
+        "id": "pacific_slit_gong",
         "slots": {
-          "log_drum_voice": "log_drum_sub",
-          "log_drum_context": "log_drum_amapiano"
+          "pacific_slit_gong_form": "pacific_slit_gong_toere",
+          "pacific_slit_gong_role": "pacific_slit_gong_dance",
+          "pacific_slit_gong_wood": "pacific_slit_gong_toa"
         },
         "scores": {
-          "log_drum_voice": 0.285,
-          "log_drum_context": 0.845
+          "pacific_slit_gong_form": 7.815,
+          "pacific_slit_gong_role": 12.295,
+          "pacific_slit_gong_wood": -0.035
+        }
+      },
+      {
+        "id": "fagufagu",
+        "slots": {
+          "fagufagu_form": "fagufagu_samoan",
+          "fagufagu_repertoire": "fagufagu_siva",
+          "fagufagu_material": "fagufagu_ofe"
+        },
+        "scores": {
+          "fagufagu_form": 18.374999999999996,
+          "fagufagu_repertoire": 14.514999999999999,
+          "fagufagu_material": -0.035
         }
       }
     ],
@@ -96,9 +111,7 @@
       "voice_ornament_system": "voice_ornament_polynesian_falsetto",
       "voice_estill_quality": "voice_estill_falsetto",
       "voice_vibrato": "straight_tone",
-      "voice_mechanism_compound": "voice_mechanism_single_source",
-      "log_drum_voice": "log_drum_mid",
-      "log_drum_context": "log_drum_sa_house"
+      "voice_mechanism_compound": "voice_mechanism_single_source"
     },
     "chain_mic": "condenser_sdc",
     "chain_pre": "pre_field_recorder_portable",

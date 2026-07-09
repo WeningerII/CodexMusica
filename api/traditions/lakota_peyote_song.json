@@ -3,9 +3,9 @@
   "name": "Lakota peyote songs (Native American Church)",
   "family": "global",
   "lineage": "Lakota peyote-meeting songs of the Native American Church tradition: the canonical liturgical-song repertoire for the all-night peyote-sacrament ceremony shared across many North American Native nations through the post-1900 Native American Church organization. Performance: a singer using gourd-rattle and water-drum (small drum with water inside producing a distinctive pitched-glissando-able sound), in seated-circle configuration with the participants taking turns leading songs through the night. Repertoire combines Lakota-language songs with vocables-only material and (post-1920s) songs incorporating English-language Christian themes. Distinguished from broader powwow song by peyote-meeting's sacrament-specific liturgical context and the water-drum-and-gourd-rattle (vs powwow-drum) instrumental configuration.",
-  "recipe": "classic Northeast Asian mid-1920s lakota peyote songs, ritual Devotional, indigenous branch, blues narrative work song jeju haenyeo songs bahraini fjiri. thick, declaimed, chest resonance low mid, narrative. foundational high pitched powwow drum circle. open steppe outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 404,
-  "score": 124.548,
+  "recipe": "classic Northeast Asian mid-1920s lakota peyote songs, ritual Devotional, indigenous branch, blues narrative work song jeju haenyeo songs bahraini fjiri. thick, declaimed, chest resonance low mid, narrative. cast iron three legged daybreak morning water peyote water drum. open steppe outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 423,
+  "score": 136.226,
   "config": {
     "traditions": [
       "lakota_peyote_song",
@@ -53,14 +53,16 @@
         }
       },
       {
-        "id": "powwow_drum_circle",
+        "id": "peyote_water_drum",
         "slots": {
-          "members": "pw_lead_singer",
-          "style": "pw_northern"
+          "peyote_water_drum_vessel": "peyote_water_drum_iron_kettle",
+          "peyote_water_drum_way": "peyote_water_drum_daybreak",
+          "peyote_water_drum_head": "peyote_water_drum_thin_scraped"
         },
         "scores": {
-          "members": 1.69,
-          "style": 1.69
+          "peyote_water_drum_vessel": 5.7924999999999995,
+          "peyote_water_drum_way": 9.299999999999999,
+          "peyote_water_drum_head": -0.035
         }
       }
     ],
@@ -96,9 +98,7 @@
       "voice_ornament_system": "voice_ornament_polynesian_falsetto",
       "voice_estill_quality": "voice_estill_falsetto",
       "voice_vibrato": "straight_tone",
-      "voice_mechanism_compound": "voice_mechanism_single_source",
-      "members": "pw_lead_singer",
-      "style": "pw_northern"
+      "voice_mechanism_compound": "voice_mechanism_single_source"
     },
     "chain_mic": "condenser_sdc",
     "chain_pre": "pre_field_recorder_portable",

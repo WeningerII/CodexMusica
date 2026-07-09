@@ -3,9 +3,9 @@
   "name": "Pontic Greek music (Black Sea Greek)",
   "family": "global",
   "lineage": "Pontic Greek music tradition of the Pontic Greek ethnic community originating in the Black Sea coast of Anatolia (Trabzon, Sinop, Samsun regions, now Turkey), displaced post-1923 Greek-Turkish population exchange to mainland Greece (especially northern Greece, Athens, and Thessaloniki). Performance configuration centers on the Pontic kemenche (three-string upright-fiddle, distinct from Cretan lyra in tuning and playing technique), often accompanied by daouli large frame-drum and angeion bagpipe. Repertoire features fast asymmetrical-meter dance-music (omal, tik, dipat, tromakton) and slow narrative-and-lament forms (Pontic dialect of Greek with characteristic Anatolian-Greek phonological features). Distinguished from broader Greek demotic music by Pontic-Black-Sea regional identity, kemenche-instrument signature, and post-1923 diaspora-cultural-memory orientation.",
-  "recipe": "classic Southern European early-1920s pontic greek music, ballad Poetry, med east poetic branch, Slavic bard ballad poetry serbian guslar epic recitation powada. low dynamic level, narrative, maqam neutral step, Mediterranean demotic vocal. silver wound lamb gut core sitka spruce double stops violin orchestral, tambourine orch, mulberry canonical cretan gut pre modern cretan cretan lyra. athens major label 1955-1985 mid tier athens minos studios 60s 70s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 588,
-  "score": 116.22,
+  "recipe": "classic Southern European early-1920s pontic greek music, ballad Poetry, med east poetic branch, Slavic bard ballad poetry serbian guslar epic recitation powada. low dynamic level, narrative, maqam neutral step, Mediterranean demotic vocal. silver wound lamb gut core sitka spruce double stops violin orchestral, tambourine orch, mulberry canonical cretan gut pre modern cretan cretan lyra, cretan rhythmic laouto. athens major label 1955-1985 mid tier athens minos studios 60s 70s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 612,
+  "score": 164.31,
   "config": {
     "traditions": [
       "pontic_greek",
@@ -105,6 +105,19 @@
           "lyra_use": 1.2599999999999998,
           "lyra_body_wood": 2.535,
           "lyra_string_material": 1.4
+        }
+      },
+      {
+        "id": "laouto",
+        "slots": {
+          "laouto_form": "laouto_kritiko",
+          "laouto_role": "laouto_synodeia",
+          "laouto_strings": "laouto_strings_gut"
+        },
+        "scores": {
+          "laouto_form": 27.05000000000001,
+          "laouto_role": 19.369999999999997,
+          "laouto_strings": 1.67
         }
       }
     ],

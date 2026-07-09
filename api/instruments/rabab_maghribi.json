@@ -1,0 +1,359 @@
+{
+  "id": "rabab_maghribi",
+  "name": "Rabāb (Arab/Maghrebi bowed lute)",
+  "family": "bowed",
+  "class": "bowed_lute",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "rabab",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "rabab_maghribi_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "rabab_maghribi_andalusi",
+          "default": true,
+          "name": "Andalusi nūba rabāb (Moroccan al-āla / Algerian gharnāṭī)",
+          "descriptors": [
+            "boat-bodied",
+            "courtly",
+            "modal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretless",
+            "two-string"
+          ],
+          "canonical_tags": [
+            "andalusi",
+            "maghreb"
+          ]
+        },
+        {
+          "id": "rabab_maghribi_maluf",
+          "name": "Tunisian/Libyan malūf rabāb",
+          "descriptors": [
+            "reedy",
+            "stately",
+            "heterophonic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "reedy-tone"
+          ],
+          "canonical_tags": [
+            "maghreb",
+            "tunisia"
+          ]
+        },
+        {
+          "id": "rabab_maghribi_folk",
+          "name": "Rural/Berber folk rabāb",
+          "descriptors": [
+            "rough-tone",
+            "rustic",
+            "droning"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "maghreb",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rabab_maghribi_role",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "rabab_maghribi_nuba",
+          "default": true,
+          "name": "Nūba lead (heterophonic doubling of the sung line)",
+          "descriptors": [
+            "heterophonic",
+            "melodic-lead",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "nuba"
+          ]
+        },
+        {
+          "id": "rabab_maghribi_istikhbar",
+          "name": "Istikhbār / taqsīm solo (unmeasured modal exposition)",
+          "descriptors": [
+            "improvisatory",
+            "free-rhythm",
+            "modal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained"
+          ],
+          "canonical_tags": [
+            "taqsim"
+          ]
+        },
+        {
+          "id": "rabab_maghribi_takht",
+          "name": "Takht ensemble accompaniment (Levantine)",
+          "descriptors": [
+            "accompanying",
+            "interlocking",
+            "supportive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "takht",
+            "levant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rabab_maghribi_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "rabab_maghribi_gut",
+          "default": true,
+          "name": "Twisted gut strings",
+          "descriptors": [
+            "warm",
+            "traditional",
+            "nasal"
+          ],
+          "match_tokens": [
+            "gut-string",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "gut"
+          ]
+        },
+        {
+          "id": "rabab_maghribi_metal",
+          "name": "Metal strings",
+          "descriptors": [
+            "bright",
+            "penetrating",
+            "modern"
+          ],
+          "match_tokens": [
+            "metal-string",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "metal"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "rabab_maghribi_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "rabab_maghribi_andalusi",
+          "default": true,
+          "name": "Andalusi nūba rabāb (Moroccan al-āla / Algerian gharnāṭī)",
+          "descriptors": [
+            "boat-bodied",
+            "courtly",
+            "modal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "fretless",
+            "two-string"
+          ],
+          "canonical_tags": [
+            "andalusi",
+            "maghreb"
+          ]
+        },
+        {
+          "id": "rabab_maghribi_maluf",
+          "name": "Tunisian/Libyan malūf rabāb",
+          "descriptors": [
+            "reedy",
+            "stately",
+            "heterophonic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "reedy-tone"
+          ],
+          "canonical_tags": [
+            "maghreb",
+            "tunisia"
+          ]
+        },
+        {
+          "id": "rabab_maghribi_folk",
+          "name": "Rural/Berber folk rabāb",
+          "descriptors": [
+            "rough-tone",
+            "rustic",
+            "droning"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "maghreb",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rabab_maghribi_role",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "rabab_maghribi_nuba",
+          "default": true,
+          "name": "Nūba lead (heterophonic doubling of the sung line)",
+          "descriptors": [
+            "heterophonic",
+            "melodic-lead",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "bowed",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "nuba"
+          ]
+        },
+        {
+          "id": "rabab_maghribi_istikhbar",
+          "name": "Istikhbār / taqsīm solo (unmeasured modal exposition)",
+          "descriptors": [
+            "improvisatory",
+            "free-rhythm",
+            "modal"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained"
+          ],
+          "canonical_tags": [
+            "taqsim"
+          ]
+        },
+        {
+          "id": "rabab_maghribi_takht",
+          "name": "Takht ensemble accompaniment (Levantine)",
+          "descriptors": [
+            "accompanying",
+            "interlocking",
+            "supportive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "takht",
+            "levant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rabab_maghribi_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "rabab_maghribi_gut",
+          "default": true,
+          "name": "Twisted gut strings",
+          "descriptors": [
+            "warm",
+            "traditional",
+            "nasal"
+          ],
+          "match_tokens": [
+            "gut-string",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "gut"
+          ]
+        },
+        {
+          "id": "rabab_maghribi_metal",
+          "name": "Metal strings",
+          "descriptors": [
+            "bright",
+            "penetrating",
+            "modern"
+          ],
+          "match_tokens": [
+            "metal-string",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "metal"
+          ]
+        }
+      ]
+    }
+  ]
+}

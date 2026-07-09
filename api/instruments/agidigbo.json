@@ -1,0 +1,332 @@
+{
+  "id": "agidigbo",
+  "name": "Agidigbo (Yoruba bass box-lamellophone)",
+  "family": "plucked_traditional",
+  "class": "bass_lamellophone",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": -1,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "agidigbo",
+  "parts": [
+    {
+      "id": "agidigbo_tradition",
+      "name": "Regional form / ensemble role",
+      "variants": [
+        {
+          "id": "agidigbo_apala",
+          "default": true,
+          "name": "Apala bass agidigbo (deep box)",
+          "descriptors": [
+            "deep-box",
+            "booming",
+            "apala-foundation"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bass-foundation",
+            "lamellophone"
+          ],
+          "canonical_tags": [
+            "yoruba",
+            "west_africa",
+            "apala"
+          ]
+        },
+        {
+          "id": "agidigbo_palm_wine",
+          "name": "Palm-wine box bass (aro)",
+          "descriptors": [
+            "mellow",
+            "strolling",
+            "laid-back"
+          ],
+          "match_tokens": [
+            "plucked",
+            "lamellophone"
+          ],
+          "canonical_tags": [
+            "yoruba",
+            "palm_wine"
+          ]
+        },
+        {
+          "id": "agidigbo_juju",
+          "name": "Early juju box bass",
+          "descriptors": [
+            "driving",
+            "proto-juju",
+            "ostinato"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bass-foundation"
+          ],
+          "canonical_tags": [
+            "yoruba",
+            "juju"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "agidigbo_playing",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "agidigbo_thumb_ostinato",
+          "default": true,
+          "name": "Thumb-plucked bass ostinato",
+          "descriptors": [
+            "thumb-plucked",
+            "repeating",
+            "pulse"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bass-foundation"
+          ],
+          "canonical_tags": [
+            "yoruba"
+          ]
+        },
+        {
+          "id": "agidigbo_box_slap",
+          "name": "Box-slap percussion between plucks",
+          "descriptors": [
+            "box-slapped",
+            "percussive",
+            "dual-role"
+          ],
+          "match_tokens": [
+            "struck",
+            "percussive"
+          ],
+          "canonical_tags": [
+            "yoruba"
+          ]
+        },
+        {
+          "id": "agidigbo_riffs",
+          "name": "Responsorial melodic bass riffs",
+          "descriptors": [
+            "riffing",
+            "responsorial",
+            "melodic-bass"
+          ],
+          "match_tokens": [
+            "plucked",
+            "lamellophone"
+          ],
+          "canonical_tags": [
+            "yoruba"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "agidigbo_lamella",
+      "surface": false,
+      "name": "Tongue (lamella) material",
+      "variants": [
+        {
+          "id": "agidigbo_spring_steel",
+          "default": true,
+          "name": "Hammered spring-steel tongues",
+          "descriptors": [
+            "metallic",
+            "twangy",
+            "spring-steel"
+          ],
+          "match_tokens": [
+            "plucked",
+            "lamellophone"
+          ],
+          "canonical_tags": [
+            "yoruba"
+          ]
+        },
+        {
+          "id": "agidigbo_recycled_metal",
+          "name": "Recycled flat-strip metal tongues",
+          "descriptors": [
+            "buzzy",
+            "found-metal",
+            "rough-tone"
+          ],
+          "match_tokens": [
+            "plucked",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "yoruba"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "agidigbo_tradition",
+      "name": "Regional form / ensemble role",
+      "variants": [
+        {
+          "id": "agidigbo_apala",
+          "default": true,
+          "name": "Apala bass agidigbo (deep box)",
+          "descriptors": [
+            "deep-box",
+            "booming",
+            "apala-foundation"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bass-foundation",
+            "lamellophone"
+          ],
+          "canonical_tags": [
+            "yoruba",
+            "west_africa",
+            "apala"
+          ]
+        },
+        {
+          "id": "agidigbo_palm_wine",
+          "name": "Palm-wine box bass (aro)",
+          "descriptors": [
+            "mellow",
+            "strolling",
+            "laid-back"
+          ],
+          "match_tokens": [
+            "plucked",
+            "lamellophone"
+          ],
+          "canonical_tags": [
+            "yoruba",
+            "palm_wine"
+          ]
+        },
+        {
+          "id": "agidigbo_juju",
+          "name": "Early juju box bass",
+          "descriptors": [
+            "driving",
+            "proto-juju",
+            "ostinato"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bass-foundation"
+          ],
+          "canonical_tags": [
+            "yoruba",
+            "juju"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "agidigbo_playing",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "agidigbo_thumb_ostinato",
+          "default": true,
+          "name": "Thumb-plucked bass ostinato",
+          "descriptors": [
+            "thumb-plucked",
+            "repeating",
+            "pulse"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bass-foundation"
+          ],
+          "canonical_tags": [
+            "yoruba"
+          ]
+        },
+        {
+          "id": "agidigbo_box_slap",
+          "name": "Box-slap percussion between plucks",
+          "descriptors": [
+            "box-slapped",
+            "percussive",
+            "dual-role"
+          ],
+          "match_tokens": [
+            "struck",
+            "percussive"
+          ],
+          "canonical_tags": [
+            "yoruba"
+          ]
+        },
+        {
+          "id": "agidigbo_riffs",
+          "name": "Responsorial melodic bass riffs",
+          "descriptors": [
+            "riffing",
+            "responsorial",
+            "melodic-bass"
+          ],
+          "match_tokens": [
+            "plucked",
+            "lamellophone"
+          ],
+          "canonical_tags": [
+            "yoruba"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "agidigbo_lamella",
+      "surface": false,
+      "name": "Tongue (lamella) material",
+      "variants": [
+        {
+          "id": "agidigbo_spring_steel",
+          "default": true,
+          "name": "Hammered spring-steel tongues",
+          "descriptors": [
+            "metallic",
+            "twangy",
+            "spring-steel"
+          ],
+          "match_tokens": [
+            "plucked",
+            "lamellophone"
+          ],
+          "canonical_tags": [
+            "yoruba"
+          ]
+        },
+        {
+          "id": "agidigbo_recycled_metal",
+          "name": "Recycled flat-strip metal tongues",
+          "descriptors": [
+            "buzzy",
+            "found-metal",
+            "rough-tone"
+          ],
+          "match_tokens": [
+            "plucked",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "yoruba"
+          ]
+        }
+      ]
+    }
+  ]
+}

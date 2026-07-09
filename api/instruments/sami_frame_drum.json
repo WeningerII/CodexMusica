@@ -1,0 +1,312 @@
+{
+  "id": "sami_frame_drum",
+  "name": "Sámi frame drum (goavddis / meavrresgárri)",
+  "family": "percussion",
+  "class": "frame_drum",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "goavddis",
+  "parts": [
+    {
+      "id": "sami_frame_drum_form",
+      "name": "Drum form",
+      "variants": [
+        {
+          "id": "sami_frame_drum_goavddis",
+          "default": true,
+          "name": "Bowl drum (goavddis / gievrie)",
+          "descriptors": [
+            "burl-bowl",
+            "deep-boom",
+            "southern-sami"
+          ],
+          "match_tokens": [
+            "struck",
+            "hide-drum",
+            "hollow-boom"
+          ],
+          "canonical_tags": [
+            "sami",
+            "nordic"
+          ]
+        },
+        {
+          "id": "sami_frame_drum_meavrresgarri",
+          "name": "Frame / ring drum (meavrresgárri)",
+          "descriptors": [
+            "bent-wood-hoop",
+            "dry-rap",
+            "coastal-sami"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "beater-struck"
+          ],
+          "canonical_tags": [
+            "sami",
+            "nordic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sami_frame_drum_ritual",
+      "name": "Ritual use",
+      "variants": [
+        {
+          "id": "sami_frame_drum_journey",
+          "default": true,
+          "name": "Noaidi drum-journey",
+          "descriptors": [
+            "hypnotic-pulse",
+            "trance",
+            "droning"
+          ],
+          "match_tokens": [
+            "struck",
+            "steady-pulse",
+            "ritual-drum"
+          ],
+          "canonical_tags": [
+            "shamanic",
+            "sami"
+          ]
+        },
+        {
+          "id": "sami_frame_drum_vuorbi",
+          "name": "Divination with the vuorbi pointer",
+          "descriptors": [
+            "oracular",
+            "brass-ring",
+            "figured-head"
+          ],
+          "match_tokens": [
+            "struck",
+            "beater-struck",
+            "ritual-drum"
+          ],
+          "canonical_tags": [
+            "shamanic",
+            "sami"
+          ]
+        },
+        {
+          "id": "sami_frame_drum_yoik",
+          "name": "Yoik pulse accompaniment",
+          "descriptors": [
+            "soft-pulse",
+            "song-support",
+            "intimate"
+          ],
+          "match_tokens": [
+            "struck",
+            "steady-pulse",
+            "hide-drum"
+          ],
+          "canonical_tags": [
+            "sami",
+            "nordic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sami_frame_drum_material",
+      "surface": false,
+      "name": "Head & body material",
+      "variants": [
+        {
+          "id": "sami_frame_drum_reindeer_burl",
+          "default": true,
+          "name": "Reindeer-hide head, alder-dye figures",
+          "descriptors": [
+            "reindeer-hide",
+            "red-figures",
+            "resonant"
+          ],
+          "match_tokens": [
+            "hide-head",
+            "struck"
+          ],
+          "canonical_tags": [
+            "sami"
+          ]
+        },
+        {
+          "id": "sami_frame_drum_bullhide",
+          "name": "Thick reindeer bull-hide head",
+          "descriptors": [
+            "thick-hide",
+            "deep-boom",
+            "dry-tone"
+          ],
+          "match_tokens": [
+            "hide-head",
+            "struck",
+            "low"
+          ],
+          "canonical_tags": [
+            "sami"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sami_frame_drum_form",
+      "name": "Drum form",
+      "variants": [
+        {
+          "id": "sami_frame_drum_goavddis",
+          "default": true,
+          "name": "Bowl drum (goavddis / gievrie)",
+          "descriptors": [
+            "burl-bowl",
+            "deep-boom",
+            "southern-sami"
+          ],
+          "match_tokens": [
+            "struck",
+            "hide-drum",
+            "hollow-boom"
+          ],
+          "canonical_tags": [
+            "sami",
+            "nordic"
+          ]
+        },
+        {
+          "id": "sami_frame_drum_meavrresgarri",
+          "name": "Frame / ring drum (meavrresgárri)",
+          "descriptors": [
+            "bent-wood-hoop",
+            "dry-rap",
+            "coastal-sami"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "beater-struck"
+          ],
+          "canonical_tags": [
+            "sami",
+            "nordic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sami_frame_drum_ritual",
+      "name": "Ritual use",
+      "variants": [
+        {
+          "id": "sami_frame_drum_journey",
+          "default": true,
+          "name": "Noaidi drum-journey",
+          "descriptors": [
+            "hypnotic-pulse",
+            "trance",
+            "droning"
+          ],
+          "match_tokens": [
+            "struck",
+            "steady-pulse",
+            "ritual-drum"
+          ],
+          "canonical_tags": [
+            "shamanic",
+            "sami"
+          ]
+        },
+        {
+          "id": "sami_frame_drum_vuorbi",
+          "name": "Divination with the vuorbi pointer",
+          "descriptors": [
+            "oracular",
+            "brass-ring",
+            "figured-head"
+          ],
+          "match_tokens": [
+            "struck",
+            "beater-struck",
+            "ritual-drum"
+          ],
+          "canonical_tags": [
+            "shamanic",
+            "sami"
+          ]
+        },
+        {
+          "id": "sami_frame_drum_yoik",
+          "name": "Yoik pulse accompaniment",
+          "descriptors": [
+            "soft-pulse",
+            "song-support",
+            "intimate"
+          ],
+          "match_tokens": [
+            "struck",
+            "steady-pulse",
+            "hide-drum"
+          ],
+          "canonical_tags": [
+            "sami",
+            "nordic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sami_frame_drum_material",
+      "surface": false,
+      "name": "Head & body material",
+      "variants": [
+        {
+          "id": "sami_frame_drum_reindeer_burl",
+          "default": true,
+          "name": "Reindeer-hide head, alder-dye figures",
+          "descriptors": [
+            "reindeer-hide",
+            "red-figures",
+            "resonant"
+          ],
+          "match_tokens": [
+            "hide-head",
+            "struck"
+          ],
+          "canonical_tags": [
+            "sami"
+          ]
+        },
+        {
+          "id": "sami_frame_drum_bullhide",
+          "name": "Thick reindeer bull-hide head",
+          "descriptors": [
+            "thick-hide",
+            "deep-boom",
+            "dry-tone"
+          ],
+          "match_tokens": [
+            "hide-head",
+            "struck",
+            "low"
+          ],
+          "canonical_tags": [
+            "sami"
+          ]
+        }
+      ]
+    }
+  ]
+}

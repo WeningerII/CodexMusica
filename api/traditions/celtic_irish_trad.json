@@ -3,9 +3,9 @@
   "name": "Irish trad session",
   "family": "vernacular",
   "lineage": "Irish traditional instrumental dance-tune session tradition — modal melodies (Dorian and Mixolydian dominant) played on fiddle, tin whistle, flute, uilleann pipes, button accordion, concertina, bodhrán, and (in the post-Bothy-Band revival era) bouzouki and guitar in DADGAD tuning — revived from the 1960s-70s through Sean Ó Riada, Ceoltóirí Chualann, the Chieftains, the Bothy Band, Planxty, Altan, and the broader Doolin / Clare / Galway pub-session circuit",
-  "recipe": "classic Northern European mid-1960s irish trad session, improv On Frame, Celtic traditional branch, string drone modal polish village fiddle huayno. magic rosin modern acrylic base double stops fiddle, African blackwood boxwood premium pre modern melodic tin whistle, flute, leather castagnari Italian premium folk music drone like accordion, dadgad tuning fingerpicked parlor acoustic guitar, low mid rich spectrum traditional gut gut string celtic harp, drone like concertina english, goat skin canonical Irish ash pre modern traditional Irish bodhran, melodic tin whistle low, full band African blackwood canonical Irish modern cane arundo donax canonical Irish leather canonical Irish bellows fed rowsome dublin tradition uilleann pipes. irish pub doolin clare session. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 920,
-  "score": 168.136,
+  "recipe": "classic Northern European mid-1960s irish trad session, improv On Frame, Celtic traditional branch, string drone modal polish village fiddle huayno. magic rosin modern acrylic base double stops fiddle, African blackwood boxwood premium pre modern melodic tin whistle, flute, leather castagnari Italian premium folk music drone like accordion, dadgad tuning fingerpicked parlor acoustic guitar, low mid rich spectrum traditional gut gut string celtic harp, drone like concertina english, goat skin canonical Irish ash pre modern traditional Irish bodhran, melodic tin whistle low, full band African blackwood canonical Irish modern cane arundo donax canonical Irish leather canonical Irish bellows fed rowsome dublin tradition uilleann pipes, short-scale single string tenor banjo irish, short-scale irish bouzouki. irish pub doolin clare session. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 993,
+  "score": 195.65,
   "config": {
     "traditions": [
       "celtic_irish_trad",
@@ -171,6 +171,32 @@
           "uilleann_reed": 3.4,
           "uilleann_bag": 3.4,
           "uilleann_lineage": 4.03
+        }
+      },
+      {
+        "id": "tenor_banjo_irish",
+        "slots": {
+          "tenor_banjo_irish_form": "tenor_banjo_irish_17fret",
+          "tenor_banjo_irish_style": "tenor_banjo_irish_reels",
+          "tenor_banjo_irish_head": "tenor_banjo_irish_calfskin"
+        },
+        "scores": {
+          "tenor_banjo_irish_form": 10.8,
+          "tenor_banjo_irish_style": 11.18,
+          "tenor_banjo_irish_head": 3.715
+        }
+      },
+      {
+        "id": "irish_bouzouki",
+        "slots": {
+          "irish_bouzouki_form": "irish_bouzouki_octave_mandolin",
+          "irish_bouzouki_playing": "irish_bouzouki_countermelody",
+          "irish_bouzouki_top_wood": "irish_bouzouki_spruce_top"
+        },
+        "scores": {
+          "irish_bouzouki_form": 1.2349999999999999,
+          "irish_bouzouki_playing": 0.585,
+          "irish_bouzouki_top_wood": 0
         }
       }
     ],

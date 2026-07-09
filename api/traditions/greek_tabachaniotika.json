@@ -3,9 +3,9 @@
   "name": "Greek Cretan tabachaniotika (Cretan urban sea-faring song)",
   "family": "global",
   "lineage": "Greek-Cretan tabachaniotika (urban-Cretan sea-faring-and-port-side song) tradition continuous from late-19th-and-early-20th century Cretan-urban-port (Heraklion, Chania, Rethymno) song-and-tavern tradition through Cretan-Greek-Turkish population-exchange 1923-aftermath integration with Asia-Minor refugees into modern Cretan-folk-revival continuous practice; the tabachaniotika is the canonical Cretan-port-side-and-sea-faring repertoire",
-  "recipe": "classic Southern European early-1920s greek cretan tabachaniotika, sea Shanty, Mediterranean branch, balkan drinking song, European protest song, Mediterranean ballad ballad poetry sevdalinka georgian supra feast-singing. thick, low dynamic level, tasteful, continuous-phonation. mulberry canonical cretan gut pre modern cretan cretan lyra, mahogany modern alternative Lebanese cedar eastern Mediterranean brass wound bass oud. athens piraeus rebetadika. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 584,
-  "score": 193.78,
+  "recipe": "classic Southern European early-1920s greek cretan tabachaniotika, sea Shanty, Mediterranean branch, balkan drinking song, European protest song, Mediterranean ballad ballad poetry sevdalinka georgian supra feast-singing. thick, low dynamic level, tasteful, continuous-phonation. mulberry canonical cretan gut pre modern cretan cretan lyra, mahogany modern alternative Lebanese cedar eastern Mediterranean brass wound bass oud, cretan rhythmic laouto. athens piraeus rebetadika. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 608,
+  "score": 242.402,
   "config": {
     "traditions": [
       "greek_tabachaniotika",
@@ -88,6 +88,19 @@
           "oud_body_wood": 3.185,
           "oud_soundboard_wood": 3.82,
           "oud_string_material": 3.185
+        }
+      },
+      {
+        "id": "laouto",
+        "slots": {
+          "laouto_form": "laouto_kritiko",
+          "laouto_role": "laouto_synodeia",
+          "laouto_strings": "laouto_strings_steel"
+        },
+        "scores": {
+          "laouto_form": 22.250000000000007,
+          "laouto_role": 20.247499999999995,
+          "laouto_strings": 6.125
         }
       }
     ],

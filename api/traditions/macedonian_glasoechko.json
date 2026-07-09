@@ -3,9 +3,9 @@
   "name": "Macedonian Glasoechko male diaphonic",
   "family": "global",
   "lineage": "Macedonian Glasoechko male two-voice diaphonic singing tradition of the Dolni Polog and Drimkol-Golo Brdo regions of western North Macedonia. The form features two-voice male singing in characteristic parallel-second and minor-third intervals over a sustained drone-tone (often an organ-point sustained by the second voice while the lead voice elaborates the melodic content), with most phrases cadencing on a unison-or-octave close. Distinguished from neighboring Balkan two-voice traditions by Glasoechko's Mijak-and-Šop dialect-specific cadential vocabulary and the characteristic Macedonian-pastoral functional context. The melodic vocabulary draws on regional pastoral-and-shepherd-call modal frameworks with characteristic narrow-range melodic-contour conventions. Accompanying instrumental contexts sometimes include the kaval end-blown shepherd-flute and the gajda Balkan bagpipe with double-reed chanter and drone-pipe. Performance traditionally outdoors in mountain-pasture contexts during summer transhumance, with the long-distance acoustic projection of the two-voice configuration suited to mountain-valley environments. The mid-twentieth-century rural depopulation of the Polog and Drimkol regions reduced active practitioners. Distinguished from Croatian Istrian diaphonic by Macedonian Glasoechko's drone-and-melody (vs Istrian's strict-two-voice-parallel) configuration and Macedonian-pastoral functional context; distinguished from Albanian iso-polyphony by Glasoechko's two-voice (vs Albanian three-or-four-voice) configuration; distinguished from neighboring Bulgarian male diaphonic by Macedonian-Mijak-dialect-specific cadential conventions.",
-  "recipe": "classic modern macedonian glasoechko male diaphonic, drone Modal, vocal branch, Mediterranean ballad ballad poetry sardinian cantu a tenore and launeddas croatian klapa dalmatian close-harmony. kargyraa, false fold engaged, melodic, hocket articulation. plum canonical bulgarian melodic kaval, bagpipe double reed chanter drone pipe canonical balkan macedonian glasoechko pastoral dance gajda. mountain valley. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 540,
-  "score": 293.468,
+  "recipe": "classic modern macedonian glasoechko male diaphonic, drone Modal, vocal branch, Mediterranean ballad ballad poetry sardinian cantu a tenore and launeddas croatian klapa dalmatian close-harmony. kargyraa, false fold engaged, melodic, hocket articulation. plum canonical bulgarian melodic kaval, bagpipe double reed chanter drone pipe canonical balkan macedonian glasoechko pastoral dance gajda, donkey skin bass thin treble tapan. mountain valley. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 576,
+  "score": 331.681,
   "config": {
     "traditions": [
       "macedonian_glasoechko",
@@ -76,6 +76,19 @@
         "scores": {
           "gajda_body": 19.04375,
           "gajda_tradition": 20.709999999999997
+        }
+      },
+      {
+        "id": "tapan",
+        "slots": {
+          "tapan_form": "tapan_balkan",
+          "tapan_role": "tapan_zurna_pair",
+          "tapan_build": "tapan_asymmetric_skins"
+        },
+        "scores": {
+          "tapan_form": 25.86,
+          "tapan_role": 6.845,
+          "tapan_build": 5.50875
         }
       }
     ],

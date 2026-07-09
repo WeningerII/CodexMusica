@@ -3,9 +3,9 @@
   "name": "Thai classical (piphat)",
   "family": "classical",
   "lineage": "Thai court-and-temple piphat tuned-percussion ensemble tradition in seven-equal-temperament tuning — codified through the Ayutthaya-era (1351-1767) royal court repertoire and continuing through the Bangkok Rattanakosin period; the piphat ensemble centered on the ranat-ek and ranat-thum xylophones, khong wong large gong-circle, and pi-nai oboe, performing the great repertoire of Phra Aphai Mani, naphat ceremonial works, and dance accompaniment for khon and lakhon",
-  "recipe": "classic early-1350s thai classical, art Music, Thai classical branch, east Asian art music tibetan ache lhamo opera beijing opera. ranat ek, khong wong yai, pi nai, jackwood barrel canonical Thai piphat taphon. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 362,
-  "score": 129.81,
+  "recipe": "classic early-1350s thai classical, art Music, Thai classical branch, east Asian art music tibetan ache lhamo opera beijing opera. ranat ek, khong wong yai, pi nai, jackwood barrel canonical Thai piphat taphon, central Thai ching chap open and damped iron ching. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 414,
+  "score": 186.425,
   "config": {
     "traditions": [
       "thai_classical",
@@ -51,6 +51,19 @@
           "taphon_technique": 25.249999999999996,
           "taphon_shell_wood": 12.774999999999997,
           "taphon_head": 0.845
+        }
+      },
+      {
+        "id": "ching",
+        "slots": {
+          "ching_form": "ching_thai",
+          "ching_stroke": "ching_open_closed",
+          "ching_alloy": "ching_iron"
+        },
+        "scores": {
+          "ching_form": 25.444999999999993,
+          "ching_stroke": 29.250000000000007,
+          "ching_alloy": 1.92
         }
       }
     ],
