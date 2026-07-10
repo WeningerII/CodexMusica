@@ -1,0 +1,394 @@
+{
+  "id": "trikitixa",
+  "name": "Trikitixa (Basque two-row diatonic accordion)",
+  "family": "free_reed",
+  "class": "free_reed",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "Bright, fast bisonoric two-row diatonic button accordion of the Basque Country — the lead voice of trikiti dance music, paired with the pandero, punchier and higher-pitched than a full chromatic accordion.",
+  "parts": [
+    {
+      "id": "free_reed_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "free_reed_folk_first_position",
+          "default": true,
+          "name": "Folk first-position straight",
+          "descriptors": [
+            "straight",
+            "melodic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "folk",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "folk",
+            "singer-songwriter",
+            "country"
+          ]
+        },
+        {
+          "id": "free_reed_overblow_modern",
+          "name": "Overblow modern bending",
+          "descriptors": [
+            "overblown",
+            "fully-chromatic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "modern"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "trikitixa_form",
+      "name": "Row layout & tuning",
+      "variants": [
+        {
+          "id": "trikitixa_form_two_row_gc",
+          "default": true,
+          "name": "Two-row G/C soinu txikia",
+          "descriptors": [
+            "two-row-diatonic",
+            "bisonoric",
+            "bright-treble",
+            "small-box"
+          ],
+          "match_tokens": [
+            "diatonic",
+            "bisonoric",
+            "two-row",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "diatonic",
+            "bisonoric"
+          ]
+        },
+        {
+          "id": "trikitixa_form_two_row_ad",
+          "name": "Two-row A/D high tuning",
+          "descriptors": [
+            "high-tuned",
+            "piercing-treble",
+            "two-row-diatonic"
+          ],
+          "match_tokens": [
+            "diatonic",
+            "bright-tone",
+            "two-row"
+          ],
+          "canonical_tags": [
+            "diatonic"
+          ]
+        },
+        {
+          "id": "trikitixa_form_three_row",
+          "name": "Three-row extended (modern)",
+          "descriptors": [
+            "three-row",
+            "extended-range",
+            "chromatic-reach"
+          ],
+          "match_tokens": [
+            "diatonic",
+            "three-row",
+            "extended"
+          ],
+          "canonical_tags": [
+            "diatonic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trikitixa_dantza_setting",
+      "name": "Playing context & repertoire",
+      "variants": [
+        {
+          "id": "trikitixa_dantza_setting_romeria",
+          "default": true,
+          "name": "Romeria dance (with pandero)",
+          "descriptors": [
+            "dance-driven",
+            "fast-fandango",
+            "bouncy-pulse",
+            "pandero-paired"
+          ],
+          "match_tokens": [
+            "dance-driven",
+            "bellows-driven",
+            "reed-driven",
+            "fast"
+          ],
+          "canonical_tags": [
+            "dance",
+            "folk"
+          ]
+        },
+        {
+          "id": "trikitixa_dantza_setting_kalejira",
+          "name": "Kalejira street procession",
+          "descriptors": [
+            "marching-pulse",
+            "open-air",
+            "processional"
+          ],
+          "match_tokens": [
+            "dance-driven",
+            "bellows-driven",
+            "processional"
+          ],
+          "canonical_tags": [
+            "folk",
+            "street"
+          ]
+        },
+        {
+          "id": "trikitixa_dantza_setting_concert",
+          "name": "Concert / fusion solo",
+          "descriptors": [
+            "virtuosic",
+            "melodic-lead",
+            "expressive-phrasing"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "solo"
+          ],
+          "canonical_tags": [
+            "concert",
+            "fusion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trikitixa_reed_voicing",
+      "surface": false,
+      "name": "Reed voicing",
+      "variants": [
+        {
+          "id": "trikitixa_reed_voicing_wet",
+          "default": true,
+          "name": "Wet musette tremolo",
+          "descriptors": [
+            "wet-tuned",
+            "musette-shimmer",
+            "detuned-tremolo"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "bellows-driven",
+            "wet-tuned"
+          ],
+          "canonical_tags": [
+            "musette"
+          ]
+        },
+        {
+          "id": "trikitixa_reed_voicing_dry",
+          "name": "Dry octave reeds",
+          "descriptors": [
+            "dry-tuned",
+            "punchy",
+            "sharp-attack"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "bellows-driven",
+            "dry-tuned"
+          ],
+          "canonical_tags": [
+            "dry"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "trikitixa_form",
+      "name": "Row layout & tuning",
+      "variants": [
+        {
+          "id": "trikitixa_form_two_row_gc",
+          "default": true,
+          "name": "Two-row G/C soinu txikia",
+          "descriptors": [
+            "two-row-diatonic",
+            "bisonoric",
+            "bright-treble",
+            "small-box"
+          ],
+          "match_tokens": [
+            "diatonic",
+            "bisonoric",
+            "two-row",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "diatonic",
+            "bisonoric"
+          ]
+        },
+        {
+          "id": "trikitixa_form_two_row_ad",
+          "name": "Two-row A/D high tuning",
+          "descriptors": [
+            "high-tuned",
+            "piercing-treble",
+            "two-row-diatonic"
+          ],
+          "match_tokens": [
+            "diatonic",
+            "bright-tone",
+            "two-row"
+          ],
+          "canonical_tags": [
+            "diatonic"
+          ]
+        },
+        {
+          "id": "trikitixa_form_three_row",
+          "name": "Three-row extended (modern)",
+          "descriptors": [
+            "three-row",
+            "extended-range",
+            "chromatic-reach"
+          ],
+          "match_tokens": [
+            "diatonic",
+            "three-row",
+            "extended"
+          ],
+          "canonical_tags": [
+            "diatonic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trikitixa_dantza_setting",
+      "name": "Playing context & repertoire",
+      "variants": [
+        {
+          "id": "trikitixa_dantza_setting_romeria",
+          "default": true,
+          "name": "Romeria dance (with pandero)",
+          "descriptors": [
+            "dance-driven",
+            "fast-fandango",
+            "bouncy-pulse",
+            "pandero-paired"
+          ],
+          "match_tokens": [
+            "dance-driven",
+            "bellows-driven",
+            "reed-driven",
+            "fast"
+          ],
+          "canonical_tags": [
+            "dance",
+            "folk"
+          ]
+        },
+        {
+          "id": "trikitixa_dantza_setting_kalejira",
+          "name": "Kalejira street procession",
+          "descriptors": [
+            "marching-pulse",
+            "open-air",
+            "processional"
+          ],
+          "match_tokens": [
+            "dance-driven",
+            "bellows-driven",
+            "processional"
+          ],
+          "canonical_tags": [
+            "folk",
+            "street"
+          ]
+        },
+        {
+          "id": "trikitixa_dantza_setting_concert",
+          "name": "Concert / fusion solo",
+          "descriptors": [
+            "virtuosic",
+            "melodic-lead",
+            "expressive-phrasing"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "solo"
+          ],
+          "canonical_tags": [
+            "concert",
+            "fusion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trikitixa_reed_voicing",
+      "surface": false,
+      "name": "Reed voicing",
+      "variants": [
+        {
+          "id": "trikitixa_reed_voicing_wet",
+          "default": true,
+          "name": "Wet musette tremolo",
+          "descriptors": [
+            "wet-tuned",
+            "musette-shimmer",
+            "detuned-tremolo"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "bellows-driven",
+            "wet-tuned"
+          ],
+          "canonical_tags": [
+            "musette"
+          ]
+        },
+        {
+          "id": "trikitixa_reed_voicing_dry",
+          "name": "Dry octave reeds",
+          "descriptors": [
+            "dry-tuned",
+            "punchy",
+            "sharp-attack"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "bellows-driven",
+            "dry-tuned"
+          ],
+          "canonical_tags": [
+            "dry"
+          ]
+        }
+      ]
+    }
+  ]
+}

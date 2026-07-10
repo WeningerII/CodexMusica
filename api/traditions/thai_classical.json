@@ -3,9 +3,9 @@
   "name": "Thai classical (piphat)",
   "family": "classical",
   "lineage": "Thai court-and-temple piphat tuned-percussion ensemble tradition in seven-equal-temperament tuning — codified through the Ayutthaya-era (1351-1767) royal court repertoire and continuing through the Bangkok Rattanakosin period; the piphat ensemble centered on the ranat-ek and ranat-thum xylophones, khong wong large gong-circle, and pi-nai oboe, performing the great repertoire of Phra Aphai Mani, naphat ceremonial works, and dance accompaniment for khon and lakhon",
-  "recipe": "classic early-1350s thai classical, art Music, Thai classical branch, east Asian art music tibetan ache lhamo opera beijing opera. ranat ek, khong wong yai, pi nai, jackwood barrel canonical Thai piphat taphon, central Thai ching chap open and damped iron ching. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 414,
-  "score": 186.425,
+  "recipe": "classic early-1350s thai classical, art Music, Thai classical branch, east Asian art music tibetan ache lhamo opera beijing opera. ranat ek, khong wong yai, pi nai, jackwood barrel canonical Thai piphat taphon, central Thai ching chap open and damped iron ching, ivory court heirloom lead voice silk canonical Thai court synthetic membrane modern legato saw duang. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 516,
+  "score": 232.415,
   "config": {
     "traditions": [
       "thai_classical",
@@ -64,6 +64,23 @@
           "ching_form": 25.444999999999993,
           "ching_stroke": 29.250000000000007,
           "ching_alloy": 1.92
+        }
+      },
+      {
+        "id": "saw_duang",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "saw_duang_body_form": "saw_duang_ivory_heirloom",
+          "saw_duang_repertoire": "saw_duang_khruang_sai_lead",
+          "saw_duang_strings": "saw_duang_silk_canonical",
+          "saw_duang_face": "saw_duang_synthetic_face"
+        },
+        "scores": {
+          "bowed_technique": 22.839999999999993,
+          "saw_duang_body_form": 5.134999999999999,
+          "saw_duang_repertoire": 3.0749999999999997,
+          "saw_duang_strings": 13.769999999999996,
+          "saw_duang_face": 1.17
         }
       }
     ],

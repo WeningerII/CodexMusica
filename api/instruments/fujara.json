@@ -1,0 +1,338 @@
+{
+  "id": "fujara",
+  "name": "Fujara (Slovak shepherd's overtone bass flute)",
+  "family": "wind",
+  "class": "overtone_flute",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "fujara",
+  "parts": [
+    {
+      "id": "fujara_form",
+      "name": "Form / size",
+      "variants": [
+        {
+          "id": "fujara_g_podpolanie",
+          "default": true,
+          "name": "Fujara in G (Podpoľanie canonical, ~173 cm, Detva lineage)",
+          "descriptors": [
+            "pastoral",
+            "deep",
+            "breathy"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "overtone-series",
+            "breathy"
+          ],
+          "canonical_tags": [
+            "slovak",
+            "podpolanie",
+            "shepherd"
+          ]
+        },
+        {
+          "id": "fujara_a_short",
+          "name": "Fujara in A (shorter ~160 cm, brighter and more agile)",
+          "descriptors": [
+            "agile",
+            "brighter",
+            "song-friendly"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "overtone-series",
+            "breathy"
+          ],
+          "canonical_tags": [
+            "slovak"
+          ]
+        },
+        {
+          "id": "fujara_f_long_bass",
+          "name": "Long bass fujara in F (~197 cm, slow-speaking)",
+          "descriptors": [
+            "cavernous",
+            "solemn",
+            "slow-speaking"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "overtone-series",
+            "breathy"
+          ],
+          "canonical_tags": [
+            "slovak",
+            "bass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fujara_repertoire",
+      "name": "Playing technique / repertoire",
+      "variants": [
+        {
+          "id": "fujara_pastierska",
+          "default": true,
+          "name": "Pastierska — slow shepherd's air (ornamented pastoral melody)",
+          "descriptors": [
+            "pastoral",
+            "plaintive",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "overtone-series",
+            "breathy"
+          ],
+          "canonical_tags": [
+            "slovak",
+            "shepherd",
+            "pastoral"
+          ]
+        },
+        {
+          "id": "fujara_rozfuk",
+          "name": "Rozfuk — overblown harmonic cascade (signature falling waterfall flourish)",
+          "descriptors": [
+            "cascading",
+            "overblown",
+            "rushing"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "overtone-series",
+            "breathy"
+          ],
+          "canonical_tags": [
+            "technique"
+          ]
+        },
+        {
+          "id": "fujara_zbojnicka",
+          "name": "Zbojnícka ballad — outlaw song alternating sung verse and pipe answer (Jánošík repertoire)",
+          "descriptors": [
+            "balladic",
+            "call-and-answer",
+            "defiant"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathy"
+          ],
+          "canonical_tags": [
+            "slovak",
+            "ballad"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fujara_wood",
+      "surface": false,
+      "name": "Bore wood / construction",
+      "variants": [
+        {
+          "id": "fujara_elder_traditional",
+          "default": true,
+          "name": "Elder wood, split-and-glued traditional build with side air duct",
+          "descriptors": [
+            "elder-traditional",
+            "warm"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathy"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "fujara_maple_locust_etched",
+          "name": "Maple / black locust modern build with acid-etched ornament",
+          "descriptors": [
+            "maple-locust-modern",
+            "even-toned"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "fujara_form",
+      "name": "Form / size",
+      "variants": [
+        {
+          "id": "fujara_g_podpolanie",
+          "default": true,
+          "name": "Fujara in G (Podpoľanie canonical, ~173 cm, Detva lineage)",
+          "descriptors": [
+            "pastoral",
+            "deep",
+            "breathy"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "overtone-series",
+            "breathy"
+          ],
+          "canonical_tags": [
+            "slovak",
+            "podpolanie",
+            "shepherd"
+          ]
+        },
+        {
+          "id": "fujara_a_short",
+          "name": "Fujara in A (shorter ~160 cm, brighter and more agile)",
+          "descriptors": [
+            "agile",
+            "brighter",
+            "song-friendly"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "overtone-series",
+            "breathy"
+          ],
+          "canonical_tags": [
+            "slovak"
+          ]
+        },
+        {
+          "id": "fujara_f_long_bass",
+          "name": "Long bass fujara in F (~197 cm, slow-speaking)",
+          "descriptors": [
+            "cavernous",
+            "solemn",
+            "slow-speaking"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "overtone-series",
+            "breathy"
+          ],
+          "canonical_tags": [
+            "slovak",
+            "bass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fujara_repertoire",
+      "name": "Playing technique / repertoire",
+      "variants": [
+        {
+          "id": "fujara_pastierska",
+          "default": true,
+          "name": "Pastierska — slow shepherd's air (ornamented pastoral melody)",
+          "descriptors": [
+            "pastoral",
+            "plaintive",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "overtone-series",
+            "breathy"
+          ],
+          "canonical_tags": [
+            "slovak",
+            "shepherd",
+            "pastoral"
+          ]
+        },
+        {
+          "id": "fujara_rozfuk",
+          "name": "Rozfuk — overblown harmonic cascade (signature falling waterfall flourish)",
+          "descriptors": [
+            "cascading",
+            "overblown",
+            "rushing"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "overtone-series",
+            "breathy"
+          ],
+          "canonical_tags": [
+            "technique"
+          ]
+        },
+        {
+          "id": "fujara_zbojnicka",
+          "name": "Zbojnícka ballad — outlaw song alternating sung verse and pipe answer (Jánošík repertoire)",
+          "descriptors": [
+            "balladic",
+            "call-and-answer",
+            "defiant"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathy"
+          ],
+          "canonical_tags": [
+            "slovak",
+            "ballad"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fujara_wood",
+      "surface": false,
+      "name": "Bore wood / construction",
+      "variants": [
+        {
+          "id": "fujara_elder_traditional",
+          "default": true,
+          "name": "Elder wood, split-and-glued traditional build with side air duct",
+          "descriptors": [
+            "elder-traditional",
+            "warm"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathy"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "fujara_maple_locust_etched",
+          "name": "Maple / black locust modern build with acid-etched ornament",
+          "descriptors": [
+            "maple-locust-modern",
+            "even-toned"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

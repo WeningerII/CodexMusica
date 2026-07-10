@@ -1,0 +1,324 @@
+{
+  "id": "natural_horn",
+  "name": "Natural horn (valveless baroque / classical hand horn)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "natural horn",
+  "parts": [
+    {
+      "id": "natural_horn_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "natural_horn_baroque_waldhorn",
+          "default": true,
+          "name": "Baroque Waldhorn / corno da caccia (Bach–Handel hoop horn, bell up)",
+          "descriptors": [
+            "valveless",
+            "noble",
+            "hunting-derived"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "brass",
+            "baroque-context"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "natural_horn_classical_hand",
+          "name": "Classical hand horn (Inventionshorn / cor solo, c. 1750–1830)",
+          "descriptors": [
+            "hand-stopped",
+            "veiled",
+            "chiaroscuro"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "brass",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "classical",
+            "early-romantic"
+          ]
+        },
+        {
+          "id": "natural_horn_trompe_de_chasse",
+          "name": "Trompe de chasse (French hunting horn in D, large open hoop)",
+          "descriptors": [
+            "outdoor",
+            "blazing",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "brass",
+            "open-air"
+          ],
+          "canonical_tags": [
+            "french",
+            "hunting"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "natural_horn_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "natural_horn_clarino_obbligato",
+          "default": true,
+          "name": "Baroque clarino-register obbligato (Brandenburg No. 1, Quoniam)",
+          "descriptors": [
+            "florid",
+            "brilliant",
+            "high-partials"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "baroque-context",
+            "high-register"
+          ]
+        },
+        {
+          "id": "natural_horn_hand_stopping",
+          "name": "Hand-stopping melody (open / stopped chiaroscuro, Hampel technique)",
+          "descriptors": [
+            "shaded",
+            "vocal",
+            "muffled-stopped"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "brass",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "natural_horn_hunting_fanfare",
+          "name": "Hunting calls / fanfares on open harmonics",
+          "descriptors": [
+            "ringing",
+            "signal-like",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "brass",
+            "fanfare"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "natural_horn_crook_system",
+      "surface": false,
+      "name": "Crook system",
+      "variants": [
+        {
+          "id": "natural_horn_master_crook_couplers",
+          "default": true,
+          "name": "Terminal master crook + couplers (baroque, narrow bore)",
+          "descriptors": [
+            "crook-coupler-baroque"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "baroque-context"
+          ]
+        },
+        {
+          "id": "natural_horn_inventionshorn_crooks",
+          "name": "Inventionshorn central sliding crooks (classical)",
+          "descriptors": [
+            "central-crook-classical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "natural_horn_fixed_d_coil",
+          "name": "Fixed-pitch single coil in D (trompe, crookless)",
+          "descriptors": [
+            "fixed-d-coil"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "open-air"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "natural_horn_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "natural_horn_baroque_waldhorn",
+          "default": true,
+          "name": "Baroque Waldhorn / corno da caccia (Bach–Handel hoop horn, bell up)",
+          "descriptors": [
+            "valveless",
+            "noble",
+            "hunting-derived"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "brass",
+            "baroque-context"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "natural_horn_classical_hand",
+          "name": "Classical hand horn (Inventionshorn / cor solo, c. 1750–1830)",
+          "descriptors": [
+            "hand-stopped",
+            "veiled",
+            "chiaroscuro"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "brass",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "classical",
+            "early-romantic"
+          ]
+        },
+        {
+          "id": "natural_horn_trompe_de_chasse",
+          "name": "Trompe de chasse (French hunting horn in D, large open hoop)",
+          "descriptors": [
+            "outdoor",
+            "blazing",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "brass",
+            "open-air"
+          ],
+          "canonical_tags": [
+            "french",
+            "hunting"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "natural_horn_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "natural_horn_clarino_obbligato",
+          "default": true,
+          "name": "Baroque clarino-register obbligato (Brandenburg No. 1, Quoniam)",
+          "descriptors": [
+            "florid",
+            "brilliant",
+            "high-partials"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "baroque-context",
+            "high-register"
+          ]
+        },
+        {
+          "id": "natural_horn_hand_stopping",
+          "name": "Hand-stopping melody (open / stopped chiaroscuro, Hampel technique)",
+          "descriptors": [
+            "shaded",
+            "vocal",
+            "muffled-stopped"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "brass",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "natural_horn_hunting_fanfare",
+          "name": "Hunting calls / fanfares on open harmonics",
+          "descriptors": [
+            "ringing",
+            "signal-like",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "brass",
+            "fanfare"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "natural_horn_crook_system",
+      "surface": false,
+      "name": "Crook system",
+      "variants": [
+        {
+          "id": "natural_horn_master_crook_couplers",
+          "default": true,
+          "name": "Terminal master crook + couplers (baroque, narrow bore)",
+          "descriptors": [
+            "crook-coupler-baroque"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "baroque-context"
+          ]
+        },
+        {
+          "id": "natural_horn_inventionshorn_crooks",
+          "name": "Inventionshorn central sliding crooks (classical)",
+          "descriptors": [
+            "central-crook-classical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "natural_horn_fixed_d_coil",
+          "name": "Fixed-pitch single coil in D (trompe, crookless)",
+          "descriptors": [
+            "fixed-d-coil"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "open-air"
+          ]
+        }
+      ]
+    }
+  ]
+}

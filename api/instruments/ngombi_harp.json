@@ -1,0 +1,352 @@
+{
+  "id": "ngombi_harp",
+  "name": "Ngombi (Gabonese Bwiti harp)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "Eight-string anthropomorphic arched harp of Gabon, the sacred lead voice of Mitsogo and Fang Bwiti ceremonies, played in interlocking ostinatos through all-night iboga vigils.",
+  "parts": [
+    {
+      "id": "ngombi_harp_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "ngombi_harp_form_tsogo",
+          "default": true,
+          "name": "Mitsogo (Tsogo) eight-string",
+          "descriptors": [
+            "anthropomorphic-carved-body",
+            "eight-string-arched",
+            "ancestress-figure"
+          ],
+          "match_tokens": [
+            "plucked",
+            "harp",
+            "ritual",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "gabon",
+            "bwiti",
+            "tsogo"
+          ]
+        },
+        {
+          "id": "ngombi_harp_form_fang",
+          "name": "Fang Bwiti form",
+          "descriptors": [
+            "slender-necked",
+            "fang-tuned",
+            "brighter-voiced"
+          ],
+          "match_tokens": [
+            "plucked",
+            "harp",
+            "ritual"
+          ],
+          "canonical_tags": [
+            "gabon",
+            "fang",
+            "bwiti"
+          ]
+        },
+        {
+          "id": "ngombi_harp_form_fusion",
+          "name": "Contemporary concert form",
+          "descriptors": [
+            "concert-tuned",
+            "even-toned",
+            "world-fusion"
+          ],
+          "match_tokens": [
+            "plucked",
+            "harp"
+          ],
+          "canonical_tags": [
+            "fusion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ngombi_harp_setting",
+      "name": "Ceremonial context",
+      "variants": [
+        {
+          "id": "ngombi_harp_setting_vigil",
+          "default": true,
+          "name": "Bwiti iboga vigil ostinato",
+          "descriptors": [
+            "interlocking-ostinato",
+            "hypnotic-cyclic",
+            "trance-vigil"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "ritual"
+          ],
+          "canonical_tags": [
+            "bwiti",
+            "iboga-vigil"
+          ]
+        },
+        {
+          "id": "ngombi_harp_setting_narrative",
+          "name": "Sung genealogy and myth",
+          "descriptors": [
+            "sung-genealogy",
+            "call-and-response",
+            "declamatory"
+          ],
+          "match_tokens": [
+            "plucked",
+            "narrative",
+            "vocal-accompaniment"
+          ],
+          "canonical_tags": [
+            "storytelling"
+          ]
+        },
+        {
+          "id": "ngombi_harp_setting_studio",
+          "name": "World-fusion studio layering",
+          "descriptors": [
+            "studio-layered",
+            "spacious-reverb",
+            "loop-friendly"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ambient",
+            "studio"
+          ],
+          "canonical_tags": [
+            "fusion",
+            "studio"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ngombi_harp_build",
+      "surface": false,
+      "name": "String and body construction",
+      "variants": [
+        {
+          "id": "ngombi_harp_build_fiber",
+          "default": true,
+          "name": "Raffia-fiber strings, hardwood body",
+          "descriptors": [
+            "raffia-fiber-strings",
+            "carved-hardwood-body",
+            "warm-buzzing-tone"
+          ],
+          "match_tokens": [
+            "plucked",
+            "warm-tone",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "raffia",
+            "wood"
+          ]
+        },
+        {
+          "id": "ngombi_harp_build_nylon",
+          "name": "Nylon or gut strings",
+          "descriptors": [
+            "nylon-gut-strings",
+            "clean-sustain",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "nylon",
+            "gut"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "ngombi_harp_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "ngombi_harp_form_tsogo",
+          "default": true,
+          "name": "Mitsogo (Tsogo) eight-string",
+          "descriptors": [
+            "anthropomorphic-carved-body",
+            "eight-string-arched",
+            "ancestress-figure"
+          ],
+          "match_tokens": [
+            "plucked",
+            "harp",
+            "ritual",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "gabon",
+            "bwiti",
+            "tsogo"
+          ]
+        },
+        {
+          "id": "ngombi_harp_form_fang",
+          "name": "Fang Bwiti form",
+          "descriptors": [
+            "slender-necked",
+            "fang-tuned",
+            "brighter-voiced"
+          ],
+          "match_tokens": [
+            "plucked",
+            "harp",
+            "ritual"
+          ],
+          "canonical_tags": [
+            "gabon",
+            "fang",
+            "bwiti"
+          ]
+        },
+        {
+          "id": "ngombi_harp_form_fusion",
+          "name": "Contemporary concert form",
+          "descriptors": [
+            "concert-tuned",
+            "even-toned",
+            "world-fusion"
+          ],
+          "match_tokens": [
+            "plucked",
+            "harp"
+          ],
+          "canonical_tags": [
+            "fusion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ngombi_harp_setting",
+      "name": "Ceremonial context",
+      "variants": [
+        {
+          "id": "ngombi_harp_setting_vigil",
+          "default": true,
+          "name": "Bwiti iboga vigil ostinato",
+          "descriptors": [
+            "interlocking-ostinato",
+            "hypnotic-cyclic",
+            "trance-vigil"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "ritual"
+          ],
+          "canonical_tags": [
+            "bwiti",
+            "iboga-vigil"
+          ]
+        },
+        {
+          "id": "ngombi_harp_setting_narrative",
+          "name": "Sung genealogy and myth",
+          "descriptors": [
+            "sung-genealogy",
+            "call-and-response",
+            "declamatory"
+          ],
+          "match_tokens": [
+            "plucked",
+            "narrative",
+            "vocal-accompaniment"
+          ],
+          "canonical_tags": [
+            "storytelling"
+          ]
+        },
+        {
+          "id": "ngombi_harp_setting_studio",
+          "name": "World-fusion studio layering",
+          "descriptors": [
+            "studio-layered",
+            "spacious-reverb",
+            "loop-friendly"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ambient",
+            "studio"
+          ],
+          "canonical_tags": [
+            "fusion",
+            "studio"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ngombi_harp_build",
+      "surface": false,
+      "name": "String and body construction",
+      "variants": [
+        {
+          "id": "ngombi_harp_build_fiber",
+          "default": true,
+          "name": "Raffia-fiber strings, hardwood body",
+          "descriptors": [
+            "raffia-fiber-strings",
+            "carved-hardwood-body",
+            "warm-buzzing-tone"
+          ],
+          "match_tokens": [
+            "plucked",
+            "warm-tone",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "raffia",
+            "wood"
+          ]
+        },
+        {
+          "id": "ngombi_harp_build_nylon",
+          "name": "Nylon or gut strings",
+          "descriptors": [
+            "nylon-gut-strings",
+            "clean-sustain",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "nylon",
+            "gut"
+          ]
+        }
+      ]
+    }
+  ]
+}

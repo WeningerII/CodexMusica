@@ -1,0 +1,370 @@
+{
+  "id": "bandurria",
+  "name": "Bandurria (Spanish twelve-string tremolo lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "Bright, high-pitched Spanish double-course lute with six paired steel courses tuned in fourths, played in shimmering plectrum tremolo; the lead voice of the rondalla and tuna estudiantina.",
+  "parts": [
+    {
+      "id": "bandurria_form",
+      "name": "Regional form and size",
+      "variants": [
+        {
+          "id": "bandurria_form_spanish_soprano",
+          "default": true,
+          "name": "Spanish soprano bandurria",
+          "descriptors": [
+            "bright",
+            "high-pitched",
+            "silvery"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bandurria",
+            "soprano",
+            "rondalla"
+          ],
+          "canonical_tags": [
+            "spanish",
+            "rondalla",
+            "tuna"
+          ]
+        },
+        {
+          "id": "bandurria_form_laud_espanol",
+          "name": "Laud espanol (larger tenor form)",
+          "descriptors": [
+            "rounder",
+            "lower-octave",
+            "mellow"
+          ],
+          "match_tokens": [
+            "plucked",
+            "laud",
+            "tenor",
+            "rondalla"
+          ],
+          "canonical_tags": [
+            "spanish",
+            "laud",
+            "rondalla"
+          ]
+        },
+        {
+          "id": "bandurria_form_filipina",
+          "name": "Filipino rondalla bandurria",
+          "descriptors": [
+            "cutting",
+            "brilliant",
+            "banded-neck"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bandurria",
+            "filipino",
+            "rondalla"
+          ],
+          "canonical_tags": [
+            "philippine",
+            "rondalla"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bandurria_playing",
+      "name": "Playing technique and repertoire role",
+      "variants": [
+        {
+          "id": "bandurria_play_tremolo",
+          "default": true,
+          "name": "Sustained plectrum tremolo lead",
+          "descriptors": [
+            "tremolo",
+            "shimmering",
+            "sustained-line"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "plectrum-picked",
+            "lead"
+          ],
+          "canonical_tags": [
+            "tremolo",
+            "melodic-lead"
+          ]
+        },
+        {
+          "id": "bandurria_play_rasgueado",
+          "name": "Strummed chordal accompaniment",
+          "descriptors": [
+            "strummed",
+            "chordal",
+            "driving"
+          ],
+          "match_tokens": [
+            "strummed",
+            "rasgueado",
+            "chordal",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "strummed",
+            "rhythm"
+          ]
+        },
+        {
+          "id": "bandurria_play_punteado",
+          "name": "Punteado single-note picking",
+          "descriptors": [
+            "picked",
+            "articulate",
+            "crisp"
+          ],
+          "match_tokens": [
+            "plucked",
+            "punteado",
+            "plectrum-picked",
+            "articulate"
+          ],
+          "canonical_tags": [
+            "punteado",
+            "melodic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bandurria_stringing",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "bandurria_string_steel",
+          "default": true,
+          "name": "Steel double courses (modern)",
+          "descriptors": [
+            "steel-strung",
+            "ringing",
+            "brilliant"
+          ],
+          "match_tokens": [
+            "plucked",
+            "steel-string",
+            "bright"
+          ],
+          "canonical_tags": [
+            "steel-strings"
+          ]
+        },
+        {
+          "id": "bandurria_string_gut_nylon",
+          "name": "Gut and nylon courses (older)",
+          "descriptors": [
+            "gut-strung",
+            "warm",
+            "soft-edged"
+          ],
+          "match_tokens": [
+            "plucked",
+            "gut-string",
+            "nylon-string",
+            "mellow"
+          ],
+          "canonical_tags": [
+            "gut-strings",
+            "nylon-strings"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "bandurria_form",
+      "name": "Regional form and size",
+      "variants": [
+        {
+          "id": "bandurria_form_spanish_soprano",
+          "default": true,
+          "name": "Spanish soprano bandurria",
+          "descriptors": [
+            "bright",
+            "high-pitched",
+            "silvery"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bandurria",
+            "soprano",
+            "rondalla"
+          ],
+          "canonical_tags": [
+            "spanish",
+            "rondalla",
+            "tuna"
+          ]
+        },
+        {
+          "id": "bandurria_form_laud_espanol",
+          "name": "Laud espanol (larger tenor form)",
+          "descriptors": [
+            "rounder",
+            "lower-octave",
+            "mellow"
+          ],
+          "match_tokens": [
+            "plucked",
+            "laud",
+            "tenor",
+            "rondalla"
+          ],
+          "canonical_tags": [
+            "spanish",
+            "laud",
+            "rondalla"
+          ]
+        },
+        {
+          "id": "bandurria_form_filipina",
+          "name": "Filipino rondalla bandurria",
+          "descriptors": [
+            "cutting",
+            "brilliant",
+            "banded-neck"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bandurria",
+            "filipino",
+            "rondalla"
+          ],
+          "canonical_tags": [
+            "philippine",
+            "rondalla"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bandurria_playing",
+      "name": "Playing technique and repertoire role",
+      "variants": [
+        {
+          "id": "bandurria_play_tremolo",
+          "default": true,
+          "name": "Sustained plectrum tremolo lead",
+          "descriptors": [
+            "tremolo",
+            "shimmering",
+            "sustained-line"
+          ],
+          "match_tokens": [
+            "plucked",
+            "tremolo",
+            "plectrum-picked",
+            "lead"
+          ],
+          "canonical_tags": [
+            "tremolo",
+            "melodic-lead"
+          ]
+        },
+        {
+          "id": "bandurria_play_rasgueado",
+          "name": "Strummed chordal accompaniment",
+          "descriptors": [
+            "strummed",
+            "chordal",
+            "driving"
+          ],
+          "match_tokens": [
+            "strummed",
+            "rasgueado",
+            "chordal",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "strummed",
+            "rhythm"
+          ]
+        },
+        {
+          "id": "bandurria_play_punteado",
+          "name": "Punteado single-note picking",
+          "descriptors": [
+            "picked",
+            "articulate",
+            "crisp"
+          ],
+          "match_tokens": [
+            "plucked",
+            "punteado",
+            "plectrum-picked",
+            "articulate"
+          ],
+          "canonical_tags": [
+            "punteado",
+            "melodic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bandurria_stringing",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "bandurria_string_steel",
+          "default": true,
+          "name": "Steel double courses (modern)",
+          "descriptors": [
+            "steel-strung",
+            "ringing",
+            "brilliant"
+          ],
+          "match_tokens": [
+            "plucked",
+            "steel-string",
+            "bright"
+          ],
+          "canonical_tags": [
+            "steel-strings"
+          ]
+        },
+        {
+          "id": "bandurria_string_gut_nylon",
+          "name": "Gut and nylon courses (older)",
+          "descriptors": [
+            "gut-strung",
+            "warm",
+            "soft-edged"
+          ],
+          "match_tokens": [
+            "plucked",
+            "gut-string",
+            "nylon-string",
+            "mellow"
+          ],
+          "canonical_tags": [
+            "gut-strings",
+            "nylon-strings"
+          ]
+        }
+      ]
+    }
+  ]
+}

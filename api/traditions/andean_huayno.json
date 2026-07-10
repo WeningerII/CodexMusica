@@ -3,9 +3,9 @@
   "name": "Huayno",
   "family": "global",
   "lineage": "Quechua-and-Aymara Andean dance-song tradition with anhemitonic-pentatonic five-tone (no half-step) melodic-vocabulary and characteristic short-short-long iambic-dance pattern (Q-Q-half rhythm) over moderate-fast 2/4 metric pulse. Pre-Columbian-origin (likely Inca-Imperial 1438-1533 onward, though oral-tradition extends earlier) with post-colonial mestizaje fusion (Spanish-criollo) integration of guitar, harp, charango ten-string-small-armadillo-back-guitar, and bandurria. Regional variants span Cuzco huayno-cusqueño (slower-court-elevated), Ayacucho huayno-ayacuchano (faster-rural), Junín huayno-orquestino (brass-band-and-saxophone modernized), and Aymara huayño-altiplánico (Bolivian-highland variant). The canonical instrumental ensemble includes quena vertical-notch-flute and zampoña panpipes.",
-  "recipe": "classic Andean early-1430s huayno, drone Modal, string branch, Latin am troubadour ballad poetry milonga chacarera. thick, forward-resonance, melodic, maqam neutral step. naranjillo andean premium wood pine traditional rural andean classical gut pre 1950s andean charango, bone melodic quena, andean tradition paired rows interlocking siku panpipes, guanaco hide hide ceibo canonical Argentine leguero hollowed trunk bombo andino, naranjillo bolivian peruvian gut pre modern andean strummed ronroco, melodic ocarina. andean altiplano outdoor. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 652,
-  "score": 228.02,
+  "recipe": "classic Andean early-1430s huayno, drone Modal, string branch, Latin am troubadour ballad poetry milonga chacarera. thick, forward-resonance, melodic, maqam neutral step. naranjillo andean premium wood pine traditional rural andean classical gut pre 1950s andean charango, bone melodic quena, andean tradition paired rows interlocking siku panpipes, guanaco hide hide ceibo canonical Argentine leguero hollowed trunk bombo andino, naranjillo bolivian peruvian gut pre modern andean strummed ronroco, melodic ocarina, altiplano mara canonical single block tarka. andean altiplano outdoor. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 697,
+  "score": 248.675,
   "config": {
     "traditions": [
       "andean_huayno",
@@ -134,6 +134,21 @@
           "wind_articulation": 5.625,
           "ocarina_chamber": 2.08,
           "ocarina_material": 0.39
+        }
+      },
+      {
+        "id": "tarka",
+        "slots": {
+          "tarka_form": "tarka_curahuara",
+          "tarka_context": "tarka_tarkeada",
+          "tarka_consort_voice": "tarka_malta",
+          "tarka_body_wood": "tarka_mara_wood"
+        },
+        "scores": {
+          "tarka_form": 11.769999999999998,
+          "tarka_context": 6.35,
+          "tarka_consort_voice": 0.39,
+          "tarka_body_wood": 2.145
         }
       }
     ],

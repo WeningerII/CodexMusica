@@ -3,9 +3,9 @@
   "name": "Calypso",
   "family": "global",
   "lineage": "Trinidadian narrative-and-topical song tradition emerging from post-1834 Emancipation kalinda stick-fighting chant, codified through the post-WWII commercial recording era — Mighty Sparrow (Slinger Francisco), Lord Kitchener (Aldwyn Roberts), Lord Invader, the Roaring Lion, Lord Melody, Calypso Rose; performed during the Trinidad and Tobago Carnival season (October-February preparation, with Carnival Monday-Tuesday peak) in calypso tent venues and competition contexts",
-  "recipe": "classic Caribbean mid-1830s calypso, groove Percussion, Caribbean branch, tropical song functional song, Caribbean carnival processional garifuna paranda and hungu-hungu bachata. thick, full chest belt, melodic, narrative. narrative fingerpicked dreadnought acoustic guitar, claves, pyramid pure nickel bass British mid 60s era sub heavy electric bass, steelpan, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn ensemble trumpet, tenor gold brass warmer tone saxophone. trinidad calypso panyard outdoor. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 703,
-  "score": 157.13,
+  "recipe": "classic Caribbean mid-1830s calypso, groove Percussion, Caribbean branch, tropical song functional song, Caribbean carnival processional garifuna paranda and hungu-hungu bachata. thick, full chest belt, melodic, narrative. narrative fingerpicked dreadnought acoustic guitar, claves, pyramid pure nickel bass British mid 60s era sub heavy electric bass, steelpan, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn ensemble trumpet, tenor gold brass warmer tone saxophone, steel orchestra. trinidad calypso panyard outdoor. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 720,
+  "score": 160.64,
   "config": {
     "traditions": [
       "calypso",
@@ -154,6 +154,19 @@
           "sax_mouthpiece": 0.65,
           "sax_technique": 0.325,
           "sax_maker_school": 0.7149999999999999
+        }
+      },
+      {
+        "id": "steel_orchestra",
+        "slots": {
+          "steel_orchestra_sections": "steel_orchestra_frontline",
+          "steel_orchestra_context": "steel_orchestra_concert_session",
+          "steel_orchestra_size": "steel_orchestra_single_pan"
+        },
+        "scores": {
+          "steel_orchestra_sections": 2.08,
+          "steel_orchestra_context": 0.39,
+          "steel_orchestra_size": 1.04
         }
       }
     ],

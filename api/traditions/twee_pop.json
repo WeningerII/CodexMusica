@@ -3,9 +3,9 @@
   "name": "Twee pop",
   "family": "global",
   "lineage": "1980s-onward fey indie-pop subgenre codified through C86 cassette (NME 1986) and the Sarah Records (Bristol 1987-1995) lineage — characterized by jangly minor-key guitar, soft male and female vocals, lo-fi production aesthetic, and twee-romantic lyrical subject matter; Belle and Sebastian, Tullycraft, Stars, and Camera Obscura extending the canon into the 2000s",
-  "recipe": "classic mid-1990s twee pop, functional Song, pop rock branch, anglo singer song indie folk freak folk. thick, incomplete closure resting, chest resonance low mid, equal tempered. cedar walnut phosphor bronze bronze fingerpicked acoustic marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, ukulele. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 620,
-  "score": 419.063,
+  "recipe": "classic mid-1990s twee pop, functional Song, pop rock branch, anglo singer song indie folk freak folk. thick, incomplete closure resting, chest resonance low mid, equal tempered. cedar walnut phosphor bronze bronze fingerpicked acoustic marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, ukulele, original omnichord. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 640,
+  "score": 430.053,
   "config": {
     "traditions": [
       "twee_pop",
@@ -165,6 +165,19 @@
           "ukulele_size": 2.925,
           "ukulele_style": 0.325,
           "ukulele_wood": 0.368625
+        }
+      },
+      {
+        "id": "omnichord",
+        "slots": {
+          "omnichord_model": "omnichord_om27",
+          "omnichord_context": "omnichord_indie_strum",
+          "omnichord_sound_setting": "omnichord_full_combo"
+        },
+        "scores": {
+          "omnichord_model": 6.3,
+          "omnichord_context": 4.3,
+          "omnichord_sound_setting": 0.39
         }
       }
     ],

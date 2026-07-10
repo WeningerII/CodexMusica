@@ -3,9 +3,9 @@
   "name": "Soca soul",
   "family": "global",
   "lineage": "Trinidadian soul-and-soca crossover tradition codified by Lord Shorty’s reinvention of calypso through soca (1973 Endless Vibrations record) — Arrow’s Hot Hot Hot (1982) bringing the form to international audiences, then Machel Montano, Bunji Garlin, Patrice Roberts, and Destra Garcia evolving the canon through the 1990s-2000s",
-  "recipe": "classic mid-1990s soca soul, groove Percussion, Caribbean branch, soul R&B functional song contemporary r&b northern soul and motown. thick, blues-shouter, overtone rich sustained, narrative. Fender blackface amp American 60s amp spring reverb bright pine chicken-scratch single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, walnut pre muffled edge muffled hot rolled annealed drum kit, singing lead analog poly synth, tenor nickel silver bright projecting ensemble honking saxophone, steelpan. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 724,
-  "score": 542.41,
+  "recipe": "classic mid-1990s soca soul, groove Percussion, Caribbean branch, soul R&B functional song contemporary r&b northern soul and motown. thick, blues-shouter, overtone rich sustained, narrative. Fender blackface amp American 60s amp spring reverb bright pine chicken-scratch single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, walnut pre muffled edge muffled hot rolled annealed drum kit, singing lead analog poly synth, tenor nickel silver bright projecting ensemble honking saxophone, steelpan, arranged cross genre concert stage steel orchestra. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 776,
+  "score": 544.23,
   "config": {
     "traditions": [
       "soca_soul",
@@ -180,6 +180,19 @@
         "scores": {
           "steelpan_voice": 1.04,
           "steelpan_context": 1.1949999999999998
+        }
+      },
+      {
+        "id": "steel_orchestra",
+        "slots": {
+          "steel_orchestra_sections": "steel_orchestra_mid_harmony",
+          "steel_orchestra_context": "steel_orchestra_concert_session",
+          "steel_orchestra_size": "steel_orchestra_stageside"
+        },
+        "scores": {
+          "steel_orchestra_sections": 0.39,
+          "steel_orchestra_context": 1.04,
+          "steel_orchestra_size": 0.39
         }
       }
     ],

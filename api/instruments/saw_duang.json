@@ -1,0 +1,375 @@
+{
+  "id": "saw_duang",
+  "name": "Saw duang (Thai two-string spike fiddle)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "saw duang",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "saw_duang_body_form",
+      "name": "Body form",
+      "variants": [
+        {
+          "id": "saw_duang_rosewood_tube",
+          "default": true,
+          "name": "Chingchan rosewood tube (canonical Bangkok)",
+          "descriptors": [
+            "rosewood-tube-canonical",
+            "bright",
+            "focused"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing"
+          ]
+        },
+        {
+          "id": "saw_duang_ivory_heirloom",
+          "name": "Ivory-bodied court heirloom (19th-century)",
+          "descriptors": [
+            "ivory-court-heirloom",
+            "refined",
+            "glassy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "saw_duang_padauk_conservatory",
+          "name": "Padauk conservatory build (modern standard)",
+          "descriptors": [
+            "padauk-conservatory-modern",
+            "consistent",
+            "student-tier"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saw_duang_repertoire",
+      "name": "Ensemble role / repertoire",
+      "variants": [
+        {
+          "id": "saw_duang_khruang_sai_lead",
+          "default": true,
+          "name": "Khruang sai string-ensemble lead",
+          "descriptors": [
+            "lead-voice",
+            "heterophonic",
+            "singing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing",
+            "ensemble",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "saw_duang_mahori",
+          "name": "Mahori mixed ensemble",
+          "descriptors": [
+            "blended",
+            "courtly",
+            "vocal-supportive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "saw_duang_pleng_diao",
+          "name": "Pleng diao solo showpiece",
+          "descriptors": [
+            "virtuoso",
+            "display",
+            "densely-ornamented"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing",
+            "classical-trained",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saw_duang_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "saw_duang_silk_canonical",
+          "default": true,
+          "name": "Silk strings, tuned a fifth apart (canonical Thai court)",
+          "descriptors": [
+            "silk-canonical-thai-court",
+            "warm-edged"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing"
+          ]
+        },
+        {
+          "id": "saw_duang_nylon_modern",
+          "name": "Nylon (modern standard)",
+          "descriptors": [
+            "nylon-modern-standard",
+            "stable"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saw_duang_face",
+      "surface": false,
+      "name": "Resonator face",
+      "variants": [
+        {
+          "id": "saw_duang_python_face",
+          "default": true,
+          "name": "Python-skin face (canonical, bow threaded between strings)",
+          "descriptors": [
+            "python-skin-canonical",
+            "nasal-bright",
+            "snake-skin"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing"
+          ]
+        },
+        {
+          "id": "saw_duang_synthetic_face",
+          "name": "Synthetic membrane (modern conservation-compliant)",
+          "descriptors": [
+            "synthetic-membrane-modern",
+            "consistent"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "bowed",
+            "piercing"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "saw_duang_body_form",
+      "name": "Body form",
+      "variants": [
+        {
+          "id": "saw_duang_rosewood_tube",
+          "default": true,
+          "name": "Chingchan rosewood tube (canonical Bangkok)",
+          "descriptors": [
+            "rosewood-tube-canonical",
+            "bright",
+            "focused"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing"
+          ]
+        },
+        {
+          "id": "saw_duang_ivory_heirloom",
+          "name": "Ivory-bodied court heirloom (19th-century)",
+          "descriptors": [
+            "ivory-court-heirloom",
+            "refined",
+            "glassy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "saw_duang_padauk_conservatory",
+          "name": "Padauk conservatory build (modern standard)",
+          "descriptors": [
+            "padauk-conservatory-modern",
+            "consistent",
+            "student-tier"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saw_duang_repertoire",
+      "name": "Ensemble role / repertoire",
+      "variants": [
+        {
+          "id": "saw_duang_khruang_sai_lead",
+          "default": true,
+          "name": "Khruang sai string-ensemble lead",
+          "descriptors": [
+            "lead-voice",
+            "heterophonic",
+            "singing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing",
+            "ensemble",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "saw_duang_mahori",
+          "name": "Mahori mixed ensemble",
+          "descriptors": [
+            "blended",
+            "courtly",
+            "vocal-supportive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "ensemble",
+            "ornamented"
+          ]
+        },
+        {
+          "id": "saw_duang_pleng_diao",
+          "name": "Pleng diao solo showpiece",
+          "descriptors": [
+            "virtuoso",
+            "display",
+            "densely-ornamented"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing",
+            "classical-trained",
+            "ornamented"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saw_duang_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "saw_duang_silk_canonical",
+          "default": true,
+          "name": "Silk strings, tuned a fifth apart (canonical Thai court)",
+          "descriptors": [
+            "silk-canonical-thai-court",
+            "warm-edged"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing"
+          ]
+        },
+        {
+          "id": "saw_duang_nylon_modern",
+          "name": "Nylon (modern standard)",
+          "descriptors": [
+            "nylon-modern-standard",
+            "stable"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saw_duang_face",
+      "surface": false,
+      "name": "Resonator face",
+      "variants": [
+        {
+          "id": "saw_duang_python_face",
+          "default": true,
+          "name": "Python-skin face (canonical, bow threaded between strings)",
+          "descriptors": [
+            "python-skin-canonical",
+            "nasal-bright",
+            "snake-skin"
+          ],
+          "match_tokens": [
+            "bowed",
+            "piercing"
+          ]
+        },
+        {
+          "id": "saw_duang_synthetic_face",
+          "name": "Synthetic membrane (modern conservation-compliant)",
+          "descriptors": [
+            "synthetic-membrane-modern",
+            "consistent"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "bowed",
+            "piercing"
+          ]
+        }
+      ]
+    }
+  ]
+}

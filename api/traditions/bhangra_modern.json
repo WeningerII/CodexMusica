@@ -3,9 +3,9 @@
   "name": "Bhangra (modern)",
   "family": "global",
   "lineage": "Modern bhangra — the post-1980s British-Asian diaspora extension of the originating Punjab village male-harvest-dance tradition into urban electronic pop format, codified through Bally Sagoo, Apache Indian, Malkit Singh, Bally Jagpal, the Punjabi MC dance-floor crossover era (the 1998 Mundian To Bach Ke that found its global breakthrough through Jay-Z 2003 remix), and the broader UK-Punjab Sangeeta / Multitone label catalogs",
-  "recipe": "classic South Asian mid-1980s bhangra, functional Song, south Asian pop branch, west African groove percussion hiplife jùjú. thick, rap, tasteful, narrative. synthetic synthetic remo modern stable bolt tuned modern concert stable dholak, synthetic gut pre modern Punjabi tumbi, behringer rd 8 modern clone analog circuit reproduction TR-808, dhol. punjab village bhangra dhol outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 514,
-  "score": 206.104,
+  "recipe": "classic South Asian mid-1980s bhangra, functional Song, south Asian pop branch, west African groove percussion hiplife jùjú. thick, rap, tasteful, narrative. synthetic synthetic remo modern stable bolt tuned modern concert stable dholak, synthetic gut pre modern Punjabi tumbi, behringer rd 8 modern clone analog circuit reproduction TR-808, dhol, jingle studded driving groove chimta. punjab village bhangra dhol outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 552,
+  "score": 229.676,
   "config": {
     "traditions": [
       "bhangra_modern",
@@ -106,6 +106,19 @@
           "dhol_form": 24.374999999999996,
           "dhol_repertoire": 12.908124999999998,
           "dhol_shell": 2.919375
+        }
+      },
+      {
+        "id": "chimta",
+        "slots": {
+          "chimta_form": "chimta_form_bhangra_jingle",
+          "chimta_stroke": "chimta_stroke_clash_shake",
+          "chimta_build": "chimta_build_steel_brass_jingles"
+        },
+        "scores": {
+          "chimta_form": 8.194999999999999,
+          "chimta_stroke": 14.954999999999998,
+          "chimta_build": 0.4225
         }
       }
     ],

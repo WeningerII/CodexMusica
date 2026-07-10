@@ -1,0 +1,366 @@
+{
+  "id": "mvet",
+  "name": "Mvet (Fang epic stick-zither of Cameroon/Gabon)",
+  "family": "plucked_traditional",
+  "class": "stick_zither",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "mvet",
+  "parts": [
+    {
+      "id": "mvet_form",
+      "name": "Regional form / resonator setup",
+      "variants": [
+        {
+          "id": "mvet_oyeng_fang",
+          "default": true,
+          "name": "Mvet oyeng (Fang epic stick-zither, two-three calabash resonators)",
+          "descriptors": [
+            "raffia-stemmed",
+            "gourd-resonated",
+            "buzzing-warmth"
+          ],
+          "match_tokens": [
+            "plucked",
+            "stick-zither",
+            "idiochord",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "fang",
+            "gabon",
+            "epic"
+          ]
+        },
+        {
+          "id": "mvet_beti_bulu",
+          "name": "Beti / Bulu southern-Cameroon mvet (single central calabash)",
+          "descriptors": [
+            "single-gourd",
+            "compact",
+            "nasal-toned"
+          ],
+          "match_tokens": [
+            "plucked",
+            "stick-zither",
+            "idiochord"
+          ],
+          "canonical_tags": [
+            "beti",
+            "bulu",
+            "cameroon"
+          ]
+        },
+        {
+          "id": "mvet_concert_added_string",
+          "name": "Enlarged concert mvet (added tuned strings, three-four calabashes)",
+          "descriptors": [
+            "extended-compass",
+            "full-bodied",
+            "urban-stage"
+          ],
+          "match_tokens": [
+            "plucked",
+            "stick-zither",
+            "resonant"
+          ],
+          "canonical_tags": [
+            "concert",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mvet_delivery",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "mvet_epic_recitation",
+          "default": true,
+          "name": "All-night Ekang epic recitation (mvett of the immortals, ankle-rattle bard)",
+          "descriptors": [
+            "epic-narration",
+            "cyclic-ostinato",
+            "declamatory"
+          ],
+          "match_tokens": [
+            "plucked",
+            "cyclic",
+            "drone-foundation",
+            "epic"
+          ],
+          "canonical_tags": [
+            "mvett",
+            "ekang",
+            "griot-bard"
+          ]
+        },
+        {
+          "id": "mvet_praise_entertainment",
+          "name": "Lighter praise and entertainment songs",
+          "descriptors": [
+            "lyrical",
+            "conversational",
+            "vocal-accompaniment"
+          ],
+          "match_tokens": [
+            "plucked",
+            "gentle",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "praise",
+            "entertainment"
+          ]
+        },
+        {
+          "id": "mvet_interlocking_dance",
+          "name": "Thumb-plucked interlocking dance patterns",
+          "descriptors": [
+            "interlocking",
+            "syncopated",
+            "driving-pulse"
+          ],
+          "match_tokens": [
+            "plucked",
+            "cyclic",
+            "interlocking"
+          ],
+          "canonical_tags": [
+            "dance",
+            "ostinato"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mvet_string_construction",
+      "surface": false,
+      "name": "String and resonator construction",
+      "variants": [
+        {
+          "id": "mvet_idiochord_raffia",
+          "default": true,
+          "name": "Idiochordic strips lifted from the raffia-palm stem, calabash gourd resonators",
+          "descriptors": [
+            "idiochord",
+            "raffia-skin",
+            "archaic-buzz"
+          ],
+          "match_tokens": [
+            "plucked",
+            "idiochord",
+            "buzzing",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "raffia",
+            "traditional"
+          ]
+        },
+        {
+          "id": "mvet_added_wire",
+          "name": "Added nylon or wire strings over a central bridge-notch",
+          "descriptors": [
+            "added-strings",
+            "brighter",
+            "ringing"
+          ],
+          "match_tokens": [
+            "plucked",
+            "metallic",
+            "shimmering-tone"
+          ],
+          "canonical_tags": [
+            "heterochord",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "mvet_form",
+      "name": "Regional form / resonator setup",
+      "variants": [
+        {
+          "id": "mvet_oyeng_fang",
+          "default": true,
+          "name": "Mvet oyeng (Fang epic stick-zither, two-three calabash resonators)",
+          "descriptors": [
+            "raffia-stemmed",
+            "gourd-resonated",
+            "buzzing-warmth"
+          ],
+          "match_tokens": [
+            "plucked",
+            "stick-zither",
+            "idiochord",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "fang",
+            "gabon",
+            "epic"
+          ]
+        },
+        {
+          "id": "mvet_beti_bulu",
+          "name": "Beti / Bulu southern-Cameroon mvet (single central calabash)",
+          "descriptors": [
+            "single-gourd",
+            "compact",
+            "nasal-toned"
+          ],
+          "match_tokens": [
+            "plucked",
+            "stick-zither",
+            "idiochord"
+          ],
+          "canonical_tags": [
+            "beti",
+            "bulu",
+            "cameroon"
+          ]
+        },
+        {
+          "id": "mvet_concert_added_string",
+          "name": "Enlarged concert mvet (added tuned strings, three-four calabashes)",
+          "descriptors": [
+            "extended-compass",
+            "full-bodied",
+            "urban-stage"
+          ],
+          "match_tokens": [
+            "plucked",
+            "stick-zither",
+            "resonant"
+          ],
+          "canonical_tags": [
+            "concert",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mvet_delivery",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "mvet_epic_recitation",
+          "default": true,
+          "name": "All-night Ekang epic recitation (mvett of the immortals, ankle-rattle bard)",
+          "descriptors": [
+            "epic-narration",
+            "cyclic-ostinato",
+            "declamatory"
+          ],
+          "match_tokens": [
+            "plucked",
+            "cyclic",
+            "drone-foundation",
+            "epic"
+          ],
+          "canonical_tags": [
+            "mvett",
+            "ekang",
+            "griot-bard"
+          ]
+        },
+        {
+          "id": "mvet_praise_entertainment",
+          "name": "Lighter praise and entertainment songs",
+          "descriptors": [
+            "lyrical",
+            "conversational",
+            "vocal-accompaniment"
+          ],
+          "match_tokens": [
+            "plucked",
+            "gentle",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "praise",
+            "entertainment"
+          ]
+        },
+        {
+          "id": "mvet_interlocking_dance",
+          "name": "Thumb-plucked interlocking dance patterns",
+          "descriptors": [
+            "interlocking",
+            "syncopated",
+            "driving-pulse"
+          ],
+          "match_tokens": [
+            "plucked",
+            "cyclic",
+            "interlocking"
+          ],
+          "canonical_tags": [
+            "dance",
+            "ostinato"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mvet_string_construction",
+      "surface": false,
+      "name": "String and resonator construction",
+      "variants": [
+        {
+          "id": "mvet_idiochord_raffia",
+          "default": true,
+          "name": "Idiochordic strips lifted from the raffia-palm stem, calabash gourd resonators",
+          "descriptors": [
+            "idiochord",
+            "raffia-skin",
+            "archaic-buzz"
+          ],
+          "match_tokens": [
+            "plucked",
+            "idiochord",
+            "buzzing",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "raffia",
+            "traditional"
+          ]
+        },
+        {
+          "id": "mvet_added_wire",
+          "name": "Added nylon or wire strings over a central bridge-notch",
+          "descriptors": [
+            "added-strings",
+            "brighter",
+            "ringing"
+          ],
+          "match_tokens": [
+            "plucked",
+            "metallic",
+            "shimmering-tone"
+          ],
+          "canonical_tags": [
+            "heterochord",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

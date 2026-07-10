@@ -3,9 +3,9 @@
   "name": "Texas conjunto",
   "family": "vernacular",
   "lineage": "Texas-Mexican (tejano) accordion-and-bajo-sexto dance-band tradition of South Texas and the Texas-Mexico borderlands, developed in the late-nineteenth-century from German-Czech accordion-polka traditions imported into Texas through Central European migration — codified through Narciso Martínez (Texas conjunto founding figure, recording 1936 onward), Santiago Jiménez Sr, Valerio Longoria, Tony de la Rosa, Flaco Jiménez",
-  "recipe": "classic North American mid-1930s texas conjunto, functional Song, tejano border branch, Latin am groove percussion forró brasileiro joropo. thick, forward-resonance, chest resonance low mid, narrative. steel hohner gola canonical premium German concert chordal accordion, spruce nickel wound modern tejano strummed bajo sexto, ampeg svt amp rock bass amp alder la bella flats Detroit soul bass canon electric bass, oak hot rolled annealed machine hammered symmetric pattern drum kit. honky tonk dance hall. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 601,
-  "score": 153.875,
+  "recipe": "classic North American mid-1930s texas conjunto, functional Song, tejano border branch, Latin am groove percussion forró brasileiro joropo. thick, forward-resonance, chest resonance low mid, narrative. steel hohner gola canonical premium German concert chordal accordion, spruce nickel wound modern tejano strummed bajo sexto, ampeg svt amp rock bass amp alder la bella flats Detroit soul bass canon electric bass, oak hot rolled annealed machine hammered symmetric pattern drum kit, accordion and bajo duo instrumental polka redova vals dance texas tejano conjunto conjunto norteno. honky tonk dance hall. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 701,
+  "score": 212.45,
   "config": {
     "traditions": [
       "texas_conjunto",
@@ -140,6 +140,19 @@
           "cymbal_lathing": 3.185,
           "cymbal_finish": 1.09,
           "drum_technique": 13.39
+        }
+      },
+      {
+        "id": "conjunto_norteno",
+        "slots": {
+          "conjunto_norteno_lineup": "conjunto_norteno_lineup_duo",
+          "conjunto_norteno_repertoire": "conjunto_norteno_repertoire_polka_redova",
+          "conjunto_norteno_substyle": "conjunto_norteno_substyle_texas"
+        },
+        "scores": {
+          "conjunto_norteno_lineup": 25.415,
+          "conjunto_norteno_repertoire": 9.030000000000001,
+          "conjunto_norteno_substyle": 24.13
         }
       }
     ],

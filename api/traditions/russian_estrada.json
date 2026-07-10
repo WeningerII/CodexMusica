@@ -3,9 +3,9 @@
   "name": "Russian estrada",
   "family": "global",
   "lineage": "Soviet-era (1940s-1991) and post-Soviet (1991-onward) Russian-language commercial-stage popular song — Edita Piekha, Joseph Kobzon, Lev Leshchenko, Alla Pugacheva (Pesnya goda annual TV festival regular), Sofia Rotaru, Filipp Kirkorov; characterized by sentimental minor-key lyrical content, orchestrated arrangements with strings and brass, and the centralized State-controlled distribution through Melodiya / Soviet TV / Radio infrastructure",
-  "recipe": "classic Eastern European modern russian estrada, functional Song, europop branch, pop rock functional song new wave folk rock. thick, incomplete closure resting, melodic, narrative. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, castagnari Italian premium folk music straight accordion, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, brass pre muffled edge muffled hot rolled annealed drum kit, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles choir ensemble, steel modern alternative Soviet orchestra canon strummed balalaika, rhythmic dance rhythm strummed domra. moscow state label 1964-present major-flagship moscow melodiya studio. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
-  "recipe_chars": 826,
-  "score": 616.39,
+  "recipe": "classic Eastern European modern russian estrada, functional Song, europop branch, pop rock functional song new wave folk rock. thick, incomplete closure resting, melodic, narrative. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, b system buttons stradella bass Russian tradition estrada stage Soviet era bayan russian, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, brass pre muffled edge muffled hot rolled annealed drum kit, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles choir ensemble, steel modern alternative Soviet orchestra canon strummed balalaika, rhythmic dance rhythm strummed domra. moscow state label 1964-present major-flagship moscow melodiya studio. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 858,
+  "score": 625.54,
   "config": {
     "traditions": [
       "russian_estrada",
@@ -78,24 +78,18 @@
         }
       },
       {
-        "id": "accordion",
+        "id": "bayan_russian",
         "slots": {
           "free_reed_technique": "free_reed_folk_first_position",
-          "accordion_reed_material": "tipo_a_mano",
-          "musette_offset": "scottish_musette",
-          "reed_config": "lm_only",
-          "bellows": "cardboard_leather",
-          "voicing_chamber": "no_cassotto",
-          "accordion_maker_school": "accordion_castagnari_italian"
+          "bayan_russian_model": "bayan_russian_tula_standard",
+          "bayan_russian_context": "bayan_russian_estrada_stage",
+          "bayan_russian_reed_voicing": "bayan_russian_dry_unison"
         },
         "scores": {
           "free_reed_technique": 13.874999999999996,
-          "accordion_reed_material": 2.08,
-          "musette_offset": 1.3299999999999998,
-          "reed_config": 1.275,
-          "bellows": 0,
-          "voicing_chamber": 0.195,
-          "accordion_maker_school": 5.589999999999998
+          "bayan_russian_model": 6.979999999999999,
+          "bayan_russian_context": 12.639999999999999,
+          "bayan_russian_reed_voicing": 0
         }
       },
       {
@@ -253,8 +247,6 @@
       "keyboard_technique": "keyboard_block_chord_pop",
       "piano_pitch_standard": "a_440_modern",
       "free_reed_technique": "free_reed_folk_first_position",
-      "reed_config": "lmm",
-      "musette_offset": "dry_tuning",
       "choir_size": "chamber_choir",
       "choir_ensemble_repertoire": "choir_ensemble_global_traditional",
       "plucked_traditional_technique": "plucked_folk_strummed",

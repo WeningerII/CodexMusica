@@ -3,9 +3,9 @@
   "name": "Cumbia colombiana",
   "family": "global",
   "lineage": "Colombian Caribbean-coast cortejo-procession couple-dance tradition originating mid-17th-century onward in Cartagena-and-Barranquilla Atlantic-coastal-region from Afro-Indigenous-Spanish fusion (enslaved-Africans-of-the-Bantu-Yoruba diaspora + Zenú-Wayuu Indigenous-coast + Spanish colonial Catholic-feast-day procession). The canonical conjunto-de-cumbia ensemble: gaitas Indigenous-Wayuu vertical-clay-and-cane flutes (gaita-macho lead, gaita-hembra accompaniment), tambor-mayor low-bass-drum (African-derived), llamador high-pulse-drum, alegre middle-improvisation-drum, maracas-and-guache shakers. The cumbia-clave 4-beat pattern emphasizes beats 1 and 3 (the conga-pattern echo). The 1940s-1960s commercial-mainstream cumbia adaptation by big-band-with-accordion-and-brass (cumbia-de-orquesta) spread Colombian-cumbia internationally; the 1960s-onward Peruvian-Mexican-and-Argentine cumbia-variants emerged from this diaspora.",
-  "recipe": "classic South American mid-1940s cumbia colombiana, groove Percussion, Latin am branch, tropical song functional song kompa garifuna paranda and hungu-hungu. thick, full chest belt, chest resonance low mid, narrative. castagnari Italian premium folk music accordion, gaita macho rhythmic drone gaita colombiana, ampeg b15 amp American 60s bass amp flip top character mahogany pyramid electric bass, nylon canonical rio carnival surdo, traditional gourd guiro, traditional gourd calabash maracas. colombian canon 1934-present mid tier discos fuentes medellin. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 668,
-  "score": 209.283,
+  "recipe": "classic South American mid-1940s cumbia colombiana, groove Percussion, Latin am branch, tropical song functional song kompa garifuna paranda and hungu-hungu. thick, full chest belt, chest resonance low mid, narrative. castagnari Italian premium folk music accordion, gaita macho rhythmic drone gaita deep barrel coastal cumbia head and shell steady pulse tambora colombiana, ampeg b15 amp American 60s bass amp flip top character mahogany pyramid electric bass, traditional gourd guiro, traditional gourd calabash maracas, cumbia lead gaita ensemble tambor alegre. colombian canon 1934-present mid tier discos fuentes medellin. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 737,
+  "score": 313.349,
   "config": {
     "traditions": [
       "cumbia_colombiana",
@@ -108,16 +108,16 @@
         }
       },
       {
-        "id": "surdo",
+        "id": "tambora_colombiana",
         "slots": {
-          "surdo_size": "surdo_segunda",
-          "surdo_skin": "surdo_nylon",
-          "surdo_shell": "surdo_aluminum_canonical"
+          "tambora_colombiana_form": "tambora_colombiana_form_costena",
+          "tambora_colombiana_pattern": "tambora_colombiana_pattern_cumbia",
+          "tambora_colombiana_build": "tambora_colombiana_build_goatskin"
         },
         "scores": {
-          "surdo_size": 1.15,
-          "surdo_skin": 2.145,
-          "surdo_shell": 0.1949999999999999
+          "tambora_colombiana_form": 26.935000000000006,
+          "tambora_colombiana_pattern": 42.09812500000001,
+          "tambora_colombiana_build": -0.15000000000000002
         }
       },
       {
@@ -140,6 +140,19 @@
         "scores": {
           "maracas_construction": 1.4949999999999999,
           "maracas_filling": 0.65
+        }
+      },
+      {
+        "id": "tambor_alegre",
+        "slots": {
+          "tambor_alegre_form": "tambor_alegre_form_gaita",
+          "tambor_alegre_role": "tambor_alegre_role_marcante",
+          "tambor_alegre_build": "tambor_alegre_build_venado"
+        },
+        "scores": {
+          "tambor_alegre_form": 30.006249999999998,
+          "tambor_alegre_role": 8.601875000000001,
+          "tambor_alegre_build": 0.06499999999999999
         }
       }
     ],
@@ -185,9 +198,6 @@
       "free_reed_technique": "free_reed_folk_first_position",
       "reed_config": "lmm",
       "musette_offset": "dry_tuning",
-      "surdo_size": "surdo_primeira",
-      "surdo_skin": "surdo_nylon",
-      "surdo_shell": "surdo_aluminum_canonical",
       "guiro_origin": "guiro_cuban",
       "guiro_striker": "guiro_wood",
       "maracas_construction": "maracas_gourd",

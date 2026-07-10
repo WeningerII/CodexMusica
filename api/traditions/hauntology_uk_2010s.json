@@ -3,9 +3,9 @@
   "name": "Hauntology (UK Ghost Box)",
   "family": "electronic",
   "lineage": "2000s and 2010s UK electronic subgenre developed through Ghost Box Records (founded 2004 by Julian House and Jim Jupp) and the broader UK-electronic scene, characterized by sampling-and-evocation of 1960s-1970s BBC Radiophonic Workshop, library music, and lost-British-television-soundtrack aesthetics. Belbury Poly, The Focus Group, The Advisory Circle, Mordant Music, and Boards of Canada (parallel adjacent) anchor the canonical hauntology roster.",
-  "recipe": "classic British mid-2000s hauntology, experimental Elec, ambient branch, idm glitch experimental electric chiptune / 8-bit. melodic, punctuated, 31 tet, m1 with m0 pulse borrowing. pad like pad analog synth, glitched textural sampler. converted victorian 1965-1985 major-flagship british class a commercial. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 406,
-  "score": 157.319,
+  "recipe": "classic British mid-2000s hauntology, experimental Elec, ambient branch, idm glitch experimental electric chiptune / 8-bit. melodic, punctuated, 31 tet, m1 with m0 pulse borrowing. pad like pad analog synth, glitched textural sampler, vibrato wobble internal speaker close miked stylophone, cleaner optical looped rhythm bed wow and flutter warped disc optigan. converted victorian 1965-1985 major-flagship british class a commercial. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 533,
+  "score": 206.543,
   "config": {
     "traditions": [
       "hauntology_uk_2010s",
@@ -84,6 +84,36 @@
           "sampler_bit_depth": 0.3045,
           "sampler_workflow": 15.625000000000002,
           "sampler_classic_context": 22.847499999999993
+        }
+      },
+      {
+        "id": "stylophone",
+        "slots": {
+          "stylophone_model": "stylophone_bass_model",
+          "stylophone_technique": "stylophone_drone_texture",
+          "stylophone_vibrato": "stylophone_vibrato_on",
+          "stylophone_output": "stylophone_internal_speaker"
+        },
+        "scores": {
+          "stylophone_model": 0.063,
+          "stylophone_technique": 5.25,
+          "stylophone_vibrato": 3.38,
+          "stylophone_output": 3.38
+        }
+      },
+      {
+        "id": "optigan",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "optigan_model": "optigan_model_orchestron",
+          "optigan_disc_program": "optigan_disc_rhythm_bed",
+          "optigan_playback_mechanism": "optigan_playback_worn_disc"
+        },
+        "scores": {
+          "keyboard_technique": -0.1,
+          "optigan_model": 17.484999999999996,
+          "optigan_disc_program": 17.484999999999996,
+          "optigan_playback_mechanism": 2.2815
         }
       }
     ],

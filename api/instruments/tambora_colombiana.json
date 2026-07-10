@@ -1,0 +1,420 @@
+{
+  "id": "tambora_colombiana",
+  "name": "Tambora colombiana (Caribbean cumbia bass drum)",
+  "family": "percussion",
+  "class": "double_headed_drum",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -1,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "Double-headed horizontal barrel drum of the Colombian Caribbean coast, struck with two sticks — one beating the goatskin head, the other rapping the wooden shell — to lay the driving low-mid pulse of cumbia, porro and fandango.",
+  "parts": [
+    {
+      "id": "tambora_colombiana_form",
+      "name": "Regional form and size",
+      "variants": [
+        {
+          "id": "tambora_colombiana_form_costena",
+          "default": true,
+          "name": "Tambora costena (coastal cumbia barrel)",
+          "descriptors": [
+            "deep-barrel",
+            "coastal-cumbia",
+            "rope-tensioned",
+            "wide-shell"
+          ],
+          "match_tokens": [
+            "struck",
+            "double-headed",
+            "bass-pulse",
+            "cumbia",
+            "driving"
+          ],
+          "canonical_tags": [
+            "cumbia",
+            "caribbean-coast",
+            "barrel-drum"
+          ]
+        },
+        {
+          "id": "tambora_colombiana_form_sabanera",
+          "name": "Tambora sabanera (Sabanas porro drum)",
+          "descriptors": [
+            "shallower-shell",
+            "sabanas-porro",
+            "bright-shell-rap",
+            "brisk-tuned"
+          ],
+          "match_tokens": [
+            "struck",
+            "double-headed",
+            "porro",
+            "shell-rap",
+            "driving"
+          ],
+          "canonical_tags": [
+            "porro",
+            "sabanas-de-sucre",
+            "barrel-drum"
+          ]
+        },
+        {
+          "id": "tambora_colombiana_form_momposina",
+          "name": "Tambora momposina (Depresion Momposina drum)",
+          "descriptors": [
+            "river-lowland",
+            "loose-headed",
+            "boomy",
+            "processional-sized"
+          ],
+          "match_tokens": [
+            "struck",
+            "double-headed",
+            "bass-pulse",
+            "cumbia",
+            "boomy"
+          ],
+          "canonical_tags": [
+            "cumbia",
+            "depresion-momposina",
+            "barrel-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tambora_colombiana_pattern",
+      "name": "Playing pattern and context",
+      "variants": [
+        {
+          "id": "tambora_colombiana_pattern_cumbia",
+          "default": true,
+          "name": "Golpe de cumbia (head-and-shell pulse)",
+          "descriptors": [
+            "head-and-shell",
+            "steady-pulse",
+            "two-stick",
+            "rim-wood-accent"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick",
+            "rim-shell",
+            "bass-pulse",
+            "driving",
+            "cumbia"
+          ],
+          "canonical_tags": [
+            "cumbia",
+            "golpe",
+            "two-stick-technique"
+          ]
+        },
+        {
+          "id": "tambora_colombiana_pattern_porro",
+          "name": "Ritmo de porro / fandango (accented figures)",
+          "descriptors": [
+            "syncopated-figures",
+            "shell-clatter",
+            "call-driving",
+            "festive-accented"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick",
+            "shell-rap",
+            "syncopated",
+            "driving",
+            "porro"
+          ],
+          "canonical_tags": [
+            "porro",
+            "fandango",
+            "two-stick-technique"
+          ]
+        },
+        {
+          "id": "tambora_colombiana_pattern_procesional",
+          "name": "Marching / procession stride",
+          "descriptors": [
+            "walking-stride",
+            "outdoor-projection",
+            "slung-carried",
+            "insistent-beat"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick",
+            "bass-pulse",
+            "processional",
+            "loud",
+            "driving"
+          ],
+          "canonical_tags": [
+            "procession",
+            "outdoor",
+            "marching"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tambora_colombiana_build",
+      "surface": false,
+      "name": "Shell and head construction",
+      "variants": [
+        {
+          "id": "tambora_colombiana_build_goatskin",
+          "default": true,
+          "name": "Hollowed-log shell with goatskin heads",
+          "descriptors": [
+            "goatskin-head",
+            "hollowed-log-shell",
+            "rope-laced",
+            "warm-attack"
+          ],
+          "match_tokens": [
+            "struck",
+            "double-headed",
+            "goatskin",
+            "wood-shell"
+          ],
+          "canonical_tags": [
+            "goatskin",
+            "log-shell",
+            "rope-tension"
+          ]
+        },
+        {
+          "id": "tambora_colombiana_build_cowhide",
+          "name": "Slat-stave shell with cowhide heads",
+          "descriptors": [
+            "cowhide-head",
+            "stave-shell",
+            "thick-membrane",
+            "deep-thud"
+          ],
+          "match_tokens": [
+            "struck",
+            "double-headed",
+            "cowhide",
+            "wood-shell"
+          ],
+          "canonical_tags": [
+            "cowhide",
+            "stave-shell",
+            "rope-tension"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tambora_colombiana_form",
+      "name": "Regional form and size",
+      "variants": [
+        {
+          "id": "tambora_colombiana_form_costena",
+          "default": true,
+          "name": "Tambora costena (coastal cumbia barrel)",
+          "descriptors": [
+            "deep-barrel",
+            "coastal-cumbia",
+            "rope-tensioned",
+            "wide-shell"
+          ],
+          "match_tokens": [
+            "struck",
+            "double-headed",
+            "bass-pulse",
+            "cumbia",
+            "driving"
+          ],
+          "canonical_tags": [
+            "cumbia",
+            "caribbean-coast",
+            "barrel-drum"
+          ]
+        },
+        {
+          "id": "tambora_colombiana_form_sabanera",
+          "name": "Tambora sabanera (Sabanas porro drum)",
+          "descriptors": [
+            "shallower-shell",
+            "sabanas-porro",
+            "bright-shell-rap",
+            "brisk-tuned"
+          ],
+          "match_tokens": [
+            "struck",
+            "double-headed",
+            "porro",
+            "shell-rap",
+            "driving"
+          ],
+          "canonical_tags": [
+            "porro",
+            "sabanas-de-sucre",
+            "barrel-drum"
+          ]
+        },
+        {
+          "id": "tambora_colombiana_form_momposina",
+          "name": "Tambora momposina (Depresion Momposina drum)",
+          "descriptors": [
+            "river-lowland",
+            "loose-headed",
+            "boomy",
+            "processional-sized"
+          ],
+          "match_tokens": [
+            "struck",
+            "double-headed",
+            "bass-pulse",
+            "cumbia",
+            "boomy"
+          ],
+          "canonical_tags": [
+            "cumbia",
+            "depresion-momposina",
+            "barrel-drum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tambora_colombiana_pattern",
+      "name": "Playing pattern and context",
+      "variants": [
+        {
+          "id": "tambora_colombiana_pattern_cumbia",
+          "default": true,
+          "name": "Golpe de cumbia (head-and-shell pulse)",
+          "descriptors": [
+            "head-and-shell",
+            "steady-pulse",
+            "two-stick",
+            "rim-wood-accent"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick",
+            "rim-shell",
+            "bass-pulse",
+            "driving",
+            "cumbia"
+          ],
+          "canonical_tags": [
+            "cumbia",
+            "golpe",
+            "two-stick-technique"
+          ]
+        },
+        {
+          "id": "tambora_colombiana_pattern_porro",
+          "name": "Ritmo de porro / fandango (accented figures)",
+          "descriptors": [
+            "syncopated-figures",
+            "shell-clatter",
+            "call-driving",
+            "festive-accented"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick",
+            "shell-rap",
+            "syncopated",
+            "driving",
+            "porro"
+          ],
+          "canonical_tags": [
+            "porro",
+            "fandango",
+            "two-stick-technique"
+          ]
+        },
+        {
+          "id": "tambora_colombiana_pattern_procesional",
+          "name": "Marching / procession stride",
+          "descriptors": [
+            "walking-stride",
+            "outdoor-projection",
+            "slung-carried",
+            "insistent-beat"
+          ],
+          "match_tokens": [
+            "struck",
+            "stick",
+            "bass-pulse",
+            "processional",
+            "loud",
+            "driving"
+          ],
+          "canonical_tags": [
+            "procession",
+            "outdoor",
+            "marching"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tambora_colombiana_build",
+      "surface": false,
+      "name": "Shell and head construction",
+      "variants": [
+        {
+          "id": "tambora_colombiana_build_goatskin",
+          "default": true,
+          "name": "Hollowed-log shell with goatskin heads",
+          "descriptors": [
+            "goatskin-head",
+            "hollowed-log-shell",
+            "rope-laced",
+            "warm-attack"
+          ],
+          "match_tokens": [
+            "struck",
+            "double-headed",
+            "goatskin",
+            "wood-shell"
+          ],
+          "canonical_tags": [
+            "goatskin",
+            "log-shell",
+            "rope-tension"
+          ]
+        },
+        {
+          "id": "tambora_colombiana_build_cowhide",
+          "name": "Slat-stave shell with cowhide heads",
+          "descriptors": [
+            "cowhide-head",
+            "stave-shell",
+            "thick-membrane",
+            "deep-thud"
+          ],
+          "match_tokens": [
+            "struck",
+            "double-headed",
+            "cowhide",
+            "wood-shell"
+          ],
+          "canonical_tags": [
+            "cowhide",
+            "stave-shell",
+            "rope-tension"
+          ]
+        }
+      ]
+    }
+  ]
+}

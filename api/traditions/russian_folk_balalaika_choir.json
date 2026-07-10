@@ -3,9 +3,9 @@
   "name": "Russian folk balalaika and choral",
   "family": "global",
   "lineage": "Vassily Andreyev-codified (late 19th-century) Russian-folk-orchestra tradition — Andreyev standardized the balalaika family (prima, sekunda, alto, bass, kontrabass) and founded the Great Russian Orchestra (Velikorusskiy Orkestr) in St. Petersburg 1888, establishing the concert-stage Russian-folk-instrument ensemble model that the Soviet era institutionalized through state ensembles like the Pyatnitsky Choir",
-  "recipe": "classic Eastern European late-1880s russian folk balalaika and choral, ballad Poetry, Slavic bard branch, christian gospel Russian orthodox, western common practice art music russian orthodox liturgical chant byzantine chant. thick, declaimed, chest resonance low mid, ornamental. bass foundation andreyev concert orchestra canonical revival strummed balalaika, orchestral bass rare spruce maple andreyev gut pre andreyev historical strummed domra, castagnari Italian premium folk music straight accordion. moscow state label 1964-present major-flagship moscow melodiya studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 650,
-  "score": 180.987,
+  "recipe": "classic Eastern European late-1880s russian folk balalaika and choral, ballad Poetry, Slavic bard branch, christian gospel Russian orthodox, western common practice art music russian orthodox liturgical chant byzantine chant. thick, declaimed, chest resonance low mid, ornamental. bass foundation andreyev concert orchestra canonical revival strummed balalaika, orchestral bass rare spruce maple andreyev gut pre andreyev historical strummed domra, b system buttons stradella bass Russian tradition estrada stage Soviet era bayan russian, willow pipe cow horn bell idioglot reed zhaleika. moscow state label 1964-present major-flagship moscow melodiya studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 732,
+  "score": 281.532,
   "config": {
     "traditions": [
       "russian_folk_balalaika_choir",
@@ -87,24 +87,31 @@
         }
       },
       {
-        "id": "accordion",
+        "id": "bayan_russian",
         "slots": {
           "free_reed_technique": "free_reed_folk_first_position",
-          "accordion_reed_material": "brass_reeds",
-          "musette_offset": "scottish_musette",
-          "reed_config": "lmmm",
-          "bellows": "cardboard_leather",
-          "voicing_chamber": "no_cassotto",
-          "accordion_maker_school": "accordion_castagnari_italian"
+          "bayan_russian_model": "bayan_russian_tula_standard",
+          "bayan_russian_context": "bayan_russian_estrada_stage",
+          "bayan_russian_reed_voicing": "bayan_russian_broken_deck"
         },
         "scores": {
           "free_reed_technique": 10.789999999999996,
-          "accordion_reed_material": 0.9299999999999999,
-          "musette_offset": 0.195,
-          "reed_config": 0.615,
-          "bellows": 0,
-          "voicing_chamber": 0.195,
-          "accordion_maker_school": 6.564999999999999
+          "bayan_russian_model": 21.729999999999997,
+          "bayan_russian_context": 4.23,
+          "bayan_russian_reed_voicing": 1.3
+        }
+      },
+      {
+        "id": "zhaleika",
+        "slots": {
+          "zhaleika_form": "zhaleika_single_pipe",
+          "zhaleika_context": "zhaleika_song_lead",
+          "zhaleika_build": "zhaleika_willow_cowhorn"
+        },
+        "scores": {
+          "zhaleika_form": 30.02,
+          "zhaleika_context": 26.499999999999996,
+          "zhaleika_build": 25.265
         }
       }
     ],
@@ -142,8 +149,6 @@
       "voice_vibrato": "slow_vibrato",
       "voice_mechanism_compound": "voice_mechanism_single_source",
       "free_reed_technique": "free_reed_folk_first_position",
-      "reed_config": "lmm",
-      "musette_offset": "dry_tuning",
       "plucked_traditional_technique": "plucked_folk_strummed",
       "balalaika_size": "prima_balalaika",
       "balalaika_strings": "nylon_balalaika",

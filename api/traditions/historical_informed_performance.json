@@ -3,9 +3,9 @@
   "name": "Historically-informed performance recording",
   "family": "global",
   "lineage": "Late-twentieth-century classical-performance movement aiming to play pre-1900 Western art-music repertoire on period-appropriate instruments using period-appropriate technique, tuning (typically A=415 Hz baroque, A=430 Hz classical), tempo, articulation, and ornamentation — codified through ensembles including The English Concert (Trevor Pinnock), Concentus Musicus Wien (Nikolaus Harnoncourt), Academy of Ancient Music (Christopher Hogwood), and continuing through generations of period-instrument-trained performers",
-  "recipe": "classic early-1900s historically-informed performance recording, art Music, western early branch, western common practice art music anglican cathedral-choral recording tradition hyperion-school classical-recording aesthetic. thick, declaimed, chest resonance low mid, hocket articulation. maple modern British folk brass wire canonical renaissance cittern, gut galeazzi 1791 Baroque recipe period rosin legato fiddle, Baroque leaning silbermann saxon canonical bach era central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque pneumatic canonical late 19th century romantic pipe organ, plain lamb gut canonical period performance snakewood underhand grip canonical Baroque viol viola da gamba, boxwood canonical renaissance Baroque continuous-airflow legato recorder, mid renaissance English Spanish lute renaissance, boxwood canonical renaissance European shawm. parish church.",
-  "recipe_chars": 988,
-  "score": 326.049,
+  "recipe": "classic early-1900s historically-informed performance recording, art Music, western early branch, western common practice art music anglican cathedral-choral recording tradition hyperion-school classical-recording aesthetic. thick, declaimed, chest resonance low mid, hocket articulation. maple modern British folk brass wire canonical renaissance cittern, late medieval legato vielle medieval, sustained breathy chant doubling portative organ, plain lamb gut canonical period performance snakewood underhand grip canonical Baroque viol viola da gamba, boxwood canonical renaissance Baroque continuous-airflow legato recorder, mid renaissance English Spanish lute renaissance, boxwood canonical renaissance European shawm, tenor workhorse consort blend thin hammered brass sackbut, crumhorn, song support double bourdon early Italian baroque guitar, six course polyphonic vihuela de mano, treble voiced legato rebec, medieval psaltery. parish church. tube condenser, 500-series boutique pre.",
+  "recipe_chars": 991,
+  "score": 307.897,
   "config": {
     "traditions": [
       "historical_informed_performance",
@@ -70,41 +70,33 @@
         }
       },
       {
-        "id": "fiddle",
+        "id": "vielle_medieval",
         "slots": {
           "bowed_technique": "bowed_legato_classical",
-          "fiddle_strings": "gut_wound",
-          "fiddle_bow": "galeazzi_1791_baroque_rosin_fiddle",
-          "fiddle_mute": "no_mute",
-          "fiddle_articulation": "arco"
+          "vielle_medieval_form": "vielle_medieval_waisted",
+          "vielle_medieval_repertoire": "vielle_medieval_troubadour_song",
+          "vielle_medieval_stringing": "vielle_medieval_all_fingerboard_gut"
         },
         "scores": {
           "bowed_technique": 10.625,
-          "fiddle_strings": 5.069999999999999,
-          "fiddle_bow": 3.7049999999999996,
-          "fiddle_mute": 1.3649999999999998,
-          "fiddle_articulation": 2.2749999999999995
+          "vielle_medieval_form": 1.4949999999999999,
+          "vielle_medieval_repertoire": 0.39,
+          "vielle_medieval_stringing": 0.195
         }
       },
       {
-        "id": "pipe_organ",
+        "id": "portative_organ",
         "slots": {
-          "keyboard_technique": "keyboard_classical_legato",
-          "pipe_organ_class": "pipe_organ_baroque",
-          "pipe_organ_context": "pipe_organ_concert",
-          "pipe_organ_voicing_school": "pipe_organ_silbermann_saxon",
-          "pipe_organ_pipe_alloy": "pipe_organ_zinc_pedal",
-          "pipe_organ_temperament": "pipe_organ_meantone_quarter",
-          "pipe_organ_action": "pipe_organ_pneumatic"
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "portative_organ_form": "portative_organ_form_single_rank",
+          "portative_organ_repertoire": "portative_organ_repertoire_sacred_organum",
+          "portative_organ_pipework": "portative_organ_pipework_metal"
         },
         "scores": {
-          "keyboard_technique": 10.625,
-          "pipe_organ_class": 1.195,
-          "pipe_organ_context": 18.265,
-          "pipe_organ_voicing_school": 5.85,
-          "pipe_organ_pipe_alloy": 2.795,
-          "pipe_organ_temperament": 4.355,
-          "pipe_organ_action": 2.9899999999999998
+          "keyboard_technique": -0.07,
+          "portative_organ_form": 0.52,
+          "portative_organ_repertoire": 1.41,
+          "portative_organ_pipework": -0.1
         }
       },
       {
@@ -178,6 +170,86 @@
           "shawm_body_wood": 1.1700000000000002,
           "shawm_reed": 0.585
         }
+      },
+      {
+        "id": "sackbut",
+        "slots": {
+          "sackbut_size": "sackbut_tenor",
+          "sackbut_repertoire": "sackbut_consort_canzona",
+          "sackbut_build": "sackbut_nuremberg_copy"
+        },
+        "scores": {
+          "sackbut_size": 2.8895,
+          "sackbut_repertoire": 2.495,
+          "sackbut_build": 3.185
+        }
+      },
+      {
+        "id": "crumhorn",
+        "slots": {
+          "crumhorn_size": "crumhorn_bass",
+          "crumhorn_repertoire": "crumhorn_hip_revival",
+          "crumhorn_construction": "crumhorn_maple_plastic_workshop"
+        },
+        "scores": {
+          "crumhorn_size": 0.65,
+          "crumhorn_repertoire": 5.7595,
+          "crumhorn_construction": 0.6749999999999999
+        }
+      },
+      {
+        "id": "baroque_guitar",
+        "slots": {
+          "baroque_guitar_form": "baroque_guitar_spanish_sanz",
+          "baroque_guitar_style": "baroque_guitar_continuo",
+          "baroque_guitar_stringing": "baroque_guitar_double_bourdons"
+        },
+        "scores": {
+          "baroque_guitar_form": 0.585,
+          "baroque_guitar_style": 2.275,
+          "baroque_guitar_stringing": 3.055
+        }
+      },
+      {
+        "id": "vihuela_de_mano",
+        "slots": {
+          "vihuela_de_mano_form": "vihuela_de_mano_form_six_course",
+          "vihuela_de_mano_repertoire": "vihuela_de_mano_repertoire_fantasia",
+          "vihuela_de_mano_build": "vihuela_de_mano_build_gut_flatback"
+        },
+        "scores": {
+          "vihuela_de_mano_form": 1.56,
+          "vihuela_de_mano_repertoire": 1.56,
+          "vihuela_de_mano_build": -0.07
+        }
+      },
+      {
+        "id": "rebec",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "rebec_form": "rebec_form_treble",
+          "rebec_repertoire": "rebec_repertoire_drone",
+          "rebec_build": "rebec_build_gut"
+        },
+        "scores": {
+          "bowed_technique": 10.625,
+          "rebec_form": 1.365,
+          "rebec_repertoire": -0.07,
+          "rebec_build": -0.1
+        }
+      },
+      {
+        "id": "medieval_psaltery",
+        "slots": {
+          "medieval_psaltery_form": "medieval_psaltery_form_canale",
+          "medieval_psaltery_playing": "medieval_psaltery_playing_twin_quill",
+          "medieval_psaltery_stringing": "medieval_psaltery_stringing_gut"
+        },
+        "scores": {
+          "medieval_psaltery_form": -0.035,
+          "medieval_psaltery_playing": -0.035,
+          "medieval_psaltery_stringing": 0.12999999999999998
+        }
       }
     ],
     "room": "stone_parish_church",
@@ -213,15 +285,6 @@
       "voice_estill_quality": "voice_estill_opera",
       "voice_vibrato": "fast_vibrato",
       "voice_mechanism_compound": "voice_mechanism_single_source",
-      "bowed_technique": "bowed_chopped_old_time",
-      "fiddle_articulation": "arco",
-      "keyboard_technique": "keyboard_classical_legato",
-      "pipe_organ_class": "pipe_organ_baroque",
-      "pipe_organ_context": "pipe_organ_liturgical",
-      "pipe_organ_voicing_school": "pipe_organ_schnitger_hamburg",
-      "pipe_organ_pipe_alloy": "pipe_organ_tin_lead_75_25",
-      "pipe_organ_temperament": "pipe_organ_meantone_quarter",
-      "pipe_organ_action": "pipe_organ_mechanical_tracker",
       "wind_articulation": "wind_ornament_heavy",
       "shawm_pitch": "shawm_treble",
       "shawm_context": "shawm_hip_revival",

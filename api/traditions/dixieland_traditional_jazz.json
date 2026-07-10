@@ -3,9 +3,9 @@
   "name": "Dixieland (traditional/New Orleans-Chicago)",
   "family": "jazz",
   "lineage": "Earliest documented jazz style (c.1905-1928) emerging from New Orleans through cornet-led front-line (cornet/trumpet, clarinet, trombone) playing collective polyphonic improvisation over banjo/guitar-bass-drums rhythm section. Original Dixieland Jass Band's 1917 Livery Stable Blues was the first commercial jazz recording. Distinguished from later swing era by Dixieland's collective-improvisation (vs solo-feature) ensemble principle and 2/4 march-derived rhythmic pulse.",
-  "recipe": "classic North American mid-1910s dixieland, improv On Frame, early branch, American jazz pre jazz ragtime. bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, grenadilla African blackwood traditional front line clarinet, bach 42 canonical American orchestral tenor front line student commercial trombone, growly gut upright bass, vintage ambassador asymmetric bronze bell bronze over hammered drum kit, walnut warmer than maple scruggs stelling bluegrass setup mastertone flathead banjo 5 string, yellow brass canonical brass band conn vintage early jazz canon front line cornet. dry but alive 1948-1965 indie-commercial early tape us small. acoustic horn. 78rpm shellac.",
-  "recipe_chars": 704,
-  "score": 453.235,
+  "recipe": "classic North American mid-1910s dixieland, improv On Frame, early branch, American jazz pre jazz ragtime. bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, grenadilla African blackwood traditional front line clarinet, bach 42 canonical American orchestral tenor front line student commercial trombone, growly gut upright bass, vintage ambassador asymmetric bronze bell bronze over hammered drum kit, walnut warmer than maple scruggs stelling bluegrass setup mastertone flathead banjo 5 string, yellow brass canonical brass band conn vintage early jazz canon front line cornet, chord friendly guitar topped tenor guitar. dry but alive 1948-1965 indie-commercial early tape us small. acoustic horn. 78rpm shellac.",
+  "recipe_chars": 747,
+  "score": 456.184,
   "config": {
     "traditions": [
       "dixieland_traditional_jazz",
@@ -157,6 +157,19 @@
           "cornet_context": 7.50625,
           "cornet_bell_metal": 2.275,
           "cornet_maker_school": 17.225
+        }
+      },
+      {
+        "id": "tenor_guitar",
+        "slots": {
+          "tenor_guitar_form": "tenor_guitar_form_chicago",
+          "tenor_guitar_style": "tenor_guitar_style_celtic_lead",
+          "tenor_guitar_build": "tenor_guitar_build_flattop"
+        },
+        "scores": {
+          "tenor_guitar_form": 1.6214999999999997,
+          "tenor_guitar_style": 1.263,
+          "tenor_guitar_build": 0.06499999999999999
         }
       }
     ],

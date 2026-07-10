@@ -1,0 +1,318 @@
+{
+  "id": "crumhorn",
+  "name": "Crumhorn (renaissance capped double reed)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "crumhorn",
+  "parts": [
+    {
+      "id": "crumhorn_size",
+      "name": "Consort size",
+      "variants": [
+        {
+          "id": "crumhorn_soprano",
+          "name": "Soprano in C",
+          "descriptors": [
+            "bright",
+            "nasal",
+            "dance-leading"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "crumhorn_alto",
+          "name": "Alto in F",
+          "descriptors": [
+            "reedy",
+            "inner-voice",
+            "blended"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "crumhorn_tenor",
+          "default": true,
+          "name": "Tenor in C",
+          "descriptors": [
+            "buzzing",
+            "warm",
+            "consort-core"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "crumhorn_bass",
+          "name": "Bass in F (keyed extension)",
+          "descriptors": [
+            "deep",
+            "droning",
+            "foundation"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "crumhorn_repertoire",
+      "name": "Repertoire context",
+      "variants": [
+        {
+          "id": "crumhorn_dance_consort",
+          "default": true,
+          "name": "Renaissance dance consort (Susato / Praetorius Terpsichore)",
+          "descriptors": [
+            "courtly",
+            "rhythmic",
+            "buzzing-homophony"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "crumhorn_madrigal_doubling",
+          "name": "Madrigal / chanson voice-doubling",
+          "descriptors": [
+            "vocal-doubling",
+            "polyphonic",
+            "soft-blend"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "crumhorn_hip_revival",
+          "name": "Modern early-music revival",
+          "descriptors": [
+            "twentieth-century",
+            "preservationist",
+            "historically-informed"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "period-performance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "crumhorn_construction",
+      "surface": false,
+      "name": "Body and windcap reed",
+      "variants": [
+        {
+          "id": "crumhorn_boxwood_capped_arundo",
+          "default": true,
+          "name": "Steam-bent boxwood body, capped arundo donax reed (canonical renaissance)",
+          "descriptors": [
+            "boxwood-bent-capped-arundo-canonical-renaissance"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "crumhorn_maple_plastic_workshop",
+          "name": "Maple body, synthetic reed (modern workshop, Moeck-style)",
+          "descriptors": [
+            "maple-synthetic-reed-modern-workshop"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "crumhorn_size",
+      "name": "Consort size",
+      "variants": [
+        {
+          "id": "crumhorn_soprano",
+          "name": "Soprano in C",
+          "descriptors": [
+            "bright",
+            "nasal",
+            "dance-leading"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "crumhorn_alto",
+          "name": "Alto in F",
+          "descriptors": [
+            "reedy",
+            "inner-voice",
+            "blended"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "crumhorn_tenor",
+          "default": true,
+          "name": "Tenor in C",
+          "descriptors": [
+            "buzzing",
+            "warm",
+            "consort-core"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "crumhorn_bass",
+          "name": "Bass in F (keyed extension)",
+          "descriptors": [
+            "deep",
+            "droning",
+            "foundation"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "crumhorn_repertoire",
+      "name": "Repertoire context",
+      "variants": [
+        {
+          "id": "crumhorn_dance_consort",
+          "default": true,
+          "name": "Renaissance dance consort (Susato / Praetorius Terpsichore)",
+          "descriptors": [
+            "courtly",
+            "rhythmic",
+            "buzzing-homophony"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "crumhorn_madrigal_doubling",
+          "name": "Madrigal / chanson voice-doubling",
+          "descriptors": [
+            "vocal-doubling",
+            "polyphonic",
+            "soft-blend"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "crumhorn_hip_revival",
+          "name": "Modern early-music revival",
+          "descriptors": [
+            "twentieth-century",
+            "preservationist",
+            "historically-informed"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "period-performance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "crumhorn_construction",
+      "surface": false,
+      "name": "Body and windcap reed",
+      "variants": [
+        {
+          "id": "crumhorn_boxwood_capped_arundo",
+          "default": true,
+          "name": "Steam-bent boxwood body, capped arundo donax reed (canonical renaissance)",
+          "descriptors": [
+            "boxwood-bent-capped-arundo-canonical-renaissance"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "crumhorn_maple_plastic_workshop",
+          "name": "Maple body, synthetic reed (modern workshop, Moeck-style)",
+          "descriptors": [
+            "maple-synthetic-reed-modern-workshop"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "renaissance"
+          ]
+        }
+      ]
+    }
+  ]
+}

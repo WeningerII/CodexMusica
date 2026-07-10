@@ -1,0 +1,344 @@
+{
+  "id": "kokle",
+  "name": "Kokle (Latvian board zither)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "kokle",
+  "parts": [
+    {
+      "id": "kokle_form",
+      "name": "Regional form / string count",
+      "variants": [
+        {
+          "id": "kokle_kurzeme_diatonic",
+          "default": true,
+          "name": "Kurzeme diatonic (traditional 5-11 string)",
+          "descriptors": [
+            "archaic",
+            "diatonic",
+            "wing-shaped-kurzeme"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "kokle_latgale_angular",
+          "name": "Latgale angular type",
+          "descriptors": [
+            "angular-latgalian",
+            "regional",
+            "rustic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "kokle_concert_chromatic",
+          "name": "Concert chromatic kokle (modern)",
+          "descriptors": [
+            "chromatic",
+            "concert",
+            "twentieth-century-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kokle_playing",
+      "name": "Playing technique / context",
+      "variants": [
+        {
+          "id": "kokle_strum_damp_dainas",
+          "default": true,
+          "name": "Strummed with left-hand damping (dainas accompaniment)",
+          "descriptors": [
+            "strummed-damped",
+            "song-accompaniment",
+            "traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "kokle_plucked_melodic",
+          "name": "Finger-plucked melodic line",
+          "descriptors": [
+            "finger-plucked",
+            "melodic",
+            "delicate"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "kokle_ensemble_revival",
+          "name": "Folk-revival ensemble",
+          "descriptors": [
+            "communal",
+            "concert",
+            "preservationist"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kokle_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "kokle_gut_traditional",
+          "default": true,
+          "name": "Gut (traditional canonical)",
+          "descriptors": [
+            "gut-traditional-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "kokle_metal_modern",
+          "name": "Steel / brass (modern concert)",
+          "descriptors": [
+            "steel-brass-modern-concert"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kokle_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "kokle_maple_lime",
+          "default": true,
+          "name": "Maple / lime (canonical Latvian)",
+          "descriptors": [
+            "maple-lime",
+            "canonical-latvian"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "kokle_spruce_top",
+          "name": "Spruce top (resonant modern)",
+          "descriptors": [
+            "spruce-top-resonant"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kokle_form",
+      "name": "Regional form / string count",
+      "variants": [
+        {
+          "id": "kokle_kurzeme_diatonic",
+          "default": true,
+          "name": "Kurzeme diatonic (traditional 5-11 string)",
+          "descriptors": [
+            "archaic",
+            "diatonic",
+            "wing-shaped-kurzeme"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "kokle_latgale_angular",
+          "name": "Latgale angular type",
+          "descriptors": [
+            "angular-latgalian",
+            "regional",
+            "rustic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "kokle_concert_chromatic",
+          "name": "Concert chromatic kokle (modern)",
+          "descriptors": [
+            "chromatic",
+            "concert",
+            "twentieth-century-modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kokle_playing",
+      "name": "Playing technique / context",
+      "variants": [
+        {
+          "id": "kokle_strum_damp_dainas",
+          "default": true,
+          "name": "Strummed with left-hand damping (dainas accompaniment)",
+          "descriptors": [
+            "strummed-damped",
+            "song-accompaniment",
+            "traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "kokle_plucked_melodic",
+          "name": "Finger-plucked melodic line",
+          "descriptors": [
+            "finger-plucked",
+            "melodic",
+            "delicate"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "kokle_ensemble_revival",
+          "name": "Folk-revival ensemble",
+          "descriptors": [
+            "communal",
+            "concert",
+            "preservationist"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kokle_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "kokle_gut_traditional",
+          "default": true,
+          "name": "Gut (traditional canonical)",
+          "descriptors": [
+            "gut-traditional-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "kokle_metal_modern",
+          "name": "Steel / brass (modern concert)",
+          "descriptors": [
+            "steel-brass-modern-concert"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kokle_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "kokle_maple_lime",
+          "default": true,
+          "name": "Maple / lime (canonical Latvian)",
+          "descriptors": [
+            "maple-lime",
+            "canonical-latvian"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "kokle_spruce_top",
+          "name": "Spruce top (resonant modern)",
+          "descriptors": [
+            "spruce-top-resonant"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        }
+      ]
+    }
+  ]
+}

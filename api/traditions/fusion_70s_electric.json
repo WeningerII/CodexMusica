@@ -3,9 +3,9 @@
   "name": "Jazz fusion (1970s post-Bitches-Brew electric jazz-rock)",
   "family": "jazz",
   "lineage": "1970s jazz subgenre developed from Miles Davis's late-1960s Bitches Brew sessions, integrating jazz-improvisational practice with rock-and-funk rhythmic vocabulary and electric-amplified-instrumentation. Weather Report (founded 1970 by Joe Zawinul and Wayne Shorter), Mahavishnu Orchestra (John McLaughlin), Return to Forever (Chick Corea), and Headhunters (Herbie Hancock) constitute the canonical 1970s fusion roster. Distinguished from broader jazz by fusion's explicit rock-and-funk-rhythmic-electric-instrument synthesis.",
-  "recipe": "classic Los Angeles jazz fusion, improv On Frame, fusion branch, progressive rock distorted rock zeuhl canterbury scene. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, marshall plexi amp British rock amp ernie ball slinky walking fingerstyle electric bass, vintage ambassador asymmetric bronze bell bronze fourteen step drum kit, analog synth. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
-  "recipe_chars": 661,
-  "score": 421.163,
+  "recipe": "classic Los Angeles jazz fusion, improv On Frame, fusion branch, progressive rock distorted rock zeuhl canterbury scene. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, marshall plexi amp British rock amp ernie ball slinky walking fingerstyle electric bass, vintage ambassador asymmetric bronze bell bronze fourteen step drum kit, analog synth, prog rock electric violin. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
+  "recipe_chars": 688,
+  "score": 441.083,
   "config": {
     "traditions": [
       "fusion_70s_electric",
@@ -126,6 +126,19 @@
           "filter_topology": 0.273,
           "envelope": 2.9494999999999996,
           "modulation": 0.15
+        }
+      },
+      {
+        "id": "electric_violin",
+        "slots": {
+          "electric_violin_form": "electric_violin_form_five_string",
+          "electric_violin_context": "electric_violin_context_prog_rock",
+          "electric_violin_pickup": "electric_violin_pickup_piezo"
+        },
+        "scores": {
+          "electric_violin_form": 0.78,
+          "electric_violin_context": 19.175,
+          "electric_violin_pickup": -0.035
         }
       }
     ],

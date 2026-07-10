@@ -3,9 +3,9 @@
   "name": "Ars antiqua and organum (medieval Paris)",
   "family": "classical",
   "lineage": "Late-twelfth-and-thirteenth-century European art-music style centered on the Notre Dame Cathedral school of Paris under Léonin (Leoninus, fl. 1150s-1180s) and Pérotin (Perotinus, fl. 1190s-1220s). Codified rhythmic-modal notation, organum (two-, three-, and four-voice polyphony built on plainchant tenors), and clausula and motet forms. Compiled in the Magnus Liber Organi attributed to Léonin and revised by Pérotin. Distinguished from preceding plainchant by ars antiqua's systematic polyphonic-organization.",
-  "recipe": "classic mid-1150s ars antiqua and organum, art Music, western early branch, christian gospel ritual devotional bluegrass gospel southern gospel quartet. thick, declaimed, chest resonance low mid, ornamental. a cappella small 3 to 8 one per part four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. parish church. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 452,
-  "score": 217.341,
+  "recipe": "classic mid-1150s ars antiqua and organum, art Music, western early branch, christian gospel ritual devotional bluegrass gospel southern gospel quartet. thick, declaimed, chest resonance low mid, ornamental. a cappella small 3 to 8 one per part four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble, late medieval vielle medieval, mellow reedy alto tenor rebec. parish church. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 514,
+  "score": 235.651,
   "config": {
     "traditions": [
       "ars_antiqua_organum",
@@ -65,6 +65,36 @@
           "choir_polyphonic_configuration": 5.525,
           "choir_regional_canonical_configuration": 5.640000000000001,
           "choir_ensemble_repertoire": 3.6399999999999997
+        }
+      },
+      {
+        "id": "vielle_medieval",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "vielle_medieval_form": "vielle_medieval_waisted",
+          "vielle_medieval_repertoire": "vielle_medieval_polyphony_doubling",
+          "vielle_medieval_stringing": "vielle_medieval_all_fingerboard_gut"
+        },
+        "scores": {
+          "bowed_technique": 2.59,
+          "vielle_medieval_form": 2.755,
+          "vielle_medieval_repertoire": 2.145,
+          "vielle_medieval_stringing": 0.195
+        }
+      },
+      {
+        "id": "rebec",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "rebec_form": "rebec_form_tenor",
+          "rebec_repertoire": "rebec_repertoire_organum",
+          "rebec_build": "rebec_build_wound"
+        },
+        "scores": {
+          "bowed_technique": 2.59,
+          "rebec_form": 3.565,
+          "rebec_repertoire": 4.54,
+          "rebec_build": -0.07
         }
       }
     ],

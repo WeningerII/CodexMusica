@@ -5,7 +5,7 @@
   "lineage": "Mid-1960s British R&B and blues-rock interpretation of American sources — codified through The Rolling Stones (The Rolling Stones 1964, their early Chess-blues covers), The Animals (\"The House of the Rising Sun\" 1964, \"I’m Crying\" 1964), The Yardbirds (Five Live Yardbirds 1964), and Them (Van Morrison’s early band) — characterized by white English musicians performing African-American blues and R&B repertoire with electric-rock-band instrumentation through Marshall amplifiers and the British studio sound",
   "recipe": "classic British british r&b and british invasion, distorted Rock, classic branch, blues electric functional song chicago blues jump blues. thick, blues-shouter, chest resonance low mid, equal tempered. slow-build minor-key ballad in 6 8, descending bass walk, slow build dynamic envelope, mid song instrumental break. marshall plexi amp British rock amp mahogany rosewood lower tension down tuning single coil electric guitar, vox ac amp British 60s amp top boost chime dearmond vintage jazz archtop, marshall plexi amp British rock amp Rickenbacker dual p90 flatwound semi hollow, psychedelic foregrounded organ driven rock vox ac amp British 60s amp top boost chime combo organ, marshall plexi amp British rock amp alder ernie ball slinky electric marshall plexi amp British rock amp hofner blade dual blade la bella flat short scale marshall plexi amp British rock amp Gibson eb2 epiphone rivoli semi hollow archtop semi hollow bass.",
   "recipe_chars": 936,
-  "score": 675.453,
+  "score": 699.845,
   "config": {
     "traditions": [
       "british_invasion_rb",
@@ -249,6 +249,21 @@
           "harmonica_technique": 28.389999999999997,
           "harmonica_maker_school": 30.682999999999996,
           "harmonica_tuning": 13.714999999999998
+        }
+      },
+      {
+        "id": "hohner_pianet",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "hohner_pianet_model": "hohner_pianet_model_combo",
+          "hohner_pianet_role": "hohner_pianet_role_comp",
+          "hohner_pianet_mechanism": "hohner_pianet_mech_leather"
+        },
+        "scores": {
+          "keyboard_technique": -0.07,
+          "hohner_pianet_model": 2.1664999999999996,
+          "hohner_pianet_role": 22.294999999999995,
+          "hohner_pianet_mechanism": 0
         }
       }
     ],

@@ -3,9 +3,9 @@
   "name": "Musique concrète",
   "family": "global",
   "lineage": "Post-WWII Paris-school tape-collage composition tradition founded by Pierre Schaeffer at RTF in 1948 — Schaeffer’s Études aux chemins de fer (1948) the genre-founding work, joined by Pierre Henry (Symphonie pour un homme seul 1950), Luc Ferrari, and the GRM (Groupe de Recherches Musicales) studio that institutionalized the practice through the 1950s-1970s",
-  "recipe": "classic mid-1950s musique concrète, experimental Elec, musique concrete branch, western modern art music minimalist fluxus intermedia composition. field textural sampler, modular granular synth, modular eurorack modular, modern art rock modern art rock revival post 2000 film score ondes martenot ondes martenot, moog music etherwave canonical modern reissue 1996 present theremin. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 527,
-  "score": 91.585,
+  "recipe": "classic mid-1950s musique concrète, experimental Elec, musique concrete branch, western modern art music minimalist fluxus intermedia composition. field textural sampler, modular granular synth, modular eurorack modular, modern art rock modern art rock revival post 2000 film score ondes martenot ondes martenot, moog music etherwave canonical modern reissue 1996 present theremin, structures sonores lasry baschet original experimental cristal wet finger friction legato glassy cristal baschet. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 641,
+  "score": 95.825,
   "config": {
     "traditions": [
       "musique_concrete",
@@ -84,6 +84,19 @@
           "theremin_model": 5.5,
           "theremin_technique": 1.105,
           "theremin_lineage": 11.05
+        }
+      },
+      {
+        "id": "cristal_baschet",
+        "slots": {
+          "cristal_baschet_form": "cristal_baschet_form_structures_sonores",
+          "cristal_baschet_touch": "cristal_baschet_touch_legato",
+          "cristal_baschet_resonator": "cristal_baschet_resonator_cones"
+        },
+        "scores": {
+          "cristal_baschet_form": 2.9250000000000007,
+          "cristal_baschet_touch": 1.3649999999999998,
+          "cristal_baschet_resonator": -0.05
         }
       }
     ],

@@ -3,9 +3,9 @@
   "name": "Medieval Latin chant and Notre Dame organum",
   "family": "classical",
   "lineage": "Medieval Western European liturgical music tradition spanning monophonic Gregorian chant (canonized late ninth century, eight church modes, Latin liturgical text) and the early-polyphonic organum that emerged from it. Ninth-century parallel organum (the chant doubled at the fifth or fourth, with optional octave doubling); twelfth-century melismatic organum (the chant slowed to drone-tone in the lower voice while the upper voice elaborates ornamentally over each chant pitch). The Notre Dame school, Paris, c.1160-1250, codified the rhythmic-modes system and expanded to three-and-four-voice organum: Léonin (c.1135-1201), credited with the Magnus Liber Organi (the great book of organum), set the two-voice canonical repertoire; Pérotin (fl. c.1200), expanded to three and four voices and composed canonical large-scale organum-quadruplum settings of Viderunt omnes (1198) and Sederunt principes. Cantus firmus practice: the chant melody remains in one voice (typically the tenor) while the other voices counterpoint above. Anonymous IV (English theorist, c.1270s, his treatise survives in a thirteenth-century Bury St Edmunds manuscript) preserves the attribution of these works to Léonin and Pérotin. Distinguished from Renaissance sacred polyphony by limited-voice-count and modal-not-tonal harmonic vocabulary; distinguished from Byzantine chant by Latin-language and Roman-rite cantus-firmus framing; distinguished from Old Roman chant by Frankish-redacted melodic-formulae lineage",
-  "recipe": "classic early-1160s medieval latin chant and notre dame organum, art Music, western early branch, christian gospel anglican choral anglican choral evensong. thick, declaimed, melodic, ornamental. a cappella small 3 to 8 one per part four voice polyphonic regional kakhetian three voice two soloists choral drone choir ensemble, silbermann saxon canonical bach era central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque pneumatic canonical late 19th century romantic pipe organ. cathedral. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 730,
-  "score": 268.225,
+  "recipe": "classic early-1160s medieval latin chant and notre dame organum, art Music, western early branch, christian gospel anglican choral anglican choral evensong. thick, declaimed, melodic, ornamental. a cappella small 3 to 8 one per part four voice polyphonic regional kakhetian three voice two soloists choral drone choir ensemble, double rank octave doubled chant doubling portative organ, late medieval dance driving gut bourdon drone vielle medieval. cathedral. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 590,
+  "score": 271.594,
   "config": {
     "traditions": [
       "medieval_latin_chant_organum",
@@ -67,24 +67,33 @@
         }
       },
       {
-        "id": "pipe_organ",
+        "id": "portative_organ",
         "slots": {
-          "keyboard_technique": "keyboard_classical_legato",
-          "pipe_organ_class": "pipe_organ_baroque",
-          "pipe_organ_context": "pipe_organ_concert",
-          "pipe_organ_voicing_school": "pipe_organ_silbermann_saxon",
-          "pipe_organ_pipe_alloy": "pipe_organ_zinc_pedal",
-          "pipe_organ_temperament": "pipe_organ_meantone_quarter",
-          "pipe_organ_action": "pipe_organ_pneumatic"
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "portative_organ_form": "portative_organ_form_double_rank",
+          "portative_organ_repertoire": "portative_organ_repertoire_sacred_organum",
+          "portative_organ_pipework": "portative_organ_pipework_metal"
         },
         "scores": {
-          "keyboard_technique": 2.695,
-          "pipe_organ_class": 0.9694285714285713,
-          "pipe_organ_context": 12.025,
-          "pipe_organ_voicing_school": 14.235,
-          "pipe_organ_pipe_alloy": 11.939857142857141,
-          "pipe_organ_temperament": 9.165,
-          "pipe_organ_action": 10.63985714285714
+          "keyboard_technique": -0.07,
+          "portative_organ_form": 2.6950000000000003,
+          "portative_organ_repertoire": 49.77042857142858,
+          "portative_organ_pipework": -0.1
+        }
+      },
+      {
+        "id": "vielle_medieval",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "vielle_medieval_form": "vielle_medieval_waisted",
+          "vielle_medieval_repertoire": "vielle_medieval_estampie_dance",
+          "vielle_medieval_stringing": "vielle_medieval_bourdon_gut"
+        },
+        "scores": {
+          "bowed_technique": 2.5,
+          "vielle_medieval_form": 4.233428571428571,
+          "vielle_medieval_repertoire": 1.69,
+          "vielle_medieval_stringing": 4.3188571428571425
         }
       }
     ],
@@ -122,14 +131,7 @@
       "voice_vibrato": "fast_vibrato",
       "voice_mechanism_compound": "voice_mechanism_single_source",
       "choir_size": "chamber_choir",
-      "choir_ensemble_repertoire": "choir_ensemble_renaissance",
-      "keyboard_technique": "keyboard_classical_legato",
-      "pipe_organ_class": "pipe_organ_romantic",
-      "pipe_organ_context": "pipe_organ_liturgical",
-      "pipe_organ_voicing_school": "pipe_organ_henry_willis",
-      "pipe_organ_pipe_alloy": "pipe_organ_spotted_metal_50_50",
-      "pipe_organ_temperament": "pipe_organ_equal_temperament",
-      "pipe_organ_action": "pipe_organ_electric_pneumatic"
+      "choir_ensemble_repertoire": "choir_ensemble_renaissance"
     },
     "chain_mic": "condenser_sdc",
     "chain_pre": "pre_field_recorder_portable",

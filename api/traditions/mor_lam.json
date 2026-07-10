@@ -3,9 +3,9 @@
   "name": "Mor lam",
   "family": "global",
   "lineage": "Isan (Northeast Thailand) and Lao traditional and popular vocal-and-khaen tradition — mor lam literally means expert singer in Lao; the Isan/Lao genre built on the khaen (bamboo mouth-organ with 16 pipes in two rows) and the lead-vocal improvising long-form Lao-language sung-poetry over the khaen drone-and-melody foundation; figures Banyen Rakkaen, Pornsak Songsang, Chaweewan Damnern, and the modern Jintara Poonlarp",
-  "recipe": "classic Southeast Asian modern mor lam, drone Modal, vocal branch, med east poetic ballad poetry pontic greek music ethiopian azmari minstrel-poet. vocal fry, declaimed, pure, narrative. khaen, bamboo bars low register canonical pinpeat second voice pinpeat counterpoint to roneat ek lead roneat thung. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 527,
-  "score": 162.56,
+  "recipe": "classic Southeast Asian modern mor lam, drone Modal, vocal branch, med east poetic ballad poetry pontic greek music ethiopian azmari minstrel-poet. vocal fry, declaimed, pure, narrative. khaen, bamboo bars low register canonical pinpeat second voice pinpeat counterpoint to roneat ek lead roneat thung, festive dance driving phin. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 555,
+  "score": 219.945,
   "config": {
     "traditions": [
       "mor_lam",
@@ -74,6 +74,19 @@
         "scores": {
           "roneat_thung_bars": 2.535,
           "roneat_thung_role": 3.8349999999999995
+        }
+      },
+      {
+        "id": "phin",
+        "slots": {
+          "phin_form": "phin_song_sai",
+          "phin_repertoire": "phin_prayuk",
+          "phin_construction": "phin_jackfruit_carved"
+        },
+        "scores": {
+          "phin_form": 40.36500000000001,
+          "phin_repertoire": 9.285,
+          "phin_construction": 7.7349999999999985
         }
       }
     ],

@@ -1,0 +1,383 @@
+{
+  "id": "portative_organ",
+  "name": "Portative organ",
+  "family": "keyboard",
+  "class": "keyboard_acoustic",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 2,
+    "register": 1,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "Small lap-held medieval flue-pipe organ: one hand pumps the bellows, the other plays a single row of keys, giving a breathy, continuous single-line voice central to Trecento and Ars Nova ensembles.",
+  "parts": [
+    {
+      "id": "keyboard_technique",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "keyboard_block_chord_pop",
+          "default": true,
+          "name": "Block-chord pop",
+          "descriptors": [
+            "block-chord"
+          ],
+          "match_tokens": [
+            "chordal",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "pop",
+            "singer-songwriter"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "portative_organ_form",
+      "name": "Instrument form and size",
+      "variants": [
+        {
+          "id": "portative_organ_form_single_rank",
+          "default": true,
+          "name": "Single-rank treble organetto",
+          "descriptors": [
+            "single-rank",
+            "treble-piping",
+            "one-row",
+            "compact"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "keyed",
+            "single-line",
+            "treble"
+          ],
+          "canonical_tags": [
+            "portative",
+            "organetto"
+          ]
+        },
+        {
+          "id": "portative_organ_form_double_rank",
+          "name": "Double-rank portative with octave doubling",
+          "descriptors": [
+            "double-rank",
+            "octave-doubled",
+            "fuller-piping"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "keyed",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "portative",
+            "two-ranks"
+          ]
+        },
+        {
+          "id": "portative_organ_form_landini_organetto",
+          "name": "High Landini organetto",
+          "descriptors": [
+            "high-treble",
+            "bright-piping",
+            "small-scaled"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "keyed",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "organetto",
+            "landini"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "portative_organ_repertoire",
+      "name": "Repertoire and playing context",
+      "variants": [
+        {
+          "id": "portative_organ_repertoire_trecento_secular",
+          "default": true,
+          "name": "Trecento / Ars Nova secular line",
+          "descriptors": [
+            "florid",
+            "melismatic",
+            "single-line",
+            "agile"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "melodic",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "trecento",
+            "ars-nova"
+          ]
+        },
+        {
+          "id": "portative_organ_repertoire_sacred_organum",
+          "name": "Sacred chant and organum doubling",
+          "descriptors": [
+            "sustained",
+            "chant-doubling",
+            "solemn",
+            "breathy"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation",
+            "sacred"
+          ],
+          "canonical_tags": [
+            "organum",
+            "chant"
+          ]
+        },
+        {
+          "id": "portative_organ_repertoire_processional",
+          "name": "Outdoor processional",
+          "descriptors": [
+            "carrying",
+            "steady",
+            "open-air"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "processional",
+            "bright"
+          ],
+          "canonical_tags": [
+            "processional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "portative_organ_pipework",
+      "surface": false,
+      "name": "Pipe construction",
+      "variants": [
+        {
+          "id": "portative_organ_pipework_metal",
+          "default": true,
+          "name": "Lead-tin alloy flue pipes",
+          "descriptors": [
+            "metal-piped",
+            "bright-fluty",
+            "keen"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "bellows-driven",
+            "bright"
+          ],
+          "canonical_tags": [
+            "metal-pipes",
+            "flue"
+          ]
+        },
+        {
+          "id": "portative_organ_pipework_wood",
+          "name": "Wooden flue pipes",
+          "descriptors": [
+            "wood-piped",
+            "soft-fluty",
+            "rounded"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "bellows-driven",
+            "mellow"
+          ],
+          "canonical_tags": [
+            "wooden-pipes",
+            "flue"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "portative_organ_form",
+      "name": "Instrument form and size",
+      "variants": [
+        {
+          "id": "portative_organ_form_single_rank",
+          "default": true,
+          "name": "Single-rank treble organetto",
+          "descriptors": [
+            "single-rank",
+            "treble-piping",
+            "one-row",
+            "compact"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "keyed",
+            "single-line",
+            "treble"
+          ],
+          "canonical_tags": [
+            "portative",
+            "organetto"
+          ]
+        },
+        {
+          "id": "portative_organ_form_double_rank",
+          "name": "Double-rank portative with octave doubling",
+          "descriptors": [
+            "double-rank",
+            "octave-doubled",
+            "fuller-piping"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "keyed",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "portative",
+            "two-ranks"
+          ]
+        },
+        {
+          "id": "portative_organ_form_landini_organetto",
+          "name": "High Landini organetto",
+          "descriptors": [
+            "high-treble",
+            "bright-piping",
+            "small-scaled"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "keyed",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "organetto",
+            "landini"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "portative_organ_repertoire",
+      "name": "Repertoire and playing context",
+      "variants": [
+        {
+          "id": "portative_organ_repertoire_trecento_secular",
+          "default": true,
+          "name": "Trecento / Ars Nova secular line",
+          "descriptors": [
+            "florid",
+            "melismatic",
+            "single-line",
+            "agile"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "melodic",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "trecento",
+            "ars-nova"
+          ]
+        },
+        {
+          "id": "portative_organ_repertoire_sacred_organum",
+          "name": "Sacred chant and organum doubling",
+          "descriptors": [
+            "sustained",
+            "chant-doubling",
+            "solemn",
+            "breathy"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "drone-foundation",
+            "sacred"
+          ],
+          "canonical_tags": [
+            "organum",
+            "chant"
+          ]
+        },
+        {
+          "id": "portative_organ_repertoire_processional",
+          "name": "Outdoor processional",
+          "descriptors": [
+            "carrying",
+            "steady",
+            "open-air"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "processional",
+            "bright"
+          ],
+          "canonical_tags": [
+            "processional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "portative_organ_pipework",
+      "surface": false,
+      "name": "Pipe construction",
+      "variants": [
+        {
+          "id": "portative_organ_pipework_metal",
+          "default": true,
+          "name": "Lead-tin alloy flue pipes",
+          "descriptors": [
+            "metal-piped",
+            "bright-fluty",
+            "keen"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "bellows-driven",
+            "bright"
+          ],
+          "canonical_tags": [
+            "metal-pipes",
+            "flue"
+          ]
+        },
+        {
+          "id": "portative_organ_pipework_wood",
+          "name": "Wooden flue pipes",
+          "descriptors": [
+            "wood-piped",
+            "soft-fluty",
+            "rounded"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "bellows-driven",
+            "mellow"
+          ],
+          "canonical_tags": [
+            "wooden-pipes",
+            "flue"
+          ]
+        }
+      ]
+    }
+  ]
+}

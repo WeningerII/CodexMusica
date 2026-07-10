@@ -3,9 +3,9 @@
   "name": "Corrido",
   "family": "vernacular",
   "lineage": "Mexican narrative-ballad song-form documented mid-19th-century onward, descended from Spanish-romance medieval narrative-poetic-tradition and re-rooted in the Mexican-revolutionary-era (1910-1920) as the canonical journalistic-historical-record song-form of Mexican rural-popular consciousness. The canonical corrido structure: 4-line octosyllabic-rhyming verses, typically 8-15 verses long, narrating a single historical-event (battles, bandit-exploits, assassinations, romantic-tragedies, social-injustice). Performed solo (guitar-and-voice) or with mariachi-conjunto, the corrido emphasizes textual-narrative-clarity over musical-elaboration (simple I-IV-V harmonic-progression, often unchanged across all verses). The modern narco-corrido subgenre 1970s-onward chronicles drug-trafficking-figures, replacing the revolutionary-era revolutionary-hero subject-matter with contemporary cartel-leadership.",
-  "recipe": "classic Southwestern American mid-1910s corrido, functional Song, corrido branch, tejano border ranchera, Latin am troubadour ballad poetry milonga. thick, full chest belt, chest resonance low mid, narrative. cedar nylon fingerpicked classical nylon-string guitar, castagnari Italian premium folk music chordal accordion, cedar nickel wound modern tejano strummed bajo sexto, cedar caoba paracho mixed string set nylon treble steel bass guitarron mexicano. mariachi and bolero defining room 1948-1975 mid tier mexico peerless musart 50s 60s. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 673,
-  "score": 259.982,
+  "recipe": "classic Southwestern American mid-1910s corrido, functional Song, corrido branch, tejano border ranchera, Latin am troubadour ballad poetry milonga. thick, full chest belt, chest resonance low mid, narrative. cedar nylon fingerpicked classical nylon-string guitar, castagnari Italian premium folk music chordal accordion, cedar nickel wound modern tejano strummed bajo sexto, cedar caoba paracho mixed string set nylon treble steel bass guitarron mexicano, accordion and bajo duo corrido narrative sinaloa durango style corridos belicos edge conjunto norteno. mariachi and bolero defining room 1948-1975 mid tier mexico peerless musart 50s 60s. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 776,
+  "score": 348.801,
   "config": {
     "traditions": [
       "corrido",
@@ -124,6 +124,19 @@
           "guitarron_strings": 1.17,
           "guitarron_string_material": 4.68,
           "guitarron_technique": 11.245000000000001
+        }
+      },
+      {
+        "id": "conjunto_norteno",
+        "slots": {
+          "conjunto_norteno_lineup": "conjunto_norteno_lineup_duo",
+          "conjunto_norteno_repertoire": "conjunto_norteno_repertoire_corrido",
+          "conjunto_norteno_substyle": "conjunto_norteno_substyle_sinaloa"
+        },
+        "scores": {
+          "conjunto_norteno_lineup": 23.529999999999987,
+          "conjunto_norteno_repertoire": 42.028749999999995,
+          "conjunto_norteno_substyle": 23.26
         }
       }
     ],

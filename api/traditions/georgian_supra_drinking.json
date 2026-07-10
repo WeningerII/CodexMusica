@@ -3,9 +3,9 @@
   "name": "Georgian supra feast-singing",
   "family": "global",
   "lineage": "Georgian supra-feast drinking-and-singing tradition continuous from medieval-Georgian feast-and-toast tradition through 19th-20th century continuous performance into modern Georgian-and-Georgian-diaspora continuous practice; the Georgian supra is the documented multi-hour ritual-feast-and-toast-ceremony where the tamada (toast-master) directs the extended-toast-and-song sequence",
-  "recipe": "classic modern georgian supra feast-singing, drinking Song, balkan branch, European drinking song, European wedding, middle east n African praise song sufi munajat and naat arabic madh and qasida. extended whistle, declaimed, tasteful, continuous-phonation. eastern georgian three string panduri. irish pub. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 437,
-  "score": 236.38,
+  "recipe": "classic modern georgian supra feast-singing, drinking Song, balkan branch, European drinking song, European wedding, middle east n African praise song sufi munajat and naat arabic madh and qasida. extended whistle, declaimed, tasteful, continuous-phonation. eastern georgian three string panduri, drone bass choir georgian polyphonic. irish pub. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 475,
+  "score": 315.606,
   "config": {
     "traditions": [
       "georgian_supra_drinking",
@@ -63,6 +63,19 @@
           "panduri_form": 23.3,
           "panduri_repertoire": 22.400000000000002,
           "panduri_strings": 6.5
+        }
+      },
+      {
+        "id": "choir_georgian_polyphonic",
+        "slots": {
+          "choir_georgian_polyphonic_style": "choir_georgian_polyphonic_kakhetian",
+          "choir_georgian_polyphonic_context": "choir_georgian_polyphonic_supra",
+          "choir_georgian_polyphonic_voices": "choir_georgian_polyphonic_bani"
+        },
+        "scores": {
+          "choir_georgian_polyphonic_style": 21.979999999999997,
+          "choir_georgian_polyphonic_context": 33.949999999999996,
+          "choir_georgian_polyphonic_voices": 23.295625
         }
       }
     ],

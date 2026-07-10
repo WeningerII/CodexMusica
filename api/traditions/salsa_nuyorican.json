@@ -3,9 +3,9 @@
   "name": "Salsa (Nuyorican)",
   "family": "global",
   "lineage": "New York Puerto Rican-Cuban-Latin diaspora dance-music codified through the Fania All-Stars canon (1968-1977) with Hector Lavoe, Willie Colón, Celia Cruz, Eddie Palmieri, Rubén Blades",
-  "recipe": "classic North American mid-1970s salsa, groove Percussion, son salsa branch, American jazz bop cool jazz / west coast bebop. thick, declaimed, melodic, punctuated. cold pressed wurzen felt oversize maple tension resonator grand piano, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, bronze open slap hand drum timbales, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, bach stradivarius 180 canonical American orchestral lyrical jazz balance trumpet, bach 42 canonical American orchestral tenor student commercial trombone, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris lyrical continuous-airflow saxophone, claves. nuyorican fania canon 1968-1977 mid tier fania la tierra studios ny. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 999,
-  "score": 316.325,
+  "recipe": "classic North American mid-1970s salsa, groove Percussion, son salsa branch, American jazz bop cool jazz / west coast bebop. thick, declaimed, melodic, punctuated. cold pressed wurzen felt oversize maple tension resonator grand piano, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, bronze open slap hand drum timbales, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, bach stradivarius 180 canonical American orchestral lyrical jazz balance trumpet, bach 42 canonical American orchestral tenor student commercial trombone, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris lyrical continuous-airflow saxophone, claves, cencerro. nuyorican fania canon 1968-1977 mid tier fania la tierra studios ny. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ.",
+  "recipe_chars": 997,
+  "score": 317.95,
   "config": {
     "traditions": [
       "salsa_nuyorican",
@@ -215,6 +215,19 @@
         "scores": {
           "claves_pattern": 7.995,
           "claves_wood": 0.2415
+        }
+      },
+      {
+        "id": "cencerro",
+        "slots": {
+          "cencerro_bell_type": "cencerro_mambo_bell",
+          "cencerro_context": "cencerro_charanga",
+          "cencerro_build": "cencerro_welded_steel"
+        },
+        "scores": {
+          "cencerro_bell_type": 0.78,
+          "cencerro_context": 0.845,
+          "cencerro_build": 0
         }
       }
     ],

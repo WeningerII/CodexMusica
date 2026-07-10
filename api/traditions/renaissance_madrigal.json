@@ -3,9 +3,9 @@
   "name": "Renaissance madrigal (Italian, English)",
   "family": "classical",
   "lineage": "Renaissance secular polyphonic vocal genre developed in sixteenth-century Italy through Jacques Arcadelt, Adrian Willaert, and culminating in Carlo Gesualdo (1566-1613) and Claudio Monteverdi (1567-1643). Set Italian secular poetry in elaborate four-to-six-voice polyphonic textures with characteristic word-painting and increasingly chromatic harmonic vocabulary (especially in Gesualdo). The English madrigal school (Thomas Morley, John Wilbye, Thomas Weelkes) flourished briefly in 1580s-1610s as an Italian-derived English adaptation. Direct precursor to Baroque secular cantata and opera.",
-  "recipe": "classic British early-1560s renaissance madrigal, art Music, western early branch, Mediterranean ballad ballad poetry croatian klapa dalmatian close-harmony kabyle music. thick, low dynamic level, chest resonance low mid, hocket articulation. a cappella small 3 to 8 one per part four voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble. shoebox concert hall. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 572,
-  "score": 190.443,
+  "recipe": "classic British early-1560s renaissance madrigal, art Music, western early branch, Mediterranean ballad ballad poetry croatian klapa dalmatian close-harmony kabyle music. thick, low dynamic level, chest resonance low mid, hocket articulation. a cappella small 3 to 8 one per part four voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble, vocal doubling boxwood bent capped arundo canonical renaissance crumhorn. shoebox concert hall. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 646,
+  "score": 205.268,
   "config": {
     "traditions": [
       "renaissance_madrigal",
@@ -65,6 +65,19 @@
           "choir_polyphonic_configuration": 12.545,
           "choir_regional_canonical_configuration": 8.384999999999998,
           "choir_ensemble_repertoire": 7.475
+        }
+      },
+      {
+        "id": "crumhorn",
+        "slots": {
+          "crumhorn_size": "crumhorn_alto",
+          "crumhorn_repertoire": "crumhorn_madrigal_doubling",
+          "crumhorn_construction": "crumhorn_boxwood_capped_arundo"
+        },
+        "scores": {
+          "crumhorn_size": 3.835,
+          "crumhorn_repertoire": 6.092499999999999,
+          "crumhorn_construction": 4.896875
         }
       }
     ],

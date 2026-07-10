@@ -3,9 +3,9 @@
   "name": "Gagaku",
   "family": "classical",
   "lineage": "Japanese imperial court music tradition codified during the Nara and Heian periods (eighth through twelfth centuries CE) drawing on Tang Chinese, Korean, and indigenous Japanese ceremonial-court repertoire — preserved continuously through the Imperial Household Music Department (Kunaichō Gakubu) lineage in Tokyo, with characteristic ensemble of shō mouth-organ, hichiriki double-reed, ryūteki transverse flute, biwa lute, koto zither, kakko drum, and shōko gong",
-  "recipe": "classic East Asian modern gagaku, art Music, east Asian branch, buddhist ritual devotional. cluster chord bamboo sho mouth organ, bamboo cherry bark binding canonical gagaku yoshi arundo donax canonical gagaku imperial court continuous-airflow legato hichiriki double reed, biwa lute, cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk kodo sado island lineage taiko drum, Korean repertoire higher pitched six holed ryuteki. noh stage japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 606,
-  "score": 53.852,
+  "recipe": "classic East Asian modern gagaku, art Music, east Asian branch, buddhist ritual devotional. cluster chord bamboo sho mouth organ, bamboo cherry bark binding canonical gagaku yoshi arundo donax canonical gagaku imperial court continuous-airflow legato hichiriki double reed, biwa lute, cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk kodo sado island lineage taiko drum, Korean repertoire higher pitched six holed ryuteki, massed cluster chords gagaku kangen. noh stage japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 643,
+  "score": 67.391,
   "config": {
     "traditions": [
       "gagaku"
@@ -86,6 +86,19 @@
           "ryuteki_form": 7.628142857142857,
           "ryuteki_style": 3.895,
           "ryuteki_material": 0.7847142857142857
+        }
+      },
+      {
+        "id": "gagaku_kangen",
+        "slots": {
+          "gagaku_kangen_configuration": "gagaku_kangen_massed_court",
+          "gagaku_kangen_repertoire": "gagaku_kangen_togaku",
+          "gagaku_kangen_texture": "gagaku_kangen_sho_aitake"
+        },
+        "scores": {
+          "gagaku_kangen_configuration": 4.685,
+          "gagaku_kangen_repertoire": 4.64,
+          "gagaku_kangen_texture": 4.2145
         }
       }
     ],

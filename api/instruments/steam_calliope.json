@@ -1,0 +1,427 @@
+{
+  "id": "steam_calliope",
+  "name": "Steam calliope",
+  "family": "keyboard",
+  "class": "keyboard_acoustic",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "Keyboard-operated bank of large tuned brass whistles blown by live boiler steam — a piercing, ear-splitting circus and riverboat instrument audible for miles.",
+  "parts": [
+    {
+      "id": "keyboard_technique",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "keyboard_block_chord_pop",
+          "default": true,
+          "name": "Block-chord pop",
+          "descriptors": [
+            "block-chord"
+          ],
+          "match_tokens": [
+            "chordal",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "pop",
+            "singer-songwriter"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "steam_calliope_form",
+      "name": "Form / power source",
+      "variants": [
+        {
+          "id": "steam_calliope_form_showman",
+          "default": true,
+          "name": "Circus wagon steam calliope",
+          "descriptors": [
+            "ear-splitting",
+            "steam-driven",
+            "shrill",
+            "carnival-bright"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "steam",
+            "loud",
+            "piercing"
+          ],
+          "canonical_tags": [
+            "steam",
+            "circus"
+          ]
+        },
+        {
+          "id": "steam_calliope_form_riverboat",
+          "name": "Riverboat / showboat steam calliope",
+          "descriptors": [
+            "billowing-steam",
+            "carrying",
+            "river-hailing",
+            "warbling"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "steam",
+            "loud",
+            "riverboat"
+          ],
+          "canonical_tags": [
+            "steam",
+            "riverboat"
+          ]
+        },
+        {
+          "id": "steam_calliope_form_air",
+          "name": "Air calliope / calliaphone (compressed-air)",
+          "descriptors": [
+            "breathy",
+            "cushioned",
+            "less-shrill",
+            "pumped-air"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "air",
+            "compressed-air",
+            "calliaphone"
+          ],
+          "canonical_tags": [
+            "compressed-air",
+            "calliaphone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "steam_calliope_performance",
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "steam_calliope_performance_circus_march",
+          "default": true,
+          "name": "Circus screamer / march",
+          "descriptors": [
+            "galloping",
+            "brassy",
+            "relentless",
+            "parade-driving"
+          ],
+          "match_tokens": [
+            "march",
+            "circus",
+            "up-tempo"
+          ],
+          "canonical_tags": [
+            "circus-march",
+            "screamer"
+          ]
+        },
+        {
+          "id": "steam_calliope_performance_riverboat_ballad",
+          "name": "Riverboat landing tune",
+          "descriptors": [
+            "hollering",
+            "nostalgic",
+            "sustained",
+            "far-carrying"
+          ],
+          "match_tokens": [
+            "ballad",
+            "riverboat",
+            "slow"
+          ],
+          "canonical_tags": [
+            "landing-tune",
+            "riverboat"
+          ]
+        },
+        {
+          "id": "steam_calliope_performance_carousel_waltz",
+          "name": "Carousel / merry-go-round waltz",
+          "descriptors": [
+            "lilting",
+            "spinning",
+            "sing-song",
+            "fairground-sweet"
+          ],
+          "match_tokens": [
+            "waltz",
+            "carousel",
+            "fairground"
+          ],
+          "canonical_tags": [
+            "carousel-waltz",
+            "fairground"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "steam_calliope_build",
+      "surface": false,
+      "name": "Whistle construction",
+      "variants": [
+        {
+          "id": "steam_calliope_build_brass_steam",
+          "default": true,
+          "name": "Graduated brass whistles on live steam",
+          "descriptors": [
+            "clangorous",
+            "metallic-bright",
+            "hissing-attack",
+            "overblown"
+          ],
+          "match_tokens": [
+            "brass",
+            "steam",
+            "whistle"
+          ],
+          "canonical_tags": [
+            "brass-whistles",
+            "live-steam"
+          ]
+        },
+        {
+          "id": "steam_calliope_build_copper",
+          "name": "Copper whistle rank",
+          "descriptors": [
+            "rounder",
+            "warm-metal",
+            "mellower"
+          ],
+          "match_tokens": [
+            "copper",
+            "whistle"
+          ],
+          "canonical_tags": [
+            "copper-whistles"
+          ]
+        },
+        {
+          "id": "steam_calliope_build_compressed_air",
+          "name": "Compressed-air whistle rank (unheated)",
+          "descriptors": [
+            "cooler-toned",
+            "steadier",
+            "less-warble"
+          ],
+          "match_tokens": [
+            "compressed-air",
+            "whistle",
+            "air"
+          ],
+          "canonical_tags": [
+            "air-whistles"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "steam_calliope_form",
+      "name": "Form / power source",
+      "variants": [
+        {
+          "id": "steam_calliope_form_showman",
+          "default": true,
+          "name": "Circus wagon steam calliope",
+          "descriptors": [
+            "ear-splitting",
+            "steam-driven",
+            "shrill",
+            "carnival-bright"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "steam",
+            "loud",
+            "piercing"
+          ],
+          "canonical_tags": [
+            "steam",
+            "circus"
+          ]
+        },
+        {
+          "id": "steam_calliope_form_riverboat",
+          "name": "Riverboat / showboat steam calliope",
+          "descriptors": [
+            "billowing-steam",
+            "carrying",
+            "river-hailing",
+            "warbling"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "steam",
+            "loud",
+            "riverboat"
+          ],
+          "canonical_tags": [
+            "steam",
+            "riverboat"
+          ]
+        },
+        {
+          "id": "steam_calliope_form_air",
+          "name": "Air calliope / calliaphone (compressed-air)",
+          "descriptors": [
+            "breathy",
+            "cushioned",
+            "less-shrill",
+            "pumped-air"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "air",
+            "compressed-air",
+            "calliaphone"
+          ],
+          "canonical_tags": [
+            "compressed-air",
+            "calliaphone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "steam_calliope_performance",
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "steam_calliope_performance_circus_march",
+          "default": true,
+          "name": "Circus screamer / march",
+          "descriptors": [
+            "galloping",
+            "brassy",
+            "relentless",
+            "parade-driving"
+          ],
+          "match_tokens": [
+            "march",
+            "circus",
+            "up-tempo"
+          ],
+          "canonical_tags": [
+            "circus-march",
+            "screamer"
+          ]
+        },
+        {
+          "id": "steam_calliope_performance_riverboat_ballad",
+          "name": "Riverboat landing tune",
+          "descriptors": [
+            "hollering",
+            "nostalgic",
+            "sustained",
+            "far-carrying"
+          ],
+          "match_tokens": [
+            "ballad",
+            "riverboat",
+            "slow"
+          ],
+          "canonical_tags": [
+            "landing-tune",
+            "riverboat"
+          ]
+        },
+        {
+          "id": "steam_calliope_performance_carousel_waltz",
+          "name": "Carousel / merry-go-round waltz",
+          "descriptors": [
+            "lilting",
+            "spinning",
+            "sing-song",
+            "fairground-sweet"
+          ],
+          "match_tokens": [
+            "waltz",
+            "carousel",
+            "fairground"
+          ],
+          "canonical_tags": [
+            "carousel-waltz",
+            "fairground"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "steam_calliope_build",
+      "surface": false,
+      "name": "Whistle construction",
+      "variants": [
+        {
+          "id": "steam_calliope_build_brass_steam",
+          "default": true,
+          "name": "Graduated brass whistles on live steam",
+          "descriptors": [
+            "clangorous",
+            "metallic-bright",
+            "hissing-attack",
+            "overblown"
+          ],
+          "match_tokens": [
+            "brass",
+            "steam",
+            "whistle"
+          ],
+          "canonical_tags": [
+            "brass-whistles",
+            "live-steam"
+          ]
+        },
+        {
+          "id": "steam_calliope_build_copper",
+          "name": "Copper whistle rank",
+          "descriptors": [
+            "rounder",
+            "warm-metal",
+            "mellower"
+          ],
+          "match_tokens": [
+            "copper",
+            "whistle"
+          ],
+          "canonical_tags": [
+            "copper-whistles"
+          ]
+        },
+        {
+          "id": "steam_calliope_build_compressed_air",
+          "name": "Compressed-air whistle rank (unheated)",
+          "descriptors": [
+            "cooler-toned",
+            "steadier",
+            "less-warble"
+          ],
+          "match_tokens": [
+            "compressed-air",
+            "whistle",
+            "air"
+          ],
+          "canonical_tags": [
+            "air-whistles"
+          ]
+        }
+      ]
+    }
+  ]
+}

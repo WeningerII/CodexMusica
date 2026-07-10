@@ -3,9 +3,9 @@
   "name": "Mento",
   "family": "global",
   "lineage": "Jamaican rural folk-and-dance music tradition that preceded ska as the dominant Jamaican popular music genre — codified through the post-WWII commercial recordings of Lord Flea, Count Lasher, the Jolly Boys, Stanley Beckford, Harold Richardson; built on a fusion of West African rhythmic foundations, European-derived quadrille dance forms, and Caribbean Spanish-influenced song structures",
-  "recipe": "classic Caribbean mid-1970s mento, groove Percussion, Caribbean branch, tropical song functional song bachata garifuna paranda and hungu-hungu. thick, full chest belt, melodic, rhythmic. alternating thumb travis picked parlor acoustic guitar, 3 ply maple Gibson mastertone canon scruggs stelling bluegrass setup mastertone flathead banjo 5 string, traditional gourd calabash maracas. Kingston studio one defining 1959-2004 indie-commercial kingston studio one brentford road. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 579,
-  "score": 203.488,
+  "recipe": "classic Caribbean mid-1970s mento, groove Percussion, Caribbean branch, tropical song functional song bachata garifuna paranda and hungu-hungu. thick, full chest belt, melodic, rhythmic. alternating thumb travis picked parlor acoustic guitar, 3 ply maple Gibson mastertone canon scruggs stelling bluegrass setup mastertone flathead banjo 5 string, traditional gourd calabash maracas, mento rhumba box repeating bass ostinato forged iron tongues marimbula. Kingston studio one defining 1959-2004 indie-commercial kingston studio one brentford road. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 651,
+  "score": 224.097,
   "config": {
     "traditions": [
       "mento",
@@ -107,6 +107,19 @@
         "scores": {
           "maracas_construction": 1.4949999999999999,
           "maracas_filling": 0.7800000000000001
+        }
+      },
+      {
+        "id": "marimbula",
+        "slots": {
+          "marimbula_regional_form": "marimbula_form_rhumba_box",
+          "marimbula_playing_role": "marimbula_role_ostinato",
+          "marimbula_construction": "marimbula_build_forged_iron"
+        },
+        "scores": {
+          "marimbula_regional_form": 10.2,
+          "marimbula_playing_role": 7.42,
+          "marimbula_construction": 2.9899999999999998
         }
       }
     ],

@@ -1,0 +1,467 @@
+{
+  "id": "viola_damore",
+  "name": "Viola d'amore (baroque sympathetic-string viola)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "viola d'amore",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "viola_damore_form",
+      "name": "Historical form",
+      "variants": [
+        {
+          "id": "viola_damore_seven_string",
+          "default": true,
+          "name": "Classic 18th-century (7 playing + 7 sympathetic strings, D-major tuning)",
+          "descriptors": [
+            "silvery",
+            "sympathetic-halo",
+            "d-major-tuned",
+            "cupid-headed"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "baroque-leaning",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "period",
+            "vivaldi-era"
+          ]
+        },
+        {
+          "id": "viola_damore_six_string_early",
+          "name": "Early 6-string form (Biber-era, wire-strung, often without sympathetics)",
+          "descriptors": [
+            "early-baroque",
+            "wire-strung",
+            "leaner",
+            "scordatura-ready"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "seventeenth-century",
+            "austrian-bohemian"
+          ]
+        },
+        {
+          "id": "viola_damore_englische_violett",
+          "name": "Englisches Violet (Viennese, 7 playing + 14 sympathetic strings)",
+          "descriptors": [
+            "viennese",
+            "resonance-saturated",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "viennese",
+            "classical-era"
+          ]
+        },
+        {
+          "id": "viola_damore_modern_revival",
+          "name": "Modern revival instrument (Hindemith / Janáček orchestral use)",
+          "descriptors": [
+            "revival",
+            "orchestral-color",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "modern"
+          ],
+          "canonical_tags": [
+            "twentieth-century",
+            "revival"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "viola_damore_repertoire",
+      "name": "Repertoire / playing context",
+      "variants": [
+        {
+          "id": "viola_damore_solo_concerto",
+          "default": true,
+          "name": "Solo concerto (Vivaldi RV 392-397 style)",
+          "descriptors": [
+            "virtuosic",
+            "glittering",
+            "chordal-figuration"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "baroque-leaning",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "venetian"
+          ]
+        },
+        {
+          "id": "viola_damore_passion_obbligato",
+          "name": "Sacred aria obbligato (Bach St John Passion)",
+          "descriptors": [
+            "devotional",
+            "intimate",
+            "aria-partner",
+            "veiled"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "baroque-leaning",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "sacred",
+            "lutheran"
+          ]
+        },
+        {
+          "id": "viola_damore_scordatura_sonata",
+          "name": "Scordatura chamber sonata (Biber, Ariosti Stockholm sonatas)",
+          "descriptors": [
+            "scordatura",
+            "resonant-tuning",
+            "conversational"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "baroque-leaning",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "chamber"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "viola_damore_stringing",
+      "surface": false,
+      "name": "Stringing / construction",
+      "variants": [
+        {
+          "id": "viola_damore_gut_over_wire",
+          "default": true,
+          "name": "Gut playing strings over brass/steel sympathetics (canonical)",
+          "descriptors": [
+            "gut-over-wire-canonical",
+            "flame-soundholes",
+            "flat-back"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "period"
+          ]
+        },
+        {
+          "id": "viola_damore_all_wire",
+          "name": "All-wire stringing (early 17th-century practice)",
+          "descriptors": [
+            "wire-strung-early",
+            "brighter",
+            "harpsichord-like-shimmer"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "seventeenth-century"
+          ]
+        },
+        {
+          "id": "viola_damore_wound_synthetic_modern",
+          "name": "Wound gut / synthetic (modern revival setup)",
+          "descriptors": [
+            "modern-revival-stringing",
+            "stable",
+            "fuller"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern",
+            "revival"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "viola_damore_form",
+      "name": "Historical form",
+      "variants": [
+        {
+          "id": "viola_damore_seven_string",
+          "default": true,
+          "name": "Classic 18th-century (7 playing + 7 sympathetic strings, D-major tuning)",
+          "descriptors": [
+            "silvery",
+            "sympathetic-halo",
+            "d-major-tuned",
+            "cupid-headed"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "baroque-leaning",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "period",
+            "vivaldi-era"
+          ]
+        },
+        {
+          "id": "viola_damore_six_string_early",
+          "name": "Early 6-string form (Biber-era, wire-strung, often without sympathetics)",
+          "descriptors": [
+            "early-baroque",
+            "wire-strung",
+            "leaner",
+            "scordatura-ready"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "seventeenth-century",
+            "austrian-bohemian"
+          ]
+        },
+        {
+          "id": "viola_damore_englische_violett",
+          "name": "Englisches Violet (Viennese, 7 playing + 14 sympathetic strings)",
+          "descriptors": [
+            "viennese",
+            "resonance-saturated",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "viennese",
+            "classical-era"
+          ]
+        },
+        {
+          "id": "viola_damore_modern_revival",
+          "name": "Modern revival instrument (Hindemith / Janáček orchestral use)",
+          "descriptors": [
+            "revival",
+            "orchestral-color",
+            "projecting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "modern"
+          ],
+          "canonical_tags": [
+            "twentieth-century",
+            "revival"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "viola_damore_repertoire",
+      "name": "Repertoire / playing context",
+      "variants": [
+        {
+          "id": "viola_damore_solo_concerto",
+          "default": true,
+          "name": "Solo concerto (Vivaldi RV 392-397 style)",
+          "descriptors": [
+            "virtuosic",
+            "glittering",
+            "chordal-figuration"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "baroque-leaning",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "venetian"
+          ]
+        },
+        {
+          "id": "viola_damore_passion_obbligato",
+          "name": "Sacred aria obbligato (Bach St John Passion)",
+          "descriptors": [
+            "devotional",
+            "intimate",
+            "aria-partner",
+            "veiled"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "baroque-leaning",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "sacred",
+            "lutheran"
+          ]
+        },
+        {
+          "id": "viola_damore_scordatura_sonata",
+          "name": "Scordatura chamber sonata (Biber, Ariosti Stockholm sonatas)",
+          "descriptors": [
+            "scordatura",
+            "resonant-tuning",
+            "conversational"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "baroque-leaning",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "chamber"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "viola_damore_stringing",
+      "surface": false,
+      "name": "Stringing / construction",
+      "variants": [
+        {
+          "id": "viola_damore_gut_over_wire",
+          "default": true,
+          "name": "Gut playing strings over brass/steel sympathetics (canonical)",
+          "descriptors": [
+            "gut-over-wire-canonical",
+            "flame-soundholes",
+            "flat-back"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "period"
+          ]
+        },
+        {
+          "id": "viola_damore_all_wire",
+          "name": "All-wire stringing (early 17th-century practice)",
+          "descriptors": [
+            "wire-strung-early",
+            "brighter",
+            "harpsichord-like-shimmer"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "baroque-leaning"
+          ],
+          "canonical_tags": [
+            "seventeenth-century"
+          ]
+        },
+        {
+          "id": "viola_damore_wound_synthetic_modern",
+          "name": "Wound gut / synthetic (modern revival setup)",
+          "descriptors": [
+            "modern-revival-stringing",
+            "stable",
+            "fuller"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "modern"
+          ],
+          "canonical_tags": [
+            "modern",
+            "revival"
+          ]
+        }
+      ]
+    }
+  ]
+}

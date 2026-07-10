@@ -1,0 +1,384 @@
+{
+  "id": "baroque_guitar",
+  "name": "Baroque guitar (five-course)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "baroque guitar",
+  "parts": [
+    {
+      "id": "baroque_guitar_form",
+      "name": "Regional form / maker school",
+      "variants": [
+        {
+          "id": "baroque_guitar_spanish_sanz",
+          "default": true,
+          "name": "Spanish (Sanz-school chitarra spagnola)",
+          "descriptors": [
+            "re-entrant-shimmer",
+            "dance-forward",
+            "canonical-spanish"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "baroque-leaning"
+          ]
+        },
+        {
+          "id": "baroque_guitar_voboam_french",
+          "name": "French Voboam (Paris court)",
+          "descriptors": [
+            "courtly",
+            "ornate-marquetry",
+            "refined"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "baroque_guitar_sellas_venetian",
+          "name": "Venetian Sellas (vaulted back)",
+          "descriptors": [
+            "deep-vaulted-back",
+            "lavish-inlay",
+            "italian-resonance"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "baroque-leaning"
+          ]
+        },
+        {
+          "id": "baroque_guitar_stradivari_model",
+          "name": "Stradivari model (Cremona flat-back)",
+          "descriptors": [
+            "flat-back",
+            "clear-projection",
+            "luthier-benchmark"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning",
+            "period-performance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "baroque_guitar_style",
+      "name": "Playing style / repertoire",
+      "variants": [
+        {
+          "id": "baroque_guitar_rasgueado",
+          "default": true,
+          "name": "Rasgueado dance style (canarios, jácaras, folías)",
+          "descriptors": [
+            "strummed-fire",
+            "dance-rhythms",
+            "percussive-golpe"
+          ],
+          "match_tokens": [
+            "strummed",
+            "plucked",
+            "baroque-leaning"
+          ]
+        },
+        {
+          "id": "baroque_guitar_punteado_mixte",
+          "name": "Punteado / style mixte (Corbetta, de Visée suites)",
+          "descriptors": [
+            "plucked-lyricism",
+            "courtly-suite",
+            "campanella-lines"
+          ],
+          "match_tokens": [
+            "plucked",
+            "soloistic",
+            "baroque-leaning"
+          ]
+        },
+        {
+          "id": "baroque_guitar_continuo",
+          "name": "Continuo band / song accompaniment",
+          "descriptors": [
+            "foundation-strum",
+            "ensemble-glue",
+            "song-support"
+          ],
+          "match_tokens": [
+            "strummed",
+            "plucked",
+            "baroque-leaning",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "hip"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "baroque_guitar_stringing",
+      "surface": false,
+      "name": "Stringing / bourdon disposition",
+      "variants": [
+        {
+          "id": "baroque_guitar_fully_reentrant",
+          "default": true,
+          "name": "Fully re-entrant plain gut (no bourdons, Sanz canonical)",
+          "descriptors": [
+            "re-entrant-gut",
+            "campanella-ring",
+            "historical-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "baroque_guitar_french_bourdon",
+          "name": "Bourdon on 4th course only (French, de Visée)",
+          "descriptors": [
+            "single-bourdon",
+            "french-disposition",
+            "warmer-bass"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "baroque_guitar_double_bourdons",
+          "name": "Bourdons on 4th and 5th courses (early Italian)",
+          "descriptors": [
+            "double-bourdon",
+            "fuller-bass",
+            "early-italian"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "baroque-leaning"
+          ]
+        },
+        {
+          "id": "baroque_guitar_nylgut_modern",
+          "name": "Aquila Nylgut (gut-emulating modern revival)",
+          "descriptors": [
+            "nylgut-modern-revival",
+            "stable-tuning"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "baroque_guitar_form",
+      "name": "Regional form / maker school",
+      "variants": [
+        {
+          "id": "baroque_guitar_spanish_sanz",
+          "default": true,
+          "name": "Spanish (Sanz-school chitarra spagnola)",
+          "descriptors": [
+            "re-entrant-shimmer",
+            "dance-forward",
+            "canonical-spanish"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "baroque-leaning"
+          ]
+        },
+        {
+          "id": "baroque_guitar_voboam_french",
+          "name": "French Voboam (Paris court)",
+          "descriptors": [
+            "courtly",
+            "ornate-marquetry",
+            "refined"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "baroque_guitar_sellas_venetian",
+          "name": "Venetian Sellas (vaulted back)",
+          "descriptors": [
+            "deep-vaulted-back",
+            "lavish-inlay",
+            "italian-resonance"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "baroque-leaning"
+          ]
+        },
+        {
+          "id": "baroque_guitar_stradivari_model",
+          "name": "Stradivari model (Cremona flat-back)",
+          "descriptors": [
+            "flat-back",
+            "clear-projection",
+            "luthier-benchmark"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning",
+            "period-performance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "baroque_guitar_style",
+      "name": "Playing style / repertoire",
+      "variants": [
+        {
+          "id": "baroque_guitar_rasgueado",
+          "default": true,
+          "name": "Rasgueado dance style (canarios, jácaras, folías)",
+          "descriptors": [
+            "strummed-fire",
+            "dance-rhythms",
+            "percussive-golpe"
+          ],
+          "match_tokens": [
+            "strummed",
+            "plucked",
+            "baroque-leaning"
+          ]
+        },
+        {
+          "id": "baroque_guitar_punteado_mixte",
+          "name": "Punteado / style mixte (Corbetta, de Visée suites)",
+          "descriptors": [
+            "plucked-lyricism",
+            "courtly-suite",
+            "campanella-lines"
+          ],
+          "match_tokens": [
+            "plucked",
+            "soloistic",
+            "baroque-leaning"
+          ]
+        },
+        {
+          "id": "baroque_guitar_continuo",
+          "name": "Continuo band / song accompaniment",
+          "descriptors": [
+            "foundation-strum",
+            "ensemble-glue",
+            "song-support"
+          ],
+          "match_tokens": [
+            "strummed",
+            "plucked",
+            "baroque-leaning",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "hip"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "baroque_guitar_stringing",
+      "surface": false,
+      "name": "Stringing / bourdon disposition",
+      "variants": [
+        {
+          "id": "baroque_guitar_fully_reentrant",
+          "default": true,
+          "name": "Fully re-entrant plain gut (no bourdons, Sanz canonical)",
+          "descriptors": [
+            "re-entrant-gut",
+            "campanella-ring",
+            "historical-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "baroque_guitar_french_bourdon",
+          "name": "Bourdon on 4th course only (French, de Visée)",
+          "descriptors": [
+            "single-bourdon",
+            "french-disposition",
+            "warmer-bass"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "baroque_guitar_double_bourdons",
+          "name": "Bourdons on 4th and 5th courses (early Italian)",
+          "descriptors": [
+            "double-bourdon",
+            "fuller-bass",
+            "early-italian"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "baroque-leaning"
+          ]
+        },
+        {
+          "id": "baroque_guitar_nylgut_modern",
+          "name": "Aquila Nylgut (gut-emulating modern revival)",
+          "descriptors": [
+            "nylgut-modern-revival",
+            "stable-tuning"
+          ],
+          "match_tokens": [
+            "plucked",
+            "baroque-leaning"
+          ]
+        }
+      ]
+    }
+  ]
+}

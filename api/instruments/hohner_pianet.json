@@ -1,0 +1,327 @@
+{
+  "id": "hohner_pianet",
+  "name": "Pianet (Hohner electromechanical reed piano)",
+  "family": "keyboard",
+  "class": "electromechanical_electric_piano",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 0,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "short": "Hohner's sticky-pad reed electric piano: a buzzy, plucky, slightly nasal keyboard bite that is the sound of the Zombies' 'She's Not There' and Small Faces — a distinct electromechanical mechanism from Rhodes tines and Wurlitzer struck reeds.",
+  "parts": [
+    {
+      "id": "keyboard_technique",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "keyboard_block_chord_pop",
+          "default": true,
+          "name": "Block-chord pop",
+          "descriptors": [
+            "block-chord"
+          ],
+          "match_tokens": [
+            "chordal",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "pop",
+            "singer-songwriter"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "hohner_pianet_model",
+      "name": "Model / era",
+      "variants": [
+        {
+          "id": "hohner_pianet_model_n",
+          "default": true,
+          "name": "Pianet N (1960s sticky-pad)",
+          "descriptors": [
+            "sticky-pad-plucked",
+            "bright-reedy-bite",
+            "sixties-beat-tone"
+          ],
+          "match_tokens": [
+            "pianet-n",
+            "electric",
+            "sixties",
+            "reed-plucked"
+          ],
+          "canonical_tags": [
+            "pianet-n"
+          ]
+        },
+        {
+          "id": "hohner_pianet_model_t",
+          "name": "Pianet T (1970s foam-pad)",
+          "descriptors": [
+            "foam-pad-plucked",
+            "mellow-rounded-tone",
+            "built-in-vibrato"
+          ],
+          "match_tokens": [
+            "pianet-t",
+            "mellow",
+            "vibrato",
+            "electric"
+          ],
+          "canonical_tags": [
+            "pianet-t"
+          ]
+        },
+        {
+          "id": "hohner_pianet_model_combo",
+          "name": "Combo Pianet (portable, onboard amp)",
+          "descriptors": [
+            "portable-combo",
+            "onboard-amp-grit"
+          ],
+          "match_tokens": [
+            "combo",
+            "portable",
+            "electric"
+          ],
+          "canonical_tags": [
+            "combo-pianet"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hohner_pianet_role",
+      "name": "Playing role / repertoire",
+      "variants": [
+        {
+          "id": "hohner_pianet_role_comp",
+          "default": true,
+          "name": "Beat-group chord comping",
+          "descriptors": [
+            "sustained-chord-comping",
+            "sixties-r-and-b-pad"
+          ],
+          "match_tokens": [
+            "comping",
+            "beat-group",
+            "chordal",
+            "keyed"
+          ]
+        },
+        {
+          "id": "hohner_pianet_role_riff",
+          "name": "Staccato hook / riff",
+          "descriptors": [
+            "staccato-plucked-riff",
+            "rhythmic-keyed-hook"
+          ],
+          "match_tokens": [
+            "staccato",
+            "riff",
+            "hook"
+          ]
+        },
+        {
+          "id": "hohner_pianet_role_psych",
+          "name": "Psych texture through effects",
+          "descriptors": [
+            "fuzz-drenched-texture",
+            "wah-swept-keys"
+          ],
+          "match_tokens": [
+            "psychedelic",
+            "effects",
+            "fuzz",
+            "electric"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hohner_pianet_mechanism",
+      "surface": false,
+      "name": "Reed-and-pad mechanism",
+      "variants": [
+        {
+          "id": "hohner_pianet_mech_leather",
+          "default": true,
+          "name": "Steel reeds, adhesive sticky pads",
+          "descriptors": [
+            "adhesive-pad-pluck",
+            "bright-plucky-bite"
+          ],
+          "match_tokens": [
+            "sticky-pad",
+            "reed-plucked",
+            "electric"
+          ]
+        },
+        {
+          "id": "hohner_pianet_mech_foam",
+          "name": "Steel reeds, foam suction pads",
+          "descriptors": [
+            "foam-suction-pad",
+            "softened-mellow-attack"
+          ],
+          "match_tokens": [
+            "foam-pad",
+            "mellow",
+            "reed-plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "hohner_pianet_model",
+      "name": "Model / era",
+      "variants": [
+        {
+          "id": "hohner_pianet_model_n",
+          "default": true,
+          "name": "Pianet N (1960s sticky-pad)",
+          "descriptors": [
+            "sticky-pad-plucked",
+            "bright-reedy-bite",
+            "sixties-beat-tone"
+          ],
+          "match_tokens": [
+            "pianet-n",
+            "electric",
+            "sixties",
+            "reed-plucked"
+          ],
+          "canonical_tags": [
+            "pianet-n"
+          ]
+        },
+        {
+          "id": "hohner_pianet_model_t",
+          "name": "Pianet T (1970s foam-pad)",
+          "descriptors": [
+            "foam-pad-plucked",
+            "mellow-rounded-tone",
+            "built-in-vibrato"
+          ],
+          "match_tokens": [
+            "pianet-t",
+            "mellow",
+            "vibrato",
+            "electric"
+          ],
+          "canonical_tags": [
+            "pianet-t"
+          ]
+        },
+        {
+          "id": "hohner_pianet_model_combo",
+          "name": "Combo Pianet (portable, onboard amp)",
+          "descriptors": [
+            "portable-combo",
+            "onboard-amp-grit"
+          ],
+          "match_tokens": [
+            "combo",
+            "portable",
+            "electric"
+          ],
+          "canonical_tags": [
+            "combo-pianet"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hohner_pianet_role",
+      "name": "Playing role / repertoire",
+      "variants": [
+        {
+          "id": "hohner_pianet_role_comp",
+          "default": true,
+          "name": "Beat-group chord comping",
+          "descriptors": [
+            "sustained-chord-comping",
+            "sixties-r-and-b-pad"
+          ],
+          "match_tokens": [
+            "comping",
+            "beat-group",
+            "chordal",
+            "keyed"
+          ]
+        },
+        {
+          "id": "hohner_pianet_role_riff",
+          "name": "Staccato hook / riff",
+          "descriptors": [
+            "staccato-plucked-riff",
+            "rhythmic-keyed-hook"
+          ],
+          "match_tokens": [
+            "staccato",
+            "riff",
+            "hook"
+          ]
+        },
+        {
+          "id": "hohner_pianet_role_psych",
+          "name": "Psych texture through effects",
+          "descriptors": [
+            "fuzz-drenched-texture",
+            "wah-swept-keys"
+          ],
+          "match_tokens": [
+            "psychedelic",
+            "effects",
+            "fuzz",
+            "electric"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hohner_pianet_mechanism",
+      "surface": false,
+      "name": "Reed-and-pad mechanism",
+      "variants": [
+        {
+          "id": "hohner_pianet_mech_leather",
+          "default": true,
+          "name": "Steel reeds, adhesive sticky pads",
+          "descriptors": [
+            "adhesive-pad-pluck",
+            "bright-plucky-bite"
+          ],
+          "match_tokens": [
+            "sticky-pad",
+            "reed-plucked",
+            "electric"
+          ]
+        },
+        {
+          "id": "hohner_pianet_mech_foam",
+          "name": "Steel reeds, foam suction pads",
+          "descriptors": [
+            "foam-suction-pad",
+            "softened-mellow-attack"
+          ],
+          "match_tokens": [
+            "foam-pad",
+            "mellow",
+            "reed-plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

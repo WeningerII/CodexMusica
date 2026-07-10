@@ -1,0 +1,384 @@
+{
+  "id": "bandola_llanera",
+  "name": "Bandola llanera (Venezuelan joropo lead lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "Pear-shaped 4-string fretted plectrum lute of the Venezuelan-Colombian llanos, the driving \"pin-pon\" lead voice of joropo alongside the harp and cuatro.",
+  "parts": [
+    {
+      "id": "bandola_llanera_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "bandola_llanera_form_four_string",
+          "default": true,
+          "name": "Four-string llanera (classic)",
+          "descriptors": [
+            "pear-shaped",
+            "four-string",
+            "single-strung",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bandola",
+            "four-string",
+            "llanera"
+          ],
+          "canonical_tags": [
+            "bandola_llanera",
+            "four_string"
+          ]
+        },
+        {
+          "id": "bandola_llanera_form_five_string",
+          "name": "Five-string extended llanera",
+          "descriptors": [
+            "five-string",
+            "extended-range",
+            "modern-adaptation"
+          ],
+          "match_tokens": [
+            "plucked",
+            "five-string",
+            "extended",
+            "llanera"
+          ],
+          "canonical_tags": [
+            "five_string"
+          ]
+        },
+        {
+          "id": "bandola_llanera_form_guayanesa",
+          "name": "Bandola guayanesa (Orinoco, doubled courses)",
+          "descriptors": [
+            "eight-string",
+            "doubled-courses",
+            "orinoco",
+            "fuller-bodied"
+          ],
+          "match_tokens": [
+            "plucked",
+            "guayanesa",
+            "doubled-courses",
+            "orinoco"
+          ],
+          "canonical_tags": [
+            "bandola_guayanesa",
+            "doubled_courses"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bandola_llanera_role",
+      "name": "Playing role",
+      "variants": [
+        {
+          "id": "bandola_llanera_role_pinpon",
+          "default": true,
+          "name": "Pin-pon lead (recio joropo)",
+          "descriptors": [
+            "rapid-tremolo",
+            "pin-pon",
+            "driving-lead",
+            "percussive-pick"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "lead",
+            "fast-tremolo",
+            "joropo"
+          ],
+          "canonical_tags": [
+            "pin_pon",
+            "lead"
+          ]
+        },
+        {
+          "id": "bandola_llanera_role_pasaje",
+          "name": "Pasaje melodic accompaniment",
+          "descriptors": [
+            "lyrical",
+            "singing-line",
+            "slow-pasaje",
+            "melodic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "melodic",
+            "lyrical",
+            "pasaje"
+          ],
+          "canonical_tags": [
+            "pasaje",
+            "melodic"
+          ]
+        },
+        {
+          "id": "bandola_llanera_role_contrapunteo",
+          "name": "Contrapunteo duel",
+          "descriptors": [
+            "interlocking",
+            "aggressive",
+            "recio",
+            "syncopated"
+          ],
+          "match_tokens": [
+            "plucked",
+            "driving",
+            "syncopated",
+            "contrapunteo"
+          ],
+          "canonical_tags": [
+            "contrapunteo",
+            "recio"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bandola_llanera_build",
+      "surface": false,
+      "name": "Strings and body",
+      "variants": [
+        {
+          "id": "bandola_llanera_build_nylon_cedar",
+          "default": true,
+          "name": "Nylon strings, cedar body",
+          "descriptors": [
+            "nylon-strung",
+            "cedar-body",
+            "warm-wood",
+            "bright-projection"
+          ],
+          "match_tokens": [
+            "plucked",
+            "nylon",
+            "acoustic",
+            "cedar"
+          ],
+          "canonical_tags": [
+            "nylon_strings",
+            "cedar"
+          ]
+        },
+        {
+          "id": "bandola_llanera_build_gut_historic",
+          "name": "Gut strings, historic build",
+          "descriptors": [
+            "gut-strung",
+            "dark-tone",
+            "historic",
+            "mellow"
+          ],
+          "match_tokens": [
+            "plucked",
+            "gut",
+            "acoustic",
+            "historic"
+          ],
+          "canonical_tags": [
+            "gut_strings",
+            "historic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "bandola_llanera_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "bandola_llanera_form_four_string",
+          "default": true,
+          "name": "Four-string llanera (classic)",
+          "descriptors": [
+            "pear-shaped",
+            "four-string",
+            "single-strung",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bandola",
+            "four-string",
+            "llanera"
+          ],
+          "canonical_tags": [
+            "bandola_llanera",
+            "four_string"
+          ]
+        },
+        {
+          "id": "bandola_llanera_form_five_string",
+          "name": "Five-string extended llanera",
+          "descriptors": [
+            "five-string",
+            "extended-range",
+            "modern-adaptation"
+          ],
+          "match_tokens": [
+            "plucked",
+            "five-string",
+            "extended",
+            "llanera"
+          ],
+          "canonical_tags": [
+            "five_string"
+          ]
+        },
+        {
+          "id": "bandola_llanera_form_guayanesa",
+          "name": "Bandola guayanesa (Orinoco, doubled courses)",
+          "descriptors": [
+            "eight-string",
+            "doubled-courses",
+            "orinoco",
+            "fuller-bodied"
+          ],
+          "match_tokens": [
+            "plucked",
+            "guayanesa",
+            "doubled-courses",
+            "orinoco"
+          ],
+          "canonical_tags": [
+            "bandola_guayanesa",
+            "doubled_courses"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bandola_llanera_role",
+      "name": "Playing role",
+      "variants": [
+        {
+          "id": "bandola_llanera_role_pinpon",
+          "default": true,
+          "name": "Pin-pon lead (recio joropo)",
+          "descriptors": [
+            "rapid-tremolo",
+            "pin-pon",
+            "driving-lead",
+            "percussive-pick"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "lead",
+            "fast-tremolo",
+            "joropo"
+          ],
+          "canonical_tags": [
+            "pin_pon",
+            "lead"
+          ]
+        },
+        {
+          "id": "bandola_llanera_role_pasaje",
+          "name": "Pasaje melodic accompaniment",
+          "descriptors": [
+            "lyrical",
+            "singing-line",
+            "slow-pasaje",
+            "melodic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "melodic",
+            "lyrical",
+            "pasaje"
+          ],
+          "canonical_tags": [
+            "pasaje",
+            "melodic"
+          ]
+        },
+        {
+          "id": "bandola_llanera_role_contrapunteo",
+          "name": "Contrapunteo duel",
+          "descriptors": [
+            "interlocking",
+            "aggressive",
+            "recio",
+            "syncopated"
+          ],
+          "match_tokens": [
+            "plucked",
+            "driving",
+            "syncopated",
+            "contrapunteo"
+          ],
+          "canonical_tags": [
+            "contrapunteo",
+            "recio"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bandola_llanera_build",
+      "surface": false,
+      "name": "Strings and body",
+      "variants": [
+        {
+          "id": "bandola_llanera_build_nylon_cedar",
+          "default": true,
+          "name": "Nylon strings, cedar body",
+          "descriptors": [
+            "nylon-strung",
+            "cedar-body",
+            "warm-wood",
+            "bright-projection"
+          ],
+          "match_tokens": [
+            "plucked",
+            "nylon",
+            "acoustic",
+            "cedar"
+          ],
+          "canonical_tags": [
+            "nylon_strings",
+            "cedar"
+          ]
+        },
+        {
+          "id": "bandola_llanera_build_gut_historic",
+          "name": "Gut strings, historic build",
+          "descriptors": [
+            "gut-strung",
+            "dark-tone",
+            "historic",
+            "mellow"
+          ],
+          "match_tokens": [
+            "plucked",
+            "gut",
+            "acoustic",
+            "historic"
+          ],
+          "canonical_tags": [
+            "gut_strings",
+            "historic"
+          ]
+        }
+      ]
+    }
+  ]
+}

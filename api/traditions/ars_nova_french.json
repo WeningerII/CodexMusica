@@ -3,9 +3,9 @@
   "name": "Ars Nova (fourteenth-century French)",
   "family": "classical",
   "lineage": "Fourteenth-century French compositional style codified in Philippe de Vitry's 1322 treatise of the same name, introducing isorhythmic motet construction, mensural rhythmic notation, and increased rhythmic-and-harmonic complexity. Guillaume de Machaut (c.1300-1377) is the principal composer; his Messe de Nostre Dame (c.1365) is the first known complete polyphonic setting of the Mass Ordinary by a single composer. Distinguished from ars antiqua by ars nova's sophisticated rhythmic-isorhythmic and notational developments.",
-  "recipe": "classic early-1300s ars nova, art Music, western early branch, christian gospel ritual devotional bluegrass gospel southern gospel quartet. thick, declaimed, chest resonance low mid, ornamental. a cappella small 3 to 8 one per part hocket interlocked single note distribution svanetian complex three voice highland polyphonic choir ensemble. parish church. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 429,
-  "score": 214.245,
+  "recipe": "classic early-1300s ars nova, art Music, western early branch, christian gospel ritual devotional bluegrass gospel southern gospel quartet. thick, declaimed, chest resonance low mid, ornamental. a cappella small 3 to 8 one per part hocket interlocked single note distribution svanetian complex three voice highland polyphonic choir ensemble, rhythmic dance driving vielle medieval, single rank treble piping single line portative organ, single trapezoid box fingertip plucking medieval psaltery. parish church. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 583,
+  "score": 232.3,
   "config": {
     "traditions": [
       "ars_nova_french",
@@ -65,6 +65,49 @@
           "choir_polyphonic_configuration": 3.485,
           "choir_regional_canonical_configuration": 2.02,
           "choir_ensemble_repertoire": 5.9087499999999995
+        }
+      },
+      {
+        "id": "vielle_medieval",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "vielle_medieval_form": "vielle_medieval_gamba_held",
+          "vielle_medieval_repertoire": "vielle_medieval_estampie_dance",
+          "vielle_medieval_stringing": "vielle_medieval_all_fingerboard_gut"
+        },
+        "scores": {
+          "bowed_technique": 2.59,
+          "vielle_medieval_form": 0.24,
+          "vielle_medieval_repertoire": 4.14,
+          "vielle_medieval_stringing": 0.195
+        }
+      },
+      {
+        "id": "portative_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "portative_organ_form": "portative_organ_form_single_rank",
+          "portative_organ_repertoire": "portative_organ_repertoire_trecento_secular",
+          "portative_organ_pipework": "portative_organ_pipework_metal"
+        },
+        "scores": {
+          "keyboard_technique": -0.1,
+          "portative_organ_form": 1.56,
+          "portative_organ_repertoire": 5.615,
+          "portative_organ_pipework": -0.1
+        }
+      },
+      {
+        "id": "medieval_psaltery",
+        "slots": {
+          "medieval_psaltery_form": "medieval_psaltery_form_canale",
+          "medieval_psaltery_playing": "medieval_psaltery_playing_fingertip",
+          "medieval_psaltery_stringing": "medieval_psaltery_stringing_brass_wire"
+        },
+        "scores": {
+          "medieval_psaltery_form": 1.69,
+          "medieval_psaltery_playing": 2.2749999999999995,
+          "medieval_psaltery_stringing": -0.05
         }
       }
     ],

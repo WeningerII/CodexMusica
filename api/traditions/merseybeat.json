@@ -3,9 +3,9 @@
   "name": "Merseybeat (Liverpool beat 1962-65)",
   "family": "rock_punk",
   "lineage": "Early-1960s Liverpool-and-Merseyside beat-music style emerging from the convergence of skiffle, American R&B, and rock-and-roll into the canonical guitar-bass-drums-and-vocal-harmony four-piece beat-group format. The Beatles, Gerry and the Pacemakers, the Searchers, the Merseybeats, and Cilla Black constituted the canonical roster; the Cavern Club Liverpool and the Star-Club Hamburg anchored the institutional performance circuit. Distinguished from broader British Invasion by Merseybeat's Liverpool-specific geographic-cultural identity.",
-  "recipe": "classic British merseybeat, distorted Rock, classic branch, regional distorted rock aussie pub rock greek rock. thick, lament wail, nervy, equal tempered. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation soft down tuning single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, oil filled machine hammered symmetric pattern organized rows full lathed drum kit. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, tube pre, German tube console. tape 15ips echo plate reverb spring reverb.",
-  "recipe_chars": 601,
-  "score": 390.343,
+  "recipe": "classic British merseybeat, distorted Rock, classic branch, regional distorted rock aussie pub rock greek rock. thick, lament wail, nervy, equal tempered. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation soft down tuning single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, oil filled machine hammered symmetric pattern organized rows full lathed drum kit, sticky pad plucked sustained chord comping hohner pianet. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, tube pre, German tube console. tape 15ips echo plate reverb spring reverb.",
+  "recipe_chars": 659,
+  "score": 417.483,
   "config": {
     "traditions": [
       "merseybeat",
@@ -133,6 +133,21 @@
           "cymbal_lathing": 23.99,
           "cymbal_finish": 0.845,
           "drum_technique": 24
+        }
+      },
+      {
+        "id": "hohner_pianet",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "hohner_pianet_model": "hohner_pianet_model_n",
+          "hohner_pianet_role": "hohner_pianet_role_comp",
+          "hohner_pianet_mechanism": "hohner_pianet_mech_leather"
+        },
+        "scores": {
+          "keyboard_technique": -0.07,
+          "hohner_pianet_model": 3.55,
+          "hohner_pianet_role": 23.66,
+          "hohner_pianet_mechanism": 0
         }
       }
     ],

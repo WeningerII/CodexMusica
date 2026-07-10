@@ -3,9 +3,9 @@
   "name": "Nubian music (Egyptian-Sudanese Nile Valley)",
   "family": "global",
   "lineage": "Nubian music of the Mahas and Kunuz communities of the Nile Valley between Aswan and Dongola, with post-1964 Aswan High Dam relocation extending diaspora to Cairo and Khartoum. Performance integrates Nubian-language responsorial chorus with tar frame-drum and darbuka, plus twentieth-century urban-oud incorporation. Modal vocabulary draws on Nile Valley pentatonic-leaning tradition with distinct Nubian intervals. The post-1964 diaspora produced an exile-mourning lyric corpus addressing the loss of villages submerged by Lake Nasser. The aragid wedding-dance repertoire constitutes the core ceremonial layer.",
-  "recipe": "classic North African mid-1960s nubian music, ballad Poetry, west African griot branch, west African groove percussion indonesian jaipongan fújì. thick, declaimed, chest resonance low mid, rhythmic. mahogany modern alternative western red cedar oud, clay pre modern traditional fish skin pre modern Egyptian traditional Egyptian sombaty canonical mid east open slap hand drum darbuka, walnut bent frame canonical Iranian calfskin deeper alternative tar frame drum. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 685,
-  "score": 151.837,
+  "recipe": "classic North African mid-1960s nubian music, ballad Poetry, west African griot branch, west African groove percussion indonesian jaipongan fújì. thick, declaimed, chest resonance low mid, rhythmic. mahogany modern alternative western red cedar oud, clay pre modern traditional fish skin pre modern Egyptian traditional Egyptian sombaty canonical mid east open slap hand drum darbuka, walnut bent frame canonical Iranian calfskin deeper alternative tar frame drum, five string compact strum and damp call-and-response gut tanbura kisir. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 757,
+  "score": 200.58,
   "config": {
     "traditions": [
       "nubian_music_nile",
@@ -103,6 +103,21 @@
           "tar_frame_drum_context": 0.9099999999999999,
           "tar_frame_shell_wood": 1.885,
           "tar_frame_head": 1.04
+        }
+      },
+      {
+        "id": "tanbura_kisir",
+        "slots": {
+          "tanbura_kisir_form": "tanbura_kisir_nubian_kisir",
+          "tanbura_kisir_context": "tanbura_kisir_song_strum",
+          "tanbura_kisir_strings": "tanbura_kisir_strings_gut",
+          "tanbura_kisir_bowl": "tanbura_kisir_bowl_wood_hide"
+        },
+        "scores": {
+          "tanbura_kisir_form": 13.544999999999998,
+          "tanbura_kisir_context": 31.069999999999993,
+          "tanbura_kisir_strings": 2.015,
+          "tanbura_kisir_bowl": 2.1125
         }
       }
     ],

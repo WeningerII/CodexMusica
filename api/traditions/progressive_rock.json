@@ -5,7 +5,7 @@
   "lineage": "Late-1960s through 1970s UK classical-and-jazz-influenced rock genre featuring extended composition, complex meter, virtuosic instrumental performance — codified through King Crimson (In the Court of the Crimson King 1969, the prog founding album), Yes (Fragile 1971, Close to the Edge 1972), Genesis (Selling England by the Pound 1973, the Peter Gabriel era), Pink Floyd (the post-Syd-Barrett expansion through Dark Side of the Moon 1973 and Wish You Were Here 1975), Emerson Lake and Palmer, Jethro Tull, Gentle Giant",
   "recipe": "classic Northern European 1967-1969 progressive rock, distorted Rock, progressive rock branch, classic distorted rock, experimental distorted rock psychedelic rock britpop. thick, unvoiced, chest resonance low mid, rhythmic. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky riff driven electric bass, birch vintage ambassador asymmetric machine hammered symmetric pattern drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ, mellotron m400 canonical 1970 1980 prog rock standard 35 key polyester base quarter inch iron oxide canonical mellotron block chord mellotron, gentle expressive vibrato y analog synth, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano.",
   "recipe_chars": 927,
-  "score": 902.943,
+  "score": 945.888,
   "config": {
     "traditions": [
       "progressive_rock",
@@ -245,6 +245,19 @@
           "sm_voice_count": 0.39,
           "sm_chorus": 2.8600000000000003,
           "sm_voicing": 0.3
+        }
+      },
+      {
+        "id": "electric_violin",
+        "slots": {
+          "electric_violin_form": "electric_violin_form_five_string",
+          "electric_violin_context": "electric_violin_context_prog_rock",
+          "electric_violin_pickup": "electric_violin_pickup_magnetic"
+        },
+        "scores": {
+          "electric_violin_form": 3.425,
+          "electric_violin_context": 38.35000000000001,
+          "electric_violin_pickup": 1.17
         }
       }
     ],

@@ -1,0 +1,380 @@
+{
+  "id": "gagaku_kangen",
+  "name": "Gagaku kangen ensemble (Japanese imperial court orchestra)",
+  "family": "ensemble",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 2,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "gagaku kangen",
+  "parts": [
+    {
+      "id": "gagaku_kangen_configuration",
+      "name": "Ensemble configuration / lineup",
+      "variants": [
+        {
+          "id": "gagaku_kangen_full_sanpin",
+          "default": true,
+          "name": "Full kangen (three winds, two strings, three percussion)",
+          "descriptors": [
+            "ceremonial",
+            "stately",
+            "foundational"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "wind-driven",
+            "drone-foundation",
+            "sustained"
+          ],
+          "canonical_tags": [
+            "gagaku"
+          ]
+        },
+        {
+          "id": "gagaku_kangen_massed_court",
+          "name": "Massed court kangen (doubled winds, large hall)",
+          "descriptors": [
+            "massed",
+            "monumental",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "wind-driven",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "gagaku"
+          ]
+        },
+        {
+          "id": "gagaku_kangen_chamber",
+          "name": "Reduced chamber kangen (single winds, intimate)",
+          "descriptors": [
+            "intimate",
+            "restrained",
+            "meditative"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "wind-driven",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "gagaku"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gagaku_kangen_repertoire",
+      "name": "Repertoire / context",
+      "variants": [
+        {
+          "id": "gagaku_kangen_togaku",
+          "default": true,
+          "name": "Togaku (Tang-derived instrumental suite)",
+          "descriptors": [
+            "archaic",
+            "ceremonial",
+            "processional"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "wind-driven",
+            "sustained"
+          ],
+          "canonical_tags": [
+            "gagaku"
+          ]
+        },
+        {
+          "id": "gagaku_kangen_netori",
+          "name": "Netori (modal prelude, free tempo)",
+          "descriptors": [
+            "meditative",
+            "unmetered",
+            "introductory"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "wind-driven",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "gagaku"
+          ]
+        },
+        {
+          "id": "gagaku_kangen_saibara",
+          "name": "Saibara (kangen accompanying court song)",
+          "descriptors": [
+            "song-accompanying",
+            "lyrical",
+            "courtly"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "wind-driven",
+            "sustained"
+          ],
+          "canonical_tags": [
+            "gagaku"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gagaku_kangen_texture",
+      "surface": false,
+      "name": "Textural emphasis",
+      "variants": [
+        {
+          "id": "gagaku_kangen_sho_aitake",
+          "default": true,
+          "name": "Sho cluster-chord foundation (aitake)",
+          "descriptors": [
+            "sustained",
+            "cluster-chords",
+            "drone",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "wind-driven",
+            "drone-foundation",
+            "sustained"
+          ],
+          "canonical_tags": [
+            "gagaku"
+          ]
+        },
+        {
+          "id": "gagaku_kangen_unison_melody",
+          "name": "Hichiriki / ryuteki unison melody",
+          "descriptors": [
+            "heterophonic",
+            "bending",
+            "ornamental",
+            "lead"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "wind-driven",
+            "lead-melody"
+          ],
+          "canonical_tags": [
+            "gagaku"
+          ]
+        },
+        {
+          "id": "gagaku_kangen_colotomic",
+          "name": "Biwa / gakuso and drum punctuation",
+          "descriptors": [
+            "colotomic",
+            "punctuating",
+            "grounding"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "plucked",
+            "struck"
+          ],
+          "canonical_tags": [
+            "gagaku"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "gagaku_kangen_configuration",
+      "name": "Ensemble configuration / lineup",
+      "variants": [
+        {
+          "id": "gagaku_kangen_full_sanpin",
+          "default": true,
+          "name": "Full kangen (three winds, two strings, three percussion)",
+          "descriptors": [
+            "ceremonial",
+            "stately",
+            "foundational"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "wind-driven",
+            "drone-foundation",
+            "sustained"
+          ],
+          "canonical_tags": [
+            "gagaku"
+          ]
+        },
+        {
+          "id": "gagaku_kangen_massed_court",
+          "name": "Massed court kangen (doubled winds, large hall)",
+          "descriptors": [
+            "massed",
+            "monumental",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "wind-driven",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "gagaku"
+          ]
+        },
+        {
+          "id": "gagaku_kangen_chamber",
+          "name": "Reduced chamber kangen (single winds, intimate)",
+          "descriptors": [
+            "intimate",
+            "restrained",
+            "meditative"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "wind-driven",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "gagaku"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gagaku_kangen_repertoire",
+      "name": "Repertoire / context",
+      "variants": [
+        {
+          "id": "gagaku_kangen_togaku",
+          "default": true,
+          "name": "Togaku (Tang-derived instrumental suite)",
+          "descriptors": [
+            "archaic",
+            "ceremonial",
+            "processional"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "wind-driven",
+            "sustained"
+          ],
+          "canonical_tags": [
+            "gagaku"
+          ]
+        },
+        {
+          "id": "gagaku_kangen_netori",
+          "name": "Netori (modal prelude, free tempo)",
+          "descriptors": [
+            "meditative",
+            "unmetered",
+            "introductory"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "wind-driven",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "gagaku"
+          ]
+        },
+        {
+          "id": "gagaku_kangen_saibara",
+          "name": "Saibara (kangen accompanying court song)",
+          "descriptors": [
+            "song-accompanying",
+            "lyrical",
+            "courtly"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "wind-driven",
+            "sustained"
+          ],
+          "canonical_tags": [
+            "gagaku"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gagaku_kangen_texture",
+      "surface": false,
+      "name": "Textural emphasis",
+      "variants": [
+        {
+          "id": "gagaku_kangen_sho_aitake",
+          "default": true,
+          "name": "Sho cluster-chord foundation (aitake)",
+          "descriptors": [
+            "sustained",
+            "cluster-chords",
+            "drone",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "wind-driven",
+            "drone-foundation",
+            "sustained"
+          ],
+          "canonical_tags": [
+            "gagaku"
+          ]
+        },
+        {
+          "id": "gagaku_kangen_unison_melody",
+          "name": "Hichiriki / ryuteki unison melody",
+          "descriptors": [
+            "heterophonic",
+            "bending",
+            "ornamental",
+            "lead"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "wind-driven",
+            "lead-melody"
+          ],
+          "canonical_tags": [
+            "gagaku"
+          ]
+        },
+        {
+          "id": "gagaku_kangen_colotomic",
+          "name": "Biwa / gakuso and drum punctuation",
+          "descriptors": [
+            "colotomic",
+            "punctuating",
+            "grounding"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "plucked",
+            "struck"
+          ],
+          "canonical_tags": [
+            "gagaku"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,430 @@
+{
+  "id": "electric_mandolin",
+  "name": "Electric mandolin",
+  "family": "electric_strings",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 0,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": 2,
+    "dynamics": 1
+  },
+  "short": "Amplified solid-body mandolin — bright, cutting pick-and-tremolo lead voice of western swing (Tiny Moore, Johnny Gimble) and electrified newgrass, distinct from the acoustic mandolin.",
+  "parts": [
+    {
+      "id": "electric_mandolin_form",
+      "name": "Instrument form and course layout",
+      "variants": [
+        {
+          "id": "electric_mandolin_form_4course",
+          "default": true,
+          "name": "Four-course solid-body (8-string GDAE)",
+          "descriptors": [
+            "solid-body",
+            "double-course",
+            "bright-lead",
+            "tight-tremolo"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "solid-body",
+            "mandolin",
+            "double-course"
+          ],
+          "canonical_tags": [
+            "electric-mandolin",
+            "solid-body"
+          ]
+        },
+        {
+          "id": "electric_mandolin_form_5string",
+          "name": "Five-string solid-body (Tiny Moore style, low C added)",
+          "descriptors": [
+            "five-string",
+            "extended-low",
+            "swing-lead",
+            "wide-compass"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "five-string",
+            "mandolin",
+            "tiny-moore"
+          ],
+          "canonical_tags": [
+            "electric-mandolin",
+            "five-string"
+          ]
+        },
+        {
+          "id": "electric_mandolin_form_emandola",
+          "name": "Electric mandola / octave mandolin (lower-tuned)",
+          "descriptors": [
+            "octave-lower",
+            "mellow-mid",
+            "fuller-body",
+            "warm-lead"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "mandola",
+            "octave-mandolin",
+            "lower-tuned"
+          ],
+          "canonical_tags": [
+            "electric-mandola"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "electric_mandolin_style",
+      "name": "Playing style and repertoire",
+      "variants": [
+        {
+          "id": "electric_mandolin_style_westernswing",
+          "default": true,
+          "name": "Western-swing lead (single-note swing lines, shimmering tremolo)",
+          "descriptors": [
+            "swing-lead",
+            "tremolo-shimmer",
+            "horn-like",
+            "cutting-melody"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "swing-lead",
+            "tremolo",
+            "western-swing"
+          ],
+          "canonical_tags": [
+            "western-swing"
+          ]
+        },
+        {
+          "id": "electric_mandolin_style_newgrass",
+          "name": "Amplified newgrass chop and cross-picking",
+          "descriptors": [
+            "percussive-chop",
+            "cross-picked",
+            "driving-rhythm",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "chop",
+            "cross-picking",
+            "newgrass"
+          ],
+          "canonical_tags": [
+            "newgrass",
+            "bluegrass"
+          ]
+        },
+        {
+          "id": "electric_mandolin_style_jamlead",
+          "name": "Jazz-rock / jam-band improvised lead",
+          "descriptors": [
+            "fluid-improv",
+            "overdriven-edge",
+            "singing-sustain",
+            "melodic-solo"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "improv",
+            "overdriven",
+            "jam"
+          ],
+          "canonical_tags": [
+            "jazz-rock",
+            "fusion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "electric_mandolin_build",
+      "surface": false,
+      "name": "Pickup and string construction",
+      "variants": [
+        {
+          "id": "electric_mandolin_build_singlecoil",
+          "default": true,
+          "name": "Single-coil pickup, bronze-wound strings",
+          "descriptors": [
+            "single-coil",
+            "glassy-bite",
+            "sparkling-top",
+            "clear-note"
+          ],
+          "match_tokens": [
+            "electric",
+            "single-coil",
+            "bright",
+            "glassy"
+          ],
+          "canonical_tags": [
+            "single-coil"
+          ]
+        },
+        {
+          "id": "electric_mandolin_build_humbucker",
+          "name": "Humbucking pickup, nickel-wound strings",
+          "descriptors": [
+            "humbucker",
+            "fatter-tone",
+            "smooth-warmth",
+            "rounded-attack"
+          ],
+          "match_tokens": [
+            "electric",
+            "humbucker",
+            "warm",
+            "fat"
+          ],
+          "canonical_tags": [
+            "humbucker"
+          ]
+        },
+        {
+          "id": "electric_mandolin_build_piezo",
+          "name": "Piezo / acoustic-electric with f-holes",
+          "descriptors": [
+            "piezo-pickup",
+            "semi-acoustic",
+            "airy-body",
+            "natural-woody"
+          ],
+          "match_tokens": [
+            "electric",
+            "piezo",
+            "acoustic-electric",
+            "f-hole"
+          ],
+          "canonical_tags": [
+            "acoustic-electric",
+            "piezo"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "electric_mandolin_form",
+      "name": "Instrument form and course layout",
+      "variants": [
+        {
+          "id": "electric_mandolin_form_4course",
+          "default": true,
+          "name": "Four-course solid-body (8-string GDAE)",
+          "descriptors": [
+            "solid-body",
+            "double-course",
+            "bright-lead",
+            "tight-tremolo"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "solid-body",
+            "mandolin",
+            "double-course"
+          ],
+          "canonical_tags": [
+            "electric-mandolin",
+            "solid-body"
+          ]
+        },
+        {
+          "id": "electric_mandolin_form_5string",
+          "name": "Five-string solid-body (Tiny Moore style, low C added)",
+          "descriptors": [
+            "five-string",
+            "extended-low",
+            "swing-lead",
+            "wide-compass"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "five-string",
+            "mandolin",
+            "tiny-moore"
+          ],
+          "canonical_tags": [
+            "electric-mandolin",
+            "five-string"
+          ]
+        },
+        {
+          "id": "electric_mandolin_form_emandola",
+          "name": "Electric mandola / octave mandolin (lower-tuned)",
+          "descriptors": [
+            "octave-lower",
+            "mellow-mid",
+            "fuller-body",
+            "warm-lead"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "mandola",
+            "octave-mandolin",
+            "lower-tuned"
+          ],
+          "canonical_tags": [
+            "electric-mandola"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "electric_mandolin_style",
+      "name": "Playing style and repertoire",
+      "variants": [
+        {
+          "id": "electric_mandolin_style_westernswing",
+          "default": true,
+          "name": "Western-swing lead (single-note swing lines, shimmering tremolo)",
+          "descriptors": [
+            "swing-lead",
+            "tremolo-shimmer",
+            "horn-like",
+            "cutting-melody"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "swing-lead",
+            "tremolo",
+            "western-swing"
+          ],
+          "canonical_tags": [
+            "western-swing"
+          ]
+        },
+        {
+          "id": "electric_mandolin_style_newgrass",
+          "name": "Amplified newgrass chop and cross-picking",
+          "descriptors": [
+            "percussive-chop",
+            "cross-picked",
+            "driving-rhythm",
+            "bright-attack"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "chop",
+            "cross-picking",
+            "newgrass"
+          ],
+          "canonical_tags": [
+            "newgrass",
+            "bluegrass"
+          ]
+        },
+        {
+          "id": "electric_mandolin_style_jamlead",
+          "name": "Jazz-rock / jam-band improvised lead",
+          "descriptors": [
+            "fluid-improv",
+            "overdriven-edge",
+            "singing-sustain",
+            "melodic-solo"
+          ],
+          "match_tokens": [
+            "electric",
+            "plucked",
+            "improv",
+            "overdriven",
+            "jam"
+          ],
+          "canonical_tags": [
+            "jazz-rock",
+            "fusion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "electric_mandolin_build",
+      "surface": false,
+      "name": "Pickup and string construction",
+      "variants": [
+        {
+          "id": "electric_mandolin_build_singlecoil",
+          "default": true,
+          "name": "Single-coil pickup, bronze-wound strings",
+          "descriptors": [
+            "single-coil",
+            "glassy-bite",
+            "sparkling-top",
+            "clear-note"
+          ],
+          "match_tokens": [
+            "electric",
+            "single-coil",
+            "bright",
+            "glassy"
+          ],
+          "canonical_tags": [
+            "single-coil"
+          ]
+        },
+        {
+          "id": "electric_mandolin_build_humbucker",
+          "name": "Humbucking pickup, nickel-wound strings",
+          "descriptors": [
+            "humbucker",
+            "fatter-tone",
+            "smooth-warmth",
+            "rounded-attack"
+          ],
+          "match_tokens": [
+            "electric",
+            "humbucker",
+            "warm",
+            "fat"
+          ],
+          "canonical_tags": [
+            "humbucker"
+          ]
+        },
+        {
+          "id": "electric_mandolin_build_piezo",
+          "name": "Piezo / acoustic-electric with f-holes",
+          "descriptors": [
+            "piezo-pickup",
+            "semi-acoustic",
+            "airy-body",
+            "natural-woody"
+          ],
+          "match_tokens": [
+            "electric",
+            "piezo",
+            "acoustic-electric",
+            "f-hole"
+          ],
+          "canonical_tags": [
+            "acoustic-electric",
+            "piezo"
+          ]
+        }
+      ]
+    }
+  ]
+}

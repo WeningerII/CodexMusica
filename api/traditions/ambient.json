@@ -3,9 +3,9 @@
   "name": "Ambient",
   "family": "electronic",
   "lineage": "Long-form atmospheric electronic-music genre codified by Brian Eno from 1975 onward — Discreet Music 1975, then the Ambient series Ambient 1: Music for Airports 1978 establishing both the genre name and the founding aesthetic of music as functional environment-shaping; extended through Apollo: Atmospheres and Soundtracks 1983 with Daniel Lanois and Roger Eno, Harold Budd collaborations, the modern continuation through Stars of the Lid, William Basinski (The Disintegration Loops 2002), Tim Hecker, Grouper",
-  "recipe": "classic Central European mid-1970s ambient, experimental Elec, ambient branch, modal electric drone modal. pad like pad analog synth, tape replay keyboard, handpan. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb analog bucket-brigade delay.",
-  "recipe_chars": 430,
-  "score": 35.068,
+  "recipe": "classic Central European mid-1970s ambient, experimental Elec, ambient branch, modal electric drone modal. pad like pad analog synth, tape replay keyboard, handpan, structures sonores lasry baschet original experimental cristal wet finger friction legato glassy cristal baschet. berlin techno kreuzberg and mitte 1991-present indie-commercial berlin techno kreuzberg studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb analog bucket-brigade delay.",
+  "recipe_chars": 544,
+  "score": 39.943,
   "config": {
     "traditions": [
       "ambient"
@@ -50,6 +50,19 @@
         "scores": {
           "handpan_scale": 2.21,
           "handpan_maker": 1.014
+        }
+      },
+      {
+        "id": "cristal_baschet",
+        "slots": {
+          "cristal_baschet_form": "cristal_baschet_form_structures_sonores",
+          "cristal_baschet_touch": "cristal_baschet_touch_legato",
+          "cristal_baschet_resonator": "cristal_baschet_resonator_cones"
+        },
+        "scores": {
+          "cristal_baschet_form": 2.21,
+          "cristal_baschet_touch": 1.95,
+          "cristal_baschet_resonator": 0.7149999999999999
         }
       }
     ],

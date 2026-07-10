@@ -1,0 +1,324 @@
+{
+  "id": "frula",
+  "name": "Frula (Serbian six-hole duct flute)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "frula",
+  "parts": [
+    {
+      "id": "frula_size_key",
+      "name": "Size / key",
+      "variants": [
+        {
+          "id": "frula_g_standard",
+          "default": true,
+          "name": "Standard frula in G (canonical kolo size)",
+          "descriptors": [
+            "bright",
+            "agile",
+            "piercing"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk-tradition",
+            "duct-flute"
+          ],
+          "canonical_tags": [
+            "serbian"
+          ]
+        },
+        {
+          "id": "frula_c_high",
+          "name": "High frula in C (shorter, shriller)",
+          "descriptors": [
+            "shrill",
+            "high-register",
+            "cutting"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk-tradition",
+            "duct-flute"
+          ]
+        },
+        {
+          "id": "frula_low_f",
+          "name": "Long frula in F (larger bore, mellower)",
+          "descriptors": [
+            "mellower",
+            "breathy",
+            "lower-register"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk-tradition",
+            "duct-flute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "frula_repertoire_style",
+      "name": "Repertoire / playing style",
+      "variants": [
+        {
+          "id": "frula_kolo_dance",
+          "default": true,
+          "name": "Driving kolo dance (ornamented, up-tempo)",
+          "descriptors": [
+            "ornamented",
+            "dance-driving",
+            "trilled",
+            "fast"
+          ],
+          "match_tokens": [
+            "ornamented",
+            "wind-driven",
+            "folk-tradition",
+            "dance"
+          ],
+          "canonical_tags": [
+            "serbian",
+            "kolo"
+          ]
+        },
+        {
+          "id": "frula_izvorna_rubato",
+          "name": "Izvorna village rubato (slow, plaintive)",
+          "descriptors": [
+            "rubato",
+            "plaintive",
+            "free-tempo",
+            "sustained"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk-tradition",
+            "rubato"
+          ]
+        },
+        {
+          "id": "frula_dugic_virtuoso",
+          "name": "Golden-frula concert virtuoso (Bora Dugic school)",
+          "descriptors": [
+            "virtuosic",
+            "flutter-tongued",
+            "circular-breathed",
+            "brilliant"
+          ],
+          "match_tokens": [
+            "ornamented",
+            "wind-driven",
+            "folk-tradition",
+            "virtuosic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "frula_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "frula_plum_wood",
+          "default": true,
+          "name": "Plum wood (sljiva, canonical Serbian)",
+          "descriptors": [
+            "plum-wood-sljiva-canonical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "frula_maple_wood",
+          "name": "Maple (brighter, lighter)",
+          "descriptors": [
+            "maple-brighter-lighter"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "frula_cornel_dogwood",
+          "name": "Cornel / dogwood (dense, hard, durable)",
+          "descriptors": [
+            "cornel-dogwood-dense-hard-durable"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "frula_size_key",
+      "name": "Size / key",
+      "variants": [
+        {
+          "id": "frula_g_standard",
+          "default": true,
+          "name": "Standard frula in G (canonical kolo size)",
+          "descriptors": [
+            "bright",
+            "agile",
+            "piercing"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk-tradition",
+            "duct-flute"
+          ],
+          "canonical_tags": [
+            "serbian"
+          ]
+        },
+        {
+          "id": "frula_c_high",
+          "name": "High frula in C (shorter, shriller)",
+          "descriptors": [
+            "shrill",
+            "high-register",
+            "cutting"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk-tradition",
+            "duct-flute"
+          ]
+        },
+        {
+          "id": "frula_low_f",
+          "name": "Long frula in F (larger bore, mellower)",
+          "descriptors": [
+            "mellower",
+            "breathy",
+            "lower-register"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk-tradition",
+            "duct-flute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "frula_repertoire_style",
+      "name": "Repertoire / playing style",
+      "variants": [
+        {
+          "id": "frula_kolo_dance",
+          "default": true,
+          "name": "Driving kolo dance (ornamented, up-tempo)",
+          "descriptors": [
+            "ornamented",
+            "dance-driving",
+            "trilled",
+            "fast"
+          ],
+          "match_tokens": [
+            "ornamented",
+            "wind-driven",
+            "folk-tradition",
+            "dance"
+          ],
+          "canonical_tags": [
+            "serbian",
+            "kolo"
+          ]
+        },
+        {
+          "id": "frula_izvorna_rubato",
+          "name": "Izvorna village rubato (slow, plaintive)",
+          "descriptors": [
+            "rubato",
+            "plaintive",
+            "free-tempo",
+            "sustained"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk-tradition",
+            "rubato"
+          ]
+        },
+        {
+          "id": "frula_dugic_virtuoso",
+          "name": "Golden-frula concert virtuoso (Bora Dugic school)",
+          "descriptors": [
+            "virtuosic",
+            "flutter-tongued",
+            "circular-breathed",
+            "brilliant"
+          ],
+          "match_tokens": [
+            "ornamented",
+            "wind-driven",
+            "folk-tradition",
+            "virtuosic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "frula_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "frula_plum_wood",
+          "default": true,
+          "name": "Plum wood (sljiva, canonical Serbian)",
+          "descriptors": [
+            "plum-wood-sljiva-canonical"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "frula_maple_wood",
+          "name": "Maple (brighter, lighter)",
+          "descriptors": [
+            "maple-brighter-lighter"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "frula_cornel_dogwood",
+          "name": "Cornel / dogwood (dense, hard, durable)",
+          "descriptors": [
+            "cornel-dogwood-dense-hard-durable"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,370 @@
+{
+  "id": "sape",
+  "name": "Sape (Bornean boat lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_boat_lute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "sape",
+  "parts": [
+    {
+      "id": "sape_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "sape_kenyah",
+          "default": true,
+          "name": "Sape' Kenyah (Sarawak long-body, 3-4 strings)",
+          "descriptors": [
+            "kenyah",
+            "long-bodied",
+            "hypnotic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fretted",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "borneo",
+            "sarawak",
+            "dayak"
+          ]
+        },
+        {
+          "id": "sape_kayan",
+          "name": "Sape' Kayan (broad short body, two-string archaic)",
+          "descriptors": [
+            "kayan",
+            "broad-bodied",
+            "archaic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "borneo",
+            "sarawak",
+            "dayak"
+          ]
+        },
+        {
+          "id": "sape_sampek_kalimantan",
+          "name": "Sampe' / sampek (East Kalimantan Dayak)",
+          "descriptors": [
+            "kalimantan",
+            "sampek",
+            "dayak"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fretted",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "borneo",
+            "kalimantan",
+            "dayak"
+          ]
+        },
+        {
+          "id": "sape_electric_modern",
+          "name": "Modern electric sape (5-6 strings, pickup, guitar tuners)",
+          "descriptors": [
+            "amplified",
+            "extended-range",
+            "festival-stage"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fretted",
+            "electric"
+          ],
+          "canonical_tags": [
+            "borneo",
+            "contemporary"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sape_context",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "sape_datun_julud",
+          "default": true,
+          "name": "Datun julud long-dance ostinato (hornbill dance)",
+          "descriptors": [
+            "hypnotic",
+            "looping",
+            "dance-accompaniment"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "trance-inducing"
+          ],
+          "canonical_tags": [
+            "borneo",
+            "dance"
+          ]
+        },
+        {
+          "id": "sape_belian_healing",
+          "name": "Belian healing / trance ritual (shamanic origin)",
+          "descriptors": [
+            "ceremonial",
+            "trance",
+            "ritual"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "trance-inducing"
+          ],
+          "canonical_tags": [
+            "borneo",
+            "ritual"
+          ]
+        },
+        {
+          "id": "sape_stage_fusion",
+          "name": "Contemporary stage / world-fusion (Rainforest World Music Festival lineage)",
+          "descriptors": [
+            "contemporary",
+            "songful",
+            "warbling"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fretted"
+          ],
+          "canonical_tags": [
+            "borneo",
+            "world-fusion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sape_construction",
+      "surface": false,
+      "name": "Construction — body and strings",
+      "variants": [
+        {
+          "id": "sape_adau_wire",
+          "default": true,
+          "name": "Single-bole adau body, wire strings, beeswax-set movable frets",
+          "descriptors": [
+            "adau-carved-single-bole",
+            "wire-strung",
+            "wax-set-frets"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fretted"
+          ]
+        },
+        {
+          "id": "sape_fiber_archaic",
+          "name": "Palm-fiber / rattan strings (pre-wire archaic)",
+          "descriptors": [
+            "fiber-strung",
+            "archaic",
+            "muted"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sape_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "sape_kenyah",
+          "default": true,
+          "name": "Sape' Kenyah (Sarawak long-body, 3-4 strings)",
+          "descriptors": [
+            "kenyah",
+            "long-bodied",
+            "hypnotic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fretted",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "borneo",
+            "sarawak",
+            "dayak"
+          ]
+        },
+        {
+          "id": "sape_kayan",
+          "name": "Sape' Kayan (broad short body, two-string archaic)",
+          "descriptors": [
+            "kayan",
+            "broad-bodied",
+            "archaic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "borneo",
+            "sarawak",
+            "dayak"
+          ]
+        },
+        {
+          "id": "sape_sampek_kalimantan",
+          "name": "Sampe' / sampek (East Kalimantan Dayak)",
+          "descriptors": [
+            "kalimantan",
+            "sampek",
+            "dayak"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fretted",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "borneo",
+            "kalimantan",
+            "dayak"
+          ]
+        },
+        {
+          "id": "sape_electric_modern",
+          "name": "Modern electric sape (5-6 strings, pickup, guitar tuners)",
+          "descriptors": [
+            "amplified",
+            "extended-range",
+            "festival-stage"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fretted",
+            "electric"
+          ],
+          "canonical_tags": [
+            "borneo",
+            "contemporary"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sape_context",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "sape_datun_julud",
+          "default": true,
+          "name": "Datun julud long-dance ostinato (hornbill dance)",
+          "descriptors": [
+            "hypnotic",
+            "looping",
+            "dance-accompaniment"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "trance-inducing"
+          ],
+          "canonical_tags": [
+            "borneo",
+            "dance"
+          ]
+        },
+        {
+          "id": "sape_belian_healing",
+          "name": "Belian healing / trance ritual (shamanic origin)",
+          "descriptors": [
+            "ceremonial",
+            "trance",
+            "ritual"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "trance-inducing"
+          ],
+          "canonical_tags": [
+            "borneo",
+            "ritual"
+          ]
+        },
+        {
+          "id": "sape_stage_fusion",
+          "name": "Contemporary stage / world-fusion (Rainforest World Music Festival lineage)",
+          "descriptors": [
+            "contemporary",
+            "songful",
+            "warbling"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fretted"
+          ],
+          "canonical_tags": [
+            "borneo",
+            "world-fusion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sape_construction",
+      "surface": false,
+      "name": "Construction — body and strings",
+      "variants": [
+        {
+          "id": "sape_adau_wire",
+          "default": true,
+          "name": "Single-bole adau body, wire strings, beeswax-set movable frets",
+          "descriptors": [
+            "adau-carved-single-bole",
+            "wire-strung",
+            "wax-set-frets"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fretted"
+          ]
+        },
+        {
+          "id": "sape_fiber_archaic",
+          "name": "Palm-fiber / rattan strings (pre-wire archaic)",
+          "descriptors": [
+            "fiber-strung",
+            "archaic",
+            "muted"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

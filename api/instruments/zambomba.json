@@ -1,0 +1,350 @@
+{
+  "id": "zambomba",
+  "name": "Zambomba (Spanish stick-friction drum)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": -1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "Iberian friction drum: a cane rod through a skin-headed pot, stroked with a wet hand to produce a low, buzzing rhythmic growl that drives Andalusian Christmas villancicos and the zambombá de Jerez.",
+  "parts": [
+    {
+      "id": "zambomba_regional_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "zambomba_form_jerez",
+          "default": true,
+          "name": "Zambomba de Jerez",
+          "descriptors": [
+            "deep-clay-pot",
+            "resonant-growl",
+            "andalusian"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "rough-tone",
+            "low-growl",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "jerez",
+            "andalusia",
+            "earthenware"
+          ]
+        },
+        {
+          "id": "zambomba_form_castellana",
+          "name": "Castilian/Extremaduran folk zambomba",
+          "descriptors": [
+            "rustic",
+            "dry-pulse",
+            "villancico-rural"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "castile",
+            "extremadura"
+          ]
+        },
+        {
+          "id": "zambomba_form_ximbomba",
+          "name": "Ximbomba (Balearic/Valencian)",
+          "descriptors": [
+            "bright-clay",
+            "festive-buzz"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "mallorca",
+            "valencia",
+            "catalan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zambomba_performance_context",
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "zambomba_ctx_villancico",
+          "default": true,
+          "name": "Christmas villancico accompaniment",
+          "descriptors": [
+            "villancico-pulse",
+            "festive-drone",
+            "copla-backing"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "drone-foundation",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "christmas",
+            "villancico"
+          ]
+        },
+        {
+          "id": "zambomba_ctx_flamenco",
+          "name": "Zambombá flamenca (Jerez bulerías)",
+          "descriptors": [
+            "flamenco-christmas",
+            "palmas-driven",
+            "compas-growl"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "flamenco",
+            "bulerias",
+            "jerez"
+          ]
+        },
+        {
+          "id": "zambomba_ctx_gathering",
+          "name": "Outdoor street gathering",
+          "descriptors": [
+            "raucous",
+            "processional-buzz"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "street",
+            "festive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zambomba_body_build",
+      "surface": false,
+      "name": "Body and rod construction",
+      "variants": [
+        {
+          "id": "zambomba_build_clay",
+          "default": true,
+          "name": "Earthenware pot, goatskin head, cane rod",
+          "descriptors": [
+            "earthenware-body",
+            "goatskin-head",
+            "cane-rod"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "clay",
+            "goatskin",
+            "cane"
+          ]
+        },
+        {
+          "id": "zambomba_build_wood",
+          "name": "Wooden/tin body with reed rod",
+          "descriptors": [
+            "wooden-body",
+            "reed-rod",
+            "dry-timbre"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "wood",
+            "tin",
+            "reed"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "zambomba_regional_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "zambomba_form_jerez",
+          "default": true,
+          "name": "Zambomba de Jerez",
+          "descriptors": [
+            "deep-clay-pot",
+            "resonant-growl",
+            "andalusian"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "rough-tone",
+            "low-growl",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "jerez",
+            "andalusia",
+            "earthenware"
+          ]
+        },
+        {
+          "id": "zambomba_form_castellana",
+          "name": "Castilian/Extremaduran folk zambomba",
+          "descriptors": [
+            "rustic",
+            "dry-pulse",
+            "villancico-rural"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "castile",
+            "extremadura"
+          ]
+        },
+        {
+          "id": "zambomba_form_ximbomba",
+          "name": "Ximbomba (Balearic/Valencian)",
+          "descriptors": [
+            "bright-clay",
+            "festive-buzz"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "mallorca",
+            "valencia",
+            "catalan"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zambomba_performance_context",
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "zambomba_ctx_villancico",
+          "default": true,
+          "name": "Christmas villancico accompaniment",
+          "descriptors": [
+            "villancico-pulse",
+            "festive-drone",
+            "copla-backing"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "drone-foundation",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "christmas",
+            "villancico"
+          ]
+        },
+        {
+          "id": "zambomba_ctx_flamenco",
+          "name": "Zambombá flamenca (Jerez bulerías)",
+          "descriptors": [
+            "flamenco-christmas",
+            "palmas-driven",
+            "compas-growl"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "flamenco",
+            "bulerias",
+            "jerez"
+          ]
+        },
+        {
+          "id": "zambomba_ctx_gathering",
+          "name": "Outdoor street gathering",
+          "descriptors": [
+            "raucous",
+            "processional-buzz"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "street",
+            "festive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zambomba_body_build",
+      "surface": false,
+      "name": "Body and rod construction",
+      "variants": [
+        {
+          "id": "zambomba_build_clay",
+          "default": true,
+          "name": "Earthenware pot, goatskin head, cane rod",
+          "descriptors": [
+            "earthenware-body",
+            "goatskin-head",
+            "cane-rod"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "clay",
+            "goatskin",
+            "cane"
+          ]
+        },
+        {
+          "id": "zambomba_build_wood",
+          "name": "Wooden/tin body with reed rod",
+          "descriptors": [
+            "wooden-body",
+            "reed-rod",
+            "dry-timbre"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "wood",
+            "tin",
+            "reed"
+          ]
+        }
+      ]
+    }
+  ]
+}

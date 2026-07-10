@@ -1,0 +1,372 @@
+{
+  "id": "sackbut",
+  "name": "Sackbut (Renaissance / early Baroque trombone)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "sackbut",
+  "parts": [
+    {
+      "id": "sackbut_size",
+      "name": "Size / voice",
+      "variants": [
+        {
+          "id": "sackbut_tenor",
+          "default": true,
+          "name": "Tenor sackbut in B♭ (the consort workhorse)",
+          "descriptors": [
+            "tenor-workhorse",
+            "vocal",
+            "blending"
+          ],
+          "match_tokens": [
+            "lip-buzzed",
+            "early-music-context"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "baroque"
+          ]
+        },
+        {
+          "id": "sackbut_alto",
+          "name": "Alto sackbut in E♭ / F",
+          "descriptors": [
+            "alto-light",
+            "agile",
+            "singing"
+          ],
+          "match_tokens": [
+            "lip-buzzed",
+            "early-music-context",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "baroque"
+          ]
+        },
+        {
+          "id": "sackbut_bass",
+          "name": "Bass sackbut in F (quartposaune, hinged slide handle)",
+          "descriptors": [
+            "bass-quartposaune",
+            "grave",
+            "foundational"
+          ],
+          "match_tokens": [
+            "lip-buzzed",
+            "early-music-context",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "baroque"
+          ]
+        },
+        {
+          "id": "sackbut_great_bass",
+          "name": "Great bass sackbut (octav-posaune)",
+          "descriptors": [
+            "great-bass-octav",
+            "cavernous",
+            "rare"
+          ],
+          "match_tokens": [
+            "lip-buzzed",
+            "early-music-context",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "renaissance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sackbut_repertoire",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "sackbut_polychoral_colla_parte",
+          "default": true,
+          "name": "Colla parte sacred polyphony (Gabrieli / Monteverdi cori spezzati)",
+          "descriptors": [
+            "colla-parte",
+            "vocal-blend",
+            "devotional"
+          ],
+          "match_tokens": [
+            "early-music-context",
+            "choir-blendable"
+          ],
+          "canonical_tags": [
+            "venetian",
+            "sacred"
+          ]
+        },
+        {
+          "id": "sackbut_alta_capella_waits",
+          "name": "Alta capella / Stadtpfeifer town band with shawms and cornetts",
+          "descriptors": [
+            "civic-ceremonial",
+            "outdoor",
+            "festive"
+          ],
+          "match_tokens": [
+            "early-music-context",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "renaissance"
+          ]
+        },
+        {
+          "id": "sackbut_consort_canzona",
+          "name": "Cornett-and-sackbut consort (canzonas, sonatas, dance suites)",
+          "descriptors": [
+            "consort-blend",
+            "antiphonal",
+            "courtly"
+          ],
+          "match_tokens": [
+            "early-music-context",
+            "ensemble",
+            "baroque-context"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "baroque"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sackbut_build",
+      "surface": false,
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "sackbut_nuremberg_copy",
+          "default": true,
+          "name": "Hand-hammered thin brass after Nuremberg makers (Neuschel / Drewelwecz / Hainlein)",
+          "descriptors": [
+            "thin-hammered-brass",
+            "flat-rim-bell",
+            "narrow-bore"
+          ],
+          "match_tokens": [
+            "early-music-context",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "baroque"
+          ]
+        },
+        {
+          "id": "sackbut_modern_compromise",
+          "name": "Modern compromise reproduction (tuning slide, water key)",
+          "descriptors": [
+            "tuning-slide-added",
+            "stable",
+            "practical"
+          ],
+          "match_tokens": [
+            "early-music-context"
+          ],
+          "canonical_tags": [
+            "modern-repro"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sackbut_size",
+      "name": "Size / voice",
+      "variants": [
+        {
+          "id": "sackbut_tenor",
+          "default": true,
+          "name": "Tenor sackbut in B♭ (the consort workhorse)",
+          "descriptors": [
+            "tenor-workhorse",
+            "vocal",
+            "blending"
+          ],
+          "match_tokens": [
+            "lip-buzzed",
+            "early-music-context"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "baroque"
+          ]
+        },
+        {
+          "id": "sackbut_alto",
+          "name": "Alto sackbut in E♭ / F",
+          "descriptors": [
+            "alto-light",
+            "agile",
+            "singing"
+          ],
+          "match_tokens": [
+            "lip-buzzed",
+            "early-music-context",
+            "high-register"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "baroque"
+          ]
+        },
+        {
+          "id": "sackbut_bass",
+          "name": "Bass sackbut in F (quartposaune, hinged slide handle)",
+          "descriptors": [
+            "bass-quartposaune",
+            "grave",
+            "foundational"
+          ],
+          "match_tokens": [
+            "lip-buzzed",
+            "early-music-context",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "baroque"
+          ]
+        },
+        {
+          "id": "sackbut_great_bass",
+          "name": "Great bass sackbut (octav-posaune)",
+          "descriptors": [
+            "great-bass-octav",
+            "cavernous",
+            "rare"
+          ],
+          "match_tokens": [
+            "lip-buzzed",
+            "early-music-context",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "renaissance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sackbut_repertoire",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "sackbut_polychoral_colla_parte",
+          "default": true,
+          "name": "Colla parte sacred polyphony (Gabrieli / Monteverdi cori spezzati)",
+          "descriptors": [
+            "colla-parte",
+            "vocal-blend",
+            "devotional"
+          ],
+          "match_tokens": [
+            "early-music-context",
+            "choir-blendable"
+          ],
+          "canonical_tags": [
+            "venetian",
+            "sacred"
+          ]
+        },
+        {
+          "id": "sackbut_alta_capella_waits",
+          "name": "Alta capella / Stadtpfeifer town band with shawms and cornetts",
+          "descriptors": [
+            "civic-ceremonial",
+            "outdoor",
+            "festive"
+          ],
+          "match_tokens": [
+            "early-music-context",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "renaissance"
+          ]
+        },
+        {
+          "id": "sackbut_consort_canzona",
+          "name": "Cornett-and-sackbut consort (canzonas, sonatas, dance suites)",
+          "descriptors": [
+            "consort-blend",
+            "antiphonal",
+            "courtly"
+          ],
+          "match_tokens": [
+            "early-music-context",
+            "ensemble",
+            "baroque-context"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "baroque"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sackbut_build",
+      "surface": false,
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "sackbut_nuremberg_copy",
+          "default": true,
+          "name": "Hand-hammered thin brass after Nuremberg makers (Neuschel / Drewelwecz / Hainlein)",
+          "descriptors": [
+            "thin-hammered-brass",
+            "flat-rim-bell",
+            "narrow-bore"
+          ],
+          "match_tokens": [
+            "early-music-context",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "baroque"
+          ]
+        },
+        {
+          "id": "sackbut_modern_compromise",
+          "name": "Modern compromise reproduction (tuning slide, water key)",
+          "descriptors": [
+            "tuning-slide-added",
+            "stable",
+            "practical"
+          ],
+          "match_tokens": [
+            "early-music-context"
+          ],
+          "canonical_tags": [
+            "modern-repro"
+          ]
+        }
+      ]
+    }
+  ]
+}

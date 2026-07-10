@@ -3,9 +3,9 @@
   "name": "Burmese hsaing waing (drum-circle ensemble)",
   "family": "global",
   "lineage": "Burmese hsaing waing percussion-led ensemble tradition, the canonical Burmese folk-and-ceremonial instrumental form. The ensemble centers on the pat waing tuned-drum-circle (twenty-one tuned drums arranged in a horseshoe around the seated lead player) plus kyi waing tuned-gong-circle, hne double-reed shawm, chauk lon bat double-headed drum-pair, si small cymbals, and wa wooden-clappers. The pat waing drum-circle player is the de-facto ensemble leader, with the player simultaneously delivering melodic, rhythmic, and ensemble-cueing functions. Performance contexts span weddings, religious-festival celebrations, theatrical accompaniment (zat pwe), and the classical mahagita repertoire performance. Distinguished from neighboring Thai pi phat and Khmer pinpeat ensembles by Burmese hsaing waing's tuned-drum-circle (vs gong-circle-led) instrumental hierarchy.",
-  "recipe": "classic Southeast Asian mid-1930s burmese hsaing waing, groove Percussion, east Asian branch, southeast Asian Thai classical. refined gamelan balinese full, ensemble lead hne, singing tone precisely tuned pat waing. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 383,
-  "score": 137.194,
+  "recipe": "classic Southeast Asian mid-1930s burmese hsaing waing, groove Percussion, east Asian branch, southeast Asian Thai classical. indoor lead melodic drums hsaing waing ensemble, ensemble lead hne, singing tone precisely tuned pat waing. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 401,
+  "score": 214.722,
   "config": {
     "traditions": [
       "burmese_hsaing_waing",
@@ -13,14 +13,16 @@
     ],
     "instruments": [
       {
-        "id": "gamelan_balinese_full",
+        "id": "hsaing_waing_ensemble",
         "slots": {
-          "type": "gb_semar_pegulingan",
-          "characteristic": "gb_kotekan"
+          "hsaing_waing_ensemble_lineup": "hsaing_waing_ensemble_chamber",
+          "hsaing_waing_ensemble_context": "hsaing_waing_ensemble_mahagita",
+          "hsaing_waing_ensemble_roles": "hsaing_waing_ensemble_pat_waing_lead"
         },
         "scores": {
-          "type": 6.249999999999999,
-          "characteristic": 0.04875
+          "hsaing_waing_ensemble_lineup": 29.57,
+          "hsaing_waing_ensemble_context": 30.375,
+          "hsaing_waing_ensemble_roles": 23.881249999999998
         }
       },
       {
@@ -69,10 +71,7 @@
   "source": {
     "tuning": "equal_heptatonic_thai_khmer",
     "room": "jakarta_bangkok_southeast_asian_studio",
-    "parts": {
-      "type": "gb_gong_kebyar",
-      "characteristic": "gb_kotekan"
-    },
+    "parts": {},
     "chain_mic": "mic_u87_condenser_neumann",
     "chain_pre": "tube_pre",
     "chain_comp": "comp_la2a_optical",

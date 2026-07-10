@@ -1,0 +1,324 @@
+{
+  "id": "choir_isicathamiya",
+  "name": "Isicathamiya male choir (Zulu a-cappella)",
+  "family": "ensemble",
+  "class": "vocal_choir",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 2,
+    "register": -1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "isicathamiya choir",
+  "parts": [
+    {
+      "id": "choir_isicathamiya_lineup",
+      "name": "Group configuration",
+      "variants": [
+        {
+          "id": "choir_isicathamiya_full_group",
+          "default": true,
+          "name": "Full group (10-15 voices, lead tenor over massed basses)",
+          "descriptors": [
+            "bass-heavy",
+            "blended",
+            "foundational",
+            "call-response"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "choir-blendable",
+            "close-harmony"
+          ]
+        },
+        {
+          "id": "choir_isicathamiya_small_group",
+          "name": "Small group (6-8 voices)",
+          "descriptors": [
+            "intimate",
+            "blended",
+            "hushed"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "choir-blendable",
+            "close-harmony"
+          ]
+        },
+        {
+          "id": "choir_isicathamiya_massed_competition",
+          "name": "Massed competition choir (20+ voices)",
+          "descriptors": [
+            "massive",
+            "bass-heavy",
+            "powerful"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "choir-blendable",
+            "close-harmony"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "choir_isicathamiya_style",
+      "name": "Style / repertoire",
+      "variants": [
+        {
+          "id": "choir_isicathamiya_cothoza_mfana",
+          "default": true,
+          "name": "Cothoza mfana (soft tip-toe style)",
+          "descriptors": [
+            "tip-toe-soft",
+            "hushed",
+            "controlled",
+            "gliding"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "choir-blendable",
+            "close-harmony"
+          ]
+        },
+        {
+          "id": "choir_isicathamiya_mbube",
+          "name": "Mbube (older loud style, Solomon Linda lineage)",
+          "descriptors": [
+            "powerful",
+            "forceful",
+            "traditional"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "choir-blendable",
+            "close-harmony"
+          ]
+        },
+        {
+          "id": "choir_isicathamiya_hymn_repertoire",
+          "name": "Hymn / gospel-inflected repertoire",
+          "descriptors": [
+            "devotional",
+            "blended",
+            "congregational"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "choir-blendable",
+            "close-harmony",
+            "chordal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "choir_isicathamiya_setting",
+      "surface": false,
+      "name": "Performance setting",
+      "variants": [
+        {
+          "id": "choir_isicathamiya_hostel_competition",
+          "default": true,
+          "name": "All-night hostel competition (ingoma ebusuku)",
+          "descriptors": [
+            "competitive",
+            "nocturnal",
+            "call-response",
+            "traditional"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "choir-blendable",
+            "close-harmony"
+          ]
+        },
+        {
+          "id": "choir_isicathamiya_wedding",
+          "name": "Wedding / ceremonial performance",
+          "descriptors": [
+            "celebratory",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "choir-blendable",
+            "close-harmony"
+          ]
+        },
+        {
+          "id": "choir_isicathamiya_international_stage",
+          "name": "Studio / international concert stage (Graceland era)",
+          "descriptors": [
+            "polished",
+            "modern",
+            "blended"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "choir-blendable",
+            "close-harmony"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "choir_isicathamiya_lineup",
+      "name": "Group configuration",
+      "variants": [
+        {
+          "id": "choir_isicathamiya_full_group",
+          "default": true,
+          "name": "Full group (10-15 voices, lead tenor over massed basses)",
+          "descriptors": [
+            "bass-heavy",
+            "blended",
+            "foundational",
+            "call-response"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "choir-blendable",
+            "close-harmony"
+          ]
+        },
+        {
+          "id": "choir_isicathamiya_small_group",
+          "name": "Small group (6-8 voices)",
+          "descriptors": [
+            "intimate",
+            "blended",
+            "hushed"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "choir-blendable",
+            "close-harmony"
+          ]
+        },
+        {
+          "id": "choir_isicathamiya_massed_competition",
+          "name": "Massed competition choir (20+ voices)",
+          "descriptors": [
+            "massive",
+            "bass-heavy",
+            "powerful"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "choir-blendable",
+            "close-harmony"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "choir_isicathamiya_style",
+      "name": "Style / repertoire",
+      "variants": [
+        {
+          "id": "choir_isicathamiya_cothoza_mfana",
+          "default": true,
+          "name": "Cothoza mfana (soft tip-toe style)",
+          "descriptors": [
+            "tip-toe-soft",
+            "hushed",
+            "controlled",
+            "gliding"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "choir-blendable",
+            "close-harmony"
+          ]
+        },
+        {
+          "id": "choir_isicathamiya_mbube",
+          "name": "Mbube (older loud style, Solomon Linda lineage)",
+          "descriptors": [
+            "powerful",
+            "forceful",
+            "traditional"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "choir-blendable",
+            "close-harmony"
+          ]
+        },
+        {
+          "id": "choir_isicathamiya_hymn_repertoire",
+          "name": "Hymn / gospel-inflected repertoire",
+          "descriptors": [
+            "devotional",
+            "blended",
+            "congregational"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "choir-blendable",
+            "close-harmony",
+            "chordal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "choir_isicathamiya_setting",
+      "surface": false,
+      "name": "Performance setting",
+      "variants": [
+        {
+          "id": "choir_isicathamiya_hostel_competition",
+          "default": true,
+          "name": "All-night hostel competition (ingoma ebusuku)",
+          "descriptors": [
+            "competitive",
+            "nocturnal",
+            "call-response",
+            "traditional"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "choir-blendable",
+            "close-harmony"
+          ]
+        },
+        {
+          "id": "choir_isicathamiya_wedding",
+          "name": "Wedding / ceremonial performance",
+          "descriptors": [
+            "celebratory",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "choir-blendable",
+            "close-harmony"
+          ]
+        },
+        {
+          "id": "choir_isicathamiya_international_stage",
+          "name": "Studio / international concert stage (Graceland era)",
+          "descriptors": [
+            "polished",
+            "modern",
+            "blended"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "choir-blendable",
+            "close-harmony"
+          ]
+        }
+      ]
+    }
+  ]
+}

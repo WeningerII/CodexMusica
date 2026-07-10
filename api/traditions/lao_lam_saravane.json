@@ -3,9 +3,9 @@
   "name": "Lao lam saravane (southern-Lao folk genre)",
   "family": "global",
   "lineage": "Lao lam saravane: Southern-Lao (Champasak-region) variant of the broader Lao lam (sung-and-spoken folk-narrative-and-courtship) tradition that includes the Thai cognate mor lam. Lam saravane is the lighter, more melodic-and-flirtatious variant compared to the heavier philosophical-and-narrative lam siphandone of the southernmost Lao region. Performance: lead singer (mor lam) with khaen bamboo-pipe-mouth-organ accompaniment, in extempore versified Lao-language verse-exchange with characteristic pentatonic-modal vocabulary and the rhythmic-pulsed khaen drone. The mid-twentieth-century Vientiane and Bangkok commercial-recording era spread the saravane variant nationally.",
-  "recipe": "classic Southeast Asian modern lao lam saravane, art Music, southeast Asian branch, blues narrative work song coco brasileiro bahraini fjiri. thick, low dynamic level, chest resonance low mid, narrative. melodic straight khaen. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 452,
-  "score": 151.267,
+  "recipe": "classic Southeast Asian modern lao lam saravane, art Music, southeast Asian branch, blues narrative work song coco brasileiro bahraini fjiri. thick, low dynamic level, chest resonance low mid, narrative. melodic straight khaen, phin. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 458,
+  "score": 169.497,
   "config": {
     "traditions": [
       "lao_lam_saravane",
@@ -63,6 +63,19 @@
           "free_reed_technique": 7.434499999999999,
           "khaen_size": 14.495,
           "khaen_context": 10.075
+        }
+      },
+      {
+        "id": "phin",
+        "slots": {
+          "phin_form": "phin_song_sai",
+          "phin_repertoire": "phin_lam_accompaniment",
+          "phin_construction": "phin_jackfruit_carved"
+        },
+        "scores": {
+          "phin_form": 16.769999999999996,
+          "phin_repertoire": 1.4949999999999999,
+          "phin_construction": -0.035
         }
       }
     ],

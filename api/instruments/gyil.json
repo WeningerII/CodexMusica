@@ -1,0 +1,298 @@
+{
+  "id": "gyil",
+  "name": "Gyil (Dagara gourd-resonated xylophone)",
+  "family": "percussion",
+  "class": "tuned_percussion",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "gyil",
+  "parts": [
+    {
+      "id": "gyil_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "gyil_dagara_kogyil",
+          "default": true,
+          "name": "Dagara kogyil (14-key funeral gyil)",
+          "descriptors": [
+            "fourteen-key",
+            "foundational",
+            "buzzy",
+            "funeral-voiced"
+          ],
+          "match_tokens": [
+            "struck",
+            "mallets",
+            "woody"
+          ]
+        },
+        {
+          "id": "gyil_lobi",
+          "name": "Lobi gyil (Burkina Faso / Côte d'Ivoire)",
+          "descriptors": [
+            "deep-gourd",
+            "dark-toned",
+            "regional"
+          ],
+          "match_tokens": [
+            "struck",
+            "mallets",
+            "woody"
+          ]
+        },
+        {
+          "id": "gyil_birifor",
+          "name": "Birifor gyil (Black Volta region)",
+          "descriptors": [
+            "bright-keyed",
+            "dance-driving",
+            "regional"
+          ],
+          "match_tokens": [
+            "struck",
+            "mallets",
+            "woody"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gyil_repertoire",
+      "name": "Repertoire and context",
+      "variants": [
+        {
+          "id": "gyil_bine_funeral",
+          "default": true,
+          "name": "Funeral rites (bine dirges, paired gyil with kuor drum)",
+          "descriptors": [
+            "ritual",
+            "mourning",
+            "call-and-response",
+            "paired"
+          ],
+          "match_tokens": [
+            "struck",
+            "mallets",
+            "ritual-context"
+          ]
+        },
+        {
+          "id": "gyil_bewaa_dance",
+          "name": "Bewaa recreational dance",
+          "descriptors": [
+            "festive",
+            "communal",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "struck",
+            "mallets",
+            "dance"
+          ]
+        },
+        {
+          "id": "gyil_concert_solo",
+          "name": "Concert solo (international stage)",
+          "descriptors": [
+            "virtuosic",
+            "contemporary",
+            "showcase"
+          ],
+          "match_tokens": [
+            "struck",
+            "mallets",
+            "concert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gyil_keys_membranes",
+      "surface": false,
+      "name": "Keys and resonator membranes",
+      "variants": [
+        {
+          "id": "gyil_liga_spider_silk",
+          "default": true,
+          "name": "Liga-wood keys, spider-silk membranes on calabash gourds (canonical buzz)",
+          "descriptors": [
+            "buzzy",
+            "spider-silk",
+            "calabash",
+            "liga-wood",
+            "natural-material-resonance"
+          ],
+          "match_tokens": [
+            "struck",
+            "mallets",
+            "woody"
+          ]
+        },
+        {
+          "id": "gyil_plastic_film",
+          "name": "Plastic-film membranes (modern substitute)",
+          "descriptors": [
+            "durable",
+            "contemporary",
+            "lighter-buzz"
+          ],
+          "match_tokens": [
+            "struck",
+            "mallets",
+            "woody"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "gyil_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "gyil_dagara_kogyil",
+          "default": true,
+          "name": "Dagara kogyil (14-key funeral gyil)",
+          "descriptors": [
+            "fourteen-key",
+            "foundational",
+            "buzzy",
+            "funeral-voiced"
+          ],
+          "match_tokens": [
+            "struck",
+            "mallets",
+            "woody"
+          ]
+        },
+        {
+          "id": "gyil_lobi",
+          "name": "Lobi gyil (Burkina Faso / Côte d'Ivoire)",
+          "descriptors": [
+            "deep-gourd",
+            "dark-toned",
+            "regional"
+          ],
+          "match_tokens": [
+            "struck",
+            "mallets",
+            "woody"
+          ]
+        },
+        {
+          "id": "gyil_birifor",
+          "name": "Birifor gyil (Black Volta region)",
+          "descriptors": [
+            "bright-keyed",
+            "dance-driving",
+            "regional"
+          ],
+          "match_tokens": [
+            "struck",
+            "mallets",
+            "woody"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gyil_repertoire",
+      "name": "Repertoire and context",
+      "variants": [
+        {
+          "id": "gyil_bine_funeral",
+          "default": true,
+          "name": "Funeral rites (bine dirges, paired gyil with kuor drum)",
+          "descriptors": [
+            "ritual",
+            "mourning",
+            "call-and-response",
+            "paired"
+          ],
+          "match_tokens": [
+            "struck",
+            "mallets",
+            "ritual-context"
+          ]
+        },
+        {
+          "id": "gyil_bewaa_dance",
+          "name": "Bewaa recreational dance",
+          "descriptors": [
+            "festive",
+            "communal",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "struck",
+            "mallets",
+            "dance"
+          ]
+        },
+        {
+          "id": "gyil_concert_solo",
+          "name": "Concert solo (international stage)",
+          "descriptors": [
+            "virtuosic",
+            "contemporary",
+            "showcase"
+          ],
+          "match_tokens": [
+            "struck",
+            "mallets",
+            "concert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gyil_keys_membranes",
+      "surface": false,
+      "name": "Keys and resonator membranes",
+      "variants": [
+        {
+          "id": "gyil_liga_spider_silk",
+          "default": true,
+          "name": "Liga-wood keys, spider-silk membranes on calabash gourds (canonical buzz)",
+          "descriptors": [
+            "buzzy",
+            "spider-silk",
+            "calabash",
+            "liga-wood",
+            "natural-material-resonance"
+          ],
+          "match_tokens": [
+            "struck",
+            "mallets",
+            "woody"
+          ]
+        },
+        {
+          "id": "gyil_plastic_film",
+          "name": "Plastic-film membranes (modern substitute)",
+          "descriptors": [
+            "durable",
+            "contemporary",
+            "lighter-buzz"
+          ],
+          "match_tokens": [
+            "struck",
+            "mallets",
+            "woody"
+          ]
+        }
+      ]
+    }
+  ]
+}

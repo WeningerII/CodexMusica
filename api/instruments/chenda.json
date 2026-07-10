@@ -1,0 +1,336 @@
+{
+  "id": "chenda",
+  "name": "Chenda (Kerala cylindrical stick drum)",
+  "family": "percussion",
+  "class": "membranophone",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "chenda",
+  "parts": [
+    {
+      "id": "chenda_form",
+      "name": "Form / role",
+      "variants": [
+        {
+          "id": "chenda_uruttu",
+          "default": true,
+          "name": "Uruttu chenda (lead — treble edamthala head, rolling strokes)",
+          "descriptors": [
+            "cracking",
+            "virtuosic",
+            "projection-strong"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "south-asian"
+          ]
+        },
+        {
+          "id": "chenda_veekkan",
+          "name": "Veekkan chenda (accompaniment — multi-layered bass valamthala head)",
+          "descriptors": [
+            "foundational",
+            "timekeeping",
+            "layered-hide-head"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "south-asian"
+          ]
+        },
+        {
+          "id": "chenda_chande",
+          "name": "Chande (Yakshagana form, coastal Karnataka — slant-mounted, thin sticks)",
+          "descriptors": [
+            "regional",
+            "slant-mounted",
+            "cutting"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chenda_repertoire",
+      "name": "Repertoire / context",
+      "variants": [
+        {
+          "id": "chenda_melam_temple",
+          "default": true,
+          "name": "Chenda melam (massed temple orchestra — panchari and pandi melam)",
+          "descriptors": [
+            "processional",
+            "massed",
+            "temple-festival"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "ensemble",
+            "ritual-context"
+          ],
+          "canonical_tags": [
+            "south-asian"
+          ]
+        },
+        {
+          "id": "chenda_thayambaka",
+          "name": "Thayambaka (solo virtuoso showcase — stick and palm)",
+          "descriptors": [
+            "improvised",
+            "escalating",
+            "spotlight"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "hands"
+          ],
+          "canonical_tags": [
+            "south-asian"
+          ]
+        },
+        {
+          "id": "chenda_ritual_theatre",
+          "name": "Kathakali / Theyyam ritual theatre accompaniment",
+          "descriptors": [
+            "narrative",
+            "gesture-tracking",
+            "ritual"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "ritual-context",
+            "devotional"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chenda_construction",
+      "surface": false,
+      "name": "Shell and heads",
+      "variants": [
+        {
+          "id": "chenda_jackwood_cowhide",
+          "default": true,
+          "name": "Jackwood shell, rope-tensioned layered cowhide heads (canonical Kerala)",
+          "descriptors": [
+            "jackwood-shell-layered-cowhide-canonical-kerala"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "woody"
+          ],
+          "canonical_tags": [
+            "south-asian"
+          ]
+        },
+        {
+          "id": "chenda_fibreglass_synthetic",
+          "name": "Fibreglass shell / synthetic heads (modern processional alternative)",
+          "descriptors": [
+            "fibreglass-synthetic-modern-processional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "synthetic"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "chenda_form",
+      "name": "Form / role",
+      "variants": [
+        {
+          "id": "chenda_uruttu",
+          "default": true,
+          "name": "Uruttu chenda (lead — treble edamthala head, rolling strokes)",
+          "descriptors": [
+            "cracking",
+            "virtuosic",
+            "projection-strong"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "south-asian"
+          ]
+        },
+        {
+          "id": "chenda_veekkan",
+          "name": "Veekkan chenda (accompaniment — multi-layered bass valamthala head)",
+          "descriptors": [
+            "foundational",
+            "timekeeping",
+            "layered-hide-head"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "south-asian"
+          ]
+        },
+        {
+          "id": "chenda_chande",
+          "name": "Chande (Yakshagana form, coastal Karnataka — slant-mounted, thin sticks)",
+          "descriptors": [
+            "regional",
+            "slant-mounted",
+            "cutting"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chenda_repertoire",
+      "name": "Repertoire / context",
+      "variants": [
+        {
+          "id": "chenda_melam_temple",
+          "default": true,
+          "name": "Chenda melam (massed temple orchestra — panchari and pandi melam)",
+          "descriptors": [
+            "processional",
+            "massed",
+            "temple-festival"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "ensemble",
+            "ritual-context"
+          ],
+          "canonical_tags": [
+            "south-asian"
+          ]
+        },
+        {
+          "id": "chenda_thayambaka",
+          "name": "Thayambaka (solo virtuoso showcase — stick and palm)",
+          "descriptors": [
+            "improvised",
+            "escalating",
+            "spotlight"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "hands"
+          ],
+          "canonical_tags": [
+            "south-asian"
+          ]
+        },
+        {
+          "id": "chenda_ritual_theatre",
+          "name": "Kathakali / Theyyam ritual theatre accompaniment",
+          "descriptors": [
+            "narrative",
+            "gesture-tracking",
+            "ritual"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "ritual-context",
+            "devotional"
+          ],
+          "canonical_tags": [
+            "south-asian",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chenda_construction",
+      "surface": false,
+      "name": "Shell and heads",
+      "variants": [
+        {
+          "id": "chenda_jackwood_cowhide",
+          "default": true,
+          "name": "Jackwood shell, rope-tensioned layered cowhide heads (canonical Kerala)",
+          "descriptors": [
+            "jackwood-shell-layered-cowhide-canonical-kerala"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "woody"
+          ],
+          "canonical_tags": [
+            "south-asian"
+          ]
+        },
+        {
+          "id": "chenda_fibreglass_synthetic",
+          "name": "Fibreglass shell / synthetic heads (modern processional alternative)",
+          "descriptors": [
+            "fibreglass-synthetic-modern-processional"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "sticks",
+            "synthetic"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

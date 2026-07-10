@@ -3,9 +3,9 @@
   "name": "Salsa colombiana (Cali)",
   "family": "global",
   "lineage": "Colombian regional variant of salsa centered in Cali (Valle del Cauca, southwestern Colombia, \"world capital of salsa\"). Distinguished from New York and Puerto Rican salsa by faster-tempo, more aggressive-rhythmic-pulse, and the Cali dance-school choreographic culture emphasizing fast complex footwork. Grupo Niche (1980, Jairo Varela) and Orquesta Guayacán anchor canonical Cali sound.",
-  "recipe": "classic Andean early-1980s salsa colombiana, groove Percussion, son salsa branch, Afro-diasporic MC rhythm south african kwaito kwaito. vocal fry, rap, chest resonance low mid, punctuated. 7 ply quartersawn maple grand piano, alder pyramid pure nickel bass British mid 60s era thumb muted electric bass, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble trumpet, brass open slap hand drum timbales, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas. bogota colombian andean studio. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 687,
-  "score": 121.491,
+  "recipe": "classic Andean early-1980s salsa colombiana, groove Percussion, son salsa branch, Afro-diasporic MC rhythm south african kwaito kwaito. vocal fry, rap, chest resonance low mid, punctuated. 7 ply quartersawn maple grand piano, alder pyramid pure nickel bass British mid 60s era thumb muted electric bass, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble trumpet, brass open slap hand drum timbales, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, steady pulse cencerro. bogota colombian andean studio. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 710,
+  "score": 123.28,
   "config": {
     "traditions": [
       "salsa_colombiana",
@@ -147,6 +147,19 @@
           "conga_set": 0.18525000000000003,
           "conga_skin": 4.485,
           "conga_shell_wood": 4.485
+        }
+      },
+      {
+        "id": "cencerro",
+        "slots": {
+          "cencerro_bell_type": "cencerro_bongo_bell",
+          "cencerro_context": "cencerro_charanga",
+          "cencerro_build": "cencerro_welded_steel"
+        },
+        "scores": {
+          "cencerro_bell_type": 0.48975,
+          "cencerro_context": 1.3,
+          "cencerro_build": 0
         }
       }
     ],

@@ -1,0 +1,396 @@
+{
+  "id": "rainstick",
+  "name": "Rainstick (Diaguita palo de lluvia)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 0,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -2,
+    "articulation": -2,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "Tilt-shaken tube of cascading seeds and pins that pours a soft, sustained rainfall hiss — a signature texture of Andean nueva canción.",
+  "parts": [
+    {
+      "id": "rainstick_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "rainstick_form_diaguita_cactus",
+          "default": true,
+          "name": "Diaguita cactus tube",
+          "descriptors": [
+            "dried-cactus",
+            "quisco-spined",
+            "organic-hiss",
+            "hand-length"
+          ],
+          "match_tokens": [
+            "shaken",
+            "cactus",
+            "traditional",
+            "chilean",
+            "andean",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "cactus-tube",
+            "cactus-spines"
+          ]
+        },
+        {
+          "id": "rainstick_form_bamboo_pinned",
+          "name": "Bamboo pinned tube",
+          "descriptors": [
+            "bamboo-bodied",
+            "pin-studded",
+            "even-cascade",
+            "manufactured"
+          ],
+          "match_tokens": [
+            "shaken",
+            "bamboo",
+            "workshop",
+            "even"
+          ],
+          "canonical_tags": [
+            "bamboo-tube",
+            "inserted-pins"
+          ]
+        },
+        {
+          "id": "rainstick_form_concert_long",
+          "name": "Long concert rainstick",
+          "descriptors": [
+            "large-bore",
+            "long-fall",
+            "slow-swelling",
+            "orchestral"
+          ],
+          "match_tokens": [
+            "shaken",
+            "concert",
+            "orchestral",
+            "long",
+            "sustained"
+          ],
+          "canonical_tags": [
+            "large-diameter",
+            "extended-length"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rainstick_gesture",
+      "name": "Playing gesture",
+      "variants": [
+        {
+          "id": "rainstick_gesture_tilt_cascade",
+          "default": true,
+          "name": "Slow tilt cascade",
+          "descriptors": [
+            "slow-inverting",
+            "rainfall-swell",
+            "continuous-pour",
+            "atmospheric"
+          ],
+          "match_tokens": [
+            "shaken",
+            "tilt",
+            "cascade",
+            "sustained",
+            "ambient",
+            "texture"
+          ],
+          "canonical_tags": [
+            "full-inversion",
+            "sustained-cascade"
+          ]
+        },
+        {
+          "id": "rainstick_gesture_shake_pulse",
+          "name": "Rhythmic shake",
+          "descriptors": [
+            "quick-shaken",
+            "accented-bursts",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "shaken",
+            "shake",
+            "rhythmic",
+            "accent",
+            "pulse"
+          ],
+          "canonical_tags": [
+            "short-shakes",
+            "rhythmic-accent"
+          ]
+        },
+        {
+          "id": "rainstick_gesture_partial_tilt",
+          "name": "Angled trickle",
+          "descriptors": [
+            "gently-angled",
+            "sparse-trickle",
+            "intimate"
+          ],
+          "match_tokens": [
+            "shaken",
+            "tilt",
+            "sparse",
+            "soft",
+            "trickle"
+          ],
+          "canonical_tags": [
+            "partial-tilt",
+            "thin-cascade"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rainstick_fill",
+      "surface": false,
+      "name": "Fill and pin material",
+      "variants": [
+        {
+          "id": "rainstick_fill_seed_grain",
+          "default": true,
+          "name": "Fine seed and grain fill",
+          "descriptors": [
+            "fine-grained",
+            "papery-hiss",
+            "high-sizzle"
+          ],
+          "match_tokens": [
+            "seeds",
+            "grain",
+            "fine",
+            "hiss",
+            "bright"
+          ],
+          "canonical_tags": [
+            "seed-fill",
+            "cactus-spine-pins"
+          ]
+        },
+        {
+          "id": "rainstick_fill_pebble_bead",
+          "name": "Pebble and bead fill",
+          "descriptors": [
+            "pebble-filled",
+            "coarse-rattle",
+            "woodier-clatter"
+          ],
+          "match_tokens": [
+            "pebbles",
+            "beads",
+            "coarse",
+            "rattle",
+            "dark"
+          ],
+          "canonical_tags": [
+            "pebble-fill",
+            "metal-nail-pins"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "rainstick_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "rainstick_form_diaguita_cactus",
+          "default": true,
+          "name": "Diaguita cactus tube",
+          "descriptors": [
+            "dried-cactus",
+            "quisco-spined",
+            "organic-hiss",
+            "hand-length"
+          ],
+          "match_tokens": [
+            "shaken",
+            "cactus",
+            "traditional",
+            "chilean",
+            "andean",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "cactus-tube",
+            "cactus-spines"
+          ]
+        },
+        {
+          "id": "rainstick_form_bamboo_pinned",
+          "name": "Bamboo pinned tube",
+          "descriptors": [
+            "bamboo-bodied",
+            "pin-studded",
+            "even-cascade",
+            "manufactured"
+          ],
+          "match_tokens": [
+            "shaken",
+            "bamboo",
+            "workshop",
+            "even"
+          ],
+          "canonical_tags": [
+            "bamboo-tube",
+            "inserted-pins"
+          ]
+        },
+        {
+          "id": "rainstick_form_concert_long",
+          "name": "Long concert rainstick",
+          "descriptors": [
+            "large-bore",
+            "long-fall",
+            "slow-swelling",
+            "orchestral"
+          ],
+          "match_tokens": [
+            "shaken",
+            "concert",
+            "orchestral",
+            "long",
+            "sustained"
+          ],
+          "canonical_tags": [
+            "large-diameter",
+            "extended-length"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rainstick_gesture",
+      "name": "Playing gesture",
+      "variants": [
+        {
+          "id": "rainstick_gesture_tilt_cascade",
+          "default": true,
+          "name": "Slow tilt cascade",
+          "descriptors": [
+            "slow-inverting",
+            "rainfall-swell",
+            "continuous-pour",
+            "atmospheric"
+          ],
+          "match_tokens": [
+            "shaken",
+            "tilt",
+            "cascade",
+            "sustained",
+            "ambient",
+            "texture"
+          ],
+          "canonical_tags": [
+            "full-inversion",
+            "sustained-cascade"
+          ]
+        },
+        {
+          "id": "rainstick_gesture_shake_pulse",
+          "name": "Rhythmic shake",
+          "descriptors": [
+            "quick-shaken",
+            "accented-bursts",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "shaken",
+            "shake",
+            "rhythmic",
+            "accent",
+            "pulse"
+          ],
+          "canonical_tags": [
+            "short-shakes",
+            "rhythmic-accent"
+          ]
+        },
+        {
+          "id": "rainstick_gesture_partial_tilt",
+          "name": "Angled trickle",
+          "descriptors": [
+            "gently-angled",
+            "sparse-trickle",
+            "intimate"
+          ],
+          "match_tokens": [
+            "shaken",
+            "tilt",
+            "sparse",
+            "soft",
+            "trickle"
+          ],
+          "canonical_tags": [
+            "partial-tilt",
+            "thin-cascade"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rainstick_fill",
+      "surface": false,
+      "name": "Fill and pin material",
+      "variants": [
+        {
+          "id": "rainstick_fill_seed_grain",
+          "default": true,
+          "name": "Fine seed and grain fill",
+          "descriptors": [
+            "fine-grained",
+            "papery-hiss",
+            "high-sizzle"
+          ],
+          "match_tokens": [
+            "seeds",
+            "grain",
+            "fine",
+            "hiss",
+            "bright"
+          ],
+          "canonical_tags": [
+            "seed-fill",
+            "cactus-spine-pins"
+          ]
+        },
+        {
+          "id": "rainstick_fill_pebble_bead",
+          "name": "Pebble and bead fill",
+          "descriptors": [
+            "pebble-filled",
+            "coarse-rattle",
+            "woodier-clatter"
+          ],
+          "match_tokens": [
+            "pebbles",
+            "beads",
+            "coarse",
+            "rattle",
+            "dark"
+          ],
+          "canonical_tags": [
+            "pebble-fill",
+            "metal-nail-pins"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -3,9 +3,9 @@
   "name": "Georgian three-voice polyphony",
   "family": "global",
   "lineage": "Georgian Caucasian three-voice unaccompanied polyphonic tradition — comprising four regional sub-traditions each with distinct three-voice configuration: Kakhetian table-song (two soloists carrying upper voices over a sustained choral drone bani, the eastern-Georgian wine-toast supra context), Gurian three-voice with krimanchuli (the western-Georgian high-yodeling M1-M2-alternation upper voice over mtkmeli lead and bani drone, the most contrapuntally complex regional style), Megrelian funeral lament (the western-coastal-Georgian three-voice with text-carrying mtkmeli), and Svanetian highland complex three-voice (the upper-mountain Svaneti regional style with archaic non-tempered fifth-and-fourth harmony); twentieth-century preservation through the Anchiskhati Choir Tbilisi, Rustavi Choir, the ethnomusicology lineage of Joseb Jordania, Edisher Garaqanidze, and the Tbilisi State Conservatoire folk-polyphony research program; performed in church-and-supra contexts using non-tempered Pythagorean-leaning fifths and fourths, the harmonic vocabulary distinct from Western tempered choral practice",
-  "recipe": "classic modern georgian three-voice polyphony, drone Modal, vocal branch, Mediterranean ballad ballad poetry sardinian cantu a tenore and launeddas croatian klapa dalmatian close-harmony. sygyt, false fold engaged, overtone rich sustained, hocket articulation. a cappella small 3 to 8 one per part three voice polyphonic regional kakhetian three voice two soloists choral drone global traditional polyphonic choir ensemble. parish church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 568,
-  "score": 338.395,
+  "recipe": "classic modern georgian three-voice polyphony, drone Modal, vocal branch, Mediterranean ballad ballad poetry sardinian cantu a tenore and launeddas croatian klapa dalmatian close-harmony. sygyt, false fold engaged, overtone rich sustained, hocket articulation. drone bass choir georgian polyphonic. parish church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 443,
+  "score": 324.01,
   "config": {
     "traditions": [
       "georgian_three_voice_polyphony",
@@ -53,18 +53,16 @@
         }
       },
       {
-        "id": "choir_ensemble",
+        "id": "choir_georgian_polyphonic",
         "slots": {
-          "choir_size": "a_cappella_small_ensemble_3_8",
-          "choir_polyphonic_configuration": "choir_polyphony_three_voice_polyphonic",
-          "choir_regional_canonical_configuration": "choir_regional_kakhetian_three_voice",
-          "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
+          "choir_georgian_polyphonic_style": "choir_georgian_polyphonic_kakhetian",
+          "choir_georgian_polyphonic_context": "choir_georgian_polyphonic_sacred",
+          "choir_georgian_polyphonic_voices": "choir_georgian_polyphonic_bani"
         },
         "scores": {
-          "choir_size": 8.905,
-          "choir_polyphonic_configuration": 33.050000000000004,
-          "choir_regional_canonical_configuration": 37.21,
-          "choir_ensemble_repertoire": 8.71
+          "choir_georgian_polyphonic_style": 27.55999999999999,
+          "choir_georgian_polyphonic_context": 19.964999999999996,
+          "choir_georgian_polyphonic_voices": 25.964999999999996
         }
       }
     ],
@@ -100,9 +98,7 @@
       "voice_ornament_system": "voice_ornament_none",
       "voice_estill_quality": "voice_estill_speech",
       "voice_vibrato": "straight_tone",
-      "voice_mechanism_compound": "voice_mechanism_single_source",
-      "choir_size": "chamber_choir",
-      "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
+      "voice_mechanism_compound": "voice_mechanism_single_source"
     },
     "chain_mic": "condenser_sdc",
     "chain_pre": "pre_field_recorder_portable",

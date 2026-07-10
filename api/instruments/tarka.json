@@ -1,0 +1,412 @@
+{
+  "id": "tarka",
+  "name": "Tarka (Andean carved-block duct flute)",
+  "family": "wind",
+  "class": "duct_flute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "tarka",
+  "parts": [
+    {
+      "id": "tarka_form",
+      "name": "Regional cut",
+      "variants": [
+        {
+          "id": "tarka_curahuara",
+          "default": true,
+          "name": "Curahuara de Carangas cut (canonical altiplano tropa tarka)",
+          "descriptors": [
+            "canonical",
+            "altiplano",
+            "angular-carved"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "aymara",
+            "bolivian",
+            "anata"
+          ]
+        },
+        {
+          "id": "tarka_salinas",
+          "name": "Salinas de Garci Mendoza cut (Oruro, deeper-bodied)",
+          "descriptors": [
+            "deeper-bodied",
+            "oruro-highland",
+            "dark-toned"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "oruro"
+          ]
+        },
+        {
+          "id": "tarka_ullara",
+          "name": "Ullara cut (slender, brighter-edged)",
+          "descriptors": [
+            "slender",
+            "bright-edged"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "folk-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tarka_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "tarka_tarkeada",
+          "default": true,
+          "name": "Tarkeada / Anata carnival tropa (unison melody over wankara drums)",
+          "descriptors": [
+            "communal",
+            "festive",
+            "rainy-season"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "ensemble",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "anata",
+            "carnival",
+            "oruro",
+            "aymara"
+          ]
+        },
+        {
+          "id": "tarka_tara_voice",
+          "name": "Tara full-force blowing (dense beating multiphonic ideal)",
+          "descriptors": [
+            "buzzy",
+            "dense",
+            "raucous"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "rough-tone",
+            "breathing"
+          ]
+        },
+        {
+          "id": "tarka_qiwa_voice",
+          "name": "Q'iwa gentle blowing (clear, thin, plaintive solo)",
+          "descriptors": [
+            "plaintive",
+            "thin-toned",
+            "intimate"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tarka_consort_voice",
+      "name": "Consort voice (tropa size)",
+      "variants": [
+        {
+          "id": "tarka_malta",
+          "default": true,
+          "name": "Malta (middle voice, canonical lead)",
+          "descriptors": [
+            "mid-register",
+            "lead-carrying"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "tarka_taika",
+          "name": "Taika (large mother tarka, octave below)",
+          "descriptors": [
+            "deep",
+            "foundational"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "tarka_chili",
+          "name": "Ch'ili (small tarka, octave above)",
+          "descriptors": [
+            "piercing",
+            "bright"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tarka_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "tarka_mara_wood",
+          "default": true,
+          "name": "Mara / Bolivian mahogany (canonical single-block carve)",
+          "descriptors": [
+            "mara-canonical-single-block"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "tarka_granadillo_wood",
+          "name": "Granadillo (dense, premium)",
+          "descriptors": [
+            "granadillo-dense-premium"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "tarka_tarco_wood",
+          "name": "Tarco / jacaranda (namesake wood, rustic)",
+          "descriptors": [
+            "tarco-jacaranda-rustic"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tarka_form",
+      "name": "Regional cut",
+      "variants": [
+        {
+          "id": "tarka_curahuara",
+          "default": true,
+          "name": "Curahuara de Carangas cut (canonical altiplano tropa tarka)",
+          "descriptors": [
+            "canonical",
+            "altiplano",
+            "angular-carved"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "aymara",
+            "bolivian",
+            "anata"
+          ]
+        },
+        {
+          "id": "tarka_salinas",
+          "name": "Salinas de Garci Mendoza cut (Oruro, deeper-bodied)",
+          "descriptors": [
+            "deeper-bodied",
+            "oruro-highland",
+            "dark-toned"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "oruro"
+          ]
+        },
+        {
+          "id": "tarka_ullara",
+          "name": "Ullara cut (slender, brighter-edged)",
+          "descriptors": [
+            "slender",
+            "bright-edged"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "folk-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tarka_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "tarka_tarkeada",
+          "default": true,
+          "name": "Tarkeada / Anata carnival tropa (unison melody over wankara drums)",
+          "descriptors": [
+            "communal",
+            "festive",
+            "rainy-season"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "ensemble",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "anata",
+            "carnival",
+            "oruro",
+            "aymara"
+          ]
+        },
+        {
+          "id": "tarka_tara_voice",
+          "name": "Tara full-force blowing (dense beating multiphonic ideal)",
+          "descriptors": [
+            "buzzy",
+            "dense",
+            "raucous"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "rough-tone",
+            "breathing"
+          ]
+        },
+        {
+          "id": "tarka_qiwa_voice",
+          "name": "Q'iwa gentle blowing (clear, thin, plaintive solo)",
+          "descriptors": [
+            "plaintive",
+            "thin-toned",
+            "intimate"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tarka_consort_voice",
+      "name": "Consort voice (tropa size)",
+      "variants": [
+        {
+          "id": "tarka_malta",
+          "default": true,
+          "name": "Malta (middle voice, canonical lead)",
+          "descriptors": [
+            "mid-register",
+            "lead-carrying"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "tarka_taika",
+          "name": "Taika (large mother tarka, octave below)",
+          "descriptors": [
+            "deep",
+            "foundational"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "tarka_chili",
+          "name": "Ch'ili (small tarka, octave above)",
+          "descriptors": [
+            "piercing",
+            "bright"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "breathing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tarka_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "tarka_mara_wood",
+          "default": true,
+          "name": "Mara / Bolivian mahogany (canonical single-block carve)",
+          "descriptors": [
+            "mara-canonical-single-block"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "tarka_granadillo_wood",
+          "name": "Granadillo (dense, premium)",
+          "descriptors": [
+            "granadillo-dense-premium"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        },
+        {
+          "id": "tarka_tarco_wood",
+          "name": "Tarco / jacaranda (namesake wood, rustic)",
+          "descriptors": [
+            "tarco-jacaranda-rustic"
+          ],
+          "match_tokens": [
+            "wind-driven"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -3,9 +3,9 @@
   "name": "Bhajan",
   "family": "global",
   "lineage": "Pan-Indian Hindu devotional song tradition setting Sanskrit, Hindi, Braj Bhasha, Marathi, Bengali, Tamil and other Indian-language devotional poetry by Surdas, Mirabai, Tulsidas, Tukaram, Kabir, the Alvar saints — performed in temple-and-domestic-shrine contexts across regional Hindu sub-traditions; modern voices Anup Jalota, Jagjit Singh (the late ghazal-bhajan crossover canon), and the Pushti Marg haveli sangeet tradition",
-  "recipe": "classic South Asian mid-1930s bhajan, ritual Devotional, hindu branch, vocal drone modal, indian subcontinent praise song hindu stuti and bhajan sikh shabad kirtan. vocal fry, declaimed, chest resonance low mid, continuous-phonation. low overtone rich vocal male harmonium indian, indian rosewood rosewood copper tabla, synthetic remo modern stable bolt tuned modern concert stable dholak, small steady tala keeping ashtadhatu manjira. vrindavan braj mandir bhajan. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 538,
-  "score": 186.502,
+  "recipe": "classic South Asian mid-1930s bhajan, ritual Devotional, hindu branch, vocal drone modal, indian subcontinent praise song hindu stuti and bhajan sikh shabad kirtan. vocal fry, declaimed, chest resonance low mid, continuous-phonation. low overtone rich vocal male harmonium indian, indian rosewood rosewood copper tabla, synthetic remo modern stable bolt tuned modern concert stable dholak, small steady tala keeping ashtadhatu manjira, clear drone bright brass reed resonant teak shruti box. vrindavan braj mandir bhajan. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 594,
+  "score": 202.947,
   "config": {
     "traditions": [
       "bhajan",
@@ -106,6 +106,21 @@
           "manjira_form": 17.419999999999998,
           "manjira_stroke": 14.125,
           "manjira_metal": 5.8100000000000005
+        }
+      },
+      {
+        "id": "shruti_box",
+        "slots": {
+          "free_reed_technique": "free_reed_overblow_modern",
+          "shruti_box_form": "shruti_box_form_standard_surpeti",
+          "shruti_box_role": "shruti_box_role_bhajan_kirtan",
+          "shruti_box_build": "shruti_box_build_brass_reeds_teak"
+        },
+        "scores": {
+          "free_reed_technique": 0.195,
+          "shruti_box_form": 3.185,
+          "shruti_box_role": 11.764999999999999,
+          "shruti_box_build": 1.3
         }
       }
     ],

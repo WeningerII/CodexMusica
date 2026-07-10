@@ -3,9 +3,9 @@
   "name": "Carnatic vocal",
   "family": "classical",
   "lineage": "South Indian classical vocal tradition organized around the 72-melakarta scale system codified by Venkatamakhin in 1620 and the kriti-composition canon of the early-19th-century Trinity (Tyagaraja, Muthuswami Dikshitar, Syama Sastri); 20th-century lineage M.S. Subbulakshmi, D.K. Pattammal, M.D. Ramanathan, T.N. Krishnan, Semmangudi Srinivasa Iyer, T.R. Mahalingam",
-  "recipe": "classic South Asian early-1620s carnatic vocal, improv On Frame, indian classical improv branch, south Asian art music, hindu ritual devotional sinhala vannama telugu kirtana. vocal fry, declaimed, chest resonance low mid, punctuated. jackwood barrel canonical carnatic goat buffalo rice paste karanai palghat lineage canonical carnatic mridangam, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic, suited to female vocal bronze steel mix gourd body canonical traditional tanpura, ghatam, jackwood barrel canonical Tamil buffalo goat thumb cap canonical periya melam thavil, jackwood frame canonical carnatic brass jingle pair kanjira, concert forged steel sarvalaghu morsing. chennai madras music academy sabha. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 820,
-  "score": 403.245,
+  "recipe": "classic South Asian early-1620s carnatic vocal, improv On Frame, indian classical improv branch, south Asian art music, hindu ritual devotional sinhala vannama telugu kirtana. vocal fry, declaimed, chest resonance low mid, punctuated. jackwood barrel canonical carnatic goat buffalo rice paste karanai palghat lineage canonical carnatic mridangam, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic, suited to female vocal bronze steel mix gourd body canonical traditional tanpura, ghatam, jackwood barrel canonical Tamil buffalo goat thumb cap canonical periya melam thavil, jackwood frame canonical carnatic brass jingle pair kanjira, concert forged steel sarvalaghu morsing, tanpura like sruti anchor tonic drone shruti box. chennai madras music academy sabha. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 870,
+  "score": 421.455,
   "config": {
     "traditions": [
       "carnatic_vocal",
@@ -157,6 +157,21 @@
           "morsing_form": 23.195,
           "morsing_technique": 14.61,
           "morsing_material": 13.374999999999998
+        }
+      },
+      {
+        "id": "shruti_box",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "shruti_box_form": "shruti_box_form_standard_surpeti",
+          "shruti_box_role": "shruti_box_role_carnatic_vocal_drone",
+          "shruti_box_build": "shruti_box_build_brass_reeds_teak"
+        },
+        "scores": {
+          "free_reed_technique": 1.3399999999999999,
+          "shruti_box_form": 0.9099999999999999,
+          "shruti_box_role": 15.569999999999997,
+          "shruti_box_build": 0.39
         }
       }
     ],

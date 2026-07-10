@@ -3,9 +3,9 @@
   "name": "Chinese conservatory traditional ensemble (民乐 minyue)",
   "family": "global",
   "lineage": "20th-century-codified Chinese national-music conservatory ensemble form anchored at the Central Conservatory Beijing and Shanghai Conservatory",
-  "recipe": "classic modern chinese conservatory traditional ensemble, art Music, east Asian branch, south Asian art music sinhala vannama telugu kirtana. balanced, declaimed, chest resonance low mid, punctuated. python skin snake skin bamboo silk red sandalwood zitan erhu, silk red sandalwood zitan premium pipa, shell wutong paulownia rosewood frame canonical decorative steel wound guzheng, nylon steel wound ruan, python skin silk canonical traditional sanxian, no membrane buzz bitter bamboo phyllostachys nigra canonical jiangnan suzhou qudi southern jiangnan kunqu canonical lyrical continuous-airflow legato dizi, traditional bamboo pipes copper brass free reeds canonical Chinese sheng, modern concert bamboo yangqin, bawu, hulusi. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 880,
-  "score": 280.045,
+  "recipe": "classic modern chinese conservatory traditional ensemble, art Music, east Asian branch, south Asian art music sinhala vannama telugu kirtana. balanced, declaimed, chest resonance low mid, punctuated. python skin snake skin bamboo silk red sandalwood zitan erhu, silk red sandalwood zitan premium pipa, shell wutong paulownia rosewood frame canonical decorative steel wound guzheng, nylon steel wound ruan, python skin silk canonical traditional sanxian, no membrane buzz bitter bamboo phyllostachys nigra canonical jiangnan suzhou qudi southern jiangnan kunqu canonical lyrical continuous-airflow legato dizi, traditional bamboo pipes copper brass free reeds canonical Chinese sheng, modern concert bamboo yangqin, bawu, hulusi, xun. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 885,
+  "score": 297.565,
   "config": {
     "traditions": [
       "chinese_traditional_ensemble",
@@ -210,6 +210,19 @@
           "free_reed_technique": 1.6899999999999997,
           "hulusi_config": 2.271,
           "hulusi_context": 7.8
+        }
+      },
+      {
+        "id": "xun",
+        "slots": {
+          "xun_form": "xun_form_eight_hole",
+          "xun_setting": "xun_setting_minyue_solo",
+          "xun_body": "xun_body_terracotta"
+        },
+        "scores": {
+          "xun_form": 5.439500000000001,
+          "xun_setting": 12.130499999999998,
+          "xun_body": -0.05
         }
       }
     ],

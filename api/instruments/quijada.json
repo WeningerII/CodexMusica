@@ -1,0 +1,310 @@
+{
+  "id": "quijada",
+  "name": "Quijada (Afro-Peruvian jawbone rattle)",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "quijada",
+  "parts": [
+    {
+      "id": "quijada_form",
+      "name": "Jawbone source / regional form",
+      "variants": [
+        {
+          "id": "quijada_burro_peruano",
+          "default": true,
+          "name": "Donkey jawbone (quijada de burro, Peruvian coast)",
+          "descriptors": [
+            "donkey-jawbone",
+            "sun-bleached",
+            "loose-molar-buzz",
+            "afro-peruvian-tradition"
+          ],
+          "match_tokens": [
+            "struck",
+            "percussive-attack",
+            "rattle-buzz",
+            "afro-peruvian-tradition"
+          ]
+        },
+        {
+          "id": "quijada_caballo",
+          "name": "Horse jawbone (larger, deeper rattle)",
+          "descriptors": [
+            "horse-jawbone",
+            "larger-frame",
+            "deeper-rattle"
+          ],
+          "match_tokens": [
+            "struck",
+            "percussive-attack",
+            "rattle-buzz"
+          ]
+        },
+        {
+          "id": "quijada_charrasca",
+          "name": "Charrasca (Venezuelan / Mexican scraper-oriented form)",
+          "descriptors": [
+            "charrasca",
+            "scraper-oriented",
+            "son-jarocho-tradition"
+          ],
+          "match_tokens": [
+            "scraped",
+            "percussive-attack",
+            "rattle-buzz"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quijada_context",
+      "name": "Playing context / stroke repertoire",
+      "variants": [
+        {
+          "id": "quijada_festejo_golpe",
+          "default": true,
+          "name": "Festejo — fist strike (golpe) rattling the molars on off-beats",
+          "descriptors": [
+            "fist-struck",
+            "off-beat-accents",
+            "festejo-tradition",
+            "molar-rattle"
+          ],
+          "match_tokens": [
+            "struck",
+            "percussive-attack",
+            "rattle-buzz",
+            "afro-peruvian-tradition"
+          ],
+          "canonical_tags": [
+            "festejo_afroperuano"
+          ]
+        },
+        {
+          "id": "quijada_lando_raspado",
+          "name": "Landó — strikes mixed with stick scrapes (raspado) along the tooth row",
+          "descriptors": [
+            "scraped",
+            "stick-drawn",
+            "slow-groove",
+            "lando-tradition"
+          ],
+          "match_tokens": [
+            "scraped",
+            "struck",
+            "percussive-attack",
+            "afro-peruvian-tradition"
+          ],
+          "canonical_tags": [
+            "lando_afroperuano"
+          ]
+        },
+        {
+          "id": "quijada_zamacueca_salon",
+          "name": "Zamacueca / marinera limeña accompaniment (nineteenth-century roots)",
+          "descriptors": [
+            "zamacueca-tradition",
+            "nineteenth-century",
+            "salon-roots"
+          ],
+          "match_tokens": [
+            "struck",
+            "percussive-attack",
+            "rattle-buzz"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quijada_preparation",
+      "surface": false,
+      "name": "Bone preparation",
+      "variants": [
+        {
+          "id": "quijada_boiled_sundried",
+          "default": true,
+          "name": "Boiled and sun-dried, teeth loosened in their sockets (canonical)",
+          "descriptors": [
+            "boiled-sun-dried-loose-teeth-canonical"
+          ],
+          "match_tokens": [
+            "struck",
+            "percussive-attack",
+            "rattle-buzz",
+            "afro-peruvian-tradition"
+          ]
+        },
+        {
+          "id": "quijada_varnished_festival",
+          "name": "Varnished and painted festival piece",
+          "descriptors": [
+            "varnished-decorated-festival",
+            "slightly-damped-buzz"
+          ],
+          "match_tokens": [
+            "struck",
+            "percussive-attack",
+            "rattle-buzz"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "quijada_form",
+      "name": "Jawbone source / regional form",
+      "variants": [
+        {
+          "id": "quijada_burro_peruano",
+          "default": true,
+          "name": "Donkey jawbone (quijada de burro, Peruvian coast)",
+          "descriptors": [
+            "donkey-jawbone",
+            "sun-bleached",
+            "loose-molar-buzz",
+            "afro-peruvian-tradition"
+          ],
+          "match_tokens": [
+            "struck",
+            "percussive-attack",
+            "rattle-buzz",
+            "afro-peruvian-tradition"
+          ]
+        },
+        {
+          "id": "quijada_caballo",
+          "name": "Horse jawbone (larger, deeper rattle)",
+          "descriptors": [
+            "horse-jawbone",
+            "larger-frame",
+            "deeper-rattle"
+          ],
+          "match_tokens": [
+            "struck",
+            "percussive-attack",
+            "rattle-buzz"
+          ]
+        },
+        {
+          "id": "quijada_charrasca",
+          "name": "Charrasca (Venezuelan / Mexican scraper-oriented form)",
+          "descriptors": [
+            "charrasca",
+            "scraper-oriented",
+            "son-jarocho-tradition"
+          ],
+          "match_tokens": [
+            "scraped",
+            "percussive-attack",
+            "rattle-buzz"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quijada_context",
+      "name": "Playing context / stroke repertoire",
+      "variants": [
+        {
+          "id": "quijada_festejo_golpe",
+          "default": true,
+          "name": "Festejo — fist strike (golpe) rattling the molars on off-beats",
+          "descriptors": [
+            "fist-struck",
+            "off-beat-accents",
+            "festejo-tradition",
+            "molar-rattle"
+          ],
+          "match_tokens": [
+            "struck",
+            "percussive-attack",
+            "rattle-buzz",
+            "afro-peruvian-tradition"
+          ],
+          "canonical_tags": [
+            "festejo_afroperuano"
+          ]
+        },
+        {
+          "id": "quijada_lando_raspado",
+          "name": "Landó — strikes mixed with stick scrapes (raspado) along the tooth row",
+          "descriptors": [
+            "scraped",
+            "stick-drawn",
+            "slow-groove",
+            "lando-tradition"
+          ],
+          "match_tokens": [
+            "scraped",
+            "struck",
+            "percussive-attack",
+            "afro-peruvian-tradition"
+          ],
+          "canonical_tags": [
+            "lando_afroperuano"
+          ]
+        },
+        {
+          "id": "quijada_zamacueca_salon",
+          "name": "Zamacueca / marinera limeña accompaniment (nineteenth-century roots)",
+          "descriptors": [
+            "zamacueca-tradition",
+            "nineteenth-century",
+            "salon-roots"
+          ],
+          "match_tokens": [
+            "struck",
+            "percussive-attack",
+            "rattle-buzz"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quijada_preparation",
+      "surface": false,
+      "name": "Bone preparation",
+      "variants": [
+        {
+          "id": "quijada_boiled_sundried",
+          "default": true,
+          "name": "Boiled and sun-dried, teeth loosened in their sockets (canonical)",
+          "descriptors": [
+            "boiled-sun-dried-loose-teeth-canonical"
+          ],
+          "match_tokens": [
+            "struck",
+            "percussive-attack",
+            "rattle-buzz",
+            "afro-peruvian-tradition"
+          ]
+        },
+        {
+          "id": "quijada_varnished_festival",
+          "name": "Varnished and painted festival piece",
+          "descriptors": [
+            "varnished-decorated-festival",
+            "slightly-damped-buzz"
+          ],
+          "match_tokens": [
+            "struck",
+            "percussive-attack",
+            "rattle-buzz"
+          ]
+        }
+      ]
+    }
+  ]
+}

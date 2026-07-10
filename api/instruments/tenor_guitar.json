@@ -1,0 +1,364 @@
+{
+  "id": "tenor_guitar",
+  "name": "Tenor guitar (four-string)",
+  "family": "acoustic_strings",
+  "class": "plucked_string_rhythm",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "Four-string steel-strung guitar with a short banjo-scale neck, tuned in fifths (CGDA) or GDAE; the tenor-banjoist's crossover instrument in 1920s trad-jazz rhythm sections, a folk-revival strummer, and a modern indie lead voice.",
+  "parts": [
+    {
+      "id": "tenor_guitar_form",
+      "name": "Tuning and form",
+      "variants": [
+        {
+          "id": "tenor_guitar_form_cgda",
+          "default": true,
+          "name": "Standard CGDA fifths tuning",
+          "descriptors": [
+            "fifths-tuned",
+            "banjo-scale",
+            "open-ringing"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "fifths-tuning",
+            "cgda"
+          ],
+          "canonical_tags": [
+            "tuning:cgda",
+            "scale:short"
+          ]
+        },
+        {
+          "id": "tenor_guitar_form_gdae",
+          "name": "GDAE octave / Irish tuning",
+          "descriptors": [
+            "octave-lowered",
+            "droning",
+            "modal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "octave-mandolin",
+            "irish-tuning",
+            "gdae"
+          ],
+          "canonical_tags": [
+            "tuning:gdae",
+            "role:celtic"
+          ]
+        },
+        {
+          "id": "tenor_guitar_form_chicago",
+          "name": "DGBE Chicago tuning",
+          "descriptors": [
+            "guitar-topped",
+            "chord-friendly",
+            "familiar-shapes"
+          ],
+          "match_tokens": [
+            "strummed",
+            "chicago-tuning",
+            "dgbe"
+          ],
+          "canonical_tags": [
+            "tuning:dgbe",
+            "role:rhythm"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tenor_guitar_style",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "tenor_guitar_style_folk_strum",
+          "default": true,
+          "name": "Folk-revival open strum",
+          "descriptors": [
+            "bright-strummed",
+            "open-voiced",
+            "songful"
+          ],
+          "match_tokens": [
+            "strummed",
+            "folk-revival",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "role:rhythm",
+            "genre:folk-revival"
+          ]
+        },
+        {
+          "id": "tenor_guitar_style_trad_jazz",
+          "name": "Four-to-the-bar trad-jazz rhythm",
+          "descriptors": [
+            "chunking",
+            "four-square",
+            "percussive-comp"
+          ],
+          "match_tokens": [
+            "strummed",
+            "comping",
+            "dixieland",
+            "rhythm-guitar"
+          ],
+          "canonical_tags": [
+            "role:rhythm",
+            "genre:trad-jazz"
+          ]
+        },
+        {
+          "id": "tenor_guitar_style_celtic_lead",
+          "name": "Celtic / indie melodic picking",
+          "descriptors": [
+            "cross-picked",
+            "keening",
+            "single-line"
+          ],
+          "match_tokens": [
+            "plucked",
+            "melodic",
+            "celtic",
+            "lead-line"
+          ],
+          "canonical_tags": [
+            "role:lead",
+            "genre:indie-folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tenor_guitar_build",
+      "surface": false,
+      "name": "Body construction",
+      "variants": [
+        {
+          "id": "tenor_guitar_build_flattop",
+          "default": true,
+          "name": "Flat-top parlor body with steel strings",
+          "descriptors": [
+            "woody",
+            "focused",
+            "midrange-forward"
+          ],
+          "match_tokens": [
+            "plucked",
+            "flat-top",
+            "steel-string"
+          ],
+          "canonical_tags": [
+            "body:flat-top",
+            "strings:steel"
+          ]
+        },
+        {
+          "id": "tenor_guitar_build_archtop",
+          "name": "Archtop f-hole hollow body",
+          "descriptors": [
+            "punchy",
+            "cutting",
+            "dry-attack"
+          ],
+          "match_tokens": [
+            "strummed",
+            "archtop",
+            "f-hole",
+            "steel-string"
+          ],
+          "canonical_tags": [
+            "body:archtop",
+            "strings:steel"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tenor_guitar_form",
+      "name": "Tuning and form",
+      "variants": [
+        {
+          "id": "tenor_guitar_form_cgda",
+          "default": true,
+          "name": "Standard CGDA fifths tuning",
+          "descriptors": [
+            "fifths-tuned",
+            "banjo-scale",
+            "open-ringing"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "fifths-tuning",
+            "cgda"
+          ],
+          "canonical_tags": [
+            "tuning:cgda",
+            "scale:short"
+          ]
+        },
+        {
+          "id": "tenor_guitar_form_gdae",
+          "name": "GDAE octave / Irish tuning",
+          "descriptors": [
+            "octave-lowered",
+            "droning",
+            "modal"
+          ],
+          "match_tokens": [
+            "plucked",
+            "octave-mandolin",
+            "irish-tuning",
+            "gdae"
+          ],
+          "canonical_tags": [
+            "tuning:gdae",
+            "role:celtic"
+          ]
+        },
+        {
+          "id": "tenor_guitar_form_chicago",
+          "name": "DGBE Chicago tuning",
+          "descriptors": [
+            "guitar-topped",
+            "chord-friendly",
+            "familiar-shapes"
+          ],
+          "match_tokens": [
+            "strummed",
+            "chicago-tuning",
+            "dgbe"
+          ],
+          "canonical_tags": [
+            "tuning:dgbe",
+            "role:rhythm"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tenor_guitar_style",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "tenor_guitar_style_folk_strum",
+          "default": true,
+          "name": "Folk-revival open strum",
+          "descriptors": [
+            "bright-strummed",
+            "open-voiced",
+            "songful"
+          ],
+          "match_tokens": [
+            "strummed",
+            "folk-revival",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "role:rhythm",
+            "genre:folk-revival"
+          ]
+        },
+        {
+          "id": "tenor_guitar_style_trad_jazz",
+          "name": "Four-to-the-bar trad-jazz rhythm",
+          "descriptors": [
+            "chunking",
+            "four-square",
+            "percussive-comp"
+          ],
+          "match_tokens": [
+            "strummed",
+            "comping",
+            "dixieland",
+            "rhythm-guitar"
+          ],
+          "canonical_tags": [
+            "role:rhythm",
+            "genre:trad-jazz"
+          ]
+        },
+        {
+          "id": "tenor_guitar_style_celtic_lead",
+          "name": "Celtic / indie melodic picking",
+          "descriptors": [
+            "cross-picked",
+            "keening",
+            "single-line"
+          ],
+          "match_tokens": [
+            "plucked",
+            "melodic",
+            "celtic",
+            "lead-line"
+          ],
+          "canonical_tags": [
+            "role:lead",
+            "genre:indie-folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tenor_guitar_build",
+      "surface": false,
+      "name": "Body construction",
+      "variants": [
+        {
+          "id": "tenor_guitar_build_flattop",
+          "default": true,
+          "name": "Flat-top parlor body with steel strings",
+          "descriptors": [
+            "woody",
+            "focused",
+            "midrange-forward"
+          ],
+          "match_tokens": [
+            "plucked",
+            "flat-top",
+            "steel-string"
+          ],
+          "canonical_tags": [
+            "body:flat-top",
+            "strings:steel"
+          ]
+        },
+        {
+          "id": "tenor_guitar_build_archtop",
+          "name": "Archtop f-hole hollow body",
+          "descriptors": [
+            "punchy",
+            "cutting",
+            "dry-attack"
+          ],
+          "match_tokens": [
+            "strummed",
+            "archtop",
+            "f-hole",
+            "steel-string"
+          ],
+          "canonical_tags": [
+            "body:archtop",
+            "strings:steel"
+          ]
+        }
+      ]
+    }
+  ]
+}

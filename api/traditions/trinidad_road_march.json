@@ -3,9 +3,9 @@
   "name": "Trinidad calypso-soca road march",
   "family": "global",
   "lineage": "Trinidadian Carnival road-march tradition continuous from 19th-century post-emancipation Carnival celebrations through 20th-century calypso (1930s-1960s Lord Kitchener and Mighty Sparrow era) and soca (1970s-onward Lord Shorty era) into modern Trinidad-and-Tobago Carnival continuous practice; the \"Road March\" is the canonical Carnival competition for the song most-played during Carnival processional",
-  "recipe": "classic Caribbean mid-1930s trinidad calypso-soca road march, carnival Processional, Caribbean branch, Brazilian carnival processional, americas wedding, iberian Latin protest song brazilian samba-school enredo andean matrimonio huayno. forward-resonance, tasteful, continuous-phonation, equal tempered. concert stage steel steelpan, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral continuous-airflow legato standard rim trumpet, pre muffled edge muffled fx9 manganese bronze machine hammered drum kit. trinidad calypso panyard outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 717,
-  "score": 209.638,
+  "recipe": "classic Caribbean mid-1930s trinidad calypso-soca road march, carnival Processional, Caribbean branch, Brazilian carnival processional, americas wedding, iberian Latin protest song brazilian samba-school enredo andean matrimonio huayno. forward-resonance, tasteful, continuous-phonation, equal tempered. concert stage steel steelpan, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral continuous-airflow legato standard rim trumpet, pre muffled edge muffled fx9 manganese bronze machine hammered drum kit, steel orchestra. trinidad calypso panyard outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 734,
+  "score": 210.676,
   "config": {
     "traditions": [
       "trinidad_road_march",
@@ -111,6 +111,19 @@
           "cymbal_lathing": 6.4,
           "cymbal_finish": 0.06,
           "drum_technique": 12.804999999999994
+        }
+      },
+      {
+        "id": "steel_orchestra",
+        "slots": {
+          "steel_orchestra_sections": "steel_orchestra_mid_harmony",
+          "steel_orchestra_context": "steel_orchestra_concert_session",
+          "steel_orchestra_size": "steel_orchestra_stageside"
+        },
+        "scores": {
+          "steel_orchestra_sections": 0.5744999999999999,
+          "steel_orchestra_context": 0.327,
+          "steel_orchestra_size": 0.1365
         }
       }
     ],

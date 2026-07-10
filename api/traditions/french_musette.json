@@ -3,9 +3,9 @@
   "name": "French musette (Parisian accordion-led)",
   "family": "global",
   "lineage": "French musette accordion-led popular-folk genre developed in early-twentieth-century Paris from the convergence of Auvergnat-immigrant cabrette-bagpipe dance-music with Italian-immigrant accordion-playing in the working-class Parisian guinguette dance-hall and bistro scenes around Bastille and the rue de Lappe. Characterized by waltz-and-java rhythmic base, virtuoso accordion-melodic lead, and the canonical valse musette dance-floor accompaniment. The interwar 1920s-1930s period at Bal Tabarin and Balajo dance-halls anchored institutional crystallization. Distinguished from later French chanson by musette's instrumental-dance (vs literary-lyrical) primary functional orientation.",
-  "recipe": "classic Western European mid-1920s french musette, ballad Poetry, chanson fado branch, europop functional song bal-folk hungarian magyar nóta. thick, lament wail, melodic, punctuated. melodic straight piano accordion, fingerpicked parlor acoustic guitar, upright bass. intimate paris small studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 370,
-  "score": 189.37,
+  "recipe": "classic Western European mid-1920s french musette, ballad Poetry, chanson fado branch, europop functional song bal-folk hungarian magyar nóta. thick, lament wail, melodic, punctuated. melodic straight piano accordion, fingerpicked parlor acoustic guitar, upright bass, carousel march brassy dance mixed ranks glockenspiel rank drum and cymbal barrel organ. intimate paris small studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 458,
+  "score": 216.765,
   "config": {
     "traditions": [
       "french_musette",
@@ -93,6 +93,21 @@
           "acoustic_technique": -0.05,
           "upright_strings": 0,
           "upright_play": 1.69
+        }
+      },
+      {
+        "id": "barrel_organ",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "barrel_organ_form": "barrel_organ_form_fairground",
+          "barrel_organ_programme": "barrel_organ_programme_fair",
+          "barrel_organ_pipework": "barrel_organ_pipework_mixed"
+        },
+        "scores": {
+          "keyboard_technique": -0.1,
+          "barrel_organ_form": 0.78,
+          "barrel_organ_programme": 13.259999999999996,
+          "barrel_organ_pipework": 13.454999999999997
         }
       }
     ],

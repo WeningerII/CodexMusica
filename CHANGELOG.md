@@ -40,6 +40,28 @@ All notable changes to this project are recorded here. Format loosely follows
   songlines. Orphaned per-instrument `parts` overrides pinned to the replaced
   stand-ins were removed. Wired into 93 traditions; regression re-blessed
   (104 fixtures: the wired traditions plus blends that stack them).
+- **75 more instruments, second-pass audit** (576 → 651): a second region- and
+  family-lensed audit surfaced gaps the first pass missed, especially in
+  families it never touched. By family: **18 plucked-traditional, 14 percussion,
+  13 wind, 9 ensemble, 6 free-reed, 5 bowed, 5 keyboard, 2 electronic,
+  2 electric-strings, 1 acoustic-strings**. Highlights: the **sanshin**
+  (Okinawan — `shamisen` was standing in for it in the tradition literally named
+  after it), the **steel band** ensemble (the Panorama tradition had a lone
+  `steelpan` + orchestral cello), the **cencerro** salsa cowbell (absent from
+  six salsa traditions), **phin**, **chenda**, **sape**, **fujara**,
+  **simsimiyya**, **bayan**, **shruti box**, plus an early-music suite
+  (**sackbut, crumhorn, vielle, rebec, viola d'amore, baroque guitar, vihuela de
+  mano, portative organ, medieval psaltery**) and keyboard/electronic curios
+  (**omnichord, stylophone, optigan, cristal Baschet, waterphone**).
+- **10 more generic-stand-in fixes**: sanshin replaces `shamisen` in Okinawan
+  eisa; the hsaing waing ensemble replaces the Balinese `gamelan_balinese_full`
+  that round 1 left in the Burmese traditions; `choir_isicathamiya` /
+  `choir_georgian_polyphonic` / `murga_uruguaya` replace the generic
+  `choir_ensemble`; `bayan` replaces `accordion` in Russian traditions;
+  `trikitixa` replaces `accordion` in Basque; `tambora_colombiana` replaces
+  `surdo` in cumbia; and `vielle` / `portative_organ` replace `fiddle` /
+  `pipe_organ` in early-music rosters. Wired into 78 traditions; orphaned parts
+  overrides cleaned; regression re-blessed.
 
 ## [2.0.0] — 2026-06-27 — production hardening
 

@@ -1,0 +1,432 @@
+{
+  "id": "sanshin",
+  "name": "Sanshin (Okinawan snakeskin three-string)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "sanshin",
+  "parts": [
+    {
+      "id": "sanshin_kata",
+      "name": "Regional form (kata)",
+      "variants": [
+        {
+          "id": "sanshin_makabi",
+          "default": true,
+          "name": "Makabi-gata (classic Okinawan)",
+          "descriptors": [
+            "canonical",
+            "balanced",
+            "refined"
+          ],
+          "match_tokens": [
+            "plucked",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "sanshin_yunagushiku",
+          "name": "Yunagushiku-gata (large, robust)",
+          "descriptors": [
+            "larger-bodied",
+            "robust",
+            "projecting"
+          ],
+          "match_tokens": [
+            "plucked",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "sanshin_kankara",
+          "name": "Kankara sanshin (postwar tin-can body)",
+          "descriptors": [
+            "tin-can",
+            "improvised",
+            "postwar",
+            "lo-fi"
+          ],
+          "match_tokens": [
+            "plucked",
+            "folk-tradition",
+            "rough-tone"
+          ]
+        },
+        {
+          "id": "sanshin_amami",
+          "name": "Amami shamisen (Amami Islands)",
+          "descriptors": [
+            "thinner-neck",
+            "bright",
+            "high-tuned"
+          ],
+          "match_tokens": [
+            "plucked",
+            "folk-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sanshin_repertoire",
+      "name": "Repertoire / context",
+      "variants": [
+        {
+          "id": "sanshin_shimauta",
+          "default": true,
+          "name": "Shima-uta (Okinawan folk song)",
+          "descriptors": [
+            "song-accompaniment",
+            "warm",
+            "island"
+          ],
+          "match_tokens": [
+            "plucked",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "sanshin_koten",
+          "name": "Ryukyuan classical (kunkunshi court canon)",
+          "descriptors": [
+            "courtly",
+            "measured",
+            "classical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "sanshin_eisa",
+          "name": "Eisa festival (drum-dance accompaniment)",
+          "descriptors": [
+            "driving",
+            "festival",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "folk-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sanshin_skin",
+      "surface": false,
+      "name": "Body skin",
+      "variants": [
+        {
+          "id": "sanshin_python_hon_bari",
+          "default": true,
+          "name": "Python skin, hon-bari (canonical Okinawan)",
+          "descriptors": [
+            "python-skin-canonical",
+            "round",
+            "warm"
+          ],
+          "match_tokens": [
+            "plucked",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "sanshin_kyoka_bari",
+          "name": "Kyōka-bari (python over synthetic backing)",
+          "descriptors": [
+            "reinforced",
+            "durable",
+            "stable"
+          ],
+          "match_tokens": [
+            "plucked",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "sanshin_jinko_bari",
+          "name": "Jinkō-bari (synthetic printed skin)",
+          "descriptors": [
+            "synthetic",
+            "student",
+            "consistent"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "plucked",
+            "folk-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sanshin_plectrum",
+      "surface": false,
+      "name": "Plectrum (chimi / tsume)",
+      "variants": [
+        {
+          "id": "sanshin_horn_tsume",
+          "default": true,
+          "name": "Water-buffalo horn tsume (canonical Okinawan)",
+          "descriptors": [
+            "horn-claw",
+            "soft-attack",
+            "rounded"
+          ],
+          "match_tokens": [
+            "plucked",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "sanshin_plastic_tsume",
+          "name": "Plastic tsume (modern student)",
+          "descriptors": [
+            "plastic",
+            "modern",
+            "consistent"
+          ],
+          "match_tokens": [
+            "plucked",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "sanshin_bamboo_stick",
+          "name": "Bamboo stick pick (Amami style)",
+          "descriptors": [
+            "bamboo-sliver",
+            "bright",
+            "crisp"
+          ],
+          "match_tokens": [
+            "plucked",
+            "folk-tradition"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sanshin_kata",
+      "name": "Regional form (kata)",
+      "variants": [
+        {
+          "id": "sanshin_makabi",
+          "default": true,
+          "name": "Makabi-gata (classic Okinawan)",
+          "descriptors": [
+            "canonical",
+            "balanced",
+            "refined"
+          ],
+          "match_tokens": [
+            "plucked",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "sanshin_yunagushiku",
+          "name": "Yunagushiku-gata (large, robust)",
+          "descriptors": [
+            "larger-bodied",
+            "robust",
+            "projecting"
+          ],
+          "match_tokens": [
+            "plucked",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "sanshin_kankara",
+          "name": "Kankara sanshin (postwar tin-can body)",
+          "descriptors": [
+            "tin-can",
+            "improvised",
+            "postwar",
+            "lo-fi"
+          ],
+          "match_tokens": [
+            "plucked",
+            "folk-tradition",
+            "rough-tone"
+          ]
+        },
+        {
+          "id": "sanshin_amami",
+          "name": "Amami shamisen (Amami Islands)",
+          "descriptors": [
+            "thinner-neck",
+            "bright",
+            "high-tuned"
+          ],
+          "match_tokens": [
+            "plucked",
+            "folk-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sanshin_repertoire",
+      "name": "Repertoire / context",
+      "variants": [
+        {
+          "id": "sanshin_shimauta",
+          "default": true,
+          "name": "Shima-uta (Okinawan folk song)",
+          "descriptors": [
+            "song-accompaniment",
+            "warm",
+            "island"
+          ],
+          "match_tokens": [
+            "plucked",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "sanshin_koten",
+          "name": "Ryukyuan classical (kunkunshi court canon)",
+          "descriptors": [
+            "courtly",
+            "measured",
+            "classical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "classical-trained"
+          ]
+        },
+        {
+          "id": "sanshin_eisa",
+          "name": "Eisa festival (drum-dance accompaniment)",
+          "descriptors": [
+            "driving",
+            "festival",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "folk-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sanshin_skin",
+      "surface": false,
+      "name": "Body skin",
+      "variants": [
+        {
+          "id": "sanshin_python_hon_bari",
+          "default": true,
+          "name": "Python skin, hon-bari (canonical Okinawan)",
+          "descriptors": [
+            "python-skin-canonical",
+            "round",
+            "warm"
+          ],
+          "match_tokens": [
+            "plucked",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        },
+        {
+          "id": "sanshin_kyoka_bari",
+          "name": "Kyōka-bari (python over synthetic backing)",
+          "descriptors": [
+            "reinforced",
+            "durable",
+            "stable"
+          ],
+          "match_tokens": [
+            "plucked",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "sanshin_jinko_bari",
+          "name": "Jinkō-bari (synthetic printed skin)",
+          "descriptors": [
+            "synthetic",
+            "student",
+            "consistent"
+          ],
+          "match_tokens": [
+            "synthetic",
+            "plucked",
+            "folk-tradition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sanshin_plectrum",
+      "surface": false,
+      "name": "Plectrum (chimi / tsume)",
+      "variants": [
+        {
+          "id": "sanshin_horn_tsume",
+          "default": true,
+          "name": "Water-buffalo horn tsume (canonical Okinawan)",
+          "descriptors": [
+            "horn-claw",
+            "soft-attack",
+            "rounded"
+          ],
+          "match_tokens": [
+            "plucked",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "sanshin_plastic_tsume",
+          "name": "Plastic tsume (modern student)",
+          "descriptors": [
+            "plastic",
+            "modern",
+            "consistent"
+          ],
+          "match_tokens": [
+            "plucked",
+            "folk-tradition"
+          ]
+        },
+        {
+          "id": "sanshin_bamboo_stick",
+          "name": "Bamboo stick pick (Amami style)",
+          "descriptors": [
+            "bamboo-sliver",
+            "bright",
+            "crisp"
+          ],
+          "match_tokens": [
+            "plucked",
+            "folk-tradition"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,389 @@
+{
+  "id": "orutu",
+  "name": "Orutu (Luo one-string tube fiddle)",
+  "family": "bowed",
+  "class": "bowed_tube_fiddle",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "orutu",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "orutu_form",
+      "name": "Resonator build",
+      "variants": [
+        {
+          "id": "orutu_tin_tube",
+          "default": true,
+          "name": "Tin-can tube resonator (classic Luo)",
+          "descriptors": [
+            "bright",
+            "tinny",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "east_africa",
+            "luo"
+          ]
+        },
+        {
+          "id": "orutu_gourd_tube",
+          "name": "Gourd / calabash tube",
+          "descriptors": [
+            "warm",
+            "earthy",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "east_africa",
+            "luo"
+          ]
+        },
+        {
+          "id": "orutu_wood_tube",
+          "name": "Carved wooden tube (village-made)",
+          "descriptors": [
+            "woody",
+            "dry",
+            "handmade"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string"
+          ],
+          "canonical_tags": [
+            "east_africa",
+            "luo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "orutu_context",
+      "name": "Repertoire context",
+      "variants": [
+        {
+          "id": "orutu_benga",
+          "default": true,
+          "name": "Benga backing melodic lines",
+          "descriptors": [
+            "lilting",
+            "interlocking",
+            "guitar-shadowing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string"
+          ],
+          "canonical_tags": [
+            "benga"
+          ]
+        },
+        {
+          "id": "orutu_ohangla",
+          "name": "Ohangla dance-band drive",
+          "descriptors": [
+            "driving",
+            "raucous",
+            "festive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "ohangla",
+            "dance"
+          ]
+        },
+        {
+          "id": "orutu_dodo_praise",
+          "name": "Dodo praise / wedding song accompaniment",
+          "descriptors": [
+            "vocal-shadowing",
+            "melismatic",
+            "intimate"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string"
+          ],
+          "canonical_tags": [
+            "praise"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "orutu_string_material",
+      "surface": false,
+      "name": "String and membrane material",
+      "variants": [
+        {
+          "id": "orutu_sisal_lizard",
+          "default": true,
+          "name": "Sisal-fibre string over monitor-lizard membrane",
+          "descriptors": [
+            "buzzy",
+            "nasal",
+            "traditional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "orutu_nylon",
+          "name": "Modern nylon string",
+          "descriptors": [
+            "smoother",
+            "brighter",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "orutu_wire",
+          "name": "Steel / bicycle-brake wire (amplified benga)",
+          "descriptors": [
+            "cutting",
+            "metallic",
+            "piercing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "orutu_form",
+      "name": "Resonator build",
+      "variants": [
+        {
+          "id": "orutu_tin_tube",
+          "default": true,
+          "name": "Tin-can tube resonator (classic Luo)",
+          "descriptors": [
+            "bright",
+            "tinny",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "east_africa",
+            "luo"
+          ]
+        },
+        {
+          "id": "orutu_gourd_tube",
+          "name": "Gourd / calabash tube",
+          "descriptors": [
+            "warm",
+            "earthy",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "east_africa",
+            "luo"
+          ]
+        },
+        {
+          "id": "orutu_wood_tube",
+          "name": "Carved wooden tube (village-made)",
+          "descriptors": [
+            "woody",
+            "dry",
+            "handmade"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string"
+          ],
+          "canonical_tags": [
+            "east_africa",
+            "luo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "orutu_context",
+      "name": "Repertoire context",
+      "variants": [
+        {
+          "id": "orutu_benga",
+          "default": true,
+          "name": "Benga backing melodic lines",
+          "descriptors": [
+            "lilting",
+            "interlocking",
+            "guitar-shadowing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string"
+          ],
+          "canonical_tags": [
+            "benga"
+          ]
+        },
+        {
+          "id": "orutu_ohangla",
+          "name": "Ohangla dance-band drive",
+          "descriptors": [
+            "driving",
+            "raucous",
+            "festive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "ohangla",
+            "dance"
+          ]
+        },
+        {
+          "id": "orutu_dodo_praise",
+          "name": "Dodo praise / wedding song accompaniment",
+          "descriptors": [
+            "vocal-shadowing",
+            "melismatic",
+            "intimate"
+          ],
+          "match_tokens": [
+            "bowed",
+            "one-string"
+          ],
+          "canonical_tags": [
+            "praise"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "orutu_string_material",
+      "surface": false,
+      "name": "String and membrane material",
+      "variants": [
+        {
+          "id": "orutu_sisal_lizard",
+          "default": true,
+          "name": "Sisal-fibre string over monitor-lizard membrane",
+          "descriptors": [
+            "buzzy",
+            "nasal",
+            "traditional"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "orutu_nylon",
+          "name": "Modern nylon string",
+          "descriptors": [
+            "smoother",
+            "brighter",
+            "modern"
+          ],
+          "match_tokens": [
+            "bowed"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "orutu_wire",
+          "name": "Steel / bicycle-brake wire (amplified benga)",
+          "descriptors": [
+            "cutting",
+            "metallic",
+            "piercing"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

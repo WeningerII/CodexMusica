@@ -1,0 +1,346 @@
+{
+  "id": "bayan_russian",
+  "name": "Bayan (Russian chromatic button accordion)",
+  "family": "free_reed",
+  "class": "free_reed",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "bayan",
+  "parts": [
+    {
+      "id": "free_reed_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "free_reed_folk_first_position",
+          "default": true,
+          "name": "Folk first-position straight",
+          "descriptors": [
+            "straight",
+            "melodic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "folk",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "folk",
+            "singer-songwriter",
+            "country"
+          ]
+        },
+        {
+          "id": "free_reed_overblow_modern",
+          "name": "Overblow modern bending",
+          "descriptors": [
+            "overblown",
+            "fully-chromatic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "modern"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "bayan_russian_model",
+      "name": "Model / form",
+      "variants": [
+        {
+          "id": "bayan_russian_tula_standard",
+          "default": true,
+          "name": "Tula three-row B-system bayan with Stradella bass (folk / estrada standard)",
+          "descriptors": [
+            "b-system-buttons",
+            "stradella-bass",
+            "dark-reedy",
+            "russian-tradition"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "accordion",
+            "russian-tradition"
+          ]
+        },
+        {
+          "id": "bayan_russian_concert_converter",
+          "name": "Concert converter bayan (Jupiter / AKKO five-octave free-bass)",
+          "descriptors": [
+            "converter-free-bass",
+            "five-octave-treble",
+            "organ-like",
+            "concert-grade"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "accordion",
+            "virtuoso"
+          ]
+        },
+        {
+          "id": "bayan_russian_artel_vintage",
+          "name": "Early Soviet artel bayan (1930s-50s, brighter brassy voicing)",
+          "descriptors": [
+            "artel-vintage",
+            "brassy-voicing",
+            "village-wedding"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "accordion",
+            "russian-tradition"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bayan_russian_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "bayan_russian_folk_song_dance",
+          "default": true,
+          "name": "Folk song and dance accompaniment (chastushki, plyaska, zastolnaya table songs)",
+          "descriptors": [
+            "song-accompaniment",
+            "chastushka-dance",
+            "table-song"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "accordion",
+            "russian-tradition"
+          ]
+        },
+        {
+          "id": "bayan_russian_estrada_stage",
+          "name": "Estrada / variety concert stage (Soviet lyric and war songs)",
+          "descriptors": [
+            "estrada-stage",
+            "lyrical-legato",
+            "soviet-era"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "accordion",
+            "russian-tradition"
+          ]
+        },
+        {
+          "id": "bayan_russian_academic_solo",
+          "name": "Academic concert solo (Zolotaryov / Semyonov repertoire, bellows-shake virtuosity)",
+          "descriptors": [
+            "virtuoso-solo",
+            "bellows-shake",
+            "contemporary-academic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "accordion",
+            "virtuoso"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bayan_russian_reed_voicing",
+      "surface": false,
+      "name": "Reed voicing",
+      "variants": [
+        {
+          "id": "bayan_russian_dry_unison",
+          "default": true,
+          "name": "Dry-tuned unison steel reeds (no musette tremolo — canonical bayan voicing)",
+          "descriptors": [
+            "dry-tuned-unison",
+            "no-tremolo",
+            "reedy-dark"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "bayan_russian_broken_deck",
+          "name": "Broken-deck (lomanaya deka) chambered reed blocks (mellow organ-like concert tone)",
+          "descriptors": [
+            "broken-deck-chamber",
+            "organ-like-mellow"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "bayan_russian_model",
+      "name": "Model / form",
+      "variants": [
+        {
+          "id": "bayan_russian_tula_standard",
+          "default": true,
+          "name": "Tula three-row B-system bayan with Stradella bass (folk / estrada standard)",
+          "descriptors": [
+            "b-system-buttons",
+            "stradella-bass",
+            "dark-reedy",
+            "russian-tradition"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "accordion",
+            "russian-tradition"
+          ]
+        },
+        {
+          "id": "bayan_russian_concert_converter",
+          "name": "Concert converter bayan (Jupiter / AKKO five-octave free-bass)",
+          "descriptors": [
+            "converter-free-bass",
+            "five-octave-treble",
+            "organ-like",
+            "concert-grade"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "accordion",
+            "virtuoso"
+          ]
+        },
+        {
+          "id": "bayan_russian_artel_vintage",
+          "name": "Early Soviet artel bayan (1930s-50s, brighter brassy voicing)",
+          "descriptors": [
+            "artel-vintage",
+            "brassy-voicing",
+            "village-wedding"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "accordion",
+            "russian-tradition"
+          ],
+          "canonical_tags": [
+            "vintage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bayan_russian_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "bayan_russian_folk_song_dance",
+          "default": true,
+          "name": "Folk song and dance accompaniment (chastushki, plyaska, zastolnaya table songs)",
+          "descriptors": [
+            "song-accompaniment",
+            "chastushka-dance",
+            "table-song"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "accordion",
+            "russian-tradition"
+          ]
+        },
+        {
+          "id": "bayan_russian_estrada_stage",
+          "name": "Estrada / variety concert stage (Soviet lyric and war songs)",
+          "descriptors": [
+            "estrada-stage",
+            "lyrical-legato",
+            "soviet-era"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "accordion",
+            "russian-tradition"
+          ]
+        },
+        {
+          "id": "bayan_russian_academic_solo",
+          "name": "Academic concert solo (Zolotaryov / Semyonov repertoire, bellows-shake virtuosity)",
+          "descriptors": [
+            "virtuoso-solo",
+            "bellows-shake",
+            "contemporary-academic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "accordion",
+            "virtuoso"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bayan_russian_reed_voicing",
+      "surface": false,
+      "name": "Reed voicing",
+      "variants": [
+        {
+          "id": "bayan_russian_dry_unison",
+          "default": true,
+          "name": "Dry-tuned unison steel reeds (no musette tremolo — canonical bayan voicing)",
+          "descriptors": [
+            "dry-tuned-unison",
+            "no-tremolo",
+            "reedy-dark"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        },
+        {
+          "id": "bayan_russian_broken_deck",
+          "name": "Broken-deck (lomanaya deka) chambered reed blocks (mellow organ-like concert tone)",
+          "descriptors": [
+            "broken-deck-chamber",
+            "organ-like-mellow"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    }
+  ]
+}

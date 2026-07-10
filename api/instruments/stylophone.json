@@ -1,0 +1,388 @@
+{
+  "id": "stylophone",
+  "name": "Stylophone (stylus pocket organ)",
+  "family": "electronic",
+  "class": "electronic",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": -1,
+    "articulation": 2,
+    "transduction": 2,
+    "dynamics": -1
+  },
+  "short": "stylophone",
+  "parts": [
+    {
+      "id": "stylophone_model",
+      "name": "Model / era",
+      "variants": [
+        {
+          "id": "stylophone_standard_1968",
+          "default": true,
+          "name": "Dübreq Standard (1968, 20-note)",
+          "descriptors": [
+            "original-run",
+            "pocket-sized",
+            "buzzy"
+          ],
+          "match_tokens": [
+            "electronic",
+            "buzzy-tone",
+            "lo-fi"
+          ],
+          "canonical_tags": [
+            "space-rock"
+          ]
+        },
+        {
+          "id": "stylophone_bass_model",
+          "name": "Dübreq Bass model (low-voiced original)",
+          "descriptors": [
+            "low-voiced",
+            "darker",
+            "rare"
+          ],
+          "match_tokens": [
+            "electronic",
+            "buzzy-tone",
+            "bass-register"
+          ]
+        },
+        {
+          "id": "stylophone_350s",
+          "name": "Stylophone 350S (1971, two-stylus deluxe)",
+          "descriptors": [
+            "two-stylus",
+            "photo-wah",
+            "expanded"
+          ],
+          "match_tokens": [
+            "electronic",
+            "buzzy-tone"
+          ]
+        },
+        {
+          "id": "stylophone_s1_reissue",
+          "name": "Stylophone S-1 reissue (2007, Dubreq relaunch)",
+          "descriptors": [
+            "reissue",
+            "three-voice",
+            "consistent"
+          ],
+          "match_tokens": [
+            "electronic",
+            "buzzy-tone",
+            "lo-fi"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stylophone_technique",
+      "name": "Stylus technique",
+      "variants": [
+        {
+          "id": "stylophone_tapped_melody",
+          "default": true,
+          "name": "Tapped stylus melody",
+          "descriptors": [
+            "naive",
+            "melodic",
+            "toy-charm"
+          ],
+          "match_tokens": [
+            "electronic",
+            "buzzy-tone",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "space-rock"
+          ]
+        },
+        {
+          "id": "stylophone_gliss_drag",
+          "name": "Dragged glissando across pads",
+          "descriptors": [
+            "sliding",
+            "chromatic-smear",
+            "playful"
+          ],
+          "match_tokens": [
+            "electronic",
+            "buzzy-tone"
+          ]
+        },
+        {
+          "id": "stylophone_drone_texture",
+          "name": "Held drone / hauntological texture",
+          "descriptors": [
+            "nostalgic",
+            "eerie",
+            "tape-worn"
+          ],
+          "match_tokens": [
+            "electronic",
+            "drone-foundation",
+            "buzzy-tone"
+          ],
+          "canonical_tags": [
+            "hauntology"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stylophone_vibrato",
+      "surface": false,
+      "name": "Vibrato switch",
+      "variants": [
+        {
+          "id": "stylophone_vibrato_on",
+          "default": true,
+          "name": "Vibrato on (canonical wobble)",
+          "descriptors": [
+            "vibrato-wobble-canonical"
+          ],
+          "match_tokens": [
+            "electronic",
+            "buzzy-tone"
+          ]
+        },
+        {
+          "id": "stylophone_vibrato_off",
+          "name": "Vibrato off (plain buzz)",
+          "descriptors": [
+            "plain-buzz-static"
+          ],
+          "match_tokens": [
+            "electronic",
+            "buzzy-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stylophone_output",
+      "surface": false,
+      "name": "Output stage",
+      "variants": [
+        {
+          "id": "stylophone_internal_speaker",
+          "default": true,
+          "name": "Internal speaker close-miked (canonical 1969 practice)",
+          "descriptors": [
+            "internal-speaker-close-miked-canonical"
+          ],
+          "match_tokens": [
+            "electronic",
+            "lo-fi",
+            "buzzy-tone"
+          ]
+        },
+        {
+          "id": "stylophone_line_out",
+          "name": "Line output direct to desk (modern reissue)",
+          "descriptors": [
+            "line-out-direct-full-buzz"
+          ],
+          "match_tokens": [
+            "electronic",
+            "buzzy-tone"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "stylophone_model",
+      "name": "Model / era",
+      "variants": [
+        {
+          "id": "stylophone_standard_1968",
+          "default": true,
+          "name": "Dübreq Standard (1968, 20-note)",
+          "descriptors": [
+            "original-run",
+            "pocket-sized",
+            "buzzy"
+          ],
+          "match_tokens": [
+            "electronic",
+            "buzzy-tone",
+            "lo-fi"
+          ],
+          "canonical_tags": [
+            "space-rock"
+          ]
+        },
+        {
+          "id": "stylophone_bass_model",
+          "name": "Dübreq Bass model (low-voiced original)",
+          "descriptors": [
+            "low-voiced",
+            "darker",
+            "rare"
+          ],
+          "match_tokens": [
+            "electronic",
+            "buzzy-tone",
+            "bass-register"
+          ]
+        },
+        {
+          "id": "stylophone_350s",
+          "name": "Stylophone 350S (1971, two-stylus deluxe)",
+          "descriptors": [
+            "two-stylus",
+            "photo-wah",
+            "expanded"
+          ],
+          "match_tokens": [
+            "electronic",
+            "buzzy-tone"
+          ]
+        },
+        {
+          "id": "stylophone_s1_reissue",
+          "name": "Stylophone S-1 reissue (2007, Dubreq relaunch)",
+          "descriptors": [
+            "reissue",
+            "three-voice",
+            "consistent"
+          ],
+          "match_tokens": [
+            "electronic",
+            "buzzy-tone",
+            "lo-fi"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stylophone_technique",
+      "name": "Stylus technique",
+      "variants": [
+        {
+          "id": "stylophone_tapped_melody",
+          "default": true,
+          "name": "Tapped stylus melody",
+          "descriptors": [
+            "naive",
+            "melodic",
+            "toy-charm"
+          ],
+          "match_tokens": [
+            "electronic",
+            "buzzy-tone",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "space-rock"
+          ]
+        },
+        {
+          "id": "stylophone_gliss_drag",
+          "name": "Dragged glissando across pads",
+          "descriptors": [
+            "sliding",
+            "chromatic-smear",
+            "playful"
+          ],
+          "match_tokens": [
+            "electronic",
+            "buzzy-tone"
+          ]
+        },
+        {
+          "id": "stylophone_drone_texture",
+          "name": "Held drone / hauntological texture",
+          "descriptors": [
+            "nostalgic",
+            "eerie",
+            "tape-worn"
+          ],
+          "match_tokens": [
+            "electronic",
+            "drone-foundation",
+            "buzzy-tone"
+          ],
+          "canonical_tags": [
+            "hauntology"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stylophone_vibrato",
+      "surface": false,
+      "name": "Vibrato switch",
+      "variants": [
+        {
+          "id": "stylophone_vibrato_on",
+          "default": true,
+          "name": "Vibrato on (canonical wobble)",
+          "descriptors": [
+            "vibrato-wobble-canonical"
+          ],
+          "match_tokens": [
+            "electronic",
+            "buzzy-tone"
+          ]
+        },
+        {
+          "id": "stylophone_vibrato_off",
+          "name": "Vibrato off (plain buzz)",
+          "descriptors": [
+            "plain-buzz-static"
+          ],
+          "match_tokens": [
+            "electronic",
+            "buzzy-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stylophone_output",
+      "surface": false,
+      "name": "Output stage",
+      "variants": [
+        {
+          "id": "stylophone_internal_speaker",
+          "default": true,
+          "name": "Internal speaker close-miked (canonical 1969 practice)",
+          "descriptors": [
+            "internal-speaker-close-miked-canonical"
+          ],
+          "match_tokens": [
+            "electronic",
+            "lo-fi",
+            "buzzy-tone"
+          ]
+        },
+        {
+          "id": "stylophone_line_out",
+          "name": "Line output direct to desk (modern reissue)",
+          "descriptors": [
+            "line-out-direct-full-buzz"
+          ],
+          "match_tokens": [
+            "electronic",
+            "buzzy-tone"
+          ]
+        }
+      ]
+    }
+  ]
+}

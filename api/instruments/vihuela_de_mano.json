@@ -1,0 +1,378 @@
+{
+  "id": "vihuela_de_mano",
+  "name": "Vihuela de mano (Spanish Renaissance vihuela)",
+  "family": "plucked_traditional",
+  "class": "chordophone",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "Six-course gut-strung Spanish Renaissance plucked lute, the Iberian counterpart to the lute carrying the printed vihuela repertoire of Milán, Narváez and Mudarra.",
+  "parts": [
+    {
+      "id": "vihuela_de_mano_form",
+      "name": "Form and courses",
+      "variants": [
+        {
+          "id": "vihuela_de_mano_form_six_course",
+          "default": true,
+          "name": "Six-course vihuela in G",
+          "descriptors": [
+            "six-course",
+            "paired-courses",
+            "guitar-shaped",
+            "tied-gut-frets"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fretted",
+            "renaissance",
+            "six-course"
+          ],
+          "canonical_tags": [
+            "six_course",
+            "standard"
+          ]
+        },
+        {
+          "id": "vihuela_de_mano_form_seven_course",
+          "name": "Seven-course extended vihuela",
+          "descriptors": [
+            "seven-course",
+            "extended-bass",
+            "deep-bodied"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fretted",
+            "extended-bass"
+          ],
+          "canonical_tags": [
+            "seven_course",
+            "extended"
+          ]
+        },
+        {
+          "id": "vihuela_de_mano_form_discante",
+          "name": "Treble vihuela (vihuela de mano discante)",
+          "descriptors": [
+            "small-bodied",
+            "treble-tuned",
+            "bright-voiced"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fretted",
+            "treble",
+            "high-pitched"
+          ],
+          "canonical_tags": [
+            "treble",
+            "discante"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vihuela_de_mano_repertoire",
+      "name": "Repertoire and touch",
+      "variants": [
+        {
+          "id": "vihuela_de_mano_repertoire_fantasia",
+          "default": true,
+          "name": "Polyphonic fantasía and tiento",
+          "descriptors": [
+            "contrapuntal",
+            "polyphonic",
+            "punteado",
+            "voice-leading",
+            "intimate-chamber"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerstyle",
+            "polyphonic",
+            "contrapuntal"
+          ],
+          "canonical_tags": [
+            "solo",
+            "fantasia"
+          ]
+        },
+        {
+          "id": "vihuela_de_mano_repertoire_cancion",
+          "name": "Accompanied song (villancico and romance)",
+          "descriptors": [
+            "song-accompaniment",
+            "chordal",
+            "supportive",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "accompaniment",
+            "strummed",
+            "song"
+          ],
+          "canonical_tags": [
+            "accompaniment",
+            "cancion"
+          ]
+        },
+        {
+          "id": "vihuela_de_mano_repertoire_diferencias",
+          "name": "Diferencias (variation sets)",
+          "descriptors": [
+            "running-figuration",
+            "dedillo",
+            "virtuosic",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "plucked",
+            "figuration",
+            "fast",
+            "virtuosic"
+          ],
+          "canonical_tags": [
+            "variations",
+            "diferencias"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vihuela_de_mano_build",
+      "surface": false,
+      "name": "Stringing and body",
+      "variants": [
+        {
+          "id": "vihuela_de_mano_build_gut_flatback",
+          "default": true,
+          "name": "Gut-strung flat-back body",
+          "descriptors": [
+            "gut-strung",
+            "flat-backed",
+            "spruce-topped",
+            "warm-nasal",
+            "delicate"
+          ],
+          "match_tokens": [
+            "plucked",
+            "gut-string",
+            "acoustic"
+          ],
+          "canonical_tags": [
+            "gut",
+            "flat_back"
+          ]
+        },
+        {
+          "id": "vihuela_de_mano_build_octave_bourdon",
+          "name": "Octave-bourdon bass courses",
+          "descriptors": [
+            "octave-bourdon",
+            "shimmering-bass",
+            "bright-fundamental"
+          ],
+          "match_tokens": [
+            "plucked",
+            "gut-string",
+            "octave-strung"
+          ],
+          "canonical_tags": [
+            "bourdon",
+            "octave"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "vihuela_de_mano_form",
+      "name": "Form and courses",
+      "variants": [
+        {
+          "id": "vihuela_de_mano_form_six_course",
+          "default": true,
+          "name": "Six-course vihuela in G",
+          "descriptors": [
+            "six-course",
+            "paired-courses",
+            "guitar-shaped",
+            "tied-gut-frets"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fretted",
+            "renaissance",
+            "six-course"
+          ],
+          "canonical_tags": [
+            "six_course",
+            "standard"
+          ]
+        },
+        {
+          "id": "vihuela_de_mano_form_seven_course",
+          "name": "Seven-course extended vihuela",
+          "descriptors": [
+            "seven-course",
+            "extended-bass",
+            "deep-bodied"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fretted",
+            "extended-bass"
+          ],
+          "canonical_tags": [
+            "seven_course",
+            "extended"
+          ]
+        },
+        {
+          "id": "vihuela_de_mano_form_discante",
+          "name": "Treble vihuela (vihuela de mano discante)",
+          "descriptors": [
+            "small-bodied",
+            "treble-tuned",
+            "bright-voiced"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fretted",
+            "treble",
+            "high-pitched"
+          ],
+          "canonical_tags": [
+            "treble",
+            "discante"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vihuela_de_mano_repertoire",
+      "name": "Repertoire and touch",
+      "variants": [
+        {
+          "id": "vihuela_de_mano_repertoire_fantasia",
+          "default": true,
+          "name": "Polyphonic fantasía and tiento",
+          "descriptors": [
+            "contrapuntal",
+            "polyphonic",
+            "punteado",
+            "voice-leading",
+            "intimate-chamber"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerstyle",
+            "polyphonic",
+            "contrapuntal"
+          ],
+          "canonical_tags": [
+            "solo",
+            "fantasia"
+          ]
+        },
+        {
+          "id": "vihuela_de_mano_repertoire_cancion",
+          "name": "Accompanied song (villancico and romance)",
+          "descriptors": [
+            "song-accompaniment",
+            "chordal",
+            "supportive",
+            "lyrical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "accompaniment",
+            "strummed",
+            "song"
+          ],
+          "canonical_tags": [
+            "accompaniment",
+            "cancion"
+          ]
+        },
+        {
+          "id": "vihuela_de_mano_repertoire_diferencias",
+          "name": "Diferencias (variation sets)",
+          "descriptors": [
+            "running-figuration",
+            "dedillo",
+            "virtuosic",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "plucked",
+            "figuration",
+            "fast",
+            "virtuosic"
+          ],
+          "canonical_tags": [
+            "variations",
+            "diferencias"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vihuela_de_mano_build",
+      "surface": false,
+      "name": "Stringing and body",
+      "variants": [
+        {
+          "id": "vihuela_de_mano_build_gut_flatback",
+          "default": true,
+          "name": "Gut-strung flat-back body",
+          "descriptors": [
+            "gut-strung",
+            "flat-backed",
+            "spruce-topped",
+            "warm-nasal",
+            "delicate"
+          ],
+          "match_tokens": [
+            "plucked",
+            "gut-string",
+            "acoustic"
+          ],
+          "canonical_tags": [
+            "gut",
+            "flat_back"
+          ]
+        },
+        {
+          "id": "vihuela_de_mano_build_octave_bourdon",
+          "name": "Octave-bourdon bass courses",
+          "descriptors": [
+            "octave-bourdon",
+            "shimmering-bass",
+            "bright-fundamental"
+          ],
+          "match_tokens": [
+            "plucked",
+            "gut-string",
+            "octave-strung"
+          ],
+          "canonical_tags": [
+            "bourdon",
+            "octave"
+          ]
+        }
+      ]
+    }
+  ]
+}

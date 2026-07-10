@@ -1,0 +1,478 @@
+{
+  "id": "tanbura_kisir",
+  "name": "Tanbura (Sudanese/Nubian six-string bowl lyre)",
+  "family": "plucked_traditional",
+  "class": "plucked_lyre",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "tanbura",
+  "parts": [
+    {
+      "id": "tanbura_kisir_form",
+      "name": "Regional form & size",
+      "variants": [
+        {
+          "id": "tanbura_kisir_sudanese_zar",
+          "default": true,
+          "name": "Large Sudanese tanbura (six-string zar lyre)",
+          "descriptors": [
+            "six-string",
+            "deep-bodied",
+            "skin-topped",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "plucked",
+            "lyre",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "sudanese",
+            "zar",
+            "nile_valley"
+          ]
+        },
+        {
+          "id": "tanbura_kisir_nubian_kisir",
+          "name": "Nubian kisir (compact five-string song lyre)",
+          "descriptors": [
+            "five-string",
+            "compact",
+            "bright",
+            "pentatonic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "lyre"
+          ],
+          "canonical_tags": [
+            "nubian",
+            "nile_valley"
+          ]
+        },
+        {
+          "id": "tanbura_kisir_gulf_fann",
+          "name": "Gulf tanbura (fann at-tanbura, East African diaspora)",
+          "descriptors": [
+            "tall-framed",
+            "processional",
+            "diaspora",
+            "resonant"
+          ],
+          "match_tokens": [
+            "plucked",
+            "lyre",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "gulf",
+            "diaspora",
+            "zar"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tanbura_kisir_context",
+      "name": "Playing context & technique",
+      "variants": [
+        {
+          "id": "tanbura_kisir_song_strum",
+          "default": true,
+          "name": "Nubian song accompaniment (strum-and-damp)",
+          "descriptors": [
+            "strum-and-damp",
+            "cyclic-ostinato",
+            "call-and-response",
+            "pentatonic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "cyclic-ostinato",
+            "rhythmic-drive"
+          ],
+          "canonical_tags": [
+            "nubian",
+            "song"
+          ]
+        },
+        {
+          "id": "tanbura_kisir_zar_trance",
+          "name": "Zar ceremony trance-leading",
+          "descriptors": [
+            "trance-inducing",
+            "incantatory",
+            "ritual",
+            "hypnotic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "rhythmic-drive"
+          ],
+          "canonical_tags": [
+            "zar",
+            "ritual"
+          ]
+        },
+        {
+          "id": "tanbura_kisir_wedding_dalluka",
+          "name": "Wedding festivity with dalluka drum line",
+          "descriptors": [
+            "festive",
+            "danceable",
+            "interlocking",
+            "driving"
+          ],
+          "match_tokens": [
+            "plucked",
+            "rhythmic-drive"
+          ],
+          "canonical_tags": [
+            "sudanese",
+            "celebration"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tanbura_kisir_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "tanbura_kisir_strings_gut",
+          "default": true,
+          "name": "Gut / sinew strings (traditional)",
+          "descriptors": [
+            "gut",
+            "warm",
+            "buzzy",
+            "traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "tanbura_kisir_strings_nylon",
+          "name": "Nylon / fishing-line strings (modern)",
+          "descriptors": [
+            "nylon",
+            "clean",
+            "bright",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tanbura_kisir_bowl",
+      "surface": false,
+      "name": "Bowl resonator",
+      "variants": [
+        {
+          "id": "tanbura_kisir_bowl_wood_hide",
+          "default": true,
+          "name": "Carved wooden bowl with cattle-hide soundtable",
+          "descriptors": [
+            "wood",
+            "hide",
+            "warm",
+            "organic-tone"
+          ],
+          "match_tokens": [
+            "plucked",
+            "lyre"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "tanbura_kisir_bowl_gourd",
+          "name": "Gourd / calabash bowl",
+          "descriptors": [
+            "gourd",
+            "light",
+            "airy",
+            "organic-tone"
+          ],
+          "match_tokens": [
+            "plucked",
+            "lyre"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "tanbura_kisir_bowl_metal_basin",
+          "name": "Metal basin bowl (modern urban improvised)",
+          "descriptors": [
+            "metallic",
+            "ringing",
+            "cutting",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tanbura_kisir_form",
+      "name": "Regional form & size",
+      "variants": [
+        {
+          "id": "tanbura_kisir_sudanese_zar",
+          "default": true,
+          "name": "Large Sudanese tanbura (six-string zar lyre)",
+          "descriptors": [
+            "six-string",
+            "deep-bodied",
+            "skin-topped",
+            "ceremonial"
+          ],
+          "match_tokens": [
+            "plucked",
+            "lyre",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "sudanese",
+            "zar",
+            "nile_valley"
+          ]
+        },
+        {
+          "id": "tanbura_kisir_nubian_kisir",
+          "name": "Nubian kisir (compact five-string song lyre)",
+          "descriptors": [
+            "five-string",
+            "compact",
+            "bright",
+            "pentatonic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "lyre"
+          ],
+          "canonical_tags": [
+            "nubian",
+            "nile_valley"
+          ]
+        },
+        {
+          "id": "tanbura_kisir_gulf_fann",
+          "name": "Gulf tanbura (fann at-tanbura, East African diaspora)",
+          "descriptors": [
+            "tall-framed",
+            "processional",
+            "diaspora",
+            "resonant"
+          ],
+          "match_tokens": [
+            "plucked",
+            "lyre",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "gulf",
+            "diaspora",
+            "zar"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tanbura_kisir_context",
+      "name": "Playing context & technique",
+      "variants": [
+        {
+          "id": "tanbura_kisir_song_strum",
+          "default": true,
+          "name": "Nubian song accompaniment (strum-and-damp)",
+          "descriptors": [
+            "strum-and-damp",
+            "cyclic-ostinato",
+            "call-and-response",
+            "pentatonic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "cyclic-ostinato",
+            "rhythmic-drive"
+          ],
+          "canonical_tags": [
+            "nubian",
+            "song"
+          ]
+        },
+        {
+          "id": "tanbura_kisir_zar_trance",
+          "name": "Zar ceremony trance-leading",
+          "descriptors": [
+            "trance-inducing",
+            "incantatory",
+            "ritual",
+            "hypnotic"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "rhythmic-drive"
+          ],
+          "canonical_tags": [
+            "zar",
+            "ritual"
+          ]
+        },
+        {
+          "id": "tanbura_kisir_wedding_dalluka",
+          "name": "Wedding festivity with dalluka drum line",
+          "descriptors": [
+            "festive",
+            "danceable",
+            "interlocking",
+            "driving"
+          ],
+          "match_tokens": [
+            "plucked",
+            "rhythmic-drive"
+          ],
+          "canonical_tags": [
+            "sudanese",
+            "celebration"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tanbura_kisir_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "tanbura_kisir_strings_gut",
+          "default": true,
+          "name": "Gut / sinew strings (traditional)",
+          "descriptors": [
+            "gut",
+            "warm",
+            "buzzy",
+            "traditional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "tanbura_kisir_strings_nylon",
+          "name": "Nylon / fishing-line strings (modern)",
+          "descriptors": [
+            "nylon",
+            "clean",
+            "bright",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tanbura_kisir_bowl",
+      "surface": false,
+      "name": "Bowl resonator",
+      "variants": [
+        {
+          "id": "tanbura_kisir_bowl_wood_hide",
+          "default": true,
+          "name": "Carved wooden bowl with cattle-hide soundtable",
+          "descriptors": [
+            "wood",
+            "hide",
+            "warm",
+            "organic-tone"
+          ],
+          "match_tokens": [
+            "plucked",
+            "lyre"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "tanbura_kisir_bowl_gourd",
+          "name": "Gourd / calabash bowl",
+          "descriptors": [
+            "gourd",
+            "light",
+            "airy",
+            "organic-tone"
+          ],
+          "match_tokens": [
+            "plucked",
+            "lyre"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "tanbura_kisir_bowl_metal_basin",
+          "name": "Metal basin bowl (modern urban improvised)",
+          "descriptors": [
+            "metallic",
+            "ringing",
+            "cutting",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

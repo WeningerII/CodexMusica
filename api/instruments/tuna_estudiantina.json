@@ -1,0 +1,390 @@
+{
+  "id": "tuna_estudiantina",
+  "name": "Tuna (estudiantina)",
+  "family": "ensemble",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "tuna / estudiantina",
+  "parts": [
+    {
+      "id": "tuna_estudiantina_lineup",
+      "name": "Ensemble lineup / configuration",
+      "variants": [
+        {
+          "id": "tuna_estudiantina_full",
+          "default": true,
+          "name": "Full tuna (massed bandurrias & laudes, guitars, guitarron, pandereta, male chorus)",
+          "descriptors": [
+            "massed-plucked",
+            "full-complement",
+            "tremolo-forward"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "plucked",
+            "strummed",
+            "tremolo"
+          ],
+          "canonical_tags": [
+            "full-tuna",
+            "plucked-string-ensemble"
+          ]
+        },
+        {
+          "id": "tuna_estudiantina_rondalla",
+          "name": "Small rondalla (chamber plucked-string group, few bandurrias & guitars)",
+          "descriptors": [
+            "chamber-sized",
+            "intimate",
+            "stripped-back"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "plucked",
+            "strummed"
+          ],
+          "canonical_tags": [
+            "rondalla",
+            "small-ensemble"
+          ]
+        },
+        {
+          "id": "tuna_estudiantina_mixed",
+          "name": "Latin-American estudiantina (expanded with violin / accordion)",
+          "descriptors": [
+            "expanded",
+            "mixed-timbre",
+            "festive"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "plucked",
+            "strummed",
+            "bowed"
+          ],
+          "canonical_tags": [
+            "estudiantina",
+            "expanded-lineup"
+          ]
+        },
+        {
+          "id": "tuna_estudiantina_coimbra",
+          "name": "Portuguese tuna academica (with guitarra portuguesa, fado-tinged)",
+          "descriptors": [
+            "portuguese",
+            "fado-tinged",
+            "melancholic"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "plucked",
+            "strummed"
+          ],
+          "canonical_tags": [
+            "tuna-academica",
+            "coimbra"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tuna_estudiantina_repertoire",
+      "name": "Repertoire / performance context",
+      "variants": [
+        {
+          "id": "tuna_estudiantina_serenata",
+          "default": true,
+          "name": "Nocturnal serenata / ronda (strolling pasacalle)",
+          "descriptors": [
+            "serenading",
+            "strolling",
+            "nocturnal"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "plucked",
+            "serenade"
+          ],
+          "canonical_tags": [
+            "serenata",
+            "ronda"
+          ]
+        },
+        {
+          "id": "tuna_estudiantina_certamen",
+          "name": "Staged certamen / concert (arranged tremolo showpieces)",
+          "descriptors": [
+            "staged",
+            "arranged",
+            "virtuoso-tremolo"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "plucked",
+            "concert"
+          ],
+          "canonical_tags": [
+            "certamen",
+            "concert"
+          ]
+        },
+        {
+          "id": "tuna_estudiantina_pasodoble",
+          "name": "Festive pasodoble & jota dance repertoire",
+          "descriptors": [
+            "festive",
+            "dance-driven",
+            "buoyant"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "strummed",
+            "dance"
+          ],
+          "canonical_tags": [
+            "pasodoble",
+            "jota"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tuna_estudiantina_texture",
+      "surface": false,
+      "name": "Vocal / instrumental texture",
+      "variants": [
+        {
+          "id": "tuna_estudiantina_choral",
+          "default": true,
+          "name": "Unison male chorus over massed strings",
+          "descriptors": [
+            "unison-male-voices",
+            "choral-forward"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "sung",
+            "unison"
+          ],
+          "canonical_tags": [
+            "male-chorus",
+            "voice-and-strings"
+          ]
+        },
+        {
+          "id": "tuna_estudiantina_instrumental",
+          "name": "Instrumental only (tremolo melody, no voices)",
+          "descriptors": [
+            "instrumental",
+            "tremolo-lead"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "plucked",
+            "tremolo"
+          ],
+          "canonical_tags": [
+            "instrumental",
+            "tremolo"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tuna_estudiantina_lineup",
+      "name": "Ensemble lineup / configuration",
+      "variants": [
+        {
+          "id": "tuna_estudiantina_full",
+          "default": true,
+          "name": "Full tuna (massed bandurrias & laudes, guitars, guitarron, pandereta, male chorus)",
+          "descriptors": [
+            "massed-plucked",
+            "full-complement",
+            "tremolo-forward"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "plucked",
+            "strummed",
+            "tremolo"
+          ],
+          "canonical_tags": [
+            "full-tuna",
+            "plucked-string-ensemble"
+          ]
+        },
+        {
+          "id": "tuna_estudiantina_rondalla",
+          "name": "Small rondalla (chamber plucked-string group, few bandurrias & guitars)",
+          "descriptors": [
+            "chamber-sized",
+            "intimate",
+            "stripped-back"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "plucked",
+            "strummed"
+          ],
+          "canonical_tags": [
+            "rondalla",
+            "small-ensemble"
+          ]
+        },
+        {
+          "id": "tuna_estudiantina_mixed",
+          "name": "Latin-American estudiantina (expanded with violin / accordion)",
+          "descriptors": [
+            "expanded",
+            "mixed-timbre",
+            "festive"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "plucked",
+            "strummed",
+            "bowed"
+          ],
+          "canonical_tags": [
+            "estudiantina",
+            "expanded-lineup"
+          ]
+        },
+        {
+          "id": "tuna_estudiantina_coimbra",
+          "name": "Portuguese tuna academica (with guitarra portuguesa, fado-tinged)",
+          "descriptors": [
+            "portuguese",
+            "fado-tinged",
+            "melancholic"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "plucked",
+            "strummed"
+          ],
+          "canonical_tags": [
+            "tuna-academica",
+            "coimbra"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tuna_estudiantina_repertoire",
+      "name": "Repertoire / performance context",
+      "variants": [
+        {
+          "id": "tuna_estudiantina_serenata",
+          "default": true,
+          "name": "Nocturnal serenata / ronda (strolling pasacalle)",
+          "descriptors": [
+            "serenading",
+            "strolling",
+            "nocturnal"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "plucked",
+            "serenade"
+          ],
+          "canonical_tags": [
+            "serenata",
+            "ronda"
+          ]
+        },
+        {
+          "id": "tuna_estudiantina_certamen",
+          "name": "Staged certamen / concert (arranged tremolo showpieces)",
+          "descriptors": [
+            "staged",
+            "arranged",
+            "virtuoso-tremolo"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "plucked",
+            "concert"
+          ],
+          "canonical_tags": [
+            "certamen",
+            "concert"
+          ]
+        },
+        {
+          "id": "tuna_estudiantina_pasodoble",
+          "name": "Festive pasodoble & jota dance repertoire",
+          "descriptors": [
+            "festive",
+            "dance-driven",
+            "buoyant"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "strummed",
+            "dance"
+          ],
+          "canonical_tags": [
+            "pasodoble",
+            "jota"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tuna_estudiantina_texture",
+      "surface": false,
+      "name": "Vocal / instrumental texture",
+      "variants": [
+        {
+          "id": "tuna_estudiantina_choral",
+          "default": true,
+          "name": "Unison male chorus over massed strings",
+          "descriptors": [
+            "unison-male-voices",
+            "choral-forward"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "sung",
+            "unison"
+          ],
+          "canonical_tags": [
+            "male-chorus",
+            "voice-and-strings"
+          ]
+        },
+        {
+          "id": "tuna_estudiantina_instrumental",
+          "name": "Instrumental only (tremolo melody, no voices)",
+          "descriptors": [
+            "instrumental",
+            "tremolo-lead"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "plucked",
+            "tremolo"
+          ],
+          "canonical_tags": [
+            "instrumental",
+            "tremolo"
+          ]
+        }
+      ]
+    }
+  ]
+}
