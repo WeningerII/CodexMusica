@@ -3,9 +3,9 @@
   "name": "Melodic dubstep",
   "family": "electronic",
   "lineage": "Early-2010s dubstep subgenre emphasizing emotional-melodic content, female-vocal-feature presentation, atmospheric-pad textures, and broader pop-crossover-friendly arrangement. Seven Lions, Au5, Crystal Skies, and the broader Monstercat and Ophelia Records label rosters anchored the canonical sound. The 2013-2018 \"EDM melodic\" era extended melodic dubstep into festival-mainstream commercial circulation.",
-  "recipe": "classic mid-2010s melodic dubstep, bass System, bass descendants branch, house electronic dance jackin' house melodic house. extended whistle, rap, melodic, punctuated. TR-808, pad like sub bass analog synth, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
-  "recipe_chars": 505,
-  "score": 138.67,
+  "recipe": "classic mid-2010s melodic dubstep, bass System, bass descendants branch, house electronic dance jackin' house melodic house. extended whistle, rap, melodic, punctuated. TR-808, pad like sub bass analog synth, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. no single room 2015-present distributed distributed production. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter hall reverb.",
+  "recipe_chars": 510,
+  "score": 151.827,
   "config": {
     "traditions": [
       "melodic_dubstep_2010s",
@@ -57,12 +57,12 @@
         "slots": {
           "tr808_voice": "tr808_kick_long",
           "drum_machine_808_context": "drum_machine_808_trap",
-          "tr808_production_origin": "tr808_behringer_clone"
+          "tr808_production_origin": "tr808_roland_osaka_canonical"
         },
         "scores": {
           "tr808_voice": 4.955,
           "drum_machine_808_context": 5.05,
-          "tr808_production_origin": 0.845
+          "tr808_production_origin": 0.7150000000000001
         }
       },
       {
@@ -77,7 +77,7 @@
         "scores": {
           "electronic_technique": 13.905,
           "oscillator": 5.005,
-          "filter_topology": 5.245,
+          "filter_topology": 4.745,
           "envelope": 2.525,
           "modulation": 0.15
         }
@@ -109,7 +109,7 @@
       }
     ],
     "room": "studio_distributed_production",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_festival_edm_itb",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "transformerless",

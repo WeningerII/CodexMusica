@@ -3,14 +3,14 @@
   "name": "Zoroastrian Avestan liturgical recitation",
   "family": "global",
   "lineage": "Zoroastrian liturgical recitation is the priestly intonation of the Avesta, the sacred corpus of the ancient Iranian religion, whose oldest layer — the Gathas attributed to Zarathustra — was transmitted orally for centuries before being committed to the Avestan script under the Sasanians. Mobeds (priests) recite the Yasna, Visperad, and Vendidad in the Yazishn-gah of the fire temple, chiefly during the daily Yasna ceremony, on a narrow band of pitches close to intoned speech. The tradition is a sibling of Vedic Sanskrit recitation within the Indo-Iranian priestly-oral family, sharing the premium placed on phonetic exactness over textual comprehension. It survives among Parsi and Irani Zoroastrian communities and is documented in ethnomusicological and Avestan philological scholarship.",
-  "recipe": "classic modern zoroastrian avestan liturgical recitation, ritual Devotional, hindu branch shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, declaimed, chest resonance low mid, continuous-phonation. field recording. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 375,
-  "score": 139.902,
+  "recipe": "classic modern zoroastrian avestan liturgical recitation, ritual Devotional, hindu branch mapuche tayil genealogical chant shipibo-conibo icaros healing songs. vocal fry, declaimed, chest resonance low mid, continuous-phonation. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 308,
+  "score": 118.152,
   "config": {
     "traditions": [
       "zoroastrian_avestan_recitation",
-      "shipibo_icaros",
-      "mapuche_tayil_ritual"
+      "mapuche_tayil_ritual",
+      "shipibo_icaros"
     ],
     "instruments": [
       {
@@ -54,7 +54,7 @@
       }
     ],
     "room": "field_recording",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

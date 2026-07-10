@@ -3,9 +3,9 @@
   "name": "Renaissance sacred polyphony (1450-1600)",
   "family": "classical",
   "lineage": "Renaissance European sacred-music tradition c.1450-1600, the mass-cycle and motet repertoire of the Franco-Flemish and Italian schools. Canonical compositional features: imitative counterpoint with successive voice-entries on the same melodic subject; smooth melodic voice-leading with stepwise motion and small leaps; controlled dissonance through suspension-and-resolution; modal scales transitioning gradually into tonal practice; a cappella ideal with optional organ accompaniment for liturgical performance. Canonical composers: Josquin des Prez (Franco-Flemish, c.1450-1521, founding figure of the imitative-mass tradition); Giovanni Pierluigi da Palestrina (Roman, 1525-1594, Missa Papae Marcelli 1567 the Counter-Reformation touchstone for the smoothness-and-clarity ideal); Thomas Tallis (English, c.1505-1585, the forty-voice motet Spem in alium c.1570); William Byrd (English, c.1543-1623, Mass for Four Voices); Orlande de Lassus (Flemish, 1532-1594); Tomás Luis de Victoria (Spanish, 1548-1611). Geographical centers: Cambrai, Antwerp, Rome (Cappella Sistina), Venice (San Marco), London (Chapel Royal). Distinguished from medieval organum by full imitative counterpoint and tempered-meantone tuning vocabulary; distinguished from Baroque sacred polyphony by absence of basso continuo and absence of operatic-aria stylistic vocabulary; distinguished from Orthodox liturgical chant by Latin-text Roman-rite (vs Slavonic / Greek Orthodox-rite) liturgical framework",
-  "recipe": "classic North American renaissance sacred polyphony, art Music, western early branch, christian gospel anglican choral anglican choral evensong. thick, declaimed, melodic, ornamental. a cappella small 3 to 8 one per part four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble, Baroque leaning silbermann saxon canonical bach era central German Baroque early 18th century tin lead 75 25 canonical principal rank bright projecting quarter comma meantone canonical renaissance early Baroque mechanical tracker canonical Baroque direct touch pipe organ, mid renaissance English Spanish ayre and lieder yew ribs Italian brescian lute renaissance, tenor workhorse colla parte thin hammered brass sackbut, treble tuned polyphonic vihuela de mano. cathedral. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 961,
-  "score": 284.565,
+  "recipe": "classic European renaissance sacred polyphony, art Music, western early branch, christian gospel anglican choral anglican choral evensong. thick, declaimed, melodic, ornamental. a cappella small 3 to 8 one per part four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble, Baroque leaning silbermann saxon canonical bach era central German Baroque early 18th century tin lead 75 25 canonical principal rank bright projecting quarter comma meantone canonical renaissance early Baroque mechanical tracker canonical Baroque direct touch pipe organ, mid renaissance English Spanish ayre and lieder yew ribs Italian brescian lute renaissance, tenor workhorse colla parte thin hammered brass sackbut, treble tuned polyphonic vihuela de mano. cathedral. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+  "recipe_chars": 883,
+  "score": 280.765,
   "config": {
     "traditions": [
       "renaissance_sacred_polyphony",
@@ -134,7 +134,7 @@
       }
     ],
     "room": "cathedral",
-    "archetype": "arch_80s_late_analog_majorrock",
+    "archetype": "arch_church_location_early_music",
     "inline_chain": {
       "mic": "mic_u87_condenser_neumann",
       "pre": "pre_neve_1073_input",

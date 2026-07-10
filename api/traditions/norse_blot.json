@@ -3,9 +3,9 @@
   "name": "Old Norse blót invocation",
   "family": "global",
   "lineage": "Blót was the central sacrificial rite of Old Norse religion, a communal offering to the Æsir, Vanir, and land-spirits attested in Heimskringla (Hákonar saga góða describes the Trøndelag blót feasts), Eyrbyggja saga, and Adam of Bremen's account of the Uppsala temple. The gothi or chieftain-priest led the assembly, sprinkling sacrificial blood (hlaut) and pronouncing invocations and full (ceremonial toasts) over the ale to Óðinn, Njörðr, and Freyr for victory and good harvest. Delivery was declamatory rather than melodic, a heightened public oratory answered by the gathered community. The tradition is known from Old Norse-Icelandic prose sources and is reconstructed in modern Heathen practice.",
-  "recipe": "classic modern old norse blót invocation, ritual Devotional, indigenous branch thiruvaachakam sufi inshad. vocal fry, declaimed, tasteful, narrative. forest clearing. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 296,
-  "score": 155.789,
+  "recipe": "classic modern old norse blót invocation, ritual Devotional, indigenous branch thiruvaachakam sufi inshad. vocal fry, declaimed, tasteful, narrative. forest clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 229,
+  "score": 143.201,
   "config": {
     "traditions": [
       "norse_blot",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "forest_clearing",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

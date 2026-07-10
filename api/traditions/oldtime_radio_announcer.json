@@ -3,14 +3,14 @@
   "name": "Old-time radio announcer",
   "family": "global",
   "lineage": "American network-radio announcer style of the 1930s-50s NBC and CBS era, delivered in projected, precisely articulated diction — often the cultivated Mid-Atlantic ('transatlantic') accent taught in period broadcast and elocution training — into RCA 44 and 77 ribbon microphones. Staff and program announcers such as Don Wilson (The Jack Benny Program), Harry von Zell, Ken Carpenter, and Milton Cross (the Metropolitan Opera broadcasts) defined the register across variety-show openings, drama introductions, station identifications, and live commercial reads; Orson Welles's 1938 Mercury Theatre on the Air 'War of the Worlds' broadcast famously exploited the authority this announcer voice carried. The sound is inseparable from the period transmission chain: ribbon mic, tube electronics, and bandwidth-limited live AM air or transcription disc.",
-  "recipe": "classic North American mid-1930s old-time radio announcer, spoken Word, narration branch documentary voiceover golden-age radio drama. vocal fry, register break ornamental, melodic, Baroque ornamental. am radio booth. passive ribbon, tube pre, German tube console. Studer 30ips tape.",
-  "recipe_chars": 283,
-  "score": 85.392,
+  "recipe": "classic mid-1930s old-time radio announcer, spoken Word, narration branch golden-age radio drama sports play-by-play commentary. vocal fry, register break ornamental, melodic, continuous-phonation. am radio booth. RCA 44-BX, calrec BBC-broadcast pre, BBC broadcast console, Telefunken u73b broadcast comp, broadcast loudness EQ. AM-radio broadcast.",
+  "recipe_chars": 348,
+  "score": 102.66,
   "config": {
     "traditions": [
       "oldtime_radio_announcer",
-      "documentary_voiceover",
-      "radio_drama_golden_age"
+      "radio_drama_golden_age",
+      "sports_play_by_play"
     ],
     "instruments": [
       {
@@ -22,9 +22,9 @@
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "legato_voice",
-          "voice_microtone": "blue_notes",
+          "voice_microtone": "bend_inflected",
           "voice_tradition": "baroque_ornamental_tradition",
-          "voice_mechanism_compound": "voice_mechanism_yodel_M1_M2_alternation",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
@@ -34,27 +34,27 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 0.845,
-          "voice_quality": 3.9976160714285713,
+          "voice_register": 0.8841160714285714,
+          "voice_quality": 3.347616071428571,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.5949999999999998,
-          "voice_articulation": 0.2071875,
-          "voice_microtone": 0.2071875,
+          "voice_articulation": 0.845,
+          "voice_microtone": 0.78,
           "voice_tradition": 4.04,
-          "voice_mechanism_compound": 2.535,
-          "voice_estill_quality": 6.630000000000001,
-          "voice_speech_song": 19.435,
-          "voice_ensemble_config": 21.904999999999998,
+          "voice_mechanism_compound": 5.069999999999999,
+          "voice_estill_quality": 4.940000000000001,
+          "voice_speech_song": 21.319999999999997,
+          "voice_ensemble_config": 22.1,
           "voice_ornament_system": 3.1500000000000004,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 6.629999999999999,
-          "voice_multitrack_stack": 3.2500000000000004
+          "voice_pitch_organization": 0.845,
+          "voice_processing_chain": 8.273125,
+          "voice_multitrack_stack": 4.095000000000001
         }
       }
     ],
     "room": "am_radio_booth",
-    "archetype": "arch_swing_era_live_studio",
+    "archetype": "arch_network_radio_broadcast",
     "inline_chain": {
       "mic": "mic_rca_44bx_ribbon",
       "pre": "tube_pre",

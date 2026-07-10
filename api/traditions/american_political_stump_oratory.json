@@ -3,9 +3,9 @@
   "name": "American political stump oratory",
   "family": "vernacular",
   "lineage": "The campaign stump speech of United States electoral politics, from 19th-century torchlight-rally and Chautauqua oratory through populist and civil-rights platform styles to the modern televised rally. The name derives from candidates literally standing on tree stumps to address frontier gatherings. It is characterized by projected, persuasive delivery, memorable refrains and applause-lines, escalating cadence, and call-and-response engagement with the crowd. The genre spans a rhetorical continuum from plain conversational address to near-chanted, revival-inflected peroration.",
-  "recipe": "classic North American modern american political stump oratory, protest Song, European branch american folk-revival protest song egyptian sayyed darwish and sheikh imam political-vocal lineage. thick, incomplete closure resting, tasteful, continuous-phonation. us uk civic amateur band hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 421,
-  "score": 103.873,
+  "recipe": "classic North American modern american political stump oratory, protest Song, European branch american folk-revival protest song egyptian sayyed darwish and sheikh imam political-vocal lineage. thick, incomplete closure resting, tasteful, continuous-phonation. us uk civic amateur band hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 354,
+  "score": 95.473,
   "config": {
     "traditions": [
       "american_political_stump_oratory",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "us_uk_civic_amateur_band_hall",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

@@ -3,9 +3,9 @@
   "name": "Katajjaq (Inuit throat-singing game)",
   "family": "global",
   "lineage": "Inuit Arctic throat-singing game tradition preserved across Nunavik (northern Quebec), Nunavut, Greenland, and the Inuit Russian Far East — two women face each other in close proximity (often forehead to forehead) and alternate inhale-exhale vocal patterns at high speed, attempting to break each others rhythm until one laughs or runs out of breath; modern revival through Tanya Tagaq (the solo katajjaq performer who extended the tradition into solo electronic-collaboration work, Animism 2014 Polaris Music Prize), Susan Aglukark, the Pirurvik Centre cultural preservation infrastructure",
-  "recipe": "classic Pacific Northwest mid-2010s katajjaq, hunting Song, arctic branch, central Asian hunting song, indigenous hunting song, sub saharan African hunting song san (khoisan) hunting and trance song aboriginal australian hunting songlines. ingressive egressive paired breath alternation interlocked supraglottic both phases 8th to 12th partial overtone range arctic paired game tradition interlocked breath throat singing voice. iglu community hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 579,
-  "score": 60.213,
+  "recipe": "classic Pacific Northwest mid-2010s katajjaq, hunting Song, arctic branch, central Asian hunting song, indigenous hunting song, sub saharan African hunting song san (khoisan) hunting and trance song aboriginal australian hunting songlines. ingressive egressive paired breath alternation interlocked supraglottic both phases 8th to 12th partial overtone range arctic paired game tradition interlocked breath throat singing voice. iglu community hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 512,
+  "score": 52.463,
   "config": {
     "traditions": [
       "inuit_katajjaq",
@@ -28,7 +28,7 @@
       }
     ],
     "room": "iglu_community_hall",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

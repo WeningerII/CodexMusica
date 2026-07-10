@@ -3,9 +3,9 @@
   "name": "Turkish meddah storytelling",
   "family": "global",
   "lineage": "One-man dramatic storytelling of the Ottoman and Turkish coffeehouse, in which the meddah ('panegyrist, eulogist') narrates a tale while impersonating every character through shifts of voice, dialect and gesture, using only a handkerchief (mendil) and a staff (baston) as props. Rooted in the medieval Islamic panegyric-storyteller and flourishing in Istanbul kahvehane through the nineteenth century, the art was recognised by UNESCO on the Representative List of the Intangible Cultural Heritage of Humanity in 2008. The delivery is improvisatory spoken theatre, opening with formulaic patter and rich in mimicry and topical comic aside.",
-  "recipe": "classic North African late-2000s turkish meddah storytelling, ballad Poetry, med east poetic branch cape verdean batuko of santiago island jeju haenyeo songs. thick, declaimed, overtone rich sustained, narrative. stone plaster medina room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 369,
-  "score": 162.064,
+  "recipe": "classic North African late-2000s turkish meddah storytelling, ballad Poetry, med east poetic branch cape verdean batuko of santiago island jeju haenyeo songs. thick, declaimed, overtone rich sustained, narrative. stone plaster medina room. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 302,
+  "score": 137.113,
   "config": {
     "traditions": [
       "turkish_meddah",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "stone_plaster_medina_room",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

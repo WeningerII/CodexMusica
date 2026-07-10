@@ -3,9 +3,9 @@
   "name": "Qur'anic recitation (tajwīd)",
   "family": "global",
   "lineage": "Islamic scriptural recitation tradition (tajweed: \"elocution\") codifying pronunciation rules for the Qur’an across the 10 canonical qira’at (reading systems) — exemplified through Egyptian reciters Mahmoud Khalil Al-Hussary, Mohamed Siddiq El-Minshawi, Abdul Basit Abd us-Samad whose 1950s-70s recordings became the international auditory canon",
-  "recipe": "classic mid-1950s qur'anic recitation, ritual Devotional, islamic branch, middle eastern classical art music persian dastgāh yemeni sanaani song. vocal fry, declaimed, chest resonance low mid, unrestrained. cathedral. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 347,
-  "score": 177.76,
+  "recipe": "classic mid-1950s qur'anic recitation, ritual Devotional, islamic branch, middle eastern classical art music persian dastgāh yemeni sanaani song. vocal fry, declaimed, chest resonance low mid, unrestrained. cathedral. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb.",
+  "recipe_chars": 328,
+  "score": 167.86,
   "config": {
     "traditions": [
       "quranic_recitation_tajweed",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "cathedral",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_arab_east_state_radio",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "tube_pre",

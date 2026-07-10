@@ -3,14 +3,14 @@
   "name": "Donsongoni hunter's harp (Mande)",
   "family": "global",
   "lineage": "Mande donsongoni (\"hunter's harp\") vocal-and-instrumental tradition of the Wassoulou region of southern Mali and adjacent eastern Guinea, performed by initiated hunters at hunter-society gatherings and at funerals. The donsongoni is a six-string calabash harp distinct from the larger courtly kora — associated with the rural-egalitarian hunter's society (donso-tòn) rather than the hereditary griot caste. Repertoire spans hunting-praise, ancestor-evocation, and esoteric hunter-society initiation material. The Wassoulou modernization brought the donsongoni into popular music through Oumou Sangaré.",
-  "recipe": "classic East African modern donsongoni hunter's harp, ballad Poetry, west African griot branch, indigenous ritual devotional shipibo-conibo icaros healing songs ju|'hoansi healing songs. vocal fry, declaimed, pure, punctuated. donso ritual large calabash mande gut pre modern hunters donso ngoni, foundational low fundamental tuning deep calabash inverted calabash, hunters four string bolon. tanzanian outdoor village clearing. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 558,
-  "score": 252.162,
+  "recipe": "classic East African modern donsongoni hunter's harp, ballad Poetry, west African griot branch, indigenous ritual devotional ju|'hoansi healing songs shipibo-conibo icaros healing songs. vocal fry, declaimed, pure, punctuated. donso ritual large calabash mande gut pre modern hunters donso ngoni, foundational low fundamental tuning deep calabash inverted calabash, hunters four string bolon. tanzanian outdoor village clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 491,
+  "score": 239.262,
   "config": {
     "traditions": [
       "donsongoni_hunter_harp",
-      "shipibo_icaros",
-      "juhoansi_healing_nom"
+      "juhoansi_healing_nom",
+      "shipibo_icaros"
     ],
     "instruments": [
       {
@@ -95,7 +95,7 @@
       }
     ],
     "room": "tanzanian_outdoor_village_clearing",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

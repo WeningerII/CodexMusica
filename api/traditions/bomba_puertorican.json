@@ -3,9 +3,9 @@
   "name": "Bomba (Puerto Rican)",
   "family": "global",
   "lineage": "Afro-Puerto Rican drum-and-dance ritual tradition traced directly to West African Yoruba and Ashanti rhythmic-drum-and-call-response heritage brought through 17-18th-century enslaved African labor, with Loíza (the Black-majority town on the northeast coast), Mayagüez, Ponce, and Cataño as the bomba towns; played on the bomba barril (single-headed barrel drum carved from rum cask) with the soloist drummer (subidor or primo) tracing the dancers steps in real-time dialogue while a secondary drum (buleador) maintains rhythmic foundation, plus maracas and cuá (struck wood block) — preserved through the Cepeda and Ayala families and modern groups like Los Pleneros de la 21",
-  "recipe": "classic Caribbean modern bomba, ritual Devotional, Afro-diasporic branch, Caribbean groove percussion chouval-bwa plena. thick, declaimed, tasteful, punctuated. log drum, plastic synthetic maracas, buleador and subidor paired set barril de bomba. san juan puerto rican bomba plena yard. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 416,
-  "score": 172.432,
+  "recipe": "classic Caribbean modern bomba, ritual Devotional, Afro-diasporic branch, Caribbean groove percussion chouval-bwa plena. thick, declaimed, tasteful, punctuated. log drum, plastic synthetic maracas, buleador and subidor paired set barril de bomba. san juan puerto rican bomba plena yard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 349,
+  "score": 161.807,
   "config": {
     "traditions": [
       "bomba_puertorican",
@@ -89,7 +89,7 @@
       }
     ],
     "room": "san_juan_puerto_rican_bomba_plena_yard",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

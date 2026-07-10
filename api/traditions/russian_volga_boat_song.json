@@ -3,9 +3,9 @@
   "name": "Russian Volga boat-haulers' work song (бурлацкая песня)",
   "family": "global",
   "lineage": "Russian Volga boat-haulers (бурлаки burlaki) work-song tradition documented from 17th-19th century Russian river-haulage-laborer practice (the burlaki towed cargo-barges upstream against the Volga current by rope-and-shoulder before steam-tug-substitution in the 1860s-1880s) through 19th-century Russian-Romantic-era documentation into 20th-century revival; the canonical \"Эй, ухнем!\" (Ey, ukhnem!, \"Hey, heave-ho!\") is the foundational repertoire",
-  "recipe": "classic mid-1860s russian volga boat-haulers' work song, sea Shanty, north Southeast Asian baltic branch, Slavic balkan field work, European protest song, Slavic bard ballad poetry italian canti partigiani russian zhnitvenye pesni. thick, low dynamic level, tasteful, unrestrained. open air. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 421,
-  "score": 93.735,
+  "recipe": "classic mid-1860s russian volga boat-haulers' work song, sea Shanty, north Southeast Asian baltic branch, Slavic balkan field work, European protest song, Slavic bard ballad poetry italian canti partigiani russian zhnitvenye pesni. thick, low dynamic level, tasteful, unrestrained. open air. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 354,
+  "score": 87.86,
   "config": {
     "traditions": [
       "russian_volga_boat_song",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "open_prairie",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

@@ -3,14 +3,14 @@
   "name": "Yoruba ìrèmọjẹ (hunters' and widows' funeral dirge)",
   "family": "global",
   "lineage": "Yoruba mourning-song tradition continuous from pre-colonial Yoruba ritual-practice through 19th-20th century continuous performance by Yoruba hunters'-guild and hunters'-widows; particularly preserved in Ọ̀yọ́, Òṣun, Ọ̀ǹdó, Èkìtì Yoruba cultural zones",
-  "recipe": "classic West African modern yoruba ìrèmọjẹ, funeral Lament, African diasporic branch, indigenous ritual devotional, vocal drone modal, west African griot ballad poetry shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, declaimed, melodic, continuous-phonation. bamako griot jeli compound. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 448,
-  "score": 177.31,
+  "recipe": "classic West African modern yoruba ìrèmọjẹ, funeral Lament, African diasporic branch, indigenous ritual devotional, vocal drone modal, west African griot ballad poetry shipibo-conibo icaros healing songs hawaiian mele oli sacred-chant. vocal fry, declaimed, melodic, continuous-phonation. bamako griot jeli compound. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 379,
+  "score": 161.575,
   "config": {
     "traditions": [
       "yoruba_iremoje",
       "shipibo_icaros",
-      "mapuche_tayil_ritual"
+      "hawaiian_oli_mele"
     ],
     "instruments": [
       {
@@ -22,10 +22,10 @@
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "legato_voice",
-          "voice_microtone": "blue_notes",
+          "voice_microtone": "tempered_voice",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
@@ -34,27 +34,27 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 2.6,
-          "voice_quality": 11.764999999999999,
+          "voice_register": 3.25,
+          "voice_quality": 13.065,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.21,
+          "voice_vibrato": 1.365,
           "voice_articulation": 2.7949999999999995,
-          "voice_microtone": 0.39,
-          "voice_tradition": 47.44999999999998,
-          "voice_mechanism_compound": 11.655000000000001,
-          "voice_estill_quality": 6.5649999999999995,
-          "voice_speech_song": 19.305,
-          "voice_ensemble_config": 18.2,
-          "voice_ornament_system": 9.579999999999998,
-          "voice_pitch_organization": 23.884999999999994,
-          "voice_processing_chain": 6.759999999999999,
-          "voice_multitrack_stack": 4.875
+          "voice_microtone": 1.1049999999999995,
+          "voice_tradition": 45.95499999999999,
+          "voice_mechanism_compound": 10.405000000000001,
+          "voice_estill_quality": 3.7700000000000005,
+          "voice_speech_song": 21.515,
+          "voice_ensemble_config": 17.875,
+          "voice_ornament_system": 10.229999999999997,
+          "voice_pitch_organization": 22.734999999999996,
+          "voice_processing_chain": 6.305,
+          "voice_multitrack_stack": 4.68
         }
       }
     ],
     "room": "bamako_griot_jeli_compound",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

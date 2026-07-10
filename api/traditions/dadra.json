@@ -3,9 +3,9 @@
   "name": "Dadra (Hindustani semi-classical light-vocal)",
   "family": "global",
   "lineage": "Hindustani semi-classical light-vocal genre cast in the dadra tala (six-beat rhythmic cycle, 3+3 grouping) — typically performed at the end of a thumri concert as a lighter-mood companion piece, with romantic-and-devotional Brij Bhasha and Awadhi lyrical content",
-  "recipe": "classic South Asian mid-1930s dadra, improv On Frame, indian classical improv branch, hindu ritual devotional javali kriti. light, declaimed, chest resonance low mid, punctuated. indian rosewood rosewood copper tabla, low overtone rich vocal male harmonium indian, gut 3 main playing strings legato sarangi. varanasi benares gharana baithak. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 414,
-  "score": 241.822,
+  "recipe": "classic South Asian early-1950s dadra, improv On Frame, indian classical improv branch, hindu ritual devotional javali kriti. light, declaimed, chest resonance low mid, punctuated. indian rosewood rosewood copper tabla, low overtone rich vocal male harmonium indian, gut 3 main playing strings legato sarangi. varanasi benares gharana baithak. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe_chars": 410,
+  "score": 246.634,
   "config": {
     "traditions": [
       "dadra",
@@ -101,7 +101,7 @@
       }
     ],
     "room": "varanasi_benares_gharana_baithak",
-    "archetype": "arch_electrical_disc_cut",
+    "archetype": "arch_hmv_dumdum_raga",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_tube_german_v72",

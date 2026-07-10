@@ -3,9 +3,9 @@
   "name": "Czech písnička",
   "family": "global",
   "lineage": "Czech songwriter folk-poetic song tradition codified through Karel Kryl (the émigré protest voice of the 1968 Prague Spring), Jaromír Nohavica (the working-class storyteller), Vladimír Mišík (the rock-adjacent variant), Hutka, the Plastic People of the Universe (samizdat psychedelic-rock variant), and the broader Czech literary-poetic song tradition under and after Communist rule",
-  "recipe": "classic Central European late-1960s czech písnička, ballad Poetry, Slavic bard branch, chanson fado ballad poetry morna cape verdean batuko of santiago island. thick, lament wail, melodic, punctuated. martin lifespan fingerpicked acoustic guitar. prague state label studio 1948-present mid tier prague supraphon studio. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
-  "recipe_chars": 407,
-  "score": 155.192,
+  "recipe": "classic Central European late-1960s czech písnička, ballad Poetry, Slavic bard branch, chanson fado ballad poetry morna cape verdean batuko of santiago island. thick, lament wail, melodic, punctuated. martin lifespan fingerpicked acoustic guitar. prague state label studio 1948-present mid tier prague supraphon studio. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 442,
+  "score": 147.792,
   "config": {
     "traditions": [
       "czech_pisnicka",
@@ -73,7 +73,7 @@
       }
     ],
     "room": "prague_supraphon_studio",
-    "archetype": "arch_german_diy_converted",
+    "archetype": "arch_comecon_state_label",
     "inline_chain": {
       "mic": "dynamic_mic",
       "pre": "pre_tube_german_v72",

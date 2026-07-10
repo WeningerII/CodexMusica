@@ -3,9 +3,9 @@
   "name": "Romanian doina (free-rhythm lament)",
   "family": "global",
   "lineage": "Romanian doina free-rhythm extended-melismatic lament-and-pastoral solo vocal-or-instrumental tradition of Romania and Moldova. Performance: solo unaccompanied voice (or solo violin, solo wooden-flute caval, or solo wooden-clarinet) in characteristic free-rhythm parlando-rubato style with extensive ornamental-melismatic figuration on long vowels. The doina has multiple regional sub-traditions: doină de jale (lament-doina), doină ciobănească (shepherd-doina), doină haiducească (outlaw-doina), and doină de dragoste (love-doina), each with characteristic regional intonation conventions. Distinguished from broader Romanian folk-song by doina's strict free-rhythm extended-melismatic structural requirement.",
-  "recipe": "classic Southern European modern romanian doina, ballad Poetry, med east poetic branch, vocal drone modal armenian duduk-accompanied chant skolt sámi leuʹdd. vocal fry, declaimed, nervy, ornamental. silver wound lamb gut core sitka spruce hard rock maple acer saccharum violin orchestral, softer tone ebonite hard rubber klezmer tradition clarinet, rubato free rhythm cobza, rubato glissando nai romanian. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 626,
-  "score": 277.8,
+  "recipe": "classic Southern European early-1890s romanian doina, ballad Poetry, med east poetic branch, vocal drone modal armenian duduk-accompanied chant skolt sámi leuʹdd. vocal fry, declaimed, nervy, ornamental. silver wound lamb gut core sitka spruce hard rock maple acer saccharum violin orchestral, softer tone ebonite hard rubber klezmer tradition clarinet, rubato free rhythm cobza, rubato glissando nai romanian. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. acoustic horn. wax cylinder.",
+  "recipe_chars": 530,
+  "score": 261.775,
   "config": {
     "traditions": [
       "romanian_doina",
@@ -72,7 +72,7 @@
           "orch_top_wood": 4.225,
           "orch_back_wood": 2.475,
           "orch_varnish": 2.575,
-          "orch_setup_period": 3.3475,
+          "orch_setup_period": 1.3975,
           "orch_bow": 0.65,
           "orch_bow_stick": 2.6100000000000003,
           "orch_articulation": 1.4949999999999999,
@@ -124,7 +124,7 @@
       }
     ],
     "room": "naples_canzone_napoletana_studio",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_wax_cylinder_ethnographic",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

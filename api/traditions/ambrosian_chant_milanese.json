@@ -3,9 +3,9 @@
   "name": "Ambrosian chant (Milan rite)",
   "family": "classical",
   "lineage": "Liturgical chant of the Ambrosian rite of Milan, attributed in legend to Saint Ambrose (Bishop of Milan 374-397), preserved in continuous use in the Archdiocese of Milan and adjacent dioceses of Lombardy (Italy) and Lugano (Switzerland). Distinguished from Gregorian chant by Ambrosian's distinct repertoire (with different proper-of-the-mass texts and melodic content), the eight Ambrosian modes (related to but distinct from Gregorian modes), and Milanese-specific liturgical structure. Survived medieval-and-Tridentine liturgical reforms as one of only two surviving Latin liturgical-music-traditions.",
-  "recipe": "classic mid-1930s ambrosian chant, ritual Devotional, christian gospel branch, western early art music ars antiqua and organum renaissance sacred polyphony. thick, declaimed, melodic, ornamental. a cappella small 3 to 8 one per part four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. parish church. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 440,
-  "score": 167.865,
+  "recipe": "classic European early-1950s ambrosian chant, ritual Devotional, christian gospel branch, western early art music ars antiqua and organum renaissance sacred polyphony. thick, declaimed, melodic, ornamental. a cappella small 3 to 8 one per part four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. parish church. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+  "recipe_chars": 453,
+  "score": 172.54,
   "config": {
     "traditions": [
       "ambrosian_chant_milanese",
@@ -69,7 +69,7 @@
       }
     ],
     "room": "stone_parish_church",
-    "archetype": "arch_electrical_disc_cut",
+    "archetype": "arch_church_location_early_music",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "tube_pre",

@@ -3,20 +3,20 @@
   "name": "Old Norse galdr incantation",
   "family": "global",
   "lineage": "Old Norse galdr was a form of magical charm-chanting practiced across Viking-Age and medieval Scandinavia and Iceland, attested in Eddic poems such as Hávamál (the Ljóðatal charm-list), Grógaldr, and Sigrdrífumál. The verb gala ('to crow, screech') gives the genre its name, and the associated meter galdralag (an incantatory variant of ljóðaháttr with a repeated fourth line) marks its heightened, metrically-bound delivery. Charms were intoned by a specialist to bind, heal, curse, or raise the dead, often paired with runic inscription. Modern knowledge derives from the Poetic Edda manuscript tradition and philological reconstruction rather than sound recordings; contemporary Heathen revival practice reconstructs delivery from these textual sources.",
-  "recipe": "classic modern old norse galdr incantation, ritual Devotional, indigenous branch onmyōdō incantation shipibo-conibo icaros healing songs. thick, declaimed, tasteful, punctuated. forest clearing. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 324,
-  "score": 152.127,
+  "recipe": "classic modern old norse galdr incantation, ritual Devotional, indigenous branch onmyōdō incantation old norse seiðr ritual vocalization. vocal fry, declaimed, tasteful, punctuated. forest clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 261,
+  "score": 132.524,
   "config": {
     "traditions": [
       "norse_galdr",
       "onmyodo_incantation",
-      "shipibo_icaros"
+      "norse_seidr"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "vocal_fry",
           "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -29,32 +29,32 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_unison_double_take"
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 1.8050000000000002,
-          "voice_quality": 13.463999999999999,
+          "voice_register": 4.946999999999999,
+          "voice_quality": 12.588999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.6315,
+          "voice_vibrato": 2.1315,
           "voice_articulation": 1.836,
           "voice_microtone": 2.535,
-          "voice_tradition": 19.110000000000003,
-          "voice_mechanism_compound": 12.9565,
-          "voice_estill_quality": 9.197499999999998,
-          "voice_speech_song": 26.162500000000005,
-          "voice_ensemble_config": 25.415,
-          "voice_ornament_system": 11.775,
-          "voice_pitch_organization": 1.9825000000000002,
-          "voice_processing_chain": 4.68,
-          "voice_multitrack_stack": 2.652
+          "voice_tradition": 14.852500000000001,
+          "voice_mechanism_compound": 11.8315,
+          "voice_estill_quality": 8.7425,
+          "voice_speech_song": 24.34250000000001,
+          "voice_ensemble_config": 23.79,
+          "voice_ornament_system": 10.900000000000002,
+          "voice_pitch_organization": 2.0909999999999997,
+          "voice_processing_chain": 3.38,
+          "voice_multitrack_stack": 7.267499999999999
         }
       }
     ],
     "room": "forest_clearing",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

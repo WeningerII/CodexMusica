@@ -3,9 +3,9 @@
   "name": "Medieval Latin chant and Notre Dame organum",
   "family": "classical",
   "lineage": "Medieval Western European liturgical music tradition spanning monophonic Gregorian chant (canonized late ninth century, eight church modes, Latin liturgical text) and the early-polyphonic organum that emerged from it. Ninth-century parallel organum (the chant doubled at the fifth or fourth, with optional octave doubling); twelfth-century melismatic organum (the chant slowed to drone-tone in the lower voice while the upper voice elaborates ornamentally over each chant pitch). The Notre Dame school, Paris, c.1160-1250, codified the rhythmic-modes system and expanded to three-and-four-voice organum: Léonin (c.1135-1201), credited with the Magnus Liber Organi (the great book of organum), set the two-voice canonical repertoire; Pérotin (fl. c.1200), expanded to three and four voices and composed canonical large-scale organum-quadruplum settings of Viderunt omnes (1198) and Sederunt principes. Cantus firmus practice: the chant melody remains in one voice (typically the tenor) while the other voices counterpoint above. Anonymous IV (English theorist, c.1270s, his treatise survives in a thirteenth-century Bury St Edmunds manuscript) preserves the attribution of these works to Léonin and Pérotin. Distinguished from Renaissance sacred polyphony by limited-voice-count and modal-not-tonal harmonic vocabulary; distinguished from Byzantine chant by Latin-language and Roman-rite cantus-firmus framing; distinguished from Old Roman chant by Frankish-redacted melodic-formulae lineage",
-  "recipe": "classic early-1160s medieval latin chant and notre dame organum, art Music, western early branch, christian gospel anglican choral anglican choral evensong. thick, declaimed, melodic, ornamental. a cappella small 3 to 8 one per part four voice polyphonic regional kakhetian three voice two soloists choral drone choir ensemble, double rank octave doubled chant doubling portative organ, late medieval dance driving gut bourdon drone vielle medieval. cathedral. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 590,
-  "score": 271.594,
+  "recipe": "classic European early-1160s medieval latin chant and notre dame organum, art Music, western early branch, christian gospel anglican choral anglican choral evensong. thick, declaimed, melodic, ornamental. a cappella small 3 to 8 one per part four voice polyphonic regional kakhetian three voice two soloists choral drone choir ensemble, double rank octave doubled chant doubling portative organ, late medieval dance driving gut bourdon drone vielle medieval. cathedral. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+  "recipe_chars": 544,
+  "score": 261.344,
   "config": {
     "traditions": [
       "medieval_latin_chant_organum",
@@ -98,7 +98,7 @@
       }
     ],
     "room": "cathedral",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_church_location_early_music",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

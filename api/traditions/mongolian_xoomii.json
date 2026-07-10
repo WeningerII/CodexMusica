@@ -3,9 +3,9 @@
   "name": "Khöömii (Mongolian overtone singing)",
   "family": "global",
   "lineage": "Mongolian throat-singing overtone-vocal-technique tradition, the canonical method of simultaneous fundamental-and-formant-overtone production via aryepiglottic-fold steppe-narrowing of the throat. Eight named sub-techniques: kharkhiraa deep-low-fundamental-with-loud-overtones, sygyt high-melodic-overtone-isolation, ezengileer rhythmic-jaw-vibration, dumchuktaar nasal-passage technique, shahaa fluttering-overtone-modulation, khoomei middle-register basic-style, bagalzuuryn-khoomei smooth-style, and khamryn-khoomei nostril-and-mouth combined-resonance. Practiced traditionally by Western-Mongolian Khalkha-Oirat herder communities, contextualized within nomadic-pastoralist horse-and-livestock work-song repertoire and shamanic-spirit-communication ritual.",
-  "recipe": "classic Northeast Asian modern khöömii, drone Modal, overtone branch, buddhist ritual devotional beompae shōmyō. m1 modal compound with overtone tuning khoomei foundational mechanism 8th to 12th partial overtone range himalayan ritual chant subharmonic monastic throat singing voice, long song morin khuur sycamore canonical mongolian horsehair 118 130 strands morin khuur, traditional mongolian tuvan tradition tovshuur. mongolian ger interior. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 575,
-  "score": 82.929,
+  "recipe": "classic Northeast Asian modern khöömii, drone Modal, overtone branch, buddhist ritual devotional beompae shōmyō. m1 modal compound with overtone tuning khoomei foundational mechanism 8th to 12th partial overtone range himalayan ritual chant subharmonic monastic throat singing voice, long song morin khuur sycamore canonical mongolian horsehair 118 130 strands morin khuur, traditional mongolian tuvan tradition tovshuur. mongolian ger interior. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 508,
+  "score": 80.454,
   "config": {
     "traditions": [
       "mongolian_xoomii",
@@ -56,7 +56,7 @@
       }
     ],
     "room": "mongolian_ger_interior",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

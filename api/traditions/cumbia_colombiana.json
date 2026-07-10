@@ -3,9 +3,9 @@
   "name": "Cumbia colombiana",
   "family": "global",
   "lineage": "Colombian Caribbean-coast cortejo-procession couple-dance tradition originating mid-17th-century onward in Cartagena-and-Barranquilla Atlantic-coastal-region from Afro-Indigenous-Spanish fusion (enslaved-Africans-of-the-Bantu-Yoruba diaspora + Zenú-Wayuu Indigenous-coast + Spanish colonial Catholic-feast-day procession). The canonical conjunto-de-cumbia ensemble: gaitas Indigenous-Wayuu vertical-clay-and-cane flutes (gaita-macho lead, gaita-hembra accompaniment), tambor-mayor low-bass-drum (African-derived), llamador high-pulse-drum, alegre middle-improvisation-drum, maracas-and-guache shakers. The cumbia-clave 4-beat pattern emphasizes beats 1 and 3 (the conga-pattern echo). The 1940s-1960s commercial-mainstream cumbia adaptation by big-band-with-accordion-and-brass (cumbia-de-orquesta) spread Colombian-cumbia internationally; the 1960s-onward Peruvian-Mexican-and-Argentine cumbia-variants emerged from this diaspora.",
-  "recipe": "classic South American mid-1940s cumbia colombiana, groove Percussion, Latin am branch, tropical song functional song kompa garifuna paranda and hungu-hungu. thick, full chest belt, chest resonance low mid, narrative. castagnari Italian premium folk music accordion, gaita macho rhythmic drone gaita deep barrel coastal cumbia head and shell steady pulse tambora colombiana, ampeg b15 amp American 60s bass amp flip top character mahogany pyramid electric bass, traditional gourd guiro, traditional gourd calabash maracas, cumbia lead gaita ensemble tambor alegre. colombian canon 1934-present mid tier discos fuentes medellin. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 737,
-  "score": 313.349,
+  "recipe": "classic South American mid-1940s cumbia colombiana, groove Percussion, Latin am branch, tropical song functional song kompa garifuna paranda and hungu-hungu. thick, full chest belt, chest resonance low mid, narrative. castagnari Italian premium folk music accordion, gaita macho rhythmic drone gaita deep barrel coastal cumbia head and shell steady pulse tambora colombiana, ampeg b15 amp American 60s bass amp flip top character mahogany pyramid electric bass, traditional gourd guiro, traditional gourd calabash maracas, cumbia lead gaita ensemble tambor alegre. colombian canon 1934-present mid tier discos fuentes medellin. shure SM57, transformer-coupled solid-state pre, colored vintage console, optical compressor. tape 15ips spring reverb.",
+  "recipe_chars": 747,
+  "score": 312.224,
   "config": {
     "traditions": [
       "cumbia_colombiana",
@@ -157,7 +157,7 @@
       }
     ],
     "room": "discos_fuentes_medellin",
-    "archetype": "arch_early_tape_havana",
+    "archetype": "arch_discos_fuentes_tropical",
     "inline_chain": {
       "mic": "mic_sm57_dynamic_shure",
       "pre": "transformer_solid_state",

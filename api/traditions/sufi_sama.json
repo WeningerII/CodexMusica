@@ -3,9 +3,9 @@
   "name": "Sufi sama (Indian-subcontinental Sufi devotional ceremony)",
   "family": "global",
   "lineage": "Chishti-order Sufi devotional ceremony tradition centered on sama (Arabic for listening), the practice of group listening to qawwali-style devotional poetry-singing as a path toward divine union; performed at dargah (Sufi shrine) settings across the Indian subcontinent, with the Nizamuddin Auliya shrine in Delhi and the Khwaja Moinuddin Chishti shrine in Ajmer as the principal pilgrimage sites",
-  "recipe": "classic North African mid-1930s sufi sama, ritual Devotional, Sufi branch, Persian arab improv improv on frame, indian classical improv improv on frame iraqi maqam tarab. vocal fry, declaimed, chest resonance low mid, maqam neutral step. indian rosewood rosewood copper tabla, vocal female harmonium indian, gut 3 main playing strings legato sarangi, qawwal voice, walnut bent frame canonical Iranian goat skin canonical Sufi tar frame drum. fez andalusi palace riad. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 540,
-  "score": 229.538,
+  "recipe": "classic North African early-1940s sufi sama, ritual Devotional, Sufi branch, Persian arab improv improv on frame, indian classical improv improv on frame iraqi maqam tarab. vocal fry, declaimed, chest resonance low mid, maqam neutral step. indian rosewood rosewood copper tabla, vocal female harmonium indian, gut 3 main playing strings legato sarangi, qawwal voice, walnut bent frame canonical Iranian goat skin canonical Sufi tar frame drum. fez andalusi palace riad. large-diaphragm condenser, tube pre, German tube console, vari-mu, passive program EQ. tape 15ips echo spring reverb.",
+  "recipe_chars": 587,
+  "score": 231.393,
   "config": {
     "traditions": [
       "sufi_sama",
@@ -115,21 +115,21 @@
         "slots": {
           "percussion_technique": "percussion_hands_layered",
           "tar_size": "tar_large",
-          "tar_frame_drum_context": "tar_frame_drum_sufi",
+          "tar_frame_drum_context": "tar_frame_drum_art",
           "tar_frame_shell_wood": "tar_frame_walnut",
           "tar_frame_head": "tar_frame_goat_skin"
         },
         "scores": {
           "percussion_technique": -0.1,
           "tar_size": 6.910499999999999,
-          "tar_frame_drum_context": 2.2805,
+          "tar_frame_drum_context": 3.5100000000000002,
           "tar_frame_shell_wood": 4.42,
           "tar_frame_head": 7.5729999999999995
         }
       }
     ],
     "room": "fez_andalusi_palace_riad",
-    "archetype": "arch_electrical_disc_cut",
+    "archetype": "arch_emi_pakistan_lollywood",
     "inline_chain": {
       "mic": "mic_u47_tube_neumann",
       "pre": "tube_pre",

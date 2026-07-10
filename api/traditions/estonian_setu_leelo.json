@@ -3,9 +3,9 @@
   "name": "Estonian Setu leelo polyphonic song",
   "family": "global",
   "lineage": "Estonian Setu leelo polyphonic women's-song tradition of the Setu region (southeast Estonia and adjacent Pechory district of Russia). The Setu are a distinct Estonian-and-Russian-borderland Finno-Ugric ethnic group whose linguistic-cultural identity preserves archaic Finno-Ugric features lost in mainstream Estonian. Leelo is performed by a women's group with the lead singer (sõnoline, \"the word-singer\") improvising the verse text and melodic line, answered by the choral group (torrõ, \"the resonators\") in unison or in a sustained drone-bourdon below the melodic line. The drone configuration distinguishes leelo from neighboring Baltic polyphonic traditions: the torrõ chorus holds a sustained pedal-tone while the sõnoline elaborates above, producing a drone-and-melodic-elaboration register more akin to certain Slavic and Central-Asian traditions than to the parallel-second sutartinė style. Vocabulary draws on a regional Estonian-Setu pentatonic-leaning modal system. Verse-form is Kalevala-meter (the canonical Finno-Ugric four-stress eight-syllable line shared with the Finnish-Karelian Kalevala epic). Repertoire spans calendar-rite celebrations, wedding-cycle songs (Setu weddings featured the most elaborated leelo repertoire, with sung-confrontation-and-praise sequences between bride-and-groom parties), funeral-lament cycles, and the contemporary Värska-Obinitsa Setu cultural-festival circuit. Mipu Music MIPUCD 104 — Setusongs (1991, recorded May 1990) provides the canonical Western-distributed documentation. Distinguished from Lithuanian sutartinės by Setu leelo's drone-and-melody (vs Lithuanian parallel-seconds) configuration; distinguished from Karelian rune-singing by Setu's antiphonal-with-drone (vs Karelian's strict-alternation) architecture; distinguished from mainland Estonian regilaul by Setu-dialect-specific vocabulary and Estonian-Russian-borderland regional context.",
-  "recipe": "classic Northern European early-1990s estonian setu leelo polyphonic song, drone Modal, vocal branch, indigenous ritual devotional inuit katajjaq throat-singing game mapuche tayil genealogical chant. kargyraa, declaimed, melodic, callresponse articulation. setu farmhouse wood. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 407,
-  "score": 231.175,
+  "recipe": "classic Northern European early-1990s estonian setu leelo polyphonic song, drone Modal, vocal branch, indigenous ritual devotional inuit katajjaq throat-singing game mapuche tayil genealogical chant. kargyraa, declaimed, melodic, callresponse articulation. setu farmhouse wood. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 340,
+  "score": 209.35,
   "config": {
     "traditions": [
       "estonian_setu_leelo",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "setu_farmhouse_wood",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

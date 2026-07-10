@@ -3,9 +3,9 @@
   "name": "Currulao (Colombian Pacific)",
   "family": "global",
   "lineage": "Afro-Colombian marimba-and-percussion ensemble tradition of Pacific coastal region (Chocó, Valle del Cauca, Cauca, Nariño departments) and adjacent Ecuadorian Pacific coast. Marimba de chonta (wooden marimba with bamboo resonators), bombo and cununo drums, guasá tubular shakers, voice (often female-lead with chorus).",
-  "recipe": "classic Andean modern currulao, groove Percussion, Latin am branch, Brazilian groove percussion maracatu pagode. thick, intimate aspirated, chest resonance low mid, equal tempered. two player palm wood bamboo tubes marimba de chonta, bombo andino. bogota colombian andean studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 409,
-  "score": 100.177,
+  "recipe": "classic Andean modern currulao, groove Percussion, Latin am branch, Brazilian groove percussion maracatu pagode. thick, intimate aspirated, chest resonance low mid, equal tempered. two player palm wood bamboo tubes marimba de chonta, bombo andino. bogota colombian andean studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 342,
+  "score": 97.715,
   "config": {
     "traditions": [
       "currulao_pacifico",
@@ -80,7 +80,7 @@
       }
     ],
     "room": "bogota_colombian_andean_studio",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

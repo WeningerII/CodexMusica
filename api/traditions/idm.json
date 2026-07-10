@@ -3,9 +3,9 @@
   "name": "IDM and experimental electronic",
   "family": "electronic",
   "lineage": "Early-1990s onward experimental-electronic genre intentionally constructed for headphone listening rather than club-dance use, characterized by complex broken-beat programming, glitchy textural sound design, and the post-acid-house compositional ambition — codified through Aphex Twin (Selected Ambient Works 85-92 in 1992, Richard D. James Album 1996), Autechre (Tri Repetae 1995), Boards of Canada (Music Has the Right to Children 1998), Squarepusher, the Warp Records Artificial Intelligence series",
-  "recipe": "classic 1990-1993 idm and experimental electronic, experimental Elec, idm glitch branch, musique concrete experimental electric. drum machine analog, pad like pad analog synth, sampler drum machine. treated studio. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette TC electronic 2290 delay pitch shifter ring modulator.",
-  "recipe_chars": 364,
-  "score": 23.231,
+  "recipe": "classic Asian 1990-1993 idm and experimental electronic, experimental Elec, idm glitch branch, musique concrete experimental electric. drum machine analog, pad like pad analog synth, sampler drum machine. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay TC electronic 2290 delay pitch shifter ring modulator.",
+  "recipe_chars": 408,
+  "score": 23.831,
   "config": {
     "traditions": [
       "idm"
@@ -60,7 +60,7 @@
       }
     ],
     "room": "treated_studio",
-    "archetype": "arch_pre_daw_electronic_pioneer",
+    "archetype": "arch_hk_cantopop_ballad_factory",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "transformer_solid_state",

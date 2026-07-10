@@ -3,9 +3,9 @@
   "name": "Old Norse skaldic recitation",
   "family": "global",
   "lineage": "Court-poetry recitation of the Viking-Age and medieval Scandinavian skald, the named professional poet attached to a king or jarl who composed and delivered praise-poems (drapa) in the intricate drottkvaett 'court metre' — a syllable-counting, internally-rhymed, alliterative stanza dense with kennings and heiti. Flourishing c. 9th-13th centuries in Norway and Iceland, the corpus survives through Icelandic manuscript transmission, above all Snorri Sturluson's Prose Edda (Skaldskaparmal) and the kings' sagas (Heimskringla), where verses of skalds such as Egill Skallagrimsson and Bragi Boddason are quoted. Delivery was fixed spoken declamation of an exactly-wrought text rather than improvised song.",
-  "recipe": "classic modern old norse skaldic recitation, ballad Poetry, Slavic bard branch jeju haenyeo songs latvian dainas. thick, declaimed, melodic, narrative. wooden barn. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 294,
-  "score": 124.124,
+  "recipe": "classic modern old norse skaldic recitation, ballad Poetry, Slavic bard branch jeju haenyeo songs latvian dainas. thick, declaimed, melodic, narrative. wooden barn. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 227,
+  "score": 110.299,
   "config": {
     "traditions": [
       "old_norse_skaldic",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "wooden_barn",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

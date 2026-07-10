@@ -3,9 +3,9 @@
   "name": "American drinking song (frat, sea-shanty-derived, country)",
   "family": "global",
   "lineage": "American drinking-song tradition continuous from 18th-19th century English-Irish-and-Scottish-imported drinking-song-and-sea-shanty repertoire through 19th-century American-frontier and Civil-War-era expansion through 20th-century college-fraternity drinking-song-and-country-music drinking-song lineage into modern American continuous bar-and-roadhouse practice; foundational repertoire includes \"99 Bottles of Beer,\" \"Show Me the Way to Go Home,\" \"Beer Barrel Polka,\" \"Drink to Me Only with Thine Eyes\"",
-  "recipe": "classic modern american drinking song, drinking Song, americas branch, European drinking song, americana country, atlantic Southeast Asian shanty gothic americana gothic country. thick, low dynamic level, melodic, continuous-phonation. dadgad tuning martin lifespan sealed travis picked dreadnought acoustic guitar, wood fluorocarbon modern open back scruggs stelling bluegrass setup banjo 5 string, pearwood marine band tradition double brass chromatic canon suzuki Japanese modern precision harmonica. irish pub. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 644,
-  "score": 306.072,
+  "recipe": "classic modern american drinking song, drinking Song, americas branch, European drinking song, americana country, atlantic Southeast Asian shanty gothic americana gothic country. thick, low dynamic level, melodic, continuous-phonation. dadgad tuning martin lifespan sealed travis picked dreadnought acoustic guitar, wood fluorocarbon modern open back scruggs stelling bluegrass setup banjo 5 string, pearwood marine band tradition double brass chromatic canon suzuki Japanese modern precision harmonica. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 577,
+  "score": 299.798,
   "config": {
     "traditions": [
       "american_drinking_song",
@@ -121,7 +121,7 @@
       }
     ],
     "room": "irish_pub",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

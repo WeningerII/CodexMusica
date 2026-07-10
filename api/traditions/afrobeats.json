@@ -3,9 +3,9 @@
   "name": "Afrobeats",
   "family": "global",
   "lineage": "The Afrobeats tradition — contemporary West African (chiefly Nigerian and Ghanaian) pop built on log-drum and percussion grooves, melodic vocals, and global pop production; distinct from the earlier Afrobeat of Fela Kuti",
-  "recipe": "classic African modern afrobeats, functional Song, African pop branch. extended whistle, melodic, narrative, equal tempered. TR-808, singing lead analog poly synth, sampler drum machine. large tropical 1965-1985 mid-major EMI. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 356,
-  "score": 81.307,
+  "recipe": "classic African modern afrobeats, functional Song, African pop branch. extended whistle, melodic, narrative, equal tempered. TR-808, singing lead analog poly synth, sampler drum machine. large tropical 1965-1985 mid-major EMI. FET condenser, transformerless solid-state pre, brick-wall limiter. lossy MP3 autotune digital delay.",
+  "recipe_chars": 328,
+  "score": 81.207,
   "config": {
     "traditions": [
       "afrobeats"
@@ -55,7 +55,7 @@
         "slots": {
           "tr808_voice": "tr808_clap",
           "drum_machine_808_context": "drum_machine_808_rb",
-          "tr808_production_origin": "tr808_behringer_clone"
+          "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
           "tr808_voice": 0,
@@ -95,7 +95,7 @@
       }
     ],
     "room": "studio_emi_lagos_african",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_lagos_afrobeats_digital",
     "inline_chain": {
       "mic": "condenser_fet",
       "pre": "pre_avalon_v737",

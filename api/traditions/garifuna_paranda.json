@@ -3,9 +3,9 @@
   "name": "Paranda (Garifuna)",
   "family": "global",
   "lineage": "Garifuna (Black-Carib) Spanish-Latin-influenced ballad tradition performed across the Garifuna diaspora in Belize, Honduras, Guatemala, Nicaragua, and the Garifuna emigrant communities in New York and Los Angeles — codified through Andy Palacio (the Belizean Garifuna paranda voice, 2007 Wátina album, his death in 2008 marking the end of the second-generation paranda era), Aurelio Martinez, the broader Stonetree Records catalog",
-  "recipe": "classic Caribbean late-2000s paranda, ritual Devotional, Afro-diasporic branch, west African griot ballad poetry hausa court music wassoulou. thick, declaimed, tasteful, equal tempered. cedar concert modern carbon fiber fingerpicked classical nylon-string guitar, plastic synthetic maracas. trinidad calypso panyard outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 454,
-  "score": 95.28,
+  "recipe": "classic Caribbean late-2000s paranda, ritual Devotional, Afro-diasporic branch, west African griot ballad poetry hausa court music wassoulou. thick, declaimed, tasteful, equal tempered. cedar concert modern carbon fiber fingerpicked classical nylon-string guitar, plastic synthetic maracas. trinidad calypso panyard outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 387,
+  "score": 85.98,
   "config": {
     "traditions": [
       "garifuna_paranda",
@@ -84,7 +84,7 @@
       }
     ],
     "room": "trinidad_calypso_panyard_outdoor",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

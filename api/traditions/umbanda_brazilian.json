@@ -3,9 +3,9 @@
   "name": "Umbanda ceremonial",
   "family": "global",
   "lineage": "Rio and São Paulo 1908-onward syncretic Afro-Catholic-spiritualist liturgical tradition founded by Zélio Fernandino de Moraes (1908 first session) — fusing Catholic saints, candomblé orixás, Kardecist spiritualism, and Indigenous Brazilian ancestor cults; characterized by the gira ceremonial circle, pontos-cantados invocation songs, atabaque drum accompaniment, and the caboclo / preto-velho / criança guide-spirit roles",
-  "recipe": "classic Southern American modern umbanda ceremonial, ritual Devotional, Afro-diasporic branch, Brazilian groove percussion pagode baião. thick, intimate aspirated, punctuated, equal tempered. atabaque, a cappella small 3 to 8 one per part sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble. bahian terreiro outdoor. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 425,
-  "score": 77.405,
+  "recipe": "classic Southern American modern umbanda ceremonial, ritual Devotional, Afro-diasporic branch, Brazilian groove percussion pagode baião. thick, intimate aspirated, punctuated, equal tempered. atabaque, a cappella small 3 to 8 one per part sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble. bahian terreiro outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 415,
+  "score": 79.962,
   "config": {
     "traditions": [
       "umbanda_brazilian",
@@ -49,7 +49,7 @@
           "voice_ornament_system": 3.65,
           "voice_pitch_organization": 0.7149999999999997,
           "voice_processing_chain": 6.11,
-          "voice_multitrack_stack": 1.6574999999999995
+          "voice_multitrack_stack": 4.2575
         }
       },
       {
@@ -57,12 +57,12 @@
         "slots": {
           "atabaque_role": "atabaque_rum",
           "atabaque_skin": "atabaque_cowhide",
-          "atabaque_shell_wood": "atabaque_cedrillo"
+          "atabaque_shell_wood": "atabaque_oak_staved"
         },
         "scores": {
           "atabaque_role": 0.39,
           "atabaque_skin": 0.195,
-          "atabaque_shell_wood": 0.15
+          "atabaque_shell_wood": 0.195
         }
       },
       {
@@ -82,7 +82,7 @@
       }
     ],
     "room": "bahian_terreiro_outdoor",
-    "archetype": "arch_electrical_disc_cut",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "dynamic_mic",
       "pre": "pre_field_recorder_portable",

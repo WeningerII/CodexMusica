@@ -3,9 +3,9 @@
   "name": "Balinese gamelan",
   "family": "classical",
   "lineage": "Balinese Hindu-syncretic bronze-percussion ensemble tradition descended from the same Javanese gamelan lineage but diverged sharply 14th-century onward into a faster-tempo brighter-tuned (panca-nada five-tone but at higher pitch register) more virtuosic-rhythmic ensemble idiom. The major sub-traditions: gamelan-gong-kebyar 1915-onward 20th-century innovation with explosive-tutti starts-and-stops, gamelan-semar-pegulingan slower-court-elegant-style, gamelan-gambuh oldest-court-dance-accompaniment, gamelan-angklung four-tone-bamboo-rattle ensemble for cremation-ceremonies, and gamelan-jegog deep-bass bamboo-xylophone West-Bali variant. The interlocking kotekan two-instrument-paired hocket-figuration creates the characteristic Balinese rhythmic-texture impossible in solo execution.",
-  "recipe": "classic Southeast Asian modern balinese gamelan, art Music, southeast Asian branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. kargyraa, declaimed, melodic, punctuated. pentatonic slendro tuning saron gamelan, gender, bonang, gamelan balinese paired male female jackwood barrel canonical javanese balinese buffalo hide rattan lacing canonical javanese kendang indonesian, slendro tuning kenong, bamboo rattan band fipple canonical javanese balinese suling, gamelan balinese full. balinese banjar courtyard. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 692,
-  "score": 230.276,
+  "recipe": "classic Southeast Asian modern balinese gamelan, art Music, southeast Asian branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. kargyraa, declaimed, melodic, punctuated. pentatonic slendro tuning saron gamelan, gender, bonang, gamelan balinese paired male female jackwood barrel canonical javanese balinese buffalo hide rattan lacing canonical javanese kendang indonesian, slendro tuning kenong, bamboo rattan band fipple canonical javanese balinese suling, gamelan balinese full. balinese banjar courtyard. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 637,
+  "score": 218.451,
   "config": {
     "traditions": [
       "balinese_gamelan",
@@ -137,7 +137,7 @@
       }
     ],
     "room": "balinese_banjar_courtyard",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_nagra_ethnographic_field",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

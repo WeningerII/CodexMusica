@@ -3,9 +3,9 @@
   "name": "Italo house",
   "family": "global",
   "lineage": "Late-1980s and early-1990s Italian house tradition codified through Black Box \"Ride on Time\" (1989), Cappella, FPI Project, Quartz — characterized by major-key euphoric piano-stab figures, female diva-vocal samples (often uncleared at the time), and the Italo-disco euphoric production aesthetic",
-  "recipe": "classic 1987-1989 italo house, electronic Dance, italo house branch, continental electronic dance disco. thick, chest mix belt, chest resonance low mid, narrative. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, digital subtractive, TR-909, sampler. treated studio. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
-  "recipe_chars": 404,
-  "score": 155.111,
+  "recipe": "classic Asian 1987-1989 italo house, electronic Dance, italo house branch, continental electronic dance disco. thick, chest mix belt, chest resonance low mid, narrative. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, digital subtractive, TR-909, sampler. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+  "recipe_chars": 448,
+  "score": 155.536,
   "config": {
     "traditions": [
       "italo_house_piano",
@@ -121,7 +121,7 @@
       }
     ],
     "room": "treated_studio",
-    "archetype": "arch_pre_daw_electronic_pioneer",
+    "archetype": "arch_hk_cantopop_ballad_factory",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "transformer_solid_state",

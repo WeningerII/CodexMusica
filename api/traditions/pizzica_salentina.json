@@ -3,9 +3,9 @@
   "name": "Pizzica salentina (Salento spider-dance)",
   "family": "global",
   "lineage": "Pizzica salentina Southern Italian folk-dance-and-music tradition of the Salento peninsula (southern Puglia), historically tied to the tarantismo ritual-healing tradition where the pizzica dance ostensibly cured tarantism. Characterized by fast 12/8 or 6/8 meter, virtuoso tamburello frame-drum lead, and characteristic call-and-response courtship-and-warrior-dance choreography. Performance contexts include the annual Notte della Taranta festival in Melpignano (founded 1998, now drawing 200,000+ attendees), the canonical Salento-village wedding-and-festival cycle, and (post-2000) the international neo-folk revival circuit. Distinguished from Neapolitan tarantella by pizzica's Salentine regional dialect register and slower tempo-of-instrumental-acceleration arc.",
-  "recipe": "classic Southern European late-1990s pizzica salentina, ballad Poetry, Mediterranean ballad branch, indigenous ritual devotional, Brazilian groove percussion shipibo-conibo icaros healing songs mapuche tayil genealogical chant. thick, declaimed, pure, punctuated. tambourine orch, bowl back Italian Italian alpine spruce brescian calace big leaf maple modern American mandolin, sitka spruce spirit varnish shellac alcohol violin orchestral. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 661,
-  "score": 206.69,
+  "recipe": "classic Southern European late-1990s pizzica salentina, ballad Poetry, Mediterranean ballad branch, indigenous ritual devotional, Brazilian groove percussion shipibo-conibo icaros healing songs mapuche tayil genealogical chant. thick, declaimed, pure, punctuated. tambourine orch, bowl back Italian Italian alpine spruce brescian calace big leaf maple modern American mandolin, sitka spruce spirit varnish shellac alcohol violin orchestral. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 594,
+  "score": 191.03,
   "config": {
     "traditions": [
       "pizzica_salentina",
@@ -72,7 +72,7 @@
           "mandolin_back": "big_leaf_maple",
           "mandolin_bracing": "mandolin_parallel_tone_bars_loar",
           "mandolin_strings": "martin_m_mandolin",
-          "mandolin_fingerboard": "mandolin_ebony_fb",
+          "mandolin_fingerboard": "mandolin_brazilian_rosewood_fb",
           "mandolin_pickup": "mandolin_k_k_twin_internal"
         },
         "scores": {
@@ -82,7 +82,7 @@
           "mandolin_back": 1.3,
           "mandolin_bracing": 0.585,
           "mandolin_strings": 0.6900000000000001,
-          "mandolin_fingerboard": 1.3,
+          "mandolin_fingerboard": 1.69,
           "mandolin_pickup": 25.610000000000003
         }
       },
@@ -115,7 +115,7 @@
       }
     ],
     "room": "naples_canzone_napoletana_studio",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

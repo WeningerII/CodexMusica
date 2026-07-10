@@ -3,9 +3,9 @@
   "name": "Romanian cântece de tors (spinning songs)",
   "family": "global",
   "lineage": "Romanian spinning-song (cântece de tors) tradition continuous from premodern Romanian-rural domestic-textile-labor practice through 19th-century Romanian-folklorist documentation through 20th-century Béla Bartók Romanian-folk-collection canonical into modern Romanian-folk-revival continuous practice",
-  "recipe": "classic Northern European modern romanian cântece de tors, domestic Rhythm, Slavic baltic branch, Celtic hebridean domestic rhythm, Slavic balkan field work, European lullaby irish spinning song sardinian boci de tela. thick, false fold engaged, tasteful, continuous-phonation. setu farmhouse wood. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 428,
-  "score": 109.139,
+  "recipe": "classic Northern European modern romanian cântece de tors, domestic Rhythm, Slavic baltic branch, Celtic hebridean domestic rhythm, Slavic balkan field work, European lullaby irish spinning song sardinian boci de tela. thick, false fold engaged, tasteful, continuous-phonation. setu farmhouse wood. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 361,
+  "score": 103.264,
   "config": {
     "traditions": [
       "romanian_cantece_de_tors",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "setu_farmhouse_wood",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

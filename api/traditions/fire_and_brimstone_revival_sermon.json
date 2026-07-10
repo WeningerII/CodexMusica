@@ -3,9 +3,9 @@
   "name": "Fire-and-brimstone revival sermon",
   "family": "blues_gospel",
   "lineage": "Hortatory evangelical preaching of the American revival and camp-meeting tradition, marked by vivid imagery of judgment and hellfire delivered at high projected volume in rhythmic, accelerating cadences. Traces from the 18th-century Great Awakening (Jonathan Edwards's Sinners in the Hands of an Angry God, 1741) through the 19th-century frontier camp meetings to the 20th-century tent-revival and radio evangelists such as Billy Sunday and Oral Roberts. The delivery relies on repeated exhortation, dramatic pauses, and congregational punctuation with cries of amen and hallelujah. It is a foundational strand of Protestant evangelical oratory in the United States.",
-  "recipe": "classic early-1740s fire-and-brimstone revival sermon, ritual Devotional, christian gospel branch bluegrass gospel southern gospel quartet. thick, declaimed, chest resonance low mid, ornamental. country church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 340,
-  "score": 219.677,
+  "recipe": "classic early-1740s fire-and-brimstone revival sermon, ritual Devotional, christian gospel branch bluegrass gospel southern gospel quartet. thick, declaimed, chest resonance low mid, ornamental. country church. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 273,
+  "score": 209.552,
   "config": {
     "traditions": [
       "fire_and_brimstone_revival_sermon",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "wooden_country_church",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

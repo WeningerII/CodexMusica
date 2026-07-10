@@ -3,9 +3,9 @@
   "name": "Polish poezja śpiewana and Solidarność-era protest (1960s-1980s)",
   "family": "global",
   "lineage": "Polish poezja śpiewana (\"sung poetry\") and piosenka literacka (\"literary song\") protest-song tradition continuous from 1960s-1980s Communist-era Polish political-songwriter scene; centered on Jacek Kaczmarski (the Solidarność-aligned songwriter-bard whose \"Mury\" 1978 became the Solidarność anthem), Przemysław Gintrowski, Zbigniew Łapiński, Wojciech Bellon",
-  "recipe": "classic Central European polish poezja śpiewana and solidarność-era protest, protest Song, European branch, anglo American protest song, Slavic bard ballad poetry, chanson fado ballad poetry american folk-revival protest song morna. thick, lament wail, melodic, continuous-phonation. martin lifespan fingerpicked acoustic guitar. warsaw state label studio 1956-1990 mid tier polish polskie nagrania muza. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 534,
-  "score": 133.75,
+  "recipe": "classic Central European polish poezja śpiewana and solidarność-era protest, protest Song, European branch, anglo American protest song, Slavic bard ballad poetry, chanson fado ballad poetry american folk-revival protest song morna. thick, lament wail, melodic, continuous-phonation. martin lifespan fingerpicked acoustic guitar. warsaw state label studio 1956-1990 mid tier polish polskie nagrania muza. dynamic moving-coil, tube pre. Walkman cassette.",
+  "recipe_chars": 453,
+  "score": 135.225,
   "config": {
     "traditions": [
       "polish_sung_poetry_protest",
@@ -49,7 +49,7 @@
           "voice_ornament_system": 1.6999999999999997,
           "voice_pitch_organization": 3.9800000000000004,
           "voice_processing_chain": 5.799999999999999,
-          "voice_multitrack_stack": 9.664999999999997
+          "voice_multitrack_stack": 11.664999999999997
         }
       },
       {
@@ -73,7 +73,7 @@
       }
     ],
     "room": "polish_polskie_nagrania_muza",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_soviet_magnitizdat",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

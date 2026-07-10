@@ -3,9 +3,9 @@
   "name": "Afrobeats (Naija)",
   "family": "global",
   "lineage": "Nigerian (with Ghanaian and broader West African parallel development) urban popular music genre that emerged in the 2000s and went global from 2017 onward through Burna Boy (Pan-African genre-fusion), Wizkid (the Drake collaboration Come Closer 2017, then the 2020 album Made in Lagos), Davido, Tems, Tiwa Savage, Rema, Asake — distinguished from Fela Kutis original 1970s Afrobeat by 30-40 BPM faster tempo, digital production foundation, hip-hop-influenced song structure, and broader pop-radio commercial register",
-  "recipe": "classic African mid-2000s afrobeats, functional Song, African pop branch, west African groove percussion, Afro-diasporic MC rhythm hiplife jùjú. extended whistle, rap, melodic, narrative. roland tr 8s modern aira digital recreation TR-808, singing lead analog poly synth, sampled chopped sampler drum machine. large tropical 1965-1985 mid-major EMI. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 479,
-  "score": 170.746,
+  "recipe": "classic African mid-2000s afrobeats, functional Song, African pop branch, west African groove percussion, Afro-diasporic MC rhythm hiplife jùjú. extended whistle, rap, melodic, narrative. roland tr 8s modern aira digital recreation TR-808, singing lead analog poly synth, sampled chopped sampler drum machine. large tropical 1965-1985 mid-major EMI. FET condenser, transformerless solid-state pre, brick-wall limiter. lossy MP3 autotune digital delay.",
+  "recipe_chars": 451,
+  "score": 170.646,
   "config": {
     "traditions": [
       "afrobeats_naija",
@@ -97,7 +97,7 @@
       }
     ],
     "room": "studio_emi_lagos_african",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_lagos_afrobeats_digital",
     "inline_chain": {
       "mic": "condenser_fet",
       "pre": "pre_avalon_v737",

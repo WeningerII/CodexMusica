@@ -3,9 +3,9 @@
   "name": "Cantopop",
   "family": "global",
   "lineage": "Hong Kong Cantonese-language mainstream pop, codified through the late-1970s Sam Hui and the early-1990s Four Heavenly Kings — Jacky Cheung, Andy Lau, Aaron Kwok, Leon Lai — characterized by ballad-heavy repertoire, film-tie-in song format, and the post-handover (1997) industry that absorbed and merged with the mainland Mandarin pop market",
-  "recipe": "classic East Asian 1977-1979 cantopop, functional Song, east Asian pop branch, pop rock functional song new wave yacht rock. thick, chest mix belt, chest resonance low mid, equal tempered. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, mahogany pre muffled edge muffled hot rolled annealed drum kit, singing lead analog poly synth. hong kong flagship 1980-2000 mid tier hong kong cantopop studio 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 786,
-  "score": 766.052,
+  "recipe": "classic East Asian 1977-1979 cantopop, functional Song, east Asian pop branch, pop rock functional song new wave yacht rock. thick, chest mix belt, chest resonance low mid, equal tempered. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, mahogany pre muffled edge muffled hot rolled annealed drum kit, sequential lineage canonical prophet 5 1978 san jose ca lead analog poly synth. hong kong flagship 1980-2000 mid tier hong kong cantopop studio 80s. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+  "recipe_chars": 821,
+  "score": 768.27,
   "config": {
     "traditions": [
       "cantopop",
@@ -166,18 +166,18 @@
           "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_16_voice",
-          "poly_maker_lineage": "poly_roland_jupiter"
+          "poly_maker_lineage": "poly_sequential_smith"
         },
         "scores": {
           "electronic_technique": 26.534999999999997,
           "poly_archetypes": 12.025,
           "poly_voices": 1.0799999999999998,
-          "poly_maker_lineage": 0.7149999999999999
+          "poly_maker_lineage": 2.795
         }
       }
     ],
     "room": "hong_kong_cantopop_studio_80s",
-    "archetype": "arch_80s_late_analog_majorrock",
+    "archetype": "arch_hk_cantopop_ballad_factory",
     "inline_chain": {
       "mic": "mic_u87_condenser_neumann",
       "pre": "transformer_solid_state",

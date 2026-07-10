@@ -3,9 +3,9 @@
   "name": "Polynesian himene tarava (Tahitian / Cook-Island congregational polyphony)",
   "family": "global",
   "lineage": "Tahitian and Cook-Island congregational polyphonic Christian-hymn tradition that emerged through the post-1797 London Missionary Society Protestant evangelization of French Polynesia — fusing pre-contact Polynesian vocal practice with Western hymn-text structure; the canonical himene tarava is a three-or-more-voice unaccompanied congregational form sung by maohi communities across Tahiti, Moorea, Raiatea, and the Cook Islands, with named voice-parts including the marû (high female voice carrying ornament), the tahito (text-leading voice), the haamana (bass anchor), and the falsetto-break leo-kiekie octave-leap as a deliberate ornament-figure; parallel forms include Tahitian aparima (sung-with-gesture form), ute (humorous improvisational form), and Cook-Island ute and akaau congregational hymns; preserved through annual Heiva i Tahiti festival competition and the Cook Islands National Arts Theatre cultural-preservation infrastructure",
-  "recipe": "classic late-1790s polynesian himene tarava, ritual Devotional, indigenous branch, vocal drone modal georgian three-voice polyphony bulgarian women's choir. vocal fry, declaimed, overtone rich sustained, continuous-phonation. mixed satb canonical 4 part western three voice polyphonic regional kakhetian three voice two soloists choral drone global traditional polyphonic choir ensemble. country church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 533,
-  "score": 253.034,
+  "recipe": "classic late-1790s polynesian himene tarava, ritual Devotional, indigenous branch, vocal drone modal georgian three-voice polyphony bulgarian women's choir. vocal fry, declaimed, overtone rich sustained, continuous-phonation. mixed satb canonical 4 part western three voice polyphonic regional kakhetian three voice two soloists choral drone global traditional polyphonic choir ensemble. country church. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 466,
+  "score": 247.534,
   "config": {
     "traditions": [
       "polynesian_himene_tarava",
@@ -69,7 +69,7 @@
       }
     ],
     "room": "wooden_country_church",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

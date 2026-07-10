@@ -3,9 +3,9 @@
   "name": "Arabic hakawati coffeehouse storytelling",
   "family": "global",
   "lineage": "Traditional Arab coffeehouse storytelling of the Levant, Egypt and the wider Arab world, in which the hakawati ('teller') serialises long popular epics — the Sirat Bani Hilal, the exploits of Antar ibn Shaddad, Baybars, and tales from the Thousand and One Nights — across nightly installments, often reading from a chapbook while embellishing in performance. Seated on a raised chair with a cane or sword as prop, the teller times cliffhangers to the audience and the coffee trade; the art was near-extinct by the late twentieth century and is associated with figures such as Damascus's Abu Shadi (Rashid al-Hallak). Delivery is expressive spoken narration marked by direct address, formulaic openings and pious interjection.",
-  "recipe": "classic North African modern arabic hakawati coffeehouse storytelling, ballad Poetry, med east poetic branch cape verdean batuko of santiago island jeju haenyeo songs. thick, declaimed, chest resonance low mid, narrative. stone plaster medina room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 378,
-  "score": 164.837,
+  "recipe": "classic North African modern arabic hakawati coffeehouse storytelling, ballad Poetry, med east poetic branch cape verdean batuko of santiago island jeju haenyeo songs. thick, declaimed, chest resonance low mid, narrative. stone plaster medina room. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 311,
+  "score": 141.187,
   "config": {
     "traditions": [
       "arabic_hakawati",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "stone_plaster_medina_room",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

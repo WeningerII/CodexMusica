@@ -3,9 +3,9 @@
   "name": "Balkan brass (fanfara, Roma-Serbian-Macedonian)",
   "family": "global",
   "lineage": "Balkan brass ensemble tradition of southern Serbia (Vranje, Užice regions), western Bulgaria, and northern Macedonia, performed by predominantly Roma musicians at weddings, funerals, and the canonical annual Guča Brass Band Festival in southern Serbia (founded 1961). Performance configuration: ensemble of 6-12 brass instruments (trumpets, trombones, tubas, flugelhorns) plus tapan large double-headed cylindrical drum, playing characteristic Balkan asymmetrical-meter (5/8, 7/8, 9/8, 11/8) rhythmic-cycles with virtuosic ornamental melodic-line. The genre crystallized in nineteenth-century Ottoman-period military-band tradition adapted into the post-Ottoman Balkan civilian-popular-celebration context. Distinguished from neighboring Albanian saze and Greek nisiotika by Balkan brass's brass-ensemble (vs string-and-clarinet) instrumental signature.",
-  "recipe": "classic Southern European early-1960s balkan brass, functional Song, europop branch, west African groove percussion indonesian jaipongan mbalax. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble large cup large rim trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor ensemble bass leaning trombone, compact tuba brass yellow brass canonical orchestral rotary valves canonical German orchestral besson sovereign British brass band tuba, bolt tuned tapan, grenadilla African blackwood traditional clarinet. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 830,
-  "score": 143.023,
+  "recipe": "classic Southern European early-1960s balkan brass, functional Song, europop branch, west African groove percussion indonesian jaipongan mbalax. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble large cup large rim trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor ensemble bass leaning trombone, compact tuba brass yellow brass canonical orchestral rotary valves canonical German orchestral besson sovereign British brass band tuba, bolt tuned tapan, grenadilla African blackwood traditional clarinet. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. large-diaphragm condenser, German V72 tube pre, Neve transformer console, LA-2A optical, Neve inductor EQ. tape 15ips plate reverb spring reverb.",
+  "recipe_chars": 846,
+  "score": 138.61,
   "config": {
     "traditions": [
       "balkan_brass_fanfara",
@@ -106,7 +106,7 @@
       }
     ],
     "room": "naples_canzone_napoletana_studio",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_jugoton_yugoslav",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

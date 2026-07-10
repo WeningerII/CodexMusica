@@ -3,26 +3,26 @@
   "name": "Golden-age radio drama",
   "family": "global",
   "lineage": "American network radio drama of the 1930s-1950s: full-cast actors performing live-to-air around ribbon microphones in large broadcast studios, with foley artists creating door slams, footsteps, and storms in real time and organ or orchestra cues stitching scenes together. The canonical exemplar is Orson Welles's Mercury Theatre on the Air, whose 'The War of the Worlds' broadcast (CBS, 30 October 1938) demonstrated the form's power, alongside Norman Corwin's poetic productions and long-running series such as Suspense and The Shadow. A parallel BBC radio drama tradition continued in Britain after American network drama faded with television in the late 1950s. Actors worked the mic distance itself as a dramatic instrument, stepping in for intimacy and off-axis for exits.",
-  "recipe": "classic North American 1957-1959 golden-age radio drama, spoken Word, broadcast branch guided meditation asmr whisper and trigger audio. vocal fry, intimate aspirated, chest resonance low mid, blues inflected. voluminous 1935-1955 major-flagship swing live room. passive ribbon, tube pre, German tube console. Studer 30ips tape.",
-  "recipe_chars": 328,
-  "score": 76.696,
+  "recipe": "classic North American 1957-1959 golden-age radio drama, spoken Word, broadcast branch podcast conversation sports play-by-play commentary. extended whistle, low dynamic level, chest resonance low mid, rhythmic. voluminous 1935-1955 major-flagship swing live room. RCA 44-BX, calrec BBC-broadcast pre, BBC broadcast console, Telefunken u73b broadcast comp, broadcast loudness EQ. AM-radio broadcast.",
+  "recipe_chars": 399,
+  "score": 94.085,
   "config": {
     "traditions": [
       "radio_drama_golden_age",
-      "guided_meditation",
-      "asmr_whisper_triggers"
+      "podcast_conversation",
+      "sports_play_by_play"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
-          "voice_quality": "aspirated_voice",
+          "voice_register": "extended_whistle_register",
+          "voice_quality": "crooner_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "spoken_voice",
-          "voice_microtone": "blue_notes",
+          "voice_microtone": "bend_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -34,27 +34,27 @@
           "voice_multitrack_stack": "voice_multitrack_granular_texture"
         },
         "scores": {
-          "voice_register": 0.845,
-          "voice_quality": 1.5599999999999996,
+          "voice_register": 1.56,
+          "voice_quality": 3.185000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.845,
-          "voice_articulation": 0.34125000000000005,
-          "voice_microtone": 0.845,
-          "voice_tradition": 6.175,
-          "voice_mechanism_compound": 6.759999999999999,
-          "voice_estill_quality": 6.5649999999999995,
-          "voice_speech_song": 17.095,
-          "voice_ensemble_config": 18.979999999999997,
-          "voice_ornament_system": 2.6650000000000005,
-          "voice_pitch_organization": 3.38,
-          "voice_processing_chain": 5.85,
-          "voice_multitrack_stack": 1.69
+          "voice_vibrato": 1.69,
+          "voice_articulation": 0.845,
+          "voice_microtone": 0.78,
+          "voice_tradition": 7.865000000000001,
+          "voice_mechanism_compound": 7.6049999999999995,
+          "voice_estill_quality": 7.41,
+          "voice_speech_song": 17.29,
+          "voice_ensemble_config": 17.224999999999998,
+          "voice_ornament_system": 0.7149999999999999,
+          "voice_pitch_organization": 1.69,
+          "voice_processing_chain": 7.540000000000001,
+          "voice_multitrack_stack": 2.535
         }
       }
     ],
     "room": "studio_swing_live_room",
-    "archetype": "arch_swing_era_live_studio",
+    "archetype": "arch_network_radio_broadcast",
     "inline_chain": {
       "mic": "mic_rca_44bx_ribbon",
       "pre": "tube_pre",

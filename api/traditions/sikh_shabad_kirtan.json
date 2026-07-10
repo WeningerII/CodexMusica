@@ -3,9 +3,9 @@
   "name": "Sikh shabad kirtan (Gurbani praise)",
   "family": "global",
   "lineage": "Sikh devotional kirtan tradition continuous from 15th-16th century Guru-Nanak-era Sikh-spiritual-music foundation through codification under Guru Arjan and continuous performance through 17th-19th century historical-Punjab-region into modern Sikh-and-Sikh-diaspora practice; the kirtan ensemble accompanies shabad (Gurbani-scriptural) text-recitation in gurdwara context",
-  "recipe": "classic South Asian modern sikh shabad kirtan, praise Song, indian subcontinent branch, middle east n African praise song, hindu ritual devotional, indian classical improv improv on frame sufi munajat and naat arabic madh and qasida. thick, declaimed, chest resonance low mid, continuous-phonation. treble-extended vocal female harmonium indian, indian rosewood rosewood copper tabla, suited to female vocal bronze steel mix wooden body miraj style tanpura. golden temple amritsar gurdwara. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 620,
-  "score": 246.315,
+  "recipe": "classic South Asian mid-1980s sikh shabad kirtan, praise Song, indian subcontinent branch, middle east n African praise song, hindu ritual devotional, indian classical improv improv on frame sufi munajat and naat arabic madh and qasida. thick, declaimed, chest resonance low mid, continuous-phonation. treble-extended vocal female harmonium indian, indian rosewood rosewood copper tabla, suited to female vocal bronze steel mix wooden body miraj style tanpura. golden temple amritsar gurdwara. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay.",
+  "recipe_chars": 632,
+  "score": 240.14,
   "config": {
     "traditions": [
       "sikh_shabad_kirtan",
@@ -101,7 +101,7 @@
       }
     ],
     "room": "golden_temple_amritsar_gurdwara",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_tseries_cassette_devotional",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

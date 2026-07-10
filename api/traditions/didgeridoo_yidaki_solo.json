@@ -3,14 +3,13 @@
   "name": "Yidaki solo (Aboriginal Australian)",
   "family": "global",
   "lineage": "Northeast Arnhem Land Yolŋu ceremonial trumpet tradition — the yidaki (the Yolŋu Matha language name for the instrument that English speakers call didgeridoo) is the Aboriginal Australian ceremonial pipe, played through continuous circular breathing with vocalizations and tongue articulations producing complex polyrhythmic textures; deeply tied to Yolŋu manikay ceremonial song tradition and the broader Aboriginal Australian songline cosmology — 20th-century preservation through Djalu Gurruwiwi (the yidaki master and ceremonial-knowledge holder), Mark Atkins, the Yothu Yindi yidaki tradition extended into popular-music context",
-  "recipe": "classic Oceanian modern yidaki solo, drone Modal, wind pipe branch, indigenous ritual devotional aboriginal didgeridoo solo songlines shipibo-conibo icaros healing songs. eucalyptus tetrodonta yidaki canon northeast arnhem drone like circular breathing didgeridoo. arctic arnhem indigenous outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 428,
-  "score": 63.896,
+  "recipe": "classic Oceanian modern yidaki solo, drone Modal, wind pipe branch, indigenous ritual devotional aboriginal didgeridoo solo songlines. eucalyptus tetrodonta yidaki canon northeast arnhem drone like circular breathing didgeridoo. arctic arnhem indigenous outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 325,
+  "score": 51.396,
   "config": {
     "traditions": [
       "didgeridoo_yidaki_solo",
-      "australian_didgeridoo_yidaki_extended",
-      "shipibo_icaros"
+      "australian_didgeridoo_yidaki_extended"
     ],
     "instruments": [
       {
@@ -23,14 +22,14 @@
         },
         "scores": {
           "wind_articulation": 14.090833333333332,
-          "didj_material": 19.974999999999998,
-          "didj_mouthpiece": 16.495,
-          "didj_technique": 8.334999999999999
+          "didj_material": 18.674999999999997,
+          "didj_mouthpiece": 15.195,
+          "didj_technique": 7.185
         }
       }
     ],
     "room": "arctic_arnhem_indigenous_outdoor",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

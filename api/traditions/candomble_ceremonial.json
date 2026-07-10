@@ -3,9 +3,9 @@
   "name": "Candomblé ceremonial",
   "family": "global",
   "lineage": "Bahian Yoruba-Nagô / Bantu-Jeje liturgical drumming tradition of the orixá-honoring terreiro — codified through the early-19th-century Yoruba and Fon enslaved-people religious continuity in Salvador, formalized through the Casa Branca, Gantois, and Ilê Axé Opô Afonjá foundational terreiros; characterized by the rum-rumpi-lê three-drum ensemble, agogô bell, and chants in Yoruba-derived liturgical language",
-  "recipe": "classic Southern American mid-1930s candomblé ceremonial, ritual Devotional, Afro-diasporic branch, Brazilian groove percussion maracatu pagode. thick, intimate aspirated, chest resonance low mid, equal tempered. jacaranda canonical bahian candomble atabaque, agogo, a cappella small 3 to 8 one per part call response single leader group response kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble, afoxe. bahian terreiro outdoor. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 540,
-  "score": 117.89,
+  "recipe": "classic Southern American modern candomblé ceremonial, ritual Devotional, Afro-diasporic branch, Brazilian groove percussion maracatu pagode. thick, intimate aspirated, chest resonance low mid, equal tempered. jacaranda canonical bahian candomble atabaque, agogo, a cappella small 3 to 8 one per part call response single leader group response kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble, afoxe. bahian terreiro outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 527,
+  "score": 119.305,
   "config": {
     "traditions": [
       "candomble_ceremonial",
@@ -31,7 +31,7 @@
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_single_lead"
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
           "voice_register": 3.6500000000000012,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 4.525,
           "voice_pitch_organization": 11.889999999999999,
           "voice_processing_chain": 4.615,
-          "voice_multitrack_stack": 1.4300000000000002
+          "voice_multitrack_stack": 2.9575
         }
       },
       {
@@ -102,7 +102,7 @@
       }
     ],
     "room": "bahian_terreiro_outdoor",
-    "archetype": "arch_electrical_disc_cut",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "dynamic_mic",
       "pre": "pre_field_recorder_portable",

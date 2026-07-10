@@ -3,9 +3,9 @@
   "name": "Zulu izibongo (praise-poetry)",
   "family": "global",
   "lineage": "Zulu izibongo praise-poetry tradition continuous from pre-colonial Zulu royal-court praise-singer (imbongi) practice through 19th-century Shaka-kaSenzangakhona-era continuous performance into modern South-African Zulu cultural-practice; the imbongi is the hereditary praise-poetry-and-political-orator role",
-  "recipe": "classic Southern African modern zulu izibongo, praise Song, sub saharan African branch, oceania pacific praise song, west African griot ballad poetry, African pop isicathamiya māori waiata mōteatea / patere. thick, declaimed, tasteful, continuous-phonation. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 472,
-  "score": 163.21,
+  "recipe": "classic Southern African modern zulu izibongo, praise Song, sub saharan African branch, oceania pacific praise song, west African griot ballad poetry, African pop isicathamiya māori waiata mōteatea / patere. thick, declaimed, tasteful, continuous-phonation. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 405,
+  "score": 153.835,
   "config": {
     "traditions": [
       "zulu_izibongo",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "johannesburg_gallo_african_studios",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

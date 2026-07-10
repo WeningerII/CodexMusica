@@ -3,9 +3,9 @@
   "name": "Apache hunting-medicine song (Native American)",
   "family": "global",
   "lineage": "Apache-and-broader-Native-American hunting-medicine song tradition continuous from premodern Indigenous-North-American hunting-and-ritual practice through colonial-era continuous performance into modern Native-American continuous practice",
-  "recipe": "classic Midwestern American modern apache hunting-medicine song, hunting Song, indigenous branch, arctic hunting song, sub saharan African hunting song, indigenous ritual devotional mongolian böö shamanic invocation shipibo-conibo icaros healing songs. kargyraa, declaimed, tasteful, continuous-phonation. powwow drum circle. plains northern powwow drum circle outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 499,
-  "score": 155.08,
+  "recipe": "classic Midwestern American early-1890s apache hunting-medicine song, hunting Song, indigenous branch, arctic hunting song, sub saharan African hunting song, indigenous ritual devotional mongolian böö shamanic invocation shipibo-conibo icaros healing songs. kargyraa, declaimed, melodic, continuous-phonation. powwow drum circle. plains northern powwow drum circle outdoor. acoustic horn. wax cylinder.",
+  "recipe_chars": 402,
+  "score": 139.89,
   "config": {
     "traditions": [
       "apache_hunting_medicine",
@@ -20,7 +20,7 @@
           "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "legato_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "polynesian_oli_tradition",
@@ -38,7 +38,7 @@
           "voice_quality": 11.199999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
+          "voice_vibrato": 0.975,
           "voice_articulation": 5.069999999999999,
           "voice_microtone": 0.6499999999999998,
           "voice_tradition": 29.119999999999997,
@@ -65,7 +65,7 @@
       }
     ],
     "room": "plains_northern_powwow_drum_circle_outdoor",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_wax_cylinder_ethnographic",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

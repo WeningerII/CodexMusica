@@ -3,9 +3,9 @@
   "name": "Sardinian cantu a tenore and launeddas",
   "family": "global",
   "lineage": "Sardinian-interior pastoral traditional music — comprising cantu a tenore four-voice male polyphony (with the four voices sa oghe lead, sa mesu oghe upper third, su contra contra at the fifth, su bassu, Sardinian guttural-throated bass) and launeddas (the unique Sardinian triple-pipe instrument made of three cane pipes simultaneously circular-breathed by a single player, dating from the Nuragic civilization c. 1500 BCE); preserved in the Barbagia, Marghine, Logudoro, Goceano regions through 20th-century tenore quartets and launeddas players like Efisio Melis, Antonio Lara, Luigi Lai",
-  "recipe": "classic Southern European early-1500s sardinian cantu a tenore and launeddas, ballad Poetry, Mediterranean ballad branch, vocal drone modal macedonian glasoechko male diaphonic alpine yodel. kargyraa, false fold engaged, melodic, hocket articulation. cane arundo donax three pipes canonical sardinian archaic idioglottic single reeds canonical sardinian drone like circular breathing launeddas, m1 modal compound with overtone tuning khoomei foundational mechanism 8th to 12th partial overtone range Mediterranean pastoral polyphonic subharmonic bassu throat singing voice. sardinian outdoor a tenore polyphony. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 741,
-  "score": 245.448,
+  "recipe": "classic Southern European early-1500s sardinian cantu a tenore and launeddas, ballad Poetry, Mediterranean ballad branch, vocal drone modal macedonian glasoechko male diaphonic alpine yodel. kargyraa, false fold engaged, melodic, hocket articulation. cane arundo donax three pipes canonical sardinian archaic idioglottic single reeds canonical sardinian drone like circular breathing launeddas, m1 modal compound with overtone tuning khoomei foundational mechanism 8th to 12th partial overtone range Mediterranean pastoral polyphonic subharmonic bassu throat singing voice. sardinian outdoor a tenore polyphony. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 674,
+  "score": 235.972,
   "config": {
     "traditions": [
       "sardinian_traditional",
@@ -84,7 +84,7 @@
       }
     ],
     "room": "sardinian_outdoor_a_tenore_polyphony",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

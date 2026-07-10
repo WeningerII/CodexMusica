@@ -3,9 +3,9 @@
   "name": "Scottish coronach (Highland lament)",
   "family": "global",
   "lineage": "Scottish Highland mourning-song tradition continuous from medieval clan-mourning practice (the coronach was performed at the head of the funeral procession by family-women and was supplemented by the pìobaireachd piped lament from the Great Highland bagpipes); documented in 18th-19th century Highland-Romantic literature and continued partially through Gaelic-folk-revival",
-  "recipe": "classic Northern European modern scottish coronach, funeral Lament, European branch, wind pipe drone modal, Celtic balladic ballad poetry, vocal drone modal sean-nós solo singing child ballad revival. thick, incomplete closure resting, melodic, narrative. African blackwood grenadilla canonical Scottish cane drone reeds traditional arundo donax melodic highland bagpipes. scottish bothy farmhouse kitchen. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 536,
-  "score": 138.963,
+  "recipe": "classic Northern European modern scottish coronach, funeral Lament, European branch, wind pipe drone modal, Celtic balladic ballad poetry, vocal drone modal sean-nós solo singing child ballad revival. thick, incomplete closure resting, melodic, narrative. African blackwood grenadilla canonical Scottish cane drone reeds traditional arundo donax melodic highland bagpipes. scottish bothy farmhouse kitchen. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 469,
+  "score": 131.788,
   "config": {
     "traditions": [
       "scottish_coronach",
@@ -73,7 +73,7 @@
       }
     ],
     "room": "scottish_bothy_farmhouse_kitchen",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

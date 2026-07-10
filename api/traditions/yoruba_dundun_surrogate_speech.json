@@ -3,9 +3,9 @@
   "name": "Yoruba dùndún surrogate speech",
   "family": "global",
   "lineage": "Surrogate-speech practice of the Yoruba dùndún hourglass tension-drum family of southwestern Nigeria, in which the lead ìyá ìlù drummer squeezes the drum's lacing cords to glide pitch across the three tone levels of spoken Yoruba, literally 'talking' proverbs (òwe), oríkì praise epithets, and Ifá verses to listeners who decode the drummed speech. Drumming is the hereditary craft of àyàn lineages, who trace their art to the drum ancestor-spirit Àyàngalú, performing at royal courts, festivals, and ceremonies since at least the era of the Oyo empire. Akin Euba's monograph Yoruba Drumming: The Dùndún Tradition (1990) is the canonical scholarly study, and the idiom feeds directly into the talking-drum roles of jùjú and fújì popular music.",
-  "recipe": "classic early-1990s yoruba dùndún surrogate speech, groove Percussion, west African branch sabar drumming fújì. thick, rap, chest resonance low mid, rhythmic. omo cedrela odorata canonical Yoruba dundun goat skin leather tension cords canonical pressure bend talking drum. field recording. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 419,
-  "score": 179.127,
+  "recipe": "classic early-1990s yoruba dùndún surrogate speech, groove Percussion, west African branch sabar drumming fújì. thick, rap, chest resonance low mid, rhythmic. omo cedrela odorata canonical Yoruba dundun goat skin leather tension cords canonical pressure bend talking drum. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 352,
+  "score": 166.177,
   "config": {
     "traditions": [
       "yoruba_dundun_surrogate_speech",
@@ -69,7 +69,7 @@
       }
     ],
     "room": "field_recording",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

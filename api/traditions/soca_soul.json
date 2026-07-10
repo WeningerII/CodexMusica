@@ -3,9 +3,9 @@
   "name": "Soca soul",
   "family": "global",
   "lineage": "Trinidadian soul-and-soca crossover tradition codified by Lord Shorty’s reinvention of calypso through soca (1973 Endless Vibrations record) — Arrow’s Hot Hot Hot (1982) bringing the form to international audiences, then Machel Montano, Bunji Garlin, Patrice Roberts, and Destra Garcia evolving the canon through the 1990s-2000s",
-  "recipe": "classic mid-1990s soca soul, groove Percussion, Caribbean branch, soul R&B functional song contemporary r&b northern soul and motown. thick, blues-shouter, overtone rich sustained, narrative. Fender blackface amp American 60s amp spring reverb bright pine chicken-scratch single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, walnut pre muffled edge muffled hot rolled annealed drum kit, singing lead analog poly synth, tenor nickel silver bright projecting ensemble honking saxophone, steelpan, arranged cross genre concert stage steel orchestra. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 776,
-  "score": 544.23,
+  "recipe": "classic Caribbean mid-1990s soca soul, groove Percussion, Caribbean branch, soul R&B functional song contemporary r&b northern soul and motown. thick, blues-shouter, overtone rich sustained, narrative. Fender blackface amp American 60s amp spring reverb bright pine chicken-scratch single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, walnut pre muffled edge muffled hot rolled annealed drum kit, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth, tenor nickel silver bright projecting ensemble honking saxophone, steelpan, arranged cross genre concert stage steel orchestra. live tracking. sennheiser MD421, transformer-coupled solid-state pre, MCI JH-636 US 70s indie/jazz, dbx 160 VCA, parametric EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 861,
+  "score": 549.98,
   "config": {
     "traditions": [
       "soca_soul",
@@ -147,7 +147,7 @@
           "electronic_technique": 4.475,
           "poly_archetypes": 0.65,
           "poly_voices": 1.4949999999999999,
-          "poly_maker_lineage": 0.1299999999999999
+          "poly_maker_lineage": 2.73
         }
       },
       {
@@ -197,7 +197,7 @@
       }
     ],
     "room": "live_room",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_trinidad_carnival_soca",
     "inline_chain": {
       "mic": "dynamic_mic",
       "pre": "transformer_solid_state",

@@ -3,9 +3,9 @@
   "name": "Shibuya-kei",
   "family": "global",
   "lineage": "1990s Japanese eclectic-pop subgenre centered on Tokyo’s Shibuya district record-store scene — codified through Pizzicato Five, Cornelius (Keigo Oyamada), Fantastic Plastic Machine, and Kahimi Karie; characterized by sampledelic crate-digger production, sixties-French-pop and bossa-nova references, and ironic-cosmopolitan pop sensibility",
-  "recipe": "classic mid-1990s shibuya-kei, functional Song, east Asian pop branch, pop experimental experimental electric hyperpop. extended whistle, intimate aspirated, equal tempered, modern pop training. field textural sampler, centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric, clean strummed single coil electric guitar, ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, samba bateria. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 616,
-  "score": 370.473,
+  "recipe": "classic Asian mid-1990s shibuya-kei, functional Song, east Asian pop branch, pop experimental experimental electric hyperpop. extended whistle, intimate aspirated, equal tempered, modern pop training. field textural sampler, centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric, clean strummed single coil electric guitar, ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, samba bateria. treated studio. Neumann U87, console-strip pre, SSL inline console, SMART research c1/c2, SSL surgical EQ. 16-bit digital eventide harmonizer TC electronic 2290 delay digital delay.",
+  "recipe_chars": 658,
+  "score": 366.97,
   "config": {
     "traditions": [
       "shibuya_kei",
@@ -30,7 +30,7 @@
           "voice_ornament_system": "voice_ornament_pansori_sigimsae",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
           "voice_register": 31.09375,
@@ -48,7 +48,7 @@
           "voice_ornament_system": 2.2,
           "voice_pitch_organization": 0.6615,
           "voice_processing_chain": 3.6400000000000006,
-          "voice_multitrack_stack": 3.0875000000000004
+          "voice_multitrack_stack": 1.56
         }
       },
       {
@@ -183,7 +183,7 @@
       }
     ],
     "room": "treated_studio",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_tokyo_jpop_hit_factory",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "transformer_solid_state",

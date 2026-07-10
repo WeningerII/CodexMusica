@@ -3,14 +3,14 @@
   "name": "Italian filastrocche (nursery rhymes)",
   "family": "global",
   "lineage": "Italian-language children's play-song (filastrocche) tradition continuous from medieval-and-early-modern Italian folk-play-song origins through 19th-century Italian-unification-era folklore-collection context into modern continuous Italian-and-Italian-diaspora childhood-practice",
-  "recipe": "classic modern italian filastrocche, nursery Rhyme, European branch, European lullaby, americas nursery rhyme, Mediterranean ballad ballad poetry homeric rhapsode recitation brazilian cantigas de roda. thick, low dynamic level, tasteful, continuous-phonation. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 397,
-  "score": 131.207,
+  "recipe": "classic modern italian filastrocche, nursery Rhyme, European branch, European lullaby, americas nursery rhyme, Mediterranean ballad ballad poetry brazilian cantigas de roda spanish and latin american rondas. thick, low dynamic level, tasteful, continuous-phonation. parlor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 336,
+  "score": 127.444,
   "config": {
     "traditions": [
       "italian_filastrocche",
-      "homeric_rhapsode",
-      "brazilian_cantigas_de_roda"
+      "brazilian_cantigas_de_roda",
+      "spanish_rondas"
     ],
     "instruments": [
       {
@@ -24,7 +24,7 @@
           "voice_articulation": "legato_voice",
           "voice_microtone": "shruti_inflected",
           "voice_tradition": "bel_canto_tradition",
-          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
@@ -34,27 +34,27 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 4.33,
+          "voice_register": 5.305,
           "voice_quality": 2.34,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.225,
-          "voice_articulation": 5.914999999999998,
+          "voice_vibrato": 5.723749999999999,
+          "voice_articulation": 7.604999999999999,
           "voice_microtone": 0.045,
-          "voice_tradition": 23.255,
+          "voice_tradition": 21.580000000000002,
           "voice_mechanism_compound": 1.5250000000000001,
-          "voice_estill_quality": 23.115,
-          "voice_speech_song": 18.037499999999998,
-          "voice_ensemble_config": 9.489999999999998,
-          "voice_ornament_system": 22.575,
-          "voice_pitch_organization": 5.914999999999998,
-          "voice_processing_chain": 1.4299999999999997,
-          "voice_multitrack_stack": 0.585
+          "voice_estill_quality": 22.09,
+          "voice_speech_song": 17.289999999999996,
+          "voice_ensemble_config": 10.074999999999998,
+          "voice_ornament_system": 20.900000000000002,
+          "voice_pitch_organization": 7.604999999999999,
+          "voice_processing_chain": 0.78,
+          "voice_multitrack_stack": 0.78
         }
       }
     ],
     "room": "parlor",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

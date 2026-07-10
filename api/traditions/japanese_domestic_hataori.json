@@ -3,9 +3,9 @@
   "name": "Japanese domestic weaving-song (機織り唄, hata-ori uta)",
   "family": "global",
   "lineage": "Japanese domestic weaving-song (hata-ori uta, 機織り唄) tradition continuous from premodern Japanese-rural domestic-textile-labor practice (the canonical Japanese silk-and-cotton weaving was performed predominantly by women at the home-loom, with extensive song-coordination of the throw-the-shuttle-and-pull-the-beater rhythmic-labor) through Edo-period continuous performance into modern Japanese-rural-and-revival continuous practice",
-  "recipe": "classic East Asian modern japanese domestic weaving-song, domestic Rhythm, east Asian arctic branch, Celtic hebridean domestic rhythm, east Asian lullaby, east Asian field work japanese taue-uta japanese komoriuta. thick, incomplete closure resting, tasteful, continuous-phonation. tatami parlor japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 435,
-  "score": 150.619,
+  "recipe": "classic East Asian modern japanese domestic weaving-song, domestic Rhythm, east Asian arctic branch, Celtic hebridean domestic rhythm, east Asian lullaby, east Asian field work japanese taue-uta japanese komoriuta. thick, incomplete closure resting, tasteful, continuous-phonation. tatami parlor japanese. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 368,
+  "score": 142.319,
   "config": {
     "traditions": [
       "japanese_domestic_hataori",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "tatami_parlor_japanese",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

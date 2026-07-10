@@ -3,9 +3,9 @@
   "name": "Yoruba ọmọ-iya nursery and play-song",
   "family": "global",
   "lineage": "Yoruba children's play-song tradition continuous from pre-colonial Yoruba family-and-community-rearing practice through 19th-20th century continuous performance into modern Yoruba-and-Yoruba-diaspora childhood-practice across southwestern Nigeria, Benin, Togo, and the Atlantic Afro-diaspora",
-  "recipe": "classic modern yoruba ọmọ-iya nursery and play-song, nursery Rhyme, sub saharan African branch, sub saharan African praise song, americas nursery rhyme zulu izibongo mande jeli / griot praise-song. extended whistle, declaimed, tasteful, continuous-phonation. field recording. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 405,
-  "score": 219.495,
+  "recipe": "classic modern yoruba ọmọ-iya nursery and play-song, nursery Rhyme, sub saharan African branch, sub saharan African praise song, americas nursery rhyme zulu izibongo mande jeli / griot praise-song. extended whistle, declaimed, tasteful, continuous-phonation. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 338,
+  "score": 211.42,
   "config": {
     "traditions": [
       "yoruba_omo_iya",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "field_recording",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

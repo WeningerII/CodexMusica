@@ -3,9 +3,9 @@
   "name": "Tuvan sygyt high-whistle overtone",
   "family": "global",
   "lineage": "Tuvan sygyt high-whistle overtone-singing tradition of the Republic of Tuva. The sygyt technique produces a clear, piercing whistle-tone in the upper harmonic-series range (typically the eighth through twelfth partials above the fundamental) by tightly constricting the lips and tongue to filter a single overtone out of the harmonic spectrum of a sustained low-register fundamental. The result is a whistle-melody floating two-to-three octaves above the singer's chest-register fundamental drone. Sygyt is the most virtuosic and technically demanding of the Tuvan overtone techniques — masters can sustain a continuous fundamental while producing rapid melodic figures in the whistle-overtone, sometimes with secondary mid-register overtones flickering simultaneously. Performance contexts span solo pastoral, contest contexts at the annual Khoomei-in-the-Center-of-Asia festival in Kyzyl, and international touring. Igil (two-string upright fiddle) or doshpuluur (long-necked plucked lute) sometimes accompany. Anatoli Kuular is among the canonical twentieth-century sygyt masters. Ted Levin's Where Rivers and Mountains Sing (Indiana UP 2006) and Smithsonian Folkways SFW40017 are the principal documentary anchors. Distinguished from Mongolian iisgerekh by Tuvan-Tyva dialect-specific technique nomenclature; distinguished from kargyraa by sygyt's high-overtone (vs kargyraa's subharmonic) register; distinguished from Mongolian khoomei \"narrow\" technique by Tuvan sygyt's more piercing and precisely-pitched whistle-tone configuration.",
-  "recipe": "classic Northeast Asian mid-2000s tuvan sygyt high-whistle overtone, drone Modal, overtone branch, vocal drone modal northern sámi luohti yoik southern sámi vuelie. sygyt, false fold engaged, overtone rich sustained, unrestrained. wood larch canonical tuvan khoomei accompaniment igil. taiga natural reverb. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 437,
-  "score": 380.695,
+  "recipe": "classic Northeast Asian mid-2000s tuvan sygyt high-whistle overtone, drone Modal, overtone branch, vocal drone modal northern sámi luohti yoik southern sámi vuelie. sygyt, false fold engaged, overtone rich sustained, unrestrained. wood larch canonical tuvan khoomei accompaniment igil. taiga natural reverb. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 370,
+  "score": 358.72,
   "config": {
     "traditions": [
       "tuvan_sygyt",
@@ -71,7 +71,7 @@
       }
     ],
     "room": "taiga_natural_reverb",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

@@ -3,9 +3,9 @@
   "name": "Hebridean waulking song (òrain luaidh)",
   "family": "global",
   "lineage": "Scottish-Hebridean Gaelic waulking-song (òrain luaidh) tradition continuous from medieval-and-early-modern Hebridean Gaelic wool-fulling labor practice through 19th-20th century continuous performance into modern Scottish-Gaelic revival",
-  "recipe": "classic Northern European modern hebridean waulking song, domestic Rhythm, Celtic hebridean branch, Slavic baltic domestic rhythm, sub saharan African field work, north Southeast Asian baltic Southeast Asian shanty scottish hebridean iorram mande-wolof west-african harvest-and-field song. vocal fry, declaimed, tasteful, unrestrained. scottish bothy farmhouse kitchen. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 499,
-  "score": 124.789,
+  "recipe": "classic Northern European early-1940s hebridean waulking song, domestic Rhythm, Celtic hebridean branch, Slavic baltic domestic rhythm, sub saharan African field work, north Southeast Asian baltic Southeast Asian shanty scottish hebridean iorram mande-wolof west-african harvest-and-field song. vocal fry, declaimed, tasteful, unrestrained. scottish bothy farmhouse kitchen. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 449,
+  "score": 115.289,
   "config": {
     "traditions": [
       "hebridean_waulking",
@@ -38,7 +38,7 @@
           "voice_quality": 3.588500000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.225,
+          "voice_vibrato": 2.2749999999999995,
           "voice_articulation": 8.125,
           "voice_microtone": 0.8125,
           "voice_tradition": 46.358000000000004,
@@ -54,7 +54,7 @@
       }
     ],
     "room": "scottish_bothy_farmhouse_kitchen",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_nagra_ethnographic_field",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

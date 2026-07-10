@@ -3,9 +3,9 @@
   "name": "Mizrahi (Israeli)",
   "family": "global",
   "lineage": "Israeli Eastern-Jewish popular tradition descended from Yemenite, Iraqi, Moroccan, and Persian Jewish communities — codified through Zohar Argov, Ofra Haza (whose 1988 Im Nin’Alu became an international crossover), Eyal Golan, and the broader Mizrahi recording scene; characterized by Hebrew vocals over Arabic-maqam-derived melodic vocabulary",
-  "recipe": "classic late-1980s mizrahi, functional Song, mid east n African pop branch, Jewish ritual devotional, Persian arab improv improv on frame iraqi maqam malhun. thick, declaimed, chest resonance low mid, maqam neutral step. rosewood premium iraqi Turkish Lebanese cedar eastern Mediterranean pyramid oud, fish skin pre modern Egyptian traditional iraqi maqam zarb drier finger darbuka, mahogany rosewood clean strummed single coil electric guitar, low mid rich spectrum low-mid-thick mahogany electric bass. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 649,
-  "score": 185.732,
+  "recipe": "classic late-1980s mizrahi, functional Song, mid east n African pop branch, Jewish ritual devotional, Persian arab improv improv on frame iraqi maqam malhun. thick, declaimed, chest resonance low mid, maqam neutral step. rosewood premium iraqi Turkish Lebanese cedar eastern Mediterranean pyramid oud, fish skin pre modern Egyptian traditional iraqi maqam zarb drier finger darbuka, mahogany rosewood clean strummed single coil electric guitar, low mid rich spectrum low-mid-thick mahogany electric bass. live tracking. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
+  "recipe_chars": 611,
+  "score": 184.732,
   "config": {
     "traditions": [
       "mizrahi_israeli",
@@ -144,7 +144,7 @@
       }
     ],
     "room": "live_room",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_eastmed_cassette_kiosk",
     "inline_chain": {
       "mic": "dynamic_mic",
       "pre": "transformer_solid_state",

@@ -3,14 +3,14 @@
   "name": "American clipper-ship shanty",
   "family": "global",
   "lineage": "American-clipper-ship-era shanty tradition continuous from 1830s-1880s American-merchant-marine clipper-ship work-song practice (the heyday of American clipper-ship trade between American-Eastern-Seaboard, California, China, and Australia) through 20th-century revival into modern American-folk-revival continuous practice; foundational repertoire includes \"Sacramento\" (capstan-shanty for California-gold-rush trade), \"Shenandoah\"",
-  "recipe": "classic mid-1830s american clipper-ship shanty, sea Shanty, atlantic branch, americas drinking song, American south field work, anglo singer song ballad poetry indie folk texas country-folk storyteller. thick, incomplete closure resting, melodic, continuous-phonation. Celtic Irish straight concertina, synthetic magic rosin modern acrylic base drone like rubber fiddle. beach. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 507,
-  "score": 186.68,
+  "recipe": "classic mid-1830s american clipper-ship shanty, sea Shanty, atlantic branch, americas drinking song, American south field work, anglo singer song ballad poetry freak folk indie folk. thick, incomplete closure resting, chest resonance low mid, continuous-phonation. Celtic Irish straight concertina, magic rosin modern acrylic base drone like fiddle. beach. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 431,
+  "score": 165.817,
   "config": {
     "traditions": [
       "american_clipper_shanty",
-      "indie_folk_2000s",
-      "texas_country_folk_storyteller"
+      "freak_folk_2000s",
+      "indie_folk_2000s"
     ],
     "instruments": [
       {
@@ -20,12 +20,12 @@
           "voice_quality": "incomplete_closure_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "slow_vibrato",
           "voice_articulation": "legato_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_jingju_role",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 28.48499999999999,
-          "voice_quality": 6.77,
+          "voice_register": 26.185,
+          "voice_quality": 6.095,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.419999999999999,
-          "voice_articulation": 3.5749999999999993,
-          "voice_microtone": 6.030000000000001,
-          "voice_tradition": 23.822499999999994,
+          "voice_vibrato": 0.65,
+          "voice_articulation": 3.3799999999999994,
+          "voice_microtone": 6.905000000000001,
+          "voice_tradition": 27.007499999999993,
           "voice_mechanism_compound": 1.56,
-          "voice_estill_quality": 9.067499999999999,
-          "voice_speech_song": 19.174999999999997,
-          "voice_ensemble_config": 10.464999999999996,
+          "voice_estill_quality": 3.5100000000000007,
+          "voice_speech_song": 19.564999999999994,
+          "voice_ensemble_config": 10.919999999999996,
           "voice_ornament_system": 2.8600000000000008,
-          "voice_pitch_organization": 3.5749999999999993,
-          "voice_processing_chain": 3.385,
-          "voice_multitrack_stack": 5.77
+          "voice_pitch_organization": 3.3799999999999994,
+          "voice_processing_chain": 3.835,
+          "voice_multitrack_stack": 5.994999999999999
         }
       },
       {
@@ -60,31 +60,31 @@
           "concertina_reed_grade": "concertina_hybrid_accordion_reed"
         },
         "scores": {
-          "free_reed_technique": 23.724999999999994,
+          "free_reed_technique": 18.9,
           "concertina_type": 10.53,
-          "concertina_reed_grade": 2.73
+          "concertina_reed_grade": 0.975
         }
       },
       {
         "id": "fiddle",
         "slots": {
           "bowed_technique": "bowed_rough_drone",
-          "fiddle_strings": "synthetic_core",
+          "fiddle_strings": "steel_core",
           "fiddle_bow": "magic_rosin_fiddle",
           "fiddle_mute": "rubber_mute",
           "fiddle_articulation": "pizz"
         },
         "scores": {
-          "bowed_technique": 15.369999999999996,
-          "fiddle_strings": 1.69,
-          "fiddle_bow": 3.685,
-          "fiddle_mute": 1,
+          "bowed_technique": 18.119999999999997,
+          "fiddle_strings": 0.5700000000000001,
+          "fiddle_bow": 2.185,
+          "fiddle_mute": 0.85,
           "fiddle_articulation": 0.09
         }
       }
     ],
     "room": "beach",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_nagra_ethnographic_field",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

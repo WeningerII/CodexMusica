@@ -3,9 +3,9 @@
   "name": "Kriti (Carnatic devotional composition)",
   "family": "global",
   "lineage": "The central composition-form of Carnatic classical music, codified by the early-19th-century Trinity (Tyagaraja set Telugu and Sanskrit devotional poetry to ~600 kritis predominantly to Rama; Muthuswami Dikshitar composed in Sanskrit predominantly to various deities; Syama Sastri composed predominantly to the Goddess) — every kriti has the standard pallavi (refrain) / anupallavi (upward-developing second section) / charanam (longer extending section) structure",
-  "recipe": "classic South Asian mid-1930s kriti, ritual Devotional, hindu branch, indian classical improv improv on frame, south Asian art music telugu kirtana dadra. vocal fry, declaimed, chest resonance low mid, punctuated. jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, silvery suited to female vocal tanpura, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic. chennai madras music academy sabha. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 529,
-  "score": 272.714,
+  "recipe": "classic South Asian early-1950s kriti, ritual Devotional, hindu branch, indian classical improv improv on frame, south Asian art music telugu kirtana dadra. vocal fry, declaimed, chest resonance low mid, punctuated. jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, silvery suited to female vocal tanpura, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic. chennai madras music academy sabha. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe_chars": 525,
+  "score": 276.026,
   "config": {
     "traditions": [
       "kriti",
@@ -107,7 +107,7 @@
       }
     ],
     "room": "chennai_madras_music_academy_sabha",
-    "archetype": "arch_electrical_disc_cut",
+    "archetype": "arch_hmv_dumdum_raga",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "pre_tube_german_v72",

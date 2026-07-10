@@ -3,9 +3,9 @@
   "name": "Twoubadou (Haitian troubadour)",
   "family": "global",
   "lineage": "Haitian rural-and-popular acoustic-song tradition emerging in early-twentieth-century Haiti from synthesis of Cuban son and bolero, Dominican merengue tipico, and Haitian rural folk-song. Acoustic-guitar, marímbula, mandolin, accordion, manouba scraper, voice. Working-class counterpart to elite-class urban kompa direct big-band tradition. Post-1980 acoustic-revival under Ti Coca, Manno Charlemagne, Beethova Obas.",
-  "recipe": "classic Caribbean early-1980s twoubadou, ballad Poetry, Latin am troubadour branch, chanson fado ballad poetry cape verdean batuko of santiago island french musette. thick, lament wail, pure, punctuated. fingerpicked parlor acoustic guitar, castagnari Italian premium folk music straight accordion, bowl back Italian big leaf maple modern American x brace modern mandolin mandolin. port au prince Haitian recording 1970-2000 indie-commercial port au prince haitian kompa studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 608,
-  "score": 201.331,
+  "recipe": "classic Caribbean early-1980s twoubadou, ballad Poetry, Latin am troubadour branch, chanson fado ballad poetry cape verdean batuko of santiago island french musette. thick, lament wail, pure, punctuated. fingerpicked parlor acoustic guitar, castagnari Italian premium folk music straight accordion, bowl back Italian big leaf maple modern American x brace modern mandolin mandolin. port au prince Haitian recording 1970-2000 indie-commercial port au prince haitian kompa studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 541,
+  "score": 188.831,
   "config": {
     "traditions": [
       "twoubadou_haitian",
@@ -115,7 +115,7 @@
       }
     ],
     "room": "port_au_prince_haitian_kompa_studio",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

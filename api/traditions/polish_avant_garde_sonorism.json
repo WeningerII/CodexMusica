@@ -3,8 +3,8 @@
   "name": "Polish avant-garde / sonorism",
   "family": "classical",
   "lineage": "Polish post-war avant-garde compositional school of late-1950s through 1970s, distinct from Darmstadt total-serialism by emphasis on sound-texture, instrumental sonority, and dramatic-expressive content. Lutosławski's controlled-aleatoric texture, Penderecki's Threnody for the Victims of Hiroshima (1960) cluster-and-glissando textures, and Górecki's symphony-of-sorrowful-songs slow-spiritual register constitute three distinct stylistic strands within Polish sonorism.",
-  "recipe": "classic tropical 1957-1959 polish avant-garde / sonorism, art Music, western modern branch, western common practice art music the mighty handful grand opera. thick, low dynamic level, chest resonance low mid, narrative. half rectified sitka spruce bigleaf maple western maple French Polish violin orchestral. shoebox concert hall. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 440,
+  "recipe": "classic Eastern European 1957-1959 polish avant-garde / sonorism, art Music, western modern branch, western common practice art music the mighty handful grand opera. thick, low dynamic level, chest resonance low mid, narrative. half rectified sitka spruce bigleaf maple western maple French Polish violin orchestral. shoebox concert hall. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 461,
   "score": 182.333,
   "config": {
     "traditions": [
@@ -81,7 +81,7 @@
       }
     ],
     "room": "concert_hall_shoebox",
-    "archetype": "arch_early_tape_havana",
+    "archetype": "arch_comecon_state_label",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "tube_pre",

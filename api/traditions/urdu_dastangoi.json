@@ -3,9 +3,9 @@
   "name": "Indian dastangoi / qissa Urdu storytelling",
   "family": "global",
   "lineage": "Urdu-Persian oral storytelling of the North Indian and Pakistani world, in which the dastango narrates the dastan — vast fantastical romance-cycles, above all the Dastan-e Amir Hamza and its magical Tilism-e Hoshruba — in ornate rhymed and rhythmic prose (saj). A coffeehouse and courtly art at its height in nineteenth-century Delhi and Lucknow, it faded after the death of the last classical dastango, Mir Baqir Ali, in 1928, and was revived in the 2000s by Mahmood Farooqui and S.R. Faruqi, often as a two-teller performance in white kurta on a plain sheet. Delivery is virtuosic, escalating declamation prizing verbal ornament, suspense and the sheer momentum of the narrating voice.",
-  "recipe": "classic South Asian mid-2000s indian dastangoi / qissa urdu storytelling, ballad Poetry, indian bard branch jeju haenyeo songs swedish kulning herding-call. thick, chest mix belt, chest resonance low mid, narrative. manganiyar haveli courtyard. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 374,
-  "score": 199.406,
+  "recipe": "classic South Asian mid-2000s indian dastangoi / qissa urdu storytelling, ballad Poetry, indian bard branch jeju haenyeo songs swedish kulning herding-call. thick, chest mix belt, chest resonance low mid, narrative. manganiyar haveli courtyard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 307,
+  "score": 180.581,
   "config": {
     "traditions": [
       "urdu_dastangoi",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "manganiyar_haveli_courtyard",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

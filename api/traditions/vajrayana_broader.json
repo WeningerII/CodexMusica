@@ -3,9 +3,9 @@
   "name": "Himalayan Vajrayana liturgy",
   "family": "global",
   "lineage": "Tibetan / Bhutanese / Ladakhi Vajrayana tantric ritual-music tradition with multiphonic chant and brass-and-percussion liturgical ensemble",
-  "recipe": "classic Northeast Asian modern himalayan vajrayana liturgy, ritual Devotional, buddhist branch, east Asian art music tibetan ache lhamo opera beijing opera. thick, pressed, chest resonance low mid, narrative. log drum, m1 modal compound with overtone tuning khoomei foundational mechanism 8th to 12th partial overtone range himalayan ritual chant subharmonic monastic throat singing voice, call ritual conch shell horn, ceremonial hammered copper brass telescoping canonical Tibetan gelug canonical Tibetan buddhist liturgy tibetan dungchen, wood rosewood body brass bell canonical Tibetan arundo donax canonical Tibetan monastic tibetan gyaling. tibetan monastery assembly. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 804,
-  "score": 276.277,
+  "recipe": "classic Northeast Asian modern himalayan vajrayana liturgy, ritual Devotional, buddhist branch, east Asian art music tibetan ache lhamo opera beijing opera. thick, pressed, chest resonance low mid, narrative. log drum, m1 modal compound with overtone tuning khoomei foundational mechanism 8th to 12th partial overtone range himalayan ritual chant subharmonic monastic throat singing voice, call ritual conch shell horn, ceremonial hammered copper brass telescoping canonical Tibetan gelug canonical Tibetan buddhist liturgy tibetan dungchen, wood rosewood body brass bell canonical Tibetan arundo donax canonical Tibetan monastic tibetan gyaling. tibetan monastery assembly. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 737,
+  "score": 273.502,
   "config": {
     "traditions": [
       "vajrayana_broader",
@@ -117,7 +117,7 @@
       }
     ],
     "room": "tibetan_monastery_assembly",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

@@ -3,9 +3,9 @@
   "name": "Apache crown dance (Mountain Spirit songs)",
   "family": "global",
   "lineage": "Apache crown dance (Gaan or Mountain Spirit dance) ceremonial-performance tradition of the Western Apache and broader Apachean (Mescalero, Jicarilla, Chiricahua, San Carlos, White Mountain) communities. Performance features four masked dancers representing the Gaan Mountain Spirits accompanied by song-leader-and-drummer plus chorus, with the Gaan dancers wearing tall slatted wooden crowns and yucca-fiber kilts. Performance contexts include the Sunrise Ceremony (the four-day female puberty rite, the most important Apache ceremony) and various social-and-healing occasions. Repertoire is restricted in non-Apache circulation; the public-demonstration crown-dance performances at the annual Apache fairs (San Carlos, White Mountain) constitute the principal external-cultural visibility.",
-  "recipe": "classic Northeast Asian modern apache crown dance, ritual Devotional, indigenous branch, blues narrative work song bahraini fjiri coco brasileiro. thick, declaimed, chest resonance low mid, narrative. open steppe outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 351,
-  "score": 95.239,
+  "recipe": "classic Northeast Asian early-1890s apache crown dance, ritual Devotional, indigenous branch, blues narrative work song bahraini fjiri coco brasileiro. thick, declaimed, chest resonance low mid, narrative. open steppe outdoor. acoustic horn. wax cylinder.",
+  "recipe_chars": 255,
+  "score": 86.164,
   "config": {
     "traditions": [
       "apache_crown_dance",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "open_steppe_outdoor",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_wax_cylinder_ethnographic",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

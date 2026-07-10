@@ -3,9 +3,9 @@
   "name": "Berber Amazigh ahidus (wedding dance)",
   "family": "global",
   "lineage": "Berber-Amazigh wedding-music tradition continuous from pre-Islamic North African Berber rural practice through Islamic-period continuous performance into modern Tamazight-speaking Moroccan and Algerian Berber-zone domestic practice; particularly preserved in the Atlas Mountains (Middle and High Atlas Tamazight zones) and the Kabyle Algeria",
-  "recipe": "classic North African modern berber amazigh ahidus, wedding, middle eastern branch, west African groove percussion, islamic ritual devotional, med east poetic ballad poetry were music yoruba dùndún surrogate speech. thick, declaimed, melodic, continuous-phonation. juniper bent frame canonical Maghrebi synthetic remo modern world music bendir, walnut bent frame canonical Iranian synthetic remo modern tar frame drum. atlas mountain village square. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 579,
-  "score": 149.967,
+  "recipe": "classic North African modern berber amazigh ahidus, wedding, middle eastern branch, west African groove percussion, islamic ritual devotional, med east poetic ballad poetry were music yoruba dùndún surrogate speech. thick, declaimed, melodic, continuous-phonation. juniper bent frame canonical Maghrebi synthetic remo modern world music bendir, walnut bent frame canonical Iranian synthetic remo modern tar frame drum. atlas mountain village square. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 512,
+  "score": 140.467,
   "config": {
     "traditions": [
       "berber_ahidus_wedding",
@@ -86,7 +86,7 @@
       }
     ],
     "room": "atlas_mountain_village_square",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

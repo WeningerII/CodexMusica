@@ -3,9 +3,9 @@
   "name": "Son jarocho",
   "family": "global",
   "lineage": "Mexican Veracruz-Gulf-Coast Afro-Mestizo-Indigenous son tradition with characteristic jarana five-double-course strum-guitar, requinto-jarocho four-string lead-melody-guitar, harp, quijada-de-burro donkey-jawbone scraper, and zapateado wooden-platform dance-percussion. Originated late-17th-century in the Sotavento lowlands south of Veracruz-Port out of Afro-Cuban habanera, Spanish-baroque fandango, and Indigenous-Totonac musical-fusion. The canonical La Bamba is the most internationally recognized son jarocho son, but the tradition spans 80+ son sones with characteristic 6/8-against-2/4 sesquialteral hemiola, call-and-response sung verses (often improvised, decimas Spanish-poetic-form), and circular fandango community-dance-and-music-making fiesta-context. The 1970s-1980s son-jarocho-revival reconnected urban Mexico City to rural Sotavento source-communities.",
-  "recipe": "classic Southwestern American mid-1970s son jarocho, drone Modal, string branch, Mexican functional song banda sinaloense bolero mexicano. thick, full chest belt, chest resonance low mid, punctuated. diatonic only son jarocho tradition cedrillo canonical veracruz gut pre modern son jarocho bass and harmony arpa palo escrito Mexican rosewood gut pre 1950s son jarocho strummed jarana jarocha, son jarocho standard cedrillo canonical veracruz strummed requinto jarocho, cedrillo canonical veracruz leona. plaza garibaldi outdoor mariachi. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 648,
-  "score": 252.788,
+  "recipe": "classic Southwestern American mid-1970s son jarocho, drone Modal, string branch, Mexican functional song banda sinaloense bolero mexicano. thick, full chest belt, chest resonance low mid, punctuated. diatonic only son jarocho tradition cedrillo canonical veracruz gut pre modern son jarocho bass and harmony arpa palo escrito Mexican rosewood gut pre 1950s son jarocho strummed jarana jarocha, son jarocho standard cedrillo canonical veracruz strummed requinto jarocho, cedrillo canonical veracruz leona. plaza garibaldi outdoor mariachi. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 652,
+  "score": 253.863,
   "config": {
     "traditions": [
       "son_jarocho",
@@ -120,7 +120,7 @@
       }
     ],
     "room": "plaza_garibaldi_outdoor_mariachi",
-    "archetype": "arch_early_tape_havana",
+    "archetype": "arch_churubusco_ranchera_bolero",
     "inline_chain": {
       "mic": "mic_u47_tube_neumann",
       "pre": "pre_tube_german_v72",

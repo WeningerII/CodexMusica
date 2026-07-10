@@ -3,9 +3,9 @@
   "name": "Rabindra sangeet (Tagore songs)",
   "family": "global",
   "lineage": "Rabindra sangeet (\"Tagore songs\") Bengali art-song repertoire composed by Nobel-laureate poet-philosopher Rabindranath Tagore (1861-1941), comprising approximately 2,232 documented songs in the canonical Gitabitan collection across categories: puja, prem, prakriti, swadesh, bichitra. The compositional language synthesizes Hindustani-classical raga-and-tala framework with Bengali kirtan-and-baul folk inflections, Carnatic melodic gestures, and late-period Western-tonal-harmonic elements absorbed through Tagore's European travels. The Visva-Bharati transmission lineage maintains canonical melodic-and-textual readings.",
-  "recipe": "classic South Asian early-1860s rabindra sangeet, functional Song, south Asian pop branch, hindu ritual devotional borgeet divya prabandham. thick, declaimed, melodic, equal tempered. indian rosewood rosewood copper tabla. kolkata dum dum EMI hmv 1928-present major-flagship kolkata hmv dum dum studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 375,
-  "score": 139.322,
+  "recipe": "classic South Asian early-1860s rabindra sangeet, functional Song, south Asian pop branch, hindu ritual devotional borgeet divya prabandham. thick, declaimed, melodic, equal tempered. indian rosewood rosewood copper tabla. kolkata dum dum EMI hmv 1928-present major-flagship kolkata hmv dum dum studio. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe_chars": 369,
+  "score": 140.985,
   "config": {
     "traditions": [
       "rabindra_sangeet",
@@ -67,7 +67,7 @@
       }
     ],
     "room": "kolkata_hmv_dum_dum_studio",
-    "archetype": "arch_electrical_disc_cut",
+    "archetype": "arch_hmv_dumdum_raga",
     "inline_chain": {
       "mic": "mic_u47_tube_neumann",
       "pre": "pre_tube_german_v72",

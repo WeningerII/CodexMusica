@@ -3,9 +3,9 @@
   "name": "Māori waiata mōteatea / patere (Maori praise-chant)",
   "family": "global",
   "lineage": "Māori praise-chant tradition continuous from pre-contact Māori ritual-practice through 19th-20th century continuous performance at marae context into modern Māori-cultural-revival; patere (women's rapid-recitation praise-and-genealogy-chant) and pao (impromptu praise-song) are the canonical Māori praise-chant forms",
-  "recipe": "classic Oceanian modern māori waiata mōteatea / patere, praise Song, oceania pacific branch, sub saharan African praise song, indigenous ritual devotional, oceania pacific funeral lament zulu izibongo yoruba oríkì. extended whistle, declaimed, tasteful, continuous-phonation. maori marae carved wharenui. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 434,
-  "score": 190.509,
+  "recipe": "classic Oceanian modern māori waiata mōteatea / patere, praise Song, oceania pacific branch, sub saharan African praise song, indigenous ritual devotional, oceania pacific funeral lament zulu izibongo yoruba oríkì. extended whistle, declaimed, tasteful, continuous-phonation. maori marae carved wharenui. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 367,
+  "score": 182.959,
   "config": {
     "traditions": [
       "maori_waiata_moteatea_patere",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "maori_marae_carved_wharenui",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

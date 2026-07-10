@@ -3,9 +3,9 @@
   "name": "Polish biesiadne (feast and drinking songs)",
   "family": "global",
   "lineage": "Polish biesiadne (feast-and-drinking-song) tradition continuous from medieval-Polish tavern-and-noble-feast song-tradition through 19th-20th-century Polish-Romantic-era and Communist-era continuous performance into modern Polish wedding-and-pub continuous practice; foundational repertoire includes \"Sto lat\" (the canonical Polish birthday-and-toast song), \"Hej, sokoły\" (canonical Polish-Ukrainian dance-and-drinking)",
-  "recipe": "classic modern polish biesiadne, drinking Song, European branch, balkan drinking song, European wedding, Slavic bard ballad poetry sardinian wedding cantu and launeddas music macedonian-serbian kafana drinking song. thick, false fold engaged, tasteful, continuous-phonation. castagnari Italian premium folk music accordion. irish pub. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 464,
-  "score": 145.68,
+  "recipe": "classic modern polish biesiadne, drinking Song, European branch, balkan drinking song, European wedding, Slavic bard ballad poetry sardinian wedding cantu and launeddas music macedonian-serbian kafana drinking song. thick, false fold engaged, tasteful, continuous-phonation. castagnari Italian premium folk music accordion. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 397,
+  "score": 138.68,
   "config": {
     "traditions": [
       "polish_biesiadne",
@@ -75,7 +75,7 @@
       }
     ],
     "room": "irish_pub",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

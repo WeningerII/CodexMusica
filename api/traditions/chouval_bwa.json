@@ -3,9 +3,9 @@
   "name": "Chouval-bwa",
   "family": "global",
   "lineage": "Martinican rural carousel-music (chouval bwa is Martinican Creole for wooden horse, referring to the merry-go-round and travelling fair context where the music traditionally accompanied the carousel ride) — built on accordion (the melodic instrument), tambour bélé (the large Martinican single-headed barrel drum carried on the shoulder), ti-bwa (small bamboo struck-percussion), and chacha (Martinican calabash rattle); codified through 20th-century figures Eugène Mona (the Martinican flute virtuoso who incorporated chouval-bwa elements into his fusion work), Dédé Saint-Prix (the chouval-bwa accordionist), Tipany — distinct from the kindred Martinican biguine and zouk traditions",
-  "recipe": "classic Caribbean modern chouval-bwa, groove Percussion, Caribbean branch, Afro-diasporic ritual devotional jongo bomba. extended whistle, declaimed, melodic, punctuated. castagnari Italian premium folk music accordion, log drum. trinidad calypso panyard outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 393,
-  "score": 91.412,
+  "recipe": "classic Caribbean modern chouval-bwa, groove Percussion, Caribbean branch, Afro-diasporic ritual devotional jongo bomba. extended whistle, declaimed, melodic, punctuated. castagnari Italian premium folk music accordion, log drum. trinidad calypso panyard outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 326,
+  "score": 83.062,
   "config": {
     "traditions": [
       "chouval_bwa",
@@ -86,7 +86,7 @@
       }
     ],
     "room": "trinidad_calypso_panyard_outdoor",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

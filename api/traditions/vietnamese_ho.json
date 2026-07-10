@@ -3,9 +3,9 @@
   "name": "Vietnamese hò (work-coordination song)",
   "family": "global",
   "lineage": "Vietnamese hò (work-coordination call-and-response song) tradition continuous from premodern Vietnamese-agricultural-and-maritime labor practice through 19th-20th century continuous performance into modern Vietnamese-folk-revival practice across Northern, Central, and Southern Vietnam; the hò is the canonical Vietnamese work-coordination song-form integrating leader-and-group call-and-response across rice-paddy-planting, fishing, boat-rowing, and other labor-contexts",
-  "recipe": "classic modern vietnamese hò, field Work, east Asian branch, south Asian field work, atlantic Southeast Asian shanty, east Asian protest song bengali bhatiali american clipper-ship shanty. thick, incomplete closure resting, tasteful, unrestrained. marsh swamp. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 390,
-  "score": 120.302,
+  "recipe": "classic modern vietnamese hò, field Work, east Asian branch, south Asian field work, atlantic Southeast Asian shanty, east Asian protest song bengali bhatiali american clipper-ship shanty. thick, incomplete closure resting, tasteful, unrestrained. marsh swamp. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 323,
+  "score": 114.102,
   "config": {
     "traditions": [
       "vietnamese_ho",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "marsh_swamp",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

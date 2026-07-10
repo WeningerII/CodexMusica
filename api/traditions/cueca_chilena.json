@@ -3,9 +3,9 @@
   "name": "Cueca (Chilean national)",
   "family": "global",
   "lineage": "Chilean national folk-dance-and-song tradition derived from broader Peruvian-Spanish zamacueca lineage, codified in mid-nineteenth-century Chile (formally declared national dance 1979). Characteristic 6/8 meter alternating with 3/4 polymeter, fast tempo with paired-couple handkerchief-and-stomping choreography. Post-1973 dictatorship period featured the dissident \"cueca sola\" performed solo by widows of disappeared persons.",
-  "recipe": "classic Andean late-1970s cueca, ballad Poetry, Latin am troubadour branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. thick, declaimed, melodic, punctuated. cedar phosphor bronze bronze fingerpicked parlor acoustic guitar, castagnari Italian premium folk music straight accordion. bogota colombian andean studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 499,
-  "score": 144.895,
+  "recipe": "classic Andean late-1970s cueca, ballad Poetry, Latin am troubadour branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. thick, declaimed, melodic, punctuated. cedar phosphor bronze bronze fingerpicked parlor acoustic guitar, castagnari Italian premium folk music straight accordion. bogota colombian andean studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 432,
+  "score": 131.445,
   "config": {
     "traditions": [
       "cueca_chilena",
@@ -92,7 +92,7 @@
       }
     ],
     "room": "bogota_colombian_andean_studio",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

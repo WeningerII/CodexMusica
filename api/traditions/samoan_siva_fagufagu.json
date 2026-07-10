@@ -3,9 +3,9 @@
   "name": "Samoan siva and fagufagu (Polynesian dance-song)",
   "family": "global",
   "lineage": "Samoan siva (formal dance) and fagufagu (drum-led collective dance) Polynesian-cultural-performance traditions of the Samoan archipelago (Independent State of Samoa and American Samoa). The siva manaia is the standard performance featuring a single dancer (often the daughter of the host family in a fa'alavelave ceremonial gathering) accompanied by sung verses and slit-drum (pate) and rolled-mat (papa) percussion. The taualuga formal high-chief's-dance is the culminating ceremonial-form. Vocal repertoire features distinct fa'aluga (verse) and fa'amalama (refrain) structural sections. The post-twentieth-century Pacific-festival circuit and Polynesian Cultural Center anchor international circulation.",
-  "recipe": "classic Southeast Asian modern samoan siva and fagufagu, ritual Devotional, indigenous branch, vocal drone modal, blues narrative work song georgian three-voice polyphony corsican paghjella three-voice unaccompanied. vocal fry, declaimed, overtone rich sustained, narrative. high pitched fast dance interlocking pacific slit gong, samoan open tube dance accompaniment fagufagu. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 602,
-  "score": 217.987,
+  "recipe": "classic Southeast Asian modern samoan siva and fagufagu, ritual Devotional, indigenous branch, vocal drone modal, blues narrative work song georgian three-voice polyphony corsican paghjella three-voice unaccompanied. vocal fry, declaimed, overtone rich sustained, narrative. high pitched fast dance interlocking pacific slit gong, samoan open tube dance accompaniment fagufagu. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 535,
+  "score": 206.187,
   "config": {
     "traditions": [
       "samoan_siva_fagufagu",
@@ -80,7 +80,7 @@
       }
     ],
     "room": "jakarta_bangkok_southeast_asian_studio",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

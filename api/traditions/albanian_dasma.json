@@ -3,9 +3,9 @@
   "name": "Albanian dasma (wedding music)",
   "family": "global",
   "lineage": "Albanian wedding-music tradition continuous from medieval Albanian rural practice through 19th-20th century continuous performance; particularly preserved in Northern Albanian highland zones, Southern Albanian iso-polyphonic zones, Kosovo, and Arbëresh-Italian diaspora",
-  "recipe": "classic Eastern European modern albanian dasma, wedding, European branch, middle eastern wedding, Mediterranean ballad ballad poetry, vocal drone modal bulgarian women's choir persian aroosi. vocal fry, low dynamic level, tasteful, continuous-phonation. ebonite hard rubber klezmer tradition continuous-airflow legato clarinet, castagnari Italian premium folk music ensemble accordion, clay pre modern traditional goat skin Turkish darbuka regional darbuka, magic rosin modern acrylic base drone like fiddle. klezmer simcha celebration hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 671,
-  "score": 147.349,
+  "recipe": "classic Eastern European modern albanian dasma, wedding, European branch, middle eastern wedding, Mediterranean ballad ballad poetry, vocal drone modal bulgarian women's choir persian aroosi. vocal fry, low dynamic level, tasteful, continuous-phonation. ebonite hard rubber klezmer tradition continuous-airflow legato clarinet, castagnari Italian premium folk music ensemble accordion, clay pre modern traditional goat skin Turkish darbuka regional darbuka, magic rosin modern acrylic base drone like fiddle. klezmer simcha celebration hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 604,
+  "score": 146.949,
   "config": {
     "traditions": [
       "albanian_dasma",
@@ -124,7 +124,7 @@
       }
     ],
     "room": "klezmer_simcha_celebration_hall",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

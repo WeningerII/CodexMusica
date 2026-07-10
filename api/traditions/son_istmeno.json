@@ -3,9 +3,9 @@
   "name": "Son istmeño (Oaxaca Isthmus)",
   "family": "global",
   "lineage": "Regional Mexican son tradition of the Isthmus of Tehuantepec (southeastern Oaxaca), the Zapotec-cultural-region southern-Mexican-Pacific lowland. Zapotec-language vocal repertoire alongside Spanish, characteristic 6/8 alternating-with-3/4, and Tehuana-feminine cultural register. Marimba ensemble (parallel to but distinct from Guatemalan Maya marimba), acoustic-guitar, voice. La Sandunga (Andrés Gutiérrez 1853) is the unofficial Zapotec anthem.",
-  "recipe": "classic Mexican early-1850s son istmeño, ballad Poetry, Latin am troubadour branch, Brazilian groove percussion pagode baião. vocal fry, intimate aspirated, punctuated, equal tempered. tehuana sones marimba centroamericana, parlor acoustic guitar. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 461,
-  "score": 87.648,
+  "recipe": "classic Mexican early-1850s son istmeño, ballad Poetry, Latin am troubadour branch, Brazilian groove percussion pagode baião. vocal fry, intimate aspirated, punctuated, equal tempered. tehuana sones marimba centroamericana, parlor acoustic guitar. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 394,
+  "score": 82.36,
   "config": {
     "traditions": [
       "son_istmeno",
@@ -84,7 +84,7 @@
       }
     ],
     "room": "mexico_bolero_xochimilco_studio",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

@@ -3,9 +3,9 @@
   "name": "Russian byliny (epic-narrative)",
   "family": "global",
   "lineage": "Russian (originally Kievan and Novgorodian) oral-epic recitation tradition of narrative songs about the legendary bogatyri heroes (Ilya Muromets, Dobrynya Nikitich, Alyosha Popovich); preserved through the 19th-20th centuries in the Russian Far North (Onega and White Sea regions) by Old Believer communities and documented by ethnomusicologists Pavel Rybnikov and Alexander Hilferding",
-  "recipe": "classic Eastern European mid-1930s russian byliny, ballad Poetry, Slavic bard branch, christian gospel Russian orthodox, Celtic balladic Scottish ballad child ballad revival byzantine chant. thick, declaimed, chest resonance low mid, narrative. brass canonical Slavic maple birch canonical Slavic fingerpicked gusli. moscow state label 1964-present major-flagship moscow melodiya studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 460,
-  "score": 90.333,
+  "recipe": "classic Eastern European early-1940s russian byliny, ballad Poetry, Slavic bard branch, christian gospel Russian orthodox, Celtic balladic Scottish ballad child ballad revival byzantine chant. thick, declaimed, chest resonance low mid, narrative. brass canonical Slavic maple birch canonical Slavic fingerpicked gusli. moscow state label 1964-present major-flagship moscow melodiya studio. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
+  "recipe_chars": 523,
+  "score": 91.765,
   "config": {
     "traditions": [
       "russian_byliny",
@@ -56,14 +56,14 @@
         "id": "gusli",
         "slots": {
           "plucked_traditional_technique": "plucked_fingerpicked",
-          "gusli_strings": "gusli_archaic_5",
+          "gusli_strings": "gusli_chromatic",
           "gusli_context": "gusli_revival",
           "gusli_string_material": "gusli_brass_canonical",
           "gusli_body_wood": "gusli_maple_birch"
         },
         "scores": {
           "plucked_traditional_technique": 3.125,
-          "gusli_strings": 0,
+          "gusli_strings": 0.195,
           "gusli_context": 2.4699999999999998,
           "gusli_string_material": 2.34,
           "gusli_body_wood": 2.34
@@ -71,7 +71,7 @@
       }
     ],
     "room": "moscow_melodiya_studio",
-    "archetype": "arch_electrical_disc_cut",
+    "archetype": "arch_melodiya_state",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

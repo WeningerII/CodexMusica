@@ -3,9 +3,9 @@
   "name": "Hi-NRG",
   "family": "global",
   "lineage": "early-1980s onward gay-club-derived electronic dance music characterized by 130+ bpm tempo, electronic-disco production (sequenced bass, mechanical hi-hat patterns), and intense emotionally-direct pop-vocal lead — codified through Patrick Cowley (Megatron Man 1981, the Sylvester collaborations), Bobby O, Lime, Hazell Dean, Divine (the 1980s Bobby O recordings), with the form serving as a precursor to acid-house and techno",
-  "recipe": "classic 1980-1983 hi-nrg, electronic Dance, eurodance branch, pop rock functional song new wave synthpop. thick, chest mix belt, pure, rhythmic. roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth, singing lead digital subtractive, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909. treated studio. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
-  "recipe_chars": 454,
-  "score": 302.89,
+  "recipe": "classic Asian 1980-1983 hi-nrg, electronic Dance, eurodance branch, pop rock functional song new wave synthpop. thick, chest mix belt, pure, rhythmic. roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth, singing lead digital subtractive, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+  "recipe_chars": 498,
+  "score": 305.765,
   "config": {
     "traditions": [
       "hi_nrg",
@@ -95,7 +95,7 @@
       }
     ],
     "room": "treated_studio",
-    "archetype": "arch_pre_daw_electronic_pioneer",
+    "archetype": "arch_hk_cantopop_ballad_factory",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "transformer_solid_state",

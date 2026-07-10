@@ -3,9 +3,9 @@
   "name": "Zamba (Argentine slow-romantic)",
   "family": "global",
   "lineage": "Argentine slow-romantic folk-dance-and-song tradition of northwestern provinces, derived from Peruvian zamacueca (which also derived Chilean cueca and Andean tondero). Slow 6/8 meter, melancholic register addressing romance, loss, and northwestern-Argentine pampas-mountain landscape. Mid-twentieth-century commercial-folklore revival under Yupanqui, Cuchi Leguizamón, Mercedes Sosa consolidated canonical zamba repertoire.",
-  "recipe": "classic Mexican modern zamba, ballad Poetry, Latin am troubadour branch, chanson fado ballad poetry cape verdean batuko of santiago island french musette. thick, lament wail, chest resonance low mid, punctuated. cedar phosphor bronze bronze fingerpicked parlor acoustic guitar, swaying bombo leguero. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 514,
-  "score": 155.43,
+  "recipe": "classic Mexican modern zamba, ballad Poetry, Latin am troubadour branch, chanson fado ballad poetry cape verdean batuko of santiago island french musette. thick, lament wail, chest resonance low mid, punctuated. cedar phosphor bronze bronze fingerpicked parlor acoustic guitar, swaying bombo leguero. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 447,
+  "score": 142.93,
   "config": {
     "traditions": [
       "zamba_argentina",
@@ -84,7 +84,7 @@
       }
     ],
     "room": "mexico_bolero_xochimilco_studio",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

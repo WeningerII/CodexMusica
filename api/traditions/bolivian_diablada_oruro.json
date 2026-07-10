@@ -3,9 +3,9 @@
   "name": "Bolivian diablada de Oruro (Carnaval de Oruro)",
   "family": "global",
   "lineage": "Bolivian Carnaval de Oruro diablada (devil-dance) processional tradition continuous from pre-Hispanic Andean ritual-dance practice through Spanish-colonial-era integration with Christian-Catholic devil-dance imagery (the post-1606 syncretism of Andean-Tio-deity worship with Catholic-devil-iconography) into modern Carnaval de Oruro continuous practice",
-  "recipe": "classic Andean mid-1600s bolivian diablada de oruro, carnival Processional, andean branch, European carnival processional, americas wedding, iberian Latin protest song andean matrimonio huayno cologne karneval. thick, forward-resonance, tasteful, continuous-phonation. pvc continuous-airflow legato quena, andean tradition paired rows interlocking siku panpipes, yellow brass canonical 70 30 bach stradivarius yamaha xeno modern Japanese continuous-airflow legato standard rim trumpet, pre muffled edge muffled fx9 manganese bronze machine hammered drum kit, altiplano mara canonical single block tarka. andean altiplano outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 759,
-  "score": 322.579,
+  "recipe": "classic Andean mid-1600s bolivian diablada de oruro, carnival Processional, andean branch, European carnival processional, americas wedding, iberian Latin protest song andean matrimonio huayno cologne karneval. thick, forward-resonance, tasteful, continuous-phonation. pvc continuous-airflow legato quena, andean tradition paired rows interlocking siku panpipes, yellow brass canonical 70 30 bach stradivarius yamaha xeno modern Japanese continuous-airflow legato standard rim trumpet, pre muffled edge muffled fx9 manganese bronze machine hammered drum kit, altiplano mara canonical single block tarka. andean altiplano outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 692,
+  "score": 314.179,
   "config": {
     "traditions": [
       "bolivian_diablada_oruro",
@@ -143,7 +143,7 @@
       }
     ],
     "room": "andean_altiplano_outdoor",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

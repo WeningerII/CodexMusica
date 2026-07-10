@@ -3,9 +3,9 @@
   "name": "Bouyon",
   "family": "global",
   "lineage": "Dominica electronic-hybrid Caribbean dance music codified through WCK and the late-1980s Dominica recording scene — characterized by cadence-lypso roots merged with zouk and dancehall programming, French Creole vocals, and the 100-120 BPM rhythmic foundation distinctive to the genre",
-  "recipe": "classic 1987-1989 bouyon, groove Percussion, Caribbean branch, Afro-diasporic electric groove percussion kizomba kompa. extended whistle, full chest belt, overtone rich sustained, punctuated. TR-808, electric bass, analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 378,
-  "score": 77.523,
+  "recipe": "classic Caribbean 1987-1989 bouyon, groove Percussion, Caribbean branch, Afro-diasporic electric groove percussion kizomba kompa. extended whistle, full chest belt, overtone rich sustained, punctuated. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, electric bass, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca analog poly synth. live tracking. large-diaphragm condenser, transformerless solid-state pre, DDA AMR-school UK 80s mid-tier, dbx 160 VCA, parametric EQ. Studer 30ips tape lexicon 224 / 480L AMS RMX16 digital reverb digital delay.",
+  "recipe_chars": 613,
+  "score": 83.058,
   "config": {
     "traditions": [
       "bouyon",
@@ -49,7 +49,7 @@
           "voice_ornament_system": 0.45500000000000007,
           "voice_pitch_organization": 1.3,
           "voice_processing_chain": 9.278875,
-          "voice_multitrack_stack": 3.0014999999999996
+          "voice_multitrack_stack": 5.0015
         }
       },
       {
@@ -57,12 +57,12 @@
         "slots": {
           "tr808_voice": "tr808_cowbell",
           "drum_machine_808_context": "drum_machine_808_miami",
-          "tr808_production_origin": "tr808_tr_8s_modern"
+          "tr808_production_origin": "tr808_roland_osaka_canonical"
         },
         "scores": {
           "tr808_voice": 1,
           "drum_machine_808_context": 10.896500000000001,
-          "tr808_production_origin": 0.585
+          "tr808_production_origin": 1.4299999999999997
         }
       },
       {
@@ -100,12 +100,12 @@
           "electronic_technique": 0.26,
           "poly_archetypes": 0.39,
           "poly_voices": 0.39,
-          "poly_maker_lineage": -0.06999999999999988
+          "poly_maker_lineage": 2.47
         }
       }
     ],
     "room": "live_room",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_antilles_zouk_digital",
     "inline_chain": {
       "mic": "dynamic_mic",
       "pre": "transformer_solid_state",

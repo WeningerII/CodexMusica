@@ -3,9 +3,9 @@
   "name": "Sardinian wedding cantu and launeddas music",
   "family": "global",
   "lineage": "Sardinian wedding-music tradition continuous from pre-Christian Sardinian rural practice through medieval-and-early-modern continuous performance; the launeddas (triple-clarinet) is the canonical Sardinian wedding-music instrument and the cantu a tenore polyphonic male-quartet vocal also features at weddings",
-  "recipe": "classic Southern European modern sardinian wedding cantu and launeddas music, wedding, European branch, vocal drone modal, wind pipe drone modal, Mediterranean ballad ballad poetry sevdalinka bulgarian women's choir. thick, false fold engaged, tasteful, continuous-phonation. cane arundo donax three pipes canonical sardinian archaic idioglottic single reeds canonical sardinian drone like circular breathing launeddas, castagnari Italian premium folk music drone like accordion, grenadilla African blackwood traditional continuous-airflow legato clarinet. sardinian outdoor a tenore polyphony. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 724,
-  "score": 205.267,
+  "recipe": "classic Southern European modern sardinian wedding cantu and launeddas music, wedding, European branch, vocal drone modal, wind pipe drone modal, Mediterranean ballad ballad poetry sevdalinka bulgarian women's choir. thick, false fold engaged, tasteful, continuous-phonation. cane arundo donax three pipes canonical sardinian archaic idioglottic single reeds canonical sardinian drone like circular breathing launeddas, castagnari Italian premium folk music drone like accordion, grenadilla African blackwood traditional continuous-airflow legato clarinet. sardinian outdoor a tenore polyphony. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 657,
+  "score": 200.567,
   "config": {
     "traditions": [
       "sardinian_wedding_cantu_launeddas",
@@ -109,7 +109,7 @@
       }
     ],
     "room": "sardinian_outdoor_a_tenore_polyphony",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

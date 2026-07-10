@@ -3,9 +3,9 @@
   "name": "Khayal (Hindustani classical vocal)",
   "family": "global",
   "lineage": "The most common North Indian Hindustani classical vocal genre, replacing dhrupad as the dominant vocal form from the 18th century onward — codified through the Gwalior, Agra, Kirana, Patiala, Atrauli-Jaipur gharana lineages; characterized by the bilampat-laya-vilambit-laya (slow tempo) opening composition (cheez or bandish) followed by improvisation through alap, bol-banav (word-elaboration), tan (rapid melodic runs), and laykari (rhythmic variation)",
-  "recipe": "classic South Asian mid-1930s khayal, improv On Frame, indian classical improv branch, hindu ritual devotional, Sufi ritual devotional kriti gurmat sangeet. vocal fry, declaimed, chest resonance low mid, punctuated. indian rosewood rosewood copper tabla, low overtone rich vocal male harmonium indian, silvery suited to female vocal tanpura, gut 3 main playing strings legato sarangi. varanasi benares gharana baithak. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 491,
-  "score": 252.63,
+  "recipe": "classic South Asian early-1950s khayal, improv On Frame, indian classical improv branch, hindu ritual devotional, Sufi ritual devotional kriti gurmat sangeet. vocal fry, declaimed, chest resonance low mid, punctuated. indian rosewood rosewood copper tabla, low overtone rich vocal male harmonium indian, silvery suited to female vocal tanpura, gut 3 main playing strings legato sarangi. varanasi benares gharana baithak. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe_chars": 487,
+  "score": 257.817,
   "config": {
     "traditions": [
       "khayal",
@@ -120,7 +120,7 @@
       }
     ],
     "room": "varanasi_benares_gharana_baithak",
-    "archetype": "arch_electrical_disc_cut",
+    "archetype": "arch_hmv_dumdum_raga",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_tube_german_v72",

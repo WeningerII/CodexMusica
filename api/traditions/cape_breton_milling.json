@@ -3,9 +3,9 @@
   "name": "Cape Breton milling-frolic",
   "family": "global",
   "lineage": "Atlantic Canadian (Cape Breton, Nova Scotia) Scottish Gaelic balladic continuation tradition — milling frolics (òrain luaidh) sung by groups of women while pounding (waulking) wool tweed cloth, with call-and-response solo-and-chorus structure in Scottish Gaelic language; preserved through the Cape Breton Gaelic community and the Beaton family tradition",
-  "recipe": "classic Northern European modern cape breton milling-frolic, ballad Poetry, cape breton Gaelic branch, christian gospel sacred harp sacred harp singing. thick, declaimed, nervy, ornamental. a cappella small 3 to 8 one per part call response single leader group response sub saharan call response ostinato polyrhythmic sacred liturgical global choir ensemble. connemara kitchen sean nos. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 516,
-  "score": 90.396,
+  "recipe": "classic Northern European early-1940s cape breton milling-frolic, ballad Poetry, cape breton Gaelic branch, christian gospel sacred harp sacred harp singing. thick, declaimed, nervy, ornamental. a cappella small 3 to 8 one per part call response single leader group response sub saharan call response ostinato polyrhythmic sacred liturgical global choir ensemble. connemara kitchen sean nos. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 466,
+  "score": 85.846,
   "config": {
     "traditions": [
       "cape_breton_milling",
@@ -68,7 +68,7 @@
       }
     ],
     "room": "connemara_kitchen_sean_nos",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_nagra_ethnographic_field",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

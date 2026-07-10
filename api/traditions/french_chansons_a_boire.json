@@ -3,9 +3,9 @@
   "name": "French chansons à boire (drinking songs)",
   "family": "global",
   "lineage": "French chanson à boire (drinking-song) tradition continuous from medieval-French goliardic-and-tavern-song origins through 16th-17th-century chanson-à-boire collections (Pierre Attaingnant 1530s and Pierre Phalèse late-16th-century printed-chanson collections include drinking-song repertoire) through 19th-century French cabaret-and-tavern continuous practice into modern French-and-French-Canadian pub-practice",
-  "recipe": "classic mid-1530s french chansons à boire, drinking Song, European branch, americas drinking song, chanson fado ballad poetry, iberian functional song cape verdean batuko of santiago island mexican cantina drinking song. vocal fry, low dynamic level, tasteful, continuous-phonation. castagnari Italian premium folk music accordion. irish pub. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 472,
-  "score": 145.828,
+  "recipe": "classic mid-1530s french chansons à boire, drinking Song, European branch, americas drinking song, chanson fado ballad poetry, iberian functional song cape verdean batuko of santiago island mexican cantina drinking song. vocal fry, low dynamic level, tasteful, continuous-phonation. castagnari Italian premium folk music accordion. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 405,
+  "score": 132.503,
   "config": {
     "traditions": [
       "french_chansons_a_boire",
@@ -75,7 +75,7 @@
       }
     ],
     "room": "irish_pub",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

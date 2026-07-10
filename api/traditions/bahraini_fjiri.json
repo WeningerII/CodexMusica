@@ -3,9 +3,9 @@
   "name": "Bahraini fjiri (pearl-divers' song)",
   "family": "global",
   "lineage": "Bahraini fjiri pearl-divers' work-song tradition, performed by the all-male crews of dhow boats conducting the annual ghaws pearl-diving season in the Persian Gulf during the pre-petroleum era (eighteenth-mid-twentieth centuries). Repertoire structured around the diving voyage cycle: departure songs, anchor-hauling songs, noon-prayer-pause songs, diver-hauling songs, homeward-return songs. Architecture features male lead singer (nahham) with chorus response, hand-clapping, tar frame-drum, and jahla clay-jar percussion. The 1930s-1950s closure of natural-pearl industry terminated functional context.",
-  "recipe": "classic Middle Eastern mid-1930s bahraini fjiri, ballad Poetry, work song branch, med east poetic ballad poetry pontic greek music cypriot tsiattista. thick, worn fold, chest resonance low mid, narrative. walnut bent frame canonical Iranian tar frame drum. qat chew majlis room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 408,
-  "score": 99.355,
+  "recipe": "classic Middle Eastern mid-1930s bahraini fjiri, ballad Poetry, work song branch, med east poetic ballad poetry pontic greek music cypriot tsiattista. thick, worn fold, chest resonance low mid, narrative. walnut bent frame canonical Iranian tar frame drum. qat chew majlis room. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 341,
+  "score": 90.83,
   "config": {
     "traditions": [
       "bahraini_fjiri",
@@ -71,7 +71,7 @@
       }
     ],
     "room": "qat_chew_majlis_room",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

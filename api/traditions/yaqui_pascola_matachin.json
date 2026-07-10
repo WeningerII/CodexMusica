@@ -3,9 +3,9 @@
   "name": "Yaqui pascola and matachín (northern Mexican Easter dance-cycle)",
   "family": "global",
   "lineage": "Yaqui (Yoeme) pascola-and-matachín Easter Week ceremonial dance-cycle of the Yaqui communities of Sonora (Mexico) and southern Arizona, integrating pre-contact Yaqui ceremonial structure with sixteenth-century Spanish-Jesuit liturgical introductions into a syncretic Yaqui-Catholic Easter cycle. The pascola \"old men of the fiesta\" dancers wear carved-wood masks and dance to harp-and-violin music in the village dance-ramada throughout the multi-day ceremonial cycle; the matachín soldiers-of-the-Virgin dance-society performs in colorful crown-and-staff regalia. Performance: continuous days-long ceremonial-cycle with multiple specialized music-and-dance functions including the canónigos solemn liturgical procession, the venado-deer-dance hunting ceremony, and the matachín-soldier-of-the-Virgin processional.",
-  "recipe": "classic Mexican modern yaqui pascola and matachín, ritual Devotional, indigenous branch, Latin am troubadour ballad poetry milonga chacarera. thick, declaimed, chest resonance low mid, continuous-phonation. coated nanoweb fingerpicked parlor acoustic guitar, concert harp, yamaha modern Japanese mid to premium flute. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 531,
-  "score": 112.18,
+  "recipe": "classic Mexican modern yaqui pascola and matachín, ritual Devotional, indigenous branch, Latin am troubadour ballad poetry milonga chacarera. thick, declaimed, chest resonance low mid, continuous-phonation. coated nanoweb fingerpicked parlor acoustic guitar, concert harp, yamaha modern Japanese mid to premium flute. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 464,
+  "score": 102.343,
   "config": {
     "traditions": [
       "yaqui_pascola_matachin",
@@ -99,7 +99,7 @@
       }
     ],
     "room": "mexico_bolero_xochimilco_studio",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

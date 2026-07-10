@@ -3,9 +3,9 @@
   "name": "Finnish kantele folk and Kalevala-recitation",
   "family": "global",
   "lineage": "Karelian-Finnish epic-recitation tradition documented by Elias Lönnrot in compiling the Kalevala national epic (1835 first edition, 1849 expanded), paired with the lap-zither kantele (Finlands national instrument) — performed in Karelian, Ingrian, Estonian, and other Baltic-Finnic language traditions in pre-Christian rune-singing and folk-tale-singing contexts",
-  "recipe": "classic Northern European mid-1830s finnish kantele folk and kalevala-recitation, ballad Poetry, Celtic balladic branch, Slavic bard ballad poetry icelandic kvæði / þula recitation serbian guslar epic recitation. thick, low dynamic level, melodic, narrative. birch alder karelian gut pre modern five string fingerpicked kantele. sapmi outdoor tundra yoik. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 485,
-  "score": 90.915,
+  "recipe": "classic Northern European mid-1830s finnish kantele folk and kalevala-recitation, ballad Poetry, Celtic balladic branch, Slavic bard ballad poetry icelandic kvæði / þula recitation serbian guslar epic recitation. thick, low dynamic level, melodic, narrative. birch alder karelian gut pre modern five string fingerpicked kantele. sapmi outdoor tundra yoik. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 418,
+  "score": 79.64,
   "config": {
     "traditions": [
       "finnish_kantele_folk",
@@ -71,7 +71,7 @@
       }
     ],
     "room": "sapmi_outdoor_tundra_yoik",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

@@ -3,9 +3,9 @@
   "name": "Bengali jata gita / Indian grinding-mill song",
   "family": "global",
   "lineage": "Bengali jata gita (grinding-mill song) and broader Indian-subcontinent grinding-and-millstone song tradition continuous from premodern South-Asian domestic-grain-processing labor practice through 19th-20th century continuous performance into modern Bengali-Bangladeshi-and-broader-Indian continuous practice",
-  "recipe": "classic South Asian modern bengali jata gita / indian grinding-mill song, domestic Rhythm, south Asian branch, sub saharan African domestic rhythm, south Asian lullaby, south Asian field work bengali bhatiali bengali ghum-paranir gan. thick, low dynamic level, tasteful, continuous-phonation. manganiyar haveli courtyard. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 451,
-  "score": 108.356,
+  "recipe": "classic South Asian modern bengali jata gita / indian grinding-mill song, domestic Rhythm, south Asian branch, sub saharan African domestic rhythm, south Asian lullaby, south Asian field work bengali bhatiali bengali ghum-paranir gan. thick, low dynamic level, tasteful, continuous-phonation. manganiyar haveli courtyard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 384,
+  "score": 102.543,
   "config": {
     "traditions": [
       "indian_jata_gita_grinding",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "manganiyar_haveli_courtyard",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

@@ -3,9 +3,9 @@
   "name": "Baaka (Aka pygmy) hunting polyphony",
   "family": "global",
   "lineage": "Baaka (Aka, Bayaka) Central-African pygmy hunting-and-ritual polyphonic-vocal tradition continuous from premodern Congolese-and-Central-African-Republic rainforest hunting practice through 20th-century continuous performance into modern Baaka-and-broader-Mbuti continuous practice",
-  "recipe": "classic Southern African modern baaka (aka pygmy) hunting polyphony, hunting Song, sub saharan African branch, arctic hunting song, sub saharan African praise song, indigenous ritual devotional mande jeli / griot praise-song shona mbira praise music. vocal fry, declaimed, tasteful, continuous-phonation. outdoor kalahari fire circle. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 464,
-  "score": 201.735,
+  "recipe": "classic Southern African early-1940s baaka (aka pygmy) hunting polyphony, hunting Song, sub saharan African branch, arctic hunting song, sub saharan African praise song, indigenous ritual devotional mande jeli / griot praise-song shona mbira praise music. vocal fry, declaimed, melodic, continuous-phonation. outdoor kalahari fire circle. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 413,
+  "score": 190.18,
   "config": {
     "traditions": [
       "baaka_hunting_polyphony",
@@ -20,7 +20,7 @@
           "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "legato_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "mande_jeli_vocal_tradition",
@@ -38,7 +38,7 @@
           "voice_quality": 31.264999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.38,
+          "voice_vibrato": 1.625,
           "voice_articulation": 8.45,
           "voice_microtone": 2.335,
           "voice_tradition": 56.41999999999999,
@@ -54,7 +54,7 @@
       }
     ],
     "room": "outdoor_kalahari_fire_circle",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_nagra_ethnographic_field",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

@@ -3,14 +3,14 @@
   "name": "Tamil oppāri (ஒப்பாரி, women's lament)",
   "family": "global",
   "lineage": "Tamil women's mourning-song tradition continuous from medieval-Tamil-Nadu rural practice through 20th-century ethnographic documentation (M. D. Muthukumaraswamy and others) into modern continuous-tradition performance by working-class and Dalit-Tamil professional women keeners",
-  "recipe": "classic modern tamil oppāri, funeral Lament, south Asian branch, vocal drone modal, indian classical improv improv on frame, indian bard ballad poetry dhrupad cambodian chapei dang veng. vocal fry, declaimed, chest resonance low mid, continuous-phonation. field recording. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 402,
-  "score": 147.585,
+  "recipe": "classic modern tamil oppāri, funeral Lament, south Asian branch, vocal drone modal, indian classical improv improv on frame, indian bard ballad poetry dhrupad carnatic vocal. vocal fry, declaimed, chest resonance low mid, continuous-phonation. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 323,
+  "score": 150.385,
   "config": {
     "traditions": [
       "tamil_oppari",
       "dhrupad",
-      "cambodian_chapei_dang_veng"
+      "carnatic_vocal"
     ],
     "instruments": [
       {
@@ -30,31 +30,31 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 3.575,
-          "voice_quality": 6.727500000000002,
+          "voice_register": 5.459999999999999,
+          "voice_quality": 4.55,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.925,
-          "voice_articulation": 4.164999999999999,
-          "voice_microtone": 1.6574999999999995,
-          "voice_tradition": 22.035,
-          "voice_mechanism_compound": 8.16,
-          "voice_estill_quality": 14.924999999999999,
-          "voice_speech_song": 23.009999999999998,
-          "voice_ensemble_config": 17.16,
-          "voice_ornament_system": 14.049999999999999,
-          "voice_pitch_organization": 12.760000000000002,
-          "voice_processing_chain": 6.11,
-          "voice_multitrack_stack": 4.225
+          "voice_vibrato": 5.4750000000000005,
+          "voice_articulation": 3.5149999999999997,
+          "voice_microtone": 1.0399999999999998,
+          "voice_tradition": 26.4225,
+          "voice_mechanism_compound": 11.660000000000002,
+          "voice_estill_quality": 15.475,
+          "voice_speech_song": 16.509999999999998,
+          "voice_ensemble_config": 12.349999999999994,
+          "voice_ornament_system": 18.150000000000002,
+          "voice_pitch_organization": 18.485000000000003,
+          "voice_processing_chain": 5.329999999999999,
+          "voice_multitrack_stack": 6.499999999999999
         }
       }
     ],
     "room": "field_recording",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

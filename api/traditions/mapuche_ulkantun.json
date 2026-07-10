@@ -3,9 +3,9 @@
   "name": "Mapuche ülkantun (sung-poetry beyond tayil)",
   "family": "global",
   "lineage": "Mapuche ülkantun (\"singing\") sung-poetry tradition of the Mapuche communities of southern Argentina and central-southern Chile, distinct from the more specialized tayil women's genealogical-ritual chant. The ülkantun encompasses the broader Mapuche song-repertoire spanning everyday-occasion songs, mourning-laments, war-songs, courtship-songs, and political-resistance songs. Performance: solo singer often accompanying themselves on kultrun shallow-frame-drum (the canonical Mapuche ceremonial-percussion-instrument), with characteristic narrow-range Mapuche pentatonic melodic vocabulary and the Mapudungun language base. The post-1990 Chilean-democratic-transition cultural-revival under the Mapuche cultural-policy organizations consolidated institutional visibility; the Mapuche post-2010 political-mobilization period has reinvigorated the genre.",
-  "recipe": "classic Northeast Asian early-1990s mapuche ülkantun, ballad Poetry, Latin am troubadour branch, mapuche indigenous mapuche tayil genealogical chant. extended whistle, declaimed, melodic, Scottish Gaelic vocal. laurel lingue rauli wood canonical mapuche build goat or horse skin cosmological diagram painted machi shamanic ritual canonical ngillatun kultrun. open steppe outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 509,
-  "score": 123.476,
+  "recipe": "classic Northeast Asian early-1990s mapuche ülkantun, ballad Poetry, Latin am troubadour branch, mapuche indigenous mapuche tayil genealogical chant. extended whistle, declaimed, melodic, Scottish Gaelic vocal. laurel lingue rauli wood canonical mapuche build goat or horse skin cosmological diagram painted machi shamanic ritual canonical ngillatun kultrun. open steppe outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 442,
+  "score": 112.851,
   "config": {
     "traditions": [
       "mapuche_ulkantun",
@@ -66,7 +66,7 @@
       }
     ],
     "room": "open_steppe_outdoor",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

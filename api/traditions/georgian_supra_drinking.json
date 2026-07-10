@@ -3,9 +3,9 @@
   "name": "Georgian supra feast-singing",
   "family": "global",
   "lineage": "Georgian supra-feast drinking-and-singing tradition continuous from medieval-Georgian feast-and-toast tradition through 19th-20th century continuous performance into modern Georgian-and-Georgian-diaspora continuous practice; the Georgian supra is the documented multi-hour ritual-feast-and-toast-ceremony where the tamada (toast-master) directs the extended-toast-and-song sequence",
-  "recipe": "classic modern georgian supra feast-singing, drinking Song, balkan branch, European drinking song, European wedding, middle east n African praise song sufi munajat and naat arabic madh and qasida. extended whistle, declaimed, tasteful, continuous-phonation. eastern georgian three string panduri, drone bass choir georgian polyphonic. irish pub. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 475,
-  "score": 315.606,
+  "recipe": "classic modern georgian supra feast-singing, drinking Song, balkan branch, European drinking song, European wedding, middle east n African praise song sufi munajat and naat arabic madh and qasida. extended whistle, declaimed, tasteful, continuous-phonation. eastern georgian three string panduri, drone bass choir georgian polyphonic. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 408,
+  "score": 309.318,
   "config": {
     "traditions": [
       "georgian_supra_drinking",
@@ -80,7 +80,7 @@
       }
     ],
     "room": "irish_pub",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

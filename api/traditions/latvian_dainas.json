@@ -3,9 +3,9 @@
   "name": "Latvian dainas (folk-song quatrains)",
   "family": "global",
   "lineage": "Latvian dainas folk-quatrain song tradition: the canonical Latvian oral-poetic-and-song corpus comprising over 1.2 million collected four-line quatrains in trochaic-tetrameter or dactyl-tetrameter form, documenting the entire Latvian rural-life-cycle from birth-rituals through wedding-cycle through funeral-rites. Compiled by Krišjānis Barons (1835-1923) in the canonical six-volume Latvju Dainas (1894-1915), the largest single-author folklore-collection in any language. Performance configuration: unaccompanied solo or small-group female-voice in characteristic narrow-range pentatonic-or-modal melodic vocabulary with strict daina meter. The post-1991 Latvian-independence cultural-revival under the Song-and-Dance Celebration (Latvian: Dziesmu un deju svētki) has consolidated institutional transmission. Distinguished from broader Baltic vocal music by daina's strict quatrain-form and Krišjānis Barons canonical-corpus reference.",
-  "recipe": "classic early-1830s latvian dainas, ballad Poetry, work song branch, vocal drone modal estonian setu leelo polyphonic song lithuanian sutartinės multipart. thick, declaimed, melodic, narrative. chromatic concert twentieth century modern strummed damped song accompaniment kokle. mountain valley. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 425,
-  "score": 216.405,
+  "recipe": "classic early-1830s latvian dainas, ballad Poetry, work song branch, vocal drone modal estonian setu leelo polyphonic song lithuanian sutartinės multipart. thick, declaimed, melodic, narrative. chromatic concert twentieth century modern strummed damped song accompaniment kokle. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 358,
+  "score": 199.73,
   "config": {
     "traditions": [
       "latvian_dainas",
@@ -69,7 +69,7 @@
       }
     ],
     "room": "mountain_valley",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

@@ -3,9 +3,9 @@
   "name": "Algerian chaabi (Algiers urban folk)",
   "family": "global",
   "lineage": "Algerian chaabi (\"popular\") urban-folk tradition of Algiers and broader Algerian coastal region, emerging in 1920s-1930s Algiers Casbah as working-class popular reinterpretation of older malhun classical-Arabic poetic tradition, with simplified modal structures and accessible Algerian-Arabic dialect lyrics. Founding figure El Hadj M'Hamed El Anka codified the genre, establishing instrumentation of oud, mandole, banjo (introduced through American jazz exposure), darbuka, and tar frame-drum. Repertoire spans poetic-philosophical reflection (qsida), urban-life observation, and post-1962 independence cultural-pride themes.",
-  "recipe": "classic North African mid-1920s algerian chaabi, functional Song, mid east n African pop branch, middle eastern classical art music shashmaqam uyghur on ikki muqam. thick, low dynamic level, chest resonance low mid, maqam neutral step. walnut ribs canonical mid tier Lebanese cedar eastern Mediterranean pyramid oud, spun aluminum Egyptian sombaty goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka, walnut mid tier scruggs stelling bluegrass setup mastertone flathead banjo 5 string. casablanca and marrakech recording 1970-present indie-commercial casablanca chaabi moroccan studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 685,
-  "score": 296.02,
+  "recipe": "classic North African mid-1920s algerian chaabi, functional Song, mid east n African pop branch, middle eastern classical art music shashmaqam uyghur on ikki muqam. thick, low dynamic level, chest resonance low mid, maqam neutral step. walnut ribs canonical mid tier Lebanese cedar eastern Mediterranean pyramid oud, spun aluminum Egyptian sombaty goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka, walnut mid tier scruggs stelling bluegrass setup mastertone flathead banjo 5 string. casablanca and marrakech recording 1970-present indie-commercial casablanca chaabi moroccan studio. large-diaphragm condenser, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe_chars": 693,
+  "score": 297.83,
   "config": {
     "traditions": [
       "algerian_chaabi",
@@ -31,7 +31,7 @@
           "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
           "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
           "voice_register": 12.349999999999998,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 30.075,
           "voice_pitch_organization": 30.255000000000003,
           "voice_processing_chain": 2.5349999999999997,
-          "voice_multitrack_stack": 1.155
+          "voice_multitrack_stack": 2.6650000000000005
         }
       },
       {
@@ -119,7 +119,7 @@
       }
     ],
     "room": "casablanca_chaabi_moroccan_studio",
-    "archetype": "arch_electrical_disc_cut",
+    "archetype": "arch_maghreb_state_radio",
     "inline_chain": {
       "mic": "mic_u47_tube_neumann",
       "pre": "pre_tube_german_v72",

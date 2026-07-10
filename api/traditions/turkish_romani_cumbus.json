@@ -3,9 +3,9 @@
   "name": "Turkish-Romani çümbüş music",
   "family": "global",
   "lineage": "Anatolian-Romani urban entertainment tradition centered around the Sulukule and Edirnekapı Romani quarters of Istanbul and the broader Turkish Romani diaspora across Anatolia; characteristic instrument the çümbüş (a banjo-oud hybrid invented 1930 by Zeynel Abidin Cümbüş), performed alongside kanun, darbuka, clarinet, violin for wedding-and-celebration repertoire",
-  "recipe": "classic Central European early-1930s turkish-romani çümbüş music, improv On Frame, Persian arab improv branch, med east poetic ballad poetry, klezmer improv improv on frame ethiopian azmari minstrel-poet pontic greek music. vocal fry, declaimed, pure, narrative. aluminum rim zeynel abidin skin head modern banjo like nylon oud courses strummed cumbus, kanun tortoiseshell traditional kanun, goat skin Turkish darbuka regional Turkish darbuka split finger smaller goat skin darbuka, ebonite hard rubber klezmer tradition clarinet. budapest carpathian csarda tavern. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 638,
-  "score": 156.666,
+  "recipe": "classic Central European early-1930s turkish-romani çümbüş music, improv On Frame, Persian arab improv branch, med east poetic ballad poetry, klezmer improv improv on frame ethiopian azmari minstrel-poet pontic greek music. vocal fry, declaimed, pure, narrative. aluminum rim zeynel abidin skin head modern banjo like nylon oud courses strummed cumbus, kanun tortoiseshell traditional kanun, goat skin Turkish darbuka regional Turkish darbuka split finger smaller goat skin darbuka, ebonite hard rubber klezmer tradition clarinet. budapest carpathian csarda tavern. large-diaphragm condenser, transformer-coupled solid-state pre, colored vintage console, vari-mu, passive program EQ. vinyl master cut tape echo spring reverb germanium fuzz wah / envelope filter.",
+  "recipe_chars": 762,
+  "score": 159.606,
   "config": {
     "traditions": [
       "turkish_romani_cumbus",
@@ -31,7 +31,7 @@
           "voice_ornament_system": "voice_ornament_persian_tahrir",
           "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
           "voice_register": 1.430625,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 4.04,
           "voice_pitch_organization": 11.024999999999999,
           "voice_processing_chain": 5.85,
-          "voice_multitrack_stack": 1.8206250000000002
+          "voice_multitrack_stack": 3.8356249999999994
         }
       },
       {
@@ -118,7 +118,7 @@
       }
     ],
     "room": "budapest_carpathian_csarda_tavern",
-    "archetype": "arch_electrical_disc_cut",
+    "archetype": "arch_unkapani_plak_arabesk",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "pre_tube_german_v72",

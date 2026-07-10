@@ -3,9 +3,9 @@
   "name": "Hungarian bordal (wine song)",
   "family": "global",
   "lineage": "Hungarian bordal (wine-song) tradition continuous from medieval-Hungarian wine-and-tavern-song origins through 19th-century Hungarian-national-Romantic-era Liszt-and-Bartók-folk-collection continuous through 20th-century Hungarian continuous wine-cellar (pince) and tavern (csárda) practice; the Hungarian wine-region tradition (Tokaj, Eger, Villány) integrates extensive wine-celebration song-repertoire",
-  "recipe": "classic modern hungarian bordal, drinking Song, European branch, balkan drinking song, iberian functional song, European wedding sardinian wedding cantu and launeddas music georgian supra feast-singing. thick, false fold engaged, tasteful, continuous-phonation. synthetic magic rosin modern acrylic base drone like rubber fiddle, sustained and staccato hungarian tradition concert pedal cimbalom large frame pedal damper cimbalom. irish pub. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 571,
-  "score": 171.711,
+  "recipe": "classic modern hungarian bordal, drinking Song, European branch, balkan drinking song, iberian functional song, European wedding sardinian wedding cantu and launeddas music georgian supra feast-singing. thick, false fold engaged, tasteful, continuous-phonation. synthetic magic rosin modern acrylic base drone like rubber fiddle, sustained and staccato hungarian tradition concert pedal cimbalom large frame pedal damper cimbalom. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 504,
+  "score": 165.786,
   "config": {
     "traditions": [
       "hungarian_bordal",
@@ -82,7 +82,7 @@
       }
     ],
     "room": "irish_pub",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

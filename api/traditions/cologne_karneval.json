@@ -3,9 +3,9 @@
   "name": "Cologne Karneval (Kölner Karneval)",
   "family": "global",
   "lineage": "Cologne (Köln) Karneval tradition documented from medieval Catholic-Rhineland Carnival-celebration practice (the documented Cologne-Karneval lineage extends to medieval-era Karnevalsumzug processionals) through 19th-century 1823-founded modern-Karneval-Festkomitee codification into modern Cologne Karneval Rosenmontagszug processional and Stunksitzung-and-Kostümsitzung continuous practice",
-  "recipe": "classic Southern European early-1820s cologne karneval, carnival Processional, European branch, American south carnival processional, European drinking song, European wedding new orleans brass band second-line french chansons à boire. thick, low dynamic level, tasteful, continuous-phonation. yellow brass canonical 70 30 bach stradivarius yamaha xeno modern Japanese continuous-airflow legato student friendly trumpet, yellow brass canonical 70 30 bach 42 standard yamaha xeno modern Japanese continuous-airflow legato tenor standard trombone, brass petosa seattle American premium accordion. outdoor dalmatian square. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 749,
-  "score": 177.991,
+  "recipe": "classic Southern European early-1820s cologne karneval, carnival Processional, European branch, American south carnival processional, European drinking song, European wedding new orleans brass band second-line french chansons à boire. thick, low dynamic level, tasteful, continuous-phonation. yellow brass canonical 70 30 bach stradivarius yamaha xeno modern Japanese continuous-airflow legato student friendly trumpet, yellow brass canonical 70 30 bach 42 standard yamaha xeno modern Japanese continuous-airflow legato tenor standard trombone, brass petosa seattle American premium accordion. outdoor dalmatian square. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 682,
+  "score": 168.266,
   "config": {
     "traditions": [
       "cologne_karneval",
@@ -117,7 +117,7 @@
       }
     ],
     "room": "outdoor_dalmatian_square",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

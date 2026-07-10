@@ -3,9 +3,9 @@
   "name": "Hawaiian haʻa ancestral chant",
   "family": "global",
   "lineage": "Sacred Hawaiian chant (oli) performed in the low, bent-knee haʻa posture reserved for akua and ancestors, encompassing genealogical (koʻihonua) and name (mele inoa) chants that transmit lineage and cosmology. The style is marked by sustained, measured vocal delivery and stylized ornaments such as the ʻiʻi trill, and was traditionally taught within the hula hālau under a kumu hula. The corpus and its performance practice were documented in Nathaniel B. Emerson's Unwritten Literature of Hawaii (1909) and in the later scholarship of Mary Kawena Pukui. Chant carried genealogy, prayer, and place-lore as authoritative oral record in pre-literate Hawaiʻi.",
-  "recipe": "classic Oceanian late-1900s hawaiian haʻa ancestral chant, praise Song, oceania pacific branch xhosa iimbongi praise oratory arabic madh and qasida. vocal fry, declaimed, chest resonance low mid, continuous-phonation. hawaiian heiau outdoor lava stone temple. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 389,
-  "score": 181.245,
+  "recipe": "classic Oceanian late-1900s hawaiian haʻa ancestral chant, praise Song, oceania pacific branch xhosa iimbongi praise oratory arabic madh and qasida. vocal fry, declaimed, chest resonance low mid, continuous-phonation. hawaiian heiau outdoor lava stone temple. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 322,
+  "score": 169.482,
   "config": {
     "traditions": [
       "hawaiian_haa_ancestral_chant",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "hawaiian_heiau_outdoor_lava_stone_temple",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

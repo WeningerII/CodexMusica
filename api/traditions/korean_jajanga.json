@@ -3,9 +3,9 @@
   "name": "Korean jajanga (자장가, cradle song)",
   "family": "global",
   "lineage": "Korean cradle-song tradition continuous from Joseon-era domestic-vocal practice through 20th-century colonial-era and post-Korean-War domestic singing across South Korea, North Korea, and Korean diaspora communities",
-  "recipe": "classic modern korean jajanga, lullaby, east Asian branch, east Asian pop functional song, east Asian art music, indian bard ballad poetry shidaiqu enka. thick, chest mix belt, melodic, continuous-phonation. nonghyeon microtonal bend cross tradition fusion concert context pansori voice. carpeted bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 435,
-  "score": 207.66,
+  "recipe": "classic modern korean jajanga, lullaby, east Asian branch, east Asian pop functional song, east Asian art music, indian bard ballad poetry shidaiqu enka. thick, chest mix belt, melodic, continuous-phonation. nonghyeon microtonal bend cross tradition fusion concert context pansori voice. carpeted bedroom. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 368,
+  "score": 196.323,
   "config": {
     "traditions": [
       "korean_jajanga",
@@ -71,7 +71,7 @@
       }
     ],
     "room": "carpeted_bedroom",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

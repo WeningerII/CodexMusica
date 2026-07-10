@@ -3,9 +3,9 @@
   "name": "Tuvan throat singing (khoomei)",
   "family": "global",
   "lineage": "Tuvan Republic (Russian-Federation Southern-Siberia, ethnically and linguistically Turkic-Mongolic) throat-singing tradition with five canonical styles — khöömei middle-register-resonance, sygyt high-isolated-whistle-overtone, kargyraa low-deep-undertone-style, borbangnadyr rolling-modulated-overtone, ezenggileer rhythmic-broken-overtone (horse-riding-mimetic). Distinct from the parallel Mongolian khoomei lineage despite the shared ethnographic-Turkic-Mongolic heritage; Tuvan technique tends toward higher-pitched sygyt isolation versus Mongolian deeper kharkhiraa. Embedded in nomadic herder-pastoralist work-song repertoire and in shamanic-trance ritual practice. The 1990s-onward post-Soviet international-touring exposure (initial European-and-American world-music-circuit) catalyzed contemporary-revival and academic-research interest.",
-  "recipe": "classic Northeast Asian mid-1990s tuvan throat singing, drone Modal, overtone branch, buddhist ritual devotional, central Asian hunting song mongolian hunting-khoomei tibetan chöd rite. sygyt, false fold engaged, overtone rich sustained, continuous-phonation. wood larch canonical tuvan khoomei accompaniment igil, traditional mongolian tuvan tradition tovshuur, long song morin khuur sycamore canonical mongolian horsehair 118 130 strands morin khuur. steppe outdoor mongolian. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 608,
-  "score": 399.995,
+  "recipe": "classic Northeast Asian mid-1990s tuvan throat singing, drone Modal, overtone branch, buddhist ritual devotional, central Asian hunting song mongolian hunting-khoomei tibetan chöd rite. sygyt, false fold engaged, overtone rich sustained, continuous-phonation. wood larch canonical tuvan khoomei accompaniment igil, traditional mongolian tuvan tradition tovshuur, long song morin khuur sycamore canonical mongolian horsehair 118 130 strands morin khuur. steppe outdoor mongolian. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 541,
+  "score": 388.17,
   "config": {
     "traditions": [
       "tuvan_throat",
@@ -99,7 +99,7 @@
       }
     ],
     "room": "steppe_outdoor_mongolian",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

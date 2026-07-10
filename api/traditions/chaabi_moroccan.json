@@ -3,9 +3,9 @@
   "name": "Chaabi (Moroccan)",
   "family": "global",
   "lineage": "Moroccan-Arabic-language popular wedding-and-celebration music built on the rural Moroccan dance rhythms (haoussa from Casablanca, aita from the Atlantic plains, houara from the Souss valley) with the urban ensemble of oud, violin, the Moroccan-invented banjo (late 1960s), darbuka, voice — codified through Cheikha Rimitti (raï predecessor and chaabi crossover), Najat Aatabou, Stati, Daoudi",
-  "recipe": "classic North African 1967-1969 chaabi, functional Song, mid east n African pop branch, Persian arab improv improv on frame, Sufi ritual devotional malhun iraqi maqam. extended whistle, low dynamic level, chest resonance low mid, maqam neutral step. rosewood premium iraqi Turkish pyramid nylon arab school oud, spun aluminum Egyptian sombaty goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka, alder electric bass. casablanca and marrakech recording 1970-present indie-commercial casablanca chaabi moroccan studio. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 685,
-  "score": 145.435,
+  "recipe": "classic North African 1967-1969 chaabi, functional Song, mid east n African pop branch, Persian arab improv improv on frame, Sufi ritual devotional malhun iraqi maqam. extended whistle, low dynamic level, chest resonance low mid, maqam neutral step. rosewood premium iraqi Turkish pyramid nylon arab school oud, spun aluminum Egyptian sombaty goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka, alder electric bass. casablanca and marrakech recording 1970-present indie-commercial casablanca chaabi moroccan studio. large-diaphragm condenser, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe_chars": 624,
+  "score": 143.585,
   "config": {
     "traditions": [
       "chaabi_moroccan",
@@ -113,7 +113,7 @@
       }
     ],
     "room": "casablanca_chaabi_moroccan_studio",
-    "archetype": "arch_emi_lagos_african_70s",
+    "archetype": "arch_maghreb_state_radio",
     "inline_chain": {
       "mic": "dynamic_mic",
       "pre": "pre_neve_1073_input",

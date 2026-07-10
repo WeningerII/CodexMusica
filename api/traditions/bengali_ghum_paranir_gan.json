@@ -3,9 +3,9 @@
   "name": "Bengali ghum-paranir gan (cradle song)",
   "family": "global",
   "lineage": "Bengali cradle-song tradition continuous from medieval Bengal domestic-vocal practice through Rabindra-sangeet appropriation (Tagore composed multiple cradle-songs) into modern Bangla-language domestic singing across West Bengal and Bangladesh",
-  "recipe": "classic modern bengali ghum-paranir gan, lullaby, south Asian branch, indian bard ballad poetry, south Asian art music, south Asian pop functional song rabindra sangeet hindi filmi. thick, declaimed, chest resonance low mid, continuous-phonation. carpeted bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 394,
-  "score": 163.01,
+  "recipe": "classic modern bengali ghum-paranir gan, lullaby, south Asian branch, indian bard ballad poetry, south Asian art music, south Asian pop functional song rabindra sangeet hindi filmi. thick, declaimed, chest resonance low mid, continuous-phonation. carpeted bedroom. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 327,
+  "score": 158.285,
   "config": {
     "traditions": [
       "bengali_ghum_paranir_gan",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "carpeted_bedroom",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

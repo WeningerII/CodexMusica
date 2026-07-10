@@ -3,9 +3,9 @@
   "name": "Swedish kulning herding-call",
   "family": "global",
   "lineage": "Swedish kulning (and the cognate Norwegian kuløkk and laling) high-volume female herding-call tradition of the mountain-pasture fäbod summer-grazing settlements of central and northern Sweden (Dalarna, Hälsingland, Härjedalen, and Jämtland provinces) and adjacent western Norway. Performed by women (the milkmaids who managed cattle and goats at the summer pastures) as a long-distance projecting call to bring grazing animals home at evening milking-time, kulning developed as a specialized vocal-projection technique using a tightly-focused upper-chest-and-head register that can carry several kilometers across mountain valleys. The technique employs characteristic ornamentation: a rapid initial pitch-glide upward to the calling-pitch, characteristic falling-fourth and falling-fifth interval ornaments, and a distinctive crystalline high-register timbre produced by tight glottal-and-supralaryngeal compression. Repertoire spans the practical herding-calls (lockrop) used to summon specific animals, calling-songs (lockläte) sung to entertain or comfort the cattle, and the broader corpus of fäbod-related work-song. The Svenskt visarkiv (Swedish Folk Music Archive) field-recordings beginning in the 1940s, and Susanne Rosenberg's twenty-first-century scholarship and performance, anchor the documentation. The mid-twentieth-century industrialization of Swedish dairy-farming eliminated the fäbod system as functional infrastructure; kulning persists as a heritage-art practice with active transmission through folk-music schools and concert-revival performers including Jonna Jinton in the post-2010 social-media revival. Distinguished from Norwegian kuløkk by Swedish-dialect-specific vocabulary and Dalarna-Härjedalen regional fäbod context; distinguished from Sámi yoik by kulning's pastoral-call functional context (vs yoik's personal-and-ancestor-evocation function) and tight-focused projection technique (vs yoik's nasal-resonance and narrow-range vocabulary).",
-  "recipe": "classic Northern European mid-1940s swedish kulning herding-call, ballad Poetry, work song branch, blues narrative field holler, vocal drone modal silbo gomero whistled language northern sámi luohti yoik. thick, declaimed, chest resonance low mid, unrestrained. mountain valley fabod. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 414,
-  "score": 240.028,
+  "recipe": "classic Northern European mid-1940s swedish kulning herding-call, ballad Poetry, work song branch, blues narrative field holler, vocal drone modal silbo gomero whistled language northern sámi luohti yoik. thick, declaimed, chest resonance low mid, unrestrained. mountain valley fabod. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 347,
+  "score": 225.103,
   "config": {
     "traditions": [
       "swedish_kulning",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "mountain_valley_fabod",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

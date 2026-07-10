@@ -3,9 +3,9 @@
   "name": "Sufi munajat and naat (praise of God and Prophet)",
   "family": "global",
   "lineage": "Sufi devotional praise-song tradition continuous from medieval Sufi-poetic era (13th-15th century Rumi, Hafez, Saadi era) through Indo-Persian-Mughal-era continuous performance into modern Sufi-and-Muslim-diaspora practice; munajat (intimate-supplication praise of God) and naat (praise of the Prophet Muhammad) are the canonical Sufi praise-forms",
-  "recipe": "classic South Asian mid-1930s sufi munajat and naat, praise Song, middle east n African branch, indian subcontinent praise song, Sufi ritual devotional, middle eastern classical art music qawwali sufi inshad. vocal fry, declaimed, chest resonance low mid, continuous-phonation. low overtone rich vocal male harmonium indian, indian rosewood rosewood copper tabla. karachi lahore naat devotional majlis. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 475,
-  "score": 243.367,
+  "recipe": "classic South Asian early-1940s sufi munajat and naat, praise Song, middle east n African branch, indian subcontinent praise song, Sufi ritual devotional, middle eastern classical art music qawwali sufi inshad. vocal fry, declaimed, chest resonance low mid, continuous-phonation. low overtone rich vocal male harmonium indian, indian rosewood rosewood copper tabla. karachi lahore naat devotional majlis. large-diaphragm condenser, tube pre, German tube console, vari-mu, passive program EQ. tape 15ips echo spring reverb.",
+  "recipe_chars": 522,
+  "score": 246.311,
   "config": {
     "traditions": [
       "sufi_munajat_naat",
@@ -49,7 +49,7 @@
           "voice_ornament_system": 21.424999999999997,
           "voice_pitch_organization": 13.454999999999998,
           "voice_processing_chain": 3.1645,
-          "voice_multitrack_stack": 2.339999999999999
+          "voice_multitrack_stack": 4.884499999999999
         }
       },
       {
@@ -82,7 +82,7 @@
       }
     ],
     "room": "karachi_lahore_naat_devotional_majlis",
-    "archetype": "arch_electrical_disc_cut",
+    "archetype": "arch_emi_pakistan_lollywood",
     "inline_chain": {
       "mic": "mic_u47_tube_neumann",
       "pre": "pre_tube_german_v72",

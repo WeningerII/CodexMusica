@@ -3,14 +3,14 @@
   "name": "Vietnamese quan họ Bắc Ninh",
   "family": "global",
   "lineage": "Vietnamese quan họ Bắc Ninh antiphonal courtship-song tradition of the Bắc Ninh province, the Red River Delta region north of Hanoi. Performance involves paired female-and-male choral groups (liền chị women, liền anh men) from neighboring villages who exchange improvised verse-and-response over the course of a year of festival visits, with the courtship-exchange the formal narrative-arc of the repertoire. Vocal style features unaccompanied (originally — modern stage performance often adds chamber-ensemble accompaniment) two-or-three-voice female and male chorus in heterophonic-melodic-elaboration register, with characteristic Vietnamese pentatonic-modal vocabulary and the distinctive vibrato-ornament called nẩy hột (\"rice-grain vibrato,\" a precisely-articulated rapid pitch-and-amplitude wobble unique to quan họ vocal-aesthetic). Verse-forms draw on canonical four-line, six-eight-line, and seven-seven-six-eight Vietnamese poetic-meter structures. The forty-nine documented \"kết-chạ\" (sworn-sister-village) pair-relationships constitute the social-structural infrastructure of the tradition. Documentation records two hundred and forty-nine quan họ villages across the region. Distinguished from ca trù by quan họ's village-festival-collective (vs chamber-literary) functional context; distinguished from xoan (the adjacent ritual-village tradition) by quan họ's courtship-exchange (vs ancestor-veneration) functional framing; distinguished from southern Vietnamese đờn ca tài tử by northern Red-River-Delta dialect-specific cadential conventions.",
-  "recipe": "classic modern vietnamese quan họ bắc ninh, art Music, southeast Asian branch, indigenous ritual devotional inuit katajjaq throat-singing game shipibo-conibo icaros healing songs. kargyraa, declaimed, melodic, callresponse articulation. forest clearing. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 383,
-  "score": 218.815,
+  "recipe": "classic modern vietnamese quan họ bắc ninh, art Music, southeast Asian branch, indigenous ritual devotional inuit katajjaq throat-singing game mapuche tayil genealogical chant. kargyraa, declaimed, melodic, callresponse articulation. forest clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 313,
+  "score": 186.545,
   "config": {
     "traditions": [
       "vietnamese_quan_ho",
       "inuit_katajjaq_games",
-      "shipibo_icaros"
+      "mapuche_tayil_ritual"
     ],
     "instruments": [
       {
@@ -25,7 +25,7 @@
           "voice_microtone": "overtone_singing",
           "voice_tradition": "inuit_katajjaq_tradition",
           "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_sami_yoik",
@@ -35,26 +35,26 @@
         },
         "scores": {
           "voice_register": 8.71,
-          "voice_quality": 9.514999999999999,
+          "voice_quality": 8.415000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.275,
+          "voice_vibrato": 2.47,
           "voice_articulation": 1.445,
           "voice_microtone": 7.880000000000002,
-          "voice_tradition": 37.595000000000006,
-          "voice_mechanism_compound": 23.880000000000003,
-          "voice_estill_quality": 7.54,
-          "voice_speech_song": 30.55,
-          "voice_ensemble_config": 30.94,
-          "voice_ornament_system": 9.215,
+          "voice_tradition": 33.82,
+          "voice_mechanism_compound": 20.805,
+          "voice_estill_quality": 8.319999999999999,
+          "voice_speech_song": 28.210000000000004,
+          "voice_ensemble_config": 29.64,
+          "voice_ornament_system": 7.839999999999999,
           "voice_pitch_organization": 16.485,
           "voice_processing_chain": 8.190000000000001,
-          "voice_multitrack_stack": 7.669999999999999
+          "voice_multitrack_stack": 7.865
         }
       }
     ],
     "room": "forest_clearing",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

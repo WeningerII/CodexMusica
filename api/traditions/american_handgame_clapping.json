@@ -3,9 +3,9 @@
   "name": "American hand-game clapping rhymes (Miss Mary Mack lineage)",
   "family": "global",
   "lineage": "African-American-and-American-English hand-game clapping-rhyme tradition continuous from African-diasporic and African-American children's play-song origins through 20th-century continuous performance across American childhood-and-playground-practice; the canonical \"Miss Mary Mack\" and broader hand-game repertoire is documented as one of the most-durable American children's-play-traditions",
-  "recipe": "classic modern american hand-game clapping rhymes, nursery Rhyme, americas branch, sub saharan African nursery rhyme, Brazilian groove percussion, sub saharan African protest song yoruba ọmọ-iya nursery and play-song south african freedom song. vocal fry, false fold engaged, tasteful, continuous-phonation. field recording. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 454,
-  "score": 135.09,
+  "recipe": "classic early-1940s american hand-game clapping rhymes, nursery Rhyme, americas branch, sub saharan African nursery rhyme, Brazilian groove percussion, sub saharan African protest song yoruba ọmọ-iya nursery and play-song south african freedom song. vocal fry, false fold engaged, continuous-phonation, equal tempered. field recording. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 410,
+  "score": 129.215,
   "config": {
     "traditions": [
       "american_handgame_clapping",
@@ -20,7 +20,7 @@
           "voice_quality": "false_fold_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_vibrato": "straight_tone",
           "voice_articulation": "legato_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
@@ -38,7 +38,7 @@
           "voice_quality": 3.225000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.845,
+          "voice_vibrato": 0.345,
           "voice_articulation": 4.9399999999999995,
           "voice_microtone": 0.7749999999999997,
           "voice_tradition": 46.675,
@@ -54,7 +54,7 @@
       }
     ],
     "room": "field_recording",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_nagra_ethnographic_field",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

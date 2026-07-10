@@ -3,9 +3,9 @@
   "name": "Soundscape composition (Vancouver-school environmental)",
   "family": "classical",
   "lineage": "Canadian-and-international compositional approach emerging in 1970s through R. Murray Schafer's World Soundscape Project at Simon Fraser University. Compositions integrate field-recorded environmental and ecological sounds with electroacoustic transformation, addressing acoustic-ecology and the listener's sonic-environmental awareness. Hildegard Westerkamp's Kits Beach Soundwalk (1989) and Schafer's Vancouver Soundscape (1973) constitute the canonical type-specimens.",
-  "recipe": "classic mid-1970s soundscape composition, experimental Elec, musique concrete branch, ambient experimental electric dark ambient hauntology. field textural sampler. shoebox concert hall. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
-  "recipe_chars": 282,
-  "score": 48.927,
+  "recipe": "classic Asian mid-1970s soundscape composition, experimental Elec, musique concrete branch, ambient experimental electric dark ambient hauntology. field textural sampler. shoebox concert hall. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+  "recipe_chars": 326,
+  "score": 49.377,
   "config": {
     "traditions": [
       "soundscape_composition",
@@ -32,7 +32,7 @@
       }
     ],
     "room": "concert_hall_shoebox",
-    "archetype": "arch_pre_daw_electronic_pioneer",
+    "archetype": "arch_hk_cantopop_ballad_factory",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "tube_pre",

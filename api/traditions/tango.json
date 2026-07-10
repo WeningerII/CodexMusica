@@ -3,9 +3,9 @@
   "name": "Tango",
   "family": "global",
   "lineage": "Argentine bandoneón-and-violin orquesta-típica tradition codified through the Buenos Aires studio canon from Carlos Gardel onward",
-  "recipe": "classic South American mid-1930s tango, ballad Poetry, Latin am troubadour branch, tropical song functional song garifuna paranda and hungu-hungu bolero. thick, full chest belt, melodic, equal tempered. tango virtuoso premier German tango premium alternative bellows articulated bandoneon, sitka spruce pernambuco paubrasilia echinata classical canon bernardel violin orchestral, upright piano, growly gut upright bass, pirastro cellisto cello specific pernambuco classical canon cello. large tracking room 1920-1965 mid tier odeon rca buenos aires. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 622,
-  "score": 120.765,
+  "recipe": "classic South American mid-1940s tango, ballad Poetry, Latin am troubadour branch, tropical song functional song garifuna paranda and hungu-hungu bolero. thick, full chest belt, melodic, equal tempered. tango virtuoso premier German tango premium alternative bellows articulated bandoneon, sitka spruce pernambuco paubrasilia echinata classical canon bernardel violin orchestral, upright piano, growly gut upright bass, pirastro cellisto cello specific pernambuco classical canon cello. large tracking room 1920-1965 mid tier odeon rca buenos aires. RCA 44-BX, German V72 tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 617,
+  "score": 121.515,
   "config": {
     "traditions": [
       "tango",
@@ -149,7 +149,7 @@
       }
     ],
     "room": "odeon_rca_buenos_aires",
-    "archetype": "arch_electrical_disc_cut",
+    "archetype": "arch_ba_tango_radio_orquesta",
     "inline_chain": {
       "mic": "mic_rca_44bx_ribbon",
       "pre": "tube_pre",

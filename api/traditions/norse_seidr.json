@@ -3,9 +3,9 @@
   "name": "Old Norse seiðr ritual vocalization",
   "family": "global",
   "lineage": "Seiðr was an Old Norse shamanic ritual practice associated chiefly with the völva (seeress) and the goddess Freyja, attested most fully in the account of Þorbjörg lítilvölva in Eiríks saga rauða and scattered through Ynglinga saga and Eddic material. Central to the rite were varðlokkur ('ward-songs'), sung to attract helping spirits so the seeress on her raised seiðhjallr platform could prophesy; in the saga a chorus of women sings while the völva works. The practice carried strong gender associations (ergi) and was linked to trance and spirit-travel, placing it alongside circumpolar shamanic vocalization. It survives only through medieval Icelandic prose and is reconstructed by scholars and modern practitioners.",
-  "recipe": "classic modern old norse seiðr ritual vocalization, ritual Devotional, arctic branch, indigenous ritual devotional mongolian böö shamanic invocation shipibo-conibo icaros healing songs. kargyraa, declaimed, tasteful, punctuated. forest clearing. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 375,
-  "score": 175.003,
+  "recipe": "classic modern old norse seiðr ritual vocalization, ritual Devotional, arctic branch, indigenous ritual devotional mongolian böö shamanic invocation shipibo-conibo icaros healing songs. kargyraa, declaimed, tasteful, punctuated. forest clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 308,
+  "score": 156.303,
   "config": {
     "traditions": [
       "norse_seidr",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "forest_clearing",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

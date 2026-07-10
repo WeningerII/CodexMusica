@@ -3,9 +3,9 @@
   "name": "Talking blues",
   "family": "global",
   "lineage": "Spoken-rhythmic-narrative blues form codified by Chris Bouchillon in 1926 (his Talking Blues 78 being the founding commercial recording) and extended through the Dust Bowl Ballads era by Woody Guthrie (his 1940 RCA Victor Dust Bowl Ballads sessions the founding documents), then carried forward through the post-WWII folk revival via Pete Seeger, Phil Ochs, and the early Bob Dylan (Talkin New York 1962, Talkin John Birch Paranoid Blues 1962 — the Dylan talking-blues period)",
-  "recipe": "classic Midwestern American mid-1920s talking blues, ballad Poetry, talking blues branch, us hip hop MC rhythm conscious hip-hop gangsta rap. thick, rap, melodic, narrative. mahogany flatwound thomastik fingerpicked slide acoustic guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. us dustbowl outdoor woody guthrie. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 457,
-  "score": 361.435,
+  "recipe": "classic Midwestern American mid-1920s talking blues, ballad Poetry, talking blues branch, us hip hop MC rhythm conscious hip-hop gangsta rap. thick, rap, melodic, narrative. mahogany flatwound thomastik fingerpicked slide acoustic guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. us dustbowl outdoor woody guthrie. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 459,
+  "score": 361.76,
   "config": {
     "traditions": [
       "talking_blues_dustbowl",
@@ -94,7 +94,7 @@
       }
     ],
     "room": "us_dustbowl_outdoor_woody_guthrie",
-    "archetype": "arch_electrical_disc_cut",
+    "archetype": "arch_nagra_ethnographic_field",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

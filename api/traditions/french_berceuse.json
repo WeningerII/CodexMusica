@@ -3,9 +3,9 @@
   "name": "French berceuse (cradle song)",
   "family": "global",
   "lineage": "French cradle-song tradition continuous from medieval and Renaissance courtly-and-rural berceuse through 19th-century Romantic art-song setting (Fauré, Berlioz, Saint-Saëns) and 20th-century chanson appropriation",
-  "recipe": "classic modern french berceuse, lullaby, European branch, chanson fado ballad poetry, western common practice art music, europop functional song schlager morna. thick, lament wail, melodic, continuous-phonation. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 349,
-  "score": 80.305,
+  "recipe": "classic modern french berceuse, lullaby, European branch, chanson fado ballad poetry, western common practice art music, europop functional song schlager morna. thick, lament wail, melodic, continuous-phonation. parlor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 282,
+  "score": 75.767,
   "config": {
     "traditions": [
       "french_berceuse",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "parlor",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

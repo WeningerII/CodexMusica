@@ -3,9 +3,9 @@
   "name": "Mandarin yáolán qǔ (摇篮曲, cradle song)",
   "family": "global",
   "lineage": "Mandarin Chinese cradle-song tradition continuous from imperial-era domestic-vocal practice through 20th-century revolutionary-era and post-reform-era domestic singing across mainland China, Taiwan, Singapore Mandarin-speaking communities",
-  "recipe": "classic modern mandarin yáolán qǔ, lullaby, east Asian branch, east Asian pop functional song, east Asian art music, vocal drone modal shidaiqu enka. thick, chest mix belt, melodic, continuous-phonation. carpeted bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 351,
-  "score": 195.365,
+  "recipe": "classic modern mandarin yáolán qǔ, lullaby, east Asian branch, east Asian pop functional song, east Asian art music, vocal drone modal shidaiqu enka. thick, chest mix belt, melodic, continuous-phonation. carpeted bedroom. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 284,
+  "score": 185.678,
   "config": {
     "traditions": [
       "mandarin_yaolanqu",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "carpeted_bedroom",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

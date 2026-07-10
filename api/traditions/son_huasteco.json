@@ -3,9 +3,9 @@
   "name": "Son huasteco (Huasteca trio)",
   "family": "global",
   "lineage": "Regional Mexican son tradition of the Huasteca cultural region (Veracruz, Hidalgo, San Luis Potosí, Tamaulipas, Querétaro). Trio of huapanguero violin (with high-falsetto vocal ornament and improvisatory melodic-doubling), quinta huapanguera five-string acoustic-bass-guitar, and jarana huasteca five-string rhythm-guitar. Alternating violin-improvisation and falsetto-vocal-improvisation sections define the canonical huapango.",
-  "recipe": "classic Mexican modern son huasteco, ballad Poetry, Latin am troubadour branch, indigenous ritual devotional shipibo-conibo icaros healing songs samoan siva and fagufagu. vocal fry, declaimed, melodic, punctuated. sitka spruce French Polish shellac pad modern setup longer neck violin orchestral, cedrillo canonical veracruz nylon modern strummed jarana jarocha, son huasteco standard nylon wound modern cedro rojo canonical huasteca quinta huapanguera. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 667,
-  "score": 166.555,
+  "recipe": "classic Mexican modern son huasteco, ballad Poetry, Latin am troubadour branch, indigenous ritual devotional shipibo-conibo icaros healing songs samoan siva and fagufagu. vocal fry, declaimed, melodic, punctuated. sitka spruce French Polish shellac pad modern setup longer neck violin orchestral, cedrillo canonical veracruz nylon modern strummed jarana jarocha, son huasteco standard nylon wound modern cedro rojo canonical huasteca quinta huapanguera. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 600,
+  "score": 155.855,
   "config": {
     "traditions": [
       "son_huasteco",
@@ -113,7 +113,7 @@
       }
     ],
     "room": "mexico_bolero_xochimilco_studio",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

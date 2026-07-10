@@ -3,9 +3,9 @@
   "name": "Syriac Orthodox liturgical chant",
   "family": "classical",
   "lineage": "Syriac Orthodox liturgical chant, the canonical sacred-music tradition of the Syriac Orthodox Church (Oriental Orthodox alongside Coptic, Armenian, Ethiopian). Follows the Beth Gazo (\"Treasury\") eight-mode oktoechos system with hundreds of canonical melodies. Performance: male choir of cantor-and-chorus chanting in Syriac (the ancient Aramaic liturgical language preserved unchanged from early-Christian period), with Maronite, Syrian Catholic, Assyrian Church of the East, and Indian Malankara Syrian Orthodox sharing overlapping recensions. The post-1915 Sayfo and late-twentieth-century Middle East displacement dispersed tradition across diaspora.",
-  "recipe": "classic Caucasian mid-1910s syriac orthodox liturgical chant, ritual Devotional, coptic branch, western early art music ars antiqua and organum renaissance sacred polyphony. thick, declaimed, melodic, ornamental. mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. stone armenian church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 521,
-  "score": 175.447,
+  "recipe": "classic Caucasian mid-1910s syriac orthodox liturgical chant, ritual Devotional, coptic branch, western early art music ars antiqua and organum renaissance sacred polyphony. thick, declaimed, melodic, ornamental. mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. stone armenian church. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 454,
+  "score": 171.747,
   "config": {
     "traditions": [
       "syriac_orthodox_chant",
@@ -69,7 +69,7 @@
       }
     ],
     "room": "stone_armenian_church",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

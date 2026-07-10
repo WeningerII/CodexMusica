@@ -3,9 +3,9 @@
   "name": "Greek Cretan tabachaniotika (Cretan urban sea-faring song)",
   "family": "global",
   "lineage": "Greek-Cretan tabachaniotika (urban-Cretan sea-faring-and-port-side song) tradition continuous from late-19th-and-early-20th century Cretan-urban-port (Heraklion, Chania, Rethymno) song-and-tavern tradition through Cretan-Greek-Turkish population-exchange 1923-aftermath integration with Asia-Minor refugees into modern Cretan-folk-revival continuous practice; the tabachaniotika is the canonical Cretan-port-side-and-sea-faring repertoire",
-  "recipe": "classic Southern European early-1920s greek cretan tabachaniotika, sea Shanty, Mediterranean branch, balkan drinking song, European protest song, Mediterranean ballad ballad poetry sevdalinka georgian supra feast-singing. thick, low dynamic level, tasteful, continuous-phonation. mulberry canonical cretan gut pre modern cretan cretan lyra, mahogany modern alternative Lebanese cedar eastern Mediterranean brass wound bass oud, cretan rhythmic laouto. athens piraeus rebetadika. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 608,
-  "score": 242.402,
+  "recipe": "classic Southern European early-1920s greek cretan tabachaniotika, sea Shanty, Mediterranean branch, balkan drinking song, European protest song, Mediterranean ballad ballad poetry sevdalinka georgian supra feast-singing. thick, low dynamic level, tasteful, continuous-phonation. mulberry canonical cretan gut pre modern cretan cretan lyra, mahogany modern alternative Lebanese cedar eastern Mediterranean brass wound bass oud, cretan rhythmic laouto. athens piraeus rebetadika. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 541,
+  "score": 234.227,
   "config": {
     "traditions": [
       "greek_tabachaniotika",
@@ -105,7 +105,7 @@
       }
     ],
     "room": "athens_piraeus_rebetadika",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

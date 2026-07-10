@@ -3,9 +3,9 @@
   "name": "Islamic khutbah sermon",
   "family": "global",
   "lineage": "The formal Friday (jumuah) and Eid sermon delivered by the khatib from the minbar, a two-part homily of praise, Qur'anic citation, exhortation, and supplication codified from the earliest Medinan community. It is delivered in heightened, projected Arabic oratory that frequently cadences into maqam-inflected dua and quoted Qur'anic verse. The rhetorical structure — opening hamd and salawat, admonition, and closing prayer for the community — is preserved across the Sunni and Shia worlds. It stands alongside the adhan and tajwid recitation as a central genre of Islamic vocal practice, though speech-centered rather than fully melodic.",
-  "recipe": "classic North African modern islamic khutbah sermon, ritual Devotional, islamic branch sufi inshad shipibo-conibo icaros healing songs. vocal fry, declaimed, melodic, punctuated. stone plaster medina room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 335,
-  "score": 174.413,
+  "recipe": "classic North African modern islamic khutbah sermon, ritual Devotional, islamic branch sufi inshad shipibo-conibo icaros healing songs. vocal fry, declaimed, melodic, punctuated. stone plaster medina room. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 268,
+  "score": 159.675,
   "config": {
     "traditions": [
       "islamic_khutbah_sermon",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "stone_plaster_medina_room",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

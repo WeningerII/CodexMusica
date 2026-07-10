@@ -3,9 +3,9 @@
   "name": "Divya Prabandham (Tamil Vaishnavite hymns)",
   "family": "classical",
   "lineage": "Nalayira Divya Prabandham (\"Four Thousand Divine Hymns\") canonical Tamil Vaishnavite devotional poetry collection compiled in the eleventh century by Nathamuni from the earlier seventh-tenth century compositions of the twelve Alvar poet-saints. Performance: solo or small-group chanting in classical Tamil at Vaishnavite temple liturgical occasions (especially in the 108 Divya Desam temples), with strict cantillation traditions transmitted through hereditary Bhattar priest lineages and the Madhura Kavi Alvar disciples. The Srivaishnavite community considers these hymns equal to the Sanskrit Vedas as sacred scripture. Performance follows specific raga-mode assignments preserved through unbroken oral transmission.",
-  "recipe": "classic East African modern divya prabandham, ritual Devotional, hindu branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. extended whistle, declaimed, chest resonance low mid, punctuated. lalibela rock hewn church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 400,
-  "score": 144.058,
+  "recipe": "classic East African modern divya prabandham, ritual Devotional, hindu branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. extended whistle, declaimed, chest resonance low mid, punctuated. lalibela rock hewn church. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 333,
+  "score": 128.957,
   "config": {
     "traditions": [
       "divya_prabandham_tamil_vaishnav",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "lalibela_rock_hewn_church",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

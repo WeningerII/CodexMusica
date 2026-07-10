@@ -3,9 +3,9 @@
   "name": "Bossa nova",
   "family": "global",
   "lineage": "Rio de Janeiro 1958-1965 chamber-samba intimate-vocal tradition — codified through João Gilberto’s Chega de Saudade (1959) defining the genre’s syncopated guitar batida, Antônio Carlos Jobim’s compositions, Vinícius de Moraes’s lyrics, and the Stan Getz / João Gilberto Getz/Gilberto (1964) international crossover; characterized by close-miked whispered-vocal aesthetic, jazz-chord harmonic vocabulary, and Zona Sul apartment-recording origin",
-  "recipe": "classic North American mid-1960s bossa nova, functional Song, Brazilian song branch, Latin am troubadour ballad poetry milonga tango. thick, intimate aspirated, chest resonance low mid, rhythmic. cedar fingerpicked classical nylon-string guitar, no chemical hardener t rivet oversize maple tension resonator European spruce grand piano, vintage ambassador asymmetric bronze bell bronze cluster hammered drum kit, growly gut upright bass. parlor. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 540,
-  "score": 180.537,
+  "recipe": "classic mid-1960s bossa nova, functional Song, Brazilian song branch, Latin am troubadour ballad poetry milonga tango. thick, intimate aspirated, chest resonance low mid, rhythmic. cedar fingerpicked classical nylon-string guitar, no chemical hardener t rivet oversize maple tension resonator European spruce grand piano, vintage ambassador asymmetric bronze bell bronze cluster hammered drum kit, growly gut upright bass. parlor. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
+  "recipe_chars": 566,
+  "score": 184.05,
   "config": {
     "traditions": [
       "bossa_nova",
@@ -140,7 +140,7 @@
       }
     ],
     "room": "parlor",
-    "archetype": "arch_early_tape_us_commercial",
+    "archetype": "arch_odeon_bossa_mpb",
     "inline_chain": {
       "mic": "mic_u47_tube_neumann",
       "pre": "pre_tube_german_v72",

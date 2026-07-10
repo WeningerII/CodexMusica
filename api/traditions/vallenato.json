@@ -3,9 +3,9 @@
   "name": "Vallenato",
   "family": "global",
   "lineage": "Colombian-Caribbean accordion-led song-form codified 1940s-onward in Valledupar (Cesar-department, northeastern Colombia) from earlier 19th-century rural-troubadour traditions of the Magdalena-basin cattle-ranch lineage. The canonical ensemble: button-accordion (the diatonic Hohner-3-row accordion imported via 1880s-onward German maritime-trade with Caribbean-port-cities), caja-vallenata small two-headed drum, guacharaca grooved-bamboo scraper. The four canonical vallenato airs: paseo moderate-tempo-narrative, merengue (different from Dominican) faster-6/8, son slower-double-meter, and puya fastest-rural-virtuosic. The lyric-tradition is heavily narrative-storytelling, often improvised, and the Vallenato-Festival-de-la-Leyenda annual competition (since 1968) codifies regional standards.",
-  "recipe": "classic South American mid-1940s vallenato, groove Percussion, Latin am branch, Latin am troubadour ballad poetry milonga cueca. thick, full chest belt, chest resonance low mid, narrative. button accordion three row hohner legato acordeon vallenato, wood vallenato tradition fastest puya carreto canonical colombian Caribbean coast goat skin canonical vallenato caja vallenata, vallenato tradition wood metal fork guacharaca, alder la bella flats Detroit soul bass canon fingerpicked electric bass. colombian canon 1934-present mid tier discos fuentes medellin. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 671,
-  "score": 132.84,
+  "recipe": "classic South American mid-1940s vallenato, groove Percussion, Latin am branch, Latin am troubadour ballad poetry milonga cueca. thick, full chest belt, chest resonance low mid, narrative. button accordion three row hohner legato acordeon vallenato, wood vallenato tradition fastest puya carreto canonical colombian Caribbean coast goat skin canonical vallenato caja vallenata, vallenato tradition wood metal fork guacharaca, alder la bella flats Detroit soul bass canon fingerpicked electric bass. colombian canon 1934-present mid tier discos fuentes medellin. shure SM57, transformer-coupled solid-state pre, colored vintage console, optical compressor. tape 15ips spring reverb.",
+  "recipe_chars": 681,
+  "score": 132.54,
   "config": {
     "traditions": [
       "vallenato",
@@ -112,7 +112,7 @@
       }
     ],
     "room": "discos_fuentes_medellin",
-    "archetype": "arch_early_tape_havana",
+    "archetype": "arch_discos_fuentes_tropical",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "pre_neve_1073_input",

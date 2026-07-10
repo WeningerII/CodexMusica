@@ -3,9 +3,9 @@
   "name": "Mongolian long-song (urtyn duu)",
   "family": "global",
   "lineage": "Mongolian urtyn-duu ceremonial-long-song tradition with sustained-melismatic vocal-line over morin-khuur horse-head-fiddle drone-accompaniment, the canonical singing style of the inner-Asian steppe nomadic-pastoralist horse-and-herder culture. intangible-cultural-heritage $1-onward, with three regional variants (Eastern Khalkha aristocratic-court style, Western Oirat folk-rural style, Southern Inner-Mongolia diasporic style). Long-songs unfold over 5-20 minute durations through ornamental-throat-glottal techniques (kazargai, shuranhai), strict-textual three-line couplets typically about horses, mountains, ancestors, and steppe-landscape, and free-rhythm ametrical pulse anchored only by breath-phrase boundaries.",
-  "recipe": "classic Northeast Asian modern mongolian long-song, drone Modal, heterophonic branch, overtone drone modal tuvan kargyraa subharmonic throat-singing tuvan sygyt high-whistle overtone. sygyt, false fold engaged, overtone rich sustained, unrestrained. long song morin khuur sycamore canonical mongolian horsehair 118 130 strands morin khuur, mongolian tuvan tradition wood hide tovshuur. mongolian ger interior. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 539,
-  "score": 491.602,
+  "recipe": "classic Northeast Asian modern mongolian long-song, drone Modal, heterophonic branch, overtone drone modal tuvan kargyraa subharmonic throat-singing tuvan sygyt high-whistle overtone. sygyt, false fold engaged, overtone rich sustained, unrestrained. long song morin khuur sycamore canonical mongolian horsehair 118 130 strands morin khuur, mongolian tuvan tradition wood hide tovshuur. mongolian ger interior. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 472,
+  "score": 480.802,
   "config": {
     "traditions": [
       "mongolian_long_song",
@@ -82,7 +82,7 @@
       }
     ],
     "room": "mongolian_ger_interior",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

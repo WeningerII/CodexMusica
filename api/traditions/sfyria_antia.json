@@ -3,9 +3,9 @@
   "name": "Sfyria whistled language (Antia, Greece)",
   "family": "global",
   "lineage": "Sfyria whistled-language tradition of Antia village on Mount Ochi in Evia island, Greece — a fully grammatical whistled register of the Greek language using turbulent lip-and-tongue-formed source to encode Greek phonemes across the mountain-and-canyon terrain of Mount Ochi; documented by the contemporary linguistic-anthropology lineage including Sotiris Apostolopoulos and the Onassis Foundation cultural-preservation initiatives; the smaller and more endangered sibling of Silbo Gomero, with only a handful of remaining fluent speakers in the Antia village; the whistled-language family includes the Kuşköy Turkish Black Sea whistled-Turkish tradition, the Hmong courtship-whistle, Mazatec, and other documented whistled-languages globally",
-  "recipe": "classic modern sfyria whistled language, drone Modal, vocal branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, declaimed, melodic, punctuated. lip aperture turbulent source whistled language signal communication whistled voice. canyon. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 432,
-  "score": 190.655,
+  "recipe": "classic modern sfyria whistled language, drone Modal, vocal branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, declaimed, melodic, punctuated. lip aperture turbulent source whistled language signal communication whistled voice. canyon. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 365,
+  "score": 173.255,
   "config": {
     "traditions": [
       "sfyria_antia",
@@ -65,7 +65,7 @@
       }
     ],
     "room": "canyon",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

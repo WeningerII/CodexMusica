@@ -3,9 +3,9 @@
   "name": "Raï",
   "family": "global",
   "lineage": "Algerian popular-music genre that emerged in Oran in the 1970s as modernization of older raï bedoui (rural bedouin praise-poetry) — codified through the Cheb generation of the 1980s: Cheb Khaled (the king of raï, his 1992 Didi the international breakthrough), Cheb Mami, Cheb Hasni (assassinated 1994 during the Algerian civil war), Chaba Fadela, Cheb Hamid",
-  "recipe": "classic West African mid-1970s raï, functional Song, mid east n African pop branch, med east poetic ballad poetry ethiopian azmari minstrel-poet pontic greek music. extended whistle, declaimed, chest resonance low mid, narrative. weltmeister east German mid tier vintage volk accordion, goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka, singing lead analog poly synth. dakar senegal mbalax defining 1979-present indie-commercial dakar mbalax oran rai studio. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 583,
-  "score": 163.73,
+  "recipe": "classic West African mid-1970s raï, functional Song, mid east n African pop branch, med east poetic ballad poetry ethiopian azmari minstrel-poet pontic greek music. extended whistle, declaimed, chest resonance low mid, narrative. weltmeister east German mid tier vintage volk accordion, goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka, sequential lineage canonical prophet 5 1978 san jose ca lead analog poly synth. dakar senegal mbalax defining 1979-present indie-commercial dakar mbalax oran rai studio. shure SM58, console-strip pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb chorus digital delay.",
+  "recipe_chars": 661,
+  "score": 172.275,
   "config": {
     "traditions": [
       "rai",
@@ -31,7 +31,7 @@
           "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
           "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
           "voice_processing_chain": "voice_processing_talkbox",
-          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
           "voice_register": 9.795,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 2.3949999999999996,
           "voice_pitch_organization": 13.725,
           "voice_processing_chain": 11.35,
-          "voice_multitrack_stack": 6.285
+          "voice_multitrack_stack": 4.75
         }
       },
       {
@@ -100,12 +100,12 @@
           "electronic_technique": 6.7,
           "poly_archetypes": 0.845,
           "poly_voices": 0.195,
-          "poly_maker_lineage": -0.31499999999999995
+          "poly_maker_lineage": 2.015
         }
       }
     ],
     "room": "dakar_mbalax_oran_rai_studio",
-    "archetype": "arch_early_tape_us_commercial",
+    "archetype": "arch_oran_pop_rai_cassette",
     "inline_chain": {
       "mic": "mic_sm58_dynamic_shure",
       "pre": "transformer_solid_state",

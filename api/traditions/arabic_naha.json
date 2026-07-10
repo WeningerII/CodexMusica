@@ -3,9 +3,9 @@
   "name": "Arabic nāḥa (نائحة, women's mourning-song)",
   "family": "global",
   "lineage": "Pan-Arab mourning-song tradition continuous from pre-Islamic jāhiliyya rithā' (elegy) practice through medieval-Islamic-period continuous performance by nā'iḥa (Arabic professional mourning-women) across Egypt, Levant, Maghreb, and Gulf into 20th-century field-documentation",
-  "recipe": "classic North African modern arabic nāḥa, funeral Lament, middle eastern branch, islamic ritual devotional, vocal drone modal, med east poetic ballad poetry silbo gomero whistled language armenian duduk-accompanied chant. vocal fry, declaimed, chest resonance low mid, unrestrained. stone plaster medina room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 439,
-  "score": 186.477,
+  "recipe": "classic North African modern arabic nāḥa, funeral Lament, middle eastern branch, islamic ritual devotional, vocal drone modal, med east poetic ballad poetry silbo gomero whistled language armenian duduk-accompanied chant. vocal fry, declaimed, chest resonance low mid, unrestrained. stone plaster medina room. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 372,
+  "score": 177.59,
   "config": {
     "traditions": [
       "arabic_naha",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "stone_plaster_medina_room",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

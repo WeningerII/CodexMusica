@@ -3,9 +3,9 @@
   "name": "Irish suantraí (Irish-Gaelic lullaby)",
   "family": "global",
   "lineage": "Irish-Gaelic cradle-song tradition continuous from medieval Gaeltacht oral practice through 19th-century folksong collection and 20th-century sean-nós-revival vocal singing; suantraí is one of the three classical Irish music-genre categories (with goltraí for lament and geantraí for the joyful)",
-  "recipe": "classic modern irish suantraí, lullaby, European branch, vocal drone modal, Celtic balladic ballad poetry, Celtic traditional improv on frame sean-nós solo singing sámi yoik. vocal fry, low dynamic level, chest resonance low mid, continuous-phonation. irish pub. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 392,
-  "score": 114.645,
+  "recipe": "classic modern irish suantraí, lullaby, European branch, vocal drone modal, Celtic balladic ballad poetry, Celtic traditional improv on frame sean-nós solo singing sámi yoik. vocal fry, low dynamic level, chest resonance low mid, continuous-phonation. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 325,
+  "score": 112.045,
   "config": {
     "traditions": [
       "irish_suantrai",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "irish_pub",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

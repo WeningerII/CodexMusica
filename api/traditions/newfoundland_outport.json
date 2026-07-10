@@ -3,9 +3,9 @@
   "name": "Newfoundland outport balladry",
   "family": "global",
   "lineage": "Newfoundland and Labrador outport fishing-community song heritage of Irish, West Country English, and Scottish settler-fishing-family origin — preserved across the 17th-21st centuries in the small isolated coastal-settlement (outport) communities along the Newfoundland coastline; standard ensemble: fiddle (the dominant melodic instrument, played in the distinctive Newfoundland style combining Irish ornamentation with Cape Breton bowing), accordion or button accordion, sometimes mandolin or guitar — 20th-century preservation through Émile Benoit, Rufus Guinchard, Wilf Doyle, Minnie White, the modern Great Big Sea folk-rock crossover, the Newfoundland and Labrador Folklore and Language Archive fieldwork collection",
-  "recipe": "classic North American modern newfoundland outport balladry, ballad Poetry, newfoundland revival branch, anglo singer song britfolk britfolk revival. thick, incomplete closure resting, melodic, unrestrained. castagnari Italian premium folk music straight accordion, synthetic magic rosin modern acrylic base double stops fiddle, dadgad tuning fingerpicked acoustic guitar. newfoundland outport kitchen party. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 538,
-  "score": 157.868,
+  "recipe": "classic North American early-1940s newfoundland outport balladry, ballad Poetry, newfoundland revival branch, anglo singer song britfolk britfolk revival. thick, incomplete closure resting, melodic, unrestrained. castagnari Italian premium folk music straight accordion, magic rosin modern acrylic base double stops fiddle, dadgad tuning fingerpicked acoustic guitar. newfoundland outport kitchen party. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 478,
+  "score": 146.718,
   "config": {
     "traditions": [
       "newfoundland_outport",
@@ -83,8 +83,8 @@
         },
         "scores": {
           "bowed_technique": 5.6000000000000005,
-          "fiddle_strings": 2.005625,
-          "fiddle_bow": 2.505625,
+          "fiddle_strings": 0.505625,
+          "fiddle_bow": 1.005625,
           "fiddle_mute": 0.013125,
           "fiddle_articulation": 1.414375
         }
@@ -110,7 +110,7 @@
       }
     ],
     "room": "newfoundland_outport_kitchen_party",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_nagra_ethnographic_field",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

@@ -3,20 +3,20 @@
   "name": "Kyrgyz Manas epic-recital",
   "family": "global",
   "lineage": "Kyrgyz Manas heroic-epic recital tradition. The Manas trilogy — Manas, Semetey, Seytek — reaches up to 553,000 verse-lines in the canonical recension. Classical manaschi epic-reciter performs voice-only with hand-gesture and cadence patterning, often in near-trance state; the akyn improvising sung-poet variant accompanies with the komuz three-string fretless lute. Sometimes shamanic in framing — the manaschi receives the epic in dream-summons from the spirit of Manas. Twentieth-century canonical figures include Sagymbay Orozbakov (1867-1930), Sayakbay Karalaev (1911-1971, whose recension is the largest documented corpus and whose portrait appears on the 500-som banknote), and contemporary Talantaaly Bakchiev (born 1971). Bishkek State Manas Theater established as state-level performance venue. Distinguished from Turkic dastan traditions by the Kyrgyz-language-specific narrative-cadence grammar and the trance-summons performance framing; distinguished from Kazakh kuy by voice-led (vs instrumental-led) tradition structure",
-  "recipe": "classic Central Asian early-1860s kyrgyz manas epic-recital, ballad Poetry, Slavic bard branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. extended whistle, declaimed, chest resonance low mid, narrative. apricot juniper wood three gut strings canonical kyrgyz akyn kuu solo canonical kyrgyz instrumental narrative komuz, carved apricot hide faced droning epic accompaniment horsehair kyl kyyak. kyrgyz manaschi outdoor or state theater. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 622,
-  "score": 218.178,
+  "recipe": "classic Central Asian early-1860s kyrgyz manas epic-recital, ballad Poetry, Slavic bard branch, indigenous ritual devotional shipibo-conibo icaros healing songs hawaiian mele oli sacred-chant. vocal fry, declaimed, chest resonance low mid, narrative. apricot juniper wood three gut strings canonical kyrgyz akyn kuu solo canonical kyrgyz instrumental narrative komuz, carved apricot hide faced droning epic accompaniment nylon kyl kyyak. kyrgyz manaschi outdoor or state theater. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 542,
+  "score": 221.535,
   "config": {
     "traditions": [
       "kyrgyz_manaschi_epic",
       "shipibo_icaros",
-      "mapuche_tayil_ritual"
+      "hawaiian_oli_mele"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "extended_whistle_register",
+          "voice_register": "vocal_fry",
           "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -29,26 +29,26 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 1.3649999999999998,
-          "voice_quality": 9.75,
+          "voice_register": 1.95,
+          "voice_quality": 11.204999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.69,
           "voice_articulation": 1.4299999999999997,
-          "voice_microtone": 1.3,
-          "voice_tradition": 20.28,
-          "voice_mechanism_compound": 11.830000000000002,
-          "voice_estill_quality": 11.702499999999997,
-          "voice_speech_song": 19.825,
-          "voice_ensemble_config": 23.789999999999996,
+          "voice_microtone": 3.0925000000000002,
+          "voice_tradition": 33.67,
+          "voice_mechanism_compound": 10.580000000000002,
+          "voice_estill_quality": 8.775,
+          "voice_speech_song": 23.3675,
+          "voice_ensemble_config": 23.464999999999996,
           "voice_ornament_system": 7.15,
-          "voice_pitch_organization": 4.215000000000001,
-          "voice_processing_chain": 7.67,
+          "voice_pitch_organization": 4.94,
+          "voice_processing_chain": 7.215,
           "voice_multitrack_stack": 2.795
         }
       },
@@ -60,7 +60,7 @@
         },
         "scores": {
           "komuz_body": 9.469999999999999,
-          "komuz_tradition": 12.897499999999999
+          "komuz_tradition": 13.5475
         }
       },
       {
@@ -69,18 +69,18 @@
           "bowed_technique": "bowed_legato_classical",
           "kyl_kyyak_form": "kyl_kyyak_traditional",
           "kyl_kyyak_repertoire": "kyl_kyyak_epic",
-          "kyl_kyyak_strings": "kyl_kyyak_horsehair"
+          "kyl_kyyak_strings": "kyl_kyyak_nylon"
         },
         "scores": {
-          "bowed_technique": 3.705,
+          "bowed_technique": 4.355,
           "kyl_kyyak_form": 9.6525,
-          "kyl_kyyak_repertoire": 34.535,
-          "kyl_kyyak_strings": 1.25
+          "kyl_kyyak_repertoire": 35.834999999999994,
+          "kyl_kyyak_strings": 1.625
         }
       }
     ],
     "room": "kyrgyz_manaschi_outdoor_or_state_theater",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

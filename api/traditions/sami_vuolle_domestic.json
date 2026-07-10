@@ -3,9 +3,9 @@
   "name": "Sami vuolle and domestic-labor song",
   "family": "global",
   "lineage": "Sami vuolle (Lule-Sami \"yoik\" variant) and broader Sami domestic-labor song tradition continuous from premodern Sami reindeer-herding-and-domestic-textile practice across the Sápmi-region through colonial-era continuous performance into modern Sami-cultural-revival",
-  "recipe": "classic Northern European modern sami vuolle and domestic-labor song, domestic Rhythm, Slavic baltic branch, Celtic hebridean domestic rhythm, arctic hunting song, European lullaby sami yoik — animal-tracking and hunting song katajjaq. vocal fry, declaimed, tasteful, continuous-phonation. sapmi outdoor tundra yoik. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 446,
-  "score": 152.564,
+  "recipe": "classic Northern European modern sami vuolle and domestic-labor song, domestic Rhythm, Slavic baltic branch, Celtic hebridean domestic rhythm, arctic hunting song, European lullaby sami yoik — animal-tracking and hunting song katajjaq. vocal fry, declaimed, tasteful, continuous-phonation. sapmi outdoor tundra yoik. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 379,
+  "score": 145.989,
   "config": {
     "traditions": [
       "sami_vuolle_domestic",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "sapmi_outdoor_tundra_yoik",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

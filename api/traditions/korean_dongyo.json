@@ -3,9 +3,9 @@
   "name": "Korean dongyo (동요, children's songs)",
   "family": "global",
   "lineage": "Korean children's song (dongyo) tradition continuous from premodern Korean folk-play-song origins through early-20th-century Korean-modernization codification (the 1920s-1940s Korean dongyo movement specifically created modern children's-song repertoire for school-curriculum-and-radio-broadcast use) into modern continuous South-and-North-Korean childhood-practice",
-  "recipe": "classic mid-1920s korean dongyo, nursery Rhyme, east Asian branch, European nursery rhyme, east Asian lullaby, east Asian funeral lament korean kok mandarin yáolán qǔ. thick, low dynamic level, tasteful, continuous-phonation. field recording. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 372,
-  "score": 144.162,
+  "recipe": "classic mid-1920s korean dongyo, nursery Rhyme, east Asian branch, European nursery rhyme, east Asian lullaby, east Asian funeral lament korean kok mandarin yáolán qǔ. thick, low dynamic level, tasteful, continuous-phonation. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 305,
+  "score": 137.587,
   "config": {
     "traditions": [
       "korean_dongyo",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "field_recording",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

@@ -3,9 +3,9 @@
   "name": "Spanish and Latin American rondas (children's circle-songs)",
   "family": "global",
   "lineage": "Spanish-language children's circle-song (ronda) tradition continuous from medieval-and-early-modern Spanish folk-play-song origins through colonial-period transmission to Latin America and continuous practice across the Spanish-speaking Americas into modern Mexican-and-Latin-American childhood-practice",
-  "recipe": "classic modern spanish and latin american rondas, nursery Rhyme, americas branch, European nursery rhyme, European lullaby, americas wedding andean matrimonio huayno english nursery rhyme. thick, forward-resonance, tasteful, continuous-phonation. urban courtyard. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 393,
-  "score": 124.462,
+  "recipe": "classic modern spanish and latin american rondas, nursery Rhyme, americas branch, European nursery rhyme, European lullaby, americas wedding andean matrimonio huayno english nursery rhyme. thick, forward-resonance, tasteful, continuous-phonation. urban courtyard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 326,
+  "score": 116.062,
   "config": {
     "traditions": [
       "spanish_rondas",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "urban_courtyard",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

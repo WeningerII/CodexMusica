@@ -3,9 +3,9 @@
   "name": "Hawaiian kanikau (mele kanikau, mourning-chant)",
   "family": "global",
   "lineage": "Hawaiian mourning-chant tradition continuous from pre-contact Hawaiian ritual-practice through 19th-century Hawaiian-Kingdom-era continuous performance and publication (kanikau were published in Hawaiian-language newspapers from the 1830s-onward) into 20th-century Hawaiian-cultural-revival",
-  "recipe": "classic Oceanian mid-1830s hawaiian kanikau, funeral Lament, oceania pacific branch, indigenous ritual devotional, vocal drone modal, indian bard ballad poetry shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, declaimed, melodic, continuous-phonation. hawaiian heiau outdoor lava stone temple. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 454,
-  "score": 149.095,
+  "recipe": "classic Oceanian mid-1830s hawaiian kanikau, funeral Lament, oceania pacific branch, indigenous ritual devotional, vocal drone modal, indian bard ballad poetry shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, declaimed, melodic, continuous-phonation. hawaiian heiau outdoor lava stone temple. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 387,
+  "score": 134.795,
   "config": {
     "traditions": [
       "hawaiian_kanikau",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "hawaiian_heiau_outdoor_lava_stone_temple",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

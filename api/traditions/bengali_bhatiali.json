@@ -3,9 +3,9 @@
   "name": "Bengali bhatiali (boatmen's song)",
   "family": "global",
   "lineage": "Bengali bhatiali (boatmen's song) tradition continuous from premodern Bengali-riverine-and-Sundarbans-delta boatmen labor practice through 19th-20th century Tagore-era literary-elevation (Tagore composed extensively in the bhatiali idiom) into modern Bengali-and-Bangladeshi continuous practice; the bhatiali is the canonical Bengali downstream-rowing-song integrating long-held-vocal phrases matched to slow downstream-rowing strokes",
-  "recipe": "classic modern bengali bhatiali, field Work, south Asian branch, east Asian field work, atlantic Southeast Asian shanty, south Asian lullaby bengali ghum-paranir gan hindi lori. thick, low dynamic level, tasteful, unrestrained. ornamented dotara, baul gourd bamboo canonical bengali gut pre modern bengali historical ornamented ektara. marsh swamp. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 478,
-  "score": 164.968,
+  "recipe": "classic modern bengali bhatiali, field Work, south Asian branch, east Asian field work, atlantic Southeast Asian shanty, south Asian lullaby bengali ghum-paranir gan hindi lori. thick, low dynamic level, tasteful, unrestrained. ornamented dotara, baul gourd bamboo canonical bengali gut pre modern bengali historical ornamented ektara. marsh swamp. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 411,
+  "score": 158.567,
   "config": {
     "traditions": [
       "bengali_bhatiali",
@@ -82,7 +82,7 @@
       }
     ],
     "room": "marsh_swamp",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

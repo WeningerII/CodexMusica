@@ -3,9 +3,9 @@
   "name": "Singaporean xinyao (Mandarin youth folk)",
   "family": "global",
   "lineage": "Singaporean xinyao (\"Singapore songs\") Mandarin-language singer-songwriter youth-folk movement emerging in early-1980s Singapore among ethnic-Chinese tertiary-education students at the National University of Singapore, Nanyang Technological Institute, and the major junior colleges. The form developed as a youth-cultural alternative to Cantopop and Mandopop commercial-pop dominance, with simple acoustic-guitar-accompanied original Mandarin-language compositions addressing youth concerns, campus life, and Singaporean identity. The Liang Wern Fook ensemble and Singapore Youth Festival 1983-1985 xinyao competitions consolidated institutional visibility. Distinguished from Taiwan campus-folk min-ge yundong (1970s) by Singaporean specific cultural-context and Singlish-inflected Mandarin register.",
-  "recipe": "classic East Asian 1983-1985 singaporean xinyao, ballad Poetry, anglo singer song branch, east Asian pop functional song enka j-indie. thick, chest mix belt, melodic, ornamental. coated nanoweb strummed open chord ringing overtones parlor acoustic guitar. hong kong flagship 1980-2000 mid tier hong kong cantopop studio 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 471,
-  "score": 215.38,
+  "recipe": "classic East Asian 1983-1985 singaporean xinyao, ballad Poetry, anglo singer song branch, east Asian pop functional song enka j-indie. thick, chest mix belt, melodic, ornamental. coated nanoweb strummed open chord ringing overtones parlor acoustic guitar. hong kong flagship 1980-2000 mid tier hong kong cantopop studio 80s. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+  "recipe_chars": 458,
+  "score": 215.917,
   "config": {
     "traditions": [
       "singaporean_xinyao",
@@ -71,7 +71,7 @@
       }
     ],
     "room": "hong_kong_cantopop_studio_80s",
-    "archetype": "arch_80s_late_analog_majorrock",
+    "archetype": "arch_hk_cantopop_ballad_factory",
     "inline_chain": {
       "mic": "mic_u87_condenser_neumann",
       "pre": "transformer_solid_state",

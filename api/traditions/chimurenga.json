@@ -3,9 +3,9 @@
   "name": "Chimurenga",
   "family": "global",
   "lineage": "Zimbabwean liberation-struggle music genre codified by Thomas Mapfumo from 1973 onward (chimurenga is the Shona word for struggle, used to refer to the Second Chimurenga liberation war 1966-1979 against Rhodesian white minority rule); built on translating Shona mbira interlocking-cycle repertoire (kushaura and kutsinhira patterns from the religious mbira dzavadzimu tradition) into the electric-band context with electric guitars playing the mbira parts",
-  "recipe": "classic Southern African mid-1970s chimurenga, groove Percussion, central east south African branch, Afro-diasporic ritual devotional, string drone modal palo mayombe kongo mambo ritual chant bomba. thick, declaimed, punctuated, equal tempered. iron calabash mbira, single coil electric guitar, la bella flats Detroit soul bass canon sub heavy electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, hosho. harare formerly salisbury 1971-present indie-commercial harare zimbabwean chimurenga studio. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 672,
-  "score": 203.619,
+  "recipe": "classic Southern African mid-1970s chimurenga, groove Percussion, central east south African branch, Afro-diasporic ritual devotional, string drone modal palo mayombe kongo mambo ritual chant bomba. thick, declaimed, punctuated, equal tempered. iron calabash mbira, single coil electric guitar, la bella flats Detroit soul bass canon sub heavy electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, hosho. harare formerly salisbury 1971-present indie-commercial harare zimbabwean chimurenga studio. dynamic moving-coil, tube pre, BBC broadcast console, vari-mu, passive program EQ. vinyl master cut.",
+  "recipe_chars": 631,
+  "score": 194.644,
   "config": {
     "traditions": [
       "chimurenga",
@@ -165,7 +165,7 @@
       }
     ],
     "room": "harare_zimbabwean_chimurenga_studio",
-    "archetype": "arch_emi_lagos_african_70s",
+    "archetype": "arch_gallo_township_jive",
     "inline_chain": {
       "mic": "dynamic_mic",
       "pre": "pre_neve_1073_input",

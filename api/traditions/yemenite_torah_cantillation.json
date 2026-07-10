@@ -3,9 +3,9 @@
   "name": "Yemenite Torah cantillation",
   "family": "global",
   "lineage": "Yemenite Jewish liturgical Torah-cantillation tradition that preserves what scholars consider one of the most archaic surviving teamim (Masoretic cantillation-sign) reading traditions, descended from the Yemenite Jewish community continuously resident in Yemen from at least the 5th century until the Operation Magic Carpet mass-emigration to Israel 1949-50; characterized by Saadia Gaon-derived liturgical Hebrew pronunciation and microtonal modal vocabulary distinct from Ashkenazi or Sephardi traditions",
-  "recipe": "classic Middle Eastern late-1940s yemenite torah cantillation, ritual Devotional, Jewish branch, med east poetic ballad poetry arabic hakawati coffeehouse storytelling kurdish dengbêj. extended whistle, declaimed, chest resonance low mid, narrative. call ritual shofar. mediterranean sephardi synagogue. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 433,
-  "score": 73.435,
+  "recipe": "classic Middle Eastern late-1940s yemenite torah cantillation, ritual Devotional, Jewish branch, med east poetic ballad poetry arabic hakawati coffeehouse storytelling kurdish dengbêj. extended whistle, declaimed, chest resonance low mid, narrative. call ritual shofar. mediterranean sephardi synagogue. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 366,
+  "score": 65.685,
   "config": {
     "traditions": [
       "yemenite_torah_cantillation",
@@ -67,7 +67,7 @@
       }
     ],
     "room": "mediterranean_sephardi_synagogue",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

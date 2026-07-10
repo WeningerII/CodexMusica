@@ -3,9 +3,9 @@
   "name": "Soukous",
   "family": "global",
   "lineage": "Congolese fast-tempo dance derivation of Congolese rumba, codified through Tabu Ley Rochereau, Sam Mangwana, Papa Wemba (Viva la Musica band), Pepe Kalle, Kanda Bongo Man (the mid-1980s Paris-recorded breakthrough), Diblo Dibala — characterized by the structural chanson-then-sebene form with sebene section accelerated to 130-180 BPM and the mi-solo / mi-composé interlocking-guitar foreground",
-  "recipe": "classic Western European 1984-1986 soukous, groove Percussion, central east south African branch, African pop functional song congolese rumba isicathamiya. thick, declaimed, chest resonance low mid, rhythmic. mahogany rosewood clean strummed single coil electric guitar, alder thomastik infeld low tension jazz warm walking electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, mule hide canonical Cuban premium oak staved canonical Cuban congas. paris African diaspora recording 1970-2000 mid tier paris pathe marconi african diaspora. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 711,
-  "score": 244.84,
+  "recipe": "classic Western European 1984-1986 soukous, groove Percussion, central east south African branch, African pop functional song congolese rumba isicathamiya. thick, declaimed, chest resonance low mid, rhythmic. mahogany rosewood clean strummed single coil electric guitar, alder thomastik infeld low tension jazz warm walking electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, mule hide canonical Cuban premium oak staved canonical Cuban congas. paris African diaspora recording 1970-2000 mid tier paris pathe marconi african diaspora. dynamic moving-coil, tube pre. 78rpm shellac.",
+  "recipe_chars": 615,
+  "score": 237.415,
   "config": {
     "traditions": [
       "soukous",
@@ -152,7 +152,7 @@
       }
     ],
     "room": "paris_pathe_marconi_african_diaspora",
-    "archetype": "arch_emi_lagos_african_70s",
+    "archetype": "arch_kinshasa_merchant_rumba",
     "inline_chain": {
       "mic": "mic_sm57_dynamic_shure",
       "pre": "transformer_solid_state",

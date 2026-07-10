@@ -3,9 +3,9 @@
   "name": "Persian dastgāh",
   "family": "classical",
   "lineage": "Iranian classical-music tradition built on the radif (the repertoire body codified by the late-19th-century Mirza Abdollah and Aqa Hossein Qoli families) organized into 7 principal dastgāhs (Shur, Mahour, Homayoun, Segāh, Chahargāh, Rastpanjgāh, Nava) and 5 secondary avaz (subsidiary modal systems); 20th-century lineage: Ali-Naqi Vaziri, Ruhollah Khaleqi, Mohammad-Reza Shajarian (vocal), Hossein Alizadeh (tar), Kayhan Kalhor (kamancheh)",
-  "recipe": "classic Middle Eastern mid-1930s persian dastgāh, art Music, middle eastern classical branch, Persian arab improv improv on frame, string drone modal tarab turkish-romani çümbüş music. vocal fry, low dynamic level, chest resonance low mid, maqam neutral step. brass radif shahnazi lineage tar walnut bowl canonical Persian radif lotfi alizadeh lineage setar tanbur persian, santur, kayhan kalhor canon walnut canonical Persian legato kamancheh, walnut tombak, walnut bent frame canonical Persian brass rings canonical Iranian daf, walnut bent frame canonical Iranian goat skin canonical Sufi tar frame drum. tehran classical dastgah context. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 714,
-  "score": 444.795,
+  "recipe": "classic Middle Eastern early-1940s persian dastgāh, art Music, middle eastern classical branch, Persian arab improv improv on frame, string drone modal tarab turkish-romani çümbüş music. vocal fry, low dynamic level, chest resonance low mid, maqam neutral step. brass radif shahnazi lineage tar walnut bowl canonical Persian radif lotfi alizadeh lineage setar tanbur persian, santur, kayhan kalhor canon walnut canonical Persian legato kamancheh, walnut tombak, walnut bent frame canonical Persian brass rings canonical Iranian daf, walnut bent frame canonical Iranian goat skin canonical Sufi tar frame drum. tehran classical dastgah context. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb.",
+  "recipe_chars": 754,
+  "score": 449.432,
   "config": {
     "traditions": [
       "persian_dastgah",
@@ -184,7 +184,7 @@
       }
     ],
     "room": "tehran_classical_dastgah_context",
-    "archetype": "arch_electrical_disc_cut",
+    "archetype": "arch_arab_east_state_radio",
     "inline_chain": {
       "mic": "mic_u87_condenser_neumann",
       "pre": "tube_pre",

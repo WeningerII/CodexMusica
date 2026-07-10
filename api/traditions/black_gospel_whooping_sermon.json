@@ -3,14 +3,14 @@
   "name": "Black gospel whooping sermon",
   "family": "blues_gospel",
   "lineage": "African-American Baptist and Pentecostal folk-preaching tradition whose sermonic climax shifts from spoken prose into a metered, pitched chant known as whooping (also zooning or tuning-up), delivered in call-and-response with the congregation and frequently doubled by the Hammond organ. Documented from the earliest race-record sermons of Rev. J. M. Gates and Rev. J. C. Burnett in the 1920s through the mid-century recorded sermons of Rev. C. L. Franklin on Chess and Jewel. The chanted-preaching form and its formulaic building-blocks were analyzed by Bruce Rosenberg in The Art of the American Folk Preacher (1970). The preacher improvises within stock cadential formulas, accelerating and rising in pitch until the congregation's shouts and the organ carry the room.",
-  "recipe": "classic Southern American mid-1920s black gospel whooping sermon, ritual Devotional, christian gospel branch gospel quartet black gospel. thick, declaimed, chest resonance low mid, ornamental. southern black church gospel choir. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 358,
-  "score": 274.854,
+  "recipe": "classic Southern American mid-1920s black gospel whooping sermon, ritual Devotional, christian gospel branch bluegrass gospel southern gospel quartet. thick, declaimed, chest resonance low mid, ornamental. southern black church gospel choir. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 304,
+  "score": 237.29,
   "config": {
     "traditions": [
       "black_gospel_whooping_sermon",
-      "gospel_quartet_male",
-      "black_gospel_choir"
+      "bluegrass_gospel",
+      "southern_gospel_quartet"
     ],
     "instruments": [
       {
@@ -22,39 +22,39 @@
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "melisma_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_microtone": "blue_notes",
           "voice_tradition": "gospel_pentecostal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_pitch_organization": "voice_pitch_scoop_up_300_cents",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 43.025000000000006,
-          "voice_quality": 38.92500000000001,
+          "voice_register": 34.72500000000001,
+          "voice_quality": 38.17500000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.69,
-          "voice_articulation": 29.331500000000002,
-          "voice_microtone": 3.3149999999999995,
-          "voice_tradition": 41.606500000000004,
-          "voice_mechanism_compound": 3.38,
-          "voice_estill_quality": 31.35,
-          "voice_speech_song": 22.750000000000004,
-          "voice_ensemble_config": 30.6815,
+          "voice_articulation": 28.081500000000002,
+          "voice_microtone": 1.3,
+          "voice_tradition": 35.7565,
+          "voice_mechanism_compound": 2.925,
+          "voice_estill_quality": 28.2,
+          "voice_speech_song": 22.165000000000006,
+          "voice_ensemble_config": 29.2815,
           "voice_ornament_system": 10.025000000000002,
-          "voice_pitch_organization": 2.7030000000000003,
-          "voice_processing_chain": 4.615,
-          "voice_multitrack_stack": 2.1814999999999998
+          "voice_pitch_organization": 1.3,
+          "voice_processing_chain": 7.734999999999999,
+          "voice_multitrack_stack": 4.03
         }
       }
     ],
     "room": "southern_black_church_gospel_choir",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

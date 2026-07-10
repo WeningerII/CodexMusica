@@ -3,9 +3,9 @@
   "name": "K-pop",
   "family": "global",
   "lineage": "The K-pop tradition — South Korean idol pop built on maximalist hybrid production, choreography, and multi-member groups, globalized in the streaming era",
-  "recipe": "classic Asian modern k-pop, functional Song, east Asian pop branch. extended whistle, equal tempered, modern pop training, sprechgesang notated approximate pitch. sampler, plucked short envelope digital subtractive, TR-808, pyramid pure nickel bass British mid 60s era electric bass, octuple plus dense stack multi track instrument multitrack vocal stack. multi room segmented 2010-present major-flagship kpop idol complex. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 553,
-  "score": 117.014,
+  "recipe": "classic Asian modern k-pop, functional Song, east Asian pop branch. extended whistle, equal tempered, modern pop training, sprechgesang notated approximate pitch. sampler, plucked short envelope digital subtractive, TR-808, pyramid pure nickel bass British mid 60s era electric bass, octuple plus dense stack multi track instrument multitrack vocal stack. multi room segmented 2010-present major-flagship kpop idol complex. tube condenser, avalon VT-737sp, empirical labs distressor, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
+  "recipe_chars": 548,
+  "score": 115.634,
   "config": {
     "traditions": [
       "kpop"
@@ -54,14 +54,14 @@
         "id": "sampler_classic",
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
-          "sampler_archetypes": "ensoniq_asr10",
+          "sampler_archetypes": "akai_mpc",
           "sampler_bit_depth": "sampler_twentyfour_bit",
           "sampler_workflow": "sampler_loop_layered",
           "sampler_classic_context": "sampler_classic_pop_production"
         },
         "scores": {
           "electronic_technique": 0.39999999999999997,
-          "sampler_archetypes": 0.78,
+          "sampler_archetypes": 0.44999999999999996,
           "sampler_bit_depth": 0.285,
           "sampler_workflow": 0.7427499999999999,
           "sampler_classic_context": 15.142499999999997
@@ -120,7 +120,7 @@
         "id": "multitrack_vocal_stack",
         "slots": {
           "multitrack_stack_density": "multitrack_density_octuple_plus",
-          "multitrack_stack_era_aesthetic": "multitrack_era_2000s_elastic_pitch",
+          "multitrack_stack_era_aesthetic": "multitrack_era_2010s_melodyne",
           "multitrack_stack_processing": "multitrack_processing_chorus_thickened"
         },
         "scores": {
@@ -131,7 +131,7 @@
       }
     ],
     "room": "studio_kpop_idol_complex",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_seoul_kpop_idol",
     "inline_chain": {
       "mic": "condenser_tube",
       "pre": "pre_500_series_modern",

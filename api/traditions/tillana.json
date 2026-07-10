@@ -3,9 +3,9 @@
   "name": "Tillana (Carnatic concert-closer rhythmic showpiece)",
   "family": "global",
   "lineage": "Carnatic rhythmic showpiece genre using non-lexical jathi syllables (dhim, tarana, dhirana) alongside short Sanskrit or Telugu praise-text — the Carnatic counterpart of the Hindustani tarana, typically performed as the concert-closer of a kutcheri; composers Swati Tirunal Rama Varma (Maharaja of Travancore, 1813-1846), Pallavi Seshayyar, the modern composer Lalgudi Jayaraman",
-  "recipe": "classic South Asian early-1810s tillana, ritual Devotional, hindu branch, indian classical improv improv on frame tarana tappa. vocal fry, declaimed, chest resonance low mid, punctuated. jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, steel projecting modern concert lalgudi lineage carnatic legato violin carnatic, silvery suited to female vocal tanpura. chennai madras music academy sabha. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 497,
-  "score": 198.186,
+  "recipe": "classic South Asian early-1810s tillana, ritual Devotional, hindu branch, indian classical improv improv on frame tarana tappa. vocal fry, declaimed, chest resonance low mid, punctuated. jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, steel projecting modern concert lalgudi lineage carnatic legato violin carnatic, suited to female vocal wooden body miraj style tanpura. chennai madras music academy sabha. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe_chars": 507,
+  "score": 204.576,
   "config": {
     "traditions": [
       "tillana",
@@ -82,7 +82,7 @@
           "bowed_technique": 10.32,
           "violin_carnatic_tuning": 4.745,
           "violin_carnatic_posture": 4.09,
-          "violin_carnatic_strings": 3.6399999999999997,
+          "violin_carnatic_strings": 5.195,
           "violin_carnatic_lineage": 7.215
         }
       },
@@ -94,7 +94,7 @@
           "tanpura_jawari": "curved_jawari",
           "tanpura_strings": "five_string_chitra",
           "tanpura_string_material": "tanpura_brass_only",
-          "tanpura_body_wood": "tanpura_gourd_body"
+          "tanpura_body_wood": "tanpura_wooden_body"
         },
         "scores": {
           "plucked_traditional_technique": 10.32,
@@ -102,12 +102,12 @@
           "tanpura_jawari": 9.625,
           "tanpura_strings": 1.4999999999999998,
           "tanpura_string_material": 0.24,
-          "tanpura_body_wood": 0
+          "tanpura_body_wood": 1.285
         }
       }
     ],
     "room": "chennai_madras_music_academy_sabha",
-    "archetype": "arch_electrical_disc_cut",
+    "archetype": "arch_hmv_dumdum_raga",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "pre_tube_german_v72",

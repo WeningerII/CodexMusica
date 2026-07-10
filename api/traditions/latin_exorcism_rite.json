@@ -3,9 +3,9 @@
   "name": "Latin Rituale Romanum exorcism recitation",
   "family": "global",
   "lineage": "The Latin exorcism recitation is the imprecatory liturgy of the Roman Catholic Rituale Romanum, whose exorcism section (De exorcizandis obsessis a daemonio) was codified in 1614 and revised in 1999. Performed by a priest with the bishop's mandate, it interleaves psalmody, Gospel readings, and the imperative deprecatory-and-imperative formulae addressed directly to the demon ('Exorcizo te, immundissime spiritus'). Delivery is forceful heightened Latin declamation in a resonant church interior, punctuated by the sign of the cross and sprinkling of holy water. The rite is documented in the Rituale itself and in the Church's liturgical-law tradition.",
-  "recipe": "classic mid-1610s latin rituale romanum exorcism recitation, ritual Devotional, christian gospel branch southern gospel quartet bluegrass gospel. thick, declaimed, chest resonance low mid, ornamental. parish church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 345,
-  "score": 236.504,
+  "recipe": "classic mid-1610s latin rituale romanum exorcism recitation, ritual Devotional, christian gospel branch southern gospel quartet bluegrass gospel. thick, declaimed, chest resonance low mid, ornamental. parish church. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 278,
+  "score": 222.479,
   "config": {
     "traditions": [
       "latin_exorcism_rite",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "stone_parish_church",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

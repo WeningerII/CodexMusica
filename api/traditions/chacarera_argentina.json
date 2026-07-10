@@ -3,9 +3,9 @@
   "name": "Chacarera (Argentine northwest)",
   "family": "global",
   "lineage": "Argentine folk-dance-and-song tradition of northwestern provinces (Santiago del Estero, Tucumán, Salta, La Rioja). Characteristic 6/8 meter, fast-tempo paired-couple dance with handkerchiefs, lyrical content addressing rural-northwestern Argentine life. Voice with acoustic-guitar and bombo legüero large-frame-drum. Atahualpa Yupanqui and Los Hermanos Ábalos (founded 1932) consolidated canonical repertoire.",
-  "recipe": "classic Mexican early-1930s chacarera, ballad Poetry, Latin am troubadour branch, indigenous ritual devotional mongolian böö shamanic invocation inuit katajjaq throat-singing game. sygyt, declaimed, overtone rich sustained, punctuated. rosewood coated nanoweb fingerpicked parlor acoustic guitar, rim accented bombo leguero. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 538,
-  "score": 197.825,
+  "recipe": "classic Mexican early-1930s chacarera, ballad Poetry, Latin am troubadour branch, indigenous ritual devotional mongolian böö shamanic invocation inuit katajjaq throat-singing game. sygyt, declaimed, overtone rich sustained, punctuated. rosewood coated nanoweb fingerpicked parlor acoustic guitar, rim accented bombo leguero. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 471,
+  "score": 189.25,
   "config": {
     "traditions": [
       "chacarera_argentina",
@@ -84,7 +84,7 @@
       }
     ],
     "room": "mexico_bolero_xochimilco_studio",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

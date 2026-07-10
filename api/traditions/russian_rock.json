@@ -3,9 +3,9 @@
   "name": "Russian rock",
   "family": "global",
   "lineage": "Late-Soviet (1980-1991) and post-Soviet (1991-onward) Russian-language rock tradition centered in Leningrad/Saint Petersburg (Boris Grebenshchikov / Aquarium, Viktor Tsoi / Kino, Yuri Shevchuk / DDT, Auktyon) and Moscow (Andrei Makarevich / Mashina Vremeni); the Leningrad Rok-klub legitimized the underground in 1981 under tight KGB oversight, with the perestroika era 1986-1991 enabling above-ground commercial release through Melodiya",
-  "recipe": "classic Eastern European mid-1980s russian rock, distorted Rock, regional branch, Slavic bard ballad poetry russian folk balalaika and choral south slavic kantautor. thick, ornamental, equal tempered, Mediterranean demotic vocal. marshall plexi amp British rock amp humbucker electric fingerpicked dreadnought acoustic guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, hot rolled annealed machine hammered symmetric pattern organized rows drum kit, sekunda tuning Soviet orchestra canon strummed balalaika. moscow state label 1964-present major-flagship moscow melodiya studio. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
-  "recipe_chars": 684,
-  "score": 215.815,
+  "recipe": "classic Eastern European mid-1980s russian rock, distorted Rock, regional branch, Slavic bard ballad poetry russian folk balalaika and choral south slavic kantautor. thick, ornamental, equal tempered, Mediterranean demotic vocal. marshall plexi amp British rock amp humbucker electric fingerpicked dreadnought acoustic guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, hot rolled annealed machine hammered symmetric pattern organized rows drum kit, sekunda tuning Soviet orchestra canon strummed balalaika. moscow state label 1964-present major-flagship moscow melodiya studio. dynamic moving-coil, tube pre. Walkman cassette.",
+  "recipe_chars": 645,
+  "score": 216.935,
   "config": {
     "traditions": [
       "russian_rock",
@@ -31,7 +31,7 @@
           "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
-          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
           "voice_register": 18.399999999999995,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 1.2349999999999999,
           "voice_pitch_organization": 2.21,
           "voice_processing_chain": 3.7700000000000005,
-          "voice_multitrack_stack": 2.0949999999999998
+          "voice_multitrack_stack": 3.640000000000001
         }
       },
       {
@@ -173,7 +173,7 @@
       }
     ],
     "room": "moscow_melodiya_studio",
-    "archetype": "arch_german_diy_converted",
+    "archetype": "arch_soviet_magnitizdat",
     "inline_chain": {
       "mic": "dynamic_mic",
       "pre": "pre_neve_1073_input",

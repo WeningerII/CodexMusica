@@ -3,9 +3,9 @@
   "name": "Bengali baul (mystic-itinerant song)",
   "family": "global",
   "lineage": "Lalon-Shah-lineage Bengali mystic-itinerant tradition, studio-recorded 1970-1990 (Lalon Fakir, c. 1774-1890, the foundational figure) — codified through the Kenduli Mela annual Baul gathering, the Bardhaman district teaching lineages, and the 20th-century preservation work of Purna Das Baul; characterized by ektara-or-dotara-and-khamak accompaniment, Sufi-Vaishnav-Tantric syncretic philosophy, and the wandering-mendicant performance context",
-  "recipe": "classic North American mid-1980s bengali baul, ballad Poetry, indian bard branch, Sufi ritual devotional, med east poetic ballad poetry sufi inshad qawwali. vocal fry, declaimed, chest resonance low mid, maqam neutral step. drone like modal dotara, baul gourd bamboo canonical bengali gut pre modern bengali historical ektara, baul pitch bending wood goat skin canonical bengali gut canonical bengali baul khamak, tun indian cedar gut pre modern bengali sikh microtonal esraj. adobe room. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 635,
-  "score": 230.187,
+  "recipe": "classic mid-1980s bengali baul, ballad Poetry, indian bard branch, Sufi ritual devotional, med east poetic ballad poetry sufi inshad qawwali. vocal fry, declaimed, chest resonance low mid, maqam neutral step. drone like modal dotara, baul gourd bamboo canonical bengali gut pre modern bengali historical ektara, baul pitch bending wood goat skin canonical bengali gut canonical bengali baul khamak, tun indian cedar gut pre modern bengali sikh microtonal esraj. adobe room. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe_chars": 540,
+  "score": 225.25,
   "config": {
     "traditions": [
       "bengali_baul",
@@ -114,7 +114,7 @@
       }
     ],
     "room": "adobe_room",
-    "archetype": "arch_80s_late_analog_majorrock",
+    "archetype": "arch_hmv_dumdum_raga",
     "inline_chain": {
       "mic": "ribbon_passive",
       "pre": "tube_pre",

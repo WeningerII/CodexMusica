@@ -3,9 +3,9 @@
   "name": "Russian zastol'naya pesnya (table song / drinking song)",
   "family": "global",
   "lineage": "Russian zastol'naya pesnya (table-song / drinking-song) tradition continuous from medieval-Russian feast-and-tavern song-tradition through 19th-century Russian-Romantic-era Glinka-and-Mussorgsky-folk-collection through Soviet-era continuous performance into modern Russian-and-Russian-diaspora continuous feast-and-pub practice; foundational repertoire includes \"Калинка\" (Kalinka) and \"Подмосковные вечера\" (Moscow Nights — though both are more broadly folk-popular than strictly drinking-songs)",
-  "recipe": "classic modern russian zastol'naya pesnya, drinking Song, European branch, balkan drinking song, Slavic bard ballad poetry, European wedding sardinian wedding cantu and launeddas music georgian supra feast-singing. thick, false fold engaged, tasteful, continuous-phonation. b system buttons stradella bass Russian tradition song accompaniment chastushka dance bayan russian, prima nylon modern spruce maple andreyev concert orchestra canonical revival balalaika. irish pub. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 603,
-  "score": 196.81,
+  "recipe": "classic modern russian zastol'naya pesnya, drinking Song, European branch, balkan drinking song, Slavic bard ballad poetry, European wedding sardinian wedding cantu and launeddas music georgian supra feast-singing. thick, false fold engaged, tasteful, continuous-phonation. b system buttons stradella bass Russian tradition song accompaniment chastushka dance bayan russian, prima nylon modern spruce maple andreyev concert orchestra canonical revival balalaika. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 536,
+  "score": 188.835,
   "config": {
     "traditions": [
       "russian_zastolnaya",
@@ -86,7 +86,7 @@
       }
     ],
     "room": "irish_pub",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

@@ -3,9 +3,9 @@
   "name": "MPB (Música Popular Brasileira)",
   "family": "global",
   "lineage": "Brazilian MPB (Música Popular Brasileira) post-bossa-nova-and-tropicália sophisticated-popular-music umbrella-tradition emerging 1965-onward from the bossa-nova-tropicália-festival circuit. Built on harmonically-extended chord-vocabulary (minor-7-and-maj-7-and-9-and-11 jazz-extensions), Brazilian-rhythmic foundation (samba, baião, choro, bossa derivatives), and singer-songwriter literary-poetic-lyrical-sophistication. The 1970s mpb-jovem-guarda commercial-pop wave, the 1980s mpb-de-câmara chamber-mpb, and 1990s-onward mpb-as-heritage-institution comprise the genre's historical arc. Canonical instrumentation: violão acoustic-guitar nylon-string fingerstyle-led, with optional flute, piano, cavaquinho, and contemporary-rhythm-section. The MPB-canon overlaps significantly with samba-canção and bossa-nova but retains a distinct singer-songwriter-as-poet aesthetic identity.",
-  "recipe": "classic Southern American modern mpb, groove Percussion, Brazilian branch, Latin am troubadour ballad poetry milonga jíbaro. thick, intimate aspirated, chest resonance low mid, punctuated. cedar nylon fingerpicked classical nylon-string guitar, Japanese factory birch laminated maple laminated sitka spruce diaphragmatic grand piano, thomastik infeld low tension jazz warm walking fingerstyle electric bass, birch pre muffled edge muffled hot rolled annealed drum kit, samba bateria, samba foundation mahogany samba canon steel modern strummed cavaquinho. phonogram brasil studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 727,
-  "score": 344.697,
+  "recipe": "classic Southern American modern mpb, groove Percussion, Brazilian branch, Latin am troubadour ballad poetry milonga jíbaro. thick, intimate aspirated, chest resonance low mid, punctuated. cedar nylon fingerpicked classical nylon-string guitar, no chemical hardener t rivet birch laminated maple laminated sitka spruce grand piano, thomastik infeld low tension jazz warm walking fingerstyle electric bass, birch pre muffled edge muffled hot rolled annealed drum kit, samba bateria, samba foundation mahogany samba canon steel modern strummed cavaquinho. phonogram brasil studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
+  "recipe_chars": 714,
+  "score": 332.78,
   "config": {
     "traditions": [
       "mpb",
@@ -31,7 +31,7 @@
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_pelog_7",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
           "voice_register": 10.815000000000001,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 2.5250000000000004,
           "voice_pitch_organization": 1.9,
           "voice_processing_chain": 7.06,
-          "voice_multitrack_stack": 4.585
+          "voice_multitrack_stack": 3.02
         }
       },
       {
@@ -77,22 +77,22 @@
           "keyboard_technique": "keyboard_block_chord_pop",
           "grand_piano_size": "grand_7_foot",
           "grand_piano_brand": "fazioli",
-          "piano_hammer": "japanese_1980s_hammer",
+          "piano_hammer": "abel_hammer",
           "piano_rim": "asian_laminated_rim_birch_maple",
           "piano_soundboard": "sitka_spruce_diaphragmatic",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "wet_sand_cast_plate",
+          "piano_plate": "gray_iron_full_perimeter_plate",
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
           "keyboard_technique": 7.25,
           "grand_piano_size": 0.39,
           "grand_piano_brand": 1.3900000000000001,
-          "piano_hammer": 4.8,
+          "piano_hammer": 4.545,
           "piano_rim": 8.775,
           "piano_soundboard": 5.91,
           "piano_pinblock": 5.265,
-          "piano_plate": 3.175,
+          "piano_plate": 2.875,
           "piano_pitch_standard": 5.005000000000001
         }
       },
@@ -102,9 +102,9 @@
           "electric_technique": "electric_bass_walking",
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
-          "pickup_config": "soapbar",
+          "pickup_config": "humbucker_mm",
           "string_type": "thomastik_jazz_bass_flat",
-          "scale_length_b": "extra_long_b",
+          "scale_length_b": "long_scale_b",
           "fretted_or_not": "fretted",
           "bass_technique": "fingerstyle_walking"
         },
@@ -112,9 +112,9 @@
           "electric_technique": 1.5,
           "amp_make": 2.4050000000000002,
           "body_wood": 0.39,
-          "pickup_config": 0.65,
+          "pickup_config": 0.345,
           "string_type": 3.295,
-          "scale_length_b": 0.65,
+          "scale_length_b": 0.585,
           "fretted_or_not": 0.195,
           "bass_technique": 4.25
         }
@@ -125,7 +125,7 @@
           "percussion_technique": "percussion_brushes_and_sticks",
           "shell_wood": "birch_shell",
           "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_45",
+          "bearing_edges": "edge_30",
           "drumhead": "ec_pre_muffled_drumhead",
           "snare_wires": "cable_snares",
           "cymbal_alloy": "b15_signature",
@@ -138,7 +138,7 @@
           "percussion_technique": 21.58,
           "shell_wood": 1.1949999999999998,
           "shell_thickness": 0.39,
-          "bearing_edges": 1.8,
+          "bearing_edges": 0.39,
           "drumhead": 4.890000000000001,
           "snare_wires": 0.39,
           "cymbal_alloy": 3.2,
@@ -173,12 +173,12 @@
           "cavaquinho_origin": 5.0649999999999995,
           "cavaquinho_context": 28.080000000000002,
           "cavaquinho_body_wood": 3.6449999999999996,
-          "cavaquinho_strings": 1.95
+          "cavaquinho_strings": 1.47
         }
       }
     ],
     "room": "phonogram_brasil_studio",
-    "archetype": "arch_80s_late_analog_majorrock",
+    "archetype": "arch_odeon_bossa_mpb",
     "inline_chain": {
       "mic": "mic_u87_condenser_neumann",
       "pre": "transformer_solid_state",

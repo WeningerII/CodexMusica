@@ -3,14 +3,14 @@
   "name": "Appalachian square-dance calling",
   "family": "country",
   "lineage": "The caller's rhythmic patter directing figures for old-time Appalachian square and big-circle dances, delivered in strict time over a string band of fiddle and banjo. It descends from Anglo-Celtic and French quadrille calling adapted in the southern mountains, where the caller became an improvising rhythmic voice rather than a mere prompter. The running-set dancing that underlies it was documented by Cecil Sharp during his 1916 to 1918 Appalachian fieldwork, and figures such as Bascom Lamar Lunsford institutionalized the practice through the Asheville Mountain Dance and Folk Festival from 1928. Calls are locked to the reel's meter, blending fixed figure-names with spontaneous filler.",
-  "recipe": "classic mid-1910s appalachian square-dance calling, ballad Poetry, anglo singer song branch cape verdean batuko of santiago island classic blues women. thick, blues-shouter, melodic, punctuated. wooden barn. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 337,
-  "score": 184.735,
+  "recipe": "classic mid-1910s appalachian square-dance calling, ballad Poetry, anglo singer song branch classic blues women cape verdean batuko of santiago island. thick, blues-shouter, melodic, punctuated. wooden barn. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 282,
+  "score": 171.56,
   "config": {
     "traditions": [
       "appalachian_square_dance_calling",
-      "cape_verdean_batuko",
-      "classic_blues_women"
+      "classic_blues_women",
+      "cape_verdean_batuko"
     ],
     "instruments": [
       {
@@ -54,7 +54,7 @@
       }
     ],
     "room": "wooden_barn",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_nagra_ethnographic_field",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

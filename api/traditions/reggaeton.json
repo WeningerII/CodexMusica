@@ -3,9 +3,9 @@
   "name": "Reggaeton",
   "family": "pop",
   "lineage": "Puerto Rican dembow-based dance subgenre codified through Vico C (the foundational late-1980s figure), DJ Playero’s underground compilations (1991 onward), Daddy Yankee’s breakthrough Barrio Fino (2004), Don Omar, Tego Calderón — characterized by 90-100 BPM dembow rhythm (from the Shabba Ranks \"Dem Bow\" sample), Spanish-language reggaeton-flow vocals",
-  "recipe": "classic 1987-1989 reggaeton, mc Rhythm, reggaeton branch, Latin electric electronic dance, Jamaican bass system reggae roots jamaican dancehall. thick, rap, chest resonance low mid, equal tempered. roland tr 8s modern aira digital recreation TR-808, low sub bass analog poly synth, sampler drum machine. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 448,
-  "score": 89.637,
+  "recipe": "classic Caribbean 1987-1989 reggaeton, mc Rhythm, reggaeton branch, Latin electric electronic dance, Jamaican bass system reggae roots jamaican dancehall. thick, rap, chest resonance low mid, equal tempered. roland tr 8s modern aira digital recreation TR-808, low sub bass analog poly synth, sampler drum machine. live tracking. shure SM58, transformerless solid-state pre, pumping sidechain, parametric EQ. lossy MP3 autotune digital delay.",
+  "recipe_chars": 441,
+  "score": 91.075,
   "config": {
     "traditions": [
       "reggaeton",
@@ -97,7 +97,7 @@
       }
     ],
     "room": "live_room",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_san_juan_reggaeton_mixtape",
     "inline_chain": {
       "mic": "mic_sm7b_dynamic_shure",
       "pre": "pre_avalon_v737",

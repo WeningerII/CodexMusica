@@ -3,9 +3,9 @@
   "name": "Tamil children's rhyme (tamizh sirar paadal)",
   "family": "global",
   "lineage": "Tamil-language children's play-song tradition continuous from premodern Tamil folk-play-song origins through 20th-century Tamil-Nadu-and-Sri-Lankan-Tamil school-curriculum codification into modern continuous Tamil childhood-practice",
-  "recipe": "classic modern tamil children's rhyme, nursery Rhyme, south Asian branch, south Asian lullaby, east Asian nursery rhyme, European nursery rhyme hindi lori tamil thālāttu. thick, low dynamic level, tasteful, continuous-phonation. field recording. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 375,
-  "score": 94.436,
+  "recipe": "classic modern tamil children's rhyme, nursery Rhyme, south Asian branch, south Asian lullaby, east Asian nursery rhyme, European nursery rhyme hindi lori tamil thālāttu. thick, low dynamic level, tasteful, continuous-phonation. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 308,
+  "score": 89.973,
   "config": {
     "traditions": [
       "tamil_children_song",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "field_recording",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

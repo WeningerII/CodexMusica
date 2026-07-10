@@ -3,9 +3,9 @@
   "name": "Tibetan ache lhamo opera",
   "family": "classical",
   "lineage": "Tibetan ache lhamo (\"sister-goddess\") folk-opera tradition. Origin traced by tradition to the fourteenth-century yogi-engineer-saint Thangtong Gyalpo, who is said to have founded the form and organized the first performance-troupe to raise funds for his iron-chain suspension-bridge construction projects across Tibet. The canonical repertoire comprises eight classical plays drawn from Indo-Tibetan Buddhist narrative cycles, including Sukyi Nyima (the deer-girl), Drowa Sangmo (the celestial-bride), Chöyi Nyima, Pema Wöbar, Drimé Künden, Nangsa Wöbum, Gyasa Belsa, and Donyö Dondrup. Performance integrates singing (with distinctive named melodic-modes), stylized dance-and-mime movement, recited dialogue, and percussion accompaniment (rolmo large paired cymbals and damaru double-headed hand-drum the principal instruments — no melodic instruments, the form is essentially voice-and-percussion). The Lhasa-region Kyumolung style and the Shang and Gyenpa regional styles constitute the three main lineages. Performance traditionally outdoors during summer festivals, particularly the Shotön (yogurt-festival) at Norbulingka in Lhasa. The Tibetan Institute of Performing Arts (TIPA, Dharamshala, India) maintains the principal exile-community transmission lineage post-1959. Distinguished from the parallel monastic-liturgical yang chant by ache lhamo's secular-narrative (vs liturgical) functional framework and absence of long-trumpets and double-reed monastic-ensemble instrumentation; distinguished from Chinese jingju by Tibetan-language repertoire and characteristic voice-and-percussion-only ensemble configuration.",
-  "recipe": "classic East Asian late-1950s tibetan ache lhamo opera, art Music, Tibetan ritual branch, buddhist ritual devotional tibetan chöd rite himalayan vajrayana liturgy. thick, declaimed, melodic, narrative. large paired bronze cymbals canonical Tibetan monastic yang chant ensemble canonical gelug monastic rolmo, double headed cord pellets rotated canonical Tibetan gelug monastic ritual canonical Tibetan damaru. tibetan gompa assembly hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 568,
-  "score": 231.466,
+  "recipe": "classic East Asian late-1950s tibetan ache lhamo opera, art Music, Tibetan ritual branch, buddhist ritual devotional tibetan chöd rite himalayan vajrayana liturgy. thick, declaimed, melodic, narrative. large paired bronze cymbals canonical Tibetan monastic yang chant ensemble canonical gelug monastic rolmo, double headed cord pellets rotated canonical Tibetan gelug monastic ritual canonical Tibetan damaru. tibetan gompa assembly hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 501,
+  "score": 219.341,
   "config": {
     "traditions": [
       "tibetan_ache_lhamo",
@@ -76,7 +76,7 @@
       }
     ],
     "room": "tibetan_gompa_assembly_hall",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

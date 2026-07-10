@@ -3,9 +3,9 @@
   "name": "Tobacco and livestock auctioneer chant",
   "family": "vernacular",
   "lineage": "The rapid rhythmic auction cry, or bid-calling, of North American tobacco warehouses and livestock sale barns, alternating spoken numbers with sustained filler syllables held on a single pitch to keep bidding momentum. The style was carried into national awareness by the Lucky Strike radio advertisements featuring auctioneers L. A. Speed Riggs and F. E. Boone, whose Sold, American! tag became a catchphrase in the 1930s through 1950s. It is taught systematically at modern auction schools as a controlled breath-and-rhythm technique and is frequently cited as a vernacular precursor to the rhythmic speech-flow of rap. The chant balances legible numbers against a percussive stream of connective vocables.",
-  "recipe": "classic mid-1930s tobacco and livestock auctioneer chant, mc Rhythm, southern branch, us hip hop MC rhythm conscious hip-hop gangsta rap. thick, rap, overtone rich sustained, narrative. wooden barn. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 328,
-  "score": 203.519,
+  "recipe": "classic mid-1930s tobacco and livestock auctioneer chant, mc Rhythm, southern branch, us hip hop MC rhythm conscious hip-hop gangsta rap. thick, rap, overtone rich sustained, narrative. wooden barn. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 261,
+  "score": 193.844,
   "config": {
     "traditions": [
       "tobacco_livestock_auctioneer_chant",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "wooden_barn",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

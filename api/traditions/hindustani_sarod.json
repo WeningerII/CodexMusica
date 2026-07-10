@@ -3,9 +3,9 @@
   "name": "Hindustani classical (sarod-led)",
   "family": "classical",
   "lineage": "North Indian sarod tradition centered on the Maihar gharana of Allauddin Khan (1862-1972, the patriarch who taught both his son Ali Akbar Khan and his son-in-law Ravi Shankar) and the Senia Bangash gharana of the Bangash family (Hafiz Ali Khan, Amjad Ali Khan) — the sarod is the fretless metal-fingerboard plucked-lute derivation of the Afghan rabab brought to Hindustani classical from the 18th-19th centuries",
-  "recipe": "classic South Asian early-1860s hindustani classical, improv On Frame, indian classical improv branch, south Asian art music, vocal drone modal kutiyattam sanskrit recitation telugu kirtana. coconut shell shell tun indian cedar maihar gharana sarod, indian rosewood rosewood copper tabla, silvery suited to female vocal tanpura, open jawari vilayat khan canon long sustain buzzing overtones maihar gharana sitar. varanasi benares gharana baithak. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 519,
-  "score": 169.191,
+  "recipe": "classic South Asian early-1860s hindustani classical, improv On Frame, indian classical improv branch, south Asian art music, vocal drone modal kutiyattam sanskrit recitation telugu kirtana. coconut shell shell tun indian cedar maihar gharana sarod, indian rosewood rosewood copper tabla, silvery suited to female vocal tanpura, open jawari vilayat khan canon long sustain buzzing overtones maihar gharana sitar. varanasi benares gharana baithak. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe_chars": 513,
+  "score": 173.279,
   "config": {
     "traditions": [
       "hindustani_sarod",
@@ -22,7 +22,7 @@
           "sarod_pluck": "coconut_shell_pick",
           "sarod_taraf": "taraf_eleven",
           "sarod_body_wood": "sarod_tun_body",
-          "sarod_strings": "sarod_phosphor_bronze",
+          "sarod_strings": "sarod_steel_bronze_modern",
           "sarod_gharana": "sarod_maihar_gharana"
         },
         "scores": {
@@ -32,7 +32,7 @@
           "sarod_pluck": 9.094999999999999,
           "sarod_taraf": 9.61,
           "sarod_body_wood": 2.5,
-          "sarod_strings": 0,
+          "sarod_strings": 0.44999999999999996,
           "sarod_gharana": 16.09875
         }
       },
@@ -75,7 +75,7 @@
           "sitar_neck": "teak",
           "sitar_resonator": "single_kaddu",
           "sitar_jawari": "camel_bone",
-          "sitar_taraf": "taraf_11",
+          "sitar_taraf": "taraf_13",
           "sitar_frets": "tied_gut_parda",
           "sitar_pluck": "wire_mizrab",
           "sitar_main_strings": "sitar_bronze_steel_modern",
@@ -87,17 +87,17 @@
           "sitar_neck": 0.864375,
           "sitar_resonator": 0.6,
           "sitar_jawari": 0.42000000000000004,
-          "sitar_taraf": 0.42000000000000004,
+          "sitar_taraf": 0.44999999999999996,
           "sitar_frets": 0.46499999999999997,
           "sitar_pluck": 8.42,
-          "sitar_main_strings": -1.05,
+          "sitar_main_strings": 0.49499999999999994,
           "sitar_jawari_style": 5.679999999999999,
           "sitar_gharana": 15.403749999999999
         }
       }
     ],
     "room": "varanasi_benares_gharana_baithak",
-    "archetype": "arch_electrical_disc_cut",
+    "archetype": "arch_hmv_dumdum_raga",
     "inline_chain": {
       "mic": "mic_u87_condenser_neumann",
       "pre": "tube_pre",

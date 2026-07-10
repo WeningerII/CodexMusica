@@ -3,9 +3,9 @@
   "name": "Akan-Asante kete royal praise music",
   "family": "global",
   "lineage": "Akan-Asante royal court-music tradition continuous from pre-colonial Asantehene court-music practice (17th-19th century Asante Empire era) through colonial-period continuous performance into modern Ghanaian Asante cultural-practice; the kete ensemble is the royal-court praise-music ensemble",
-  "recipe": "classic West African modern akan-asante kete royal praise music, praise Song, sub saharan African branch, African diasporic wedding, west African groove percussion, indigenous ritual devotional yoruba aso ebi wedding music yoruba dùndún surrogate speech. thick, declaimed, tasteful, continuous-phonation. iroko alternative west African goat skin leather tension cords canonical pressure bend talking drum, iroko west African premium cowhide rope lacing canonical mande dunun, court praise song self accompanied nylon strung seperewa. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 744,
-  "score": 262.132,
+  "recipe": "classic West African modern akan-asante kete royal praise music, praise Song, sub saharan African branch, African diasporic wedding, west African groove percussion, indigenous ritual devotional yoruba aso ebi wedding music yoruba dùndún surrogate speech. thick, declaimed, tasteful, continuous-phonation. iroko alternative west African goat skin leather tension cords canonical pressure bend talking drum, iroko west African premium cowhide rope lacing canonical mande dunun, court praise song self accompanied nylon strung seperewa. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 677,
+  "score": 251.507,
   "config": {
     "traditions": [
       "akan_kete_royal_praise",
@@ -97,7 +97,7 @@
       }
     ],
     "room": "lagos_decca_west_african_studio",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

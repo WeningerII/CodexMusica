@@ -3,9 +3,9 @@
   "name": "Rajasthani Manganiyar tradition",
   "family": "global",
   "lineage": "Rajasthani Manganiyar hereditary musician tradition of the Thar Desert region of western Rajasthan, India (Jaisalmer, Barmer, and Jodhpur districts), with the parallel Langa community sharing many features. The Manganiyar are Muslim-by-religion-but-Hindu-by-patron-relation hereditary musicians whose performance-economic configuration centers on the jajmani patron-relationship: each Manganiyar family is bound to specific Rajput patron-families across generations, performing at patron weddings, births, and funerals as the ritual-and-aesthetic specialist providers. Canonical instrumentation: kamaicha (gourd-bowled bowed lute with sympathetic strings) as the primary melodic carrier in deeper-register sustained-tone repertoire, plus khartal wooden-castanet-pair, dholak two-headed barrel drum, and sometimes algoza double-flute or sarangi. Repertoire spans devotional Sufi qawwali-adjacent material, Rajput court-praise repertoire, panihari water-bearer women's-song accompaniment, and the canonical drone-and-narrative-improvisation pieces such as Niambat Khan and Padharo Mhare Des. Modal vocabulary draws on regional raga-frameworks distinct from Hindustani classical but related — the Manganiyar mode-system uses approximately just-intonation tonal hierarchies. Komal Kothari's Rupayan Sansthan in Borunda (founded 1960s) and the Archives & Research Center for Ethnomusicology (AIIS Gurugram, Shubha Chaudhuri) provide the principal scholarly documentation; Daniel Neuman & Shubha Chaudhuri's Bards, Ballads and Boundaries (Seagull 2006) anchors the contemporary scholarship. Sakar Khan and Anwar Khan among the canonical twentieth-century kamaicha and singing masters. Distinguished from Hindustani classical by Manganiyar's jajmani-patron-relationship economic structure and folk-classical hybrid modal system; distinguished from Langa (the parallel Sindhi-influenced hereditary community) by Manganiyar-Marwari dialect and Rajput-patron-relationship base.",
-  "recipe": "classic South Asian mid-1960s rajasthani manganiyar tradition, ballad Poetry, indian bard branch, south Asian art music, indian classical improv improv on frame thumrī carnatic vocal. thick, declaimed, chest resonance low mid, narrative. mango sheesham wood canonical thar desert build gut main sympathetic resonance manganiyar hereditary lineage legato kamaicha, wooden castanet pair canonical manganiyar percussion manganiyar accompaniment canonical thar desert khartal, goat skin syahi rope laced steel ring dholak, gut 3 main playing strings tun cedar legato sarangi. manganiyar haveli courtyard. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 730,
-  "score": 379.455,
+  "recipe": "classic South Asian mid-1960s rajasthani manganiyar tradition, ballad Poetry, indian bard branch, south Asian art music, indian classical improv improv on frame thumrī carnatic vocal. thick, declaimed, chest resonance low mid, narrative. mango sheesham wood canonical thar desert build gut main sympathetic resonance manganiyar hereditary lineage legato kamaicha, wooden castanet pair canonical manganiyar percussion manganiyar accompaniment canonical thar desert khartal, goat skin syahi rope laced steel ring dholak, gut 3 main playing strings tun cedar legato sarangi. manganiyar haveli courtyard. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 675,
+  "score": 377.767,
   "config": {
     "traditions": [
       "rajasthani_manganiyar",
@@ -114,7 +114,7 @@
       }
     ],
     "room": "manganiyar_haveli_courtyard",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_nagra_ethnographic_field",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

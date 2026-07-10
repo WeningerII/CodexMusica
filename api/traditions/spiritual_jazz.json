@@ -3,9 +3,9 @@
   "name": "Spiritual jazz",
   "family": "jazz",
   "lineage": "Late-1960s/1970s African-American jazz movement combining modal-and-free harmonic vocabulary with explicit religious / political / Afro-diasporic content — Pharoah Sanders, Alice Coltrane, Don Cherry, Lonnie Liston Smith, the Strata-East and Impulse! catalogs",
-  "recipe": "classic North American 1967-1969 spiritual jazz, improv On Frame, avant branch, Afro-diasporic ritual devotional, vocal drone modal flamenco. thick, declaimed, melodic, punctuated. nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris multiphonic continuous-airflow saxophone, oversize maple tension resonator sitka spruce diaphragmatic 7 ply grand piano, growly gut upright bass, fiberskyn synthetic calf bronze bell bronze over hammered drum kit, hardwood calabash mbira, tabla, teak bone open jawari vilayat khan canon long sustain sitar. independent loft jazz 1971-1978 indie-commercial strata east loft nyc. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 782,
-  "score": 424.83,
+  "recipe": "classic North American 1967-1969 spiritual jazz, improv On Frame, avant branch, Afro-diasporic ritual devotional, vocal drone modal flamenco. thick, declaimed, melodic, punctuated. nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris multiphonic continuous-airflow saxophone, oversize maple tension resonator sitka spruce diaphragmatic 7 ply grand piano, growly gut upright bass, fiberskyn synthetic calf bronze bell bronze over hammered drum kit, hardwood calabash mbira, tabla, teak bone open jawari vilayat khan canon long sustain sitar. independent loft jazz 1971-1978 indie-commercial strata east loft nyc. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 741,
+  "score": 426.005,
   "config": {
     "traditions": [
       "spiritual_jazz",
@@ -31,7 +31,7 @@
           "sax_body_alloy": 19.899999999999995,
           "sax_mouthpiece": 0.9500000000000001,
           "sax_technique": 17.445,
-          "sax_maker_school": 15.499999999999996
+          "sax_maker_school": 17.499999999999996
         }
       },
       {
@@ -197,7 +197,7 @@
       }
     ],
     "room": "strata_east_loft_nyc",
-    "archetype": "arch_70s_uk_class_a_rock",
+    "archetype": "arch_van_gelder_hard_bop",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "pre_neve_1073_input",

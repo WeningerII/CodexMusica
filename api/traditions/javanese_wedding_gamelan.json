@@ -3,9 +3,9 @@
   "name": "Javanese wedding gamelan music",
   "family": "global",
   "lineage": "Javanese wedding-music tradition continuous from medieval Javanese court-and-village gamelan practice through Islamic-period (post-15th-century) continuous performance into modern Indonesian-and-Javanese-diaspora practice; defined by gamelan-ensemble accompaniment to ceremonial-and-celebratory wedding-music repertoire",
-  "recipe": "classic Southeast Asian modern javanese wedding gamelan music, wedding, east Asian branch, south Asian wedding, east Asian art music, indigenous ritual devotional beijing opera tibetan ache lhamo opera. thick, pressed, melodic, continuous-phonation. gamelan javanese full, saron gamelan, bonang, gamelan javanese teak premium javanese court buffalo hide rattan lacing canonical javanese kendang indonesian. javanese pendopo pavilion. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 563,
-  "score": 223.977,
+  "recipe": "classic Southeast Asian modern javanese wedding gamelan music, wedding, east Asian branch, south Asian wedding, east Asian art music, indigenous ritual devotional beijing opera tibetan ache lhamo opera. thick, pressed, melodic, continuous-phonation. gamelan javanese full, saron gamelan, bonang, gamelan javanese teak premium javanese court buffalo hide rattan lacing canonical javanese kendang indonesian. javanese pendopo pavilion. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 496,
+  "score": 218.952,
   "config": {
     "traditions": [
       "javanese_wedding_gamelan",
@@ -102,7 +102,7 @@
       }
     ],
     "room": "javanese_pendopo_pavilion",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

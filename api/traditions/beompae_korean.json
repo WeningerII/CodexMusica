@@ -3,9 +3,9 @@
   "name": "Beompae (Korean Buddhist chant)",
   "family": "global",
   "lineage": "Korean Buddhist liturgical chant tradition with Joseon-era codification, allied to the broader yeombul devotional practice",
-  "recipe": "classic Northeast Asian modern beompae, ritual Devotional, buddhist branch, east Asian art music beijing opera tibetan ache lhamo opera. thick, pressed, chest resonance low mid, narrative. log drum. tibetan monastery assembly. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 356,
-  "score": 148.062,
+  "recipe": "classic Northeast Asian modern beompae, ritual Devotional, buddhist branch, east Asian art music beijing opera tibetan ache lhamo opera. thick, pressed, chest resonance low mid, narrative. log drum. tibetan monastery assembly. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 289,
+  "score": 144.787,
   "config": {
     "traditions": [
       "beompae_korean",
@@ -65,7 +65,7 @@
       }
     ],
     "room": "tibetan_monastery_assembly",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

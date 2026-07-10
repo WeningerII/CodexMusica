@@ -3,9 +3,9 @@
   "name": "Gqom",
   "family": "global",
   "lineage": "South African Durban-Zulu late-2000s minimal-bass dance subgenre, codified through Naked Boys, DJ Lag, Citizen Boy, and Rudeboyz starting circa 2010 — characterized by repetitive 4/4 sub-bass-driven drum patterns at 120-130 BPM, sparse hi-hats, vocal chants in isiZulu, and the deliberately dark / minimal aesthetic distinguishing it from house and amapiano",
-  "recipe": "classic 2007-2009 gqom, electronic Dance, African dance branch, Afro-diasporic MC rhythm kwaito south african kwaito. vocal fry, rap, chest resonance low mid, narrative. TR-808, sub bass monosynth acid bass, sub bass analog poly synth. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 380,
-  "score": 121.979,
+  "recipe": "classic Southern African 2007-2009 gqom, electronic Dance, African dance branch, Afro-diasporic MC rhythm kwaito south african kwaito. vocal fry, rap, chest resonance low mid, narrative. TR-808, sub bass monosynth acid bass, sub bass analog poly synth. live tracking. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
+  "recipe_chars": 351,
+  "score": 127.316,
   "config": {
     "traditions": [
       "gqom",
@@ -97,7 +97,7 @@
       }
     ],
     "room": "live_room",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_sa_township_digital",
     "inline_chain": {
       "mic": "dynamic_mic",
       "pre": "transformerless",

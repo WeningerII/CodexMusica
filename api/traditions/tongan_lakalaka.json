@@ -3,9 +3,9 @@
   "name": "Tongan lakalaka sung-speech-dance",
   "family": "global",
   "lineage": "Tongan lakalaka sung-poetry-and-choreographed-dance tradition. Lakalaka is the canonical ceremonial-public performance form of contemporary Tonga: large mixed-gender groups (up to several hundred performers) stand in two parallel rows facing the audience, with women on one side and men on the other, performing synchronized standing-arm-and-hand choreography (the women in characteristic graceful hand-gestures, the men in more vigorous percussive-stance) while singing the poetic verse-text in unison-and-octave choral configuration. Accompaniment by nafa wooden slit-drum (the canonical Tongan percussion instrument), with optional fakatangi vocal-buzz percussive ornament from the men's chorus. The poetic verse-form (also called lakalaka in Tongan usage) is composed by a punake poet-composer-choreographer for a specific occasion — coronation, royal birthday, opening of major public building, district-festival celebration — and the verse-text is occasion-specific historical-praise narrative tied to the immediate ceremonial context. Lakalaka thus functions as a fully-integrated occasion-specific genre, with each new commission producing a new lakalaka. Queen Sālote Tupou III (1900-1965, reigned 1918-1965) was the dominant twentieth-century lakalaka punake, composing over a hundred lakalaka still in active repertoire. Adrienne Kaeppler's 2012 monograph Lakalaka: A Tongan Masterpiece of Performing Arts is the canonical English-language scholarship. Distinguished from earlier Tongan ceremonial forms (me'etu'upaki, fakapale) by lakalaka's post-1850s synthesized-new-form status; distinguished from Samoan siva and Fijian meke by Tongan-specific poetic-and-choreographic vocabulary; distinguished from Hawaiian hula by lakalaka's very-large-group (vs solo-or-small-group) configuration.",
-  "recipe": "classic Oceanian early-1900s tongan lakalaka sung-speech-dance, ritual Devotional, indigenous branch, tropical song functional song garifuna punta-rock bachata. thick, full chest belt, tasteful, punctuated. wooden slit drum struck sticks canonical tongan lakalaka choreographed canonical tongan nafa. tongan outdoor village green. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 460,
-  "score": 172.71,
+  "recipe": "classic Oceanian early-1900s tongan lakalaka sung-speech-dance, ritual Devotional, indigenous branch, tropical song functional song garifuna punta-rock bachata. thick, full chest belt, tasteful, punctuated. wooden slit drum struck sticks canonical tongan lakalaka choreographed canonical tongan nafa. tongan outdoor village green. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 393,
+  "score": 157.085,
   "config": {
     "traditions": [
       "tongan_lakalaka",
@@ -65,7 +65,7 @@
       }
     ],
     "room": "tongan_outdoor_village_green",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

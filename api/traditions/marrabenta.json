@@ -3,9 +3,9 @@
   "name": "Marrabenta",
   "family": "global",
   "lineage": "Mozambican urban dance-song born in 1950s Lourenço Marques — the galloping majika rhythm born on homemade oil-can guitars and electrified across the 1960s-1970s into orchestra-scale dance bands, voiced in Ronga and Changana and canonized from Rádio Moçambique and the Gallo sessions by Fany Pfumo, Dilon Djindji and Orchestra Marrabenta Star",
-  "recipe": "classic Southern African mid-1950s marrabenta, functional Song, African pop branch, central east south African groove percussion soukous ndombolo. extended whistle, chest mix belt, chest resonance low mid, punctuated. mahogany ebony clean strummed single coil electric cedar strummed open chord ringing overtones dreadnought acoustic guitar, alder la bella flats Detroit soul bass canon electric bass, mahogany pre muffled edge muffled hot rolled annealed drum kit. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 692,
-  "score": 169.91,
+  "recipe": "classic Southern African mid-1950s marrabenta, functional Song, African pop branch, central east south African groove percussion soukous ndombolo. extended whistle, chest mix belt, chest resonance low mid, punctuated. mahogany ebony clean strummed single coil electric cedar strummed open chord ringing overtones dreadnought acoustic guitar, alder la bella flats Detroit soul bass canon electric bass, mahogany pre muffled edge muffled hot rolled annealed drum kit. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, tube pre, BBC broadcast console, vari-mu, passive program EQ. vinyl master cut.",
+  "recipe_chars": 651,
+  "score": 164.71,
   "config": {
     "traditions": [
       "marrabenta",
@@ -154,7 +154,7 @@
       }
     ],
     "room": "johannesburg_gallo_african_studios",
-    "archetype": "arch_emi_lagos_african_70s",
+    "archetype": "arch_gallo_township_jive",
     "inline_chain": {
       "mic": "dynamic_mic",
       "pre": "pre_neve_1073_input",

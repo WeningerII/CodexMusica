@@ -3,9 +3,9 @@
   "name": "Carnatic instrumental",
   "family": "classical",
   "lineage": "South Indian classical instrumental tradition spanning veena (Saraswathi veena, the South Indian fretted long-neck lute), Carnatic violin (held in vertical Carnatic posture, codified by Baluswami Dikshitar in the early 19th century), bansuri flute (Carnatic flute is distinct from Hindustani in tuning), nadaswaram (temple double-reed), mandolin (U. Shrinivas adaptation), and even saxophone (Kadri Gopalnath South Indian classical saxophone), all interpreting the same 72-melakarta-and-kriti repertoire as the vocal tradition",
-  "recipe": "classic South Asian mid-1930s carnatic instrumental, improv On Frame, indian classical improv branch, south Asian art music, hindu ritual devotional telugu kirtana sinhala vannama. jackwood canonical thanjavur mysore thanjavur canonical south indian veena, jackwood barrel canonical carnatic goat buffalo rice paste karanai palghat lineage canonical carnatic mridangam, ghatam, jackwood frame canonical carnatic brass jingle pair kanjira, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic, German spruce classical leaning thomastik flatwound jazz mandolin mandolin, jackwood barrel canonical Tamil buffalo goat thumb cap canonical periya melam thavil, low overtone rich kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, rose brass darker warmer continuous-airflow legato saxophone, temple volume Tamil temple context periya melam thavil percussion pair temple procession nadaswaram.",
-  "recipe_chars": 979,
-  "score": 395.805,
+  "recipe": "classic South Asian early-1950s carnatic instrumental, improv On Frame, indian classical improv branch, south Asian art music, hindu ritual devotional telugu kirtana sinhala vannama. jackwood canonical thanjavur mysore steel bronze modern thanjavur canonical south indian veena, jackwood barrel canonical carnatic goat buffalo rice paste karanai palghat lineage canonical carnatic mridangam, ghatam, jackwood frame canonical carnatic brass jingle pair kanjira, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic, German spruce classical leaning x brace modern mandolin thomastik mandolin, jackwood barrel canonical Tamil buffalo goat thumb cap canonical periya melam thavil, low overtone rich kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, yellow brass modern standard selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone.",
+  "recipe_chars": 950,
+  "score": 407.79,
   "config": {
     "traditions": [
       "carnatic_instrumental",
@@ -18,7 +18,7 @@
         "slots": {
           "plucked_traditional_technique": "plucked_classical_idiom",
           "veena_construction": "ottu",
-          "veena_resonator": "gourd_resonator",
+          "veena_resonator": "fiberglass_resonator",
           "veena_pluck": "wire_plectrum_veena",
           "veena_body_wood": "veena_jackwood_canonical",
           "veena_strings": "veena_steel_bronze_modern",
@@ -27,10 +27,10 @@
         "scores": {
           "plucked_traditional_technique": 17.75,
           "veena_construction": 0.845,
-          "veena_resonator": 0,
+          "veena_resonator": 0.3,
           "veena_pluck": 9.23,
           "veena_body_wood": 2.5349999999999997,
-          "veena_strings": 0.5849999999999996,
+          "veena_strings": 2.5349999999999997,
           "veena_lineage": 15.884999999999998
         }
       },
@@ -100,8 +100,8 @@
           "acoustic_technique": "acoustic_chord_melody",
           "mandolin_shape": "a_style",
           "mandolin_top": "german_spruce_m",
-          "mandolin_back": "hard_rock_maple_mandolin",
-          "mandolin_bracing": "mandolin_parallel_tone_bars_loar",
+          "mandolin_back": "big_leaf_maple",
+          "mandolin_bracing": "mandolin_x_brace",
           "mandolin_strings": "thomastik_jazz_mandolin_flat",
           "mandolin_fingerboard": "mandolin_indian_rosewood_fb",
           "mandolin_pickup": "mandolin_k_k_twin_internal"
@@ -110,8 +110,8 @@
           "acoustic_technique": -0.035,
           "mandolin_shape": 0.045,
           "mandolin_top": 19.94,
-          "mandolin_back": 0,
-          "mandolin_bracing": -0.05,
+          "mandolin_back": 0.3,
+          "mandolin_bracing": 1.6,
           "mandolin_strings": 1.25,
           "mandolin_fingerboard": 6.025,
           "mandolin_pickup": 10.009999999999998
@@ -120,14 +120,14 @@
       {
         "id": "thavil",
         "slots": {
-          "thavil_context": "thavil_periya_melam",
-          "thavil_technique": "thavil_stick_finger",
+          "thavil_context": "thavil_concert",
+          "thavil_technique": "thavil_all_stick",
           "thavil_shell_wood": "thavil_jackwood",
           "thavil_head": "thavil_buffalo_goat"
         },
         "scores": {
-          "thavil_context": 0,
-          "thavil_technique": 0,
+          "thavil_context": 0.845,
+          "thavil_technique": 0.39,
           "thavil_shell_wood": 4.159999999999999,
           "thavil_head": 2.5349999999999997
         }
@@ -155,19 +155,19 @@
           "wind_articulation": "wind_continuous_legato",
           "sax_size": "alto_sax",
           "sax_reed": "medium_reed",
-          "sax_body_alloy": "rose_brass_sax",
+          "sax_body_alloy": "yellow_brass_sax",
           "sax_mouthpiece": "hard_rubber_mp",
           "sax_technique": "sax_cool_lyrical",
-          "sax_maker_school": "sax_keilwerth_german"
+          "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
           "wind_articulation": 17.745,
           "sax_size": 0.78,
           "sax_reed": 0.845,
-          "sax_body_alloy": 17.75,
+          "sax_body_alloy": 18.994999999999997,
           "sax_mouthpiece": 0,
           "sax_technique": 0.78,
-          "sax_maker_school": 0
+          "sax_maker_school": 2.4049999999999994
         }
       },
       {
@@ -202,7 +202,7 @@
       }
     ],
     "room": "chennai_madras_music_academy_sabha",
-    "archetype": "arch_electrical_disc_cut",
+    "archetype": "arch_hmv_dumdum_raga",
     "inline_chain": {
       "mic": "mic_u87_condenser_neumann",
       "pre": "tube_pre",

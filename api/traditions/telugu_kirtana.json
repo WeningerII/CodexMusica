@@ -3,9 +3,9 @@
   "name": "Telugu kirtana (Carnatic devotional song)",
   "family": "classical",
   "lineage": "Telugu kirtana devotional-song genre within the broader Carnatic classical tradition of South India, with Telugu serving as the dominant lyrical language of the Carnatic kriti repertoire. The Telugu-language compositions of the Carnatic Trinity Tyagaraja (1767-1847), Muthuswami Dikshitar (1775-1835), and Syama Sastri (1762-1827) form the canonical core of the entire Carnatic concert repertoire. Performance follows the standard Carnatic kriti structure (pallavi-anupallavi-charanam) with raga-and-tala framework. The Tyagaraja Aradhana annual festival at Tiruvaiyaru constitutes the central institutional anchor of the kriti performance tradition.",
-  "recipe": "classic South Asian early-1760s telugu kirtana, art Music, south Asian branch, hindu ritual devotional borgeet javali. vocal fry, declaimed, chest resonance low mid, microtonal. jackwood barrel canonical carnatic goat buffalo rice paste karanai palghat lineage canonical carnatic mridangam, suited to female vocal bronze steel mix gourd body canonical traditional tanpura. kolkata dum dum EMI hmv 1928-present major-flagship kolkata hmv dum dum studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 525,
-  "score": 239.75,
+  "recipe": "classic South Asian early-1760s telugu kirtana, art Music, south Asian branch, hindu ritual devotional borgeet javali. vocal fry, declaimed, chest resonance low mid, microtonal. jackwood barrel canonical carnatic goat buffalo rice paste karanai palghat lineage canonical carnatic mridangam, suited to female vocal bronze steel mix gourd body canonical traditional tanpura. kolkata dum dum EMI hmv 1928-present major-flagship kolkata hmv dum dum studio. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe_chars": 519,
+  "score": 241.5,
   "config": {
     "traditions": [
       "telugu_kirtana",
@@ -90,7 +90,7 @@
       }
     ],
     "room": "kolkata_hmv_dum_dum_studio",
-    "archetype": "arch_electrical_disc_cut",
+    "archetype": "arch_hmv_dumdum_raga",
     "inline_chain": {
       "mic": "mic_u87_condenser_neumann",
       "pre": "tube_pre",

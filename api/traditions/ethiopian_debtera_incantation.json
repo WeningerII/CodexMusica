@@ -3,9 +3,9 @@
   "name": "Ethiopian debtera liturgical incantation",
   "family": "global",
   "lineage": "The debtera is the learned non-ordained cleric of the Ethiopian Orthodox Tewahedo Church, trained for many years in the church schools to master the Ge'ez liturgy, the zema chant of Saint Yared, aquaquam liturgical dance, and qene sacred poetry. Beyond the sanctioned liturgy, debtera are also the authors and reciters of asmat prayers and protective magical scrolls (ketab), an esoteric incantatory practice invoking secret names of God and angels for healing and protection. Their liturgical voice moves in the three qenet modal families of Ethiopian chant. The tradition is documented in Ge'ez manuscript scholarship and ethnographies of Ethiopian Christianity, and is a sibling of the Coptic Egyptian rite.",
-  "recipe": "classic East African modern ethiopian debtera liturgical incantation, ritual Devotional, coptic branch, christian gospel ritual devotional gospel quartet black gospel. thick, declaimed, chest resonance low mid, ornamental. lalibela rock hewn church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 379,
-  "score": 271.012,
+  "recipe": "classic East African modern ethiopian debtera liturgical incantation, ritual Devotional, coptic branch, christian gospel ritual devotional gospel quartet black gospel. thick, declaimed, chest resonance low mid, ornamental. lalibela rock hewn church. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 312,
+  "score": 258.762,
   "config": {
     "traditions": [
       "ethiopian_debtera_incantation",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "lalibela_rock_hewn_church",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

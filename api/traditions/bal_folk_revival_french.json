@@ -3,9 +3,9 @@
   "name": "Bal-folk (French folk-dance revival)",
   "family": "global",
   "lineage": "French bal-folk folk-dance-revival movement emerging in 1970s post-1968 French counter-cultural folk-music revival, reconstructing the regional folk-dance repertoires (bourrée Auvergnate, mazurka, scottish, polka, valse Aveyronaise) for participatory ballroom-style social-dance contexts. Performance: small ensemble of hurdy-gurdy, cabrette or veuze bagpipe, vielle à roue, fiddle, accordion, acoustic guitar, plus voice for sung-dance pieces. Distinguished from earlier French bal-musette by bal-folk's regional-folk-revival (vs Parisian-urban-cabaret) functional context. The Bal-Folk association network and the annual Saint-Chartier (later renamed Le Son Continu) festival anchor institutional continuity.",
-  "recipe": "classic Western European mid-1970s bal-folk, functional Song, europop branch, Celtic balladic ballad poetry swedish polska asturian gaita. thick, incomplete closure resting, pure, ornamental. melodic straight piano accordion, French trad petromax pignol rosin canonical French steel modern bal folk French bal folk pignol tritonik hurdy gurdy, drone like fiddle, hurdy gurdy paired dance pulse cornemuse du centre. intimate paris small studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 573,
-  "score": 386.73,
+  "recipe": "classic Western European mid-1970s bal-folk, functional Song, europop branch, Celtic balladic ballad poetry swedish polska asturian gaita. thick, incomplete closure resting, pure, ornamental. melodic straight piano accordion, French trad petromax pignol rosin canonical French steel modern bal folk French bal folk pignol tritonik hurdy gurdy, drone like fiddle, hurdy gurdy paired dance pulse cornemuse du centre. intimate paris small studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 506,
+  "score": 379.505,
   "config": {
     "traditions": [
       "bal_folk_revival_french",
@@ -116,7 +116,7 @@
       }
     ],
     "room": "intimate_paris_small_studio",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

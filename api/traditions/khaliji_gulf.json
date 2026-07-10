@@ -3,9 +3,9 @@
   "name": "Khaliji (Arabian Gulf music)",
   "family": "global",
   "lineage": "Khaliji (\"Gulf\") urban popular music of the Arabian Peninsula Gulf states — Kuwait, Bahrain, Saudi Arabia, Qatar, UAE, Oman — characterized by mid-tempo 2/4 or 4/4 metric base with syncopated 2-and-4 backbeat and distinctive Khaliji-modal vocabulary between maqam-Arabic and Persian-dastgah. The genre developed from the older sawt classical urban-chamber Bahraini-and-Kuwaiti tradition into contemporary Khaliji-pop through the post-1970s petroleum-era recording industry centered in Bahrain, Kuwait, and Riyadh.",
-  "recipe": "classic Middle Eastern mid-1970s khaliji, functional Song, mid east n African pop branch, middle eastern classical art music maghrebi andalusi nuba shashmaqam. extended whistle, low dynamic level, chest resonance low mid, punctuated. walnut ribs canonical mid tier spruce face pyramid nylon oud, spun aluminum Egyptian sombaty synthetic remo mylar modern canonical Egyptian Egyptian sombaty canonical mid east darbuka. qat chew majlis room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 570,
-  "score": 363.645,
+  "recipe": "classic Middle Eastern mid-1970s khaliji, functional Song, mid east n African pop branch, middle eastern classical art music maghrebi andalusi nuba shashmaqam. extended whistle, low dynamic level, chest resonance low mid, punctuated. walnut ribs canonical mid tier spruce face pyramid nylon oud, spun aluminum Egyptian sombaty synthetic remo mylar modern canonical Egyptian Egyptian sombaty canonical mid east darbuka. qat chew majlis room. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 503,
+  "score": 358.145,
   "config": {
     "traditions": [
       "khaliji_gulf",
@@ -90,7 +90,7 @@
       }
     ],
     "room": "qat_chew_majlis_room",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

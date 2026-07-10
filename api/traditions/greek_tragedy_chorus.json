@@ -3,9 +3,9 @@
   "name": "Greek tragedy chorus declamation",
   "family": "classical",
   "lineage": "Choral declamation of Athenian tragedy, 5th century BCE, performed by a chorus of twelve (later fifteen under Sophocles) in the circular orchestra of the Theatre of Dionysus during the City Dionysia festival. The chorus of the plays of Aeschylus, Sophocles, and Euripides moved between spoken dialogue, chanted anapestic recitation for entrances (parodos) and exits, and fully sung strophic odes accompanied by the aulos, with strophe and antistrophe mirrored in dance. No notated choral music survives beyond fragments, so modern practice is scholarly reconstruction, staged today in surviving open-air stone theatres such as Epidaurus, where unison declamation projected without amplification remains the defining sound.",
-  "recipe": "classic Southern European modern greek tragedy chorus declamation, art Music, western early branch thai classical beijing opera. thick, pressed, chest resonance low mid, rhythmic. outdoor dalmatian square. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 335,
-  "score": 199.729,
+  "recipe": "classic Southern European modern greek tragedy chorus declamation, art Music, western early branch thai classical beijing opera. thick, pressed, chest resonance low mid, rhythmic. outdoor dalmatian square. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 268,
+  "score": 194.254,
   "config": {
     "traditions": [
       "greek_tragedy_chorus",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "outdoor_dalmatian_square",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

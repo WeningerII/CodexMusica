@@ -3,14 +3,14 @@
   "name": "Shinto norito prayer recitation",
   "family": "global",
   "lineage": "Norito are the formal ritual prayers of Japanese Shinto, addressed by a kannushi (priest) to the kami during matsuri and purification rites, with a textual core reaching back to the Engishiki (compiled 927 CE), which preserves the oldest liturgical norito including the Ōharae no kotoba (Great Purification formula). Delivery is a slow, sustained, near-monotone intonation in archaic classical Japanese, projected with deliberate solemnity before the sanctuary. The recitation is unaccompanied and ametrical, its authority resting on precise archaic wording and priestly transmission through shrine lineages and the Jinja Honcho institutional tradition. It remains a living practice performed daily at shrines throughout Japan.",
-  "recipe": "classic Southeast Asian modern shinto norito prayer recitation, ritual Devotional, indigenous branch old norse seiðr ritual vocalization shipibo-conibo icaros healing songs. balanced, declaimed, chest resonance low mid, punctuated. wooden pagoda hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 381,
-  "score": 147.234,
+  "recipe": "classic Southeast Asian modern shinto norito prayer recitation, ritual Devotional, indigenous branch old norse seiðr ritual vocalization sufi inshad. balanced, declaimed, chest resonance low mid, punctuated. wooden pagoda hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 290,
+  "score": 142.556,
   "config": {
     "traditions": [
       "shinto_norito",
       "norse_seidr",
-      "shipibo_icaros"
+      "sufi_inshad_egyptian"
     ],
     "instruments": [
       {
@@ -22,39 +22,39 @@
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "staccato_voice",
-          "voice_microtone": "tempered_voice",
-          "voice_tradition": "polynesian_oli_tradition",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "qawwali_tradition",
           "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_unison_double_take"
         },
         "scores": {
           "voice_register": 1.69,
-          "voice_quality": 16.421499999999998,
+          "voice_quality": 20.046499999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
+          "voice_vibrato": 2.535,
           "voice_articulation": 1.836,
-          "voice_microtone": 1.3,
-          "voice_tradition": 17.712500000000006,
-          "voice_mechanism_compound": 14.661500000000004,
-          "voice_estill_quality": 12.999999999999995,
-          "voice_speech_song": 21.385000000000005,
-          "voice_ensemble_config": 20.085,
-          "voice_ornament_system": 11.775,
-          "voice_pitch_organization": 4.095000000000001,
-          "voice_processing_chain": 4.68,
+          "voice_microtone": 8.3,
+          "voice_tradition": 18.394999999999996,
+          "voice_mechanism_compound": 8.9115,
+          "voice_estill_quality": 12.967499999999998,
+          "voice_speech_song": 21.060000000000002,
+          "voice_ensemble_config": 18.46,
+          "voice_ornament_system": 17.075000000000003,
+          "voice_pitch_organization": 9.230000000000002,
+          "voice_processing_chain": 2.535,
           "voice_multitrack_stack": 2.652
         }
       }
     ],
     "room": "wooden_pagoda_hall",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

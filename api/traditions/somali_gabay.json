@@ -3,9 +3,9 @@
   "name": "Somali gabay poetic recitation",
   "family": "global",
   "lineage": "Recitation of the gabay, the most prestigious and formally demanding genre of Somali oral poetry — long, alliterative, quantitative-metre verse on weighty themes of politics, philosophy, war and reconciliation, composed by a named poet (abwaan) and transmitted verbatim by memoriser-reciters. Central to Somali public life across the Horn of Africa, the tradition produced figures such as Sayyid Mohammed Abdullah Hassan and sustained the twentieth-century 'chain' poem-debates (silsilad); every line must alliterate on a chosen consonant throughout the poem. Delivery is grave, measured, elevated speech in which the poem's argument and its exact wording carry the art.",
-  "recipe": "classic Middle Eastern modern somali gabay poetic recitation, ballad Poetry, med east poetic branch jeju haenyeo songs latvian dainas. thick, chest mix belt, overtone rich sustained, narrative. qat chew majlis room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 345,
-  "score": 124.472,
+  "recipe": "classic Middle Eastern modern somali gabay poetic recitation, ballad Poetry, med east poetic branch jeju haenyeo songs latvian dainas. thick, chest mix belt, overtone rich sustained, narrative. qat chew majlis room. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 278,
+  "score": 109.347,
   "config": {
     "traditions": [
       "somali_gabay",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "qat_chew_majlis_room",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

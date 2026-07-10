@@ -3,9 +3,9 @@
   "name": "Huayno",
   "family": "global",
   "lineage": "Quechua-and-Aymara Andean dance-song tradition with anhemitonic-pentatonic five-tone (no half-step) melodic-vocabulary and characteristic short-short-long iambic-dance pattern (Q-Q-half rhythm) over moderate-fast 2/4 metric pulse. Pre-Columbian-origin (likely Inca-Imperial 1438-1533 onward, though oral-tradition extends earlier) with post-colonial mestizaje fusion (Spanish-criollo) integration of guitar, harp, charango ten-string-small-armadillo-back-guitar, and bandurria. Regional variants span Cuzco huayno-cusqueño (slower-court-elevated), Ayacucho huayno-ayacuchano (faster-rural), Junín huayno-orquestino (brass-band-and-saxophone modernized), and Aymara huayño-altiplánico (Bolivian-highland variant). The canonical instrumental ensemble includes quena vertical-notch-flute and zampoña panpipes.",
-  "recipe": "classic Andean early-1430s huayno, drone Modal, string branch, Latin am troubadour ballad poetry milonga chacarera. thick, forward-resonance, melodic, maqam neutral step. naranjillo andean premium wood pine traditional rural andean classical gut pre 1950s andean charango, bone melodic quena, andean tradition paired rows interlocking siku panpipes, guanaco hide hide ceibo canonical Argentine leguero hollowed trunk bombo andino, naranjillo bolivian peruvian gut pre modern andean strummed ronroco, melodic ocarina, altiplano mara canonical single block tarka. andean altiplano outdoor. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 697,
-  "score": 248.675,
+  "recipe": "classic Andean early-1430s huayno, drone Modal, string branch, Latin am troubadour ballad poetry milonga chacarera. thick, forward-resonance, melodic, maqam neutral step. armadillo shell shell pre 1973 historical pine traditional rural andean classical charango, bone melodic quena, andean tradition paired rows interlocking siku panpipes, guanaco hide hide ceibo canonical Argentine leguero hollowed trunk bombo andino, naranjillo bolivian peruvian gut pre modern andean strummed ronroco, melodic ocarina, altiplano mara canonical single block tarka. andean altiplano outdoor. shure SM57, transformer-coupled solid-state pre, colored vintage console, vari-mu. tape 15ips spring reverb germanium fuzz wah / envelope filter.",
+  "recipe_chars": 723,
+  "score": 245.92,
   "config": {
     "traditions": [
       "andean_huayno",
@@ -56,17 +56,17 @@
         "id": "charango",
         "slots": {
           "plucked_traditional_technique": "plucked_folk_strummed",
-          "charango_back": "charango_naranjillo",
+          "charango_back": "charango_armadillo",
           "charango_top_wood": "charango_pine_top",
           "charango_strings": "charango_5_double",
-          "charango_string_material": "charango_gut_historical"
+          "charango_string_material": "charango_nylon_canonical"
         },
         "scores": {
           "plucked_traditional_technique": 12.524999999999999,
-          "charango_back": 2.8600000000000003,
+          "charango_back": 3.9,
           "charango_top_wood": 5.59,
           "charango_strings": 2.6650000000000005,
-          "charango_string_material": 4.29
+          "charango_string_material": 2.145
         }
       },
       {
@@ -153,7 +153,7 @@
       }
     ],
     "room": "andean_altiplano_outdoor",
-    "archetype": "arch_early_tape_havana",
+    "archetype": "arch_lima_chicha",
     "inline_chain": {
       "mic": "mic_u47_tube_neumann",
       "pre": "tube_pre",

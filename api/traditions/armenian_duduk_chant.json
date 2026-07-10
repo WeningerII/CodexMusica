@@ -3,9 +3,9 @@
   "name": "Armenian duduk-accompanied chant",
   "family": "global",
   "lineage": "Armenian duduk-accompanied vocal-and-instrumental chant tradition, with the duduk (apricot-wood double-reed cylindrical-bore aerophone). The duduk produces a deep, plangent, melancholic tone with characteristic vibrato-and-pitch-bend articulation and a fundamental pitched in the human-vocal mid-register, allowing the instrument to function as a \"second voice\" alongside the singer in lament and ceremonial contexts. Traditional duduk performance is in pairs: the dam duduk holds a sustained drone-tone (the dam, equivalent to the Sufi-Persian damam pedal-point), while the lead duduk plays the melodic content above. Vocal repertoire spans Armenian Apostolic liturgical sharakan hymns (the Armenian Orthodox church's canonical hymn cycles, in eight modes after the Byzantine oktoechos but with Armenian-language and characteristic ornamental conventions), folk-lament repertoire (the patkerazard genre of bride-departure laments), and the historical-narrative ballad cycles tied to the Armenian Genocide commemoration. Modal vocabulary draws on Armenian regional modal systems with quarter-tone and three-quarter-tone microtonal inflections shared with broader Anatolian and Caucasus regional modal traditions. Djivan Gasparyan (1928-2021) and Vatche Hovsepian among the twentieth-century canonical duduk masters. Performance contexts include Apostolic Church liturgical settings (the canonical context for sharakan), funeral and commemoration ceremonies, and the post-1990 international-touring concert-circuit. Distinguished from Azerbaijani mugham by Armenian duduk's sharakan-liturgical (vs dastgah-classical) repertoire base and Armenian-Apostolic-rite framework; distinguished from Turkish ney by duduk's double-reed cylindrical-bore (vs Turkish end-blown-flute) construction.",
-  "recipe": "classic Caucasian early-1920s armenian duduk-accompanied chant, drone Modal, vocal branch, middle eastern classical art music, christian gospel coptic iraqi maqam of baghdad yemeni sanaani song. thick, declaimed, chest resonance low mid, ornamental. apricot canonical armenian prunus armeniaca arundo donax ghamish canonical armenian areni valley djivan gasparyan canonical 20th century armenian continuous-airflow legato duduk. stone armenian church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 581,
-  "score": 435.033,
+  "recipe": "classic Caucasian early-1920s armenian duduk-accompanied chant, drone Modal, vocal branch, middle eastern classical art music, christian gospel coptic iraqi maqam of baghdad yemeni sanaani song. thick, declaimed, chest resonance low mid, ornamental. apricot canonical armenian prunus armeniaca arundo donax ghamish canonical armenian areni valley djivan gasparyan canonical 20th century armenian continuous-airflow legato duduk. stone armenian church. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 514,
+  "score": 418.895,
   "config": {
     "traditions": [
       "armenian_duduk_chant",
@@ -73,7 +73,7 @@
       }
     ],
     "room": "stone_armenian_church",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

@@ -3,9 +3,9 @@
   "name": "Acousmatic music (Schaeffer school post-musique-concrète)",
   "family": "classical",
   "lineage": "French electroacoustic-composition tradition descended from Pierre Schaeffer's 1948-onward musique concrète at Studio d'Essai / GRM (Groupe de Recherches Musicales). Acousmatic refers to music heard from loudspeakers without seeing the source, organized through reduced-listening principles. The post-Schaeffer second generation (François Bayle, Bernard Parmegiani, Luc Ferrari, Beatriz Ferreyra) developed the form into a distinct compositional aesthetic.",
-  "recipe": "classic modern acousmatic music, experimental Elec, musique concrete branch, ambient experimental electric dark ambient mallsoft. field textural sampler, tape replay keyboard. shoebox concert hall. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
-  "recipe_chars": 293,
-  "score": 43.094,
+  "recipe": "classic Asian modern acousmatic music, experimental Elec, musique concrete branch, ambient experimental electric dark ambient mallsoft. field textural sampler, tape replay keyboard. shoebox concert hall. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+  "recipe_chars": 337,
+  "score": 44.194,
   "config": {
     "traditions": [
       "acousmatic_music",
@@ -45,7 +45,7 @@
       }
     ],
     "room": "concert_hall_shoebox",
-    "archetype": "arch_pre_daw_electronic_pioneer",
+    "archetype": "arch_hk_cantopop_ballad_factory",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "tube_pre",

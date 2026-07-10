@@ -3,9 +3,9 @@
   "name": "Arabic madh and qasida (Arabic praise-poetry)",
   "family": "global",
   "lineage": "Arabic classical praise-poetry tradition continuous from pre-Islamic jāhiliyya-era qasida ode-form (the canonical pre-Islamic Mu'allaqat seven-poem collection) through medieval-Islamic-era continuous performance into modern Arabic-classical-poetry recitation practice; madh (praise) and qasida (extended-ode) are the canonical Arabic praise-poetry-and-song forms",
-  "recipe": "classic Middle Eastern mid-1930s arabic madh and qasida, praise Song, middle east n African branch, indian subcontinent praise song, middle eastern classical art music, med east poetic ballad poetry andalusī nūba persian dastgāh. vocal fry, declaimed, chest resonance low mid, continuous-phonation. walnut ribs canonical mid tier spruce face pyramid nylon oud. qat chew majlis room. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 455,
-  "score": 316.91,
+  "recipe": "classic Middle Eastern early-1940s arabic madh and qasida, praise Song, middle east n African branch, indian subcontinent praise song, middle eastern classical art music, med east poetic ballad poetry andalusī nūba persian dastgāh. vocal fry, declaimed, chest resonance low mid, continuous-phonation. walnut ribs canonical mid tier spruce face pyramid nylon oud. qat chew majlis room. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb.",
+  "recipe_chars": 495,
+  "score": 319.93,
   "config": {
     "traditions": [
       "arabic_madh_qasida",
@@ -31,7 +31,7 @@
           "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
           "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
           "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
           "voice_register": 2.08,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 42.105,
           "voice_pitch_organization": 42.735,
           "voice_processing_chain": 3.08,
-          "voice_multitrack_stack": 2.47
+          "voice_multitrack_stack": 3.6399999999999997
         }
       },
       {
@@ -75,7 +75,7 @@
       }
     ],
     "room": "qat_chew_majlis_room",
-    "archetype": "arch_electrical_disc_cut",
+    "archetype": "arch_arab_east_state_radio",
     "inline_chain": {
       "mic": "mic_u47_tube_neumann",
       "pre": "tube_pre",

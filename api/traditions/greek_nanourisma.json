@@ -3,14 +3,14 @@
   "name": "Greek nanourisma (νανούρισμα, cradle song)",
   "family": "global",
   "lineage": "Greek cradle-song tradition continuous from Byzantine-era cradle-song practice through Ottoman-period folksong survival into modern Greek domestic practice",
-  "recipe": "classic modern greek nanourisma, lullaby, European branch, middle eastern lullaby, Mediterranean ballad ballad poetry, christian gospel ritual devotional gospel quartet black gospel. thick, declaimed, tasteful, ornamental. mulberry canonical cretan gut pre modern cretan cretan lyra. carpeted bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 431,
-  "score": 211.755,
+  "recipe": "classic modern greek nanourisma, lullaby, European branch, middle eastern lullaby, Mediterranean ballad ballad poetry, christian gospel ritual devotional southern gospel piano-bass bluegrass gospel. thick, declaimed, melodic, ornamental. mulberry canonical cretan gut pre modern cretan cretan lyra. carpeted bedroom. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 379,
+  "score": 174.88,
   "config": {
     "traditions": [
       "greek_nanourisma",
-      "gospel_quartet_male",
-      "black_gospel_choir"
+      "southern_gospel",
+      "bluegrass_gospel"
     ],
     "instruments": [
       {
@@ -20,36 +20,36 @@
           "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "melisma_voice",
           "voice_microtone": "tempered_voice",
-          "voice_tradition": "gospel_pentecostal_tradition",
+          "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
-          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
-          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 33.34,
-          "voice_quality": 31.889999999999997,
+          "voice_register": 26.214999999999996,
+          "voice_quality": 28.13999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.84,
-          "voice_articulation": 24.59,
-          "voice_microtone": 3.5699999999999994,
-          "voice_tradition": 30.580000000000002,
-          "voice_mechanism_compound": 4.03,
-          "voice_estill_quality": 26.895000000000003,
-          "voice_speech_song": 14.169999999999998,
-          "voice_ensemble_config": 25.525000000000002,
-          "voice_ornament_system": 7.375,
+          "voice_vibrato": 4.609999999999999,
+          "voice_articulation": 21.215,
+          "voice_microtone": 1.7449999999999997,
+          "voice_tradition": 23.529999999999994,
+          "voice_mechanism_compound": 2.34,
+          "voice_estill_quality": 21.619999999999997,
+          "voice_speech_song": 16.054999999999996,
+          "voice_ensemble_config": 22,
+          "voice_ornament_system": 6.5,
           "voice_pitch_organization": 2.02,
-          "voice_processing_chain": 2.09,
-          "voice_multitrack_stack": 1.17
+          "voice_processing_chain": 2.015,
+          "voice_multitrack_stack": 1.2349999999999999
         }
       },
       {
@@ -62,16 +62,16 @@
           "lyra_string_material": "lyra_gut_historical"
         },
         "scores": {
-          "bowed_technique": 0.09999999999999999,
+          "bowed_technique": -0.05,
           "lyra_strings": 0.375,
-          "lyra_use": 0.5249999999999999,
+          "lyra_use": 0.845,
           "lyra_body_wood": 1.17,
-          "lyra_string_material": 4.475
+          "lyra_string_material": 3.625
         }
       }
     ],
     "room": "carpeted_bedroom",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

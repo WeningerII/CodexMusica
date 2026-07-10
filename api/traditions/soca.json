@@ -3,9 +3,9 @@
   "name": "Soca",
   "family": "global",
   "lineage": "Trinidadian dance-music genre codified by Lord Shorty (Garfield Blackman) in 1973 as soul-of-calypso — a faster-tempo party-anthem derivation of calypso that became the dominant Carnival-season dance-floor format; extended through Machel Montano (the modern soca voice), Superblue (Austin Lyons), Bunji Garlin, Kes the Band, and the broader Caribbean Carnival circuit",
-  "recipe": "classic Caribbean early-1970s soca, groove Percussion, Caribbean branch, Jamaican bass system, Caribbean carnival processional trinidad calypso-soca road march reggae roots. thick, blues-shouter, tasteful, narrative. behringer rd 8 modern clone analog circuit reproduction TR-808, Fender blackface amp American 60s amp spring reverb bright basswood maple humbucker electric guitar, analog poly synth. trinidad calypso panyard outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 564,
-  "score": 126.858,
+  "recipe": "classic Caribbean early-1970s soca, groove Percussion, Caribbean branch, Jamaican bass system, Caribbean carnival processional trinidad calypso-soca road march reggae roots. thick, blues-shouter, tasteful, narrative. behringer rd 8 modern clone analog circuit reproduction TR-808, Fender blackface amp American 60s amp spring reverb bright basswood maple humbucker electric guitar, yamaha cs lineage canonical cs 80 1976 hamamatsu polyphonic flagship analog poly synth. trinidad calypso panyard outdoor. sennheiser MD421, transformer-coupled solid-state pre, MCI JH-636 US 70s indie/jazz, dbx 160 VCA, parametric EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 662,
+  "score": 130.085,
   "config": {
     "traditions": [
       "soca",
@@ -31,7 +31,7 @@
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
           "voice_register": 6.286500000000001,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 2.275,
           "voice_pitch_organization": 2.0799999999999996,
           "voice_processing_chain": 7.377999999999999,
-          "voice_multitrack_stack": 2.8274999999999997
+          "voice_multitrack_stack": 3.665
         }
       },
       {
@@ -110,12 +110,12 @@
           "electronic_technique": 2.6650000000000005,
           "poly_archetypes": 1.2615,
           "poly_voices": 0.3,
-          "poly_maker_lineage": -0.42000000000000004
+          "poly_maker_lineage": 1.8199999999999998
         }
       }
     ],
     "room": "trinidad_calypso_panyard_outdoor",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_trinidad_carnival_soca",
     "inline_chain": {
       "mic": "dynamic_mic",
       "pre": "pre_neve_1073_input",

@@ -3,9 +3,9 @@
   "name": "Brazilian MPB-era protest (música popular brasileira during dictatorship)",
   "family": "global",
   "lineage": "Brazilian Música Popular Brasileira (MPB) protest-song tradition continuous from 1964-1985 Brazilian-military-dictatorship-era political-songwriter scene; centered on Chico Buarque (the foundational figure whose subtle-allegorical anti-dictatorship songs evaded censorship most consistently), Caetano Veloso, Gilberto Gil, Geraldo Vandré, Milton Nascimento, Edu Lobo",
-  "recipe": "classic Southern American mid-1970s brazilian mpb-era protest, protest Song, iberian Latin branch, European protest song, Brazilian song functional song, Latin am troubadour ballad poetry milonga greek éntechno politicized. thick, intimate aspirated, chest resonance low mid, continuous-phonation. cedar fingerpicked classical nylon-string guitar, jacaranda rosewood canonical Portuguese strummed cavaquinho. estudios scatena sp. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 576,
-  "score": 134.907,
+  "recipe": "classic Southern American mid-1970s brazilian mpb-era protest, protest Song, iberian Latin branch, European protest song, Brazilian song functional song, Latin am troubadour ballad poetry milonga greek éntechno politicized. thick, intimate aspirated, chest resonance low mid, continuous-phonation. cedar fingerpicked classical nylon-string guitar, jacaranda rosewood canonical Portuguese strummed cavaquinho. estudios scatena sp. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
+  "recipe_chars": 565,
+  "score": 132.637,
   "config": {
     "traditions": [
       "brazilian_mpb_protest",
@@ -49,7 +49,7 @@
           "voice_ornament_system": 4.575,
           "voice_pitch_organization": 4.225,
           "voice_processing_chain": 1.885,
-          "voice_multitrack_stack": 5.719999999999999
+          "voice_multitrack_stack": 8.319999999999999
         }
       },
       {
@@ -85,12 +85,12 @@
           "cavaquinho_origin": 3.8699999999999997,
           "cavaquinho_context": 21.709999999999994,
           "cavaquinho_body_wood": 1.2999999999999998,
-          "cavaquinho_strings": 0.9099999999999999
+          "cavaquinho_strings": -0.56
         }
       }
     ],
     "room": "estudios_scatena_sp",
-    "archetype": "arch_80s_late_analog_majorrock",
+    "archetype": "arch_odeon_bossa_mpb",
     "inline_chain": {
       "mic": "mic_u87_condenser_neumann",
       "pre": "transformer_solid_state",

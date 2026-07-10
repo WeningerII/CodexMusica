@@ -3,14 +3,14 @@
   "name": "Japanese komoriuta (子守唄, cradle song)",
   "family": "global",
   "lineage": "Japanese cradle-song tradition continuous from Edo-period (and pre-Edo) domestic-vocal practice through Meiji-and-Showa-era folksong collection (Yanagida Kunio, Machida Kashō) into modern Japanese domestic singing; distinct regional variants documented in Itsuki (Kumamoto), Chūgoku, Akita, Edo, and Takeda",
-  "recipe": "classic East Asian modern japanese komoriuta, lullaby, east Asian branch, east Asian pop functional song, east Asian art music, vocal drone modal shidaiqu enka. thick, chest mix belt, melodic, continuous-phonation. tatami parlor japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 368,
-  "score": 216.405,
+  "recipe": "classic East Asian modern japanese komoriuta, lullaby, east Asian branch, east Asian pop functional song, east Asian art music, vocal drone modal enka shidaiqu. thick, chest mix belt, melodic, continuous-phonation. tatami parlor japanese. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 301,
+  "score": 203.518,
   "config": {
     "traditions": [
       "japanese_komoriuta",
-      "shidaiqu",
-      "enka"
+      "enka",
+      "shidaiqu"
     ],
     "instruments": [
       {
@@ -48,13 +48,13 @@
           "voice_ensemble_config": 24.11500000000001,
           "voice_ornament_system": 8.100000000000001,
           "voice_pitch_organization": 10.899999999999997,
-          "voice_processing_chain": 7.214999999999998,
-          "voice_multitrack_stack": 9.619999999999997
+          "voice_processing_chain": 7.215,
+          "voice_multitrack_stack": 9.62
         }
       }
     ],
     "room": "tatami_parlor_japanese",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

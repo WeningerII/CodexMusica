@@ -3,9 +3,9 @@
   "name": "Future house",
   "family": "electronic",
   "lineage": "Mid-2010s house subgenre developed by Tchami (French producer), characterized by metallic-and-rubbery synth-bass leads (the \"future bass\" 2017-onward overlap), filtered-clean groove production, and emphasis on rolling-bass-pattern over four-on-the-floor structural foundation. Oliver Heldens' \"Gecko\" (2014) and Tchami's 2014-2015 productions inaugurated the canonical sound; Don Diablo, Curbi, and the broader Spinnin' Records-Mixmash Records rosters extended the genre.",
-  "recipe": "classic 2014-2015 future house, electronic Dance, house branch, uk soundsystem bass system speed garage bassline. TR-808, sub bass analog synth. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 338,
-  "score": 67.622,
+  "recipe": "classic 2014-2015 future house, electronic Dance, house branch, uk soundsystem bass system speed garage bassline. TR-808, sub bass analog synth. no single room 2015-present distributed distributed production. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
+  "recipe_chars": 343,
+  "score": 76.41,
   "config": {
     "traditions": [
       "future_house",
@@ -38,14 +38,14 @@
         "scores": {
           "electronic_technique": 13.65,
           "oscillator": 12.610000000000001,
-          "filter_topology": 13.455000000000002,
+          "filter_topology": 12.805000000000001,
           "envelope": 0.845,
           "modulation": 0
         }
       }
     ],
     "room": "studio_distributed_production",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_festival_edm_itb",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "transformerless",

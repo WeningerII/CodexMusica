@@ -3,9 +3,9 @@
   "name": "Welsh eisteddfod cerdd dafod recitation",
   "family": "global",
   "lineage": "Competitive spoken recitation (llefaru) of Welsh strict-metre poetry — cerdd dafod, 'the craft of tongue' — governed by cynghanedd, the exacting system of consonantal and stress correspondence within the line codified across the twenty-four traditional metres. Rooted in the medieval bardic order and revived and institutionalised through the National Eisteddfod of Wales, whose central rite is the chairing (cadeirio) of the bard for the best awdl in cynghanedd. Modern practice ranges from the crowning ceremony to competitive verse-speaking, with masters such as the twentieth-century pencerdd tradition; delivery is elevated, sound-patterned declamation foregrounding the aural architecture of the line.",
-  "recipe": "classic modern welsh eisteddfod cerdd dafod recitation, ballad Poetry, Celtic balladic branch jeju haenyeo songs sean-nós solo singing. thick, declaimed, tasteful, narrative. festival stage. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 320,
-  "score": 128.686,
+  "recipe": "classic modern welsh eisteddfod cerdd dafod recitation, ballad Poetry, Celtic balladic branch jeju haenyeo songs sean-nós solo singing. thick, declaimed, tasteful, narrative. festival stage. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 253,
+  "score": 109.661,
   "config": {
     "traditions": [
       "welsh_eisteddfod_cerdd_dafod",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "festival_stage",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

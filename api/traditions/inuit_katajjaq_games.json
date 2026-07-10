@@ -3,9 +3,9 @@
   "name": "Inuit katajjaq throat-singing game",
   "family": "global",
   "lineage": "Inuit katajjaq throat-singing game tradition of the eastern Canadian Arctic (Nunavut, Nunavik, and Nunatsiavut Inuit communities), with cognate forms across the Inuit cultural area including nipaquhiit in the Kivalliq region, pirqsirniq in Iglulik, and parallel Iñupiaq and Yupik forms in Alaska and Chukotka. Performed by two women standing face-to-face, very close together, taking turns producing rhythmic vocal patterns of inhaled-and-exhaled breath-sounds, throat-clicks, glottal-stops, and pitched-fundamental tones — each woman's mouth and throat resonating as a chamber that the other's breath excites, with the two voices interlocking in rapid hocketed alternation. The game ends when one performer either laughs, cannot maintain the breath-cycle, or breaks the established pattern. Functionally a game (entertainment, competition) rather than ritual or aesthetic performance — though in some communities also functions as a women's collective-bonding practice and as a contest-skill display. Katajjaq is genealogically and acoustically connected to the Ainu rekuhkara women's-throat-game tradition (extinct early twentieth century), with both forms hypothesized to descend from a circum-Pacific-Arctic ancient substrate. Jean-Jacques Nattiez's 1999 Ethnomusicology article (Inuit Throat-Games and Siberian Throat Singing, 43/3) and Beverley Cavanagh's 1976 Canadian Folk Music Journal piece constitute the foundational scholarship; Tanya Tagaq (born 1975, Cambridge Bay, Nunavut) is the contemporary revival figure whose performance-art interpretation has brought international visibility to the tradition. Distinguished from Tuvan and Mongolian overtone-singing by katajjaq's female-duo hocketed-breath-and-throat-sound configuration (vs solo single-voice-overtone-melody); distinguished from broader throat-singing by katajjaq's game/contest functional context.",
-  "recipe": "classic Pacific Northwest late-1990s inuit katajjaq throat-singing game, ritual Devotional, arctic branch, overtone drone modal tuvan throat singing khöömii. sygyt, false fold engaged, overtone rich sustained, punctuated. iglu community hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 372,
-  "score": 371.706,
+  "recipe": "classic Pacific Northwest late-1990s inuit katajjaq throat-singing game, ritual Devotional, arctic branch, overtone drone modal tuvan throat singing khöömii. sygyt, false fold engaged, overtone rich sustained, punctuated. iglu community hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 305,
+  "score": 358.031,
   "config": {
     "traditions": [
       "inuit_katajjaq_games",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "iglu_community_hall",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

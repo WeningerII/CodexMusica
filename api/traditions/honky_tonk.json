@@ -3,9 +3,9 @@
   "name": "Honky-tonk",
   "family": "vernacular",
   "lineage": "Post-WWII Texas-and-Tennessee honky-tonk country tradition that dominated commercial country from 1945-1955 — codified through Ernest Tubb (Walking the Floor Over You 1941, the founding honky-tonk recording), Hank Williams (the honky-tonk figure, Lovesick Blues 1949, Im So Lonesome I Could Cry 1949, his 1953 death at 29 closed the founding era), Lefty Frizzell (the most-imitated honky-tonk vocalist), Webb Pierce, Faron Young, Ray Price; characterized by amplified-band dance-hall instrumentation (pedal steel guitar, fiddle, electric guitar, upright bass, drums) and lyrical content of working-class drinking, cheating, and barroom-romantic-loss",
-  "recipe": "classic North American mid-1950s honky-tonk, functional Song, honky tonk era branch, anglo singer song ballad poetry texas country-folk storyteller freak folk. thick, worn fold, melodic, narrative. Fender blackface amp American 60s amp spring reverb bright classic country brass pedal steel, Fender tweed amp American 50s amp tweed breakup mahogany rosewood single coil electric guitar, sustaining steel upright bass, steel fx9 manganese bronze over hammered post lathe strikes drum kit, steel double stops rubber fiddle, tack upright piano. honky tonk dance hall. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay spring reverb analog bucket-brigade delay.",
-  "recipe_chars": 753,
-  "score": 432.918,
+  "recipe": "classic Southern American mid-1950s honky-tonk, functional Song, honky tonk era branch, anglo singer song ballad poetry texas country-folk storyteller freak folk. thick, worn fold, melodic, narrative. Fender blackface amp American 60s amp spring reverb bright classic country brass pedal steel, Fender tweed amp American 50s amp tweed breakup mahogany rosewood single coil electric guitar, sustaining steel upright bass, steel bronze bell bronze over hammered post lathe strikes drum kit, steel double stops rubber fiddle, tack upright piano. honky tonk dance hall. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb spring reverb analog bucket-brigade delay.",
+  "recipe_chars": 717,
+  "score": 429.235,
   "config": {
     "traditions": [
       "honky_tonk",
@@ -31,7 +31,7 @@
           "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
           "voice_register": 33.775,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 3.1200000000000006,
           "voice_pitch_organization": 1.6899999999999997,
           "voice_processing_chain": 4.485,
-          "voice_multitrack_stack": 4.7125
+          "voice_multitrack_stack": 4.915000000000001
         }
       },
       {
@@ -86,7 +86,7 @@
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
           "string_gauge": "g_11",
-          "bridge": "two_point_trem",
+          "bridge": "hardtail",
           "scale_length": "scale_gibson",
           "finish": "oil_satin",
           "string_tuning": "d_standard"
@@ -100,7 +100,7 @@
           "pickup_magnet": 0.285,
           "string_material": 1.69,
           "string_gauge": 1.7349999999999999,
-          "bridge": 0.09,
+          "bridge": 0.045,
           "scale_length": 1.885,
           "finish": 0.3,
           "string_tuning": 3.3799999999999994
@@ -128,7 +128,7 @@
           "bearing_edges": "edge_30",
           "drumhead": "double_coated",
           "snare_wires": "cable_snares",
-          "cymbal_alloy": "meinl_fx9",
+          "cymbal_alloy": "b20",
           "cymbal_hammering": "over_hammered",
           "cymbal_lathing": "lathing_raw_unlathed",
           "cymbal_finish": "brilliant_finish",
@@ -141,7 +141,7 @@
           "bearing_edges": 1.885,
           "drumhead": 1.8399999999999999,
           "snare_wires": 1.78,
-          "cymbal_alloy": 2.975,
+          "cymbal_alloy": 2.7850000000000006,
           "cymbal_hammering": 3.1200000000000006,
           "cymbal_lathing": 3.31,
           "cymbal_finish": 0.9099999999999999,
@@ -193,7 +193,7 @@
       }
     ],
     "room": "honky_tonk_dance_hall",
-    "archetype": "arch_80s_late_analog_majorrock",
+    "archetype": "arch_nashville_a_team",
     "inline_chain": {
       "mic": "mic_u47_tube_neumann",
       "pre": "pre_api_312",

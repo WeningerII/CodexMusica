@@ -3,9 +3,9 @@
   "name": "Northern Sámi luohti yoik",
   "family": "global",
   "lineage": "Northern Sámi luohti yoik tradition of the Sápmi region of northern Norway, Sweden, Finland, and the Russian Kola Peninsula. Luohti is the principal yoik subgenre of the Northern Sámi (Davvisámegiella-speaking) population — a sung-vocal form whose conceptual orientation is fundamentally different from Western lyric song: a yoik does not sing \"about\" its subject but rather is the subject — to yoik a person, a place, or an animal is to evoke and bring-present that subject through the act of yoiking. Vocal style features narrow-range melody (two-to-five pitches typically), characteristic nasal-resonant timbre, characteristic descending-melodic-contour shapes, repeated melodic-formula cycling, and a strikingly non-strophic open-ended performance temporality (a yoik does not have a definite beginning or ending — the singer enters and exits a yoik mid-phrase). Pre-tempered tonal system with characteristic fourth, fifth, and octave intervals as the structural skeleton. Repertoire is personal: each Sámi person traditionally has an assigned-or-received luohti that names them, and natural-feature luohti exist for specific mountains, lakes, and reindeer-herd boundaries. The Sámi Christian-mission suppression-era 1850s-1950s pushed the tradition underground; the post-1970s Sámi cultural revival (anchored in the founding of the Sámi Parliament and the Sami University College) has restored public-performance space, with figures such as Nils-Aslak Valkeapää, Mari Boine, and Wimme Saari among the canonical twentieth-century revival figures. Arnt Bakke's 1949-1972 field-recording collection at UiT The Norwegian Arctic University Museum (Tromsø) and Ola Graff's continued 1982-2019 collection constitute the principal documentary anchor. Distinguished from Skolt and Southern Sámi yoik by Northern-Sámi-Davvisámegiella dialect; distinguished from Finnish joiku by language-specific cadential and intonation vocabulary.",
-  "recipe": "classic mid-1960s northern sámi luohti yoik, drone Modal, vocal branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, declaimed, melodic, unrestrained. mountain valley. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 362,
-  "score": 223.691,
+  "recipe": "classic mid-1960s northern sámi luohti yoik, drone Modal, vocal branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, declaimed, melodic, unrestrained. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 295,
+  "score": 205.366,
   "config": {
     "traditions": [
       "sami_northern_luohti",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "mountain_valley",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

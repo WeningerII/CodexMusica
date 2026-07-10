@@ -3,9 +3,9 @@
   "name": "Tyrolean Schuhplattler (slap-dance with music)",
   "family": "global",
   "lineage": "Tyrolean Schuhplattler folk-dance-and-music tradition of the Austrian Tyrol, South Tyrol (Italy), and Bavarian Alps, in which male dancers perform synchronized choreography involving rhythmic slapping of thighs, knees, and shoe-soles in characteristic accelerating patterns, accompanied by Stubenmusik chamber-ensemble of zither, hammered dulcimer (Hackbrett), accordion, double-bass, and voice. The tradition crystallized in seventeenth-eighteenth century Alpine villages from earlier courtship-display dance-forms. Performance contexts span the Heimatabend folkloric-evening tourist-demonstrations, village-festival celebrations, and the canonical Schuhplattlerverein dance-association competitions. Distinguished from broader German Alpine music by Schuhplattler's specific male-percussive-choreographic register.",
-  "recipe": "classic modern tyrolean schuhplattler, functional Song, europop branch, American marching groove percussion american drumline. thick, rap, punctuated, Scottish Gaelic vocal. melodic straight piano accordion, steel modern concert fingerpicked kantele, walnut spruce canonical appalachian steel bronze modern hammered dulcimer, harp armed dance lilting concert zither alpine, dance driving standard bass straight steirische harmonika. mountain valley. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 579,
-  "score": 148.201,
+  "recipe": "classic modern tyrolean schuhplattler, functional Song, europop branch, American marching groove percussion american drumline. thick, rap, punctuated, Scottish Gaelic vocal. melodic straight piano accordion, steel modern concert fingerpicked kantele, walnut spruce canonical appalachian steel bronze modern hammered dulcimer, harp armed dance lilting concert zither alpine, dance driving standard bass straight steirische harmonika. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 512,
+  "score": 143.251,
   "config": {
     "traditions": [
       "tyrolean_schuhplattler",
@@ -126,7 +126,7 @@
       }
     ],
     "room": "mountain_valley",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

@@ -3,9 +3,9 @@
   "name": "Byzantine chant",
   "family": "classical",
   "lineage": "Greek Orthodox liturgical chant tradition continuing in unbroken practice since the 9th-century codification at the Byzantine court of Constantinople, governed by the eight-mode oktoechos modal system and performed as ison-drone-with-melismatic-chanter (psaltis) across the liturgical year in Orthodox cathedrals, monasteries (Mount Athos, Meteora), and parish churches",
-  "recipe": "classic Southern European modern byzantine chant, ritual Devotional, Russian orthodox branch, vocal drone modal armenian duduk-accompanied chant croatian istrian two-part-in-istrian-scale. thick, declaimed, chest resonance low mid, ornamental. byzantine monastery chant athos. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 406,
-  "score": 187.442,
+  "recipe": "classic Southern European modern byzantine chant, ritual Devotional, Russian orthodox branch, vocal drone modal armenian duduk-accompanied chant croatian istrian two-part-in-istrian-scale. thick, declaimed, chest resonance low mid, ornamental. byzantine monastery chant athos. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 339,
+  "score": 172.305,
   "config": {
     "traditions": [
       "byzantine_chant",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "byzantine_monastery_chant_athos",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

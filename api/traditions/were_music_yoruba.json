@@ -3,9 +3,9 @@
   "name": "Were music (Yoruba Ramadan procession)",
   "family": "global",
   "lineage": "Yoruba were music: pre-dawn Ramadan-procession devotional song-and-drumming tradition of southwestern Nigerian Muslim-Yoruba communities, performed by ajiwere groups moving through Muslim neighborhoods before the suhoor pre-dawn meal during Ramadan. Performance combines unison or call-and-response chorus singing in Yoruba and Arabic (Quranic phrases interpolated into Yoruba praise-poetry) with sákárà frame-drums and small bells. Direct ancestor of fuji music — Alhaji Ayinde Barrister brought the were aesthetic into post-Ramadan secular commercial performance contexts.",
-  "recipe": "classic North African modern were music, ritual Devotional, islamic branch, west African groove percussion indonesian jaipongan yoruba dùndún surrogate speech. thick, declaimed, pure, rhythmic. walnut bent frame canonical Iranian tar frame drum. atlas mountain village square. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 406,
-  "score": 172.77,
+  "recipe": "classic North African modern were music, ritual Devotional, islamic branch, west African groove percussion indonesian jaipongan yoruba dùndún surrogate speech. thick, declaimed, pure, rhythmic. walnut bent frame canonical Iranian tar frame drum. atlas mountain village square. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 339,
+  "score": 163.27,
   "config": {
     "traditions": [
       "were_music_yoruba",
@@ -71,7 +71,7 @@
       }
     ],
     "room": "atlas_mountain_village_square",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

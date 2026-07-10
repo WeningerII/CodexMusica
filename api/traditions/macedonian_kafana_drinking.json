@@ -3,9 +3,9 @@
   "name": "Macedonian-Serbian kafana drinking song",
   "family": "global",
   "lineage": "Macedonian-Serbian-and-broader-Balkan kafana (tavern) drinking-song tradition continuous from Ottoman-era kafana-cafe-tavern song-tradition through 20th-century Balkan-Yugoslav continuous performance into modern Serbian-Macedonian-and-Balkan-diaspora kafana-practice; the kafana is the documented Balkan-Slavic tavern-context where extended drinking-songs span multi-hour evening performance",
-  "recipe": "classic modern macedonian-serbian kafana drinking song, drinking Song, balkan branch, European drinking song, European wedding, iberian functional song spanish canción pop galician kantautor and folk-pop. thick, lament wail, tasteful, continuous-phonation. steel castagnari Italian premium folk music straight accordion, synthetic magic rosin modern acrylic base drone like fiddle, clay pre modern traditional fish skin pre modern Egyptian traditional Egyptian sombaty canonical mid east darbuka. irish pub. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 637,
-  "score": 181.471,
+  "recipe": "classic early-1950s macedonian-serbian kafana drinking song, drinking Song, balkan branch, European drinking song, European wedding, iberian functional song spanish canción pop galician kantautor and folk-pop. thick, lament wail, tasteful, continuous-phonation. steel castagnari Italian premium folk music straight accordion, synthetic magic rosin modern acrylic base drone like fiddle, clay pre modern traditional fish skin pre modern Egyptian traditional Egyptian sombaty canonical mid east darbuka. irish pub. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe_chars": 579,
+  "score": 175.756,
   "config": {
     "traditions": [
       "macedonian_kafana_drinking",
@@ -31,7 +31,7 @@
           "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
           "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
           "voice_register": 16.14999999999999,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 9.875,
           "voice_pitch_organization": 3.5749999999999993,
           "voice_processing_chain": 5.5249999999999995,
-          "voice_multitrack_stack": 2.95
+          "voice_multitrack_stack": 4.3225
         }
       },
       {
@@ -107,7 +107,7 @@
       }
     ],
     "room": "irish_pub",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_hmv_dumdum_raga",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

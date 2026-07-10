@@ -3,9 +3,9 @@
   "name": "Bengali chhōtōdēr chōṛā (children's rhymes)",
   "family": "global",
   "lineage": "Bengali-language children's play-song tradition continuous from premodern Bengali folk-play-song origins through 19th-20th century Bengali-Renaissance literary-elevation (Rabindranath Tagore's Sahaj Path 1930 children's-curriculum rhyme-and-text reader canonical) and Sukumar Ray's nonsense-verse Abol Tabol 1923 into modern continuous Bengali-and-Bangladeshi childhood-practice",
-  "recipe": "classic early-1930s bengali chhōtōdēr chōṛā, nursery Rhyme, south Asian branch, south Asian lullaby, European nursery rhyme, indian bard ballad poetry cambodian chapei dang veng hindi lori. thick, declaimed, tasteful, continuous-phonation. field recording. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 386,
-  "score": 103.074,
+  "recipe": "classic early-1930s bengali chhōtōdēr chōṛā, nursery Rhyme, south Asian branch, south Asian lullaby, European nursery rhyme, indian bard ballad poetry cambodian chapei dang veng hindi lori. thick, declaimed, tasteful, continuous-phonation. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 319,
+  "score": 96.011,
   "config": {
     "traditions": [
       "bengali_chhotoder_chora",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "field_recording",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

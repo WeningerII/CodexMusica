@@ -3,9 +3,9 @@
   "name": "Sákárà (Yoruba Muslim frame-drum song)",
   "family": "global",
   "lineage": "Yoruba sákárà Muslim-Yoruba vocal-and-percussion tradition of southwestern Nigeria, predating both apàlà and fuji as the earliest documented Yoruba urban-Muslim popular music — emerging in 1930s Lagos and Ibadan from rural Muslim-Yoruba devotional song. Performance: male lead singer with sákárà frame-drums (clay-bowled, single-headed, struck with curved stick) and goje one-string spike-fiddle providing melodic-counter-voice. Lyric base draws on Islamic-devotional praise, Yoruba moral-philosophical commentary, and social-political commentary on Nigerian urban life.",
-  "recipe": "classic West African mid-1930s sákárà, functional Song, African pop branch, west African groove percussion indonesian jaipongan fújì. thick, declaimed, melodic, rhythmic. deep toned lead voice pitch bending talking bent pitch sakara drum, goje. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 467,
-  "score": 311.271,
+  "recipe": "classic West African mid-1930s sákárà, functional Song, African pop branch, west African groove percussion indonesian jaipongan fújì. thick, declaimed, melodic, rhythmic. deep toned lead voice pitch bending talking bent pitch sakara drum, goje. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. passive ribbon, tube pre. direct-to-disc lacquer.",
+  "recipe_chars": 375,
+  "score": 306.396,
   "config": {
     "traditions": [
       "sakara_yoruba",
@@ -82,7 +82,7 @@
       }
     ],
     "room": "lagos_decca_west_african_studio",
-    "archetype": "arch_emi_lagos_african_70s",
+    "archetype": "arch_decca_west_africa_highlife",
     "inline_chain": {
       "mic": "dynamic_mic",
       "pre": "transformer_solid_state",

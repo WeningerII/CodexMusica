@@ -3,9 +3,9 @@
   "name": "Lebanese tarab-pop",
   "family": "global",
   "lineage": "Beirut-centered modern Arabic-pop with classical-tarab roots, melismatic-ornate praise-and-devotional vocal style emerging from 1950s-onward post-Egyptian-classical Levantine regional expansion. The 1960s-1970s Lebanese-orchestral-style integrated rahbani-school theatrical-musical compositional vocabulary with classical maqam modal-foundation (Rast, Hijaz, Bayati, Nahawand), tarab ecstatic-vocal listener-state aesthetic, and Western-string-section-and-electric-instrumentation arrangement-modernization. The 1980s-civil-war-period diaspora-expansion took Beirut-tarab to Paris-and-London recording-studios, transformed in the 2000s-onward via electronic-arabic-pop and house-influenced-arabic-pop into the modern khaleeji-and-shami pan-Arab pop-mainstream.",
-  "recipe": "classic British mid-1950s lebanese tarab-pop, functional Song, mid east n African pop branch, Persian arab improv improv on frame, middle eastern classical art music andalusī nūba turkish makam. thick, declaimed, chest resonance low mid, punctuated. maple ribs Turkish school Lebanese cedar eastern Mediterranean pyramid oud, brass metal finger picks maple body Turkish school synthetic bridge plate qanun, mahogany rosewood clean strummed single coil electric guitar, plucked short envelope analog poly synth, pre muffled edge muffled hot rolled annealed machine hammered drum kit. live tracking. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 743,
-  "score": 617.86,
+  "recipe": "classic mid-1950s lebanese tarab-pop, functional Song, mid east n African pop branch, Persian arab improv improv on frame, middle eastern classical art music andalusī nūba turkish makam. thick, declaimed, chest resonance low mid, punctuated. maple ribs Turkish school Lebanese cedar eastern Mediterranean pyramid oud, brass metal finger picks maple body Turkish school synthetic bridge plate qanun, mahogany rosewood clean strummed single coil electric guitar, plucked short envelope analog poly synth, pre muffled edge muffled hot rolled annealed machine hammered drum kit. live tracking. Neumann U47, tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb hall reverb.",
+  "recipe_chars": 699,
+  "score": 616.11,
   "config": {
     "traditions": [
       "lebanese_pop_tarab",
@@ -171,7 +171,7 @@
       }
     ],
     "room": "live_room",
-    "archetype": "arch_70s_uk_class_a_rock",
+    "archetype": "arch_beirut_rahbani_pop",
     "inline_chain": {
       "mic": "mic_u47_tube_neumann",
       "pre": "pre_tube_german_v72",

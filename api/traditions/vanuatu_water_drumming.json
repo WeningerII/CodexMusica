@@ -3,9 +3,9 @@
   "name": "Vanuatu water drumming and sand drawing",
   "family": "global",
   "lineage": "Vanuatu water drumming tradition of the Ranmwat Bay and Hog Harbour communities of north-central Espiritu Santo island, in which women stand thigh-deep in the sea or in a freshwater pool and strike the water surface with cupped hands producing distinctive low-pitched rhythmic-percussive patterns. Performance contexts span entertainment, ceremonial-celebration, and tourism-circuit demonstrations. Parallel to the water-drumming, Vanuatu preserves the canonical sand-drawing tradition in which elaborate diagrammatic geometric-and-mythological drawings are produced in sand with continuous-line technique. Distinguished from neighboring Melanesian water-percussion variants by Vanuatu-specific Ranmwat-Hog-Harbour stylistic conventions.",
-  "recipe": "classic Southeast Asian modern vanuatu water drumming and sand drawing, ritual Devotional, indigenous branch, west African groove percussion yoruba dùndún surrogate speech fújì. thick, declaimed, chest resonance low mid, punctuated. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 457,
-  "score": 127.06,
+  "recipe": "classic Southeast Asian modern vanuatu water drumming and sand drawing, ritual Devotional, indigenous branch, west African groove percussion yoruba dùndún surrogate speech fújì. thick, declaimed, chest resonance low mid, punctuated. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 390,
+  "score": 114.76,
   "config": {
     "traditions": [
       "vanuatu_water_drumming",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "jakarta_bangkok_southeast_asian_studio",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

@@ -3,9 +3,9 @@
   "name": "Padam (Carnatic slow-tempo lyrical genre)",
   "family": "global",
   "lineage": "Carnatic slow-tempo lyrical genre setting Tamil and Telugu nayika-bhava (heroine-emotion) poetry to elaborated single-line-per-section vocal exposition — typically performed in the second half of a Carnatic kutcheri after the main kriti, with the 17th-century padam composer Kshetrayya (Telugu) and the Tamil padam tradition continued through Subbarama Iyer",
-  "recipe": "classic South Asian mid-1930s padam, ritual Devotional, hindu branch, indian classical improv improv on frame, south Asian art music telugu kirtana dadra. vocal fry, declaimed, chest resonance low mid, punctuated. jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, silvery suited to female vocal tanpura, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic. chennai madras music academy sabha. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 529,
-  "score": 241.776,
+  "recipe": "classic South Asian early-1950s padam, ritual Devotional, hindu branch, indian classical improv improv on frame, south Asian art music telugu kirtana dadra. vocal fry, declaimed, chest resonance low mid, punctuated. jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, silvery suited to female vocal tanpura, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic. chennai madras music academy sabha. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe_chars": 525,
+  "score": 245.363,
   "config": {
     "traditions": [
       "padam",
@@ -107,7 +107,7 @@
       }
     ],
     "room": "chennai_madras_music_academy_sabha",
-    "archetype": "arch_electrical_disc_cut",
+    "archetype": "arch_hmv_dumdum_raga",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "pre_tube_german_v72",

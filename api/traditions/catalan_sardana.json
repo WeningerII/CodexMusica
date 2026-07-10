@@ -3,9 +3,9 @@
   "name": "Catalan sardana (national-folk circle-dance)",
   "family": "global",
   "lineage": "Catalan sardana circle-dance-and-music tradition of Catalonia (Spain), the canonical Catalan national-folk-dance form. Performance configuration: a cobla ensemble of eleven musicians playing tenora (Catalan oboe), tible (smaller oboe), trumpets, fiscorn (flugelhorn-like brass), trombone, contrabass, and the flabiol-and-tambori one-handed flute-and-drum combination played simultaneously by a single musician. Dancers stand in a circle holding hands, performing the precise counting-of-steps Catalan choreographic vocabulary. The sardana became politically significant during the Franco-period (1939-1975) suppression of Catalan culture, and post-1975 democratic-Catalonia consolidation. Distinguished from other Iberian circle-dance forms by sardana's eleven-instrument-cobla and precise-counted-step structural conventions.",
-  "recipe": "classic North African early-1930s catalan sardana, functional Song, iberian branch, west African groove percussion indonesian jaipongan palm-wine guitar. thick, declaimed, melodic, rhythmic. silver powell boston canonical American orchestral flute, traditional mellow brass tambourine orch, tenor brass belled dance driving tenora, brass rose brass warmer canonical couesnon flugelhorn, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor student commercial trombone. casablanca and marrakech recording 1970-present indie-commercial casablanca chaabi moroccan studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 735,
-  "score": 230.862,
+  "recipe": "classic North African early-1930s catalan sardana, functional Song, iberian branch, west African groove percussion indonesian jaipongan palm-wine guitar. thick, declaimed, melodic, rhythmic. silver powell boston canonical American orchestral flute, traditional mellow brass tambourine orch, tenor brass belled dance driving tenora, brass rose brass warmer canonical couesnon flugelhorn, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor student commercial trombone. casablanca and marrakech recording 1970-present indie-commercial casablanca chaabi moroccan studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 668,
+  "score": 222.662,
   "config": {
     "traditions": [
       "catalan_sardana",
@@ -133,7 +133,7 @@
       }
     ],
     "room": "casablanca_chaabi_moroccan_studio",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

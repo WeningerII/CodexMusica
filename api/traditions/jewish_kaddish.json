@@ -3,14 +3,14 @@
   "name": "Jewish Kaddish mourner recitation",
   "family": "global",
   "lineage": "The Kaddish is a doxology in Aramaic and Hebrew central to Jewish liturgy, its best-known form the Mourner's Kaddish (Kaddish Yatom) recited by the bereaved during the eleven months of mourning and on the yahrzeit. The text sanctifies God's name and, notably, contains no mention of death; it is delivered by the mourner in a rapid, low, rhythmic spoken flow, with the congregation answering the responsorial refrain 'Yehei shmei rabba mevarach.' Its melodic contours vary by rite (Ashkenazi, Sephardi, Yemenite) but the mourner's form leans toward recitation rather than song. The tradition is documented across the siddur manuscript tradition and centuries of synagogue practice.",
-  "recipe": "classic Middle Eastern modern jewish kaddish mourner recitation, ritual Devotional, Jewish branch shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, declaimed, melodic, rhythmic. mediterranean sephardi synagogue. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 372,
-  "score": 147.255,
+  "recipe": "classic Middle Eastern modern jewish kaddish mourner recitation, ritual Devotional, Jewish branch mapuche tayil genealogical chant shipibo-conibo icaros healing songs. vocal fry, declaimed, melodic, rhythmic. mediterranean sephardi synagogue. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 305,
+  "score": 126.655,
   "config": {
     "traditions": [
       "jewish_kaddish",
-      "shipibo_icaros",
-      "mapuche_tayil_ritual"
+      "mapuche_tayil_ritual",
+      "shipibo_icaros"
     ],
     "instruments": [
       {
@@ -54,7 +54,7 @@
       }
     ],
     "room": "mediterranean_sephardi_synagogue",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

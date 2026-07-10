@@ -3,9 +3,9 @@
   "name": "Russian plach (плач, peasant lament)",
   "family": "global",
   "lineage": "Russian mourning-song tradition continuous from medieval Russian peasant practice through 19th-century documented collection by Russian ethnographers (Pyotr Kireyevsky, Yelpidifor Barsov) into Soviet-era ethnomusicology; particularly preserved in Northern Russia (Pinega, Pomor regions)",
-  "recipe": "classic modern russian plach, funeral Lament, European branch, vocal drone modal, Slavic bard ballad poetry, christian gospel ritual devotional bluegrass gospel southern gospel quartet. thick, declaimed, chest resonance low mid, ornamental. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 379,
-  "score": 183.24,
+  "recipe": "classic modern russian plach, funeral Lament, European branch, vocal drone modal, Slavic bard ballad poetry, christian gospel ritual devotional bluegrass gospel southern gospel quartet. thick, declaimed, chest resonance low mid, ornamental. bedroom. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 312,
+  "score": 178.065,
   "config": {
     "traditions": [
       "russian_plach",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "untreated_bedroom",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

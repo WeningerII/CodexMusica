@@ -3,9 +3,9 @@
   "name": "Kompa (song-form)",
   "family": "global",
   "lineage": "Haitian kompa in its song-form (chanson-format) presentation — distinct from the dance-floor instrumental kompa-direkt by foregrounding the song-form vocal-and-harmonic structure over the dance-rhythm groove; figures include the later Tabou Combo lineage where song-form kompa became dominant alongside dance-floor instrumental kompa",
-  "recipe": "classic Caribbean mid-1950s kompa, functional Song, tropical song branch, Afro-diasporic electric groove percussion afrobeat kompa. thick, full chest belt, pure, narrative. Fender blackface amp American 60s amp spring reverb bright maple pau ferro single coil electric guitar, steel castagnari Italian premium folk music accordion, thomastik infeld low tension jazz warm pocket fingerstyle electric bass, open slap hand drum congas, birch vintage ambassador asymmetric bronze bell bronze drum kit. port au prince Haitian recording 1970-2000 indie-commercial port au prince haitian kompa studio. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 704,
-  "score": 201.212,
+  "recipe": "classic Caribbean mid-1970s kompa, functional Song, tropical song branch, Afro-diasporic electric groove percussion afrobeat kompa. thick, full chest belt, pure, narrative. Fender blackface amp American 60s amp spring reverb bright maple pau ferro single coil electric guitar, steel castagnari Italian premium folk music accordion, thomastik infeld low tension jazz warm pocket fingerstyle electric bass, open slap hand drum congas, birch vintage ambassador asymmetric bronze bell bronze drum kit. port au prince Haitian recording 1970-2000 indie-commercial port au prince haitian kompa studio. sennheiser MD421, transformer-coupled solid-state pre, colored vintage console, optical compressor, parametric EQ. tape 15ips spring reverb.",
+  "recipe_chars": 735,
+  "score": 204.044,
   "config": {
     "traditions": [
       "kompa_song_form",
@@ -63,7 +63,7 @@
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
           "string_gauge": "g_11",
-          "bridge": "hardtail",
+          "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
           "finish": "nitro",
           "string_tuning": "drop_d"
@@ -77,7 +77,7 @@
           "pickup_magnet": 1.4949999999999999,
           "string_material": 1.4949999999999999,
           "string_gauge": 0.585,
-          "bridge": 0.0765,
+          "bridge": 0.195,
           "scale_length": 0.585,
           "finish": 0,
           "string_tuning": 1.6899999999999997
@@ -110,7 +110,7 @@
           "electric_technique": "electric_bass_pocket",
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "alder_b",
-          "pickup_config": "humbucker_mm",
+          "pickup_config": "soapbar",
           "string_type": "thomastik_jazz_bass_flat",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
@@ -120,7 +120,7 @@
           "electric_technique": 3.575,
           "amp_make": 0.9749999999999996,
           "body_wood": 0.585,
-          "pickup_config": 0.0765,
+          "pickup_config": 0.195,
           "string_type": 2.905,
           "scale_length_b": 0.585,
           "fretted_or_not": 0,
@@ -133,13 +133,13 @@
           "percussion_technique": "percussion_open_slap",
           "conga_set": "quinto",
           "conga_skin": "conga_cowhide",
-          "conga_shell_wood": "conga_oak_staved"
+          "conga_shell_wood": "conga_siam_oak"
         },
         "scores": {
           "percussion_technique": 7.577500000000001,
           "conga_set": 0.78,
           "conga_skin": 0.585,
-          "conga_shell_wood": 0.39
+          "conga_shell_wood": 0.78
         }
       },
       {
@@ -148,7 +148,7 @@
           "percussion_technique": "percussion_brushes_and_sticks",
           "shell_wood": "birch_shell",
           "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "bearing_edges": "edge_45",
           "drumhead": "vintage_ambassador_drumhead",
           "snare_wires": "cable_snares",
           "cymbal_alloy": "b20",
@@ -161,7 +161,7 @@
           "percussion_technique": 15.599999999999998,
           "shell_wood": 1.4949999999999999,
           "shell_thickness": 0,
-          "bearing_edges": 0.585,
+          "bearing_edges": 1.6899999999999997,
           "drumhead": 2.96,
           "snare_wires": 0.585,
           "cymbal_alloy": 3.2750000000000004,
@@ -173,7 +173,7 @@
       }
     ],
     "room": "port_au_prince_haitian_kompa_studio",
-    "archetype": "arch_early_tape_havana",
+    "archetype": "arch_haitian_konpa_diaspora",
     "inline_chain": {
       "mic": "dynamic_mic",
       "pre": "pre_neve_1073_input",

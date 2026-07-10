@@ -3,9 +3,9 @@
   "name": "Highlife",
   "family": "global",
   "lineage": "West African dance-band popular music tradition codified through E.T. Mensah and the Tempos (Ghanaian highlife pioneer, 1947-onward), Bobby Benson (Nigerian highlife pioneer), Victor Olaiya, the Black Beats, the Cardinal Rex Lawson dance band, then extended through the 1960s-70s Lagos-Accra recording boom — built on a fusion of Caribbean calypso, ballroom dance-band horn-section orchestration, and West African rhythmic foundations (Akan, Ga, Yoruba percussion patterns)",
-  "recipe": "classic West African modern highlife, groove Percussion, west African branch, African pop functional song congolese rumba isicathamiya. maple pau ferro ceramic nickel plated steel nickel single coil electric guitar, schilke chicago lead bright ensemble shallow cup lead trumpet trumpet, alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, thomastik infeld low tension jazz warm walking fingerstyle electric bass, birch pre muffled edge muffled hot rolled annealed drum kit, lead mule hide canonical Cuban premium oak staved canonical Cuban congas, shekere, ensemble student commercial trombone. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 868,
-  "score": 217.342,
+  "recipe": "classic West African modern highlife, groove Percussion, west African branch, African pop functional song congolese rumba isicathamiya. maple pau ferro ceramic nickel plated steel nickel single coil electric guitar, schilke chicago lead bright ensemble shallow cup lead trumpet trumpet, alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, thomastik infeld low tension jazz warm walking fingerstyle electric bass, birch pre muffled edge muffled hot rolled annealed drum kit, lead mule hide canonical Cuban premium oak staved canonical Cuban congas, shekere, ensemble student commercial trombone. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. passive ribbon, tube pre. direct-to-disc lacquer.",
+  "recipe_chars": 776,
+  "score": 211.367,
   "config": {
     "traditions": [
       "highlife",
@@ -83,7 +83,7 @@
           "sax_body_alloy": 3.9999999999999996,
           "sax_mouthpiece": 1.6,
           "sax_technique": 3.6249999999999996,
-          "sax_maker_school": 2.0474999999999994
+          "sax_maker_school": 4.647499999999999
         }
       },
       {
@@ -187,7 +187,7 @@
       }
     ],
     "room": "lagos_decca_west_african_studio",
-    "archetype": "arch_emi_lagos_african_70s",
+    "archetype": "arch_decca_west_africa_highlife",
     "inline_chain": {
       "mic": "dynamic_mic",
       "pre": "transformer_solid_state",

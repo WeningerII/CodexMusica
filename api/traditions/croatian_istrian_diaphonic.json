@@ -3,9 +3,9 @@
   "name": "Croatian Istrian two-part-in-Istrian-scale",
   "family": "global",
   "lineage": "Croatian Istrian two-part-in-Istrian-scale (dvoglasno pjevanje na tijesno) tradition of the Istrian peninsula (northwestern Croatian Adriatic coast, with related material in adjacent Slovenian Istria). The form is a two-voice male diaphonic vocal practice in which the two voices move in characteristic parallel-second-and-minor-third intervals, ending each phrase strictly in unison-or-octave cadence, all within the non-tempered six-tone Istrian scale codified in the 1920s by composer-theorist Ivan Matetić Ronjgov (1880-1960). The Istrian scale is a regional folk-tonal system with paired-second intervallic structure and characteristic non-tempered intonation that no Western equal-tempered transcription captures faithfully. Performance involves the lead voice (kantadur) and the answering voice (kontradur), with the two singers standing close together and projecting outward in unison facing the audience or open landscape. Parallel instrumental form exists in the sopele (paired large-and-small conical-bore double-reed shawms playing the same intervallic vocabulary as the two voices) and the šurla (similar paired shawms in the southern Istrian dialect). Performance contexts include outdoor village squares, processions, and the contemporary folk-festival circuit. Distinguished from broader Croatian klapa by Istrian's two-voice diaphonic (vs four-voice close-harmony) architecture and non-tempered Istrian-scale (vs twelve-tet tonal-chordal) vocabulary; distinguished from Slovenian-folk-singing by Istrian-specific Croatian regional dialect.",
-  "recipe": "classic Southern European early-1880s croatian istrian two-part-in-istrian-scale, drone Modal, vocal branch, Mediterranean ballad ballad poetry croatian klapa dalmatian close-harmony sardinian cantu a tenore and launeddas. kargyraa, false fold engaged, pure, hocket articulation. paired large small conical bore canonical istrian scale istrian diaphonic two part canonical croatian sopele. outdoor dalmatian square. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 545,
-  "score": 287.46,
+  "recipe": "classic Southern European early-1880s croatian istrian two-part-in-istrian-scale, drone Modal, vocal branch, Mediterranean ballad ballad poetry croatian klapa dalmatian close-harmony sardinian cantu a tenore and launeddas. kargyraa, false fold engaged, pure, hocket articulation. paired large small conical bore canonical istrian scale istrian diaphonic two part canonical croatian sopele. outdoor dalmatian square. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 478,
+  "score": 267.522,
   "config": {
     "traditions": [
       "croatian_istrian_diaphonic",
@@ -65,7 +65,7 @@
       }
     ],
     "room": "outdoor_dalmatian_square",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

@@ -3,9 +3,9 @@
   "name": "Carnatic vocal",
   "family": "classical",
   "lineage": "South Indian classical vocal tradition organized around the 72-melakarta scale system codified by Venkatamakhin in 1620 and the kriti-composition canon of the early-19th-century Trinity (Tyagaraja, Muthuswami Dikshitar, Syama Sastri); 20th-century lineage M.S. Subbulakshmi, D.K. Pattammal, M.D. Ramanathan, T.N. Krishnan, Semmangudi Srinivasa Iyer, T.R. Mahalingam",
-  "recipe": "classic South Asian early-1620s carnatic vocal, improv On Frame, indian classical improv branch, south Asian art music, hindu ritual devotional sinhala vannama telugu kirtana. vocal fry, declaimed, chest resonance low mid, punctuated. jackwood barrel canonical carnatic goat buffalo rice paste karanai palghat lineage canonical carnatic mridangam, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic, suited to female vocal bronze steel mix gourd body canonical traditional tanpura, ghatam, jackwood barrel canonical Tamil buffalo goat thumb cap canonical periya melam thavil, jackwood frame canonical carnatic brass jingle pair kanjira, concert forged steel sarvalaghu morsing, tanpura like sruti anchor tonic drone shruti box. chennai madras music academy sabha. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 870,
-  "score": 421.455,
+  "recipe": "classic South Asian early-1620s carnatic vocal, improv On Frame, indian classical improv branch, south Asian art music, hindu ritual devotional sinhala vannama telugu kirtana. vocal fry, declaimed, chest resonance low mid, punctuated. jackwood barrel canonical carnatic goat buffalo rice paste karanai palghat lineage canonical carnatic mridangam, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic, suited to female vocal bronze steel mix gourd body canonical traditional tanpura, ghatam, concert stage jackwood barrel canonical Tamil buffalo goat thumb cap canonical periya melam thavil, jackwood frame canonical carnatic brass jingle pair kanjira, concert forged steel sarvalaghu morsing, tanpura like sruti anchor tonic drone shruti box. chennai madras music academy sabha. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe_chars": 878,
+  "score": 426.97,
   "config": {
     "traditions": [
       "carnatic_vocal",
@@ -119,14 +119,14 @@
       {
         "id": "thavil",
         "slots": {
-          "thavil_context": "thavil_periya_melam",
-          "thavil_technique": "thavil_stick_finger",
+          "thavil_context": "thavil_concert",
+          "thavil_technique": "thavil_all_stick",
           "thavil_shell_wood": "thavil_jackwood",
           "thavil_head": "thavil_buffalo_goat"
         },
         "scores": {
-          "thavil_context": 0,
-          "thavil_technique": 0,
+          "thavil_context": 1.625,
+          "thavil_technique": 0.39,
           "thavil_shell_wood": 3.769999999999999,
           "thavil_head": 2.5349999999999997
         }
@@ -176,7 +176,7 @@
       }
     ],
     "room": "chennai_madras_music_academy_sabha",
-    "archetype": "arch_electrical_disc_cut",
+    "archetype": "arch_hmv_dumdum_raga",
     "inline_chain": {
       "mic": "mic_u87_condenser_neumann",
       "pre": "tube_pre",

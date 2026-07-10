@@ -3,14 +3,14 @@
   "name": "Drift phonk (2020s TikTok)",
   "family": "electronic",
   "lineage": "2019-onward extension of phonk into faster-tempo (140-160 BPM) dance-oriented variant, often heavily associated with TikTok car-drifting video content. Characterized by 4/4 dance-beat-derived structure with chopped-vocal phonk-sampling aesthetic, aggressive cowbell-percussion, and explicit Russian-and-Eastern-European-producer geographic-cultural orientation (the Russian phonk scene through Kordhell, MoonDeity, and Pharmacist became the dominant 2021-2023 international scene).",
-  "recipe": "classic drift phonk, mc Rhythm, southern branch, house electronic dance latin house fidget house. vocal fry, rap, melodic, narrative. chopped sampler, TR-808, sub bass analog synth. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
-  "recipe_chars": 370,
-  "score": 166.015,
+  "recipe": "classic drift phonk, mc Rhythm, southern branch, house electronic dance fidget house latin house. vocal fry, rap, melodic, narrative. chopped sampler, TR-808, sub bass analog synth. no single room 2015-present distributed distributed production. dynamic moving-coil, transformerless solid-state pre, brick-wall limiter. lossy MP3 autotune.",
+  "recipe_chars": 339,
+  "score": 157.752,
   "config": {
     "traditions": [
       "drift_phonk_modern",
-      "latin_house_percussion",
-      "fidget_house"
+      "fidget_house",
+      "latin_house_percussion"
     ],
     "instruments": [
       {
@@ -44,7 +44,7 @@
           "voice_tradition": 11.309999999999999,
           "voice_mechanism_compound": 5.309999999999999,
           "voice_estill_quality": 4.42,
-          "voice_speech_song": 15.794999999999998,
+          "voice_speech_song": 15.794999999999995,
           "voice_ensemble_config": 16.769999999999996,
           "voice_ornament_system": 0.39499999999999996,
           "voice_pitch_organization": 0.845,
@@ -101,7 +101,7 @@
       }
     ],
     "room": "studio_distributed_production",
-    "archetype": "arch_atlanta_trap_2010s",
+    "archetype": "arch_phone_native_vertical",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "pre_neve_1073_input",

@@ -3,9 +3,9 @@
   "name": "Russian zhnitvenye pesni (Russian harvest songs)",
   "family": "global",
   "lineage": "Russian harvest-song (жнитвенные песни zhnitvenye pesni) tradition continuous from medieval-Russian-agricultural village-labor practice through 19th-century Russian-folklorist documentation through Soviet-era Pyatnitsky and Voronezh-Russian-Folk-Choir canonical performance into modern Russian-folk-revival continuous practice; foundational repertoire integrates rye-and-wheat-harvest songs accompanying scything-and-binding labor",
-  "recipe": "classic Northern European modern russian zhnitvenye pesni, field Work, Slavic balkan branch, east Asian field work, European wedding, Slavic bard ballad poetry sardinian wedding cantu and launeddas music chinese chayang-diao. thick, false fold engaged, tasteful, unrestrained. baltic outdoor village. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 430,
-  "score": 119.815,
+  "recipe": "classic Northern European modern russian zhnitvenye pesni, field Work, Slavic balkan branch, east Asian field work, European wedding, Slavic bard ballad poetry sardinian wedding cantu and launeddas music chinese chayang-diao. thick, false fold engaged, tasteful, unrestrained. baltic outdoor village. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 363,
+  "score": 117.49,
   "config": {
     "traditions": [
       "russian_zhnitvenye",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "baltic_outdoor_village",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

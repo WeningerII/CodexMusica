@@ -3,9 +3,9 @@
   "name": "Bhajan",
   "family": "global",
   "lineage": "Pan-Indian Hindu devotional song tradition setting Sanskrit, Hindi, Braj Bhasha, Marathi, Bengali, Tamil and other Indian-language devotional poetry by Surdas, Mirabai, Tulsidas, Tukaram, Kabir, the Alvar saints — performed in temple-and-domestic-shrine contexts across regional Hindu sub-traditions; modern voices Anup Jalota, Jagjit Singh (the late ghazal-bhajan crossover canon), and the Pushti Marg haveli sangeet tradition",
-  "recipe": "classic South Asian mid-1930s bhajan, ritual Devotional, hindu branch, vocal drone modal, indian subcontinent praise song hindu stuti and bhajan sikh shabad kirtan. vocal fry, declaimed, chest resonance low mid, continuous-phonation. low overtone rich vocal male harmonium indian, indian rosewood rosewood copper tabla, synthetic remo modern stable bolt tuned modern concert stable dholak, small steady tala keeping ashtadhatu manjira, clear drone bright brass reed resonant teak shruti box. vrindavan braj mandir bhajan. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 594,
-  "score": 202.947,
+  "recipe": "classic South Asian mid-1980s bhajan, ritual Devotional, hindu branch, vocal drone modal, indian subcontinent praise song hindu stuti and bhajan sikh shabad kirtan. vocal fry, declaimed, tasteful, continuous-phonation. low overtone rich vocal male harmonium indian, indian rosewood rosewood copper tabla, synthetic remo modern stable bolt tuned modern concert stable dholak, small steady tala keeping ashtadhatu manjira, clear drone bright brass reed resonant teak shruti box. vrindavan braj mandir bhajan. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay.",
+  "recipe_chars": 645,
+  "score": 214.547,
   "config": {
     "traditions": [
       "bhajan",
@@ -20,7 +20,7 @@
           "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "legato_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
@@ -38,7 +38,7 @@
           "voice_quality": 31.79499999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.2999999999999998,
+          "voice_vibrato": 2.795,
           "voice_articulation": 3.215,
           "voice_microtone": 1.5274999999999999,
           "voice_tradition": 17.875,
@@ -91,8 +91,8 @@
         "scores": {
           "dholak_use": 0.39,
           "dholak_construction": 3.769999999999999,
-          "dholak_head": 1.0399999999999998,
-          "dholak_tensioning": 1.0399999999999998
+          "dholak_head": 2.795,
+          "dholak_tensioning": 2.9899999999999998
         }
       },
       {
@@ -125,7 +125,7 @@
       }
     ],
     "room": "vrindavan_braj_mandir_bhajan",
-    "archetype": "arch_electrical_disc_cut",
+    "archetype": "arch_tseries_cassette_devotional",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "pre_tube_german_v72",

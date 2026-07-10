@@ -3,9 +3,9 @@
   "name": "Bulgarian dance traditional (horo, ruchenitsa)",
   "family": "global",
   "lineage": "Bulgarian village dance tradition built on aksak additive odd-meter rhythms (7/8 rachenitsa, 9/8 devetorka, 11/8 kopanitsa, 13/8 from Shopluk region) — performed at village celebrations, weddings, and (post-1944) on the State Ensemble stage circuit; characteristic instrumentation: gaida (bulgarian bagpipe), kaval (rim-blown flute), tambura, accordion, gadulka (bowed lute)",
-  "recipe": "classic Southern European mid-1940s bulgarian dance traditional, groove Percussion, Slavic bard ballad poetry, Mediterranean ballad ballad poetry berber ahidus and ahwash bulería. vocal fry, nasal, melodic, rhythmic. plum canonical rhodope cane arundo donax single reed canonical bulgarian whole goatskin fleece outside canonical rhodope gaida bulgarian, plum canonical bulgarian kaval, horo dance driving strummed tambura balkan, leather castagnari Italian premium folk music accordion, gadulka, bolt tuned tapan. bulgarian state radio choir hall. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 621,
-  "score": 204.135,
+  "recipe": "classic Southern European mid-1940s bulgarian dance traditional, groove Percussion, Slavic bard ballad poetry, Mediterranean ballad ballad poetry berber ahidus and ahwash bulería. vocal fry, nasal, melodic, rhythmic. plum canonical rhodope cane arundo donax single reed canonical bulgarian whole goatskin fleece outside canonical rhodope gaida bulgarian, plum canonical bulgarian kaval, horo dance driving strummed tambura balkan, leather castagnari Italian premium folk music accordion, gadulka, bolt tuned tapan. bulgarian state radio choir hall. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 671,
+  "score": 205.035,
   "config": {
     "traditions": [
       "bulgarian_dance_traditional",
@@ -150,7 +150,7 @@
       }
     ],
     "room": "bulgarian_state_radio_choir_hall",
-    "archetype": "arch_electrical_disc_cut",
+    "archetype": "arch_comecon_state_label",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "pre_tube_german_v72",

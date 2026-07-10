@@ -3,9 +3,9 @@
   "name": "Assyrian Church of the East Beth Gazo chant",
   "family": "classical",
   "lineage": "Assyrian Church of the East liturgical chant, the canonical sacred-music tradition of the East-Syriac (Edessene) rite, descending from the Mesopotamian early-Christian community at Edessa and Nisibis. The Assyrian Beth Gazo collection comprises canonical melodies organized through an eight-mode system distinct from but related to the West-Syriac (Antiochene) Beth Gazo. Liturgical language is classical Syriac (Eastern dialect). The post-1915 Sayfo and Iraqi-Syrian displacement disrupted Hakkari-Mesopotamian transmission infrastructure; the Patriarchate (currently seated in Erbil) and diaspora communities in Chicago, Detroit, and Sydney sustain practice.",
-  "recipe": "classic Caucasian mid-1910s assyrian church of the east beth gazo chant, ritual Devotional, coptic branch, western early art music ars antiqua and organum renaissance sacred polyphony. thick, declaimed, chest resonance low mid, ornamental. mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. stone armenian church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 548,
-  "score": 193.19,
+  "recipe": "classic Caucasian mid-1910s assyrian church of the east beth gazo chant, ritual Devotional, coptic branch, western early art music ars antiqua and organum renaissance sacred polyphony. thick, declaimed, chest resonance low mid, ornamental. mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. stone armenian church. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 481,
+  "score": 187.015,
   "config": {
     "traditions": [
       "assyrian_beth_gazo",
@@ -69,7 +69,7 @@
       }
     ],
     "room": "stone_armenian_church",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

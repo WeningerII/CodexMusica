@@ -3,14 +3,14 @@
   "name": "Coco brasileiro (NE Brazilian work-song)",
   "family": "global",
   "lineage": "Brazilian coco northeastern-Brazilian song-and-dance tradition of Pernambuco, Paraíba, and Alagoas, descended from the African-Brazilian colonial-period rural-work-song tradition (coco was originally a coconut-husking work-song with stamping-rhythm accompaniment). Performance: lead singer with chorus response, hand-clapping or ganzá-shaker rhythm, occasional pandeiro frame-drum. Repertoire spans rural-worker thematic content, coastal-fishing themes, and romantic-couplet improvisation. Genre revival under Nação Zumbi and Chico Science in 1990s integrated coco with rock-and-electronic-production.",
-  "recipe": "classic Southern American mid-1990s coco brasileiro, ballad Poetry, work song branch, Brazilian groove percussion embolada baião. thick, intimate aspirated, melodic, narrative. tambourine orch, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro. estudio rozenblit recife. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 479,
-  "score": 145.62,
+  "recipe": "classic Southern American mid-1990s coco brasileiro, ballad Poetry, work song branch, Brazilian groove percussion pagode embolada. thick, intimate aspirated, melodic, narrative. tambourine orch, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro. estudio rozenblit recife. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 413,
+  "score": 144.842,
   "config": {
     "traditions": [
       "coco_brasileiro",
-      "embolada",
-      "baiao"
+      "pagode",
+      "embolada"
     ],
     "instruments": [
       {
@@ -30,37 +30,37 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_stutter_edit",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 6.550000000000002,
-          "voice_quality": 4.445,
+          "voice_register": 8.149999999999995,
+          "voice_quality": 6.294999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.445,
+          "voice_vibrato": 1.595,
           "voice_articulation": 1.2999999999999998,
-          "voice_microtone": 3.150000000000001,
-          "voice_tradition": 13.194999999999999,
-          "voice_mechanism_compound": 6.76,
-          "voice_estill_quality": 6.565000000000001,
-          "voice_speech_song": 25.154999999999998,
-          "voice_ensemble_config": 15.014999999999999,
-          "voice_ornament_system": 1.4949999999999999,
+          "voice_microtone": 4.750000000000001,
+          "voice_tradition": 12.739999999999998,
+          "voice_mechanism_compound": 7.54,
+          "voice_estill_quality": 7.345000000000001,
+          "voice_speech_song": 26.7475,
+          "voice_ensemble_config": 17.289999999999996,
+          "voice_ornament_system": 1.6449999999999998,
           "voice_pitch_organization": 0.75,
-          "voice_processing_chain": 4.69,
-          "voice_multitrack_stack": 2.535
+          "voice_processing_chain": 5.595,
+          "voice_multitrack_stack": 2.957499999999999
         }
       },
       {
         "id": "tambourine_orch",
         "slots": {
-          "tambourine_orch_jingle": "tambourine_orch_nickel",
+          "tambourine_orch_jingle": "tambourine_orch_brass",
           "tambourine_orch_context": "tambourine_orch_pop"
         },
         "scores": {
-          "tambourine_orch_jingle": 0.045,
-          "tambourine_orch_context": 0.975
+          "tambourine_orch_jingle": 0.12999999999999998,
+          "tambourine_orch_context": 1.17
         }
       },
       {
@@ -75,16 +75,16 @@
         },
         "scores": {
           "percussion_technique": 0.8249999999999998,
-          "pandeiro_size": 2.8199999999999994,
-          "pandeiro_context": 4.484999999999999,
-          "pandeiro_head": 14.364999999999998,
-          "pandeiro_shell_wood": 14.364999999999998,
-          "pandeiro_jingles": 14.364999999999998
+          "pandeiro_size": 3.379999999999999,
+          "pandeiro_context": 4.225,
+          "pandeiro_head": 12.025,
+          "pandeiro_shell_wood": 12.025,
+          "pandeiro_jingles": 12.025
         }
       }
     ],
     "room": "estudio_rozenblit_recife",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

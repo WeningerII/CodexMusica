@@ -3,9 +3,9 @@
   "name": "Japanese taue-uta (田植唄, rice-planting songs)",
   "family": "global",
   "lineage": "Japanese taue-uta (田植唄, \"rice-planting songs\") tradition continuous from premodern Japanese-agricultural village-labor practice through Edo-period continuous performance into modern Japanese-and-Japanese-diaspora continuous rural practice (where it survives) and into intangible-heritage status for certain regional variants; foundational repertoire integrates rice-paddy planting and weeding-songs with characteristic Japanese-folk pentatonic vocabulary",
-  "recipe": "classic modern japanese taue-uta, field Work, east Asian branch, south Asian field work, east Asian wedding, east Asian lullaby japanese komoriuta korean jajanga. thick, yodel, tasteful, continuous-phonation. acrylic nylon modern tsugaru min yo folk song accompaniment shamisen. forest clearing. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 425,
-  "score": 144.514,
+  "recipe": "classic modern japanese taue-uta, field Work, east Asian branch, south Asian field work, east Asian wedding, east Asian lullaby japanese komoriuta korean jajanga. thick, yodel, tasteful, continuous-phonation. acrylic nylon modern tsugaru min yo folk song accompaniment shamisen. forest clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 358,
+  "score": 139.664,
   "config": {
     "traditions": [
       "japanese_taue_uta",
@@ -75,7 +75,7 @@
       }
     ],
     "room": "forest_clearing",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

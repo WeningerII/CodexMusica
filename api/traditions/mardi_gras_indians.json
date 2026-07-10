@@ -3,9 +3,9 @@
   "name": "New Orleans Mardi Gras Indians",
   "family": "global",
   "lineage": "New Orleans Mardi Gras Indian tradition continuous from mid-19th-century Afro-American-and-Native-American cultural exchange in New Orleans through 20th-century continuous tribal-performance into modern New Orleans continuous Mardi Gras practice; the Mardi Gras Indian \"tribes\" (Wild Magnolias, Wild Tchoupitoulas, Golden Eagles, Black Eagles) perform handmade-feathered-suit processional with characteristic call-and-response chants",
-  "recipe": "classic Caribbean modern new orleans mardi gras indians, carnival Processional, American south branch, Caribbean carnival processional, sub saharan African praise song, African diasporic funeral lament yoruba ìrèmọjẹ bahamian junkanoo. vocal fry, low dynamic level, tasteful, continuous-phonation. tambourine orch, synthetic remo modern hands layered tar frame drum. havana solar outdoor courtyard. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 528,
-  "score": 137.837,
+  "recipe": "classic Caribbean modern new orleans mardi gras indians, carnival Processional, American south branch, Caribbean carnival processional, sub saharan African praise song, African diasporic funeral lament yoruba ìrèmọjẹ bahamian junkanoo. vocal fry, low dynamic level, tasteful, continuous-phonation. tambourine orch, synthetic remo modern hands layered tar frame drum. havana solar outdoor courtyard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 461,
+  "score": 130.737,
   "config": {
     "traditions": [
       "mardi_gras_indians",
@@ -82,7 +82,7 @@
       }
     ],
     "room": "havana_solar_outdoor_courtyard",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

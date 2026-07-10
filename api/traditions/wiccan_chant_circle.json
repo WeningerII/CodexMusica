@@ -3,9 +3,9 @@
   "name": "Wiccan chant-circle incantation",
   "family": "global",
   "lineage": "Wiccan chant-circle incantation is the communal vocal practice of modern Wicca, the initiatory witchcraft religion codified by Gerald Gardner in England in the 1950s (Gardnerian tradition) and expanded through Alexandrian, Dianic, and later Reclaiming lineages. In circle, participants raise energy through repeated metrical chants — 'The Witches' Rune,' goddess-name chants such as the 'Isis Astarte' chant, and Reclaiming/Starhawk material like 'We Are a Circle' — sung in unison and accelerating toward a peak ('raising the cone of power'). Delivery is rhythmic, mantra-like, and group-based rather than soloistic, drawing on ceremonial-magic invocation and folk-revival song. The repertoire is documented in Gardner's Book of Shadows tradition and later published Wiccan liturgies.",
-  "recipe": "classic mid-1950s wiccan chant-circle incantation, ritual Devotional, indigenous branch bluegrass gospel southern gospel piano-bass. thick, declaimed, melodic, ornamental. forest clearing. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 318,
-  "score": 210.466,
+  "recipe": "classic mid-1950s wiccan chant-circle incantation, ritual Devotional, indigenous branch bluegrass gospel southern gospel piano-bass. thick, declaimed, melodic, ornamental. forest clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 251,
+  "score": 197.816,
   "config": {
     "traditions": [
       "wiccan_chant_circle",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "forest_clearing",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

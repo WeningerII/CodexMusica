@@ -3,9 +3,9 @@
   "name": "Yoruba oríkì (praise-poetry)",
   "family": "global",
   "lineage": "Yoruba praise-poetry tradition continuous from pre-colonial Yoruba ritual-practice through 19th-20th century continuous performance into modern Yoruba-and-Yoruba-diaspora practice across southwestern Nigeria, Benin, Togo, and the Atlantic Afro-diaspora; the oríkì is the canonical Yoruba praise-poetry-song-form naming the praise-receiver through accumulated epithet-and-ancestral-name lineage",
-  "recipe": "classic West African modern yoruba oríkì, praise Song, sub saharan African branch, African diasporic wedding, African diasporic funeral lament, west African griot ballad poetry yoruba ìrèmọjẹ mandé jeli. vocal fry, declaimed, tasteful, continuous-phonation. omo cedrela odorata canonical Yoruba dundun goat skin leather tension cords canonical pressure bend talking drum, bell on shell iroko west African premium cowhide rope lacing canonical mande dunun, shekere. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 675,
-  "score": 290.448,
+  "recipe": "classic West African modern yoruba oríkì, praise Song, sub saharan African branch, African diasporic wedding, African diasporic funeral lament, west African griot ballad poetry yoruba ìrèmọjẹ mandé jeli. vocal fry, declaimed, tasteful, continuous-phonation. omo cedrela odorata canonical Yoruba dundun goat skin leather tension cords canonical pressure bend talking drum, bell on shell iroko west African premium cowhide rope lacing canonical mande dunun, shekere. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 608,
+  "score": 283.698,
   "config": {
     "traditions": [
       "yoruba_oriki",
@@ -95,7 +95,7 @@
       }
     ],
     "room": "lagos_decca_west_african_studio",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

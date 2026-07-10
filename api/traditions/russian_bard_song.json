@@ -3,9 +3,9 @@
   "name": "Russian bard song (avtorskaya pesnya)",
   "family": "global",
   "lineage": "Soviet-era guitar-and-poet song (avtorskaya pesnya, literally authorial song) tradition codified by Vladimir Vysotsky (the raspy-voice baritone), Bulat Okudzhava (the gentle-tenor Arbat-Street troubadour), Alexander Galich (the dissident émigré voice), Yuri Vizbor (the mountain-climbing-and-friendship songwriter) — circulated through magnitizdat (self-distributed-tape underground circulation) under Soviet censorship rather than official Melodiya release",
-  "recipe": "classic Eastern European mid-1950s russian bard song, ballad Poetry, Slavic bard branch, chanson fado ballad poetry, European protest song morna cape verdean batuko of santiago island. vocal fry, lament wail, pure, punctuated. martin lifespan fingerpicked acoustic guitar, sekunda tuning Soviet orchestra canon strummed balalaika. moscow state label 1964-present major-flagship moscow melodiya studio. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 511,
-  "score": 138.935,
+  "recipe": "classic Eastern European early-1960s russian bard song, ballad Poetry, Slavic bard branch, chanson fado ballad poetry, European protest song morna cape verdean batuko of santiago island. vocal fry, lament wail, tasteful, punctuated. martin lifespan fingerpicked acoustic guitar, sekunda tuning Soviet orchestra canon strummed balalaika. moscow state label 1964-present major-flagship moscow melodiya studio. dynamic moving-coil, tube pre. Walkman cassette.",
+  "recipe_chars": 456,
+  "score": 146.125,
   "config": {
     "traditions": [
       "russian_bard_song",
@@ -20,7 +20,7 @@
           "voice_quality": "fado_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "straight_tone",
+          "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "staccato_voice",
           "voice_microtone": "blue_notes",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
@@ -38,7 +38,7 @@
           "voice_quality": 9.91,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.65,
+          "voice_vibrato": 0.7350000000000001,
           "voice_articulation": 2.145,
           "voice_microtone": 1.6899999999999997,
           "voice_tradition": 15.144999999999998,
@@ -76,21 +76,21 @@
         "slots": {
           "plucked_traditional_technique": "plucked_folk_strummed",
           "balalaika_size": "sekunda_balalaika",
-          "balalaika_strings": "gut_balalaika",
+          "balalaika_strings": "fluorocarbon_balalaika",
           "balalaika_body_wood": "balalaika_spruce_maple",
           "balalaika_tradition": "balalaika_soviet_orchestra"
         },
         "scores": {
           "plucked_traditional_technique": 5.265,
           "balalaika_size": 1.235,
-          "balalaika_strings": 0.12999999999999998,
+          "balalaika_strings": 0.7350000000000001,
           "balalaika_body_wood": 0.39,
           "balalaika_tradition": 2.9299999999999997
         }
       }
     ],
     "room": "moscow_melodiya_studio",
-    "archetype": "arch_early_tape_havana",
+    "archetype": "arch_soviet_magnitizdat",
     "inline_chain": {
       "mic": "dynamic_mic",
       "pre": "pre_tube_german_v72",

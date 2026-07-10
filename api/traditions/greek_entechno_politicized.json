@@ -3,9 +3,9 @@
   "name": "Greek éntechno politicized (Theodorakis era)",
   "family": "global",
   "lineage": "Greek politicized éntechno (\"artistic music\") protest-song tradition centered on Mikis Theodorakis (1925-2021, the foundational figure whose Communist-Party-aligned political-songwriter career spanned the 1944-1945 Civil-War partisan era through the 1967-1974 Greek Junta exile-and-imprisonment era and continuous through post-Metapolitefsi democratic-era continuous performance) and continuous through the broader 1960s-1990s Greek éntechno politicized songwriter scene including Manos Loizos and Yannis Markopoulos",
-  "recipe": "classic Southern European early-1920s greek éntechno politicized, protest Song, European branch, middle east n African protest song, Mediterranean ballad ballad poetry, iberian functional song galician kantautor and folk-pop laikó. thick, lament wail, melodic, continuous-phonation. walnut staves canonical Greek strummed bouzouki, cedar carbon fiber fingerpicked classical nylon-string guitar. athens major label 1955-1985 mid tier athens minos studios 60s 70s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 592,
-  "score": 157.195,
+  "recipe": "classic Southern European early-1920s greek éntechno politicized, protest Song, European branch, middle east n African protest song, Mediterranean ballad ballad poetry, iberian functional song galician kantautor and folk-pop laikó. thick, lament wail, melodic, continuous-phonation. walnut staves canonical Greek gut pre 1950s rebetiko strummed bouzouki, cedar fingerpicked classical nylon-string guitar. athens major label 1955-1985 mid tier athens minos studios 60s 70s. large-diaphragm condenser, tube pre, Emi redd.51, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 576,
+  "score": 152.012,
   "config": {
     "traditions": [
       "greek_entechno_politicized",
@@ -30,7 +30,7 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
           "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
-          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
+          "voice_processing_chain": "voice_processing_talkbox",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
@@ -48,8 +48,8 @@
           "voice_ensemble_config": 16.769999999999996,
           "voice_ornament_system": 3.5749999999999997,
           "voice_pitch_organization": 3.885,
-          "voice_processing_chain": 4.944999999999999,
-          "voice_multitrack_stack": 9.08
+          "voice_processing_chain": 3.67,
+          "voice_multitrack_stack": 11.08
         }
       },
       {
@@ -57,16 +57,16 @@
         "slots": {
           "plucked_traditional_technique": "plucked_folk_strummed",
           "bouzouki_courses": "trichordo",
-          "bouzouki_pick": "bouzouki_medium",
+          "bouzouki_pick": "bouzouki_thin",
           "bouzouki_body_wood": "bouzouki_walnut_bowl",
-          "bouzouki_strings": "bouzouki_steel_modern"
+          "bouzouki_strings": "bouzouki_gut_historical"
         },
         "scores": {
           "plucked_traditional_technique": 6.134999999999999,
           "bouzouki_courses": 3.9,
-          "bouzouki_pick": 0.65,
+          "bouzouki_pick": 0.195,
           "bouzouki_body_wood": 7.559999999999999,
-          "bouzouki_strings": 0.39
+          "bouzouki_strings": 2.8600000000000003
         }
       },
       {
@@ -75,22 +75,22 @@
           "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "standard_tuning",
           "top_wood_classical": "cedar_cl",
-          "bracing_classical": "lattice_cl",
-          "string_classical": "carbon_cl",
+          "bracing_classical": "double_top_cl",
+          "string_classical": "gut_cl",
           "attack_technique_cl": "apoyando_cl"
         },
         "scores": {
           "acoustic_technique": 10.375,
           "string_tuning": 0,
           "top_wood_classical": 1.69,
-          "bracing_classical": 0.65,
-          "string_classical": 1.04,
+          "bracing_classical": 0.39,
+          "string_classical": 0.39,
           "attack_technique_cl": 0.945
         }
       }
     ],
     "room": "athens_minos_studios_60s_70s",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_greek_columbia_rizoupoli",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

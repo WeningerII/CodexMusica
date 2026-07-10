@@ -3,9 +3,9 @@
   "name": "Forró pé-de-serra (traditional forró)",
   "family": "global",
   "lineage": "Traditional Brazilian forró sub-form preserving the canonical Luiz Gonzaga-era 1940s-1960s northeastern Brazilian dance-music form. Trio configuration: sanfona button-accordion lead, zabumba double-headed bass-drum, triangle, plus voice. Distinguished from later forró eletrônico and forró universitário by pé-de-serra's acoustic-trio (vs full-band-electronic) instrumental signature. Repertoire centers on Luiz Gonzaga's canonical compositional corpus and parallel northeastern forró composers.",
-  "recipe": "classic Southern American mid-1940s forró pé-de-serra, functional Song, Brazilian song branch, Brazilian groove percussion pagode baião. thick, intimate aspirated, pure, punctuated. leather castagnari Italian premium folk music accordion, wood baião tradition low stick with high bacalhau buzz zabumba, gourd wood guiro. estudio rozenblit recife. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 476,
-  "score": 99.662,
+  "recipe": "classic Southern American mid-1940s forró pé-de-serra, functional Song, Brazilian song branch, Brazilian groove percussion pagode baião. thick, intimate aspirated, pure, punctuated. leather castagnari Italian premium folk music accordion, wood baião tradition low stick with high bacalhau buzz zabumba, gourd wood guiro. estudio rozenblit recife. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 409,
+  "score": 96.325,
   "config": {
     "traditions": [
       "forro_pe_de_serra",
@@ -97,7 +97,7 @@
       }
     ],
     "room": "estudio_rozenblit_recife",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

@@ -3,9 +3,9 @@
   "name": "Māori whaikōrero oratory",
   "family": "global",
   "lineage": "The formal oratory of the marae ātea (forecourt) in Māori ceremonial encounter (pōwhiri) in Aotearoa/New Zealand, performed by male speakers (kaikōrero) following the women's karanga. A whaikōrero is structured through a formulaic opening (tauparapara), recitation of whakapapa (genealogy), acknowledgement of the dead and the living, and the matter at hand, and is typically sealed by a sung waiata supported by the speaker's group. It is a primary vehicle of mana, whakapapa, and tikanga Māori, transmitted orally from senior orators to successors. Both an art of memory and of improvised response, it draws freely on proverb (whakataukī) and chanted passages.",
-  "recipe": "classic Oceanian modern māori whaikōrero oratory, praise Song, oceania pacific branch xhosa iimbongi praise oratory hawaiian haʻa ancestral chant. vocal fry, declaimed, overtone rich sustained, continuous-phonation. marae forecourt. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 362,
-  "score": 129.758,
+  "recipe": "classic Oceanian modern māori whaikōrero oratory, praise Song, oceania pacific branch xhosa iimbongi praise oratory hawaiian haʻa ancestral chant. vocal fry, declaimed, overtone rich sustained, continuous-phonation. marae forecourt. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 295,
+  "score": 115.383,
   "config": {
     "traditions": [
       "maori_whaikorero_oratory",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "marae_forecourt",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

@@ -3,13 +3,13 @@
   "name": "Festival trap (early-2010s EDM-trap big-room hybrid)",
   "family": "electronic",
   "lineage": "Early-2010s electronic subgenre integrating Atlanta-trap production-aesthetic with EDM-festival big-room structural framework. Baauer's \"Harlem Shake\" (2012, viral 2013) inaugurated the broader commercial visibility; Diplo, RL Grime, UZ, Flosstradamus, and the broader Mad Decent label roster defined the canonical EDM-trap roster. Distinguished from Atlanta trap proper by festival trap's explicit instrumental-EDM-functional emphasis over rap-vocal-feature.",
-  "recipe": "classic festival trap, mc Rhythm, southern branch, house electronic dance latin house. TR-808, sub bass analog synth, layered sampler. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 328,
-  "score": 115.286,
+  "recipe": "classic festival trap, mc Rhythm, southern branch, house electronic dance tech-house. TR-808, sub bass analog synth, layered sampler. no single room 2015-present distributed distributed production. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
+  "recipe_chars": 332,
+  "score": 130.909,
   "config": {
     "traditions": [
       "festival_trap",
-      "latin_house_percussion",
+      "tech_house_classic",
       "electro_house_2000s"
     ],
     "instruments": [
@@ -21,7 +21,7 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 3.965,
+          "tr808_voice": 4.16,
           "drum_machine_808_context": 5.915,
           "tr808_production_origin": 0.375
         }
@@ -31,15 +31,15 @@
         "slots": {
           "electronic_technique": "electronic_bass_sub",
           "oscillator": "sine_osc",
-          "filter_topology": "transistor_ladder",
-          "envelope": "sustain_env",
+          "filter_topology": "svf",
+          "envelope": "gated_env",
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 22.544999999999995,
-          "oscillator": 1.04,
-          "filter_topology": 1.69,
-          "envelope": 0.42937499999999995,
+          "electronic_technique": 22.694999999999993,
+          "oscillator": 1.235,
+          "filter_topology": 1.6949999999999998,
+          "envelope": 0.65,
           "modulation": 0.105
         }
       },
@@ -55,14 +55,14 @@
         "scores": {
           "electronic_technique": 2.35,
           "sampler_archetypes": 4.0375,
-          "sampler_bit_depth": 1.56,
-          "sampler_workflow": 14.714999999999998,
-          "sampler_classic_context": 54.884375000000006
+          "sampler_bit_depth": 1.105,
+          "sampler_workflow": 14.065,
+          "sampler_classic_context": 54.984375
         }
       }
     ],
     "room": "studio_distributed_production",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_festival_edm_itb",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "transformerless",

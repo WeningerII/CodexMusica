@@ -3,9 +3,9 @@
   "name": "Mexican cantina drinking song (mariachi-and-ranchera lineage)",
   "family": "global",
   "lineage": "Mexican cantina-drinking song tradition continuous from 19th-century post-Independence Mexican ranchera-and-corrido tradition through 20th-century mariachi-and-banda canonical performance into modern Mexican-and-Mexican-American continuous cantina-practice; foundational repertoire includes \"El Rey,\" \"Volver, volver,\" \"La Llorona\" (canonical cantina-drinking-grief)",
-  "recipe": "classic modern mexican cantina drinking song, drinking Song, americas branch, European drinking song, americas wedding, iberian Latin protest song french chansons à boire irish pub song / drinking song. thick, full chest belt, tasteful, continuous-phonation. concert modern carbon fiber fingerpicked classical nylon-string guitar, cedar caoba paracho nylon treble steel bass guitarron mexicano, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral unison student friendly trumpet, synthetic magic rosin modern acrylic base drone like fiddle, banda sinaloense. irish pub. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 746,
-  "score": 214.762,
+  "recipe": "classic modern mexican cantina drinking song, drinking Song, americas branch, European drinking song, americas wedding, iberian Latin protest song french chansons à boire irish pub song / drinking song. thick, full chest belt, tasteful, continuous-phonation. concert modern carbon fiber fingerpicked classical nylon-string guitar, cedar caoba paracho nylon treble steel bass guitarron mexicano, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral unison student friendly trumpet, synthetic magic rosin modern acrylic base drone like fiddle, banda sinaloense. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 679,
+  "score": 207.662,
   "config": {
     "traditions": [
       "mexican_cantina_drinking",
@@ -139,7 +139,7 @@
       }
     ],
     "room": "irish_pub",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

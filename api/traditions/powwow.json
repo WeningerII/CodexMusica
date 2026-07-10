@@ -3,9 +3,9 @@
   "name": "Powwow song",
   "family": "global",
   "lineage": "Plains-Northern intertribal Native American powwow drum-circle song tradition — the pan-tribal Native American performance format that emerged in the late-19th-century post-reservation period from older tribal-specific song traditions (Plains Lakota / Dakota / Crow, Great Lakes Ojibwe, Northern Plains Cree) and codified through the 20th century into an intertribal cultural-renewal celebration network; performed on the powwow drum (a single large frame drum shared by 6-10 drummers in a circle) with unison falsetto-high vocable lyrics — drum groups: Black Lodge Singers (Blackfeet), Northern Cree Singers, Whitefish Bay Singers (Ojibwe)",
-  "recipe": "classic Midwestern American modern powwow song, ritual Devotional, indigenous branch, overtone drone modal tuvan throat singing xhosa umngqokolo overtone singing. sygyt, false fold engaged, overtone rich sustained, punctuated. foundational high pitched powwow drum circle. plains northern powwow drum circle outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 446,
-  "score": 258.854,
+  "recipe": "classic Midwestern American early-1890s powwow song, ritual Devotional, indigenous branch, overtone drone modal tuvan throat singing xhosa umngqokolo overtone singing. sygyt, false fold engaged, overtone rich sustained, punctuated. foundational high pitched powwow drum circle. plains northern powwow drum circle outdoor. acoustic horn. wax cylinder.",
+  "recipe_chars": 350,
+  "score": 245.604,
   "config": {
     "traditions": [
       "powwow",
@@ -65,7 +65,7 @@
       }
     ],
     "room": "plains_northern_powwow_drum_circle_outdoor",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_wax_cylinder_ethnographic",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

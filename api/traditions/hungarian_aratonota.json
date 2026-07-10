@@ -3,9 +3,9 @@
   "name": "Hungarian aratónóta (harvest songs)",
   "family": "global",
   "lineage": "Hungarian aratónóta (\"harvest-song\") tradition continuous from premodern Hungarian-agricultural village-labor practice through 19th-century Hungarian-folklorist documentation through Béla Bartók and Zoltán Kodály 1905-1918 Hungarian-folk-collection canonical-ethnomusicology into modern Hungarian-folk-revival continuous practice; foundational repertoire includes harvest-binding songs accompanying grain-bundle-stacking and threshing-floor labor",
-  "recipe": "classic Northern European mid-1910s hungarian aratónóta, field Work, Slavic balkan branch, east Asian field work, European wedding, European drinking song sardinian wedding cantu and launeddas music scottish bothy ballad. thick, false fold engaged, tasteful, continuous-phonation. baltic outdoor village. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 434,
-  "score": 125.505,
+  "recipe": "classic Northern European mid-1910s hungarian aratónóta, field Work, Slavic balkan branch, east Asian field work, European wedding, European drinking song sardinian wedding cantu and launeddas music scottish bothy ballad. thick, false fold engaged, tasteful, continuous-phonation. baltic outdoor village. acoustic horn. wax cylinder.",
+  "recipe_chars": 333,
+  "score": 114.83,
   "config": {
     "traditions": [
       "hungarian_aratonota",
@@ -38,7 +38,7 @@
           "voice_quality": 9.674999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.38,
+          "voice_vibrato": 1.4300000000000002,
           "voice_articulation": 6.954999999999998,
           "voice_microtone": 2.675,
           "voice_tradition": 35.36,
@@ -54,7 +54,7 @@
       }
     ],
     "room": "baltic_outdoor_village",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_wax_cylinder_ethnographic",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

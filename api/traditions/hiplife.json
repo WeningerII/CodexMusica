@@ -3,9 +3,9 @@
   "name": "Hiplife",
   "family": "global",
   "lineage": "Ghanaian hip-hop-highlife fusion codified through Reggie Rockstone Asante (the New York-Ghana cross-Atlantic founder, 1994 album Makaa Maka), Obrafour, VIP, Tic Tac, Sarkodie (the modern hiplife-into-Afrobeats crossover bridge), then extended into the contemporary Ghanaian hiplife / azonto / Afrobeats hybrid",
-  "recipe": "classic West African mid-1990s hiplife, groove Percussion, west African branch, Afro-diasporic MC rhythm kwaito south african kwaito. vocal fry, rap, nervy, narrative. behringer rd 8 modern clone analog circuit reproduction TR-808, pitched chopped sampler, basswood maple pau ferro alnico nickel plated steel humbucker electric guitar, cowhide mid tier siam oak mid tier modern open slap hand drum congas. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 616,
-  "score": 181.469,
+  "recipe": "classic West African mid-1990s hiplife, groove Percussion, west African branch, Afro-diasporic MC rhythm kwaito south african kwaito. vocal fry, rap, nervy, narrative. roland tr 8s modern aira digital recreation TR-808, pitched chopped sampler, basswood maple pau ferro alnico nickel plated steel humbucker electric guitar, cowhide mid tier siam oak mid tier modern open slap hand drum congas. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. FET condenser, transformerless solid-state pre, brick-wall limiter. lossy MP3 autotune digital delay.",
+  "recipe_chars": 576,
+  "score": 180.514,
   "config": {
     "traditions": [
       "hiplife",
@@ -57,12 +57,12 @@
         "slots": {
           "tr808_voice": "tr808_kick_long",
           "drum_machine_808_context": "drum_machine_808_trap",
-          "tr808_production_origin": "tr808_behringer_clone"
+          "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
           "tr808_voice": 7.4815,
           "drum_machine_808_context": 3.3799999999999994,
-          "tr808_production_origin": 1.1365
+          "tr808_production_origin": 1.0315
         }
       },
       {
@@ -76,7 +76,7 @@
         },
         "scores": {
           "electronic_technique": 5.125,
-          "sampler_archetypes": 7.289999999999999,
+          "sampler_archetypes": 6.789999999999999,
           "sampler_bit_depth": 1.3,
           "sampler_workflow": 6.27525,
           "sampler_classic_context": 28.307499999999997
@@ -132,7 +132,7 @@
       }
     ],
     "room": "lagos_decca_west_african_studio",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_lagos_afrobeats_digital",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "pre_neve_1073_input",

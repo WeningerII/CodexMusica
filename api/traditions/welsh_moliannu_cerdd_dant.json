@@ -3,9 +3,9 @@
   "name": "Welsh moliannu and cerdd dant (Welsh praise-poetry)",
   "family": "global",
   "lineage": "Welsh medieval praise-poetry tradition continuous from 6th-7th-century Taliesin-and-Aneirin foundational era (the Cynfeirdd \"early-poets\") through 12th-13th century Gogynfeirdd \"poets-of-the-princes\" era of court-praise-poetry through continuous-Welsh-bardic transmission into modern penillion-singing and cerdd dant (\"string-craft\") harp-and-voice tradition",
-  "recipe": "classic Northern European modern welsh moliannu and cerdd dant, praise Song, Celtic British branch, sub saharan African praise song, Celtic balladic ballad poetry, string drone modal welsh hymn-balladry zulu izibongo. thick, declaimed, tasteful, continuous-phonation. cerdd dant nylon strung welsh triple harp, foundational foundational warm informal choir welsh male, drone under song bardic crwth. uk folk revival club 60s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 555,
-  "score": 293.775,
+  "recipe": "classic Northern European modern welsh moliannu and cerdd dant, praise Song, Celtic British branch, sub saharan African praise song, Celtic balladic ballad poetry, string drone modal welsh hymn-balladry zulu izibongo. thick, declaimed, tasteful, continuous-phonation. cerdd dant nylon strung welsh triple harp, foundational foundational warm informal choir welsh male, drone under song bardic crwth. uk folk revival club 60s. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 488,
+  "score": 286.6,
   "config": {
     "traditions": [
       "welsh_moliannu_cerdd_dant",
@@ -93,7 +93,7 @@
       }
     ],
     "room": "uk_folk_revival_club_60s",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

@@ -3,9 +3,9 @@
   "name": "Romanian cântece pentru copii (children's songs)",
   "family": "global",
   "lineage": "Romanian-language children's play-song tradition continuous from medieval-and-early-modern Romanian folk-play-song origins through 19th-century Romanian-folklorist documentation (Vasile Alecsandri and others) into modern continuous Romanian childhood-practice",
-  "recipe": "classic modern romanian cântece pentru copii, nursery Rhyme, European branch, middle east n African nursery rhyme, European lullaby, European funeral lament lebanese-egyptian aghani al-atfal russian kolybelnaya. thick, low dynamic level, tasteful, continuous-phonation. field recording. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 416,
-  "score": 96.195,
+  "recipe": "classic modern romanian cântece pentru copii, nursery Rhyme, European branch, middle east n African nursery rhyme, European lullaby, European funeral lament lebanese-egyptian aghani al-atfal russian kolybelnaya. thick, low dynamic level, tasteful, continuous-phonation. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 349,
+  "score": 89.795,
   "config": {
     "traditions": [
       "romanian_cantece_pentru_copii",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "field_recording",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

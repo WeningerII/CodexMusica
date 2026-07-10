@@ -3,9 +3,9 @@
   "name": "Indian sangeet (women's pre-wedding music night)",
   "family": "global",
   "lineage": "Pan-Indian (Hindi-Urdu, Punjabi, Bengali, and broader North-Indian) pre-wedding sangeet ceremony music continuous from medieval Mughal-era domestic-music practice through 20th-century filmi-Bollywood appropriation into modern South-Asian-and-diaspora wedding practice",
-  "recipe": "classic modern indian sangeet, wedding, south Asian branch, middle eastern wedding, south Asian pop functional song, indian classical improv improv on frame thumrī carnatic vocal. thick, low dynamic level, chest resonance low mid, continuous-phonation. synthetic remo modern stable bolt tuned modern concert stable dholak, treble-extended vocal female harmonium indian, indian rosewood rosewood copper tabla. hardwood living. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 555,
-  "score": 217.024,
+  "recipe": "classic modern indian sangeet, wedding, south Asian branch, middle eastern wedding, south Asian pop functional song, indian classical improv improv on frame thumrī carnatic vocal. thick, low dynamic level, chest resonance low mid, continuous-phonation. synthetic remo modern stable bolt tuned modern concert stable dholak, treble-extended vocal female harmonium indian, indian rosewood rosewood copper tabla. hardwood living. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 488,
+  "score": 216.211,
   "config": {
     "traditions": [
       "indian_sangeet",
@@ -97,7 +97,7 @@
       }
     ],
     "room": "hardwood_living",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

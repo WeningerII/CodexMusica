@@ -3,9 +3,9 @@
   "name": "Javanese gamelan",
   "family": "classical",
   "lineage": "Javanese bronze-percussion court-and-village tradition tuned in slendro five-tone-and-pelog seven-tone systems, with two parallel lineages: the kraton-court refined-style of Yogyakarta and Surakarta (16th-century onward, Mataram successor sultanates) and the village kemasan rural-ensemble style. The full court gamelan comprises 30-to-40 instruments organized into balungan core-melody bonang-saron, panerusan elaborating-melody gender-rebab-suling, and gong-kempul colotomic-structural-time-markers, performed cyclically through gendhing pieces of nested 8-16-32-64-128 beat irama tempo-density levels. The wayang shadow-puppet performance is the canonical embedding context, where gamelan accompanies dalang puppeteer-narration through pathet modal sections aligned to night-narrative time.",
-  "recipe": "classic Southeast Asian modern javanese gamelan, art Music, southeast Asian branch, east Asian art music beijing opera tibetan ache lhamo opera. thick, pressed, chest resonance low mid, narrative. gamelan foundational carved hardwood canonical javanese goat skin canonical javanese silk pre modern gamelan legato rebab, bamboo rattan band fipple canonical javanese balinese continuous-airflow legato suling, bonang, gender, pentatonic slendro tuning saron gamelan, foundational low fundamental tuning slendro tuning slenthem, colotomic marker slendro tuning kenong, gamelan javanese teak premium javanese court buffalo hide rattan lacing canonical javanese kendang indonesian, gamelan javanese full. javanese pendopo pavilion. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 856,
-  "score": 349.376,
+  "recipe": "classic Southeast Asian early-1940s javanese gamelan, art Music, southeast Asian branch, east Asian art music beijing opera tibetan ache lhamo opera. thick, pressed, chest resonance low mid, narrative. gamelan foundational carved hardwood canonical javanese goat skin canonical javanese silk pre modern gamelan legato rebab, bamboo rattan band fipple canonical javanese balinese continuous-airflow legato suling, bonang, gender, pentatonic slendro tuning saron gamelan, foundational low fundamental tuning slendro tuning slenthem, colotomic marker slendro tuning kenong, gamelan javanese teak premium javanese court buffalo hide rattan lacing canonical javanese kendang indonesian, gamelan javanese full. javanese pendopo pavilion. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 806,
+  "score": 345.376,
   "config": {
     "traditions": [
       "javanese_gamelan",
@@ -68,7 +68,7 @@
           "rebab_context": 7.41,
           "rebab_body": 6.679999999999998,
           "rebab_skin": 6.679999999999998,
-          "rebab_strings": 5.339999999999999
+          "rebab_strings": 3.839999999999999
         }
       },
       {
@@ -165,7 +165,7 @@
       }
     ],
     "room": "javanese_pendopo_pavilion",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_nagra_ethnographic_field",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

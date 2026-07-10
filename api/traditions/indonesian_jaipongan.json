@@ -3,9 +3,9 @@
   "name": "Indonesian jaipongan (Sundanese popular)",
   "family": "global",
   "lineage": "Indonesian jaipongan Sundanese popular-music genre developed in 1974 by Gugum Gumbira in Bandung (West Java) as a modernization of the older ketuk tilu Sundanese folk-dance-music. The form incorporates the traditional kendang Sundanese drum-set, gamelan degung metallophone framework, and Sundanese-language vocal repertoire, but with substantially energized faster-tempo rhythmic pulse and assertive female-singer-dancer presentation. The genre became culturally significant during the late-1970s Indonesian-cultural-nationalism period as an alternative to Western-influenced popular music. Distinguished from broader Sundanese gamelan by jaipongan's mid-1970s commercial-popular crystallization and the assertive vocal-and-dance performance register.",
-  "recipe": "classic Southeast Asian 1977-1979 indonesian jaipongan, groove Percussion, west African branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, declaimed, melodic, punctuated. gamelan sundanese mahogany mid tier modern cowhide modern alternative kendang indonesian, gamelan balinese full, interlocking kacapi. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 596,
-  "score": 216.9,
+  "recipe": "classic Southeast Asian 1977-1979 indonesian jaipongan, groove Percussion, west African branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, declaimed, melodic, punctuated. gamelan sundanese mahogany mid tier modern cowhide modern alternative kendang indonesian, gamelan balinese full, interlocking kacapi. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 529,
+  "score": 199.55,
   "config": {
     "traditions": [
       "indonesian_jaipongan",
@@ -95,7 +95,7 @@
       }
     ],
     "room": "jakarta_bangkok_southeast_asian_studio",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

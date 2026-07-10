@@ -3,9 +3,9 @@
   "name": "Hardstyle",
   "family": "electronic",
   "lineage": "Late-1990s onward Dutch hard-electronic-dance genre evolved from hardcore-techno and gabber through tempo deceleration to 150 bpm and the addition of reverse-bass kick-drum compositional convention — codified through Showtek, Headhunterz, Brennan Heart, Wildstylez, and the Q-dance festival-and-event-promotion network, with the form serving as the Dutch hard-dance commercial mainstream",
-  "recipe": "classic 1997-1999 hardstyle, electronic Dance, hardstyle branch, continental electronic dance disco. digital subtractive, TR-909, sampler. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 283,
-  "score": 41.893,
+  "recipe": "classic 1997-1999 hardstyle, electronic Dance, hardstyle branch, continental electronic dance disco. digital subtractive, TR-909, sampler. live tracking. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
+  "recipe_chars": 288,
+  "score": 44.008,
   "config": {
     "traditions": [
       "hardstyle",
@@ -43,21 +43,21 @@
         "slots": {
           "electronic_technique": "electronic_sample_chopped",
           "sampler_archetypes": "roland_s750",
-          "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
+          "sampler_bit_depth": "sampler_sixteen_bit",
           "sampler_workflow": "sampler_orchestral_library",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
           "electronic_technique": -0.08650000000000001,
           "sampler_archetypes": 1.3,
-          "sampler_bit_depth": 0.52,
+          "sampler_bit_depth": 0.048,
           "sampler_workflow": 2,
           "sampler_classic_context": 17.791749999999993
         }
       }
     ],
     "room": "live_room",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_festival_edm_itb",
     "inline_chain": {
       "mic": "condenser_fet",
       "pre": "transformerless",

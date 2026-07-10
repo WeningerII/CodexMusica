@@ -3,29 +3,29 @@
   "name": "Scottish Hebridean iorram (rowing song)",
   "family": "global",
   "lineage": "Scottish-Hebridean Gaelic rowing-song (iorram, pronounced \"ear-ram\") tradition continuous from medieval-Hebridean-Gaelic maritime practice through 18th-19th-century continuous performance on Scottish-Western-Isles fishing-boats and ferries into 20th-century Scottish-Gaelic revival; the iorram coordinates the synchronized-oar-stroke timing of multi-oar Hebridean fishing-boats",
-  "recipe": "classic modern scottish hebridean iorram, sea Shanty, north Southeast Asian baltic branch, atlantic Southeast Asian shanty, European lullaby, Celtic British praise song scottish gaelic tàladh welsh moliannu and cerdd dant. vocal fry, declaimed, tasteful, continuous-phonation. beach. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 413,
-  "score": 120.29,
+  "recipe": "classic early-1940s scottish hebridean iorram, sea Shanty, north Southeast Asian baltic branch, atlantic Southeast Asian shanty, European lullaby, Celtic British praise song scottish gaelic tàladh irish suantraí. vocal fry, low dynamic level, chest resonance low mid, continuous-phonation. beach. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 371,
+  "score": 109.797,
   "config": {
     "traditions": [
       "hebridean_iorram",
       "scottish_gaelic_taladh",
-      "welsh_moliannu_cerdd_dant"
+      "irish_suantrai"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "vocal_fry",
-          "voice_quality": "praise_voice",
+          "voice_quality": "crooner_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_vibrato": "slow_vibrato",
           "voice_articulation": "legato_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_speech",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
@@ -34,27 +34,27 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 2.245,
-          "voice_quality": 12.504999999999994,
+          "voice_register": 3.245,
+          "voice_quality": 5.915,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
-          "voice_articulation": 5.914999999999998,
-          "voice_microtone": 1.8599999999999999,
-          "voice_tradition": 47.60499999999999,
-          "voice_mechanism_compound": 2.275,
-          "voice_estill_quality": 1.4949999999999999,
-          "voice_speech_song": 14.235,
-          "voice_ensemble_config": 9.035,
-          "voice_ornament_system": 7.1099999999999985,
-          "voice_pitch_organization": 5.914999999999998,
-          "voice_processing_chain": 2.0999999999999996,
-          "voice_multitrack_stack": 3.0549999999999997
+          "voice_vibrato": 0.74,
+          "voice_articulation": 5.069999999999999,
+          "voice_microtone": 3.41,
+          "voice_tradition": 48.77999999999999,
+          "voice_mechanism_compound": 3.5100000000000002,
+          "voice_estill_quality": 2.3725,
+          "voice_speech_song": 13.2925,
+          "voice_ensemble_config": 6.5,
+          "voice_ornament_system": 6.8599999999999985,
+          "voice_pitch_organization": 5.069999999999999,
+          "voice_processing_chain": 3.1,
+          "voice_multitrack_stack": 4.295
         }
       }
     ],
     "room": "beach",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_nagra_ethnographic_field",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

@@ -3,9 +3,9 @@
   "name": "Afro house",
   "family": "electronic",
   "lineage": "Subgenre of deep-and-tech-house emerging from late 2000s through 2010s, integrating West, Central, and Southern African percussion-and-vocal influences into deep-house structural-and-tempo framework (118-126 BPM). Black Coffee (South African DJ-producer Nkosinathi Maphumulo) inaugurated the international Afro house ambassador role through his 2005-onward career; Themba, Caiiro, Da Capo, and the broader Innervisions, Get Physical, and Stay True Sounds labels anchor the canonical sound.",
-  "recipe": "classic West African modern afro house, electronic Dance, house branch, west African groove percussion indonesian jaipongan jùjú. vocal fry, declaimed, melodic, rhythmic. TR-808, analog synth, log drum. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 413,
-  "score": 151.783,
+  "recipe": "classic West African modern afro house, electronic Dance, house branch, west African groove percussion indonesian jaipongan jùjú. vocal fry, declaimed, melodic, rhythmic. TR-808, analog synth, log drum. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
+  "recipe_chars": 367,
+  "score": 159.483,
   "config": {
     "traditions": [
       "afro_house",
@@ -95,7 +95,7 @@
       }
     ],
     "room": "lagos_decca_west_african_studio",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_sa_township_digital",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "transformerless",

@@ -3,9 +3,9 @@
   "name": "Italian canti partigiani (Resistance songs)",
   "family": "global",
   "lineage": "Italian Resistance-and-Partisan-songbook protest-song tradition continuous from 1943-1945 anti-fascist Resistance era (\"Bella Ciao\" as the Resistance anthem in its post-1948 mythologized form, though the song's actual partisan-era usage is disputed by scholars) through post-war Italian Communist Party and Italian left-wing political-songwriter tradition continuous into modern Italian protest-song repertoire",
-  "recipe": "classic 1943-1945 italian canti partigiani, protest Song, European branch, anglo American protest song, chanson fado ballad poetry, Mediterranean ballad ballad poetry american folk-revival protest song morna. thick, lament wail, tasteful, continuous-phonation. martin lifespan fingerpicked acoustic guitar. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 451,
-  "score": 176.868,
+  "recipe": "classic 1943-1945 italian canti partigiani, protest Song, European branch, anglo American protest song, chanson fado ballad poetry, Mediterranean ballad ballad poetry american folk-revival protest song morna. thick, lament wail, tasteful, continuous-phonation. martin lifespan fingerpicked acoustic guitar. live tracking. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 384,
+  "score": 168.455,
   "config": {
     "traditions": [
       "italian_canti_partigiani",
@@ -73,7 +73,7 @@
       }
     ],
     "room": "live_room",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

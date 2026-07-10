@@ -3,14 +3,14 @@
   "name": "Shona mbira praise music (Zimbabwe)",
   "family": "global",
   "lineage": "Shona mbira-and-vocal praise-music tradition continuous from pre-colonial Zimbabwe Karanga-Shona ritual-practice through colonial-period continuous performance into modern Zimbabwean Shona-cultural practice; the mbira dzavadzimu (mbira of the ancestors) is the canonical Shona ritual-and-praise instrument",
-  "recipe": "classic Southern African modern shona mbira praise music, praise Song, sub saharan African branch, indigenous ritual devotional, string drone modal, central east south African groove percussion shipibo-conibo icaros healing songs chimurenga. vocal fry, declaimed, melodic, continuous-phonation. steel maple calabash mbira, hosho. harare formerly salisbury 1971-present indie-commercial harare zimbabwean chimurenga studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 552,
-  "score": 226.088,
+  "recipe": "classic Southern African modern shona mbira praise music, praise Song, sub saharan African branch, indigenous ritual devotional, string drone modal, central east south African groove percussion chimurenga shipibo-conibo icaros healing songs. vocal fry, declaimed, melodic, continuous-phonation. steel maple calabash mbira, hosho. harare formerly salisbury 1971-present indie-commercial harare zimbabwean chimurenga studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 485,
+  "score": 213.013,
   "config": {
     "traditions": [
       "shona_mbira_praise",
-      "shipibo_icaros",
-      "chimurenga"
+      "chimurenga",
+      "shipibo_icaros"
     ],
     "instruments": [
       {
@@ -46,7 +46,7 @@
           "voice_estill_quality": 4.095000000000001,
           "voice_speech_song": 16.575,
           "voice_ensemble_config": 14.169999999999998,
-          "voice_ornament_system": 6.150000000000001,
+          "voice_ornament_system": 6.15,
           "voice_pitch_organization": 3.0349999999999997,
           "voice_processing_chain": 4.355,
           "voice_multitrack_stack": 4.16
@@ -82,7 +82,7 @@
       }
     ],
     "room": "harare_zimbabwean_chimurenga_studio",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

@@ -3,9 +3,9 @@
   "name": "Armenian liturgical and folk",
   "family": "global",
   "lineage": "Armenian Apostolic Christian liturgical tradition (the sharakan hymn repertoire dating to the 5th-century Mesrop Mashtots alphabet creation) and Armenian folk-and-ashugh-poetry-song tradition — codified by Komitas (1869-1935, the founding ethnomusicologist of Armenian musical scholarship) and preserved through the Yerevan Komitas State Conservatory; signature instrument the duduk, modern voices Djivan Gasparyan and Tigran Hamasyan",
-  "recipe": "classic Eastern European early-1860s armenian liturgical and folk, art Music, middle eastern classical branch, Persian arab improv improv on frame tarab malhun. thick, low dynamic level, chest resonance low mid, maqam neutral step. apricot canonical armenian prunus armeniaca arundo donax ghamish canonical armenian areni valley djivan gasparyan canonical 20th century armenian continuous-airflow legato duduk, traditional kanun kanun, padauk Egyptian Syrian premium Lebanese cedar eastern Mediterranean pyramid oud. yerevan armenian komitas studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 622,
-  "score": 276.362,
+  "recipe": "classic Eastern European early-1860s armenian liturgical and folk, art Music, middle eastern classical branch, Persian arab improv improv on frame tarab malhun. thick, low dynamic level, chest resonance low mid, maqam neutral step. apricot canonical armenian prunus armeniaca arundo donax ghamish canonical armenian areni valley djivan gasparyan canonical 20th century armenian continuous-airflow legato duduk, kanun synthetic kanun, padauk Egyptian Syrian premium Lebanese cedar eastern Mediterranean pyramid oud. yerevan armenian komitas studio. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
+  "recipe_chars": 681,
+  "score": 280.719,
   "config": {
     "traditions": [
       "armenian_traditional",
@@ -76,12 +76,12 @@
         "slots": {
           "plucked_traditional_technique": "plucked_classical_idiom",
           "kanun_school": "kanun_armenian",
-          "kanun_articulation": "kanun_tortoiseshell_pick"
+          "kanun_articulation": "kanun_synthetic_pick"
         },
         "scores": {
           "plucked_traditional_technique": 11.625,
           "kanun_school": 14.307999999999996,
-          "kanun_articulation": 0.5199999999999999
+          "kanun_articulation": 1.69
         }
       },
       {
@@ -107,7 +107,7 @@
       }
     ],
     "room": "yerevan_armenian_komitas_studio",
-    "archetype": "arch_electrical_disc_cut",
+    "archetype": "arch_melodiya_state",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "pre_tube_german_v72",

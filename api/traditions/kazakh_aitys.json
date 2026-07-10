@@ -3,14 +3,14 @@
   "name": "Kazakh aitys (improvisational poetic contest)",
   "family": "global",
   "lineage": "Kazakh aitys improvisational poetic-contest tradition: a competitive verbal-dueling form in which two akyn improvising poet-singers face off in extempore Kazakh-language verse exchange, each responding to the previous while introducing new poetic-philosophical material, accompanied by akyn's own dombyra. Performance traditionally at weddings, autumn-harvest celebrations, and festival days, with audience reaction signaling who is winning. Survived Soviet period as sanctioned-folk practice and entered post-1991 cultural revival as national-cultural symbol. Annual televised aitys competitions broadcast since the 1990s.",
-  "recipe": "classic Northeast Asian mid-1990s kazakh aitys, ballad Poetry, Slavic bard branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. thick, declaimed, melodic, punctuated. turkmen long necked bagshy tradition fergana tashkent maqom tradition distinct from bukharan dutar, teardrop bodied gut strung dombyra. open steppe outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 507,
-  "score": 171.515,
+  "recipe": "classic Northeast Asian mid-1990s kazakh aitys, ballad Poetry, Slavic bard branch, indigenous ritual devotional mapuche tayil genealogical chant shipibo-conibo icaros healing songs. thick, declaimed, melodic, punctuated. turkmen long necked bagshy tradition fergana tashkent maqom tradition distinct from bukharan dutar, teardrop bodied gut strung dombyra. open steppe outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 440,
+  "score": 157.415,
   "config": {
     "traditions": [
       "kazakh_aitys",
-      "shipibo_icaros",
-      "mapuche_tayil_ritual"
+      "mapuche_tayil_ritual",
+      "shipibo_icaros"
     ],
     "instruments": [
       {
@@ -80,7 +80,7 @@
       }
     ],
     "room": "open_steppe_outdoor",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

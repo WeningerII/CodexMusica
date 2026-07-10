@@ -3,9 +3,9 @@
   "name": "Tibetan chöd rite (voice with damaru and kangling)",
   "family": "global",
   "lineage": "Chöd ('cutting') is a Tibetan Buddhist tantric practice systematized in the eleventh–twelfth centuries by the female adept Machig Labdrön, in which the practitioner symbolically severs ego-attachment by visualizing the offering of the body to spirits, often performed in charnel grounds and wild places. The sadhana is sung to characteristic melodic chant lines while the practitioner plays the damaru (double-headed hand drum) and the kangling (thighbone trumpet), whose blasts summon the guests to the feast. It crosses lineage boundaries (Nyingma, Kagyü, Gelug) and combines melodic yang-style chant with deep resonant vocalization. The tradition is transmitted through empowerment and practice-text lineages and documented in Tibetan liturgical manuscripts and modern ethnomusicology.",
-  "recipe": "classic East Asian modern tibetan chöd rite, ritual Devotional, buddhist branch shipibo-conibo icaros healing songs sufi inshad. vocal fry, declaimed, melodic, maqam neutral step. tibetan gompa assembly hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 338,
-  "score": 171.041,
+  "recipe": "classic East Asian modern tibetan chöd rite, ritual Devotional, buddhist branch shipibo-conibo icaros healing songs sufi inshad. vocal fry, declaimed, melodic, maqam neutral step. tibetan gompa assembly hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 271,
+  "score": 149.753,
   "config": {
     "traditions": [
       "tibetan_chod_rite",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "tibetan_gompa_assembly_hall",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

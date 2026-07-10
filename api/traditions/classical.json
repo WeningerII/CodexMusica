@@ -3,9 +3,9 @@
   "name": "Classical",
   "family": "classical",
   "lineage": "The Western classical tradition — through-composed European art music of the common-practice era, spanning the Baroque, Classical, and Romantic periods",
-  "recipe": "classic mid-1930s classical, art Music, western common practice branch. thick, chest resonance low mid, equal tempered, Chinese classical vocal. beech laminated maple laminated European tradition European spruce norway spruce grand piano, norway spruce European alpine European maple bosnian source flamed figure violin orchestral, norway spruce European alpine European maple bosnian source flamed figure cello. shoebox concert hall. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 507,
-  "score": 376.799,
+  "recipe": "classic British early-1950s classical, art Music, western common practice branch. thick, chest resonance low mid, equal tempered, Chinese classical vocal. beech laminated maple laminated European tradition European spruce norway spruce grand piano, norway spruce European alpine European maple bosnian source flamed figure violin orchestral, norway spruce European alpine European maple bosnian source flamed figure cello. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
+  "recipe_chars": 502,
+  "score": 382.888,
   "config": {
     "traditions": [
       "classical"
@@ -29,7 +29,7 @@
           "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_octave_double_self"
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
           "voice_register": 3.6999999999999993,
@@ -47,7 +47,7 @@
           "voice_ornament_system": 10.987999999999998,
           "voice_pitch_organization": 10.649999999999999,
           "voice_processing_chain": 1.6725,
-          "voice_multitrack_stack": 0.4487499999999999
+          "voice_multitrack_stack": 1.1624999999999999
         }
       },
       {
@@ -129,7 +129,7 @@
       }
     ],
     "room": "concert_hall_shoebox",
-    "archetype": "arch_electrical_disc_cut",
+    "archetype": "arch_decca_sound_orchestral",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "tube_pre",

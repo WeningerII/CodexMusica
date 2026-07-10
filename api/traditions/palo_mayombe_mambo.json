@@ -3,9 +3,9 @@
   "name": "Palo Mayombe Kongo mambo ritual chant",
   "family": "global",
   "lineage": "Palo (Las Reglas de Congo), of which Mayombe is a principal branch, is the Afro-Cuban religion derived from Kikongo-speaking Bantu peoples of Central Africa, brought to Cuba under slavery and centered on the nganga (prenda) spirit-vessel and the dead (nfumbi). Its ritual songs, called mambos, are call-and-response chants in a Kikongo-derived liturgical language (habla congo) led by a soloist and answered by the chorus over Palo drums (ngoma) and iron, to summon, praise, and work with the mpungu forces and the spirits. Delivery is metrical, percussive, and communal, driving the ceremony toward possession. The tradition is documented in the ethnographic work of Lydia Cabrera (El Monte) and later scholars of Afro-Cuban religion.",
-  "recipe": "classic South American modern palo mayombe kongo mambo ritual chant, ritual Devotional, Afro-diasporic branch black gospel african-american spirituals. thick, declaimed, chest resonance low mid, ornamental. terreiro outdoor yard. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 359,
-  "score": 220.938,
+  "recipe": "classic South American modern palo mayombe kongo mambo ritual chant, ritual Devotional, Afro-diasporic branch black gospel african-american spirituals. thick, declaimed, chest resonance low mid, ornamental. terreiro outdoor yard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 292,
+  "score": 211.913,
   "config": {
     "traditions": [
       "palo_mayombe_mambo",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "terreiro_outdoor_yard",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

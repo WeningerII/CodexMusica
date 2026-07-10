@@ -3,9 +3,9 @@
   "name": "Kompa-direkt (Haitian)",
   "family": "global",
   "lineage": "The original founding Haitian kompa-direkt tradition invented by Nemours Jean-Baptiste in 1955 — characterized by big-band horn-section arrangement, slower 2/4 dance tempo (90-110 BPM), and the meringue Haitian rhythmic foundation; figures Nemours Jean-Baptiste (the founder), his orchestra Ensemble Aux Calebasses, and the parallel cadence-rampa lineage of Webert Sicot",
-  "recipe": "classic Caribbean mid-1950s kompa-direkt, groove Percussion, Caribbean branch, American jazz early swing-era jazz orchestra dixieland. thick, full chest belt, punctuated, equal tempered. Fender blackface amp American 60s amp spring reverb bright clean strummed single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric bronze bell bronze over hammered drum kit, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, congas. port au prince Haitian recording 1970-2000 indie-commercial port au prince haitian kompa studio. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 793,
-  "score": 294.958,
+  "recipe": "classic Caribbean mid-1950s kompa-direkt, groove Percussion, Caribbean branch, American jazz early swing-era jazz orchestra dixieland. thick, full chest belt, punctuated, equal tempered. Fender blackface amp American 60s amp spring reverb bright clean strummed single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric bronze bell bronze over hammered drum kit, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, synthetic remo fiberskyn modern stable congas. port au prince Haitian recording 1970-2000 indie-commercial port au prince haitian kompa studio. sennheiser MD421, transformer-coupled solid-state pre, colored vintage console, optical compressor, parametric EQ. tape 15ips spring reverb.",
+  "recipe_chars": 863,
+  "score": 296.984,
   "config": {
     "traditions": [
       "kompa_direkt",
@@ -20,7 +20,7 @@
           "voice_quality": "full_chest_belt_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "staccato_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "jazz_scat_tradition",
@@ -38,7 +38,7 @@
           "voice_quality": 4.891500000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.3,
+          "voice_vibrato": 0.39,
           "voice_articulation": 2.65275,
           "voice_microtone": 15.444999999999999,
           "voice_tradition": 21.384999999999998,
@@ -63,7 +63,7 @@
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
           "string_gauge": "g_11",
-          "bridge": "locking_trem",
+          "bridge": "two_point_trem",
           "scale_length": "scale_gibson",
           "finish": "poly",
           "string_tuning": "open_g"
@@ -77,7 +77,7 @@
           "pickup_magnet": 0.105,
           "string_material": 0.195,
           "string_gauge": 0.3,
-          "bridge": 0.0315,
+          "bridge": 1.2349999999999999,
           "scale_length": 0.3,
           "finish": 0.845,
           "string_tuning": 0.845
@@ -89,7 +89,7 @@
           "electric_technique": "electric_bass_slap_pop",
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "alder_b",
-          "pickup_config": "split_coil",
+          "pickup_config": "soapbar",
           "string_type": "thomastik_jazz_bass_flat",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
@@ -99,7 +99,7 @@
           "electric_technique": -0.035,
           "amp_make": 6.922500000000001,
           "body_wood": 0.3,
-          "pickup_config": 0,
+          "pickup_config": 0.39,
           "string_type": 19.259999999999998,
           "scale_length_b": 0.5265,
           "fretted_or_not": 0.0315,
@@ -112,7 +112,7 @@
           "percussion_technique": "percussion_brushes_and_sticks",
           "shell_wood": "brass_shell",
           "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "bearing_edges": "edge_45",
           "drumhead": "vintage_ambassador_drumhead",
           "snare_wires": "cable_snares",
           "cymbal_alloy": "b20",
@@ -125,7 +125,7 @@
           "percussion_technique": 13.259999999999998,
           "shell_wood": 0.195,
           "shell_thickness": 0,
-          "bearing_edges": 0.3,
+          "bearing_edges": 0.39,
           "drumhead": 19.34,
           "snare_wires": 0.3,
           "cymbal_alloy": 16.57,
@@ -153,7 +153,7 @@
           "sax_body_alloy": 15.75,
           "sax_mouthpiece": 0.65,
           "sax_technique": 15.0315,
-          "sax_maker_school": 19.435
+          "sax_maker_school": 16.835
         }
       },
       {
@@ -161,19 +161,19 @@
         "slots": {
           "percussion_technique": "percussion_open_slap",
           "conga_set": "quinto",
-          "conga_skin": "conga_mule_hide",
-          "conga_shell_wood": "conga_oak_staved"
+          "conga_skin": "conga_synthetic_head",
+          "conga_shell_wood": "conga_siam_oak"
         },
         "scores": {
           "percussion_technique": 0.26,
           "conga_set": 0.2265,
-          "conga_skin": 0.45299999999999996,
-          "conga_shell_wood": 0.4215
+          "conga_skin": 1.2349999999999999,
+          "conga_shell_wood": 0.705
         }
       }
     ],
     "room": "port_au_prince_haitian_kompa_studio",
-    "archetype": "arch_early_tape_havana",
+    "archetype": "arch_haitian_konpa_diaspora",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "pre_tube_german_v72",

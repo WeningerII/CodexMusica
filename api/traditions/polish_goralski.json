@@ -3,9 +3,9 @@
   "name": "Polish góralski (Tatra highlander)",
   "family": "global",
   "lineage": "Polish góralski Tatra-Mountain highlander music-and-dance tradition of the Podhale region in southern Poland, performed by the Polish góral mountain-folk community. The kapela góralska ensemble centers on the prymista (lead violinist) accompanied by sekund (second-violin) and basy (three-string Tatra-style upright-bass), with characteristic open-string drone-and-shifted-tonal-center modal vocabulary distinct from broader Polish lowland folk-music. Performance contexts span village-festival celebrations, wedding ceremonies, and (since 1968) the international Folk-Music Festival in Zakopane. The post-1980 Tatra-cultural-revival under the local Highlander Union has consolidated institutional preservation. Distinguished from Slovak fujara solo and Czech moravian folk by Polish góralski Podhale-Tatra specific stylistic-conventions.",
-  "recipe": "classic late-1960s polish góralski, functional Song, europop branch, Celtic balladic ballad poetry breton folk newfoundland outport balladry. thick, incomplete closure resting, melodic, unrestrained. half rectified sitka spruce hard rock maple acer saccharum French Polish violin orchestral. mountain valley. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 438,
-  "score": 175.662,
+  "recipe": "classic late-1960s polish góralski, functional Song, europop branch, Celtic balladic ballad poetry breton folk newfoundland outport balladry. thick, incomplete closure resting, melodic, unrestrained. half rectified sitka spruce hard rock maple acer saccharum French Polish violin orchestral. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 371,
+  "score": 165.662,
   "config": {
     "traditions": [
       "polish_goralski",
@@ -81,7 +81,7 @@
       }
     ],
     "room": "mountain_valley",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

@@ -3,9 +3,9 @@
   "name": "Tunisian malouf (Andalusi classical)",
   "family": "classical",
   "lineage": "Tunisian malouf classical Andalusi-Arabic art-music tradition, the Tunisian recension of the broader Maghrebi-Andalusi nuba descended from medieval al-Andalus through the post-1492 expulsion-diaspora settlement (with Testour as a principal Andalusi-refugee settlement). The Tunisian repertoire comprises thirteen canonical nubat. The early-twentieth-century Rachidia Institute (Tunis, 1934) consolidated the canon. Performance integrates male choir-and-soloist with oud, rebab, qanun, nay, and darbuka. Distinguished from Moroccan al-Āla by Tunisian-specific suite-cycle and Rachidia-Institute-canonized repertoire.",
-  "recipe": "classic North African early-1490s tunisian malouf, art Music, middle eastern classical branch, Persian arab improv improv on frame tarab turkish-romani çümbüş music. vocal fry, low dynamic level, chest resonance low mid, maqam neutral step. rosewood premium iraqi Turkish Lebanese cedar eastern Mediterranean pyramid oud, heterophonic melodic lead legato rabab maghribi, metal finger picks rosewood body arab premium goat skin bridge plate qanun, spun aluminum Egyptian sombaty goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka. nuba courtyard hall. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 651,
-  "score": 345.64,
+  "recipe": "classic North African early-1490s tunisian malouf, art Music, middle eastern classical branch, Persian arab improv improv on frame tarab turkish-romani çümbüş music. vocal fry, low dynamic level, chest resonance low mid, maqam neutral step. rosewood premium iraqi Turkish Lebanese cedar eastern Mediterranean pyramid oud, heterophonic melodic lead legato rabab maghribi, metal finger picks rosewood body arab premium goat skin bridge plate qanun, spun aluminum Egyptian sombaty goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka. nuba courtyard hall. large-diaphragm condenser, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe_chars": 659,
+  "score": 345.615,
   "config": {
     "traditions": [
       "tunisian_malouf",
@@ -126,7 +126,7 @@
       }
     ],
     "room": "nuba_courtyard_hall",
-    "archetype": "arch_electrical_disc_cut",
+    "archetype": "arch_maghreb_state_radio",
     "inline_chain": {
       "mic": "mic_u47_tube_neumann",
       "pre": "pre_tube_german_v72",

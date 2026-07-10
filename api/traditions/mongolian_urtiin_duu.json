@@ -3,9 +3,9 @@
   "name": "Mongolian urtiin duu long-song",
   "family": "classical",
   "lineage": "Mongolian urtiin duu (\"long song\") tradition. Solo vocal art-form characterized by extreme melisma — single text syllables extended across many breaths in elaborate ornamental melodic territory, with characteristic falsetto-and-chest-register alternation, a vibrato called shuranhai produced by ornamental throat-tremolo, and an overall melodic range extending across two-and-a-half octaves. Repertoire draws on praise-songs to natural features (rivers, mountains, the eternal blue sky tngri), ancestor-veneration cycles, and ceremonial-occasion repertoire. Accompaniment on morin khuur (the two-string horsehead fiddle that is the canonical Mongolian instrument). Pentatonic modal vocabulary with mode-specific ornament conventions and a strongly pastoral-derived expressive register. Norovbanzad (1931-2002) is the twentieth-century canonical singer. Carole Pegg's Mongolian Music, Dance & Oral Narrative (University of Washington Press 2001) is the principal English-language scholarly documentation, with Mongolian National Folk Song and Dance Academy archives the institutional anchor. Distinguished from Mongolian bogino duu (\"short song\") by the long-song's extreme-melisma extended-form structure; distinguished from Tuvan ezengileer melodic-style by Mongolian-Khalkh dialect-specific cadential conventions; distinguished from Kazakh küy by voice-led (vs instrumental-led) tradition structure.",
-  "recipe": "classic Northeast Asian early-1930s mongolian urtiin duu long-song, drone Modal, heterophonic branch, vocal drone modal northern sámi luohti yoik southern sámi vuelie. kargyraa, declaimed, melodic, ornamental. long song morin khuur sycamore canonical mongolian horsehair 118 130 strands morin khuur. open steppe outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 450,
-  "score": 337.815,
+  "recipe": "classic Northeast Asian early-1930s mongolian urtiin duu long-song, drone Modal, heterophonic branch, vocal drone modal northern sámi luohti yoik southern sámi vuelie. kargyraa, declaimed, melodic, ornamental. long song morin khuur sycamore canonical mongolian horsehair 118 130 strands morin khuur. open steppe outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 383,
+  "score": 325.965,
   "config": {
     "traditions": [
       "mongolian_urtiin_duu",
@@ -71,7 +71,7 @@
       }
     ],
     "room": "open_steppe_outdoor",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

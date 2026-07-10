@@ -3,9 +3,9 @@
   "name": "Lebanese-Arab wedding takht (تخت العرس)",
   "family": "global",
   "lineage": "Lebanese-and-pan-Arab wedding-music tradition centered on the takht (small classical Arabic ensemble of oud, qanun, riq or tabla, violin or rebab, and vocalist); continuous from 19th-century Levantine-Arab classical-and-domestic-music practice through 20th-century Beirut-Cairo-Damascus golden-age wedding-music recording",
-  "recipe": "classic North African mid-1930s lebanese-arab wedding takht, wedding, middle eastern branch, European wedding, middle eastern classical art music, Persian arab improv improv on frame tarab andalusī nūba. vocal fry, low dynamic level, chest resonance low mid, continuous-phonation. padauk Egyptian Syrian premium Lebanese cedar eastern Mediterranean pyramid oud, metal finger picks rosewood body arab premium qanun, rosewood mop inlay canonical Egyptian takht fish skin canonical Egyptian light responsive brass jingles canonical takht riq, spun aluminum Egyptian sombaty Egyptian sombaty canonical mid east darbuka, sustained legato fiddle, sustained legato rabab maghribi, indian rosewood rosewood copper tabla. stone plaster medina room. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 812,
-  "score": 458.155,
+  "recipe": "classic North African mid-1960s lebanese-arab wedding takht, wedding, middle eastern branch, European wedding, middle eastern classical art music, Persian arab improv improv on frame tarab andalusī nūba. vocal fry, low dynamic level, chest resonance low mid, continuous-phonation. padauk Egyptian Syrian premium Lebanese cedar eastern Mediterranean pyramid oud, metal finger picks rosewood body arab premium qanun, rosewood mop inlay canonical Egyptian takht fish skin canonical Egyptian light responsive brass jingles canonical takht riq, spun aluminum Egyptian sombaty Egyptian sombaty canonical mid east darbuka, sustained legato fiddle, sustained legato rabab maghribi, indian rosewood rosewood copper tabla. stone plaster medina room. Neumann U47, tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb hall reverb.",
+  "recipe_chars": 849,
+  "score": 461.517,
   "config": {
     "traditions": [
       "lebanese_arab_takht_wedding",
@@ -173,7 +173,7 @@
       }
     ],
     "room": "stone_plaster_medina_room",
-    "archetype": "arch_electrical_disc_cut",
+    "archetype": "arch_beirut_rahbani_pop",
     "inline_chain": {
       "mic": "mic_u47_tube_neumann",
       "pre": "pre_tube_german_v72",

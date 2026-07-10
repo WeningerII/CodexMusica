@@ -3,9 +3,9 @@
   "name": "Baroque period-instrument",
   "family": "classical",
   "lineage": "1600-1750 European art-music period encompassing the development of opera (Monteverdi Orfeo 1607), the concerto grosso (Corelli), the cantata and fugue (Bach), the oratorio (Handel), and the harpsichord and early-fortepiano keyboard repertoire — characterized by figured-bass continuo practice, contrapuntal compositional technique, ornamental melodic style, and the moderate-pitch (A=415 Hz typical) tuning convention",
-  "recipe": "classic early-1600s baroque period-instrument, art Music, western early branch, christian gospel anglican choral anglican choral evensong. steel norway spruce European alpine European maple bosnian source violin orchestral, flemish ruckers antwerp canonical late 16th 17th century bach era reference quarter comma meantone canonical renaissance early Baroque legato harpsichord, gut norway spruce European alpine European maple bosnian source cello, yew ribs Italian Baroque pistoy bass gut plain gut treble historical canonical Baroque theorbo, pistoy silver wound gut treble canonical bass viol snakewood underhand grip viola da gamba, boxwood canonical Baroque classical pre 1850 loree paris canonical American school legato oboe, ayre and lieder pistoy bass gut plain gut treble lute renaissance, boxwood canonical renaissance European shawm, controlled legato bassoon, bass quartposaune consort blend thin hammered brass sackbut, fuller bass double bourdon early Italian baroque guitar.",
-  "recipe_chars": 991,
-  "score": 356.16,
+  "recipe": "classic European early-1600s baroque period-instrument, art Music, western early branch, christian gospel anglican choral anglican choral evensong. steel norway spruce European alpine European maple bosnian source violin orchestral, flemish ruckers antwerp canonical late 16th 17th century bach era reference quarter comma meantone canonical renaissance early Baroque legato harpsichord, gut norway spruce European alpine European maple bosnian source cello, yew ribs Italian Baroque pistoy bass gut plain gut treble historical canonical Baroque theorbo, pistoy silver wound gut treble canonical bass viol snakewood underhand grip viola da gamba, boxwood canonical Baroque classical pre 1850 loree paris canonical American school legato oboe, ayre and lieder pistoy bass gut plain gut treble lute renaissance, boxwood canonical renaissance European shawm, controlled legato bassoon, bass quartposaune consort blend thin hammered brass sackbut, fuller bass double bourdon early Italian baroque guitar.",
+  "recipe_chars": 1000,
+  "score": 352.135,
   "config": {
     "traditions": [
       "baroque_period",
@@ -249,7 +249,7 @@
       }
     ],
     "room": "stone_parish_church",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_church_location_early_music",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "tube_pre",

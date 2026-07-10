@@ -3,9 +3,9 @@
   "name": "Brazilian cantiga de ninar (cradle song)",
   "family": "global",
   "lineage": "Brazilian Portuguese cradle-song tradition fusing Iberian acalanto inheritance with Indigenous-Brazilian and Afro-Brazilian musical inflection across centuries of Lusophone-Brazilian domestic practice",
-  "recipe": "classic modern brazilian cantiga de ninar, lullaby, European branch, Brazilian song functional song, Latin am troubadour ballad poetry milonga bambuco. thick, forward-resonance, chest resonance low mid, rhythmic. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 351,
-  "score": 70.055,
+  "recipe": "classic modern brazilian cantiga de ninar, lullaby, European branch, Brazilian song functional song, Latin am troubadour ballad poetry milonga bambuco. thick, forward-resonance, chest resonance low mid, rhythmic. bedroom. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 284,
+  "score": 65.968,
   "config": {
     "traditions": [
       "brazilian_cantiga_de_ninar",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "untreated_bedroom",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

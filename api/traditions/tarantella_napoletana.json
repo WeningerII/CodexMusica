@@ -3,9 +3,9 @@
   "name": "Tarantella napoletana (Neapolitan)",
   "family": "global",
   "lineage": "Tarantella napoletana Southern Italian folk-dance-and-song tradition of the Naples region (Campania), characterized by fast 6/8 meter (or compound-duple), virtuoso mandolin-and-acoustic-guitar instrumental lead, and tambourine percussion (the tammorra and tamburello). Historically connected to the tarantismo ritual-healing dance-cure tradition of southern Italian rural communities (the dance ostensibly cured tarantism, the psychosomatic illness attributed to tarantula-bite). Performance contexts span village-festival celebrations, weddings, and the canonical Neapolitan urban-popular concertina contexts. Distinguished from pizzica salentina by tarantella napoletana's Campanian regional cadential-conventions and the broader Neapolitan canzone connection.",
-  "recipe": "classic Southern European modern tarantella napoletana, ballad Poetry, Mediterranean ballad branch, Brazilian groove percussion, iberian functional song catalan sardana canzone napoletana. thick, low dynamic level, pure, continuous-phonation. bowl back Italian Italian alpine spruce brescian calace x brace modern mandolin mandolin, campanian healing rite tammorra, fingerpicked parlor acoustic guitar. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 623,
-  "score": 203.685,
+  "recipe": "classic Southern European modern tarantella napoletana, ballad Poetry, Mediterranean ballad branch, Brazilian groove percussion, iberian functional song catalan sardana canzone napoletana. thick, low dynamic level, pure, continuous-phonation. bowl back Italian Italian alpine spruce brescian calace x brace modern mandolin mandolin, campanian healing rite tammorra, fingerpicked parlor acoustic guitar. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 556,
+  "score": 195.16,
   "config": {
     "traditions": [
       "tarantella_napoletana",
@@ -107,7 +107,7 @@
       }
     ],
     "room": "naples_canzone_napoletana_studio",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

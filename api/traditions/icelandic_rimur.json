@@ -3,9 +3,9 @@
   "name": "Icelandic rímur (epic-chant)",
   "family": "global",
   "lineage": "Icelandic rímur (singular ríma) epic-chant narrative tradition of Iceland, comprising sung-narrative cycles based on Old Norse sagas, Continental medieval romance, and biblical-and-classical sources. Origin documented from late fourteenth-century onward, with continuous transmission through Icelandic farmstead winter-evening-entertainment context (the kvöldvaka evening-vigil reading-and-singing gathering) into the twentieth century. Performance: solo unaccompanied chanting in characteristic narrow-range Phrygian-and-related modes, with the canonical poetic-meter ferskeytt four-line stanza form and elaborate alliterative-and-internal-rhyme conventions inherited from skaldic verse. The Iðunn society (founded 1929) and the Kvæðamannafélagið Iðunn (Iðunn Rímur-singer Society) anchor institutional preservation; the post-2000s neo-folk revival has reactivated the genre.",
-  "recipe": "classic mid-2000s icelandic rímur, ballad Poetry, Slavic bard branch, indigenous ritual devotional hawaiian mele oli sacred-chant māori karanga and pōwhiri ritual call. thick, declaimed, nervy, narrative. mountain valley. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 351,
-  "score": 176.635,
+  "recipe": "classic mid-2000s icelandic rímur, ballad Poetry, Slavic bard branch, indigenous ritual devotional hawaiian mele oli sacred-chant māori karanga and pōwhiri ritual call. thick, declaimed, nervy, narrative. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 284,
+  "score": 164.66,
   "config": {
     "traditions": [
       "icelandic_rimur",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "mountain_valley",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

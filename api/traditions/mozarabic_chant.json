@@ -3,9 +3,9 @@
   "name": "Mozarabic chant (Hispanic rite)",
   "family": "classical",
   "lineage": "Iberian liturgical chant tradition of the pre-Roman-rite-imposition Hispanic Christian church, in continuous use in parts of Spain from late-antiquity through eleventh-century Roman-rite imposition. Survived after the eleventh-century replacement in restricted use at the Corpus Christi Chapel of Toledo Cathedral (where six Mozarabic chaplaincies were maintained) and the parish of Saints Justa and Rufina in Toledo. The post-Vatican-II 1988 Liber Antiphonarius Officii Mozarabici codified the modern recension. Distinguished from Gregorian by Mozarabic's distinct neume-notation system and Visigothic-Hispanic liturgical structure.",
-  "recipe": "classic late-1980s mozarabic chant, ritual Devotional, christian gospel branch, western early art music ars antiqua and organum ars nova. thick, declaimed, chest resonance low mid, ornamental. mixed satb canonical 4 part western four voice polyphonic regional svanetian complex three voice highland polyphonic choir ensemble. parish church. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 413,
-  "score": 125.555,
+  "recipe": "classic European late-1980s mozarabic chant, ritual Devotional, christian gospel branch, western early art music ars antiqua and organum ars nova. thick, declaimed, chest resonance low mid, ornamental. mixed satb canonical 4 part western four voice polyphonic regional svanetian complex three voice highland polyphonic choir ensemble. parish church. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+  "recipe_chars": 424,
+  "score": 128.28,
   "config": {
     "traditions": [
       "mozarabic_chant",
@@ -69,7 +69,7 @@
       }
     ],
     "room": "stone_parish_church",
-    "archetype": "arch_electrical_disc_cut",
+    "archetype": "arch_church_location_early_music",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "tube_pre",

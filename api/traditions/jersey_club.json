@@ -3,9 +3,9 @@
   "name": "Jersey club",
   "family": "electronic",
   "lineage": "Newark New Jersey dance-music genre evolved from Baltimore club through the late-2000s — characterized by 130 bpm syncopated kick-drum patterns, chopped vocal-sample hooks (including the signature Triton bed-squeak sound), bouncing 5-beat rhythmic foundation, and an explicit local-dance-scene context — codified through DJ Tameil, DJ Lilman, DJ Sliink, UNIIQU3, Trippy Turtle",
-  "recipe": "classic 2007-2009 jersey club, electronic Dance, footwork branch, uk soundsystem bass system liquid funk uk garage and 2-step. vocal fry, rap, overtone rich sustained, punctuated. TR-808, chopped sampler, sub bass digital subtractive. live tracking. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
-  "recipe_chars": 345,
-  "score": 147.184,
+  "recipe": "classic Asian 2007-2009 jersey club, electronic Dance, footwork branch, uk soundsystem bass system liquid funk uk garage and 2-step. vocal fry, rap, overtone rich sustained, punctuated. TR-808, chopped sampler, sub bass digital subtractive. live tracking. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+  "recipe_chars": 389,
+  "score": 147.359,
   "config": {
     "traditions": [
       "jersey_club",
@@ -97,7 +97,7 @@
       }
     ],
     "room": "live_room",
-    "archetype": "arch_pre_daw_electronic_pioneer",
+    "archetype": "arch_hk_cantopop_ballad_factory",
     "inline_chain": {
       "mic": "condenser_fet",
       "pre": "transformerless",

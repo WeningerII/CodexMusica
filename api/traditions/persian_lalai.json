@@ -3,9 +3,9 @@
   "name": "Persian lālā'ī (لالایی, cradle song)",
   "family": "global",
   "lineage": "Persian cradle-song tradition continuous from medieval Persian domestic-vocal practice through pre-revolutionary modern-Iranian domestic singing and diaspora practice in Los Angeles, Stockholm, and Toronto Iranian communities",
-  "recipe": "classic Middle Eastern modern persian lālā'ī, lullaby, middle eastern branch, middle eastern classical art music, vocal drone modal, med east poetic ballad poetry ghazal andalusī nūba. vocal fry, low dynamic level, chest resonance low mid, continuous-phonation. tehran classical dastgah context. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 425,
-  "score": 218.167,
+  "recipe": "classic Middle Eastern modern persian lālā'ī, lullaby, middle eastern branch, middle eastern classical art music, vocal drone modal, med east poetic ballad poetry ghazal andalusī nūba. vocal fry, low dynamic level, chest resonance low mid, continuous-phonation. tehran classical dastgah context. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 358,
+  "score": 217.518,
   "config": {
     "traditions": [
       "persian_lalai",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "tehran_classical_dastgah_context",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

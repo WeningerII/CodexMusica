@@ -3,9 +3,9 @@
   "name": "Hat boi (tuong) declamation",
   "family": "classical",
   "lineage": "Hat boi (also tuong) is the classical theatre of Vietnam, a heroic-historical stage form crystallized under the Nguyen court in central Vietnam (Binh Dinh province and the imperial capital Hue) in the 18th and 19th centuries. Its declamation delivers stylized, emphatic, tonally shaped stage-speech, loud and rhetorically pointed for warrior and loyal-minister roles, alternating with sung passages and set against a percussion-led ensemble dominated by the trong chau drum. It is distinct from the later southern reformed opera cai luong and from the northern comic-satirical cheo. It is documented in the repertories of the Vietnam Tuong Theatre and in Vietnamese Institute of Musicology field recordings.",
-  "recipe": "classic Southeast Asian modern hat boi (tuong) declamation, art Music, southeast Asian branch thai classical beijing opera. thick, pressed, chest resonance low mid, unrestrained. wooden pagoda hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 328,
-  "score": 229.879,
+  "recipe": "classic Southeast Asian modern hat boi (tuong) declamation, art Music, southeast Asian branch thai classical beijing opera. thick, pressed, chest resonance low mid, unrestrained. wooden pagoda hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 261,
+  "score": 225.229,
   "config": {
     "traditions": [
       "hat_boi_tuong",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "wooden_pagoda_hall",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

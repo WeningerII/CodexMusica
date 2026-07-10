@@ -3,9 +3,9 @@
   "name": "Tuareg tendé pestle-rhythm song",
   "family": "global",
   "lineage": "Tuareg desert song tradition of the southern Sahara — Niger's Azawagh basin, the Aïr Mountains, southern Algerian Hoggar, northern Mali Adagh-n-Ifoghas, and the Tassili-n-Ajjer plateau. The tendé pestle-drum (wooden mortar with stretched goatskin head, struck in alternation by two women using wooden pestles) anchors the rhythm while two further women hold the mortar steady — the four-woman configuration is canonical. Women sing antiphonal call-and-response over the tendé pulse, with men sometimes responding from a separate position; men of high social rank participate in the parallel takamba ceremonial repertoire on tehardent three-string lute. The repertoire spans courtship songs, camel-praise songs (the canonical Saharan poetic-praise form), and ceremonial cycles tied to the Festival in the Desert traditions that pre-date the modern eponymous festival. Caroline Card-Wendt's 1976-1978 doctoral fieldwork in the Azawagh (Tuareg Music and Social Identity, Indiana 1982), the AIMP/VDE-Gallo Niger series, Smithsonian Folkways FE 4470 (1960), and the Ocora Nomades du Niger catalog constitute the documentary anchors. Distinguished from sub-Saharan West African griot traditions by Tuareg's pestle-drum-with-women-singers (vs kora-or-balafon-with-griot-singer) instrumental configuration; distinguished from Wolof and Mandé Sahel by the Tamasheq Berber language and Saharan-pastoral repertoire base.",
-  "recipe": "classic North African 1976-1978 tuareg tendé pestle-rhythm song, ballad Poetry, west African griot branch, indigenous ritual devotional ju|'hoansi healing songs shipibo-conibo icaros healing songs. kargyraa, declaimed, tasteful, callresponse articulation. wooden mortar goatskin struck alternation canonical tuareg pestle rhythm song canonical saharan tende drum. saharan desert encampment. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 520,
-  "score": 237.881,
+  "recipe": "classic North African 1976-1978 tuareg tendé pestle-rhythm song, ballad Poetry, west African griot branch, indigenous ritual devotional ju|'hoansi healing songs shipibo-conibo icaros healing songs. kargyraa, declaimed, tasteful, callresponse articulation. wooden mortar goatskin struck alternation canonical tuareg pestle rhythm song canonical saharan tende drum. saharan desert encampment. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 453,
+  "score": 214.731,
   "config": {
     "traditions": [
       "tuareg_tende_pestle",
@@ -65,7 +65,7 @@
       }
     ],
     "room": "saharan_desert_encampment",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

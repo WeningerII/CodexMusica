@@ -3,9 +3,9 @@
   "name": "Hindustani classical",
   "family": "classical",
   "lineage": "North Indian classical raga tradition organized through the gharana (lineage-school) transmission system across Gwalior, Agra, Patiala, Kirana, Atrauli-Jaipur, Indore, Mewati, Benares gharanas — codified through V.N. Bhatkhandes 10-thaat system in the early 20th century, 20th-century lineage Ustad Bismillah Khan (shehnai), Ravi Shankar (sitar), Vilayat Khan (sitar), Ali Akbar Khan (sarod), Pandit Bhimsen Joshi (Kirana vocal), Pandit Hariprasad Chaurasia (bansuri)",
-  "recipe": "classic South Asian mid-1930s hindustani classical, improv On Frame, indian classical improv branch, south Asian art music, vocal drone modal kutiyattam sanskrit recitation telugu kirtana. open jawari vilayat khan canon long sustain buzzing overtones maihar gharana sitar, indian rosewood rosewood copper tabla, silvery suited to female vocal tanpura, steel modern tun indian cedar alternative santoor canonical lineage santoor, coconut shell shell tun indian cedar maihar gharana sarod, low overtone rich kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, mid 20th century banaras shehnai virtuoso classical solo raga tradition sheesham indian rosewood canonical Hindustani bismillah khan banaras lineage canonical Hindustani shehnai. varanasi benares gharana baithak. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 903,
-  "score": 318.435,
+  "recipe": "classic South Asian early-1950s hindustani classical, improv On Frame, indian classical improv branch, south Asian art music, vocal drone modal kutiyattam sanskrit recitation telugu kirtana. open jawari vilayat khan canon long sustain buzzing overtones maihar gharana sitar, indian rosewood rosewood copper tabla, silvery suited to female vocal tanpura, steel modern tun indian cedar alternative santoor canonical lineage santoor, coconut shell shell tun indian cedar maihar gharana sarod, low overtone rich kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, mid 20th century banaras shehnai virtuoso classical solo raga tradition sheesham indian rosewood canonical Hindustani bismillah khan banaras lineage canonical Hindustani shehnai. varanasi benares gharana baithak. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe_chars": 899,
+  "score": 325.568,
   "config": {
     "traditions": [
       "hindustani",
@@ -35,7 +35,7 @@
           "sitar_taraf": 0.42000000000000004,
           "sitar_frets": 0.39,
           "sitar_pluck": 9.02,
-          "sitar_main_strings": -1.05,
+          "sitar_main_strings": 0.49499999999999994,
           "sitar_jawari_style": 4.4799999999999995,
           "sitar_gharana": 15.10642857142857
         }
@@ -86,7 +86,7 @@
           "plucked_traditional_technique": 19.295,
           "santoor_courses": 9.389642857142857,
           "santoor_mallets": 0.7307142857142858,
-          "santoor_strings": 8.905,
+          "santoor_strings": 10.855,
           "santoor_body_wood": 3.0999999999999996,
           "santoor_lineage": 3.8349999999999995
         }
@@ -100,7 +100,7 @@
           "sarod_pluck": "coconut_shell_pick",
           "sarod_taraf": "taraf_eleven",
           "sarod_body_wood": "sarod_tun_body",
-          "sarod_strings": "sarod_phosphor_bronze",
+          "sarod_strings": "sarod_steel_bronze_modern",
           "sarod_gharana": "sarod_maihar_gharana"
         },
         "scores": {
@@ -110,7 +110,7 @@
           "sarod_pluck": 9.395,
           "sarod_taraf": 9.91,
           "sarod_body_wood": 3.0999999999999996,
-          "sarod_strings": 0,
+          "sarod_strings": 0.44999999999999996,
           "sarod_gharana": 9.401428571428571
         }
       },
@@ -150,7 +150,7 @@
       }
     ],
     "room": "varanasi_benares_gharana_baithak",
-    "archetype": "arch_electrical_disc_cut",
+    "archetype": "arch_hmv_dumdum_raga",
     "inline_chain": {
       "mic": "mic_u87_condenser_neumann",
       "pre": "tube_pre",

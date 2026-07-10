@@ -3,9 +3,9 @@
   "name": "Chinese chayang-diao (插秧调, rice-planting tunes)",
   "family": "global",
   "lineage": "Chinese rice-planting song (chayang-diao, 插秧调) tradition continuous from premodern Chinese-agricultural village-labor practice across rice-growing Southern China (Hunan, Jiangsu, Fujian, Jiangxi, Sichuan, Yunnan) through 20th-century Chinese-folklorist documentation into modern Chinese-rural-and-folk-revival practice; foundational repertoire integrates rice-paddy planting and weeding and harvest-song coordination",
-  "recipe": "classic modern chinese chayang-diao, field Work, east Asian branch, south Asian field work, east Asian lullaby, east Asian wedding chinese xǐqìng (喜慶) wedding music japanese komoriuta. thick, incomplete closure resting, tasteful, unrestrained. bitter bamboo phyllostachys nigra canonical jiangnan suzhou qudi southern jiangnan kunqu canonical lyrical melodic dizi, bamboo pipes copper brass free reeds canonical Chinese straight sheng. forest clearing. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 582,
-  "score": 165.678,
+  "recipe": "classic modern chinese chayang-diao, field Work, east Asian branch, south Asian field work, east Asian lullaby, east Asian wedding chinese xǐqìng (喜慶) wedding music japanese komoriuta. thick, incomplete closure resting, tasteful, unrestrained. bitter bamboo phyllostachys nigra canonical jiangnan suzhou qudi southern jiangnan kunqu canonical lyrical melodic dizi, bamboo pipes copper brass free reeds canonical Chinese straight sheng. forest clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 515,
+  "score": 160.553,
   "config": {
     "traditions": [
       "chinese_chayang_diao",
@@ -86,7 +86,7 @@
       }
     ],
     "room": "forest_clearing",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

@@ -3,9 +3,9 @@
   "name": "Kabuki tsurane declamation (aragoto)",
   "family": "classical",
   "lineage": "Tsurane are the extended rhetorical set-speeches of the aragoto ('rough business') style of kabuki, the bravura acting mode created by Ichikawa Danjuro I in late-17th-century Edo and carried through the Ichikawa Danjuro line to the present. Delivered by the leading male-role actor in exaggerated, rhythmically pointed declamation, often as a boastful self-introduction punctuated by the mie pose and tsuke wooden clappers, the tsurane is stage-speech distinct from the sung nagauta and chanted gidayu music that accompany the play. Canonical examples occur in the 'Shibaraku' interlude and other Kabuki Juhachiban 'eighteen great plays' of the Ichikawa house. It is documented in the Kabuki-za and National Theatre of Japan performance records and the Shochiku theatrical archive.",
-  "recipe": "classic East Asian modern kabuki tsurane declamation, art Music, east Asian branch thai classical beijing opera. thick, pressed, chest resonance low mid, punctuated. kabuki theater japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 320,
-  "score": 207.662,
+  "recipe": "classic East Asian modern kabuki tsurane declamation, art Music, east Asian branch thai classical beijing opera. thick, pressed, chest resonance low mid, punctuated. kabuki theater japanese. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 253,
+  "score": 198.287,
   "config": {
     "traditions": [
       "kabuki_tsurane",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "kabuki_theater_japanese",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

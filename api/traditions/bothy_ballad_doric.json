@@ -3,9 +3,9 @@
   "name": "Bothy ballad (Doric)",
   "family": "global",
   "lineage": "Aberdeenshire and Northeast Scottish farm-laborer balladry sung in Doric Scots dialect — collected by Gavin Greig and James Bruce Duncan in the early 20th century, preserved through the School of Scottish Studies Hamish Henderson field recordings, performed by John Strachan, Jeannie Robertson, Lizzie Higgins, the Stewart family of Blairgowrie, and the modern Aberdeenshire continuation (Sheena Wellington, Jock Duncan)",
-  "recipe": "classic Northern European modern bothy ballad, ballad Poetry, bothy ballad branch, pre commercial country pre-commercial country roots. thick, low dynamic level, expressive, unrestrained. castagnari Italian premium folk music straight accordion, Celtic straight melodeon diatonic. scottish bothy farmhouse kitchen. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 444,
-  "score": 129.548,
+  "recipe": "classic Northern European early-1940s bothy ballad, ballad Poetry, bothy ballad branch, pre commercial country pre-commercial country roots. thick, low dynamic level, expressive, unrestrained. castagnari Italian premium folk music straight accordion, Celtic straight melodeon diatonic. scottish bothy farmhouse kitchen. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 394,
+  "score": 120.628,
   "config": {
     "traditions": [
       "bothy_ballad_doric",
@@ -29,7 +29,7 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
           "voice_multitrack_stack": "voice_multitrack_granular_texture"
         },
         "scores": {
@@ -47,7 +47,7 @@
           "voice_ensemble_config": 11.301249999999996,
           "voice_ornament_system": 4.325,
           "voice_pitch_organization": 1.56,
-          "voice_processing_chain": 7.44525,
+          "voice_processing_chain": 7.149999999999999,
           "voice_multitrack_stack": 0.9119999999999999
         }
       },
@@ -87,7 +87,7 @@
       }
     ],
     "room": "scottish_bothy_farmhouse_kitchen",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_nagra_ethnographic_field",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

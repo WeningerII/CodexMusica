@@ -3,9 +3,9 @@
   "name": "Yueju (Shaoxing / Shanghai opera)",
   "family": "classical",
   "lineage": "Yueju Shaoxing opera, a Chinese regional opera tradition originating in the rural Sheng County of Zhejiang province at the turn of the twentieth century and crystallizing in 1920s-1930s Shanghai as an all-female-cast operatic form (yueju is one of only a handful of Chinese operas traditionally performed exclusively by female actors playing both male and female roles). Distinguished from kunqu and jingju by its lyrical, romance-focused dramaturgical orientation, accessible Wu-dialect Shaoxing-area linguistic register, and the all-female casting convention. The 1953 film adaptation of the canonical Liang Shanbo and Zhu Yingtai butterfly-lovers legend (with Yuan Xuefen and Fan Ruijuan in the principal roles) consolidated the national audience.",
-  "recipe": "classic Southeast Asian mid-1920s yueju, art Music, east Asian branch, east Asian Cantonese opera. pressed, chest resonance low mid, Chinese classical vocal, tahrir tekye chain mechanism. python skin silk canonical traditional sanxian, silk red sandalwood zitan premium pipa. wooden pagoda hall. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 368,
-  "score": 183.048,
+  "recipe": "classic Southeast Asian mid-1920s yueju, art Music, east Asian branch, east Asian Cantonese opera. pressed, chest resonance low mid, Chinese classical vocal, tahrir tekye chain mechanism. python skin silk canonical traditional sanxian, silk red sandalwood zitan premium pipa. wooden pagoda hall. large-diaphragm condenser, German V72 tube pre, German tube console, broadcast loudness EQ. tape 15ips hall reverb.",
+  "recipe_chars": 411,
+  "score": 183.862,
   "config": {
     "traditions": [
       "yueju_shanghai_opera",
@@ -30,7 +30,7 @@
           "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_single_lead"
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
           "voice_register": 0.4225,
@@ -48,7 +48,7 @@
           "voice_ornament_system": 20.947499999999998,
           "voice_pitch_organization": 13.262999999999995,
           "voice_processing_chain": 4.615,
-          "voice_multitrack_stack": 0.9759999999999998
+          "voice_multitrack_stack": 1.3649999999999998
         }
       },
       {
@@ -89,7 +89,7 @@
       }
     ],
     "room": "wooden_pagoda_hall",
-    "archetype": "arch_electrical_disc_cut",
+    "archetype": "arch_china_record_state_broadcast",
     "inline_chain": {
       "mic": "mic_u87_condenser_neumann",
       "pre": "tube_pre",

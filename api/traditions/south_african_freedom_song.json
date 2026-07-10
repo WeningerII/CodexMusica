@@ -3,9 +3,9 @@
   "name": "South African freedom song (anti-apartheid)",
   "family": "global",
   "lineage": "South African anti-apartheid freedom-song tradition continuous from late-1940s post-apartheid-codification group-vocal protest practice through the 1976 Soweto Uprising and 1980s-1990s liberation-and-transition era; defined by group-vocal harmony-singing, toyi-toyi marching-chant, and canonical anthems integrated into both the African National Congress and broader liberation movements",
-  "recipe": "classic 1947-1949 south african freedom song, protest Song, sub saharan African branch, African pop isicathamiya, anglo American protest song, christian gospel ritual devotional southern gospel quartet bluegrass gospel. thick, declaimed, tasteful, ornamental. festival stage. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 405,
-  "score": 212.46,
+  "recipe": "classic 1947-1949 south african freedom song, protest Song, sub saharan African branch, African pop isicathamiya, anglo American protest song, christian gospel ritual devotional southern gospel quartet bluegrass gospel. thick, declaimed, tasteful, ornamental. festival stage. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 338,
+  "score": 206.635,
   "config": {
     "traditions": [
       "south_african_freedom_song",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "festival_stage",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

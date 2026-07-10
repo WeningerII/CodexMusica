@@ -3,9 +3,9 @@
   "name": "Bulgarian women's choir",
   "family": "global",
   "lineage": "Bulgarian state-radio female-voice choir tradition codified by composer Philip Koutev from 1952 onward (Philip Koutev State Ensemble) and brought to international attention through Marcel Cellier (original 1975 Disques Cellier, 1987 Nonesuch Explorer) release Le Mystère des Voix Bulgares; reharmonizes Bulgarian village folk-song repertoire (Rhodope and Pirin regional traditions) for concert-stage female chorus",
-  "recipe": "classic Southern European early-1950s bulgarian women's choir, drone Modal, vocal branch, Slavic bard ballad poetry karelian rune-singing serbian guslar epic recitation. thick, low dynamic level, chest resonance low mid, narrative. choir bulgarian womens. bulgarian state radio choir hall. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
-  "recipe_chars": 377,
-  "score": 88.205,
+  "recipe": "classic Southern European early-1950s bulgarian women's choir, drone Modal, vocal branch, Slavic bard ballad poetry karelian rune-singing serbian guslar epic recitation. thick, low dynamic level, chest resonance low mid, narrative. choir bulgarian womens. bulgarian state radio choir hall. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 412,
+  "score": 84.715,
   "config": {
     "traditions": [
       "bulgarian_womens_choir",
@@ -56,16 +56,16 @@
         "id": "choir_bulgarian_womens",
         "slots": {
           "technique": "bulgarian_open_throat",
-          "arrangement": "bulgarian_kutev_arrangement"
+          "arrangement": "bulgarian_diaphonic"
         },
         "scores": {
           "technique": 0.15,
-          "arrangement": 2.8600000000000003
+          "arrangement": 2.47
         }
       }
     ],
     "room": "bulgarian_state_radio_choir_hall",
-    "archetype": "arch_german_diy_converted",
+    "archetype": "arch_comecon_state_label",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "pre_tube_german_v72",

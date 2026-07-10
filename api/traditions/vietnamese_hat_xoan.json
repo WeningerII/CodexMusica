@@ -3,9 +3,9 @@
   "name": "Vietnamese hát xoan",
   "family": "global",
   "lineage": "Vietnamese hát xoan ancestral-spring-ritual song tradition of Phú Thọ province, the heartland of the Hùng-Kings legendary first-Vietnamese-dynasty mythos. Performance occurs at the Hùng-Kings temple (Đền Hùng) and adjacent communal-house đình precincts during the lunar new-year and Hùng-Kings death-anniversary festivals (lunar tenth day of third month). Three movement types: thờ (worship, slow ceremonial-cadence verse for ancestor-veneration), quả cách (formal-narrative cyclical sections, fourteen canonical pieces), and hội (festival, faster celebratory cadence with audience-participation call-and-response). Performance configuration: a male choir of phường xoan villagers from one of four canonical guild-villages (An Thái, Phù Đức, Kim Đới, Thét), accompanied by phách bamboo clapper and trống cơm small barrel-drum. Modal vocabulary draws on Vietnamese pentatonic with mode-specific cadential conventions. The tradition was nearly extinct by the 1990s, but systematic transmission-revival has since spread across the four guild-villages. Distinguished from quan họ by xoan's ritual-ancestor-veneration (vs courtship-festival) functional framing; distinguished from ca trù by xoan's village-collective-male-choir (vs chamber-female-soloist) ensemble configuration.",
-  "recipe": "classic Southeast Asian mid-1990s vietnamese hát xoan, ritual Devotional, indigenous branch, southeast Asian art music thai classical burmese mahagita. thick, declaimed, chest resonance low mid, narrative. bamboo clapper struck hardwood stick canonical Vietnamese ca tru singer held cadence canonical Vietnamese phach, small praise drum patron struck canonical Vietnamese ca tru patron response canonical Vietnamese trong chau. wooden pagoda hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 577,
-  "score": 221.565,
+  "recipe": "classic Southeast Asian mid-1990s vietnamese hát xoan, ritual Devotional, indigenous branch, southeast Asian art music thai classical burmese mahagita. thick, declaimed, chest resonance low mid, narrative. bamboo clapper struck hardwood stick canonical Vietnamese ca tru singer held cadence canonical Vietnamese phach, small praise drum patron struck canonical Vietnamese ca tru patron response canonical Vietnamese trong chau. wooden pagoda hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 510,
+  "score": 220.102,
   "config": {
     "traditions": [
       "vietnamese_hat_xoan",
@@ -76,7 +76,7 @@
       }
     ],
     "room": "wooden_pagoda_hall",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

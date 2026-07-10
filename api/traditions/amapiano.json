@@ -3,9 +3,9 @@
   "name": "Amapiano",
   "family": "global",
   "lineage": "South African Pretoria-Johannesburg late-2010s house-jazz hybrid characterized by deep log-drum sub-bass figures, jazzy keys, and slowed 110-115 BPM tempo — codified through Kabza De Small, DJ Maphorisa, Mas Musiq, MFR Souls, and Vigro Deep from 2017 onward, exploding internationally 2020-2023",
-  "recipe": "classic 2020-2023 amapiano, electronic Dance, African dance branch, central east south African groove percussion ndombolo soukous. thick, low dynamic level, chest resonance low mid, punctuated. log drum, rhodes electric, low sub bass digital subtractive, TR-808, sampler. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 416,
-  "score": 161.038,
+  "recipe": "classic Southern African 2020-2023 amapiano, electronic Dance, African dance branch, central east south African groove percussion ndombolo soukous. thick, low dynamic level, chest resonance low mid, punctuated. log drum, rhodes electric, low sub bass digital subtractive, TR-808, sampler. live tracking. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
+  "recipe_chars": 387,
+  "score": 163.038,
   "config": {
     "traditions": [
       "amapiano",
@@ -127,7 +127,7 @@
       }
     ],
     "room": "live_room",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_sa_township_digital",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "transformerless",

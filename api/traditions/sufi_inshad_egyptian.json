@@ -3,9 +3,9 @@
   "name": "Sufi inshad (Egyptian devotional song)",
   "family": "global",
   "lineage": "Egyptian Sufi inshad devotional vocal tradition, comprising the canonical liturgical-and-devotional song repertoire of the Egyptian Sufi orders (Shadhili, Qadiri, Rifa'i, Burhani). Performance contexts include the mawlid annual saint-celebrations (especially at Sayyida Zaynab and Hussein in Cairo, and Tanta and Desouk), the dhikr collective remembrance-of-God sessions, and the nightly hadra circle-gatherings. The munshid Sufi-singer-specialist trains in classical Arabic poetic meter, Egyptian maqam modal system, and the canonical mystical-poetic corpus of Ibn al-Farid and al-Busiri.",
-  "recipe": "classic North African mid-1930s sufi inshad, ritual Devotional, Sufi branch, islamic ritual devotional were music naʿat. vocal fry, declaimed, chest resonance low mid, maqam neutral step. walnut bent frame canonical Iranian goat skin canonical Sufi tar frame drum, folk continuous drone arghul. coptic basilica. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 384,
-  "score": 273.946,
+  "recipe": "classic North African early-1940s sufi inshad, ritual Devotional, Sufi branch, islamic ritual devotional were music naʿat. vocal fry, declaimed, chest resonance low mid, maqam neutral step. walnut bent frame canonical Iranian goat skin canonical Sufi tar frame drum, folk continuous drone arghul. coptic basilica. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb.",
+  "recipe_chars": 424,
+  "score": 275.108,
   "config": {
     "traditions": [
       "sufi_inshad_egyptian",
@@ -84,7 +84,7 @@
       }
     ],
     "room": "coptic_basilica",
-    "archetype": "arch_electrical_disc_cut",
+    "archetype": "arch_arab_east_state_radio",
     "inline_chain": {
       "mic": "mic_u47_tube_neumann",
       "pre": "pre_tube_german_v72",

@@ -3,9 +3,9 @@
   "name": "Latin trap",
   "family": "pop",
   "lineage": "Puerto Rican-Dominican Latin-trap subgenre codified through Bad Bunny (X 100PRE 2018), Anuel AA, Ozuna, Bryant Myers — characterized by 70-80 BPM trap-808 programming with reggaeton-dembow accents, autotuned-Spanish-language vocals, and the Hear This Music label catalog driving its mainstream crossover",
-  "recipe": "classic late-2010s latin trap, mc Rhythm, reggaeton branch, us hip hop southern trap houston chopped and screwed. extended whistle, rap, chest resonance low mid, narrative. TR-808, sub bass analog poly synth, sampled chopped sampler drum machine. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 391,
-  "score": 151.995,
+  "recipe": "classic Caribbean late-2010s latin trap, mc Rhythm, reggaeton branch, us hip hop southern trap houston chopped and screwed. extended whistle, rap, chest resonance low mid, narrative. TR-808, sub bass analog poly synth, sampled chopped sampler drum machine. live tracking. shure SM58, transformerless solid-state pre, pumping sidechain, parametric EQ. lossy MP3 autotune digital delay.",
+  "recipe_chars": 384,
+  "score": 152.57,
   "config": {
     "traditions": [
       "latin_trap",
@@ -97,7 +97,7 @@
       }
     ],
     "room": "live_room",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_san_juan_reggaeton_mixtape",
     "inline_chain": {
       "mic": "dynamic_mic",
       "pre": "transformerless",

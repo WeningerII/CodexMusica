@@ -3,9 +3,9 @@
   "name": "Classical period (1750-1820)",
   "family": "classical",
   "lineage": "European art-music period c.1750-1820 centered on Vienna, codifying balanced sonata-form, periodic-phrase symmetry, and the Classical orchestra (strings, paired woodwinds and brass, timpani). The Haydn-Mozart-Beethoven trinity established the canonical symphony, string quartet, sonata, and piano concerto repertoires. Distinguished from preceding Baroque by Classical period's homophonic textures, clear cadential punctuation, and dramatic-rhetorical phrase structure.",
-  "recipe": "classic classical period, art Music, western common practice branch, western early art music renaissance madrigal burgundian school. thick, low dynamic level, chest resonance low mid, ornamental. beech laminated maple laminated European tradition European spruce norway spruce grand piano, synthetic Italian alpine spruce val di fiemme European maple bosnian source violin orchestral, gut Italian alpine spruce val di fiemme European maple bosnian source cello, timpani. shoebox concert hall. acoustic horn. 78rpm shellac.",
-  "recipe_chars": 522,
-  "score": 584.915,
+  "recipe": "classic British classical period, art Music, western common practice branch, western early art music renaissance madrigal burgundian school. thick, low dynamic level, chest resonance low mid, ornamental. beech laminated maple laminated European tradition European spruce norway spruce grand piano, synthetic Italian alpine spruce val di fiemme European maple bosnian source violin orchestral, gut Italian alpine spruce val di fiemme European maple bosnian source cello, timpani. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
+  "recipe_chars": 558,
+  "score": 593.115,
   "config": {
     "traditions": [
       "classical_period_18c",
@@ -144,7 +144,7 @@
       }
     ],
     "room": "concert_hall_shoebox",
-    "archetype": "arch_acoustic_horn_pre1925",
+    "archetype": "arch_decca_sound_orchestral",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "tube_pre",

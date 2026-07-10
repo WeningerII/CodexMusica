@@ -3,9 +3,9 @@
   "name": "Icelandic kvæði / þula recitation",
   "family": "global",
   "lineage": "Kvæði are the traditional chanted narrative poems of Iceland, most importantly the rímur — long metrical verse-cycles retelling sagas and romances — performed in the distinctive kvæðaskapur (rímnalag) manner of half-sung, half-spoken chanting on a narrow set of stemmur (tune-formulae). The þula is a related genre of catalog- or rigmarole-poem, often a strung list of names or lore chanted rhythmically, historically used within the home. These forms flourished from the late medieval period through the nineteenth century as Iceland's principal domestic evening entertainment (kvöldvaka). They are documented in extensive manuscript collections and in twentieth-century field recordings held by the Árni Magnússon Institute.",
-  "recipe": "classic modern icelandic kvæði / þula recitation, ballad Poetry, Slavic bard branch latvian dainas jeju haenyeo songs. thick, low dynamic level, melodic, unrestrained. field recording. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 314,
-  "score": 116.263,
+  "recipe": "classic modern icelandic kvæði / þula recitation, ballad Poetry, Slavic bard branch latvian dainas jeju haenyeo songs. thick, low dynamic level, melodic, unrestrained. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 247,
+  "score": 100.487,
   "config": {
     "traditions": [
       "icelandic_kvaedi_thula",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "field_recording",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

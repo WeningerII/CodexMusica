@@ -3,9 +3,9 @@
   "name": "Kabyle music (Algerian Berber)",
   "family": "global",
   "lineage": "Kabyle music of the Tamazight-speaking Berber population of the Kabylie mountains of northern Algeria. Performance integrates classical Kabyle-language poetic-meter (the asefru four-line verse-form developed by seventeenth-century poet Si Mohand) with Berber pentatonic-leaning modal vocabulary distinct from Andalusi-Arab. The mid-twentieth-century Paris-emigration produced an exile-and-protest corpus through Slimane Azem; 1970s-1980s cultural-revival under Idir and Lounès Matoub. The 1998 Matoub assassination politicized the genre. Instrumentation: oud, mandole (Algerian electric-mandolin), bendir frame-drum.",
-  "recipe": "classic North African mid-1970s kabyle music, ballad Poetry, Mediterranean ballad branch, islamic ritual devotional naʿat were music. declaimed, chest resonance low mid, maqam neutral step, Yoruba tonal vocal. walnut ribs canonical mid tier Lebanese cedar eastern Mediterranean pyramid oud, clay pre modern traditional fish skin pre modern Egyptian traditional Egyptian sombaty canonical mid east darbuka, juniper bent frame canonical Maghrebi synthetic remo modern world music bendir, melodic single line mandole, olive Mediterranean alternative ghaita. atlas mountain village square. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 715,
-  "score": 189.13,
+  "recipe": "classic North African mid-1970s kabyle music, ballad Poetry, Mediterranean ballad branch, islamic ritual devotional naʿat were music. declaimed, chest resonance low mid, maqam neutral step, Yoruba tonal vocal. walnut ribs canonical mid tier Lebanese cedar eastern Mediterranean pyramid oud, clay pre modern traditional fish skin pre modern Egyptian traditional Egyptian sombaty canonical mid east darbuka, juniper bent frame canonical Maghrebi synthetic remo modern world music bendir, melodic single line mandole, olive Mediterranean alternative ghaita. atlas mountain village square. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 648,
+  "score": 183.78,
   "config": {
     "traditions": [
       "kabyle_music_algerian",
@@ -135,7 +135,7 @@
       }
     ],
     "room": "atlas_mountain_village_square",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

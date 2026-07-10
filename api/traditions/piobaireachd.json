@@ -3,9 +3,9 @@
   "name": "Pìobaireachd (Highland classical)",
   "family": "global",
   "lineage": "Highland Scottish solo bagpipe classical art-music — the highest formal genre of Great Highland Bagpipe music, distinct from light music (marches, strathspeys, reels); built around the urlar (ground), the slow-tempo composed melodic theme, and successive variations of increasing complexity through movements including siubhal (passing variation), taorluath (cumulative grace-note variation), and crunluath (the most complex variation). The 18th-century MacCrimmon family tradition (the hereditary pipers of Clan MacLeod of Skye, with the Boreraig piping college), preserved through the Piobaireachd Society codification from 1903 onward",
-  "recipe": "classic Northern European early-1900s pìobaireachd, drone Modal, wind pipe branch, Celtic balladic ballad poetry child ballad revival gwerz breton. African blackwood grenadilla canonical Scottish synthetic drone reeds ezeedrone selbie melodic highland bagpipes, bellows blown d major border pipe tradition African blackwood canonical Scottish cane arundo donax canonical Scottish smallpipes scottish smallpipes. scottish galician piping outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 575,
-  "score": 53.705,
+  "recipe": "classic Northern European early-1900s pìobaireachd, drone Modal, wind pipe branch, Celtic balladic ballad poetry child ballad revival gwerz breton. African blackwood grenadilla canonical Scottish synthetic drone reeds ezeedrone selbie melodic highland bagpipes, bellows blown d major border pipe tradition African blackwood canonical Scottish cane arundo donax canonical Scottish smallpipes scottish smallpipes. scottish galician piping outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 508,
+  "score": 48.93,
   "config": {
     "traditions": [
       "piobaireachd",
@@ -51,7 +51,7 @@
       }
     ],
     "room": "scottish_galician_piping_outdoor",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

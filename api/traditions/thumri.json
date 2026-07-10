@@ -3,9 +3,9 @@
   "name": "Thumrī",
   "family": "classical",
   "lineage": "Hindustani semi-classical romantic vocal genre originating in mid-19th-century Lucknow under the patronage of Nawab Wajid Ali Shah, codified through the Banaras (Varanasi) and Lucknow gharana lineages — typically setting Brij Bhasha romantic poetry to elaborated raga performance, with the female-vocal lineage of Begum Akhtar, Gauhar Jaan, Siddheshwari Devi, Girija Devi (the 20th-century thumri-and-tappa voice from the Banaras gharana)",
-  "recipe": "classic South Asian mid-1930s thumrī, improv On Frame, indian classical improv branch, med east poetic ballad poetry pontic greek music ethiopian azmari minstrel-poet. vocal fry, low dynamic level, chest resonance low mid, narrative. indian rosewood rosewood copper tabla, gut 3 main playing strings legato sarangi, vocal female harmonium indian, silvery suited to female vocal tanpura. varanasi benares gharana baithak. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 493,
-  "score": 251.25,
+  "recipe": "classic South Asian early-1950s thumrī, improv On Frame, indian classical improv branch, med east poetic ballad poetry pontic greek music ethiopian azmari minstrel-poet. vocal fry, low dynamic level, chest resonance low mid, narrative. indian rosewood rosewood copper tabla, gut 3 main playing strings legato sarangi, vocal female harmonium indian, silvery suited to female vocal tanpura. varanasi benares gharana baithak. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe_chars": 489,
+  "score": 256.8,
   "config": {
     "traditions": [
       "thumri",
@@ -120,7 +120,7 @@
       }
     ],
     "room": "varanasi_benares_gharana_baithak",
-    "archetype": "arch_electrical_disc_cut",
+    "archetype": "arch_hmv_dumdum_raga",
     "inline_chain": {
       "mic": "mic_u47_tube_neumann",
       "pre": "tube_pre",

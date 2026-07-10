@@ -3,9 +3,9 @@
   "name": "Korean kok (곡, funeral wailing)",
   "family": "global",
   "lineage": "Korean Confucian-and-shamanic funeral mourning tradition codified from the Joseon-dynasty period through Confucian ritual-mourning specification (the codified mourning-stages including kok wailing-cycles); continuous through 20th-century practice particularly in rural Korean Confucian funeral context",
-  "recipe": "classic East Asian modern korean kok, funeral Lament, east Asian branch, indigenous ritual devotional, vocal drone modal, east Asian art music skolt sámi leuʹdd northern sámi luohti yoik. vocal fry, declaimed, melodic, narrative. cheonsa clear modal non rough yoseong pitch oscillation ornament jungmori medium 12 4 narrative cross tradition fusion concert context pansori voice. korean pungnyu pavilion. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 534,
-  "score": 146.385,
+  "recipe": "classic East Asian modern korean kok, funeral Lament, east Asian branch, indigenous ritual devotional, vocal drone modal, east Asian art music skolt sámi leuʹdd northern sámi luohti yoik. vocal fry, declaimed, melodic, narrative. cheonsa clear modal non rough yoseong pitch oscillation ornament jungmori medium 12 4 narrative cross tradition fusion concert context pansori voice. korean pungnyu pavilion. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 467,
+  "score": 133.835,
   "config": {
     "traditions": [
       "korean_kok",
@@ -71,7 +71,7 @@
       }
     ],
     "room": "korean_pungnyu_pavilion",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

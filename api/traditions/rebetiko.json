@@ -3,9 +3,9 @@
   "name": "Rebetiko",
   "family": "global",
   "lineage": "Greek urban underclass blues-equivalent that emerged in the Piraeus port district and Athens working-class quarters after the 1922 Asia Minor Catastrophe brought Greek refugees from Smyrna and other Anatolian cities — codified through the recordings of Markos Vamvakaris, Vassilis Tsitsanis, Yiorgos Batis, Yiannis Papaioannou, Rita Abatzi, Roza Eskenazi, and the Piraeus Quartet across the 1930s-1940s",
-  "recipe": "classic Southern European mid-1930s rebetiko, ballad Poetry, Mediterranean ballad branch, vocal drone modal, European drinking song flamenco. thick, chest resonance low mid, punctuated, bend inflected. walnut staves canonical Greek gut pre 1950s rebetiko drone like modal bouzouki, walnut staves gut pre 1950s rebetiko drone like modal baglamas, cedar fingerpicked fan strum classical nylon-string guitar. athens piraeus rebetadika. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 505,
-  "score": 171.431,
+  "recipe": "classic Southern European mid-1930s rebetiko, ballad Poetry, Mediterranean ballad branch, vocal drone modal, European drinking song flamenco. thick, chest resonance low mid, punctuated, bend inflected. walnut staves canonical Greek gut pre 1950s rebetiko drone like modal bouzouki, walnut staves gut pre 1950s rebetiko drone like modal baglamas, cedar fingerpicked fan strum classical nylon-string guitar. athens piraeus rebetadika. large-diaphragm condenser, tube pre, Emi redd.51, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 536,
+  "score": 170.981,
   "config": {
     "traditions": [
       "rebetiko",
@@ -107,7 +107,7 @@
       }
     ],
     "room": "athens_piraeus_rebetadika",
-    "archetype": "arch_electrical_disc_cut",
+    "archetype": "arch_greek_columbia_rizoupoli",
     "inline_chain": {
       "mic": "mic_rca_44bx_ribbon",
       "pre": "tube_pre",

@@ -3,9 +3,9 @@
   "name": "Arabic tahwidah (تهويدة, cradle song)",
   "family": "global",
   "lineage": "Pan-Arab lullaby tradition (the term tahwidah cognate with the Arabic verb hawwada, 'to lull/soothe'), regional variants across Levantine, Maghrebi, Egyptian, Yemeni, and Gulf-Arabian traditions. Sung by mothers-and-grandmothers in informal domestic-context with no instrumental accompaniment, the tahwidah employs free-rhythm slow-tempo melismatic-ornamentation drawing on classical-maqam modal-vocabulary (Bayati, Rast, and Hijaz being the most common for lullabies). Lyrics typically address the child directly (often with regional-dialectal diminutives) and reference religious-protection invocations, mother's-and-grandmother's wishes-for-the-child, and pastoral imagery. The tradition has been disproportionately preserved by ethnomusicological field-recordings since the 1960s due to its private-domestic context being underrepresented in commercial-recording.",
-  "recipe": "classic mid-1960s arabic tahwidah, lullaby, middle eastern branch, middle eastern classical art music, vocal drone modal, med east poetic ballad poetry persian dastgāh andalusī nūba. vocal fry, low dynamic level, chest resonance low mid, unrestrained. carpeted bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 399,
-  "score": 256.245,
+  "recipe": "classic mid-1960s arabic tahwidah, lullaby, middle eastern branch, middle eastern classical art music, vocal drone modal, med east poetic ballad poetry persian dastgāh andalusī nūba. vocal fry, low dynamic level, chest resonance low mid, unrestrained. carpeted bedroom. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 332,
+  "score": 256.257,
   "config": {
     "traditions": [
       "arabic_tahwidah",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "carpeted_bedroom",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

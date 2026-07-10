@@ -3,9 +3,9 @@
   "name": "Norwegian stev (solo singing-game)",
   "family": "global",
   "lineage": "Norwegian stev solo-singing tradition of inland-Norway (Setesdal, Telemark, and adjacent mountain regions), comprising short improvised-or-traditional four-line quatrains sung unaccompanied. Two main streams: gamlestev (\"old stev\") canonical fixed-traditional-stanzas, and nystev (\"new stev\") improvised-on-occasion stanzas often performed in competitive-dialogic exchange between two singers. Performance: solo unaccompanied voice in characteristic narrow-range Norwegian-pentatonic-and-modal vocabulary with strict stev-meter four-stress-line. The Hilme inland-Norway lineage and the canonical nineteenth-century stev-singers (Jorunn Hilme, Talleiv Røysland) consolidated institutional documentation; the post-1970s Norwegian folk-music revival re-established practice.",
-  "recipe": "classic mid-1970s norwegian stev, ballad Poetry, Celtic balladic branch, vocal drone modal northern sámi luohti yoik southern sámi vuelie. vocal fry, low dynamic level, melodic, unrestrained. mountain valley. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 338,
-  "score": 166.315,
+  "recipe": "classic mid-1970s norwegian stev, ballad Poetry, Celtic balladic branch, vocal drone modal northern sámi luohti yoik southern sámi vuelie. vocal fry, low dynamic level, melodic, unrestrained. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 271,
+  "score": 154.24,
   "config": {
     "traditions": [
       "norwegian_stev_solo",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "mountain_valley",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

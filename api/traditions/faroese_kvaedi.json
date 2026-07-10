@@ -3,9 +3,9 @@
   "name": "Faroese kvæði (ballad chain-dance)",
   "family": "global",
   "lineage": "Faroese kvæði Faroe Islands ballad-and-chain-dance tradition, the canonical surviving medieval-Scandinavian narrative-ballad chain-dance form that has persisted in continuous practice on the Faroes since the medieval period. Performance configuration: a circle of dancers holding hands, moving in characteristic slow-stepping pattern, with the lead-singer (skipari) singing the narrative-stanzas while the dancer-chorus responds with refrain-lines. Repertoire centers on long narrative-cycles including the Sjúrðar kvæði (Sigurd-the-dragon-slayer cycle, the canonical Faroese epic, 200+ stanzas), and other historical, mythological, and ballad-narrative cycles in classical Faroese language. The post-1948 Faroese cultural-autonomy period under the Føroya Fróðskaparfelag (Faroese Society) consolidated institutional preservation.",
-  "recipe": "classic late-1940s faroese kvæði, ballad Poetry, Celtic balladic branch, Celtic balladic Scottish ballad child ballad revival. thick, incomplete closure resting, melodic, narrative. mountain valley. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 328,
-  "score": 89.681,
+  "recipe": "classic late-1940s faroese kvæði, ballad Poetry, Celtic balladic branch, Celtic balladic Scottish ballad child ballad revival. thick, incomplete closure resting, melodic, narrative. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 261,
+  "score": 80.681,
   "config": {
     "traditions": [
       "faroese_kvaedi",
@@ -53,7 +53,7 @@
       }
     ],
     "room": "mountain_valley",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

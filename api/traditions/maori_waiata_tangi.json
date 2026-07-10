@@ -3,9 +3,9 @@
   "name": "Māori waiata tangi (mourning-song)",
   "family": "global",
   "lineage": "Māori mourning-song tradition continuous from pre-contact Māori ritual-practice through 19th-20th century continuous performance at tangihanga (Māori funeral rites) into modern Māori-cultural-revival; the waiata tangi is one of the codified Māori waiata categories alongside waiata aroha (love-song) and waiata oriori (lullaby)",
-  "recipe": "classic Oceanian modern māori waiata tangi, funeral Lament, oceania pacific branch, indigenous ritual devotional, vocal drone modal, Celtic balladic ballad poetry shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, declaimed, melodic, continuous-phonation. maori marae carved wharenui. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 444,
-  "score": 126.78,
+  "recipe": "classic Oceanian modern māori waiata tangi, funeral Lament, oceania pacific branch, indigenous ritual devotional, vocal drone modal, Celtic balladic ballad poetry shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, declaimed, melodic, continuous-phonation. maori marae carved wharenui. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 377,
+  "score": 111.28,
   "config": {
     "traditions": [
       "maori_waiata_tangi",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "maori_marae_carved_wharenui",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

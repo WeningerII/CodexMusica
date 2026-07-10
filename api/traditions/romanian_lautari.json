@@ -3,9 +3,9 @@
   "name": "Romanian lăutari (Roma tavern-band tradition)",
   "family": "global",
   "lineage": "Romanian lăutari (Roma professional-musician-class) tavern-band-and-wedding-music tradition of Romania and Moldova, performed by predominantly Roma musicians serving the broader Romanian agricultural-and-urban communities. The taraf ensemble centers on violin (sometimes multiple violins in heterophonic relationship), cimbalom hammered-dulcimer (the larger Hungarian-Romanian concert variant of the broader dulcimer family), accordion, double-bass, and voice. Repertoire spans the canonical doina free-rhythm lament solo-vocal-or-violin form, the hora circle-dance, the brâu chain-dance, and the broader Romanian regional-folk repertoire. The post-1989 international circulation through the Taraf de Haïdouks ensemble brought the lăutari tradition into the world-music circuit.",
-  "recipe": "classic Southern European late-1980s romanian lăutari, functional Song, europop branch, med east poetic ballad poetry pontic greek music ethiopian azmari minstrel-poet. thick, declaimed, pure, narrative. sitka spruce Baroque setup short neck shorter fingerboard lighter bass bar violin orchestral, sustained and staccato hungarian tradition concert pedal cimbalom large frame pedal damper cimbalom, castagnari Italian premium folk music straight accordion, free rhythm cobza, virtuosic staccato nai romanian. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 672,
-  "score": 252.507,
+  "recipe": "classic Southern European late-1980s romanian lăutari, functional Song, europop branch, med east poetic ballad poetry pontic greek music ethiopian azmari minstrel-poet. thick, declaimed, pure, narrative. sitka spruce Baroque setup short neck shorter fingerboard lighter bass bar violin orchestral, sustained and staccato hungarian tradition concert pedal cimbalom large frame pedal damper cimbalom, castagnari Italian premium folk music straight accordion, free rhythm cobza, virtuosic staccato nai romanian. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 722,
+  "score": 256.153,
   "config": {
     "traditions": [
       "romanian_lautari",
@@ -31,7 +31,7 @@
           "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
           "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
           "voice_register": 2.795000000000001,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 1.79,
           "voice_pitch_organization": 11.024999999999999,
           "voice_processing_chain": 5.45,
-          "voice_multitrack_stack": 1.69
+          "voice_multitrack_stack": 3.7849999999999997
         }
       },
       {
@@ -139,7 +139,7 @@
       }
     ],
     "room": "naples_canzone_napoletana_studio",
-    "archetype": "arch_electrical_disc_cut",
+    "archetype": "arch_comecon_state_label",
     "inline_chain": {
       "mic": "mic_u47_tube_neumann",
       "pre": "tube_pre",

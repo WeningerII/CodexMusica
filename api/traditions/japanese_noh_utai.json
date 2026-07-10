@@ -3,9 +3,9 @@
   "name": "Noh utai (Noh theatre chant)",
   "family": "classical",
   "lineage": "Japanese Noh utai sung-and-chanted vocal tradition of the canonical Noh theatre form, codified in the fourteenth-fifteenth centuries by Zeami Motokiyo (1363-1443). Performance integrates the male shite-actor's utai chant (the central narrative-and-character voice) with the jiutai chorus (typically eight male singers seated stage-right), supported by the hayashi instrumental ensemble (nohkan flute, ko-tsuzumi shoulder-drum, o-tsuzumi hip-drum, taiko stick-drum). Vocal architecture features extremely slow tempi, characteristic narrow-range melodic vocabulary in the yowagin \"weak-style\" and tsuyogin \"strong-style\" registers, with strictly codified breath-pause and vibrato conventions.",
-  "recipe": "classic East Asian early-1360s noh utai, art Music, east Asian branch, buddhist ritual devotional theravada pali chant tibetan chöd rite. vocal fry, declaimed, melodic, narrative. cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk oedo sukeroku canonical kumi daiko modern ensemble taiko drum, pitch bent shoulder held tsuzumi. noh stage japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 509,
-  "score": 161.626,
+  "recipe": "classic East Asian early-1360s noh utai, art Music, east Asian branch, buddhist ritual devotional theravada pali chant tibetan chöd rite. vocal fry, declaimed, melodic, narrative. cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk oedo sukeroku canonical kumi daiko modern ensemble taiko drum, pitch bent shoulder held tsuzumi. noh stage japanese. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 442,
+  "score": 149.926,
   "config": {
     "traditions": [
       "japanese_noh_utai",
@@ -84,7 +84,7 @@
       }
     ],
     "room": "noh_stage_japanese",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

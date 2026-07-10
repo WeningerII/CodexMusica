@@ -3,9 +3,9 @@
   "name": "Greek nisiotika (island music)",
   "family": "global",
   "lineage": "Greek nisiotika (\"island music\") folk-popular music tradition of the Greek Aegean Sea islands — Naxos, Mykonos, Tinos, Andros, Skyros, Lesbos, Chios, Samos, and adjacent islands — distinguished from mainland Greek demotic music by characteristic island-dance-rhythm repertoire (the syrtos, sousta, ballos), instrumental signature (lyra Cretan-style three-string fiddle on some islands, violin elsewhere, laouto long-neck lute, and santouri hammered-dulcimer), and the broader Aegean-island maritime-cultural orientation. The mid-twentieth-century commercial-recording era at Columbia, HMV, and Pathé Athens documented the canonical island repertoire. Distinguished from the parallel Cretan lyra tradition by nisiotika's broader-Aegean-island-network and lighter dance-emphasis register.",
-  "recipe": "classic Southern European modern greek nisiotika, ballad Poetry, Mediterranean ballad branch, west African groove percussion indonesian jaipongan fújì. thick, declaimed, chest resonance low mid, rhythmic. walnut ribs canonical mid tier western red cedar modern alternative pyramid oud, sitka spruce Baroque setup short neck shorter fingerboard lighter bass bar violin orchestral, sustained and staccato hungarian tradition concert pedal cimbalom large frame pedal damper cimbalom, mulberry canonical cretan gut pre modern cretan cretan lyra, island rhythmic laouto. athens major label 1955-1985 mid tier athens minos studios 60s 70s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 763,
-  "score": 221.29,
+  "recipe": "classic Southern European modern greek nisiotika, ballad Poetry, Mediterranean ballad branch, west African groove percussion indonesian jaipongan fújì. thick, declaimed, chest resonance low mid, rhythmic. walnut ribs canonical mid tier western red cedar modern alternative pyramid oud, sitka spruce Baroque setup short neck shorter fingerboard lighter bass bar violin orchestral, sustained and staccato hungarian tradition concert pedal cimbalom large frame pedal damper cimbalom, mulberry canonical cretan gut pre modern cretan cretan lyra, island rhythmic laouto. athens major label 1955-1985 mid tier athens minos studios 60s 70s. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 696,
+  "score": 213.215,
   "config": {
     "traditions": [
       "greek_nisiotika",
@@ -143,7 +143,7 @@
       }
     ],
     "room": "athens_minos_studios_60s_70s",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

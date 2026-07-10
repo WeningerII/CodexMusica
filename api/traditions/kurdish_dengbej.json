@@ -3,9 +3,9 @@
   "name": "Kurdish dengbêj (bardic singer-tradition)",
   "family": "global",
   "lineage": "Kurdish dengbêj (\"voice-bearer\") solo male-bardic vocal tradition of southeastern Turkey, northern Iraq, northwestern Iran, and northeastern Syria. The dengbêj sings unaccompanied narrative-epic, lament (heyranok), and historical-political commentary songs in Kurdish (Kurmanji, Sorani, or Zaza), in free-rhythm extended-melisma style with wide melodic range. The post-1923 Turkish-Republican suppression nearly extinguished public-performance space; post-1991 partial liberalization and dedicated dengbêj coffee-houses in Diyarbakır restored continuity. Canonical repertoire centers on Mem û Zîn (Ehmedê Xanî, seventeenth century).",
-  "recipe": "classic early-1920s kurdish dengbêj, ballad Poetry, med east poetic branch, Slavic bard ballad poetry kyrgyz manas epic-recital sakha olonkho heroic epic. extended whistle, low dynamic level, melodic, narrative. mountain valley. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 358,
-  "score": 98.907,
+  "recipe": "classic early-1920s kurdish dengbêj, ballad Poetry, med east poetic branch, Slavic bard ballad poetry kyrgyz manas epic-recital sakha olonkho heroic epic. extended whistle, low dynamic level, melodic, narrative. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 291,
+  "score": 88.545,
   "config": {
     "traditions": [
       "kurdish_dengbej",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "mountain_valley",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

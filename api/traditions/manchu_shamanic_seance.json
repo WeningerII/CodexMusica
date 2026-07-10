@@ -3,9 +3,9 @@
   "name": "Manchu shamanic seance chant",
   "family": "global",
   "lineage": "Trance-seance chant of Manchu and related Tungusic peoples of Manchuria (northeast China) and adjacent Siberia — the culture from whose language the word 'shaman' (saman) entered Western usage. In the seance the shaman invokes clan and wild spirits in pulsed chanted verse driven by a hand-held frame drum and jingling waist bells, building toward possession-trance, with assistants answering the shaman's calls in fixed responses. Domestic clan rites were codified under the Qing dynasty in an imperially commissioned 18th-century ritual code, while the ecstatic wild-spirit seances survived in village practice; S. M. Shirokogoroff's Psychomental Complex of the Tungus (1935) remains the canonical ethnographic documentation.",
-  "recipe": "classic Northeast Asian mid-1930s manchu shamanic seance chant, ritual Devotional, indigenous branch mongolian böö shamanic invocation shipibo-conibo icaros healing songs. sygyt, declaimed, overtone rich sustained, punctuated. wooden balagan. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 372,
-  "score": 149.579,
+  "recipe": "classic Northeast Asian mid-1930s manchu shamanic seance chant, ritual Devotional, indigenous branch mongolian böö shamanic invocation shipibo-conibo icaros healing songs. sygyt, declaimed, overtone rich sustained, punctuated. wooden balagan. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 305,
+  "score": 130.429,
   "config": {
     "traditions": [
       "manchu_shamanic_seance",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "wooden_balagan",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

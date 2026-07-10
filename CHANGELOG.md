@@ -62,6 +62,24 @@ All notable changes to this project are recorded here. Format loosely follows
   `surdo` in cumbia; and `vielle` / `portative_organ` replace `fiddle` /
   `pipe_organ` in early-music rosters. Wired into 78 traditions; orphaned parts
   overrides cleaned; regression re-blessed.
+- **62 signal-chain archetypes + 608 tradition re-homings** (22 → 84 chain
+  archetypes). An archetype is the render-visible production chain
+  (mic+pre+console+comp+eq+medium+fx) describing how a tradition was canonically
+  recorded. Only 22 existed for 1195 traditions: 662 sat on the generic
+  `arch_modern_pro_daw_studio` and many others on cross-region proxies (bossa
+  nova and French chanson both rendered through the *Havana* chain, spiritual
+  jazz through *UK rock*, Nashville country through *80s SSL*). An era×region
+  recording-culture audit added 62 documented archetypes — Van Gelder,
+  Motown Snakepit (with James Jamerson's DI bass), Nashville A-Team, Sigma
+  Sound, NYC disco 12-inch, Fania salsa, Odeon/Elenco bossa-MPB, Buenos Aires
+  tango golden age, Churubusco ranchera, the "Decca Sound", ECM/Kongshaug,
+  Cairo state-radio golden age, Bombay filmi playback, HMV Dum Dum classical,
+  Gallo township-jive, Kinshasa rumba, Melodiya, K-pop idol complex, UK jungle
+  dubplate, Berlin dub-techno — plus the field-recording archetypes the catalog
+  entirely lacked (Nagra analog, 24-bit portable, wax cylinder) that now re-home
+  ~380 ethnographically-recorded traditions off studio chains. Each archetype's
+  components resolve against the existing chain-item inventory; all 608
+  re-homings validated; regression re-blessed.
 
 ## [2.0.0] — 2026-06-27 — production hardening
 

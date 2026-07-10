@@ -3,9 +3,9 @@
   "name": "Irish pub song / drinking song",
   "family": "global",
   "lineage": "Irish pub-song / drinking-song tradition continuous from 18th-19th century pub-and-shebeen drinking-song tradition through 20th-century Dubliners-and-Clancy-Brothers-era folk-revival into modern Irish-pub-session continuous practice; foundational repertoire includes \"Whiskey in the Jar,\" \"The Wild Rover,\" \"All for Me Grog,\" \"Whiskey, You're the Devil,\" \"The Parting Glass\"",
-  "recipe": "classic modern irish pub song / drinking song, drinking Song, European branch, americas drinking song, European protest song, anglo singer song ballad poetry freak folk indie folk. thick, incomplete closure resting, tasteful, continuous-phonation. fingerpicked acoustic guitar, synthetic magic rosin modern acrylic base drone like fiddle, aluminum anodized modern burke goldie premium melodic tin whistle, goat skin canonical Irish birch ply canonical modern Irish bodhran. irish pub. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 614,
-  "score": 283.004,
+  "recipe": "classic modern irish pub song / drinking song, drinking Song, European branch, americas drinking song, European protest song, anglo singer song ballad poetry freak folk indie folk. thick, incomplete closure resting, tasteful, continuous-phonation. fingerpicked acoustic guitar, synthetic magic rosin modern acrylic base drone like fiddle, aluminum anodized modern burke goldie premium melodic tin whistle, goat skin canonical Irish birch ply canonical modern Irish bodhran. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 547,
+  "score": 273.766,
   "config": {
     "traditions": [
       "irish_pub_song",
@@ -118,7 +118,7 @@
       }
     ],
     "room": "irish_pub",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

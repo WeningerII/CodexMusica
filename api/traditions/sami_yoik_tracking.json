@@ -3,9 +3,9 @@
   "name": "Sami yoik — animal-tracking and hunting song",
   "family": "global",
   "lineage": "Sami yoik (joik) tradition continuous from premodern Sami reindeer-herding-and-hunting-and-fishing practice across the Sápmi-region of northern Norway, Sweden, Finland, and Russia through colonial-era Christianization-suppression continuous through 20th-century revival",
-  "recipe": "classic Northern European modern sami yoik — animal-tracking and hunting song, hunting Song, arctic branch, central Asian hunting song, indigenous hunting song, oceania pacific praise song māori waiata mōteatea / patere aboriginal australian hunting songlines. vocal fry, declaimed, tasteful, continuous-phonation. coastal sami soft pulse reindeer hide red figures sami frame drum. sapmi outdoor tundra yoik. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 538,
-  "score": 177.804,
+  "recipe": "classic Northern European modern sami yoik — animal-tracking and hunting song, hunting Song, arctic branch, central Asian hunting song, indigenous hunting song, oceania pacific praise song māori waiata mōteatea / patere aboriginal australian hunting songlines. vocal fry, declaimed, tasteful, continuous-phonation. coastal sami soft pulse reindeer hide red figures sami frame drum. sapmi outdoor tundra yoik. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 471,
+  "score": 173.379,
   "config": {
     "traditions": [
       "sami_yoik_tracking",
@@ -67,7 +67,7 @@
       }
     ],
     "room": "sapmi_outdoor_tundra_yoik",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

@@ -3,9 +3,9 @@
   "name": "Hindi lori (लोरी, cradle song)",
   "family": "global",
   "lineage": "Hindi-Urdu cradle-song tradition continuous from North-Indian medieval domestic practice through Bollywood-filmi appropriation (1940s-onward) into modern South-Asian domestic singing across India, Pakistan, Bangladesh diasporas",
-  "recipe": "classic mid-1940s hindi lori, lullaby, south Asian branch, middle eastern lullaby, south Asian pop functional song, indian classical improv improv on frame dhrupad hindustani classical. extended whistle, declaimed, chest resonance low mid, continuous-phonation. carpeted bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 409,
-  "score": 159.323,
+  "recipe": "classic mid-1940s hindi lori, lullaby, south Asian branch, middle eastern lullaby, south Asian pop functional song, indian classical improv improv on frame dhrupad hindustani classical. extended whistle, declaimed, chest resonance low mid, continuous-phonation. carpeted bedroom. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 342,
+  "score": 158.11,
   "config": {
     "traditions": [
       "hindi_lori",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "carpeted_bedroom",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

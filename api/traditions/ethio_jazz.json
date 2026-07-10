@@ -5,7 +5,7 @@
   "lineage": "Ethiopian Golden Age 1969-1974 Amha-Kaifa-Philips label canon — codified through Mulatu Astatke’s Berklee-and-NYC training brought back to Addis Ababa, the Roha Band and Walias Band as the canonical recording ensembles, Mahmoud Ahmed (Ere Mela Mela 1975), Alemayehu Eshete, and Tilahun Gessesse (also romanized Tlahoun Gèssèssè) as canonical singers; characterized by Ethiopian kignit-modal vocals over jazz-and-soul instrumental beds",
   "recipe": "classic East African mid-1970s ethio-jazz, improv On Frame, Latin jazz branch, vocal drone modal flamenco. thick, nasal, pure, narrative. vibraphone, psychedelic foregrounded organ driven rock Leslie rotary combo organ, tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble shallow cup lead trumpet trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor ensemble student commercial trombone, mahogany chicken-scratch single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character alder flatwound electric bass, vintage ambassador asymmetric bronze bell bronze over hammered drum kit, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, wood gut ethiopian historical krar.",
   "recipe_chars": 931,
-  "score": 588.177,
+  "score": 588.877,
   "config": {
     "traditions": [
       "ethio_jazz",
@@ -100,7 +100,7 @@
           "sax_body_alloy": 15.794999999999996,
           "sax_mouthpiece": 1.8199999999999998,
           "sax_technique": 13.774999999999999,
-          "sax_maker_school": 19.415
+          "sax_maker_school": 17.415
         }
       },
       {
@@ -312,7 +312,7 @@
       }
     ],
     "room": "addis_radio_clandestine_studio",
-    "archetype": "arch_early_tape_us_commercial",
+    "archetype": "arch_addis_ethiopiques",
     "inline_chain": {
       "mic": "mic_sm57_dynamic_shure",
       "pre": "tube_pre",

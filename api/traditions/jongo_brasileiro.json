@@ -3,9 +3,9 @@
   "name": "Jongo (Afro-Brazilian Vale do Paraíba)",
   "family": "global",
   "lineage": "Afro-Brazilian jongo song-and-dance tradition of the Vale do Paraíba region (between São Paulo and Rio de Janeiro), descended from the Bantu-speaking enslaved population brought to the colonial-period coffee plantations. Performance: large frame-drum tambu and smaller candongueiro drum-pair, with male lead-singer-improvisor exchanging encoded ponto verses with the dancers in the surrounding circle. The encoded jongo language uses metaphorical references and indirection (originally as resistance-code under slavery).",
-  "recipe": "classic Southern American modern jongo, ritual Devotional, Afro-diasporic branch, Brazilian groove percussion pagode embolada. vocal fry, intimate aspirated, melodic, punctuated. tambourine orch. estudios scatena sp. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 346,
-  "score": 81.885,
+  "recipe": "classic Southern American modern jongo, ritual Devotional, Afro-diasporic branch, Brazilian groove percussion pagode embolada. vocal fry, intimate aspirated, melodic, punctuated. tambourine orch. estudios scatena sp. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 279,
+  "score": 75.023,
   "config": {
     "traditions": [
       "jongo_brasileiro",
@@ -65,7 +65,7 @@
       }
     ],
     "room": "estudios_scatena_sp",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

@@ -3,9 +3,9 @@
   "name": "Korean muga shamanic ritual narrative",
   "family": "global",
   "lineage": "Muga are the sung and chanted ritual songs of the Korean mudang (shaman), performed within the kut ceremony to invoke, entertain, and petition the spirits (gods, ancestors, and the dead). Regional forms range from the hereditary tradition of the southwestern seseummu to the possession-based gangsinmu of the north, and the repertoire encompasses invocation, narrative epic (such as the Bari Gongju abandoned-princess myth), and divination speech, all accompanied by janggu and other percussion. Muga is widely regarded as a root source of pansori epic singing and of shinawi and sinawi-derived instrumental music. It is documented through twentieth-century field recordings and the scholarship of Korean folklorists and is designated within the Important Intangible Cultural Property system.",
-  "recipe": "classic East Asian modern korean muga shamanic ritual narrative, ritual Devotional, indigenous branch mongolian böö shamanic invocation ethiopian debtera liturgical incantation. thick, declaimed, pure, unrestrained. korean gugak hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 364,
-  "score": 168.086,
+  "recipe": "classic East Asian modern korean muga shamanic ritual narrative, ritual Devotional, indigenous branch mongolian böö shamanic invocation ethiopian debtera liturgical incantation. thick, declaimed, pure, unrestrained. korean gugak hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 297,
+  "score": 153.861,
   "config": {
     "traditions": [
       "korean_muga",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "korean_gugak_hall",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

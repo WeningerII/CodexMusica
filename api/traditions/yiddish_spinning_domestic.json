@@ -3,9 +3,9 @@
   "name": "Yiddish spinning-and-domestic song (Oyfn Pripetshik lineage)",
   "family": "global",
   "lineage": "Yiddish spinning-and-domestic-lullaby tradition continuous from medieval-Ashkenazi-Jewish domestic-and-textile labor practice through 19th-century Yiddish folksongbook canonization into modern Yiddish-revival continuous practice",
-  "recipe": "classic modern yiddish spinning-and-domestic song, domestic Rhythm, Slavic baltic branch, Celtic hebridean domestic rhythm, European lullaby, European wedding sardinian boci de tela irish spinning song. thick, false fold engaged, tasteful, continuous-phonation. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 399,
-  "score": 103.454,
+  "recipe": "classic modern yiddish spinning-and-domestic song, domestic Rhythm, Slavic baltic branch, Celtic hebridean domestic rhythm, European lullaby, European wedding sardinian boci de tela irish spinning song. thick, false fold engaged, tasteful, continuous-phonation. parlor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 332,
+  "score": 96.479,
   "config": {
     "traditions": [
       "yiddish_spinning_domestic",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "parlor",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

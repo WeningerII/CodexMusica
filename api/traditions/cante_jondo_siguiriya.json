@@ -3,14 +3,14 @@
   "name": "Cante jondo siguiriya (deepest flamenco)",
   "family": "global",
   "lineage": "Andalusian cante jondo siguiriya: the deepest, most tragic-emotional palo (song-form) of the cante jondo \"deep song\" flamenco core repertoire. Characterized by the canonical siguiriya twelve-beat compás (3+3+2+2+2), extended free-rhythm extended-melismatic introductory passages, and intense vocal-emotional projection registering the genre's anguished-lament aesthetic. Lyric content addresses death, the loss of loved ones, the pain of incarceration, the suffering of the Roma-Andalusian historical experience. Distinguished within the cante jondo palos by siguiriya's tragic-anguish (vs the soleá's graver-philosophical or the martinete's a-cappella-direct) emotional register. The canonical siguiriya repertoire descends through hereditary cantaor lineages with strict transmission-conservation conventions.",
-  "recipe": "classic North African modern cante jondo siguiriya, ballad Poetry, Mediterranean ballad branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. extended whistle, declaimed, nervy, punctuated. cypress body percussive attack strong flamenco tradition rasgueado strum picado scale runs flamenco guitar. casablanca and marrakech recording 1970-present indie-commercial casablanca chaabi moroccan studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 580,
-  "score": 156.24,
+  "recipe": "classic North African modern cante jondo siguiriya, ballad Poetry, Mediterranean ballad branch, indigenous ritual devotional shipibo-conibo icaros healing songs ju|'hoansi healing songs. extended whistle, declaimed, nervy, punctuated. cypress body percussive attack strong flamenco tradition rasgueado strum picado scale runs flamenco guitar. casablanca and marrakech recording 1970-present indie-commercial casablanca chaabi moroccan studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 505,
+  "score": 143.085,
   "config": {
     "traditions": [
       "cante_jondo_siguiriya",
       "shipibo_icaros",
-      "mapuche_tayil_ritual"
+      "juhoansi_healing_nom"
     ],
     "instruments": [
       {
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 4.745,
+          "voice_register": 3.9,
           "voice_quality": 11.465,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -42,14 +42,14 @@
           "voice_articulation": 0.9750000000000001,
           "voice_microtone": 6.29,
           "voice_tradition": 21.689999999999998,
-          "voice_mechanism_compound": 11.655000000000001,
-          "voice_estill_quality": 14.559999999999997,
-          "voice_speech_song": 18.134999999999998,
-          "voice_ensemble_config": 15.339999999999998,
+          "voice_mechanism_compound": 10.405000000000001,
+          "voice_estill_quality": 12.869999999999997,
+          "voice_speech_song": 21.905,
+          "voice_ensemble_config": 19.955000000000005,
           "voice_ornament_system": 7.15,
           "voice_pitch_organization": 3.985,
           "voice_processing_chain": 7.67,
-          "voice_multitrack_stack": 4.484999999999999
+          "voice_multitrack_stack": 5.135
         }
       },
       {
@@ -60,14 +60,14 @@
           "flamenco_technique": "flamenco_rasgueado_picado_alzapua"
         },
         "scores": {
-          "flamenco_body": 5.9799999999999995,
+          "flamenco_body": 6.175,
           "flamenco_features": 0,
-          "flamenco_technique": 3.9899999999999998
+          "flamenco_technique": 3.4899999999999998
         }
       }
     ],
     "room": "casablanca_chaabi_moroccan_studio",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

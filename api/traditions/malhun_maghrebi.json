@@ -3,9 +3,9 @@
   "name": "Malhun (Maghrebi)",
   "family": "global",
   "lineage": "Moroccan-Algerian sung-poetry (al-malhun) tradition originating in 16th-century Tafilalt and codified through 18th-19th-century Fez and Meknes urban poetic circles — preserves a corpus of classical-Maghrebi-Arabic poetry set to elaborate melodic-modal vocal compositions in the Andalusi-derived modal vocabulary; figures: Houcine Toulali, El Haj Houcine Toulali, the post-WWII Fez and Marrakech malhun masters",
-  "recipe": "classic North African mid-1930s malhun, improv On Frame, Persian arab improv branch, Sufi ritual devotional qawwali sufi sama. vocal fry, declaimed, chest resonance low mid, maqam neutral step. padauk Egyptian Syrian premium pyramid nylon arab school oud, spun aluminum Egyptian sombaty iraqi maqam zarb drier finger darbuka. fez andalusi palace riad. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 424,
-  "score": 150.577,
+  "recipe": "classic North African early-1950s malhun, improv On Frame, Persian arab improv branch, Sufi ritual devotional qawwali sufi sama. vocal fry, declaimed, chest resonance low mid, maqam neutral step. padauk Egyptian Syrian premium pyramid nylon arab school oud, spun aluminum Egyptian sombaty iraqi maqam zarb drier finger darbuka. fez andalusi palace riad. large-diaphragm condenser, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe_chars": 434,
+  "score": 151.777,
   "config": {
     "traditions": [
       "malhun_maghrebi",
@@ -90,7 +90,7 @@
       }
     ],
     "room": "fez_andalusi_palace_riad",
-    "archetype": "arch_electrical_disc_cut",
+    "archetype": "arch_maghreb_state_radio",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "pre_tube_german_v72",

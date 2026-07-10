@@ -3,9 +3,9 @@
   "name": "Maskandi",
   "family": "global",
   "lineage": "Zulu South African male-vocal-and-guitar tradition that emerged in the mid-20th century from rural KwaZulu-Natal migrant-labour culture — characterized by the izibongo praise-poetry vocal opening, the maskandi guitar style with characteristic open-chord strumming and finger-picking patterns, and Zulu-language lyrical content addressing rural-urban migration, romantic longing, and traditional social commentary; figures Phuzekhemisi, Ihhashi Elimhlophe, Bhekumuzi Luthuli, Mfaz Omnyama",
-  "recipe": "classic Southern African mid-1970s maskandi, drone Modal, string branch, central east south African groove percussion chimurenga soukous. vocal fry, declaimed, chest resonance low mid, equal tempered. cedar phosphor bronze bronze strummed open chord ringing overtones parlor acoustic guitar. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 480,
-  "score": 101.725,
+  "recipe": "classic Southern African early-1950s maskandi, drone Modal, string branch, central east south African groove percussion chimurenga soukous. vocal fry, declaimed, chest resonance low mid, equal tempered. cedar phosphor bronze bronze strummed open chord ringing overtones parlor acoustic guitar. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, tube pre, BBC broadcast console, vari-mu, passive program EQ. vinyl master cut.",
+  "recipe_chars": 479,
+  "score": 100.475,
   "config": {
     "traditions": [
       "maskandi",
@@ -71,7 +71,7 @@
       }
     ],
     "room": "johannesburg_gallo_african_studios",
-    "archetype": "arch_kingston_jamaican_commercial",
+    "archetype": "arch_gallo_township_jive",
     "inline_chain": {
       "mic": "dynamic_mic",
       "pre": "pre_neve_1073_input",

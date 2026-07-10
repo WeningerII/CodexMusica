@@ -3,9 +3,9 @@
   "name": "Persian naqqāli (Shahnameh dramatic recitation)",
   "family": "global",
   "lineage": "Iranian dramatic storytelling, the oldest form of dramatic performance in Iran, in which the naqqal recites and enacts episodes of the national epic — above all Ferdowsi's Shahnameh — with declamatory verse, prose bridging, vivid gesture and, traditionally, a painted scroll or coffeehouse-painting backdrop (pardeh) as visual aid. Performed historically in the qahveh-khaneh (coffeehouse) and public square, it was inscribed on the UNESCO List of Intangible Cultural Heritage in Need of Urgent Safeguarding in 2011. Delivery moves between elevated chanted verse and animated spoken narration, the naqqal shifting stance and register to voice heroes, demons and kings.",
-  "recipe": "classic Middle Eastern early-2010s persian naqqāli, ballad Poetry, med east poetic branch swedish kulning herding-call jeju haenyeo songs. thick, chest mix belt, chest resonance low mid, narrative. tehran classical dastgah context. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 361,
-  "score": 172.426,
+  "recipe": "classic Middle Eastern early-2010s persian naqqāli, ballad Poetry, med east poetic branch swedish kulning herding-call jeju haenyeo songs. thick, chest mix belt, chest resonance low mid, narrative. tehran classical dastgah context. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 294,
+  "score": 154.551,
   "config": {
     "traditions": [
       "persian_naqqali",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "tehran_classical_dastgah_context",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

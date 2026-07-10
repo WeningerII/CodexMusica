@@ -3,9 +3,9 @@
   "name": "Samba-jazz",
   "family": "global",
   "lineage": "Rio de Janeiro 1962-1970 small-group jazz-samba tradition centered on the Forma and Som Maior label catalog — codified through Sergio Mendes’s Bossa Rio (1964) and Brasil 66, Tamba Trio (Luiz Eça-Bebeto-Helcio Milito), Sambalanço Trio, Edu Lobo, and Milton Banana Trio; characterized by piano-trio-plus-singer instrumentation, advanced-harmonic vocabulary, and energetic-up-tempo samba-derived rhythmic foundation",
-  "recipe": "classic Southern American mid-1960s samba-jazz, improv On Frame, Latin jazz branch, Brazilian groove percussion pagode samba. cold pressed wurzen felt birch laminated maple laminated European spruce grand piano, growly gut upright bass, vintage ambassador asymmetric bronze bell bronze fourteen step drum kit, samba bateria, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, lead trumpet ensemble trumpet, yamaha modern Japanese mid to premium flute. phonogram brasil studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 676,
-  "score": 274.587,
+  "recipe": "classic Southern American mid-1960s samba-jazz, improv On Frame, Latin jazz branch, Brazilian groove percussion pagode samba. cold pressed wurzen felt birch laminated maple laminated European spruce grand piano, growly gut upright bass, vintage ambassador asymmetric bronze bell bronze fourteen step drum kit, samba bateria, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, lead trumpet ensemble trumpet, flute. phonogram brasil studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
+  "recipe_chars": 627,
+  "score": 268.98,
   "config": {
     "traditions": [
       "samba_jazz",
@@ -23,7 +23,7 @@
           "piano_rim": "asian_laminated_rim_birch_maple",
           "piano_soundboard": "european_spruce_soundboard",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "wet_sand_cast_plate",
+          "piano_plate": "v_pro_vacuum_cast_plate",
           "piano_pitch_standard": "a_432_alternative"
         },
         "scores": {
@@ -34,7 +34,7 @@
           "piano_rim": 4.094999999999999,
           "piano_soundboard": 3.6724999999999994,
           "piano_pinblock": 0.4225,
-          "piano_plate": 0.6174999999999999,
+          "piano_plate": 0.44499999999999995,
           "piano_pitch_standard": 2.1774999999999998
         }
       },
@@ -57,7 +57,7 @@
           "percussion_technique": "percussion_brushes_and_sticks",
           "shell_wood": "birch_shell",
           "shell_thickness": "thick_shell",
-          "bearing_edges": "edge_45",
+          "bearing_edges": "edge_30",
           "drumhead": "vintage_ambassador_drumhead",
           "snare_wires": "cable_snares",
           "cymbal_alloy": "b20",
@@ -70,7 +70,7 @@
           "percussion_technique": 30.387499999999996,
           "shell_wood": 0.75,
           "shell_thickness": 0.15,
-          "bearing_edges": 0.78,
+          "bearing_edges": 0.195,
           "drumhead": 16.56,
           "snare_wires": 0.195,
           "cymbal_alloy": 19.149999999999995,
@@ -109,7 +109,7 @@
           "sax_body_alloy": 17.064999999999998,
           "sax_mouthpiece": 0.75,
           "sax_technique": 15.874999999999996,
-          "sax_maker_school": 14.859999999999998
+          "sax_maker_school": 16.859999999999996
         }
       },
       {
@@ -138,21 +138,21 @@
         "slots": {
           "wind_articulation": "wind_breath_quiet",
           "flute_size": "piccolo_flute",
-          "flute_material": "silver_flute",
-          "flute_technique": "beatboxed_flute",
-          "flute_maker_school": "flute_yamaha"
+          "flute_material": "gold_flute",
+          "flute_technique": "classical_flute",
+          "flute_maker_school": "flute_powell_boston"
         },
         "scores": {
           "wind_articulation": 0.9849999999999999,
           "flute_size": 0.75,
-          "flute_material": 0.78,
-          "flute_technique": 0.78,
-          "flute_maker_school": 1.04
+          "flute_material": 0.195,
+          "flute_technique": 0.21,
+          "flute_maker_school": 0.9450000000000001
         }
       }
     ],
     "room": "phonogram_brasil_studio",
-    "archetype": "arch_80s_late_analog_majorrock",
+    "archetype": "arch_odeon_bossa_mpb",
     "inline_chain": {
       "mic": "mic_u67_tube_neumann",
       "pre": "pre_neve_1073_input",

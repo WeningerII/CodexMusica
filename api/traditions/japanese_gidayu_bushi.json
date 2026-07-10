@@ -3,9 +3,9 @@
   "name": "Japanese gidayū-bushi (Bunraku narration)",
   "family": "classical",
   "lineage": "Japanese gidayū-bushi sung-and-spoken narration tradition, the canonical narrative-vocal style of ningyō jōruri Bunraku puppet-theater. Named after the founding seventeenth-century narrator Takemoto Gidayū (1651-1714), who codified the style at the Takemoto-za puppet-theater in Osaka beginning in 1684 and whose canonical works (such as the Sonezaki Shinjū love-suicide play, 1703, written by his collaborator Chikamatsu Monzaemon) established the genre's core repertoire. Bunraku-as-form. Performance configuration: a single tayū (narrator) sits on a raised platform stage-right, holding the maruhon scroll-text and shifting between speaking voices for multiple characters and the omniscient narrator, while a shamisen player (three-string plucked lute, specifically the heavy-bodied futozao shamisen reserved for jōruri) sits beside providing accompaniment that is structurally inseparable from the vocal narration — a single composition of tayū-and-shamisen voice. The narrative style spans a vast emotional and acoustic range: from quiet bedchamber confidence to climactic suicide-scene wails, from comedic banter to mortal-injury death-rattle, with the tayū employing a striking range of voice-types and registers. Repertoire genealogically connected to the older Heike-monogatari biwa-narrative and to the medieval Buddhist sermon-chant traditions. Twentieth-century canonical tayū include Toyotake Yamashiro-no-Shōjō, Takemoto Tsudayū, and contemporary masters of the National Bunraku Theatre lineage. Distinguished from gagaku court music by gidayū's narrative-theatrical (vs ceremonial-orchestral) functional framework; distinguished from kabuki nagauta by jōruri's puppet-theater accompaniment context.",
-  "recipe": "classic Southeast Asian early-1650s japanese gidayū-bushi, art Music, east Asian branch, indian bard ballad poetry cambodian chapei dang veng bengali baul. vocal fry, low dynamic level, chest resonance low mid, narrative. synthetic ivory red sandalwood premium silk shamisen. wooden pagoda hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 425,
-  "score": 174.897,
+  "recipe": "classic Southeast Asian early-1650s japanese gidayū-bushi, art Music, east Asian branch, indian bard ballad poetry cambodian chapei dang veng bengali baul. vocal fry, low dynamic level, chest resonance low mid, narrative. synthetic ivory red sandalwood premium silk shamisen. wooden pagoda hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 358,
+  "score": 163.722,
   "config": {
     "traditions": [
       "japanese_gidayu_bushi",
@@ -75,7 +75,7 @@
       }
     ],
     "room": "wooden_pagoda_hall",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

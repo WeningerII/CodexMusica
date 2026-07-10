@@ -3,9 +3,9 @@
   "name": "Navajo Blessingway (Hózhǫ́ǫ́jí) recitation",
   "family": "global",
   "lineage": "Blessingway (Hózhǫ́ǫ́jí) is the central ceremony of the Diné (Navajo), a rite for restoring and maintaining hózhǫ́ (beauty, harmony, balance) used at childbirth, marriage, girls' puberty (Kinaaldá), and to sanctify life-passages, rather than to cure illness. Led by a hataałii (singer/medicine person) in the hogan over one or two nights, it consists of long fixed sequences of sung prayer and recited text recounting the emergence and the deeds of Changing Woman, learned through years of apprenticeship. The songs and prayers must be delivered in exact order and wording. The tradition is documented in the scholarship of Washington Matthews, Leland Wyman, and Father Berard Haile, and remains a living practice.",
-  "recipe": "classic modern navajo blessingway (hózhǫ́ǫ́jí) recitation, ritual Devotional, indigenous branch maasai adumu warrior jumping-song inuit katajjaq throat-singing game. sygyt, declaimed, overtone rich sustained, unrestrained. adobe room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 364,
-  "score": 207.692,
+  "recipe": "classic early-1890s navajo blessingway (hózhǫ́ǫ́jí) recitation, ritual Devotional, indigenous branch maasai adumu warrior jumping-song inuit katajjaq throat-singing game. sygyt, declaimed, overtone rich sustained, unrestrained. adobe room. acoustic horn. wax cylinder.",
+  "recipe_chars": 268,
+  "score": 192.542,
   "config": {
     "traditions": [
       "navajo_blessingway",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "adobe_room",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_wax_cylinder_ethnographic",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

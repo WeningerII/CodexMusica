@@ -3,9 +3,9 @@
   "name": "Korean jubu-ga (drinking-and-celebration songs)",
   "family": "global",
   "lineage": "Korean drinking-and-celebration song tradition continuous from premodern Korean banquet-and-tavern song-tradition through Japanese-colonial-era and post-1945 continuous performance into modern Korean-and-Korean-diaspora continuous noraebang (가요방, song-room) and drinking-establishment practice; the broader Korean drinking-culture integrates extensive trot (트로트) and folk-drinking-song repertoire",
-  "recipe": "classic mid-1940s korean jubu-ga, drinking Song, east Asian branch, European drinking song, east Asian pop functional song, east Asian protest song shidaiqu korean trot. thick, chest mix belt, tasteful, continuous-phonation. flatwound thomastik strummed open chord ringing overtones fingerpicked acoustic guitar. irish pub. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 453,
-  "score": 269.701,
+  "recipe": "classic mid-1940s korean jubu-ga, drinking Song, east Asian branch, European drinking song, east Asian pop functional song, east Asian protest song shidaiqu korean trot. thick, chest mix belt, tasteful, continuous-phonation. flatwound thomastik strummed open chord ringing overtones fingerpicked acoustic guitar. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 386,
+  "score": 256.351,
   "config": {
     "traditions": [
       "korean_jubu_ga",
@@ -73,7 +73,7 @@
       }
     ],
     "room": "irish_pub",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

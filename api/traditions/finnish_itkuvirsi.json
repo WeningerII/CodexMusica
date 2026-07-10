@@ -3,9 +3,9 @@
   "name": "Finno-Karelian itkuvirsi (lament-song)",
   "family": "global",
   "lineage": "Finno-Karelian mourning-song tradition continuous from pre-Christian Finnic-Baltic ritual-poetry practice through 19th-century documented performance by itkijä (Finno-Karelian professional women keeners) into Karelian-folk-revival; the itkuvirsi tradition is the most-preserved continuous-living lament tradition in northern Europe",
-  "recipe": "classic modern finno-karelian itkuvirsi, funeral Lament, European branch, vocal drone modal, Slavic bard ballad poetry, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. thick, declaimed, melodic, continuous-phonation. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 406,
-  "score": 124.605,
+  "recipe": "classic modern finno-karelian itkuvirsi, funeral Lament, European branch, vocal drone modal, Slavic bard ballad poetry, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. thick, declaimed, melodic, continuous-phonation. bedroom. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 339,
+  "score": 110.255,
   "config": {
     "traditions": [
       "finnish_itkuvirsi",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "untreated_bedroom",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

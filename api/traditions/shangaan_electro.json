@@ -3,9 +3,9 @@
   "name": "Shangaan electro",
   "family": "electronic",
   "lineage": "Ultra-fast Tsonga dance music from Limpopo and Soweto codified by producer Nozinja around 2005-2010 (Tshetsha Boys, Zinja Hlungwani) — 170-189bpm MIDI-marimba and organ presets over skeletal, often kick-less drum programming, chanted Xitsonga hooks answered by the dance troupe, and the whirlwind xibelani dance culture",
-  "recipe": "classic Southern American mid-2000s shangaan electro, electronic Dance, African dance branch, central east south African groove percussion, footwork electronic dance juke jersey club. vocal fry, rap, chest resonance low mid, punctuated. MIDI marimba preset diy sequenced rompler workstation, sampler drum machine. rio favela home baile funk. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 471,
-  "score": 90.862,
+  "recipe": "classic Southern American mid-2000s shangaan electro, electronic Dance, African dance branch, central east south African groove percussion, footwork electronic dance juke jersey club. vocal fry, rap, chest resonance low mid, punctuated. MIDI marimba preset diy sequenced yamaha psr casio home keyboard 1990s 2000s gm auto accompaniment home township studios rompler workstation, sampler drum machine. rio favela home baile funk. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
+  "recipe_chars": 512,
+  "score": 94.505,
   "config": {
     "traditions": [
       "shangaan_electro",
@@ -58,13 +58,13 @@
           "electronic_technique": "electronic_bass_sub",
           "rompler_preset_bank": "rompler_preset_mallet_marimba",
           "rompler_context": "rompler_context_township_midi",
-          "rompler_lineage": "rompler_korg_pa_arranger"
+          "rompler_lineage": "rompler_yamaha_psr_casio"
         },
         "scores": {
           "electronic_technique": 1.0074999999999998,
           "rompler_preset_bank": 3.263,
           "rompler_context": 2.8599999999999994,
-          "rompler_lineage": 0.195
+          "rompler_lineage": 2.275
         }
       },
       {
@@ -84,7 +84,7 @@
       }
     ],
     "room": "rio_favela_home_baile_funk",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_sa_township_digital",
     "inline_chain": {
       "mic": "condenser_fet",
       "pre": "transformerless",

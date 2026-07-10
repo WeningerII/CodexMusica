@@ -1,6 +1,6 @@
 ---
 name: codex-music-tool
-description: Query, compose, validate, and mutate the Codex Musica dataset — 1195 recorded-music traditions (in a 317-node genre tree, 13-axis space), 651 instruments across 11 families with shared parts/variants, 256 rooms, 22 chain archetypes, 21 production aesthetics, 120 tunings, and a 649-entry voice/preface lexicon. Use to look entries up, build an ensemble + room/chain/tuning setup from a tradition (or blend), compile a compressed descriptor-stack "recipe", validate every cross-reference and invariant, and safely add/edit/delete instruments, traditions, rooms, and other entities.
+description: Query, compose, validate, and mutate the Codex Musica dataset — 1195 recorded-music traditions (in a 317-node genre tree, 13-axis space), 651 instruments across 11 families with shared parts/variants, 256 rooms, 84 chain archetypes, 21 production aesthetics, 120 tunings, and a 649-entry voice/preface lexicon. Use to look entries up, build an ensemble + room/chain/tuning setup from a tradition (or blend), compile a compressed descriptor-stack "recipe", validate every cross-reference and invariant, and safely add/edit/delete instruments, traditions, rooms, and other entities.
 license: UNLICENSED
 ---
 
@@ -51,7 +51,7 @@ Hard rule: **anything you emit (recipe or arrangement) MUST pass §6 before you 
 | family part-groups | 9 | keyed by family slug | `INSTRUMENT_FAMILY_PARTS` (object) |
 | instruments | 651 | bare slug, e.g. `oud`, `electric_bass` | `INSTRUMENTS` (array) |
 | rooms | 256 | bare slug, e.g. `parlor` | `ROOMS` (array) |
-| chain archetypes | 22 | `arch_<slug>` | `CHAIN_ARCHETYPES` (array) |
+| chain archetypes | 84 | `arch_<slug>` | `CHAIN_ARCHETYPES` (array) |
 | chain sections (UI menus) | 8 | `mic`/`pre`/`fx`/… | `CHAIN_SECTIONS` (array) |
 | production aesthetics | 21 | bare slug, e.g. `wall_of_sound` | `PRODUCTION_AESTHETICS` (array) |
 | arrangement templates | 5 | bare slug | `ARRANGEMENTS` (array) |

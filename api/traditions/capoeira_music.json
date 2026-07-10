@@ -3,9 +3,9 @@
   "name": "Capoeira music",
   "family": "global",
   "lineage": "Bahian Afro-Brazilian martial-art-and-music ceremonial tradition led by three-berimbau monochord-bow ensemble — gunga lowest-tonic-keeper, médio middle-mid-tone-variation, viola highest-improvisation-lead — with pandeiro frame-drum, atabaque conical-hand-drum, agogô double-bell, and reco-reco scraped-bamboo. The roda circular-game-space is opened by ladainha lament-style sung-prayer-history, transitioned through corrido call-and-response chamada formal-invitation chant, and continues through quadras four-line verse-sections. The Angola-style slower-low-game and Regional-style faster-acrobatic-game subdivide the practice, both built on the eight-toque rhythmic-vocabulary (angola, são-bento-grande, são-bento-pequeno, iuna, miudinho, banguela, cavalaria, samango).",
-  "recipe": "classic Southern American modern capoeira music, ritual Devotional, Afro-diasporic branch, Brazilian groove percussion embolada maracatu. vocal fry, declaimed, chest resonance low mid, punctuated. berimbau, lead lighter regional goatskin cedrillo mid tier atabaque, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian hands layered pandeiro, agogo, snappy samba tradition metal construction reco reco, caxixi, capoeira roda. roda capoeira outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 645,
-  "score": 179.085,
+  "recipe": "classic Southern American modern capoeira music, ritual Devotional, Afro-diasporic branch, Brazilian groove percussion embolada maracatu. vocal fry, declaimed, chest resonance low mid, punctuated. berimbau, lead lighter regional goatskin cedrillo mid tier atabaque, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian hands layered pandeiro, agogo, snappy samba tradition metal construction reco reco, caxixi, capoeira roda. roda capoeira outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 578,
+  "score": 173.01,
   "config": {
     "traditions": [
       "capoeira_music",
@@ -139,7 +139,7 @@
       }
     ],
     "room": "roda_capoeira_outdoor",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "dynamic_mic",
       "pre": "pre_field_recorder_portable",

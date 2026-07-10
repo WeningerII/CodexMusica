@@ -3,9 +3,9 @@
   "name": "Anglo-Saxon scop epic recitation",
   "family": "global",
   "lineage": "Oral heroic-verse recitation of the scop, the poet-performer of the Anglo-Saxon (Old English) mead-hall, c. 7th-11th centuries in early medieval England. The verse is unrhymed alliterative long-line (two half-lines bridged by alliteration and four stresses), preserved in Beowulf, Widsith, Deor and The Battle of Maldon; Widsith and the Beowulf scenes at Heorot are the tradition's self-portrait of the singer 'unwinding' word-hoards to the harp. The compositional idiom is oral-formulaic, and although a hearpe may have accompanied, the surviving character is that of chanted, stress-timed declamation.",
-  "recipe": "classic modern anglo-saxon scop epic recitation, ballad Poetry, anglo singer song branch cape verdean batuko of santiago island jeju haenyeo songs. thick, declaimed, tasteful, punctuated. wooden barn. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 330,
-  "score": 151.978,
+  "recipe": "classic modern anglo-saxon scop epic recitation, ballad Poetry, anglo singer song branch cape verdean batuko of santiago island jeju haenyeo songs. thick, declaimed, tasteful, punctuated. wooden barn. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 263,
+  "score": 127.678,
   "config": {
     "traditions": [
       "anglo_saxon_scop",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "wooden_barn",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

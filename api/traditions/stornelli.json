@@ -3,9 +3,9 @@
   "name": "Stornelli (Italian improvised rural couplets)",
   "family": "global",
   "lineage": "Italian stornelli improvised-couplet folk-song tradition of central Italy (Tuscany, Umbria, Lazio, Marche, Abruzzo) and adjacent regions, in which singer-poets improvise short rhymed verse-couplets (typically tripartite three-line stanzas) on assigned topics, often in competitive dialogic-exchange between two singers. Performance: unaccompanied or minimally-accompanied solo voice, with the canonical poetic-meter conventions strictly governing the improvisation. The genre survived the twentieth-century rural-urbanization period as a vestigial folk practice and entered the post-1970s Italian folk-revival under researchers Roberto Leydi and Diego Carpitella. Distinguished from broader Italian regional-folk-song by stornelli's specifically-improvisational structural framework.",
-  "recipe": "classic Southern European mid-1970s stornelli, ballad Poetry, Mediterranean ballad branch, med east poetic ballad poetry cypriot tsiattista basque bertsolaritza. thick, declaimed, melodic, blues inflected. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 426,
-  "score": 143.371,
+  "recipe": "classic Southern European mid-1970s stornelli, ballad Poetry, Mediterranean ballad branch, med east poetic ballad poetry cypriot tsiattista basque bertsolaritza. thick, declaimed, melodic, blues inflected. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 359,
+  "score": 133.871,
   "config": {
     "traditions": [
       "stornelli",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "naples_canzone_napoletana_studio",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

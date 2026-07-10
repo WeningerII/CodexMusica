@@ -3,13 +3,12 @@
   "name": "Murga uruguaya",
   "family": "global",
   "lineage": "Montevidean carnival chorus-theatre — a massed male chorus belting satirical cuplés in raw block harmony over the cuerda de murga battery (bombo with mounted platillos, snapping redoblante), staged on neighborhood tablados each Carnaval from the 1910s Cádiz import to Agarrate Catalina",
-  "recipe": "classic South American mid-1910s murga uruguaya, carnival Processional, river plate branch, Latin am groove percussion, iberian Latin protest song candombe uruguayo. carnival scale grand entrance bombo driven murga uruguaya, ceibo canonical Argentine leguero hollowed trunk bombo andino, drumline school marching. montevideo candombe barrio sur carnival. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 484,
-  "score": 34.94,
+  "recipe": "classic South American mid-1910s murga uruguaya, carnival Processional, river plate branch, Latin am groove percussion, iberian Latin protest song. carnival scale grand entrance bombo driven murga uruguaya, ceibo canonical Argentine leguero hollowed trunk bombo andino, drumline school marching. montevideo candombe barrio sur carnival. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 399,
+  "score": 32.5,
   "config": {
     "traditions": [
-      "murga_uruguaya",
-      "candombe_uruguayan"
+      "murga_uruguaya"
     ],
     "instruments": [
       {
@@ -20,9 +19,9 @@
           "murga_uruguaya_bateria": "murga_uruguaya_bateria_clasica"
         },
         "scores": {
-          "murga_uruguaya_formation": 13.784999999999998,
-          "murga_uruguaya_repertoire": 3.2449999999999997,
-          "murga_uruguaya_bateria": 11.84
+          "murga_uruguaya_formation": 13.284999999999998,
+          "murga_uruguaya_repertoire": 2.7449999999999997,
+          "murga_uruguaya_bateria": 11.190000000000001
         }
       },
       {
@@ -42,16 +41,16 @@
         "id": "drumline_school_marching",
         "slots": {
           "section": "school_tenor",
-          "drumline_school_marching_context": "drumline_school_marching_pep"
+          "drumline_school_marching_context": "drumline_school_marching_dci"
         },
         "scores": {
           "section": 0.33,
-          "drumline_school_marching_context": 0.735
+          "drumline_school_marching_context": 1.77
         }
       }
     ],
     "room": "montevideo_candombe_barrio_sur_carnival",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "mic_sm58_dynamic_shure",
       "pre": "pre_field_recorder_portable",

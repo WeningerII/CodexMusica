@@ -3,9 +3,9 @@
   "name": "Javali (Carnatic light-classical love-song)",
   "family": "global",
   "lineage": "Carnatic light-classical romantic-love song genre at faster tempo than padam, setting Telugu and Tamil and Kannada erotic-and-romantic poetry to elaborated vocal performance — emerged in the 19th century at the Mysore and Tanjore courts, codified through Patnam Subramania Iyer and Veene Sheshanna",
-  "recipe": "classic South Asian mid-1930s javali, ritual Devotional, hindu branch, indian classical improv improv on frame dadra tappa. vocal fry, declaimed, chest resonance low mid, punctuated. jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic. chennai madras music academy sabha. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 458,
-  "score": 239.433,
+  "recipe": "classic South Asian early-1950s javali, ritual Devotional, hindu branch, indian classical improv improv on frame dadra tappa. vocal fry, declaimed, chest resonance low mid, punctuated. jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic. chennai madras music academy sabha. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe_chars": 454,
+  "score": 244.308,
   "config": {
     "traditions": [
       "javali",
@@ -88,7 +88,7 @@
       }
     ],
     "room": "chennai_madras_music_academy_sabha",
-    "archetype": "arch_electrical_disc_cut",
+    "archetype": "arch_hmv_dumdum_raga",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "pre_tube_german_v72",

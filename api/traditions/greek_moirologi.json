@@ -3,9 +3,9 @@
   "name": "Greek moirológi (μοιρολόγι, lament)",
   "family": "global",
   "lineage": "Greek mourning-song tradition continuous from ancient-Greek thrēnos through Byzantine-and-Ottoman period continuous performance into modern Greek funeral practice; particularly preserved in Mani peninsula (Peloponnese), Crete, Epirus, and Pontic-Greek diaspora",
-  "recipe": "classic modern greek moirológi, funeral Lament, European branch, middle eastern funeral lament, Mediterranean ballad ballad poetry, christian gospel ritual devotional bluegrass gospel southern gospel quartet. thick, declaimed, tasteful, ornamental. gut pre modern cretan cretan lyra. parish church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 428,
-  "score": 204.506,
+  "recipe": "classic modern greek moirológi, funeral Lament, European branch, middle eastern funeral lament, Mediterranean ballad ballad poetry, christian gospel ritual devotional bluegrass gospel southern gospel quartet. thick, declaimed, tasteful, ornamental. gut pre modern cretan cretan lyra. parish church. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 361,
+  "score": 197.381,
   "config": {
     "traditions": [
       "greek_moirologi",
@@ -71,7 +71,7 @@
       }
     ],
     "room": "stone_parish_church",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

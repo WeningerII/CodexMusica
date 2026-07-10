@@ -3,9 +3,9 @@
   "name": "Romanian bocet (lament)",
   "family": "global",
   "lineage": "Romanian mourning-song tradition continuous from medieval Wallachian-and-Moldavian rural practice through 19th-20th century documented performance by bocitoare (Romanian professional women keeners); regionally distributed across Maramureș, Bukovina, Transylvania, Oltenia, and Banat",
-  "recipe": "classic modern romanian bocet, funeral Lament, European branch, vocal drone modal, Mediterranean ballad ballad poetry, Slavic bard ballad poetry silbo gomero whistled language skolt sámi leuʹdd. vocal fry, declaimed, chest resonance low mid, continuous-phonation. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 402,
-  "score": 110.853,
+  "recipe": "classic early-1890s romanian bocet, funeral Lament, European branch, vocal drone modal, Mediterranean ballad ballad poetry, Slavic bard ballad poetry silbo gomero whistled language skolt sámi leuʹdd. vocal fry, declaimed, chest resonance low mid, continuous-phonation. bedroom. acoustic horn. wax cylinder.",
+  "recipe_chars": 306,
+  "score": 100.428,
   "config": {
     "traditions": [
       "romanian_bocet",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "untreated_bedroom",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_wax_cylinder_ethnographic",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

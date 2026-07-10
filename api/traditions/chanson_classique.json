@@ -3,9 +3,9 @@
   "name": "Chanson classique",
   "family": "global",
   "lineage": "Mid-twentieth-century French chanson canon centered on the Left Bank Paris cabaret scene — codified through Édith Piaf, Charles Trenet, Yves Montand, Jacques Brel (Belgian-Flemish but Paris-resident), Georges Brassens, and Léo Ferré; characterized by literary-poetic lyrical register, music-hall accompaniment, and the chanteuse / chansonnier solo performer tradition",
-  "recipe": "classic North American mid-1950s chanson classique, ballad Poetry, classic chanson branch, anglo singer song ballad poetry indie folk freak folk. thick, lament wail, chest resonance low mid, equal tempered. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, castagnari Italian premium folk music straight accordion, cedar walnut phosphor bronze bronze fingerpicked acoustic guitar, ebonite hard rubber klezmer tradition clarinet. jazz club. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 575,
-  "score": 260.997,
+  "recipe": "classic European early-1940s chanson classique, ballad Poetry, classic chanson branch, anglo singer song ballad poetry indie folk freak folk. thick, lament wail, chest resonance low mid, equal tempered. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, castagnari Italian premium folk music straight accordion, cedar walnut phosphor bronze bronze fingerpicked acoustic guitar, ebonite hard rubber klezmer tradition clarinet. jazz club. Neumann U47, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 585,
+  "score": 263.097,
   "config": {
     "traditions": [
       "chanson_classique",
@@ -136,7 +136,7 @@
       }
     ],
     "room": "jazz_club",
-    "archetype": "arch_early_tape_us_commercial",
+    "archetype": "arch_paris_chanson_orchestral",
     "inline_chain": {
       "mic": "ribbon_passive",
       "pre": "tube_pre",

@@ -3,9 +3,9 @@
   "name": "Tango traditional (orquesta típica era)",
   "family": "global",
   "lineage": "Pre-1955 Buenos-Aires-and-Montevideo orquesta-típica golden-age tradition of the 1940s-decade-of-the-orchestras D'Arienzo-Troilo-Pugliese-Di-Sarli-stylistic-spectrum. The standard ten-piece orquesta-típica configuration: four bandoneóns leading-and-bellows-articulated-counter-melody, four violins (with one rotated to viola for chamber-thickness), upright-bass marking the strong-beats, and piano providing harmonic-rhythmic-anchor. Built on the 2/4 four-strong-beat (D'Arienzo marcato) versus 4/4 elongated-phrasing (Pugliese yumba-and-rubato) tempo-philosophy split that defines tango interpretation. The repertoire layers tango-instrumental, tango-canción with sung-poetic-lunfardo-slang lyrics, vals-criollo Argentine-waltz, and milonga-fast pace variant.",
-  "recipe": "classic South American mid-1940s tango traditional, ballad Poetry, Latin am troubadour branch, Latin am groove percussion joropo vallenato. sygyt, forward-resonance, pure, narrative. tango virtuoso premier German tango premium alternative steel reeds canonical aa pre 1949 voicing bellows articulated bandoneon, synthetic sitka spruce European maple sycamore maple cremonese pre 1750 violin orchestral, upright piano, upright bass. large tracking room 1920-1965 mid tier odeon rca buenos aires. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 567,
-  "score": 145.59,
+  "recipe": "classic South American mid-1940s tango traditional, ballad Poetry, Latin am troubadour branch, Latin am groove percussion joropo vallenato. sygyt, forward-resonance, pure, narrative. tango virtuoso premier German tango premium alternative steel reeds canonical aa pre 1949 voicing bellows articulated bandoneon, synthetic sitka spruce European maple sycamore maple cremonese pre 1750 violin orchestral, upright piano, upright bass. large tracking room 1920-1965 mid tier odeon rca buenos aires. RCA 44-BX, German V72 tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 562,
+  "score": 146.24,
   "config": {
     "traditions": [
       "tango_traditional",
@@ -124,7 +124,7 @@
       }
     ],
     "room": "odeon_rca_buenos_aires",
-    "archetype": "arch_electrical_disc_cut",
+    "archetype": "arch_ba_tango_radio_orquesta",
     "inline_chain": {
       "mic": "mic_rca_44bx_ribbon",
       "pre": "tube_pre",

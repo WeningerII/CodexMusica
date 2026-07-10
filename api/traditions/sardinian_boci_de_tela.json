@@ -3,9 +3,9 @@
   "name": "Sardinian boci de tela (weaving songs)",
   "family": "global",
   "lineage": "Sardinian boci de tela (\"weaving songs\") and broader Sardinian women's-domestic-textile-labor song tradition continuous from medieval-Sardinian-rural domestic-textile labor practice through 19th-20th century continuous performance into modern Sardinian-folk-revival",
-  "recipe": "classic Southern European modern sardinian boci de tela, domestic Rhythm, Celtic hebridean branch, Slavic baltic domestic rhythm, European lullaby, European funeral lament romanian cântece de tors albanian vajtim. thick, false fold engaged, tasteful, continuous-phonation. sardinian outdoor a tenore polyphony. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 440,
-  "score": 122.483,
+  "recipe": "classic Southern European modern sardinian boci de tela, domestic Rhythm, Celtic hebridean branch, Slavic baltic domestic rhythm, European lullaby, European funeral lament romanian cântece de tors albanian vajtim. thick, false fold engaged, tasteful, continuous-phonation. sardinian outdoor a tenore polyphony. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 373,
+  "score": 117.433,
   "config": {
     "traditions": [
       "sardinian_boci_de_tela",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "sardinian_outdoor_a_tenore_polyphony",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

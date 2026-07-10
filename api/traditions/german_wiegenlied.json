@@ -3,9 +3,9 @@
   "name": "German Wiegenlied (cradle song)",
   "family": "global",
   "lineage": "German cradle-song tradition documented from medieval Marian-cradle hymns through Romantic-era Volkslied collection by Brentano-and-Arnim (Des Knaben Wunderhorn 1805-1808) and through Brahms' 1868 art-song setting that became globally iconic",
-  "recipe": "classic 1805-1808 german wiegenlied, lullaby, European branch, western common practice art music, chanson fado ballad poetry, europop functional song morna cape verdean batuko of santiago island. vocal fry, lament wail, chest resonance low mid, punctuated. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 394,
-  "score": 109.875,
+  "recipe": "classic 1805-1808 german wiegenlied, lullaby, European branch, western common practice art music, chanson fado ballad poetry, europop functional song morna cape verdean batuko of santiago island. vocal fry, lament wail, chest resonance low mid, punctuated. parlor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 327,
+  "score": 97.588,
   "config": {
     "traditions": [
       "german_wiegenlied",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "parlor",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",
