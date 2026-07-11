@@ -3,9 +3,9 @@
   "name": "J-pop (classic mainstream)",
   "family": "global",
   "lineage": "Japanese 1980s-1990s mainstream pop tradition codified through Seiko Matsuda, Yumi Matsutoya, the agency-system idol pop infrastructure (Johnny’s Entertainment for male groups, Sun Music for solo idols), and television-tied tie-up song format — characterized by major-key brightness, English-loanword lyric inserts, and tightly-arranged session-musician production",
-  "recipe": "classic mid-1980s j-pop, functional Song, east Asian pop branch, pop rock functional song new wave yacht rock. thick, chest mix belt, chest resonance low mid, equal tempered. singing lead analog poly synth, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, birch pre muffled edge muffled hot rolled annealed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 605,
-  "score": 690.917,
+  "recipe": "classic Asian mid-1980s j-pop, functional Song, east Asian pop branch, pop rock functional song new wave yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. singing lead analog poly synth, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, birch pre muffled edge muffled hot rolled annealed drum kit. treated studio. Neumann U87, console-strip pre, SSL inline console, SMART research c1/c2, SSL surgical EQ. 16-bit digital eventide harmonizer TC electronic 2290 delay digital delay.",
+  "recipe_chars": 652,
+  "score": 709.045,
   "config": {
     "traditions": [
       "j_pop_classic",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "chest_mix_belt_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "spoken_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_jingju_role",
-          "voice_pitch_organization": "voice_pitch_scoop_up_300_cents",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
           "voice_register": 58.92500000000001,
-          "voice_quality": 1.3349999999999995,
+          "voice_quality": 2.0799999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.055,
-          "voice_articulation": 0.39,
+          "voice_vibrato": 7.279999999999999,
+          "voice_articulation": 15.274999999999991,
           "voice_microtone": 57.125,
           "voice_tradition": 40.904999999999994,
           "voice_mechanism_compound": 2.9249999999999994,
           "voice_estill_quality": 2.5349999999999997,
-          "voice_speech_song": 23.00999999999999,
-          "voice_ensemble_config": 14.559999999999992,
+          "voice_speech_song": 24.11499999999999,
+          "voice_ensemble_config": 14.624999999999991,
           "voice_ornament_system": 2.285,
-          "voice_pitch_organization": 1.3,
+          "voice_pitch_organization": 3.250000000000001,
           "voice_processing_chain": 15.005000000000003,
-          "voice_multitrack_stack": 10.14
+          "voice_multitrack_stack": 10.205000000000002
         }
       },
       {
@@ -152,7 +152,7 @@
       }
     ],
     "room": "treated_studio",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_tokyo_jpop_hit_factory",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "transformer_solid_state",

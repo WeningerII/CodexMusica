@@ -3,9 +3,9 @@
   "name": "Spiritual jazz",
   "family": "jazz",
   "lineage": "Late-1960s/1970s African-American jazz movement combining modal-and-free harmonic vocabulary with explicit religious / political / Afro-diasporic content — Pharoah Sanders, Alice Coltrane, Don Cherry, Lonnie Liston Smith, the Strata-East and Impulse! catalogs",
-  "recipe": "classic North American 1967-1969 spiritual jazz, improv On Frame, avant branch, Afro-diasporic ritual devotional, vocal drone modal flamenco. thick, declaimed, melodic, punctuated. nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris multiphonic continuous-airflow saxophone, oversize maple tension resonator sitka spruce diaphragmatic 7 ply grand piano, growly gut upright bass, fiberskyn synthetic calf bronze bell bronze over hammered drum kit, hardwood calabash mbira, tabla, teak bone open jawari vilayat khan canon long sustain sitar. independent loft jazz 1971-1978 indie-commercial strata east loft nyc. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 782,
-  "score": 424.83,
+  "recipe": "classic North American 1967-1969 spiritual jazz, improv On Frame, avant branch, Afro-diasporic ritual devotional, vocal drone modal flamenco. thick, breath veiled tone, straight onset, interlocked note trading. nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris multiphonic continuous-airflow saxophone, oversize maple tension resonator sitka spruce diaphragmatic 7 ply grand piano, growly gut upright bass, fiberskyn synthetic calf bronze bell bronze over hammered drum kit, hardwood calabash mbira, tabla, teak bone open jawari vilayat khan canon long sustain sitar. independent loft jazz 1971-1978 indie-commercial strata east loft nyc. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 771,
+  "score": 473.08,
   "config": {
     "traditions": [
       "spiritual_jazz",
@@ -31,7 +31,7 @@
           "sax_body_alloy": 19.899999999999995,
           "sax_mouthpiece": 0.9500000000000001,
           "sax_technique": 17.445,
-          "sax_maker_school": 15.499999999999996
+          "sax_maker_school": 17.499999999999996
         }
       },
       {
@@ -105,12 +105,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "staccato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "jazz_scat_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -123,21 +123,21 @@
         },
         "scores": {
           "voice_register": 20.039999999999996,
-          "voice_quality": 4.695000000000001,
+          "voice_quality": 10.919999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.1049999999999998,
-          "voice_articulation": 0.585,
-          "voice_microtone": 19.324999999999996,
+          "voice_vibrato": 19.499999999999996,
+          "voice_articulation": 17.419999999999998,
+          "voice_microtone": 22.09999999999999,
           "voice_tradition": 18.449999999999996,
           "voice_mechanism_compound": 8.844999999999999,
           "voice_estill_quality": 9.02,
-          "voice_speech_song": 18.785,
-          "voice_ensemble_config": 16.444999999999997,
+          "voice_speech_song": 20.864999999999995,
+          "voice_ensemble_config": 16.314999999999998,
           "voice_ornament_system": 4.65,
           "voice_pitch_organization": 4.450000000000001,
           "voice_processing_chain": 3.595,
-          "voice_multitrack_stack": 5.450000000000001
+          "voice_multitrack_stack": 6.345000000000001
         }
       },
       {
@@ -197,7 +197,7 @@
       }
     ],
     "room": "strata_east_loft_nyc",
-    "archetype": "arch_70s_uk_class_a_rock",
+    "archetype": "arch_van_gelder_hard_bop",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "pre_neve_1073_input",

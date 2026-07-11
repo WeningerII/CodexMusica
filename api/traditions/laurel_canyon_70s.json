@@ -3,9 +3,9 @@
   "name": "70s Laurel Canyon",
   "family": "global",
   "lineage": "Early-1970s Laurel Canyon (Los Angeles hill-neighborhood) singer-songwriter scene centered around Joni Mitchell, Crosby Stills Nash and Young, Jackson Browne, the Eagles, Linda Ronstadt, Carole King — codified through the A and M / Sunset Sound / Wally Heider studio canon",
-  "recipe": "classic North American 1970-1973 70s laurel canyon, ballad Poetry, laurel canyon branch, outlaw country. thick, incomplete closure resting, expressive, equal tempered. travis picked fingerpicked acoustic Fender tweed amp American 50s amp tweed breakup soft down tuning single coil electric guitar, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, hot rolled annealed machine hammered symmetric pattern organized rows drum kit, raymac steel tine premium 1970s vintage replacement neoprene rubber tips canonical Rhodes stage suitcase mid 1970s centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric, Wurlitzer 200a canonical 1974 1982 solid state soft rock canon block chord wurlitzer ep. charlie chaplin studio lot 1966-1999 major-flagship a and m studios hollywood. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET.",
+  "recipe": "classic North American 1970-1973 70s laurel canyon, ballad Poetry, laurel canyon branch, outlaw country. thick, breath veiled tone, straight note core, interlocked note trading. travis picked fingerpicked acoustic Fender tweed amp American 50s amp tweed breakup soft down tuning single coil electric guitar, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, hot rolled annealed machine hammered symmetric pattern organized rows drum kit, raymac steel tine premium 1970s vintage replacement neoprene rubber tips canonical Rhodes stage suitcase mid 1970s centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric, Wurlitzer 200a canonical 1974 1982 solid state soft rock canon block chord wurlitzer ep. charlie chaplin studio lot 1966-1999 major-flagship a and m studios hollywood. large-diaphragm condenser, API 312 op-amp pre, API op-amp console.",
   "recipe_chars": 995,
-  "score": 218.697,
+  "score": 234.295,
   "config": {
     "traditions": [
       "laurel_canyon_70s",
@@ -16,12 +16,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "incomplete_closure_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "oscillating_vibrato",
-          "voice_articulation": "legato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -34,21 +34,21 @@
         },
         "scores": {
           "voice_register": 14.426249999999994,
-          "voice_quality": 4.275,
+          "voice_quality": 10.002499999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 8,
-          "voice_articulation": 0.007499999999999999,
-          "voice_microtone": 4.300000000000001,
+          "voice_vibrato": 8.715,
+          "voice_articulation": 6.349999999999999,
+          "voice_microtone": 6.199999999999999,
           "voice_tradition": 4.2075000000000005,
           "voice_mechanism_compound": 1.71125,
           "voice_estill_quality": 9.60375,
-          "voice_speech_song": 10.624999999999996,
-          "voice_ensemble_config": 6.724999999999999,
+          "voice_speech_song": 11.418749999999996,
+          "voice_ensemble_config": 6.6324999999999985,
           "voice_ornament_system": 3.4787500000000002,
-          "voice_pitch_organization": 2.5999999999999996,
+          "voice_pitch_organization": 2.45,
           "voice_processing_chain": 6.5575,
-          "voice_multitrack_stack": 6.0625
+          "voice_multitrack_stack": 6.423750000000001
         }
       },
       {

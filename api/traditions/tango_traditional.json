@@ -3,9 +3,9 @@
   "name": "Tango traditional (orquesta típica era)",
   "family": "global",
   "lineage": "Pre-1955 Buenos-Aires-and-Montevideo orquesta-típica golden-age tradition of the 1940s-decade-of-the-orchestras D'Arienzo-Troilo-Pugliese-Di-Sarli-stylistic-spectrum. The standard ten-piece orquesta-típica configuration: four bandoneóns leading-and-bellows-articulated-counter-melody, four violins (with one rotated to viola for chamber-thickness), upright-bass marking the strong-beats, and piano providing harmonic-rhythmic-anchor. Built on the 2/4 four-strong-beat (D'Arienzo marcato) versus 4/4 elongated-phrasing (Pugliese yumba-and-rubato) tempo-philosophy split that defines tango interpretation. The repertoire layers tango-instrumental, tango-canción with sung-poetic-lunfardo-slang lyrics, vals-criollo Argentine-waltz, and milonga-fast pace variant.",
-  "recipe": "classic South American mid-1940s tango traditional, ballad Poetry, Latin am troubadour branch, Latin am groove percussion joropo vallenato. sygyt, forward-resonance, pure, narrative. tango virtuoso premier German tango premium alternative steel reeds canonical aa pre 1949 voicing bellows articulated bandoneon, synthetic sitka spruce European maple sycamore maple cremonese pre 1750 violin orchestral, upright piano, upright bass. large tracking room 1920-1965 mid tier odeon rca buenos aires. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 567,
-  "score": 145.59,
+  "recipe": "classic South American mid-1940s tango traditional, ballad Poetry, Latin am troubadour branch, Latin am groove percussion joropo vallenato. sygyt, breath veiled tone, fast rate, interlocked note trading. tango virtuoso premier German tango premium alternative steel reeds canonical aa pre 1949 voicing bellows articulated bandoneon, synthetic sitka spruce European maple sycamore maple cremonese pre 1750 violin orchestral, upright piano, upright bass. large tracking room 1920-1965 mid tier odeon rca buenos aires. RCA 44-BX, German V72 tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 583,
+  "score": 187.155,
   "config": {
     "traditions": [
       "tango_traditional",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "sygyt_register",
-          "voice_quality": "twang_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "straight_tone",
-          "voice_articulation": "narrative_voice",
-          "voice_microtone": "overtone_singing",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "chinese_classical_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_lo_fi_narrow_AM",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
           "voice_register": 1.755,
-          "voice_quality": 8.024999999999999,
+          "voice_quality": 17.029999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.045,
-          "voice_articulation": 3.380000000000001,
-          "voice_microtone": 0.585,
+          "voice_vibrato": 2.34,
+          "voice_articulation": 17.68,
+          "voice_microtone": 14.494999999999996,
           "voice_tradition": 6.11,
           "voice_mechanism_compound": 5.719999999999999,
           "voice_estill_quality": 6.825,
-          "voice_speech_song": 16.51,
-          "voice_ensemble_config": 20.735,
+          "voice_speech_song": 18.265,
+          "voice_ensemble_config": 20.604999999999997,
           "voice_ornament_system": 1.4949999999999999,
-          "voice_pitch_organization": 2.6,
+          "voice_pitch_organization": 3.0549999999999997,
           "voice_processing_chain": 6.11,
-          "voice_multitrack_stack": 3.185
+          "voice_multitrack_stack": 3.5100000000000016
         }
       },
       {
@@ -124,7 +124,7 @@
       }
     ],
     "room": "odeon_rca_buenos_aires",
-    "archetype": "arch_electrical_disc_cut",
+    "archetype": "arch_ba_tango_radio_orquesta",
     "inline_chain": {
       "mic": "mic_rca_44bx_ribbon",
       "pre": "tube_pre",

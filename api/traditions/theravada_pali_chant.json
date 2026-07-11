@@ -3,58 +3,58 @@
   "name": "Theravada Pali chant",
   "family": "global",
   "lineage": "Sri Lankan / Burmese / Thai / Cambodian / Lao Theravada Buddhist scriptural-recitation tradition — the liturgical practice of reciting the Tipitaka (the Pali-language scripture-corpus codified at the First Buddhist Council c. 480 BCE) in slow modal melismatic chant; performed by monks in temple wat / vihara contexts at morning and evening services, festival celebrations (Vesak, Kathina), and ceremonial-meditational practice",
-  "recipe": "classic Southeast Asian modern theravada pali chant, ritual Devotional, buddhist branch, southeast Asian art music vietnamese quan họ bắc ninh thai classical. vocal fry, declaimed, chest resonance low mid, callresponse articulation. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 457,
-  "score": 136.09,
+  "recipe": "classic Southeast Asian modern theravada pali chant, ritual Devotional, buddhist branch, southeast Asian art music thai classical vietnamese quan họ bắc ninh. vocal fry, breath veiled tone, slow rate, interlocked note trading. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 384,
+  "score": 192.582,
   "config": {
     "traditions": [
       "theravada_pali_chant",
-      "vietnamese_quan_ho",
-      "thai_classical"
+      "thai_classical",
+      "vietnamese_quan_ho"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "vocal_fry",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "call_response_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "chinese_classical_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_carnatic_gamaka",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 1.885,
-          "voice_quality": 7.0600000000000005,
+          "voice_quality": 21.514999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.224999999999999,
-          "voice_articulation": 0.78,
-          "voice_microtone": 2.8274999999999997,
+          "voice_vibrato": 12.447499999999996,
+          "voice_articulation": 16.12,
+          "voice_microtone": 17.874999999999996,
           "voice_tradition": 21.839999999999996,
           "voice_mechanism_compound": 8.024999999999997,
           "voice_estill_quality": 11.082499999999992,
-          "voice_speech_song": 19.370000000000008,
-          "voice_ensemble_config": 17.485000000000003,
+          "voice_speech_song": 19.825,
+          "voice_ensemble_config": 17.355,
           "voice_ornament_system": 8.024999999999997,
-          "voice_pitch_organization": 20.65,
-          "voice_processing_chain": 4.42,
-          "voice_multitrack_stack": 4.29
+          "voice_pitch_organization": 25.859999999999996,
+          "voice_processing_chain": 7.605,
+          "voice_multitrack_stack": 5.785000000000001
         }
       }
     ],
     "room": "jakarta_bangkok_southeast_asian_studio",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

@@ -1,0 +1,442 @@
+{
+  "id": "waterphone",
+  "name": "Waterphone (Waters bowed water-resonator)",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": -1,
+    "register": 1,
+    "range": 1,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "waterphone",
+  "parts": [
+    {
+      "id": "waterphone_model",
+      "name": "Model / size",
+      "variants": [
+        {
+          "id": "waterphone_standard",
+          "default": true,
+          "name": "Standard (Richard Waters original AquaSonic)",
+          "descriptors": [
+            "keening",
+            "shimmering",
+            "unsettling"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "horror-scoring",
+            "free-improvisation"
+          ]
+        },
+        {
+          "id": "waterphone_bass",
+          "name": "Bass (larger resonator pan)",
+          "descriptors": [
+            "deep",
+            "moaning",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "dark-ambient"
+          ]
+        },
+        {
+          "id": "waterphone_megabass",
+          "name": "MegaBass (largest pan, deepest voice)",
+          "descriptors": [
+            "cavernous",
+            "abyssal",
+            "booming"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "dark-ambient",
+            "drone"
+          ]
+        },
+        {
+          "id": "waterphone_whaler",
+          "name": "Whaler (flared tonewell, whale-call voice)",
+          "descriptors": [
+            "whale-song",
+            "vocal",
+            "gliding"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "free-improvisation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "waterphone_excitation",
+      "name": "Excitation technique",
+      "variants": [
+        {
+          "id": "waterphone_bowed_rods",
+          "default": true,
+          "name": "Bowed rods with water-tilt glissando",
+          "descriptors": [
+            "keening",
+            "pitch-bending",
+            "ghostly"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "waterphone_superball_friction",
+          "name": "Superball friction mallet dragged on resonator",
+          "descriptors": [
+            "groaning",
+            "friction-driven",
+            "whale-like"
+          ],
+          "match_tokens": [
+            "rough-tone",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "waterphone_struck_rods",
+          "name": "Struck rods and pan (mallets / fingertips)",
+          "descriptors": [
+            "clangorous",
+            "bell-like",
+            "water-warbled"
+          ],
+          "match_tokens": [
+            "struck",
+            "rough-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "waterphone_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "waterphone_suspense_scoring",
+          "default": true,
+          "name": "Horror / suspense scoring cue",
+          "descriptors": [
+            "cinematic",
+            "dread-building",
+            "atmospheric"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "horror-scoring",
+            "film-scoring"
+          ]
+        },
+        {
+          "id": "waterphone_free_improv",
+          "name": "Non-idiomatic free improvisation",
+          "descriptors": [
+            "exploratory",
+            "textural",
+            "extended-technique"
+          ],
+          "match_tokens": [
+            "bowed",
+            "struck",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "free-improvisation"
+          ]
+        },
+        {
+          "id": "waterphone_dark_ambient_ritual",
+          "name": "Dark ambient / ritual drone layering",
+          "descriptors": [
+            "ritual",
+            "droning",
+            "subterranean"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "sustained-tone",
+            "trance-inducing"
+          ],
+          "canonical_tags": [
+            "dark-ambient",
+            "drone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "waterphone_construction",
+      "surface": false,
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "waterphone_bronze_stainless",
+          "default": true,
+          "name": "Bronze rods brazed to stainless-steel pan (canonical AquaSonic)",
+          "descriptors": [
+            "bronze-rods-canonical-aquasonic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ]
+        },
+        {
+          "id": "waterphone_brass_replica",
+          "name": "Brass-rod workshop replica",
+          "descriptors": [
+            "brass-rods-replica"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "waterphone_model",
+      "name": "Model / size",
+      "variants": [
+        {
+          "id": "waterphone_standard",
+          "default": true,
+          "name": "Standard (Richard Waters original AquaSonic)",
+          "descriptors": [
+            "keening",
+            "shimmering",
+            "unsettling"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "horror-scoring",
+            "free-improvisation"
+          ]
+        },
+        {
+          "id": "waterphone_bass",
+          "name": "Bass (larger resonator pan)",
+          "descriptors": [
+            "deep",
+            "moaning",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "dark-ambient"
+          ]
+        },
+        {
+          "id": "waterphone_megabass",
+          "name": "MegaBass (largest pan, deepest voice)",
+          "descriptors": [
+            "cavernous",
+            "abyssal",
+            "booming"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "dark-ambient",
+            "drone"
+          ]
+        },
+        {
+          "id": "waterphone_whaler",
+          "name": "Whaler (flared tonewell, whale-call voice)",
+          "descriptors": [
+            "whale-song",
+            "vocal",
+            "gliding"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "free-improvisation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "waterphone_excitation",
+      "name": "Excitation technique",
+      "variants": [
+        {
+          "id": "waterphone_bowed_rods",
+          "default": true,
+          "name": "Bowed rods with water-tilt glissando",
+          "descriptors": [
+            "keening",
+            "pitch-bending",
+            "ghostly"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "waterphone_superball_friction",
+          "name": "Superball friction mallet dragged on resonator",
+          "descriptors": [
+            "groaning",
+            "friction-driven",
+            "whale-like"
+          ],
+          "match_tokens": [
+            "rough-tone",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "waterphone_struck_rods",
+          "name": "Struck rods and pan (mallets / fingertips)",
+          "descriptors": [
+            "clangorous",
+            "bell-like",
+            "water-warbled"
+          ],
+          "match_tokens": [
+            "struck",
+            "rough-tone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "waterphone_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "waterphone_suspense_scoring",
+          "default": true,
+          "name": "Horror / suspense scoring cue",
+          "descriptors": [
+            "cinematic",
+            "dread-building",
+            "atmospheric"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "horror-scoring",
+            "film-scoring"
+          ]
+        },
+        {
+          "id": "waterphone_free_improv",
+          "name": "Non-idiomatic free improvisation",
+          "descriptors": [
+            "exploratory",
+            "textural",
+            "extended-technique"
+          ],
+          "match_tokens": [
+            "bowed",
+            "struck",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "free-improvisation"
+          ]
+        },
+        {
+          "id": "waterphone_dark_ambient_ritual",
+          "name": "Dark ambient / ritual drone layering",
+          "descriptors": [
+            "ritual",
+            "droning",
+            "subterranean"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "sustained-tone",
+            "trance-inducing"
+          ],
+          "canonical_tags": [
+            "dark-ambient",
+            "drone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "waterphone_construction",
+      "surface": false,
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "waterphone_bronze_stainless",
+          "default": true,
+          "name": "Bronze rods brazed to stainless-steel pan (canonical AquaSonic)",
+          "descriptors": [
+            "bronze-rods-canonical-aquasonic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "rough-tone"
+          ]
+        },
+        {
+          "id": "waterphone_brass_replica",
+          "name": "Brass-rod workshop replica",
+          "descriptors": [
+            "brass-rods-replica"
+          ],
+          "match_tokens": [
+            "bowed"
+          ]
+        }
+      ]
+    }
+  ]
+}

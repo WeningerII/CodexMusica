@@ -1,0 +1,434 @@
+{
+  "id": "steirische_harmonika",
+  "name": "Steirische Harmonika (Alpine helicon-bass diatonic accordion)",
+  "family": "free_reed",
+  "class": "free_reed",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "steirische",
+  "parts": [
+    {
+      "id": "free_reed_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "free_reed_folk_first_position",
+          "default": true,
+          "name": "Folk first-position straight",
+          "descriptors": [
+            "straight",
+            "melodic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "folk",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "folk",
+            "singer-songwriter",
+            "country"
+          ]
+        },
+        {
+          "id": "free_reed_overblow_modern",
+          "name": "Overblow modern bending",
+          "descriptors": [
+            "overblown",
+            "fully-chromatic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "modern"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "steirische_harmonika_form",
+      "name": "Regional form & size",
+      "variants": [
+        {
+          "id": "steirische_harmonika_four_row",
+          "default": true,
+          "name": "Four-row Styrian (standard B-Es-As-Des tuning)",
+          "descriptors": [
+            "alpine",
+            "booming",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "bellows-driven",
+            "oom-pah"
+          ],
+          "canonical_tags": [
+            "austrian",
+            "alpine",
+            "styrian",
+            "volksmusik"
+          ]
+        },
+        {
+          "id": "steirische_harmonika_three_row",
+          "name": "Three-row Steirische (older village form)",
+          "descriptors": [
+            "rustic",
+            "village",
+            "archaic"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "bellows-driven"
+          ],
+          "canonical_tags": [
+            "austrian",
+            "bavarian",
+            "alpine"
+          ]
+        },
+        {
+          "id": "steirische_harmonika_five_row",
+          "name": "Five-row concert Steirische (extended range)",
+          "descriptors": [
+            "virtuoso",
+            "extended",
+            "concert"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "bellows-driven"
+          ],
+          "canonical_tags": [
+            "austrian",
+            "slovenian",
+            "concert"
+          ]
+        },
+        {
+          "id": "steirische_harmonika_oberkrainer",
+          "name": "Oberkrainer-tuned Slovenian Steirische",
+          "descriptors": [
+            "oberkrainer",
+            "slovenian",
+            "polished"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "bellows-driven",
+            "oom-pah"
+          ],
+          "canonical_tags": [
+            "slovenian",
+            "oberkrainer",
+            "alpine"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "steirische_harmonika_repertoire",
+      "name": "Playing context & repertoire",
+      "variants": [
+        {
+          "id": "steirische_harmonika_landler_polka",
+          "default": true,
+          "name": "Ländler / polka / Boarischer dance drive",
+          "descriptors": [
+            "dance-driving",
+            "bouncing",
+            "festive"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "bellows-driven",
+            "oom-pah"
+          ],
+          "canonical_tags": [
+            "austrian",
+            "alpine",
+            "dance"
+          ]
+        },
+        {
+          "id": "steirische_harmonika_oberkrainer_ensemble",
+          "name": "Oberkrainer ensemble lead (Avsenik-style)",
+          "descriptors": [
+            "oberkrainer",
+            "sweet",
+            "ensemble-lead"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "bellows-driven",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "slovenian",
+            "oberkrainer"
+          ]
+        },
+        {
+          "id": "steirische_harmonika_stubenmusik_solo",
+          "name": "Solo Stubenmusik / Schuhplattler accompaniment",
+          "descriptors": [
+            "intimate",
+            "parlor",
+            "accompanying"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "bellows-driven"
+          ],
+          "canonical_tags": [
+            "austrian",
+            "bavarian",
+            "schuhplattler"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "steirische_harmonika_bass_reeds",
+      "surface": false,
+      "name": "Bass reed configuration",
+      "variants": [
+        {
+          "id": "steirische_harmonika_helicon_bass",
+          "default": true,
+          "name": "Helicon bass reeds (booming tuba-like — canonical)",
+          "descriptors": [
+            "helicon-booming-canonical"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "bellows-driven",
+            "booming-bass"
+          ]
+        },
+        {
+          "id": "steirische_harmonika_standard_bass",
+          "name": "Standard accordion bass reeds",
+          "descriptors": [
+            "standard-bass"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "bellows-driven"
+          ]
+        },
+        {
+          "id": "steirische_harmonika_musette_doubled",
+          "name": "Octave-doubled musette melody reeds",
+          "descriptors": [
+            "musette-doubled"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "bellows-driven"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "steirische_harmonika_form",
+      "name": "Regional form & size",
+      "variants": [
+        {
+          "id": "steirische_harmonika_four_row",
+          "default": true,
+          "name": "Four-row Styrian (standard B-Es-As-Des tuning)",
+          "descriptors": [
+            "alpine",
+            "booming",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "bellows-driven",
+            "oom-pah"
+          ],
+          "canonical_tags": [
+            "austrian",
+            "alpine",
+            "styrian",
+            "volksmusik"
+          ]
+        },
+        {
+          "id": "steirische_harmonika_three_row",
+          "name": "Three-row Steirische (older village form)",
+          "descriptors": [
+            "rustic",
+            "village",
+            "archaic"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "bellows-driven"
+          ],
+          "canonical_tags": [
+            "austrian",
+            "bavarian",
+            "alpine"
+          ]
+        },
+        {
+          "id": "steirische_harmonika_five_row",
+          "name": "Five-row concert Steirische (extended range)",
+          "descriptors": [
+            "virtuoso",
+            "extended",
+            "concert"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "bellows-driven"
+          ],
+          "canonical_tags": [
+            "austrian",
+            "slovenian",
+            "concert"
+          ]
+        },
+        {
+          "id": "steirische_harmonika_oberkrainer",
+          "name": "Oberkrainer-tuned Slovenian Steirische",
+          "descriptors": [
+            "oberkrainer",
+            "slovenian",
+            "polished"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "bellows-driven",
+            "oom-pah"
+          ],
+          "canonical_tags": [
+            "slovenian",
+            "oberkrainer",
+            "alpine"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "steirische_harmonika_repertoire",
+      "name": "Playing context & repertoire",
+      "variants": [
+        {
+          "id": "steirische_harmonika_landler_polka",
+          "default": true,
+          "name": "Ländler / polka / Boarischer dance drive",
+          "descriptors": [
+            "dance-driving",
+            "bouncing",
+            "festive"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "bellows-driven",
+            "oom-pah"
+          ],
+          "canonical_tags": [
+            "austrian",
+            "alpine",
+            "dance"
+          ]
+        },
+        {
+          "id": "steirische_harmonika_oberkrainer_ensemble",
+          "name": "Oberkrainer ensemble lead (Avsenik-style)",
+          "descriptors": [
+            "oberkrainer",
+            "sweet",
+            "ensemble-lead"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "bellows-driven",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "slovenian",
+            "oberkrainer"
+          ]
+        },
+        {
+          "id": "steirische_harmonika_stubenmusik_solo",
+          "name": "Solo Stubenmusik / Schuhplattler accompaniment",
+          "descriptors": [
+            "intimate",
+            "parlor",
+            "accompanying"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "bellows-driven"
+          ],
+          "canonical_tags": [
+            "austrian",
+            "bavarian",
+            "schuhplattler"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "steirische_harmonika_bass_reeds",
+      "surface": false,
+      "name": "Bass reed configuration",
+      "variants": [
+        {
+          "id": "steirische_harmonika_helicon_bass",
+          "default": true,
+          "name": "Helicon bass reeds (booming tuba-like — canonical)",
+          "descriptors": [
+            "helicon-booming-canonical"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "bellows-driven",
+            "booming-bass"
+          ]
+        },
+        {
+          "id": "steirische_harmonika_standard_bass",
+          "name": "Standard accordion bass reeds",
+          "descriptors": [
+            "standard-bass"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "bellows-driven"
+          ]
+        },
+        {
+          "id": "steirische_harmonika_musette_doubled",
+          "name": "Octave-doubled musette melody reeds",
+          "descriptors": [
+            "musette-doubled"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "bellows-driven"
+          ]
+        }
+      ]
+    }
+  ]
+}

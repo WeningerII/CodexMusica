@@ -3,9 +3,9 @@
   "name": "Hardanger fiddle",
   "family": "global",
   "lineage": "Western Norwegian Hardangerfjord regional fiddle tradition — the hardingfele with four playing strings and four-or-five sympathetic resonance strings tuned in scordatura bondetraditional (peasant-traditional) tunings, performed solo for traditional dance forms (springar, gangar, halling, pols) at weddings and seasonal celebrations",
-  "recipe": "classic Northern European modern hardanger fiddle, drone Modal, string branch, Celtic balladic ballad poetry hardingfele slått swedish polska. mother of pearl bone inlay canonical norwegian decorative spruce maple canonical norwegian hardanger fiddle inst. norwegian hardanger outdoor alpine. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 422,
-  "score": 25.507,
+  "recipe": "classic Northern European early-1940s hardanger fiddle, drone Modal, string branch, Celtic balladic ballad poetry hardingfele slått swedish polska. mother of pearl bone inlay canonical norwegian decorative spruce maple canonical norwegian hardanger fiddle inst. norwegian hardanger outdoor alpine. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 372,
+  "score": 20.117,
   "config": {
     "traditions": [
       "hardanger_fiddle",
@@ -19,7 +19,7 @@
           "bowed_technique": "bowed_legato_classical",
           "hardingfele_strings": "hardingfele_4_taraf",
           "hardingfele_tuning": "hardingfele_old_norwegian",
-          "hardingfele_strings_material": "hardingfele_synthetic_modern",
+          "hardingfele_strings_material": "hardingfele_steel_modern",
           "hardingfele_inlay": "hardingfele_pearl_bone",
           "hardingfele_body_wood": "hardingfele_spruce_maple"
         },
@@ -27,14 +27,14 @@
           "bowed_technique": -0.05,
           "hardingfele_strings": 8.190000000000001,
           "hardingfele_tuning": 3.465,
-          "hardingfele_strings_material": 0.43499999999999994,
+          "hardingfele_strings_material": 0.195,
           "hardingfele_inlay": 8.709999999999999,
           "hardingfele_body_wood": 4.606666666666667
         }
       }
     ],
     "room": "norwegian_hardanger_outdoor_alpine",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_nagra_ethnographic_field",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

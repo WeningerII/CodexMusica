@@ -3,25 +3,25 @@
   "name": "Persian lālā'ī (لالایی, cradle song)",
   "family": "global",
   "lineage": "Persian cradle-song tradition continuous from medieval Persian domestic-vocal practice through pre-revolutionary modern-Iranian domestic singing and diaspora practice in Los Angeles, Stockholm, and Toronto Iranian communities",
-  "recipe": "classic Middle Eastern modern persian lālā'ī, lullaby, middle eastern branch, middle eastern classical art music, vocal drone modal, med east poetic ballad poetry ghazal andalusī nūba. vocal fry, low dynamic level, chest resonance low mid, continuous-phonation. tehran classical dastgah context. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 425,
-  "score": 218.167,
+  "recipe": "classic Middle Eastern modern persian lālā'ī, lullaby, middle eastern branch, middle eastern classical art music, vocal drone modal, med east poetic ballad poetry andalusī nūba persian dastgāh. vocal fry, breath veiled tone, slow rate, interlocked note trading. tehran classical dastgah context. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 358,
+  "score": 276.017,
   "config": {
     "traditions": [
       "persian_lalai",
-      "ghazal",
-      "andalusi_nuba"
+      "andalusi_nuba",
+      "persian_dastgah"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "vocal_fry",
-          "voice_quality": "crooner_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "legato_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "persian_dastgah_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
@@ -34,27 +34,27 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 5.215,
-          "voice_quality": 2.3399999999999994,
+          "voice_register": 4.365,
+          "voice_quality": 6.24,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.59,
-          "voice_articulation": 1.3900000000000001,
-          "voice_microtone": 9.360000000000001,
-          "voice_tradition": 43.51749999999999,
-          "voice_mechanism_compound": 31.909999999999997,
-          "voice_estill_quality": 13.249999999999996,
-          "voice_speech_song": 16.249999999999996,
-          "voice_ensemble_config": 9.554999999999996,
-          "voice_ornament_system": 33.905,
-          "voice_pitch_organization": 35.56999999999999,
-          "voice_processing_chain": 5.115,
-          "voice_multitrack_stack": 5.8
+          "voice_vibrato": 17.6475,
+          "voice_articulation": 9.294999999999998,
+          "voice_microtone": 24.1475,
+          "voice_tradition": 50.245,
+          "voice_mechanism_compound": 36.085,
+          "voice_estill_quality": 15.774999999999999,
+          "voice_speech_song": 15.859999999999994,
+          "voice_ensemble_config": 9.229999999999999,
+          "voice_ornament_system": 38.08,
+          "voice_pitch_organization": 39.745,
+          "voice_processing_chain": 4.265000000000001,
+          "voice_multitrack_stack": 5.1
         }
       }
     ],
     "room": "tehran_classical_dastgah_context",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

@@ -3,9 +3,9 @@
   "name": "Late Romantic symphonic",
   "family": "classical",
   "lineage": "Western orchestral classical music tradition spanning the Classical period (Haydn, Mozart symphonic forms ca. 1760-1800), Romantic period (Beethoven through Mahler, ca. 1800-1910), and twentieth-century continuation — characterized by the standardized symphony orchestra ensemble of strings-winds-brass-percussion, the multi-movement symphony, concerto, and tone-poem forms, and the conductor-led-large-ensemble performance model",
-  "recipe": "classic early-1760s late romantic symphonic, art Music, western common practice branch, western early art music, western modern art music baroque period-instrument historically-informed performance recording. silver wound lamb gut core norway spruce European alpine European maple violin mallets marimba orchestral, beech laminated maple laminated European tradition European spruce norway spruce grand piano, legato celesta, brass mallets glockenspiel, mallets xylophone, calfskin mallets timpani, continuous-airflow legato bassoon, continuous-airflow legato contrabassoon, composite resin modern climate stable buffet greenline style continuous-airflow legato english brass continuous-airflow legato french horn, boxwood canonical Baroque classical pre 1850 loree paris canonical American school continuous-airflow legato oboe, American orchestral brass yellow brass canonical orchestral rotary valves canonical German orchestral besson sovereign British brass band tuba.",
-  "recipe_chars": 973,
-  "score": 637.265,
+  "recipe": "classic British early-1760s late romantic symphonic, art Music, western common practice branch, western early art music, western modern art music baroque period-instrument historically-informed performance recording. silver wound lamb gut core norway spruce European alpine European maple violin mallets marimba orchestral, beech laminated maple laminated European tradition European spruce norway spruce grand piano, legato celesta, brass mallets glockenspiel, mallets xylophone, calfskin mallets timpani, continuous-airflow legato bassoon, continuous-airflow legato contrabassoon, continuous-airflow legato english brass continuous-airflow legato french horn, boxwood canonical Baroque classical pre 1850 loree paris canonical American school continuous-airflow legato oboe, American orchestral brass yellow brass canonical orchestral rotary valves canonical German orchestral besson sovereign British brass band tuba.",
+  "recipe_chars": 920,
+  "score": 635.425,
   "config": {
     "traditions": [
       "symphonic",
@@ -50,7 +50,7 @@
           "piano_rim": "european_laminated_rim_beech_maple",
           "piano_soundboard": "european_spruce_soundboard",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "wet_sand_cast_plate",
+          "piano_plate": "gray_iron_full_perimeter_plate",
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
@@ -61,7 +61,7 @@
           "piano_rim": 22.657692307692304,
           "piano_soundboard": 21.741923076923076,
           "piano_pinblock": 19.75076923076923,
-          "piano_plate": 19.615,
+          "piano_plate": 19.044999999999998,
           "piano_pitch_standard": 24.22
         }
       },
@@ -82,12 +82,12 @@
         "id": "glockenspiel",
         "slots": {
           "percussion_technique": "percussion_mallets_orchestral",
-          "glockenspiel_size": "glockenspiel_orch_3",
+          "glockenspiel_size": "glockenspiel_orch_25",
           "glockenspiel_mallet": "glockenspiel_brass"
         },
         "scores": {
           "percussion_technique": 4,
-          "glockenspiel_size": 1.195,
+          "glockenspiel_size": 0.9500000000000001,
           "glockenspiel_mallet": 5.6917307692307695
         }
       },
@@ -166,15 +166,15 @@
         "id": "english_horn",
         "slots": {
           "wind_articulation": "wind_continuous_legato",
-          "english_horn_school": "english_horn_american",
+          "english_horn_school": "english_horn_german",
           "english_horn_context": "english_horn_chamber",
-          "english_horn_body_wood": "english_horn_resin_composite"
+          "english_horn_body_wood": "english_horn_grenadilla"
         },
         "scores": {
           "wind_articulation": 16.75,
-          "english_horn_school": 0.9099999999999999,
+          "english_horn_school": 0,
           "english_horn_context": 2.1449999999999996,
-          "english_horn_body_wood": 1.7550000000000001
+          "english_horn_body_wood": -0.035
         }
       },
       {
@@ -260,12 +260,12 @@
         "id": "alto_flute",
         "slots": {
           "wind_articulation": "wind_continuous_legato",
-          "alto_flute_school": "alto_flute_american",
+          "alto_flute_school": "alto_flute_german",
           "alto_flute_context": "alto_flute_flute_choir"
         },
         "scores": {
           "wind_articulation": 16.75,
-          "alto_flute_school": 0.895,
+          "alto_flute_school": 0.195,
           "alto_flute_context": 3.3799999999999994
         }
       },
@@ -284,7 +284,7 @@
       }
     ],
     "room": "concert_hall_shoebox",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_decca_sound_orchestral",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "transformer_solid_state",

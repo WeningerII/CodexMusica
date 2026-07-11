@@ -3,9 +3,9 @@
   "name": "Soul jazz",
   "family": "jazz",
   "lineage": "1955-1975 jazz subgenre built on tonewheel-organ trio (organ-guitar-drums) with R&B / gospel-rooted melodic vocabulary — Jimmy Smith, Jack McDuff, Jimmy McGriff, Lonnie Smith, Big John Patton, the Blue Note organ-trio canon",
-  "recipe": "classic North American mid-1960s soul jazz, improv On Frame, soul jazz branch, American jazz bop, soul R&B functional song bebop modal jazz. Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched gospel runs slow chorale tonewheel organ, Fender blackface amp American 60s amp spring reverb bright chicken-scratch humbucker electric guitar, vintage ambassador asymmetric bronze bell bronze fourteen step drum kit, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet. cedar and redwood vaulted ceiling 1959-2016 mid tier van gelder englewood cliffs. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 875,
-  "score": 631.799,
+  "recipe": "classic North American mid-1960s soul jazz, improv On Frame, soul jazz branch, American jazz bop, soul R&B functional song bebop modal jazz. Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched gospel runs slow chorale tonewheel organ, Fender blackface amp American 60s amp spring reverb bright chicken-scratch humbucker electric guitar, vintage ambassador asymmetric bronze bell bronze fourteen step drum kit, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet. cedar and redwood vaulted ceiling 1959-2016 mid tier van gelder englewood cliffs. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 848,
+  "score": 625.799,
   "config": {
     "traditions": [
       "soul_jazz",
@@ -28,7 +28,7 @@
           "drawbar_setting": 37.555,
           "rotary_speed": 9.45,
           "percussion_setting": 36.625,
-          "tonewheel_model": 47.939375000000005,
+          "tonewheel_model": 49.939375000000005,
           "leslie_cabinet_model": 2.0349999999999997
         }
       },
@@ -112,7 +112,7 @@
           "sax_body_alloy": 36.825625,
           "sax_mouthpiece": 0.585,
           "sax_technique": 36.625,
-          "sax_maker_school": 37.905
+          "sax_maker_school": 39.905
         }
       },
       {
@@ -138,7 +138,7 @@
       }
     ],
     "room": "van_gelder_englewood_cliffs",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_van_gelder_hard_bop",
     "inline_chain": {
       "mic": "ribbon_passive",
       "pre": "pre_tube_german_v72",

@@ -1,0 +1,372 @@
+{
+  "id": "zhaleika",
+  "name": "Zhaleika (Russian single-reed hornpipe)",
+  "family": "wind",
+  "class": "single_reed_hornpipe",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "zhaleika",
+  "parts": [
+    {
+      "id": "zhaleika_form",
+      "name": "Regional form / type",
+      "variants": [
+        {
+          "id": "zhaleika_single_pipe",
+          "default": true,
+          "name": "Single-pipe zhaleika (classic willow pipe, cow-horn bell)",
+          "descriptors": [
+            "russian",
+            "buzzy",
+            "pastoral",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "wind-driven",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "russian",
+            "slavic"
+          ]
+        },
+        {
+          "id": "zhaleika_double_dvoychatka",
+          "name": "Double zhaleika (dvoychatka — paired pipes, melody over drone)",
+          "descriptors": [
+            "paired",
+            "droning",
+            "twin-pipe"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "wind-driven",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "russian",
+            "slavic"
+          ]
+        },
+        {
+          "id": "zhaleika_orchestral_keyed",
+          "name": "Orchestral keyed zhaleika (Andreyev folk-orchestra chromatic rework)",
+          "descriptors": [
+            "chromatic",
+            "standardized",
+            "concert"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "russian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zhaleika_context",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "zhaleika_dance_plyaska",
+          "default": true,
+          "name": "Village dance tune (plyaska / kadril)",
+          "descriptors": [
+            "dance-driving",
+            "rhythmic",
+            "festive"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "russian"
+          ]
+        },
+        {
+          "id": "zhaleika_pastoral_call",
+          "name": "Shepherd's herding call / pastoral air",
+          "descriptors": [
+            "pastoral",
+            "plaintive",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "wind-driven",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "russian"
+          ]
+        },
+        {
+          "id": "zhaleika_song_lead",
+          "name": "Lead wind over balalaika-choir song (chastushka / folk lyric)",
+          "descriptors": [
+            "accompanying",
+            "vocal-paired",
+            "cyclic"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "wind-driven",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "russian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zhaleika_build",
+      "surface": false,
+      "name": "Build / pipe and bell material",
+      "variants": [
+        {
+          "id": "zhaleika_willow_cowhorn",
+          "default": true,
+          "name": "Willow or elder pipe with idioglot reed and cow-horn bell",
+          "descriptors": [
+            "willow-pipe-cow-horn-bell-idioglot-reed"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "russian"
+          ]
+        },
+        {
+          "id": "zhaleika_birchbark_bryolka",
+          "name": "All-birch-bark bell form (bryolka)",
+          "descriptors": [
+            "birch-bark-bell-bryolka"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "russian"
+          ]
+        },
+        {
+          "id": "zhaleika_hardwood_keyed",
+          "name": "Turned hardwood body with metal keys (orchestral build)",
+          "descriptors": [
+            "hardwood-body-metal-keys"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed"
+          ],
+          "canonical_tags": [
+            "russian"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "zhaleika_form",
+      "name": "Regional form / type",
+      "variants": [
+        {
+          "id": "zhaleika_single_pipe",
+          "default": true,
+          "name": "Single-pipe zhaleika (classic willow pipe, cow-horn bell)",
+          "descriptors": [
+            "russian",
+            "buzzy",
+            "pastoral",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "wind-driven",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "russian",
+            "slavic"
+          ]
+        },
+        {
+          "id": "zhaleika_double_dvoychatka",
+          "name": "Double zhaleika (dvoychatka — paired pipes, melody over drone)",
+          "descriptors": [
+            "paired",
+            "droning",
+            "twin-pipe"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "wind-driven",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "russian",
+            "slavic"
+          ]
+        },
+        {
+          "id": "zhaleika_orchestral_keyed",
+          "name": "Orchestral keyed zhaleika (Andreyev folk-orchestra chromatic rework)",
+          "descriptors": [
+            "chromatic",
+            "standardized",
+            "concert"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "russian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zhaleika_context",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "zhaleika_dance_plyaska",
+          "default": true,
+          "name": "Village dance tune (plyaska / kadril)",
+          "descriptors": [
+            "dance-driving",
+            "rhythmic",
+            "festive"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "russian"
+          ]
+        },
+        {
+          "id": "zhaleika_pastoral_call",
+          "name": "Shepherd's herding call / pastoral air",
+          "descriptors": [
+            "pastoral",
+            "plaintive",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "wind-driven",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "russian"
+          ]
+        },
+        {
+          "id": "zhaleika_song_lead",
+          "name": "Lead wind over balalaika-choir song (chastushka / folk lyric)",
+          "descriptors": [
+            "accompanying",
+            "vocal-paired",
+            "cyclic"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "wind-driven",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "russian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zhaleika_build",
+      "surface": false,
+      "name": "Build / pipe and bell material",
+      "variants": [
+        {
+          "id": "zhaleika_willow_cowhorn",
+          "default": true,
+          "name": "Willow or elder pipe with idioglot reed and cow-horn bell",
+          "descriptors": [
+            "willow-pipe-cow-horn-bell-idioglot-reed"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "russian"
+          ]
+        },
+        {
+          "id": "zhaleika_birchbark_bryolka",
+          "name": "All-birch-bark bell form (bryolka)",
+          "descriptors": [
+            "birch-bark-bell-bryolka"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "russian"
+          ]
+        },
+        {
+          "id": "zhaleika_hardwood_keyed",
+          "name": "Turned hardwood body with metal keys (orchestral build)",
+          "descriptors": [
+            "hardwood-body-metal-keys"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "single-reed"
+          ],
+          "canonical_tags": [
+            "russian"
+          ]
+        }
+      ]
+    }
+  ]
+}

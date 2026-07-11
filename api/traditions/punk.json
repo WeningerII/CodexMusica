@@ -3,9 +3,9 @@
   "name": "Punk",
   "family": "rock_punk",
   "lineage": "Mid-1970s underground rock movement reasserting amateur three-chord rock against progressive-rock complexity, with simplified song-form, aggressive vocal delivery, and anti-establishment thematic content — codified through the New York scene (Ramones, Television, Patti Smith, the Voidoids) and the UK scene (Sex Pistols Never Mind the Bollocks 1977, The Clash 1977, Buzzcocks, The Damned), spreading worldwide through the late-1970s as a distinct underground commercial-and-DIY scene",
-  "recipe": "classic North American 1974-1976 punk, distorted Rock, punk branch, classic distorted rock garage rock hard rock. thick, blues-shouter, chest resonance low mid, equal tempered. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. concrete basement. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb boss DS-1.",
-  "recipe_chars": 619,
-  "score": 556.271,
+  "recipe": "classic North American 1974-1976 punk, distorted Rock, punk branch, classic distorted rock garage rock hard rock. thick, breath veiled tone, wide pitch sway, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. concrete basement. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb boss DS-1.",
+  "recipe_chars": 626,
+  "score": 592.389,
   "config": {
     "traditions": [
       "punk",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "blues_shouter_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "spoken_voice",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 42.997250000000015,
-          "voice_quality": 2.0149999999999992,
+          "voice_quality": 18.459999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.95,
-          "voice_articulation": 0.03599999999999999,
+          "voice_vibrato": 5.578749999999999,
+          "voice_articulation": 15.664999999999994,
           "voice_microtone": 37.92500000000001,
           "voice_tradition": 4.485,
           "voice_mechanism_compound": 8.645,
           "voice_estill_quality": 2.925000000000001,
-          "voice_speech_song": 17.874999999999996,
-          "voice_ensemble_config": 15.729999999999995,
+          "voice_speech_song": 18.32999999999999,
+          "voice_ensemble_config": 15.794999999999993,
           "voice_ornament_system": 0.195,
           "voice_pitch_organization": 2.5047500000000005,
           "voice_processing_chain": 12.276875,
-          "voice_multitrack_stack": 7.7562500000000005
+          "voice_multitrack_stack": 7.651250000000001
         }
       },
       {

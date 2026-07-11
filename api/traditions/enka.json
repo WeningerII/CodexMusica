@@ -3,9 +3,9 @@
   "name": "Enka",
   "family": "global",
   "lineage": "Japanese 20th-century sentimental popular-ballad genre derived from late-Meiji-period (1880s-1912) enka-shi street-political-protest-song tradition, transformed mid-Showa-period (1930s-1960s) into commercial recording-industry sentimental-vocal-pop. The vocal technique stresses kobushi melismatic-ornamental vibrato-and-microtonal-bend, koe-on chest-resonance projected-vocal, and pentatonic-yo minor-leaning melodic-vocabulary (often modulating through 4-cycle key changes per verse). Lyrical themes center on lost-love, distant-homeland, mother-and-rural-nostalgia, and ocean-and-port-imagery. The 1960s-1980s golden-age enka-orchestra featured strings-and-shamisen-and-shakuhachi hybrid-arrangement; 1990s-onward enka declined as a youth-genre but persists as a senior-audience-and-karaoke staple.",
-  "recipe": "classic East Asian mid-1880s enka, functional Song, enka branch, crooners functional song american barbershop quartet great american songbook. thick, low dynamic level, chest resonance low mid, ornamental. dog skin ivory mulberry kuwa mid tier traditional min yo shamisen, silk pre wwii canon koto, Fender tweed amp American 50s amp tweed breakup mahogany rosewood single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character alder pyramid electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, singing lead analog poly synth, string quartet inst. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 743,
-  "score": 382.114,
+  "recipe": "classic East Asian mid-1880s enka, functional Song, enka branch, crooners functional song american barbershop quartet great american songbook. thick, breath veiled tone, straight onset, interlocked note trading. dog skin ivory mulberry kuwa mid tier traditional min yo shamisen, silk pre wwii canon koto, Fender tweed amp American 50s amp tweed breakup mahogany rosewood single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character alder pyramid electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, singing lead analog poly synth, string quartet inst. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 792,
+  "score": 429.652,
   "config": {
     "traditions": [
       "enka",
@@ -17,39 +17,39 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "crooner_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "melisma_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "japanese_min_yo_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
           "voice_processing_chain": "voice_processing_plate_reverb_medium",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
           "voice_register": 22.92899999999999,
-          "voice_quality": 3.185000000000001,
+          "voice_quality": 8.839999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.58125,
-          "voice_articulation": 2.75,
-          "voice_microtone": 20.21999999999999,
+          "voice_vibrato": 5.092499999999999,
+          "voice_articulation": 20.32175000000001,
+          "voice_microtone": 20.92675000000001,
           "voice_tradition": 32.62825,
           "voice_mechanism_compound": 2.015,
           "voice_estill_quality": 4.8185,
-          "voice_speech_song": 28.728000000000012,
-          "voice_ensemble_config": 20.05775000000001,
-          "voice_ornament_system": 2.2995000000000005,
-          "voice_pitch_organization": 1.3464999999999998,
+          "voice_speech_song": 31.59000000000001,
+          "voice_ensemble_config": 20.307250000000007,
+          "voice_ornament_system": 3.6025000000000014,
+          "voice_pitch_organization": 5.074999999999999,
           "voice_processing_chain": 8.5155,
-          "voice_multitrack_stack": 10.224499999999997
+          "voice_multitrack_stack": 10.811749999999998
         }
       },
       {
@@ -81,7 +81,7 @@
           "koto_picks": "koto_yamada",
           "koto_body_wood": "koto_modern_paulownia",
           "koto_strings_material": "koto_silk_historical",
-          "koto_bridge_material": "koto_plastic_bridges_modern"
+          "koto_bridge_material": "koto_ivory_bridges_historical"
         },
         "scores": {
           "plucked_traditional_technique": 0.25,
@@ -89,7 +89,7 @@
           "koto_picks": 4.10525,
           "koto_body_wood": 0.7800000000000001,
           "koto_strings_material": 1.04,
-          "koto_bridge_material": -0.811
+          "koto_bridge_material": 0.7149999999999999
         }
       },
       {
@@ -187,7 +187,7 @@
           "electronic_technique": 16.253999999999998,
           "poly_archetypes": 0.78,
           "poly_voices": 1.1,
-          "poly_maker_lineage": -1.3735
+          "poly_maker_lineage": 0.6265
         }
       },
       {
@@ -205,7 +205,7 @@
       }
     ],
     "room": "tokyo_studio_1970s_80s",
-    "archetype": "arch_electrical_disc_cut",
+    "archetype": "arch_nippon_columbia_enka",
     "inline_chain": {
       "mic": "mic_u47_tube_neumann",
       "pre": "pre_tube_german_v72",

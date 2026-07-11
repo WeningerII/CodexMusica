@@ -3,9 +3,9 @@
   "name": "Chongmyo jeryeak (royal ancestral shrine music)",
   "family": "classical",
   "lineage": "Korean Chongmyo jeryeak (Royal Ancestral Shrine Music) Joseon-dynasty court ritual music for the spring-and-autumn ancestor-veneration ceremony at the Chongmyo Royal Shrine in Seoul. Composed in 1463 by King Sejo (reigned 1455-1468) from earlier Goryeo-and-Tang-derived material, the suite comprises two parts: Botaepyeong (eleven movements praising civil virtue, performed during the literary-rite portion of the ceremony) and Jeongdaeeop (eleven movements praising martial virtue, performed during the military-rite portion). Performance configuration: a large court ensemble of approximately fifty musicians plus sixty-four dancers performing the strict ilmu line-dance choreography.",
-  "recipe": "classic East Asian mid-1460s chongmyo jeryeak, art Music, east Asian branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. thick, declaimed, melodic, punctuated. a cappella small 3 to 8 one per part four voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble, composite material paulownia canonical Korean horse dog asymmetric canonical Korean pungmul outdoor village pre samul nori janggu. korean gugak hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 656,
-  "score": 168.075,
+  "recipe": "classic East Asian mid-1460s chongmyo jeryeak, art Music, east Asian branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. thick, breath veiled tone, slow rate, interlocked note trading. a cappella small 3 to 8 one per part four voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble, composite material paulownia canonical Korean horse dog asymmetric canonical Korean pungmul outdoor village pre samul nori janggu. korean gugak hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 614,
+  "score": 233.84,
   "config": {
     "traditions": [
       "korean_chongmyo_jeryeak",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "staccato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
           "voice_estill_quality": "voice_estill_opera",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 1.5499999999999996,
-          "voice_quality": 8.865,
+          "voice_quality": 40.300000000000004,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.4299999999999997,
-          "voice_articulation": 0.9750000000000001,
-          "voice_microtone": 1.3,
+          "voice_vibrato": 3.085,
+          "voice_articulation": 18.004999999999995,
+          "voice_microtone": 17.614999999999995,
           "voice_tradition": 17.939999999999998,
           "voice_mechanism_compound": 11.655000000000001,
           "voice_estill_quality": 9.1,
-          "voice_speech_song": 18.134999999999998,
-          "voice_ensemble_config": 20.41,
+          "voice_speech_song": 19.499999999999996,
+          "voice_ensemble_config": 21.96999999999999,
           "voice_ornament_system": 7.15,
           "voice_pitch_organization": 4.13,
-          "voice_processing_chain": 5.9799999999999995,
-          "voice_multitrack_stack": 2.795
+          "voice_processing_chain": 15.534999999999998,
+          "voice_multitrack_stack": 5.720000000000001
         }
       },
       {
@@ -86,7 +86,7 @@
       }
     ],
     "room": "korean_gugak_hall",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

@@ -1,0 +1,390 @@
+{
+  "id": "adufe",
+  "name": "Adufe (Portuguese square frame drum)",
+  "family": "percussion",
+  "class": "frame_drum",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "adufe",
+  "parts": [
+    {
+      "id": "adufe_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "adufe_beira_baixa",
+          "default": true,
+          "name": "Beira Baixa large square (Monsanto / Idanha-a-Nova)",
+          "descriptors": [
+            "large-square",
+            "deep-thump",
+            "double-headed"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "hand-struck",
+            "rattle-buzz"
+          ],
+          "canonical_tags": [
+            "portugal",
+            "beira-baixa",
+            "monsanto"
+          ]
+        },
+        {
+          "id": "adufe_transmontano",
+          "name": "Trás-os-Montes small square (pandeiro mirandês)",
+          "descriptors": [
+            "small-square",
+            "brighter",
+            "tighter-skin"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "portugal",
+            "tras-os-montes"
+          ]
+        },
+        {
+          "id": "adufe_pandero_cuadrado",
+          "name": "Pandero cuadrado (Peñaparda / Leonese border)",
+          "descriptors": [
+            "stick-and-hand",
+            "rebounding",
+            "raiano"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "stick-struck"
+          ],
+          "canonical_tags": [
+            "spain",
+            "salamanca",
+            "iberian-border"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "adufe_context",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "adufe_romaria",
+          "default": true,
+          "name": "Romaria procession (Senhora do Almortão)",
+          "descriptors": [
+            "processional",
+            "devotional",
+            "call-and-response"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "religious",
+            "outdoor",
+            "womens-tradition"
+          ]
+        },
+        {
+          "id": "adufe_modas_adufeiras",
+          "name": "Adufeiras' song accompaniment (modas / charambas)",
+          "descriptors": [
+            "song-carrying",
+            "steady-swaying",
+            "communal"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "vocal-accompaniment",
+            "womens-tradition"
+          ]
+        },
+        {
+          "id": "adufe_folk_revival",
+          "name": "Folk-revival stage (Gaiteiros de Lisboa era)",
+          "descriptors": [
+            "revivalist",
+            "arranged",
+            "concert-projected"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "modern",
+            "stage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "adufe_skin_fill",
+      "surface": false,
+      "name": "Heads and rattle fill",
+      "variants": [
+        {
+          "id": "adufe_goatskin_seeds",
+          "default": true,
+          "name": "Sewn goat-skin heads with seed rattle inside",
+          "descriptors": [
+            "goatskin-heads",
+            "seed-rattle",
+            "hand-sewn"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "rattle-buzz"
+          ],
+          "canonical_tags": [
+            "natural-skin"
+          ]
+        },
+        {
+          "id": "adufe_goatskin_bells",
+          "name": "Goat-skin heads with small bells and pebbles",
+          "descriptors": [
+            "bell-jingle",
+            "pebble-rattle",
+            "festive"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "jingle-shimmer"
+          ],
+          "canonical_tags": [
+            "natural-skin"
+          ]
+        },
+        {
+          "id": "adufe_synthetic_heads",
+          "name": "Synthetic heads (modern workshop build)",
+          "descriptors": [
+            "synthetic-heads",
+            "consistent",
+            "weatherproof"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "adufe_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "adufe_beira_baixa",
+          "default": true,
+          "name": "Beira Baixa large square (Monsanto / Idanha-a-Nova)",
+          "descriptors": [
+            "large-square",
+            "deep-thump",
+            "double-headed"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "hand-struck",
+            "rattle-buzz"
+          ],
+          "canonical_tags": [
+            "portugal",
+            "beira-baixa",
+            "monsanto"
+          ]
+        },
+        {
+          "id": "adufe_transmontano",
+          "name": "Trás-os-Montes small square (pandeiro mirandês)",
+          "descriptors": [
+            "small-square",
+            "brighter",
+            "tighter-skin"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "portugal",
+            "tras-os-montes"
+          ]
+        },
+        {
+          "id": "adufe_pandero_cuadrado",
+          "name": "Pandero cuadrado (Peñaparda / Leonese border)",
+          "descriptors": [
+            "stick-and-hand",
+            "rebounding",
+            "raiano"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "stick-struck"
+          ],
+          "canonical_tags": [
+            "spain",
+            "salamanca",
+            "iberian-border"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "adufe_context",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "adufe_romaria",
+          "default": true,
+          "name": "Romaria procession (Senhora do Almortão)",
+          "descriptors": [
+            "processional",
+            "devotional",
+            "call-and-response"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "religious",
+            "outdoor",
+            "womens-tradition"
+          ]
+        },
+        {
+          "id": "adufe_modas_adufeiras",
+          "name": "Adufeiras' song accompaniment (modas / charambas)",
+          "descriptors": [
+            "song-carrying",
+            "steady-swaying",
+            "communal"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "vocal-accompaniment",
+            "womens-tradition"
+          ]
+        },
+        {
+          "id": "adufe_folk_revival",
+          "name": "Folk-revival stage (Gaiteiros de Lisboa era)",
+          "descriptors": [
+            "revivalist",
+            "arranged",
+            "concert-projected"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "hand-struck"
+          ],
+          "canonical_tags": [
+            "modern",
+            "stage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "adufe_skin_fill",
+      "surface": false,
+      "name": "Heads and rattle fill",
+      "variants": [
+        {
+          "id": "adufe_goatskin_seeds",
+          "default": true,
+          "name": "Sewn goat-skin heads with seed rattle inside",
+          "descriptors": [
+            "goatskin-heads",
+            "seed-rattle",
+            "hand-sewn"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "rattle-buzz"
+          ],
+          "canonical_tags": [
+            "natural-skin"
+          ]
+        },
+        {
+          "id": "adufe_goatskin_bells",
+          "name": "Goat-skin heads with small bells and pebbles",
+          "descriptors": [
+            "bell-jingle",
+            "pebble-rattle",
+            "festive"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum",
+            "jingle-shimmer"
+          ],
+          "canonical_tags": [
+            "natural-skin"
+          ]
+        },
+        {
+          "id": "adufe_synthetic_heads",
+          "name": "Synthetic heads (modern workshop build)",
+          "descriptors": [
+            "synthetic-heads",
+            "consistent",
+            "weatherproof"
+          ],
+          "match_tokens": [
+            "struck",
+            "frame-drum"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

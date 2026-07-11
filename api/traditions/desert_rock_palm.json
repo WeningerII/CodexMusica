@@ -3,9 +3,9 @@
   "name": "Desert rock (Palm Desert scene)",
   "family": "rock_punk",
   "lineage": "Late-1980s-and-1990s Palm Desert California scene that birthed stoner rock through generator-party performances in the high desert outside Palm Springs and Joshua Tree. The \"generator parties\" allowed local bands (Kyuss, Yawning Man, Across the River, Fatso Jetson) to perform with the band powered by gasoline generators in remote desert locations free of police interference. The 1988-1992 generator-party period mythologized the geographic-cultural specificity of the desert-rock scene.",
-  "recipe": "classic Midwestern American 1988-1992 desert rock, distorted Rock, doom branch, sludge metal post-metal. thick, larynx lowered, pure, equal tempered. orange amp British heavy crunch basswood maple pau ferro humbucker electric guitar, orange amp British heavy crunch ernie ball slinky riff driven electric bass, mahogany machine hammered symmetric pattern organized rows full lathed drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi.",
-  "recipe_chars": 587,
-  "score": 509.999,
+  "recipe": "classic Midwestern American 1988-1992 desert rock, distorted Rock, doom branch, sludge metal post-metal. thick, larynx lowered, pure, interlocked note trading. orange amp British heavy crunch basswood maple pau ferro humbucker electric guitar, orange amp British heavy crunch ernie ball slinky riff driven electric bass, mahogany machine hammered symmetric pattern organized rows full lathed drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi.",
+  "recipe_chars": 597,
+  "score": 520.559,
   "config": {
     "traditions": [
       "desert_rock_palm",
@@ -21,7 +21,7 @@
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "straight_tone",
-          "voice_articulation": "spoken_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "baroque_ornamental_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
@@ -39,17 +39,17 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.1849999999999996,
-          "voice_articulation": 0.1995,
+          "voice_articulation": 11.114999999999997,
           "voice_microtone": 25.654999999999994,
           "voice_tradition": 3.6400000000000006,
           "voice_mechanism_compound": 32.34075,
           "voice_estill_quality": 2.5350000000000006,
-          "voice_speech_song": 11.439999999999998,
-          "voice_ensemble_config": 11.179999999999996,
+          "voice_speech_song": 11.309999999999997,
+          "voice_ensemble_config": 11.049999999999995,
           "voice_ornament_system": 1.4949999999999997,
-          "voice_pitch_organization": 0.845,
+          "voice_pitch_organization": 0.6499999999999999,
           "voice_processing_chain": 8.086500000000001,
-          "voice_multitrack_stack": 7.170000000000001
+          "voice_multitrack_stack": 7.269500000000001
         }
       },
       {

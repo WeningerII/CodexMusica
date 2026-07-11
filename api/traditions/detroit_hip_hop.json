@@ -3,9 +3,9 @@
   "name": "Detroit hip-hop",
   "family": "hip_hop",
   "lineage": "Detroit Michigan hip-hop tradition with distinct regional-aesthetic descended from J Dilla's 1990s-2000s production style — sampling jazz, soul, and funk records with deliberately-loose drum-quantization and \"behind-the-beat\" rhythmic feel. Slum Village (founded 1991 by J Dilla, T3, and Baatin), Royce da 5'9\", Black Milk, Danny Brown, and (later) 42 Dugg, Babyface Ray, and Tee Grizzley constitute the canonical roster. Eminem's parallel Detroit-based career operates as adjacent-but-distinct lineage.",
-  "recipe": "classic Midwestern American mid-1990s detroit hip-hop, mc Rhythm, us hip hop branch, us hip hop conscious rap conscious hip-hop. thick, rap, narrative, equal tempered. chopped sampler, TR-808. converted house 2648 west grand blvd 1959-1972 mid tier hitsville usa motown detroit. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe": "classic Midwestern American mid-1990s detroit hip-hop, mc Rhythm, us hip hop branch, us hip hop conscious rap conscious hip-hop. thick, rap, straight onset, narrative. chopped sampler, TR-808. converted house 2648 west grand blvd 1959-1972 mid tier hitsville usa motown detroit. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 408,
-  "score": 252.396,
+  "score": 272.427,
   "config": {
     "traditions": [
       "detroit_hip_hop",
@@ -21,13 +21,13 @@
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "narrative_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "beatboxing_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_rhythmic_spoken_flow",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
@@ -37,18 +37,18 @@
           "voice_quality": 27.77975,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.45499999999999996,
+          "voice_vibrato": 8.75025,
           "voice_articulation": 19.1675,
-          "voice_microtone": 7.425,
+          "voice_microtone": 15.534999999999997,
           "voice_tradition": 11.998999999999999,
           "voice_mechanism_compound": 4.0722499999999995,
           "voice_estill_quality": 6.9475,
           "voice_speech_song": 26.65325,
-          "voice_ensemble_config": 15.795,
-          "voice_ornament_system": 1.15,
-          "voice_pitch_organization": 1.69,
+          "voice_ensemble_config": 15.665,
+          "voice_ornament_system": 4.355000000000002,
+          "voice_pitch_organization": 1.4949999999999999,
           "voice_processing_chain": 19.507499999999997,
-          "voice_multitrack_stack": 4.3340000000000005
+          "voice_multitrack_stack": 5.079000000000001
         }
       },
       {

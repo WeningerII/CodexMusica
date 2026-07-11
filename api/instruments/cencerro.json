@@ -1,0 +1,314 @@
+{
+  "id": "cencerro",
+  "name": "Cencerro (salsa cowbell / campana)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": 1,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "cowbell",
+  "parts": [
+    {
+      "id": "cencerro_bell_type",
+      "name": "Bell type",
+      "variants": [
+        {
+          "id": "cencerro_bongo_bell",
+          "default": true,
+          "name": "Bongo bell / campana (large handheld)",
+          "descriptors": [
+            "deep-clank",
+            "montuno-driving",
+            "handheld"
+          ],
+          "match_tokens": [
+            "struck",
+            "metallic",
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "cencerro_mambo_bell",
+          "name": "Mambo bell (timbale-mounted, low-mouthed)",
+          "descriptors": [
+            "low-mouthed",
+            "timbale-mounted",
+            "mambo-section"
+          ],
+          "match_tokens": [
+            "struck",
+            "metallic",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "cencerro_cha_cha_bell",
+          "name": "Cha-cha bell (small, high, dry)",
+          "descriptors": [
+            "high-pitched",
+            "dry-tick",
+            "downbeat-marking"
+          ],
+          "match_tokens": [
+            "struck",
+            "metallic",
+            "percussive-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cencerro_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "cencerro_montuno",
+          "default": true,
+          "name": "Salsa montuno section (bongocero switches to bell)",
+          "descriptors": [
+            "montuno-lift",
+            "coro-section",
+            "driving"
+          ],
+          "match_tokens": [
+            "struck",
+            "metallic",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "cencerro_timba_songo",
+          "name": "Timba / songo (kit-integrated bell work)",
+          "descriptors": [
+            "syncopated",
+            "modern-havana",
+            "busy"
+          ],
+          "match_tokens": [
+            "struck",
+            "metallic",
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "cencerro_charanga",
+          "name": "Chachachá / charanga (steady downbeats)",
+          "descriptors": [
+            "steady-pulse",
+            "elegant",
+            "restrained"
+          ],
+          "match_tokens": [
+            "struck",
+            "metallic",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cencerro_build",
+      "surface": false,
+      "name": "Shell and beater",
+      "variants": [
+        {
+          "id": "cencerro_welded_steel",
+          "default": true,
+          "name": "Welded sheet-steel shell, hardwood dowel beater",
+          "descriptors": [
+            "clanky",
+            "dry",
+            "standard"
+          ],
+          "match_tokens": [
+            "struck",
+            "metallic"
+          ]
+        },
+        {
+          "id": "cencerro_hammered_bronze",
+          "name": "Hand-hammered bronze/brass (artisan)",
+          "descriptors": [
+            "warmer",
+            "ring-prone",
+            "artisan"
+          ],
+          "match_tokens": [
+            "struck",
+            "metallic"
+          ]
+        },
+        {
+          "id": "cencerro_cattle_bell",
+          "name": "Repurposed cattle bell, clapper removed (early son / changüí)",
+          "descriptors": [
+            "folk-source",
+            "irregular",
+            "rustic"
+          ],
+          "match_tokens": [
+            "struck",
+            "metallic",
+            "rough-tone"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "cencerro_bell_type",
+      "name": "Bell type",
+      "variants": [
+        {
+          "id": "cencerro_bongo_bell",
+          "default": true,
+          "name": "Bongo bell / campana (large handheld)",
+          "descriptors": [
+            "deep-clank",
+            "montuno-driving",
+            "handheld"
+          ],
+          "match_tokens": [
+            "struck",
+            "metallic",
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "cencerro_mambo_bell",
+          "name": "Mambo bell (timbale-mounted, low-mouthed)",
+          "descriptors": [
+            "low-mouthed",
+            "timbale-mounted",
+            "mambo-section"
+          ],
+          "match_tokens": [
+            "struck",
+            "metallic",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "cencerro_cha_cha_bell",
+          "name": "Cha-cha bell (small, high, dry)",
+          "descriptors": [
+            "high-pitched",
+            "dry-tick",
+            "downbeat-marking"
+          ],
+          "match_tokens": [
+            "struck",
+            "metallic",
+            "percussive-attack"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cencerro_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "cencerro_montuno",
+          "default": true,
+          "name": "Salsa montuno section (bongocero switches to bell)",
+          "descriptors": [
+            "montuno-lift",
+            "coro-section",
+            "driving"
+          ],
+          "match_tokens": [
+            "struck",
+            "metallic",
+            "ensemble"
+          ]
+        },
+        {
+          "id": "cencerro_timba_songo",
+          "name": "Timba / songo (kit-integrated bell work)",
+          "descriptors": [
+            "syncopated",
+            "modern-havana",
+            "busy"
+          ],
+          "match_tokens": [
+            "struck",
+            "metallic",
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "cencerro_charanga",
+          "name": "Chachachá / charanga (steady downbeats)",
+          "descriptors": [
+            "steady-pulse",
+            "elegant",
+            "restrained"
+          ],
+          "match_tokens": [
+            "struck",
+            "metallic",
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cencerro_build",
+      "surface": false,
+      "name": "Shell and beater",
+      "variants": [
+        {
+          "id": "cencerro_welded_steel",
+          "default": true,
+          "name": "Welded sheet-steel shell, hardwood dowel beater",
+          "descriptors": [
+            "clanky",
+            "dry",
+            "standard"
+          ],
+          "match_tokens": [
+            "struck",
+            "metallic"
+          ]
+        },
+        {
+          "id": "cencerro_hammered_bronze",
+          "name": "Hand-hammered bronze/brass (artisan)",
+          "descriptors": [
+            "warmer",
+            "ring-prone",
+            "artisan"
+          ],
+          "match_tokens": [
+            "struck",
+            "metallic"
+          ]
+        },
+        {
+          "id": "cencerro_cattle_bell",
+          "name": "Repurposed cattle bell, clapper removed (early son / changüí)",
+          "descriptors": [
+            "folk-source",
+            "irregular",
+            "rustic"
+          ],
+          "match_tokens": [
+            "struck",
+            "metallic",
+            "rough-tone"
+          ]
+        }
+      ]
+    }
+  ]
+}

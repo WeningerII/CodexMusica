@@ -3,9 +3,9 @@
   "name": "Art rock",
   "family": "rock_punk",
   "lineage": "Late-1960s through 1980s art-school avant-garde-influenced rock genre — codified through David Bowie (the Hunky Dory through Scary Monsters arc 1971-1980, with the Berlin Trilogy Low / Heroes / Lodger 1977-79 as the Brian-Eno-collaboration period), Roxy Music (Roxy Music 1972, For Your Pleasure 1973), Brian Eno (the post-Roxy solo canon Another Green World 1975, Music for Airports 1978), Talking Heads (the Eno-produced trilogy More Songs About Buildings and Food 1978, Fear of Music 1979, Remain in Light 1980), Peter Gabriel (his post-Genesis Eno-influenced canon)",
-  "recipe": "classic Northern European mid-1970s art rock, distorted Rock, art rock branch, experimental distorted rock, classic distorted rock psychedelic rock britpop. thick, low dynamic level, chest resonance low mid, equal tempered. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, birch pre muffled edge muffled hot rolled annealed drum kit, fast decay focused low short envelope analog synth, mellotron m400 canonical 1970 1980 prog rock standard 35 key polyester base quarter inch iron oxide canonical mellotron block chord mellotron, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, gold brass warmer tone multiphonic saxophone, string machine. London major flagship studio 1968-1985 major-flagship uk 70s hard rock arena studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical.",
-  "recipe_chars": 1000,
-  "score": 745.057,
+  "recipe": "classic Northern European mid-1970s art rock, distorted Rock, art rock branch, experimental distorted rock, classic distorted rock psychedelic rock britpop. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, birch pre muffled edge muffled hot rolled annealed drum kit, fast decay focused low short envelope analog synth, mellotron m400 canonical 1970 1980 prog rock standard 35 key polyester base quarter inch iron oxide canonical mellotron block chord mellotron, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, gold brass warmer tone multiphonic saxophone, string machine. London major flagship studio 1968-1985 major-flagship uk 70s hard rock arena studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical.",
+  "recipe_chars": 997,
+  "score": 782.212,
   "config": {
     "traditions": [
       "art_rock",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "crooner_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "narrative_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 44.14000000000002,
-          "voice_quality": 2.7950000000000004,
+          "voice_quality": 18.004999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.029999999999999,
-          "voice_articulation": 0.39999999999999997,
+          "voice_vibrato": 5.59,
+          "voice_articulation": 15.469999999999992,
           "voice_microtone": 44.13,
           "voice_tradition": 8.684999999999999,
           "voice_mechanism_compound": 6.825,
           "voice_estill_quality": 4.160000000000001,
-          "voice_speech_song": 16.769999999999992,
-          "voice_ensemble_config": 16.834999999999994,
+          "voice_speech_song": 17.02999999999999,
+          "voice_ensemble_config": 16.70499999999999,
           "voice_ornament_system": 3.325,
-          "voice_pitch_organization": 2.9899999999999998,
+          "voice_pitch_organization": 3.6399999999999997,
           "voice_processing_chain": 11.200000000000001,
-          "voice_multitrack_stack": 12.469999999999999
+          "voice_multitrack_stack": 17.005
         }
       },
       {

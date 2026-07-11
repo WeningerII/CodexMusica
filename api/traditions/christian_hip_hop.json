@@ -3,9 +3,9 @@
   "name": "Christian hip-hop",
   "family": "hip_hop",
   "lineage": "American Christian hip-hop genre developing through 1980s onward, with major commercial-and-artistic peak in 2010s through Lecrae's Reach Records roster (Lecrae, Andy Mineo, Trip Lee, KB, Tedashii). Distinguished by explicitly Christian-evangelical lyrical content addressing salvation, faith-struggle, and biblical-theological themes, set to mainstream hip-hop production aesthetic. The 2014 Grammy Award win by Lecrae's Anomaly album for Best Gospel Album consolidated commercial-cultural visibility.",
-  "recipe": "classic mid-1980s christian hip-hop, ritual Devotional, christian gospel branch, us hip hop conscious rap conscious hip-hop. thick, rap, narrative, equal tempered. TR-808, low sub bass analog synth. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe": "classic mid-1980s christian hip-hop, ritual Devotional, christian gospel branch, us hip hop conscious rap conscious hip-hop. thick, rap, straight onset, narrative. TR-808, low sub bass analog synth. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 392,
-  "score": 180.09,
+  "score": 199.075,
   "config": {
     "traditions": [
       "christian_hip_hop",
@@ -21,7 +21,7 @@
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "narrative_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "gospel_pentecostal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_belt",
@@ -37,18 +37,18 @@
           "voice_quality": 23.056499999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.45499999999999996,
+          "voice_vibrato": 5.900999999999999,
           "voice_articulation": 15.721499999999999,
-          "voice_microtone": 4.826,
+          "voice_microtone": 12.154999999999998,
           "voice_tradition": 12.432499999999997,
           "voice_mechanism_compound": 2.535,
           "voice_estill_quality": 10.714999999999996,
           "voice_speech_song": 22.422999999999995,
-          "voice_ensemble_config": 10.725,
+          "voice_ensemble_config": 10.594999999999999,
           "voice_ornament_system": 3.65,
-          "voice_pitch_organization": 1.1130000000000002,
+          "voice_pitch_organization": 1.4949999999999999,
           "voice_processing_chain": 19.174999999999997,
-          "voice_multitrack_stack": 5.57
+          "voice_multitrack_stack": 11.527999999999997
         }
       },
       {

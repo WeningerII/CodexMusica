@@ -3,9 +3,9 @@
   "name": "Andean huayno-de-trabajo (agricultural-labor huayno)",
   "family": "global",
   "lineage": "Andean Quechua-and-Aymara huayno-de-trabajo (huayno-of-work) tradition continuous from pre-Hispanic Andean-agricultural-labor practice (the Andean ayni reciprocal-labor exchange tradition has been documented as integrating extensive song-coordination) through Spanish-colonial-era continuous performance into modern Quechua-and-Aymara-speaking Andean-rural practice across Bolivia, Peru, and Ecuador",
-  "recipe": "classic Andean modern andean huayno-de-trabajo, field Work, andean branch, sub saharan African field work, americas wedding, iberian Latin protest song andean matrimonio huayno mande-wolof west-african harvest-and-field song. forward-resonance, tasteful, unrestrained, equal tempered. bone continuous-airflow legato quena, andean tradition paired rows interlocking siku panpipes. andean altiplano outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 535,
-  "score": 304.421,
+  "recipe": "classic Andean modern andean huayno-de-trabajo, field Work, andean branch, sub saharan African field work, americas wedding, iberian Latin protest song andean matrimonio huayno mande-wolof west-african harvest-and-field song. forward-resonance, straight note core, interlocked note trading, neutral third half flat. bone continuous-airflow legato quena, andean tradition paired rows interlocking siku panpipes, altiplano mara canonical single block tarka. andean altiplano outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 544,
+  "score": 350.436,
   "config": {
     "traditions": [
       "andean_huayno_trabajo",
@@ -20,9 +20,9 @@
           "voice_quality": "twang_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
-          "voice_articulation": "shouted_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "andean_quechua_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_oral_twang",
@@ -30,7 +30,7 @@
           "voice_ensemble_config": "voice_ensemble_parallel_thirds",
           "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
-          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
@@ -38,17 +38,17 @@
           "voice_quality": 44.300000000000004,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.38,
-          "voice_articulation": 11.125,
-          "voice_microtone": 0.9275000000000001,
+          "voice_vibrato": 3.8812500000000005,
+          "voice_articulation": 17.614999999999995,
+          "voice_microtone": 18.199999999999992,
           "voice_tradition": 60.86874999999999,
           "voice_mechanism_compound": 1.17,
           "voice_estill_quality": 27.649999999999995,
-          "voice_speech_song": 22.685,
+          "voice_speech_song": 22.554999999999996,
           "voice_ensemble_config": 28.354999999999993,
           "voice_ornament_system": 40.2225,
           "voice_pitch_organization": 6.759999999999999,
-          "voice_processing_chain": 1.40625,
+          "voice_processing_chain": 1.6899999999999997,
           "voice_multitrack_stack": 0.975
         }
       },
@@ -75,10 +75,25 @@
           "siku_construction": 18.520624999999995,
           "siku_size": 0.78
         }
+      },
+      {
+        "id": "tarka",
+        "slots": {
+          "tarka_form": "tarka_curahuara",
+          "tarka_context": "tarka_tarkeada",
+          "tarka_consort_voice": "tarka_taika",
+          "tarka_body_wood": "tarka_mara_wood"
+        },
+        "scores": {
+          "tarka_form": 12.393124999999996,
+          "tarka_context": 11.294999999999996,
+          "tarka_consort_voice": 0.845,
+          "tarka_body_wood": 1.04
+        }
       }
     ],
     "room": "andean_altiplano_outdoor",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

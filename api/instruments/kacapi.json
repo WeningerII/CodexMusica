@@ -1,0 +1,410 @@
+{
+  "id": "kacapi",
+  "name": "Kacapi (Sundanese boat-shaped zither)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "kacapi",
+  "parts": [
+    {
+      "id": "kacapi_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "kacapi_indung",
+          "default": true,
+          "name": "Kacapi indung / kacapi parahu (large 18-20-string boat-shaped mother zither)",
+          "descriptors": [
+            "boat-shaped",
+            "resonant",
+            "stately"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ],
+          "canonical_tags": [
+            "sundanese",
+            "west-java",
+            "tembang-sunda"
+          ]
+        },
+        {
+          "id": "kacapi_rincik",
+          "name": "Kacapi rincik (small 15-string child zither, high interlocking figuration)",
+          "descriptors": [
+            "bright",
+            "rippling",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ],
+          "canonical_tags": [
+            "sundanese",
+            "west-java"
+          ]
+        },
+        {
+          "id": "kacapi_siter",
+          "name": "Kacapi siter (modern flat trapezoidal box zither)",
+          "descriptors": [
+            "flat-bodied",
+            "clear",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ],
+          "canonical_tags": [
+            "sundanese",
+            "kacapi-suling"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kacapi_repertoire",
+      "name": "Repertoire / playing context",
+      "variants": [
+        {
+          "id": "kacapi_kacapi_suling",
+          "default": true,
+          "name": "Kacapi-suling instrumental duet (with suling degung)",
+          "descriptors": [
+            "serene",
+            "flowing",
+            "meditative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ],
+          "canonical_tags": [
+            "kacapi-suling",
+            "sundanese"
+          ]
+        },
+        {
+          "id": "kacapi_tembang_cianjuran",
+          "name": "Tembang Sunda Cianjuran (accompanying free-meter sung poetry)",
+          "descriptors": [
+            "courtly",
+            "lyrical",
+            "unhurried"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ],
+          "canonical_tags": [
+            "tembang-sunda",
+            "cianjuran"
+          ]
+        },
+        {
+          "id": "kacapi_wanda_anyar",
+          "name": "Wanda anyar / pop Sunda (modern virtuoso and popular styles)",
+          "descriptors": [
+            "virtuosic",
+            "driving",
+            "playful"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ],
+          "canonical_tags": [
+            "pop-sunda",
+            "wanda-anyar"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kacapi_laras",
+      "surface": false,
+      "name": "Laras (Sundanese tuning system)",
+      "variants": [
+        {
+          "id": "kacapi_pelog_degung",
+          "default": true,
+          "name": "Pelog degung (canonical pentatonic)",
+          "descriptors": [
+            "pentatonic",
+            "stately"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "kacapi_sorog",
+          "name": "Sorog / madenda (plaintive mode)",
+          "descriptors": [
+            "plaintive",
+            "melancholic"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "kacapi_salendro",
+          "name": "Salendro (near-equidistant pentatonic)",
+          "descriptors": [
+            "equidistant",
+            "bright"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kacapi_construction",
+      "surface": false,
+      "name": "Body and strings",
+      "variants": [
+        {
+          "id": "kacapi_kenanga_steel",
+          "default": true,
+          "name": "Carved kenanga-wood hull, steel wire strings on pyramid pegs (canonical)",
+          "descriptors": [
+            "kenanga-carved",
+            "steel-strung"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "kacapi_sawo_brass",
+          "name": "Sawo (sapodilla) wood body, brass wire strings (heirloom village build)",
+          "descriptors": [
+            "sawo-bodied",
+            "brass-strung"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "kacapi_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "kacapi_indung",
+          "default": true,
+          "name": "Kacapi indung / kacapi parahu (large 18-20-string boat-shaped mother zither)",
+          "descriptors": [
+            "boat-shaped",
+            "resonant",
+            "stately"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ],
+          "canonical_tags": [
+            "sundanese",
+            "west-java",
+            "tembang-sunda"
+          ]
+        },
+        {
+          "id": "kacapi_rincik",
+          "name": "Kacapi rincik (small 15-string child zither, high interlocking figuration)",
+          "descriptors": [
+            "bright",
+            "rippling",
+            "interlocking"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ],
+          "canonical_tags": [
+            "sundanese",
+            "west-java"
+          ]
+        },
+        {
+          "id": "kacapi_siter",
+          "name": "Kacapi siter (modern flat trapezoidal box zither)",
+          "descriptors": [
+            "flat-bodied",
+            "clear",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ],
+          "canonical_tags": [
+            "sundanese",
+            "kacapi-suling"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kacapi_repertoire",
+      "name": "Repertoire / playing context",
+      "variants": [
+        {
+          "id": "kacapi_kacapi_suling",
+          "default": true,
+          "name": "Kacapi-suling instrumental duet (with suling degung)",
+          "descriptors": [
+            "serene",
+            "flowing",
+            "meditative"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ],
+          "canonical_tags": [
+            "kacapi-suling",
+            "sundanese"
+          ]
+        },
+        {
+          "id": "kacapi_tembang_cianjuran",
+          "name": "Tembang Sunda Cianjuran (accompanying free-meter sung poetry)",
+          "descriptors": [
+            "courtly",
+            "lyrical",
+            "unhurried"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked"
+          ],
+          "canonical_tags": [
+            "tembang-sunda",
+            "cianjuran"
+          ]
+        },
+        {
+          "id": "kacapi_wanda_anyar",
+          "name": "Wanda anyar / pop Sunda (modern virtuoso and popular styles)",
+          "descriptors": [
+            "virtuosic",
+            "driving",
+            "playful"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingerpicked",
+            "ringing"
+          ],
+          "canonical_tags": [
+            "pop-sunda",
+            "wanda-anyar"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kacapi_laras",
+      "surface": false,
+      "name": "Laras (Sundanese tuning system)",
+      "variants": [
+        {
+          "id": "kacapi_pelog_degung",
+          "default": true,
+          "name": "Pelog degung (canonical pentatonic)",
+          "descriptors": [
+            "pentatonic",
+            "stately"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "kacapi_sorog",
+          "name": "Sorog / madenda (plaintive mode)",
+          "descriptors": [
+            "plaintive",
+            "melancholic"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        },
+        {
+          "id": "kacapi_salendro",
+          "name": "Salendro (near-equidistant pentatonic)",
+          "descriptors": [
+            "equidistant",
+            "bright"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kacapi_construction",
+      "surface": false,
+      "name": "Body and strings",
+      "variants": [
+        {
+          "id": "kacapi_kenanga_steel",
+          "default": true,
+          "name": "Carved kenanga-wood hull, steel wire strings on pyramid pegs (canonical)",
+          "descriptors": [
+            "kenanga-carved",
+            "steel-strung"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ringing"
+          ]
+        },
+        {
+          "id": "kacapi_sawo_brass",
+          "name": "Sawo (sapodilla) wood body, brass wire strings (heirloom village build)",
+          "descriptors": [
+            "sawo-bodied",
+            "brass-strung"
+          ],
+          "match_tokens": [
+            "plucked"
+          ]
+        }
+      ]
+    }
+  ]
+}

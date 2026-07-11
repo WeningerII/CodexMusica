@@ -3,26 +3,26 @@
   "name": "Romanian cântece de tors (spinning songs)",
   "family": "global",
   "lineage": "Romanian spinning-song (cântece de tors) tradition continuous from premodern Romanian-rural domestic-textile-labor practice through 19th-century Romanian-folklorist documentation through 20th-century Béla Bartók Romanian-folk-collection canonical into modern Romanian-folk-revival continuous practice",
-  "recipe": "classic Northern European modern romanian cântece de tors, domestic Rhythm, Slavic baltic branch, Celtic hebridean domestic rhythm, Slavic balkan field work, European lullaby irish spinning song sardinian boci de tela. thick, false fold engaged, tasteful, continuous-phonation. setu farmhouse wood. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 428,
-  "score": 109.139,
+  "recipe": "classic Northern European modern romanian cântece de tors, domestic Rhythm, Slavic baltic branch, Celtic hebridean domestic rhythm, Slavic balkan field work, European lullaby irish spinning song scottish gaelic tàladh. thick, close mic intimate, straight onset, continuous-phonation. setu farmhouse wood. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 367,
+  "score": 134.274,
   "config": {
     "traditions": [
       "romanian_cantece_de_tors",
       "irish_spinning_song",
-      "sardinian_boci_de_tela"
+      "scottish_gaelic_taladh"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "false_fold_voice",
+          "voice_quality": "crooner_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "legato_voice",
-          "voice_microtone": "blue_notes",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_speech",
@@ -31,30 +31,30 @@
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
           "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 8.509999999999996,
-          "voice_quality": 9.924999999999995,
+          "voice_register": 7.809999999999999,
+          "voice_quality": 4.940000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.225,
-          "voice_articulation": 6.759999999999999,
-          "voice_microtone": 0,
-          "voice_tradition": 33.8325,
-          "voice_mechanism_compound": 1.56,
-          "voice_estill_quality": 0.975,
-          "voice_speech_song": 10.659999999999998,
-          "voice_ensemble_config": 5.9475,
-          "voice_ornament_system": 8.24875,
-          "voice_pitch_organization": 6.759999999999999,
-          "voice_processing_chain": 1.885,
-          "voice_multitrack_stack": 0.975
+          "voice_vibrato": 4.095,
+          "voice_articulation": 5.915,
+          "voice_microtone": 6.630000000000001,
+          "voice_tradition": 40.71125,
+          "voice_mechanism_compound": 2.0149999999999997,
+          "voice_estill_quality": 1.2349999999999999,
+          "voice_speech_song": 10.399999999999997,
+          "voice_ensemble_config": 5.720000000000001,
+          "voice_ornament_system": 33.18249999999999,
+          "voice_pitch_organization": 5.915,
+          "voice_processing_chain": 2.0799999999999996,
+          "voice_multitrack_stack": 2.2749999999999995
         }
       }
     ],
     "room": "setu_farmhouse_wood",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

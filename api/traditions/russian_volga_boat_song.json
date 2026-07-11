@@ -3,9 +3,9 @@
   "name": "Russian Volga boat-haulers' work song (бурлацкая песня)",
   "family": "global",
   "lineage": "Russian Volga boat-haulers (бурлаки burlaki) work-song tradition documented from 17th-19th century Russian river-haulage-laborer practice (the burlaki towed cargo-barges upstream against the Volga current by rope-and-shoulder before steam-tug-substitution in the 1860s-1880s) through 19th-century Russian-Romantic-era documentation into 20th-century revival; the canonical \"Эй, ухнем!\" (Ey, ukhnem!, \"Hey, heave-ho!\") is the foundational repertoire",
-  "recipe": "classic mid-1860s russian volga boat-haulers' work song, sea Shanty, north Southeast Asian baltic branch, Slavic balkan field work, European protest song, Slavic bard ballad poetry italian canti partigiani russian zhnitvenye pesni. thick, low dynamic level, tasteful, unrestrained. open air. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 421,
-  "score": 93.735,
+  "recipe": "classic mid-1860s russian volga boat-haulers' work song, sea Shanty, north Southeast Asian baltic branch, Slavic balkan field work, European protest song, Slavic bard ballad poetry italian canti partigiani russian zhnitvenye pesni. thick, breath veiled tone, straight onset, interlocked note trading. open air. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 373,
+  "score": 106.697,
   "config": {
     "traditions": [
       "russian_volga_boat_song",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "crooner_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
-          "voice_articulation": "shouted_voice",
-          "voice_microtone": "blue_notes",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_yodel_M1_M2_alternation",
           "voice_estill_quality": "voice_estill_opera",
@@ -31,30 +31,30 @@
           "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 3.874999999999999,
-          "voice_quality": 5.720000000000001,
+          "voice_quality": 12.284999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
-          "voice_articulation": 4.875,
-          "voice_microtone": 0.045,
+          "voice_vibrato": 1.56,
+          "voice_articulation": 7.474999999999999,
+          "voice_microtone": 8.45,
           "voice_tradition": 17.3875,
           "voice_mechanism_compound": 0.78,
           "voice_estill_quality": 9.484999999999998,
-          "voice_speech_song": 17.484999999999992,
-          "voice_ensemble_config": 7.734999999999999,
+          "voice_speech_song": 17.354999999999993,
+          "voice_ensemble_config": 8.645,
           "voice_ornament_system": 9.2,
           "voice_pitch_organization": 3.3799999999999994,
           "voice_processing_chain": 3.3150000000000004,
-          "voice_multitrack_stack": 2.4374999999999996
+          "voice_multitrack_stack": 3.0550000000000015
         }
       }
     ],
     "room": "open_prairie",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

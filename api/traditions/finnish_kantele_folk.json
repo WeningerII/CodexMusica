@@ -3,9 +3,9 @@
   "name": "Finnish kantele folk and Kalevala-recitation",
   "family": "global",
   "lineage": "Karelian-Finnish epic-recitation tradition documented by Elias Lönnrot in compiling the Kalevala national epic (1835 first edition, 1849 expanded), paired with the lap-zither kantele (Finlands national instrument) — performed in Karelian, Ingrian, Estonian, and other Baltic-Finnic language traditions in pre-Christian rune-singing and folk-tale-singing contexts",
-  "recipe": "classic Northern European mid-1830s finnish kantele folk and kalevala-recitation, ballad Poetry, Celtic balladic branch, Slavic bard ballad poetry icelandic kvæði / þula recitation serbian guslar epic recitation. thick, low dynamic level, melodic, narrative. birch alder karelian gut pre modern five string fingerpicked kantele. sapmi outdoor tundra yoik. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 485,
-  "score": 90.915,
+  "recipe": "classic Northern European mid-1830s finnish kantele folk and kalevala-recitation, ballad Poetry, Celtic balladic branch, Slavic bard ballad poetry icelandic kvæði / þula recitation serbian guslar epic recitation. thick, breath veiled tone, straight note core, interlocked note trading. birch alder karelian gut pre modern five string fingerpicked kantele. sapmi outdoor tundra yoik. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 445,
+  "score": 126.374,
   "config": {
     "traditions": [
       "finnish_kantele_folk",
@@ -17,39 +17,39 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "crooner_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "narrative_voice",
-          "voice_microtone": "blue_notes",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 7.25,
-          "voice_quality": 1.4949999999999997,
+          "voice_quality": 19.5,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.17,
-          "voice_articulation": 1.8199999999999998,
-          "voice_microtone": 0.39,
+          "voice_vibrato": 2.3725,
+          "voice_articulation": 9.945,
+          "voice_microtone": 11.829999999999993,
           "voice_tradition": 20.54,
           "voice_mechanism_compound": 2.535,
           "voice_estill_quality": 1.9499999999999997,
-          "voice_speech_song": 10.075,
-          "voice_ensemble_config": 10.009999999999998,
-          "voice_ornament_system": 3.6500000000000004,
-          "voice_pitch_organization": 1.8199999999999996,
-          "voice_processing_chain": 3.3150000000000004,
-          "voice_multitrack_stack": 0.825
+          "voice_speech_song": 9.945,
+          "voice_ensemble_config": 9.879999999999999,
+          "voice_ornament_system": 3.8450000000000006,
+          "voice_pitch_organization": 2.2862500000000003,
+          "voice_processing_chain": 8.645,
+          "voice_multitrack_stack": 3.0550000000000015
         }
       },
       {
@@ -71,7 +71,7 @@
       }
     ],
     "room": "sapmi_outdoor_tundra_yoik",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

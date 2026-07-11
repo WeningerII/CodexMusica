@@ -3,9 +3,9 @@
   "name": "Syriac Orthodox liturgical chant",
   "family": "classical",
   "lineage": "Syriac Orthodox liturgical chant, the canonical sacred-music tradition of the Syriac Orthodox Church (Oriental Orthodox alongside Coptic, Armenian, Ethiopian). Follows the Beth Gazo (\"Treasury\") eight-mode oktoechos system with hundreds of canonical melodies. Performance: male choir of cantor-and-chorus chanting in Syriac (the ancient Aramaic liturgical language preserved unchanged from early-Christian period), with Maronite, Syrian Catholic, Assyrian Church of the East, and Indian Malankara Syrian Orthodox sharing overlapping recensions. The post-1915 Sayfo and late-twentieth-century Middle East displacement dispersed tradition across diaspora.",
-  "recipe": "classic Caucasian mid-1910s syriac orthodox liturgical chant, ritual Devotional, coptic branch, western early art music ars antiqua and organum renaissance sacred polyphony. thick, declaimed, melodic, ornamental. mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. stone armenian church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 521,
-  "score": 175.447,
+  "recipe": "classic Caucasian mid-1910s syriac orthodox liturgical chant, ritual Devotional, coptic branch, western early art music ars antiqua and organum renaissance sacred polyphony. thick, breath veiled tone, straight note core, interlocked note trading. mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. stone armenian church. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 488,
+  "score": 238.505,
   "config": {
     "traditions": [
       "syriac_orthodox_chant",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "melisma_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "chinese_classical_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 8.530000000000001,
-          "voice_quality": 11.040000000000001,
+          "voice_quality": 17.354999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.3149999999999995,
-          "voice_articulation": 5.74,
-          "voice_microtone": 7.280000000000002,
+          "voice_vibrato": 11.79,
+          "voice_articulation": 19.6625,
+          "voice_microtone": 18.004999999999995,
           "voice_tradition": 13.975,
           "voice_mechanism_compound": 7.604999999999999,
           "voice_estill_quality": 9.392500000000002,
-          "voice_speech_song": 16.64,
-          "voice_ensemble_config": 23.985,
+          "voice_speech_song": 16.509999999999998,
+          "voice_ensemble_config": 33.67,
           "voice_ornament_system": 6.575,
-          "voice_pitch_organization": 12.805,
-          "voice_processing_chain": 4.725,
-          "voice_multitrack_stack": 1.6899999999999997
+          "voice_pitch_organization": 18.85,
+          "voice_processing_chain": 13.324999999999998,
+          "voice_multitrack_stack": 4.8100000000000005
         }
       },
       {
@@ -69,7 +69,7 @@
       }
     ],
     "room": "stone_armenian_church",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

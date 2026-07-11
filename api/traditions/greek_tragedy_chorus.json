@@ -3,58 +3,58 @@
   "name": "Greek tragedy chorus declamation",
   "family": "classical",
   "lineage": "Choral declamation of Athenian tragedy, 5th century BCE, performed by a chorus of twelve (later fifteen under Sophocles) in the circular orchestra of the Theatre of Dionysus during the City Dionysia festival. The chorus of the plays of Aeschylus, Sophocles, and Euripides moved between spoken dialogue, chanted anapestic recitation for entrances (parodos) and exits, and fully sung strophic odes accompanied by the aulos, with strophe and antistrophe mirrored in dance. No notated choral music survives beyond fragments, so modern practice is scholarly reconstruction, staged today in surviving open-air stone theatres such as Epidaurus, where unison declamation projected without amplification remains the defining sound.",
-  "recipe": "classic Southern European modern greek tragedy chorus declamation, art Music, western early branch thai classical beijing opera. thick, pressed, chest resonance low mid, rhythmic. outdoor dalmatian square. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 335,
-  "score": 199.729,
+  "recipe": "classic Southern European modern greek tragedy chorus declamation, art Music, western early branch thai classical tibetan ache lhamo opera. thick, breath veiled tone, slow rate, interlocked note trading. outdoor dalmatian square. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 292,
+  "score": 273.228,
   "config": {
     "traditions": [
       "greek_tragedy_chorus",
       "thai_classical",
-      "beijing_opera"
+      "tibetan_ache_lhamo"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "pressed_phonation_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "spoken_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "chinese_classical_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_bel_canto",
-          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 5.853187500000001,
-          "voice_quality": 9.074999999999998,
+          "voice_register": 6.9281875,
+          "voice_quality": 30.81,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.409999999999999,
-          "voice_articulation": 0.78,
-          "voice_microtone": 9.847500000000002,
-          "voice_tradition": 31.737589285714286,
-          "voice_mechanism_compound": 14.149999999999999,
-          "voice_estill_quality": 24.674374999999994,
-          "voice_speech_song": 27.17000000000001,
-          "voice_ensemble_config": 20.93,
-          "voice_ornament_system": 20.824999999999996,
-          "voice_pitch_organization": 14.886499999999998,
-          "voice_processing_chain": 5.135,
-          "voice_multitrack_stack": 2.7299999999999995
+          "voice_vibrato": 17.291089285714282,
+          "voice_articulation": 24.245000000000005,
+          "voice_microtone": 23.854999999999997,
+          "voice_tradition": 25.934999999999995,
+          "voice_mechanism_compound": 14.049999999999997,
+          "voice_estill_quality": 22.124374999999993,
+          "voice_speech_song": 33.995,
+          "voice_ensemble_config": 23.789999999999996,
+          "voice_ornament_system": 16.324999999999996,
+          "voice_pitch_organization": 16.089499999999997,
+          "voice_processing_chain": 12.869999999999996,
+          "voice_multitrack_stack": 7.67
         }
       }
     ],
     "room": "outdoor_dalmatian_square",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

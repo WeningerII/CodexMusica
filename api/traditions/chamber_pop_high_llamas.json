@@ -3,9 +3,9 @@
   "name": "Chamber pop",
   "family": "rock_punk",
   "lineage": "Late-1990s-and-2000s indie rock subgenre integrating orchestral-and-chamber-instrument arrangements (strings, woodwinds, brass) with pop song-form structure, often referencing the 1960s Brian Wilson/Beach Boys, Burt Bacharach, and Van Dyke Parks compositional aesthetic. The High Llamas (UK, 1992-onward, Sean O'Hagan), Belle and Sebastian, Lambchop, the Divine Comedy, and Sufjan Stevens constitute the canonical roster.",
-  "recipe": "classic Los Angeles modern chamber pop, distorted Rock, art rock branch, western common practice art music classical period grand opera. thick, low dynamic level, chest resonance low mid, narrative. marshall plexi amp British rock amp alder pau ferro nickel plated steel single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, brass pre muffled edge muffled hot rolled annealed drum kit, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, synthetic norway spruce European alpine European maple bosnian source violin orchestral. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
-  "recipe_chars": 774,
-  "score": 469.522,
+  "recipe": "classic Los Angeles modern chamber pop, distorted Rock, art rock branch, western common practice art music classical period grand opera. thick, breath veiled tone, slow rate, interlocked note trading. marshall plexi amp British rock amp alder pau ferro nickel plated steel single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, brass pre muffled edge muffled hot rolled annealed drum kit, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, synthetic norway spruce European alpine European maple bosnian source violin orchestral. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
+  "recipe_chars": 776,
+  "score": 500.882,
   "config": {
     "traditions": [
       "chamber_pop_high_llamas",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "crooner_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "narrative_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "operatic_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 19.924999999999994,
-          "voice_quality": 1.2999999999999998,
+          "voice_quality": 11.43999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.6399999999999997,
-          "voice_articulation": 0.585,
+          "voice_vibrato": 9.099999999999998,
+          "voice_articulation": 16.70499999999999,
           "voice_microtone": 26.729999999999997,
           "voice_tradition": 12.902499999999998,
           "voice_mechanism_compound": 6.899999999999999,
           "voice_estill_quality": 13.829999999999998,
-          "voice_speech_song": 18.524999999999995,
-          "voice_ensemble_config": 16.769999999999992,
+          "voice_speech_song": 18.394999999999992,
+          "voice_ensemble_config": 16.639999999999993,
           "voice_ornament_system": 13.125,
           "voice_pitch_organization": 6.8999999999999995,
           "voice_processing_chain": 3.0350000000000006,
-          "voice_multitrack_stack": 4.635000000000001
+          "voice_multitrack_stack": 4.535000000000001
         }
       },
       {

@@ -1,0 +1,386 @@
+{
+  "id": "gankogui",
+  "name": "Gankogui (Ewe iron double bell)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": -1,
+    "register": 0,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "Forged-iron double bell of the Ewe of Ghana and Togo, a large low bell welded to a small high bell on a curved iron handle and struck with a hardwood stick; it keeps the master timeline for Agbadza, Gahu and Atsiagbekor drumming.",
+  "parts": [
+    {
+      "id": "gankogui_bell_form",
+      "name": "Bell form",
+      "variants": [
+        {
+          "id": "gankogui_bell_form_double_standard",
+          "default": true,
+          "name": "Standard double gankogui",
+          "descriptors": [
+            "twin-belled",
+            "two-toned",
+            "boat-shaped"
+          ],
+          "match_tokens": [
+            "struck",
+            "bell",
+            "iron",
+            "double-bell",
+            "two-tone"
+          ],
+          "canonical_tags": [
+            "double-bell",
+            "high-low-pair"
+          ]
+        },
+        {
+          "id": "gankogui_bell_form_large_lead",
+          "name": "Large lead gankogui",
+          "descriptors": [
+            "deep-voiced",
+            "big-belled",
+            "low-clanging"
+          ],
+          "match_tokens": [
+            "struck",
+            "bell",
+            "iron",
+            "low-bell",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "large-bell",
+            "low-lead"
+          ]
+        },
+        {
+          "id": "gankogui_bell_form_atoke_single",
+          "name": "Atoke single boat bell",
+          "descriptors": [
+            "single-belled",
+            "banana-shaped",
+            "palm-held"
+          ],
+          "match_tokens": [
+            "struck",
+            "bell",
+            "iron",
+            "single-bell",
+            "high-pitched"
+          ],
+          "canonical_tags": [
+            "single-bell",
+            "boat-bell"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gankogui_timeline_role",
+      "name": "Timeline role",
+      "variants": [
+        {
+          "id": "gankogui_timeline_role_agbadza_open",
+          "default": true,
+          "name": "Agbadza open timeline",
+          "descriptors": [
+            "timeline-keeping",
+            "interlocking",
+            "high-low-alternating"
+          ],
+          "match_tokens": [
+            "struck",
+            "timeline",
+            "bell-pattern",
+            "open-stroke",
+            "cyclic"
+          ],
+          "canonical_tags": [
+            "timeline",
+            "open-strokes"
+          ]
+        },
+        {
+          "id": "gankogui_timeline_role_gahu_driving",
+          "name": "Gahu driving pattern",
+          "descriptors": [
+            "driving",
+            "propulsive",
+            "quick-struck"
+          ],
+          "match_tokens": [
+            "struck",
+            "timeline",
+            "bell-pattern",
+            "fast",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "timeline",
+            "recreational-dance"
+          ]
+        },
+        {
+          "id": "gankogui_timeline_role_muted_damped",
+          "name": "Damped muted strokes",
+          "descriptors": [
+            "damped",
+            "muffled",
+            "choked"
+          ],
+          "match_tokens": [
+            "struck",
+            "muted-stroke",
+            "damped",
+            "dry-tone",
+            "short-decay"
+          ],
+          "canonical_tags": [
+            "muted",
+            "damped-strokes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gankogui_forge_material",
+      "surface": false,
+      "name": "Forge material",
+      "variants": [
+        {
+          "id": "gankogui_forge_material_wrought_iron",
+          "default": true,
+          "name": "Wrought-iron bells, hardwood stick",
+          "descriptors": [
+            "forged-iron",
+            "hardwood-struck",
+            "clangy"
+          ],
+          "match_tokens": [
+            "struck",
+            "iron",
+            "wrought-iron",
+            "wooden-stick",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "wrought-iron",
+            "hardwood-beater"
+          ]
+        },
+        {
+          "id": "gankogui_forge_material_recycled_steel",
+          "name": "Recycled sheet-steel bells",
+          "descriptors": [
+            "recycled-steel",
+            "bright-edged",
+            "metallic"
+          ],
+          "match_tokens": [
+            "struck",
+            "steel",
+            "recycled-metal",
+            "bright-tone",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "recycled-steel",
+            "modern-fabrication"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "gankogui_bell_form",
+      "name": "Bell form",
+      "variants": [
+        {
+          "id": "gankogui_bell_form_double_standard",
+          "default": true,
+          "name": "Standard double gankogui",
+          "descriptors": [
+            "twin-belled",
+            "two-toned",
+            "boat-shaped"
+          ],
+          "match_tokens": [
+            "struck",
+            "bell",
+            "iron",
+            "double-bell",
+            "two-tone"
+          ],
+          "canonical_tags": [
+            "double-bell",
+            "high-low-pair"
+          ]
+        },
+        {
+          "id": "gankogui_bell_form_large_lead",
+          "name": "Large lead gankogui",
+          "descriptors": [
+            "deep-voiced",
+            "big-belled",
+            "low-clanging"
+          ],
+          "match_tokens": [
+            "struck",
+            "bell",
+            "iron",
+            "low-bell",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "large-bell",
+            "low-lead"
+          ]
+        },
+        {
+          "id": "gankogui_bell_form_atoke_single",
+          "name": "Atoke single boat bell",
+          "descriptors": [
+            "single-belled",
+            "banana-shaped",
+            "palm-held"
+          ],
+          "match_tokens": [
+            "struck",
+            "bell",
+            "iron",
+            "single-bell",
+            "high-pitched"
+          ],
+          "canonical_tags": [
+            "single-bell",
+            "boat-bell"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gankogui_timeline_role",
+      "name": "Timeline role",
+      "variants": [
+        {
+          "id": "gankogui_timeline_role_agbadza_open",
+          "default": true,
+          "name": "Agbadza open timeline",
+          "descriptors": [
+            "timeline-keeping",
+            "interlocking",
+            "high-low-alternating"
+          ],
+          "match_tokens": [
+            "struck",
+            "timeline",
+            "bell-pattern",
+            "open-stroke",
+            "cyclic"
+          ],
+          "canonical_tags": [
+            "timeline",
+            "open-strokes"
+          ]
+        },
+        {
+          "id": "gankogui_timeline_role_gahu_driving",
+          "name": "Gahu driving pattern",
+          "descriptors": [
+            "driving",
+            "propulsive",
+            "quick-struck"
+          ],
+          "match_tokens": [
+            "struck",
+            "timeline",
+            "bell-pattern",
+            "fast",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "timeline",
+            "recreational-dance"
+          ]
+        },
+        {
+          "id": "gankogui_timeline_role_muted_damped",
+          "name": "Damped muted strokes",
+          "descriptors": [
+            "damped",
+            "muffled",
+            "choked"
+          ],
+          "match_tokens": [
+            "struck",
+            "muted-stroke",
+            "damped",
+            "dry-tone",
+            "short-decay"
+          ],
+          "canonical_tags": [
+            "muted",
+            "damped-strokes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gankogui_forge_material",
+      "surface": false,
+      "name": "Forge material",
+      "variants": [
+        {
+          "id": "gankogui_forge_material_wrought_iron",
+          "default": true,
+          "name": "Wrought-iron bells, hardwood stick",
+          "descriptors": [
+            "forged-iron",
+            "hardwood-struck",
+            "clangy"
+          ],
+          "match_tokens": [
+            "struck",
+            "iron",
+            "wrought-iron",
+            "wooden-stick",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "wrought-iron",
+            "hardwood-beater"
+          ]
+        },
+        {
+          "id": "gankogui_forge_material_recycled_steel",
+          "name": "Recycled sheet-steel bells",
+          "descriptors": [
+            "recycled-steel",
+            "bright-edged",
+            "metallic"
+          ],
+          "match_tokens": [
+            "struck",
+            "steel",
+            "recycled-metal",
+            "bright-tone",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "recycled-steel",
+            "modern-fabrication"
+          ]
+        }
+      ]
+    }
+  ]
+}

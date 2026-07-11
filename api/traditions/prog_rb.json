@@ -3,9 +3,9 @@
   "name": "Progressive R&B (2010s virtuoso-instrumental jazz-fusion R&B)",
   "family": "pop",
   "lineage": "2010s and 2020s R&B subgenre characterized by virtuoso-instrumental playing (especially electric bass), jazz-and-fusion harmonic complexity, lo-fi-and-experimental production aesthetic, and explicit Los-Angeles-Brainfeeder-scene cultural affiliation. Thundercat (Stephen Bruner, born 1984) anchored the canonical sound through Drunk (2017); Steve Lacy (The Internet), Hiatus Kaiyote (Australian, parallel scene), and the broader Brainfeeder, Stones Throw, and Anticon label rosters extended the genre.",
-  "recipe": "classic progressive r&b, functional Song, soul R&B branch, American jazz fusion acid jazz nu jazz / electro-jazz. thick, blues-shouter, pure, narrative. ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, birch vintage ambassador asymmetric bronze bell bronze drum kit, cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, analog synth. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 608,
-  "score": 578.105,
+  "recipe": "classic progressive r&b, functional Song, soul R&B branch, American jazz fusion acid jazz nu jazz / electro-jazz. thick, breath veiled tone, straight onset, interlocked note trading. ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, birch vintage ambassador asymmetric bronze bell bronze drum kit, cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, analog synth. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 638,
+  "score": 626.393,
   "config": {
     "traditions": [
       "prog_rb",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "blues_shouter_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "straight_tone",
-          "voice_articulation": "narrative_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "jazz_scat_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 38.98950000000002,
-          "voice_quality": 6.353500000000002,
+          "voice_quality": 10.594999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.3449999999999998,
-          "voice_articulation": 7.125,
+          "voice_vibrato": 31.126500000000007,
+          "voice_articulation": 17.549999999999997,
           "voice_microtone": 32.90500000000001,
           "voice_tradition": 36.92000000000001,
           "voice_mechanism_compound": 1.69,
           "voice_estill_quality": 9.294999999999998,
-          "voice_speech_song": 20.084999999999997,
-          "voice_ensemble_config": 17.614999999999995,
+          "voice_speech_song": 19.954999999999995,
+          "voice_ensemble_config": 18.329999999999995,
           "voice_ornament_system": 2.19,
-          "voice_pitch_organization": 3.38,
+          "voice_pitch_organization": 3.185000000000001,
           "voice_processing_chain": 6.786,
-          "voice_multitrack_stack": 6.20925
+          "voice_multitrack_stack": 10.659999999999997
         }
       },
       {

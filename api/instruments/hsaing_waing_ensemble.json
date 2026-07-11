@@ -1,0 +1,440 @@
+{
+  "id": "hsaing_waing_ensemble",
+  "name": "Hsaing waing (Burmese drum-and-gong orchestra)",
+  "family": "ensemble",
+  "class": "tuned_percussion",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 0,
+    "polyphony": 2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "hsaing waing",
+  "parts": [
+    {
+      "id": "hsaing_waing_ensemble_lineup",
+      "name": "Ensemble lineup",
+      "variants": [
+        {
+          "id": "hsaing_waing_ensemble_full_pwe",
+          "default": true,
+          "name": "Full pwe hsaing (pat waing, kyi waing, maung hsaing, hne, chauk lon pat, si-wa)",
+          "descriptors": [
+            "festival-scale",
+            "full-lineup",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "struck",
+            "tuned-drums",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "burmese",
+            "hsaing-waing",
+            "festival"
+          ]
+        },
+        {
+          "id": "hsaing_waing_ensemble_anyeint",
+          "name": "Anyeint hsaing (lighter entertainment-theatre lineup)",
+          "descriptors": [
+            "light",
+            "supple",
+            "entertainment"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "struck",
+            "tuned-drums"
+          ],
+          "canonical_tags": [
+            "burmese",
+            "hsaing-waing"
+          ]
+        },
+        {
+          "id": "hsaing_waing_ensemble_chamber",
+          "name": "Indoor chamber hsaing (reduced, softened for classical song)",
+          "descriptors": [
+            "refined",
+            "indoor",
+            "restrained"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "struck",
+            "melodic-lead"
+          ],
+          "canonical_tags": [
+            "burmese",
+            "mahagita",
+            "classical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hsaing_waing_ensemble_context",
+      "name": "Playing context & repertoire",
+      "variants": [
+        {
+          "id": "hsaing_waing_ensemble_zat_pwe",
+          "default": true,
+          "name": "Zat pwe all-night theatre & dance-drama",
+          "descriptors": [
+            "theatrical",
+            "virtuoso",
+            "celebratory"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "struck",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "burmese",
+            "hsaing-waing",
+            "festival"
+          ]
+        },
+        {
+          "id": "hsaing_waing_ensemble_nat_pwe",
+          "name": "Nat pwe spirit-possession ceremony",
+          "descriptors": [
+            "trance-driving",
+            "ritual",
+            "ecstatic"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "struck",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "burmese",
+            "hsaing-waing",
+            "ritual"
+          ]
+        },
+        {
+          "id": "hsaing_waing_ensemble_mahagita",
+          "name": "Mahagita classical-song accompaniment",
+          "descriptors": [
+            "refined",
+            "ornamented",
+            "classical"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "struck",
+            "melodic-lead"
+          ],
+          "canonical_tags": [
+            "burmese",
+            "mahagita",
+            "classical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hsaing_waing_ensemble_roles",
+      "surface": false,
+      "name": "Section roles",
+      "variants": [
+        {
+          "id": "hsaing_waing_ensemble_pat_waing_lead",
+          "default": true,
+          "name": "Pat waing (21-drum tuned circle, melodic lead)",
+          "descriptors": [
+            "lead",
+            "virtuoso",
+            "melodic-drums"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "struck",
+            "tuned-drums",
+            "melodic-lead"
+          ],
+          "canonical_tags": [
+            "burmese",
+            "hsaing-waing"
+          ]
+        },
+        {
+          "id": "hsaing_waing_ensemble_gong_chimes",
+          "name": "Kyi waing gong circle & maung hsaing gong rack",
+          "descriptors": [
+            "shimmering",
+            "punctuating",
+            "metallic"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "struck",
+            "metallic"
+          ],
+          "canonical_tags": [
+            "burmese",
+            "hsaing-waing"
+          ]
+        },
+        {
+          "id": "hsaing_waing_ensemble_hne_lead",
+          "name": "Hne (double-reed shawm, sustained melody)",
+          "descriptors": [
+            "piercing",
+            "sustained",
+            "ornamental"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "reed-driven",
+            "lead-melody"
+          ],
+          "canonical_tags": [
+            "burmese",
+            "hsaing-waing"
+          ]
+        },
+        {
+          "id": "hsaing_waing_ensemble_si_wa",
+          "name": "Si-wa bell and clapper with linkwin cymbals (timekeepers)",
+          "descriptors": [
+            "timekeeping",
+            "colotomic",
+            "clipped"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "struck",
+            "percussive-attack"
+          ],
+          "canonical_tags": [
+            "burmese",
+            "hsaing-waing"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "hsaing_waing_ensemble_lineup",
+      "name": "Ensemble lineup",
+      "variants": [
+        {
+          "id": "hsaing_waing_ensemble_full_pwe",
+          "default": true,
+          "name": "Full pwe hsaing (pat waing, kyi waing, maung hsaing, hne, chauk lon pat, si-wa)",
+          "descriptors": [
+            "festival-scale",
+            "full-lineup",
+            "outdoor"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "struck",
+            "tuned-drums",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "burmese",
+            "hsaing-waing",
+            "festival"
+          ]
+        },
+        {
+          "id": "hsaing_waing_ensemble_anyeint",
+          "name": "Anyeint hsaing (lighter entertainment-theatre lineup)",
+          "descriptors": [
+            "light",
+            "supple",
+            "entertainment"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "struck",
+            "tuned-drums"
+          ],
+          "canonical_tags": [
+            "burmese",
+            "hsaing-waing"
+          ]
+        },
+        {
+          "id": "hsaing_waing_ensemble_chamber",
+          "name": "Indoor chamber hsaing (reduced, softened for classical song)",
+          "descriptors": [
+            "refined",
+            "indoor",
+            "restrained"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "struck",
+            "melodic-lead"
+          ],
+          "canonical_tags": [
+            "burmese",
+            "mahagita",
+            "classical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hsaing_waing_ensemble_context",
+      "name": "Playing context & repertoire",
+      "variants": [
+        {
+          "id": "hsaing_waing_ensemble_zat_pwe",
+          "default": true,
+          "name": "Zat pwe all-night theatre & dance-drama",
+          "descriptors": [
+            "theatrical",
+            "virtuoso",
+            "celebratory"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "struck",
+            "loud-projection"
+          ],
+          "canonical_tags": [
+            "burmese",
+            "hsaing-waing",
+            "festival"
+          ]
+        },
+        {
+          "id": "hsaing_waing_ensemble_nat_pwe",
+          "name": "Nat pwe spirit-possession ceremony",
+          "descriptors": [
+            "trance-driving",
+            "ritual",
+            "ecstatic"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "struck",
+            "dance-driving"
+          ],
+          "canonical_tags": [
+            "burmese",
+            "hsaing-waing",
+            "ritual"
+          ]
+        },
+        {
+          "id": "hsaing_waing_ensemble_mahagita",
+          "name": "Mahagita classical-song accompaniment",
+          "descriptors": [
+            "refined",
+            "ornamented",
+            "classical"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "struck",
+            "melodic-lead"
+          ],
+          "canonical_tags": [
+            "burmese",
+            "mahagita",
+            "classical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hsaing_waing_ensemble_roles",
+      "surface": false,
+      "name": "Section roles",
+      "variants": [
+        {
+          "id": "hsaing_waing_ensemble_pat_waing_lead",
+          "default": true,
+          "name": "Pat waing (21-drum tuned circle, melodic lead)",
+          "descriptors": [
+            "lead",
+            "virtuoso",
+            "melodic-drums"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "struck",
+            "tuned-drums",
+            "melodic-lead"
+          ],
+          "canonical_tags": [
+            "burmese",
+            "hsaing-waing"
+          ]
+        },
+        {
+          "id": "hsaing_waing_ensemble_gong_chimes",
+          "name": "Kyi waing gong circle & maung hsaing gong rack",
+          "descriptors": [
+            "shimmering",
+            "punctuating",
+            "metallic"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "struck",
+            "metallic"
+          ],
+          "canonical_tags": [
+            "burmese",
+            "hsaing-waing"
+          ]
+        },
+        {
+          "id": "hsaing_waing_ensemble_hne_lead",
+          "name": "Hne (double-reed shawm, sustained melody)",
+          "descriptors": [
+            "piercing",
+            "sustained",
+            "ornamental"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "reed-driven",
+            "lead-melody"
+          ],
+          "canonical_tags": [
+            "burmese",
+            "hsaing-waing"
+          ]
+        },
+        {
+          "id": "hsaing_waing_ensemble_si_wa",
+          "name": "Si-wa bell and clapper with linkwin cymbals (timekeepers)",
+          "descriptors": [
+            "timekeeping",
+            "colotomic",
+            "clipped"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "struck",
+            "percussive-attack"
+          ],
+          "canonical_tags": [
+            "burmese",
+            "hsaing-waing"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -3,9 +3,9 @@
   "name": "Fusion",
   "family": "jazz",
   "lineage": "Late-1960s through 1970s jazz-rock hybrid genre electrifying jazz instrumentation and incorporating rock rhythms, funk grooves, modal harmonic language, and extended improvised form — codified through Miles Davis (In a Silent Way 1969, Bitches Brew 1970), Weather Report (Heavy Weather 1977), Mahavishnu Orchestra (Inner Mounting Flame 1971), Return to Forever, Herbie Hancock (Head Hunters 1973)",
-  "recipe": "classic Los Angeles 1967-1969 fusion, improv On Frame, fusion branch, American jazz bop bebop modal jazz. pocket ostinato electric piano tine, Fender blackface amp American 60s amp spring reverb bright basswood maple humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, birch vintage ambassador asymmetric bronze bell bronze drum kit, analog synth, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, bach stradivarius 180 canonical American orchestral jazz balance trumpet, raymac steel tine premium 1970s vintage replacement harder neoprene late 1970s bark grit ostinato rhodes electric, Wurlitzer 200a canonical 1974 1982 solid state soft rock canon ostinato wurlitzer ep. treated studio. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
-  "recipe_chars": 945,
-  "score": 574.133,
+  "recipe": "classic Los Angeles 1967-1969 fusion, improv On Frame, fusion branch, American jazz bop bebop modal jazz. pocket ostinato electric piano tine, Fender blackface amp American 60s amp spring reverb bright basswood maple humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, birch vintage ambassador asymmetric bronze bell bronze drum kit, analog synth, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, bach stradivarius 180 canonical American orchestral jazz balance trumpet, raymac steel tine premium 1970s vintage replacement harder neoprene late 1970s bark grit ostinato rhodes electric, Wurlitzer 200a canonical 1974 1982 solid state soft rock canon ostinato wurlitzer ep, five string extended low range warm low c fusion lead electric violin. treated studio. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ.",
+  "recipe_chars": 997,
+  "score": 585.434,
   "config": {
     "traditions": [
       "fusion",
@@ -204,6 +204,19 @@
           "wurlitzer_ep_voice": 4.161499999999999,
           "wurlitzer_model": 4.874999999999999,
           "wurlitzer_reed_material": 0.39
+        }
+      },
+      {
+        "id": "electric_violin",
+        "slots": {
+          "electric_violin_form": "electric_violin_form_five_string",
+          "electric_violin_context": "electric_violin_context_fusion_lead",
+          "electric_violin_pickup": "electric_violin_pickup_magnetic"
+        },
+        "scores": {
+          "electric_violin_form": 2.0687499999999996,
+          "electric_violin_context": 8.763499999999999,
+          "electric_violin_pickup": 0.469
         }
       }
     ],

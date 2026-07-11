@@ -3,9 +3,9 @@
   "name": "Portuguese pop (modern)",
   "family": "global",
   "lineage": "Modern Portuguese mainstream pop tradition extending past the fado canon — codified through Madredeus, Mariza’s fado-fusion, the 2000s Buraka Som Sistema kuduro crossover, and contemporary artists like Sara Tavares, David Carreira; characterized by Portuguese-language vocals over electronic-and-organic hybrid production",
-  "recipe": "classic mid-2000s portuguese pop, functional Song, iberian branch, chanson fado ballad poetry cape verdean batuko of santiago island morna. extended whistle, lament wail, tasteful, punctuated. martin lifespan strummed open chord ringing overtones fingerpicked acoustic mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier wenge single coil electric guitar, modeled amp modern rig mahogany stainless steel roundwound electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 694,
-  "score": 361.754,
+  "recipe": "classic mid-2000s portuguese pop, functional Song, iberian branch, chanson fado ballad poetry cape verdean batuko of santiago island morna. extended whistle, breath veiled tone, straight onset, interlocked note trading. martin lifespan strummed open chord ringing overtones fingerpicked acoustic mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier wenge single coil electric guitar, modeled amp modern rig mahogany stainless steel roundwound electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 721,
+  "score": 428.951,
   "config": {
     "traditions": [
       "portuguese_pop_modern",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "extended_whistle_register",
-          "voice_quality": "fado_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
-          "voice_articulation": "staccato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 11.868249999999996,
-          "voice_quality": 17.5455,
+          "voice_quality": 29.770000000000003,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.4649999999999994,
-          "voice_articulation": 2.145,
-          "voice_microtone": 9.899999999999993,
+          "voice_vibrato": 6.1027499999999995,
+          "voice_articulation": 24.96,
+          "voice_microtone": 25.285,
           "voice_tradition": 20.646,
           "voice_mechanism_compound": 6.044999999999999,
           "voice_estill_quality": 4.94,
-          "voice_speech_song": 29.997500000000002,
-          "voice_ensemble_config": 23.985,
+          "voice_speech_song": 31.2325,
+          "voice_ensemble_config": 23.854999999999997,
           "voice_ornament_system": 5.597999999999999,
           "voice_pitch_organization": 5.816250000000001,
-          "voice_processing_chain": 6.434999999999999,
-          "voice_multitrack_stack": 8.225249999999999
+          "voice_processing_chain": 14.365,
+          "voice_multitrack_stack": 13.324999999999998
         }
       },
       {

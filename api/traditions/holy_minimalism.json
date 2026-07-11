@@ -3,14 +3,14 @@
   "name": "Holy Minimalism (late 20th-century spiritual minimalism)",
   "family": "classical",
   "lineage": "Late-twentieth-century compositional movement centered on Estonian Arvo Pärt, English John Tavener, and late-Polish Henryk Górecki, characterized by slow tempi, modal-and-triadic harmonic vocabulary, sacred-or-spiritual textual content (often Orthodox Christian liturgical), and minimal compositional means. Pärt's tintinnabuli style (developed 1976 onward in Spiegel im Spiegel, Cantus, and Tabula Rasa) and Tavener's The Protecting Veil (1989) constitute the canonical type-specimens.",
-  "recipe": "classic Caucasian mid-1970s holy minimalism, art Music, western modern branch, christian gospel ritual devotional bluegrass gospel gospel quartet. thick, declaimed, tasteful, ornamental. modern bright beech laminated maple laminated European tradition sitka spruce grand piano, mixed satb canonical 4 part western five voice polyphonic regional sacred liturgical global choir ensemble. stone armenian church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 538,
-  "score": 313.108,
+  "recipe": "classic Caucasian mid-1970s holy minimalism, art Music, western modern branch, christian gospel ritual devotional russian orthodox liturgical chant sacred steel. thick, declaimed, straight onset, interlocked note trading. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. stone armenian church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 621,
+  "score": 283.332,
   "config": {
     "traditions": [
       "holy_minimalism",
-      "bluegrass_gospel",
-      "gospel_quartet_male"
+      "russian_orthodox_chant",
+      "sacred_steel"
     ],
     "instruments": [
       {
@@ -21,35 +21,35 @@
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
-          "voice_articulation": "melisma_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "gospel_pentecostal_tradition",
-          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
-          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 28.92,
-          "voice_quality": 29.759999999999998,
+          "voice_register": 16.97,
+          "voice_quality": 21.209999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.085,
-          "voice_articulation": 22.275000000000002,
-          "voice_microtone": 6.6225000000000005,
-          "voice_tradition": 30.387500000000003,
-          "voice_mechanism_compound": 2.4,
-          "voice_estill_quality": 23.875,
-          "voice_speech_song": 18.069999999999997,
-          "voice_ensemble_config": 22.745,
-          "voice_ornament_system": 6.2749999999999995,
+          "voice_vibrato": 6.9625,
+          "voice_articulation": 18.32999999999999,
+          "voice_microtone": 20.669999999999987,
+          "voice_tradition": 18.46,
+          "voice_mechanism_compound": 3.3149999999999995,
+          "voice_estill_quality": 11.049999999999997,
+          "voice_speech_song": 20.34499999999999,
+          "voice_ensemble_config": 21.57999999999999,
+          "voice_ornament_system": 7.15,
           "voice_pitch_organization": 2.4000000000000004,
-          "voice_processing_chain": 2.5349999999999997,
-          "voice_multitrack_stack": 2.6
+          "voice_processing_chain": 3.9000000000000004,
+          "voice_multitrack_stack": 7.410000000000001
         }
       },
       {
@@ -58,7 +58,7 @@
           "keyboard_technique": "keyboard_gospel_chord_runs",
           "grand_piano_size": "grand_9_foot",
           "grand_piano_brand": "steinway_d",
-          "piano_hammer": "renner_blue_hammer",
+          "piano_hammer": "renner_standard_hammer",
           "piano_rim": "european_laminated_rim_beech_maple",
           "piano_soundboard": "sitka_spruce_diaphragmatic",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
@@ -66,30 +66,30 @@
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 28.932500000000005,
-          "grand_piano_size": 0.195,
-          "grand_piano_brand": 0.8699999999999999,
-          "piano_hammer": 9.335,
-          "piano_rim": 13.715,
-          "piano_soundboard": 8.84,
-          "piano_pinblock": 9.4,
-          "piano_plate": 9.485,
-          "piano_pitch_standard": 9.77
+          "keyboard_technique": 14.559999999999999,
+          "grand_piano_size": 0.225,
+          "grand_piano_brand": 0.78,
+          "piano_hammer": 9.794999999999998,
+          "piano_rim": 14.605,
+          "piano_soundboard": 9.215,
+          "piano_pinblock": 9.275,
+          "piano_plate": 9.86,
+          "piano_pitch_standard": 10.294999999999998
         }
       },
       {
         "id": "choir_ensemble",
         "slots": {
           "choir_size": "mixed_4_part_satb",
-          "choir_polyphonic_configuration": "choir_polyphony_five_voice_polyphonic",
-          "choir_regional_canonical_configuration": "choir_regional_andean_three_voice_parallel_thirds",
+          "choir_polyphonic_configuration": "choir_polyphony_four_voice_polyphonic",
+          "choir_regional_canonical_configuration": "choir_regional_kakhetian_three_voice",
           "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
         },
         "scores": {
-          "choir_size": 3.6399999999999997,
-          "choir_polyphonic_configuration": 2.535,
-          "choir_regional_canonical_configuration": 0.845,
-          "choir_ensemble_repertoire": 7.02
+          "choir_size": 4.485,
+          "choir_polyphonic_configuration": 3.3149999999999995,
+          "choir_regional_canonical_configuration": 1.4300000000000002,
+          "choir_ensemble_repertoire": 9.165
         }
       }
     ],

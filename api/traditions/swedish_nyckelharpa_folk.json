@@ -3,9 +3,9 @@
   "name": "Swedish nyckelharpa folk",
   "family": "global",
   "lineage": "Swedish Uppland regional folk tradition centered on the nyckelharpa (Swedish keyed fiddle with twelve sympathetic resonance strings), performed alongside ordinary fiddle (spelman tradition) for the polska dance forms (slängpolska, åttondelspolska, smedjespolska variants) at midsummer celebrations and folk festivals",
-  "recipe": "classic Northern European modern swedish nyckelharpa folk, ballad Poetry, Celtic balladic branch, Slavic bard ballad poetry, Celtic balladic Scottish ballad child ballad revival icelandic kvæði / þula recitation. thick, incomplete closure resting, chest resonance low mid, narrative. spruce maple canonical Swedish gut pre modern Swedish nyckelharpa, magic rosin modern acrylic base drone like fiddle. norwegian hardanger outdoor alpine. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 567,
-  "score": 123.285,
+  "recipe": "classic Northern European modern swedish nyckelharpa folk, ballad Poetry, Celtic balladic branch, Slavic bard ballad poetry, Celtic balladic Scottish ballad child ballad revival icelandic kvæði / þula recitation. thick, breath veiled tone, straight note core, interlocked note trading. spruce maple canonical Swedish gut pre modern Swedish nyckelharpa, magic rosin modern acrylic base drone like fiddle. norwegian hardanger outdoor alpine. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 502,
+  "score": 143.413,
   "config": {
     "traditions": [
       "swedish_nyckelharpa_folk",
@@ -17,39 +17,39 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "incomplete_closure_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "narrative_voice",
-          "voice_microtone": "blue_notes",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 9.375,
-          "voice_quality": 5.874999999999998,
+          "voice_quality": 12.349999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.345,
-          "voice_articulation": 2.0149999999999997,
-          "voice_microtone": 0.39,
+          "voice_vibrato": 1.9825,
+          "voice_articulation": 6.630000000000001,
+          "voice_microtone": 8.125000000000002,
           "voice_tradition": 31.665,
           "voice_mechanism_compound": 2.275,
           "voice_estill_quality": 3.185000000000001,
-          "voice_speech_song": 7.02,
-          "voice_ensemble_config": 6.695,
-          "voice_ornament_system": 7.800000000000001,
-          "voice_pitch_organization": 0.885,
-          "voice_processing_chain": 3.055,
-          "voice_multitrack_stack": 1.02
+          "voice_speech_song": 7.865,
+          "voice_ensemble_config": 6.565000000000001,
+          "voice_ornament_system": 8.994999999999997,
+          "voice_pitch_organization": 2.075,
+          "voice_processing_chain": 5.850000000000001,
+          "voice_multitrack_stack": 2.990000000000001
         }
       },
       {
@@ -90,7 +90,7 @@
       }
     ],
     "room": "norwegian_hardanger_outdoor_alpine",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

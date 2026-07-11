@@ -3,9 +3,9 @@
   "name": "Jungle and drum-and-bass",
   "family": "global",
   "lineage": "Early-1990s UK breakbeat-bass continuum genre developed in the British rave scene through the chopping and pitching-up of the Amen break (the seven-second drum break from The Winstons' Amen Brother 1969) over reggae-and-dub sub-bass foundations — codified through Goldie (Timeless 1995), Roni Size (New Forms 1997), LTJ Bukem (Logical Progression 1996), 4hero, and continuing through drum-and-bass as the genre's late-1990s commercial evolution",
-  "recipe": "classic 1990-1993 jungle and drum-and-bass, bass System, bass descendants branch, uk soundsystem bass system dubstep liquid funk. chopped sampler, TR-909, sub bass digital subtractive, ampeg b15 amp American 60s bass amp flip top character alder pyramid electric bass, sampler drum machine, sub bass analog synth. treated studio. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
-  "recipe_chars": 425,
-  "score": 227.384,
+  "recipe": "classic British 1990-1993 jungle and drum-and-bass, bass System, bass descendants branch, uk soundsystem bass system dubstep liquid funk. chopped sampler, TR-909, sub bass digital subtractive, ampeg b15 amp American 60s bass amp flip top character alder pyramid electric bass, sampler drum machine, sub bass analog synth. treated studio. shure SM58, mackie 8-bus 90s indie commercial. acetate dub plate cut digital delay lexicon 224 / 480L.",
+  "recipe_chars": 440,
+  "score": 214.884,
   "config": {
     "traditions": [
       "jungle",
@@ -113,7 +113,7 @@
       }
     ],
     "room": "treated_studio",
-    "archetype": "arch_pre_daw_electronic_pioneer",
+    "archetype": "arch_uk_jungle_dubplate",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "transformer_solid_state",

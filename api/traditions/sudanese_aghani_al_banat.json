@@ -3,9 +3,9 @@
   "name": "Sudanese aghani al-banat (\"girls' songs\")",
   "family": "global",
   "lineage": "Sudanese aghani al-banat women's vocal-and-percussion tradition of central and northern Sudan, performed at women's gatherings (subhia mid-morning gatherings, henna ceremonies, weddings). Performance configuration: lead singer (haggaaba) with all-female chorus and tar frame-drum in characteristic 6/8 swing. Lyric base spans courtship, marriage-celebration, and political-protest. Modal vocabulary draws on Sudanese seven-mode pentatonic-leaning system. The Khartoum-radio golden-age 1950s-1970s anchored documentation. Featured prominently in the 2018-2019 Sudanese revolution protest contexts.",
-  "recipe": "classic North African 2018-2019 sudanese aghani al-banat, ballad Poetry, west African griot branch, med east poetic ballad poetry pontic greek music ethiopian azmari minstrel-poet. vocal fry, declaimed, chest resonance low mid, narrative. walnut bent frame canonical Iranian tar frame drum. saharan desert encampment. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 447,
-  "score": 143.78,
+  "recipe": "classic North African 2018-2019 sudanese aghani al-banat, ballad Poetry, west African griot branch, med east poetic ballad poetry pontic greek music ethiopian azmari minstrel-poet. vocal fry, breath veiled tone, slow rate, interlocked note trading. walnut bent frame canonical Iranian tar frame drum. saharan desert encampment. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 390,
+  "score": 205.402,
   "config": {
     "traditions": [
       "sudanese_aghani_al_banat",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "vocal_fry",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "narrative_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "mande_jeli_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 1.69,
-          "voice_quality": 8.695,
+          "voice_quality": 14.819999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.535,
-          "voice_articulation": 0.585,
-          "voice_microtone": 1.6700000000000002,
+          "voice_vibrato": 3.3150000000000004,
+          "voice_articulation": 20.085,
+          "voice_microtone": 24.602499999999996,
           "voice_tradition": 33.8,
           "voice_mechanism_compound": 7.6049999999999995,
           "voice_estill_quality": 5.525,
-          "voice_speech_song": 20.215,
-          "voice_ensemble_config": 20.15,
+          "voice_speech_song": 22.619999999999997,
+          "voice_ensemble_config": 20.019999999999996,
           "voice_ornament_system": 4.04,
-          "voice_pitch_organization": 11.85,
+          "voice_pitch_organization": 32.485,
           "voice_processing_chain": 7.699999999999999,
-          "voice_multitrack_stack": 5.034999999999999
+          "voice_multitrack_stack": 4.885
         }
       },
       {
@@ -71,7 +71,7 @@
       }
     ],
     "room": "saharan_desert_encampment",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

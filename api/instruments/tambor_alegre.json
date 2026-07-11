@@ -1,0 +1,394 @@
+{
+  "id": "tambor_alegre",
+  "name": "Tambor alegre (Colombian lead hand drum)",
+  "family": "percussion",
+  "class": "hand_percussion",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": -2,
+    "polyphony": -2,
+    "harmonicity": 0,
+    "register": -1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "Single-headed conical hand drum, the improvising lead voice of Colombian coastal cumbia and bullerengue.",
+  "parts": [
+    {
+      "id": "tambor_alegre_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "tambor_alegre_form_gaita",
+          "default": true,
+          "name": "Alegre de conjunto de gaitas",
+          "descriptors": [
+            "gaita-ensemble",
+            "montes-de-maria",
+            "cumbia-lead"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-drum",
+            "lead-drum"
+          ],
+          "canonical_tags": [
+            "colombia",
+            "cumbia",
+            "gaita"
+          ]
+        },
+        {
+          "id": "tambor_alegre_form_bullerengue",
+          "name": "Alegre bullerenguero",
+          "descriptors": [
+            "bullerengue-lead",
+            "uraba-coast",
+            "call-and-response"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-drum",
+            "lead-drum"
+          ],
+          "canonical_tags": [
+            "colombia",
+            "bullerengue"
+          ]
+        },
+        {
+          "id": "tambor_alegre_form_cumbia",
+          "name": "Alegre de cumbia procesional",
+          "descriptors": [
+            "cumbia-processional",
+            "candela-tuned",
+            "deep-throat"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-drum",
+            "lead-drum"
+          ],
+          "canonical_tags": [
+            "colombia",
+            "cumbia"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tambor_alegre_role",
+      "name": "Playing role",
+      "variants": [
+        {
+          "id": "tambor_alegre_role_repique",
+          "default": true,
+          "name": "Repique improvisado",
+          "descriptors": [
+            "improvised-lead",
+            "open-slap-tones",
+            "florid-fills"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-drum",
+            "lead-drum",
+            "improvised"
+          ],
+          "canonical_tags": [
+            "lead",
+            "improvisation"
+          ]
+        },
+        {
+          "id": "tambor_alegre_role_marcante",
+          "name": "Golpe base marcante",
+          "descriptors": [
+            "steady-groove",
+            "supporting-pulse",
+            "grounded"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-drum",
+            "groove"
+          ],
+          "canonical_tags": [
+            "groove",
+            "ostinato"
+          ]
+        },
+        {
+          "id": "tambor_alegre_role_puya",
+          "name": "Puya y chalupa veloz",
+          "descriptors": [
+            "fast-puya",
+            "driving-tempo",
+            "hot-accents"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-drum",
+            "fast"
+          ],
+          "canonical_tags": [
+            "puya",
+            "chalupa"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tambor_alegre_build",
+      "surface": false,
+      "name": "Shell and head",
+      "variants": [
+        {
+          "id": "tambor_alegre_build_venado",
+          "default": true,
+          "name": "Casco de tronco, parche de venado",
+          "descriptors": [
+            "hollowed-trunk",
+            "deer-skin-head",
+            "wedge-tensioned",
+            "warm-open-tone"
+          ],
+          "match_tokens": [
+            "struck",
+            "membrane",
+            "hand-drum"
+          ],
+          "canonical_tags": [
+            "deerskin",
+            "rope-wedge"
+          ]
+        },
+        {
+          "id": "tambor_alegre_build_chivo",
+          "name": "Parche de chivo",
+          "descriptors": [
+            "goat-skin-head",
+            "brighter-crack",
+            "cutting"
+          ],
+          "match_tokens": [
+            "struck",
+            "membrane",
+            "hand-drum"
+          ],
+          "canonical_tags": [
+            "goatskin"
+          ]
+        },
+        {
+          "id": "tambor_alegre_build_moderno",
+          "name": "Casco laminado, herrajes modernos",
+          "descriptors": [
+            "hardware-tuned",
+            "laminated-shell",
+            "cutting-attack"
+          ],
+          "match_tokens": [
+            "struck",
+            "membrane",
+            "hand-drum"
+          ],
+          "canonical_tags": [
+            "modern",
+            "hardware"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tambor_alegre_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "tambor_alegre_form_gaita",
+          "default": true,
+          "name": "Alegre de conjunto de gaitas",
+          "descriptors": [
+            "gaita-ensemble",
+            "montes-de-maria",
+            "cumbia-lead"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-drum",
+            "lead-drum"
+          ],
+          "canonical_tags": [
+            "colombia",
+            "cumbia",
+            "gaita"
+          ]
+        },
+        {
+          "id": "tambor_alegre_form_bullerengue",
+          "name": "Alegre bullerenguero",
+          "descriptors": [
+            "bullerengue-lead",
+            "uraba-coast",
+            "call-and-response"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-drum",
+            "lead-drum"
+          ],
+          "canonical_tags": [
+            "colombia",
+            "bullerengue"
+          ]
+        },
+        {
+          "id": "tambor_alegre_form_cumbia",
+          "name": "Alegre de cumbia procesional",
+          "descriptors": [
+            "cumbia-processional",
+            "candela-tuned",
+            "deep-throat"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-drum",
+            "lead-drum"
+          ],
+          "canonical_tags": [
+            "colombia",
+            "cumbia"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tambor_alegre_role",
+      "name": "Playing role",
+      "variants": [
+        {
+          "id": "tambor_alegre_role_repique",
+          "default": true,
+          "name": "Repique improvisado",
+          "descriptors": [
+            "improvised-lead",
+            "open-slap-tones",
+            "florid-fills"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-drum",
+            "lead-drum",
+            "improvised"
+          ],
+          "canonical_tags": [
+            "lead",
+            "improvisation"
+          ]
+        },
+        {
+          "id": "tambor_alegre_role_marcante",
+          "name": "Golpe base marcante",
+          "descriptors": [
+            "steady-groove",
+            "supporting-pulse",
+            "grounded"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-drum",
+            "groove"
+          ],
+          "canonical_tags": [
+            "groove",
+            "ostinato"
+          ]
+        },
+        {
+          "id": "tambor_alegre_role_puya",
+          "name": "Puya y chalupa veloz",
+          "descriptors": [
+            "fast-puya",
+            "driving-tempo",
+            "hot-accents"
+          ],
+          "match_tokens": [
+            "struck",
+            "hand-drum",
+            "fast"
+          ],
+          "canonical_tags": [
+            "puya",
+            "chalupa"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tambor_alegre_build",
+      "surface": false,
+      "name": "Shell and head",
+      "variants": [
+        {
+          "id": "tambor_alegre_build_venado",
+          "default": true,
+          "name": "Casco de tronco, parche de venado",
+          "descriptors": [
+            "hollowed-trunk",
+            "deer-skin-head",
+            "wedge-tensioned",
+            "warm-open-tone"
+          ],
+          "match_tokens": [
+            "struck",
+            "membrane",
+            "hand-drum"
+          ],
+          "canonical_tags": [
+            "deerskin",
+            "rope-wedge"
+          ]
+        },
+        {
+          "id": "tambor_alegre_build_chivo",
+          "name": "Parche de chivo",
+          "descriptors": [
+            "goat-skin-head",
+            "brighter-crack",
+            "cutting"
+          ],
+          "match_tokens": [
+            "struck",
+            "membrane",
+            "hand-drum"
+          ],
+          "canonical_tags": [
+            "goatskin"
+          ]
+        },
+        {
+          "id": "tambor_alegre_build_moderno",
+          "name": "Casco laminado, herrajes modernos",
+          "descriptors": [
+            "hardware-tuned",
+            "laminated-shell",
+            "cutting-attack"
+          ],
+          "match_tokens": [
+            "struck",
+            "membrane",
+            "hand-drum"
+          ],
+          "canonical_tags": [
+            "modern",
+            "hardware"
+          ]
+        }
+      ]
+    }
+  ]
+}

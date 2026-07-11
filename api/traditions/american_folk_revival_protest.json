@@ -3,26 +3,26 @@
   "name": "American folk-revival protest song",
   "family": "global",
   "lineage": "American protest-song tradition continuous from Industrial-Workers-of-the-World early-20th-century labor anthems (Joe Hill, \"Solidarity Forever\") through the 1930s Almanac Singers and Popular Front lineage through 1960s civil-rights-and-anti-war folk-revival continuous into the modern indie-protest singer-songwriter scene",
-  "recipe": "classic North American mid-1930s american folk-revival protest song, protest Song, anglo American branch, iberian Latin protest song, European protest song, anglo singer song ballad poetry, americana country texas country-folk storyteller 1960s greenwich village confessional folk. thick, incomplete closure resting, melodic, continuous-phonation. martin lifespan fingerpicked acoustic guitar, pearwood marine band tradition stainless steel steel suzuki Japanese modern precision harmonica, walnut mid tier fluorocarbon modern open back scruggs stelling banjo 5 string. dry but alive 1948-1965 indie-commercial early tape us small. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 761,
-  "score": 345.635,
+  "recipe": "classic North American mid-1930s american folk-revival protest song, protest Song, anglo American branch, iberian Latin protest song, European protest song, anglo singer song ballad poetry, americana country texas country-folk storyteller freak folk. thick, breath veiled tone, straight note core, interlocked note trading. martin lifespan fingerpicked acoustic guitar, bamboo stainless steel steel straight harmonica, walnut mid tier scruggs stelling bluegrass setup mastertone flathead banjo 5 string. dry but alive 1948-1965 indie-commercial early tape us small. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 640,
+  "score": 354.921,
   "config": {
     "traditions": [
       "american_folk_revival_protest",
       "texas_country_folk_storyteller",
-      "greenwich_village_confessional"
+      "freak_folk_2000s"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "incomplete_closure_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "legato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -34,41 +34,41 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 28.569999999999993,
-          "voice_quality": 14.9,
+          "voice_register": 30.09499999999999,
+          "voice_quality": 11.309999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 8.546375,
-          "voice_articulation": 3.5749999999999993,
-          "voice_microtone": 0.52,
-          "voice_tradition": 26.926624999999994,
-          "voice_mechanism_compound": 0.975,
-          "voice_estill_quality": 9.236249999999997,
-          "voice_speech_song": 22.099999999999994,
-          "voice_ensemble_config": 9.944999999999997,
-          "voice_ornament_system": 5.075,
+          "voice_vibrato": 8.896374999999999,
+          "voice_articulation": 11.959999999999992,
+          "voice_microtone": 11.76499999999999,
+          "voice_tradition": 29.451624999999993,
+          "voice_mechanism_compound": 0.78,
+          "voice_estill_quality": 8.936249999999998,
+          "voice_speech_song": 23.919999999999995,
+          "voice_ensemble_config": 12.284999999999993,
+          "voice_ornament_system": 3.5750000000000006,
           "voice_pitch_organization": 3.5749999999999993,
           "voice_processing_chain": 2.73,
-          "voice_multitrack_stack": 4.81
+          "voice_multitrack_stack": 6.955000000000001
         }
       },
       {
         "id": "acoustic_guitar_om",
         "slots": {
           "acoustic_technique": "acoustic_fingerpicked",
-          "string_tuning": "dadgad",
-          "top_wood": "mahogany_top_om",
-          "back_sides": "mahogany_bs_om",
+          "string_tuning": "standard_tuning",
+          "top_wood": "cedar_om",
+          "back_sides": "walnut_bs_om",
           "string_acoustic": "martin_lifespan_om",
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 39.349375,
-          "string_tuning": 0.7249999999999998,
-          "top_wood": 0.39,
-          "back_sides": 0.39,
-          "string_acoustic": 2.275,
-          "acoustic_om_technique": 39.349375
+          "acoustic_technique": 34.649375,
+          "string_tuning": 0,
+          "top_wood": 0.65,
+          "back_sides": 0.65,
+          "string_acoustic": 2.08,
+          "acoustic_om_technique": 34.649375
         }
       },
       {
@@ -76,19 +76,19 @@
         "slots": {
           "free_reed_technique": "free_reed_folk_first_position",
           "harmonica_type": "tremolo_harm",
-          "harmonica_comb": "pearwood_comb",
+          "harmonica_comb": "bamboo_comb",
           "harmonica_reed": "stainless_harm",
           "harmonica_technique": "harm_folk_first_position",
-          "harmonica_maker_school": "harmonica_suzuki_japanese",
+          "harmonica_maker_school": "harmonica_hering_brazilian",
           "harmonica_tuning": "harmonica_minor_key"
         },
         "scores": {
-          "free_reed_technique": 32.73199999999999,
-          "harmonica_type": 0.78,
-          "harmonica_comb": 4.1275,
-          "harmonica_reed": 3.4450000000000003,
-          "harmonica_technique": 32.73199999999999,
-          "harmonica_maker_school": 1.69,
+          "free_reed_technique": 33.10699999999999,
+          "harmonica_type": 0.39,
+          "harmonica_comb": 3.8605,
+          "harmonica_reed": 3.295,
+          "harmonica_technique": 33.10699999999999,
+          "harmonica_maker_school": 0.7349999999999999,
           "harmonica_tuning": 0.39
         }
       },
@@ -97,33 +97,33 @@
         "slots": {
           "plucked_traditional_technique": "plucked_fingerpicked",
           "banjo_back": "open_back",
-          "tone_ring": "wood_ring",
+          "tone_ring": "tubaphone",
           "banjo_head": "fiberskyn",
           "banjo_pot": "pot_11",
           "banjo_play": "clawhammer",
-          "banjo_rim_wood": "banjo_3_ply_maple_gibson",
+          "banjo_rim_wood": "banjo_mahogany_rim",
           "banjo_neck_wood": "banjo_walnut_neck",
-          "banjo_strings": "banjo_fluorocarbon",
+          "banjo_strings": "banjo_light_clawhammer",
           "banjo_bridge": "banjo_compensated_bridge",
           "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
         "scores": {
-          "plucked_traditional_technique": 19.424999999999997,
-          "banjo_back": 0.5654999999999999,
-          "tone_ring": 0.5654999999999999,
-          "banjo_head": 10.074999999999996,
-          "banjo_pot": 0.975,
+          "plucked_traditional_technique": 21.15,
+          "banjo_back": 0.39,
+          "tone_ring": 0.39,
+          "banjo_head": 12.544999999999996,
+          "banjo_pot": 0.39,
           "banjo_play": 0,
-          "banjo_rim_wood": 0.09999999999999999,
-          "banjo_neck_wood": 1.04,
-          "banjo_strings": 1.885,
+          "banjo_rim_wood": 0.048749999999999995,
+          "banjo_neck_wood": 1.17,
+          "banjo_strings": 0,
           "banjo_bridge": 0,
-          "banjo_setup_period": 9.619999999999997
+          "banjo_setup_period": 12.089999999999995
         }
       }
     ],
     "room": "studio_early_tape_us_small",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_nagra_ethnographic_field",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",
@@ -134,7 +134,7 @@
       "medium": "digital_high"
     },
     "tuning": "folk_fingerstyle_alternating_bass",
-    "aesthetic": "vintage_revival_purism",
+    "aesthetic": null,
     "arrangement": null,
     "fx_extras": []
   },

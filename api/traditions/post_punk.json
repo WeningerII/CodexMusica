@@ -3,9 +3,9 @@
   "name": "Post-punk",
   "family": "rock_punk",
   "lineage": "Late-1970s through early-1980s underground rock movement extending punk's rejection of rock-tradition conventions through more harmonic-and-rhythmic experimentation, dub-and-disco bass-and-rhythm sensibility, and intellectualized lyrical content — codified through Wire (Pink Flag 1977), Joy Division (Unknown Pleasures 1979), Gang of Four (Entertainment! 1979), The Fall, Public Image Ltd (Metal Box 1979), Magazine, Talking Heads (Remain in Light 1980)",
-  "recipe": "classic British 1977-1979 post-punk, distorted Rock, punk branch, alternative distorted rock math rock and post-rock. thick, incomplete closure resting, pure, rhythmic. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alder single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation 28 625 inch baritone electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, oak pre muffled edge muffled machine hammered symmetric pattern drum kit, pad like sub bass analog synth. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb chorus boss DS-1.",
-  "recipe_chars": 819,
-  "score": 745.025,
+  "recipe": "classic British 1977-1979 post-punk, distorted Rock, punk branch, alternative distorted rock math rock and post-rock. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alder single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation 28 625 inch baritone electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, oak pre muffled edge muffled machine hammered symmetric pattern drum kit, pad like sub bass analog synth. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb chorus boss DS-1.",
+  "recipe_chars": 841,
+  "score": 791.755,
   "config": {
     "traditions": [
       "post_punk",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "incomplete_closure_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "straight_tone",
-          "voice_articulation": "spoken_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "microtonal_31tet_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 44.20500000000003,
-          "voice_quality": 6.525,
+          "voice_quality": 20.8,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.9249999999999994,
-          "voice_articulation": 2.145,
+          "voice_vibrato": 3.7700000000000005,
+          "voice_articulation": 24.114999999999995,
           "voice_microtone": 40.42500000000001,
           "voice_tradition": 4.29,
           "voice_mechanism_compound": 13.5525,
           "voice_estill_quality": 6.760000000000003,
-          "voice_speech_song": 26.065,
-          "voice_ensemble_config": 26.325,
+          "voice_speech_song": 26.324999999999996,
+          "voice_ensemble_config": 29.769999999999996,
           "voice_ornament_system": 1.575,
-          "voice_pitch_organization": 2.145,
+          "voice_pitch_organization": 2.6000000000000005,
           "voice_processing_chain": 9.469999999999999,
-          "voice_multitrack_stack": 10.38
+          "voice_multitrack_stack": 15.86
         }
       },
       {

@@ -3,9 +3,9 @@
   "name": "Sacred Harp singing",
   "family": "global",
   "lineage": "Southern-US shape-note congregational hymn-singing tradition preserved through the Sacred Harp tunebook (compiled by B.F. White and E.J. King 1844, revised through successive editions, the 1991 revision still in current use) — the tradition uses 4-shape and 7-shape notation (shapes assigned to scale degrees as a pedagogical mnemonic, facilitating singing without keyboard training), with the singing-square arrangement of four sections (treble / alto / tenor / bass) seated facing inward and led by a rotating song-leader who beats time with the hand",
-  "recipe": "classic Southern American mid-1840s sacred harp singing, ritual Devotional, sacred harp branch, Celtic balladic ballad poetry welsh hymn-balladry cape breton milling-frolic. thick, declaimed, nervy, ornamental. a cappella small 3 to 8 one per part four voice polyphonic regional aka four part motangole ngue osese diyei sacred liturgical global choir ensemble, community specific historical regional variant shape note voice, choir brother duet, pump organ harmonium, choir sacred harp. southern white church gospel quartet. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 654,
-  "score": 159.388,
+  "recipe": "classic Southern American mid-1840s sacred harp singing, ritual Devotional, sacred harp branch, Celtic balladic ballad poetry welsh hymn-balladry cape breton milling-frolic. thick, breath veiled tone, straight note core, interlocked note trading. a cappella small 3 to 8 one per part four voice polyphonic regional aka four part motangole ngue osese diyei sacred liturgical global choir ensemble, community specific historical regional variant shape note voice, choir brother duet, pump organ harmonium, choir sacred harp. southern white church gospel quartet. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 635,
+  "score": 189.817,
   "config": {
     "traditions": [
       "sacred_harp_singing",
@@ -32,12 +32,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "fast_vibrato",
-          "voice_articulation": "melisma_voice",
-          "voice_microtone": "blue_notes",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_belt",
@@ -46,25 +46,25 @@
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 5.848750000000001,
-          "voice_quality": 10.845,
+          "voice_quality": 13.389999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1,
-          "voice_articulation": 5.5,
-          "voice_microtone": 0.045,
+          "voice_vibrato": 2.0224999999999995,
+          "voice_articulation": 12.544999999999998,
+          "voice_microtone": 10.659999999999995,
           "voice_tradition": 27.3,
           "voice_mechanism_compound": 4.614999999999999,
           "voice_estill_quality": 5.300000000000002,
-          "voice_speech_song": 12.089999999999998,
-          "voice_ensemble_config": 14.104999999999997,
-          "voice_ornament_system": 7.295,
+          "voice_speech_song": 12.154999999999998,
+          "voice_ensemble_config": 16.835,
+          "voice_ornament_system": 17.425,
           "voice_pitch_organization": 3.380000000000001,
           "voice_processing_chain": 7.799999999999999,
-          "voice_multitrack_stack": 3.00875
+          "voice_multitrack_stack": 4.809999999999999
         }
       },
       {
@@ -115,7 +115,7 @@
       }
     ],
     "room": "southern_white_church_gospel_quartet",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_nagra_ethnographic_field",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

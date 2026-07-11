@@ -3,9 +3,9 @@
   "name": "French rap",
   "family": "hip_hop",
   "lineage": "French-language hip-hop tradition that emerged in 1989-1991 — Dee Nasty (the Paris hip-hop DJ-pioneer), MC Solaar (Qui Sème le Vent Récolte le Tempo 1991, his wordplay-driven Paris voice), IAM (the Marseille collective, Lécole du Micro dArgent 1997), Suprême NTM (Saint-Denis suburb voice, NTM 1993), Assassin, the Mafia K1 Fry collective; carrying through the modern continuation: Booba, Rohff, Diam s, La Fouine, Sexion dAssaut, PNL, Damso, Aya Nakamura, with Paris and Marseille remaining the dominant scene capitals",
-  "recipe": "classic Western European 1989-1991 french rap, mc Rhythm, intl hip hop branch conscious hip-hop gangsta rap. thick, rap, tasteful, narrative. behringer rd 8 modern clone analog circuit reproduction TR-808, chopped sampler, sampled chopped sampler drum machine. paris marseille French rap 1989-present indie-commercial paris french rap studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 472,
-  "score": 399.12,
+  "recipe": "classic Western European 1989-1991 french rap, mc Rhythm, intl hip hop branch conscious hip-hop gangsta rap. thick, rap, straight onset, narrative. behringer rd 8 modern clone analog circuit reproduction TR-808, chopped sampler, sampled chopped sampler drum machine. paris marseille French rap 1989-present indie-commercial paris french rap studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 478,
+  "score": 427.497,
   "config": {
     "traditions": [
       "french_rap",
@@ -22,34 +22,34 @@
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "narrative_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "beatboxing_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_rhythmic_spoken_flow",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 9.219999999999997,
           "voice_quality": 45.205,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.6800000000000002,
+          "voice_vibrato": 8.344999999999999,
           "voice_articulation": 23.104999999999997,
-          "voice_microtone": 4.549999999999999,
+          "voice_microtone": 18.264999999999993,
           "voice_tradition": 17.7225,
           "voice_mechanism_compound": 5.005,
           "voice_estill_quality": 5.209999999999999,
           "voice_speech_song": 42.0925,
-          "voice_ensemble_config": 21.319999999999997,
-          "voice_ornament_system": 2.175,
+          "voice_ensemble_config": 21.189999999999998,
+          "voice_ornament_system": 6.435000000000002,
           "voice_pitch_organization": 1.5899999999999999,
           "voice_processing_chain": 33.56,
-          "voice_multitrack_stack": 4.095
+          "voice_multitrack_stack": 7.962500000000001
         }
       },
       {

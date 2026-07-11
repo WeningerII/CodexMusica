@@ -1,0 +1,392 @@
+{
+  "id": "cristal_baschet",
+  "name": "Cristal Baschet (glass-rod friction idiophone)",
+  "family": "percussion",
+  "class": "tuned_percussion",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 2,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "Acoustic friction idiophone of tuned glass rods stroked with wet fingers, whose vibrations pass through mass-tuned metal weights to cut metal cones, a fiberglass flame, and a high whisker, giving a sustained, pure, glassy tone.",
+  "parts": [
+    {
+      "id": "cristal_baschet_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "cristal_baschet_form_concert",
+          "default": true,
+          "name": "Concert Cristal Baschet (full five-octave)",
+          "descriptors": [
+            "full-range",
+            "five-octave-cristal",
+            "concert-glass-organ"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "glassy",
+            "sustained",
+            "wide-range"
+          ],
+          "canonical_tags": [
+            "friction_idiophone",
+            "concert_form"
+          ]
+        },
+        {
+          "id": "cristal_baschet_form_compact",
+          "name": "Compact studio Cristal (reduced range)",
+          "descriptors": [
+            "compact-cristal",
+            "studio-portable",
+            "narrow-cristal"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "glassy",
+            "sustained"
+          ],
+          "canonical_tags": [
+            "friction_idiophone",
+            "compact_form"
+          ]
+        },
+        {
+          "id": "cristal_baschet_form_structures_sonores",
+          "name": "Lasry-Baschet Structures Sonores original (1950s experimental)",
+          "descriptors": [
+            "structures-sonores",
+            "lasry-baschet-original",
+            "experimental-cristal"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "glassy",
+            "rough-tone",
+            "experimental"
+          ],
+          "canonical_tags": [
+            "friction_idiophone",
+            "historical_form"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cristal_baschet_touch",
+      "name": "Playing touch and gesture",
+      "variants": [
+        {
+          "id": "cristal_baschet_touch_legato",
+          "default": true,
+          "name": "Sustained wet-finger friction (drone tones)",
+          "descriptors": [
+            "wet-finger-friction",
+            "legato-glassy",
+            "sustained-drone"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "drone-foundation",
+            "sustained",
+            "glassy"
+          ],
+          "canonical_tags": [
+            "friction_technique",
+            "legato"
+          ]
+        },
+        {
+          "id": "cristal_baschet_touch_glissando",
+          "name": "Shimmering glissando sweeps",
+          "descriptors": [
+            "shimmering-glissando",
+            "sweeping-runs",
+            "gliding-cristal"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "glissando",
+            "shimmer",
+            "glassy"
+          ],
+          "canonical_tags": [
+            "friction_technique",
+            "glissando"
+          ]
+        },
+        {
+          "id": "cristal_baschet_touch_tremolo",
+          "name": "Rapid fluttering tremolo touch",
+          "descriptors": [
+            "rapid-tremolo",
+            "fluttering-touch",
+            "pulsing-cristal"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "tremolo",
+            "glassy"
+          ],
+          "canonical_tags": [
+            "friction_technique",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cristal_baschet_resonator",
+      "surface": false,
+      "name": "Resonator configuration",
+      "variants": [
+        {
+          "id": "cristal_baschet_resonator_cones",
+          "default": true,
+          "name": "Cut metal cone resonators (steel/aluminum)",
+          "descriptors": [
+            "metal-cone-resonators",
+            "steel-cone",
+            "bright-metallic"
+          ],
+          "match_tokens": [
+            "metallic",
+            "resonant",
+            "bright"
+          ],
+          "canonical_tags": [
+            "metal_resonator"
+          ]
+        },
+        {
+          "id": "cristal_baschet_resonator_flame",
+          "name": "Tall fiberglass flame (low resonance)",
+          "descriptors": [
+            "fiberglass-flame",
+            "deep-resonator",
+            "low-bloom"
+          ],
+          "match_tokens": [
+            "resonant",
+            "low",
+            "warm"
+          ],
+          "canonical_tags": [
+            "fiberglass_resonator"
+          ]
+        },
+        {
+          "id": "cristal_baschet_resonator_whisker",
+          "name": "High-frequency metal whisker",
+          "descriptors": [
+            "metal-whisker",
+            "high-shimmer",
+            "airy-top"
+          ],
+          "match_tokens": [
+            "bright",
+            "shimmer",
+            "high"
+          ],
+          "canonical_tags": [
+            "whisker_resonator"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "cristal_baschet_form",
+      "name": "Instrument form",
+      "variants": [
+        {
+          "id": "cristal_baschet_form_concert",
+          "default": true,
+          "name": "Concert Cristal Baschet (full five-octave)",
+          "descriptors": [
+            "full-range",
+            "five-octave-cristal",
+            "concert-glass-organ"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "glassy",
+            "sustained",
+            "wide-range"
+          ],
+          "canonical_tags": [
+            "friction_idiophone",
+            "concert_form"
+          ]
+        },
+        {
+          "id": "cristal_baschet_form_compact",
+          "name": "Compact studio Cristal (reduced range)",
+          "descriptors": [
+            "compact-cristal",
+            "studio-portable",
+            "narrow-cristal"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "glassy",
+            "sustained"
+          ],
+          "canonical_tags": [
+            "friction_idiophone",
+            "compact_form"
+          ]
+        },
+        {
+          "id": "cristal_baschet_form_structures_sonores",
+          "name": "Lasry-Baschet Structures Sonores original (1950s experimental)",
+          "descriptors": [
+            "structures-sonores",
+            "lasry-baschet-original",
+            "experimental-cristal"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "glassy",
+            "rough-tone",
+            "experimental"
+          ],
+          "canonical_tags": [
+            "friction_idiophone",
+            "historical_form"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cristal_baschet_touch",
+      "name": "Playing touch and gesture",
+      "variants": [
+        {
+          "id": "cristal_baschet_touch_legato",
+          "default": true,
+          "name": "Sustained wet-finger friction (drone tones)",
+          "descriptors": [
+            "wet-finger-friction",
+            "legato-glassy",
+            "sustained-drone"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "drone-foundation",
+            "sustained",
+            "glassy"
+          ],
+          "canonical_tags": [
+            "friction_technique",
+            "legato"
+          ]
+        },
+        {
+          "id": "cristal_baschet_touch_glissando",
+          "name": "Shimmering glissando sweeps",
+          "descriptors": [
+            "shimmering-glissando",
+            "sweeping-runs",
+            "gliding-cristal"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "glissando",
+            "shimmer",
+            "glassy"
+          ],
+          "canonical_tags": [
+            "friction_technique",
+            "glissando"
+          ]
+        },
+        {
+          "id": "cristal_baschet_touch_tremolo",
+          "name": "Rapid fluttering tremolo touch",
+          "descriptors": [
+            "rapid-tremolo",
+            "fluttering-touch",
+            "pulsing-cristal"
+          ],
+          "match_tokens": [
+            "friction-driven",
+            "tremolo",
+            "glassy"
+          ],
+          "canonical_tags": [
+            "friction_technique",
+            "tremolo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cristal_baschet_resonator",
+      "surface": false,
+      "name": "Resonator configuration",
+      "variants": [
+        {
+          "id": "cristal_baschet_resonator_cones",
+          "default": true,
+          "name": "Cut metal cone resonators (steel/aluminum)",
+          "descriptors": [
+            "metal-cone-resonators",
+            "steel-cone",
+            "bright-metallic"
+          ],
+          "match_tokens": [
+            "metallic",
+            "resonant",
+            "bright"
+          ],
+          "canonical_tags": [
+            "metal_resonator"
+          ]
+        },
+        {
+          "id": "cristal_baschet_resonator_flame",
+          "name": "Tall fiberglass flame (low resonance)",
+          "descriptors": [
+            "fiberglass-flame",
+            "deep-resonator",
+            "low-bloom"
+          ],
+          "match_tokens": [
+            "resonant",
+            "low",
+            "warm"
+          ],
+          "canonical_tags": [
+            "fiberglass_resonator"
+          ]
+        },
+        {
+          "id": "cristal_baschet_resonator_whisker",
+          "name": "High-frequency metal whisker",
+          "descriptors": [
+            "metal-whisker",
+            "high-shimmer",
+            "airy-top"
+          ],
+          "match_tokens": [
+            "bright",
+            "shimmer",
+            "high"
+          ],
+          "canonical_tags": [
+            "whisker_resonator"
+          ]
+        }
+      ]
+    }
+  ]
+}

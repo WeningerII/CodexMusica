@@ -3,9 +3,9 @@
   "name": "Bahraini fjiri (pearl-divers' song)",
   "family": "global",
   "lineage": "Bahraini fjiri pearl-divers' work-song tradition, performed by the all-male crews of dhow boats conducting the annual ghaws pearl-diving season in the Persian Gulf during the pre-petroleum era (eighteenth-mid-twentieth centuries). Repertoire structured around the diving voyage cycle: departure songs, anchor-hauling songs, noon-prayer-pause songs, diver-hauling songs, homeward-return songs. Architecture features male lead singer (nahham) with chorus response, hand-clapping, tar frame-drum, and jahla clay-jar percussion. The 1930s-1950s closure of natural-pearl industry terminated functional context.",
-  "recipe": "classic Middle Eastern mid-1930s bahraini fjiri, ballad Poetry, work song branch, med east poetic ballad poetry pontic greek music cypriot tsiattista. thick, worn fold, chest resonance low mid, narrative. walnut bent frame canonical Iranian tar frame drum. qat chew majlis room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 408,
-  "score": 99.355,
+  "recipe": "classic Middle Eastern mid-1930s bahraini fjiri, ballad Poetry, work song branch, med east poetic ballad poetry pontic greek music cypriot tsiattista. thick, breath veiled tone, wide pitch sway, interlocked note trading. walnut bent frame canonical Iranian tar frame drum. qat chew majlis room. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 357,
+  "score": 135.332,
   "config": {
     "traditions": [
       "bahraini_fjiri",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "worn_fold_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "narrative_voice",
-          "voice_microtone": "blue_notes",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_persian_tahrir",
           "voice_pitch_organization": "voice_pitch_persian_dastgah",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 3.2950000000000013,
-          "voice_quality": 2.045,
+          "voice_quality": 16.50999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
-          "voice_articulation": 2.5350000000000006,
-          "voice_microtone": 1.695,
+          "voice_vibrato": 3.895,
+          "voice_articulation": 11.634999999999994,
+          "voice_microtone": 13.617499999999993,
           "voice_tradition": 28.910000000000004,
           "voice_mechanism_compound": 3.38,
           "voice_estill_quality": 5.25,
-          "voice_speech_song": 16.705,
-          "voice_ensemble_config": 11.699999999999996,
+          "voice_speech_song": 16.574999999999996,
+          "voice_ensemble_config": 11.569999999999993,
           "voice_ornament_system": 3.6900000000000004,
           "voice_pitch_organization": 3.6900000000000004,
-          "voice_processing_chain": 4.225,
-          "voice_multitrack_stack": 1.77
+          "voice_processing_chain": 8.254999999999999,
+          "voice_multitrack_stack": 4.8100000000000005
         }
       },
       {
@@ -71,7 +71,7 @@
       }
     ],
     "room": "qat_chew_majlis_room",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

@@ -1,0 +1,400 @@
+{
+  "id": "tonkori",
+  "name": "Tonkori (Ainu five-string plucked zither)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": -1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "Ainu five-string open-strung zither from Sakhalin, plucked with both hands in shimmering interlocking patterns; gentle, soft-spoken voice central to Ainu song and the modern Ainu revival.",
+  "parts": [
+    {
+      "id": "tonkori_form",
+      "name": "Regional form and build",
+      "variants": [
+        {
+          "id": "tonkori_form_sakhalin",
+          "default": true,
+          "name": "Sakhalin (Karafuto) classic tonkori",
+          "descriptors": [
+            "carved-spruce-body",
+            "open-strung",
+            "five-string",
+            "slender-plank"
+          ],
+          "match_tokens": [
+            "plucked",
+            "zither",
+            "open-string",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "ainu",
+            "sakhalin",
+            "traditional"
+          ]
+        },
+        {
+          "id": "tonkori_form_hokkaido_revival",
+          "name": "Hokkaido revival tonkori",
+          "descriptors": [
+            "revival-build",
+            "brighter-voiced",
+            "even-strung"
+          ],
+          "match_tokens": [
+            "plucked",
+            "zither",
+            "revival"
+          ],
+          "canonical_tags": [
+            "ainu",
+            "hokkaido",
+            "revival"
+          ]
+        },
+        {
+          "id": "tonkori_form_concert",
+          "name": "Enlarged concert-stage tonkori",
+          "descriptors": [
+            "enlarged-body",
+            "fuller-resonance",
+            "projecting"
+          ],
+          "match_tokens": [
+            "plucked",
+            "zither",
+            "stage"
+          ],
+          "canonical_tags": [
+            "ainu",
+            "concert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tonkori_setting",
+      "name": "Playing context and repertoire",
+      "variants": [
+        {
+          "id": "tonkori_setting_yukar",
+          "default": true,
+          "name": "Yukar epic and upopo song accompaniment",
+          "descriptors": [
+            "epic-accompaniment",
+            "interlocking-ostinato",
+            "drone-and-melody",
+            "hypnotic-repetition"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "ostinato",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "ainu_yukar_epic",
+            "upopo",
+            "ritual"
+          ]
+        },
+        {
+          "id": "tonkori_setting_solo",
+          "name": "Solo melodic pieces and lullaby",
+          "descriptors": [
+            "solo-melodic",
+            "gentle-lullaby",
+            "sparse-plucking"
+          ],
+          "match_tokens": [
+            "plucked",
+            "solo",
+            "gentle"
+          ],
+          "canonical_tags": [
+            "solo",
+            "lullaby"
+          ]
+        },
+        {
+          "id": "tonkori_setting_roots_fusion",
+          "name": "Modern Ainu roots and dub fusion",
+          "descriptors": [
+            "roots-fusion",
+            "looped-groove",
+            "amplified-ensemble"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ensemble",
+            "groove",
+            "fusion"
+          ],
+          "canonical_tags": [
+            "ainu_revival",
+            "dub",
+            "world"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tonkori_build",
+      "surface": false,
+      "name": "String material and voicing",
+      "variants": [
+        {
+          "id": "tonkori_build_gut",
+          "default": true,
+          "name": "Twisted gut and sinew strings",
+          "descriptors": [
+            "gut-strung",
+            "warm-soft-tone",
+            "quick-decay"
+          ],
+          "match_tokens": [
+            "plucked",
+            "gut"
+          ],
+          "canonical_tags": [
+            "traditional",
+            "gut"
+          ]
+        },
+        {
+          "id": "tonkori_build_nettle",
+          "name": "Twisted nettle-fiber strings",
+          "descriptors": [
+            "nettle-fiber-strung",
+            "earthy-muted-tone"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fiber"
+          ],
+          "canonical_tags": [
+            "traditional",
+            "plant-fiber"
+          ]
+        },
+        {
+          "id": "tonkori_build_nylon",
+          "name": "Modern nylon strings",
+          "descriptors": [
+            "nylon-strung",
+            "bright-clear-tone",
+            "sustained-ring"
+          ],
+          "match_tokens": [
+            "plucked",
+            "nylon"
+          ],
+          "canonical_tags": [
+            "modern",
+            "nylon"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "tonkori_form",
+      "name": "Regional form and build",
+      "variants": [
+        {
+          "id": "tonkori_form_sakhalin",
+          "default": true,
+          "name": "Sakhalin (Karafuto) classic tonkori",
+          "descriptors": [
+            "carved-spruce-body",
+            "open-strung",
+            "five-string",
+            "slender-plank"
+          ],
+          "match_tokens": [
+            "plucked",
+            "zither",
+            "open-string",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "ainu",
+            "sakhalin",
+            "traditional"
+          ]
+        },
+        {
+          "id": "tonkori_form_hokkaido_revival",
+          "name": "Hokkaido revival tonkori",
+          "descriptors": [
+            "revival-build",
+            "brighter-voiced",
+            "even-strung"
+          ],
+          "match_tokens": [
+            "plucked",
+            "zither",
+            "revival"
+          ],
+          "canonical_tags": [
+            "ainu",
+            "hokkaido",
+            "revival"
+          ]
+        },
+        {
+          "id": "tonkori_form_concert",
+          "name": "Enlarged concert-stage tonkori",
+          "descriptors": [
+            "enlarged-body",
+            "fuller-resonance",
+            "projecting"
+          ],
+          "match_tokens": [
+            "plucked",
+            "zither",
+            "stage"
+          ],
+          "canonical_tags": [
+            "ainu",
+            "concert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tonkori_setting",
+      "name": "Playing context and repertoire",
+      "variants": [
+        {
+          "id": "tonkori_setting_yukar",
+          "default": true,
+          "name": "Yukar epic and upopo song accompaniment",
+          "descriptors": [
+            "epic-accompaniment",
+            "interlocking-ostinato",
+            "drone-and-melody",
+            "hypnotic-repetition"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "ostinato",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "ainu_yukar_epic",
+            "upopo",
+            "ritual"
+          ]
+        },
+        {
+          "id": "tonkori_setting_solo",
+          "name": "Solo melodic pieces and lullaby",
+          "descriptors": [
+            "solo-melodic",
+            "gentle-lullaby",
+            "sparse-plucking"
+          ],
+          "match_tokens": [
+            "plucked",
+            "solo",
+            "gentle"
+          ],
+          "canonical_tags": [
+            "solo",
+            "lullaby"
+          ]
+        },
+        {
+          "id": "tonkori_setting_roots_fusion",
+          "name": "Modern Ainu roots and dub fusion",
+          "descriptors": [
+            "roots-fusion",
+            "looped-groove",
+            "amplified-ensemble"
+          ],
+          "match_tokens": [
+            "plucked",
+            "ensemble",
+            "groove",
+            "fusion"
+          ],
+          "canonical_tags": [
+            "ainu_revival",
+            "dub",
+            "world"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tonkori_build",
+      "surface": false,
+      "name": "String material and voicing",
+      "variants": [
+        {
+          "id": "tonkori_build_gut",
+          "default": true,
+          "name": "Twisted gut and sinew strings",
+          "descriptors": [
+            "gut-strung",
+            "warm-soft-tone",
+            "quick-decay"
+          ],
+          "match_tokens": [
+            "plucked",
+            "gut"
+          ],
+          "canonical_tags": [
+            "traditional",
+            "gut"
+          ]
+        },
+        {
+          "id": "tonkori_build_nettle",
+          "name": "Twisted nettle-fiber strings",
+          "descriptors": [
+            "nettle-fiber-strung",
+            "earthy-muted-tone"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fiber"
+          ],
+          "canonical_tags": [
+            "traditional",
+            "plant-fiber"
+          ]
+        },
+        {
+          "id": "tonkori_build_nylon",
+          "name": "Modern nylon strings",
+          "descriptors": [
+            "nylon-strung",
+            "bright-clear-tone",
+            "sustained-ring"
+          ],
+          "match_tokens": [
+            "plucked",
+            "nylon"
+          ],
+          "canonical_tags": [
+            "modern",
+            "nylon"
+          ]
+        }
+      ]
+    }
+  ]
+}

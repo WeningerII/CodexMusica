@@ -1,0 +1,385 @@
+{
+  "id": "rebec",
+  "name": "Rebec (medieval pear-shaped fiddle)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "Small pear-shaped medieval European bowed fiddle carved from a single block, with two or three gut strings tuned in fifths and a bright, penetrating, nasal tone; the treble bowed voice of the medieval ensemble alongside the vielle.",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "rebec_form",
+      "name": "Form and register",
+      "variants": [
+        {
+          "id": "rebec_form_treble",
+          "default": true,
+          "name": "Treble rebec",
+          "descriptors": [
+            "bright",
+            "nasal",
+            "pear-shaped",
+            "treble-voiced"
+          ],
+          "match_tokens": [
+            "bowed",
+            "high-register",
+            "nasal-tone"
+          ],
+          "canonical_tags": [
+            "treble",
+            "three-string"
+          ]
+        },
+        {
+          "id": "rebec_form_tenor",
+          "name": "Tenor rebec",
+          "descriptors": [
+            "mellow",
+            "larger-bodied",
+            "reedy",
+            "alto-tenor"
+          ],
+          "match_tokens": [
+            "bowed",
+            "mid-register",
+            "nasal-tone"
+          ],
+          "canonical_tags": [
+            "tenor"
+          ]
+        },
+        {
+          "id": "rebec_form_soprano",
+          "name": "Soprano two-string rebec",
+          "descriptors": [
+            "piercing",
+            "shrill",
+            "two-string",
+            "keening"
+          ],
+          "match_tokens": [
+            "bowed",
+            "very-high",
+            "nasal-tone"
+          ],
+          "canonical_tags": [
+            "soprano",
+            "two-string"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rebec_repertoire",
+      "name": "Repertoire and bowing",
+      "variants": [
+        {
+          "id": "rebec_repertoire_estampie",
+          "default": true,
+          "name": "Estampie and carole dances",
+          "descriptors": [
+            "brisk",
+            "driving",
+            "dance-driven",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "dance",
+            "secular"
+          ]
+        },
+        {
+          "id": "rebec_repertoire_organum",
+          "name": "Sacred organum and vielle consort",
+          "descriptors": [
+            "sustained",
+            "blended",
+            "long-bowed",
+            "solemn"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "sustained"
+          ],
+          "canonical_tags": [
+            "sacred",
+            "consort"
+          ]
+        },
+        {
+          "id": "rebec_repertoire_drone",
+          "name": "Drone double-stop accompaniment",
+          "descriptors": [
+            "droning",
+            "open-string",
+            "raw",
+            "reedy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "double-stop"
+          ],
+          "canonical_tags": [
+            "drone",
+            "accompaniment"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rebec_build",
+      "surface": false,
+      "name": "Strings and body",
+      "variants": [
+        {
+          "id": "rebec_build_gut",
+          "default": true,
+          "name": "Plain gut strings, carved maple bowl",
+          "descriptors": [
+            "warm",
+            "gut-strung",
+            "woody"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string"
+          ],
+          "canonical_tags": [
+            "gut",
+            "maple"
+          ]
+        },
+        {
+          "id": "rebec_build_wound",
+          "name": "Wound-gut lowest string, boxwood body",
+          "descriptors": [
+            "fuller",
+            "resonant",
+            "deeper"
+          ],
+          "match_tokens": [
+            "bowed",
+            "wound-string"
+          ],
+          "canonical_tags": [
+            "wound-gut",
+            "boxwood"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "rebec_form",
+      "name": "Form and register",
+      "variants": [
+        {
+          "id": "rebec_form_treble",
+          "default": true,
+          "name": "Treble rebec",
+          "descriptors": [
+            "bright",
+            "nasal",
+            "pear-shaped",
+            "treble-voiced"
+          ],
+          "match_tokens": [
+            "bowed",
+            "high-register",
+            "nasal-tone"
+          ],
+          "canonical_tags": [
+            "treble",
+            "three-string"
+          ]
+        },
+        {
+          "id": "rebec_form_tenor",
+          "name": "Tenor rebec",
+          "descriptors": [
+            "mellow",
+            "larger-bodied",
+            "reedy",
+            "alto-tenor"
+          ],
+          "match_tokens": [
+            "bowed",
+            "mid-register",
+            "nasal-tone"
+          ],
+          "canonical_tags": [
+            "tenor"
+          ]
+        },
+        {
+          "id": "rebec_form_soprano",
+          "name": "Soprano two-string rebec",
+          "descriptors": [
+            "piercing",
+            "shrill",
+            "two-string",
+            "keening"
+          ],
+          "match_tokens": [
+            "bowed",
+            "very-high",
+            "nasal-tone"
+          ],
+          "canonical_tags": [
+            "soprano",
+            "two-string"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rebec_repertoire",
+      "name": "Repertoire and bowing",
+      "variants": [
+        {
+          "id": "rebec_repertoire_estampie",
+          "default": true,
+          "name": "Estampie and carole dances",
+          "descriptors": [
+            "brisk",
+            "driving",
+            "dance-driven",
+            "rhythmic"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "dance",
+            "secular"
+          ]
+        },
+        {
+          "id": "rebec_repertoire_organum",
+          "name": "Sacred organum and vielle consort",
+          "descriptors": [
+            "sustained",
+            "blended",
+            "long-bowed",
+            "solemn"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "sustained"
+          ],
+          "canonical_tags": [
+            "sacred",
+            "consort"
+          ]
+        },
+        {
+          "id": "rebec_repertoire_drone",
+          "name": "Drone double-stop accompaniment",
+          "descriptors": [
+            "droning",
+            "open-string",
+            "raw",
+            "reedy"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "double-stop"
+          ],
+          "canonical_tags": [
+            "drone",
+            "accompaniment"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rebec_build",
+      "surface": false,
+      "name": "Strings and body",
+      "variants": [
+        {
+          "id": "rebec_build_gut",
+          "default": true,
+          "name": "Plain gut strings, carved maple bowl",
+          "descriptors": [
+            "warm",
+            "gut-strung",
+            "woody"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-string"
+          ],
+          "canonical_tags": [
+            "gut",
+            "maple"
+          ]
+        },
+        {
+          "id": "rebec_build_wound",
+          "name": "Wound-gut lowest string, boxwood body",
+          "descriptors": [
+            "fuller",
+            "resonant",
+            "deeper"
+          ],
+          "match_tokens": [
+            "bowed",
+            "wound-string"
+          ],
+          "canonical_tags": [
+            "wound-gut",
+            "boxwood"
+          ]
+        }
+      ]
+    }
+  ]
+}

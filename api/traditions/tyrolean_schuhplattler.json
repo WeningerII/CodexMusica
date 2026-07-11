@@ -3,9 +3,9 @@
   "name": "Tyrolean Schuhplattler (slap-dance with music)",
   "family": "global",
   "lineage": "Tyrolean Schuhplattler folk-dance-and-music tradition of the Austrian Tyrol, South Tyrol (Italy), and Bavarian Alps, in which male dancers perform synchronized choreography involving rhythmic slapping of thighs, knees, and shoe-soles in characteristic accelerating patterns, accompanied by Stubenmusik chamber-ensemble of zither, hammered dulcimer (Hackbrett), accordion, double-bass, and voice. The tradition crystallized in seventeenth-eighteenth century Alpine villages from earlier courtship-display dance-forms. Performance contexts span the Heimatabend folkloric-evening tourist-demonstrations, village-festival celebrations, and the canonical Schuhplattlerverein dance-association competitions. Distinguished from broader German Alpine music by Schuhplattler's specific male-percussive-choreographic register.",
-  "recipe": "classic modern tyrolean schuhplattler, functional Song, europop branch, American marching groove percussion american drumline. thick, rap, punctuated, Scottish Gaelic vocal. melodic straight piano accordion, steel modern concert fingerpicked kantele, walnut spruce canonical appalachian steel bronze modern hammered dulcimer, harp armed dance lilting concert zither alpine. mountain valley. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 520,
-  "score": 103.085,
+  "recipe": "classic modern tyrolean schuhplattler, functional Song, europop branch, American marching groove percussion american drumline. thick, breath veiled tone, straight onset, interlocked note trading. melodic straight piano accordion, steel modern concert fingerpicked kantele, walnut spruce canonical appalachian steel bronze modern hammered dulcimer, harp armed dance lilting concert zither alpine, dance driving standard bass straight steirische harmonika. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 534,
+  "score": 173.256,
   "config": {
     "traditions": [
       "tyrolean_schuhplattler",
@@ -16,12 +16,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "rap_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "diaphragm_vibrato",
-          "voice_articulation": "staccato_voice",
-          "voice_microtone": "shruti_inflected",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_yodel_M1_M2_alternation",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -29,26 +29,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 2.7815000000000007,
-          "voice_quality": 2.0915,
+          "voice_quality": 8.32,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.45499999999999996,
-          "voice_articulation": 2.9314999999999998,
-          "voice_microtone": 0.1365,
+          "voice_vibrato": 0.52,
+          "voice_articulation": 11.829999999999995,
+          "voice_microtone": 11.634999999999993,
           "voice_tradition": 9.815,
           "voice_mechanism_compound": 1.51,
           "voice_estill_quality": 1.1049999999999998,
-          "voice_speech_song": 14.104999999999997,
-          "voice_ensemble_config": 13.584999999999997,
+          "voice_speech_song": 14.169999999999996,
+          "voice_ensemble_config": 13.454999999999995,
           "voice_ornament_system": 3.5045,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 4.615,
-          "voice_multitrack_stack": 1.885
+          "voice_pitch_organization": 1.4949999999999999,
+          "voice_processing_chain": 4.875,
+          "voice_multitrack_stack": 5.200000000000001
         }
       },
       {
@@ -108,10 +108,25 @@
           "concert_zither_alpine_context": 11.902,
           "concert_zither_alpine_strings": -0.035
         }
+      },
+      {
+        "id": "steirische_harmonika",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "steirische_harmonika_form": "steirische_harmonika_four_row",
+          "steirische_harmonika_repertoire": "steirische_harmonika_landler_polka",
+          "steirische_harmonika_bass_reeds": "steirische_harmonika_standard_bass"
+        },
+        "scores": {
+          "free_reed_technique": 3.3810000000000002,
+          "steirische_harmonika_form": 15.956999999999997,
+          "steirische_harmonika_repertoire": 23.302,
+          "steirische_harmonika_bass_reeds": 2.4765
+        }
       }
     ],
     "room": "mountain_valley",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

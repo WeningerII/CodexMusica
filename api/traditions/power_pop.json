@@ -3,9 +3,9 @@
   "name": "Power pop",
   "family": "global",
   "lineage": "Late-1960s through 1970s British Invasion-derived guitar-pop subgenre codified through the Who (the term power pop was coined by Pete Townshend to describe the Whos sound), Big Star (the Memphis power-pop band, #1 Record 1972, Radio City 1974), Badfinger (the Apple Records 1970-72 power-pop voice), Cheap Trick (the mainstream-commercial post-Big-Star extension), the Raspberries, the Knack (My Sharona 1979 the commercial breakthrough); foundational sound: melodic-hook-centric three-minute songs with chord-driven electric guitars, harmony vocals, and tight rhythm-section foundation",
-  "recipe": "classic North American 1967-1969 power pop, functional Song, pop rock branch, alternative distorted rock modern indie rock slacker rock. thick, low dynamic level, melodic, rhythmic. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation clean single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, mahogany pre muffled edge muffled hot rolled annealed drum kit. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 769,
-  "score": 615.29,
+  "recipe": "classic North American 1967-1969 power pop, functional Song, pop rock branch, alternative distorted rock modern indie rock slacker rock. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation clean single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, mahogany pre muffled edge muffled hot rolled annealed drum kit. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 797,
+  "score": 651.935,
   "config": {
     "traditions": [
       "power_pop",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "crooner_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "spoken_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 48.45500000000003,
-          "voice_quality": 0.6499999999999999,
+          "voice_quality": 17.875,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.47,
-          "voice_articulation": 0.585,
+          "voice_vibrato": 2.7300000000000004,
+          "voice_articulation": 11.374999999999995,
           "voice_microtone": 46.92500000000001,
           "voice_tradition": 27.52,
           "voice_mechanism_compound": 3.575000000000001,
           "voice_estill_quality": 3.120000000000001,
-          "voice_speech_song": 12.999999999999998,
-          "voice_ensemble_config": 11.504999999999997,
+          "voice_speech_song": 13.259999999999996,
+          "voice_ensemble_config": 12.154999999999994,
           "voice_ornament_system": 0.8999999999999999,
-          "voice_pitch_organization": 3.185,
-          "voice_processing_chain": 11.175,
-          "voice_multitrack_stack": 5.005
+          "voice_pitch_organization": 2.990000000000001,
+          "voice_processing_chain": 12.134999999999998,
+          "voice_multitrack_stack": 11.699999999999996
         }
       },
       {

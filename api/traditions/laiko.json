@@ -3,9 +3,9 @@
   "name": "Laikó",
   "family": "global",
   "lineage": "Post-rebetiko Greek popular song that emerged in the 1950s-1960s as rebetiko transitioned from tavern-context to commercial-nightclub-context — codified through Manolis Chiotis (who introduced the three-course-to-four-course (trichordo-to-tetrachordo) bouzouki conversion and electric amplification), Stelios Kazantzidis (the voice of laiko), Marinella, Stratos Dionysiou, Yiannis Parios, Glykeria, and the Athens Minos / Columbia Greece / Lyra label catalog",
-  "recipe": "classic Southern European mid-1950s laikó, ballad Poetry, Mediterranean ballad branch, vocal drone modal, chanson fado ballad poetry cape verdean batuko of santiago island greek éntechno. thick, lament wail, chest resonance low mid, punctuated. walnut staves canonical Greek gut pre 1950s rebetiko strummed bouzouki, cedar carbon fiber fingerpicked classical nylon-string guitar, beech laminated maple laminated European tradition European spruce norway spruce grand piano, sub heavy electric bass, pre muffled edge muffled fx9 manganese bronze over hammered drum kit. athens major label 1955-1985 mid tier athens minos studios 60s 70s. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
-  "recipe_chars": 724,
-  "score": 282.563,
+  "recipe": "classic Southern European mid-1950s laikó, ballad Poetry, Mediterranean ballad branch, vocal drone modal, chanson fado ballad poetry cape verdean batuko of santiago island greek éntechno. thick, breath veiled tone, slow rate, interlocked note trading. walnut staves canonical Greek gut pre 1950s rebetiko strummed bouzouki, cedar fingerpicked classical nylon-string guitar, beech laminated maple laminated European tradition European spruce norway spruce grand piano, sub heavy electric bass, pre muffled edge muffled nickel silver German silver over hammered drum kit. athens major label 1955-1985 mid tier athens minos studios 60s 70s. large-diaphragm condenser, tube pre, Emi redd.51, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 741,
+  "score": 333.402,
   "config": {
     "traditions": [
       "laiko",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "fado_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "staccato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
@@ -35,17 +35,17 @@
         },
         "scores": {
           "voice_register": 3.94,
-          "voice_quality": 5.845,
+          "voice_quality": 30.16,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.105,
-          "voice_articulation": 1.935,
-          "voice_microtone": 3.0225,
+          "voice_vibrato": 3.4125,
+          "voice_articulation": 17.485,
+          "voice_microtone": 21.417499999999997,
           "voice_tradition": 37.4075,
           "voice_mechanism_compound": 7.0200000000000005,
           "voice_estill_quality": 11.024999999999999,
-          "voice_speech_song": 24.927500000000006,
-          "voice_ensemble_config": 19.695000000000004,
+          "voice_speech_song": 25.382500000000004,
+          "voice_ensemble_config": 20.345,
           "voice_ornament_system": 2.7949999999999995,
           "voice_pitch_organization": 3.0349999999999997,
           "voice_processing_chain": 5.297499999999999,
@@ -57,7 +57,7 @@
         "slots": {
           "plucked_traditional_technique": "plucked_folk_strummed",
           "bouzouki_courses": "trichordo",
-          "bouzouki_pick": "bouzouki_medium",
+          "bouzouki_pick": "bouzouki_thin",
           "bouzouki_body_wood": "bouzouki_walnut_bowl",
           "bouzouki_strings": "bouzouki_gut_historical"
         },
@@ -66,7 +66,7 @@
           "bouzouki_courses": 8.384999999999998,
           "bouzouki_pick": 0.845,
           "bouzouki_body_wood": 7.16,
-          "bouzouki_strings": 2.7849999999999993
+          "bouzouki_strings": 4.784999999999999
         }
       },
       {
@@ -84,7 +84,7 @@
           "string_tuning": 0,
           "top_wood_classical": 7.409999999999999,
           "bracing_classical": 1.105,
-          "string_classical": 1.95,
+          "string_classical": 0.7350000000000001,
           "attack_technique_cl": 4.13
         }
       },
@@ -98,7 +98,7 @@
           "piano_rim": "european_laminated_rim_beech_maple",
           "piano_soundboard": "european_spruce_soundboard",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "wet_sand_cast_plate",
+          "piano_plate": "gray_iron_full_perimeter_plate",
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
@@ -109,7 +109,7 @@
           "piano_rim": 7.995,
           "piano_soundboard": 5.8825,
           "piano_pinblock": 4.295,
-          "piano_plate": 4.635,
+          "piano_plate": 4.14,
           "piano_pitch_standard": 8.254999999999999
         }
       },
@@ -117,21 +117,21 @@
         "id": "electric_bass",
         "slots": {
           "electric_technique": "electric_bass_slap_pop",
-          "amp_make": "amp_modern_modeling",
+          "amp_make": "amp_british_60s_selmer",
           "body_wood": "mahogany_b",
-          "pickup_config": "soapbar",
+          "pickup_config": "humbucker_mm",
           "string_type": "half_round",
-          "scale_length_b": "extra_long_b",
+          "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
           "bass_technique": "sub_bass_synth_blend"
         },
         "scores": {
           "electric_technique": 1.1449999999999998,
-          "amp_make": 2.0149999999999997,
+          "amp_make": 0.49999999999999994,
           "body_wood": 0.69,
-          "pickup_config": 1.2349999999999999,
+          "pickup_config": 0.045,
           "string_type": 1.4949999999999999,
-          "scale_length_b": 0.845,
+          "scale_length_b": 0.345,
           "fretted_or_not": 1.1949999999999998,
           "bass_technique": 2.1125
         }
@@ -142,10 +142,10 @@
           "percussion_technique": "percussion_brushes_and_sticks",
           "shell_wood": "mahogany_shell",
           "shell_thickness": "thin_shell",
-          "bearing_edges": "edge_45",
+          "bearing_edges": "edge_30",
           "drumhead": "ec_pre_muffled_drumhead",
           "snare_wires": "cable_snares",
-          "cymbal_alloy": "meinl_fx9",
+          "cymbal_alloy": "nickel_silver_cymbal",
           "cymbal_hammering": "over_hammered",
           "cymbal_lathing": "hand_lathed_pit_retaining",
           "cymbal_finish": "hand_hammered",
@@ -155,10 +155,10 @@
           "percussion_technique": 16.64,
           "shell_wood": 0.39,
           "shell_thickness": 0.045,
-          "bearing_edges": 0.845,
+          "bearing_edges": 0.54,
           "drumhead": 1.905,
           "snare_wires": 0.345,
-          "cymbal_alloy": 2.0475000000000003,
+          "cymbal_alloy": 1.1849999999999998,
           "cymbal_hammering": 3.0900000000000003,
           "cymbal_lathing": 2.4050000000000002,
           "cymbal_finish": 0.195,
@@ -167,7 +167,7 @@
       }
     ],
     "room": "athens_minos_studios_60s_70s",
-    "archetype": "arch_german_diy_converted",
+    "archetype": "arch_greek_columbia_rizoupoli",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "pre_tube_german_v72",

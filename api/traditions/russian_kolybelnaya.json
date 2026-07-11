@@ -3,9 +3,9 @@
   "name": "Russian kolybelnaya (колыбельная, cradle song)",
   "family": "global",
   "lineage": "Russian cradle-song tradition continuous from peasant-folksong rural practice through 19th-century romance art-song setting (Mussorgsky, Tchaikovsky) into Soviet-era and post-Soviet domestic practice",
-  "recipe": "classic modern russian kolybelnaya, lullaby, European branch, Slavic bard ballad poetry, western common practice art music, europop functional song schlager chanson pop. thick, low dynamic level, melodic, continuous-phonation. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 365,
-  "score": 78.86,
+  "recipe": "classic modern russian kolybelnaya, lullaby, European branch, Slavic bard ballad poetry, western common practice art music, europop functional song schlager chanson pop. thick, breath veiled tone, straight onset, interlocked note trading. bedroom. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 310,
+  "score": 89.152,
   "config": {
     "traditions": [
       "russian_kolybelnaya",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "crooner_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "legato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -31,30 +31,30 @@
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
           "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 8.999999999999996,
-          "voice_quality": 3.7700000000000005,
+          "voice_quality": 7.020000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.21,
-          "voice_articulation": 1.69,
-          "voice_microtone": 8.004999999999999,
+          "voice_vibrato": 2.9399999999999995,
+          "voice_articulation": 9.229999999999999,
+          "voice_microtone": 10.854999999999993,
           "voice_tradition": 10.26,
           "voice_mechanism_compound": 2.08,
           "voice_estill_quality": 3.380000000000001,
-          "voice_speech_song": 18.784999999999997,
-          "voice_ensemble_config": 9.294999999999998,
+          "voice_speech_song": 18.654999999999994,
+          "voice_ensemble_config": 9.36,
           "voice_ornament_system": 0.795,
           "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 6.734999999999999,
-          "voice_multitrack_stack": 4.114999999999999
+          "voice_processing_chain": 7.4350000000000005,
+          "voice_multitrack_stack": 5.7524999999999995
         }
       }
     ],
     "room": "untreated_bedroom",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

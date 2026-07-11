@@ -3,9 +3,9 @@
   "name": "Afrobeat",
   "family": "global",
   "lineage": "West African 1970s polyrhythmic horn-driven big-band genre fusing Yoruba highlife, jazz, and James Brown funk — codified by Fela Kuti at his Shrine club in Lagos with Tony Allen on drums (Afrika 70 and Egypt 80 ensembles), characterized by extended jam-form arrangements, political-protest lyrics, and the dense polyrhythmic interlock that became the genre signature",
-  "recipe": "classic African mid-1970s afrobeat, groove Percussion, Afro-diasporic electric branch, American jazz fusion, Afro-diasporic MC rhythm acid jazz. thick, rap, nervy, narrative. Fender blackface amp American 60s amp spring reverb bright maple pau ferro single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, birch vintage ambassador asymmetric bronze bell bronze drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 145 smaller 25w tube home club ostinato slow chorale tonewheel organ, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet, foundational bass rhythm calabash shekere, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas. large tropical 1965-1985 mid-major EMI.",
-  "recipe_chars": 985,
-  "score": 825.629,
+  "recipe": "classic African mid-1970s afrobeat, groove Percussion, Afro-diasporic electric branch, American jazz fusion, Afro-diasporic MC rhythm acid jazz. thick, breath veiled tone, straight onset, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright maple pau ferro single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, birch vintage ambassador asymmetric bronze bell bronze drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 145 smaller 25w tube home club ostinato slow chorale tonewheel organ, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet, foundational bass rhythm calabash shekere, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas.",
+  "recipe_chars": 984,
+  "score": 860.914,
   "config": {
     "traditions": [
       "afrobeat",
@@ -161,11 +161,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "rap_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "fast_vibrato",
-          "voice_articulation": "narrative_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "jazz_scat_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
@@ -175,25 +175,25 @@
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_talkbox",
-          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
           "voice_register": 34.15800000000001,
-          "voice_quality": 3.5424999999999995,
+          "voice_quality": 5.655000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.46375,
-          "voice_articulation": 6.675000000000001,
+          "voice_vibrato": 26.433000000000003,
+          "voice_articulation": 15.274999999999995,
           "voice_microtone": 31.705000000000002,
           "voice_tradition": 33.04500000000001,
           "voice_mechanism_compound": 3.77,
           "voice_estill_quality": 3.99,
-          "voice_speech_song": 15.664999999999996,
-          "voice_ensemble_config": 14.949999999999996,
+          "voice_speech_song": 16.119999999999994,
+          "voice_ensemble_config": 15.014999999999993,
           "voice_ornament_system": 2.31375,
           "voice_pitch_organization": 5.444500000000001,
           "voice_processing_chain": 15.485125,
-          "voice_multitrack_stack": 5.385
+          "voice_multitrack_stack": 5.468375
         }
       },
       {

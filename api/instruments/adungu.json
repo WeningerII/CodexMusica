@@ -1,0 +1,414 @@
+{
+  "id": "adungu",
+  "name": "Adungu (Ugandan Alur arched harp)",
+  "family": "plucked_traditional",
+  "class": "arched_harp",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "Alur arched bow harp of northwestern Uganda: a curved wooden neck rising from a hide-faced trough resonator, carrying seven to nine diatonically tuned strings that are plucked and strummed. Built in a soprano-to-bass family and now the most widely heard Ugandan string instrument in dance troupes, churches, and school ensembles.",
+  "parts": [
+    {
+      "id": "adungu_size",
+      "name": "Family size / register",
+      "variants": [
+        {
+          "id": "adungu_size_soprano",
+          "default": true,
+          "name": "Soprano adungu (lead melody)",
+          "descriptors": [
+            "bright-treble",
+            "silvery",
+            "nimble-picked"
+          ],
+          "match_tokens": [
+            "plucked",
+            "harp",
+            "high-register",
+            "lead"
+          ],
+          "canonical_tags": [
+            "arched-harp",
+            "diatonic",
+            "melody-lead"
+          ]
+        },
+        {
+          "id": "adungu_size_alto",
+          "name": "Alto adungu",
+          "descriptors": [
+            "middle-voiced",
+            "rounded",
+            "singing"
+          ],
+          "match_tokens": [
+            "plucked",
+            "harp",
+            "mid-register"
+          ],
+          "canonical_tags": [
+            "arched-harp",
+            "diatonic"
+          ]
+        },
+        {
+          "id": "adungu_size_tenor",
+          "name": "Tenor adungu (harmony)",
+          "descriptors": [
+            "warm-harmony",
+            "strummed",
+            "supportive"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "harp",
+            "harmony"
+          ],
+          "canonical_tags": [
+            "arched-harp",
+            "chordal-fill"
+          ]
+        },
+        {
+          "id": "adungu_size_bass",
+          "name": "Bass adungu (foundation)",
+          "descriptors": [
+            "deep-foundation",
+            "thudding",
+            "low-plucked"
+          ],
+          "match_tokens": [
+            "plucked",
+            "harp",
+            "low-register",
+            "bass-foundation"
+          ],
+          "canonical_tags": [
+            "arched-harp",
+            "bass-drone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "adungu_setting",
+      "name": "Ensemble setting",
+      "variants": [
+        {
+          "id": "adungu_setting_alur_dance",
+          "default": true,
+          "name": "Alur dance ensemble",
+          "descriptors": [
+            "driving",
+            "interlocking",
+            "communal"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "dance",
+            "cyclic",
+            "interlocking"
+          ],
+          "canonical_tags": [
+            "alur",
+            "traditional-dance",
+            "ostinato"
+          ]
+        },
+        {
+          "id": "adungu_setting_church",
+          "name": "Church / liturgical",
+          "descriptors": [
+            "hymnal",
+            "gentle",
+            "devotional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "hymn",
+            "worship",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "liturgical",
+            "praise",
+            "diatonic-harmony"
+          ]
+        },
+        {
+          "id": "adungu_setting_school_troupe",
+          "name": "School / cultural troupe",
+          "descriptors": [
+            "staged",
+            "bright",
+            "showpiece"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "plucked",
+            "arranged"
+          ],
+          "canonical_tags": [
+            "cultural-troupe",
+            "popular",
+            "arranged"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "adungu_stringing",
+      "surface": false,
+      "name": "Stringing & resonator",
+      "variants": [
+        {
+          "id": "adungu_stringing_nylon_hide",
+          "default": true,
+          "name": "Nylon strings on hide-faced trough",
+          "descriptors": [
+            "clear-toned",
+            "taut",
+            "resonant-hide"
+          ],
+          "match_tokens": [
+            "plucked",
+            "nylon-string",
+            "hide-soundboard"
+          ],
+          "canonical_tags": [
+            "fishing-line-strings",
+            "cowhide-face",
+            "wooden-trough"
+          ]
+        },
+        {
+          "id": "adungu_stringing_gut_hide",
+          "name": "Traditional gut / sinew strings",
+          "descriptors": [
+            "earthy",
+            "muted",
+            "buzzing-warm"
+          ],
+          "match_tokens": [
+            "plucked",
+            "gut-string",
+            "hide-soundboard",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "sinew-strings",
+            "cowhide-face",
+            "carved-neck"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "adungu_size",
+      "name": "Family size / register",
+      "variants": [
+        {
+          "id": "adungu_size_soprano",
+          "default": true,
+          "name": "Soprano adungu (lead melody)",
+          "descriptors": [
+            "bright-treble",
+            "silvery",
+            "nimble-picked"
+          ],
+          "match_tokens": [
+            "plucked",
+            "harp",
+            "high-register",
+            "lead"
+          ],
+          "canonical_tags": [
+            "arched-harp",
+            "diatonic",
+            "melody-lead"
+          ]
+        },
+        {
+          "id": "adungu_size_alto",
+          "name": "Alto adungu",
+          "descriptors": [
+            "middle-voiced",
+            "rounded",
+            "singing"
+          ],
+          "match_tokens": [
+            "plucked",
+            "harp",
+            "mid-register"
+          ],
+          "canonical_tags": [
+            "arched-harp",
+            "diatonic"
+          ]
+        },
+        {
+          "id": "adungu_size_tenor",
+          "name": "Tenor adungu (harmony)",
+          "descriptors": [
+            "warm-harmony",
+            "strummed",
+            "supportive"
+          ],
+          "match_tokens": [
+            "plucked",
+            "strummed",
+            "harp",
+            "harmony"
+          ],
+          "canonical_tags": [
+            "arched-harp",
+            "chordal-fill"
+          ]
+        },
+        {
+          "id": "adungu_size_bass",
+          "name": "Bass adungu (foundation)",
+          "descriptors": [
+            "deep-foundation",
+            "thudding",
+            "low-plucked"
+          ],
+          "match_tokens": [
+            "plucked",
+            "harp",
+            "low-register",
+            "bass-foundation"
+          ],
+          "canonical_tags": [
+            "arched-harp",
+            "bass-drone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "adungu_setting",
+      "name": "Ensemble setting",
+      "variants": [
+        {
+          "id": "adungu_setting_alur_dance",
+          "default": true,
+          "name": "Alur dance ensemble",
+          "descriptors": [
+            "driving",
+            "interlocking",
+            "communal"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "dance",
+            "cyclic",
+            "interlocking"
+          ],
+          "canonical_tags": [
+            "alur",
+            "traditional-dance",
+            "ostinato"
+          ]
+        },
+        {
+          "id": "adungu_setting_church",
+          "name": "Church / liturgical",
+          "descriptors": [
+            "hymnal",
+            "gentle",
+            "devotional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "hymn",
+            "worship",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "liturgical",
+            "praise",
+            "diatonic-harmony"
+          ]
+        },
+        {
+          "id": "adungu_setting_school_troupe",
+          "name": "School / cultural troupe",
+          "descriptors": [
+            "staged",
+            "bright",
+            "showpiece"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "plucked",
+            "arranged"
+          ],
+          "canonical_tags": [
+            "cultural-troupe",
+            "popular",
+            "arranged"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "adungu_stringing",
+      "surface": false,
+      "name": "Stringing & resonator",
+      "variants": [
+        {
+          "id": "adungu_stringing_nylon_hide",
+          "default": true,
+          "name": "Nylon strings on hide-faced trough",
+          "descriptors": [
+            "clear-toned",
+            "taut",
+            "resonant-hide"
+          ],
+          "match_tokens": [
+            "plucked",
+            "nylon-string",
+            "hide-soundboard"
+          ],
+          "canonical_tags": [
+            "fishing-line-strings",
+            "cowhide-face",
+            "wooden-trough"
+          ]
+        },
+        {
+          "id": "adungu_stringing_gut_hide",
+          "name": "Traditional gut / sinew strings",
+          "descriptors": [
+            "earthy",
+            "muted",
+            "buzzing-warm"
+          ],
+          "match_tokens": [
+            "plucked",
+            "gut-string",
+            "hide-soundboard",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "sinew-strings",
+            "cowhide-face",
+            "carved-neck"
+          ]
+        }
+      ]
+    }
+  ]
+}

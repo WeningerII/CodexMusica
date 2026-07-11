@@ -1,0 +1,376 @@
+{
+  "id": "pungi",
+  "name": "Pungi (Indian snake-charmer double clarinet)",
+  "family": "wind",
+  "class": "aerophone (gourd-chambered idioglot double clarinet)",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "Gourd wind-chamber feeding twin single-reed cane pipes — one fingered melody pipe over a constant drone, sounded by circular breathing for an unbroken nasal buzz. The globally recognizable snake-charmer voice of Rajasthani Kalbeliya dance and the Bollywood 'Nagin' theme.",
+  "parts": [
+    {
+      "id": "pungi_regional_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "pungi_regional_form_rajasthani_been",
+          "default": true,
+          "name": "Rajasthani been (Kalbeliya)",
+          "descriptors": [
+            "deep-droning",
+            "gourd-warm",
+            "reedy",
+            "swirling"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "drone-foundation",
+            "rough-tone",
+            "nasal"
+          ],
+          "canonical_tags": [
+            "kalbeliya",
+            "rajasthan",
+            "large-gourd"
+          ]
+        },
+        {
+          "id": "pungi_regional_form_south_magudi",
+          "name": "South Indian magudi",
+          "descriptors": [
+            "bright-buzzing",
+            "piercing",
+            "nasal",
+            "shrill"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "drone-foundation",
+            "bright"
+          ],
+          "canonical_tags": [
+            "tamil",
+            "magudi",
+            "snake-charmer"
+          ]
+        },
+        {
+          "id": "pungi_regional_form_folk_murli",
+          "name": "Folk murli / bin",
+          "descriptors": [
+            "folk-rustic",
+            "reedy-thin",
+            "buzzing"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "murli",
+            "bin",
+            "itinerant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pungi_performance_setting",
+      "name": "Performance setting",
+      "variants": [
+        {
+          "id": "pungi_performance_setting_kalbeliya_dance",
+          "default": true,
+          "name": "Kalbeliya dance accompaniment",
+          "descriptors": [
+            "hypnotic",
+            "driving",
+            "swirling",
+            "relentless"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "drone-foundation",
+            "dance",
+            "continuous"
+          ],
+          "canonical_tags": [
+            "kalbeliya",
+            "circular-breathing"
+          ]
+        },
+        {
+          "id": "pungi_performance_setting_street_charming",
+          "name": "Itinerant snake-charming",
+          "descriptors": [
+            "swaying",
+            "serpentine",
+            "hypnotic",
+            "coaxing"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "drone-foundation",
+            "continuous"
+          ],
+          "canonical_tags": [
+            "sapera",
+            "street",
+            "hypnotic"
+          ]
+        },
+        {
+          "id": "pungi_performance_setting_film_fusion",
+          "name": "Film / world-fusion hook",
+          "descriptors": [
+            "cinematic",
+            "exotic",
+            "sinuous",
+            "sultry"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "bollywood",
+            "nagin",
+            "fusion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pungi_body_construction",
+      "surface": false,
+      "name": "Body construction",
+      "variants": [
+        {
+          "id": "pungi_body_construction_bottle_gourd_twin_cane",
+          "default": true,
+          "name": "Bottle-gourd chamber, twin cane pipes",
+          "descriptors": [
+            "gourd-bodied",
+            "twin-piped",
+            "beeswax-sealed",
+            "reedy"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "drone-foundation",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "bottle-gourd",
+            "idioglot-reed",
+            "double-pipe"
+          ]
+        },
+        {
+          "id": "pungi_body_construction_wax_belled",
+          "name": "Wax-shaped bell mouth",
+          "descriptors": [
+            "wax-belled",
+            "gourd-bodied",
+            "buzzing"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "beeswax-bell",
+            "flared"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "pungi_regional_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "pungi_regional_form_rajasthani_been",
+          "default": true,
+          "name": "Rajasthani been (Kalbeliya)",
+          "descriptors": [
+            "deep-droning",
+            "gourd-warm",
+            "reedy",
+            "swirling"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "drone-foundation",
+            "rough-tone",
+            "nasal"
+          ],
+          "canonical_tags": [
+            "kalbeliya",
+            "rajasthan",
+            "large-gourd"
+          ]
+        },
+        {
+          "id": "pungi_regional_form_south_magudi",
+          "name": "South Indian magudi",
+          "descriptors": [
+            "bright-buzzing",
+            "piercing",
+            "nasal",
+            "shrill"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "drone-foundation",
+            "bright"
+          ],
+          "canonical_tags": [
+            "tamil",
+            "magudi",
+            "snake-charmer"
+          ]
+        },
+        {
+          "id": "pungi_regional_form_folk_murli",
+          "name": "Folk murli / bin",
+          "descriptors": [
+            "folk-rustic",
+            "reedy-thin",
+            "buzzing"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "murli",
+            "bin",
+            "itinerant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pungi_performance_setting",
+      "name": "Performance setting",
+      "variants": [
+        {
+          "id": "pungi_performance_setting_kalbeliya_dance",
+          "default": true,
+          "name": "Kalbeliya dance accompaniment",
+          "descriptors": [
+            "hypnotic",
+            "driving",
+            "swirling",
+            "relentless"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "drone-foundation",
+            "dance",
+            "continuous"
+          ],
+          "canonical_tags": [
+            "kalbeliya",
+            "circular-breathing"
+          ]
+        },
+        {
+          "id": "pungi_performance_setting_street_charming",
+          "name": "Itinerant snake-charming",
+          "descriptors": [
+            "swaying",
+            "serpentine",
+            "hypnotic",
+            "coaxing"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "drone-foundation",
+            "continuous"
+          ],
+          "canonical_tags": [
+            "sapera",
+            "street",
+            "hypnotic"
+          ]
+        },
+        {
+          "id": "pungi_performance_setting_film_fusion",
+          "name": "Film / world-fusion hook",
+          "descriptors": [
+            "cinematic",
+            "exotic",
+            "sinuous",
+            "sultry"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "bollywood",
+            "nagin",
+            "fusion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pungi_body_construction",
+      "surface": false,
+      "name": "Body construction",
+      "variants": [
+        {
+          "id": "pungi_body_construction_bottle_gourd_twin_cane",
+          "default": true,
+          "name": "Bottle-gourd chamber, twin cane pipes",
+          "descriptors": [
+            "gourd-bodied",
+            "twin-piped",
+            "beeswax-sealed",
+            "reedy"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "drone-foundation",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "bottle-gourd",
+            "idioglot-reed",
+            "double-pipe"
+          ]
+        },
+        {
+          "id": "pungi_body_construction_wax_belled",
+          "name": "Wax-shaped bell mouth",
+          "descriptors": [
+            "wax-belled",
+            "gourd-bodied",
+            "buzzing"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "beeswax-bell",
+            "flared"
+          ]
+        }
+      ]
+    }
+  ]
+}

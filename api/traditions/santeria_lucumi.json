@@ -3,9 +3,9 @@
   "name": "Lukumí ceremonial",
   "family": "global",
   "lineage": "Cuban Yoruba-derived Afro-Cuban religious-ritual song-and-drumming tradition preserved since the 17th-century-onward enslaved-Yoruba (Nigerian and Beninese) population, organized around the worship of the orichas (Yoruba deities transposed into Catholic-saint syncretism). The canonical batá-drum ensemble: three two-headed hourglass-shaped sacred-drums (iyá largest, itótele middle, okónkolo smallest) interlock through complex polyrhythmic patterns (toques) specific to each oricha. Each oricha has dedicated rezos invocational-songs, suyeres invocational-melodic-fragments, and toques rhythmic-patterns identifying-and-summoning the deity. The Lucumí ritual-vocabulary preserves substantial pre-colonial Yoruba liturgical-text untranslated. The 1959-onward Cuban revolution suppressed-and-then-tolerated santería; the 1990s-onward post-Special-Period economic-opening reopened public ritual practice.",
-  "recipe": "classic Caribbean modern lukumí ceremonial, ritual Devotional, Afro-diasporic branch, Cuban groove percussion charanga cha-cha-chá. extended whistle, full chest belt, melodic, punctuated. sacred mahogany Cuban alternative goat skin knife stretched lacing bata, a cappella small 3 to 8 one per part three voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. havana solar outdoor courtyard. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 580,
-  "score": 156.746,
+  "recipe": "classic Caribbean modern lukumí ceremonial, ritual Devotional, Afro-diasporic branch, Cuban groove percussion charanga cha-cha-chá. extended whistle, breath veiled tone, straight onset, interlocked note trading. sacred mahogany Cuban alternative goat skin knife stretched lacing bata, a cappella small 3 to 8 one per part three voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. havana solar outdoor courtyard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 537,
+  "score": 193.209,
   "config": {
     "traditions": [
       "santeria_lucumi",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "extended_whistle_register",
-          "voice_quality": "full_chest_belt_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "staccato_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 5.46,
-          "voice_quality": 13.649999999999995,
+          "voice_quality": 22.619999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.34,
-          "voice_articulation": 1.944,
-          "voice_microtone": 0.9749999999999999,
+          "voice_vibrato": 2.5674999999999994,
+          "voice_articulation": 18.265,
+          "voice_microtone": 19.564999999999998,
           "voice_tradition": 18.008374999999997,
           "voice_mechanism_compound": 1.04,
           "voice_estill_quality": 3.4450000000000003,
-          "voice_speech_song": 19.5,
-          "voice_ensemble_config": 19.24,
+          "voice_speech_song": 19.564999999999998,
+          "voice_ensemble_config": 19.109999999999996,
           "voice_ornament_system": 4.298500000000001,
           "voice_pitch_organization": 10.849999999999998,
           "voice_processing_chain": 2.9500000000000006,
-          "voice_multitrack_stack": 6.37
+          "voice_multitrack_stack": 7.865000000000001
         }
       },
       {
@@ -84,7 +84,7 @@
       }
     ],
     "room": "havana_solar_outdoor_courtyard",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

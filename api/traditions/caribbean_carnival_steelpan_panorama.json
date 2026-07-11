@@ -3,9 +3,9 @@
   "name": "Trinidadian Panorama steelpan competition",
   "family": "global",
   "lineage": "Trinidadian Carnival Panorama steelpan-orchestra competition tradition continuous from 1963 first Panorama-competition founding through 20th-21st century continuous competitive performance into modern Trinidad-and-Tobago Carnival annual Panorama; the steelpan-orchestra (40-100 panmen-and-panwomen) performs a single arranged calypso/soca tune in 8-12 minute concert-piece arrangement competing for the National Panorama Champion title",
-  "recipe": "classic Caribbean early-1960s trinidadian panorama steelpan competition, carnival Processional, Caribbean branch, Brazilian carnival processional, urban American protest song, Brazilian song functional song brazilian samba-school enredo brazilian samba de roda do recôncavo. arranged concert stage steel steelpan, synthetic engelmann spruce hard rock maple synthetic varnish modern setup cello. trinidad calypso panyard outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 558,
-  "score": 55.196,
+  "recipe": "classic Caribbean early-1960s trinidadian panorama steelpan competition, carnival Processional, Caribbean branch, Brazilian carnival processional, urban American protest song, Brazilian song functional song brazilian samba-school enredo brazilian samba de roda do recôncavo. arranged concert stage steel steelpan, synthetic engelmann spruce hard rock maple synthetic varnish modern setup cello, steel orchestra. trinidad calypso panyard outdoor. shure SM57, helios UK-rock-recording pre, helios type 69, dbx 160 VCA. Studer 30ips tape hall reverb.",
+  "recipe_chars": 547,
+  "score": 62.971,
   "config": {
     "traditions": [
       "caribbean_carnival_steelpan_panorama",
@@ -48,10 +48,23 @@
           "cello_rosin": 5.82,
           "cello_bow_stick": 5.07
         }
+      },
+      {
+        "id": "steel_orchestra",
+        "slots": {
+          "steel_orchestra_sections": "steel_orchestra_mid_harmony",
+          "steel_orchestra_context": "steel_orchestra_panorama",
+          "steel_orchestra_size": "steel_orchestra_stageside"
+        },
+        "scores": {
+          "steel_orchestra_sections": 0.675,
+          "steel_orchestra_context": 15.499999999999998,
+          "steel_orchestra_size": 1.3
+        }
       }
     ],
     "room": "trinidad_calypso_panyard_outdoor",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_mobile_remote_truck",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

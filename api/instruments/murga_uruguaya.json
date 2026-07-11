@@ -1,0 +1,332 @@
+{
+  "id": "murga_uruguaya",
+  "name": "Murga uruguaya (coro y batería)",
+  "family": "ensemble",
+  "class": "vocal_choir",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 1,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "Codified Montevideo carnival unit: 13-17 nasal male voices in stacked, throat-forward harmony driven by a bombo-redoblante-platillos batería.",
+  "parts": [
+    {
+      "id": "murga_uruguaya_formation",
+      "name": "Ensemble formation",
+      "variants": [
+        {
+          "id": "murga_uruguaya_formation_carnaval",
+          "default": true,
+          "name": "Full carnival murga (13-17 voices + batería)",
+          "descriptors": [
+            "stacked-male-chorus",
+            "carnival-scale",
+            "nasal-throat-forward",
+            "codified-unit"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "choir",
+            "vocal",
+            "carnival",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "murga",
+            "tablado"
+          ]
+        },
+        {
+          "id": "murga_uruguaya_formation_calle",
+          "name": "Murga de la calle (reduced street unit)",
+          "descriptors": [
+            "street-reduced",
+            "small-chorus",
+            "raw-outdoor"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "vocal",
+            "street",
+            "rough-tone"
+          ]
+        },
+        {
+          "id": "murga_uruguaya_formation_cancion",
+          "name": "Murga-canción (studio song lineup)",
+          "descriptors": [
+            "studio-song",
+            "polished-chorus",
+            "band-backed"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "vocal",
+            "studio"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "murga_uruguaya_repertoire",
+      "name": "Repertoire moment",
+      "variants": [
+        {
+          "id": "murga_uruguaya_repertoire_presentacion",
+          "default": true,
+          "name": "Presentación (grand opening)",
+          "descriptors": [
+            "grand-entrance",
+            "full-chorus-tutti",
+            "declamatory"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "vocal",
+            "opening",
+            "declaimed"
+          ],
+          "canonical_tags": [
+            "presentacion"
+          ]
+        },
+        {
+          "id": "murga_uruguaya_repertoire_cuple",
+          "name": "Cuplé (satirical set piece)",
+          "descriptors": [
+            "satirical-verse",
+            "characterful",
+            "quick-turn"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "vocal",
+            "satire",
+            "declaimed"
+          ]
+        },
+        {
+          "id": "murga_uruguaya_repertoire_retirada",
+          "name": "Retirada (farewell number)",
+          "descriptors": [
+            "farewell-elegiac",
+            "swelling-chorus",
+            "emotive"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "vocal",
+            "farewell",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "murga_uruguaya_bateria",
+      "surface": false,
+      "name": "Batería instrumentation",
+      "variants": [
+        {
+          "id": "murga_uruguaya_bateria_clasica",
+          "default": true,
+          "name": "Bombo, redoblante y platillos",
+          "descriptors": [
+            "bombo-driven",
+            "snare-crack",
+            "cymbal-splash",
+            "three-piece-marcha"
+          ],
+          "match_tokens": [
+            "struck",
+            "ensemble",
+            "bass-drum",
+            "marching"
+          ],
+          "canonical_tags": [
+            "bombo",
+            "redoblante",
+            "platillos"
+          ]
+        },
+        {
+          "id": "murga_uruguaya_bateria_ampliada",
+          "name": "Expanded percussion (added low bombo layer)",
+          "descriptors": [
+            "deep-bombo-layer",
+            "thickened-marcha",
+            "heavy-low-end"
+          ],
+          "match_tokens": [
+            "struck",
+            "ensemble",
+            "bass-drum"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "murga_uruguaya_formation",
+      "name": "Ensemble formation",
+      "variants": [
+        {
+          "id": "murga_uruguaya_formation_carnaval",
+          "default": true,
+          "name": "Full carnival murga (13-17 voices + batería)",
+          "descriptors": [
+            "stacked-male-chorus",
+            "carnival-scale",
+            "nasal-throat-forward",
+            "codified-unit"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "choir",
+            "vocal",
+            "carnival",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "murga",
+            "tablado"
+          ]
+        },
+        {
+          "id": "murga_uruguaya_formation_calle",
+          "name": "Murga de la calle (reduced street unit)",
+          "descriptors": [
+            "street-reduced",
+            "small-chorus",
+            "raw-outdoor"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "vocal",
+            "street",
+            "rough-tone"
+          ]
+        },
+        {
+          "id": "murga_uruguaya_formation_cancion",
+          "name": "Murga-canción (studio song lineup)",
+          "descriptors": [
+            "studio-song",
+            "polished-chorus",
+            "band-backed"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "vocal",
+            "studio"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "murga_uruguaya_repertoire",
+      "name": "Repertoire moment",
+      "variants": [
+        {
+          "id": "murga_uruguaya_repertoire_presentacion",
+          "default": true,
+          "name": "Presentación (grand opening)",
+          "descriptors": [
+            "grand-entrance",
+            "full-chorus-tutti",
+            "declamatory"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "vocal",
+            "opening",
+            "declaimed"
+          ],
+          "canonical_tags": [
+            "presentacion"
+          ]
+        },
+        {
+          "id": "murga_uruguaya_repertoire_cuple",
+          "name": "Cuplé (satirical set piece)",
+          "descriptors": [
+            "satirical-verse",
+            "characterful",
+            "quick-turn"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "vocal",
+            "satire",
+            "declaimed"
+          ]
+        },
+        {
+          "id": "murga_uruguaya_repertoire_retirada",
+          "name": "Retirada (farewell number)",
+          "descriptors": [
+            "farewell-elegiac",
+            "swelling-chorus",
+            "emotive"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "vocal",
+            "farewell",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "murga_uruguaya_bateria",
+      "surface": false,
+      "name": "Batería instrumentation",
+      "variants": [
+        {
+          "id": "murga_uruguaya_bateria_clasica",
+          "default": true,
+          "name": "Bombo, redoblante y platillos",
+          "descriptors": [
+            "bombo-driven",
+            "snare-crack",
+            "cymbal-splash",
+            "three-piece-marcha"
+          ],
+          "match_tokens": [
+            "struck",
+            "ensemble",
+            "bass-drum",
+            "marching"
+          ],
+          "canonical_tags": [
+            "bombo",
+            "redoblante",
+            "platillos"
+          ]
+        },
+        {
+          "id": "murga_uruguaya_bateria_ampliada",
+          "name": "Expanded percussion (added low bombo layer)",
+          "descriptors": [
+            "deep-bombo-layer",
+            "thickened-marcha",
+            "heavy-low-end"
+          ],
+          "match_tokens": [
+            "struck",
+            "ensemble",
+            "bass-drum"
+          ]
+        }
+      ]
+    }
+  ]
+}

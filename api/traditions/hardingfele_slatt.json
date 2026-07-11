@@ -3,9 +3,9 @@
   "name": "Hardingfele slått (Hardanger-fiddle dance-tunes)",
   "family": "global",
   "lineage": "Norwegian Hardanger-fiddle slått dance-tune tradition of western-Norwegian mountain valleys (Hardanger, Voss, Telemark, Setesdal, Numedal regions). The hardingfele Hardanger-fiddle has four bowed melody strings plus four-or-five sympathetic resonant strings beneath the fingerboard, producing characteristic shimmering-overtone resonance. Slått (singular slått, plural slåttar) are solo virtuoso dance-tunes with strict regional-stylistic-conventions: springar three-beat asymmetric dance-tune, gangar two-beat walking-dance, halling acrobatic-male-display-dance, and rull rolling-tune. Performance: solo Hardanger-fiddle, with each regional sub-tradition (Setesdal, Hallingdal, Numedal, Valdres, Telemark) maintaining distinctive playing-conventions and ornamental-vocabulary.",
-  "recipe": "classic modern hardingfele slått, ballad Poetry, Celtic balladic branch, string drone modal hardanger fiddle polish village fiddle. mother of pearl bone inlay canonical norwegian decorative spruce maple canonical norwegian hardanger fiddle inst. mountain valley. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 392,
-  "score": 18.016,
+  "recipe": "classic modern hardingfele slått, ballad Poetry, Celtic balladic branch, string drone modal hardanger fiddle polish village fiddle. mother of pearl bone inlay canonical norwegian decorative spruce maple canonical norwegian hardanger fiddle inst. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 325,
+  "score": 14.716,
   "config": {
     "traditions": [
       "hardingfele_slatt",
@@ -34,7 +34,7 @@
       }
     ],
     "room": "mountain_valley",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

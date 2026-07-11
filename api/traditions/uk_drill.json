@@ -3,9 +3,9 @@
   "name": "UK drill",
   "family": "hip_hop",
   "lineage": "British drill subgenre codified through London scenes (mostly Brixton and Tottenham) circa 2014-2016 — characterized by the doubled-hi-hat-and-skipping-snare drill signature carried from Chicago but slower (140 BPM with the half-time feel), JME and Skepta’s grime influence absorbed, regional-London-Patois vocal delivery",
-  "recipe": "classic 2014-2016 uk drill, mc Rhythm, drill branch, intl hip hop MC rhythm french rap korean rap. extended whistle, rap, overtone rich sustained, narrative. TR-808, high-gain-saturation sub bass monosynth acid bass, sampled chopped sampler drum machine. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 399,
-  "score": 187.617,
+  "recipe": "classic 2014-2016 uk drill, mc Rhythm, drill branch, intl hip hop MC rhythm french rap korean rap. extended whistle, rap, breath pulsed, interlocked note trading. TR-808, high-gain-saturation sub bass monosynth acid bass, sampled chopped sampler drum machine. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 404,
+  "score": 210.162,
   "config": {
     "traditions": [
       "uk_drill",
@@ -21,8 +21,8 @@
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "diaphragm_vibrato",
-          "voice_articulation": "narrative_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "korean_minsogak_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_pansori_sigimsae",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 3.0225,
           "voice_quality": 23.779000000000003,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.3649999999999998,
-          "voice_articulation": 9,
-          "voice_microtone": 2.125000000000001,
+          "voice_vibrato": 1.755,
+          "voice_articulation": 14.234999999999992,
+          "voice_microtone": 15.33999999999999,
           "voice_tradition": 13.694999999999997,
           "voice_mechanism_compound": 3.8565,
           "voice_estill_quality": 3.0490000000000004,
           "voice_speech_song": 21.1125,
-          "voice_ensemble_config": 15.989999999999995,
+          "voice_ensemble_config": 15.859999999999992,
           "voice_ornament_system": 10.149999999999999,
           "voice_pitch_organization": 2.3075,
           "voice_processing_chain": 15.334000000000001,
-          "voice_multitrack_stack": 4.615
+          "voice_multitrack_stack": 8.450000000000001
         }
       },
       {

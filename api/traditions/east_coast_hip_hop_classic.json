@@ -3,9 +3,9 @@
   "name": "East Coast hip-hop (classic NY)",
   "family": "hip_hop",
   "lineage": "New York City classic hip-hop tradition encompassing Bronx-origin 1970s-era breakbeat-DJ-and-MC culture through 1990s \"golden age\" of Native Tongues, Boom Bap, and Wu-Tang Clan-led hardcore-NY sound. Characterized by sample-based production drawing on jazz, soul, and funk record collections, virtuoso lyrical-technique emphasis, and dense urban-NY cultural-narrative content. The Premier-Pete-Rock-RZA production lineage and the canonical Rakim-Nas-Biggie-Jay-Z MC tradition define the canonical East Coast aesthetic.",
-  "recipe": "classic North American mid-1990s east coast hip-hop, mc Rhythm, east coast branch, us hip hop conscious rap conscious hip-hop. thick, rap, narrative, equal tempered. chopped sampler, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, sampled chopped turntable. mid manhattan 1975-1985 mid-major late70s nyc commercial. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe": "classic North American mid-1990s east coast hip-hop, mc Rhythm, east coast branch, us hip hop conscious rap conscious hip-hop. thick, rap, straight onset, narrative. chopped sampler, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, sampled chopped turntable. mid manhattan 1975-1985 mid-major late70s nyc commercial. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 500,
-  "score": 294.904,
+  "score": 313.359,
   "config": {
     "traditions": [
       "east_coast_hip_hop_classic",
@@ -21,34 +21,34 @@
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "narrative_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "beatboxing_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_rhythmic_spoken_flow",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_none",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 17.640249999999998,
           "voice_quality": 28.49825,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.45499999999999996,
+          "voice_vibrato": 8.838999999999999,
           "voice_articulation": 20.483749999999997,
-          "voice_microtone": 10.674999999999997,
+          "voice_microtone": 15.534999999999997,
           "voice_tradition": 12.040499999999998,
           "voice_mechanism_compound": 3.3637500000000005,
           "voice_estill_quality": 7.188000000000001,
           "voice_speech_song": 24.881499999999992,
-          "voice_ensemble_config": 15.795,
-          "voice_ornament_system": 0.0735,
-          "voice_pitch_organization": 3.1654999999999998,
+          "voice_ensemble_config": 15.665,
+          "voice_ornament_system": 4.355000000000002,
+          "voice_pitch_organization": 3.152,
           "voice_processing_chain": 19.58,
-          "voice_multitrack_stack": 3.38
+          "voice_multitrack_stack": 4.452500000000001
         }
       },
       {

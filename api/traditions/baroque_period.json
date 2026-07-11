@@ -3,9 +3,9 @@
   "name": "Baroque period-instrument",
   "family": "classical",
   "lineage": "1600-1750 European art-music period encompassing the development of opera (Monteverdi Orfeo 1607), the concerto grosso (Corelli), the cantata and fugue (Bach), the oratorio (Handel), and the harpsichord and early-fortepiano keyboard repertoire — characterized by figured-bass continuo practice, contrapuntal compositional technique, ornamental melodic style, and the moderate-pitch (A=415 Hz typical) tuning convention",
-  "recipe": "classic early-1600s baroque period-instrument, art Music, western early branch, christian gospel anglican choral anglican choral evensong. steel norway spruce European alpine European maple bosnian source violin orchestral, flemish ruckers antwerp canonical late 16th 17th century bach era reference quarter comma meantone canonical renaissance early Baroque legato harpsichord, gut norway spruce European alpine European maple bosnian source cello, yew ribs Italian Baroque pistoy bass gut plain gut treble historical canonical Baroque theorbo, pistoy silver wound gut treble canonical bass viol snakewood underhand grip viola da gamba, boxwood canonical Baroque classical pre 1850 loree paris canonical American school legato oboe, ayre and lieder pistoy bass gut plain gut treble lute renaissance, boxwood canonical renaissance European shawm, controlled legato bassoon. parish church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ.",
-  "recipe_chars": 961,
-  "score": 283.994,
+  "recipe": "classic European early-1600s baroque period-instrument, art Music, western early branch, christian gospel anglican choral anglican choral evensong. steel norway spruce European alpine European maple bosnian source violin orchestral, flemish ruckers antwerp canonical late 16th 17th century bach era reference quarter comma meantone canonical renaissance early Baroque legato harpsichord, gut norway spruce European alpine European maple bosnian source cello, yew ribs Italian Baroque pistoy bass gut plain gut treble historical canonical Baroque theorbo, pistoy silver wound gut treble canonical bass viol snakewood underhand grip viola da gamba, boxwood canonical Baroque classical pre 1850 loree paris canonical American school legato oboe, ayre and lieder pistoy bass gut plain gut treble lute renaissance, boxwood canonical renaissance European shawm, controlled legato bassoon, bass quartposaune consort blend thin hammered brass sackbut, fuller bass double bourdon early Italian baroque guitar.",
+  "recipe_chars": 1000,
+  "score": 352.135,
   "config": {
     "traditions": [
       "baroque_period",
@@ -192,10 +192,64 @@
           "bassoon_reed": 0.39,
           "bassoon_context": 2.6550000000000002
         }
+      },
+      {
+        "id": "sackbut",
+        "slots": {
+          "sackbut_size": "sackbut_bass",
+          "sackbut_repertoire": "sackbut_consort_canzona",
+          "sackbut_build": "sackbut_nuremberg_copy"
+        },
+        "scores": {
+          "sackbut_size": 8.05,
+          "sackbut_repertoire": 5.5,
+          "sackbut_build": 5.800000000000001
+        }
+      },
+      {
+        "id": "baroque_guitar",
+        "slots": {
+          "baroque_guitar_form": "baroque_guitar_spanish_sanz",
+          "baroque_guitar_style": "baroque_guitar_punteado_mixte",
+          "baroque_guitar_stringing": "baroque_guitar_double_bourdons"
+        },
+        "scores": {
+          "baroque_guitar_form": 0.39,
+          "baroque_guitar_style": 0.8999999999999999,
+          "baroque_guitar_stringing": 7.41
+        }
+      },
+      {
+        "id": "viola_damore",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "viola_damore_form": "viola_damore_seven_string",
+          "viola_damore_repertoire": "viola_damore_passion_obbligato",
+          "viola_damore_stringing": "viola_damore_gut_over_wire"
+        },
+        "scores": {
+          "bowed_technique": 3.25,
+          "viola_damore_form": 12.25,
+          "viola_damore_repertoire": 6.9655000000000005,
+          "viola_damore_stringing": 13.119
+        }
+      },
+      {
+        "id": "natural_horn",
+        "slots": {
+          "natural_horn_form": "natural_horn_baroque_waldhorn",
+          "natural_horn_context": "natural_horn_hand_stopping",
+          "natural_horn_crook_system": "natural_horn_master_crook_couplers"
+        },
+        "scores": {
+          "natural_horn_form": 5.9245,
+          "natural_horn_context": 0.1365,
+          "natural_horn_crook_system": 2.47
+        }
       }
     ],
     "room": "stone_parish_church",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_church_location_early_music",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "tube_pre",

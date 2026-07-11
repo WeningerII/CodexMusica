@@ -3,9 +3,9 @@
   "name": "Country-pop crossover",
   "family": "global",
   "lineage": "2000s and 2010s country-pop crossover tradition codified through Shania Twain (Come On Over 1997), Faith Hill, Tim McGraw, Taylor Swift’s first three records (2006-2010 before her full pop pivot), Carrie Underwood — characterized by country-vocal lead over pop-radio production with reduced fiddle/steel and increased programmed-percussion presence",
-  "recipe": "classic 2006-2010 country-pop crossover, functional Song, contemp main branch, pop rock functional song new wave yacht rock. thick, low dynamic level, melodic, equal tempered. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, steel pre muffled edge muffled hot rolled annealed drum kit, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, singing lead analog poly synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 720,
-  "score": 786.165,
+  "recipe": "classic 2006-2010 country-pop crossover, functional Song, contemp main branch, pop rock functional song new wave yacht rock. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, steel pre muffled edge muffled hot rolled annealed drum kit, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, singing lead analog poly synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 742,
+  "score": 810.445,
   "config": {
     "traditions": [
       "country_pop_crossover",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "crooner_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "spoken_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_vedic_three_tone",
           "voice_processing_chain": "voice_processing_talkbox",
-          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 67.20000000000002,
-          "voice_quality": 2.0799999999999996,
+          "voice_quality": 8.482499999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 13.53,
-          "voice_articulation": 0.39,
+          "voice_vibrato": 14.149999999999997,
+          "voice_articulation": 11.764999999999993,
           "voice_microtone": 52.6,
           "voice_tradition": 36.595,
           "voice_mechanism_compound": 2.6649999999999996,
           "voice_estill_quality": 16.275,
-          "voice_speech_song": 17.809999999999995,
-          "voice_ensemble_config": 11.439999999999994,
+          "voice_speech_song": 18.52499999999999,
+          "voice_ensemble_config": 13.194999999999991,
           "voice_ornament_system": 0.39,
           "voice_pitch_organization": 1.56,
           "voice_processing_chain": 10.14,
-          "voice_multitrack_stack": 5.915000000000001
+          "voice_multitrack_stack": 9.3275
         }
       },
       {

@@ -3,9 +3,9 @@
   "name": "Gothic metal",
   "family": "rock_punk",
   "lineage": "Early-1990s heavy-metal subgenre emerging in northern Europe (UK, Netherlands, Norway) integrating doom-metal slow tempi, gothic-rock atmospheric register, and male-female contrasting-vocal dual-presentation (operatic-female vs growled-male). Paradise Lost's Gothic (1991), My Dying Bride, Anathema, the Theatre of Tragedy (Norway, 1993-onward), and the Type O Negative (NYC, 1989-2010) anchored the canonical roster.",
-  "recipe": "classic North American mid-2000s gothic metal, distorted Rock, symphonic branch, gothic rock distorted rock darkwave. thick, larynx lowered, chest resonance low mid, equal tempered. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, walnut oil filled machine hammered symmetric pattern organized rows drum kit, analog synth. denver gothic basement studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe": "classic North American mid-2000s gothic metal, distorted Rock, symphonic branch, gothic rock distorted rock darkwave. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, walnut oil filled machine hammered symmetric pattern organized rows drum kit, analog synth. denver gothic basement studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 643,
-  "score": 445.919,
+  "score": 467.165,
   "config": {
     "traditions": [
       "gothic_metal",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "lowered_larynx_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "spoken_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "japanese_min_yo_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 25.952499999999997,
-          "voice_quality": 6.380000000000001,
+          "voice_quality": 11.256249999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.975,
-          "voice_articulation": 0.195,
+          "voice_vibrato": 2.86,
+          "voice_articulation": 13.064999999999996,
           "voice_microtone": 24.748499999999996,
           "voice_tradition": 3.5100000000000002,
           "voice_mechanism_compound": 19.241249999999997,
           "voice_estill_quality": 2.0437499999999997,
-          "voice_speech_song": 13.194999999999999,
-          "voice_ensemble_config": 13.974999999999998,
+          "voice_speech_song": 13.064999999999996,
+          "voice_ensemble_config": 14.039999999999996,
           "voice_ornament_system": 0.075,
-          "voice_pitch_organization": 3.9737500000000003,
+          "voice_pitch_organization": 4.603750000000001,
           "voice_processing_chain": 6.2844999999999995,
-          "voice_multitrack_stack": 6.2262499999999985
+          "voice_multitrack_stack": 7.27625
         }
       },
       {

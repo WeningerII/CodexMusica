@@ -3,9 +3,9 @@
   "name": "Japanese matsuri festival drumming (祭, matsuri-bayashi)",
   "family": "global",
   "lineage": "Japanese matsuri (祭, festival) drumming tradition continuous from premodern Shinto-Buddhist festival-procession practice through Edo-period (1603-1868) codification of canonical city-festival drumming (the Tokyo-Asakusa Sanja Matsuri, Kyoto Gion Matsuri, Osaka Tenjin Matsuri, Aomori Nebuta Matsuri) into modern Japanese-and-Japanese-diaspora continuous festival-practice",
-  "recipe": "classic East Asian early-1600s japanese matsuri festival drumming, carnival Processional, east Asian branch, European carnival processional, buddhist ritual devotional, east Asian wedding chinese xǐqìng (喜慶) wedding music javanese wedding gamelan music. thick, declaimed, melodic, continuous-phonation. cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk oedo sukeroku canonical kumi daiko modern ensemble taiko drum, acrylic red sandalwood premium nylon modern tsugaru shamisen, madake bamboo phyllostachys canonical Japanese root section kinko ryu canonical edo period concert continuous-airflow legato shakuhachi. kabuki theater japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 802,
-  "score": 161.601,
+  "recipe": "classic East Asian early-1600s japanese matsuri festival drumming, carnival Processional, east Asian branch, European carnival processional, buddhist ritual devotional, east Asian wedding chinese xǐqìng (喜慶) wedding music javanese wedding gamelan music. thick, breath veiled tone, straight note core, interlocked note trading. cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk oedo sukeroku canonical kumi daiko modern ensemble taiko drum, acrylic red sandalwood premium nylon modern tsugaru shamisen, madake bamboo phyllostachys canonical Japanese root section kinko ryu canonical edo period concert continuous-airflow legato shakuhachi. kabuki theater japanese. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 759,
+  "score": 177.456,
   "config": {
     "traditions": [
       "japanese_matsuri_taiko",
@@ -72,12 +72,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "legato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "chinese_classical_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
           "voice_estill_quality": "voice_estill_opera",
@@ -86,30 +86,30 @@
           "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_pelog_7",
           "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 3.595,
-          "voice_quality": 3.8037499999999995,
+          "voice_quality": 5.525000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.9387499999999998,
-          "voice_articulation": 5.151249999999999,
-          "voice_microtone": 3.8000000000000003,
+          "voice_vibrato": 4.90875,
+          "voice_articulation": 10.139999999999999,
+          "voice_microtone": 9.945,
           "voice_tradition": 26.49375,
           "voice_mechanism_compound": 1.0074999999999998,
           "voice_estill_quality": 0.8449999999999999,
-          "voice_speech_song": 10.269999999999998,
-          "voice_ensemble_config": 10.789999999999996,
+          "voice_speech_song": 10.139999999999999,
+          "voice_ensemble_config": 10.854999999999995,
           "voice_ornament_system": 6.923750000000001,
-          "voice_pitch_organization": 6.890000000000001,
+          "voice_pitch_organization": 14.704999999999997,
           "voice_processing_chain": 2.925000000000001,
-          "voice_multitrack_stack": 1.56
+          "voice_multitrack_stack": 2.0149999999999997
         }
       }
     ],
     "room": "kabuki_theater_japanese",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

@@ -3,9 +3,9 @@
   "name": "Candombe uruguayo",
   "family": "global",
   "lineage": "Afro-Uruguayan drum-procession tradition traced to 18th-century African slave processions through Montevideo — performed by the cuerda de tambores ensemble of three drum sizes (chico small high-pitched lead-rhythm, repique medium-pitched conversational, piano deep bass) carried on shoulder straps and played with one hand and one stick; the annual Desfile de Llamadas during Carnival brings comparsas through Barrio Sur, Palermo, and Cordón Montevideo neighborhoods with their costumed dancers and full cuerda batteries — figures Pedro Ferreira, Romero Ferreira, the modern Hugo Fattoruso extensions",
-  "recipe": "classic South American mid-1930s candombe uruguayo, groove Percussion, Latin am branch, Afro-diasporic ritual devotional. a cappella small 3 to 8 one per part call response single leader group response sub saharan call response ostinato polyrhythmic choir ensemble, lead cowhide canonical candomble atabaque, lead open slap hand drum congas, full cuerda song accompaniment groove synthetic head weatherproof candombe tamboriles. montevideo candombe barrio sur carnival. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 542,
-  "score": 62.642,
+  "recipe": "classic South American mid-1940s candombe uruguayo, groove Percussion, Latin am branch, Afro-diasporic ritual devotional. a cappella small 3 to 8 one per part call response single leader group response sub saharan call response ostinato polyrhythmic choir ensemble, lead cowhide canonical candomble atabaque, lead open slap hand drum congas, full cuerda song accompaniment groove synthetic head weatherproof candombe tamboriles. montevideo candombe barrio sur carnival. RCA 44-BX, German V72 tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 537,
+  "score": 62.567,
   "config": {
     "traditions": [
       "candombe_uruguayan"
@@ -69,7 +69,7 @@
       }
     ],
     "room": "montevideo_candombe_barrio_sur_carnival",
-    "archetype": "arch_electrical_disc_cut",
+    "archetype": "arch_ba_tango_radio_orquesta",
     "inline_chain": {
       "mic": "mic_sm57_dynamic_shure",
       "pre": "transformer_solid_state",

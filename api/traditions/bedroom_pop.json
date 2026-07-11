@@ -3,9 +3,9 @@
   "name": "Bedroom pop",
   "family": "global",
   "lineage": "2010s onward indie-pop subgenre originating in solo bedroom-DAW production — characterized by lo-fi or hi-fi DIY production, intimate vocal delivery, and adolescent thematic content — codified through Clairo (Pretty Girl 2017, Immunity 2019), Cuco, Boy Pablo, Mac DeMarco (Salad Days 2014, the genre's lineage-bearing predecessor), Beabadoobee, with the form serving as the late-2010s indie-pop mainstream",
-  "recipe": "classic 2017-2019 bedroom pop, experimental Elec, lofi branch, pop rock functional song new wave yacht rock. thick, low dynamic level, chest resonance low mid, equal tempered. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, TR-808, sequential lineage canonical prophet 5 1978 san jose ca lead analog poly synth, ukulele. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 575,
-  "score": 400.942,
+  "recipe": "classic 2017-2019 bedroom pop, experimental Elec, lofi branch, pop rock functional song new wave yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, TR-808, sequential lineage canonical prophet 5 1978 san jose ca lead analog poly synth, ukulele. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 577,
+  "score": 441.92,
   "config": {
     "traditions": [
       "bedroom_pop",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "crooner_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "spoken_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_pelog_7",
           "voice_processing_chain": "voice_processing_talkbox",
-          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 51.91125000000002,
-          "voice_quality": 2.4699999999999998,
+          "voice_quality": 16.022499999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.6649999999999996,
-          "voice_articulation": 0.39,
+          "voice_vibrato": 8.5425,
+          "voice_articulation": 12.414999999999994,
           "voice_microtone": 49.349999999999994,
           "voice_tradition": 33.345,
           "voice_mechanism_compound": 3.055,
           "voice_estill_quality": 2.665000000000001,
-          "voice_speech_song": 17.289999999999996,
-          "voice_ensemble_config": 12.089999999999995,
+          "voice_speech_song": 18.394999999999992,
+          "voice_ensemble_config": 12.154999999999992,
           "voice_ornament_system": 0.39,
-          "voice_pitch_organization": 1.0399999999999998,
+          "voice_pitch_organization": 1.1049999999999998,
           "voice_processing_chain": 10.831875,
-          "voice_multitrack_stack": 7.215000000000001
+          "voice_multitrack_stack": 15.502499999999998
         }
       },
       {

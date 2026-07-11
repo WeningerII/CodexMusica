@@ -3,9 +3,9 @@
   "name": "Newfoundland outport balladry",
   "family": "global",
   "lineage": "Newfoundland and Labrador outport fishing-community song heritage of Irish, West Country English, and Scottish settler-fishing-family origin — preserved across the 17th-21st centuries in the small isolated coastal-settlement (outport) communities along the Newfoundland coastline; standard ensemble: fiddle (the dominant melodic instrument, played in the distinctive Newfoundland style combining Irish ornamentation with Cape Breton bowing), accordion or button accordion, sometimes mandolin or guitar — 20th-century preservation through Émile Benoit, Rufus Guinchard, Wilf Doyle, Minnie White, the modern Great Big Sea folk-rock crossover, the Newfoundland and Labrador Folklore and Language Archive fieldwork collection",
-  "recipe": "classic North American modern newfoundland outport balladry, ballad Poetry, newfoundland revival branch, anglo singer song britfolk britfolk revival. thick, incomplete closure resting, melodic, unrestrained. castagnari Italian premium folk music straight accordion, synthetic magic rosin modern acrylic base double stops fiddle, dadgad tuning fingerpicked acoustic guitar. newfoundland outport kitchen party. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 538,
-  "score": 157.868,
+  "recipe": "classic North American early-1940s newfoundland outport balladry, ballad Poetry, newfoundland revival branch, anglo singer song britfolk britfolk revival. thick, breath veiled tone, straight note core, interlocked note trading. castagnari Italian premium folk music straight accordion, magic rosin modern acrylic base double stops fiddle, dadgad tuning fingerpicked acoustic guitar. newfoundland outport kitchen party. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 493,
+  "score": 165.924,
   "config": {
     "traditions": [
       "newfoundland_outport",
@@ -16,12 +16,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "incomplete_closure_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "shouted_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -34,18 +34,18 @@
         },
         "scores": {
           "voice_register": 10.939999999999998,
-          "voice_quality": 10.794999999999998,
+          "voice_quality": 11.573124999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.9143749999999997,
-          "voice_articulation": 1.25,
-          "voice_microtone": 2.6250000000000004,
+          "voice_vibrato": 3.8200000000000003,
+          "voice_articulation": 8.161874999999998,
+          "voice_microtone": 8.405624999999999,
           "voice_tradition": 12.943125000000002,
           "voice_mechanism_compound": 1.6675,
           "voice_estill_quality": 3.8537500000000002,
-          "voice_speech_song": 11.494374999999998,
-          "voice_ensemble_config": 8.240624999999998,
-          "voice_ornament_system": 5.4,
+          "voice_speech_song": 11.766249999999996,
+          "voice_ensemble_config": 8.148124999999999,
+          "voice_ornament_system": 11.049999999999999,
           "voice_pitch_organization": 0.7799999999999998,
           "voice_processing_chain": 1.336875,
           "voice_multitrack_stack": 1.63375
@@ -83,8 +83,8 @@
         },
         "scores": {
           "bowed_technique": 5.6000000000000005,
-          "fiddle_strings": 2.005625,
-          "fiddle_bow": 2.505625,
+          "fiddle_strings": 0.505625,
+          "fiddle_bow": 1.005625,
           "fiddle_mute": 0.013125,
           "fiddle_articulation": 1.414375
         }
@@ -110,7 +110,7 @@
       }
     ],
     "room": "newfoundland_outport_kitchen_party",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_nagra_ethnographic_field",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

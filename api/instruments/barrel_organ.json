@@ -1,0 +1,447 @@
+{
+  "id": "barrel_organ",
+  "name": "Barrel organ (crank-driven mechanical pipe organ)",
+  "family": "keyboard",
+  "class": "keyboard_acoustic",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "Hand-cranked mechanical pipe organ that reads a pinned wooden barrel or perforated cardboard book to sound flue and reed pipes — the buzzing, unwavering voice of the Parisian orgue de Barbarie, the Dutch draaiorgel, and Mexico City's organilleros.",
+  "parts": [
+    {
+      "id": "keyboard_technique",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "keyboard_block_chord_pop",
+          "default": true,
+          "name": "Block-chord pop",
+          "descriptors": [
+            "block-chord"
+          ],
+          "match_tokens": [
+            "chordal",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "pop",
+            "singer-songwriter"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "barrel_organ_form",
+      "name": "Regional form and size",
+      "variants": [
+        {
+          "id": "barrel_organ_form_barbarie",
+          "default": true,
+          "name": "Orgue de Barbarie (small Parisian hand-cranked street organ)",
+          "descriptors": [
+            "hand-cranked",
+            "small-street-organ",
+            "reedy-buzz"
+          ],
+          "match_tokens": [
+            "street-organ",
+            "hand-cranked",
+            "busking",
+            "crank-driven"
+          ],
+          "canonical_tags": [
+            "barrel_organ",
+            "orgue_de_barbarie"
+          ]
+        },
+        {
+          "id": "barrel_organ_form_draaiorgel",
+          "name": "Dutch draaiorgel (large carved facade street organ)",
+          "descriptors": [
+            "large-street-organ",
+            "carved-facade",
+            "full-registration"
+          ],
+          "match_tokens": [
+            "draaiorgel",
+            "large",
+            "street-organ",
+            "book-music"
+          ],
+          "canonical_tags": [
+            "draaiorgel"
+          ]
+        },
+        {
+          "id": "barrel_organ_form_fairground",
+          "name": "Fairground / dance organ (Gavioli, Ruth, Marenghi)",
+          "descriptors": [
+            "fairground-organ",
+            "loud-brassy",
+            "carousel-voice"
+          ],
+          "match_tokens": [
+            "fairground",
+            "carousel",
+            "loud",
+            "dance-organ"
+          ],
+          "canonical_tags": [
+            "fairground_organ"
+          ]
+        },
+        {
+          "id": "barrel_organ_form_organillo",
+          "name": "Organillo (Berlin cylinder organ of the Mexico City organilleros)",
+          "descriptors": [
+            "cylinder-organ",
+            "pinned-barrel",
+            "street-serenade"
+          ],
+          "match_tokens": [
+            "organillo",
+            "cylinder-organ",
+            "street-organ"
+          ],
+          "canonical_tags": [
+            "organillo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "barrel_organ_programme",
+      "name": "Programme and playing context",
+      "variants": [
+        {
+          "id": "barrel_organ_programme_street",
+          "default": true,
+          "name": "Strolling street serenade / musette waltz",
+          "descriptors": [
+            "strolling-crank",
+            "street-waltz",
+            "musette-tune"
+          ],
+          "match_tokens": [
+            "busking",
+            "street",
+            "crank-driven",
+            "waltz"
+          ],
+          "canonical_tags": [
+            "street_serenade"
+          ]
+        },
+        {
+          "id": "barrel_organ_programme_fair",
+          "name": "Fairground carousel dance and march",
+          "descriptors": [
+            "carousel-march",
+            "festival-din",
+            "brassy-dance"
+          ],
+          "match_tokens": [
+            "fairground",
+            "dance",
+            "loud",
+            "carousel"
+          ],
+          "canonical_tags": [
+            "carousel_music"
+          ]
+        },
+        {
+          "id": "barrel_organ_programme_parlour",
+          "name": "Mechanical parlour airs and hymns",
+          "descriptors": [
+            "parlour-air",
+            "gentle-hymn",
+            "music-box-tone"
+          ],
+          "match_tokens": [
+            "chamber",
+            "soft",
+            "mechanical",
+            "hymn"
+          ],
+          "canonical_tags": [
+            "parlour_organ"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "barrel_organ_pipework",
+      "surface": false,
+      "name": "Pipework and programme medium",
+      "variants": [
+        {
+          "id": "barrel_organ_pipework_flue_barrel",
+          "default": true,
+          "name": "Wooden flue pipes read from a pinned barrel",
+          "descriptors": [
+            "wooden-flue-pipes",
+            "pinned-barrel",
+            "mellow-tone"
+          ],
+          "match_tokens": [
+            "flue-pipes",
+            "pinned-barrel",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "flue_pipes"
+          ]
+        },
+        {
+          "id": "barrel_organ_pipework_reed_book",
+          "name": "Brass reed and trumpet ranks read from a cardboard book",
+          "descriptors": [
+            "brass-reed-pipes",
+            "book-music",
+            "brassy-buzz"
+          ],
+          "match_tokens": [
+            "reed-pipes",
+            "book-music",
+            "brassy",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "reed_pipes",
+            "book_music"
+          ]
+        },
+        {
+          "id": "barrel_organ_pipework_mixed",
+          "name": "Mixed flue-and-reed ranks with glockenspiel and drum",
+          "descriptors": [
+            "mixed-ranks",
+            "glockenspiel-rank",
+            "drum-and-cymbal"
+          ],
+          "match_tokens": [
+            "mixed-ranks",
+            "fairground",
+            "percussion"
+          ],
+          "canonical_tags": [
+            "mixed_ranks"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "barrel_organ_form",
+      "name": "Regional form and size",
+      "variants": [
+        {
+          "id": "barrel_organ_form_barbarie",
+          "default": true,
+          "name": "Orgue de Barbarie (small Parisian hand-cranked street organ)",
+          "descriptors": [
+            "hand-cranked",
+            "small-street-organ",
+            "reedy-buzz"
+          ],
+          "match_tokens": [
+            "street-organ",
+            "hand-cranked",
+            "busking",
+            "crank-driven"
+          ],
+          "canonical_tags": [
+            "barrel_organ",
+            "orgue_de_barbarie"
+          ]
+        },
+        {
+          "id": "barrel_organ_form_draaiorgel",
+          "name": "Dutch draaiorgel (large carved facade street organ)",
+          "descriptors": [
+            "large-street-organ",
+            "carved-facade",
+            "full-registration"
+          ],
+          "match_tokens": [
+            "draaiorgel",
+            "large",
+            "street-organ",
+            "book-music"
+          ],
+          "canonical_tags": [
+            "draaiorgel"
+          ]
+        },
+        {
+          "id": "barrel_organ_form_fairground",
+          "name": "Fairground / dance organ (Gavioli, Ruth, Marenghi)",
+          "descriptors": [
+            "fairground-organ",
+            "loud-brassy",
+            "carousel-voice"
+          ],
+          "match_tokens": [
+            "fairground",
+            "carousel",
+            "loud",
+            "dance-organ"
+          ],
+          "canonical_tags": [
+            "fairground_organ"
+          ]
+        },
+        {
+          "id": "barrel_organ_form_organillo",
+          "name": "Organillo (Berlin cylinder organ of the Mexico City organilleros)",
+          "descriptors": [
+            "cylinder-organ",
+            "pinned-barrel",
+            "street-serenade"
+          ],
+          "match_tokens": [
+            "organillo",
+            "cylinder-organ",
+            "street-organ"
+          ],
+          "canonical_tags": [
+            "organillo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "barrel_organ_programme",
+      "name": "Programme and playing context",
+      "variants": [
+        {
+          "id": "barrel_organ_programme_street",
+          "default": true,
+          "name": "Strolling street serenade / musette waltz",
+          "descriptors": [
+            "strolling-crank",
+            "street-waltz",
+            "musette-tune"
+          ],
+          "match_tokens": [
+            "busking",
+            "street",
+            "crank-driven",
+            "waltz"
+          ],
+          "canonical_tags": [
+            "street_serenade"
+          ]
+        },
+        {
+          "id": "barrel_organ_programme_fair",
+          "name": "Fairground carousel dance and march",
+          "descriptors": [
+            "carousel-march",
+            "festival-din",
+            "brassy-dance"
+          ],
+          "match_tokens": [
+            "fairground",
+            "dance",
+            "loud",
+            "carousel"
+          ],
+          "canonical_tags": [
+            "carousel_music"
+          ]
+        },
+        {
+          "id": "barrel_organ_programme_parlour",
+          "name": "Mechanical parlour airs and hymns",
+          "descriptors": [
+            "parlour-air",
+            "gentle-hymn",
+            "music-box-tone"
+          ],
+          "match_tokens": [
+            "chamber",
+            "soft",
+            "mechanical",
+            "hymn"
+          ],
+          "canonical_tags": [
+            "parlour_organ"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "barrel_organ_pipework",
+      "surface": false,
+      "name": "Pipework and programme medium",
+      "variants": [
+        {
+          "id": "barrel_organ_pipework_flue_barrel",
+          "default": true,
+          "name": "Wooden flue pipes read from a pinned barrel",
+          "descriptors": [
+            "wooden-flue-pipes",
+            "pinned-barrel",
+            "mellow-tone"
+          ],
+          "match_tokens": [
+            "flue-pipes",
+            "pinned-barrel",
+            "wind-driven"
+          ],
+          "canonical_tags": [
+            "flue_pipes"
+          ]
+        },
+        {
+          "id": "barrel_organ_pipework_reed_book",
+          "name": "Brass reed and trumpet ranks read from a cardboard book",
+          "descriptors": [
+            "brass-reed-pipes",
+            "book-music",
+            "brassy-buzz"
+          ],
+          "match_tokens": [
+            "reed-pipes",
+            "book-music",
+            "brassy",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "reed_pipes",
+            "book_music"
+          ]
+        },
+        {
+          "id": "barrel_organ_pipework_mixed",
+          "name": "Mixed flue-and-reed ranks with glockenspiel and drum",
+          "descriptors": [
+            "mixed-ranks",
+            "glockenspiel-rank",
+            "drum-and-cymbal"
+          ],
+          "match_tokens": [
+            "mixed-ranks",
+            "fairground",
+            "percussion"
+          ],
+          "canonical_tags": [
+            "mixed_ranks"
+          ]
+        }
+      ]
+    }
+  ]
+}

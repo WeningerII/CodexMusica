@@ -3,9 +3,9 @@
   "name": "Aboriginal Australian hunting songlines",
   "family": "global",
   "lineage": "Aboriginal Australian hunting-and-songlines tradition continuous from at-least-65,000-year-continuous Indigenous-Australian cultural-practice through colonial-era continuous performance into modern Aboriginal-and-Torres-Strait-Islander continuous practice",
-  "recipe": "classic Oceanian modern aboriginal australian hunting songlines, hunting Song, indigenous branch, arctic hunting song, sub saharan African hunting song, oceania pacific praise song māori waiata mōteatea / patere san (khoisan) hunting and trance song. vocal fry, declaimed, tasteful, continuous-phonation. eucalyptus tetrodonta yidaki canon northeast arnhem sugarbag beeswax native bee wax didgeridoo, desert boomerang pair song cycle clapsticks bilma. arctic arnhem indigenous outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 615,
-  "score": 172.431,
+  "recipe": "classic Oceanian modern aboriginal australian hunting songlines, hunting Song, indigenous branch, arctic hunting song, sub saharan African hunting song, oceania pacific praise song māori waiata mōteatea / patere san (khoisan) hunting and trance song. vocal fry, declaimed, straight onset, continuous-phonation. eucalyptus tetrodonta yidaki canon northeast arnhem sugarbag beeswax native bee wax didgeridoo, desert boomerang pair song cycle clapsticks bilma, large slat slow whirl ritual summoning bullroarer. arctic arnhem indigenous outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 605,
+  "score": 182.356,
   "config": {
     "traditions": [
       "aboriginal_australian_songlines",
@@ -22,7 +22,7 @@
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "legato_voice",
-          "voice_microtone": "blue_notes",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "polynesian_oli_tradition",
           "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -38,14 +38,14 @@
           "voice_quality": 15.657749999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.38,
+          "voice_vibrato": 3.2500000000000004,
           "voice_articulation": 10.139999999999999,
-          "voice_microtone": 0.045,
+          "voice_microtone": 9.749999999999998,
           "voice_tradition": 21.515,
           "voice_mechanism_compound": 12.42,
           "voice_estill_quality": 1.56,
-          "voice_speech_song": 21.58,
-          "voice_ensemble_config": 10.399999999999997,
+          "voice_speech_song": 21.644999999999992,
+          "voice_ensemble_config": 10.269999999999996,
           "voice_ornament_system": 8.059999999999999,
           "voice_pitch_organization": 10.139999999999999,
           "voice_processing_chain": 0.975,
@@ -79,10 +79,23 @@
           "clapsticks_bilma_context": 11.374999999999998,
           "clapsticks_bilma_wood": -0.05
         }
+      },
+      {
+        "id": "bullroarer",
+        "slots": {
+          "bullroarer_regional_form": "bullroarer_form_concert",
+          "bullroarer_whirl_style": "bullroarer_whirl_ceremonial",
+          "bullroarer_slat_build": "bullroarer_build_hardwood"
+        },
+        "scores": {
+          "bullroarer_regional_form": 3.38,
+          "bullroarer_whirl_style": 2.535,
+          "bullroarer_slat_build": 0
+        }
       }
     ],
     "room": "arctic_arnhem_indigenous_outdoor",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

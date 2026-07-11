@@ -40,6 +40,64 @@ All notable changes to this project are recorded here. Format loosely follows
   songlines. Orphaned per-instrument `parts` overrides pinned to the replaced
   stand-ins were removed. Wired into 93 traditions; regression re-blessed
   (104 fixtures: the wired traditions plus blends that stack them).
+- **75 more instruments, second-pass audit** (576 → 651): a second region- and
+  family-lensed audit surfaced gaps the first pass missed, especially in
+  families it never touched. By family: **18 plucked-traditional, 14 percussion,
+  13 wind, 9 ensemble, 6 free-reed, 5 bowed, 5 keyboard, 2 electronic,
+  2 electric-strings, 1 acoustic-strings**. Highlights: the **sanshin**
+  (Okinawan — `shamisen` was standing in for it in the tradition literally named
+  after it), the **steel band** ensemble (the Panorama tradition had a lone
+  `steelpan` + orchestral cello), the **cencerro** salsa cowbell (absent from
+  six salsa traditions), **phin**, **chenda**, **sape**, **fujara**,
+  **simsimiyya**, **bayan**, **shruti box**, plus an early-music suite
+  (**sackbut, crumhorn, vielle, rebec, viola d'amore, baroque guitar, vihuela de
+  mano, portative organ, medieval psaltery**) and keyboard/electronic curios
+  (**omnichord, stylophone, optigan, cristal Baschet, waterphone**).
+- **10 more generic-stand-in fixes**: sanshin replaces `shamisen` in Okinawan
+  eisa; the hsaing waing ensemble replaces the Balinese `gamelan_balinese_full`
+  that round 1 left in the Burmese traditions; `choir_isicathamiya` /
+  `choir_georgian_polyphonic` / `murga_uruguaya` replace the generic
+  `choir_ensemble`; `bayan` replaces `accordion` in Russian traditions;
+  `trikitixa` replaces `accordion` in Basque; `tambora_colombiana` replaces
+  `surdo` in cumbia; and `vielle` / `portative_organ` replace `fiddle` /
+  `pipe_organ` in early-music rosters. Wired into 78 traditions; orphaned parts
+  overrides cleaned; regression re-blessed.
+- **62 signal-chain archetypes + 608 tradition re-homings** (22 → 84 chain
+  archetypes). An archetype is the render-visible production chain
+  (mic+pre+console+comp+eq+medium+fx) describing how a tradition was canonically
+  recorded. Only 22 existed for 1195 traditions: 662 sat on the generic
+  `arch_modern_pro_daw_studio` and many others on cross-region proxies (bossa
+  nova and French chanson both rendered through the *Havana* chain, spiritual
+  jazz through *UK rock*, Nashville country through *80s SSL*). An era×region
+  recording-culture audit added 62 documented archetypes — Van Gelder,
+  Motown Snakepit (with James Jamerson's DI bass), Nashville A-Team, Sigma
+  Sound, NYC disco 12-inch, Fania salsa, Odeon/Elenco bossa-MPB, Buenos Aires
+  tango golden age, Churubusco ranchera, the "Decca Sound", ECM/Kongshaug,
+  Cairo state-radio golden age, Bombay filmi playback, HMV Dum Dum classical,
+  Gallo township-jive, Kinshasa rumba, Melodiya, K-pop idol complex, UK jungle
+  dubplate, Berlin dub-techno — plus the field-recording archetypes the catalog
+  entirely lacked (Nagra analog, 24-bit portable, wax cylinder) that now re-home
+  ~380 ethnographically-recorded traditions off studio chains. Each archetype's
+  components resolve against the existing chain-item inventory; all 608
+  re-homings validated; regression re-blessed.
+- **Voice option lists enriched across all 16 voice parts** (224 → 262
+  variants; 38 re-described, 38 added, 18 proposals rejected by an
+  orthogonality review). The 16-part decomposition is unchanged — this fixes
+  the OPTIONS under it. All five decade-named `voice_multitrack_stack`
+  options now describe the technique instead of the year (e.g. "Mid-1960s
+  double-tracking era stack" → "ADT / tape-offset unison double (phasey
+  detimed halo)"; eras moved to `canonical_tags`); ids unchanged, so the 1051
+  traditions pinning voice variants are unaffected. Thin parts filled:
+  `voice_effort` gains sustained-fortissimo and overdriven-scream pressure
+  levels; `voice_processing_chain` gains slapback tape echo, dub spring-send,
+  phrase-end delay throw, screwed pitch-down, megaphone/bullhorn,
+  reverse-reverb pre-swell, and sidechain ducking; `voice_multitrack_stack`
+  gains the hip-hop ad-lib/response lane, whisper-double, and the 10cc-style
+  massed tape-loop choir wall; plus vocal-tract postures, strohbass register,
+  toasting/deejay chat, gospel-runs and fado-voltinha ornament systems,
+  Georgian non-tempered and Byzantine 72-moria pitch systems, and five new
+  vocal-tradition schools. All additions are `auto: false` (explicit-only,
+  picker/connector-facing) so default recipes stay stable.
 
 ## [2.0.0] — 2026-06-27 — production hardening
 

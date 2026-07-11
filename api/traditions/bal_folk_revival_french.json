@@ -3,53 +3,53 @@
   "name": "Bal-folk (French folk-dance revival)",
   "family": "global",
   "lineage": "French bal-folk folk-dance-revival movement emerging in 1970s post-1968 French counter-cultural folk-music revival, reconstructing the regional folk-dance repertoires (bourrée Auvergnate, mazurka, scottish, polka, valse Aveyronaise) for participatory ballroom-style social-dance contexts. Performance: small ensemble of hurdy-gurdy, cabrette or veuze bagpipe, vielle à roue, fiddle, accordion, acoustic guitar, plus voice for sung-dance pieces. Distinguished from earlier French bal-musette by bal-folk's regional-folk-revival (vs Parisian-urban-cabaret) functional context. The Bal-Folk association network and the annual Saint-Chartier (later renamed Le Son Continu) festival anchor institutional continuity.",
-  "recipe": "classic Western European mid-1970s bal-folk, functional Song, europop branch, Celtic balladic ballad poetry swedish polska asturian gaita. thick, incomplete closure resting, pure, ornamental. melodic straight piano accordion, French trad petromax pignol rosin canonical French steel modern bal folk French bal folk pignol tritonik hurdy gurdy, drone like fiddle, hurdy gurdy paired dance pulse cornemuse du centre. intimate paris small studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 573,
-  "score": 386.73,
+  "recipe": "classic Western European mid-1970s bal-folk, functional Song, europop branch, Celtic balladic ballad poetry sean-nós solo singing swedish polska. thick, breath veiled tone, slow rate, interlocked note trading. melodic straight piano accordion, French trad petromax pignol rosin canonical French steel modern bal folk French bal folk pignol tritonik hurdy gurdy, drone like fiddle, hurdy gurdy paired dance pulse cornemuse du centre. intimate paris small studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 524,
+  "score": 399.54,
   "config": {
     "traditions": [
       "bal_folk_revival_french",
-      "swedish_polska_traditional",
-      "asturian_gaita"
+      "sean_nos_solo",
+      "swedish_polska_traditional"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "incomplete_closure_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "straight_tone",
-          "voice_articulation": "melisma_voice",
-          "voice_microtone": "shruti_inflected",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_speech",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_talkbox",
-          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 30.545000000000016,
-          "voice_quality": 9.49,
+          "voice_register": 29.670000000000016,
+          "voice_quality": 12.479999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.39,
-          "voice_articulation": 1.25,
-          "voice_microtone": 1.3,
-          "voice_tradition": 55.09000000000001,
-          "voice_mechanism_compound": 3.4449999999999994,
-          "voice_estill_quality": 0.9099999999999999,
-          "voice_speech_song": 11.179999999999996,
-          "voice_ensemble_config": 11.699999999999998,
-          "voice_ornament_system": 10.995,
-          "voice_pitch_organization": 2.2499999999999996,
-          "voice_processing_chain": 5.425000000000001,
-          "voice_multitrack_stack": 3.9100000000000006
+          "voice_vibrato": 2.4699999999999998,
+          "voice_articulation": 9.36,
+          "voice_microtone": 8.58,
+          "voice_tradition": 53.94000000000002,
+          "voice_mechanism_compound": 3.8349999999999995,
+          "voice_estill_quality": 1.105,
+          "voice_speech_song": 10.009999999999998,
+          "voice_ensemble_config": 10.984999999999994,
+          "voice_ornament_system": 25.025,
+          "voice_pitch_organization": 0.8499999999999999,
+          "voice_processing_chain": 5.240000000000001,
+          "voice_multitrack_stack": 5.135
         }
       },
       {
@@ -60,9 +60,9 @@
           "pa_use": "pa_polka"
         },
         "scores": {
-          "free_reed_technique": 31.290000000000013,
-          "pa_size": 14.395000000000005,
-          "pa_use": 14.395000000000005
+          "free_reed_technique": 31.340000000000018,
+          "pa_size": 14.045000000000005,
+          "pa_use": 14.045000000000005
         }
       },
       {
@@ -77,28 +77,28 @@
         },
         "scores": {
           "bowed_technique": -0.05,
-          "hurdy_strings": 20.595000000000006,
+          "hurdy_strings": 20.245000000000008,
           "hurdy_buzz": 4.944999999999999,
-          "hurdy_wheel_rosin": 6.85,
-          "hurdy_string_material": 21.075000000000003,
-          "hurdy_tradition": 25.495000000000005
+          "hurdy_wheel_rosin": 5.55,
+          "hurdy_string_material": 20.72500000000001,
+          "hurdy_tradition": 25.145000000000007
         }
       },
       {
         "id": "fiddle",
         "slots": {
           "bowed_technique": "bowed_rough_drone",
-          "fiddle_strings": "gut_wound",
+          "fiddle_strings": "synthetic_core",
           "fiddle_bow": "dark_rosin",
           "fiddle_mute": "rubber_mute",
           "fiddle_articulation": "arco"
         },
         "scores": {
-          "bowed_technique": 32.45000000000002,
-          "fiddle_strings": 0.6950000000000001,
+          "bowed_technique": 31.075000000000014,
+          "fiddle_strings": 0.63,
           "fiddle_bow": 0.045,
-          "fiddle_mute": 0.835,
-          "fiddle_articulation": 0.285
+          "fiddle_mute": 0.635,
+          "fiddle_articulation": 0.195
         }
       },
       {
@@ -109,14 +109,14 @@
           "cornemuse_du_centre_wood": "cornemuse_du_centre_prunier"
         },
         "scores": {
-          "cornemuse_du_centre_form": 34.94500000000001,
-          "cornemuse_du_centre_repertoire": 24.275,
-          "cornemuse_du_centre_wood": 1.4299999999999997
+          "cornemuse_du_centre_form": 34.095000000000006,
+          "cornemuse_du_centre_repertoire": 22.975,
+          "cornemuse_du_centre_wood": 2.165
         }
       }
     ],
     "room": "intimate_paris_small_studio",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

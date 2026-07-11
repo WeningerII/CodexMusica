@@ -3,9 +3,9 @@
   "name": "J-indie (Japanese indie)",
   "family": "pop",
   "lineage": "Japanese independent music scene developing from 1980s onward parallel to the J-pop mainstream industry. The Shimokitazawa neighborhood of Tokyo anchors institutional infrastructure. Number Girl (Hakata 1995-2002, 2019-onward), Toe (math-rock instrumental, Tokyo), Mono (post-rock instrumental, Tokyo), Lillies and Remains, and the broader Japan independent label network (P-Vine, Headz, Kakubarhythm) anchor the canonical roster.",
-  "recipe": "classic East Asian mid-1990s j-indie, functional Song, east Asian pop branch, alternative distorted rock modern indie rock bedroom pop. thick, low dynamic level, pure, equal tempered. marshall plexi amp British rock amp basswood clean strummed humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 601,
-  "score": 427.92,
+  "recipe": "classic East Asian mid-1990s j-indie, functional Song, east Asian pop branch, alternative distorted rock modern indie rock bedroom pop. thick, breath veiled tone, pure, interlocked note trading. marshall plexi amp British rock amp basswood clean strummed humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 612,
+  "score": 455.979,
   "config": {
     "traditions": [
       "j_indie",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "crooner_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "straight_tone",
-          "voice_articulation": "spoken_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 35.755000000000024,
-          "voice_quality": 0.6499999999999999,
+          "voice_quality": 12.284999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 4.1525,
-          "voice_articulation": 0.39,
+          "voice_articulation": 9.945,
           "voice_microtone": 35.22500000000001,
           "voice_tradition": 20.8625,
           "voice_mechanism_compound": 3.1200000000000006,
           "voice_estill_quality": 1.9499999999999997,
-          "voice_speech_song": 12.479999999999997,
-          "voice_ensemble_config": 10.009999999999998,
+          "voice_speech_song": 12.349999999999994,
+          "voice_ensemble_config": 13.259999999999994,
           "voice_ornament_system": 2.8325,
-          "voice_pitch_organization": 3.38,
-          "voice_processing_chain": 8.23625,
-          "voice_multitrack_stack": 12.98125
+          "voice_pitch_organization": 3.185000000000001,
+          "voice_processing_chain": 8.81375,
+          "voice_multitrack_stack": 16.3475
         }
       },
       {

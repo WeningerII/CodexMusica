@@ -1,0 +1,309 @@
+{
+  "id": "vielle_medieval",
+  "name": "Vielle (medieval fiddle)",
+  "family": "bowed",
+  "class": "bowed_string",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "vielle",
+  "parts": [
+    {
+      "id": "bowed_technique",
+      "name": "Bow technique",
+      "variants": [
+        {
+          "id": "bowed_legato_classical",
+          "default": true,
+          "name": "Classical legato",
+          "descriptors": [
+            "legato",
+            "sustained"
+          ],
+          "match_tokens": [
+            "bowed",
+            "sustained-tone",
+            "classical",
+            "classical-trained"
+          ],
+          "canonical_tags": [
+            "classical"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "vielle_medieval_form",
+      "name": "Body form",
+      "variants": [
+        {
+          "id": "vielle_medieval_oval_five_string",
+          "default": true,
+          "name": "Oval five-string (13th-c. a braccio)",
+          "descriptors": [
+            "courtly",
+            "singing-tone",
+            "foundational"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "gut-strings"
+          ]
+        },
+        {
+          "id": "vielle_medieval_waisted",
+          "name": "Waisted figure-eight (14th–15th c.)",
+          "descriptors": [
+            "late-medieval",
+            "focused",
+            "agile"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "vielle_medieval_gamba_held",
+          "name": "Large lap-held (Cantigas type)",
+          "descriptors": [
+            "deep-bodied",
+            "resonant",
+            "iberian"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "period-performance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vielle_medieval_repertoire",
+      "name": "Repertoire context",
+      "variants": [
+        {
+          "id": "vielle_medieval_troubadour_song",
+          "default": true,
+          "name": "Troubadour / trouvère song accompaniment",
+          "descriptors": [
+            "lyrical",
+            "narrative",
+            "courtly"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "vielle_medieval_estampie_dance",
+          "name": "Estampie and carole dance tunes",
+          "descriptors": [
+            "dance-driving",
+            "rhythmic",
+            "festive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "vielle_medieval_polyphony_doubling",
+          "name": "Sacred organum / motet doubling",
+          "descriptors": [
+            "sustained",
+            "vocal-blending",
+            "solemn"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "sustained-lines"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vielle_medieval_stringing",
+      "surface": false,
+      "name": "Stringing and drone setup",
+      "variants": [
+        {
+          "id": "vielle_medieval_bourdon_gut",
+          "default": true,
+          "name": "Gut with off-board bourdon drone (Jerome of Moravia)",
+          "descriptors": [
+            "gut-bourdon-drone-canonical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "gut-strings"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "vielle_medieval_all_fingerboard_gut",
+          "name": "All-on-fingerboard gut (melodic tuning)",
+          "descriptors": [
+            "gut-melodic-no-bourdon"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-strings"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "vielle_medieval_form",
+      "name": "Body form",
+      "variants": [
+        {
+          "id": "vielle_medieval_oval_five_string",
+          "default": true,
+          "name": "Oval five-string (13th-c. a braccio)",
+          "descriptors": [
+            "courtly",
+            "singing-tone",
+            "foundational"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "gut-strings"
+          ]
+        },
+        {
+          "id": "vielle_medieval_waisted",
+          "name": "Waisted figure-eight (14th–15th c.)",
+          "descriptors": [
+            "late-medieval",
+            "focused",
+            "agile"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "vielle_medieval_gamba_held",
+          "name": "Large lap-held (Cantigas type)",
+          "descriptors": [
+            "deep-bodied",
+            "resonant",
+            "iberian"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "period-performance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vielle_medieval_repertoire",
+      "name": "Repertoire context",
+      "variants": [
+        {
+          "id": "vielle_medieval_troubadour_song",
+          "default": true,
+          "name": "Troubadour / trouvère song accompaniment",
+          "descriptors": [
+            "lyrical",
+            "narrative",
+            "courtly"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "vielle_medieval_estampie_dance",
+          "name": "Estampie and carole dance tunes",
+          "descriptors": [
+            "dance-driving",
+            "rhythmic",
+            "festive"
+          ],
+          "match_tokens": [
+            "bowed",
+            "dance-driving",
+            "period-performance"
+          ]
+        },
+        {
+          "id": "vielle_medieval_polyphony_doubling",
+          "name": "Sacred organum / motet doubling",
+          "descriptors": [
+            "sustained",
+            "vocal-blending",
+            "solemn"
+          ],
+          "match_tokens": [
+            "bowed",
+            "period-performance",
+            "sustained-lines"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vielle_medieval_stringing",
+      "surface": false,
+      "name": "Stringing and drone setup",
+      "variants": [
+        {
+          "id": "vielle_medieval_bourdon_gut",
+          "default": true,
+          "name": "Gut with off-board bourdon drone (Jerome of Moravia)",
+          "descriptors": [
+            "gut-bourdon-drone-canonical"
+          ],
+          "match_tokens": [
+            "bowed",
+            "drone-foundation",
+            "gut-strings"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "vielle_medieval_all_fingerboard_gut",
+          "name": "All-on-fingerboard gut (melodic tuning)",
+          "descriptors": [
+            "gut-melodic-no-bourdon"
+          ],
+          "match_tokens": [
+            "bowed",
+            "gut-strings"
+          ]
+        }
+      ]
+    }
+  ]
+}

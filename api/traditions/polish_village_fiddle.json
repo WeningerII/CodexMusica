@@ -3,14 +3,12 @@
   "name": "Polish village fiddle",
   "family": "vernacular",
   "lineage": "Eastern European folk-music tradition of rural Poland — characterized by single-fiddle or fiddle-and-drum (bęben obręczowy) lead with characteristic regional repertoires including the Tatra Górale (highlanders), Kurpie (northeastern), Beskid, Podlasie, and Mazowsze styles — preserved continuously through village-based wedding and ceremonial-occasion performance and documented through the twentieth-century ethnomusicological field-recording campaign",
-  "recipe": "classic North American mid-1970s polish village fiddle, drone Modal, string branch, Slavic bard ballad poetry serbian guslar epic recitation karelian rune-singing. double stops fiddle. wooden barn. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 329,
-  "score": 18.585,
+  "recipe": "classic Eastern European early-1940s polish village fiddle, drone Modal, string branch, Slavic bard ballad poetry. double stops fiddle. wooden barn. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 271,
+  "score": 10.91,
   "config": {
     "traditions": [
-      "polish_village_fiddle",
-      "serbian_guslar_epic",
-      "karelian_rune_singing"
+      "polish_village_fiddle"
     ],
     "instruments": [
       {
@@ -26,13 +24,13 @@
           "bowed_technique": 9.549999999999997,
           "fiddle_strings": 0.195,
           "fiddle_bow": 0.045,
-          "fiddle_mute": 0.845,
-          "fiddle_articulation": 1.35
+          "fiddle_mute": 0.195,
+          "fiddle_articulation": 0.7
         }
       }
     ],
     "room": "wooden_barn",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_comecon_state_label",
     "inline_chain": {
       "mic": "ribbon_passive",
       "pre": "tube_pre",

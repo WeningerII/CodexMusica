@@ -3,53 +3,53 @@
   "name": "Sami yoik — animal-tracking and hunting song",
   "family": "global",
   "lineage": "Sami yoik (joik) tradition continuous from premodern Sami reindeer-herding-and-hunting-and-fishing practice across the Sápmi-region of northern Norway, Sweden, Finland, and Russia through colonial-era Christianization-suppression continuous through 20th-century revival",
-  "recipe": "classic Northern European modern sami yoik — animal-tracking and hunting song, hunting Song, arctic branch, central Asian hunting song, indigenous hunting song, oceania pacific praise song māori waiata mōteatea / patere aboriginal australian hunting songlines. vocal fry, declaimed, tasteful, continuous-phonation. coastal sami soft pulse reindeer hide red figures sami frame drum. sapmi outdoor tundra yoik. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 538,
-  "score": 177.804,
+  "recipe": "classic Northern European modern sami yoik — animal-tracking and hunting song, hunting Song, arctic branch, central Asian hunting song, indigenous hunting song, oceania pacific praise song mongolian hunting-khoomei aboriginal australian hunting songlines. sygyt, false fold engaged, straight onset, interlocked note trading. coastal sami soft pulse reindeer hide red figures sami frame drum. sapmi outdoor tundra yoik. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 481,
+  "score": 206.204,
   "config": {
     "traditions": [
       "sami_yoik_tracking",
-      "maori_waiata_moteatea_patere",
+      "mongolian_hunting_khoomei",
       "aboriginal_australian_songlines"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
-          "voice_quality": "praise_voice",
+          "voice_register": "sygyt_register",
+          "voice_quality": "false_fold_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
-          "voice_articulation": "legato_voice",
-          "voice_microtone": "blue_notes",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "sami_joik_tradition",
-          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_mechanism_compound": "voice_mechanism_overtone_isolation_F2",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_sami_yoik",
-          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 1.17,
-          "voice_quality": 15.623999999999997,
+          "voice_register": 11.485,
+          "voice_quality": 9.8835,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
-          "voice_articulation": 8.45,
-          "voice_microtone": 0.0315,
-          "voice_tradition": 20.299749999999996,
-          "voice_mechanism_compound": 11.375,
+          "voice_vibrato": 1.56,
+          "voice_articulation": 13.324999999999996,
+          "voice_microtone": 13.129999999999992,
+          "voice_tradition": 20.449749999999995,
+          "voice_mechanism_compound": 13.794999999999998,
           "voice_estill_quality": 0.7799999999999998,
-          "voice_speech_song": 23.205,
-          "voice_ensemble_config": 12.154999999999994,
-          "voice_ornament_system": 19.461249999999996,
-          "voice_pitch_organization": 8.45,
-          "voice_processing_chain": 1.17,
-          "voice_multitrack_stack": 1.755
+          "voice_speech_song": 25.154999999999998,
+          "voice_ensemble_config": 13.454999999999995,
+          "voice_ornament_system": 20.336249999999996,
+          "voice_pitch_organization": 10.92625,
+          "voice_processing_chain": 2.275,
+          "voice_multitrack_stack": 2.21
         }
       },
       {
@@ -61,13 +61,13 @@
         },
         "scores": {
           "sami_frame_drum_form": 11.721249999999996,
-          "sami_frame_drum_ritual": 24.092999999999993,
+          "sami_frame_drum_ritual": 23.993,
           "sami_frame_drum_material": 12.898749999999998
         }
       }
     ],
     "room": "sapmi_outdoor_tundra_yoik",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

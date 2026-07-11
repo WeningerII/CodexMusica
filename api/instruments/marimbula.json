@@ -1,0 +1,386 @@
+{
+  "id": "marimbula",
+  "name": "Marímbula",
+  "family": "plucked_traditional",
+  "class": "bass_lamellophone",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": -2,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "Large Caribbean box lamellophone whose thumb-plucked steel tongues supply the walking bass foundation of Jamaican mento and early Cuban son.",
+  "parts": [
+    {
+      "id": "marimbula_regional_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "marimbula_form_cubana",
+          "default": true,
+          "name": "Cuban son / changüí marímbula",
+          "descriptors": [
+            "deep-oriente-bass",
+            "large-tumbao-box",
+            "son-changui-anchor"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bass-foundation",
+            "son",
+            "changui"
+          ],
+          "canonical_tags": [
+            "cuba",
+            "son",
+            "changui"
+          ]
+        },
+        {
+          "id": "marimbula_form_rhumba_box",
+          "name": "Jamaican rhumba box (mento)",
+          "descriptors": [
+            "mento-rhumba-box",
+            "seated-bass-crate",
+            "sparse-country-bass"
+          ],
+          "match_tokens": [
+            "plucked",
+            "mento",
+            "bass-foundation"
+          ],
+          "canonical_tags": [
+            "jamaica",
+            "mento"
+          ]
+        },
+        {
+          "id": "marimbula_form_dominicana",
+          "name": "Dominican marimba (merengue típico)",
+          "descriptors": [
+            "perico-ripiao-bass",
+            "merengue-tipico-box"
+          ],
+          "match_tokens": [
+            "plucked",
+            "merengue",
+            "bass-foundation"
+          ],
+          "canonical_tags": [
+            "dominican_republic",
+            "merengue_tipico"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marimbula_playing_role",
+      "name": "Playing role",
+      "variants": [
+        {
+          "id": "marimbula_role_ostinato",
+          "default": true,
+          "name": "Seated bass ostinato",
+          "descriptors": [
+            "thumb-plucked-bassline",
+            "repeating-bass-ostinato",
+            "rhythmic-tumbao-pulse"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bass-foundation",
+            "ostinato",
+            "struck"
+          ],
+          "canonical_tags": [
+            "bass",
+            "ostinato"
+          ]
+        },
+        {
+          "id": "marimbula_role_walking",
+          "name": "Melodic walking bass",
+          "descriptors": [
+            "walking-bass-runs",
+            "melodic-bass-movement"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bass-foundation",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "bass",
+            "walking"
+          ]
+        },
+        {
+          "id": "marimbula_role_slap",
+          "name": "Percussive tongue-slap",
+          "descriptors": [
+            "slapped-metal-tongues",
+            "box-tap-percussion",
+            "buzzing-percussive-attack"
+          ],
+          "match_tokens": [
+            "plucked",
+            "struck",
+            "percussive",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "percussive",
+            "slap"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marimbula_construction",
+      "surface": false,
+      "name": "Tongue material & resonator",
+      "variants": [
+        {
+          "id": "marimbula_build_spring_steel",
+          "default": true,
+          "name": "Spring-steel tongues on cedar box",
+          "descriptors": [
+            "spring-steel-lamellae",
+            "hacksaw-blade-tongues",
+            "resonant-cedar-box",
+            "metallic-buzzing-timbre"
+          ],
+          "match_tokens": [
+            "plucked",
+            "metallic",
+            "bass-foundation"
+          ],
+          "canonical_tags": [
+            "steel",
+            "cedar"
+          ]
+        },
+        {
+          "id": "marimbula_build_forged_iron",
+          "name": "Hand-forged iron tongues",
+          "descriptors": [
+            "forged-iron-tongues",
+            "dark-clanking-bass"
+          ],
+          "match_tokens": [
+            "plucked",
+            "metallic",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "iron"
+          ]
+        },
+        {
+          "id": "marimbula_build_plywood_crate",
+          "name": "Plywood packing-crate resonator",
+          "descriptors": [
+            "packing-crate-box",
+            "boxy-woody-resonance"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bass-foundation"
+          ],
+          "canonical_tags": [
+            "plywood"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "marimbula_regional_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "marimbula_form_cubana",
+          "default": true,
+          "name": "Cuban son / changüí marímbula",
+          "descriptors": [
+            "deep-oriente-bass",
+            "large-tumbao-box",
+            "son-changui-anchor"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bass-foundation",
+            "son",
+            "changui"
+          ],
+          "canonical_tags": [
+            "cuba",
+            "son",
+            "changui"
+          ]
+        },
+        {
+          "id": "marimbula_form_rhumba_box",
+          "name": "Jamaican rhumba box (mento)",
+          "descriptors": [
+            "mento-rhumba-box",
+            "seated-bass-crate",
+            "sparse-country-bass"
+          ],
+          "match_tokens": [
+            "plucked",
+            "mento",
+            "bass-foundation"
+          ],
+          "canonical_tags": [
+            "jamaica",
+            "mento"
+          ]
+        },
+        {
+          "id": "marimbula_form_dominicana",
+          "name": "Dominican marimba (merengue típico)",
+          "descriptors": [
+            "perico-ripiao-bass",
+            "merengue-tipico-box"
+          ],
+          "match_tokens": [
+            "plucked",
+            "merengue",
+            "bass-foundation"
+          ],
+          "canonical_tags": [
+            "dominican_republic",
+            "merengue_tipico"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marimbula_playing_role",
+      "name": "Playing role",
+      "variants": [
+        {
+          "id": "marimbula_role_ostinato",
+          "default": true,
+          "name": "Seated bass ostinato",
+          "descriptors": [
+            "thumb-plucked-bassline",
+            "repeating-bass-ostinato",
+            "rhythmic-tumbao-pulse"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bass-foundation",
+            "ostinato",
+            "struck"
+          ],
+          "canonical_tags": [
+            "bass",
+            "ostinato"
+          ]
+        },
+        {
+          "id": "marimbula_role_walking",
+          "name": "Melodic walking bass",
+          "descriptors": [
+            "walking-bass-runs",
+            "melodic-bass-movement"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bass-foundation",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "bass",
+            "walking"
+          ]
+        },
+        {
+          "id": "marimbula_role_slap",
+          "name": "Percussive tongue-slap",
+          "descriptors": [
+            "slapped-metal-tongues",
+            "box-tap-percussion",
+            "buzzing-percussive-attack"
+          ],
+          "match_tokens": [
+            "plucked",
+            "struck",
+            "percussive",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "percussive",
+            "slap"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "marimbula_construction",
+      "surface": false,
+      "name": "Tongue material & resonator",
+      "variants": [
+        {
+          "id": "marimbula_build_spring_steel",
+          "default": true,
+          "name": "Spring-steel tongues on cedar box",
+          "descriptors": [
+            "spring-steel-lamellae",
+            "hacksaw-blade-tongues",
+            "resonant-cedar-box",
+            "metallic-buzzing-timbre"
+          ],
+          "match_tokens": [
+            "plucked",
+            "metallic",
+            "bass-foundation"
+          ],
+          "canonical_tags": [
+            "steel",
+            "cedar"
+          ]
+        },
+        {
+          "id": "marimbula_build_forged_iron",
+          "name": "Hand-forged iron tongues",
+          "descriptors": [
+            "forged-iron-tongues",
+            "dark-clanking-bass"
+          ],
+          "match_tokens": [
+            "plucked",
+            "metallic",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "iron"
+          ]
+        },
+        {
+          "id": "marimbula_build_plywood_crate",
+          "name": "Plywood packing-crate resonator",
+          "descriptors": [
+            "packing-crate-box",
+            "boxy-woody-resonance"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bass-foundation"
+          ],
+          "canonical_tags": [
+            "plywood"
+          ]
+        }
+      ]
+    }
+  ]
+}

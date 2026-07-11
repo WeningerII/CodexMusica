@@ -3,9 +3,9 @@
   "name": "Salsa colombiana (Cali)",
   "family": "global",
   "lineage": "Colombian regional variant of salsa centered in Cali (Valle del Cauca, southwestern Colombia, \"world capital of salsa\"). Distinguished from New York and Puerto Rican salsa by faster-tempo, more aggressive-rhythmic-pulse, and the Cali dance-school choreographic culture emphasizing fast complex footwork. Grupo Niche (1980, Jairo Varela) and Orquesta Guayacán anchor canonical Cali sound.",
-  "recipe": "classic Andean early-1980s salsa colombiana, groove Percussion, son salsa branch, Afro-diasporic MC rhythm south african kwaito kwaito. vocal fry, rap, chest resonance low mid, punctuated. 7 ply quartersawn maple grand piano, alder pyramid pure nickel bass British mid 60s era thumb muted electric bass, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble trumpet, brass open slap hand drum timbales, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas. bogota colombian andean studio. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 687,
-  "score": 121.491,
+  "recipe": "classic Andean early-1980s salsa colombiana, groove Percussion, son salsa branch, Afro-diasporic MC rhythm south african kwaito kwaito. vocal fry, rap, slow rate, interlocked note trading. 7 ply quartersawn maple grand piano, alder pyramid pure nickel bass British mid 60s era thumb muted electric bass, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble trumpet, brass open slap hand drum timbales, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, steady pulse cencerro. bogota colombian andean studio. shure SM57, transformer-coupled solid-state pre, colored vintage console, optical compressor. tape 15ips spring reverb.",
+  "recipe_chars": 720,
+  "score": 149.212,
   "config": {
     "traditions": [
       "salsa_colombiana",
@@ -21,14 +21,14 @@
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "staccato_voice",
-          "voice_microtone": "blue_notes",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "southern_african_bantu_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
@@ -38,16 +38,16 @@
           "voice_quality": 5.345250000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.04,
-          "voice_articulation": 1.6705,
-          "voice_microtone": 0,
+          "voice_vibrato": 2.6650000000000005,
+          "voice_articulation": 12.804999999999994,
+          "voice_microtone": 12.609999999999992,
           "voice_tradition": 15.683,
           "voice_mechanism_compound": 2.925,
           "voice_estill_quality": 1.0399999999999998,
-          "voice_speech_song": 12.934999999999997,
-          "voice_ensemble_config": 14.559999999999997,
-          "voice_ornament_system": 1.0399999999999998,
-          "voice_pitch_organization": 2.535,
+          "voice_speech_song": 12.804999999999994,
+          "voice_ensemble_config": 14.429999999999994,
+          "voice_ornament_system": 2.470000000000001,
+          "voice_pitch_organization": 2.34,
           "voice_processing_chain": 4.09675,
           "voice_multitrack_stack": 3.12
         }
@@ -148,10 +148,23 @@
           "conga_skin": 4.485,
           "conga_shell_wood": 4.485
         }
+      },
+      {
+        "id": "cencerro",
+        "slots": {
+          "cencerro_bell_type": "cencerro_bongo_bell",
+          "cencerro_context": "cencerro_charanga",
+          "cencerro_build": "cencerro_welded_steel"
+        },
+        "scores": {
+          "cencerro_bell_type": 0.48975,
+          "cencerro_context": 1.3,
+          "cencerro_build": 0
+        }
       }
     ],
     "room": "bogota_colombian_andean_studio",
-    "archetype": "arch_early_tape_havana",
+    "archetype": "arch_discos_fuentes_tropical",
     "inline_chain": {
       "mic": "mic_sm7b_dynamic_shure",
       "pre": "transformer_solid_state",

@@ -3,14 +3,14 @@
   "name": "Qawwali",
   "family": "global",
   "lineage": "Indian-subcontinental Sufi devotional song tradition rooted in 13th-century South Asian Chishti Sufi practice, codified through the dargah (Sufi shrine) qawwal tradition at the Nizamuddin Auliya shrine in Delhi, the Khwaja Moinuddin Chishti shrine in Ajmer, and continuing through the Pakistani qawwali lineage of the Sabri Brothers, Aziz Mian, and Nusrat Fateh Ali Khan (whose 1985 Real World Records release brought qawwali to global audiences)",
-  "recipe": "classic South Asian mid-1980s qawwali, ritual Devotional, Sufi branch, vocal drone modal, indian classical improv improv on frame, med east poetic ballad poetry, middle east n African praise song sufi munajat and naat thumrī. weltmeister east German mid tier vintage volk ensemble accordion, indian rosewood rosewood copper tabla, qawwal voice, vocal female harmonium indian. karachi lahore naat devotional majlis. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 487,
-  "score": 98.765,
+  "recipe": "classic South Asian mid-1980s qawwali, ritual Devotional, Sufi branch, vocal drone modal, indian classical improv improv on frame, med east poetic ballad poetry, middle east n African praise song thumrī sufi munajat and naat. weltmeister east German mid tier vintage volk ensemble accordion, indian rosewood rosewood copper tabla, qawwal voice, vocal female harmonium indian. karachi lahore naat devotional majlis. large-diaphragm condenser, tube pre, German tube console, vari-mu, passive program EQ. tape 15ips echo spring reverb.",
+  "recipe_chars": 532,
+  "score": 99.815,
   "config": {
     "traditions": [
       "qawwali",
-      "sufi_munajat_naat",
-      "thumri"
+      "thumri",
+      "sufi_munajat_naat"
     ],
     "instruments": [
       {
@@ -44,7 +44,7 @@
         "scores": {
           "tabla_dayan": 7.44,
           "tabla_bayan": 4.645,
-          "tabla_syahi": 5.329999999999999
+          "tabla_syahi": 5.330000000000001
         }
       },
       {
@@ -75,7 +75,7 @@
       }
     ],
     "room": "karachi_lahore_naat_devotional_majlis",
-    "archetype": "arch_electrical_disc_cut",
+    "archetype": "arch_emi_pakistan_lollywood",
     "inline_chain": {
       "mic": "mic_u47_tube_neumann",
       "pre": "pre_tube_german_v72",

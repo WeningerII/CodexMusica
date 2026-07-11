@@ -3,9 +3,9 @@
   "name": "Chinese conservatory traditional ensemble (民乐 minyue)",
   "family": "global",
   "lineage": "20th-century-codified Chinese national-music conservatory ensemble form anchored at the Central Conservatory Beijing and Shanghai Conservatory",
-  "recipe": "classic modern chinese conservatory traditional ensemble, art Music, east Asian branch, south Asian art music sinhala vannama telugu kirtana. balanced, declaimed, chest resonance low mid, punctuated. python skin snake skin bamboo silk red sandalwood zitan erhu, silk red sandalwood zitan premium pipa, shell wutong paulownia rosewood frame canonical decorative steel wound guzheng, nylon steel wound ruan, python skin silk canonical traditional sanxian, no membrane buzz bitter bamboo phyllostachys nigra canonical jiangnan suzhou qudi southern jiangnan kunqu canonical lyrical continuous-airflow legato dizi, traditional bamboo pipes copper brass free reeds canonical Chinese sheng, modern concert bamboo yangqin, bawu, hulusi. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 880,
-  "score": 280.045,
+  "recipe": "classic Asian early-1950s chinese conservatory traditional ensemble, art Music, east Asian branch, south Asian art music sinhala vannama telugu kirtana. balanced, breath veiled tone, slow rate, interlocked note trading. python skin snake skin bamboo silk red sandalwood zitan erhu, silk red sandalwood zitan premium pipa, shell wutong paulownia rosewood frame canonical decorative steel wound guzheng, nylon steel wound ruan, python skin silk canonical traditional sanxian, no membrane buzz bitter bamboo phyllostachys nigra canonical jiangnan suzhou qudi southern jiangnan kunqu canonical lyrical continuous-airflow legato dizi, traditional bamboo pipes copper brass free reeds canonical Chinese sheng, modern concert bamboo yangqin, bawu, hulusi, xun. shoebox concert hall. large-diaphragm condenser, German V72 tube pre, German tube console, broadcast loudness EQ. tape 15ips hall reverb.",
+  "recipe_chars": 891,
+  "score": 319.764,
   "config": {
     "traditions": [
       "chinese_traditional_ensemble",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "mix_voice",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "staccato_voice",
-          "voice_microtone": "shruti_inflected",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "carnatic_classical_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_carnatic_gamaka",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
-          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
-          "voice_multitrack_stack": "voice_multitrack_unison_double_take"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
           "voice_register": 0.7629999999999999,
-          "voice_quality": 4.561000000000001,
+          "voice_quality": 14.43,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.3799999999999994,
-          "voice_articulation": 0.845,
-          "voice_microtone": 0.845,
+          "voice_vibrato": 7.864999999999998,
+          "voice_articulation": 7.735,
+          "voice_microtone": 7.540000000000001,
           "voice_tradition": 23.545999999999996,
           "voice_mechanism_compound": 5.6499999999999995,
           "voice_estill_quality": 7.7315000000000005,
-          "voice_speech_song": 10.464999999999998,
-          "voice_ensemble_config": 8.645,
+          "voice_speech_song": 10.334999999999999,
+          "voice_ensemble_config": 8.515,
           "voice_ornament_system": 20.525,
           "voice_pitch_organization": 21.165499999999998,
-          "voice_processing_chain": 2.3399999999999994,
-          "voice_multitrack_stack": 1.2349999999999999
+          "voice_processing_chain": 2.6649999999999996,
+          "voice_multitrack_stack": 1.755
         }
       },
       {
@@ -211,10 +211,23 @@
           "hulusi_config": 2.271,
           "hulusi_context": 7.8
         }
+      },
+      {
+        "id": "xun",
+        "slots": {
+          "xun_form": "xun_form_eight_hole",
+          "xun_setting": "xun_setting_minyue_solo",
+          "xun_body": "xun_body_terracotta"
+        },
+        "scores": {
+          "xun_form": 5.439500000000001,
+          "xun_setting": 12.130499999999998,
+          "xun_body": -0.05
+        }
       }
     ],
     "room": "concert_hall_shoebox",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_china_record_state_broadcast",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "pre_neve_1073_input",

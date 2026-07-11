@@ -3,9 +3,9 @@
   "name": "Ainu yukar epic recitation",
   "family": "global",
   "lineage": "Ainu yukar heroic-epic recitation tradition of Hokkaido (northern Japan) and historically of Sakhalin and the Kuril Islands. Yukar are sung-narrated mytho-heroic cycles featuring the culture-hero Aynurakkur (the Ainu-version of the central-protagonist figure) and adjacent cosmological narratives. Performance involves the chanter (yukar-uta-kur) sitting with a rhythm-stick (rep-ni) struck against the edge of the cise (traditional dwelling) hearth-box, marking a continuous rhythmic pulse beneath the recitation. The narrative voice alternates between named characters; the chanter does not move position but conveys character distinction through subtle vocal-register and melodic-cadence shifts. The yukar parent-form spans related narrative genres: kamuy yukar (god-yukar, cosmological-creation cycles), mat-yukar (women-yukar, female-protagonist cycles), tuita (folk-tales), and uwepeker (didactic-tales). The Bronisław Piłsudski cylinder recordings (1902-1905, preserved at the Phonogrammarchiv in Vienna and reissued by Adam Mickiewicz University in Poznań) are the earliest sound documentation of the tradition; the linguistic-and-cultural scholarship of Kyōsuke Kindaichi and his Ainu informant-collaborators (1910s-1950s) and the subsequent work of Mashiho Chiri (1909-1961, the first major Ainu-descended Ainu-language scholar) constitute the canonical documentary corpus. The closely-related rekuhkara throat-game tradition went extinct in the early twentieth century. Distinguished from Japanese gidayū-bushi by Ainu-language-specific narrative-cadence and rep-ni rhythm-stick (vs shamisen accompaniment) configuration; distinguished from Sakha olonkho by Ainu yukar's sung-and-spoken alternation register and the rep-ni accompaniment.",
-  "recipe": "classic East Asian 1902-1905 ainu yukar epic recitation, ballad Poetry, Slavic bard branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, declaimed, melodic, narrative. ainu cise wooden interior. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 389,
-  "score": 188.056,
+  "recipe": "classic East Asian 1902-1905 ainu yukar epic recitation, ballad Poetry, Slavic bard branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, breath veiled tone, straight note core, interlocked note trading. epic accompaniment drone and melody gut strung tonkori. ainu cise wooden interior. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 413,
+  "score": 379.555,
   "config": {
     "traditions": [
       "ainu_yukar_epic",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "vocal_fry",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "narrative_voice",
-          "voice_microtone": "blue_notes",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -30,31 +30,44 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 2.9899999999999998,
-          "voice_quality": 11.043125,
+          "voice_quality": 60.19000000000004,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.1200000000000006,
-          "voice_articulation": 3.7900000000000005,
-          "voice_microtone": 1.69,
+          "voice_vibrato": 4.680000000000001,
+          "voice_articulation": 31.785000000000004,
+          "voice_microtone": 32.695,
           "voice_tradition": 30.614999999999995,
           "voice_mechanism_compound": 11.655000000000001,
           "voice_estill_quality": 7.02,
-          "voice_speech_song": 31.915000000000006,
-          "voice_ensemble_config": 32.50000000000001,
+          "voice_speech_song": 34.97,
+          "voice_ensemble_config": 32.370000000000005,
           "voice_ornament_system": 7.15,
           "voice_pitch_organization": 5.128125000000001,
-          "voice_processing_chain": 8.190000000000001,
-          "voice_multitrack_stack": 6.175
+          "voice_processing_chain": 22.424999999999997,
+          "voice_multitrack_stack": 7.9300000000000015
+        }
+      },
+      {
+        "id": "tonkori",
+        "slots": {
+          "tonkori_form": "tonkori_form_sakhalin",
+          "tonkori_setting": "tonkori_setting_yukar",
+          "tonkori_build": "tonkori_build_gut"
+        },
+        "scores": {
+          "tonkori_form": 28.995,
+          "tonkori_setting": 53.7875,
+          "tonkori_build": 4.6693750000000005
         }
       }
     ],
     "room": "ainu_cise_wooden_interior",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

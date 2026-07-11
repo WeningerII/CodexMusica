@@ -3,9 +3,9 @@
   "name": "Britpop (90s)",
   "family": "rock_punk",
   "lineage": "Mid-1990s British rock movement (peaking 1994-1997) characterized by deliberate British-cultural-identity assertion against American grunge dominance, melodic guitar-pop influences from the Kinks-and-Beatles British-Invasion era, and explicit working-and-middle-class British lyrical content. Blur, Oasis, Pulp, Suede, Elastica, and the Verve constitute the canonical roster; the 1995 Blur-vs-Oasis chart-rivalry constitutes the canonical cultural-event.",
-  "recipe": "classic British 1994-1997 britpop, distorted Rock, classic branch, alternative distorted rock modern indie rock slacker rock. thick, low dynamic level, chest resonance low mid, rhythmic. marshall plexi amp British rock amp basswood mahogany rosewood humbucker electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, mahogany pre muffled edge muffled hot rolled annealed drum kit. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 635,
-  "score": 471.395,
+  "recipe": "classic British 1994-1997 britpop, distorted Rock, classic branch, alternative distorted rock modern indie rock slacker rock. thick, breath veiled tone, breath pulsed, interlocked note trading. marshall plexi amp British rock amp basswood mahogany rosewood humbucker electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, mahogany pre muffled edge muffled hot rolled annealed drum kit. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 642,
+  "score": 498.565,
   "config": {
     "traditions": [
       "britpop",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "crooner_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "spoken_voice",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 31.704999999999995,
-          "voice_quality": 2.34,
+          "voice_quality": 12.284999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.535,
-          "voice_articulation": 0.585,
+          "voice_articulation": 13.324999999999996,
           "voice_microtone": 31.174999999999997,
           "voice_tradition": 8.47,
           "voice_mechanism_compound": 5.525000000000001,
           "voice_estill_quality": 0.6499999999999999,
-          "voice_speech_song": 12.609999999999996,
-          "voice_ensemble_config": 12.544999999999996,
+          "voice_speech_song": 12.479999999999995,
+          "voice_ensemble_config": 12.414999999999994,
           "voice_ornament_system": 0.39,
-          "voice_pitch_organization": 6.564999999999999,
+          "voice_pitch_organization": 6.369999999999999,
           "voice_processing_chain": 8.024999999999999,
-          "voice_multitrack_stack": 5.069999999999999
+          "voice_multitrack_stack": 10.009999999999998
         }
       },
       {

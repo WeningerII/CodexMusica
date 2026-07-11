@@ -3,9 +3,9 @@
   "name": "Catalan Nova Cançó",
   "family": "global",
   "lineage": "Catalan Nova Cançó (\"new song\") minority-language protest-song tradition continuous from 1959 founding by Els Setze Jutges collective through the Franco-era 1959-1975 Catalan-language-suppression-resistance period continuous into post-Franco Catalan-cultural-revival; centered on Lluís Llach, Raimon, Joan Manuel Serrat, Maria del Mar Bonet, Pi de la Serra",
-  "recipe": "classic Iberian mid-1960s catalan nova cançó, protest Song, European branch, iberian Latin protest song, iberian functional song, chanson fado ballad poetry morna cape verdean batuko of santiago island. vocal fry, lament wail, melodic, continuous-phonation. fingerpicked acoustic guitar. iberian kantautor basque galician club. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 457,
-  "score": 148.795,
+  "recipe": "classic Iberian mid-1960s catalan nova cançó, protest Song, European branch, iberian Latin protest song, iberian functional song, chanson fado ballad poetry morna cape verdean batuko of santiago island. vocal fry, breath veiled tone, straight note core, interlocked note trading. fingerpicked acoustic guitar. iberian kantautor basque galician club. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 479,
+  "score": 213.35,
   "config": {
     "traditions": [
       "catalan_nova_canco",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "vocal_fry",
-          "voice_quality": "fado_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "legato_voice",
-          "voice_microtone": "blue_notes",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 3.025,
-          "voice_quality": 9.459999999999999,
+          "voice_quality": 28.6,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.015,
-          "voice_articulation": 3.6849999999999996,
-          "voice_microtone": 1.5999999999999999,
+          "voice_vibrato": 3.6550000000000002,
+          "voice_articulation": 20.8,
+          "voice_microtone": 21.514999999999997,
           "voice_tradition": 19.304999999999996,
           "voice_mechanism_compound": 5.265,
           "voice_estill_quality": 4.74,
-          "voice_speech_song": 29.510000000000005,
-          "voice_ensemble_config": 20.215,
+          "voice_speech_song": 30.354999999999997,
+          "voice_ensemble_config": 20.085,
           "voice_ornament_system": 4.565,
           "voice_pitch_organization": 6.955000000000001,
-          "voice_processing_chain": 6.434999999999999,
-          "voice_multitrack_stack": 4.175
+          "voice_processing_chain": 9.035000000000004,
+          "voice_multitrack_stack": 7.605
         }
       },
       {

@@ -3,9 +3,9 @@
   "name": "Jewish maggid homiletic preaching",
   "family": "global",
   "lineage": "The derashah of the itinerant Ashkenazi preacher (maggid) of Eastern Europe, a homiletic sermon weaving Torah, Talmud, and midrash with moral exhortation, typically delivered in Yiddish with a distinctive study-chant cadence derived from the lernen (Gemara) shteyger. The form flourished from the 17th through 19th centuries; the Dubner Maggid (Jacob Kranz, d. 1804) was celebrated for his mashal parables, and the Maggid of Mezeritch was central to the spread of early Hasidism. The delivery moves fluidly between conversational speech and a rising, questioning recitative melody used to voice textual argument. It survives today in yeshiva drashot and Hasidic gatherings.",
-  "recipe": "classic Eastern European mid-1800s jewish maggid homiletic preaching, ritual Devotional, Jewish branch shipibo-conibo icaros healing songs mapuche tayil genealogical chant. thick, declaimed, melodic, rhythmic. eastern european chassidic farbrengen. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 378,
-  "score": 140.444,
+  "recipe": "classic Eastern European mid-1800s jewish maggid homiletic preaching, ritual Devotional, Jewish branch shipibo-conibo icaros healing songs mapuche tayil genealogical chant. thick, breath veiled tone, straight note core, interlocked note trading. eastern european chassidic farbrengen. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 347,
+  "score": 213.78,
   "config": {
     "traditions": [
       "jewish_maggid_preaching",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "spoken_voice",
-          "voice_microtone": "blue_notes",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
@@ -30,31 +30,31 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 2.636500000000002,
-          "voice_quality": 11.826,
+          "voice_quality": 43.680000000000035,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.4299999999999997,
-          "voice_articulation": 1.6315,
-          "voice_microtone": 1.5115,
+          "voice_vibrato": 2.9899999999999998,
+          "voice_articulation": 23.075,
+          "voice_microtone": 20.994999999999997,
           "voice_tradition": 21.319999999999997,
           "voice_mechanism_compound": 9.555,
           "voice_estill_quality": 9.165,
-          "voice_speech_song": 23.205,
-          "voice_ensemble_config": 22.1,
+          "voice_speech_song": 26.259999999999998,
+          "voice_ensemble_config": 21.97,
           "voice_ornament_system": 10.900000000000002,
           "voice_pitch_organization": 3.803000000000001,
-          "voice_processing_chain": 4.29,
-          "voice_multitrack_stack": 2.795
+          "voice_processing_chain": 17.775,
+          "voice_multitrack_stack": 4.030000000000001
         }
       }
     ],
     "room": "eastern_european_chassidic_farbrengen",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

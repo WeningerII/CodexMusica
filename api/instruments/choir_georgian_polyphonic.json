@@ -1,0 +1,470 @@
+{
+  "id": "choir_georgian_polyphonic",
+  "name": "Georgian polyphonic choir (three-voice male ensemble)",
+  "family": "ensemble",
+  "class": "vocal_choir",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": 2,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "Georgian choir",
+  "parts": [
+    {
+      "id": "choir_georgian_polyphonic_style",
+      "name": "Regional style",
+      "variants": [
+        {
+          "id": "choir_georgian_polyphonic_kakhetian",
+          "default": true,
+          "name": "Kakhetian drone-bass (Chakrulo lineage)",
+          "descriptors": [
+            "drone-bass",
+            "long-lined",
+            "sustained"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "choir-blendable",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "georgian",
+            "caucasus",
+            "kakheti"
+          ]
+        },
+        {
+          "id": "choir_georgian_polyphonic_gurian",
+          "name": "Gurian contrapuntal trio (krimanchuli yodel)",
+          "descriptors": [
+            "yodeled-top",
+            "contrapuntal",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "choir-blendable",
+            "yodel"
+          ],
+          "canonical_tags": [
+            "georgian",
+            "caucasus",
+            "guria"
+          ]
+        },
+        {
+          "id": "choir_georgian_polyphonic_svan",
+          "name": "Svan archaic three-part (Svaneti highlands)",
+          "descriptors": [
+            "dissonant-chords",
+            "archaic",
+            "austere"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "choir-blendable",
+            "ritual-context"
+          ],
+          "canonical_tags": [
+            "georgian",
+            "caucasus",
+            "svaneti"
+          ]
+        },
+        {
+          "id": "choir_georgian_polyphonic_rustavi",
+          "name": "Rustavi-style stage ensemble (massed)",
+          "descriptors": [
+            "massed-male-voices",
+            "polished",
+            "concert-staged"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "choir-blendable",
+            "staged"
+          ],
+          "canonical_tags": [
+            "georgian",
+            "caucasus"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "choir_georgian_polyphonic_context",
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "choir_georgian_polyphonic_supra",
+          "default": true,
+          "name": "Supra table songs (mravalzhamier toasts)",
+          "descriptors": [
+            "convivial",
+            "toasting",
+            "sustained-chords"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "choir-blendable",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "georgian",
+            "caucasus",
+            "feast"
+          ]
+        },
+        {
+          "id": "choir_georgian_polyphonic_sacred",
+          "name": "Orthodox chant (three-voice hymnody)",
+          "descriptors": [
+            "devotional",
+            "modal",
+            "luminous"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "choir-blendable",
+            "sacred-traditional"
+          ],
+          "canonical_tags": [
+            "georgian",
+            "orthodox-christian"
+          ]
+        },
+        {
+          "id": "choir_georgian_polyphonic_naduri",
+          "name": "Naduri field work songs",
+          "descriptors": [
+            "call-response",
+            "driving",
+            "communal"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "choir-blendable",
+            "work-song"
+          ],
+          "canonical_tags": [
+            "georgian",
+            "caucasus",
+            "guria"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "choir_georgian_polyphonic_voices",
+      "surface": false,
+      "name": "Voice roles",
+      "variants": [
+        {
+          "id": "choir_georgian_polyphonic_bani",
+          "default": true,
+          "name": "Bani (drone bass, often massed)",
+          "descriptors": [
+            "drone-bass",
+            "foundational",
+            "grounding"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "drone-foundation",
+            "choir-blendable"
+          ],
+          "canonical_tags": [
+            "georgian",
+            "caucasus"
+          ]
+        },
+        {
+          "id": "choir_georgian_polyphonic_mtkmeli",
+          "name": "Mtkmeli (middle voice, text-leader)",
+          "descriptors": [
+            "narrative",
+            "inner",
+            "leading"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "choir-blendable"
+          ],
+          "canonical_tags": [
+            "georgian",
+            "caucasus"
+          ]
+        },
+        {
+          "id": "choir_georgian_polyphonic_modzakhili",
+          "name": "Modzakhili (top responding voice)",
+          "descriptors": [
+            "responding",
+            "close-harmony",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "choir-blendable"
+          ],
+          "canonical_tags": [
+            "georgian",
+            "caucasus"
+          ]
+        },
+        {
+          "id": "choir_georgian_polyphonic_krimanchuli",
+          "name": "Krimanchuli (yodeled falsetto top)",
+          "descriptors": [
+            "yodeled",
+            "falsetto",
+            "ornamental"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "choir-blendable",
+            "yodel"
+          ],
+          "canonical_tags": [
+            "georgian",
+            "caucasus",
+            "guria"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "choir_georgian_polyphonic_style",
+      "name": "Regional style",
+      "variants": [
+        {
+          "id": "choir_georgian_polyphonic_kakhetian",
+          "default": true,
+          "name": "Kakhetian drone-bass (Chakrulo lineage)",
+          "descriptors": [
+            "drone-bass",
+            "long-lined",
+            "sustained"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "choir-blendable",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "georgian",
+            "caucasus",
+            "kakheti"
+          ]
+        },
+        {
+          "id": "choir_georgian_polyphonic_gurian",
+          "name": "Gurian contrapuntal trio (krimanchuli yodel)",
+          "descriptors": [
+            "yodeled-top",
+            "contrapuntal",
+            "virtuoso"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "choir-blendable",
+            "yodel"
+          ],
+          "canonical_tags": [
+            "georgian",
+            "caucasus",
+            "guria"
+          ]
+        },
+        {
+          "id": "choir_georgian_polyphonic_svan",
+          "name": "Svan archaic three-part (Svaneti highlands)",
+          "descriptors": [
+            "dissonant-chords",
+            "archaic",
+            "austere"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "choir-blendable",
+            "ritual-context"
+          ],
+          "canonical_tags": [
+            "georgian",
+            "caucasus",
+            "svaneti"
+          ]
+        },
+        {
+          "id": "choir_georgian_polyphonic_rustavi",
+          "name": "Rustavi-style stage ensemble (massed)",
+          "descriptors": [
+            "massed-male-voices",
+            "polished",
+            "concert-staged"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "choir-blendable",
+            "staged"
+          ],
+          "canonical_tags": [
+            "georgian",
+            "caucasus"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "choir_georgian_polyphonic_context",
+      "name": "Performance context",
+      "variants": [
+        {
+          "id": "choir_georgian_polyphonic_supra",
+          "default": true,
+          "name": "Supra table songs (mravalzhamier toasts)",
+          "descriptors": [
+            "convivial",
+            "toasting",
+            "sustained-chords"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "choir-blendable",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "georgian",
+            "caucasus",
+            "feast"
+          ]
+        },
+        {
+          "id": "choir_georgian_polyphonic_sacred",
+          "name": "Orthodox chant (three-voice hymnody)",
+          "descriptors": [
+            "devotional",
+            "modal",
+            "luminous"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "choir-blendable",
+            "sacred-traditional"
+          ],
+          "canonical_tags": [
+            "georgian",
+            "orthodox-christian"
+          ]
+        },
+        {
+          "id": "choir_georgian_polyphonic_naduri",
+          "name": "Naduri field work songs",
+          "descriptors": [
+            "call-response",
+            "driving",
+            "communal"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "choir-blendable",
+            "work-song"
+          ],
+          "canonical_tags": [
+            "georgian",
+            "caucasus",
+            "guria"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "choir_georgian_polyphonic_voices",
+      "surface": false,
+      "name": "Voice roles",
+      "variants": [
+        {
+          "id": "choir_georgian_polyphonic_bani",
+          "default": true,
+          "name": "Bani (drone bass, often massed)",
+          "descriptors": [
+            "drone-bass",
+            "foundational",
+            "grounding"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "drone-foundation",
+            "choir-blendable"
+          ],
+          "canonical_tags": [
+            "georgian",
+            "caucasus"
+          ]
+        },
+        {
+          "id": "choir_georgian_polyphonic_mtkmeli",
+          "name": "Mtkmeli (middle voice, text-leader)",
+          "descriptors": [
+            "narrative",
+            "inner",
+            "leading"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "choir-blendable"
+          ],
+          "canonical_tags": [
+            "georgian",
+            "caucasus"
+          ]
+        },
+        {
+          "id": "choir_georgian_polyphonic_modzakhili",
+          "name": "Modzakhili (top responding voice)",
+          "descriptors": [
+            "responding",
+            "close-harmony",
+            "ornamented"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "choir-blendable"
+          ],
+          "canonical_tags": [
+            "georgian",
+            "caucasus"
+          ]
+        },
+        {
+          "id": "choir_georgian_polyphonic_krimanchuli",
+          "name": "Krimanchuli (yodeled falsetto top)",
+          "descriptors": [
+            "yodeled",
+            "falsetto",
+            "ornamental"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "choir-blendable",
+            "yodel"
+          ],
+          "canonical_tags": [
+            "georgian",
+            "caucasus",
+            "guria"
+          ]
+        }
+      ]
+    }
+  ]
+}

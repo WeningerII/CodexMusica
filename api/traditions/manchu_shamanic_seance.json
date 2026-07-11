@@ -3,9 +3,9 @@
   "name": "Manchu shamanic seance chant",
   "family": "global",
   "lineage": "Trance-seance chant of Manchu and related Tungusic peoples of Manchuria (northeast China) and adjacent Siberia — the culture from whose language the word 'shaman' (saman) entered Western usage. In the seance the shaman invokes clan and wild spirits in pulsed chanted verse driven by a hand-held frame drum and jingling waist bells, building toward possession-trance, with assistants answering the shaman's calls in fixed responses. Domestic clan rites were codified under the Qing dynasty in an imperially commissioned 18th-century ritual code, while the ecstatic wild-spirit seances survived in village practice; S. M. Shirokogoroff's Psychomental Complex of the Tungus (1935) remains the canonical ethnographic documentation.",
-  "recipe": "classic Northeast Asian mid-1930s manchu shamanic seance chant, ritual Devotional, indigenous branch mongolian böö shamanic invocation shipibo-conibo icaros healing songs. sygyt, declaimed, overtone rich sustained, punctuated. wooden balagan. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 372,
-  "score": 149.579,
+  "recipe": "classic Northeast Asian mid-1930s manchu shamanic seance chant, ritual Devotional, indigenous branch mongolian böö shamanic invocation shipibo-conibo icaros healing songs. sygyt, breath veiled tone, breath pulsed, interlocked note trading. wooden balagan. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 318,
+  "score": 208.851,
   "config": {
     "traditions": [
       "manchu_shamanic_seance",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "sygyt_register",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "diaphragm_vibrato",
-          "voice_articulation": "staccato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "polynesian_oli_tradition",
           "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -30,31 +30,31 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_single_lead"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 1.4949999999999999,
-          "voice_quality": 15.139,
+          "voice_quality": 40.56000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.765,
-          "voice_articulation": 1.7257500000000001,
-          "voice_microtone": 1.9499999999999997,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 21.905,
+          "voice_microtone": 21.71,
           "voice_tradition": 21.970000000000002,
           "voice_mechanism_compound": 16.051000000000002,
           "voice_estill_quality": 4.680000000000001,
-          "voice_speech_song": 22.880000000000003,
-          "voice_ensemble_config": 23.465,
+          "voice_speech_song": 22.75,
+          "voice_ensemble_config": 23.335,
           "voice_ornament_system": 11.775,
           "voice_pitch_organization": 2.860000000000001,
-          "voice_processing_chain": 4.68,
-          "voice_multitrack_stack": 3.2685000000000004
+          "voice_processing_chain": 15.925,
+          "voice_multitrack_stack": 4.420000000000001
         }
       }
     ],
     "room": "wooden_balagan",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

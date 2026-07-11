@@ -1,0 +1,364 @@
+{
+  "id": "steel_orchestra",
+  "name": "Steel band (Trinidadian steel orchestra)",
+  "family": "ensemble",
+  "class": "tuned_percussion",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 2,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "steel band",
+  "parts": [
+    {
+      "id": "steel_orchestra_sections",
+      "name": "Sections",
+      "variants": [
+        {
+          "id": "steel_orchestra_frontline",
+          "default": true,
+          "name": "Frontline tenors (tenor & double-tenor pans)",
+          "descriptors": [
+            "lead",
+            "ringing",
+            "melodic"
+          ],
+          "match_tokens": [
+            "metallic",
+            "percussive-attack",
+            "ensemble",
+            "melodic",
+            "dance-driving"
+          ]
+        },
+        {
+          "id": "steel_orchestra_mid_harmony",
+          "name": "Double seconds & guitar-cello pans (strum harmony)",
+          "descriptors": [
+            "strumming",
+            "harmonic",
+            "foundational"
+          ],
+          "match_tokens": [
+            "metallic",
+            "percussive-attack",
+            "ensemble",
+            "chordal"
+          ]
+        },
+        {
+          "id": "steel_orchestra_bass_line",
+          "name": "Bass pans (tenor bass & six bass)",
+          "descriptors": [
+            "deep",
+            "grounding",
+            "foundational"
+          ],
+          "match_tokens": [
+            "metallic",
+            "percussive-attack",
+            "ensemble",
+            "low-register"
+          ]
+        },
+        {
+          "id": "steel_orchestra_engine_room",
+          "name": "Engine room (irons, drum kit, congas, scratchers)",
+          "descriptors": [
+            "driving",
+            "timekeeping"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic",
+            "ensemble",
+            "dance-driving",
+            "soca-engine-room"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "steel_orchestra_context",
+      "name": "Repertoire / context",
+      "variants": [
+        {
+          "id": "steel_orchestra_panorama",
+          "default": true,
+          "name": "Panorama competition (eight-minute arranged calypso)",
+          "descriptors": [
+            "climactic",
+            "virtuoso",
+            "massed"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "metallic",
+            "dance-driving",
+            "caribbean-traditional"
+          ],
+          "canonical_tags": [
+            "panorama"
+          ]
+        },
+        {
+          "id": "steel_orchestra_pan_on_the_road",
+          "name": "Pan on the road (J'Ouvert / carnival procession)",
+          "descriptors": [
+            "street-parading",
+            "communal",
+            "driving"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "metallic",
+            "dance-driving",
+            "caribbean-traditional"
+          ]
+        },
+        {
+          "id": "steel_orchestra_concert_session",
+          "name": "Concert / bomb-tune & session recording",
+          "descriptors": [
+            "arranged",
+            "concert-stage",
+            "cross-genre"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "metallic",
+            "melodic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "steel_orchestra_size",
+      "surface": false,
+      "name": "Band size",
+      "variants": [
+        {
+          "id": "steel_orchestra_large_conventional",
+          "default": true,
+          "name": "Large conventional band (90-120 players)",
+          "descriptors": [
+            "massed",
+            "thunderous"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "metallic",
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "steel_orchestra_stageside",
+          "name": "Stageside band (25-40 players)",
+          "descriptors": [
+            "tight",
+            "arranged"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "metallic",
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "steel_orchestra_single_pan",
+          "name": "Single-pan band (pan-round-de-neck)",
+          "descriptors": [
+            "traditional",
+            "street-parading",
+            "accessible"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "metallic",
+            "percussive-attack",
+            "caribbean-traditional"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "steel_orchestra_sections",
+      "name": "Sections",
+      "variants": [
+        {
+          "id": "steel_orchestra_frontline",
+          "default": true,
+          "name": "Frontline tenors (tenor & double-tenor pans)",
+          "descriptors": [
+            "lead",
+            "ringing",
+            "melodic"
+          ],
+          "match_tokens": [
+            "metallic",
+            "percussive-attack",
+            "ensemble",
+            "melodic",
+            "dance-driving"
+          ]
+        },
+        {
+          "id": "steel_orchestra_mid_harmony",
+          "name": "Double seconds & guitar-cello pans (strum harmony)",
+          "descriptors": [
+            "strumming",
+            "harmonic",
+            "foundational"
+          ],
+          "match_tokens": [
+            "metallic",
+            "percussive-attack",
+            "ensemble",
+            "chordal"
+          ]
+        },
+        {
+          "id": "steel_orchestra_bass_line",
+          "name": "Bass pans (tenor bass & six bass)",
+          "descriptors": [
+            "deep",
+            "grounding",
+            "foundational"
+          ],
+          "match_tokens": [
+            "metallic",
+            "percussive-attack",
+            "ensemble",
+            "low-register"
+          ]
+        },
+        {
+          "id": "steel_orchestra_engine_room",
+          "name": "Engine room (irons, drum kit, congas, scratchers)",
+          "descriptors": [
+            "driving",
+            "timekeeping"
+          ],
+          "match_tokens": [
+            "percussive-attack",
+            "metallic",
+            "ensemble",
+            "dance-driving",
+            "soca-engine-room"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "steel_orchestra_context",
+      "name": "Repertoire / context",
+      "variants": [
+        {
+          "id": "steel_orchestra_panorama",
+          "default": true,
+          "name": "Panorama competition (eight-minute arranged calypso)",
+          "descriptors": [
+            "climactic",
+            "virtuoso",
+            "massed"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "metallic",
+            "dance-driving",
+            "caribbean-traditional"
+          ],
+          "canonical_tags": [
+            "panorama"
+          ]
+        },
+        {
+          "id": "steel_orchestra_pan_on_the_road",
+          "name": "Pan on the road (J'Ouvert / carnival procession)",
+          "descriptors": [
+            "street-parading",
+            "communal",
+            "driving"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "metallic",
+            "dance-driving",
+            "caribbean-traditional"
+          ]
+        },
+        {
+          "id": "steel_orchestra_concert_session",
+          "name": "Concert / bomb-tune & session recording",
+          "descriptors": [
+            "arranged",
+            "concert-stage",
+            "cross-genre"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "metallic",
+            "melodic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "steel_orchestra_size",
+      "surface": false,
+      "name": "Band size",
+      "variants": [
+        {
+          "id": "steel_orchestra_large_conventional",
+          "default": true,
+          "name": "Large conventional band (90-120 players)",
+          "descriptors": [
+            "massed",
+            "thunderous"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "metallic",
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "steel_orchestra_stageside",
+          "name": "Stageside band (25-40 players)",
+          "descriptors": [
+            "tight",
+            "arranged"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "metallic",
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "steel_orchestra_single_pan",
+          "name": "Single-pan band (pan-round-de-neck)",
+          "descriptors": [
+            "traditional",
+            "street-parading",
+            "accessible"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "metallic",
+            "percussive-attack",
+            "caribbean-traditional"
+          ]
+        }
+      ]
+    }
+  ]
+}

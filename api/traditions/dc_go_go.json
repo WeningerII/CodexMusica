@@ -3,9 +3,9 @@
   "name": "DC go-go (1970s-onward)",
   "family": "hip_hop",
   "lineage": "Washington D.C.-specific funk subgenre developed in mid-1970s by Chuck Brown (1936-2012), characterized by continuous percussion-and-bass-and-vocal groove without breaks between songs (the \"go-go\" of perpetual-motion), call-and-response between bandleader and audience, and Latin-percussion (congas, timbales, cowbell) integration with funk-band horn-section. Trouble Funk, Rare Essence, Experience Unlimited, and Backyard Band extended the canonical roster.",
-  "recipe": "classic North American dc go-go, functional Song, soul R&B branch, funk percussive groove percussion future funk. thick, blues-shouter, chest resonance low mid, narrative. Fender blackface amp American 60s amp spring reverb bright basswood mahogany humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, birch pre muffled edge muffled hot rolled annealed drum kit, cowhide mid tier siam oak mid tier modern open slap hand drum congas, open slap hand drum timbales, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble heavy one piece matched to monette horn trumpet, tenor ensemble honking attack saxophone. mid manhattan 1975-1985 mid-major late70s nyc commercial. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 916,
-  "score": 413.079,
+  "recipe": "classic North American dc go-go, functional Song, soul R&B branch, funk percussive groove percussion future funk. thick, breath veiled tone, slow rate, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright basswood mahogany humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, birch pre muffled edge muffled hot rolled annealed drum kit, cowhide mid tier siam oak mid tier modern open slap hand drum congas, open slap hand drum timbales, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble heavy one piece matched to monette horn trumpet, tenor ensemble honking attack saxophone. mid manhattan 1975-1985 mid-major late70s nyc commercial. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 922,
+  "score": 455.278,
   "config": {
     "traditions": [
       "dc_go_go",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "blues_shouter_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "narrative_voice",
-          "voice_microtone": "blue_notes",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "gospel_pentecostal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_belt",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_talkbox",
-          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 8.522499999999997,
-          "voice_quality": 5.103500000000002,
+          "voice_quality": 8.774999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.3895,
-          "voice_articulation": 4.8500000000000005,
-          "voice_microtone": 3.0154999999999994,
+          "voice_vibrato": 2.47,
+          "voice_articulation": 21.384999999999994,
+          "voice_microtone": 20.604999999999993,
           "voice_tradition": 8.9645,
           "voice_mechanism_compound": 1.885,
           "voice_estill_quality": 4.905000000000001,
-          "voice_speech_song": 24.179999999999996,
-          "voice_ensemble_config": 17.484999999999996,
+          "voice_speech_song": 24.049999999999997,
+          "voice_ensemble_config": 17.354999999999997,
           "voice_ornament_system": 1.9049999999999998,
-          "voice_pitch_organization": 2.535,
+          "voice_pitch_organization": 2.34,
           "voice_processing_chain": 28.502999999999997,
-          "voice_multitrack_stack": 5.135
+          "voice_multitrack_stack": 9.912500000000001
         }
       },
       {

@@ -3,53 +3,53 @@
   "name": "Shona mbira praise music (Zimbabwe)",
   "family": "global",
   "lineage": "Shona mbira-and-vocal praise-music tradition continuous from pre-colonial Zimbabwe Karanga-Shona ritual-practice through colonial-period continuous performance into modern Zimbabwean Shona-cultural practice; the mbira dzavadzimu (mbira of the ancestors) is the canonical Shona ritual-and-praise instrument",
-  "recipe": "classic Southern African modern shona mbira praise music, praise Song, sub saharan African branch, indigenous ritual devotional, string drone modal, central east south African groove percussion shipibo-conibo icaros healing songs chimurenga. vocal fry, declaimed, melodic, continuous-phonation. steel maple calabash mbira, hosho. harare formerly salisbury 1971-present indie-commercial harare zimbabwean chimurenga studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 552,
-  "score": 226.088,
+  "recipe": "classic Southern African modern shona mbira praise music, praise Song, sub saharan African branch, indigenous ritual devotional, string drone modal, central east south African groove percussion shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, breath veiled tone, straight note core, interlocked note trading. steel maple mbira, hosho. harare formerly salisbury 1971-present indie-commercial harare zimbabwean chimurenga studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 522,
+  "score": 268.34,
   "config": {
     "traditions": [
       "shona_mbira_praise",
       "shipibo_icaros",
-      "chimurenga"
+      "mapuche_tayil_ritual"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "vocal_fry",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "legato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 3.3150000000000004,
-          "voice_quality": 21.964999999999993,
+          "voice_register": 3.7700000000000005,
+          "voice_quality": 35.49,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.47,
-          "voice_articulation": 2.7949999999999995,
-          "voice_microtone": 3.36,
-          "voice_tradition": 27.6575,
-          "voice_mechanism_compound": 8.530000000000001,
-          "voice_estill_quality": 4.095000000000001,
-          "voice_speech_song": 16.575,
-          "voice_ensemble_config": 14.169999999999998,
-          "voice_ornament_system": 6.150000000000001,
-          "voice_pitch_organization": 3.0349999999999997,
-          "voice_processing_chain": 4.355,
-          "voice_multitrack_stack": 4.16
+          "voice_vibrato": 6.240000000000001,
+          "voice_articulation": 17.485,
+          "voice_microtone": 18.394999999999996,
+          "voice_tradition": 26.65,
+          "voice_mechanism_compound": 11.655000000000001,
+          "voice_estill_quality": 6.11,
+          "voice_speech_song": 20.929999999999996,
+          "voice_ensemble_config": 18.46,
+          "voice_ornament_system": 7.15,
+          "voice_pitch_organization": 4.535,
+          "voice_processing_chain": 13.844999999999999,
+          "voice_multitrack_stack": 5.265000000000001
         }
       },
       {
@@ -57,13 +57,13 @@
         "slots": {
           "tine_material": "spring_steel",
           "mbira_board": "maple_kalimba",
-          "mbira_resonator": "deze_calabash",
+          "mbira_resonator": "box_resonator",
           "mbira_buzz": "metal_beads"
         },
         "scores": {
           "tine_material": 1.495,
           "mbira_board": 1.495,
-          "mbira_resonator": 1.6899999999999997,
+          "mbira_resonator": 1.495,
           "mbira_buzz": 1.495
         }
       },
@@ -75,14 +75,14 @@
           "hosho_filler": "hosho_hota_seeds"
         },
         "scores": {
-          "hosho_form": 27.265,
-          "hosho_groove": 42.76499999999999,
-          "hosho_filler": 20.9
+          "hosho_form": 22.689999999999998,
+          "hosho_groove": 32.19,
+          "hosho_filler": 16.974999999999998
         }
       }
     ],
     "room": "harare_zimbabwean_chimurenga_studio",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

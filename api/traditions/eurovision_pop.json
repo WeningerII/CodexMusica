@@ -3,9 +3,9 @@
   "name": "Eurovision pop",
   "family": "global",
   "lineage": "Pan-European televised song-contest pop tradition tied to the annual Eurovision Song Contest (founded 1956) — codified through the contest’s evolving format: bombastic-power-ballad and key-change-climax conventions in the 1990s-2000s, then post-2010 electronic-and-quirky entries (Conchita Wurst 2014, Måneskin 2021); a stylistic register more than a genre",
-  "recipe": "classic mid-1990s eurovision pop, functional Song, europop branch, pop rock functional song new wave yacht rock. thick, chest mix belt, chest resonance low mid, equal tempered. singing lead analog poly synth, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu choir ensemble. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 769,
-  "score": 635.037,
+  "recipe": "classic mid-1990s eurovision pop, functional Song, europop branch, pop rock functional song new wave yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. singing lead analog poly synth, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu choir ensemble. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 774,
+  "score": 665.205,
   "config": {
     "traditions": [
       "eurovision_pop",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "chest_mix_belt_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "spoken_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
           "voice_register": 52.400000000000006,
-          "voice_quality": 8.384999999999998,
+          "voice_quality": 13.552499999999991,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.275,
-          "voice_articulation": 0.39,
+          "voice_vibrato": 8.82,
+          "voice_articulation": 14.104999999999995,
           "voice_microtone": 50.599999999999994,
           "voice_tradition": 34.96999999999999,
           "voice_mechanism_compound": 2.5349999999999997,
           "voice_estill_quality": 1.8849999999999996,
-          "voice_speech_song": 23.919999999999995,
-          "voice_ensemble_config": 15.079999999999995,
+          "voice_speech_song": 24.634999999999994,
+          "voice_ensemble_config": 16.444999999999993,
           "voice_ornament_system": 0.39,
-          "voice_pitch_organization": 1.3699999999999997,
+          "voice_pitch_organization": 1.9499999999999997,
           "voice_processing_chain": 12.405000000000001,
-          "voice_multitrack_stack": 5.915000000000001
+          "voice_multitrack_stack": 7.994999999999999
         }
       },
       {

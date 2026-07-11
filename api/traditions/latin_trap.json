@@ -3,9 +3,9 @@
   "name": "Latin trap",
   "family": "pop",
   "lineage": "Puerto Rican-Dominican Latin-trap subgenre codified through Bad Bunny (X 100PRE 2018), Anuel AA, Ozuna, Bryant Myers — characterized by 70-80 BPM trap-808 programming with reggaeton-dembow accents, autotuned-Spanish-language vocals, and the Hear This Music label catalog driving its mainstream crossover",
-  "recipe": "classic late-2010s latin trap, mc Rhythm, reggaeton branch, us hip hop southern trap houston chopped and screwed. extended whistle, rap, chest resonance low mid, narrative. TR-808, sub bass analog poly synth, sampled chopped sampler drum machine. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 391,
-  "score": 151.995,
+  "recipe": "classic Caribbean late-2010s latin trap, mc Rhythm, reggaeton branch, us hip hop southern trap houston chopped and screwed. extended whistle, rap, straight note core, interlocked note trading. TR-808, sub bass analog poly synth, sampled chopped sampler drum machine. live tracking. shure SM58, transformerless solid-state pre, pumping sidechain, parametric EQ. lossy MP3 autotune digital delay.",
+  "recipe_chars": 394,
+  "score": 180.53,
   "config": {
     "traditions": [
       "latin_trap",
@@ -20,36 +20,36 @@
           "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "narrative_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "beatboxing_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_rhythmic_spoken_flow",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 3.185,
           "voice_quality": 15.96,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.08,
-          "voice_articulation": 6.394999999999999,
-          "voice_microtone": 2.250000000000001,
+          "voice_vibrato": 2.105,
+          "voice_articulation": 13.324999999999992,
+          "voice_microtone": 12.934999999999992,
           "voice_tradition": 8.76,
           "voice_mechanism_compound": 3.3149999999999995,
           "voice_estill_quality": 2.7300000000000004,
           "voice_speech_song": 15.279999999999998,
-          "voice_ensemble_config": 12.804999999999994,
-          "voice_ornament_system": 0.65,
-          "voice_pitch_organization": 1.69,
+          "voice_ensemble_config": 12.674999999999994,
+          "voice_ornament_system": 6.370000000000002,
+          "voice_pitch_organization": 1.65,
           "voice_processing_chain": 8.519999999999998,
-          "voice_multitrack_stack": 3.51
+          "voice_multitrack_stack": 7.280000000000002
         }
       },
       {
@@ -97,7 +97,7 @@
       }
     ],
     "room": "live_room",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_san_juan_reggaeton_mixtape",
     "inline_chain": {
       "mic": "dynamic_mic",
       "pre": "transformerless",

@@ -3,9 +3,9 @@
   "name": "Lutheran chorale tradition",
   "family": "classical",
   "lineage": "German Protestant vernacular hymn tradition emerging from Martin Luther's liturgical reforms (1520s-1540s), in which sturdy German-language hymn-tunes (chorales) became the canonical sung-prayer of the Lutheran congregation. The seventeenth-century four-voice harmonization tradition (codified by Hans Leo Hassler, Michael Praetorius, and later Johann Sebastian Bach in his approximately 400 chorale harmonizations) constitutes the canonical compositional layer. Direct precursor to broader Lutheran cantata-and-passion compositional tradition.",
-  "recipe": "classic European mid-1520s lutheran chorale tradition, ritual Devotional, christian gospel branch, western common practice art music classical period anglican cathedral-choral recording tradition. thick, declaimed, chest resonance low mid, ornamental. mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone global traditional polyphonic choir ensemble, silbermann saxon canonical bach era central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque mechanical tracker canonical Baroque direct touch legato pipe organ. cathedral. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
-  "recipe_chars": 783,
-  "score": 203.23,
+  "recipe": "classic European mid-1520s lutheran chorale tradition, ritual Devotional, christian gospel branch, western common practice art music classical period anglican cathedral-choral recording tradition. thick, breath veiled tone, slow rate, interlocked note trading. mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone global traditional polyphonic choir ensemble, silbermann saxon canonical bach era central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque mechanical tracker canonical Baroque direct touch legato pipe organ. cathedral. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+  "recipe_chars": 779,
+  "score": 218.665,
   "config": {
     "traditions": [
       "lutheran_chorale",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "melisma_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "chinese_classical_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
-          "voice_multitrack_stack": "voice_multitrack_single_lead"
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
           "voice_register": 8.525,
-          "voice_quality": 9.094999999999999,
+          "voice_quality": 12.349999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.484999999999999,
-          "voice_articulation": 4.625,
+          "voice_vibrato": 11.2125,
+          "voice_articulation": 9.099999999999998,
           "voice_microtone": 9.100000000000001,
           "voice_tradition": 20.54,
           "voice_mechanism_compound": 8.524999999999999,
           "voice_estill_quality": 10.53,
           "voice_speech_song": 10.2,
-          "voice_ensemble_config": 12.934999999999995,
+          "voice_ensemble_config": 12.999999999999993,
           "voice_ornament_system": 8.569999999999999,
           "voice_pitch_organization": 8.524999999999999,
           "voice_processing_chain": 3.685,
-          "voice_multitrack_stack": 0.27
+          "voice_multitrack_stack": 0.5199999999999999
         }
       },
       {
@@ -90,7 +90,7 @@
       }
     ],
     "room": "cathedral",
-    "archetype": "arch_german_diy_converted",
+    "archetype": "arch_church_location_early_music",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "tube_pre",

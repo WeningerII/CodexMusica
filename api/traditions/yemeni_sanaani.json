@@ -3,9 +3,9 @@
   "name": "Yemeni Sanaani song",
   "family": "classical",
   "lineage": "Yemeni al-ghinā' al-Ṣanʻānī (\"the song of Sana'a\") classical urban-chamber-song tradition of the Yemeni highlands. Origin in the medieval Yemeni-Rasulid period (thirteenth-fifteenth centuries) with development through the Qasimid and Mutawakkilite imamate periods (seventeenth-twentieth centuries) into the modern form. Performance configuration: a male singer (the singer holds the social role of muṭrib, a respected community-cultural-figure rather than a paid entertainer) accompanies himself on the qanbus (the short-neck skin-bellied Yemeni-Arabian lute — distinct from the more familiar oud, with characteristic deep buzzing-resonance from the skin belly), or on the small-frame turbi drum or sahn metal-tray-as-percussion-surface. Performance contexts center on the qat-chew majlis (the afternoon-into-evening social gathering at a private home where male participants consume the mildly stimulant qat leaf while engaging in literary-philosophical-political conversation and song). Repertoire spans three movement-categories within a typical qomah (\"setting\"): das'ah (the slow opening movement), wasṭ (the middle movement), and ghinā' al-bāṣ (the lively concluding movement). Lyric base draws on classical Arabic poetry and especially the seventeenth-century Yemeni mystic-philosopher poet Muhammad ibn Sharaf al-Dīn (1559-1607). Modal vocabulary draws on the Arabic maqam framework with Yemeni-specific cadential and ornamental conventions. The Yemen Music House field-recording archive constitutes the principal documentation. Distinguished from Iraqi maqam by Yemeni-Sanaani's qanbus (vs Iraqi joza-and-santur) instrumental signature and Yemeni-Arabian regional dialect; distinguished from Hejazi and Najdi Arabian song by Yemeni-Sanaani's qat-majlis-chamber (vs court-or-bedouin) functional context.",
-  "recipe": "classic Middle Eastern early-1550s yemeni sanaani song, art Music, middle eastern classical branch, islamic ritual devotional naʿat anāshīd. thick, declaimed, chest resonance low mid, unrestrained. short neck skin bellied canonical sanaani al ghina al sanaani classical qanbus. qat chew majlis room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 429,
-  "score": 252.729,
+  "recipe": "classic Middle Eastern early-1550s yemeni sanaani song, art Music, middle eastern classical branch, islamic ritual devotional naʿat anāshīd. thick, breath veiled tone, slow rate, interlocked note trading. short neck skin bellied canonical sanaani al ghina al sanaani classical qanbus. qat chew majlis room. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 369,
+  "score": 306.696,
   "config": {
     "traditions": [
       "yemeni_sanaani",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "shouted_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "arabic_maqam_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
           "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 1.6450000000000002,
-          "voice_quality": 16.012999999999998,
+          "voice_quality": 34.255,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.54,
-          "voice_articulation": 2.695,
-          "voice_microtone": 17.183,
+          "voice_vibrato": 15.875,
+          "voice_articulation": 14.82,
+          "voice_microtone": 40.0725,
           "voice_tradition": 31.91,
           "voice_mechanism_compound": 14.794,
           "voice_estill_quality": 15.811999999999998,
-          "voice_speech_song": 25.870000000000005,
-          "voice_ensemble_config": 16.380000000000003,
+          "voice_speech_song": 25.740000000000002,
+          "voice_ensemble_config": 16.25,
           "voice_ornament_system": 27.783,
           "voice_pitch_organization": 27.873,
-          "voice_processing_chain": 3.25,
-          "voice_multitrack_stack": 1.8849999999999996
+          "voice_processing_chain": 5.330000000000001,
+          "voice_multitrack_stack": 2.990000000000001
         }
       },
       {
@@ -65,7 +65,7 @@
       }
     ],
     "room": "qat_chew_majlis_room",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

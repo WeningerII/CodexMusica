@@ -3,53 +3,53 @@
   "name": "Trova cubana",
   "family": "global",
   "lineage": "Cuban troubadour-song tradition emerging in late-nineteenth-century Santiago de Cuba and Havana from synthesis of Spanish romance ballad with Cuban son and bolero. Solo voice or duo with one or two acoustic guitars, intimate-confessional register. Trova tradicional (1890s-1920s, Sindo Garay, Manuel Corona) crystallized the genre; nueva trova (post-1968, Silvio Rodríguez, Pablo Milanés) integrated revolutionary-political content.",
-  "recipe": "classic Caribbean mid-1890s trova cubana, ballad Poetry, Latin am troubadour branch, chanson fado ballad poetry cape verdean batuko of santiago island french musette. vocal fry, lament wail, melodic, punctuated. fingerpicked parlor acoustic guitar. Cuban state recording 1962-present mid tier estudios areito havana. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 446,
-  "score": 122.638,
+  "recipe": "classic Caribbean mid-1890s trova cubana, ballad Poetry, Latin am troubadour branch, chanson fado ballad poetry cape verdean batuko of santiago island morna. vocal fry, breath veiled tone, slow rate, interlocked note trading. fingerpicked parlor acoustic guitar. Cuban state recording 1962-present mid tier estudios areito havana. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 460,
+  "score": 200.313,
   "config": {
     "traditions": [
       "trova_cubana",
       "cape_verdean_batuko",
-      "french_musette"
+      "morna"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "vocal_fry",
-          "voice_quality": "fado_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "staccato_voice",
-          "voice_microtone": "blue_notes",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_andean_huayno",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
         },
         "scores": {
-          "voice_register": 2.795,
-          "voice_quality": 6.085,
+          "voice_register": 3.6399999999999997,
+          "voice_quality": 28.34,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.625,
-          "voice_articulation": 2.9899999999999998,
-          "voice_microtone": 1.4949999999999999,
-          "voice_tradition": 13.8125,
-          "voice_mechanism_compound": 7.67,
-          "voice_estill_quality": 7.020000000000001,
-          "voice_speech_song": 23.205000000000002,
-          "voice_ensemble_config": 20.28,
-          "voice_ornament_system": 1.56,
-          "voice_pitch_organization": 2.34,
-          "voice_processing_chain": 2.9899999999999998,
-          "voice_multitrack_stack": 4.29
+          "voice_vibrato": 2.5675,
+          "voice_articulation": 22.23,
+          "voice_microtone": 22.555,
+          "voice_tradition": 15.144999999999998,
+          "voice_mechanism_compound": 7.865,
+          "voice_estill_quality": 6.760000000000002,
+          "voice_speech_song": 26.325000000000003,
+          "voice_ensemble_config": 22.815,
+          "voice_ornament_system": 1.9252500000000001,
+          "voice_pitch_organization": 2.795000000000001,
+          "voice_processing_chain": 9.945000000000004,
+          "voice_multitrack_stack": 5.135
         }
       },
       {
@@ -59,14 +59,14 @@
           "string_tuning": "open_d",
           "top_wood_parlor": "cedar_p",
           "back_sides_parlor": "mahogany_bs_p",
-          "string_acoustic_parlor": "silk_steel_p"
+          "string_acoustic_parlor": "phosphor_p"
         },
         "scores": {
-          "acoustic_technique": 11.620000000000001,
-          "string_tuning": 0.7149999999999999,
+          "acoustic_technique": 11.770000000000001,
+          "string_tuning": 1.2999999999999998,
           "top_wood_parlor": 0.7252500000000001,
           "back_sides_parlor": 0,
-          "string_acoustic_parlor": 0.7949999999999999
+          "string_acoustic_parlor": 0.7252500000000001
         }
       }
     ],

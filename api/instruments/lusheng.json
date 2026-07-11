@@ -1,0 +1,398 @@
+{
+  "id": "lusheng",
+  "name": "Lusheng (Miao/Hmong mouth organ)",
+  "family": "free_reed",
+  "class": "free_reed",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "Miao/Hmong multi-pipe bamboo free-reed mouth organ — buzzy, danced festival and courtship instrument of southwest China and the Hmong diaspora, distinct from the sheng and khaen in size, tuning, and dance function.",
+  "parts": [
+    {
+      "id": "free_reed_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "free_reed_folk_first_position",
+          "default": true,
+          "name": "Folk first-position straight",
+          "descriptors": [
+            "straight",
+            "melodic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "folk",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "folk",
+            "singer-songwriter",
+            "country"
+          ]
+        },
+        {
+          "id": "free_reed_overblow_modern",
+          "name": "Overblow modern bending",
+          "descriptors": [
+            "overblown",
+            "fully-chromatic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "modern"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "lusheng_form",
+      "name": "Regional form / size",
+      "variants": [
+        {
+          "id": "lusheng_form_miao_six_pipe",
+          "default": true,
+          "name": "Miao six-pipe lusheng",
+          "descriptors": [
+            "six-pipe",
+            "buzzy",
+            "mid-register",
+            "festival"
+          ],
+          "match_tokens": [
+            "lusheng",
+            "miao",
+            "six-pipe",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "form:six-pipe"
+          ]
+        },
+        {
+          "id": "lusheng_form_giant_bass",
+          "name": "Giant bass lusheng (di sheng)",
+          "descriptors": [
+            "giant",
+            "deep-bass",
+            "booming",
+            "low"
+          ],
+          "match_tokens": [
+            "giant",
+            "bass",
+            "low",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "form:giant-bass"
+          ]
+        },
+        {
+          "id": "lusheng_form_hmong_qeej",
+          "name": "Hmong qeej",
+          "descriptors": [
+            "qeej",
+            "reedy",
+            "ceremonial",
+            "curved"
+          ],
+          "match_tokens": [
+            "qeej",
+            "hmong",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "form:qeej"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lusheng_performance",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "lusheng_performance_dance",
+          "default": true,
+          "name": "Lusheng dance",
+          "descriptors": [
+            "danced",
+            "rhythmic",
+            "stamping",
+            "circular"
+          ],
+          "match_tokens": [
+            "dance",
+            "rhythmic",
+            "festival",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "context:dance"
+          ]
+        },
+        {
+          "id": "lusheng_performance_courtship",
+          "name": "Courtship serenade",
+          "descriptors": [
+            "courtship",
+            "antiphonal",
+            "tender",
+            "paired"
+          ],
+          "match_tokens": [
+            "courtship",
+            "duet",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "context:courtship"
+          ]
+        },
+        {
+          "id": "lusheng_performance_qeej_ritual",
+          "name": "Qeej funeral recitation",
+          "descriptors": [
+            "funeral",
+            "ritual",
+            "speech-mimicking",
+            "solemn"
+          ],
+          "match_tokens": [
+            "funeral",
+            "ritual",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "context:funeral-ritual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lusheng_construction",
+      "surface": false,
+      "name": "Reed and pipe construction",
+      "variants": [
+        {
+          "id": "lusheng_construction_bronze_reed",
+          "default": true,
+          "name": "Bronze free reeds, bamboo pipes",
+          "descriptors": [
+            "bronze-reed",
+            "bamboo",
+            "buzzing",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bronze",
+            "bamboo",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "build:bronze-reed"
+          ]
+        },
+        {
+          "id": "lusheng_construction_bamboo_reed",
+          "name": "Cane reed tongues",
+          "descriptors": [
+            "bamboo-reed",
+            "soft",
+            "archaic",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bamboo",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "build:cane-reed"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "lusheng_form",
+      "name": "Regional form / size",
+      "variants": [
+        {
+          "id": "lusheng_form_miao_six_pipe",
+          "default": true,
+          "name": "Miao six-pipe lusheng",
+          "descriptors": [
+            "six-pipe",
+            "buzzy",
+            "mid-register",
+            "festival"
+          ],
+          "match_tokens": [
+            "lusheng",
+            "miao",
+            "six-pipe",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "form:six-pipe"
+          ]
+        },
+        {
+          "id": "lusheng_form_giant_bass",
+          "name": "Giant bass lusheng (di sheng)",
+          "descriptors": [
+            "giant",
+            "deep-bass",
+            "booming",
+            "low"
+          ],
+          "match_tokens": [
+            "giant",
+            "bass",
+            "low",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "form:giant-bass"
+          ]
+        },
+        {
+          "id": "lusheng_form_hmong_qeej",
+          "name": "Hmong qeej",
+          "descriptors": [
+            "qeej",
+            "reedy",
+            "ceremonial",
+            "curved"
+          ],
+          "match_tokens": [
+            "qeej",
+            "hmong",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "form:qeej"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lusheng_performance",
+      "name": "Playing context / repertoire",
+      "variants": [
+        {
+          "id": "lusheng_performance_dance",
+          "default": true,
+          "name": "Lusheng dance",
+          "descriptors": [
+            "danced",
+            "rhythmic",
+            "stamping",
+            "circular"
+          ],
+          "match_tokens": [
+            "dance",
+            "rhythmic",
+            "festival",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "context:dance"
+          ]
+        },
+        {
+          "id": "lusheng_performance_courtship",
+          "name": "Courtship serenade",
+          "descriptors": [
+            "courtship",
+            "antiphonal",
+            "tender",
+            "paired"
+          ],
+          "match_tokens": [
+            "courtship",
+            "duet",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "context:courtship"
+          ]
+        },
+        {
+          "id": "lusheng_performance_qeej_ritual",
+          "name": "Qeej funeral recitation",
+          "descriptors": [
+            "funeral",
+            "ritual",
+            "speech-mimicking",
+            "solemn"
+          ],
+          "match_tokens": [
+            "funeral",
+            "ritual",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "context:funeral-ritual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lusheng_construction",
+      "surface": false,
+      "name": "Reed and pipe construction",
+      "variants": [
+        {
+          "id": "lusheng_construction_bronze_reed",
+          "default": true,
+          "name": "Bronze free reeds, bamboo pipes",
+          "descriptors": [
+            "bronze-reed",
+            "bamboo",
+            "buzzing",
+            "resonant"
+          ],
+          "match_tokens": [
+            "bronze",
+            "bamboo",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "build:bronze-reed"
+          ]
+        },
+        {
+          "id": "lusheng_construction_bamboo_reed",
+          "name": "Cane reed tongues",
+          "descriptors": [
+            "bamboo-reed",
+            "soft",
+            "archaic",
+            "mellow"
+          ],
+          "match_tokens": [
+            "bamboo",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "build:cane-reed"
+          ]
+        }
+      ]
+    }
+  ]
+}

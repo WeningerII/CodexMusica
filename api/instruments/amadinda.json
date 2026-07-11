@@ -1,0 +1,348 @@
+{
+  "id": "amadinda",
+  "name": "Amadinda (Ganda royal log xylophone)",
+  "family": "percussion",
+  "class": "tuned_percussion",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -2,
+    "polyphony": 1,
+    "harmonicity": -1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "Buganda court log xylophone of twelve loose wooden bars on banana-stem supports, pentatonically tuned and played by two or three drummers in fast interlocking okunaga/okwawula parts that spin off resultant melodies.",
+  "parts": [
+    {
+      "id": "amadinda_form",
+      "name": "Court form and size",
+      "variants": [
+        {
+          "id": "amadinda_form_amadinda_twelve",
+          "default": true,
+          "name": "Amadinda (twelve-key, two players)",
+          "descriptors": [
+            "twelve-log-bars",
+            "pentatonic-tuned",
+            "two-player-court"
+          ],
+          "match_tokens": [
+            "struck",
+            "log-xylophone",
+            "pentatonic",
+            "interlocking"
+          ],
+          "canonical_tags": [
+            "amadinda"
+          ]
+        },
+        {
+          "id": "amadinda_form_akadinda_wide",
+          "name": "Akadinda (seventeen-plus keys, three to six players)",
+          "descriptors": [
+            "seventeen-log-bars",
+            "wide-compass",
+            "many-player-bench"
+          ],
+          "match_tokens": [
+            "struck",
+            "log-xylophone",
+            "wide-range",
+            "interlocking"
+          ],
+          "canonical_tags": [
+            "akadinda"
+          ]
+        },
+        {
+          "id": "amadinda_form_entaala_village",
+          "name": "Entaala / madinda (small village xylophone)",
+          "descriptors": [
+            "few-log-bars",
+            "village-scale",
+            "portable-frame"
+          ],
+          "match_tokens": [
+            "struck",
+            "log-xylophone",
+            "small"
+          ],
+          "canonical_tags": [
+            "entaala",
+            "madinda"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "amadinda_interlock",
+      "name": "Interlocking part and role",
+      "variants": [
+        {
+          "id": "amadinda_interlock_okunaga",
+          "default": true,
+          "name": "Okunaga (starting lead part)",
+          "descriptors": [
+            "lead-starting-line",
+            "steady-octave-strokes",
+            "sets-the-tempo"
+          ],
+          "match_tokens": [
+            "struck",
+            "interlocking",
+            "lead",
+            "octave-doubled"
+          ],
+          "canonical_tags": [
+            "okunaga"
+          ]
+        },
+        {
+          "id": "amadinda_interlock_okwawula",
+          "name": "Okwawula (interlocking second part)",
+          "descriptors": [
+            "offbeat-interlock",
+            "hocketed-fill",
+            "against-the-lead"
+          ],
+          "match_tokens": [
+            "struck",
+            "interlocking",
+            "hocket",
+            "offbeat"
+          ],
+          "canonical_tags": [
+            "okwawula"
+          ]
+        },
+        {
+          "id": "amadinda_interlock_okukoonera",
+          "name": "Okukoonera (high resultant octave part)",
+          "descriptors": [
+            "high-resultant-octave",
+            "top-register-doubling",
+            "emergent-melody"
+          ],
+          "match_tokens": [
+            "struck",
+            "interlocking",
+            "high-register",
+            "resultant"
+          ],
+          "canonical_tags": [
+            "okukoonera"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "amadinda_construction",
+      "surface": false,
+      "name": "Bar wood and supports",
+      "variants": [
+        {
+          "id": "amadinda_construction_lusambya_banana",
+          "default": true,
+          "name": "Lusambya hardwood bars on banana-stem beds",
+          "descriptors": [
+            "dry-hardwood-bars",
+            "banana-stem-supports",
+            "no-resonators"
+          ],
+          "match_tokens": [
+            "struck",
+            "wooden",
+            "dry-tone",
+            "log-xylophone"
+          ],
+          "canonical_tags": [
+            "lusambya"
+          ]
+        },
+        {
+          "id": "amadinda_construction_soft_muddy",
+          "name": "Softer wood bars, damped village tone",
+          "descriptors": [
+            "softer-wood-bars",
+            "muted-thud",
+            "damped-supports"
+          ],
+          "match_tokens": [
+            "struck",
+            "wooden",
+            "damped",
+            "rough-tone"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "amadinda_form",
+      "name": "Court form and size",
+      "variants": [
+        {
+          "id": "amadinda_form_amadinda_twelve",
+          "default": true,
+          "name": "Amadinda (twelve-key, two players)",
+          "descriptors": [
+            "twelve-log-bars",
+            "pentatonic-tuned",
+            "two-player-court"
+          ],
+          "match_tokens": [
+            "struck",
+            "log-xylophone",
+            "pentatonic",
+            "interlocking"
+          ],
+          "canonical_tags": [
+            "amadinda"
+          ]
+        },
+        {
+          "id": "amadinda_form_akadinda_wide",
+          "name": "Akadinda (seventeen-plus keys, three to six players)",
+          "descriptors": [
+            "seventeen-log-bars",
+            "wide-compass",
+            "many-player-bench"
+          ],
+          "match_tokens": [
+            "struck",
+            "log-xylophone",
+            "wide-range",
+            "interlocking"
+          ],
+          "canonical_tags": [
+            "akadinda"
+          ]
+        },
+        {
+          "id": "amadinda_form_entaala_village",
+          "name": "Entaala / madinda (small village xylophone)",
+          "descriptors": [
+            "few-log-bars",
+            "village-scale",
+            "portable-frame"
+          ],
+          "match_tokens": [
+            "struck",
+            "log-xylophone",
+            "small"
+          ],
+          "canonical_tags": [
+            "entaala",
+            "madinda"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "amadinda_interlock",
+      "name": "Interlocking part and role",
+      "variants": [
+        {
+          "id": "amadinda_interlock_okunaga",
+          "default": true,
+          "name": "Okunaga (starting lead part)",
+          "descriptors": [
+            "lead-starting-line",
+            "steady-octave-strokes",
+            "sets-the-tempo"
+          ],
+          "match_tokens": [
+            "struck",
+            "interlocking",
+            "lead",
+            "octave-doubled"
+          ],
+          "canonical_tags": [
+            "okunaga"
+          ]
+        },
+        {
+          "id": "amadinda_interlock_okwawula",
+          "name": "Okwawula (interlocking second part)",
+          "descriptors": [
+            "offbeat-interlock",
+            "hocketed-fill",
+            "against-the-lead"
+          ],
+          "match_tokens": [
+            "struck",
+            "interlocking",
+            "hocket",
+            "offbeat"
+          ],
+          "canonical_tags": [
+            "okwawula"
+          ]
+        },
+        {
+          "id": "amadinda_interlock_okukoonera",
+          "name": "Okukoonera (high resultant octave part)",
+          "descriptors": [
+            "high-resultant-octave",
+            "top-register-doubling",
+            "emergent-melody"
+          ],
+          "match_tokens": [
+            "struck",
+            "interlocking",
+            "high-register",
+            "resultant"
+          ],
+          "canonical_tags": [
+            "okukoonera"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "amadinda_construction",
+      "surface": false,
+      "name": "Bar wood and supports",
+      "variants": [
+        {
+          "id": "amadinda_construction_lusambya_banana",
+          "default": true,
+          "name": "Lusambya hardwood bars on banana-stem beds",
+          "descriptors": [
+            "dry-hardwood-bars",
+            "banana-stem-supports",
+            "no-resonators"
+          ],
+          "match_tokens": [
+            "struck",
+            "wooden",
+            "dry-tone",
+            "log-xylophone"
+          ],
+          "canonical_tags": [
+            "lusambya"
+          ]
+        },
+        {
+          "id": "amadinda_construction_soft_muddy",
+          "name": "Softer wood bars, damped village tone",
+          "descriptors": [
+            "softer-wood-bars",
+            "muted-thud",
+            "damped-supports"
+          ],
+          "match_tokens": [
+            "struck",
+            "wooden",
+            "damped",
+            "rough-tone"
+          ]
+        }
+      ]
+    }
+  ]
+}

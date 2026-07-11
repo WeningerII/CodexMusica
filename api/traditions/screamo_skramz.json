@@ -3,9 +3,9 @@
   "name": "Screamo / skramz (90s-2000s)",
   "family": "rock_punk",
   "lineage": "1990s emocore and 2000s screamo subgenre developed from hardcore-punk emotional-aggressive register, characterized by screamed-and-melodic vocal alternation, dynamic-contrasted song structure, and confessional-emotional lyrical content. Saetia, City of Caterpillar, Pg.99, Orchid, and Hot Cross constitute the canonical American skramz roster; the parallel European screamo scene (Funeral Diner, Envy from Japan) extended international reach.",
-  "recipe": "classic screamo / skramz, distorted Rock, emo branch, thrash metal groove metal speed metal. thick, incomplete closure resting, melodic, punctuated. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, mahogany machine hammered symmetric pattern organized rows full lathed drum kit. isolated rural 2005-present isolation diy isolation cabin diy. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi proco RAT.",
-  "recipe_chars": 656,
-  "score": 418.574,
+  "recipe": "classic screamo / skramz, distorted Rock, emo branch, thrash metal groove metal speed metal. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, mahogany machine hammered symmetric pattern organized rows full lathed drum kit. isolated rural 2005-present isolation diy isolation cabin diy. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi proco RAT.",
+  "recipe_chars": 673,
+  "score": 438.313,
   "config": {
     "traditions": [
       "screamo_skramz",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "incomplete_closure_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "staccato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "japanese_min_yo_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
           "voice_estill_quality": "voice_estill_opera",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 11.016749999999995,
-          "voice_quality": 3.1865,
+          "voice_quality": 8.06,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.3149999999999995,
-          "voice_articulation": 1.69,
-          "voice_microtone": 10.903749999999999,
+          "voice_vibrato": 3.185,
+          "voice_articulation": 13.324999999999996,
+          "voice_microtone": 13.129999999999992,
           "voice_tradition": 4.875,
           "voice_mechanism_compound": 39.151500000000006,
           "voice_estill_quality": 1.93375,
-          "voice_speech_song": 15.989999999999997,
-          "voice_ensemble_config": 13.389999999999997,
+          "voice_speech_song": 15.859999999999994,
+          "voice_ensemble_config": 14.949999999999996,
           "voice_ornament_system": 1.5250000000000001,
-          "voice_pitch_organization": 3.3799999999999994,
+          "voice_pitch_organization": 3.185,
           "voice_processing_chain": 4.68,
-          "voice_multitrack_stack": 7.97125
+          "voice_multitrack_stack": 7.871250000000001
         }
       },
       {

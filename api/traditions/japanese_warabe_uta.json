@@ -3,9 +3,9 @@
   "name": "Japanese warabe-uta (童歌, children's play-songs)",
   "family": "global",
   "lineage": "Japanese children's play-song (warabe-uta) tradition continuous from premodern Japanese folk-play-song origins (Heian-era and earlier) through Edo-period continuous performance into modern continuous Japanese childhood-practice; distinct from the modern dōyō (童謡) school-curriculum-created children's-song movement of the 1920s-onward",
-  "recipe": "classic East Asian mid-1920s japanese warabe-uta, nursery Rhyme, east Asian branch, east Asian lullaby, European nursery rhyme, east Asian funeral lament russian poteshki and pestushki mandarin yáolán qǔ. thick, low dynamic level, tasteful, continuous-phonation. tatami parlor japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 416,
-  "score": 111.303,
+  "recipe": "classic East Asian mid-1920s japanese warabe-uta, nursery Rhyme, east Asian branch, east Asian lullaby, European nursery rhyme, east Asian funeral lament russian poteshki and pestushki mandarin yáolán qǔ. thick, breath veiled tone, straight note core, interlocked note trading. tatami parlor japanese. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 364,
+  "score": 117.655,
   "config": {
     "traditions": [
       "japanese_warabe_uta",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "crooner_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
-          "voice_articulation": "legato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "japanese_min_yo_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_speech",
@@ -31,30 +31,30 @@
           "voice_ornament_system": "voice_ornament_pansori_sigimsae",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 5.875,
-          "voice_quality": 1.885,
+          "voice_quality": 5.590000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.069999999999999,
-          "voice_articulation": 7.6049999999999995,
-          "voice_microtone": 1.1999999999999997,
+          "voice_vibrato": 6.24625,
+          "voice_articulation": 7.865,
+          "voice_microtone": 8.125,
           "voice_tradition": 34.25062500000001,
           "voice_mechanism_compound": 0.65,
           "voice_estill_quality": 0.45499999999999996,
-          "voice_speech_song": 16.9,
-          "voice_ensemble_config": 8.125,
+          "voice_speech_song": 17.159999999999993,
+          "voice_ensemble_config": 7.995,
           "voice_ornament_system": 6.565,
           "voice_pitch_organization": 9.035,
-          "voice_processing_chain": 1.4624999999999997,
-          "voice_multitrack_stack": 2.275
+          "voice_processing_chain": 2.8512500000000007,
+          "voice_multitrack_stack": 3.4918750000000003
         }
       }
     ],
     "room": "tatami_parlor_japanese",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

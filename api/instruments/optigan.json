@@ -1,0 +1,365 @@
+{
+  "id": "optigan",
+  "name": "Optigan",
+  "family": "keyboard",
+  "class": "keyboard_electric",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 1,
+    "polyphony": 2,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 1,
+    "articulation": 0,
+    "transduction": 1,
+    "dynamics": 0
+  },
+  "short": "Mattel's optical-disc sample keyboard: pre-recorded instrument-and-accompaniment loops read off spinning celluloid film discs by a photocell, giving warbly, wow-and-flutter lo-fi voices. A hauntology signifier distinct from the tape-based mellotron.",
+  "parts": [
+    {
+      "id": "keyboard_technique",
+      "name": "Playing approach",
+      "variants": [
+        {
+          "id": "keyboard_block_chord_pop",
+          "default": true,
+          "name": "Block-chord pop",
+          "descriptors": [
+            "block-chord"
+          ],
+          "match_tokens": [
+            "chordal",
+            "keyboard-driven"
+          ],
+          "canonical_tags": [
+            "pop",
+            "singer-songwriter"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "optigan_model",
+      "name": "Model and era",
+      "variants": [
+        {
+          "id": "optigan_model_mattel",
+          "default": true,
+          "name": "Mattel Optigan (1971 home organ)",
+          "descriptors": [
+            "warbly-optical",
+            "home-organ-lofi",
+            "wow-and-flutter"
+          ],
+          "match_tokens": [
+            "optical",
+            "electric",
+            "electronic",
+            "lo-fi"
+          ],
+          "canonical_tags": [
+            "consumer-instrument",
+            "optical-loop"
+          ]
+        },
+        {
+          "id": "optigan_model_orchestron",
+          "name": "Vako Orchestron (pro optical replay)",
+          "descriptors": [
+            "cleaner-optical",
+            "choir-and-strings",
+            "stage-grade"
+          ],
+          "match_tokens": [
+            "optical",
+            "electronic",
+            "polyphonic"
+          ],
+          "canonical_tags": [
+            "professional-variant"
+          ]
+        },
+        {
+          "id": "optigan_model_restored_reissue",
+          "name": "Restored / boutique-serviced unit",
+          "descriptors": [
+            "serviced-optics",
+            "stabilized-loops",
+            "cult-revival"
+          ],
+          "match_tokens": [
+            "optical",
+            "electronic"
+          ],
+          "canonical_tags": [
+            "restoration"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "optigan_disc_program",
+      "name": "Optical disc program",
+      "variants": [
+        {
+          "id": "optigan_disc_chords_and_melody",
+          "default": true,
+          "name": "Chord-button backing plus right-hand melody",
+          "descriptors": [
+            "chord-button-backing",
+            "melody-over-loops",
+            "auto-accompaniment"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "drone-foundation",
+            "electronic",
+            "chordal"
+          ],
+          "canonical_tags": [
+            "accompaniment-disc"
+          ]
+        },
+        {
+          "id": "optigan_disc_solo_voice",
+          "name": "Single instrument voice as lo-fi texture",
+          "descriptors": [
+            "solo-optical-voice",
+            "warbly-sustain",
+            "haunted-tone"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sustained",
+            "lo-fi"
+          ],
+          "canonical_tags": [
+            "voice-disc"
+          ]
+        },
+        {
+          "id": "optigan_disc_rhythm_bed",
+          "name": "Looping rhythm-and-bass accompaniment bed",
+          "descriptors": [
+            "looped-rhythm-bed",
+            "wobbling-groove",
+            "wow-and-flutter"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "electronic",
+            "looped",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "rhythm-disc"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "optigan_playback_mechanism",
+      "surface": false,
+      "name": "Playback mechanism and disc condition",
+      "variants": [
+        {
+          "id": "optigan_playback_clean_disc",
+          "default": true,
+          "name": "Clean celluloid film disc read by photocell",
+          "descriptors": [
+            "optical-film-disc",
+            "photocell-read",
+            "gentle-warble"
+          ],
+          "match_tokens": [
+            "optical",
+            "electronic"
+          ],
+          "canonical_tags": [
+            "optical-photocell"
+          ]
+        },
+        {
+          "id": "optigan_playback_worn_disc",
+          "name": "Aged, warped disc with heavy wow-flutter and dropouts",
+          "descriptors": [
+            "warped-disc",
+            "dropout-artifacts",
+            "hauntology-decay"
+          ],
+          "match_tokens": [
+            "optical",
+            "electronic",
+            "lo-fi"
+          ],
+          "canonical_tags": [
+            "degraded-media"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "optigan_model",
+      "name": "Model and era",
+      "variants": [
+        {
+          "id": "optigan_model_mattel",
+          "default": true,
+          "name": "Mattel Optigan (1971 home organ)",
+          "descriptors": [
+            "warbly-optical",
+            "home-organ-lofi",
+            "wow-and-flutter"
+          ],
+          "match_tokens": [
+            "optical",
+            "electric",
+            "electronic",
+            "lo-fi"
+          ],
+          "canonical_tags": [
+            "consumer-instrument",
+            "optical-loop"
+          ]
+        },
+        {
+          "id": "optigan_model_orchestron",
+          "name": "Vako Orchestron (pro optical replay)",
+          "descriptors": [
+            "cleaner-optical",
+            "choir-and-strings",
+            "stage-grade"
+          ],
+          "match_tokens": [
+            "optical",
+            "electronic",
+            "polyphonic"
+          ],
+          "canonical_tags": [
+            "professional-variant"
+          ]
+        },
+        {
+          "id": "optigan_model_restored_reissue",
+          "name": "Restored / boutique-serviced unit",
+          "descriptors": [
+            "serviced-optics",
+            "stabilized-loops",
+            "cult-revival"
+          ],
+          "match_tokens": [
+            "optical",
+            "electronic"
+          ],
+          "canonical_tags": [
+            "restoration"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "optigan_disc_program",
+      "name": "Optical disc program",
+      "variants": [
+        {
+          "id": "optigan_disc_chords_and_melody",
+          "default": true,
+          "name": "Chord-button backing plus right-hand melody",
+          "descriptors": [
+            "chord-button-backing",
+            "melody-over-loops",
+            "auto-accompaniment"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "drone-foundation",
+            "electronic",
+            "chordal"
+          ],
+          "canonical_tags": [
+            "accompaniment-disc"
+          ]
+        },
+        {
+          "id": "optigan_disc_solo_voice",
+          "name": "Single instrument voice as lo-fi texture",
+          "descriptors": [
+            "solo-optical-voice",
+            "warbly-sustain",
+            "haunted-tone"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sustained",
+            "lo-fi"
+          ],
+          "canonical_tags": [
+            "voice-disc"
+          ]
+        },
+        {
+          "id": "optigan_disc_rhythm_bed",
+          "name": "Looping rhythm-and-bass accompaniment bed",
+          "descriptors": [
+            "looped-rhythm-bed",
+            "wobbling-groove",
+            "wow-and-flutter"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "electronic",
+            "looped",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "rhythm-disc"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "optigan_playback_mechanism",
+      "surface": false,
+      "name": "Playback mechanism and disc condition",
+      "variants": [
+        {
+          "id": "optigan_playback_clean_disc",
+          "default": true,
+          "name": "Clean celluloid film disc read by photocell",
+          "descriptors": [
+            "optical-film-disc",
+            "photocell-read",
+            "gentle-warble"
+          ],
+          "match_tokens": [
+            "optical",
+            "electronic"
+          ],
+          "canonical_tags": [
+            "optical-photocell"
+          ]
+        },
+        {
+          "id": "optigan_playback_worn_disc",
+          "name": "Aged, warped disc with heavy wow-flutter and dropouts",
+          "descriptors": [
+            "warped-disc",
+            "dropout-artifacts",
+            "hauntology-decay"
+          ],
+          "match_tokens": [
+            "optical",
+            "electronic",
+            "lo-fi"
+          ],
+          "canonical_tags": [
+            "degraded-media"
+          ]
+        }
+      ]
+    }
+  ]
+}

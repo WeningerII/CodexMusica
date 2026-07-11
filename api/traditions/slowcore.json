@@ -3,9 +3,9 @@
   "name": "Slowcore (early-1990s American indie-rock minimalism)",
   "family": "rock_punk",
   "lineage": "Early-1990s American indie-rock subgenre characterized by deliberately glacial tempo, minimalist instrumentation, sparse arrangements, and quiet emotional register. Codeine (NYC, 1989), Low (Duluth, 1993), Bedhead (Dallas, 1991), and Galaxie 500 (Boston, 1987) constitute the canonical roster. Distinguished from broader indie rock by slowcore's extreme-deceleration aesthetic and absence of dynamic-arc-resolution.",
-  "recipe": "classic Pacific Northwest slowcore, distorted Rock, alternative branch, anglo singer song confessional60s late-60s interior confessional songwriter 1960s greenwich village confessional folk. thick, incomplete closure resting, chest resonance low mid, equal tempered. marshall plexi amp British rock amp basswood mahogany rosewood humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character mahogany ernie ball slinky electric bass, mahogany vintage ambassador asymmetric hot rolled annealed drum kit. regional commercial 1985-2005 mid-major pacnw commercial indie. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay electro-harmonix deluxe memory man.",
-  "recipe_chars": 768,
-  "score": 266.056,
+  "recipe": "classic Pacific Northwest slowcore, distorted Rock, alternative branch, anglo singer song confessional60s late-60s interior confessional songwriter 1960s greenwich village confessional folk. thick, incomplete closure resting, straight onset, interlocked note trading. marshall plexi amp British rock amp basswood mahogany rosewood humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character mahogany ernie ball slinky electric bass, mahogany vintage ambassador asymmetric hot rolled annealed drum kit. regional commercial 1985-2005 mid-major pacnw commercial indie. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay electro-harmonix deluxe memory man.",
+  "recipe_chars": 769,
+  "score": 272.829,
   "config": {
     "traditions": [
       "slowcore",
@@ -20,8 +20,8 @@
           "voice_quality": "incomplete_closure_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "spoken_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
@@ -38,18 +38,18 @@
           "voice_quality": 12.4125,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
-          "voice_articulation": 0.40950000000000003,
+          "voice_vibrato": 2.5674999999999994,
+          "voice_articulation": 6.695,
           "voice_microtone": 15.099999999999998,
           "voice_tradition": 11.236749999999999,
           "voice_mechanism_compound": 1.755,
           "voice_estill_quality": 6.955000000000001,
-          "voice_speech_song": 11.439999999999998,
-          "voice_ensemble_config": 6.76,
+          "voice_speech_song": 11.504999999999997,
+          "voice_ensemble_config": 6.630000000000001,
           "voice_ornament_system": 4.54975,
-          "voice_pitch_organization": 5.9799999999999995,
+          "voice_pitch_organization": 5.785,
           "voice_processing_chain": 4.159999999999999,
-          "voice_multitrack_stack": 2.21
+          "voice_multitrack_stack": 2.0799999999999996
         }
       },
       {

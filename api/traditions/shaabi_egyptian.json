@@ -3,9 +3,9 @@
   "name": "Shaabi (Egyptian)",
   "family": "global",
   "lineage": "Cairo working-class popular vernacular music tradition emerging in the 1970s-80s — codified through Ahmed Adaweya (the foundational voice, whose 1972 album Salametha Umm Hassan broke the classical-tarab dominance of Egyptian commercial music), Shaaban Abdel Rehim, Hakim, Saad El Soghayar — built on the Cairo working-class colloquial Egyptian Arabic vocabulary, oud-and-qanun urban-modernized instrumentation, and topical lyrical content addressing daily Cairo street life",
-  "recipe": "classic North African mid-1970s shaabi, functional Song, mid east n African pop branch, Persian arab improv improv on frame, intl hip hop MC rhythm malhun iraqi maqam. extended whistle, low dynamic level, chest resonance low mid, narrative. padauk Egyptian Syrian premium pyramid nylon arab school oud, metal finger picks rosewood body arab premium qanun, spun aluminum Egyptian sombaty synthetic remo mylar modern canonical Egyptian Egyptian sombaty canonical mid east darbuka, mahogany pyramid pure nickel bass British mid 60s era electric bass. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 733,
-  "score": 206.58,
+  "recipe": "classic North African mid-1970s shaabi, functional Song, mid east n African pop branch, Persian arab improv improv on frame, intl hip hop MC rhythm malhun iraqi maqam. extended whistle, breath veiled tone, slow rate, interlocked note trading. padauk Egyptian Syrian premium pyramid nylon arab school oud, metal finger picks rosewood body arab premium qanun, spun aluminum Egyptian sombaty synthetic remo mylar modern canonical Egyptian Egyptian sombaty canonical mid east darbuka, mahogany pyramid pure nickel bass British mid 60s era electric bass. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
+  "recipe_chars": 732,
+  "score": 242.65,
   "config": {
     "traditions": [
       "shaabi_egyptian",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "extended_whistle_register",
-          "voice_quality": "crooner_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "narrative_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "arabic_maqam_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
@@ -35,17 +35,17 @@
         },
         "scores": {
           "voice_register": 4.51,
-          "voice_quality": 3.640000000000001,
+          "voice_quality": 7.410000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.175,
-          "voice_articulation": 0.9449999999999998,
-          "voice_microtone": 15.904999999999998,
+          "voice_vibrato": 11.200000000000001,
+          "voice_articulation": 7.02,
+          "voice_microtone": 33.114999999999995,
           "voice_tradition": 19.525000000000002,
           "voice_mechanism_compound": 14.545000000000002,
           "voice_estill_quality": 9.14,
           "voice_speech_song": 9.415000000000001,
-          "voice_ensemble_config": 8.384999999999998,
+          "voice_ensemble_config": 8.254999999999999,
           "voice_ornament_system": 19.785000000000004,
           "voice_pitch_organization": 19.89,
           "voice_processing_chain": 3.44,
@@ -82,16 +82,16 @@
           "qanun_pick": "qanun_finger_picks",
           "qanun_body_wood": "qanun_rosewood_body",
           "qanun_bridge_skin": "qanun_goat_skin_bridge",
-          "qanun_string_material": "qanun_fluorocarbon"
+          "qanun_string_material": "qanun_nylon_modern"
         },
         "scores": {
           "plucked_traditional_technique": 7.375000000000001,
           "qanun_strings": 3.835,
-          "qanun_levers": -1.35,
+          "qanun_levers": 0.15,
           "qanun_pick": 3.835,
           "qanun_body_wood": 3.4450000000000003,
           "qanun_bridge_skin": 0.65,
-          "qanun_string_material": 0
+          "qanun_string_material": 0.195
         }
       },
       {
@@ -105,7 +105,7 @@
         "scores": {
           "percussion_technique": -0.1,
           "darbuka_material": 4.55,
-          "darbuka_skin": 2.6,
+          "darbuka_skin": 4.55,
           "darbuka_regional_style": 8.84
         }
       },
@@ -115,7 +115,7 @@
           "electric_technique": "electric_bass_walking",
           "amp_make": "amp_british_orange",
           "body_wood": "mahogany_b",
-          "pickup_config": "split_coil",
+          "pickup_config": "soapbar",
           "string_type": "pyramid_pure_nickel",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
@@ -125,7 +125,7 @@
           "electric_technique": -0.05,
           "amp_make": 1.8399999999999999,
           "body_wood": 2.2800000000000002,
-          "pickup_config": 0,
+          "pickup_config": 0.15,
           "string_type": 2.21,
           "scale_length_b": 2.04,
           "fretted_or_not": 0.045,
@@ -134,7 +134,7 @@
       }
     ],
     "room": "cairo_studio_misr_umm_kulthum_era",
-    "archetype": "arch_early_tape_us_commercial",
+    "archetype": "arch_eastmed_cassette_kiosk",
     "inline_chain": {
       "mic": "mic_sm58_dynamic_shure",
       "pre": "pre_field_recorder_portable",

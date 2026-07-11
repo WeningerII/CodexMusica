@@ -3,9 +3,9 @@
   "name": "Italo house",
   "family": "global",
   "lineage": "Late-1980s and early-1990s Italian house tradition codified through Black Box \"Ride on Time\" (1989), Cappella, FPI Project, Quartz — characterized by major-key euphoric piano-stab figures, female diva-vocal samples (often uncleared at the time), and the Italo-disco euphoric production aesthetic",
-  "recipe": "classic 1987-1989 italo house, electronic Dance, italo house branch, continental electronic dance disco. thick, chest mix belt, chest resonance low mid, narrative. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, digital subtractive, TR-909, sampler. treated studio. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
-  "recipe_chars": 404,
-  "score": 155.111,
+  "recipe": "classic Asian 1987-1989 italo house, electronic Dance, italo house branch, continental electronic dance disco. thick, chest mix belt, straight onset, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, digital subtractive, TR-909, sampler. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+  "recipe_chars": 454,
+  "score": 176.248,
   "config": {
     "traditions": [
       "italo_house_piano",
@@ -19,9 +19,9 @@
           "voice_quality": "chest_mix_belt_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "narrative_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "bel_canto_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
@@ -30,25 +30,25 @@
           "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_granular_texture"
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
           "voice_register": 4.3687499999999995,
           "voice_quality": 14.224374999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.65,
-          "voice_articulation": 2.7249999999999996,
-          "voice_microtone": 1.3749999999999998,
+          "voice_vibrato": 1.48,
+          "voice_articulation": 8.120624999999997,
+          "voice_microtone": 9.246249999999996,
           "voice_tradition": 5.536875000000001,
           "voice_mechanism_compound": 1.67875,
           "voice_estill_quality": 5.430000000000001,
-          "voice_speech_song": 9.393749999999997,
-          "voice_ensemble_config": 8.879374999999998,
+          "voice_speech_song": 9.871249999999995,
+          "voice_ensemble_config": 9.552499999999998,
           "voice_ornament_system": 5.400000000000001,
-          "voice_pitch_organization": 1.349375,
+          "voice_pitch_organization": 3.799375000000001,
           "voice_processing_chain": 12.850625,
-          "voice_multitrack_stack": 4.1743749999999995
+          "voice_multitrack_stack": 7.188125
         }
       },
       {
@@ -121,7 +121,7 @@
       }
     ],
     "room": "treated_studio",
-    "archetype": "arch_pre_daw_electronic_pioneer",
+    "archetype": "arch_hk_cantopop_ballad_factory",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "transformer_solid_state",

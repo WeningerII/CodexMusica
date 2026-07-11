@@ -3,9 +3,9 @@
   "name": "Mahraganat (Egyptian)",
   "family": "global",
   "lineage": "Cairo working-class digital-electronic shaabi descendant tradition — codified circa 2007-2010 through the working-class districts of Salam City and El-Marg, with DJ Figo, Sadat, Alaa Fifty Cent, Oka, and Wegz as the canonical exponents — characterized by Casio-and-FL-Studio-produced backing tracks, autotuned street-vernacular Arabic vocals, wedding-party performance context, and the Mahraganat festival circuit",
-  "recipe": "classic 2007-2010 mahraganat, functional Song, mid east n African pop branch, intl hip hop MC rhythm gengetone french rap. extended whistle, rap, chest resonance low mid, narrative. behringer rd 8 modern clone analog circuit reproduction TR-808, sub bass analog poly synth, pitched chopped sampler. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 437,
-  "score": 184.907,
+  "recipe": "classic 2007-2010 mahraganat, functional Song, mid east n African pop branch, intl hip hop MC rhythm gengetone french rap. extended whistle, rap, slow rate, interlocked note trading. behringer rd 8 modern clone analog circuit reproduction TR-808, sub bass analog poly synth, pitched chopped sampler. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 438,
+  "score": 205.113,
   "config": {
     "traditions": [
       "mahraganat",
@@ -21,35 +21,35 @@
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "narrative_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_rhythmic_spoken_flow",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 6.9225,
           "voice_quality": 19.9015,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.95,
-          "voice_articulation": 6.419999999999999,
-          "voice_microtone": 7.280000000000001,
+          "voice_vibrato": 1.885,
+          "voice_articulation": 11.894999999999996,
+          "voice_microtone": 21.254999999999995,
           "voice_tradition": 11.245000000000003,
           "voice_mechanism_compound": 2.8369999999999997,
           "voice_estill_quality": 2.0054999999999996,
           "voice_speech_song": 17.685,
-          "voice_ensemble_config": 13.454999999999997,
-          "voice_ornament_system": 3.3710000000000004,
+          "voice_ensemble_config": 13.324999999999996,
+          "voice_ornament_system": 3.8350000000000017,
           "voice_pitch_organization": 3.3710000000000004,
           "voice_processing_chain": 12.594999999999999,
-          "voice_multitrack_stack": 4.647499999999999
+          "voice_multitrack_stack": 5.135
         }
       },
       {

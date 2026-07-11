@@ -3,9 +3,9 @@
   "name": "Merseybeat (Liverpool beat 1962-65)",
   "family": "rock_punk",
   "lineage": "Early-1960s Liverpool-and-Merseyside beat-music style emerging from the convergence of skiffle, American R&B, and rock-and-roll into the canonical guitar-bass-drums-and-vocal-harmony four-piece beat-group format. The Beatles, Gerry and the Pacemakers, the Searchers, the Merseybeats, and Cilla Black constituted the canonical roster; the Cavern Club Liverpool and the Star-Club Hamburg anchored the institutional performance circuit. Distinguished from broader British Invasion by Merseybeat's Liverpool-specific geographic-cultural identity.",
-  "recipe": "classic British merseybeat, distorted Rock, classic branch, regional distorted rock aussie pub rock greek rock. thick, lament wail, nervy, equal tempered. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation soft down tuning single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, oil filled machine hammered symmetric pattern organized rows full lathed drum kit. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, tube pre, German tube console. tape 15ips echo plate reverb spring reverb.",
-  "recipe_chars": 601,
-  "score": 390.343,
+  "recipe": "classic British merseybeat, distorted Rock, classic branch, regional distorted rock aussie pub rock greek rock. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation soft down tuning single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, oil filled machine hammered symmetric pattern organized rows full lathed drum kit, sticky pad plucked sustained chord comping hohner pianet. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, tube pre, German tube console. tape 15ips echo plate reverb spring reverb.",
+  "recipe_chars": 689,
+  "score": 463.564,
   "config": {
     "traditions": [
       "merseybeat",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "fado_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "fast_vibrato",
-          "voice_articulation": "staccato_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 26.79999999999999,
-          "voice_quality": 0.8749999999999999,
+          "voice_quality": 24.115000000000006,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.845,
-          "voice_articulation": 0.24,
+          "voice_vibrato": 3.0602500000000004,
+          "voice_articulation": 20.084999999999997,
           "voice_microtone": 24.744999999999994,
           "voice_tradition": 16.255749999999995,
           "voice_mechanism_compound": 5.070000000000002,
           "voice_estill_quality": 1.1815,
-          "voice_speech_song": 20.214999999999996,
-          "voice_ensemble_config": 21.839999999999996,
+          "voice_speech_song": 20.084999999999997,
+          "voice_ensemble_config": 21.709999999999994,
           "voice_ornament_system": 1.345,
-          "voice_pitch_organization": 5.1987499999999995,
+          "voice_pitch_organization": 5.08025,
           "voice_processing_chain": 8.528,
-          "voice_multitrack_stack": 9.175999999999998
+          "voice_multitrack_stack": 10.334999999999999
         }
       },
       {
@@ -133,6 +133,21 @@
           "cymbal_lathing": 23.99,
           "cymbal_finish": 0.845,
           "drum_technique": 24
+        }
+      },
+      {
+        "id": "hohner_pianet",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "hohner_pianet_model": "hohner_pianet_model_n",
+          "hohner_pianet_role": "hohner_pianet_role_comp",
+          "hohner_pianet_mechanism": "hohner_pianet_mech_leather"
+        },
+        "scores": {
+          "keyboard_technique": -0.07,
+          "hohner_pianet_model": 3.55,
+          "hohner_pianet_role": 23.66,
+          "hohner_pianet_mechanism": 0
         }
       }
     ],

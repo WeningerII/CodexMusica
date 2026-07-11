@@ -3,58 +3,58 @@
   "name": "Hindi nursery rhyme (Indian school-curriculum children's songs)",
   "family": "global",
   "lineage": "Pan-Indian Hindi-medium children's school-song tradition continuous from late-19th-century Indian-Republican-modernization-era school-curriculum codification through post-independence 1947-onward Hindi-medium school-curriculum continuous practice; the tradition is intentionally constructed school-curriculum-music rather than continuous-folk-tradition",
-  "recipe": "classic modern hindi nursery rhyme, nursery Rhyme, south Asian branch, south Asian lullaby, European nursery rhyme, east Asian nursery rhyme korean dongyo hindi lori. thick, low dynamic level, tasteful, continuous-phonation. field recording. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 371,
-  "score": 98.111,
+  "recipe": "classic modern hindi nursery rhyme, nursery Rhyme, south Asian branch, south Asian lullaby, European nursery rhyme, east Asian nursery rhyme hindi lori tamil thālāttu. thick, breath veiled tone, straight onset, continuous-phonation. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 312,
+  "score": 97.481,
   "config": {
     "traditions": [
       "hindi_nursery_rhyme",
-      "korean_dongyo",
-      "hindi_lori"
+      "hindi_lori",
+      "tamil_thalattu"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "crooner_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "legato_voice",
           "voice_microtone": "tempered_voice",
-          "voice_tradition": "korean_minsogak_vocal_tradition",
+          "voice_tradition": "carnatic_classical_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_pansori_sigimsae",
+          "voice_ornament_system": "voice_ornament_carnatic_gamaka",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_plate_reverb_medium",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 9.3,
-          "voice_quality": 3.1200000000000006,
+          "voice_register": 8.100000000000001,
+          "voice_quality": 5.200000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.5349999999999997,
-          "voice_articulation": 7.6049999999999995,
-          "voice_microtone": 3.7024999999999997,
-          "voice_tradition": 24.332500000000007,
-          "voice_mechanism_compound": 1.3499999999999999,
-          "voice_estill_quality": 0.8649999999999998,
-          "voice_speech_song": 10.1075,
-          "voice_ensemble_config": 3.1200000000000006,
-          "voice_ornament_system": 14.100000000000001,
-          "voice_pitch_organization": 8.085,
-          "voice_processing_chain": 3.143125,
-          "voice_multitrack_stack": 2.6199999999999997
+          "voice_vibrato": 3.640000000000001,
+          "voice_articulation": 6.76,
+          "voice_microtone": 4.3525,
+          "voice_tradition": 24.5375,
+          "voice_mechanism_compound": 2.5999999999999996,
+          "voice_estill_quality": 2.265,
+          "voice_speech_song": 9.4575,
+          "voice_ensemble_config": 2.0799999999999996,
+          "voice_ornament_system": 12.1,
+          "voice_pitch_organization": 11.709999999999999,
+          "voice_processing_chain": 3.643125,
+          "voice_multitrack_stack": 4.198125000000001
         }
       }
     ],
     "room": "field_recording",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

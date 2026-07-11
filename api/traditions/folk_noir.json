@@ -3,9 +3,9 @@
   "name": "Folk noir (contemporary dark chamber-folk songwriter tradition)",
   "family": "vernacular",
   "lineage": "Contemporary dark chamber-folk songwriter tradition centered around Marissa Nadler (six-album catalog from Ballads of Living and Dying 2004 through Strangers 2016), Espers (Greg Weeks / Meg Baird / Helena Espvall, Philadelphia), and the broader Kemado / Mexican Summer / Hexham Head circle — with Victorian, Pre-Raphaelite, surrealist-poetry (Nadler set Pablo Neruda on her debut), and cinematic-noir literary roots; the term was originally coined by Tony Wakeford for Sol Invictus to distance from the neofolk umbrella, but contemporary usage names the Nadler-Espers chamber-folk lineage. Distinct from gothic_americana (Southern Gothic / Pentecostal roots) and from neofolk-apocalyptic (Current 93, Death in June, post-industrial / Romantic-traditionalism lineage)",
-  "recipe": "classic North American mid-2000s folk noir, ballad Poetry, anglo singer song branch, western common practice art music anglican cathedral-choral recording tradition hyperion-school classical-recording aesthetic. thick, incomplete closure resting, chest resonance low mid, ornamental. martin lifespan fingerpicked acoustic guitar, vintage steinway pre-war compression wired beech laminated maple laminated grand piano, pistoy cinnabar loaded red dyed deep dark red carpathian spruce cello, folk steel modern canonical 36 37 string set spruce maple modern autoharp, vocal female straight harmonium indian. hexham head studio pa chamber folk. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 753,
-  "score": 319.135,
+  "recipe": "classic North American mid-2000s folk noir, ballad Poetry, anglo singer song branch, western common practice art music anglican cathedral-choral recording tradition hyperion-school classical-recording aesthetic. thick, breath veiled tone, slow rate, interlocked note trading. martin lifespan fingerpicked acoustic guitar, vintage steinway pre-war compression wired beech laminated maple laminated grand piano, pistoy cinnabar loaded red dyed deep dark red carpathian spruce cello, folk steel modern canonical 36 37 string set spruce maple modern autoharp, vocal female straight harmonium indian. hexham head studio pa chamber folk. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 745,
+  "score": 356.59,
   "config": {
     "traditions": [
       "folk_noir",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "incomplete_closure_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "melisma_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 20.999999999999996,
-          "voice_quality": 3.3000000000000007,
+          "voice_quality": 15.989999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.5349999999999997,
-          "voice_articulation": 0.8749999999999999,
-          "voice_microtone": 9.1325,
+          "voice_vibrato": 6.3375,
+          "voice_articulation": 14.949999999999992,
+          "voice_microtone": 15.534999999999993,
           "voice_tradition": 25.13499999999999,
           "voice_mechanism_compound": 4.7749999999999995,
           "voice_estill_quality": 9.03,
-          "voice_speech_song": 18.069999999999993,
-          "voice_ensemble_config": 15.404999999999994,
+          "voice_speech_song": 18.32999999999999,
+          "voice_ensemble_config": 15.469999999999994,
           "voice_ornament_system": 4.97,
           "voice_pitch_organization": 4.7749999999999995,
           "voice_processing_chain": 3.9650000000000003,
-          "voice_multitrack_stack": 1.335
+          "voice_multitrack_stack": 1.4949999999999999
         }
       },
       {

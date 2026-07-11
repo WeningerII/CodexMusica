@@ -3,9 +3,9 @@
   "name": "Second Viennese School (atonal serialism)",
   "family": "classical",
   "lineage": "Twentieth-century Viennese composer-circle around Arnold Schoenberg and his students Anton Webern and Alban Berg, developing free-atonal compositional practice (c.1908-1923) followed by the twelve-tone-method serial-organization (1923 onward). Pierrot Lunaire (1912), Wozzeck (1925), and Webern's aphoristic late-period works constitute the canonical core. Distinguished from prior tonal-harmonic practice by complete suspension of triadic-tonal-hierarchy and systematic serial-row organization of pitch content.",
-  "recipe": "classic mid-1910s second viennese school, art Music, western modern branch, western common practice art music early romantic the mighty handful. thick, low dynamic level, melodic, narrative. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, silver wound lamb gut core sitka spruce bigleaf maple western maple violin orchestral. shoebox concert hall. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 463,
-  "score": 261.786,
+  "recipe": "classic mid-1910s second viennese school, art Music, western modern branch, western common practice art music early romantic the mighty handful. thick, breath veiled tone, straight note core, interlocked note trading. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, silver wound lamb gut core sitka spruce bigleaf maple western maple violin orchestral. shoebox concert hall. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 490,
+  "score": 285.856,
   "config": {
     "traditions": [
       "second_viennese_school",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "crooner_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "narrative_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "chinese_classical_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_formant_shifted_double_stereo"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 7.525,
-          "voice_quality": 2.34,
+          "voice_quality": 10.399999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.3150000000000004,
-          "voice_articulation": 1.4299999999999997,
+          "voice_vibrato": 6.760000000000002,
+          "voice_articulation": 11.634999999999994,
           "voice_microtone": 13.650000000000002,
           "voice_tradition": 9.75,
           "voice_mechanism_compound": 4.9,
           "voice_estill_quality": 6.505000000000001,
-          "voice_speech_song": 18.265,
-          "voice_ensemble_config": 11.699999999999996,
+          "voice_speech_song": 20.149999999999995,
+          "voice_ensemble_config": 11.569999999999993,
           "voice_ornament_system": 5.895625,
           "voice_pitch_organization": 6.2,
           "voice_processing_chain": 4.225,
-          "voice_multitrack_stack": 1.345
+          "voice_multitrack_stack": 1.9499999999999988
         }
       },
       {

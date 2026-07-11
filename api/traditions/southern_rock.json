@@ -3,9 +3,9 @@
   "name": "Southern rock",
   "family": "rock_punk",
   "lineage": "Late-1960s through 1970s American Southern blues-rock genre — codified through the Allman Brothers Band (Live at Fillmore East 1971), Lynyrd Skynyrd (Pronounced Leh-Nerd Skin-Nerd 1973, Sweet Home Alabama 1974), the Marshall Tucker Band, Wet Willie, the Charlie Daniels Band, ZZ Top (the Texas extension), Molly Hatchet; twin-lead-guitar harmony foreground, blues-rock harmonic foundation extended with country and gospel-influenced songwriting",
-  "recipe": "classic Southern American 1967-1969 southern rock, distorted Rock, southern rock branch, classic distorted rock, country rock country hard rock. thick, blues-shouter, melodic, ornamental. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple humbucker electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, steel machine hammered symmetric pattern organized rows full lathed drum kit, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative gospel runs fast tremolo tonewheel organ, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano. converted coffin warehouse 1969-1979 mid tier muscle shoals sound studio. passive ribbon.",
-  "recipe_chars": 985,
-  "score": 1262.437,
+  "recipe": "classic Southern American 1967-1969 southern rock, distorted Rock, southern rock branch, classic distorted rock, country rock country hard rock. thick, breath veiled tone, wide pitch sway, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple humbucker electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, steel machine hammered symmetric pattern organized rows full lathed drum kit, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative gospel runs fast tremolo tonewheel organ, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano. converted coffin warehouse 1969-1979 mid tier muscle shoals sound studio.",
+  "recipe_chars": 996,
+  "score": 1293.757,
   "config": {
     "traditions": [
       "southern_rock",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "blues_shouter_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "melisma_voice",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "gospel_pentecostal_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
           "voice_register": 95.11450000000004,
-          "voice_quality": 8.84,
+          "voice_quality": 16.249999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 23.259999999999994,
-          "voice_articulation": 3.25,
+          "voice_vibrato": 37.359999999999985,
+          "voice_articulation": 13.129999999999992,
           "voice_microtone": 52.42500000000004,
           "voice_tradition": 11.431999999999997,
           "voice_mechanism_compound": 6.435000000000001,
           "voice_estill_quality": 25.523499999999995,
-          "voice_speech_song": 16.964999999999993,
-          "voice_ensemble_config": 13.584999999999994,
+          "voice_speech_song": 17.029999999999994,
+          "voice_ensemble_config": 14.039999999999992,
           "voice_ornament_system": 2.3395000000000006,
-          "voice_pitch_organization": 2.115,
+          "voice_pitch_organization": 1.63,
           "voice_processing_chain": 15.4675,
-          "voice_multitrack_stack": 9.459
+          "voice_multitrack_stack": 9.353999999999997
         }
       },
       {

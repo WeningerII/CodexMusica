@@ -3,9 +3,9 @@
   "name": "Hauntology (UK Ghost Box)",
   "family": "electronic",
   "lineage": "2000s and 2010s UK electronic subgenre developed through Ghost Box Records (founded 2004 by Julian House and Jim Jupp) and the broader UK-electronic scene, characterized by sampling-and-evocation of 1960s-1970s BBC Radiophonic Workshop, library music, and lost-British-television-soundtrack aesthetics. Belbury Poly, The Focus Group, The Advisory Circle, Mordant Music, and Boards of Canada (parallel adjacent) anchor the canonical hauntology roster.",
-  "recipe": "classic British mid-2000s hauntology, experimental Elec, ambient branch, idm glitch experimental electric chiptune / 8-bit. melodic, punctuated, 31 tet, m1 with m0 pulse borrowing. pad like pad analog synth, glitched textural sampler. converted victorian 1965-1985 major-flagship british class a commercial. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 406,
-  "score": 157.319,
+  "recipe": "classic British mid-2000s hauntology, experimental Elec, ambient branch, idm glitch experimental electric chiptune / 8-bit. breath veiled tone, straight onset, interlocked note trading, neutral third half flat. pad like pad analog synth, glitched textural sampler, vibrato wobble internal speaker close miked stylophone, cleaner optical looped rhythm bed wow and flutter warped disc optigan. converted victorian 1965-1985 major-flagship british class a commercial. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 563,
+  "score": 251.109,
   "config": {
     "traditions": [
       "hauntology_uk_2010s",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "mix_voice",
-          "voice_quality": "speech_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "staccato_voice",
-          "voice_microtone": "shruti_inflected",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "microtonal_31tet_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_oral_twang",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 0.1995,
-          "voice_quality": 0.0315,
+          "voice_quality": 9.75,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.78,
-          "voice_articulation": 0.543,
-          "voice_microtone": 0.045,
+          "voice_vibrato": 2.2099999999999995,
+          "voice_articulation": 17.354999999999997,
+          "voice_microtone": 17.159999999999993,
           "voice_tradition": 12.936750000000002,
           "voice_mechanism_compound": 1.23975,
           "voice_estill_quality": 0.6499999999999999,
-          "voice_speech_song": 17.484999999999996,
-          "voice_ensemble_config": 18.264999999999997,
+          "voice_speech_song": 17.354999999999997,
+          "voice_ensemble_config": 18.134999999999994,
           "voice_ornament_system": 0.105,
-          "voice_pitch_organization": 4.225,
+          "voice_pitch_organization": 4.030000000000001,
           "voice_processing_chain": 23.802,
-          "voice_multitrack_stack": 10.997499999999999
+          "voice_multitrack_stack": 10.942499999999999
         }
       },
       {
@@ -84,6 +84,36 @@
           "sampler_bit_depth": 0.3045,
           "sampler_workflow": 15.625000000000002,
           "sampler_classic_context": 22.847499999999993
+        }
+      },
+      {
+        "id": "stylophone",
+        "slots": {
+          "stylophone_model": "stylophone_bass_model",
+          "stylophone_technique": "stylophone_drone_texture",
+          "stylophone_vibrato": "stylophone_vibrato_on",
+          "stylophone_output": "stylophone_internal_speaker"
+        },
+        "scores": {
+          "stylophone_model": 0.063,
+          "stylophone_technique": 5.25,
+          "stylophone_vibrato": 3.38,
+          "stylophone_output": 3.38
+        }
+      },
+      {
+        "id": "optigan",
+        "slots": {
+          "keyboard_technique": "keyboard_block_chord_pop",
+          "optigan_model": "optigan_model_orchestron",
+          "optigan_disc_program": "optigan_disc_rhythm_bed",
+          "optigan_playback_mechanism": "optigan_playback_worn_disc"
+        },
+        "scores": {
+          "keyboard_technique": -0.1,
+          "optigan_model": 17.484999999999996,
+          "optigan_disc_program": 17.484999999999996,
+          "optigan_playback_mechanism": 2.2815
         }
       }
     ],

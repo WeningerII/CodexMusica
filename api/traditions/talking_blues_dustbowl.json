@@ -3,9 +3,9 @@
   "name": "Talking blues",
   "family": "global",
   "lineage": "Spoken-rhythmic-narrative blues form codified by Chris Bouchillon in 1926 (his Talking Blues 78 being the founding commercial recording) and extended through the Dust Bowl Ballads era by Woody Guthrie (his 1940 RCA Victor Dust Bowl Ballads sessions the founding documents), then carried forward through the post-WWII folk revival via Pete Seeger, Phil Ochs, and the early Bob Dylan (Talkin New York 1962, Talkin John Birch Paranoid Blues 1962 — the Dylan talking-blues period)",
-  "recipe": "classic Midwestern American mid-1920s talking blues, ballad Poetry, talking blues branch, us hip hop MC rhythm conscious hip-hop gangsta rap. thick, rap, melodic, narrative. mahogany flatwound thomastik fingerpicked slide acoustic guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. us dustbowl outdoor woody guthrie. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 457,
-  "score": 361.435,
+  "recipe": "classic Midwestern American mid-1920s talking blues, ballad Poetry, talking blues branch, us hip hop MC rhythm conscious hip-hop gangsta rap. thick, rap, wide pitch sway, narrative. mahogany flatwound thomastik fingerpicked slide acoustic guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. us dustbowl outdoor woody guthrie. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 467,
+  "score": 402.698,
   "config": {
     "traditions": [
       "talking_blues_dustbowl",
@@ -20,36 +20,36 @@
           "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "oscillating_vibrato",
           "voice_articulation": "narrative_voice",
-          "voice_microtone": "blue_notes",
+          "voice_microtone": "bend_inflected",
           "voice_tradition": "gospel_pentecostal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_rhythmic_spoken_flow",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
           "voice_register": 39.57000000000001,
           "voice_quality": 31.86,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.719999999999999,
+          "voice_vibrato": 26.04500000000001,
           "voice_articulation": 20.654999999999998,
-          "voice_microtone": 9.575000000000003,
+          "voice_microtone": 22.950000000000006,
           "voice_tradition": 14.005000000000003,
           "voice_mechanism_compound": 2.4050000000000002,
           "voice_estill_quality": 6.220000000000001,
           "voice_speech_song": 31.955000000000002,
-          "voice_ensemble_config": 18.46,
-          "voice_ornament_system": 0.9999999999999999,
-          "voice_pitch_organization": 1.95,
+          "voice_ensemble_config": 18.72,
+          "voice_ornament_system": 4.875000000000002,
+          "voice_pitch_organization": 2.6975,
           "voice_processing_chain": 21.134999999999998,
-          "voice_multitrack_stack": 5.785
+          "voice_multitrack_stack": 7.14
         }
       },
       {
@@ -94,7 +94,7 @@
       }
     ],
     "room": "us_dustbowl_outdoor_woody_guthrie",
-    "archetype": "arch_electrical_disc_cut",
+    "archetype": "arch_nagra_ethnographic_field",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

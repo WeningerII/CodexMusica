@@ -1,0 +1,336 @@
+{
+  "id": "shruti_box",
+  "name": "Shruti box (surpeti)",
+  "family": "free_reed",
+  "class": "free_reed",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 0,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "Keyless bellows-driven free-reed drone box that sustains the tonic and fifth as a steady sruti bed, central to Carnatic vocal practice, bhajan and kirtan, and widely adopted as an ambient drone source.",
+  "parts": [
+    {
+      "id": "free_reed_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "free_reed_folk_first_position",
+          "default": true,
+          "name": "Folk first-position straight",
+          "descriptors": [
+            "straight",
+            "melodic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "folk",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "folk",
+            "singer-songwriter",
+            "country"
+          ]
+        },
+        {
+          "id": "free_reed_overblow_modern",
+          "name": "Overblow modern bending",
+          "descriptors": [
+            "overblown",
+            "fully-chromatic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "modern"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "shruti_box_form",
+      "name": "Form and size",
+      "variants": [
+        {
+          "id": "shruti_box_form_standard_surpeti",
+          "default": true,
+          "name": "Standard portable surpeti",
+          "descriptors": [
+            "steady-drone",
+            "reedy",
+            "warm-bellows-swell"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "free-reed",
+            "drone"
+          ]
+        },
+        {
+          "id": "shruti_box_form_concert_surpeti",
+          "name": "Large concert surpeti",
+          "descriptors": [
+            "deep-drone",
+            "full-bodied",
+            "rich-reed-cluster"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "drone-foundation",
+            "low"
+          ]
+        },
+        {
+          "id": "shruti_box_form_compact_travel",
+          "name": "Compact travel box",
+          "descriptors": [
+            "thin-drone",
+            "light-reedy",
+            "airy"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shruti_box_role",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "shruti_box_role_carnatic_vocal_drone",
+          "default": true,
+          "name": "Carnatic vocal sruti anchor",
+          "descriptors": [
+            "sruti-anchor",
+            "tonic-drone",
+            "tanpura-like"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "reed-driven",
+            "bellows-driven"
+          ],
+          "canonical_tags": [
+            "carnatic",
+            "drone"
+          ]
+        },
+        {
+          "id": "shruti_box_role_bhajan_kirtan",
+          "name": "Bhajan and kirtan accompaniment",
+          "descriptors": [
+            "devotional-drone",
+            "congregational",
+            "harmonium-like-sustain"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "bellows-driven"
+          ]
+        },
+        {
+          "id": "shruti_box_role_ambient_bed",
+          "name": "Ambient and world drone bed",
+          "descriptors": [
+            "ambient-drone",
+            "meditative",
+            "enveloping-pad"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shruti_box_build",
+      "surface": false,
+      "name": "Reed and body construction",
+      "variants": [
+        {
+          "id": "shruti_box_build_brass_reeds_teak",
+          "default": true,
+          "name": "Brass free reeds in teak body",
+          "descriptors": [
+            "bright-brass-reed",
+            "resonant-teak",
+            "clear-drone"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "free-reed"
+          ]
+        },
+        {
+          "id": "shruti_box_build_seasoned_mellow",
+          "name": "Aged seasoned reeds, mellow voicing",
+          "descriptors": [
+            "mellow-reed",
+            "aged-warm",
+            "rounded-drone"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "free-reed"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "shruti_box_form",
+      "name": "Form and size",
+      "variants": [
+        {
+          "id": "shruti_box_form_standard_surpeti",
+          "default": true,
+          "name": "Standard portable surpeti",
+          "descriptors": [
+            "steady-drone",
+            "reedy",
+            "warm-bellows-swell"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "free-reed",
+            "drone"
+          ]
+        },
+        {
+          "id": "shruti_box_form_concert_surpeti",
+          "name": "Large concert surpeti",
+          "descriptors": [
+            "deep-drone",
+            "full-bodied",
+            "rich-reed-cluster"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "drone-foundation",
+            "low"
+          ]
+        },
+        {
+          "id": "shruti_box_form_compact_travel",
+          "name": "Compact travel box",
+          "descriptors": [
+            "thin-drone",
+            "light-reedy",
+            "airy"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shruti_box_role",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "shruti_box_role_carnatic_vocal_drone",
+          "default": true,
+          "name": "Carnatic vocal sruti anchor",
+          "descriptors": [
+            "sruti-anchor",
+            "tonic-drone",
+            "tanpura-like"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "reed-driven",
+            "bellows-driven"
+          ],
+          "canonical_tags": [
+            "carnatic",
+            "drone"
+          ]
+        },
+        {
+          "id": "shruti_box_role_bhajan_kirtan",
+          "name": "Bhajan and kirtan accompaniment",
+          "descriptors": [
+            "devotional-drone",
+            "congregational",
+            "harmonium-like-sustain"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "bellows-driven"
+          ]
+        },
+        {
+          "id": "shruti_box_role_ambient_bed",
+          "name": "Ambient and world drone bed",
+          "descriptors": [
+            "ambient-drone",
+            "meditative",
+            "enveloping-pad"
+          ],
+          "match_tokens": [
+            "drone-foundation",
+            "reed-driven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shruti_box_build",
+      "surface": false,
+      "name": "Reed and body construction",
+      "variants": [
+        {
+          "id": "shruti_box_build_brass_reeds_teak",
+          "default": true,
+          "name": "Brass free reeds in teak body",
+          "descriptors": [
+            "bright-brass-reed",
+            "resonant-teak",
+            "clear-drone"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "free-reed"
+          ]
+        },
+        {
+          "id": "shruti_box_build_seasoned_mellow",
+          "name": "Aged seasoned reeds, mellow voicing",
+          "descriptors": [
+            "mellow-reed",
+            "aged-warm",
+            "rounded-drone"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "free-reed"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -3,9 +3,9 @@
   "name": "Hindu stuti and bhajan (praise of deities)",
   "family": "global",
   "lineage": "Pan-Indian Hindu devotional praise-song tradition continuous from medieval Bhakti-movement era (12th-18th century North-and-South-Indian bhakti-saints including Kabir, Mirabai, Tulsidas, Surdas, Tyagaraja, Annamacharya) through 19th-20th century continuous performance into modern Hindu-and-Hindu-diaspora practice",
-  "recipe": "classic South Asian modern hindu stuti and bhajan, praise Song, indian subcontinent branch, middle east n African praise song, indian classical improv improv on frame, hindu ritual devotional sufi munajat and naat arabic madh and qasida. vocal fry, declaimed, chest resonance low mid, continuous-phonation. treble-extended vocal female harmonium indian, indian rosewood rosewood copper tabla, suited to female vocal bronze steel mix wooden body miraj style tanpura, small steady tala keeping manjira. vrindavan braj mandir bhajan. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 660,
-  "score": 272.975,
+  "recipe": "classic South Asian mid-1980s hindu stuti and bhajan, praise Song, indian subcontinent branch, middle east n African praise song, indian classical improv improv on frame, hindu ritual devotional sufi munajat and naat arabic madh and qasida. vocal fry, declaimed, slow rate, interlocked note trading. treble-extended vocal female harmonium indian, indian rosewood rosewood copper tabla, suited to female vocal bronze steel mix wooden body miraj style tanpura, small steady tala keeping manjira. vrindavan braj mandir bhajan. FET condenser, transformer-coupled solid-state pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb digital delay.",
+  "recipe_chars": 662,
+  "score": 298.334,
   "config": {
     "traditions": [
       "hindu_stuti_bhajan",
@@ -21,7 +21,7 @@
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "legato_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
@@ -38,18 +38,18 @@
           "voice_quality": 45.82900000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.094999999999999,
-          "voice_articulation": 6.063999999999999,
-          "voice_microtone": 10.024499999999998,
+          "voice_vibrato": 10.237499999999999,
+          "voice_articulation": 12.544999999999996,
+          "voice_microtone": 26.129999999999995,
           "voice_tradition": 30.419999999999998,
           "voice_mechanism_compound": 11.674999999999999,
           "voice_estill_quality": 8.949499999999999,
-          "voice_speech_song": 27.3,
-          "voice_ensemble_config": 13.389999999999997,
+          "voice_speech_song": 27.169999999999998,
+          "voice_ensemble_config": 13.454999999999995,
           "voice_ornament_system": 18.549999999999997,
           "voice_pitch_organization": 18.134499999999996,
           "voice_processing_chain": 2.7300000000000004,
-          "voice_multitrack_stack": 3.3799999999999994
+          "voice_multitrack_stack": 3.25
         }
       },
       {
@@ -114,7 +114,7 @@
       }
     ],
     "room": "vrindavan_braj_mandir_bhajan",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_tseries_cassette_devotional",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

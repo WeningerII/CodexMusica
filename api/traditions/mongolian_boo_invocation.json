@@ -3,26 +3,26 @@
   "name": "Mongolian böö shamanic invocation",
   "family": "global",
   "lineage": "Böö mörgöl is the indigenous shamanism of the Mongols and neighboring Buryat and Darkhad peoples, in which the böö (shaman) invokes and embodies spirits (ongod) to heal, divine, and mediate with the sky-father Tengri and the master-spirits of place. The ritual voice combines invocatory calls (duudlaga), praise and summoning of the ongod, and glossolalic utterance during trance, historically accompanied by the frame drum (khengereg) and jingling costume. Suppressed under the twentieth-century socialist state, the tradition has seen a strong post-1990 revival across Mongolia and Buryatia. It is documented through ethnographic fieldwork and recordings of Inner Asian shamanic practice.",
-  "recipe": "classic Northeast Asian early-1990s mongolian böö shamanic invocation, ritual Devotional, arctic branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. kargyraa, declaimed, melodic, punctuated. open steppe outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 396,
-  "score": 184.089,
+  "recipe": "classic Northeast Asian early-1990s mongolian böö shamanic invocation, ritual Devotional, arctic branch, indigenous ritual devotional shipibo-conibo icaros healing songs korean muga shamanic ritual narrative. kargyraa, breath veiled tone, breath pulsed, interlocked note trading. open steppe outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 363,
+  "score": 277.56,
   "config": {
     "traditions": [
       "mongolian_boo_invocation",
       "shipibo_icaros",
-      "mapuche_tayil_ritual"
+      "korean_muga"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "kargyraa_register",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "staccato_voice",
-          "voice_microtone": "shruti_inflected",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "inuit_katajjaq_tradition",
           "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
           "voice_estill_quality": "voice_estill_opera",
@@ -30,31 +30,31 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 3.1200000000000006,
-          "voice_quality": 15.72,
+          "voice_quality": 44.590000000000046,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.4299999999999997,
-          "voice_articulation": 0.9165000000000001,
-          "voice_microtone": 0.38999999999999996,
-          "voice_tradition": 29.282500000000002,
-          "voice_mechanism_compound": 22.829500000000003,
-          "voice_estill_quality": 7.475,
-          "voice_speech_song": 29.96500000000001,
-          "voice_ensemble_config": 32.24000000000001,
-          "voice_ornament_system": 10.900000000000002,
+          "voice_vibrato": 2.6279999999999997,
+          "voice_articulation": 31.850000000000016,
+          "voice_microtone": 31.655000000000012,
+          "voice_tradition": 28.5025,
+          "voice_mechanism_compound": 21.579500000000003,
+          "voice_estill_quality": 6.175,
+          "voice_speech_song": 33.54000000000001,
+          "voice_ensemble_config": 34.125000000000014,
+          "voice_ornament_system": 11.775,
           "voice_pitch_organization": 3.1200000000000006,
-          "voice_processing_chain": 5.9799999999999995,
-          "voice_multitrack_stack": 2.795
+          "voice_processing_chain": 19.304999999999996,
+          "voice_multitrack_stack": 4.420000000000001
         }
       }
     ],
     "room": "open_steppe_outdoor",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

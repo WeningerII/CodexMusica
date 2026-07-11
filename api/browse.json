@@ -1,6 +1,6 @@
 {
   "name": "Codex Musica — browse index (Tier-1 data for the lazy-loaded app)",
-  "generated": "2026-07-09",
+  "generated": "2026-07-11",
   "axisKeys": [
     "harm",
     "pitch",
@@ -244,7 +244,8 @@
         "accordion",
         "bajo_sexto",
         "electric_bass",
-        "drum_kit"
+        "drum_kit",
+        "conjunto_norteno"
       ],
       "description": "Texas conjunto / norteño tradition (1920s-present), polka-and-waltz-derived dance music from Texas-Mexican borderlands. Standard ensemble: button accordion (lead, three-row diatonic), bajo sexto (12-string rhythm-and-bass guitar), upright or electric bass (tololoche), drum kit. Repertoire: polkas, waltzes, redovas (Czech-Bohemian forms transmitted via 19th-century Central-European migration to Texas), corridos (narrative ballads), rancheras. Distinguished from Mexican mariachi by accordion-led-not-violin-led ensemble; distinguished from Tejano (Selena-era pop-conjunto) by absence of synthesizers and rock backbeat. Narciso Martínez, Santiago Jiménez Sr, Flaco Jiménez, Ramón Ayala established the canon.",
       "exemplars": [
@@ -375,7 +376,8 @@
         "classical_nylon_string_guitar",
         "accordion",
         "bajo_sexto",
-        "guitarron_mexicano"
+        "guitarron_mexicano",
+        "conjunto_norteno"
       ],
       "description": "Corrido (codified mid-19th-century Mexican-and-Texas-border narrative-ballad tradition documenting historical events, folk-heroes, revolutionary battles, and border-life narrative content; flowering through the Mexican Revolution era 1910-1920 with corridos documenting Pancho Villa, Emiliano Zapata, and revolutionary-hero subject matter — Corrido de Gregorio Cortez 1901, Corrido de Pancho Villa, Adelita as examples; mid-20th-century continuation through commercial-recording-era corridistas Antonio Aguilar, Los Alegres de Terán, Los Tigres del Norte; modern narcocorrido sub-tradition emerging 1970s-onward through Los Tigres del Norte, Chalino Sánchez, Los Tucanes de Tijuana documenting drug-trade-and-border-violence narrative content, with parallel movimiento alterado regional-Mexican subgenre extension; tradition remains continuously productive into 2020s through Peso Pluma, Natanael Cano corridos tumbados revival), the Mexican narrative-ballad song-form documenting historical events, folk-heroes, and border-life narrative content. Defined by narrative-foreground lyric content (the corrido lyric structure: opening saludo greeting, narrative-of-events stating the protagonist-and-setting-and-conflict, dramatic-climax recounting the central action, despedida farewell-verse — distinguishing corrido from ranchera's emotional-cathartic content and from bolero's romantic-content), 6/8 or 4/4 meter (the corrido-vals 3/4 meter or corrido-norteño 2/4 polka-derived meter), eight-line stanza-form with assonant rhyme structure inherited from Spanish romance-ballad tradition, accordion-and-bajo-sexto-and-guitar small-ensemble accompaniment (the norteño ensemble of accordion + bajo sexto + bass + drums, distinguishing corrido from mariachi-orchestra-accompanied ranchera), folk-hero-and-historical-event-and-revolutionary-content subject matter (Pancho Villa, Emiliano Zapata, El Mariachi Mayor, Gregorio Cortez, contemporary narcocorrido subjects), and oral-and-recorded transmission continuity (the corrido tradition is fundamentally oral-narrative even when recorded). Distinguished from ranchera by narrative-foreground vs emotional-foreground lyric register and norteño-ensemble accompaniment vs mariachi-orchestra accompaniment; distinguished from son by narrative-ballad function vs dance-music function; distinguished from huapango by polka-2/4 norteño-rhythm vs syncopated-6/8 huapango-rhythm.",
       "exemplars": [
@@ -1002,7 +1004,8 @@
         "analog_synth",
         "grand_piano",
         "flute",
-        "string_machine"
+        "string_machine",
+        "electric_violin"
       ],
       "description": "Progressive rock (codified late-1968 through 1969 with Procol Harum's A Whiter Shade of Pale 1967 and the parallel emergence of Pink Floyd, Genesis, Yes, King Crimson, Jethro Tull, and Emerson Lake & Palmer establishing the UK lineage; golden era 1970-1976 marked by Yes Close to the Edge 1972, Genesis Selling England by the Pound 1973, King Crimson Larks' Tongues in Aspic 1973, Pink Floyd Dark Side of the Moon 1973, and Rush 2112 1976; tradition extends through later 1970s before punk-and-new-wave reaction and 1980s-onward neo-prog revival), the late-1960s through 1970s rock subgenre incorporating classical-and-jazz harmonic vocabulary and extended composition. Defined by extended-composition song-form (suite-form multi-movement compositions running 10-25 minutes typical, side-long single-piece compositions like Yes Close to the Edge or Genesis Supper's Ready, concept-album integration where individual songs serve a larger narrative-and-thematic frame), expanded harmonic vocabulary borrowed from classical-and-jazz traditions (modal interchange, chromatic mediants, polychords, extended chord-voicings beyond rock's I-IV-V foundation), virtuosic instrumental performance practice (the demand for technical mastery distinguishing prog from contemporaneous garage-rock-and-pop-rock), expanded instrumental palette (Mellotron tape-replay tape-strip strings-and-flutes-and-choir samples, Hammond B3 organ, Moog Modular and ARP synthesizers, double-neck guitars, occasional acoustic-orchestral overdubs and choir vocals), odd-meter rhythmic foundation (5/8, 7/8, 9/8, alternating-time-signature passages, polyrhythm — all uncommon in mainstream rock), and elaborate concept-album-and-stage-show theatrical presentation. Distinguished from contemporaneous hard rock by extended-composition vs verse-chorus song-form and classical-and-jazz harmonic vocabulary vs blues-rock vocabulary; distinguished from psychedelic rock by virtuosic-instrumental ambition vs experimental-trip-induction orientation; distinguished from later art-rock by instrumental-virtuosity foreground vs textural-and-aesthetic foreground. Lineage forward feeds 1980s-onward neo-prog revival (Marillion, IQ, Pendragon), prog-metal (Dream Theater, Tool, Opeth incorporating prog architecture into metal frame), and through them the broader extended-composition rock continuum.",
       "exemplars": [
@@ -1863,7 +1866,8 @@
         "khong_wong_yai",
         "pi_nai",
         "taphon",
-        "ching"
+        "ching",
+        "saw_duang"
       ],
       "description": "Thai classical music (codified across centuries of Thai court-and-temple tradition with documented continuous performance practice from the Ayutthaya Kingdom 1351-1767 establishing the piphat ensemble repertoire; standardized through the Rattanakosin Kingdom 1782-onward Bangkok-court-music tradition and the 1934 establishment of the Department of Fine Arts which formalized the modern Thai classical performance pedagogy; performance contexts include royal-court ceremonial-music, Buddhist-temple ritual-music, classical-theater accompaniment for khon masked-dance-drama and lakhon classical-dance-drama, and modern concert-hall performance), the Thai court-and-temple classical-music tradition centered on piphat tuned-percussion-ensemble repertoire. Defined by piphat ensemble arrangement (the six-or-seven-instrument tuned-percussion-and-wind ensemble: ranat ek lead xylophone playing the foreground ornamental-melodic line, ranat thum lower xylophone playing the supporting melodic-line, khong wong yai large gong-circle playing the reference-melody foundation, khong wong lek small gong-circle playing the higher-octave-variant, pi nai quadruple-reed oboe playing the wind-melodic-foreground, taphon barrel-drum and klong-thad-pair-of-drums providing the rhythmic-foundation, ching small-finger-cymbal providing the timekeeping-foundation), heptatonic-equidistant tuning system (the Thai-classical tuning that divides the octave into seven roughly-equal intervals rather than Western-twelve-tone-equal-temperament or the just-intonation tuning of many other Asian classical traditions, giving Thai classical its distinctive harmonic-character), heterophonic compositional logic (multiple instruments playing the same underlying melody with each instrument adding its own characteristic ornamental variation — distinguishing Thai-classical from European-polyphony and from many other Asian classical traditions), three-part-piece compositional structure (the Thao three-tempo-variation form where the same melodic-frame is performed at three different tempos: slow, medium, fast), and chamber-mahori-ensemble variant adds saw-three-string-bowed-fiddles, chakhe long-zither, and khlui flute for indoor-and-court chamber performance. Distinguished from Cambodian pinpeat (its closest lineage neighbor) by tuning-system specificity and instrumental-variant differences; distinguished from Javanese-and-Balinese gamelan by Thai-specific tuned-percussion-and-wind composition vs Indonesian-specific bronze-gong-and-metallophone composition; distinguished from Burmese hsaing-waing by Thai-specific ensemble instrumentation and repertoire vs Burmese-specific drum-and-gong-circle ensemble.",
       "exemplars": [
@@ -2110,7 +2114,8 @@
         "saxophone",
         "trumpet",
         "rhodes_electric",
-        "wurlitzer_ep"
+        "wurlitzer_ep",
+        "electric_violin"
       ],
       "description": "Jazz fusion (codified 1969 onward through Miles Davis's In a Silent Way and Bitches Brew sessions, and the diaspora into Mahavishnu Orchestra, Weather Report, Return to Forever, Headhunters, and the Chick Corea / Herbie Hancock electric era), the jazz subgenre that introduced electric instruments, rock/funk back lines, and synthesizers into jazz vocabulary. Defined by electric-bass replacing upright in the rhythm section, electric piano (Rhodes, Wurlitzer) and synthesizer (Moog, ARP, Oberheim) replacing or supplementing acoustic piano, electric guitar with pedal-effects-and-distortion adopted as front-line voice alongside saxophone-and-trumpet, rock-and-funk derived 16th-note rhythmic foundation replacing swing-eighth feel, and long-form improvisational performance with extended modal-and-vamp sections. Distinguished from earlier electric jazz by post-1969 timestamp and rock-and-funk back-line; distinguished from later smooth-jazz by retention of jazz-improvisational ambition; distinguished from progressive rock by jazz-not-rock instrumental sensibility.",
       "exemplars": [
@@ -2332,7 +2337,11 @@
         "oboe",
         "lute_renaissance",
         "shawm",
-        "bassoon"
+        "bassoon",
+        "sackbut",
+        "baroque_guitar",
+        "viola_damore",
+        "natural_horn"
       ],
       "description": "Baroque-period European art music (ca. 1600-1750, framed by Monteverdi's L'Orfeo at the start and J.S. Bach's death at the end), the codified European art-music tradition built on figured-bass continuo accompaniment, ornamented melodic lines, and the sonata-and-suite-and-fugue formal apparatus. Defined by basso continuo (bass line + chord-realizing keyboard or lute) underpinning treble melody, regional schools (Italian Corelli-Vivaldi violin tradition, French Couperin-Rameau ornamental style, German Bach-Handel contrapuntal mastery), Baroque-tuned period instruments (gut-strung violins, valveless brass, single-action harpsichord, baroque oboe and bassoon, viol family), well-temperament and meantone tunings rather than equal-temperament, and dance-suite forms (allemande-courante-sarabande-gigue) alongside the developing concerto-and-sonata. Distinguished from Renaissance polyphony by figured-bass texture and tonal harmony emerging; distinguished from Classical period by ornamental extravagance and continuo retention.",
       "exemplars": [
@@ -2406,7 +2415,8 @@
         "hichiriki_double_reed",
         "biwa_lute",
         "taiko_drum",
-        "ryuteki"
+        "ryuteki",
+        "gagaku_kangen"
       ],
       "description": "Gagaku (codified 8th-9th century Japan through importations from Tang-dynasty China, with continuous Imperial Court Music Office (Gakubu) transmission lineage to present), the Japanese imperial court music tradition preserving the oldest continuously-performed orchestral tradition in the world. Defined by the cluster-chord shō mouth-organ (a 17-pipe free-reed organ producing sustained dissonant chord-pads), hichiriki double-reed pipe (small loud-and-nasal melodic instrument), ryūteki transverse flute (alternative melodic voice), shō-and-hichiriki-and-ryūteki together forming the standard wind core, biwa lute and koto zither providing pitched accompaniment, kakko small barrel-drum and taiko large drum providing metric foundation, breath-defined slow tempi where phrase-pace follows wind-instrument breath rather than tempo-grid, and the ryo-and-ritsu mode systems organizing pitch material. Distinguished from later Japanese folk and popular musics by court-classical preservation lineage; distinguished from Chinese imperial music by Japanese-specific developmental trajectory.",
       "exemplars": [
@@ -3428,7 +3438,8 @@
       "instruments": [
         "analog_synth",
         "tape_replay_keyboard",
-        "handpan"
+        "handpan",
+        "cristal_baschet"
       ],
       "description": "Ambient music (1978 onward, the Brian Eno Music for Airports framing crystallizing a tradition of attention-optional sonic environment design that traces back to Erik Satie’s 1917 furniture music). Defined by long-form (often 20+ minute) static or slowly-evolving textures, minimal or absent metric pulse, designs that reward both close attention and distracted ambient hearing equally, dense reverb-and-delay processing of source materials so original instruments become diffuse pads, and a deliberate refusal of song-form, climax, or melody-as-figure. Subgenres include dark ambient (heavier drones, industrial sources), space music (synthesizer-derived cosmic palette), and ambient-drone (overtone-extended sustained pitches). Distinguished from new-age by absence of healing-claim framing and rhythmic-pulse accompaniment; distinguished from drone-metal by lack of distortion and metal-derived gestures; distinguished from minimalism by absence of pattern-process foreground.",
       "exemplars": [
@@ -4740,7 +4751,8 @@
         "grand_piano",
         "saxophone",
         "banjo_5_string",
-        "trumpet"
+        "trumpet",
+        "electric_mandolin"
       ],
       "description": "Western swing (codified 1934-1955 across Fort Worth, Tulsa, Los Angeles dance-hall ballroom circuits, with Bob Wills and His Texas Playboys as the reference and Light Crust Doughboys as the earlier prototype), the Texas-Oklahoma string-band tradition that fused fiddle-foreground country instrumentation with swing-era jazz harmony, arrangement, and ensemble texture. Defined by twin-fiddle and steel-guitar lead voices over a rhythm section combining upright bass, drum kit, tenor banjo or rhythm guitar, and piano (Al Stricklin Texas Playboys pianist), saxophone-and-trumpet horn additions on larger ensembles (the Tiffany Transcriptions and 1940s Texas Playboys peak), repertoire crossing country fiddle tunes with Tin Pan Alley pop standards, swing-era jazz-band charts, and original Bob Wills compositions, all rendered with Wills's spoken hollers and call-outs (the \"ah-haa\" the genre is famous for) functioning as in-performance bandleader-to-band communication, and dance-functional 4/4 swing-feel rhythm with backbeat shuffle and Western two-step lineage. Distinguished from contemporaneous big-band swing by string-band foreground over horn-section foreground; distinguished from honky-tonk by big-band-arrangement scale over small-combo intimacy and by jazz-harmonic-vocabulary over country-I-IV-V framework; distinguished from later Bakersfield country by jazz-not-rock rhythmic foundation. Lineage forward feeds Asleep at the Wheel's 1970s revival and the broader Texas-and-California country-jazz hybrid template.",
       "exemplars": [
@@ -5209,7 +5221,8 @@
         "analog_synth",
         "modular_synth",
         "tape_replay_keyboard",
-        "string_machine"
+        "string_machine",
+        "waterphone"
       ],
       "description": "Drone-dark ambient (1980s onward, codified through Lustmord, Kammarheit, Coil, and the larger industrial-and-experimental dark-electronic lineage), the sustained drone-based dark electronic music subgenre. Defined by long-form sustained low-frequency drone tones (often deep into sub-bass register, sometimes reinforced through processed synth or processed acoustic-instrument source), processed field-recordings of industrial machinery, abandoned spaces, and natural environment phenomena layered as ambient textural elements, absence of metric pulse or meter — the music exists as evolving textural environment rather than rhythmic-organized music, and lyrical and visual themes of decay, abandoned-space, post-apocalyptic landscape, and occult ritual. Distinguished from straight ambient by darker palette and industrial-source aesthetic; distinguished from drone metal by absence of metal-derived guitar and percussion; distinguished from early industrial by absence of percussion and song-form vestiges.",
       "exemplars": [
@@ -6369,7 +6382,7 @@
       "instruments": [
         "voice",
         "choir_southern_black_gospel",
-        "choir_ensemble"
+        "choir_isicathamiya"
       ],
       "description": "Isicathamiya (codified 1920s-onward in KwaZulu-Natal and Witwatersrand-Johannesburg South African mining-hostel weekend competition circuit, with Solomon Linda's 1939 Mbube Gallo Studios recording of the song that became The Lion Sleeps Tonight establishing the \"mbube\" subgenre name and the broader genre crystallizing through 1940s-1960s competition tradition; later international codification through Ladysmith Black Mambazo founded 1964 and Paul-Simon-collaboration 1986 Graceland-album breakthrough), the Zulu South African a-cappella male-vocal-group tradition. Defined by tightly-choreographed close-harmony eight-to-fifteen-voice male ensemble with bass-led foundation (the low-bass voice carrying the harmonic and rhythmic foundation while upper voices provide tightly-arranged harmonic counterpoint), call-and-response leader-and-chorus vocal arrangement (the leader presents melodic line; chorus answers with harmonic response), unaccompanied a-cappella performance practice (no instrumental accompaniment in the form, though some modern recordings add piano or light percussion), choreographed footwork and gestures performed in synchronized ensemble (the \"isicathamiya\" name etymology suggests \"tip-toe\" — the dance practice of moving softly to avoid disturbing mining-hostel sleeping-quarters), repertoire combining Christian-Zulu-language sacred material with secular-Zulu courtship-and-praise themes, and competition-tradition performance context (groups compete at all-night Saturday-night-into-Sunday-morning mining-hostel and community-hall events for cash prizes and social recognition). Cultural origin in Zulu rural-traditional choral practice (amahubo war-songs, izibongo praise-poetry, ingoma dance-songs) translated into urban-mining-hostel context where Zulu migrant laborers preserved cultural identity through weekend musical competition. Distinguished from preceding rural Zulu choral tradition by tighter ensemble-choreography and competition-format performance practice; distinguished from contemporary maskandi by a-cappella-not-guitar instrumentation; distinguished from later mbaqanga by absence of instrumental backing and pre-electric era foundation. Lineage forward feeds Ladysmith Black Mambazo international gospel-and-pop crossover, the 1986 Paul Simon Graceland-album collaboration that brought the genre to global attention, and the broader Zulu a-cappella tradition continuing into present-day township and competition contexts.",
       "exemplars": [
@@ -6824,7 +6837,8 @@
         "ghatam",
         "thavil",
         "kanjira",
-        "morsing"
+        "morsing",
+        "shruti_box"
       ],
       "description": "Carnatic vocal (codified ca. 14th century through Purandara Dasa and crystallized 17th-19th century through the trinity of Tyagaraja, Muthuswami Dikshitar, and Syama Sastri in Thanjavur and Madras), the South Indian classical vocal tradition centered on composed kriti repertoire decorated with manōdharma improvisation. Defined by lead vocal performance of fixed kritis (composed three-section pallavi-anupallavi-charanam pieces in specific raga and tala) with extensive improvisation appendages: ālāpana free-rhythm raga-exposition before the composition, niraval melodic-textual elaboration on a single line, kalpana svaras solfège-syllable-based melodic improvisation, and the climactic ragam-tanam-pallavi extended-form virtuosic display. Standard accompaniment: violin (carnatic style, held on chest), mridangam two-headed drum, ghatam clay pot, kanjira tambourine, and tanpura drone-strings; performance language spans Tamil, Telugu, Kannada, Sanskrit, and Malayalam. Distinguished from Hindustani khayal by composition-foreground over raga-elaboration-foreground; distinguished from temple kriti and javali by concert-not-temple performance context.",
       "exemplars": [
@@ -6908,7 +6922,8 @@
         "harmonium_indian",
         "tabla",
         "dholak",
-        "manjira"
+        "manjira",
+        "shruti_box"
       ],
       "description": "Bhajan (early-medieval onward, codified through the bhakti devotional movement 12th-17th century across North India and now performed in temple, ashram, and home-puja contexts globally), the Hindu congregational devotional song form built on responsorial structure between lead singer and group. Defined by harmonium drone-and-melody accompaniment, dholak two-headed barrel-drum metric pulse, optional manjira hand cymbals, lead-vocal-and-call-and-response group answer pattern across cycles of 4-8 measures, lyrics in Hindi-Sanskrit-Marathi-Bengali-Gujarati or other regional languages addressing deities (Krishna, Rama, Shiva, Devi, Hanuman), and increasing tempo and intensity across the bhajan as devotional fervor builds. Distinguished from kirtan by smaller-scale and home/temple-rather-than-procession context; distinguished from Carnatic kriti by congregational-not-classical performance and bhakti-not-temple-art-music framing.",
       "exemplars": [
@@ -6948,7 +6963,8 @@
         "tabla",
         "dholak",
         "khol",
-        "manjira"
+        "manjira",
+        "shruti_box"
       ],
       "description": "Kirtan (codified medieval period through the bhakti devotional movement, with continuous tradition in Sikh gurdwara, Vaishnava temple, and contemporary Western kirtan-revival contexts), the call-and-response devotional chant practice central to Sikh and Vaishnava bhakti devotional practice. Defined by mantric repetition (the kirtan-distinct practice of repeating a mantra or short devotional phrase across many cycles, building intensity and tempo), call-and-response between lead-singer and group, harmonium drone-and-melody accompaniment, tabla and mridanga two-headed drum percussion, and lyrical content of divine name (Naam) repetition, Krishna-praise verses, or Sikh shabad scriptural quotation depending on tradition. Performance contexts span temple service, ashram practice, and public satsang gathering. Distinguished from bhajan by greater emphasis on mantra-repetition over verse-narrative; distinguished from Sikh shabad kirtan (a specific subset using Guru Granth Sahib scripture) by broader bhakti applicability; distinguished from secular Indian devotional pop by direct ritual function.",
       "exemplars": [
@@ -6987,7 +7003,8 @@
         "dholak",
         "tumbi",
         "drum_machine_808",
-        "dhol"
+        "dhol",
+        "chimta"
       ],
       "description": "Modern bhangra (originating from Punjabi Vaisakhi-festival harvest dance music, transformed 1980s-1990s into a UK-Punjabi-diaspora pop genre, now globally distributed), the Punjabi pop-fusion genre that retains traditional dhol-and-tumbi instrumentation alongside electronic dance-music production. Defined by the dhol double-headed barrel-drum playing the chaal pattern (the genre's rhythmic signature), tumbi single-string melodic instrument or dhad waist-drum melodic role, robust bilingual Punjabi-English vocal hook, four-on-floor or chaal-pattern programmed kick alongside the dhol, and a performance context spanning Punjabi wedding dance floor, UK club, and Bollywood film soundtrack. UK production lineage hybridized with hip-hop, reggae, and house. Distinguished from traditional folk bhangra by electronic production and pop-song format; distinguished from filmi by direct-from-Punjab-festival-folk lineage.",
       "exemplars": [
@@ -7568,7 +7585,8 @@
       "instruments": [
         "voice",
         "khaen",
-        "roneat_thung"
+        "roneat_thung",
+        "phin"
       ],
       "description": "Mor lam (continuous tradition centuries-onward in Lao Buddhist and Northeast-Thai Isan ethnic-Lao communities, with codified-modernized regional sub-styles — mor lam klon traditional unaccompanied verse-form, mor lam ploen modernized small-band arrangement, mor lam sing electric-band high-tempo dance form), the Lao and Northeast-Thai sung-poetry tradition. Defined by improvised lam (sung-poetry verses) over khaen mouth-organ drone-and-melody accompaniment (the bamboo-pipes free-reed instrument that is the Lao mor lam instrument), call-and-response between male-and-female lam-singer pairs in courtship-and-philosophical-debate exchanges, repertoire spanning religious-Buddhist material, romantic-courtship, social-commentary, and historical-narrative subjects, and electric-band modernization (mor lam sing) extending the format into Thai-pop-club territory while retaining the khaen and lam-singing centrality. Distinguished from Thai luk thung by Lao-Isan-not-central-Thai linguistic-and-musical lineage; distinguished from Cambodian phleng kar by Lao-not-Khmer lineage; distinguished from Lao classical court music by folk-and-popular-not-courtly framing.",
       "exemplars": [
@@ -7643,7 +7661,8 @@
         "siku_panpipes",
         "bombo_andino",
         "ronroco",
-        "ocarina"
+        "ocarina",
+        "tarka"
       ],
       "description": "Huayno (pre-Columbian Quechua and Aymara origin, codified for performance/recording from 1920s onward across Peru, Bolivia, Ecuador, northern Argentina, and northern Chile), the Andean dance-song form in syncopated 2/4 with characteristic dotted-eighth-sixteenth phrase rhythm. Defined by the charango (small armadillo-back lute now usually wood), quena and zampoña (notched-end and pan-pipe flutes), bombo legüero or bombo andino frame drum, and Quechua-or-Aymara-language vocal lines often delivered as plaintive female solo or call-and-response community singing. Performance contexts span chicha-bar dance hall, festival procession, and family ceremony. Distinguished from cumbia colombiana by Andean-not-coastal-Caribbean lineage and indigenous-Andean instrumentation; distinguished from chicha (later urban Lima electric variant) by acoustic instrumentation and traditional rural framing.",
       "exemplars": [
@@ -7760,7 +7779,8 @@
         "voice",
         "acoustic_guitar_parlor",
         "banjo_5_string",
-        "maracas"
+        "maracas",
+        "marimbula"
       ],
       "description": "Mento (codified 1900s onward in rural Jamaica, with golden era 1950s-early-1960s before ska and reggae overtook it as Jamaica's dominant pop genre), the Jamaican rural folk music ancestral to ska and reggae. Defined by banjo as melodic and rhythmic lead (the mento-instrument inherited from Jamaican-and-broader-Caribbean string-band tradition), acoustic guitar providing harmonic accompaniment, rhumba box (a Cuban-derived large bass-thumb-piano with metal lamellae played as the bass-line foundation), hand-percussion (maracas, scraper, hand drums) providing additional rhythmic layer, vocal performance often in Jamaican Patois with humorous-and-bawdy lyric content, and tempos around 100-130 BPM with characteristic offbeat-emphasis groove that fed forward into ska's chop-strum upbeat. Distinguished from later ska by acoustic-not-electric instrumentation and pre-1960 timestamp; distinguished from Trinidadian calypso by Jamaican-not-Trinidadian lineage and rhumba-box-not-iron-percussion bass; distinguished from country-blues by Caribbean-not-American-South origin.",
       "exemplars": [
@@ -7800,7 +7820,8 @@
         "electric_bass",
         "steelpan",
         "trumpet",
-        "saxophone"
+        "saxophone",
+        "steel_orchestra"
       ],
       "description": "Calypso (early-19th century Trinidad onward, codified during 1930s-1950s through Port-of-Spain Carnival competition and US-export commercial era 1944-1956), the Trinidadian narrative-satirical song form descended from West African praise-and-shame song traditions transmitted through French-creole kaiso. Defined by lyric content of sharp social commentary, political satire, romantic boast, and topical wordplay (the calypsonian's verbal-virtuosity premium); horn-led syncopated brass-and-rhythm-section arrangements; emcee-style vocal delivery alternating composed verses with extempore-style improvisation; performance contexts spanning Carnival calypso tents, road-march street parade, and 1950s US folk-revival concert; and characteristic up-tempo two-bar percussive feel that prefigured ska. Distinguished from later soca by tempo and lyric foreground over rhythmic foreground; distinguished from Jamaican mento by Trinidadian-not-Jamaican lineage and brass-not-banjo backline; distinguished from steelpan music by vocal-foreground form (though calypsonians frequently performed with steelpan ensembles).",
       "exemplars": [
@@ -9646,7 +9667,8 @@
         "electric_bass",
         "drum_kit",
         "analog_poly_synth",
-        "fm_synth"
+        "fm_synth",
+        "omnichord"
       ],
       "description": "Dream pop (1985 onward, with Cocteau Twins, A.R. Kane, and the 4AD label codifying the genre and a second-wave 2010-present revival), the atmospheric guitar-and-vocal-pop subgenre. Defined by reverberant breathy vocal performance often using non-lexical or syllabic-blurred lyrics so vocal becomes another texture rather than language carrier, washes of chorused-or-modulated electric guitar (heavy use of phaser, flanger, and reverb effects creating layered ambient textures), midtempo 4/4 with non-aggressive drum-pattern, song-form retaining verse-chorus structure but stretched and harmonically suspended, and production aesthetic prioritizing atmospheric depth over dynamic punch. Lineage extends through shoegaze (a heavier-distorted subgenre) and slowcore (slower-tempo subgenre). Distinguished from shoegaze by less wall-of-distortion guitar and more vocal-foreground; distinguished from chillwave by post-1985 origin and guitar-band-not-synth-band instrumentation; distinguished from indie pop by reverberant-and-textural-rather-than-bright-and-immediate aesthetic.",
       "exemplars": [
@@ -9843,7 +9865,8 @@
         "electric_guitar_single_coil",
         "electric_bass",
         "drum_kit",
-        "ukulele"
+        "ukulele",
+        "omnichord"
       ],
       "description": "Twee pop (codified 1986 onward through the C86 NME-cassette compilation and the British indie-pop scene of the late-1980s, with successor 1990s-2000s American-and-UK indie-pop continuation through the K Records-and-Sarah-Records label communities), the childlike-fey indie-pop subgenre. Defined by tinkly-clean-guitars (the twee-bright-clean electric-guitar tone with chorus and minimal-distortion processing), deliberately-sung vocal performance prioritizing earnestness over sophistication (the twee-aesthetic of unadorned-clear vocal projection), simple two-or-three-chord verse-chorus song structures, lyrical content addressing childhood-nostalgia, gentle-romantic, pastoral-imagery, and fey-aesthetic subjects, and DIY-cassette-and-7-inch-single distribution through small indie labels. Distinguished from later mainstream indie pop by C86-and-Sarah-Records lineage and refusal of commercial polish; distinguished from straight indie-rock by absence of harder-distorted-guitar foreground; distinguished from straight pop by retention of indie-credibility and DIY-aesthetic.",
       "exemplars": [
@@ -10501,7 +10524,7 @@
       "instruments": [
         "voice",
         "grand_piano",
-        "accordion",
+        "bayan_russian",
         "electric_bass",
         "drum_kit",
         "choir_ensemble",
@@ -10659,7 +10682,7 @@
         "voice",
         "acoustic_guitar_om",
         "gaita_galega",
-        "accordion",
+        "trikitixa",
         "electric_bass"
       ],
       "description": "Basque kantautor / Euskal kantautoreak (1965 onward, beginning under late-Franco-era cultural repression and crystallizing through the 1970s Ez Dok Amairu collective), the Basque-language regional songwriter tradition tied to language-revival cultural politics. Defined by Basque-language vocal delivery (a deliberate political act during decades when the language was suppressed), folk-derived solo guitar accompaniment occasionally extended with txalaparta plank percussion or trikitixa accordion, lyrics drawing on Basque mythology, peasant resistance themes, and the abertzale (patriotic) movement vocabulary, and a performance circuit running through bertso-saio improvised-verse competitions and Euskal Herria festival circuit. Distinguished from Galician kantautor by language and txalaparta-percussion lineage; distinguished from Spanish-language Castilian protest song by ETA-era political stakes.",
@@ -10857,7 +10880,9 @@
         "bongos",
         "claves",
         "maracas",
-        "trumpet"
+        "trumpet",
+        "cencerro",
+        "marimbula"
       ],
       "description": "Eastern Cuban song-and-dance form centered on tres-guitar interlocking with bongos and bass; verse-section followed by call-and-response montuno over clave; foundational template for salsa, mambo, and Latin jazz.",
       "exemplars": [
@@ -10900,7 +10925,8 @@
         "trumpet",
         "trombone",
         "saxophone",
-        "claves"
+        "claves",
+        "cencerro"
       ],
       "description": "New York-developed dance-band Latin music synthesizing son cubano, mambo, and jazz horn arrangement; sophisticated piano-and-horn arrangements, soneo improvisation over montuno, large-ensemble back-line.",
       "exemplars": [
@@ -10943,7 +10969,8 @@
         "trumpet",
         "trombone",
         "saxophone",
-        "drum_kit"
+        "drum_kit",
+        "cencerro"
       ],
       "description": "1990s Cuban Latin dance-band evolution incorporating funk-and-jazz-fusion harmonic vocabulary, drum-kit syncopation alongside traditional Cuban back-line, breakdown-and-build dance-section structures, very high intensity.",
       "exemplars": [
@@ -11266,9 +11293,10 @@
         "accordion",
         "gaita_colombiana",
         "electric_bass",
-        "surdo",
+        "tambora_colombiana",
         "guiro",
-        "maracas"
+        "maracas",
+        "tambor_alegre"
       ],
       "description": "Colombian Caribbean-coast dance music descended from indigenous-African-Spanish triple-heritage; gaita flute or accordion lead over tambora drum and bass, characteristic dotted-eighth back-line; spread continent-wide.",
       "exemplars": [
@@ -11387,7 +11415,8 @@
         "voice",
         "arpa_llanera",
         "cuatro_venezolano",
-        "maracas"
+        "maracas",
+        "bandola_llanera"
       ],
       "description": "Joropo (codified 19th century in the Venezuelan-and-Colombian llanos plains region as cattle-ranch dance music, with continuous tradition through to present and folkloric-codification through 20th-century recorded performance), the Venezuelan-Colombian llano dance and song tradition. Defined by 3/4-with-hemiola metric organization (the joropo-specific 6/8-vs-3/4 metric ambiguity creating the signature push-pull feel), arpa llanera (Venezuelan harp — small portable diatonic harp with no pedals) and cuatro (four-string guitar-like instrument) ensemble at the core, often extended with maracas, contrabass, and occasional bandola llanera pear-shaped lute, vocal delivery in Spanish often with extended-note sustained-cry vocal style and syllabic-rapid-fire verses alternating, and dance-form choreography built on zapateado foot-stamping and partnered turning patterns. Distinguished from cumbia colombiana by inland-llanos-not-coastal-Caribbean lineage and harp-ensemble instrumentation; distinguished from Andean huayno by Venezuelan-and-Colombian-not-Andean-Quechua lineage; distinguished from Mexican son jarocho by Venezuelan-not-Mexican origin despite both featuring harp.",
       "exemplars": [
@@ -15977,7 +16006,8 @@
         "saxophone",
         "double_bass",
         "drum_kit",
-        "granular_synth"
+        "granular_synth",
+        "waterphone"
       ],
       "description": "Non-idiomatic free improvisation tradition emerging in 1960s European and American avant-garde scenes. Performance proceeds without pre-composed material, fixed pitch systems, or metric pulse; extended techniques and instrumental preparations central. Process-and-listening orientation, often documented on small independent labels.",
       "exemplars": [
@@ -16223,7 +16253,8 @@
         "granular_synth",
         "eurorack_modular",
         "ondes_martenot",
-        "theremin"
+        "theremin",
+        "cristal_baschet"
       ],
       "description": "Post-WWII Paris-school tradition composing from manipulated recorded sound. Tape splicing, slowing, reversal, and looping as primary techniques; recorded-sound-as-instrument philosophy with focus on the \"sound object\" abstracted from its source; institutional context of the Groupe de Recherche de Musique Concrète and successor studios.",
       "exemplars": [
@@ -16714,7 +16745,8 @@
         "short_scale_bass",
         "semi_hollow_bass",
         "drum_kit",
-        "harmonica"
+        "harmonica",
+        "hohner_pianet"
       ],
       "description": "Mid-60s British R&B and blues-rock tradition (1962–1968): the Soho-club-circuit cohort interpreting American R&B and Chicago-blues source material through a tight-band British engineering aesthetic. Defined by the combo-organ-and-clean-edge-guitar instrumental signature, blues-shouter vocal delivery, single-take small-room tracking, and a specifically British producer-led discipline targeting AM-radio singles rather than album-side construction. The transitional zone between American rhythm-and-blues source material and what became British hard rock — distinct from later British classic-rock by both era (predates 1968 multitrack adoption) and by R&B-cover-orientation rather than blues-rock-original-orientation.",
       "exemplars": [
@@ -17956,7 +17988,8 @@
         "drum_kit",
         "analog_poly_synth",
         "saxophone",
-        "steelpan"
+        "steelpan",
+        "steel_orchestra"
       ],
       "description": "Sub-tradition of soca with American R&B / soul vocal phrasing and harmonic vocabulary, distinct from \"power soca\" (uptempo carnival-targeted) or \"groovy soca\" (slower tempo carnival-targeted). Closer to mainstream Anglo-American R&B in vocal-stylings while preserving the soca rhythmic foundation. Caribbean-pop crossover format.",
       "exemplars": [
@@ -18928,12 +18961,18 @@
       "instruments": [
         "voice",
         "cittern",
-        "fiddle",
-        "pipe_organ",
+        "vielle_medieval",
+        "portative_organ",
         "viola_da_gamba",
         "recorder",
         "lute_renaissance",
-        "shawm"
+        "shawm",
+        "sackbut",
+        "crumhorn",
+        "baroque_guitar",
+        "vihuela_de_mano",
+        "rebec",
+        "medieval_psaltery"
       ],
       "description": "Recording tradition rooted in the historically-informed-performance (HIP) movement (1960s onward) — period-correct instruments, performance-practice-research-derived ornamentation, original-source-derived tempo and articulation. Recording approach pairs the performance-aesthetic with appropriate period-or-period-suitable acoustic spaces (parish churches, palace chapels). Distinct from mainstream-classical recording aesthetic by both instrumentation and sonic positioning.",
       "exemplars": [
@@ -19055,7 +19094,8 @@
         "sheng",
         "yangqin",
         "bawu",
-        "hulusi"
+        "hulusi",
+        "xun"
       ],
       "description": "Conservatory-codified Chinese national-music ensemble tradition (民乐 minyue), formalized in mid-20th-century Beijing and Shanghai conservatories. Distinct from literati-amateur wenrenyue and operatic jingju traditions. Standard ensemble: erhu (bowed two-string), pipa (plucked four-string), guzheng (long zither), ruan (moon-bodied lute), sanxian (three-string), dizi (transverse bamboo flute), sheng (mouth organ), yangqin (hammered dulcimer). Repertoire includes adapted folk-tune arrangements, newly-composed concert pieces, and reconstructed historical material. Pentatonic-rooted modal organization (gong, shang, jue, zhi, yu modes); large concert-hall presentation with conductor-led ensemble unison passages alternating with featured soloists.",
       "exemplars": [
@@ -19281,7 +19321,8 @@
         "voice",
         "balalaika",
         "domra",
-        "accordion"
+        "bayan_russian",
+        "zhaleika"
       ],
       "description": "Russian folk-orchestra-and-choir tradition codified by Vasily Andreyev (1888 onward), who systematized peasant balalaika and developed standardized chromatic instrument family (prima, secunda, alto, bass, contrabass). 20th-century Soviet folk-orchestra format combined balalaika-and-domra ensembles with piano accordion (bayan) and large vocal choir. Repertoire: arranged-folk-song, original-composed concert pieces, Soviet-era patriotic repertoire. Distinguished from byliny epic-recitation by codified-conservatory form and large-ensemble scale; distinguished from Russian-Orthodox-chant by secular-folk content.",
       "exemplars": [
@@ -19830,7 +19871,7 @@
       ],
       "instruments": [
         "voice",
-        "choir_ensemble"
+        "choir_georgian_polyphonic"
       ],
       "description": "Georgian Caucasian three-voice unaccompanied polyphonic tradition, the canonical regional polyphonic vocal tradition built around four distinct sub-regional three-voice configurations. Kakhetian three-voice — two soloists carrying the upper voices over a sustained choral bani drone, the eastern-Georgian wine-toast supra context, the most directly chordal-and-drone-based regional variant. Gurian three-voice with krimanchuli — the western-Georgian most-contrapuntally-elaborate regional style featuring mtkmeli lead voice, modzakhili middle voice, bani drone, and the krimanchuli upper voice executing high-yodeled M1-M2-rapid-mechanism-alternation as ornamental superstructure. Megrelian three-voice — the western-coastal-Georgian funeral-lament regional variant with text-carrying mtkmeli. Svanetian complex three-voice — the upper-Svaneti highland archaic variant featuring non-tempered fifth-and-fourth harmonic vocabulary preserved from pre-tempered-system practice. Harmonic vocabulary uses non-tempered Pythagorean-leaning fifths and fourths; the dissonant-second-third clusters characteristic of multiple variants are deliberate-and-structural rather than transitional. Twentieth-century preservation through the Anchiskhati Choir Tbilisi, Rustavi Choir, the Joseb Jordania and Edisher Garaqanidze ethnomusicology lineage, and the Tbilisi State Conservatoire folk-polyphony research program. Distinguished from Sardinian cantu a tenore by absence of guttural-ventricular bass and by three-voice-not-four configuration; distinguished from Corsican paghjella by Pythagorean-leaning fifth-and-fourth harmonic vocabulary and by Kakhetian sustained-drone variant; distinguished from Western tempered choral practice by non-tempered intervals and by indigenous regional configuration logic.",
       "exemplars": [
@@ -20162,7 +20203,8 @@
         "tar_azerbaijani",
         "kamancha",
         "daf",
-        "gaval"
+        "gaval",
+        "garmon"
       ],
       "description": "Azerbaijani classical modal art-music tradition of the modal-improvisatory dastgah suite system. The seven-dastgah canonical sequence — Rast, Shur, Segah, Chargah, Bayati-Shiraz, Shushtar, Humayun — each suite built from a tonal-center microtonal modal vocabulary with characteristic shifted-third intervals, extended through gushe sub-section sequences. Khananda singer-led trio with tar long-necked plucked lute and kamancha four-string spike fiddle, with the khananda holding a gaval frame-drum. The Shusha \"conservatory of the East\" lineage established the Garabagh school as the canonical performance dialect. Twentieth-century founding figures include Jabbar Garyaghdioglu (1861-1944), Khan Shushinski (1901-1979), Seyid Shushinski, with Uzeyir Hajibeyov (1885-1948) founding the symphonic mugham and the 1908 opera Leyli and Majnun. Distinguished from Iraqi maqam by Garabagh-Shusha dialect-specific gushe-sequence conventions; distinguished from Persian radif by Azerbaijani-Turkic vocal-ornamentation grammar; distinguished from Turkish makam by the dastgah modal-cycle structural framework.",
       "exemplars": [
@@ -20320,7 +20362,8 @@
         "koauau",
         "putorino",
         "conch_shell_horn",
-        "trumpet"
+        "trumpet",
+        "bullroarer"
       ],
       "description": "Aotearoa New Zealand Māori vocal tradition. Pre-European foundation built on narrow-range melody (frequently around a minor third), microtonal glissandi and pitch-bends, and antiphonal-or-unison choral response to the kaiwaiata lead. Nineteenth-century Christian-mission introduction of four-part hymnody overlaid onto the pre-contact base, producing the kapa haka collective-performance form combining waiata sung-song, haka chanted-dance, and poi rhythmic implement. Performance contexts include the pōwhiri formal welcome, tangihanga funeral, whakatau informal welcome, and hui collective-assembly. Taonga pūoro (\"singing treasures\") secondary to voice: kōauau small notched flute, pūtōrino unique-to-Aotearoa wooden bugle-flute (dual flute-or-trumpet voicing represents the female and male voices of Hine Raukatauri), pūkāea long wooden trumpet (signaling), pūtātara conch shell, pūrerehua bullroarer, porotiti spinning disc, pakuru teeth-held resonant rods, poi rhythmic ball. The twentieth-century revivalist lineage of Hirini Melbourne, Richard Nunns, and Horomona Horo restored taonga pūoro from near-extinction. Distinguished from Tahitian himene tarava by Aotearoa-specific microtonal narrow-range melodic vocabulary and pūtōrino-dual-voicing instrumental signature; distinguished from Hawaiian mele oli by waiata-haka-poi compound performance form.",
       "exemplars": [
@@ -20475,7 +20518,8 @@
       "instruments": [
         "voice",
         "choir_ensemble",
-        "pipe_organ"
+        "portative_organ",
+        "vielle_medieval"
       ],
       "description": "Medieval Western European liturgical music tradition spanning monophonic Gregorian chant (canonized late ninth century, eight church modes, Latin liturgical text) and the early-polyphonic organum that emerged from it. Ninth-century parallel organum (the chant doubled at the fifth or fourth, with optional octave doubling); twelfth-century melismatic organum (the chant slowed to drone-tone in the lower voice while the upper voice elaborates ornamentally over each chant pitch). The Notre Dame school, Paris, c.1160-1250, codified the rhythmic-modes system and expanded to three-and-four-voice organum: Léonin (c.1135-1201), credited with the Magnus Liber Organi, set the two-voice canonical repertoire; Pérotin (fl. c.1200), expanded to three and four voices and composed canonical large-scale organum-quadruplum settings of Viderunt omnes (1198) and Sederunt principes. Cantus firmus practice: the chant melody remains in one voice (typically the tenor) while the other voices counterpoint above. Anonymous IV (English theorist, c.1270s, his treatise survives in a thirteenth-century Bury St Edmunds manuscript) preserves the attribution of these works to Léonin and Pérotin. Distinguished from Renaissance sacred polyphony by limited-voice-count and modal-not-tonal harmonic vocabulary; distinguished from Byzantine chant by Latin-language and Roman-rite cantus-firmus framing; distinguished from Old Roman chant by Frankish-redacted melodic-formulae lineage.",
       "exemplars": [
@@ -20513,7 +20557,9 @@
         "voice",
         "choir_ensemble",
         "pipe_organ",
-        "lute_renaissance"
+        "lute_renaissance",
+        "sackbut",
+        "vihuela_de_mano"
       ],
       "description": "Renaissance European sacred-music tradition c.1450-1600, the mass-cycle and motet repertoire of the Franco-Flemish and Italian schools. Canonical compositional features: imitative counterpoint with successive voice-entries on the same melodic subject; smooth melodic voice-leading with stepwise motion and small leaps; controlled dissonance through suspension-and-resolution; modal scales transitioning gradually into tonal practice; a cappella ideal with optional organ accompaniment for liturgical performance. Canonical composers: Josquin des Prez (Franco-Flemish, c.1450-1521, founding figure of the imitative-mass tradition); Giovanni Pierluigi da Palestrina (Roman, 1525-1594, Missa Papae Marcelli 1567 the Counter-Reformation touchstone for the smoothness-and-clarity ideal); Thomas Tallis (English, c.1505-1585, the forty-voice motet Spem in alium c.1570); William Byrd (English, c.1543-1623, Mass for Four Voices); Orlande de Lassus (Flemish, 1532-1594); Tomás Luis de Victoria (Spanish, 1548-1611). Geographical centers: Cambrai, Antwerp, Rome (Cappella Sistina), Venice (San Marco), London (Chapel Royal). Distinguished from medieval organum by full imitative counterpoint and tempered-meantone tuning vocabulary; distinguished from Baroque sacred polyphony by absence of basso continuo and absence of operatic-aria stylistic vocabulary; distinguished from Orthodox liturgical chant by Latin-text Roman-rite liturgical framework.",
       "exemplars": [
@@ -20977,7 +21023,8 @@
         -1
       ],
       "instruments": [
-        "voice"
+        "voice",
+        "tonkori"
       ],
       "description": "Ainu yukar heroic-epic recitation tradition of Hokkaido (northern Japan) and historically of Sakhalin and the Kuril Islands. Yukar are sung-narrated mytho-heroic cycles featuring the culture-hero Aynurakkur and adjacent cosmological narratives. Performance involves the chanter (yukar-uta-kur) sitting with a rhythm-stick (rep-ni) struck against the edge of the cise (traditional dwelling) hearth-box, marking a continuous rhythmic pulse beneath the recitation. The narrative voice alternates between named characters; the chanter does not move position but conveys character distinction through subtle vocal-register and melodic-cadence shifts.",
       "exemplars": [
@@ -22446,7 +22493,8 @@
         "voice",
         "oud",
         "darbuka",
-        "tar_frame_drum"
+        "tar_frame_drum",
+        "tanbura_kisir"
       ],
       "description": "Nubian music of the Mahas and Kunuz communities of the Nile Valley between Aswan and Dongola, with post-1964 Aswan High Dam relocation extending diaspora to Cairo and Khartoum. Performance integrates Nubian-language responsorial chorus with tar frame-drum and darbuka, plus twentieth-century urban-oud incorporation. Modal vocabulary draws on Nile Valley pentatonic-leaning tradition with distinct Nubian intervals. The post-1964 diaspora produced an exile-mourning lyric corpus addressing the loss of villages submerged by Lake Nasser. The aragid wedding-dance repertoire constitutes the core ceremonial layer.",
       "exemplars": [
@@ -24141,7 +24189,7 @@
       "instruments": [
         "voice",
         "taiko_drum",
-        "shamisen"
+        "sanshin"
       ],
       "description": "Okinawan sanshin-and-eisa music of the Ryukyu archipelago (southwestern Japan), historically and culturally distinct from mainland Japanese music. The sanshin (Okinawan three-string snake-skin-bellied long-neck plucked lute, the direct ancestor of the mainland shamisen) anchors the melodic content of solo-and-ensemble Okinawan classical (kunkunshi-notated court music), folk min'yō, and the contemporary popular Okinawan-pop forms. Eisa is the Okinawan summer Bon-festival ancestor-honoring dance-drum-and-chant tradition, with paranku frame-drum and odaiko large drum ensembles processing through Okinawan villages during the lunar-Bon mid-August period.",
       "exemplars": [
@@ -24452,7 +24500,8 @@
       ],
       "instruments": [
         "voice",
-        "khaen"
+        "khaen",
+        "phin"
       ],
       "description": "Lao lam saravane: Southern-Lao (Champasak-region) variant of the broader Lao lam (sung-and-spoken folk-narrative-and-courtship) tradition that includes the Thai cognate mor lam. Lam saravane is the lighter, more melodic-and-flirtatious variant compared to the heavier philosophical-and-narrative lam siphandone of the southernmost Lao region. Performance: lead singer (mor lam) with khaen bamboo-pipe-mouth-organ accompaniment, in extempore versified Lao-language verse-exchange with characteristic pentatonic-modal vocabulary and the rhythmic-pulsed khaen drone. The mid-twentieth-century Vientiane and Bangkok commercial-recording era spread the saravane variant nationally.",
       "exemplars": [
@@ -24644,7 +24693,8 @@
       "instruments": [
         "voice",
         "kendang_indonesian",
-        "gamelan_balinese_full"
+        "gamelan_balinese_full",
+        "kacapi"
       ],
       "description": "Indonesian jaipongan Sundanese popular-music genre developed in 1974 by Gugum Gumbira in Bandung (West Java) as a modernization of the older ketuk tilu Sundanese folk-dance-music. The form incorporates the traditional kendang Sundanese drum-set, gamelan degung metallophone framework, and Sundanese-language vocal repertoire, but with substantially energized faster-tempo rhythmic pulse and assertive female-singer-dancer presentation. The genre became culturally significant during the late-1970s Indonesian-cultural-nationalism period as an alternative to Western-influenced popular music. Distinguished from broader Sundanese gamelan by jaipongan's mid-1970s commercial-popular crystallization and the assertive vocal-and-dance performance register.",
       "exemplars": [
@@ -24827,7 +24877,7 @@
       "instruments": [
         "voice",
         "sanxian",
-        "gamelan_balinese_full",
+        "hsaing_waing_ensemble",
         "saung_gauk",
         "pattala"
       ],
@@ -24865,7 +24915,7 @@
         1
       ],
       "instruments": [
-        "gamelan_balinese_full",
+        "hsaing_waing_ensemble",
         "hne",
         "pat_waing"
       ],
@@ -25407,7 +25457,8 @@
         "charango",
         "bombo_andino",
         "conch_shell_horn",
-        "ocarina"
+        "ocarina",
+        "tarka"
       ],
       "description": "Traditional Quechua wayno (also huayno, huayño) Andean folk-music form of the Quechua-and-Aymara-speaking populations of highland Peru, Bolivia, and Ecuador. The wayno is the canonical Andean dance-and-song form, in 2/4 meter with characteristic syncopation pattern, slow-to-medium tempo, and pentatonic-to-modal melodic vocabulary. Performance: small ensemble of quena end-blown notched flute, charango armadillo-shell ten-string-paired lute, bombo bass-drum, and voice — with the lyric content addressing rural-Andean life, love, mourning, and Quechua-cultural-identity. The mid-twentieth-century Cusco-and-Ayacucho-and-Huancayo regional canonical traditions are the most institutionally preserved; the Bolivian Cochabamba-and-Potosí lineages constitute the parallel highland-Bolivian tradition.",
       "exemplars": [
@@ -25483,7 +25534,8 @@
         "voice",
         "piano_accordion",
         "acoustic_guitar_parlor",
-        "upright_bass"
+        "upright_bass",
+        "barrel_organ"
       ],
       "description": "French musette accordion-led popular-folk genre developed in early-twentieth-century Paris from the convergence of Auvergnat-immigrant cabrette-bagpipe dance-music with Italian-immigrant accordion-playing in the working-class Parisian guinguette dance-hall and bistro scenes around Bastille and the rue de Lappe. Characterized by waltz-and-java rhythmic base, virtuoso accordion-melodic lead, and the canonical valse musette dance-floor accompaniment. The interwar 1920s-1930s period at Bal Tabarin and Balajo dance-halls anchored institutional crystallization. Distinguished from later French chanson by musette's instrumental-dance (vs literary-lyrical) primary functional orientation.",
       "exemplars": [
@@ -25673,7 +25725,8 @@
         "piano_accordion",
         "kantele",
         "hammered_dulcimer",
-        "concert_zither_alpine"
+        "concert_zither_alpine",
+        "steirische_harmonika"
       ],
       "description": "Tyrolean Schuhplattler folk-dance-and-music tradition of the Austrian Tyrol, South Tyrol (Italy), and Bavarian Alps, in which male dancers perform synchronized choreography involving rhythmic slapping of thighs, knees, and shoe-soles in characteristic accelerating patterns, accompanied by Stubenmusik chamber-ensemble of zither, hammered dulcimer (Hackbrett), accordion, double-bass, and voice. The tradition crystallized in seventeenth-eighteenth century Alpine villages from earlier courtship-display dance-forms. Performance contexts span the Heimatabend folkloric-evening tourist-demonstrations, village-festival celebrations, and the canonical Schuhplattlerverein dance-association competitions. Distinguished from broader German Alpine music by Schuhplattler's specific male-percussive-choreographic register.",
       "exemplars": [
@@ -26440,7 +26493,8 @@
         1
       ],
       "instruments": [
-        "voice"
+        "voice",
+        "kokle"
       ],
       "description": "Latvian dainas folk-quatrain song tradition: the canonical Latvian oral-poetic-and-song corpus comprising over 1.2 million collected four-line quatrains in trochaic-tetrameter or dactyl-tetrameter form, documenting the entire Latvian rural-life-cycle from birth-rituals through wedding-cycle through funeral-rites. Compiled by Krišjānis Barons (1835-1923) in the canonical six-volume Latvju Dainas (1894-1915), the largest single-author folklore-collection in any language. Performance configuration: unaccompanied solo or small-group female-voice in characteristic narrow-range pentatonic-or-modal melodic vocabulary with strict daina meter. The post-1991 Latvian-independence cultural-revival under the Song-and-Dance Celebration (Latvian: Dziesmu un deju svētki) has consolidated institutional transmission. Distinguished from broader Baltic vocal music by daina's strict quatrain-form and Krišjānis Barons canonical-corpus reference.",
       "exemplars": [
@@ -26845,7 +26899,8 @@
         "accordion",
         "electric_bass",
         "drum_kit",
-        "bajo_sexto"
+        "bajo_sexto",
+        "conjunto_norteno"
       ],
       "description": "Northern-Mexican popular-music of border states (Tamaulipas, Nuevo León, Coahuila, Chihuahua), accordion-and-bajo-sexto-led with bass-drum-kit. Origin in late-nineteenth-century German-Czech-Polish-immigrant accordion music synthesized with Mexican forms. Repertoire: corrido, ranchera, polka, cumbia. Falcon Records (McAllen, 1948 onward) anchored commercial circulation.",
       "exemplars": [
@@ -26959,7 +27014,8 @@
       "instruments": [
         "voice",
         "violin_orchestral",
-        "jarana_jarocha"
+        "jarana_jarocha",
+        "quinta_huapanguera"
       ],
       "description": "Regional Mexican son tradition of the Huasteca cultural region (Veracruz, Hidalgo, San Luis Potosí, Tamaulipas, Querétaro). Trio of huapanguero violin (with high-falsetto vocal ornament and improvisatory melodic-doubling), quinta huapanguera five-string acoustic-bass-guitar, and jarana huasteca five-string rhythm-guitar. Alternating violin-improvisation and falsetto-vocal-improvisation sections define the canonical huapango.",
       "exemplars": [
@@ -27232,7 +27288,8 @@
         "electric_bass",
         "timbales",
         "congas",
-        "drum_kit"
+        "drum_kit",
+        "cencerro"
       ],
       "description": "Cuban dance-music developed in 1970s-1980s Havana by Los Van Van under Juan Formell, synthesizing son montuno, changüí, North American funk, and Cuban folkloric rumba. Introduced drum-kit alongside canonical timbales and congas, electric-bass with funk-derived ostinato, extended sectional structures. Directly informed subsequent 1990s timba emergence.",
       "exemplars": [
@@ -27275,7 +27332,8 @@
         "trombone",
         "timbales",
         "congas",
-        "bongos"
+        "bongos",
+        "cencerro"
       ],
       "description": "Aggressive virtuoso style of New York salsa developed in 1970s through Fania All-Stars and broader Fania Records roster. Intense rhythmic-and-instrumental projection, virtuoso solo improvisations, extended compositional structures, politically-conscious socially-realist lyric content addressing immigration, poverty, Latin-American social-justice. Fania Records (1964, Johnny Pacheco, Jerry Masucci) constitutes the institutional anchor.",
       "exemplars": [
@@ -27359,7 +27417,8 @@
         "electric_bass",
         "trumpet",
         "timbales",
-        "congas"
+        "congas",
+        "cencerro"
       ],
       "description": "Colombian regional variant of salsa centered in Cali (Valle del Cauca, southwestern Colombia, \"world capital of salsa\"). Distinguished from New York and Puerto Rican salsa by faster-tempo, more aggressive-rhythmic-pulse, and the Cali dance-school choreographic culture emphasizing fast complex footwork. Grupo Niche (1980, Jairo Varela) and Orquesta Guayacán anchor canonical Cali sound.",
       "exemplars": [
@@ -27820,7 +27879,8 @@
         "voice",
         "congas",
         "acoustic_guitar_parlor",
-        "cajon_peruano"
+        "cajon_peruano",
+        "quijada"
       ],
       "description": "Afro-Peruvian folk-popular dance-and-song tradition of coastal Peru (Lima, Chincha, El Carmen, Ica regions), descended from West-African-enslaved-population cultural memory through colonial-Peruvian slavery period. Fast 6/8 meter, virtuoso cajón lead, quijada jawbone-rattle, acoustic-guitar. Nicomedes Santa Cruz (1925-1992) and Victoria Santa Cruz (1922-2014) consolidated twentieth-century cultural revival. Susana Baca, Eva Ayllón anchor contemporary scene.",
       "exemplars": [
@@ -27859,7 +27919,8 @@
         "voice",
         "congas",
         "acoustic_guitar_parlor",
-        "cajon_peruano"
+        "cajon_peruano",
+        "quijada"
       ],
       "description": "Afro-Peruvian slow-tempo groove-based form characterized by slow 12/8 with strong off-beat accent and characteristic syncopated cajón pattern. Distinguished from festejo by landó's slower-meditative-melancholic register. Addresses melancholy-romance, the experience of enslavement and its memory (canonical \"María Landó\" by Chabuca Granda with poetry of César Calvo, recorded by Susana Baca).",
       "exemplars": [
@@ -29044,7 +29105,9 @@
       ],
       "instruments": [
         "voice",
-        "choir_ensemble"
+        "choir_ensemble",
+        "vielle_medieval",
+        "rebec"
       ],
       "description": "Late-twelfth-and-thirteenth-century European art-music style centered on the Notre Dame Cathedral school of Paris under Léonin (Leoninus, fl. 1150s-1180s) and Pérotin (Perotinus, fl. 1190s-1220s). Codified rhythmic-modal notation, organum (two-, three-, and four-voice polyphony built on plainchant tenors), and clausula and motet forms. Compiled in the Magnus Liber Organi attributed to Léonin and revised by Pérotin. Distinguished from preceding plainchant by ars antiqua's systematic polyphonic-organization.",
       "exemplars": [
@@ -29081,7 +29144,10 @@
       ],
       "instruments": [
         "voice",
-        "choir_ensemble"
+        "choir_ensemble",
+        "vielle_medieval",
+        "portative_organ",
+        "medieval_psaltery"
       ],
       "description": "Fourteenth-century French compositional style codified in Philippe de Vitry's 1322 treatise of the same name, introducing isorhythmic motet construction, mensural rhythmic notation, and increased rhythmic-and-harmonic complexity. Guillaume de Machaut (c.1300-1377) is the principal composer; his Messe de Nostre Dame (c.1365) is the first known complete polyphonic setting of the Mass Ordinary by a single composer. Distinguished from ars antiqua by ars nova's sophisticated rhythmic-isorhythmic and notational developments.",
       "exemplars": [
@@ -29118,7 +29184,8 @@
       ],
       "instruments": [
         "voice",
-        "choir_ensemble"
+        "choir_ensemble",
+        "portative_organ"
       ],
       "description": "Mid-fifteenth-century compositional school centered on the courts of the Dukes of Burgundy (Philip the Good, Charles the Bold) at Dijon and Brussels. Guillaume Dufay (c.1397-1474) and Gilles Binchois (c.1400-1460) are the principal composers. Developed the Mass cycle (cyclic Mass based on a single cantus firmus), the rondeau and ballade chanson forms, and the smoother-consonant fauxbourdon harmonic style. Direct precursor of the Franco-Flemish polyphonic school.",
       "exemplars": [
@@ -29485,7 +29552,8 @@
       ],
       "instruments": [
         "voice",
-        "choir_ensemble"
+        "choir_ensemble",
+        "crumhorn"
       ],
       "description": "Renaissance secular polyphonic vocal genre developed in sixteenth-century Italy through Jacques Arcadelt, Adrian Willaert, and culminating in Carlo Gesualdo (1566-1613) and Claudio Monteverdi (1567-1643). Set Italian secular poetry in elaborate four-to-six-voice polyphonic textures with characteristic word-painting and increasingly chromatic harmonic vocabulary (especially in Gesualdo). The English madrigal school (Thomas Morley, John Wilbye, Thomas Weelkes) flourished briefly in 1580s-1610s as an Italian-derived English adaptation. Direct precursor to Baroque secular cantata and opera.",
       "exemplars": [
@@ -29524,7 +29592,10 @@
       "instruments": [
         "voice",
         "grand_piano",
-        "violin_orchestral"
+        "violin_orchestral",
+        "baroque_guitar",
+        "viola_damore",
+        "natural_horn"
       ],
       "description": "Italian-language Baroque opera type focused on serious classical-mythological-and-historical subjects, codified by librettist Pietro Metastasio (1698-1782) whose libretti were set hundreds of times by Baroque composers. Performance configuration: three acts with strict da capo aria-and-recitative alternation, six characters (with castrato voices in the leading male hero roles), and minimal chorus. Handel's Giulio Cesare (1724) and Vivaldi's Orlando furioso (1727) are canonical type-specimens. Distinguished from later opera buffa by opera seria's elevated dramatic register.",
       "exemplars": [
@@ -29760,7 +29831,8 @@
         "upright_bass",
         "drum_kit",
         "banjo_5_string",
-        "cornet"
+        "cornet",
+        "tenor_guitar"
       ],
       "description": "Earliest documented jazz style (c.1905-1928) emerging from New Orleans through cornet-led front-line (cornet/trumpet, clarinet, trombone) playing collective polyphonic improvisation over banjo/guitar-bass-drums rhythm section. Original Dixieland Jass Band's 1917 Livery Stable Blues was the first commercial jazz recording. Distinguished from later swing era by Dixieland's collective-improvisation (vs solo-feature) ensemble principle and 2/4 march-derived rhythmic pulse.",
       "exemplars": [
@@ -30256,7 +30328,8 @@
         "voice",
         "electric_guitar_single_coil",
         "electric_bass",
-        "drum_kit"
+        "drum_kit",
+        "hohner_pianet"
       ],
       "description": "Early-1960s Liverpool-and-Merseyside beat-music style emerging from the convergence of skiffle, American R&B, and rock-and-roll into the canonical guitar-bass-drums-and-vocal-harmony four-piece beat-group format. The Beatles, Gerry and the Pacemakers, the Searchers, the Merseybeats, and Cilla Black constituted the canonical roster; the Cavern Club Liverpool and the Star-Club Hamburg anchored the institutional performance circuit. Distinguished from broader British Invasion by Merseybeat's Liverpool-specific geographic-cultural identity.",
       "exemplars": [
@@ -31272,7 +31345,8 @@
         "electric_guitar_humbucker",
         "electric_bass",
         "drum_kit",
-        "analog_synth"
+        "analog_synth",
+        "stylophone"
       ],
       "description": "Late-1960s-and-1970s rock subgenre integrating extended psychedelic instrumental passages with science-fiction-cosmic thematic content. Hawkwind (UK 1969-onward) inaugurated the canonical style with Space Ritual (1973); Pink Floyd's pre-Dark-Side material, Gong's Radio Gnome Invisible trilogy, and (in the 1980s revival) Spacemen 3 and Loop continued the lineage. Distinguished from broader progressive rock by space rock's specific psychedelic-cosmic thematic focus and extended-instrumental-passage emphasis.",
       "exemplars": [
@@ -34048,7 +34122,8 @@
       ],
       "instruments": [
         "analog_synth",
-        "sampler_classic"
+        "sampler_classic",
+        "waterphone"
       ],
       "description": "1980s and 1990s ambient subgenre developed through industrial-music adjacent scene, characterized by drone-and-texture-based composition emphasizing menacing, dark, foreboding atmospheric content. Lustmord (Brian Williams), Coil, Nurse With Wound, and the broader Cold Spring Records and Side Effects label rosters anchor the canonical sound. Distinguished from broader ambient by dark ambient's explicit horror-cinematic-and-occult thematic orientation.",
       "exemplars": [
@@ -35399,7 +35474,9 @@
       "instruments": [
         "voice",
         "analog_synth",
-        "sampler_classic"
+        "sampler_classic",
+        "stylophone",
+        "optigan"
       ],
       "description": "2000s and 2010s UK electronic subgenre developed through Ghost Box Records (founded 2004 by Julian House and Jim Jupp) and the broader UK-electronic scene, characterized by sampling-and-evocation of 1960s-1970s BBC Radiophonic Workshop, library music, and lost-British-television-soundtrack aesthetics. Belbury Poly, The Focus Group, The Advisory Circle, Mordant Music, and Boards of Canada (parallel adjacent) anchor the canonical hauntology roster.",
       "exemplars": [
@@ -35839,7 +35916,8 @@
         "grand_piano",
         "electric_bass",
         "drum_kit",
-        "analog_synth"
+        "analog_synth",
+        "electric_violin"
       ],
       "description": "1970s jazz subgenre developed from Miles Davis's late-1960s Bitches Brew sessions, integrating jazz-improvisational practice with rock-and-funk rhythmic vocabulary and electric-amplified-instrumentation. Weather Report (founded 1970 by Joe Zawinul and Wayne Shorter), Mahavishnu Orchestra (John McLaughlin), Return to Forever (Chick Corea), and Headhunters (Herbie Hancock) constitute the canonical 1970s fusion roster. Distinguished from broader jazz by fusion's explicit rock-and-funk-rhythmic-electric-instrument synthesis.",
       "exemplars": [
@@ -38377,7 +38455,8 @@
         "charango",
         "quena",
         "siku_panpipes",
-        "bombo_andino"
+        "bombo_andino",
+        "rainstick"
       ],
       "description": "The Chilean nueva canción (\"new song\") tradition emerging late-1960s through the Allende-era 1970-1973 to mid-1970s Pinochet-coup-era political folk-revival; centered on Víctor Jara (assassinated September 1973 in the Estadio Chile days after the Pinochet coup), Violeta Parra (foundational figure documenting Chilean folk-tradition who took her own life in 1967), Quilapayún, Inti-Illimani, and the Discoteca del Cantar Popular DICAP-label scene. Defined by integration of Indigenous-Andean instruments (charango, quena, zampoña, bombo) with Western-folk acoustic-guitar songwriter-format, Andean-pentatonic melodic vocabulary alongside Spanish-language verse-chorus song-form, narrative-and-anthemic political-grievance lyric content, characteristic acoustic-warm timbre, frequently censorship-faced and post-coup exile-context performance (Inti-Illimani spent 14 years exiled in Italy).",
       "exemplars": [
@@ -40492,7 +40571,7 @@
       ],
       "instruments": [
         "voice",
-        "accordion",
+        "bayan_russian",
         "balalaika"
       ],
       "description": "The Russian zastol'naya pesnya (за́стольная пе́сня \"table-song / drinking-song\") tradition continuous from medieval-Russian feast-and-tavern song-tradition through 19th-century Russian-Romantic-era Glinka-and-Mussorgsky-folk-collection (the Russian national-music project documented and elevated the zastol'naya corpus) through Soviet-era continuous performance into modern Russian-and-Russian-diaspora continuous feast-and-pub practice. The Russian zastol'naya tradition is integrated into the canonical Russian feast-ritual where each toast (тост, tost) is accompanied by extended-song-performance; foundational repertoire includes \"Из-за острова на стрежень\" (Out from the island to the deep — Stenka Razin canonical), \"Степь да степь кругом\" (Steppes around — drinking-elegy), \"Ой, мороз, мороз\" (Oh frost, frost — canonical Russian-folk-drinking), \"Шумел камыш\" (The reed rustled — canonical).",
@@ -40573,7 +40652,8 @@
       ],
       "instruments": [
         "voice",
-        "panduri"
+        "panduri",
+        "choir_georgian_polyphonic"
       ],
       "description": "The Georgian supra-feast drinking-and-singing tradition continuous from medieval-Georgian feast-and-toast tradition through 19th-20th century continuous performance into modern Georgian-and-Georgian-diaspora continuous practice; the Georgian supra is the documented multi-hour ritual-feast-and-toast-ceremony where the tamada (toast-master) directs the extended-toast-and-song sequence integrating chacha-vodka and Georgian-wine-drinking, polyphonic-three-voice singing (the unique Georgian-polyphonic three-voice harmony with no European equivalent), and characteristic toast-ritual progression (toasts to family, ancestors, peace, friendship, fertility, country). Defined by polyphonic-three-voice unaccompanied-or-panduri-accompanied vocal arrangement, Georgian-modal melodic vocabulary, Georgian-language text register, characteristic supra ceremonial-context.",
       "exemplars": [
@@ -41094,7 +41174,8 @@
         "voice",
         "steelpan",
         "trumpet",
-        "drum_kit"
+        "drum_kit",
+        "steel_orchestra"
       ],
       "description": "The Trinidadian Carnival road-march tradition continuous from 19th-century post-emancipation Carnival celebrations through 20th-century calypso (1930s-1960s Lord Kitchener, Mighty Sparrow, Atilla the Hun era) and soca (1970s-onward Lord Shorty Endless Vibrations era) into modern Trinidad-and-Tobago Carnival continuous practice; the \"Road March\" is the canonical Carnival competition for the song most-played during Carnival processional (announced annually based on Ash-Wednesday tallies of plays during Carnival Monday-and-Tuesday parade routes). Defined by steel-pan-and-brass-and-drum-kit ensemble, English-Trinidadian-and-French-Creole text register, soca-dembow rhythmic vocabulary at high-tempo road-march pace, characteristic mass-participation jump-and-wave processional context, double-fast Power Soca and slower Groovy Soca sub-categories competing annually.",
       "exemplars": [
@@ -41339,7 +41420,8 @@
         "quena",
         "siku_panpipes",
         "trumpet",
-        "drum_kit"
+        "drum_kit",
+        "tarka"
       ],
       "description": "The Bolivian Carnaval de Oruro diablada (devil-dance) processional tradition continuous from pre-Hispanic Andean ritual-dance practice (the Andean Tio-deity-worship of Bolivian-tin-mining culture) through Spanish-colonial-era integration with Christian-Catholic devil-dance imagery (the post-1606 syncretism of Andean-Tio-deity worship with Catholic-devil-iconography produced the canonical diablada masked-procession where the diablos perform a quasi-Christian-morality narrative of triumph-over-evil) into modern Carnaval de Oruro continuous practice. Defined by quena-and-siku-and-brass-and-snare-drum ensemble, Spanish-Quechua-Aymara text register, Andean-huayno rhythmic vocabulary, characteristic masked-diablo-and-china-supay (devil-and-devil-mistress) costumed-processional context.",
       "exemplars": [
@@ -41502,7 +41584,8 @@
       ],
       "instruments": [
         "steelpan",
-        "cello"
+        "cello",
+        "steel_orchestra"
       ],
       "description": "The Trinidadian Carnival Panorama steelpan-orchestra competition tradition continuous from 1963 first Panorama-competition founding through 20th-21st century continuous competitive performance into modern Trinidad-and-Tobago Carnival annual Panorama; the steelpan-orchestra (40-100 panmen-and-panwomen organized into tenor-pan, double-second, guitar-pan, cello-pan, six-bass sections) performs a single arranged calypso/soca tune in 8-12 minute concert-piece arrangement competing for the National Panorama Champion title (the canonical victors include Renegades, Desperadoes, Phase II Pan Groove, Despers, Trinidad All Stars). Defined by all-steel-pan-ensemble arrangement (the steel pan tuned-chromatic 12-TET pitched-percussion-vocabulary), instrumental-only no-vocal-content, complex multi-section arrangement-and-counterpoint-and-improvised-soloing.",
       "exemplars": [
@@ -41772,7 +41855,8 @@
       "instruments": [
         "voice",
         "quena",
-        "siku_panpipes"
+        "siku_panpipes",
+        "tarka"
       ],
       "description": "The Andean Quechua-and-Aymara huayno-de-trabajo (\"huayno-of-work\") tradition continuous from pre-Hispanic Andean-agricultural-labor practice (the Andean ayni reciprocal-labor exchange tradition has been documented as integrating extensive song-coordination across collective-labor tasks including potato-and-quinoa planting, maize-and-quinoa harvest, llama-and-alpaca shearing, irrigation-canal maintenance — minka collective-labor mobilization) through Spanish-colonial-era continuous performance into modern Quechua-and-Aymara-speaking Andean-rural practice across Bolivia, Peru, and Ecuador. Defined by quena-and-siku-and-voice arrangement, Quechua-Aymara-and-Spanish text register, huayno-2-4 rhythmic-and-pentatonic-modal vocabulary, characteristic collective-labor task-coordination structure.",
       "exemplars": [
@@ -42241,7 +42325,8 @@
       "instruments": [
         "voice",
         "didgeridoo",
-        "clapsticks_bilma"
+        "clapsticks_bilma",
+        "bullroarer"
       ],
       "description": "The Aboriginal Australian hunting-and-songlines tradition continuous from at-least-65,000-year-continuous Indigenous-Australian cultural-practice through colonial-era continuous performance into modern Aboriginal-and-Torres-Strait-Islander continuous practice; the songlines (Tjukurpa \"Dreaming\" tracks in Pitjantjatjara-Yankunytjatjara terminology, or Wongar in Yolngu terminology) integrate hunting-game knowledge with cosmological-ancestral narrative across documented multi-thousand-kilometer song-cycles (the songlines are an Indigenous-Australian cartographic-and-knowledge-encoding system where specific land-features, water-sources, game-trails, and ritual-sites are encoded in song-sequence). Defined by didgeridoo-and-clapstick-and-voice arrangement, Aboriginal-language text register with regional-language variation, characteristic narrow-range narrative-recitative style.",
       "exemplars": [
@@ -43734,7 +43819,7 @@
         1
       ],
       "instruments": [
-        "choir_ensemble",
+        "murga_uruguaya",
         "bombo_andino",
         "drumline_school_marching"
       ],

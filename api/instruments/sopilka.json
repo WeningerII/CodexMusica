@@ -1,0 +1,428 @@
+{
+  "id": "sopilka",
+  "name": "Sopilka (Ukrainian duct flute)",
+  "family": "wind",
+  "class": "duct_flute",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "Ukrainian fipple duct flute, the bright agile melody voice of Carpathian and troisti muzyky folk music, from six-hole village pipes to the ten-hole chromatic concert instrument.",
+  "parts": [
+    {
+      "id": "sopilka_form",
+      "name": "Regional form and size",
+      "variants": [
+        {
+          "id": "sopilka_form_six_hole",
+          "default": true,
+          "name": "Traditional six-hole diatonic sopilka",
+          "descriptors": [
+            "bright",
+            "breathy",
+            "folk-diatonic",
+            "woody"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "blown",
+            "duct-flute",
+            "fipple",
+            "folk"
+          ],
+          "canonical_tags": [
+            "duct-flute",
+            "diatonic"
+          ]
+        },
+        {
+          "id": "sopilka_form_chromatic",
+          "name": "Ten-hole chromatic concert sopilka (Hnatiuk system)",
+          "descriptors": [
+            "agile",
+            "piercing",
+            "chromatic",
+            "even-toned"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "blown",
+            "duct-flute",
+            "chromatic",
+            "concert"
+          ],
+          "canonical_tags": [
+            "duct-flute",
+            "chromatic",
+            "concert"
+          ]
+        },
+        {
+          "id": "sopilka_form_dentsivka",
+          "name": "Dentsivka (Hutsul soft-voiced block flute)",
+          "descriptors": [
+            "mellow",
+            "breathy",
+            "rounded",
+            "quiet"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "blown",
+            "duct-flute",
+            "hutsul",
+            "soft"
+          ],
+          "canonical_tags": [
+            "duct-flute",
+            "hutsul"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sopilka_setting",
+      "name": "Playing context and technique",
+      "variants": [
+        {
+          "id": "sopilka_setting_solo_kolomyika",
+          "default": true,
+          "name": "Solo Carpathian dance tunes (kolomyika)",
+          "descriptors": [
+            "ornamented",
+            "lively",
+            "grace-noted",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "blown",
+            "solo",
+            "ornamented",
+            "dance"
+          ],
+          "canonical_tags": [
+            "solo",
+            "dance"
+          ]
+        },
+        {
+          "id": "sopilka_setting_troisti",
+          "name": "Troisti muzyky ensemble lead (with fiddle and drum)",
+          "descriptors": [
+            "singing",
+            "interlocking",
+            "melodic-lead"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "blown",
+            "ensemble",
+            "melody",
+            "folk-band"
+          ],
+          "canonical_tags": [
+            "ensemble",
+            "lead"
+          ]
+        },
+        {
+          "id": "sopilka_setting_concert",
+          "name": "Folk-orchestra and conservatory concert repertoire",
+          "descriptors": [
+            "virtuosic",
+            "polished",
+            "flutter-tongued",
+            "brilliant"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "blown",
+            "concert",
+            "virtuosic",
+            "orchestra"
+          ],
+          "canonical_tags": [
+            "concert",
+            "orchestral"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sopilka_body",
+      "surface": false,
+      "name": "Body material and bore",
+      "variants": [
+        {
+          "id": "sopilka_body_elder",
+          "default": true,
+          "name": "Elderberry with pithed bore (traditional)",
+          "descriptors": [
+            "warm",
+            "woody",
+            "soft-edged"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "wooden",
+            "elder",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "wood-body"
+          ]
+        },
+        {
+          "id": "sopilka_body_maple",
+          "name": "Turned maple or plum hardwood",
+          "descriptors": [
+            "clear",
+            "focused",
+            "dense-toned"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "wooden",
+            "maple",
+            "hardwood"
+          ],
+          "canonical_tags": [
+            "wood-body"
+          ]
+        },
+        {
+          "id": "sopilka_body_ebonite",
+          "name": "Modern ebonite concert bore",
+          "descriptors": [
+            "stable",
+            "bright",
+            "precise"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ebonite",
+            "concert",
+            "modern"
+          ],
+          "canonical_tags": [
+            "synthetic-body",
+            "concert"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "sopilka_form",
+      "name": "Regional form and size",
+      "variants": [
+        {
+          "id": "sopilka_form_six_hole",
+          "default": true,
+          "name": "Traditional six-hole diatonic sopilka",
+          "descriptors": [
+            "bright",
+            "breathy",
+            "folk-diatonic",
+            "woody"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "blown",
+            "duct-flute",
+            "fipple",
+            "folk"
+          ],
+          "canonical_tags": [
+            "duct-flute",
+            "diatonic"
+          ]
+        },
+        {
+          "id": "sopilka_form_chromatic",
+          "name": "Ten-hole chromatic concert sopilka (Hnatiuk system)",
+          "descriptors": [
+            "agile",
+            "piercing",
+            "chromatic",
+            "even-toned"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "blown",
+            "duct-flute",
+            "chromatic",
+            "concert"
+          ],
+          "canonical_tags": [
+            "duct-flute",
+            "chromatic",
+            "concert"
+          ]
+        },
+        {
+          "id": "sopilka_form_dentsivka",
+          "name": "Dentsivka (Hutsul soft-voiced block flute)",
+          "descriptors": [
+            "mellow",
+            "breathy",
+            "rounded",
+            "quiet"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "blown",
+            "duct-flute",
+            "hutsul",
+            "soft"
+          ],
+          "canonical_tags": [
+            "duct-flute",
+            "hutsul"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sopilka_setting",
+      "name": "Playing context and technique",
+      "variants": [
+        {
+          "id": "sopilka_setting_solo_kolomyika",
+          "default": true,
+          "name": "Solo Carpathian dance tunes (kolomyika)",
+          "descriptors": [
+            "ornamented",
+            "lively",
+            "grace-noted",
+            "dance-driving"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "blown",
+            "solo",
+            "ornamented",
+            "dance"
+          ],
+          "canonical_tags": [
+            "solo",
+            "dance"
+          ]
+        },
+        {
+          "id": "sopilka_setting_troisti",
+          "name": "Troisti muzyky ensemble lead (with fiddle and drum)",
+          "descriptors": [
+            "singing",
+            "interlocking",
+            "melodic-lead"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "blown",
+            "ensemble",
+            "melody",
+            "folk-band"
+          ],
+          "canonical_tags": [
+            "ensemble",
+            "lead"
+          ]
+        },
+        {
+          "id": "sopilka_setting_concert",
+          "name": "Folk-orchestra and conservatory concert repertoire",
+          "descriptors": [
+            "virtuosic",
+            "polished",
+            "flutter-tongued",
+            "brilliant"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "blown",
+            "concert",
+            "virtuosic",
+            "orchestra"
+          ],
+          "canonical_tags": [
+            "concert",
+            "orchestral"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sopilka_body",
+      "surface": false,
+      "name": "Body material and bore",
+      "variants": [
+        {
+          "id": "sopilka_body_elder",
+          "default": true,
+          "name": "Elderberry with pithed bore (traditional)",
+          "descriptors": [
+            "warm",
+            "woody",
+            "soft-edged"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "wooden",
+            "elder",
+            "traditional"
+          ],
+          "canonical_tags": [
+            "wood-body"
+          ]
+        },
+        {
+          "id": "sopilka_body_maple",
+          "name": "Turned maple or plum hardwood",
+          "descriptors": [
+            "clear",
+            "focused",
+            "dense-toned"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "wooden",
+            "maple",
+            "hardwood"
+          ],
+          "canonical_tags": [
+            "wood-body"
+          ]
+        },
+        {
+          "id": "sopilka_body_ebonite",
+          "name": "Modern ebonite concert bore",
+          "descriptors": [
+            "stable",
+            "bright",
+            "precise"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "ebonite",
+            "concert",
+            "modern"
+          ],
+          "canonical_tags": [
+            "synthetic-body",
+            "concert"
+          ]
+        }
+      ]
+    }
+  ]
+}

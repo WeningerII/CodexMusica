@@ -3,9 +3,9 @@
   "name": "Garage-rock revival (2001–2010)",
   "family": "vernacular",
   "lineage": "2000s deliberate-vintage garage-rock movement reviving 1960s garage-rock sonic and stylistic vocabulary through fuzz-and-reverb single-coil-guitar production, raw vocal delivery, and short-song-form construction — codified through The White Stripes (White Blood Cells 2001, Elephant 2003), The Strokes (Is This It 2001), The Hives (Veni Vidi Vicious 2000), Yeah Yeah Yeahs, The Vines, with revival-aesthetic continuing through Black Lips and the Burger Records scene",
-  "recipe": "classic garage-rock revival, distorted Rock, classic branch, punk distorted rock crust punk post-punk. thick, larynx lowered, chest resonance low mid, equal tempered. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alnico single coil electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, mahogany oil filled machine hammered symmetric pattern organized rows drum kit. fetishistic vintage 1995-present vintage-revival toe rag vintage revival. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 664,
-  "score": 435.75,
+  "recipe": "classic garage-rock revival, distorted Rock, classic branch, punk distorted rock crust punk post-punk. thick, breath veiled tone, breath pulsed, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alnico single coil electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, mahogany oil filled machine hammered symmetric pattern organized rows drum kit. fetishistic vintage 1995-present vintage-revival toe rag vintage revival. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 668,
+  "score": 459.645,
   "config": {
     "traditions": [
       "garage_rock_revival_2000s",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "lowered_larynx_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "spoken_voice",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "japanese_min_yo_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 23.639999999999997,
-          "voice_quality": 2.95,
+          "voice_quality": 12.024999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.845,
-          "voice_articulation": 0.195,
+          "voice_vibrato": 1.69,
+          "voice_articulation": 14.689999999999998,
           "voice_microtone": 23,
           "voice_tradition": 1.9499999999999997,
           "voice_mechanism_compound": 11.8625,
           "voice_estill_quality": 1.885,
-          "voice_speech_song": 16.12,
+          "voice_speech_song": 15.989999999999998,
           "voice_ensemble_config": 18.404999999999998,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 1.69,
+          "voice_pitch_organization": 1.4949999999999999,
           "voice_processing_chain": 7.345000000000001,
-          "voice_multitrack_stack": 7.8325000000000005
+          "voice_multitrack_stack": 7.637500000000001
         }
       },
       {

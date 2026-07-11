@@ -3,9 +3,9 @@
   "name": "Son huasteco (Huasteca trio)",
   "family": "global",
   "lineage": "Regional Mexican son tradition of the Huasteca cultural region (Veracruz, Hidalgo, San Luis Potosí, Tamaulipas, Querétaro). Trio of huapanguero violin (with high-falsetto vocal ornament and improvisatory melodic-doubling), quinta huapanguera five-string acoustic-bass-guitar, and jarana huasteca five-string rhythm-guitar. Alternating violin-improvisation and falsetto-vocal-improvisation sections define the canonical huapango.",
-  "recipe": "classic Mexican modern son huasteco, ballad Poetry, Latin am troubadour branch, indigenous ritual devotional shipibo-conibo icaros healing songs samoan siva and fagufagu. vocal fry, declaimed, melodic, punctuated. sitka spruce French Polish shellac pad modern setup longer neck violin orchestral, cedrillo canonical veracruz nylon modern strummed jarana jarocha. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 576,
-  "score": 153.225,
+  "recipe": "classic Mexican modern son huasteco, ballad Poetry, Latin am troubadour branch, indigenous ritual devotional shipibo-conibo icaros healing songs samoan siva and fagufagu. vocal fry, breath veiled tone, straight note core, interlocked note trading. sitka spruce French Polish shellac pad modern setup longer neck violin orchestral, cedrillo canonical veracruz nylon modern strummed jarana jarocha, son huasteco standard nylon wound modern cedro rojo canonical huasteca quinta huapanguera. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 634,
+  "score": 216.67,
   "config": {
     "traditions": [
       "son_huasteco",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "vocal_fry",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "staccato_voice",
-          "voice_microtone": "blue_notes",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "polynesian_oli_tradition",
           "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -30,25 +30,25 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
           "voice_register": 5.329999999999999,
-          "voice_quality": 10.165,
+          "voice_quality": 27.04,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.275,
-          "voice_articulation": 0.9750000000000001,
-          "voice_microtone": 0.45499999999999996,
+          "voice_vibrato": 2.145,
+          "voice_articulation": 19.174999999999997,
+          "voice_microtone": 17.744999999999994,
           "voice_tradition": 19.89,
           "voice_mechanism_compound": 10.405000000000001,
           "voice_estill_quality": 3.835,
-          "voice_speech_song": 19.564999999999998,
-          "voice_ensemble_config": 18.199999999999996,
+          "voice_speech_song": 19.434999999999995,
+          "voice_ensemble_config": 18.914999999999996,
           "voice_ornament_system": 7.15,
-          "voice_pitch_organization": 2.34,
-          "voice_processing_chain": 5.2,
+          "voice_pitch_organization": 2.145,
+          "voice_processing_chain": 13.389999999999999,
           "voice_multitrack_stack": 7.669999999999999
         }
       },
@@ -95,10 +95,25 @@
           "jarana_jarocha_body_wood": 3.835,
           "jarana_jarocha_strings": 2.34
         }
+      },
+      {
+        "id": "quinta_huapanguera",
+        "slots": {
+          "quinta_huapanguera_form": "quinta_huapanguera_huasteca",
+          "quinta_huapanguera_context": "quinta_huapanguera_topada",
+          "quinta_huapanguera_strings": "quinta_huapanguera_nylon",
+          "quinta_huapanguera_body_wood": "quinta_huapanguera_cedro"
+        },
+        "scores": {
+          "quinta_huapanguera_form": 4.3999999999999995,
+          "quinta_huapanguera_context": 0.45499999999999996,
+          "quinta_huapanguera_strings": 2.34,
+          "quinta_huapanguera_body_wood": 6.135
+        }
       }
     ],
     "room": "mexico_bolero_xochimilco_studio",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

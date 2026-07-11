@@ -3,9 +3,9 @@
   "name": "Bengali ghum-paranir gan (cradle song)",
   "family": "global",
   "lineage": "Bengali cradle-song tradition continuous from medieval Bengal domestic-vocal practice through Rabindra-sangeet appropriation (Tagore composed multiple cradle-songs) into modern Bangla-language domestic singing across West Bengal and Bangladesh",
-  "recipe": "classic modern bengali ghum-paranir gan, lullaby, south Asian branch, indian bard ballad poetry, south Asian art music, south Asian pop functional song rabindra sangeet hindi filmi. thick, declaimed, chest resonance low mid, continuous-phonation. carpeted bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 394,
-  "score": 163.01,
+  "recipe": "classic modern bengali ghum-paranir gan, lullaby, south Asian branch, indian bard ballad poetry, south Asian art music, south Asian pop functional song rabindra sangeet hindi filmi. thick, breath veiled tone, slow rate, interlocked note trading. carpeted bedroom. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 326,
+  "score": 191.962,
   "config": {
     "traditions": [
       "bengali_ghum_paranir_gan",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "legato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "carnatic_classical_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
@@ -31,30 +31,30 @@
           "voice_ornament_system": "voice_ornament_hindustani_meend_gamak",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_talkbox",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 14.870000000000003,
-          "voice_quality": 2.1149999999999998,
+          "voice_quality": 16.022500000000004,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.769999999999999,
-          "voice_articulation": 1.495,
-          "voice_microtone": 11.805000000000001,
+          "voice_vibrato": 9.814999999999998,
+          "voice_articulation": 11.699999999999996,
+          "voice_microtone": 12.349999999999993,
           "voice_tradition": 28.065,
           "voice_mechanism_compound": 7.149999999999999,
           "voice_estill_quality": 9.224999999999998,
-          "voice_speech_song": 23.985,
-          "voice_ensemble_config": 14.364999999999997,
+          "voice_speech_song": 23.854999999999997,
+          "voice_ensemble_config": 14.234999999999994,
           "voice_ornament_system": 16.93,
           "voice_pitch_organization": 16.869999999999997,
           "voice_processing_chain": 7.915,
-          "voice_multitrack_stack": 4.824999999999999
+          "voice_multitrack_stack": 8.06
         }
       }
     ],
     "room": "carpeted_bedroom",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

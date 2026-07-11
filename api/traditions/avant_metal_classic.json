@@ -3,9 +3,9 @@
   "name": "Avant-garde metal",
   "family": "global",
   "lineage": "Experimental-leaning metal subgenre codified through Voivod (Canadian dissonant prog-metal), Sigh (Japanese avant-black-metal), Mr. Bungle, Diabolic Masquerade, and the broader Tzadik / Hydra Head label ecosystem — characterized by atonal harmony, irregular meter, genre-collage composition, and prog-metal sectional architecture",
-  "recipe": "classic modern avant-garde metal, distorted Rock, avant branch, idm glitch experimental electric chiptune / 8-bit drill'n'bass. thick, false fold engaged, chest resonance low mid, punctuated. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, machine hammered symmetric pattern organized rows unlathed natural finish drum kit, sub bass analog poly synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 651,
-  "score": 302.266,
+  "recipe": "classic modern avant-garde metal, distorted Rock, avant branch, idm glitch experimental electric chiptune / 8-bit drill'n'bass. thick, breath veiled tone, straight note core, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, machine hammered symmetric pattern organized rows unlathed natural finish drum kit, sub bass analog poly synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 660,
+  "score": 324.598,
   "config": {
     "traditions": [
       "avant_metal_classic",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "false_fold_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "staccato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "microtonal_31tet_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_stutter_edit",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 4.0630000000000015,
-          "voice_quality": 1.2999999999999996,
+          "voice_quality": 1.6899999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.795,
-          "voice_articulation": 0.845,
-          "voice_microtone": 4.295000000000001,
+          "voice_vibrato": 2.0965,
+          "voice_articulation": 12.154999999999994,
+          "voice_microtone": 11.959999999999992,
           "voice_tradition": 11.042000000000002,
           "voice_mechanism_compound": 26.5125,
           "voice_estill_quality": 1.8849999999999996,
-          "voice_speech_song": 12.674999999999997,
-          "voice_ensemble_config": 13.454999999999997,
+          "voice_speech_song": 14.234999999999994,
+          "voice_ensemble_config": 13.324999999999996,
           "voice_ornament_system": 0.45499999999999996,
-          "voice_pitch_organization": 2.535,
+          "voice_pitch_organization": 2.34,
           "voice_processing_chain": 14.821499999999999,
-          "voice_multitrack_stack": 4.55
+          "voice_multitrack_stack": 5.98
         }
       },
       {

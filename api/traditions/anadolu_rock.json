@@ -3,9 +3,9 @@
   "name": "Anadolu rock",
   "family": "global",
   "lineage": "Late-1960s-onward Turkish psychedelic-folk rock genre codified through Cem Karaca, Erkin Koray (whose 1974 Elektronik Türküler is the album), Barış Manço, the Moğollar band, the Mavi Çocuklar — fusing Turkish folk-saz repertoire and Anatolian regional song-traditions with electric instrumentation, rock rhythm-section foundation, and characteristic distorted-electric-saz lead-voice",
-  "recipe": "classic Middle Eastern 1967-1969 anadolu rock, distorted Rock, regional branch, classic distorted rock britpop. thick, melodic, narrative, equal tempered. marshall plexi amp British rock amp basswood soft down tuning power chord humbucker electric guitar, marshall plexi amp British rock amp ernie ball slinky riff driven electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, mulberry bowl canonical anatolian nylon cura saz softer alevi cem saz baglama. istanbul recording canon 1955-present mid tier istanbul makam kilic ali pasha studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 705,
-  "score": 386.5,
+  "recipe": "classic Middle Eastern 1967-1969 anadolu rock, distorted Rock, regional branch, classic distorted rock britpop. thick, breath veiled tone, straight note core, interlocked note trading. marshall plexi amp British rock amp basswood soft down tuning power chord humbucker electric guitar, marshall plexi amp British rock amp ernie ball slinky riff driven electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, mulberry bowl canonical anatolian nylon cura saz softer alevi cem saz baglama. istanbul recording canon 1955-present mid tier istanbul makam kilic ali pasha studio. large-diaphragm condenser, transformer-coupled solid-state pre, colored vintage console, vari-mu, passive program EQ. vinyl master cut tape echo spring reverb germanium fuzz wah / envelope filter.",
+  "recipe_chars": 800,
+  "score": 392.644,
   "config": {
     "traditions": [
       "anadolu_rock",
@@ -17,39 +17,39 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "rap_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "narrative_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_turkish_makam_53_comma",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
           "voice_register": 31.96999999999999,
-          "voice_quality": 0.2,
+          "voice_quality": 3.5100000000000016,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.17,
-          "voice_articulation": 1.475,
+          "voice_vibrato": 2.1414999999999997,
+          "voice_articulation": 11.244999999999996,
           "voice_microtone": 23.904999999999998,
           "voice_tradition": 9.091,
           "voice_mechanism_compound": 6.825000000000001,
           "voice_estill_quality": 1.885,
-          "voice_speech_song": 12.674999999999997,
-          "voice_ensemble_config": 12.609999999999996,
-          "voice_ornament_system": 0.8999999999999999,
+          "voice_speech_song": 12.544999999999996,
+          "voice_ensemble_config": 12.479999999999995,
+          "voice_ornament_system": 0.9099999999999997,
           "voice_pitch_organization": 6.749999999999999,
           "voice_processing_chain": 4.355,
-          "voice_multitrack_stack": 6.987500000000001
+          "voice_multitrack_stack": 12.48
         }
       },
       {
@@ -158,7 +158,7 @@
       }
     ],
     "room": "istanbul_makam_kilic_ali_pasha_studio",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_unkapani_plak_arabesk",
     "inline_chain": {
       "mic": "dynamic_mic",
       "pre": "pre_neve_1073_input",

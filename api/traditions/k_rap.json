@@ -3,9 +3,9 @@
   "name": "Korean rap",
   "family": "hip_hop",
   "lineage": "Korean hip-hop subgenre codified through Drunken Tiger (1999-onward), Tiger JK, Outsider, and the early-2000s Korean hip-hop scene that later expanded through Epik High, Verbal Jint, Dynamic Duo — characterized by Korean-language flows over US-and-Korean-hybrid production, the Show Me the Money television format as institutional vehicle",
-  "recipe": "classic modern korean rap, mc Rhythm, intl hip hop branch, east Asian pop functional song shidaiqu korean trot. thick, rap, melodic, narrative. TR-808, singing lead analog poly synth, sampled chopped sampler drum machine. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 366,
-  "score": 279.715,
+  "recipe": "classic modern korean rap, mc Rhythm, intl hip hop branch, east Asian pop functional song shidaiqu korean trot. thick, breath veiled tone, straight onset, interlocked note trading. TR-808, singing lead analog poly synth, sampled chopped sampler drum machine. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 403,
+  "score": 314.573,
   "config": {
     "traditions": [
       "k_rap",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "rap_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "narrative_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "korean_minsogak_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_pansori_sigimsae",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 21.899999999999995,
-          "voice_quality": 13.855,
+          "voice_quality": 26.585000000000004,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.015,
-          "voice_articulation": 8.204999999999998,
+          "voice_vibrato": 9.705,
+          "voice_articulation": 17.94,
           "voice_microtone": 21.419999999999998,
           "voice_tradition": 40.08,
           "voice_mechanism_compound": 4.614999999999999,
           "voice_estill_quality": 3.575,
-          "voice_speech_song": 23.075000000000003,
-          "voice_ensemble_config": 20.150000000000002,
+          "voice_speech_song": 23.335,
+          "voice_ensemble_config": 20.02,
           "voice_ornament_system": 33.55,
           "voice_pitch_organization": 11.749999999999996,
           "voice_processing_chain": 11.899999999999999,
-          "voice_multitrack_stack": 6.185000000000001
+          "voice_multitrack_stack": 10.757499999999999
         }
       },
       {

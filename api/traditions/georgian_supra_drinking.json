@@ -3,53 +3,53 @@
   "name": "Georgian supra feast-singing",
   "family": "global",
   "lineage": "Georgian supra-feast drinking-and-singing tradition continuous from medieval-Georgian feast-and-toast tradition through 19th-20th century continuous performance into modern Georgian-and-Georgian-diaspora continuous practice; the Georgian supra is the documented multi-hour ritual-feast-and-toast-ceremony where the tamada (toast-master) directs the extended-toast-and-song sequence",
-  "recipe": "classic modern georgian supra feast-singing, drinking Song, balkan branch, European drinking song, European wedding, middle east n African praise song sufi munajat and naat arabic madh and qasida. extended whistle, declaimed, tasteful, continuous-phonation. eastern georgian three string panduri. irish pub. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 437,
-  "score": 236.38,
+  "recipe": "classic modern georgian supra feast-singing, drinking Song, balkan branch, European drinking song, European wedding, middle east n African praise song sardinian wedding cantu and launeddas music sufi munajat and naat. thick, declaimed, straight onset, interlocked note trading. eastern georgian three string panduri, drone bass choir georgian polyphonic. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 428,
+  "score": 281.928,
   "config": {
     "traditions": [
       "georgian_supra_drinking",
-      "sufi_munajat_naat",
-      "arabic_madh_qasida"
+      "sardinian_wedding_cantu_launeddas",
+      "sufi_munajat_naat"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "extended_whistle_register",
+          "voice_register": "chest_voice",
           "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
-          "voice_articulation": "legato_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
-          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
-          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
-          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+          "voice_ornament_system": "voice_ornament_persian_tahrir",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 1.985,
-          "voice_quality": 27.265124999999998,
+          "voice_register": 3.7499999999999996,
+          "voice_quality": 17.490125,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.38,
-          "voice_articulation": 8.45,
-          "voice_microtone": 9.974999999999998,
-          "voice_tradition": 24.542375,
-          "voice_mechanism_compound": 9.925,
-          "voice_estill_quality": 6.625,
-          "voice_speech_song": 30.5175,
-          "voice_ensemble_config": 17.159999999999993,
-          "voice_ornament_system": 16.2,
-          "voice_pitch_organization": 16.2,
-          "voice_processing_chain": 2.3399999999999994,
-          "voice_multitrack_stack": 1.689999999999999
+          "voice_vibrato": 3.2500000000000004,
+          "voice_articulation": 15.339999999999996,
+          "voice_microtone": 19.174999999999997,
+          "voice_tradition": 24.537499999999994,
+          "voice_mechanism_compound": 4.525,
+          "voice_estill_quality": 1.7499999999999998,
+          "voice_speech_song": 24.114999999999995,
+          "voice_ensemble_config": 16.639999999999997,
+          "voice_ornament_system": 4.525,
+          "voice_pitch_organization": 8.645,
+          "voice_processing_chain": 2.145,
+          "voice_multitrack_stack": 2.5645
         }
       },
       {
@@ -60,14 +60,27 @@
           "panduri_strings": "panduri_nylon"
         },
         "scores": {
-          "panduri_form": 23.3,
+          "panduri_form": 22.95,
           "panduri_repertoire": 22.400000000000002,
           "panduri_strings": 6.5
+        }
+      },
+      {
+        "id": "choir_georgian_polyphonic",
+        "slots": {
+          "choir_georgian_polyphonic_style": "choir_georgian_polyphonic_kakhetian",
+          "choir_georgian_polyphonic_context": "choir_georgian_polyphonic_supra",
+          "choir_georgian_polyphonic_voices": "choir_georgian_polyphonic_bani"
+        },
+        "scores": {
+          "choir_georgian_polyphonic_style": 22.979999999999997,
+          "choir_georgian_polyphonic_context": 33.949999999999996,
+          "choir_georgian_polyphonic_voices": 24.295625
         }
       }
     ],
     "room": "irish_pub",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

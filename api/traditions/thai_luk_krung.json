@@ -3,53 +3,53 @@
   "name": "Thai lûk krung (\"child of the city,\" urban song)",
   "family": "pop",
   "lineage": "Thai lûk krung (\"child of the city\") urban-popular song genre emerging in 1930s-1940s Bangkok from the synthesis of Thai melodic-and-poetic-vocabulary with Western-jazz harmonic-instrumentation framework. Performance: solo voice with Western jazz-orchestra accompaniment (piano, double-bass, drum-kit, brass section), in smooth, romantic register addressing urban Bangkok middle-class concerns. Sunthraporn ensemble (founded 1939 by Eua Sunthornsanan) consolidated the canonical sound; the parallel post-war Suchin Phaisarnyaphirom and Charin Nantanakorn lineages extended the repertoire. Distinguished from lûk thûng by lûk krung's urban-Bangkok (vs rural-migrant) cultural orientation and Western-jazz-harmonic (vs Thai-folk-pentatonic) musical framework.",
-  "recipe": "classic Southeast Asian mid-1930s thai lûk krung, functional Song, east Asian pop branch, chanson fado ballad poetry cape verdean batuko of santiago island greek éntechno. thick, lament wail, melodic, punctuated. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, growly gut upright bass, steel fiberskyn synthetic calf bronze bell bronze drum kit. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 615,
-  "score": 366.453,
+  "recipe": "classic Southeast Asian mid-1930s thai lûk krung, functional Song, east Asian pop branch, chanson fado ballad poetry cape verdean batuko of santiago island morna. thick, breath veiled tone, straight onset, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, growly gut upright bass, steel vintage ambassador asymmetric bronze bell bronze drum kit. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 639,
+  "score": 414.391,
   "config": {
     "traditions": [
       "thai_luk_krung",
       "cape_verdean_batuko",
-      "greek_entechno"
+      "morna"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "fado_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "staccato_voice",
-          "voice_microtone": "tempered_voice",
-          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "japanese_min_yo_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_opera",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 23.319999999999997,
-          "voice_quality": 6.085,
+          "voice_register": 20.419999999999998,
+          "voice_quality": 34.71,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.015,
-          "voice_articulation": 2.145,
-          "voice_microtone": 22.44949999999999,
-          "voice_tradition": 27.563999999999993,
-          "voice_mechanism_compound": 8.71,
-          "voice_estill_quality": 7.5075,
-          "voice_speech_song": 29.087500000000006,
-          "voice_ensemble_config": 19.695000000000004,
-          "voice_ornament_system": 3.475,
-          "voice_pitch_organization": 14.314499999999999,
-          "voice_processing_chain": 6.305,
-          "voice_multitrack_stack": 5.07
+          "voice_vibrato": 9.721499999999999,
+          "voice_articulation": 23.92,
+          "voice_microtone": 24.245000000000005,
+          "voice_tradition": 17.225,
+          "voice_mechanism_compound": 7.865,
+          "voice_estill_quality": 6.760000000000002,
+          "voice_speech_song": 31.265,
+          "voice_ensemble_config": 24.505000000000003,
+          "voice_ornament_system": 3.325,
+          "voice_pitch_organization": 15.564499999999999,
+          "voice_processing_chain": 8.385000000000002,
+          "voice_multitrack_stack": 5.329999999999999
         }
       },
       {
@@ -62,19 +62,19 @@
           "piano_rim": "asian_laminated_rim_birch_maple",
           "piano_soundboard": "asian_spruce_soundboard",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "gray_iron_full_perimeter_plate",
-          "piano_pitch_standard": "a_442_european"
+          "piano_plate": "v_pro_vacuum_cast_plate",
+          "piano_pitch_standard": "a_432_alternative"
         },
         "scores": {
           "keyboard_technique": 6.245,
           "grand_piano_size": 0.54,
-          "grand_piano_brand": 3.1265,
-          "piano_hammer": 7.1565,
-          "piano_rim": 12.138,
-          "piano_soundboard": 9.5325,
-          "piano_pinblock": 4.49,
-          "piano_plate": 3.75,
-          "piano_pitch_standard": 7.5649999999999995
+          "grand_piano_brand": 2.9765,
+          "piano_hammer": 5.4815000000000005,
+          "piano_rim": 10.463000000000001,
+          "piano_soundboard": 7.8575,
+          "piano_pinblock": 1.2149999999999999,
+          "piano_plate": 0.325,
+          "piano_pitch_standard": 4.257499999999999
         }
       },
       {
@@ -85,7 +85,7 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "acoustic_technique": 2.04,
+          "acoustic_technique": 2.34,
           "upright_strings": 9.75,
           "upright_play": 9.75
         }
@@ -97,7 +97,7 @@
           "shell_wood": "steel_shell",
           "shell_thickness": "medium_shell",
           "bearing_edges": "edge_30",
-          "drumhead": "fiberskyn_drumhead",
+          "drumhead": "vintage_ambassador_drumhead",
           "snare_wires": "cable_snares",
           "cymbal_alloy": "b20",
           "cymbal_hammering": "over_hammered",
@@ -106,17 +106,17 @@
           "drum_technique": "brushes_and_sticks"
         },
         "scores": {
-          "percussion_technique": 22.619999999999997,
-          "shell_wood": 1.585,
+          "percussion_technique": 26.78,
+          "shell_wood": 1.8850000000000002,
           "shell_thickness": 0,
-          "bearing_edges": 0.63,
-          "drumhead": 11.375,
+          "bearing_edges": 0.195,
+          "drumhead": 10.8625,
           "snare_wires": 0.54,
           "cymbal_alloy": 10.944999999999997,
           "cymbal_hammering": 13.0865,
-          "cymbal_lathing": 12.474999999999998,
+          "cymbal_lathing": 11.974999999999998,
           "cymbal_finish": 1.45,
-          "drum_technique": 22.619999999999997
+          "drum_technique": 26.78
         }
       }
     ],

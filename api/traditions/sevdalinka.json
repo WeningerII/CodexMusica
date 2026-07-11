@@ -3,53 +3,53 @@
   "name": "Sevdalinka",
   "family": "global",
   "lineage": "Bosnian melancholy-romantic urban song tradition that emerged in the late-Ottoman period (post-1463 Ottoman conquest of Bosnia) and codified through the Austro-Hungarian administrative period (1878-1918) into the recording-era 20th century — 20th-century figures Himzo Polovina, Safet Isović (the 1950s-70s sevdalinka voice), Zaim Imamović, Beba Selimović, and the modern Damir Imamović and Amira Medunjanin sevdalinka revival; melismatic vocal melody with Ottoman makam-influenced modal vocabulary over saz, accordion, and violin accompaniment",
-  "recipe": "classic Southern European early-1870s sevdalinka, ballad Poetry, Mediterranean ballad branch, vocal drone modal, balkan drinking song armenian duduk-accompanied chant flamenco. vocal fry, low dynamic level, melodic, ornamental. makam correct mulberry bowl canonical anatolian steel canonical modern modern concert saz baglama, leather castagnari Italian premium folk music ensemble accordion, brass band balkan romani, maple carved canonical balkan horsehair canonical single string drone like gusle, plum canonical bulgarian continuous-airflow legato kaval, rhythmic dance rhythm strummed tambura balkan. balkan sevdalinka kafana tavern. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
-  "recipe_chars": 726,
-  "score": 257.412,
+  "recipe": "classic Southern European early-1870s sevdalinka, ballad Poetry, Mediterranean ballad branch, vocal drone modal, balkan drinking song armenian duduk-accompanied chant georgian supra feast-singing. vocal fry, breath veiled tone, straight note core, interlocked note trading. mulberry bowl canonical anatolian steel canonical modern modern concert arif sag erkan ogur saz baglama, castagnari Italian premium folk music straight accordion, brass band balkan romani, maple carved canonical balkan horsehair canonical single string drone like gusle, plum canonical bulgarian continuous-airflow legato kaval, strummed tambura balkan. balkan sevdalinka kafana tavern. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 748,
+  "score": 319.192,
   "config": {
     "traditions": [
       "sevdalinka",
       "armenian_duduk_chant",
-      "flamenco"
+      "georgian_supra_drinking"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "vocal_fry",
-          "voice_quality": "crooner_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "melisma_voice",
-          "voice_microtone": "bend_inflected",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_persian_tahrir",
-          "voice_pitch_organization": "voice_pitch_persian_dastgah",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_plate_reverb_medium",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 7.279999999999999,
-          "voice_quality": 2.7950000000000004,
+          "voice_register": 6.11,
+          "voice_quality": 11.439999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.29,
-          "voice_articulation": 1.5699999999999998,
-          "voice_microtone": 5.914999999999999,
+          "voice_vibrato": 7.705,
+          "voice_articulation": 24.634999999999994,
+          "voice_microtone": 35.7175,
           "voice_tradition": 30.875,
-          "voice_mechanism_compound": 14.040000000000001,
-          "voice_estill_quality": 13.4875,
-          "voice_speech_song": 28.729999999999997,
-          "voice_ensemble_config": 23.139999999999997,
-          "voice_ornament_system": 6.755000000000001,
-          "voice_pitch_organization": 8.19,
-          "voice_processing_chain": 7.15,
-          "voice_multitrack_stack": 9.165
+          "voice_mechanism_compound": 12.220000000000002,
+          "voice_estill_quality": 8.3525,
+          "voice_speech_song": 33.2475,
+          "voice_ensemble_config": 24.959999999999994,
+          "voice_ornament_system": 5.505,
+          "voice_pitch_organization": 7.155000000000001,
+          "voice_processing_chain": 5.98,
+          "voice_multitrack_stack": 8.19
         }
       },
       {
@@ -57,38 +57,38 @@
         "slots": {
           "plucked_traditional_technique": "plucked_drone_modal",
           "saz_size": "cura_saz",
-          "saz_frets": "saz_microtonal_frets",
+          "saz_frets": "saz_chromatic_frets",
           "saz_body_wood": "saz_mulberry_body",
           "saz_strings": "saz_steel_modern",
           "saz_tradition": "saz_modern_concert"
         },
         "scores": {
-          "plucked_traditional_technique": 11.2125,
-          "saz_size": 1.625,
-          "saz_frets": 2.22,
+          "plucked_traditional_technique": 8.97,
+          "saz_size": 2.4699999999999998,
+          "saz_frets": 2.145,
           "saz_body_wood": 2.795,
-          "saz_strings": 4.095,
-          "saz_tradition": 3.25
+          "saz_strings": 4.29,
+          "saz_tradition": 2.795
         }
       },
       {
         "id": "accordion",
         "slots": {
-          "free_reed_technique": "free_reed_orchestral_ensemble",
-          "accordion_reed_material": "tipo_a_mano",
+          "free_reed_technique": "free_reed_folk_first_position",
+          "accordion_reed_material": "steel_reeds",
           "musette_offset": "german_tuning",
           "reed_config": "lmmm",
           "bellows": "cardboard_leather",
-          "voicing_chamber": "cassotto",
+          "voicing_chamber": "no_cassotto",
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 4.93,
-          "accordion_reed_material": 1.3,
-          "musette_offset": 2.73,
+          "free_reed_technique": 4.64,
+          "accordion_reed_material": 0.65,
+          "musette_offset": 2.535,
           "reed_config": 0.51,
-          "bellows": 1.04,
-          "voicing_chamber": 0,
+          "bellows": 0.845,
+          "voicing_chamber": 0.65,
           "accordion_maker_school": 4.225
         }
       },
@@ -99,25 +99,25 @@
           "origin": "romani_diaspora"
         },
         "scores": {
-          "sections": 1.95,
-          "origin": 1.95
+          "sections": 1.3,
+          "origin": 1.3
         }
       },
       {
         "id": "gusle",
         "slots": {
           "bowed_technique": "bowed_rough_drone",
-          "gusle_region": "gusle_bosnian",
-          "gusle_context": "gusle_exile",
+          "gusle_region": "gusle_herzegovinian",
+          "gusle_context": "gusle_lament",
           "gusle_body_wood": "gusle_maple_carved",
           "gusle_string_material": "gusle_horsehair_canonical"
         },
         "scores": {
-          "bowed_technique": 7.7025,
-          "gusle_region": 4.875,
-          "gusle_context": 1.95,
-          "gusle_body_wood": 3.0549999999999997,
-          "gusle_string_material": 2.73
+          "bowed_technique": 8.905,
+          "gusle_region": 5.004999999999999,
+          "gusle_context": 2.405,
+          "gusle_body_wood": 4.029999999999999,
+          "gusle_string_material": 2.535
         }
       },
       {
@@ -125,13 +125,13 @@
         "slots": {
           "wind_articulation": "wind_continuous_legato",
           "kaval_region": "kaval_romanian",
-          "kaval_context": "kaval_art_music",
+          "kaval_context": "kaval_village",
           "kaval_body_wood": "kaval_plum_canonical"
         },
         "scores": {
-          "wind_articulation": 4.625,
-          "kaval_region": 1.04,
-          "kaval_context": 1.3,
+          "wind_articulation": 6.199999999999999,
+          "kaval_region": 1.2349999999999999,
+          "kaval_context": 0.845,
           "kaval_body_wood": 2.145
         }
       },
@@ -143,8 +143,8 @@
           "tambura_balkan_use": "tambura_song"
         },
         "scores": {
-          "plucked_traditional_technique": 4.555,
-          "tambura_balkan_school": 2.9699999999999998,
+          "plucked_traditional_technique": 3.755,
+          "tambura_balkan_school": 4.695,
           "tambura_balkan_use": 9
         }
       }

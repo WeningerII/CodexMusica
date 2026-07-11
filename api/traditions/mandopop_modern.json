@@ -3,9 +3,9 @@
   "name": "Mandopop modern (2000s-onward Taiwan-Mainland Mandarin R&B-influenced)",
   "family": "pop",
   "lineage": "Modern Mandarin Chinese popular music developed from 2000s onward through Jay Chou's post-2000 commercial peak and the broader Taiwanese and Mainland Chinese market. Characterized by sophisticated R&B-and-hip-hop-influenced production, romantic-ballad emphasis, and contemporary Mandarin-pop commercial-radio aesthetic. Jay Chou, JJ Lin, Eason Chan (Cantopop crossover), G.E.M., and the contemporary Mainland Chinese reality-show winners constitute the canonical contemporary mandopop roster.",
-  "recipe": "classic East Asian mandopop modern, functional Song, east Asian pop branch, chanson fado ballad poetry cape verdean batuko of santiago island greek éntechno. thick, chest mix belt, tasteful, punctuated. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, modeled amp modern rig mahogany stainless steel roundwound electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, fast decay focused low lead analog synth. hong kong flagship 1980-2000 mid tier hong kong cantopop studio 80s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 680,
-  "score": 446.335,
+  "recipe": "classic East Asian mandopop modern, functional Song, east Asian pop branch, chanson fado ballad poetry cape verdean batuko of santiago island greek éntechno. thick, breath veiled tone, straight onset, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, modeled amp modern rig mahogany stainless steel roundwound electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, fast decay focused low lead analog synth. hong kong flagship 1980-2000 mid tier hong kong cantopop studio 80s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 704,
+  "score": 511.902,
   "config": {
     "traditions": [
       "mandopop_modern",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "chest_mix_belt_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
-          "voice_articulation": "staccato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "chinese_classical_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 14.944999999999993,
-          "voice_quality": 6.2700000000000005,
+          "voice_quality": 28.08,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.4899999999999998,
-          "voice_articulation": 2.145,
-          "voice_microtone": 13.424499999999998,
+          "voice_vibrato": 10.271499999999998,
+          "voice_articulation": 22.164999999999996,
+          "voice_microtone": 24.40749999999999,
           "voice_tradition": 28.768999999999995,
           "voice_mechanism_compound": 5.329999999999999,
           "voice_estill_quality": 7.5075,
-          "voice_speech_song": 29.867499999999996,
-          "voice_ensemble_config": 21.384999999999998,
+          "voice_speech_song": 30.322499999999994,
+          "voice_ensemble_config": 21.254999999999995,
           "voice_ornament_system": 3.1750000000000003,
           "voice_pitch_organization": 11.064499999999995,
-          "voice_processing_chain": 13.34,
-          "voice_multitrack_stack": 13.1995
+          "voice_processing_chain": 15.498,
+          "voice_multitrack_stack": 16.6895
         }
       },
       {

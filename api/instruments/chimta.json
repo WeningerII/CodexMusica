@@ -1,0 +1,362 @@
+{
+  "id": "chimta",
+  "name": "Chimta (Punjabi fire-tongs with jingles)",
+  "family": "percussion",
+  "class": "idiophone",
+  "axes": {
+    "pitchFix": -2,
+    "sustain": -1,
+    "polyphony": -2,
+    "harmonicity": -2,
+    "register": 2,
+    "range": -2,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "Punjabi jingle-studded fire-tongs idiophone: two long flat steel arms fitted with paired brass discs, clashed and shaken to lay a bright metallic clank-and-shimmer over bhangra, Punjabi folk and Sikh dhadi music.",
+  "parts": [
+    {
+      "id": "chimta_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "chimta_form_bhangra_jingle",
+          "default": true,
+          "name": "Bhangra jingle chimta",
+          "descriptors": [
+            "jingle-studded",
+            "bright-clanking",
+            "folk-tongs"
+          ],
+          "match_tokens": [
+            "struck",
+            "jingle",
+            "bhangra",
+            "metallic"
+          ],
+          "canonical_tags": [
+            "punjabi-folk",
+            "bhangra"
+          ]
+        },
+        {
+          "id": "chimta_form_dhadi_heavy",
+          "name": "Dhadi devotional chimta",
+          "descriptors": [
+            "heavy-forged",
+            "sombre-toned",
+            "devotional-tongs"
+          ],
+          "match_tokens": [
+            "struck",
+            "devotional",
+            "dhadi",
+            "sikh"
+          ],
+          "canonical_tags": [
+            "dhadi",
+            "sikh-devotional"
+          ]
+        },
+        {
+          "id": "chimta_form_plain_tongs",
+          "name": "Plain domestic fire-tongs",
+          "descriptors": [
+            "unjingled",
+            "dry-clank",
+            "hearth-tongs"
+          ],
+          "match_tokens": [
+            "struck",
+            "dry",
+            "domestic"
+          ],
+          "canonical_tags": [
+            "domestic",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chimta_stroke",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "chimta_stroke_clash_shake",
+          "default": true,
+          "name": "Clash-and-shake groove",
+          "descriptors": [
+            "clashed",
+            "shaken-shimmer",
+            "driving-groove"
+          ],
+          "match_tokens": [
+            "struck",
+            "shaken",
+            "groove",
+            "jingle"
+          ],
+          "canonical_tags": [
+            "bhangra",
+            "dance-groove"
+          ]
+        },
+        {
+          "id": "chimta_stroke_dhadi_accent",
+          "name": "Dhadi punctuating accents",
+          "descriptors": [
+            "sparse-accents",
+            "declamatory",
+            "punctuating"
+          ],
+          "match_tokens": [
+            "struck",
+            "accent",
+            "devotional",
+            "sparse"
+          ],
+          "canonical_tags": [
+            "dhadi",
+            "narrative"
+          ]
+        },
+        {
+          "id": "chimta_stroke_jingle_roll",
+          "name": "Continuous jingle tremolo",
+          "descriptors": [
+            "sustained-shimmer",
+            "tremolo-jingle",
+            "shimmering-bed"
+          ],
+          "match_tokens": [
+            "shaken",
+            "tremolo",
+            "jingle",
+            "sustain"
+          ],
+          "canonical_tags": [
+            "texture",
+            "ambient-layer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chimta_build",
+      "surface": false,
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "chimta_build_steel_brass_jingles",
+          "default": true,
+          "name": "Steel arms, brass jingle discs",
+          "descriptors": [
+            "steel-armed",
+            "brass-jingled",
+            "ringing-bright"
+          ],
+          "match_tokens": [
+            "metallic",
+            "jingle",
+            "bright"
+          ],
+          "canonical_tags": [
+            "steel",
+            "brass"
+          ]
+        },
+        {
+          "id": "chimta_build_iron_forged",
+          "name": "Heavy forged iron",
+          "descriptors": [
+            "forged-iron",
+            "dark-clank",
+            "weighty"
+          ],
+          "match_tokens": [
+            "metallic",
+            "heavy",
+            "dark"
+          ],
+          "canonical_tags": [
+            "iron"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "chimta_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "chimta_form_bhangra_jingle",
+          "default": true,
+          "name": "Bhangra jingle chimta",
+          "descriptors": [
+            "jingle-studded",
+            "bright-clanking",
+            "folk-tongs"
+          ],
+          "match_tokens": [
+            "struck",
+            "jingle",
+            "bhangra",
+            "metallic"
+          ],
+          "canonical_tags": [
+            "punjabi-folk",
+            "bhangra"
+          ]
+        },
+        {
+          "id": "chimta_form_dhadi_heavy",
+          "name": "Dhadi devotional chimta",
+          "descriptors": [
+            "heavy-forged",
+            "sombre-toned",
+            "devotional-tongs"
+          ],
+          "match_tokens": [
+            "struck",
+            "devotional",
+            "dhadi",
+            "sikh"
+          ],
+          "canonical_tags": [
+            "dhadi",
+            "sikh-devotional"
+          ]
+        },
+        {
+          "id": "chimta_form_plain_tongs",
+          "name": "Plain domestic fire-tongs",
+          "descriptors": [
+            "unjingled",
+            "dry-clank",
+            "hearth-tongs"
+          ],
+          "match_tokens": [
+            "struck",
+            "dry",
+            "domestic"
+          ],
+          "canonical_tags": [
+            "domestic",
+            "folk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chimta_stroke",
+      "name": "Playing style",
+      "variants": [
+        {
+          "id": "chimta_stroke_clash_shake",
+          "default": true,
+          "name": "Clash-and-shake groove",
+          "descriptors": [
+            "clashed",
+            "shaken-shimmer",
+            "driving-groove"
+          ],
+          "match_tokens": [
+            "struck",
+            "shaken",
+            "groove",
+            "jingle"
+          ],
+          "canonical_tags": [
+            "bhangra",
+            "dance-groove"
+          ]
+        },
+        {
+          "id": "chimta_stroke_dhadi_accent",
+          "name": "Dhadi punctuating accents",
+          "descriptors": [
+            "sparse-accents",
+            "declamatory",
+            "punctuating"
+          ],
+          "match_tokens": [
+            "struck",
+            "accent",
+            "devotional",
+            "sparse"
+          ],
+          "canonical_tags": [
+            "dhadi",
+            "narrative"
+          ]
+        },
+        {
+          "id": "chimta_stroke_jingle_roll",
+          "name": "Continuous jingle tremolo",
+          "descriptors": [
+            "sustained-shimmer",
+            "tremolo-jingle",
+            "shimmering-bed"
+          ],
+          "match_tokens": [
+            "shaken",
+            "tremolo",
+            "jingle",
+            "sustain"
+          ],
+          "canonical_tags": [
+            "texture",
+            "ambient-layer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chimta_build",
+      "surface": false,
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "chimta_build_steel_brass_jingles",
+          "default": true,
+          "name": "Steel arms, brass jingle discs",
+          "descriptors": [
+            "steel-armed",
+            "brass-jingled",
+            "ringing-bright"
+          ],
+          "match_tokens": [
+            "metallic",
+            "jingle",
+            "bright"
+          ],
+          "canonical_tags": [
+            "steel",
+            "brass"
+          ]
+        },
+        {
+          "id": "chimta_build_iron_forged",
+          "name": "Heavy forged iron",
+          "descriptors": [
+            "forged-iron",
+            "dark-clank",
+            "weighty"
+          ],
+          "match_tokens": [
+            "metallic",
+            "heavy",
+            "dark"
+          ],
+          "canonical_tags": [
+            "iron"
+          ]
+        }
+      ]
+    }
+  ]
+}

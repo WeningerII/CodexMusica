@@ -3,9 +3,9 @@
   "name": "Gospel",
   "family": "global",
   "lineage": "The gospel tradition — African-American Christian devotional music built on choir, soloist, and call-and-response, codified in the early-20th-century Black church",
-  "recipe": "classic Southern American mid-1970s gospel, ritual Devotional, black gospel branch. thick, declaimed, ornamental, gospel pentecostal. call response single leader group response sub saharan call response ostinato polyrhythmic choir ensemble, Hammond b3 canonical 1955 1975 jazz gospel rock standard gospel runs full spectrum fast tremolo tonewheel organ, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, electric bass, brushes-and-sticks drum kit, choir southern black gospel. southern black church gospel choir. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 681,
-  "score": 233.299,
+  "recipe": "classic Southern American mid-1970s gospel, ritual Devotional, black gospel branch. thick, declaimed, straight note core, leader call answered. call response single leader group response sub saharan call response ostinato polyrhythmic choir ensemble, Hammond b3 canonical 1955 1975 jazz gospel rock standard gospel runs full spectrum fast tremolo tonewheel organ, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, electric bass, brushes-and-sticks drum kit, choir southern black gospel. southern black church gospel choir. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 691,
+  "score": 240.364,
   "config": {
     "traditions": [
       "gospel"
@@ -18,36 +18,36 @@
           "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "fast_vibrato",
-          "voice_articulation": "melisma_voice",
-          "voice_microtone": "blue_notes",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "call_response_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "gospel_pentecostal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
           "voice_register": 14.367124999999996,
           "voice_quality": 20.992749999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.34275,
-          "voice_articulation": 13.999999999999998,
-          "voice_microtone": 0.3135,
+          "voice_vibrato": 1.4,
+          "voice_articulation": 15.192749999999997,
+          "voice_microtone": 4.16,
           "voice_tradition": 21.11575,
           "voice_mechanism_compound": 0.5345,
           "voice_estill_quality": 14.599999999999998,
-          "voice_speech_song": 4.484999999999999,
+          "voice_speech_song": 4.3549999999999995,
           "voice_ensemble_config": 15.242749999999996,
           "voice_ornament_system": 6.899999999999999,
-          "voice_pitch_organization": 1.276875,
+          "voice_pitch_organization": 1.4,
           "voice_processing_chain": 0.33575,
-          "voice_multitrack_stack": 0.39
+          "voice_multitrack_stack": 1.3649999999999998
         }
       },
       {

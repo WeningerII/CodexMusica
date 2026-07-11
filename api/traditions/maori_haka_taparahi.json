@@ -3,9 +3,9 @@
   "name": "Māori haka taparahi",
   "family": "global",
   "lineage": "Māori haka taparahi war-and-ceremonial-chant tradition of Aotearoa New Zealand. Haka is a general category encompassing several sub-types: haka taparahi (ceremonial-without-weapons, the most commonly performed contemporary form), haka peruperu (with-weapons war-haka, performed before battle in pre-contact context), ngeri (vigorous-spontaneous response-haka), and tūtūngārahu (rehearsal-haka before peruperu). Performance involves a male (or sometimes mixed-gender) group in characteristic posture — feet planted shoulder-width, knees bent, body lowered into a slight crouch — performing a vigorous percussive-chant with characteristic facial expression (pukana eye-bulging, whetero tongue-protrusion in male haka), stamping-and-slapping-the-body rhythmic percussion (the performers' own thighs and chests producing the percussion-track), and shouted-rhythmic verse-text alternating between solo-leader verses and choral group response. The most internationally famous haka, Ka Mate Ka Mate (composed c.1820 by Ngāti Toa chief Te Rauparaha), now in worldwide circulation through the All Blacks rugby team's pre-match performance, illustrates the form. The verse-text is poetic-narrative and often connects to ancestor-praise, war-history, or current-ceremonial-occasion. Performance contexts include marae welcoming and farewell ceremonies, tangihanga funeral concluding rites, sports-team pre-match rituals, school and university kapa haka performance, and the Te Matatini National Kapa Haka Festival (held biennially since 1972, the premier competitive haka venue). Mervyn McLean's Maori Music (Auckland University Press 1996) is the canonical scholarly documentation. Distinguished from karanga-and-pōwhiri by haka's vigorous-percussive-stance-with-shouted-text (vs sustained-high-call) configuration; distinguished from Tongan lakalaka and Samoan sasa by haka's characteristic Māori-language verse-text and pukana-whetero facial-expression vocabulary.",
-  "recipe": "classic Oceanian early-1820s māori haka taparahi, ritual Devotional, indigenous branch, east Asian groove percussion samul nori japanese kumi-daiko. thick, declaimed, tasteful, punctuated. marae forecourt. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 335,
-  "score": 140.478,
+  "recipe": "classic Oceanian early-1820s māori haka taparahi, ritual Devotional, indigenous branch, east Asian groove percussion samul nori japanese kumi-daiko. thick, breath veiled tone, slow rate, interlocked note trading. marae forecourt. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 292,
+  "score": 186.31,
   "config": {
     "traditions": [
       "maori_haka_taparahi",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
-          "voice_articulation": "staccato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "polynesian_oli_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -31,30 +31,30 @@
           "voice_ornament_system": "voice_ornament_pansori_sigimsae",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 2.3249999999999997,
-          "voice_quality": 9.984,
+          "voice_quality": 22.229999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.885,
-          "voice_articulation": 7.640375,
-          "voice_microtone": 2.3985,
+          "voice_vibrato": 3.055,
+          "voice_articulation": 27.104999999999997,
+          "voice_microtone": 25.999999999999996,
           "voice_tradition": 14.040000000000001,
           "voice_mechanism_compound": 6.305,
           "voice_estill_quality": 5.07,
-          "voice_speech_song": 27.169999999999998,
-          "voice_ensemble_config": 27.235,
+          "voice_speech_song": 27.625,
+          "voice_ensemble_config": 27.104999999999997,
           "voice_ornament_system": 9.974999999999998,
-          "voice_pitch_organization": 2.6,
+          "voice_pitch_organization": 2.6000000000000005,
           "voice_processing_chain": 6.954999999999999,
-          "voice_multitrack_stack": 5.07
+          "voice_multitrack_stack": 8.645
         }
       }
     ],
     "room": "marae_forecourt",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

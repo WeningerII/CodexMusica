@@ -3,9 +3,9 @@
   "name": "Yaqui pascola and matachín (northern Mexican Easter dance-cycle)",
   "family": "global",
   "lineage": "Yaqui (Yoeme) pascola-and-matachín Easter Week ceremonial dance-cycle of the Yaqui communities of Sonora (Mexico) and southern Arizona, integrating pre-contact Yaqui ceremonial structure with sixteenth-century Spanish-Jesuit liturgical introductions into a syncretic Yaqui-Catholic Easter cycle. The pascola \"old men of the fiesta\" dancers wear carved-wood masks and dance to harp-and-violin music in the village dance-ramada throughout the multi-day ceremonial cycle; the matachín soldiers-of-the-Virgin dance-society performs in colorful crown-and-staff regalia. Performance: continuous days-long ceremonial-cycle with multiple specialized music-and-dance functions including the canónigos solemn liturgical procession, the venado-deer-dance hunting ceremony, and the matachín-soldier-of-the-Virgin processional.",
-  "recipe": "classic Mexican modern yaqui pascola and matachín, ritual Devotional, indigenous branch, Latin am troubadour ballad poetry milonga chacarera. thick, declaimed, chest resonance low mid, continuous-phonation. coated nanoweb fingerpicked parlor acoustic guitar, concert harp, yamaha modern Japanese mid to premium flute. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 531,
-  "score": 112.18,
+  "recipe": "classic Mexican modern yaqui pascola and matachín, ritual Devotional, indigenous branch, Latin am troubadour ballad poetry milonga chacarera. thick, breath veiled tone, slow rate, interlocked note trading. coated nanoweb fingerpicked parlor acoustic guitar, concert harp, yamaha modern Japanese mid to premium flute. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 463,
+  "score": 167.285,
   "config": {
     "traditions": [
       "yaqui_pascola_matachin",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "legato_voice",
-          "voice_microtone": "blue_notes",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
-          "voice_processing_chain": "voice_processing_lo_fi_narrow_AM",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 5.04,
-          "voice_quality": 4.420000000000001,
+          "voice_quality": 21.125000000000004,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.585,
-          "voice_articulation": 1.4949999999999999,
-          "voice_microtone": 0.65,
+          "voice_vibrato": 0.8775,
+          "voice_articulation": 21.19,
+          "voice_microtone": 20.994999999999997,
           "voice_tradition": 8.580000000000002,
           "voice_mechanism_compound": 6.759999999999999,
           "voice_estill_quality": 6.76,
-          "voice_speech_song": 23.465,
-          "voice_ensemble_config": 21.645000000000003,
+          "voice_speech_song": 23.335,
+          "voice_ensemble_config": 21.515,
           "voice_ornament_system": 4.525,
           "voice_pitch_organization": 1.4949999999999999,
-          "voice_processing_chain": 2.8600000000000003,
-          "voice_multitrack_stack": 1.455
+          "voice_processing_chain": 10.27,
+          "voice_multitrack_stack": 2.2099999999999995
         }
       },
       {
@@ -99,7 +99,7 @@
       }
     ],
     "room": "mexico_bolero_xochimilco_studio",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

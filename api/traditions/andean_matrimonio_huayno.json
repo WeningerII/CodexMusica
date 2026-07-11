@@ -3,9 +3,9 @@
   "name": "Andean matrimonio huayno (wedding huayno)",
   "family": "global",
   "lineage": "Andean Quechua-and-Aymara wedding-music tradition continuous from pre-Columbian Andean ritual-practice through colonial-period syncretic continuous performance into modern Quechua-and-Aymara-speaking domestic practice across Peru, Bolivia, Ecuador, and the Andean diaspora; the huayno is the canonical Andean dance-form across multiple ceremonial contexts including weddings",
-  "recipe": "classic Andean modern andean matrimonio huayno, wedding, americas branch, south Asian wedding, Latin am groove percussion, Latin am troubadour ballad poetry milonga indian sangeet. thick, forward-resonance, tasteful, continuous-phonation. naranjillo andean premium wood cedar andean andean classical charango, bone continuous-airflow legato quena, andean tradition paired rows interlocking siku panpipes, castagnari Italian premium folk music bellows articulated accordion. andean altiplano outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 629,
-  "score": 269.156,
+  "recipe": "classic Andean modern andean matrimonio huayno, wedding, americas branch, south Asian wedding, Latin am groove percussion, Latin am troubadour ballad poetry milonga indian sangeet. thick, forward-resonance, straight note core, interlocked note trading. naranjillo andean premium wood cedar andean andean classical charango, bone continuous-airflow legato quena, andean tradition paired rows interlocking siku panpipes, castagnari Italian premium folk music bellows articulated accordion. andean altiplano outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 576,
+  "score": 289.897,
   "config": {
     "traditions": [
       "andean_matrimonio_huayno",
@@ -20,9 +20,9 @@
           "voice_quality": "twang_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
-          "voice_articulation": "legato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "andean_quechua_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_oral_twang",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_lo_fi_narrow_AM",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 7.761250000000001,
           "voice_quality": 25.949999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.535,
-          "voice_articulation": 3.8593749999999996,
-          "voice_microtone": 3.6,
+          "voice_vibrato": 4.6475,
+          "voice_articulation": 15.209999999999994,
+          "voice_microtone": 16.152499999999993,
           "voice_tradition": 39.536249999999995,
           "voice_mechanism_compound": 2.8599999999999994,
           "voice_estill_quality": 17.5,
-          "voice_speech_song": 18.525,
+          "voice_speech_song": 18.394999999999996,
           "voice_ensemble_config": 18.794999999999998,
           "voice_ornament_system": 24.414999999999996,
           "voice_pitch_organization": 4.875000000000001,
           "voice_processing_chain": 2.795,
-          "voice_multitrack_stack": 2.1125
+          "voice_multitrack_stack": 3.5425
         }
       },
       {
@@ -116,7 +116,7 @@
       }
     ],
     "room": "andean_altiplano_outdoor",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

@@ -3,9 +3,9 @@
   "name": "Ambrosian chant (Milan rite)",
   "family": "classical",
   "lineage": "Liturgical chant of the Ambrosian rite of Milan, attributed in legend to Saint Ambrose (Bishop of Milan 374-397), preserved in continuous use in the Archdiocese of Milan and adjacent dioceses of Lombardy (Italy) and Lugano (Switzerland). Distinguished from Gregorian chant by Ambrosian's distinct repertoire (with different proper-of-the-mass texts and melodic content), the eight Ambrosian modes (related to but distinct from Gregorian modes), and Milanese-specific liturgical structure. Survived medieval-and-Tridentine liturgical reforms as one of only two surviving Latin liturgical-music-traditions.",
-  "recipe": "classic mid-1930s ambrosian chant, ritual Devotional, christian gospel branch, western early art music ars antiqua and organum renaissance sacred polyphony. thick, declaimed, melodic, ornamental. a cappella small 3 to 8 one per part four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. parish church. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 440,
-  "score": 167.865,
+  "recipe": "classic European early-1950s ambrosian chant, ritual Devotional, christian gospel branch, western early art music ars antiqua and organum renaissance sacred polyphony. thick, breath veiled tone, straight note core, interlocked note trading. a cappella small 3 to 8 one per part four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. parish church. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+  "recipe_chars": 487,
+  "score": 236.302,
   "config": {
     "traditions": [
       "ambrosian_chant_milanese",
@@ -17,39 +17,39 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "melisma_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "baroque_ornamental_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_bel_canto",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
           "voice_register": 8.530000000000001,
-          "voice_quality": 11.040000000000001,
+          "voice_quality": 13.974999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.3149999999999995,
-          "voice_articulation": 5.74,
-          "voice_microtone": 7.280000000000002,
+          "voice_vibrato": 9.14,
+          "voice_articulation": 24.602499999999996,
+          "voice_microtone": 21.384999999999994,
           "voice_tradition": 9.4575,
           "voice_mechanism_compound": 5.915,
           "voice_estill_quality": 12.772499999999999,
-          "voice_speech_song": 20.019999999999996,
-          "voice_ensemble_config": 27.365000000000002,
+          "voice_speech_song": 19.889999999999997,
+          "voice_ensemble_config": 33.669999999999995,
           "voice_ornament_system": 6.575,
-          "voice_pitch_organization": 7.735,
-          "voice_processing_chain": 5.914999999999998,
-          "voice_multitrack_stack": 3.3799999999999994
+          "voice_pitch_organization": 14.755,
+          "voice_processing_chain": 14.105,
+          "voice_multitrack_stack": 4.030000000000001
         }
       },
       {
@@ -69,7 +69,7 @@
       }
     ],
     "room": "stone_parish_church",
-    "archetype": "arch_electrical_disc_cut",
+    "archetype": "arch_church_location_early_music",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "tube_pre",

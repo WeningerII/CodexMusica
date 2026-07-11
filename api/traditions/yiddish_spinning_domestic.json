@@ -3,9 +3,9 @@
   "name": "Yiddish spinning-and-domestic song (Oyfn Pripetshik lineage)",
   "family": "global",
   "lineage": "Yiddish spinning-and-domestic-lullaby tradition continuous from medieval-Ashkenazi-Jewish domestic-and-textile labor practice through 19th-century Yiddish folksongbook canonization into modern Yiddish-revival continuous practice",
-  "recipe": "classic modern yiddish spinning-and-domestic song, domestic Rhythm, Slavic baltic branch, Celtic hebridean domestic rhythm, European lullaby, European wedding sardinian boci de tela irish spinning song. thick, false fold engaged, tasteful, continuous-phonation. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 399,
-  "score": 103.454,
+  "recipe": "classic modern yiddish spinning-and-domestic song, domestic Rhythm, Slavic baltic branch, Celtic hebridean domestic rhythm, European lullaby, European wedding sardinian boci de tela irish spinning song. thick, false fold engaged, straight onset, interlocked note trading. parlor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 342,
+  "score": 130.769,
   "config": {
     "traditions": [
       "yiddish_spinning_domestic",
@@ -21,8 +21,8 @@
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
-          "voice_articulation": "legato_voice",
-          "voice_microtone": "blue_notes",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_speech",
@@ -31,30 +31,30 @@
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 1.26,
           "voice_quality": 9.879999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.225,
-          "voice_articulation": 6.759999999999999,
-          "voice_microtone": 0,
+          "voice_vibrato": 4.095000000000001,
+          "voice_articulation": 11.147499999999997,
+          "voice_microtone": 11.569999999999993,
           "voice_tradition": 24.407500000000002,
           "voice_mechanism_compound": 1.95,
           "voice_estill_quality": 0.975,
-          "voice_speech_song": 16.509999999999998,
-          "voice_ensemble_config": 11.407499999999999,
-          "voice_ornament_system": 8.059375,
+          "voice_speech_song": 16.379999999999995,
+          "voice_ensemble_config": 11.277499999999996,
+          "voice_ornament_system": 26.45625,
           "voice_pitch_organization": 6.759999999999999,
           "voice_processing_chain": 1.5599999999999996,
-          "voice_multitrack_stack": 0.975
+          "voice_multitrack_stack": 1.2999999999999994
         }
       }
     ],
     "room": "parlor",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

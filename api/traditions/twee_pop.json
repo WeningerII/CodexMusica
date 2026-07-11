@@ -3,9 +3,9 @@
   "name": "Twee pop",
   "family": "global",
   "lineage": "1980s-onward fey indie-pop subgenre codified through C86 cassette (NME 1986) and the Sarah Records (Bristol 1987-1995) lineage — characterized by jangly minor-key guitar, soft male and female vocals, lo-fi production aesthetic, and twee-romantic lyrical subject matter; Belle and Sebastian, Tullycraft, Stars, and Camera Obscura extending the canon into the 2000s",
-  "recipe": "classic mid-1990s twee pop, functional Song, pop rock branch, anglo singer song indie folk freak folk. thick, incomplete closure resting, chest resonance low mid, equal tempered. cedar walnut phosphor bronze bronze fingerpicked acoustic marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, ukulele. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 620,
-  "score": 419.063,
+  "recipe": "classic mid-1990s twee pop, functional Song, pop rock branch, anglo singer song indie folk freak folk. thick, breath veiled tone, straight note core, interlocked note trading. cedar walnut phosphor bronze bronze fingerpicked acoustic marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, ukulele, original omnichord. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 637,
+  "score": 461.418,
   "config": {
     "traditions": [
       "twee_pop",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "incomplete_closure_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "legato_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "japanese_min_yo_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 42.40024999999999,
-          "voice_quality": 1.75,
+          "voice_quality": 13.844999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.4949999999999999,
-          "voice_articulation": 0,
+          "voice_vibrato": 2.1774999999999998,
+          "voice_articulation": 16.89999999999999,
           "voice_microtone": 23.674999999999997,
           "voice_tradition": 25.840249999999997,
           "voice_mechanism_compound": 1.56,
           "voice_estill_quality": 3.315000000000001,
-          "voice_speech_song": 23.139999999999997,
-          "voice_ensemble_config": 17.159999999999993,
+          "voice_speech_song": 23.009999999999994,
+          "voice_ensemble_config": 17.029999999999994,
           "voice_ornament_system": 3.150000000000001,
-          "voice_pitch_organization": 1.6899999999999997,
+          "voice_pitch_organization": 3.7375,
           "voice_processing_chain": 5.135,
-          "voice_multitrack_stack": 12.98575
+          "voice_multitrack_stack": 12.885749999999998
         }
       },
       {
@@ -165,6 +165,19 @@
           "ukulele_size": 2.925,
           "ukulele_style": 0.325,
           "ukulele_wood": 0.368625
+        }
+      },
+      {
+        "id": "omnichord",
+        "slots": {
+          "omnichord_model": "omnichord_om27",
+          "omnichord_context": "omnichord_indie_strum",
+          "omnichord_sound_setting": "omnichord_full_combo"
+        },
+        "scores": {
+          "omnichord_model": 6.3,
+          "omnichord_context": 4.3,
+          "omnichord_sound_setting": 0.39
         }
       }
     ],

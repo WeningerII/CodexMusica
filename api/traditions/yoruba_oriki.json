@@ -3,9 +3,9 @@
   "name": "Yoruba oríkì (praise-poetry)",
   "family": "global",
   "lineage": "Yoruba praise-poetry tradition continuous from pre-colonial Yoruba ritual-practice through 19th-20th century continuous performance into modern Yoruba-and-Yoruba-diaspora practice across southwestern Nigeria, Benin, Togo, and the Atlantic Afro-diaspora; the oríkì is the canonical Yoruba praise-poetry-song-form naming the praise-receiver through accumulated epithet-and-ancestral-name lineage",
-  "recipe": "classic West African modern yoruba oríkì, praise Song, sub saharan African branch, African diasporic wedding, African diasporic funeral lament, west African griot ballad poetry yoruba ìrèmọjẹ mandé jeli. vocal fry, declaimed, tasteful, continuous-phonation. omo cedrela odorata canonical Yoruba dundun goat skin leather tension cords canonical pressure bend talking drum, bell on shell iroko west African premium cowhide rope lacing canonical mande dunun, shekere. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 675,
-  "score": 290.448,
+  "recipe": "classic West African modern yoruba oríkì, praise Song, sub saharan African branch, African diasporic wedding, African diasporic funeral lament, west African griot ballad poetry yoruba ìrèmọjẹ mandé jeli. vocal fry, declaimed, straight onset, interlocked note trading. omo cedrela odorata canonical Yoruba dundun goat skin leather tension cords canonical pressure bend talking drum, bell on shell iroko west African premium cowhide rope lacing canonical mande dunun, shekere. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 618,
+  "score": 300.591,
   "config": {
     "traditions": [
       "yoruba_oriki",
@@ -21,8 +21,8 @@
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
-          "voice_articulation": "legato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_speech",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 1.625,
           "voice_quality": 31.780624999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.885,
-          "voice_articulation": 5.069999999999999,
-          "voice_microtone": 0.6249999999999997,
+          "voice_vibrato": 1.755,
+          "voice_articulation": 10.529999999999994,
+          "voice_microtone": 10.984999999999992,
           "voice_tradition": 81.095625,
           "voice_mechanism_compound": 1.625,
           "voice_estill_quality": 1.2349999999999999,
-          "voice_speech_song": 15.599999999999994,
-          "voice_ensemble_config": 11.049999999999995,
+          "voice_speech_song": 16.444999999999993,
+          "voice_ensemble_config": 10.919999999999993,
           "voice_ornament_system": 25.374375,
           "voice_pitch_organization": 33.378125000000004,
           "voice_processing_chain": 2.2424999999999997,
-          "voice_multitrack_stack": 2.015
+          "voice_multitrack_stack": 2.5024999999999995
         }
       },
       {
@@ -95,7 +95,7 @@
       }
     ],
     "room": "lagos_decca_west_african_studio",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

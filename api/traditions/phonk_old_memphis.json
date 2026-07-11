@@ -3,9 +3,9 @@
   "name": "Phonk (lo-fi Memphis sample-based)",
   "family": "electronic",
   "lineage": "Late-2010s and 2020s electronic-hip-hop subgenre characterized by lo-fi production sampling 1990s Memphis-rap acapellas and beats (especially Three 6 Mafia, Tommy Wright III, DJ Paul), cassette-tape distortion, and slowed-down-pitched-vocal aesthetic. Originated through SoundCloud-Bandcamp distributed-production scene; the parallel drift phonk subgenre (faster-tempo, dancier, often associated with TikTok car-drifting videos) extended phonk into mainstream-internet popularity from 2019-onward.",
-  "recipe": "classic modern phonk, mc Rhythm, southern branch, us hip hop gangsta. vocal fry, rap, nervy, narrative. pitched chopped sampler, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808. no single room 2015-present distributed distributed production. passive ribbon, Neve 1073 inductor pre, colored vintage console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
-  "recipe_chars": 412,
-  "score": 205.073,
+  "recipe": "classic modern phonk, mc Rhythm, southern branch, us hip hop gangsta. vocal fry, rap, straight onset, narrative. pitched chopped sampler, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808. no single room 2015-present distributed distributed production. passive ribbon, Neve 1073 inductor pre, colored vintage console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
+  "recipe_chars": 421,
+  "score": 217.338,
   "config": {
     "traditions": [
       "phonk_old_memphis",
@@ -19,36 +19,36 @@
           "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "fast_vibrato",
+          "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "narrative_voice",
-          "voice_microtone": "blue_notes",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "beatboxing_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_rhythmic_spoken_flow",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_vedic_three_tone",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 2.08,
           "voice_quality": 23.049500000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.4365,
+          "voice_vibrato": 1.6574999999999998,
           "voice_articulation": 11.561500000000002,
-          "voice_microtone": 1.3315000000000001,
+          "voice_microtone": 9.879999999999999,
           "voice_tradition": 11.940500000000002,
           "voice_mechanism_compound": 2.4699999999999998,
           "voice_estill_quality": 2.4699999999999998,
           "voice_speech_song": 22.1,
-          "voice_ensemble_config": 10.334999999999997,
-          "voice_ornament_system": 1.2865,
+          "voice_ensemble_config": 10.204999999999997,
+          "voice_ornament_system": 4.550000000000002,
           "voice_pitch_organization": 1.56,
           "voice_processing_chain": 16.1515,
-          "voice_multitrack_stack": 6.2685
+          "voice_multitrack_stack": 6.630000000000001
         }
       },
       {

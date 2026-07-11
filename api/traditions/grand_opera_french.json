@@ -3,26 +3,26 @@
   "name": "Grand opera (French nineteenth century)",
   "family": "classical",
   "lineage": "Nineteenth-century French operatic style characterized by five-act structure, large historical-or-mythological subjects, elaborate ballet sequences, and massive choral and orchestral forces. Daniel Auber's La muette de Portici (1828), Giacomo Meyerbeer's Les Huguenots (1836) and Le Prophète (1849), and Hector Berlioz's Les Troyens (1858) are canonical type-specimens. The Paris Opéra and the Palais Garnier (opened 1875) constitute the institutional anchors. Distinguished from Italian opera by grand-opera's spectacular-scale and French-language declamatory recitative vocabulary.",
-  "recipe": "classic British late-1820s grand opera, art Music, western common practice branch, chanson fado ballad poetry greek éntechno cape verdean batuko of santiago island. thick, lament wail, chest resonance low mid, punctuated. beech laminated maple laminated European tradition European spruce norway spruce grand piano, Italian alpine spruce val di fiemme European maple sycamore maple oil varnish violin orchestral. shoebox concert hall. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 580,
-  "score": 280.656,
+  "recipe": "classic British late-1820s grand opera, art Music, western common practice branch, chanson fado ballad poetry cape verdean batuko of santiago island greek éntechno. thick, breath veiled tone, slow rate, interlocked note trading. beech laminated maple laminated European tradition European spruce norway spruce grand piano, Italian alpine spruce val di fiemme European maple sycamore maple oil varnish violin orchestral. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
+  "recipe_chars": 499,
+  "score": 343.764,
   "config": {
     "traditions": [
       "grand_opera_french",
-      "greek_entechno",
-      "cape_verdean_batuko"
+      "cape_verdean_batuko",
+      "greek_entechno"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "fado_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "staccato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
@@ -35,17 +35,17 @@
         },
         "scores": {
           "voice_register": 5.92,
-          "voice_quality": 6.085,
+          "voice_quality": 28.08,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.4050000000000002,
-          "voice_articulation": 2.145,
-          "voice_microtone": 5.91375,
+          "voice_vibrato": 6.6625,
+          "voice_articulation": 23.854999999999997,
+          "voice_microtone": 26.097499999999993,
           "voice_tradition": 23.99,
           "voice_mechanism_compound": 5.329999999999999,
           "voice_estill_quality": 23.268,
-          "voice_speech_song": 29.2175,
-          "voice_ensemble_config": 23.075,
+          "voice_speech_song": 29.672500000000003,
+          "voice_ensemble_config": 22.944999999999997,
           "voice_ornament_system": 17.2455,
           "voice_pitch_organization": 5.1450000000000005,
           "voice_processing_chain": 6.305,
@@ -106,7 +106,7 @@
       }
     ],
     "room": "concert_hall_shoebox",
-    "archetype": "arch_70s_uk_class_a_rock",
+    "archetype": "arch_decca_sound_orchestral",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "tube_pre",

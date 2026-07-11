@@ -3,9 +3,9 @@
   "name": "Arabic tahwidah (تهويدة, cradle song)",
   "family": "global",
   "lineage": "Pan-Arab lullaby tradition (the term tahwidah cognate with the Arabic verb hawwada, 'to lull/soothe'), regional variants across Levantine, Maghrebi, Egyptian, Yemeni, and Gulf-Arabian traditions. Sung by mothers-and-grandmothers in informal domestic-context with no instrumental accompaniment, the tahwidah employs free-rhythm slow-tempo melismatic-ornamentation drawing on classical-maqam modal-vocabulary (Bayati, Rast, and Hijaz being the most common for lullabies). Lyrics typically address the child directly (often with regional-dialectal diminutives) and reference religious-protection invocations, mother's-and-grandmother's wishes-for-the-child, and pastoral imagery. The tradition has been disproportionately preserved by ethnomusicological field-recordings since the 1960s due to its private-domestic context being underrepresented in commercial-recording.",
-  "recipe": "classic mid-1960s arabic tahwidah, lullaby, middle eastern branch, middle eastern classical art music, vocal drone modal, med east poetic ballad poetry persian dastgāh andalusī nūba. vocal fry, low dynamic level, chest resonance low mid, unrestrained. carpeted bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 399,
-  "score": 256.245,
+  "recipe": "classic mid-1960s arabic tahwidah, lullaby, middle eastern branch, middle eastern classical art music, vocal drone modal, med east poetic ballad poetry persian dastgāh andalusī nūba. vocal fry, breath veiled tone, slow rate, interlocked note trading. carpeted bedroom. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 331,
+  "score": 325.642,
   "config": {
     "traditions": [
       "arabic_tahwidah",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "vocal_fry",
-          "voice_quality": "crooner_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "shouted_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "arabic_maqam_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
@@ -31,30 +31,30 @@
           "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
           "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 3.365,
-          "voice_quality": 2.1449999999999996,
+          "voice_quality": 16.639999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 8.514999999999999,
-          "voice_articulation": 2.5,
-          "voice_microtone": 24.504999999999995,
+          "voice_vibrato": 22.587499999999995,
+          "voice_articulation": 13.714999999999995,
+          "voice_microtone": 52.22749999999999,
           "voice_tradition": 46.184999999999995,
           "voice_mechanism_compound": 27.034999999999993,
           "voice_estill_quality": 20.274999999999995,
           "voice_speech_song": 18.259999999999994,
-          "voice_ensemble_config": 13.779999999999994,
+          "voice_ensemble_config": 13.649999999999993,
           "voice_ornament_system": 38.65,
           "voice_pitch_organization": 39.58,
           "voice_processing_chain": 6.174999999999999,
-          "voice_multitrack_stack": 4.1000000000000005
+          "voice_multitrack_stack": 6.11
         }
       }
     ],
     "room": "carpeted_bedroom",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

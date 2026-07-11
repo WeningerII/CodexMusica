@@ -3,9 +3,9 @@
   "name": "Shangaan electro",
   "family": "electronic",
   "lineage": "Ultra-fast Tsonga dance music from Limpopo and Soweto codified by producer Nozinja around 2005-2010 (Tshetsha Boys, Zinja Hlungwani) — 170-189bpm MIDI-marimba and organ presets over skeletal, often kick-less drum programming, chanted Xitsonga hooks answered by the dance troupe, and the whirlwind xibelani dance culture",
-  "recipe": "classic Southern American mid-2000s shangaan electro, electronic Dance, African dance branch, central east south African groove percussion, footwork electronic dance juke jersey club. vocal fry, rap, chest resonance low mid, punctuated. MIDI marimba preset diy sequenced rompler workstation, sampler drum machine. rio favela home baile funk. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 471,
-  "score": 90.862,
+  "recipe": "classic Southern American mid-2000s shangaan electro, electronic Dance, African dance branch, central east south African groove percussion, footwork electronic dance juke jersey club. vocal fry, breath veiled tone, fast rate, interlocked note trading. MIDI marimba preset diy sequenced yamaha psr casio home keyboard 1990s 2000s gm auto accompaniment home township studios rompler workstation, sampler drum machine. rio favela home baile funk. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
+  "recipe_chars": 527,
+  "score": 118.227,
   "config": {
     "traditions": [
       "shangaan_electro",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "vocal_fry",
-          "voice_quality": "rap_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "staccato_voice",
-          "voice_microtone": "blue_notes",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "southern_african_bantu_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_yodel_M1_M2_alternation",
           "voice_estill_quality": "voice_estill_belt",
@@ -35,19 +35,19 @@
         },
         "scores": {
           "voice_register": 2.08,
-          "voice_quality": 1.9174999999999998,
+          "voice_quality": 8.645,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.845,
-          "voice_articulation": 0.845,
-          "voice_microtone": 0.195,
+          "voice_vibrato": 1.3,
+          "voice_articulation": 9.36,
+          "voice_microtone": 8.385,
           "voice_tradition": 12.601,
           "voice_mechanism_compound": 0.845,
           "voice_estill_quality": 0.7149999999999997,
-          "voice_speech_song": 8.709999999999999,
-          "voice_ensemble_config": 8.645,
+          "voice_speech_song": 8.775,
+          "voice_ensemble_config": 8.515,
           "voice_ornament_system": 0.45499999999999996,
-          "voice_pitch_organization": 0.9999999999999998,
+          "voice_pitch_organization": 0.8999999999999997,
           "voice_processing_chain": 17.175874999999998,
           "voice_multitrack_stack": 7.280000000000001
         }
@@ -58,13 +58,13 @@
           "electronic_technique": "electronic_bass_sub",
           "rompler_preset_bank": "rompler_preset_mallet_marimba",
           "rompler_context": "rompler_context_township_midi",
-          "rompler_lineage": "rompler_korg_pa_arranger"
+          "rompler_lineage": "rompler_yamaha_psr_casio"
         },
         "scores": {
           "electronic_technique": 1.0074999999999998,
           "rompler_preset_bank": 3.263,
           "rompler_context": 2.8599999999999994,
-          "rompler_lineage": 0.195
+          "rompler_lineage": 2.275
         }
       },
       {
@@ -84,7 +84,7 @@
       }
     ],
     "room": "rio_favela_home_baile_funk",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_sa_township_digital",
     "inline_chain": {
       "mic": "condenser_fet",
       "pre": "transformerless",

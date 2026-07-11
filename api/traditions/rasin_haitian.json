@@ -3,9 +3,9 @@
   "name": "Rasin (Haitian roots-Vodou rock)",
   "family": "global",
   "lineage": "Haitian rock-and-Vodou-fusion genre developed in late-1970s-1980s Haiti. Fusion of Haitian Vodou ceremonial-drumming-and-singing with rock-and-roots-music aesthetic. Emerged through Boukman Eksperyans (founded 1978 in Port-au-Prince by Theodore \"Lolo\" Beaubrun) and parallel groups Boukan Ginen, Sanba Yo, Rara Machine. Electric guitars-bass-drum-kit alongside Vodou-ceremonial percussion. The 1990 Vodou Adjae album consolidated international visibility.",
-  "recipe": "classic Caribbean 1977-1979 rasin, distorted Rock, regional branch, Afro-diasporic ritual devotional jongo haitian vodou ceremonial. thick, declaimed, melodic, equal tempered. marshall plexi amp British rock amp mahogany maple alnico humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. port au prince Haitian recording 1970-2000 indie-commercial port au prince haitian kompa studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 638,
-  "score": 240.757,
+  "recipe": "classic Caribbean 1977-1979 rasin, distorted Rock, regional branch, Afro-diasporic ritual devotional jongo haitian vodou ceremonial. thick, breath veiled tone, straight note core, interlocked note trading. marshall plexi amp British rock amp mahogany maple alnico humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. port au prince Haitian recording 1970-2000 indie-commercial port au prince haitian kompa studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 601,
+  "score": 253.065,
   "config": {
     "traditions": [
       "rasin_haitian",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "staccato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 13.939999999999992,
-          "voice_quality": 5.295000000000001,
+          "voice_quality": 8.905,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.975,
-          "voice_articulation": 0.195,
-          "voice_microtone": 12.499999999999996,
+          "voice_vibrato": 2.1775,
+          "voice_articulation": 12.934999999999997,
+          "voice_microtone": 12.739999999999995,
           "voice_tradition": 10.692499999999999,
           "voice_mechanism_compound": 4.81,
           "voice_estill_quality": 6.305000000000001,
-          "voice_speech_song": 13.909999999999998,
-          "voice_ensemble_config": 11.959999999999997,
+          "voice_speech_song": 13.779999999999998,
+          "voice_ensemble_config": 11.829999999999995,
           "voice_ornament_system": 5.4,
           "voice_pitch_organization": 3.5600000000000005,
           "voice_processing_chain": 7.75,
-          "voice_multitrack_stack": 2.7
+          "voice_multitrack_stack": 2.7500000000000004
         }
       },
       {
@@ -139,7 +139,7 @@
       }
     ],
     "room": "port_au_prince_haitian_kompa_studio",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

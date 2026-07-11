@@ -3,9 +3,9 @@
   "name": "Greek rock",
   "family": "rock_punk",
   "lineage": "Greek-language rock music developed from 1960s onward, integrating Greek-laiko and rebetiko folk-music influences with broader Western rock vocabulary. The 1960s Pavlos Sidiropoulos and Stamatis Spanoudakis era inaugurated the form; the 1980s-90s \"Greek rock\" wave through Magic de Spell, Trypes, Tripes, Pyx Lax, and the broader post-1981 Athens scene consolidated commercial visibility. Distinguished by Greek-language lyrics and frequent integration of bouzouki/baglamas folk-instruments into rock contexts.",
-  "recipe": "classic Southern European mid-1960s greek rock, distorted Rock, regional branch, chanson fado Greek entechno greek éntechno. thick, lament wail, chest resonance low mid, equal tempered. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, kevlar aramid extreme tension machine hammered symmetric pattern drum kit, strummed baglamas, walnut staves canonical Greek strummed bouzouki. athens major label 1955-1985 mid tier athens minos studios 60s 70s. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 652,
-  "score": 357.604,
+  "recipe": "classic Southern European mid-1960s greek rock, distorted Rock, regional branch, chanson fado Greek entechno greek éntechno. thick, breath veiled tone, slow rate, interlocked note trading. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, kevlar aramid extreme tension machine hammered symmetric pattern drum kit, strummed baglamas, walnut staves canonical Greek strummed bouzouki. athens major label 1955-1985 mid tier athens minos studios 60s 70s. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 655,
+  "score": 372.067,
   "config": {
     "traditions": [
       "greek_rock",
@@ -16,11 +16,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "fado_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "staccato_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
@@ -30,25 +30,25 @@
           "voice_ornament_system": "voice_ornament_persian_tahrir",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
           "voice_register": 28.969999999999995,
-          "voice_quality": 3.625,
+          "voice_quality": 8.06,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.105,
-          "voice_articulation": 0.168,
+          "voice_vibrato": 2.46625,
+          "voice_articulation": 8.515,
           "voice_microtone": 23.404999999999998,
           "voice_tradition": 39.327000000000005,
           "voice_mechanism_compound": 3.575,
           "voice_estill_quality": 2.9825000000000004,
-          "voice_speech_song": 12.317499999999999,
-          "voice_ensemble_config": 8.58,
+          "voice_speech_song": 12.772499999999997,
+          "voice_ensemble_config": 8.45,
           "voice_ornament_system": 2.5999999999999996,
           "voice_pitch_organization": 3.0550000000000006,
           "voice_processing_chain": 3.6577500000000005,
-          "voice_multitrack_stack": 6.54575
+          "voice_multitrack_stack": 6.540750000000001
         }
       },
       {

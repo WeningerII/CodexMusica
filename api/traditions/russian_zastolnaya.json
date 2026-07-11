@@ -3,9 +3,9 @@
   "name": "Russian zastol'naya pesnya (table song / drinking song)",
   "family": "global",
   "lineage": "Russian zastol'naya pesnya (table-song / drinking-song) tradition continuous from medieval-Russian feast-and-tavern song-tradition through 19th-century Russian-Romantic-era Glinka-and-Mussorgsky-folk-collection through Soviet-era continuous performance into modern Russian-and-Russian-diaspora continuous feast-and-pub practice; foundational repertoire includes \"Калинка\" (Kalinka) and \"Подмосковные вечера\" (Moscow Nights — though both are more broadly folk-popular than strictly drinking-songs)",
-  "recipe": "classic modern russian zastol'naya pesnya, drinking Song, European branch, balkan drinking song, Slavic bard ballad poetry, European wedding sardinian wedding cantu and launeddas music georgian supra feast-singing. thick, false fold engaged, tasteful, continuous-phonation. steel castagnari Italian premium folk music straight accordion, prima nylon modern spruce maple andreyev concert orchestra canonical revival balalaika. irish pub. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 566,
-  "score": 174.395,
+  "recipe": "classic modern russian zastol'naya pesnya, drinking Song, European branch, balkan drinking song, Slavic bard ballad poetry, European wedding sardinian wedding cantu and launeddas music georgian supra feast-singing. thick, breath veiled tone, straight onset, interlocked note trading. b system buttons stradella bass Russian tradition song accompaniment chastushka dance bayan russian, prima nylon modern spruce maple andreyev concert orchestra canonical revival balalaika. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 546,
+  "score": 209.805,
   "config": {
     "traditions": [
       "russian_zastolnaya",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "false_fold_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
-          "voice_articulation": "legato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_speech",
@@ -35,17 +35,17 @@
         },
         "scores": {
           "voice_register": 9.849999999999998,
-          "voice_quality": 9.719999999999997,
+          "voice_quality": 10.204999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.99,
-          "voice_articulation": 8.469999999999999,
-          "voice_microtone": 3.229999999999999,
+          "voice_vibrato": 3.1300000000000003,
+          "voice_articulation": 15.599999999999993,
+          "voice_microtone": 16.70499999999999,
           "voice_tradition": 30.374999999999996,
           "voice_mechanism_compound": 1.69,
           "voice_estill_quality": 1.3,
-          "voice_speech_song": 29.379999999999995,
-          "voice_ensemble_config": 17.549999999999994,
+          "voice_speech_song": 29.249999999999996,
+          "voice_ensemble_config": 17.41999999999999,
           "voice_ornament_system": 1.0399999999999998,
           "voice_pitch_organization": 8.469999999999999,
           "voice_processing_chain": 2.21,
@@ -53,24 +53,18 @@
         }
       },
       {
-        "id": "accordion",
+        "id": "bayan_russian",
         "slots": {
           "free_reed_technique": "free_reed_folk_first_position",
-          "accordion_reed_material": "steel_reeds",
-          "musette_offset": "scottish_musette",
-          "reed_config": "lmmm",
-          "bellows": "cardboard_leather",
-          "voicing_chamber": "cassotto",
-          "accordion_maker_school": "accordion_castagnari_italian"
+          "bayan_russian_model": "bayan_russian_tula_standard",
+          "bayan_russian_context": "bayan_russian_folk_song_dance",
+          "bayan_russian_reed_voicing": "bayan_russian_dry_unison"
         },
         "scores": {
           "free_reed_technique": 7.499999999999998,
-          "accordion_reed_material": 1.2349999999999999,
-          "musette_offset": 1.2349999999999999,
-          "reed_config": 0.15,
-          "bellows": 0.045,
-          "voicing_chamber": 1.2599999999999998,
-          "accordion_maker_school": 8.305
+          "bayan_russian_model": 17.615000000000002,
+          "bayan_russian_context": 16.835,
+          "bayan_russian_reed_voicing": 0.195
         }
       },
       {
@@ -92,7 +86,7 @@
       }
     ],
     "room": "irish_pub",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",
@@ -126,8 +120,6 @@
       "voice_vibrato": "straight_tone",
       "voice_mechanism_compound": "voice_mechanism_single_source",
       "free_reed_technique": "free_reed_folk_first_position",
-      "reed_config": "lmm",
-      "musette_offset": "dry_tuning",
       "plucked_traditional_technique": "plucked_folk_strummed",
       "balalaika_size": "prima_balalaika",
       "balalaika_strings": "nylon_balalaika",

@@ -3,9 +3,9 @@
   "name": "Sertanejo",
   "family": "global",
   "lineage": "Brazilian rural-country pop tradition with two principal eras — sertanejo raiz (rural-roots, 1930s-1960s acoustic duos with double-vocal harmony) and sertanejo universitário (2000s-onward urban-pop crossover) codified through Leandro and Leonardo, Chitãozinho and Xororó (raiz canon), then Michel Teló, Luan Santana, and Marília Mendonça (post-2010 universitário)",
-  "recipe": "classic tropical mid-1930s sertanejo, groove Percussion, Brazilian branch, country functional song country rock nashville sound. thick, conversational, melodic, equal tempered. travis picked classical nylon-string guitar, steel castagnari Italian premium folk music straight accordion, Fender tweed amp American 50s amp tweed breakup ernie ball slinky fingerpicked electric bass, steel pre muffled edge muffled hot rolled annealed drum kit, pinho paranas traditional Brazilian imbuia Brazilian walnut alternative steel doubled courses viola caipira. live tracking. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 674,
-  "score": 472.867,
+  "recipe": "classic tropical mid-1930s sertanejo, groove Percussion, Brazilian branch, country functional song country rock nashville sound. thick, breath veiled tone, wide pitch sway, interlocked note trading. travis picked classical nylon-string guitar, steel castagnari Italian premium folk music straight accordion, Fender tweed amp American 50s amp tweed breakup ernie ball slinky fingerpicked electric bass, steel pre muffled edge muffled hot rolled annealed drum kit, pinho paranas traditional Brazilian imbuia Brazilian walnut alternative steel doubled courses viola caipira. live tracking. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 696,
+  "score": 494.399,
   "config": {
     "traditions": [
       "sertanejo",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "speech_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "spoken_voice",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 51.815000000000026,
-          "voice_quality": 0.7899999999999999,
+          "voice_quality": 7.0200000000000005,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 22.99375,
-          "voice_articulation": 0.26999999999999996,
+          "voice_vibrato": 24.015,
+          "voice_articulation": 13.519999999999992,
           "voice_microtone": 27.060000000000006,
           "voice_tradition": 14.326249999999998,
           "voice_mechanism_compound": 4.03,
           "voice_estill_quality": 27.22,
-          "voice_speech_song": 17.809999999999995,
-          "voice_ensemble_config": 14.364999999999995,
+          "voice_speech_song": 17.679999999999993,
+          "voice_ensemble_config": 14.234999999999992,
           "voice_ornament_system": 0.525,
           "voice_pitch_organization": 0.65,
           "voice_processing_chain": 4.43625,
-          "voice_multitrack_stack": 8.983749999999999
+          "voice_multitrack_stack": 10.273749999999998
         }
       },
       {

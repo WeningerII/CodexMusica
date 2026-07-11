@@ -3,58 +3,58 @@
   "name": "Italian filastrocche (nursery rhymes)",
   "family": "global",
   "lineage": "Italian-language children's play-song (filastrocche) tradition continuous from medieval-and-early-modern Italian folk-play-song origins through 19th-century Italian-unification-era folklore-collection context into modern continuous Italian-and-Italian-diaspora childhood-practice",
-  "recipe": "classic modern italian filastrocche, nursery Rhyme, European branch, European lullaby, americas nursery rhyme, Mediterranean ballad ballad poetry homeric rhapsode recitation brazilian cantigas de roda. thick, low dynamic level, tasteful, continuous-phonation. parlor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 397,
-  "score": 131.207,
+  "recipe": "classic modern italian filastrocche, nursery Rhyme, European branch, European lullaby, americas nursery rhyme, Mediterranean ballad ballad poetry homeric rhapsode recitation sardinian cantu a tenore and launeddas. thick, breath veiled tone, straight onset, interlocked note trading. parlor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 353,
+  "score": 150.917,
   "config": {
     "traditions": [
       "italian_filastrocche",
       "homeric_rhapsode",
-      "brazilian_cantigas_de_roda"
+      "sardinian_traditional"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "crooner_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
-          "voice_articulation": "legato_voice",
-          "voice_microtone": "shruti_inflected",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "bel_canto_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_bel_canto",
-          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 4.33,
-          "voice_quality": 2.34,
+          "voice_register": 4.755,
+          "voice_quality": 12.6725,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.225,
-          "voice_articulation": 5.914999999999998,
-          "voice_microtone": 0.045,
-          "voice_tradition": 23.255,
+          "voice_vibrato": 3.25,
+          "voice_articulation": 12.154999999999998,
+          "voice_microtone": 10.789999999999992,
+          "voice_tradition": 24.005,
           "voice_mechanism_compound": 1.5250000000000001,
-          "voice_estill_quality": 23.115,
-          "voice_speech_song": 18.037499999999998,
-          "voice_ensemble_config": 9.489999999999998,
-          "voice_ornament_system": 22.575,
-          "voice_pitch_organization": 5.914999999999998,
-          "voice_processing_chain": 1.4299999999999997,
-          "voice_multitrack_stack": 0.585
+          "voice_estill_quality": 23.865,
+          "voice_speech_song": 16.477499999999992,
+          "voice_ensemble_config": 14.819999999999999,
+          "voice_ornament_system": 23.325,
+          "voice_pitch_organization": 5.6000000000000005,
+          "voice_processing_chain": 2.275,
+          "voice_multitrack_stack": 2.0149999999999997
         }
       }
     ],
     "room": "parlor",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

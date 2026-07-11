@@ -1,0 +1,448 @@
+{
+  "id": "electric_violin",
+  "name": "Electric violin",
+  "family": "electric_strings",
+  "class": "bowed_string_lead",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 0,
+    "transduction": 2,
+    "dynamics": 1
+  },
+  "short": "Solid-body amplified violin, the signature bowed lead of 1970s jazz-rock fusion and prog — continuous unfretted pitch driven through a pickup and effects chain.",
+  "parts": [
+    {
+      "id": "electric_violin_form",
+      "name": "String configuration",
+      "variants": [
+        {
+          "id": "electric_violin_form_four_string",
+          "default": true,
+          "name": "Four-string solid-body",
+          "descriptors": [
+            "solid-body",
+            "four-string",
+            "standard-gdae",
+            "bright-cutting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "electric",
+            "solid-body",
+            "four-string"
+          ],
+          "canonical_tags": [
+            "solid_body",
+            "four_string"
+          ]
+        },
+        {
+          "id": "electric_violin_form_five_string",
+          "name": "Five-string (low C)",
+          "descriptors": [
+            "five-string",
+            "extended-low-range",
+            "viola-range",
+            "warm-low-c"
+          ],
+          "match_tokens": [
+            "bowed",
+            "electric",
+            "five-string",
+            "extended-range"
+          ],
+          "canonical_tags": [
+            "five_string"
+          ]
+        },
+        {
+          "id": "electric_violin_form_six_string",
+          "name": "Six-string (low C and F)",
+          "descriptors": [
+            "six-string",
+            "wide-range",
+            "deep-register",
+            "versatile"
+          ],
+          "match_tokens": [
+            "bowed",
+            "electric",
+            "six-string",
+            "extended-range"
+          ],
+          "canonical_tags": [
+            "six_string"
+          ]
+        },
+        {
+          "id": "electric_violin_form_semi_acoustic",
+          "name": "Chambered acoustic-electric",
+          "descriptors": [
+            "chambered-body",
+            "semi-acoustic",
+            "resonant",
+            "hybrid-tone"
+          ],
+          "match_tokens": [
+            "bowed",
+            "electric",
+            "semi-hollow",
+            "acoustic-electric"
+          ],
+          "canonical_tags": [
+            "semi_hollow"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "electric_violin_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "electric_violin_context_fusion_lead",
+          "default": true,
+          "name": "Jazz-rock fusion lead",
+          "descriptors": [
+            "fusion-lead",
+            "fast-runs",
+            "singing-legato",
+            "overdriven-solo"
+          ],
+          "match_tokens": [
+            "bowed",
+            "electric",
+            "lead",
+            "fusion",
+            "soaring"
+          ],
+          "canonical_tags": [
+            "lead",
+            "fusion"
+          ]
+        },
+        {
+          "id": "electric_violin_context_prog_rock",
+          "name": "Progressive rock",
+          "descriptors": [
+            "prog-rock",
+            "riff-doubling",
+            "aggressive-bowing",
+            "distorted"
+          ],
+          "match_tokens": [
+            "bowed",
+            "electric",
+            "prog",
+            "distorted",
+            "rock"
+          ],
+          "canonical_tags": [
+            "prog_rock",
+            "distorted"
+          ]
+        },
+        {
+          "id": "electric_violin_context_ambient_looped",
+          "name": "Effects-processed ambient",
+          "descriptors": [
+            "effects-processed",
+            "looped-layers",
+            "reverb-drenched",
+            "atmospheric"
+          ],
+          "match_tokens": [
+            "bowed",
+            "electric",
+            "ambient",
+            "looped",
+            "processed"
+          ],
+          "canonical_tags": [
+            "ambient",
+            "processed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "electric_violin_pickup",
+      "surface": false,
+      "name": "Pickup system",
+      "variants": [
+        {
+          "id": "electric_violin_pickup_piezo",
+          "default": true,
+          "name": "Piezo bridge pickup",
+          "descriptors": [
+            "piezo-bridge",
+            "natural-tone",
+            "acoustic-like"
+          ],
+          "match_tokens": [
+            "electric",
+            "piezo",
+            "bowed"
+          ],
+          "canonical_tags": [
+            "piezo"
+          ]
+        },
+        {
+          "id": "electric_violin_pickup_magnetic",
+          "name": "Magnetic pickup",
+          "descriptors": [
+            "magnetic-pickup",
+            "guitar-like",
+            "thick-tone"
+          ],
+          "match_tokens": [
+            "electric",
+            "magnetic",
+            "bowed"
+          ],
+          "canonical_tags": [
+            "magnetic"
+          ]
+        },
+        {
+          "id": "electric_violin_pickup_dual",
+          "name": "Dual piezo/magnetic blend",
+          "descriptors": [
+            "dual-pickup",
+            "blended-tone",
+            "flexible-voicing"
+          ],
+          "match_tokens": [
+            "electric",
+            "dual-pickup",
+            "bowed"
+          ],
+          "canonical_tags": [
+            "dual_pickup"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "electric_violin_form",
+      "name": "String configuration",
+      "variants": [
+        {
+          "id": "electric_violin_form_four_string",
+          "default": true,
+          "name": "Four-string solid-body",
+          "descriptors": [
+            "solid-body",
+            "four-string",
+            "standard-gdae",
+            "bright-cutting"
+          ],
+          "match_tokens": [
+            "bowed",
+            "electric",
+            "solid-body",
+            "four-string"
+          ],
+          "canonical_tags": [
+            "solid_body",
+            "four_string"
+          ]
+        },
+        {
+          "id": "electric_violin_form_five_string",
+          "name": "Five-string (low C)",
+          "descriptors": [
+            "five-string",
+            "extended-low-range",
+            "viola-range",
+            "warm-low-c"
+          ],
+          "match_tokens": [
+            "bowed",
+            "electric",
+            "five-string",
+            "extended-range"
+          ],
+          "canonical_tags": [
+            "five_string"
+          ]
+        },
+        {
+          "id": "electric_violin_form_six_string",
+          "name": "Six-string (low C and F)",
+          "descriptors": [
+            "six-string",
+            "wide-range",
+            "deep-register",
+            "versatile"
+          ],
+          "match_tokens": [
+            "bowed",
+            "electric",
+            "six-string",
+            "extended-range"
+          ],
+          "canonical_tags": [
+            "six_string"
+          ]
+        },
+        {
+          "id": "electric_violin_form_semi_acoustic",
+          "name": "Chambered acoustic-electric",
+          "descriptors": [
+            "chambered-body",
+            "semi-acoustic",
+            "resonant",
+            "hybrid-tone"
+          ],
+          "match_tokens": [
+            "bowed",
+            "electric",
+            "semi-hollow",
+            "acoustic-electric"
+          ],
+          "canonical_tags": [
+            "semi_hollow"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "electric_violin_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "electric_violin_context_fusion_lead",
+          "default": true,
+          "name": "Jazz-rock fusion lead",
+          "descriptors": [
+            "fusion-lead",
+            "fast-runs",
+            "singing-legato",
+            "overdriven-solo"
+          ],
+          "match_tokens": [
+            "bowed",
+            "electric",
+            "lead",
+            "fusion",
+            "soaring"
+          ],
+          "canonical_tags": [
+            "lead",
+            "fusion"
+          ]
+        },
+        {
+          "id": "electric_violin_context_prog_rock",
+          "name": "Progressive rock",
+          "descriptors": [
+            "prog-rock",
+            "riff-doubling",
+            "aggressive-bowing",
+            "distorted"
+          ],
+          "match_tokens": [
+            "bowed",
+            "electric",
+            "prog",
+            "distorted",
+            "rock"
+          ],
+          "canonical_tags": [
+            "prog_rock",
+            "distorted"
+          ]
+        },
+        {
+          "id": "electric_violin_context_ambient_looped",
+          "name": "Effects-processed ambient",
+          "descriptors": [
+            "effects-processed",
+            "looped-layers",
+            "reverb-drenched",
+            "atmospheric"
+          ],
+          "match_tokens": [
+            "bowed",
+            "electric",
+            "ambient",
+            "looped",
+            "processed"
+          ],
+          "canonical_tags": [
+            "ambient",
+            "processed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "electric_violin_pickup",
+      "surface": false,
+      "name": "Pickup system",
+      "variants": [
+        {
+          "id": "electric_violin_pickup_piezo",
+          "default": true,
+          "name": "Piezo bridge pickup",
+          "descriptors": [
+            "piezo-bridge",
+            "natural-tone",
+            "acoustic-like"
+          ],
+          "match_tokens": [
+            "electric",
+            "piezo",
+            "bowed"
+          ],
+          "canonical_tags": [
+            "piezo"
+          ]
+        },
+        {
+          "id": "electric_violin_pickup_magnetic",
+          "name": "Magnetic pickup",
+          "descriptors": [
+            "magnetic-pickup",
+            "guitar-like",
+            "thick-tone"
+          ],
+          "match_tokens": [
+            "electric",
+            "magnetic",
+            "bowed"
+          ],
+          "canonical_tags": [
+            "magnetic"
+          ]
+        },
+        {
+          "id": "electric_violin_pickup_dual",
+          "name": "Dual piezo/magnetic blend",
+          "descriptors": [
+            "dual-pickup",
+            "blended-tone",
+            "flexible-voicing"
+          ],
+          "match_tokens": [
+            "electric",
+            "dual-pickup",
+            "bowed"
+          ],
+          "canonical_tags": [
+            "dual_pickup"
+          ]
+        }
+      ]
+    }
+  ]
+}

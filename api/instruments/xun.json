@@ -1,0 +1,386 @@
+{
+  "id": "xun",
+  "name": "Xun (Chinese globular clay vessel flute)",
+  "family": "wind",
+  "class": "globular vessel flute (aerophone)",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": -1,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "Ancient Chinese egg-shaped clay vessel flute, blown across a top hole for a dark, hollow, mournful tone in a narrow low-mid range.",
+  "parts": [
+    {
+      "id": "xun_form",
+      "name": "Form and size",
+      "variants": [
+        {
+          "id": "xun_form_eight_hole",
+          "default": true,
+          "name": "Modern eight-hole xun",
+          "descriptors": [
+            "conservatory-standard",
+            "near-chromatic",
+            "even-toned"
+          ],
+          "match_tokens": [
+            "wind",
+            "blown",
+            "vessel-flute",
+            "chromatic"
+          ],
+          "canonical_tags": [
+            "reformed",
+            "solo-capable"
+          ]
+        },
+        {
+          "id": "xun_form_six_hole",
+          "name": "Traditional six-hole xun",
+          "descriptors": [
+            "pentatonic",
+            "archaic",
+            "restricted-compass"
+          ],
+          "match_tokens": [
+            "wind",
+            "blown",
+            "vessel-flute",
+            "folk"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "xun_form_bass_di",
+          "name": "Bass di-xun (large low xun)",
+          "descriptors": [
+            "deep",
+            "cavernous",
+            "subterranean"
+          ],
+          "match_tokens": [
+            "wind",
+            "blown",
+            "vessel-flute",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "bass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xun_setting",
+      "name": "Playing context and repertoire",
+      "variants": [
+        {
+          "id": "xun_setting_minyue_solo",
+          "default": true,
+          "name": "Minyue conservatory solo",
+          "descriptors": [
+            "expressive",
+            "lyrical",
+            "breath-shaded"
+          ],
+          "match_tokens": [
+            "wind",
+            "blown",
+            "solo",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "conservatory"
+          ]
+        },
+        {
+          "id": "xun_setting_ancient_color",
+          "name": "Ancient-China atmospheric color",
+          "descriptors": [
+            "mournful",
+            "desolate",
+            "haunting"
+          ],
+          "match_tokens": [
+            "wind",
+            "blown",
+            "atmospheric",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "cinematic",
+            "ancient"
+          ]
+        },
+        {
+          "id": "xun_setting_ensemble",
+          "name": "Folk and ensemble accompaniment",
+          "descriptors": [
+            "blended",
+            "supportive",
+            "earthy"
+          ],
+          "match_tokens": [
+            "wind",
+            "blown",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xun_body",
+      "surface": false,
+      "name": "Body material and firing",
+      "variants": [
+        {
+          "id": "xun_body_terracotta",
+          "default": true,
+          "name": "Fired terracotta clay",
+          "descriptors": [
+            "hollow",
+            "warm",
+            "earthen"
+          ],
+          "match_tokens": [
+            "wind",
+            "clay",
+            "fired"
+          ],
+          "canonical_tags": [
+            "terracotta"
+          ]
+        },
+        {
+          "id": "xun_body_porcelain",
+          "name": "Glazed porcelain",
+          "descriptors": [
+            "clear",
+            "ringing",
+            "glassy"
+          ],
+          "match_tokens": [
+            "wind",
+            "porcelain",
+            "glazed"
+          ],
+          "canonical_tags": [
+            "porcelain"
+          ]
+        },
+        {
+          "id": "xun_body_bone_stone",
+          "name": "Archaic bone or stone",
+          "descriptors": [
+            "dry",
+            "primeval",
+            "brittle"
+          ],
+          "match_tokens": [
+            "wind",
+            "bone",
+            "stone"
+          ],
+          "canonical_tags": [
+            "archaic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "xun_form",
+      "name": "Form and size",
+      "variants": [
+        {
+          "id": "xun_form_eight_hole",
+          "default": true,
+          "name": "Modern eight-hole xun",
+          "descriptors": [
+            "conservatory-standard",
+            "near-chromatic",
+            "even-toned"
+          ],
+          "match_tokens": [
+            "wind",
+            "blown",
+            "vessel-flute",
+            "chromatic"
+          ],
+          "canonical_tags": [
+            "reformed",
+            "solo-capable"
+          ]
+        },
+        {
+          "id": "xun_form_six_hole",
+          "name": "Traditional six-hole xun",
+          "descriptors": [
+            "pentatonic",
+            "archaic",
+            "restricted-compass"
+          ],
+          "match_tokens": [
+            "wind",
+            "blown",
+            "vessel-flute",
+            "folk"
+          ],
+          "canonical_tags": [
+            "traditional"
+          ]
+        },
+        {
+          "id": "xun_form_bass_di",
+          "name": "Bass di-xun (large low xun)",
+          "descriptors": [
+            "deep",
+            "cavernous",
+            "subterranean"
+          ],
+          "match_tokens": [
+            "wind",
+            "blown",
+            "vessel-flute",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "bass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xun_setting",
+      "name": "Playing context and repertoire",
+      "variants": [
+        {
+          "id": "xun_setting_minyue_solo",
+          "default": true,
+          "name": "Minyue conservatory solo",
+          "descriptors": [
+            "expressive",
+            "lyrical",
+            "breath-shaded"
+          ],
+          "match_tokens": [
+            "wind",
+            "blown",
+            "solo",
+            "melodic"
+          ],
+          "canonical_tags": [
+            "conservatory"
+          ]
+        },
+        {
+          "id": "xun_setting_ancient_color",
+          "name": "Ancient-China atmospheric color",
+          "descriptors": [
+            "mournful",
+            "desolate",
+            "haunting"
+          ],
+          "match_tokens": [
+            "wind",
+            "blown",
+            "atmospheric",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "cinematic",
+            "ancient"
+          ]
+        },
+        {
+          "id": "xun_setting_ensemble",
+          "name": "Folk and ensemble accompaniment",
+          "descriptors": [
+            "blended",
+            "supportive",
+            "earthy"
+          ],
+          "match_tokens": [
+            "wind",
+            "blown",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xun_body",
+      "surface": false,
+      "name": "Body material and firing",
+      "variants": [
+        {
+          "id": "xun_body_terracotta",
+          "default": true,
+          "name": "Fired terracotta clay",
+          "descriptors": [
+            "hollow",
+            "warm",
+            "earthen"
+          ],
+          "match_tokens": [
+            "wind",
+            "clay",
+            "fired"
+          ],
+          "canonical_tags": [
+            "terracotta"
+          ]
+        },
+        {
+          "id": "xun_body_porcelain",
+          "name": "Glazed porcelain",
+          "descriptors": [
+            "clear",
+            "ringing",
+            "glassy"
+          ],
+          "match_tokens": [
+            "wind",
+            "porcelain",
+            "glazed"
+          ],
+          "canonical_tags": [
+            "porcelain"
+          ]
+        },
+        {
+          "id": "xun_body_bone_stone",
+          "name": "Archaic bone or stone",
+          "descriptors": [
+            "dry",
+            "primeval",
+            "brittle"
+          ],
+          "match_tokens": [
+            "wind",
+            "bone",
+            "stone"
+          ],
+          "canonical_tags": [
+            "archaic"
+          ]
+        }
+      ]
+    }
+  ]
+}

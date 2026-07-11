@@ -3,9 +3,9 @@
   "name": "Latin house",
   "family": "global",
   "lineage": "Latin-percussion-driven house subgenre codified through New York 1990s production — Louie Vega, Kenny \"Dope\" Gonzalez (Masters at Work duo), Frankie Feliciano — characterized by congas, timbales, and bongo accents layered over four-on-the-floor house foundation, Spanish-language vocal hooks, and son-and-salsa percussion vocabularies",
-  "recipe": "classic mid-1990s latin house, electronic Dance, Latin house branch, Cuban groove percussion cha-cha-chá charanga. extended whistle, full chest belt, melodic, punctuated. digital subtractive, TR-909, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, brass open slap hand drum timbales, melodic orchestral imitation pitched sampler, claves. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 524,
-  "score": 272.635,
+  "recipe": "classic mid-1990s latin house, electronic Dance, Latin house branch, Cuban groove percussion cha-cha-chá charanga. extended whistle, breath veiled tone, straight onset, interlocked note trading. digital subtractive, TR-909, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, brass open slap hand drum timbales, melodic orchestral imitation pitched sampler, claves. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 548,
+  "score": 319.612,
   "config": {
     "traditions": [
       "latin_house_percussion",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "extended_whistle_register",
-          "voice_quality": "full_chest_belt_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "staccato_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "beatboxing_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_stutter_edit",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 5.46,
-          "voice_quality": 13.649999999999995,
+          "voice_quality": 14.039999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.2399999999999998,
-          "voice_articulation": 0.845,
-          "voice_microtone": 0.9749999999999999,
+          "voice_vibrato": 2.0474999999999994,
+          "voice_articulation": 20.734999999999992,
+          "voice_microtone": 22.03499999999999,
           "voice_tradition": 12.154999999999998,
           "voice_mechanism_compound": 1.8199999999999998,
           "voice_estill_quality": 2.2749999999999995,
-          "voice_speech_song": 20.669999999999995,
-          "voice_ensemble_config": 23.789999999999996,
+          "voice_speech_song": 20.734999999999992,
+          "voice_ensemble_config": 23.659999999999993,
           "voice_ornament_system": 0.45500000000000007,
-          "voice_pitch_organization": 1.95,
+          "voice_pitch_organization": 3.9000000000000004,
           "voice_processing_chain": 5.390000000000001,
-          "voice_multitrack_stack": 4.27
+          "voice_multitrack_stack": 7.215000000000001
         }
       },
       {

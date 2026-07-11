@@ -3,9 +3,9 @@
   "name": "Emo",
   "family": "rock_punk",
   "lineage": "Mid-1980s through present post-hardcore-derived confessional rock — codified through Rites of Spring (Rites of Spring 1985 on Dischord Records), Embrace, Sunny Day Real Estate (Diary 1994), Texas Is the Reason, the Promise Ring, and Mineral codifying the second-wave emo aesthetic; later mainstreamed through Jimmy Eat World (Bleed American 2001), Dashboard Confessional, and the Drive-Thru / Vagrant Records scene",
-  "recipe": "classic North American 1984-1986 emo, distorted Rock, emo branch, punk distorted rock, pop punk distorted rock, alternative distorted rock pop-punk crust punk. thick, incomplete closure resting, chest resonance low mid, equal tempered. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, oak pre muffled edge muffled machine hammered symmetric pattern drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 790,
-  "score": 784.615,
+  "recipe": "classic North American 1984-1986 emo, distorted Rock, emo branch, punk distorted rock, pop punk distorted rock, alternative distorted rock pop-punk crust punk. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, oak pre muffled edge muffled machine hammered symmetric pattern drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 778,
+  "score": 812.79,
   "config": {
     "traditions": [
       "emo",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "incomplete_closure_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "spoken_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_gang_vocal_unison",
           "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_fall_off_400_cents",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
           "voice_register": 39.04000000000002,
-          "voice_quality": 10.424999999999997,
+          "voice_quality": 16.57499999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.485,
-          "voice_articulation": 0.195,
+          "voice_vibrato": 3.705,
+          "voice_articulation": 19.694999999999997,
           "voice_microtone": 37.10000000000001,
           "voice_tradition": 19.169999999999998,
           "voice_mechanism_compound": 23.86,
           "voice_estill_quality": 2.8600000000000003,
-          "voice_speech_song": 20.929999999999996,
+          "voice_speech_song": 21.839999999999993,
           "voice_ensemble_config": 38.455,
           "voice_ornament_system": 0.3,
-          "voice_pitch_organization": 0.9,
-          "voice_processing_chain": 8.055,
-          "voice_multitrack_stack": 8.024999999999999
+          "voice_pitch_organization": 1.15,
+          "voice_processing_chain": 9.165,
+          "voice_multitrack_stack": 8.059999999999999
         }
       },
       {

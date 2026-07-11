@@ -3,9 +3,9 @@
   "name": "Album-oriented rock",
   "family": "rock",
   "lineage": "Late-1970s polished mainstream rock genre crafted for FM-radio rotation, characterized by smooth productions, melodic hook-foregrounded songwriting, and adult-contemporary instrumental polish — codified through Toto (Toto IV 1982), Foreigner (4 1981), REO Speedwagon (Hi Infidelity 1980), Boston, Journey, Asia, Survivor (Vital Signs 1984), with the form serving as the late-1970s and 1980s commercial-rock mainstream",
-  "recipe": "classic North American 1977-1979 album-oriented rock, distorted Rock, late analog major branch, pop rock functional song, American jazz improv on frame new wave yacht rock. thick, low dynamic level, chest resonance low mid, equal tempered. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, birch pre muffled edge muffled hot rolled annealed drum kit, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, string machine. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 802,
-  "score": 761.865,
+  "recipe": "classic North American 1977-1979 album-oriented rock, distorted Rock, late analog major branch, pop rock functional song, American jazz improv on frame new wave yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, birch pre muffled edge muffled hot rolled annealed drum kit, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, string machine. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 804,
+  "score": 801.973,
   "config": {
     "traditions": [
       "aor",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "crooner_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "spoken_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
-          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_talkbox",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
           "voice_register": 61.70000000000001,
-          "voice_quality": 2.0799999999999996,
+          "voice_quality": 11.472499999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.275,
-          "voice_articulation": 0.39,
+          "voice_vibrato": 15.32,
+          "voice_articulation": 13.714999999999995,
           "voice_microtone": 59.6,
           "voice_tradition": 24.634999999999994,
           "voice_mechanism_compound": 3.8349999999999995,
           "voice_estill_quality": 3.0550000000000006,
-          "voice_speech_song": 17.809999999999995,
-          "voice_ensemble_config": 13.779999999999994,
+          "voice_speech_song": 18.52499999999999,
+          "voice_ensemble_config": 13.844999999999994,
           "voice_ornament_system": 0.7799999999999998,
-          "voice_pitch_organization": 0.6499999999999999,
+          "voice_pitch_organization": 2.21,
           "voice_processing_chain": 19.14,
-          "voice_multitrack_stack": 16.555
+          "voice_multitrack_stack": 18.56
         }
       },
       {

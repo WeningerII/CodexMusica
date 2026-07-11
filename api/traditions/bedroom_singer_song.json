@@ -3,9 +3,9 @@
   "name": "Bedroom singer-songwriter",
   "family": "global",
   "lineage": "2010s onward singer-songwriter genre with intimate DIY bedroom-DAW production and a confessional first-person lyrical register — codified through Phoebe Bridgers (Stranger in the Alps 2017, Punisher 2020), Julien Baker, Lucy Dacus, Soccer Mommy, Snail Mail (Lush 2018), Mitski, with the form representing the contemporary indie-singer-songwriter mainstream",
-  "recipe": "classic mid-2010s bedroom singer-songwriter, ballad Poetry, bedroom singer song branch, lofi experimental electric hypnagogic pop. thick, incomplete closure resting, pure, equal tempered. fingerpicked acoustic soft down tuning clean strummed single coil electric guitar, singing lead analog poly synth. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 410,
-  "score": 187.579,
+  "recipe": "classic mid-2010s bedroom singer-songwriter, ballad Poetry, bedroom singer song branch, lofi experimental electric hypnagogic pop. thick, breath veiled tone, straight onset, interlocked note trading. fingerpicked acoustic soft down tuning clean strummed single coil electric guitar, singing lead analog poly synth. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 422,
+  "score": 210.111,
   "config": {
     "traditions": [
       "bedroom_singer_song",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "incomplete_closure_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "straight_tone",
-          "voice_articulation": "narrative_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_jingju_role",
-          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
           "voice_processing_chain": "voice_processing_lo_fi_narrow_AM",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 16.913749999999993,
-          "voice_quality": 9.795,
+          "voice_quality": 12.804999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.78,
-          "voice_articulation": 0.10000000000000002,
+          "voice_vibrato": 3.84125,
+          "voice_articulation": 11.049999999999995,
           "voice_microtone": 14.424999999999997,
           "voice_tradition": 16.43375,
           "voice_mechanism_compound": 4.095,
           "voice_estill_quality": 7.271250000000001,
-          "voice_speech_song": 16.965,
-          "voice_ensemble_config": 11.114999999999997,
+          "voice_speech_song": 17.224999999999994,
+          "voice_ensemble_config": 10.984999999999994,
           "voice_ornament_system": 6.656250000000001,
           "voice_pitch_organization": 0.8449999999999999,
           "voice_processing_chain": 5.005,
-          "voice_multitrack_stack": 9.908749999999998
+          "voice_multitrack_stack": 15.29
         }
       },
       {

@@ -3,9 +3,9 @@
   "name": "Country rock",
   "family": "rock_punk",
   "lineage": "Late-1960s through 1970s LA-centered amplified country-and-rock fusion codified by The Byrds Sweetheart of the Rodeo (1968), The Flying Burrito Brothers, Poco, the Eagles Take It Easy era, Linda Ronstadt, Emmylou Harris",
-  "recipe": "classic North American 1967-1969 country rock, functional Song, country rock branch, pop rock folk rock, southern rock distorted rock. thick, worn fold, melodic, ornamental. open e tuning sitka spruce spruce maple steel dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright mahogany maple single coil electric guitar, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, steel pre muffled edge muffled hot rolled annealed drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, steel double stops fiddle. hollywood flagship 1958-present major-flagship sunset sound studios hollywood. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console.",
-  "recipe_chars": 995,
-  "score": 1287.485,
+  "recipe": "classic North American 1967-1969 country rock, functional Song, country rock branch, pop rock folk rock, southern rock distorted rock. thick, breath veiled tone, wide pitch sway, interlocked note trading. open e tuning sitka spruce spruce maple steel dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright mahogany maple single coil electric guitar, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, steel pre muffled edge muffled hot rolled annealed drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, steel double stops fiddle. hollywood flagship 1958-present major-flagship sunset sound studios hollywood. large-diaphragm condenser, Neve 1073 inductor pre.",
+  "recipe_chars": 1000,
+  "score": 1317.009,
   "config": {
     "traditions": [
       "country_rock",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "worn_fold_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "melisma_voice",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 105.155,
-          "voice_quality": 3.3999999999999995,
+          "voice_quality": 14.333749999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 30.985,
-          "voice_articulation": 1.625,
+          "voice_vibrato": 35.77437499999999,
+          "voice_articulation": 14.239999999999993,
           "voice_microtone": 53.800000000000026,
           "voice_tradition": 22.967499999999994,
           "voice_mechanism_compound": 3.3093749999999997,
           "voice_estill_quality": 33.200625,
-          "voice_speech_song": 19.471874999999997,
-          "voice_ensemble_config": 14.895624999999995,
+          "voice_speech_song": 20.289374999999993,
+          "voice_ensemble_config": 15.202499999999993,
           "voice_ornament_system": 1.2349999999999999,
           "voice_pitch_organization": 0.8449999999999999,
           "voice_processing_chain": 11.24,
-          "voice_multitrack_stack": 10.866875
+          "voice_multitrack_stack": 10.928749999999999
         }
       },
       {

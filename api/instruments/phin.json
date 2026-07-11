@@ -1,0 +1,352 @@
+{
+  "id": "phin",
+  "name": "Phin (Isan three-string lute)",
+  "family": "plucked_traditional",
+  "class": "plucked_string_lead",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": 0,
+    "dynamics": 0
+  },
+  "short": "phin",
+  "parts": [
+    {
+      "id": "phin_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "phin_acoustic_isan",
+          "default": true,
+          "name": "Traditional acoustic phin (naga-headed, three-string)",
+          "descriptors": [
+            "woody",
+            "bright",
+            "village-rooted"
+          ],
+          "match_tokens": [
+            "plucked",
+            "folk-tradition",
+            "string-attack"
+          ],
+          "canonical_tags": [
+            "isan",
+            "thailand",
+            "laos"
+          ]
+        },
+        {
+          "id": "phin_fai_fa",
+          "name": "Electric phin (phin fai fa, magnetic pickup)",
+          "descriptors": [
+            "biting",
+            "psychedelic",
+            "amplified"
+          ],
+          "match_tokens": [
+            "plucked",
+            "electric",
+            "lead-melody"
+          ],
+          "canonical_tags": [
+            "isan",
+            "modern",
+            "molam"
+          ]
+        },
+        {
+          "id": "phin_song_sai",
+          "name": "Two-string village phin (older form)",
+          "descriptors": [
+            "sparse",
+            "archaic",
+            "drone-and-melody"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "isan",
+            "historical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phin_repertoire",
+      "name": "Repertoire / context",
+      "variants": [
+        {
+          "id": "phin_lam_accompaniment",
+          "default": true,
+          "name": "Lam accompaniment (with khaen, lai modes)",
+          "descriptors": [
+            "conversational",
+            "modal",
+            "supporting"
+          ],
+          "match_tokens": [
+            "plucked",
+            "accompaniment",
+            "modal"
+          ],
+          "canonical_tags": [
+            "molam",
+            "isan",
+            "laos"
+          ]
+        },
+        {
+          "id": "phin_prayuk",
+          "name": "Phin prayuk processional dance",
+          "descriptors": [
+            "dance-driving",
+            "festive",
+            "riffing"
+          ],
+          "match_tokens": [
+            "plucked",
+            "dance-driving",
+            "string-attack"
+          ],
+          "canonical_tags": [
+            "isan",
+            "procession"
+          ]
+        },
+        {
+          "id": "phin_molam_sing",
+          "name": "Molam sing electric band lead",
+          "descriptors": [
+            "hypnotic",
+            "electrified",
+            "ostinato-driven"
+          ],
+          "match_tokens": [
+            "plucked",
+            "electric",
+            "trance-inducing"
+          ],
+          "canonical_tags": [
+            "molam",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phin_construction",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "phin_jackfruit_carved",
+          "default": true,
+          "name": "Jackfruit-wood carved body (canonical Isan)",
+          "descriptors": [
+            "warm",
+            "resonant",
+            "canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "isan"
+          ]
+        },
+        {
+          "id": "phin_padauk_hardwood",
+          "name": "Padauk / dense hardwood build (premium)",
+          "descriptors": [
+            "dense",
+            "bright",
+            "premium"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "phin_form",
+      "name": "Form",
+      "variants": [
+        {
+          "id": "phin_acoustic_isan",
+          "default": true,
+          "name": "Traditional acoustic phin (naga-headed, three-string)",
+          "descriptors": [
+            "woody",
+            "bright",
+            "village-rooted"
+          ],
+          "match_tokens": [
+            "plucked",
+            "folk-tradition",
+            "string-attack"
+          ],
+          "canonical_tags": [
+            "isan",
+            "thailand",
+            "laos"
+          ]
+        },
+        {
+          "id": "phin_fai_fa",
+          "name": "Electric phin (phin fai fa, magnetic pickup)",
+          "descriptors": [
+            "biting",
+            "psychedelic",
+            "amplified"
+          ],
+          "match_tokens": [
+            "plucked",
+            "electric",
+            "lead-melody"
+          ],
+          "canonical_tags": [
+            "isan",
+            "modern",
+            "molam"
+          ]
+        },
+        {
+          "id": "phin_song_sai",
+          "name": "Two-string village phin (older form)",
+          "descriptors": [
+            "sparse",
+            "archaic",
+            "drone-and-melody"
+          ],
+          "match_tokens": [
+            "plucked",
+            "drone-foundation",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "isan",
+            "historical"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phin_repertoire",
+      "name": "Repertoire / context",
+      "variants": [
+        {
+          "id": "phin_lam_accompaniment",
+          "default": true,
+          "name": "Lam accompaniment (with khaen, lai modes)",
+          "descriptors": [
+            "conversational",
+            "modal",
+            "supporting"
+          ],
+          "match_tokens": [
+            "plucked",
+            "accompaniment",
+            "modal"
+          ],
+          "canonical_tags": [
+            "molam",
+            "isan",
+            "laos"
+          ]
+        },
+        {
+          "id": "phin_prayuk",
+          "name": "Phin prayuk processional dance",
+          "descriptors": [
+            "dance-driving",
+            "festive",
+            "riffing"
+          ],
+          "match_tokens": [
+            "plucked",
+            "dance-driving",
+            "string-attack"
+          ],
+          "canonical_tags": [
+            "isan",
+            "procession"
+          ]
+        },
+        {
+          "id": "phin_molam_sing",
+          "name": "Molam sing electric band lead",
+          "descriptors": [
+            "hypnotic",
+            "electrified",
+            "ostinato-driven"
+          ],
+          "match_tokens": [
+            "plucked",
+            "electric",
+            "trance-inducing"
+          ],
+          "canonical_tags": [
+            "molam",
+            "modern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phin_construction",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "phin_jackfruit_carved",
+          "default": true,
+          "name": "Jackfruit-wood carved body (canonical Isan)",
+          "descriptors": [
+            "warm",
+            "resonant",
+            "canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "isan"
+          ]
+        },
+        {
+          "id": "phin_padauk_hardwood",
+          "name": "Padauk / dense hardwood build (premium)",
+          "descriptors": [
+            "dense",
+            "bright",
+            "premium"
+          ],
+          "match_tokens": [
+            "plucked",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

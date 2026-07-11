@@ -3,9 +3,9 @@
   "name": "Canzone napoletana (Neapolitan song)",
   "family": "classical",
   "lineage": "Neapolitan-language art-popular song tradition, comprising the canonical Naples-and-Campania song-repertoire from the mid-nineteenth-century onward (the genre crystallized around the 1839 Piedigrotta Festival commissioned songs and continuing through the 1890s \"golden age\" with O sole mio, 1898 by Eduardo di Capua and Giovanni Capurro). The form combines elements of Italian operatic-melodic-vocabulary, Mediterranean folk-traditions, and Neapolitan-dialect literary poetry. Distinguished by canzone napoletana's strict use of the Neapolitan language (a distinct Romance language closely related to but distinct from standard Italian).",
-  "recipe": "classic Southern European mid-1890s canzone napoletana, functional Song, iberian branch, Mediterranean ballad ballad poetry kabyle music greek nisiotika. thick, low dynamic level, chest resonance low mid, Mediterranean demotic vocal. bowl back Italian German spruce classical leaning phosphor bronze bronze mandolin, cedar phosphor bronze bronze fingerpicked parlor acoustic guitar, cold pressed weikert felt beech laminated maple laminated European tradition grand piano. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 636,
-  "score": 219.35,
+  "recipe": "classic Southern European mid-1890s canzone napoletana, functional Song, iberian branch, Mediterranean ballad ballad poetry kabyle music greek nisiotika. thick, breath veiled tone, slow rate, interlocked note trading. bowl back Italian German spruce classical leaning phosphor bronze bronze mandolin, cedar phosphor bronze bronze fingerpicked parlor acoustic guitar, cold pressed weikert felt beech laminated maple laminated European tradition grand piano. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. Neumann U67, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
+  "recipe_chars": 661,
+  "score": 266.61,
   "config": {
     "traditions": [
       "canzone_napoletana",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "crooner_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "legato_voice",
-          "voice_microtone": "blue_notes",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
           "voice_register": 4.420000000000001,
-          "voice_quality": 7.02,
+          "voice_quality": 23.269999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.97,
-          "voice_articulation": 0.33,
-          "voice_microtone": 0.15,
+          "voice_vibrato": 7.64,
+          "voice_articulation": 12.479999999999995,
+          "voice_microtone": 13.129999999999992,
           "voice_tradition": 30.615000000000002,
           "voice_mechanism_compound": 4.0249999999999995,
           "voice_estill_quality": 13.045,
-          "voice_speech_song": 19.239999999999995,
-          "voice_ensemble_config": 13.389999999999997,
+          "voice_speech_song": 19.954999999999995,
+          "voice_ensemble_config": 13.259999999999994,
           "voice_ornament_system": 10.575,
           "voice_pitch_organization": 5.5600000000000005,
           "voice_processing_chain": 5.914999999999998,
-          "voice_multitrack_stack": 1.815
+          "voice_multitrack_stack": 3.9650000000000007
         }
       },
       {
@@ -119,7 +119,7 @@
       }
     ],
     "room": "naples_canzone_napoletana_studio",
-    "archetype": "arch_electrical_disc_cut",
+    "archetype": "arch_rca_italiana_morricone",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "tube_pre",

@@ -3,9 +3,9 @@
   "name": "Anglican cathedral-choral recording tradition",
   "family": "global",
   "lineage": "English Anglican cathedral choral foundation tradition — a continuous liturgical-music transmission across the cathedral and collegiate-chapel foundations of the Church of England (including the choral foundations at King's College Cambridge, St Paul's London, Westminster Abbey, and the cathedral cities) — characterized by daily evensong service, Anglican-chant psalmody, anthem repertoire, and the boy-treble-led mixed-adult-male voicing convention",
-  "recipe": "classic modern anglican cathedral-choral recording tradition, art Music, western common practice branch, christian gospel anglican choral, western early art music anglican choral evensong historically-informed performance recording. thick, declaimed, melodic, ornamental. silbermann saxon canonical bach era central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque pneumatic canonical late 19th century romantic legato pipe organ, choir cathedral satb. cathedral. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 703,
-  "score": 123.076,
+  "recipe": "classic European early-1950s anglican cathedral-choral recording tradition, art Music, western common practice branch, christian gospel anglican choral, western early art music anglican choral evensong historically-informed performance recording. thick, breath veiled tone, straight note core, interlocked note trading. silbermann saxon canonical bach era central German Baroque early 18th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque pneumatic canonical late 19th century romantic legato pipe organ, choir cathedral satb. cathedral. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+  "recipe_chars": 696,
+  "score": 150.89,
   "config": {
     "traditions": [
       "anglican_choral_cathedral",
@@ -17,39 +17,39 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "melisma_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "chinese_classical_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_unison_double_take"
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
           "voice_register": 5.944000000000001,
-          "voice_quality": 7.590000000000001,
+          "voice_quality": 11.569999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.4699999999999998,
-          "voice_articulation": 3.865,
-          "voice_microtone": 7.897500000000001,
+          "voice_vibrato": 9.548499999999999,
+          "voice_articulation": 11.764999999999993,
+          "voice_microtone": 10.72499999999999,
           "voice_tradition": 9.0025,
           "voice_mechanism_compound": 3.5249999999999995,
           "voice_estill_quality": 5.427500000000001,
-          "voice_speech_song": 11.049999999999995,
-          "voice_ensemble_config": 11.959999999999994,
+          "voice_speech_song": 10.919999999999993,
+          "voice_ensemble_config": 12.999999999999993,
           "voice_ornament_system": 3.5249999999999995,
-          "voice_pitch_organization": 3.87,
-          "voice_processing_chain": 3.3150000000000004,
-          "voice_multitrack_stack": 0.78
+          "voice_pitch_organization": 7.6049999999999995,
+          "voice_processing_chain": 5.46,
+          "voice_multitrack_stack": 3.0550000000000015
         }
       },
       {
@@ -86,7 +86,7 @@
       }
     ],
     "room": "cathedral",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_church_location_early_music",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "tube_modern",

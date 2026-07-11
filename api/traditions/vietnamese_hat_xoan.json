@@ -3,9 +3,9 @@
   "name": "Vietnamese hát xoan",
   "family": "global",
   "lineage": "Vietnamese hát xoan ancestral-spring-ritual song tradition of Phú Thọ province, the heartland of the Hùng-Kings legendary first-Vietnamese-dynasty mythos. Performance occurs at the Hùng-Kings temple (Đền Hùng) and adjacent communal-house đình precincts during the lunar new-year and Hùng-Kings death-anniversary festivals (lunar tenth day of third month). Three movement types: thờ (worship, slow ceremonial-cadence verse for ancestor-veneration), quả cách (formal-narrative cyclical sections, fourteen canonical pieces), and hội (festival, faster celebratory cadence with audience-participation call-and-response). Performance configuration: a male choir of phường xoan villagers from one of four canonical guild-villages (An Thái, Phù Đức, Kim Đới, Thét), accompanied by phách bamboo clapper and trống cơm small barrel-drum. Modal vocabulary draws on Vietnamese pentatonic with mode-specific cadential conventions. The tradition was nearly extinct by the 1990s, but systematic transmission-revival has since spread across the four guild-villages. Distinguished from quan họ by xoan's ritual-ancestor-veneration (vs courtship-festival) functional framing; distinguished from ca trù by xoan's village-collective-male-choir (vs chamber-female-soloist) ensemble configuration.",
-  "recipe": "classic Southeast Asian mid-1990s vietnamese hát xoan, ritual Devotional, indigenous branch, southeast Asian art music thai classical burmese mahagita. thick, declaimed, chest resonance low mid, narrative. bamboo clapper struck hardwood stick canonical Vietnamese ca tru singer held cadence canonical Vietnamese phach, small praise drum patron struck canonical Vietnamese ca tru patron response canonical Vietnamese trong chau. wooden pagoda hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 577,
-  "score": 221.565,
+  "recipe": "classic Southeast Asian mid-1990s vietnamese hát xoan, ritual Devotional, indigenous branch, southeast Asian art music thai classical burmese mahagita. thick, breath veiled tone, slow rate, interlocked note trading. bamboo clapper struck hardwood stick canonical Vietnamese ca tru singer held cadence canonical Vietnamese phach, small praise drum patron struck canonical Vietnamese ca tru patron response canonical Vietnamese trong chau. wooden pagoda hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 520,
+  "score": 302.468,
   "config": {
     "traditions": [
       "vietnamese_hat_xoan",
@@ -17,39 +17,39 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "narrative_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "chinese_classical_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_carnatic_gamaka",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 1.1999999999999997,
-          "voice_quality": 5.86,
+          "voice_quality": 24.569999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.214999999999998,
-          "voice_articulation": 1.4299999999999997,
-          "voice_microtone": 3.119999999999999,
+          "voice_vibrato": 18.714999999999996,
+          "voice_articulation": 18.46,
+          "voice_microtone": 21.514999999999997,
           "voice_tradition": 25.6425,
           "voice_mechanism_compound": 13.774999999999999,
           "voice_estill_quality": 17.529999999999998,
-          "voice_speech_song": 24.34250000000001,
-          "voice_ensemble_config": 21.775,
+          "voice_speech_song": 24.797500000000003,
+          "voice_ensemble_config": 24.244999999999997,
           "voice_ornament_system": 13.774999999999999,
-          "voice_pitch_organization": 21.049999999999997,
-          "voice_processing_chain": 5.9799999999999995,
-          "voice_multitrack_stack": 1.6899999999999997
+          "voice_pitch_organization": 21.334999999999997,
+          "voice_processing_chain": 13.844999999999995,
+          "voice_multitrack_stack": 7.345000000000001
         }
       },
       {
@@ -76,7 +76,7 @@
       }
     ],
     "room": "wooden_pagoda_hall",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

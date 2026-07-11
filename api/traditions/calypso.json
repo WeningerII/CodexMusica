@@ -3,9 +3,9 @@
   "name": "Calypso",
   "family": "global",
   "lineage": "Trinidadian narrative-and-topical song tradition emerging from post-1834 Emancipation kalinda stick-fighting chant, codified through the post-WWII commercial recording era — Mighty Sparrow (Slinger Francisco), Lord Kitchener (Aldwyn Roberts), Lord Invader, the Roaring Lion, Lord Melody, Calypso Rose; performed during the Trinidad and Tobago Carnival season (October-February preparation, with Carnival Monday-Tuesday peak) in calypso tent venues and competition contexts",
-  "recipe": "classic Caribbean mid-1830s calypso, groove Percussion, Caribbean branch, tropical song functional song, Caribbean carnival processional garifuna paranda and hungu-hungu bachata. thick, full chest belt, melodic, narrative. narrative fingerpicked dreadnought acoustic guitar, claves, pyramid pure nickel bass British mid 60s era sub heavy electric bass, steelpan, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn ensemble trumpet, tenor gold brass warmer tone saxophone. trinidad calypso panyard outdoor. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 703,
-  "score": 157.13,
+  "recipe": "classic Caribbean mid-1830s calypso, groove Percussion, Caribbean branch, tropical song functional song, Caribbean carnival processional garifuna paranda and hungu-hungu bachata. thick, breath veiled tone, straight note core, interlocked note trading. narrative fingerpicked dreadnought acoustic guitar, claves, pyramid pure nickel bass British mid 60s era sub heavy electric bass, steelpan, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn ensemble trumpet, tenor yellow brass modern standard yamaha custom 875ex modern Japanese premium saxophone, steel orchestra. trinidad calypso panyard outdoor. sennheiser MD421, transformer-coupled solid-state pre, MCI JH-636 US 70s indie/jazz, dbx 160 VCA, parametric EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 848,
+  "score": 232.17,
   "config": {
     "traditions": [
       "calypso",
@@ -17,39 +17,39 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "full_chest_belt_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "narrative_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
-          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 4.460000000000001,
-          "voice_quality": 9.424999999999997,
+          "voice_quality": 17.224999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.78,
-          "voice_articulation": 1.2799999999999998,
-          "voice_microtone": 3.4750000000000005,
+          "voice_vibrato": 1.2999999999999998,
+          "voice_articulation": 25.089999999999996,
+          "voice_microtone": 23.009999999999994,
           "voice_tradition": 15.34,
           "voice_mechanism_compound": 5.07,
           "voice_estill_quality": 5.265000000000001,
-          "voice_speech_song": 33.864999999999995,
-          "voice_ensemble_config": 24.31,
-          "voice_ornament_system": 0.9099999999999999,
+          "voice_speech_song": 36.205,
+          "voice_ensemble_config": 24.374999999999996,
+          "voice_ornament_system": 2.7300000000000013,
           "voice_pitch_organization": 2.9850000000000008,
           "voice_processing_chain": 6.779999999999999,
-          "voice_multitrack_stack": 4.68
+          "voice_multitrack_stack": 5.395000000000001
         }
       },
       {
@@ -59,14 +59,14 @@
           "string_tuning": "drop_d",
           "top_wood": "sitka",
           "back_sides": "maple_bs",
-          "string_acoustic": "eighty_twenty"
+          "string_acoustic": "phosphor_bronze"
         },
         "scores": {
           "acoustic_technique": 3.1050000000000004,
           "string_tuning": 0.65,
           "top_wood": 0.435,
           "back_sides": 0.435,
-          "string_acoustic": 0.48000000000000004
+          "string_acoustic": 0.65
         }
       },
       {
@@ -86,9 +86,9 @@
           "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
-          "pickup_config": "humbucker_mm",
+          "pickup_config": "soapbar",
           "string_type": "pyramid_pure_nickel",
-          "scale_length_b": "short_scale_b",
+          "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretted",
           "bass_technique": "sub_bass_synth_blend"
         },
@@ -96,9 +96,9 @@
           "electric_technique": 0.7,
           "amp_make": 2.7300000000000004,
           "body_wood": 0.8700000000000001,
-          "pickup_config": 0.045,
+          "pickup_config": 0.65,
           "string_type": 3.2500000000000004,
-          "scale_length_b": 0.39,
+          "scale_length_b": 0.65,
           "fretted_or_not": 0.3,
           "bass_technique": 1.445
         }
@@ -141,24 +141,37 @@
           "wind_articulation": "wind_punchy_ensemble",
           "sax_size": "tenor_sax",
           "sax_reed": "soft_reed",
-          "sax_body_alloy": "gold_brass_sax",
+          "sax_body_alloy": "yellow_brass_sax",
           "sax_mouthpiece": "hard_rubber_mp",
           "sax_technique": "sax_cool_lyrical",
-          "sax_maker_school": "sax_selmer_mark_vi"
+          "sax_maker_school": "sax_yamaha_custom"
         },
         "scores": {
           "wind_articulation": 1.4299999999999997,
           "sax_size": 2.990000000000001,
           "sax_reed": 0.435,
-          "sax_body_alloy": 1.7999999999999998,
+          "sax_body_alloy": 2.34,
           "sax_mouthpiece": 0.65,
           "sax_technique": 0.325,
-          "sax_maker_school": 0.7149999999999999
+          "sax_maker_school": 1.04
+        }
+      },
+      {
+        "id": "steel_orchestra",
+        "slots": {
+          "steel_orchestra_sections": "steel_orchestra_frontline",
+          "steel_orchestra_context": "steel_orchestra_concert_session",
+          "steel_orchestra_size": "steel_orchestra_single_pan"
+        },
+        "scores": {
+          "steel_orchestra_sections": 2.08,
+          "steel_orchestra_context": 0.39,
+          "steel_orchestra_size": 1.04
         }
       }
     ],
     "room": "trinidad_calypso_panyard_outdoor",
-    "archetype": "arch_early_tape_havana",
+    "archetype": "arch_trinidad_carnival_soca",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

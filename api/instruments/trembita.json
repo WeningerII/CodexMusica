@@ -1,0 +1,350 @@
+{
+  "id": "trembita",
+  "name": "Trembita (Hutsul Carpathian long wooden horn)",
+  "family": "wind",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 2
+  },
+  "short": "trembita",
+  "parts": [
+    {
+      "id": "trembita_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "trembita_hutsul_long",
+          "default": true,
+          "name": "Hutsul trembita (2.5-4 m spruce tube, birch-bark wound)",
+          "descriptors": [
+            "piercing",
+            "far-carrying",
+            "mountain-bright"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "outdoor-field",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "ukrainian",
+            "hutsul",
+            "carpathian"
+          ]
+        },
+        {
+          "id": "trembita_bucium",
+          "name": "Bucium / trâmbiță (Romanian Carpathian shepherd horn)",
+          "descriptors": [
+            "romanian",
+            "pastoral",
+            "mellow-bore"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "outdoor-field",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "romanian",
+            "carpathian"
+          ]
+        },
+        {
+          "id": "trembita_trombita_gorale",
+          "name": "Trombita (Polish Górale / Beskid long horn)",
+          "descriptors": [
+            "gorale",
+            "beskid",
+            "highland"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "outdoor-field",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "polish",
+            "gorale",
+            "carpathian"
+          ]
+        },
+        {
+          "id": "trembita_stage_short",
+          "name": "Stage trembita (shortened ensemble model, ~1.5-2 m)",
+          "descriptors": [
+            "portable",
+            "bright",
+            "fanfare-like"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk-context",
+            "modern"
+          ],
+          "canonical_tags": [
+            "ukrainian",
+            "folkloric-stage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trembita_signal_repertoire",
+      "name": "Signal repertoire / context",
+      "variants": [
+        {
+          "id": "trembita_polonyna_call",
+          "default": true,
+          "name": "Polonyna shepherd call (herding signals across mountain pastures)",
+          "descriptors": [
+            "announcing",
+            "far-carrying",
+            "echoing"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "outdoor-field",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "trembita_funeral_signal",
+          "name": "Funeral trembita (death announcement and mourning calls)",
+          "descriptors": [
+            "mournful",
+            "solemn",
+            "keening"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "sustained-tone",
+            "rough-tone"
+          ]
+        },
+        {
+          "id": "trembita_koliada_fanfare",
+          "name": "Koliada and wedding fanfare (Christmas procession, celebration)",
+          "descriptors": [
+            "festive",
+            "ceremonial",
+            "heralding"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "outdoor-field",
+            "folk-context"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trembita_construction",
+      "surface": false,
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "trembita_thunder_spruce",
+          "default": true,
+          "name": "Lightning-struck spruce (gromovytsia), split, hollowed, birch-bark wound",
+          "descriptors": [
+            "resonant",
+            "woody",
+            "ringing"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "outdoor-field",
+            "folk-context"
+          ]
+        },
+        {
+          "id": "trembita_plain_spruce",
+          "name": "Plain mountain spruce or fir, workshop-made",
+          "descriptors": [
+            "even",
+            "bright"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "trembita_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "trembita_hutsul_long",
+          "default": true,
+          "name": "Hutsul trembita (2.5-4 m spruce tube, birch-bark wound)",
+          "descriptors": [
+            "piercing",
+            "far-carrying",
+            "mountain-bright"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "outdoor-field",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "ukrainian",
+            "hutsul",
+            "carpathian"
+          ]
+        },
+        {
+          "id": "trembita_bucium",
+          "name": "Bucium / trâmbiță (Romanian Carpathian shepherd horn)",
+          "descriptors": [
+            "romanian",
+            "pastoral",
+            "mellow-bore"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "outdoor-field",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "romanian",
+            "carpathian"
+          ]
+        },
+        {
+          "id": "trembita_trombita_gorale",
+          "name": "Trombita (Polish Górale / Beskid long horn)",
+          "descriptors": [
+            "gorale",
+            "beskid",
+            "highland"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "outdoor-field",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "polish",
+            "gorale",
+            "carpathian"
+          ]
+        },
+        {
+          "id": "trembita_stage_short",
+          "name": "Stage trembita (shortened ensemble model, ~1.5-2 m)",
+          "descriptors": [
+            "portable",
+            "bright",
+            "fanfare-like"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "folk-context",
+            "modern"
+          ],
+          "canonical_tags": [
+            "ukrainian",
+            "folkloric-stage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trembita_signal_repertoire",
+      "name": "Signal repertoire / context",
+      "variants": [
+        {
+          "id": "trembita_polonyna_call",
+          "default": true,
+          "name": "Polonyna shepherd call (herding signals across mountain pastures)",
+          "descriptors": [
+            "announcing",
+            "far-carrying",
+            "echoing"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "outdoor-field",
+            "sustained-tone"
+          ]
+        },
+        {
+          "id": "trembita_funeral_signal",
+          "name": "Funeral trembita (death announcement and mourning calls)",
+          "descriptors": [
+            "mournful",
+            "solemn",
+            "keening"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "sustained-tone",
+            "rough-tone"
+          ]
+        },
+        {
+          "id": "trembita_koliada_fanfare",
+          "name": "Koliada and wedding fanfare (Christmas procession, celebration)",
+          "descriptors": [
+            "festive",
+            "ceremonial",
+            "heralding"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "outdoor-field",
+            "folk-context"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trembita_construction",
+      "surface": false,
+      "name": "Construction",
+      "variants": [
+        {
+          "id": "trembita_thunder_spruce",
+          "default": true,
+          "name": "Lightning-struck spruce (gromovytsia), split, hollowed, birch-bark wound",
+          "descriptors": [
+            "resonant",
+            "woody",
+            "ringing"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "outdoor-field",
+            "folk-context"
+          ]
+        },
+        {
+          "id": "trembita_plain_spruce",
+          "name": "Plain mountain spruce or fir, workshop-made",
+          "descriptors": [
+            "even",
+            "bright"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

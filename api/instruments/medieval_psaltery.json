@@ -1,0 +1,344 @@
+{
+  "id": "medieval_psaltery",
+  "name": "Medieval psaltery",
+  "family": "plucked_traditional",
+  "class": "plucked_box_zither",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": -1
+  },
+  "short": "Medieval Western plucked box zither with open metal or gut strings stretched across a flat trapezoidal or pig's-head soundbox, sounded with quills or fingertips in courtly and sacred early-music ensembles.",
+  "parts": [
+    {
+      "id": "medieval_psaltery_form",
+      "name": "Body form",
+      "variants": [
+        {
+          "id": "medieval_psaltery_form_pigs_head",
+          "default": true,
+          "name": "Pig's-head (istrumento di porco)",
+          "descriptors": [
+            "pigs-head-outline",
+            "double-trapezoid-box",
+            "snout-shaped-soundbox"
+          ],
+          "match_tokens": [
+            "plucked",
+            "psaltery",
+            "pigs-head",
+            "trapezoidal",
+            "iconic-medieval"
+          ],
+          "canonical_tags": [
+            "pigs_head_psaltery"
+          ]
+        },
+        {
+          "id": "medieval_psaltery_form_canale",
+          "name": "Canale (single trapezoid)",
+          "descriptors": [
+            "single-trapezoid-box",
+            "wing-tapered-frame"
+          ],
+          "match_tokens": [
+            "plucked",
+            "psaltery",
+            "canale",
+            "trapezoidal"
+          ],
+          "canonical_tags": [
+            "canale_psaltery"
+          ]
+        },
+        {
+          "id": "medieval_psaltery_form_rectangular",
+          "name": "Rectangular Gothic psaltery",
+          "descriptors": [
+            "rectangular-flat-box",
+            "gothic-plain-frame"
+          ],
+          "match_tokens": [
+            "plucked",
+            "psaltery",
+            "rectangular"
+          ],
+          "canonical_tags": [
+            "rectangular_psaltery"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "medieval_psaltery_playing",
+      "name": "Playing manner",
+      "variants": [
+        {
+          "id": "medieval_psaltery_playing_twin_quill",
+          "default": true,
+          "name": "Twin quill plectra (dance repertoire)",
+          "descriptors": [
+            "twin-quill-plucking",
+            "bright-plectrum-attack",
+            "estampie-dance-figures"
+          ],
+          "match_tokens": [
+            "plucked",
+            "quill",
+            "plectrum",
+            "bright-attack",
+            "dance"
+          ],
+          "canonical_tags": [
+            "quill_plucked"
+          ]
+        },
+        {
+          "id": "medieval_psaltery_playing_fingertip",
+          "name": "Fingertip plucking (devotional)",
+          "descriptors": [
+            "fingertip-plucking",
+            "soft-rounded-attack",
+            "sacred-cantus-lines"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingertip",
+            "soft-attack",
+            "devotional"
+          ],
+          "canonical_tags": [
+            "finger_plucked"
+          ]
+        },
+        {
+          "id": "medieval_psaltery_playing_single_plectrum",
+          "name": "Single plectrum melodic",
+          "descriptors": [
+            "single-plectrum-line",
+            "monophonic-melodic-lead"
+          ],
+          "match_tokens": [
+            "plucked",
+            "plectrum",
+            "melodic",
+            "monophonic"
+          ],
+          "canonical_tags": [
+            "single_plectrum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "medieval_psaltery_stringing",
+      "surface": false,
+      "name": "Stringing material",
+      "variants": [
+        {
+          "id": "medieval_psaltery_stringing_brass_wire",
+          "default": true,
+          "name": "Brass wire strings",
+          "descriptors": [
+            "brass-wire-strings",
+            "metallic-ringing-shimmer"
+          ],
+          "match_tokens": [
+            "plucked",
+            "metal-string",
+            "brass-wire",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "brass_strung"
+          ]
+        },
+        {
+          "id": "medieval_psaltery_stringing_gut",
+          "name": "Gut strings",
+          "descriptors": [
+            "gut-strings",
+            "warm-mellow-decay"
+          ],
+          "match_tokens": [
+            "plucked",
+            "gut-string",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "gut_strung"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "medieval_psaltery_form",
+      "name": "Body form",
+      "variants": [
+        {
+          "id": "medieval_psaltery_form_pigs_head",
+          "default": true,
+          "name": "Pig's-head (istrumento di porco)",
+          "descriptors": [
+            "pigs-head-outline",
+            "double-trapezoid-box",
+            "snout-shaped-soundbox"
+          ],
+          "match_tokens": [
+            "plucked",
+            "psaltery",
+            "pigs-head",
+            "trapezoidal",
+            "iconic-medieval"
+          ],
+          "canonical_tags": [
+            "pigs_head_psaltery"
+          ]
+        },
+        {
+          "id": "medieval_psaltery_form_canale",
+          "name": "Canale (single trapezoid)",
+          "descriptors": [
+            "single-trapezoid-box",
+            "wing-tapered-frame"
+          ],
+          "match_tokens": [
+            "plucked",
+            "psaltery",
+            "canale",
+            "trapezoidal"
+          ],
+          "canonical_tags": [
+            "canale_psaltery"
+          ]
+        },
+        {
+          "id": "medieval_psaltery_form_rectangular",
+          "name": "Rectangular Gothic psaltery",
+          "descriptors": [
+            "rectangular-flat-box",
+            "gothic-plain-frame"
+          ],
+          "match_tokens": [
+            "plucked",
+            "psaltery",
+            "rectangular"
+          ],
+          "canonical_tags": [
+            "rectangular_psaltery"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "medieval_psaltery_playing",
+      "name": "Playing manner",
+      "variants": [
+        {
+          "id": "medieval_psaltery_playing_twin_quill",
+          "default": true,
+          "name": "Twin quill plectra (dance repertoire)",
+          "descriptors": [
+            "twin-quill-plucking",
+            "bright-plectrum-attack",
+            "estampie-dance-figures"
+          ],
+          "match_tokens": [
+            "plucked",
+            "quill",
+            "plectrum",
+            "bright-attack",
+            "dance"
+          ],
+          "canonical_tags": [
+            "quill_plucked"
+          ]
+        },
+        {
+          "id": "medieval_psaltery_playing_fingertip",
+          "name": "Fingertip plucking (devotional)",
+          "descriptors": [
+            "fingertip-plucking",
+            "soft-rounded-attack",
+            "sacred-cantus-lines"
+          ],
+          "match_tokens": [
+            "plucked",
+            "fingertip",
+            "soft-attack",
+            "devotional"
+          ],
+          "canonical_tags": [
+            "finger_plucked"
+          ]
+        },
+        {
+          "id": "medieval_psaltery_playing_single_plectrum",
+          "name": "Single plectrum melodic",
+          "descriptors": [
+            "single-plectrum-line",
+            "monophonic-melodic-lead"
+          ],
+          "match_tokens": [
+            "plucked",
+            "plectrum",
+            "melodic",
+            "monophonic"
+          ],
+          "canonical_tags": [
+            "single_plectrum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "medieval_psaltery_stringing",
+      "surface": false,
+      "name": "Stringing material",
+      "variants": [
+        {
+          "id": "medieval_psaltery_stringing_brass_wire",
+          "default": true,
+          "name": "Brass wire strings",
+          "descriptors": [
+            "brass-wire-strings",
+            "metallic-ringing-shimmer"
+          ],
+          "match_tokens": [
+            "plucked",
+            "metal-string",
+            "brass-wire",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "brass_strung"
+          ]
+        },
+        {
+          "id": "medieval_psaltery_stringing_gut",
+          "name": "Gut strings",
+          "descriptors": [
+            "gut-strings",
+            "warm-mellow-decay"
+          ],
+          "match_tokens": [
+            "plucked",
+            "gut-string",
+            "warm-tone"
+          ],
+          "canonical_tags": [
+            "gut_strung"
+          ]
+        }
+      ]
+    }
+  ]
+}

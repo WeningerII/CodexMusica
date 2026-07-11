@@ -3,9 +3,9 @@
   "name": "M-Base collective (late-1980s Brooklyn-based jazz-avant-garde)",
   "family": "jazz",
   "lineage": "Late-1980s-and-onward jazz-avant-garde collective centered on alto saxophonist Steve Coleman (born 1956), pursuing a \"Macro-Basic Array of Structured Extemporizations\" compositional methodology integrating Yoruba metaphysical concepts, mathematical-rhythmic structures, and African diasporic musical-cultural inheritance. Cassandra Wilson's early-career M-Base recordings, Greg Osby's solo work, and Coleman's Five Elements and Council of Balance ensembles constitute the canonical core.",
-  "recipe": "classic North American m-base collective, improv On Frame, avant branch, us hip hop conscious rap conscious hip-hop. thick, rap, narrative, equal tempered. tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris multiphonic saxophone, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric bronze bell bronze fourteen step drum kit. mid manhattan 1975-1985 mid-major late70s nyc commercial. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 726,
-  "score": 411.974,
+  "recipe": "classic North American m-base collective, improv On Frame, avant branch, us hip hop conscious rap conscious hip-hop. thick, rap, straight onset, interlocked note trading. tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris multiphonic saxophone, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric bronze bell bronze fourteen step drum kit. mid manhattan 1975-1985 mid-major late70s nyc commercial. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 741,
+  "score": 437.353,
   "config": {
     "traditions": [
       "m_base_collective",
@@ -20,14 +20,14 @@
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
-          "voice_articulation": "narrative_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "jazz_scat_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_rhythmic_spoken_flow",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
@@ -37,18 +37,18 @@
           "voice_quality": 18.82,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.45499999999999996,
-          "voice_articulation": 10.2175,
+          "voice_vibrato": 20.1105,
+          "voice_articulation": 14.040000000000001,
           "voice_microtone": 16.223999999999997,
           "voice_tradition": 19.3475,
           "voice_mechanism_compound": 0.845,
           "voice_estill_quality": 3.8405,
           "voice_speech_song": 18.349999999999998,
-          "voice_ensemble_config": 14.105000000000002,
-          "voice_ornament_system": 1.15,
+          "voice_ensemble_config": 13.975,
+          "voice_ornament_system": 2.405000000000001,
           "voice_pitch_organization": 3.1020000000000008,
           "voice_processing_chain": 13.774999999999999,
-          "voice_multitrack_stack": 11.428999999999998
+          "voice_multitrack_stack": 12.205499999999997
         }
       },
       {

@@ -3,9 +3,9 @@
   "name": "Arabesk (Turkish)",
   "family": "global",
   "lineage": "Turkish urban-melancholic Egyptian-music-influenced crossover-pop tradition that dominated Turkish mass culture from the 1970s through the 1990s — codified through Orhan Gencebay (the founder, 1968 onward), Müslüm Gürses, İbrahim Tatlıses (the 80s-90s voice), Ferdi Tayfur, Bülent Ersoy; thematically anchored in the urban-rural migration anxiety of Turkish working-class internal-migrant audiences, with characteristic minor-key Egyptian-inspired string arrangements over Turkish-language vocals",
-  "recipe": "classic Middle Eastern mid-1970s arabesk, functional Song, mid east n African pop branch, Persian arab improv improv on frame iraqi maqam malhun. extended whistle, declaimed, chest resonance low mid, maqam neutral step. rosewood premium iraqi Turkish la bella Turkish school canon drone like oud, metal finger picks maple body Turkish school drone like modal qanun, mahogany rosewood clean strummed single coil electric guitar, alder electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, kanun drone like modal tortoiseshell traditional kanun. istanbul recording canon 1955-present mid tier istanbul makam kilic ali pasha studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 809,
-  "score": 267.393,
+  "recipe": "classic Middle Eastern mid-1970s arabesk, functional Song, mid east n African pop branch, Persian arab improv improv on frame iraqi maqam malhun. extended whistle, breath veiled tone, slow rate, interlocked note trading. rosewood premium iraqi Turkish la bella Turkish school canon drone like oud, metal finger picks maple body Turkish school drone like modal qanun, mahogany rosewood clean strummed single coil electric guitar, alder electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, kanun drone like modal tortoiseshell traditional kanun. istanbul recording canon 1955-present mid tier istanbul makam kilic ali pasha studio. large-diaphragm condenser, transformer-coupled solid-state pre, colored vintage console, vari-mu, passive program EQ. vinyl master cut tape echo spring reverb germanium fuzz wah / envelope filter.",
+  "recipe_chars": 860,
+  "score": 285.461,
   "config": {
     "traditions": [
       "arabesk_turkish",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "extended_whistle_register",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "staccato_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "persian_dastgah_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
           "voice_pitch_organization": "voice_pitch_turkish_makam_53_comma",
           "voice_processing_chain": "voice_processing_talkbox",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
           "voice_register": 8.806999999999999,
-          "voice_quality": 4.118875,
+          "voice_quality": 9.100000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.485,
-          "voice_articulation": 0.06675,
-          "voice_microtone": 25.828749999999996,
+          "voice_vibrato": 8.2875,
+          "voice_articulation": 3.2500000000000004,
+          "voice_microtone": 37.304125,
           "voice_tradition": 16.055,
           "voice_mechanism_compound": 11.7765,
           "voice_estill_quality": 7.359125000000001,
-          "voice_speech_song": 5.330000000000001,
-          "voice_ensemble_config": 4.615,
+          "voice_speech_song": 5.200000000000001,
+          "voice_ensemble_config": 4.485000000000001,
           "voice_ornament_system": 14.553250000000002,
           "voice_pitch_organization": 17.044999999999998,
           "voice_processing_chain": 3.4132500000000006,
-          "voice_multitrack_stack": 2.795
+          "voice_multitrack_stack": 3.569000000000001
         }
       },
       {
@@ -82,44 +82,44 @@
           "qanun_pick": "qanun_finger_picks",
           "qanun_body_wood": "qanun_maple_body",
           "qanun_bridge_skin": "qanun_goat_skin_bridge",
-          "qanun_string_material": "qanun_nylon_modern"
+          "qanun_string_material": "qanun_fluorocarbon"
         },
         "scores": {
           "plucked_traditional_technique": 5.03175,
           "qanun_strings": 2.535,
-          "qanun_levers": 0.28462499999999996,
+          "qanun_levers": -1.215375,
           "qanun_pick": 2.535,
           "qanun_body_wood": 8.05875,
           "qanun_bridge_skin": 0.65,
-          "qanun_string_material": 0.32962499999999995
+          "qanun_string_material": 0
         }
       },
       {
         "id": "electric_guitar_single_coil",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_mesa_dual_rectifier",
+          "amp_make": "amp_british_orange",
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
           "fretboard": "rosewood_fb",
           "pickup_magnet": "ceramic",
           "string_material": "nickel_plated",
           "string_gauge": "g_11",
-          "bridge": "two_point_trem",
+          "bridge": "hardtail",
           "scale_length": "scale_gibson",
           "finish": "oil_satin",
           "string_tuning": "dadgad"
         },
         "scores": {
           "electric_technique": 6.949999999999999,
-          "amp_make": 2.405,
+          "amp_make": 1.6899999999999997,
           "body_wood": 1.95,
           "neck_wood": 1.95,
           "fretboard": 1.885,
           "pickup_magnet": 0.045,
           "string_material": 0.045,
           "string_gauge": 1.95,
-          "bridge": 0.28462499999999996,
+          "bridge": 0,
           "scale_length": 1.95,
           "finish": 0.65,
           "string_tuning": 2.34
@@ -131,7 +131,7 @@
           "electric_technique": "electric_bass_walking",
           "amp_make": "amp_british_orange",
           "body_wood": "alder_b",
-          "pickup_config": "soapbar",
+          "pickup_config": "split_coil",
           "string_type": "half_round",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
@@ -141,7 +141,7 @@
           "electric_technique": -0.05,
           "amp_make": 1.6899999999999997,
           "body_wood": 1.95,
-          "pickup_config": 0.28462499999999996,
+          "pickup_config": 0,
           "string_type": 1.95,
           "scale_length_b": 1.95,
           "fretted_or_not": 0.045,
@@ -192,7 +192,7 @@
       }
     ],
     "room": "istanbul_makam_kilic_ali_pasha_studio",
-    "archetype": "arch_80s_late_analog_majorrock",
+    "archetype": "arch_unkapani_plak_arabesk",
     "inline_chain": {
       "mic": "mic_u87_condenser_neumann",
       "pre": "transformer_solid_state",

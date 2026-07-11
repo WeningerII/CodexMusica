@@ -1,0 +1,436 @@
+{
+  "id": "garmon",
+  "name": "Garmon (Caucasus diatonic button accordion)",
+  "family": "free_reed",
+  "class": "free_reed",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "Bright bellows-driven button accordion of the Caucasus, central to Azerbaijani mugham and lezginka dance music.",
+  "parts": [
+    {
+      "id": "free_reed_technique",
+      "name": "Playing technique",
+      "variants": [
+        {
+          "id": "free_reed_folk_first_position",
+          "default": true,
+          "name": "Folk first-position straight",
+          "descriptors": [
+            "straight",
+            "melodic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "folk",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "folk",
+            "singer-songwriter",
+            "country"
+          ]
+        },
+        {
+          "id": "free_reed_overblow_modern",
+          "name": "Overblow modern bending",
+          "descriptors": [
+            "overblown",
+            "fully-chromatic"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "modern"
+          ]
+        }
+      ],
+      "_fromFamily": true
+    },
+    {
+      "id": "garmon_regional_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "garmon_regional_form_azerbaijani",
+          "default": true,
+          "name": "Azerbaijani qarmon",
+          "descriptors": [
+            "bright-reeded",
+            "piercing",
+            "mugham-tuned",
+            "high-set"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "free-reed",
+            "reed-driven",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "azerbaijani",
+            "chromatic-button"
+          ]
+        },
+        {
+          "id": "garmon_regional_form_russian_garmoshka",
+          "name": "Russian garmoshka (khromka)",
+          "descriptors": [
+            "chesty",
+            "diatonic",
+            "village-bright"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "free-reed",
+            "diatonic"
+          ],
+          "canonical_tags": [
+            "russian",
+            "diatonic-button"
+          ]
+        },
+        {
+          "id": "garmon_regional_form_ossetian_pshine",
+          "name": "Ossetian / Circassian mountain garmon (pshine)",
+          "descriptors": [
+            "reedy",
+            "keening",
+            "mountain-toned"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "free-reed",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "ossetian",
+            "circassian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "garmon_performance_setting",
+      "name": "Performance setting",
+      "variants": [
+        {
+          "id": "garmon_performance_setting_mugham",
+          "default": true,
+          "name": "Mugham accompaniment / solo",
+          "descriptors": [
+            "ornamented",
+            "melismatic",
+            "modal",
+            "sighing"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "bellows-driven",
+            "melodic-lead",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "mugham",
+            "solo-lead"
+          ]
+        },
+        {
+          "id": "garmon_performance_setting_lezginka",
+          "name": "Lezginka wedding dance",
+          "descriptors": [
+            "driving",
+            "propulsive",
+            "chordal-pumping",
+            "loud"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "rhythmic-drive",
+            "loud"
+          ],
+          "canonical_tags": [
+            "lezginka",
+            "dance"
+          ]
+        },
+        {
+          "id": "garmon_performance_setting_folk_song",
+          "name": "Folk-song accompaniment",
+          "descriptors": [
+            "lilting",
+            "supportive",
+            "warm"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "free-reed",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "folk-song",
+            "vocal-accompaniment"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "garmon_reed_voicing",
+      "surface": false,
+      "name": "Reed voicing",
+      "variants": [
+        {
+          "id": "garmon_reed_voicing_dry_steel",
+          "default": true,
+          "name": "Dry-tuned steel reeds",
+          "descriptors": [
+            "clean",
+            "focused",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "dry-tuned"
+          ],
+          "canonical_tags": [
+            "steel-reed",
+            "dry-tuning"
+          ]
+        },
+        {
+          "id": "garmon_reed_voicing_wet_musette",
+          "name": "Wet-tuned musette (tremolo) reeds",
+          "descriptors": [
+            "shimmering",
+            "beating",
+            "reedy"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "tremolo",
+            "wet-tuned"
+          ],
+          "canonical_tags": [
+            "musette-tuning",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "garmon_reed_voicing_brass",
+          "name": "Brass reeds",
+          "descriptors": [
+            "mellow",
+            "rounded",
+            "old-toned"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "mellow-tone"
+          ],
+          "canonical_tags": [
+            "brass-reed"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "garmon_regional_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "garmon_regional_form_azerbaijani",
+          "default": true,
+          "name": "Azerbaijani qarmon",
+          "descriptors": [
+            "bright-reeded",
+            "piercing",
+            "mugham-tuned",
+            "high-set"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "free-reed",
+            "reed-driven",
+            "bright-tone"
+          ],
+          "canonical_tags": [
+            "azerbaijani",
+            "chromatic-button"
+          ]
+        },
+        {
+          "id": "garmon_regional_form_russian_garmoshka",
+          "name": "Russian garmoshka (khromka)",
+          "descriptors": [
+            "chesty",
+            "diatonic",
+            "village-bright"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "free-reed",
+            "diatonic"
+          ],
+          "canonical_tags": [
+            "russian",
+            "diatonic-button"
+          ]
+        },
+        {
+          "id": "garmon_regional_form_ossetian_pshine",
+          "name": "Ossetian / Circassian mountain garmon (pshine)",
+          "descriptors": [
+            "reedy",
+            "keening",
+            "mountain-toned"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "free-reed",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "ossetian",
+            "circassian"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "garmon_performance_setting",
+      "name": "Performance setting",
+      "variants": [
+        {
+          "id": "garmon_performance_setting_mugham",
+          "default": true,
+          "name": "Mugham accompaniment / solo",
+          "descriptors": [
+            "ornamented",
+            "melismatic",
+            "modal",
+            "sighing"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "bellows-driven",
+            "melodic-lead",
+            "ornamented"
+          ],
+          "canonical_tags": [
+            "mugham",
+            "solo-lead"
+          ]
+        },
+        {
+          "id": "garmon_performance_setting_lezginka",
+          "name": "Lezginka wedding dance",
+          "descriptors": [
+            "driving",
+            "propulsive",
+            "chordal-pumping",
+            "loud"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "reed-driven",
+            "rhythmic-drive",
+            "loud"
+          ],
+          "canonical_tags": [
+            "lezginka",
+            "dance"
+          ]
+        },
+        {
+          "id": "garmon_performance_setting_folk_song",
+          "name": "Folk-song accompaniment",
+          "descriptors": [
+            "lilting",
+            "supportive",
+            "warm"
+          ],
+          "match_tokens": [
+            "bellows-driven",
+            "free-reed",
+            "accompaniment"
+          ],
+          "canonical_tags": [
+            "folk-song",
+            "vocal-accompaniment"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "garmon_reed_voicing",
+      "surface": false,
+      "name": "Reed voicing",
+      "variants": [
+        {
+          "id": "garmon_reed_voicing_dry_steel",
+          "default": true,
+          "name": "Dry-tuned steel reeds",
+          "descriptors": [
+            "clean",
+            "focused",
+            "penetrating"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "dry-tuned"
+          ],
+          "canonical_tags": [
+            "steel-reed",
+            "dry-tuning"
+          ]
+        },
+        {
+          "id": "garmon_reed_voicing_wet_musette",
+          "name": "Wet-tuned musette (tremolo) reeds",
+          "descriptors": [
+            "shimmering",
+            "beating",
+            "reedy"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "tremolo",
+            "wet-tuned"
+          ],
+          "canonical_tags": [
+            "musette-tuning",
+            "tremolo"
+          ]
+        },
+        {
+          "id": "garmon_reed_voicing_brass",
+          "name": "Brass reeds",
+          "descriptors": [
+            "mellow",
+            "rounded",
+            "old-toned"
+          ],
+          "match_tokens": [
+            "free-reed",
+            "mellow-tone"
+          ],
+          "canonical_tags": [
+            "brass-reed"
+          ]
+        }
+      ]
+    }
+  ]
+}

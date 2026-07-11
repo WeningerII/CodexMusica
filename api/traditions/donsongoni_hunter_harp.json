@@ -3,9 +3,9 @@
   "name": "Donsongoni hunter's harp (Mande)",
   "family": "global",
   "lineage": "Mande donsongoni (\"hunter's harp\") vocal-and-instrumental tradition of the Wassoulou region of southern Mali and adjacent eastern Guinea, performed by initiated hunters at hunter-society gatherings and at funerals. The donsongoni is a six-string calabash harp distinct from the larger courtly kora — associated with the rural-egalitarian hunter's society (donso-tòn) rather than the hereditary griot caste. Repertoire spans hunting-praise, ancestor-evocation, and esoteric hunter-society initiation material. The Wassoulou modernization brought the donsongoni into popular music through Oumou Sangaré.",
-  "recipe": "classic East African modern donsongoni hunter's harp, ballad Poetry, west African griot branch, indigenous ritual devotional shipibo-conibo icaros healing songs ju|'hoansi healing songs. vocal fry, declaimed, pure, punctuated. donso ritual large calabash mande gut pre modern hunters donso ngoni, foundational low fundamental tuning deep calabash inverted calabash, hunters four string bolon. tanzanian outdoor village clearing. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 558,
-  "score": 252.162,
+  "recipe": "classic East African modern donsongoni hunter's harp, ballad Poetry, west African griot branch, indigenous ritual devotional shipibo-conibo icaros healing songs ju|'hoansi healing songs. vocal fry, breath veiled tone, pure, interlocked note trading. donso ritual large calabash mande gut pre modern hunters donso ngoni, foundational low fundamental tuning deep calabash inverted calabash, hunters four string bolon. tanzanian outdoor village clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 514,
+  "score": 307.903,
   "config": {
     "traditions": [
       "donsongoni_hunter_harp",
@@ -17,39 +17,39 @@
         "id": "voice",
         "slots": {
           "voice_register": "vocal_fry",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "straight_tone",
-          "voice_articulation": "staccato_voice",
-          "voice_microtone": "blue_notes",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "mande_jeli_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
-          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 3.6399999999999997,
-          "voice_quality": 19.239375,
+          "voice_quality": 35.1,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.495,
-          "voice_articulation": 0.9750000000000001,
-          "voice_microtone": 0.39,
+          "voice_articulation": 22.815,
+          "voice_microtone": 22.035,
           "voice_tradition": 33.214999999999996,
           "voice_mechanism_compound": 10.405000000000001,
           "voice_estill_quality": 5.330000000000001,
-          "voice_speech_song": 23.595000000000002,
-          "voice_ensemble_config": 25.025,
+          "voice_speech_song": 23.465,
+          "voice_ensemble_config": 26.585,
           "voice_ornament_system": 9.167499999999999,
-          "voice_pitch_organization": 1.95,
-          "voice_processing_chain": 5.9799999999999995,
-          "voice_multitrack_stack": 5.135
+          "voice_pitch_organization": 2.665000000000001,
+          "voice_processing_chain": 12.544999999999998,
+          "voice_multitrack_stack": 5.720000000000001
         }
       },
       {
@@ -95,7 +95,7 @@
       }
     ],
     "room": "tanzanian_outdoor_village_clearing",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

@@ -3,9 +3,9 @@
   "name": "Sports play-by-play commentary",
   "family": "global",
   "lineage": "Live-event narration born on 1920s American AM radio, with KDKA Pittsburgh's 1921 boxing and baseball broadcasts and NBC's Graham McNamee establishing the announcer role. The mid-century canon runs through Red Barber and Mel Allen in baseball, Foster Hewitt's 'He shoots, he scores!' in Canadian hockey, and Vin Scully's 67 seasons with the Brooklyn and Los Angeles Dodgers (1950-2016). The craft is fully improvised real-time description whose pitch, tempo, and volume escalate with game action, delivered from a booth headset microphone riding above continuous crowd roar. The form spread worldwide, with national schools such as the melismatic 'gooooal' call of Latin American football commentary.",
-  "recipe": "classic North American early-1950s sports play-by-play commentary, spoken Word, broadcast branch old-time radio announcer podcast conversation. extended whistle, low dynamic level, chest resonance low mid, continuous-phonation. gymnasium. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 333,
-  "score": 91.355,
+  "recipe": "classic North American early-1950s sports play-by-play commentary, spoken Word, broadcast branch old-time radio announcer podcast conversation. extended whistle, breath veiled tone, slow rate, interlocked note trading. gymnasium. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 324,
+  "score": 150.895,
   "config": {
     "traditions": [
       "sports_play_by_play",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "extended_whistle_register",
-          "voice_quality": "crooner_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "legato_voice",
-          "voice_microtone": "bend_inflected",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "qawwali_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 2.4050000000000002,
-          "voice_quality": 5.720000000000001,
+          "voice_quality": 27.56,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.38,
-          "voice_articulation": 1.495,
-          "voice_microtone": 1.625,
+          "voice_vibrato": 3.3150000000000004,
+          "voice_articulation": 19.044999999999995,
+          "voice_microtone": 18.849999999999994,
           "voice_tradition": 4.095000000000001,
           "voice_mechanism_compound": 7.6049999999999995,
           "voice_estill_quality": 7.41,
-          "voice_speech_song": 20.864999999999995,
-          "voice_ensemble_config": 20.799999999999997,
+          "voice_speech_song": 21.58,
+          "voice_ensemble_config": 22.359999999999992,
           "voice_ornament_system": 1.56,
           "voice_pitch_organization": 2.4050000000000002,
           "voice_processing_chain": 5.525,
-          "voice_multitrack_stack": 4.94
+          "voice_multitrack_stack": 5.655000000000002
         }
       }
     ],

@@ -1,0 +1,418 @@
+{
+  "id": "simsimiyya",
+  "name": "Simsimiyya (Egyptian Canal-Zone/Red Sea lyre)",
+  "family": "plucked_traditional",
+  "class": "plucked_lyre",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": -1,
+    "polyphony": 0,
+    "harmonicity": 1,
+    "register": 1,
+    "range": -1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "simsimiyya",
+  "parts": [
+    {
+      "id": "simsimiyya_form",
+      "name": "Regional form & tuning",
+      "variants": [
+        {
+          "id": "simsimiyya_port_said",
+          "default": true,
+          "name": "Port Said sawahli simsimiyya (five-string, steel-strung)",
+          "descriptors": [
+            "five-string",
+            "metal-strung",
+            "jangly",
+            "maritime"
+          ],
+          "match_tokens": [
+            "plucked",
+            "lyre",
+            "rhythmic-drive"
+          ],
+          "canonical_tags": [
+            "egyptian",
+            "canal-zone",
+            "sawahli"
+          ]
+        },
+        {
+          "id": "simsimiyya_sinai_bedouin",
+          "name": "Sinai Bedouin simsimiyya (wooden-box, gut/nylon-strung)",
+          "descriptors": [
+            "bedouin",
+            "dry-toned",
+            "intimate",
+            "campfire"
+          ],
+          "match_tokens": [
+            "plucked",
+            "lyre",
+            "desert-traditional"
+          ],
+          "canonical_tags": [
+            "sinai",
+            "bedouin"
+          ]
+        },
+        {
+          "id": "simsimiyya_expanded_concert",
+          "name": "Expanded Port Said concert simsimiyya (12+ strings, lever-tuned maqam)",
+          "descriptors": [
+            "multi-string",
+            "maqam-tuned",
+            "modern",
+            "wide-voiced"
+          ],
+          "match_tokens": [
+            "plucked",
+            "lyre"
+          ],
+          "canonical_tags": [
+            "egyptian",
+            "modern",
+            "el-tanbura"
+          ]
+        },
+        {
+          "id": "simsimiyya_aqaba_semsemia",
+          "name": "Red Sea coast semsemia (Aqaba / Hijazi coastal form)",
+          "descriptors": [
+            "coastal",
+            "warm-toned",
+            "fishermens"
+          ],
+          "match_tokens": [
+            "plucked",
+            "lyre"
+          ],
+          "canonical_tags": [
+            "red-sea",
+            "aqaba",
+            "hijazi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "simsimiyya_repertoire",
+      "name": "Playing context & technique",
+      "variants": [
+        {
+          "id": "simsimiyya_dammah",
+          "default": true,
+          "name": "Dammah gathering / sawahli song accompaniment (strum-and-damp)",
+          "descriptors": [
+            "strum-and-damp",
+            "cyclic-ostinato",
+            "communal",
+            "call-and-response"
+          ],
+          "match_tokens": [
+            "plucked",
+            "rhythmic-drive",
+            "cyclic-ostinato"
+          ],
+          "canonical_tags": [
+            "sawahli",
+            "port-said"
+          ]
+        },
+        {
+          "id": "simsimiyya_bambutiyya",
+          "name": "Bambutiyya dance groove",
+          "descriptors": [
+            "driving",
+            "danceable",
+            "festive",
+            "syncopated"
+          ],
+          "match_tokens": [
+            "plucked",
+            "rhythmic-drive"
+          ],
+          "canonical_tags": [
+            "bambutiyya",
+            "dance"
+          ]
+        },
+        {
+          "id": "simsimiyya_canal_resistance",
+          "name": "Canal-city resistance / exile song (1967-73 Suez repertoire)",
+          "descriptors": [
+            "defiant",
+            "narrative",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "plucked",
+            "lyre"
+          ],
+          "canonical_tags": [
+            "suez",
+            "resistance-song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "simsimiyya_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "simsimiyya_strings_steel",
+          "default": true,
+          "name": "Steel wire (modern canonical — bicycle-cable / guitar wire)",
+          "descriptors": [
+            "metallic",
+            "shimmering",
+            "bright"
+          ],
+          "match_tokens": [
+            "plucked"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "simsimiyya_strings_gut",
+          "name": "Gut (historical)",
+          "descriptors": [
+            "gut-historical",
+            "warm",
+            "muted"
+          ],
+          "match_tokens": [
+            "plucked",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "simsimiyya_strings_nylon",
+          "name": "Nylon / fishing-line",
+          "descriptors": [
+            "rounded",
+            "soft-edged",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "simsimiyya_form",
+      "name": "Regional form & tuning",
+      "variants": [
+        {
+          "id": "simsimiyya_port_said",
+          "default": true,
+          "name": "Port Said sawahli simsimiyya (five-string, steel-strung)",
+          "descriptors": [
+            "five-string",
+            "metal-strung",
+            "jangly",
+            "maritime"
+          ],
+          "match_tokens": [
+            "plucked",
+            "lyre",
+            "rhythmic-drive"
+          ],
+          "canonical_tags": [
+            "egyptian",
+            "canal-zone",
+            "sawahli"
+          ]
+        },
+        {
+          "id": "simsimiyya_sinai_bedouin",
+          "name": "Sinai Bedouin simsimiyya (wooden-box, gut/nylon-strung)",
+          "descriptors": [
+            "bedouin",
+            "dry-toned",
+            "intimate",
+            "campfire"
+          ],
+          "match_tokens": [
+            "plucked",
+            "lyre",
+            "desert-traditional"
+          ],
+          "canonical_tags": [
+            "sinai",
+            "bedouin"
+          ]
+        },
+        {
+          "id": "simsimiyya_expanded_concert",
+          "name": "Expanded Port Said concert simsimiyya (12+ strings, lever-tuned maqam)",
+          "descriptors": [
+            "multi-string",
+            "maqam-tuned",
+            "modern",
+            "wide-voiced"
+          ],
+          "match_tokens": [
+            "plucked",
+            "lyre"
+          ],
+          "canonical_tags": [
+            "egyptian",
+            "modern",
+            "el-tanbura"
+          ]
+        },
+        {
+          "id": "simsimiyya_aqaba_semsemia",
+          "name": "Red Sea coast semsemia (Aqaba / Hijazi coastal form)",
+          "descriptors": [
+            "coastal",
+            "warm-toned",
+            "fishermens"
+          ],
+          "match_tokens": [
+            "plucked",
+            "lyre"
+          ],
+          "canonical_tags": [
+            "red-sea",
+            "aqaba",
+            "hijazi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "simsimiyya_repertoire",
+      "name": "Playing context & technique",
+      "variants": [
+        {
+          "id": "simsimiyya_dammah",
+          "default": true,
+          "name": "Dammah gathering / sawahli song accompaniment (strum-and-damp)",
+          "descriptors": [
+            "strum-and-damp",
+            "cyclic-ostinato",
+            "communal",
+            "call-and-response"
+          ],
+          "match_tokens": [
+            "plucked",
+            "rhythmic-drive",
+            "cyclic-ostinato"
+          ],
+          "canonical_tags": [
+            "sawahli",
+            "port-said"
+          ]
+        },
+        {
+          "id": "simsimiyya_bambutiyya",
+          "name": "Bambutiyya dance groove",
+          "descriptors": [
+            "driving",
+            "danceable",
+            "festive",
+            "syncopated"
+          ],
+          "match_tokens": [
+            "plucked",
+            "rhythmic-drive"
+          ],
+          "canonical_tags": [
+            "bambutiyya",
+            "dance"
+          ]
+        },
+        {
+          "id": "simsimiyya_canal_resistance",
+          "name": "Canal-city resistance / exile song (1967-73 Suez repertoire)",
+          "descriptors": [
+            "defiant",
+            "narrative",
+            "plaintive"
+          ],
+          "match_tokens": [
+            "plucked",
+            "lyre"
+          ],
+          "canonical_tags": [
+            "suez",
+            "resistance-song"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "simsimiyya_string_material",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "simsimiyya_strings_steel",
+          "default": true,
+          "name": "Steel wire (modern canonical — bicycle-cable / guitar wire)",
+          "descriptors": [
+            "metallic",
+            "shimmering",
+            "bright"
+          ],
+          "match_tokens": [
+            "plucked"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        },
+        {
+          "id": "simsimiyya_strings_gut",
+          "name": "Gut (historical)",
+          "descriptors": [
+            "gut-historical",
+            "warm",
+            "muted"
+          ],
+          "match_tokens": [
+            "plucked",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        },
+        {
+          "id": "simsimiyya_strings_nylon",
+          "name": "Nylon / fishing-line",
+          "descriptors": [
+            "rounded",
+            "soft-edged",
+            "modern"
+          ],
+          "match_tokens": [
+            "plucked"
+          ],
+          "canonical_tags": [
+            "modern"
+          ]
+        }
+      ]
+    }
+  ]
+}

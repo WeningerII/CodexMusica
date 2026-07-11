@@ -3,9 +3,9 @@
   "name": "Zarzuela (Spanish lyric theatre)",
   "family": "classical",
   "lineage": "Spanish lyric-theatre tradition combining sung-operatic and spoken-dialogue sections, named after the Royal Palacio de la Zarzuela where the early seventeenth-century court entertainments were performed. The modern zarzuela emerged in mid-nineteenth-century Madrid through Francisco Asenjo Barbieri and Federico Chueca; the género chico shorter one-act form developed in 1880s-1900s and crystallized the canonical Madrid-urban-life subject matter. Distinguished from broader European operetta by zarzuela's Spanish-specific musical idioms (jota, habanera, fandango integration) and Madrid-and-regional Spanish settings.",
-  "recipe": "classic British mid-1880s zarzuela, functional Song, iberian branch, western common practice art music bel canto opera early romantic. thick, low dynamic level, chest resonance low mid, ornamental. beech laminated maple laminated European tradition European spruce norway spruce grand piano, synthetic carpathian spruce European maple sycamore maple oil varnish violin orchestral. shoebox concert hall. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 548,
-  "score": 270.032,
+  "recipe": "classic British mid-1880s zarzuela, functional Song, iberian branch, western common practice art music bel canto opera early romantic. thick, breath veiled tone, slow rate, interlocked note trading. beech laminated maple laminated European tradition European spruce norway spruce grand piano, synthetic carpathian spruce European maple sycamore maple oil varnish violin orchestral. shoebox concert hall. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 549,
+  "score": 293.68,
   "config": {
     "traditions": [
       "zarzuela_spanish",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "crooner_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "melisma_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "operatic_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
           "voice_register": 5.0249999999999995,
-          "voice_quality": 7.28,
+          "voice_quality": 11.439999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.135,
-          "voice_articulation": 0.6,
-          "voice_microtone": 10.1725,
+          "voice_vibrato": 9.035,
+          "voice_articulation": 13.324999999999996,
+          "voice_microtone": 13.129999999999992,
           "voice_tradition": 13.6175,
           "voice_mechanism_compound": 4.9,
           "voice_estill_quality": 9.83,
-          "voice_speech_song": 19.5325,
-          "voice_ensemble_config": 13.389999999999997,
+          "voice_speech_song": 19.402499999999996,
+          "voice_ensemble_config": 13.259999999999994,
           "voice_ornament_system": 12.075,
-          "voice_pitch_organization": 7.805,
+          "voice_pitch_organization": 7.865,
           "voice_processing_chain": 3.685,
-          "voice_multitrack_stack": 2.235
+          "voice_multitrack_stack": 2.34
         }
       },
       {

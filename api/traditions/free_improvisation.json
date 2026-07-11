@@ -3,9 +3,9 @@
   "name": "Free improvisation (non-idiomatic)",
   "family": "global",
   "lineage": "Post-1960s European and American non-idiomatic improvisation tradition — codified through Derek Bailey’s Improvisation: Its Nature and Practice in Music (1980) as theoretical foundation, the Spontaneous Music Ensemble (London 1966 onward), AMM, Music Improvisation Company, the Globe Unity Orchestra, and the Bay Area / Knitting Factory NYC American scenes — characterized by genre-disavowal posture, no-pre-arranged-material premise, and timbre-and-extended-technique-foreground performance",
-  "recipe": "classic mid-1960s free improvisation, improv On Frame, jam free branch, musique concrete experimental electric musique concrète electroacoustic composition. extended whistle, nervy, equal tempered, 31 tet. alto yellow brass modern standard saxophone, steel plywood laminate European maple sycamore maple double bass, oak pre muffled edge muffled fx9 manganese bronze drum kit, glitched textural granular synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 556,
-  "score": 124.628,
+  "recipe": "classic mid-1960s free improvisation, improv On Frame, jam free branch, musique concrete experimental electric musique concrète electroacoustic composition. extended whistle, breath veiled tone, fast rate, interlocked note trading. alto yellow brass modern standard saxophone, steel plywood laminate European maple sycamore maple double bass, oak pre muffled edge muffled fx9 manganese bronze drum kit, glitched textural granular synth, whale song waterphone. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 605,
+  "score": 169.139,
   "config": {
     "traditions": [
       "free_improvisation",
@@ -17,39 +17,39 @@
         "id": "voice",
         "slots": {
           "voice_register": "extended_whistle_register",
-          "voice_quality": "fry_bleed_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "fast_vibrato",
-          "voice_articulation": "legato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "microtonal_31tet_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_falsetto",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_equal_tempered_12",
           "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
           "voice_register": 1.56,
-          "voice_quality": 0.325,
+          "voice_quality": 7.3450000000000015,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.4382307692307692,
-          "voice_articulation": 0.004230769230769231,
-          "voice_microtone": 1.714772727272727,
+          "voice_articulation": 10.205,
+          "voice_microtone": 12.50965588578088,
           "voice_tradition": 8.373704836829837,
           "voice_mechanism_compound": 0.78,
           "voice_estill_quality": 0.1975,
-          "voice_speech_song": 10.724999999999998,
-          "voice_ensemble_config": 10.27,
-          "voice_ornament_system": 1.288230769230769,
+          "voice_speech_song": 10.594999999999995,
+          "voice_ensemble_config": 10.529999999999994,
+          "voice_ornament_system": 2.9495673076923086,
           "voice_pitch_organization": 0.6134615384615384,
-          "voice_processing_chain": 2.6650000000000005,
-          "voice_multitrack_stack": 3.1467948717948726
+          "voice_processing_chain": 3.835000000000001,
+          "voice_multitrack_stack": 5.072889277389279
         }
       },
       {
@@ -140,6 +140,21 @@
           "electronic_technique": 5.6450000000000005,
           "granular_use": 0.195,
           "granular_synth_source": 4.55
+        }
+      },
+      {
+        "id": "waterphone",
+        "slots": {
+          "waterphone_model": "waterphone_whaler",
+          "waterphone_excitation": "waterphone_bowed_rods",
+          "waterphone_context": "waterphone_free_improv",
+          "waterphone_construction": "waterphone_bronze_stainless"
+        },
+        "scores": {
+          "waterphone_model": 4.273833333333332,
+          "waterphone_excitation": 0.30596153846153845,
+          "waterphone_context": 6.833230769230768,
+          "waterphone_construction": 0.195
         }
       }
     ],

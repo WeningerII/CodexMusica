@@ -3,9 +3,9 @@
   "name": "Gaita galega solo",
   "family": "global",
   "lineage": "Galician solo bagpipe tradition — the gaita galega is the Galician bellows-blown or mouth-blown pipe with three drones and chanter, distinct from the kindred Asturian gaita asturiana (single-drone) and the Scottish Highland bagpipe (three-drone but different chanter scale). 20th-century revival figures include Ricardo Portela, Ramón Casal Castro, Antón Corral, the contemporary master Carlos Núñez (whose 1996 A Irmandade das Estrelas album with collaborations from The Chieftains, Ry Cooder, and others brought Galician piping to global audiences), Cristina Pato (the female gaita virtuoso). The instrument is paired with tambor (snare drum) for outdoor festive contexts",
-  "recipe": "classic Northern European mid-1990s gaita galega solo, drone Modal, wind pipe branch, chanson fado ballad poetry french musette. gaita galega three drone muiñeira dance driving gaita galega. scottish galician piping outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 354,
-  "score": 67.696,
+  "recipe": "classic Northern European mid-1990s gaita galega solo, drone Modal, wind pipe branch, chanson fado ballad poetry french musette. gaita galega three drone muiñeira dance driving gaita galega. scottish galician piping outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 287,
+  "score": 60.446,
   "config": {
     "traditions": [
       "galician_pipe_solo",
@@ -33,7 +33,7 @@
       }
     ],
     "room": "scottish_galician_piping_outdoor",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

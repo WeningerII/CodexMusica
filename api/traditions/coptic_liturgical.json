@@ -3,9 +3,9 @@
   "name": "Coptic liturgical chant",
   "family": "global",
   "lineage": "Coptic Orthodox liturgical chant tradition of Egypt, preserved continuously since the early Christian centuries with characteristic features including Coptic-language liturgical text, antiphonal-choral-and-deacon-leader vocal exchange, and characteristic melismatic ornamental melodic style — claimed by tradition to preserve features of pre-Christian Egyptian temple-music practice, with the canonical repertoire codified across the Holy Week and Eucharistic-liturgy cycles",
-  "recipe": "classic modern coptic liturgical chant, ritual Devotional, coptic branch, middle eastern classical art music andalusī nūba azerbaijani mugham. thick, declaimed, chest resonance low mid, ornamental. polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble. cathedral. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 474,
-  "score": 207.828,
+  "recipe": "classic modern coptic liturgical chant, ritual Devotional, coptic branch, middle eastern classical art music andalusī nūba azerbaijani mugham. thick, breath veiled tone, slow rate, interlocked note trading. polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble. cathedral. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 483,
+  "score": 253.993,
   "config": {
     "traditions": [
       "coptic_liturgical",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "melisma_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "persian_dastgah_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
           "voice_pitch_organization": "voice_pitch_persian_dastgah",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 4.050000000000001,
-          "voice_quality": 8.885,
+          "voice_quality": 17.289999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.045,
-          "voice_articulation": 4.9,
-          "voice_microtone": 14.405000000000001,
+          "voice_vibrato": 15.307500000000003,
+          "voice_articulation": 12.609999999999994,
+          "voice_microtone": 34.2225,
           "voice_tradition": 30.647500000000004,
           "voice_mechanism_compound": 17.86,
           "voice_estill_quality": 17.75,
-          "voice_speech_song": 13.779999999999998,
-          "voice_ensemble_config": 13.129999999999995,
+          "voice_speech_song": 13.844999999999994,
+          "voice_ensemble_config": 12.999999999999993,
           "voice_ornament_system": 20.650000000000002,
           "voice_pitch_organization": 22.87,
-          "voice_processing_chain": 6.434999999999999,
-          "voice_multitrack_stack": 5.4
+          "voice_processing_chain": 6.5,
+          "voice_multitrack_stack": 6.37
         }
       },
       {

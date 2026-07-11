@@ -3,9 +3,9 @@
   "name": "Melodic house (2010s emotional-melodic deep-house)",
   "family": "electronic",
   "lineage": "2010s deep-and-progressive-house subgenre emphasizing melodic-and-harmonic-development over rhythmic-and-functional dance-floor utility. The Anjunadeep label (founded 2005 as Anjunabeats deep-house sublabel, ran by Above & Beyond) consolidated the canonical melodic house roster. Yotto, Lane 8, Eli & Fur, Jody Wisternoff, and the broader Anjunadeep-Mango Alley-Last Night On Earth label network extended the genre into ambient-leaning deep-house adjacency.",
-  "recipe": "classic melodic house, electronic Dance, house branch, ambient experimental electric outrun / synthwave vaporwave aesthetic. extended whistle, rap, melodic, punctuated. behringer rd 8 modern clone analog circuit reproduction TR-808, pad like pad analog synth, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 544,
-  "score": 138.85,
+  "recipe": "classic melodic house, electronic Dance, house branch, ambient experimental electric outrun / synthwave vaporwave aesthetic. extended whistle, breath veiled tone, straight note core, interlocked note trading. behringer rd 8 modern clone analog circuit reproduction TR-808, pad like pad analog synth, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 584,
+  "score": 177.325,
   "config": {
     "traditions": [
       "melodic_house",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "extended_whistle_register",
-          "voice_quality": "rap_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "staccato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "microtonal_31tet_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 5.255,
-          "voice_quality": 1.29,
+          "voice_quality": 11.43999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.55,
-          "voice_articulation": 1.3900000000000001,
-          "voice_microtone": 3.0500000000000007,
+          "voice_vibrato": 5.5200000000000005,
+          "voice_articulation": 13.324999999999996,
+          "voice_microtone": 13.129999999999992,
           "voice_tradition": 11.115,
           "voice_mechanism_compound": 1.6899999999999997,
           "voice_estill_quality": 1.4949999999999997,
-          "voice_speech_song": 13.454999999999997,
-          "voice_ensemble_config": 13.389999999999997,
+          "voice_speech_song": 15.014999999999997,
+          "voice_ensemble_config": 14.104999999999995,
           "voice_ornament_system": 1.4949999999999999,
-          "voice_pitch_organization": 4.875,
+          "voice_pitch_organization": 4.680000000000001,
           "voice_processing_chain": 18.124999999999996,
-          "voice_multitrack_stack": 12.405
+          "voice_multitrack_stack": 15.664999999999996
         }
       },
       {

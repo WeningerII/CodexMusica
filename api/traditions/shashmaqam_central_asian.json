@@ -3,9 +3,9 @@
   "name": "Shashmaqam (Tajik-Uzbek classical)",
   "family": "classical",
   "lineage": "Bukharan Central Asian classical six-modal-cycle tradition shared between Tajikistan and Uzbekistan. The six modal cycles — Buzruk, Rost, Navo, Dugoh, Segoh, Iroq — each a multi-movement suite structure. Origin in Bukhara city under the Bukharan emirate, present form crystallized in the eighteenth century. Canonical instrumentation: tanbur long-necked plucked lute as the primary maqom voice carrier, dutar two-string fretted lute, sato bowed tanbur, ghijak spike fiddle (analogue to Azerbaijani kamancha), doira frame-drum with internal jingles, nay end-blown reed flute. The Bukharan Jewish community preserved the most archaic transmission layer through Soviet-era suppression and subsequent diaspora-recovery in the United States and Israel. Twentieth-century master Turgun Alimatov (tanbur, dutar, sato virtuoso) anchored the post-Soviet revival. Distinguished from Azerbaijani mugham by six-maqom-cycle structure (vs Azerbaijani seven-dastgah); distinguished from Persian dastgah-i radif by Bukharan ensemble configuration and Tajik-Persian-language sufyiana-poetry textual base; distinguished from Uyghur muqam by Bukharan-Tajik dialect-specific cadential and modal vocabulary",
-  "recipe": "classic Central Asian mid-1990s shashmaqam, art Music, middle eastern classical branch, Persian arab improv improv on frame tarab turkish-romani çümbüş music. extended whistle, low dynamic level, chest resonance low mid, maqam neutral step. mulberry bowl canonical kurdish steel modern tanbur persian, mulberry pear body canonical bukharan shashmaqam silk canonical pre modern shashmaqam bukharan shashmaqam canonical uzbek tajik classical dutar, mulberry pear body long neck bowed tanbur shashmaqam canonical bukhara samarkand classical legato sato, walnut bowl skin faced canonical caucasian four string silk or steel canonical mugham trio Persian radif tradition tehran conservatory legato kamancha, walnut bent frame canonical Persian goat skin tacked brass rings canonical Iranian daf, carved mulberry muqam ensemble melodic bright metallic rubab. bukhara shashmaqam courtyard chamber. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ.",
-  "recipe_chars": 991,
-  "score": 459.218,
+  "recipe": "classic Central Asian early-1940s shashmaqam, art Music, middle eastern classical branch, Persian arab improv improv on frame tarab turkish-romani çümbüş music. extended whistle, breath veiled tone, slow rate, interlocked note trading. mulberry bowl canonical kurdish steel modern tanbur persian, mulberry pear body canonical bukharan shashmaqam silk canonical pre modern shashmaqam bukharan shashmaqam canonical uzbek tajik classical dutar, mulberry pear body long neck bowed tanbur shashmaqam canonical bukhara samarkand classical legato sato, walnut bowl skin faced canonical caucasian four string silk or steel canonical mugham trio Persian radif tradition tehran conservatory legato kamancha, walnut bent frame canonical Persian goat skin tacked brass rings canonical Iranian daf, carved mulberry muqam ensemble melodic bright metallic rubab. bukhara shashmaqam courtyard chamber. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ.",
+  "recipe_chars": 995,
+  "score": 525.558,
   "config": {
     "traditions": [
       "shashmaqam_central_asian",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "extended_whistle_register",
-          "voice_quality": "crooner_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "staccato_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "persian_dastgah_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_persian_tahrir",
           "voice_pitch_organization": "voice_pitch_persian_dastgah",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 2.3074999999999997,
-          "voice_quality": 4.225,
+          "voice_quality": 18.85,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 9.685,
-          "voice_articulation": 0.12999999999999998,
-          "voice_microtone": 14.324625,
+          "voice_vibrato": 23.267625,
+          "voice_articulation": 14.949999999999996,
+          "voice_microtone": 39.975,
           "voice_tradition": 49.306124999999994,
           "voice_mechanism_compound": 33.510875,
           "voice_estill_quality": 23.211874999999996,
           "voice_speech_song": 18.7515,
-          "voice_ensemble_config": 15.014999999999997,
+          "voice_ensemble_config": 15.079999999999995,
           "voice_ornament_system": 35.31325,
           "voice_pitch_organization": 37.883375,
           "voice_processing_chain": 7.54,
-          "voice_multitrack_stack": 2.145
+          "voice_multitrack_stack": 4.680000000000001
         }
       },
       {
@@ -142,7 +142,7 @@
       }
     ],
     "room": "bukhara_shashmaqam_courtyard_chamber",
-    "archetype": "arch_80s_late_analog_majorrock",
+    "archetype": "arch_melodiya_state",
     "inline_chain": {
       "mic": "mic_u87_condenser_neumann",
       "pre": "tube_pre",

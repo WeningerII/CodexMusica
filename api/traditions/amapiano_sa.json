@@ -3,9 +3,9 @@
   "name": "Amapiano (South African 2010s)",
   "family": "electronic",
   "lineage": "South African deep-house-and-jazz hybrid genre emerging in mid-2010s in Johannesburg and Pretoria. Characterized by extremely-deep \"log drum\" synthesizer-bass, jazz-piano keyboard work, slow-to-mid tempo (108-115 BPM), and extended drawn-out arrangement structures. Kabza De Small (\"King of Amapiano\"), DJ Maphorisa, and Vigro Deep constitute the canonical producer-roster; the genre spread internationally through 2020-onward through TikTok-Pretoria-dance-circulation and is now the dominant African-dance-music form continent-wide.",
-  "recipe": "classic Southern African amapiano, electronic Dance, African dance branch, house electronic dance afro house deep house. thick, blues-shouter, chest resonance low mid, narrative. TR-808, analog synth, log drum. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 425,
-  "score": 167.525,
+  "recipe": "classic Southern African amapiano, electronic Dance, African dance branch, house electronic dance afro house deep house. thick, breath veiled tone, straight onset, interlocked note trading. TR-808, analog synth, log drum. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
+  "recipe_chars": 390,
+  "score": 215.935,
   "config": {
     "traditions": [
       "amapiano_sa",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "blues_shouter_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "narrative_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_belt",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 14.884999999999996,
-          "voice_quality": 4.125000000000002,
+          "voice_quality": 8.645000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.1249999999999996,
-          "voice_articulation": 3.0999999999999996,
-          "voice_microtone": 9.499999999999996,
+          "voice_vibrato": 10.964999999999998,
+          "voice_articulation": 17.029999999999994,
+          "voice_microtone": 17.224999999999994,
           "voice_tradition": 24.735,
           "voice_mechanism_compound": 0.39,
           "voice_estill_quality": 4.725,
-          "voice_speech_song": 17.809999999999995,
-          "voice_ensemble_config": 17.289999999999996,
+          "voice_speech_song": 17.679999999999993,
+          "voice_ensemble_config": 17.159999999999993,
           "voice_ornament_system": 1.6749999999999998,
-          "voice_pitch_organization": 2.49,
+          "voice_pitch_organization": 2.5350000000000006,
           "voice_processing_chain": 14.395,
-          "voice_multitrack_stack": 9.844999999999999
+          "voice_multitrack_stack": 15.204999999999998
         }
       },
       {
@@ -95,7 +95,7 @@
       }
     ],
     "room": "johannesburg_gallo_african_studios",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_sa_township_digital",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "pre_neve_1073_input",

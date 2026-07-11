@@ -3,9 +3,9 @@
   "name": "Cape Verdean funaná (maritime-and-island work-song)",
   "family": "global",
   "lineage": "Cape Verdean Atlantic-island music tradition with maritime-and-emigration thematic integration; the broader Cape Verdean musical tradition (morna, coladeira, funaná, batuque) developed across 16th-onward Portuguese-colonial-era through post-1975 independent-Cape-Verdean continuous practice; the Cape Verdean maritime-emigration culture integrates extensive maritime-and-port-departure-lament repertoire",
-  "recipe": "classic West African mid-1970s cape verdean funaná, sea Shanty, atlantic branch, americas drinking song, iberian Latin protest song, chanson fado ballad poetry morna cape verdean batuko of santiago island. vocal fry, lament wail, chest resonance low mid, continuous-phonation. cedar fingerpicked classical nylon-string guitar, jacaranda rosewood canonical Portuguese gut pre modern Portuguese strummed cavaquinho, castagnari Italian premium folk music accordion. batuko outdoor village. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 616,
-  "score": 186.915,
+  "recipe": "classic West African mid-1970s cape verdean funaná, sea Shanty, atlantic branch, americas drinking song, iberian Latin protest song, chanson fado ballad poetry morna cape verdean batuko of santiago island. vocal fry, breath veiled tone, slow rate, interlocked note trading. cedar fingerpicked classical nylon-string guitar, jacaranda rosewood canonical Portuguese gut pre modern Portuguese strummed cavaquinho, castagnari Italian premium folk music accordion. batuko outdoor village. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 546,
+  "score": 247.51,
   "config": {
     "traditions": [
       "cape_verdean_funana_maritime",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "vocal_fry",
-          "voice_quality": "fado_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "legato_voice",
-          "voice_microtone": "blue_notes",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_plate_reverb_medium",
-          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 3.5199999999999996,
-          "voice_quality": 11.21,
+          "voice_quality": 28.13,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.78,
-          "voice_articulation": 2.535,
-          "voice_microtone": 1.3449999999999998,
+          "voice_vibrato": 3.5424999999999995,
+          "voice_articulation": 25.09,
+          "voice_microtone": 25.415,
           "voice_tradition": 16.835,
           "voice_mechanism_compound": 6.294999999999999,
           "voice_estill_quality": 6.535000000000001,
-          "voice_speech_song": 29.770000000000003,
-          "voice_ensemble_config": 24.505000000000003,
+          "voice_speech_song": 30.615000000000002,
+          "voice_ensemble_config": 26.065,
           "voice_ornament_system": 2.619999999999999,
           "voice_pitch_organization": 2.660000000000001,
-          "voice_processing_chain": 5.78,
-          "voice_multitrack_stack": 4.67
+          "voice_processing_chain": 8.420000000000003,
+          "voice_multitrack_stack": 6.825
         }
       },
       {
@@ -111,7 +111,7 @@
       }
     ],
     "room": "batuko_outdoor_village",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

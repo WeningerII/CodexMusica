@@ -1,0 +1,410 @@
+{
+  "id": "torupill",
+  "name": "Torupill (Estonian mouth-blown bagpipe)",
+  "family": "wind",
+  "class": "mouth_blown_bagpipe",
+  "axes": {
+    "pitchFix": 0,
+    "sustain": 2,
+    "polyphony": 0,
+    "harmonicity": 0,
+    "register": 0,
+    "range": 0,
+    "articulation": 0,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "Estonian single-reed mouth-blown bagpipe with a continuous drone, its non-tempered chanter scale driving village dance tunes and the runo-song folk revival.",
+  "parts": [
+    {
+      "id": "torupill_form",
+      "name": "Regional form and drone configuration",
+      "variants": [
+        {
+          "id": "torupill_form_single_drone",
+          "default": true,
+          "name": "Single-drone farmhouse torupill",
+          "descriptors": [
+            "single-drone",
+            "farmhouse-rustic",
+            "one-toll-drone",
+            "parallel-bore"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "drone-foundation",
+            "mouth-blown",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "traditional",
+            "single_drone"
+          ]
+        },
+        {
+          "id": "torupill_form_double_drone",
+          "name": "Two-drone torupill",
+          "descriptors": [
+            "twin-drone",
+            "stacked-fifth-drones",
+            "fuller-foundation"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "drone-foundation",
+            "mouth-blown"
+          ],
+          "canonical_tags": [
+            "two_drone"
+          ]
+        },
+        {
+          "id": "torupill_form_concert",
+          "name": "Modern revival concert torupill",
+          "descriptors": [
+            "revival-concert",
+            "tempered-chanter",
+            "multi-drone",
+            "stage-tuned"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "drone-foundation",
+            "mouth-blown",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "revival",
+            "concert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "torupill_setting",
+      "name": "Playing context and repertoire",
+      "variants": [
+        {
+          "id": "torupill_setting_village_dance",
+          "default": true,
+          "name": "Village dance tunes",
+          "descriptors": [
+            "driving-dance-pulse",
+            "labajalavals-swing",
+            "reinlender-lilt",
+            "insistent-drone-over-melody"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "drone-foundation",
+            "dance"
+          ],
+          "canonical_tags": [
+            "dance",
+            "labajalavals"
+          ]
+        },
+        {
+          "id": "torupill_setting_runosong",
+          "name": "Runo-song and archaic melody accompaniment",
+          "descriptors": [
+            "archaic-runic",
+            "narrow-scale-cycling",
+            "hypnotic-repetition",
+            "drone-anchored"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "drone-foundation",
+            "vocal-support"
+          ],
+          "canonical_tags": [
+            "regilaul",
+            "runosong"
+          ]
+        },
+        {
+          "id": "torupill_setting_folk_revival",
+          "name": "Contemporary folk-revival stage",
+          "descriptors": [
+            "viljandi-stage",
+            "amplified-groove",
+            "band-integrated",
+            "punchy-drone-riff"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ensemble",
+            "amplified"
+          ],
+          "canonical_tags": [
+            "revival",
+            "stage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "torupill_bag",
+      "surface": false,
+      "name": "Bag and chanter construction",
+      "variants": [
+        {
+          "id": "torupill_bag_sealskin",
+          "default": true,
+          "name": "Seal-stomach bag with cane single reed",
+          "descriptors": [
+            "seal-stomach-bag",
+            "cane-single-reed",
+            "airy-breathy-edge",
+            "warm-rustic"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "mouth-blown",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "sealskin",
+            "single_reed"
+          ]
+        },
+        {
+          "id": "torupill_bag_dogskin",
+          "name": "Dog- or cow-skin bag",
+          "descriptors": [
+            "hide-skin-bag",
+            "leathery-resonance",
+            "earthy-buzz"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "mouth-blown",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "hide_bag"
+          ]
+        },
+        {
+          "id": "torupill_bag_synthetic",
+          "name": "Modern synthetic bag with tunable reed",
+          "descriptors": [
+            "synthetic-bag",
+            "stable-tuning",
+            "clean-steady-drone"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "mouth-blown"
+          ],
+          "canonical_tags": [
+            "synthetic"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "torupill_form",
+      "name": "Regional form and drone configuration",
+      "variants": [
+        {
+          "id": "torupill_form_single_drone",
+          "default": true,
+          "name": "Single-drone farmhouse torupill",
+          "descriptors": [
+            "single-drone",
+            "farmhouse-rustic",
+            "one-toll-drone",
+            "parallel-bore"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "drone-foundation",
+            "mouth-blown",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "traditional",
+            "single_drone"
+          ]
+        },
+        {
+          "id": "torupill_form_double_drone",
+          "name": "Two-drone torupill",
+          "descriptors": [
+            "twin-drone",
+            "stacked-fifth-drones",
+            "fuller-foundation"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "drone-foundation",
+            "mouth-blown"
+          ],
+          "canonical_tags": [
+            "two_drone"
+          ]
+        },
+        {
+          "id": "torupill_form_concert",
+          "name": "Modern revival concert torupill",
+          "descriptors": [
+            "revival-concert",
+            "tempered-chanter",
+            "multi-drone",
+            "stage-tuned"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "drone-foundation",
+            "mouth-blown",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "revival",
+            "concert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "torupill_setting",
+      "name": "Playing context and repertoire",
+      "variants": [
+        {
+          "id": "torupill_setting_village_dance",
+          "default": true,
+          "name": "Village dance tunes",
+          "descriptors": [
+            "driving-dance-pulse",
+            "labajalavals-swing",
+            "reinlender-lilt",
+            "insistent-drone-over-melody"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "drone-foundation",
+            "dance"
+          ],
+          "canonical_tags": [
+            "dance",
+            "labajalavals"
+          ]
+        },
+        {
+          "id": "torupill_setting_runosong",
+          "name": "Runo-song and archaic melody accompaniment",
+          "descriptors": [
+            "archaic-runic",
+            "narrow-scale-cycling",
+            "hypnotic-repetition",
+            "drone-anchored"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "drone-foundation",
+            "vocal-support"
+          ],
+          "canonical_tags": [
+            "regilaul",
+            "runosong"
+          ]
+        },
+        {
+          "id": "torupill_setting_folk_revival",
+          "name": "Contemporary folk-revival stage",
+          "descriptors": [
+            "viljandi-stage",
+            "amplified-groove",
+            "band-integrated",
+            "punchy-drone-riff"
+          ],
+          "match_tokens": [
+            "wind-driven",
+            "reed-driven",
+            "ensemble",
+            "amplified"
+          ],
+          "canonical_tags": [
+            "revival",
+            "stage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "torupill_bag",
+      "surface": false,
+      "name": "Bag and chanter construction",
+      "variants": [
+        {
+          "id": "torupill_bag_sealskin",
+          "default": true,
+          "name": "Seal-stomach bag with cane single reed",
+          "descriptors": [
+            "seal-stomach-bag",
+            "cane-single-reed",
+            "airy-breathy-edge",
+            "warm-rustic"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "mouth-blown",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "sealskin",
+            "single_reed"
+          ]
+        },
+        {
+          "id": "torupill_bag_dogskin",
+          "name": "Dog- or cow-skin bag",
+          "descriptors": [
+            "hide-skin-bag",
+            "leathery-resonance",
+            "earthy-buzz"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "mouth-blown",
+            "rough-tone"
+          ],
+          "canonical_tags": [
+            "hide_bag"
+          ]
+        },
+        {
+          "id": "torupill_bag_synthetic",
+          "name": "Modern synthetic bag with tunable reed",
+          "descriptors": [
+            "synthetic-bag",
+            "stable-tuning",
+            "clean-steady-drone"
+          ],
+          "match_tokens": [
+            "reed-driven",
+            "mouth-blown"
+          ],
+          "canonical_tags": [
+            "synthetic"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -3,9 +3,9 @@
   "name": "Mormon Tabernacle Choir tradition",
   "family": "classical",
   "lineage": "Mormon Tabernacle Choir of the LDS Church (founded 1847 in Salt Lake City, Utah) liturgical-and-concert choral tradition, comprising approximately 360 unpaid volunteer LDS Church-member singers. The choir performs at LDS General Conference biannual sessions and weekly Music & the Spoken Word radio broadcasts (continuous since 1929). Repertoire spans Mormon-specific liturgical hymns from the LDS Hymnbook, broader Christian-Protestant hymn tradition, and twentieth-century American-Western art-music. Distinguished by its 360-voice scale and the Salt Lake Tabernacle Aeolian-Skinner pipe-organ.",
-  "recipe": "classic North American late-1840s mormon tabernacle choir tradition, ritual Devotional, christian gospel branch, western common practice art music bel canto opera early romantic. thick, declaimed, chest resonance low mid, ornamental. mixed satb canonical 4 part western five voice polyphonic regional kakhetian three voice two soloists choral drone choir ensemble, skinner aeolian skinner canonical American eclectic early 20th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque pneumatic canonical late 19th century romantic legato pipe organ. cathedral. passive ribbon, tube pre, German tube console. Studer 30ips tape.",
-  "recipe_chars": 703,
-  "score": 189.97,
+  "recipe": "classic North American late-1840s mormon tabernacle choir tradition, ritual Devotional, christian gospel branch, western common practice art music bel canto opera early romantic. thick, breath veiled tone, slow rate, interlocked note trading. mixed satb canonical 4 part western five voice polyphonic regional kakhetian three voice two soloists choral drone choir ensemble, skinner aeolian skinner canonical American eclectic early 20th century zinc canonical large pedal pipes late 19th century cost efficient quarter comma meantone canonical renaissance early Baroque pneumatic canonical late 19th century romantic legato pipe organ. cathedral. passive ribbon, tube pre, German tube console. Studer 30ips tape.",
+  "recipe_chars": 712,
+  "score": 213.872,
   "config": {
     "traditions": [
       "mormon_tabernacle_choir",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "melisma_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "chinese_classical_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
           "voice_register": 6.875,
-          "voice_quality": 7.195000000000001,
+          "voice_quality": 11.439999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.445,
-          "voice_articulation": 4.4,
-          "voice_microtone": 9.3275,
+          "voice_vibrato": 7.345000000000001,
+          "voice_articulation": 11.634999999999994,
+          "voice_microtone": 11.43999999999999,
           "voice_tradition": 12.74,
           "voice_mechanism_compound": 4.9,
           "voice_estill_quality": 9.83,
-          "voice_speech_song": 13.357499999999998,
-          "voice_ensemble_config": 13.389999999999997,
+          "voice_speech_song": 13.227499999999996,
+          "voice_ensemble_config": 17.939999999999994,
           "voice_ornament_system": 12.075,
           "voice_pitch_organization": 4.9,
-          "voice_processing_chain": 3.38,
-          "voice_multitrack_stack": 2.235
+          "voice_processing_chain": 5.005000000000001,
+          "voice_multitrack_stack": 2.600000000000001
         }
       },
       {

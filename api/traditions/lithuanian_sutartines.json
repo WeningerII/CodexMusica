@@ -3,9 +3,9 @@
   "name": "Lithuanian sutartinės multipart",
   "family": "global",
   "lineage": "Lithuanian sutartinės multipart-singing tradition of northeastern Lithuania (Aukštaitija region). Sutartinės are female-group (occasionally mixed-or-male) polyphonic songs in characteristic parallel-second intervals — two-or-three voices moving in tight major-second-and-minor-second clusters, with strict canonical-imitative entry-patterns at the second or fourth. The genre includes vocal-only (sutartinės-as-song) and instrumental variants performed on kanklės (board zither, finger-plucked) and skudučiai (multiple-tube pan-pipes played by multiple players in hocketed pattern, with each player blowing only one tube and the melodic line resulting from the rapid alternation across players). Sutartinė structure typically alternates between an opening-formula sung by one voice, an answering response from the second voice, and the eventual building-up of the canonical two-or-three-voice texture. Repertoire spans work-song accompaniment, calendar-rite celebrations, wedding-cycle songs, and the broader Baltic narrow-range narrative-poetic tradition. Modal vocabulary draws on the Lithuanian sutartinės parallel-seconds vocabulary, considered one of the most archaic tonal systems in Europe with possible deep Indo-European ritual-music continuity. Zenonas Slaviūnas's three-volume 1820-sutartinė edition (1958-1959) is the foundational corpus-documentation; Stasys Paliulis's instrumental-sutartinė collection complements the vocal corpus; Distinguished from Latvian dainas by Lithuanian sutartinės parallel-seconds polyphonic configuration (vs Latvian-dainas-as-mostly-monophonic-or-heterophonic); distinguished from Estonian Setu leelo by Lithuanian's strict-canonical-imitation (vs Setu's call-and-response-with-drone-bourdon) architecture.",
-  "recipe": "classic Northern European 1958-1959 lithuanian sutartinės multipart, drone Modal, vocal branch, indigenous ritual devotional inuit katajjaq throat-singing game shipibo-conibo icaros healing songs. kargyraa, false fold engaged, pure, narrative. board zither finger plucked canonical lithuanian instrumental sutartines canonical lithuanian kankles, multiple tube pipes hocketed canonical lithuanian instrumental sutartines hocketed canonical lithuanian skuduciai. baltic outdoor village. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 615,
-  "score": 280.005,
+  "recipe": "classic Northern European 1958-1959 lithuanian sutartinės multipart, drone Modal, vocal branch, indigenous ritual devotional inuit katajjaq throat-singing game shipibo-conibo icaros healing songs. kargyraa, breath veiled tone, straight note core, interlocked note trading. board zither finger plucked canonical lithuanian instrumental sutartines canonical lithuanian kankles, multiple tube pipes hocketed canonical lithuanian instrumental sutartines hocketed canonical lithuanian skuduciai. baltic outdoor village. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 577,
+  "score": 363.68,
   "config": {
     "traditions": [
       "lithuanian_sutartines",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "kargyraa_register",
-          "voice_quality": "false_fold_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "straight_tone",
-          "voice_articulation": "narrative_voice",
-          "voice_microtone": "overtone_singing",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "inuit_katajjaq_tradition",
           "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 8.71,
-          "voice_quality": 8.545,
+          "voice_quality": 46.86500000000003,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.4949999999999997,
-          "voice_articulation": 1.0399999999999998,
-          "voice_microtone": 7.880000000000002,
+          "voice_vibrato": 5.785,
+          "voice_articulation": 30.679999999999996,
+          "voice_microtone": 34.77499999999999,
           "voice_tradition": 38.895,
           "voice_mechanism_compound": 22.58,
           "voice_estill_quality": 10.464999999999996,
-          "voice_speech_song": 31.069999999999997,
-          "voice_ensemble_config": 31.46,
+          "voice_speech_song": 31.59,
+          "voice_ensemble_config": 31.33,
           "voice_ornament_system": 7.15,
           "voice_pitch_organization": 10.120000000000001,
-          "voice_processing_chain": 9.879999999999999,
-          "voice_multitrack_stack": 9.23
+          "voice_processing_chain": 16.379999999999995,
+          "voice_multitrack_stack": 9.620000000000001
         }
       },
       {
@@ -76,7 +76,7 @@
       }
     ],
     "room": "baltic_outdoor_village",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

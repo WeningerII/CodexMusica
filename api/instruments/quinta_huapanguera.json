@@ -1,0 +1,350 @@
+{
+  "id": "quinta_huapanguera",
+  "name": "Quinta huapanguera (Huastecan deep-bodied bass guitar)",
+  "family": "plucked_traditional",
+  "class": "bass",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": -1,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": -1,
+    "range": 1,
+    "articulation": 1,
+    "transduction": -2,
+    "dynamics": 0
+  },
+  "short": "huapanguera",
+  "parts": [
+    {
+      "id": "quinta_huapanguera_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "quinta_huapanguera_huasteca",
+          "default": true,
+          "name": "Huasteca standard (eight strings, five courses)",
+          "descriptors": [
+            "son-huasteco-standard",
+            "booming",
+            "foundational"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register",
+            "strummed"
+          ]
+        },
+        {
+          "id": "quinta_huapanguera_arribena",
+          "name": "Guitarra quinta arribeña (Sierra Gorda)",
+          "descriptors": [
+            "sierra-gorda",
+            "decima-bearing",
+            "regional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register",
+            "strummed"
+          ]
+        },
+        {
+          "id": "quinta_huapanguera_diez",
+          "name": "Ten-string builder's variant (five double courses)",
+          "descriptors": [
+            "double-coursed",
+            "ringing",
+            "luthier-variant"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register",
+            "strummed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quinta_huapanguera_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "quinta_huapanguera_trio_huasteco",
+          "default": true,
+          "name": "Trío huasteco huapango (bordoneo bass runs and golpe strums)",
+          "descriptors": [
+            "driving",
+            "syncopated",
+            "foundational"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register",
+            "strummed",
+            "string-attack"
+          ]
+        },
+        {
+          "id": "quinta_huapanguera_topada",
+          "name": "Topada arribeña (all-night poetic duel)",
+          "descriptors": [
+            "marathon",
+            "narrative",
+            "competitive"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register",
+            "strummed"
+          ]
+        },
+        {
+          "id": "quinta_huapanguera_escenario",
+          "name": "Modern stage / recorded huapango",
+          "descriptors": [
+            "concert",
+            "contemporary",
+            "polished"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quinta_huapanguera_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "quinta_huapanguera_nylon",
+          "default": true,
+          "name": "Nylon trebles with wound basses (modern canonical)",
+          "descriptors": [
+            "nylon-wound-modern-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register"
+          ]
+        },
+        {
+          "id": "quinta_huapanguera_gut",
+          "name": "Gut (pre-1950s historical Huasteca)",
+          "descriptors": [
+            "gut-pre-1950s"
+          ],
+          "match_tokens": [
+            "plucked",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quinta_huapanguera_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "quinta_huapanguera_cedro",
+          "default": true,
+          "name": "Cedro rojo (canonical Huasteca)",
+          "descriptors": [
+            "cedro-rojo-canonical-huasteca"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register"
+          ]
+        },
+        {
+          "id": "quinta_huapanguera_palo_escrito",
+          "name": "Palo escrito (Mexican rosewood, premium)",
+          "descriptors": [
+            "palo-escrito-mexican-rosewood"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "quinta_huapanguera_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "quinta_huapanguera_huasteca",
+          "default": true,
+          "name": "Huasteca standard (eight strings, five courses)",
+          "descriptors": [
+            "son-huasteco-standard",
+            "booming",
+            "foundational"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register",
+            "strummed"
+          ]
+        },
+        {
+          "id": "quinta_huapanguera_arribena",
+          "name": "Guitarra quinta arribeña (Sierra Gorda)",
+          "descriptors": [
+            "sierra-gorda",
+            "decima-bearing",
+            "regional"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register",
+            "strummed"
+          ]
+        },
+        {
+          "id": "quinta_huapanguera_diez",
+          "name": "Ten-string builder's variant (five double courses)",
+          "descriptors": [
+            "double-coursed",
+            "ringing",
+            "luthier-variant"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register",
+            "strummed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quinta_huapanguera_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "quinta_huapanguera_trio_huasteco",
+          "default": true,
+          "name": "Trío huasteco huapango (bordoneo bass runs and golpe strums)",
+          "descriptors": [
+            "driving",
+            "syncopated",
+            "foundational"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register",
+            "strummed",
+            "string-attack"
+          ]
+        },
+        {
+          "id": "quinta_huapanguera_topada",
+          "name": "Topada arribeña (all-night poetic duel)",
+          "descriptors": [
+            "marathon",
+            "narrative",
+            "competitive"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register",
+            "strummed"
+          ]
+        },
+        {
+          "id": "quinta_huapanguera_escenario",
+          "name": "Modern stage / recorded huapango",
+          "descriptors": [
+            "concert",
+            "contemporary",
+            "polished"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quinta_huapanguera_strings",
+      "surface": false,
+      "name": "String material",
+      "variants": [
+        {
+          "id": "quinta_huapanguera_nylon",
+          "default": true,
+          "name": "Nylon trebles with wound basses (modern canonical)",
+          "descriptors": [
+            "nylon-wound-modern-canonical"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register"
+          ]
+        },
+        {
+          "id": "quinta_huapanguera_gut",
+          "name": "Gut (pre-1950s historical Huasteca)",
+          "descriptors": [
+            "gut-pre-1950s"
+          ],
+          "match_tokens": [
+            "plucked",
+            "period-performance"
+          ],
+          "canonical_tags": [
+            "historical-gut"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quinta_huapanguera_body_wood",
+      "surface": false,
+      "name": "Body wood",
+      "variants": [
+        {
+          "id": "quinta_huapanguera_cedro",
+          "default": true,
+          "name": "Cedro rojo (canonical Huasteca)",
+          "descriptors": [
+            "cedro-rojo-canonical-huasteca"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register"
+          ]
+        },
+        {
+          "id": "quinta_huapanguera_palo_escrito",
+          "name": "Palo escrito (Mexican rosewood, premium)",
+          "descriptors": [
+            "palo-escrito-mexican-rosewood"
+          ],
+          "match_tokens": [
+            "plucked",
+            "low-register"
+          ],
+          "canonical_tags": [
+            "cites-app-ii"
+          ]
+        }
+      ]
+    }
+  ]
+}

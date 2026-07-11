@@ -3,51 +3,51 @@
   "name": "Drift phonk (2020s TikTok)",
   "family": "electronic",
   "lineage": "2019-onward extension of phonk into faster-tempo (140-160 BPM) dance-oriented variant, often heavily associated with TikTok car-drifting video content. Characterized by 4/4 dance-beat-derived structure with chopped-vocal phonk-sampling aesthetic, aggressive cowbell-percussion, and explicit Russian-and-Eastern-European-producer geographic-cultural orientation (the Russian phonk scene through Kordhell, MoonDeity, and Pharmacist became the dominant 2021-2023 international scene).",
-  "recipe": "classic drift phonk, mc Rhythm, southern branch, house electronic dance latin house fidget house. vocal fry, rap, melodic, narrative. chopped sampler, TR-808, sub bass analog synth. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
-  "recipe_chars": 370,
-  "score": 166.015,
+  "recipe": "classic drift phonk, mc Rhythm, southern branch, house electronic dance fidget house latin house. vocal fry, breath veiled tone, straight onset, interlocked note trading. chopped sampler, TR-808, sub bass analog synth. no single room 2015-present distributed distributed production. dynamic moving-coil, transformerless solid-state pre, brick-wall limiter. lossy MP3 autotune.",
+  "recipe_chars": 376,
+  "score": 191.655,
   "config": {
     "traditions": [
       "drift_phonk_modern",
-      "latin_house_percussion",
-      "fidget_house"
+      "fidget_house",
+      "latin_house_percussion"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "vocal_fry",
-          "voice_quality": "rap_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "narrative_voice",
-          "voice_microtone": "overtone_singing",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "beatboxing_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_none",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_stutter_edit",
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
           "voice_register": 3.9650000000000003,
-          "voice_quality": 4.6499999999999995,
+          "voice_quality": 7.117500000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.5199999999999999,
-          "voice_articulation": 2.1,
-          "voice_microtone": 0.6,
+          "voice_vibrato": 1.1049999999999998,
+          "voice_articulation": 15.664999999999994,
+          "voice_microtone": 16.31499999999999,
           "voice_tradition": 11.309999999999999,
           "voice_mechanism_compound": 5.309999999999999,
           "voice_estill_quality": 4.42,
-          "voice_speech_song": 15.794999999999998,
-          "voice_ensemble_config": 16.769999999999996,
-          "voice_ornament_system": 0.39499999999999996,
-          "voice_pitch_organization": 0.845,
+          "voice_speech_song": 15.664999999999994,
+          "voice_ensemble_config": 16.639999999999993,
+          "voice_ornament_system": 1.5749999999999997,
+          "voice_pitch_organization": 1.4949999999999999,
           "voice_processing_chain": 10.615000000000002,
           "voice_multitrack_stack": 7.3450000000000015
         }
@@ -101,7 +101,7 @@
       }
     ],
     "room": "studio_distributed_production",
-    "archetype": "arch_atlanta_trap_2010s",
+    "archetype": "arch_phone_native_vertical",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "pre_neve_1073_input",

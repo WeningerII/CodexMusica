@@ -1,0 +1,352 @@
+{
+  "id": "scottish_pipe_band",
+  "name": "Scottish pipe band",
+  "family": "ensemble",
+  "class": "wind_blown",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 2,
+    "polyphony": 1,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 2,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "pipe band",
+  "parts": [
+    {
+      "id": "scottish_pipe_band_formation",
+      "name": "Formation and size",
+      "variants": [
+        {
+          "id": "scottish_pipe_band_solo_and_side",
+          "name": "Solo piper with side drummer",
+          "descriptors": [
+            "intimate",
+            "stripped-back",
+            "single-drone"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "wind-driven",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "scottish_pipe_band_quartet",
+          "name": "Small band (quartet of pipes with drum corps)",
+          "descriptors": [
+            "compact",
+            "tight",
+            "chamber-scale"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "wind-driven",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "scottish_pipe_band_full_competition",
+          "default": true,
+          "name": "Full grade-one competition band",
+          "descriptors": [
+            "massed",
+            "virtuoso",
+            "precise",
+            "unison"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "wind-driven",
+            "drone-foundation",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "scottish_pipe_band_massed",
+          "name": "Massed pipes and drums (multiple bands combined)",
+          "descriptors": [
+            "thunderous",
+            "ceremonial",
+            "overwhelming"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "wind-driven",
+            "drone-foundation",
+            "loud-projection"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "scottish_pipe_band_repertoire",
+      "name": "Repertoire and setting",
+      "variants": [
+        {
+          "id": "scottish_pipe_band_msr",
+          "default": true,
+          "name": "Competition march, strathspey and reel (MSR)",
+          "descriptors": [
+            "martial",
+            "disciplined",
+            "traditional",
+            "dotted"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "wind-driven",
+            "struck"
+          ]
+        },
+        {
+          "id": "scottish_pipe_band_medley",
+          "name": "Competition medley",
+          "descriptors": [
+            "flowing",
+            "contemporary",
+            "expressive"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "wind-driven",
+            "struck"
+          ]
+        },
+        {
+          "id": "scottish_pipe_band_ceremonial",
+          "name": "Ceremonial tattoo and street parade",
+          "descriptors": [
+            "ceremonial",
+            "processional",
+            "stately"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "wind-driven",
+            "loud-projection"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "scottish_pipe_band_corps_balance",
+      "surface": false,
+      "name": "Corps balance",
+      "variants": [
+        {
+          "id": "scottish_pipe_band_pipe_led",
+          "default": true,
+          "name": "Pipe-corps-led (drone-forward)",
+          "descriptors": [
+            "drone-forward",
+            "melodic",
+            "reed-rich"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "wind-driven",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "scottish_pipe_band_balanced",
+          "name": "Balanced pipe and drum corps",
+          "descriptors": [
+            "balanced",
+            "blended"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "wind-driven",
+            "struck"
+          ]
+        },
+        {
+          "id": "scottish_pipe_band_drum_forward",
+          "name": "Drum-corps-forward (heavy snare line and tenor flourish)",
+          "descriptors": [
+            "percussive",
+            "driving",
+            "crisp"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "struck",
+            "loud-projection"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "scottish_pipe_band_formation",
+      "name": "Formation and size",
+      "variants": [
+        {
+          "id": "scottish_pipe_band_solo_and_side",
+          "name": "Solo piper with side drummer",
+          "descriptors": [
+            "intimate",
+            "stripped-back",
+            "single-drone"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "wind-driven",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "scottish_pipe_band_quartet",
+          "name": "Small band (quartet of pipes with drum corps)",
+          "descriptors": [
+            "compact",
+            "tight",
+            "chamber-scale"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "wind-driven",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "scottish_pipe_band_full_competition",
+          "default": true,
+          "name": "Full grade-one competition band",
+          "descriptors": [
+            "massed",
+            "virtuoso",
+            "precise",
+            "unison"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "wind-driven",
+            "drone-foundation",
+            "loud-projection"
+          ]
+        },
+        {
+          "id": "scottish_pipe_band_massed",
+          "name": "Massed pipes and drums (multiple bands combined)",
+          "descriptors": [
+            "thunderous",
+            "ceremonial",
+            "overwhelming"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "wind-driven",
+            "drone-foundation",
+            "loud-projection"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "scottish_pipe_band_repertoire",
+      "name": "Repertoire and setting",
+      "variants": [
+        {
+          "id": "scottish_pipe_band_msr",
+          "default": true,
+          "name": "Competition march, strathspey and reel (MSR)",
+          "descriptors": [
+            "martial",
+            "disciplined",
+            "traditional",
+            "dotted"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "wind-driven",
+            "struck"
+          ]
+        },
+        {
+          "id": "scottish_pipe_band_medley",
+          "name": "Competition medley",
+          "descriptors": [
+            "flowing",
+            "contemporary",
+            "expressive"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "wind-driven",
+            "struck"
+          ]
+        },
+        {
+          "id": "scottish_pipe_band_ceremonial",
+          "name": "Ceremonial tattoo and street parade",
+          "descriptors": [
+            "ceremonial",
+            "processional",
+            "stately"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "wind-driven",
+            "loud-projection"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "scottish_pipe_band_corps_balance",
+      "surface": false,
+      "name": "Corps balance",
+      "variants": [
+        {
+          "id": "scottish_pipe_band_pipe_led",
+          "default": true,
+          "name": "Pipe-corps-led (drone-forward)",
+          "descriptors": [
+            "drone-forward",
+            "melodic",
+            "reed-rich"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "wind-driven",
+            "drone-foundation"
+          ]
+        },
+        {
+          "id": "scottish_pipe_band_balanced",
+          "name": "Balanced pipe and drum corps",
+          "descriptors": [
+            "balanced",
+            "blended"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "wind-driven",
+            "struck"
+          ]
+        },
+        {
+          "id": "scottish_pipe_band_drum_forward",
+          "name": "Drum-corps-forward (heavy snare line and tenor flourish)",
+          "descriptors": [
+            "percussive",
+            "driving",
+            "crisp"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "struck",
+            "loud-projection"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -3,9 +3,9 @@
   "name": "Uyghur On Ikki Muqam (Twelve Muqams)",
   "family": "classical",
   "lineage": "Uyghur On Ikki Muqam (\"Twelve Muqams\") classical Central Asian art-music tradition of the Uyghur Turkic-Muslim population of the Tarim Basin (Xinjiang). The twelve canonical muqamat — Rak, Chebbiyat, Mushavrek, Charigah, Pengigah, Ozhal, Echeh, Ushshaq, Bayat, Nava, Sigah, Iraq — each comprises three sections: chong naghma free-rhythm great-song suite; dastan metrically-bound narrative-song; faster mashrap social-dance section. Turdi Akhun in the 1950s codified recensions; the Xinjiang Muqam Ensemble anchors institutional transmission.",
-  "recipe": "classic Central Asian mid-1950s uyghur on ikki muqam, art Music, middle eastern classical branch, Persian arab improv improv on frame turkish-romani çümbüş music tarab. vocal fry, low dynamic level, chest resonance low mid, narrative. mulberry bowl canonical kurdish steel modern tanbur persian, turkmen long necked bagshy tradition silk canonical pre modern shashmaqam bukharan shashmaqam canonical uzbek tajik classical dutar, walnut bent frame canonical Persian goat skin tacked brass rings canonical Iranian daf, mulberry pear body long neck bowed tanbur shashmaqam canonical bukhara samarkand classical legato sato, muqam lead long necked muqam ensemble melodic bright metallic rubab. bukhara shashmaqam courtyard chamber. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 857,
-  "score": 324.266,
+  "recipe": "classic Central Asian mid-1950s uyghur on ikki muqam, art Music, middle eastern classical branch, Persian arab improv improv on frame turkish-romani çümbüş music tarab. vocal fry, breath veiled tone, slow rate, interlocked note trading. mulberry bowl canonical kurdish steel modern tanbur persian, turkmen long necked bagshy tradition silk canonical pre modern shashmaqam bukharan shashmaqam canonical uzbek tajik classical dutar, walnut bent frame canonical Persian goat skin tacked brass rings canonical Iranian daf, mulberry pear body long neck bowed tanbur shashmaqam canonical bukhara samarkand classical legato sato, muqam lead long necked muqam ensemble melodic bright metallic rubab. bukhara shashmaqam courtyard chamber. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 792,
+  "score": 368.164,
   "config": {
     "traditions": [
       "uyghur_muqam",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "vocal_fry",
-          "voice_quality": "crooner_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "narrative_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "persian_dastgah_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
           "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 2.145,
-          "voice_quality": 0.8449999999999999,
+          "voice_quality": 13.779999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 8.385,
-          "voice_articulation": 1.0999999999999999,
-          "voice_microtone": 12.553875,
+          "voice_vibrato": 20.23725,
+          "voice_articulation": 4.81,
+          "voice_microtone": 24.765,
           "voice_tradition": 31.817500000000003,
           "voice_mechanism_compound": 24.282999999999998,
           "voice_estill_quality": 18.102749999999997,
           "voice_speech_song": 18.3445,
-          "voice_ensemble_config": 4.874999999999999,
+          "voice_ensemble_config": 4.9399999999999995,
           "voice_ornament_system": 27.728125,
           "voice_pitch_organization": 27.477625,
-          "voice_processing_chain": 2.47,
-          "voice_multitrack_stack": 2.145
+          "voice_processing_chain": 4.03,
+          "voice_multitrack_stack": 2.21
         }
       },
       {
@@ -127,7 +127,7 @@
       }
     ],
     "room": "bukhara_shashmaqam_courtyard_chamber",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

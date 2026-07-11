@@ -3,9 +3,9 @@
   "name": "Serbian guslar epic recitation",
   "family": "global",
   "lineage": "South Slavic heroic-epic performance in which the guslar chants decasyllabic (deseterac) narrative to the drone of the gusle, a single-string bowed lute, in the Dinaric zone of Serbia, Montenegro, Bosnia and Croatia. The living oral-formulaic technique of these singers is the empirical basis of the Parry-Lord theory, documented in Milman Parry and Albert Lord's 1930s Yugoslav fieldwork (the Parry Collection at Harvard) with singers such as Avdo Mededovic. Cycles center on the Battle of Kosovo (1389) and the hajduk outlaw heroes; delivery is a spoken-sung recitative, each line launched and closed against the gusle's held tone.",
-  "recipe": "classic Southern European mid-1930s serbian guslar epic recitation, ballad Poetry, Slavic bard branch cape verdean batuko of santiago island jug band. thick, worn fold, melodic, narrative. balkan sevdalinka kafana tavern. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 351,
-  "score": 152.238,
+  "recipe": "classic Southern European mid-1930s serbian guslar epic recitation, ballad Poetry, Slavic bard branch cape verdean batuko of santiago island jug band. thick, breath veiled tone, wide pitch sway, interlocked note trading. balkan sevdalinka kafana tavern. large-diaphragm condenser, German V72 tube pre, Neve transformer console, LA-2A optical, Neve inductor EQ. tape 15ips plate reverb spring reverb.",
+  "recipe_chars": 399,
+  "score": 224.615,
   "config": {
     "traditions": [
       "serbian_guslar_epic",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "worn_fold_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "narrative_voice",
-          "voice_microtone": "blue_notes",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -30,31 +30,31 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_lo_fi_narrow_AM",
-          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
           "voice_register": 15.074999999999996,
-          "voice_quality": 15.075,
+          "voice_quality": 44.460000000000036,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.3075,
-          "voice_articulation": 3.9650000000000007,
-          "voice_microtone": 5.962999999999999,
+          "voice_vibrato": 12,
+          "voice_articulation": 25.415,
+          "voice_microtone": 25.869999999999997,
           "voice_tradition": 15.307499999999997,
           "voice_mechanism_compound": 6.175,
           "voice_estill_quality": 7.702500000000001,
-          "voice_speech_song": 28.145000000000003,
-          "voice_ensemble_config": 24.635000000000005,
+          "voice_speech_song": 28.015,
+          "voice_ensemble_config": 24.7,
           "voice_ornament_system": 1.7875,
           "voice_pitch_organization": 2.860000000000001,
-          "voice_processing_chain": 4.65,
-          "voice_multitrack_stack": 4.1895
+          "voice_processing_chain": 13.065000000000001,
+          "voice_multitrack_stack": 4.744999999999999
         }
       }
     ],
     "room": "balkan_sevdalinka_kafana_tavern",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_jugoton_yugoslav",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

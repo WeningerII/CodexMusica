@@ -3,9 +3,9 @@
   "name": "Palm-wine guitar",
   "family": "global",
   "lineage": "West African coastal acoustic-guitar songcraft tradition, codified through the early-twentieth-century Sierra Leonean and Liberian port-city repertoire and the Ghanaian Koo Nimo and the Sierra Leonean S.E. Rogie 1950s-1960s acoustic-guitar lineage — characterized by relaxed two-finger picking patterns over Krio/English-Creole melodic vocal lines, played at outdoor gatherings drinking the eponymous fermented palm sap",
-  "recipe": "classic British mid-1950s palm-wine guitar, groove Percussion, west African branch, African pop functional song congolese rumba isicathamiya. strummed open chord ringing overtones parlor acoustic guitar, pearwood marine band tradition double brass chromatic canon solo canonical chromatic harmonica, proto juju responsorial melodic bass agidigbo. wooden barn. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 505,
-  "score": 44.178,
+  "recipe": "classic West African mid-1950s palm-wine guitar, groove Percussion, west African branch, African pop functional song congolese rumba isicathamiya. strummed open chord ringing overtones parlor acoustic guitar, pearwood marine band tradition double brass chromatic canon solo canonical chromatic harmonica, proto juju responsorial melodic bass agidigbo. wooden barn. passive ribbon, tube pre. direct-to-disc lacquer.",
+  "recipe_chars": 414,
+  "score": 35.103,
   "config": {
     "traditions": [
       "palm_wine",
@@ -66,7 +66,7 @@
       }
     ],
     "room": "wooden_barn",
-    "archetype": "arch_70s_uk_class_a_rock",
+    "archetype": "arch_decca_west_africa_highlife",
     "inline_chain": {
       "mic": "ribbon_passive",
       "pre": "tube_pre",

@@ -3,13 +3,13 @@
   "name": "Newfoundland outport sea-shanty and work-song",
   "family": "global",
   "lineage": "Newfoundland-Labrador outport (Atlantic-fishing-village) sea-shanty and work-song tradition continuous from 17th-onward English-and-Irish-immigrant Newfoundland-cod-fishery work-song practice through 20th-century Newfoundland-folk-revival into modern Atlantic-Canadian-folk continuous practice; foundational repertoire includes \"I'se the B'y\" (canonical), \"The Squid-Jiggin' Ground,\" \"Lukey's Boat\"",
-  "recipe": "classic modern newfoundland outport sea-shanty and work-song, sea Shanty, atlantic branch, americas drinking song, American south field work, anglo singer song ballad poetry 1960s greenwich village confessional folk indie folk. thick, incomplete closure resting, tasteful, continuous-phonation. fingerpicked acoustic guitar, synthetic magic rosin modern acrylic base drone like fiddle, Celtic Irish straight concertina. irish pub. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 560,
-  "score": 280.245,
+  "recipe": "classic early-1940s newfoundland outport sea-shanty and work-song, sea Shanty, atlantic branch, americas drinking song, American south field work, anglo singer song ballad poetry freak folk indie folk. thick, breath veiled tone, straight note core, interlocked note trading. fingerpicked acoustic guitar, magic rosin modern acrylic base drone like fiddle, Celtic Irish straight concertina. irish pub. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 475,
+  "score": 287.962,
   "config": {
     "traditions": [
       "newfoundland_outport_shanty",
-      "greenwich_village_confessional",
+      "freak_folk_2000s",
       "indie_folk_2000s"
     ],
     "instruments": [
@@ -17,39 +17,39 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "incomplete_closure_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
-          "voice_articulation": "legato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 28.659999999999997,
-          "voice_quality": 9.92,
+          "voice_register": 30.18499999999999,
+          "voice_quality": 12.219999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
-          "voice_articulation": 3.3799999999999994,
-          "voice_microtone": 6.68,
-          "voice_tradition": 28.53499999999999,
-          "voice_mechanism_compound": 1.7550000000000001,
-          "voice_estill_quality": 4.8100000000000005,
-          "voice_speech_song": 21.319999999999997,
-          "voice_ensemble_config": 11.439999999999998,
-          "voice_ornament_system": 4.8100000000000005,
-          "voice_pitch_organization": 5.329999999999999,
-          "voice_processing_chain": 5.897499999999999,
-          "voice_multitrack_stack": 7.145
+          "voice_vibrato": 1.0074999999999998,
+          "voice_articulation": 13.259999999999994,
+          "voice_microtone": 13.06499999999999,
+          "voice_tradition": 31.097499999999993,
+          "voice_mechanism_compound": 1.56,
+          "voice_estill_quality": 3.5100000000000007,
+          "voice_speech_song": 22.944999999999993,
+          "voice_ensemble_config": 13.779999999999994,
+          "voice_ornament_system": 4.355000000000001,
+          "voice_pitch_organization": 4.9399999999999995,
+          "voice_processing_chain": 6.1225,
+          "voice_multitrack_stack": 7.469999999999999
         }
       },
       {
@@ -59,31 +59,31 @@
           "string_tuning": "drop_d",
           "top_wood": "mahogany_top_om",
           "back_sides": "mahogany_bs_om",
-          "string_acoustic": "silk_steel_om",
+          "string_acoustic": "martin_lifespan_om",
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 34.82,
+          "acoustic_technique": 30.069999999999993,
           "string_tuning": 1.895,
           "top_wood": 0.9099999999999999,
           "back_sides": 0.9099999999999999,
-          "string_acoustic": 0.32999999999999996,
-          "acoustic_om_technique": 34.82
+          "string_acoustic": 0.81,
+          "acoustic_om_technique": 30.069999999999993
         }
       },
       {
         "id": "fiddle",
         "slots": {
           "bowed_technique": "bowed_rough_drone",
-          "fiddle_strings": "synthetic_core",
+          "fiddle_strings": "steel_core",
           "fiddle_bow": "magic_rosin_fiddle",
           "fiddle_mute": "practice_mute",
           "fiddle_articulation": "pizz"
         },
         "scores": {
-          "bowed_technique": 20.244999999999994,
-          "fiddle_strings": 1.885,
-          "fiddle_bow": 3.7175000000000002,
+          "bowed_technique": 22.119999999999994,
+          "fiddle_strings": 0.5700000000000001,
+          "fiddle_bow": 2.2175000000000002,
           "fiddle_mute": 0.9099999999999999,
           "fiddle_articulation": 0.09
         }
@@ -96,14 +96,14 @@
           "concertina_reed_grade": "concertina_hybrid_accordion_reed"
         },
         "scores": {
-          "free_reed_technique": 22.52499999999999,
+          "free_reed_technique": 22.899999999999995,
           "concertina_type": 14.635,
-          "concertina_reed_grade": 2.73
+          "concertina_reed_grade": 0.975
         }
       }
     ],
     "room": "irish_pub",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_nagra_ethnographic_field",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

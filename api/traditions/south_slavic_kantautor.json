@@ -3,53 +3,53 @@
   "name": "South Slavic kantautor",
   "family": "global",
   "lineage": "Yugoslav-era and post-Yugoslav successor singer-poet tradition spanning Serbian, Croatian, Bosnian, Slovenian, Macedonian, and Montenegrin language traditions — codified through Đorđe Balašević (the Vojvodina Serbian kantautor, active 1978 until his death in 2021), Arsen Dedić (the Croatian voice), Bora Đorđević and Riblja Čorba (the rock-and-kantautor crossover), Vlatko Stefanovski (the Macedonian guitar-virtuoso continuation), and the post-Yugoslav diaspora extensions Branimir Štulić and Azra",
-  "recipe": "classic Southern European late-1970s south slavic kantautor, ballad Poetry, Slavic bard branch, chanson fado ballad poetry greek éntechno morna. thick, lament wail, chest resonance low mid, punctuated. fingerpicked acoustic guitar, soft felt lacquer voiced beech laminated maple laminated European tradition grand piano. balkan sevdalinka kafana tavern. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
-  "recipe_chars": 441,
-  "score": 188.784,
+  "recipe": "classic Southern European late-1970s south slavic kantautor, ballad Poetry, Slavic bard branch, chanson fado ballad poetry morna cape verdean batuko of santiago island. thick, breath veiled tone, slow rate, interlocked note trading. martin lifespan fingerpicked acoustic guitar, cold pressed wurzen felt birch laminated maple laminated European spruce grand piano. balkan sevdalinka kafana tavern. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 485,
+  "score": 267.49,
   "config": {
     "traditions": [
       "south_slavic_kantautor",
-      "greek_entechno",
-      "morna"
+      "morna",
+      "cape_verdean_batuko"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "fado_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "staccato_voice",
-          "voice_microtone": "tempered_voice",
-          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_persian_tahrir",
-          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
         },
         "scores": {
-          "voice_register": 7.495000000000001,
-          "voice_quality": 9.91,
+          "voice_register": 5.645000000000001,
+          "voice_quality": 32.63,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.4949999999999999,
-          "voice_articulation": 0.7424999999999999,
-          "voice_microtone": 6.275,
-          "voice_tradition": 24.094499999999996,
-          "voice_mechanism_compound": 3.7049999999999996,
-          "voice_estill_quality": 7.0200000000000005,
-          "voice_speech_song": 23.822500000000005,
-          "voice_ensemble_config": 21.319999999999997,
-          "voice_ornament_system": 2.9749999999999996,
-          "voice_pitch_organization": 3.0199999999999996,
-          "voice_processing_chain": 5.459999999999999,
-          "voice_multitrack_stack": 1.8200000000000003
+          "voice_vibrato": 2.5675,
+          "voice_articulation": 30.16,
+          "voice_microtone": 30.485,
+          "voice_tradition": 17.615000000000002,
+          "voice_mechanism_compound": 5.265,
+          "voice_estill_quality": 7.442500000000001,
+          "voice_speech_song": 33.345,
+          "voice_ensemble_config": 30.354999999999997,
+          "voice_ornament_system": 3.2575000000000007,
+          "voice_pitch_organization": 4.267500000000001,
+          "voice_processing_chain": 6.4025,
+          "voice_multitrack_stack": 5.525
         }
       },
       {
@@ -58,42 +58,42 @@
           "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "open_e",
           "top_wood": "cedar_om",
-          "back_sides": "walnut_bs_om",
+          "back_sides": "rosewood_bs_om",
           "string_acoustic": "martin_lifespan_om",
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 10.627500000000001,
-          "string_tuning": 1.6899999999999997,
+          "acoustic_technique": 9.777500000000002,
+          "string_tuning": 2.3850000000000002,
           "top_wood": 0.5725,
-          "back_sides": 0.625,
-          "string_acoustic": 0.585,
-          "acoustic_om_technique": 10.627500000000001
+          "back_sides": 0.78,
+          "string_acoustic": 1.3925,
+          "acoustic_om_technique": 9.777500000000002
         }
       },
       {
         "id": "grand_piano",
         "slots": {
-          "keyboard_technique": "keyboard_classical_legato",
+          "keyboard_technique": "keyboard_jazz_comping",
           "grand_piano_size": "grand_7_foot",
           "grand_piano_brand": "steinway_d",
-          "piano_hammer": "steinway_original_hammer",
-          "piano_rim": "european_laminated_rim_beech_maple",
+          "piano_hammer": "ronsen_wurzen_hammer",
+          "piano_rim": "asian_laminated_rim_birch_maple",
           "piano_soundboard": "european_spruce_soundboard",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
           "piano_plate": "wet_sand_cast_plate",
-          "piano_pitch_standard": "a_442_european"
+          "piano_pitch_standard": "a_432_alternative"
         },
         "scores": {
-          "keyboard_technique": 2.5,
+          "keyboard_technique": 1.62,
           "grand_piano_size": 0.5725,
-          "grand_piano_brand": 0.585,
-          "piano_hammer": 5.6850000000000005,
-          "piano_rim": 9.5225,
-          "piano_soundboard": 7.41,
-          "piano_pinblock": 4.515000000000001,
-          "piano_plate": 4.6725,
-          "piano_pitch_standard": 5.64
+          "grand_piano_brand": 0.39,
+          "piano_hammer": 2.0974999999999997,
+          "piano_rim": 5.720000000000001,
+          "piano_soundboard": 5.2975,
+          "piano_pinblock": 1.2149999999999999,
+          "piano_plate": 0.4225,
+          "piano_pitch_standard": 4.257499999999999
         }
       }
     ],

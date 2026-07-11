@@ -1,0 +1,436 @@
+{
+  "id": "conjunto_norteno",
+  "name": "Conjunto norteño (accordion & bajo sexto norteño ensemble)",
+  "family": "ensemble",
+  "class": "free_reed",
+  "axes": {
+    "pitchFix": 1,
+    "sustain": 1,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 2,
+    "articulation": 1,
+    "transduction": -1,
+    "dynamics": 1
+  },
+  "short": "Northern Mexican / Texas border ensemble built on button accordion and bajo sexto over electric bass and drum kit, the engine of norteño, corrido and Tejano dance music.",
+  "parts": [
+    {
+      "id": "conjunto_norteno_lineup",
+      "name": "Lineup",
+      "variants": [
+        {
+          "id": "conjunto_norteno_lineup_four_piece",
+          "default": true,
+          "name": "Classic four-piece",
+          "descriptors": [
+            "accordion-led",
+            "bajo-sexto-strum",
+            "electric-bass-anchored",
+            "drum-kit-backbeat"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "reed-driven",
+            "plucked",
+            "electric"
+          ],
+          "canonical_tags": [
+            "button-accordion",
+            "bajo-sexto",
+            "electric-bass",
+            "drum-kit"
+          ]
+        },
+        {
+          "id": "conjunto_norteno_lineup_duo",
+          "name": "Accordion & bajo sexto duo",
+          "descriptors": [
+            "accordion-and-bajo-duo",
+            "cantina-intimate",
+            "no-rhythm-section"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "reed-driven",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "button-accordion",
+            "bajo-sexto"
+          ]
+        },
+        {
+          "id": "conjunto_norteno_lineup_norteno_sax",
+          "name": "Norteño-sax",
+          "descriptors": [
+            "saxophone-doubled",
+            "monterrey-sax-front-line",
+            "reedy-twin-melody"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "reed-driven",
+            "wind"
+          ],
+          "canonical_tags": [
+            "alto-saxophone",
+            "button-accordion",
+            "bajo-sexto"
+          ]
+        },
+        {
+          "id": "conjunto_norteno_lineup_tololoche",
+          "name": "Vintage tololoche lineup",
+          "descriptors": [
+            "upright-tololoche-bass",
+            "1940s-vintage-lineup",
+            "acoustic-bass-thump"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "reed-driven",
+            "plucked",
+            "acoustic"
+          ],
+          "canonical_tags": [
+            "tololoche",
+            "button-accordion",
+            "bajo-sexto"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "conjunto_norteno_repertoire",
+      "name": "Repertoire",
+      "variants": [
+        {
+          "id": "conjunto_norteno_repertoire_corrido",
+          "default": true,
+          "name": "Corrido",
+          "descriptors": [
+            "corrido-narrative",
+            "storytelling-ballad",
+            "driving-two-four-pulse"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "reed-driven",
+            "corrido"
+          ],
+          "canonical_tags": [
+            "corrido",
+            "narrative-ballad"
+          ]
+        },
+        {
+          "id": "conjunto_norteno_repertoire_polka_redova",
+          "name": "Polka & redova",
+          "descriptors": [
+            "instrumental-polka",
+            "redova-vals-dance",
+            "bouncing-oom-pah"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "reed-driven",
+            "dance"
+          ],
+          "canonical_tags": [
+            "polka",
+            "redova",
+            "vals"
+          ]
+        },
+        {
+          "id": "conjunto_norteno_repertoire_ranchera_bolero",
+          "name": "Ranchera & bolero",
+          "descriptors": [
+            "romantic-ranchera",
+            "bolero-slow-sway",
+            "cancion-sentiment"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "reed-driven",
+            "romantic"
+          ],
+          "canonical_tags": [
+            "ranchera",
+            "bolero"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "conjunto_norteno_substyle",
+      "surface": false,
+      "name": "Regional substyle",
+      "variants": [
+        {
+          "id": "conjunto_norteno_substyle_monterrey",
+          "default": true,
+          "name": "Nuevo León / Monterrey norteño",
+          "descriptors": [
+            "nuevo-leon-norteno",
+            "monterrey-sound",
+            "polished-modern-conjunto"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "norteno",
+            "monterrey"
+          ]
+        },
+        {
+          "id": "conjunto_norteno_substyle_texas",
+          "name": "Texas conjunto / Tejano",
+          "descriptors": [
+            "texas-tejano-conjunto",
+            "flaco-jimenez-lineage",
+            "swung-border-feel"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "texas-conjunto",
+            "tejano"
+          ]
+        },
+        {
+          "id": "conjunto_norteno_substyle_sinaloa",
+          "name": "Sinaloa / Durango corridos",
+          "descriptors": [
+            "sinaloa-durango-style",
+            "corridos-belicos-edge",
+            "hard-driving-groove"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "corrido",
+            "sinaloa"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "conjunto_norteno_lineup",
+      "name": "Lineup",
+      "variants": [
+        {
+          "id": "conjunto_norteno_lineup_four_piece",
+          "default": true,
+          "name": "Classic four-piece",
+          "descriptors": [
+            "accordion-led",
+            "bajo-sexto-strum",
+            "electric-bass-anchored",
+            "drum-kit-backbeat"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "reed-driven",
+            "plucked",
+            "electric"
+          ],
+          "canonical_tags": [
+            "button-accordion",
+            "bajo-sexto",
+            "electric-bass",
+            "drum-kit"
+          ]
+        },
+        {
+          "id": "conjunto_norteno_lineup_duo",
+          "name": "Accordion & bajo sexto duo",
+          "descriptors": [
+            "accordion-and-bajo-duo",
+            "cantina-intimate",
+            "no-rhythm-section"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "reed-driven",
+            "plucked"
+          ],
+          "canonical_tags": [
+            "button-accordion",
+            "bajo-sexto"
+          ]
+        },
+        {
+          "id": "conjunto_norteno_lineup_norteno_sax",
+          "name": "Norteño-sax",
+          "descriptors": [
+            "saxophone-doubled",
+            "monterrey-sax-front-line",
+            "reedy-twin-melody"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "reed-driven",
+            "wind"
+          ],
+          "canonical_tags": [
+            "alto-saxophone",
+            "button-accordion",
+            "bajo-sexto"
+          ]
+        },
+        {
+          "id": "conjunto_norteno_lineup_tololoche",
+          "name": "Vintage tololoche lineup",
+          "descriptors": [
+            "upright-tololoche-bass",
+            "1940s-vintage-lineup",
+            "acoustic-bass-thump"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "reed-driven",
+            "plucked",
+            "acoustic"
+          ],
+          "canonical_tags": [
+            "tololoche",
+            "button-accordion",
+            "bajo-sexto"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "conjunto_norteno_repertoire",
+      "name": "Repertoire",
+      "variants": [
+        {
+          "id": "conjunto_norteno_repertoire_corrido",
+          "default": true,
+          "name": "Corrido",
+          "descriptors": [
+            "corrido-narrative",
+            "storytelling-ballad",
+            "driving-two-four-pulse"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "reed-driven",
+            "corrido"
+          ],
+          "canonical_tags": [
+            "corrido",
+            "narrative-ballad"
+          ]
+        },
+        {
+          "id": "conjunto_norteno_repertoire_polka_redova",
+          "name": "Polka & redova",
+          "descriptors": [
+            "instrumental-polka",
+            "redova-vals-dance",
+            "bouncing-oom-pah"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "reed-driven",
+            "dance"
+          ],
+          "canonical_tags": [
+            "polka",
+            "redova",
+            "vals"
+          ]
+        },
+        {
+          "id": "conjunto_norteno_repertoire_ranchera_bolero",
+          "name": "Ranchera & bolero",
+          "descriptors": [
+            "romantic-ranchera",
+            "bolero-slow-sway",
+            "cancion-sentiment"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "reed-driven",
+            "romantic"
+          ],
+          "canonical_tags": [
+            "ranchera",
+            "bolero"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "conjunto_norteno_substyle",
+      "surface": false,
+      "name": "Regional substyle",
+      "variants": [
+        {
+          "id": "conjunto_norteno_substyle_monterrey",
+          "default": true,
+          "name": "Nuevo León / Monterrey norteño",
+          "descriptors": [
+            "nuevo-leon-norteno",
+            "monterrey-sound",
+            "polished-modern-conjunto"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "norteno",
+            "monterrey"
+          ]
+        },
+        {
+          "id": "conjunto_norteno_substyle_texas",
+          "name": "Texas conjunto / Tejano",
+          "descriptors": [
+            "texas-tejano-conjunto",
+            "flaco-jimenez-lineage",
+            "swung-border-feel"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "texas-conjunto",
+            "tejano"
+          ]
+        },
+        {
+          "id": "conjunto_norteno_substyle_sinaloa",
+          "name": "Sinaloa / Durango corridos",
+          "descriptors": [
+            "sinaloa-durango-style",
+            "corridos-belicos-edge",
+            "hard-driving-groove"
+          ],
+          "match_tokens": [
+            "ensemble",
+            "reed-driven"
+          ],
+          "canonical_tags": [
+            "corrido",
+            "sinaloa"
+          ]
+        }
+      ]
+    }
+  ]
+}

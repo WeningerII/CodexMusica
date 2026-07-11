@@ -3,9 +3,9 @@
   "name": "Paranda (Garifuna)",
   "family": "global",
   "lineage": "Garifuna (Black-Carib) Spanish-Latin-influenced ballad tradition performed across the Garifuna diaspora in Belize, Honduras, Guatemala, Nicaragua, and the Garifuna emigrant communities in New York and Los Angeles — codified through Andy Palacio (the Belizean Garifuna paranda voice, 2007 Wátina album, his death in 2008 marking the end of the second-generation paranda era), Aurelio Martinez, the broader Stonetree Records catalog",
-  "recipe": "classic Caribbean late-2000s paranda, ritual Devotional, Afro-diasporic branch, west African griot ballad poetry hausa court music wassoulou. thick, declaimed, tasteful, equal tempered. cedar concert modern carbon fiber fingerpicked classical nylon-string guitar, plastic synthetic maracas. trinidad calypso panyard outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 454,
-  "score": 95.28,
+  "recipe": "classic Caribbean late-2000s paranda, ritual Devotional, Afro-diasporic branch, west African griot ballad poetry hausa court music wassoulou. thick, breath veiled tone, straight note core, interlocked note trading. cedar concert modern carbon fiber fingerpicked classical nylon-string guitar, plastic synthetic maracas. trinidad calypso panyard outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 416,
+  "score": 105.845,
   "config": {
     "traditions": [
       "garifuna_paranda",
@@ -17,39 +17,39 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
-          "voice_articulation": "staccato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_yodel_M1_M2_alternation",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 1.8499999999999996,
-          "voice_quality": 14.349999999999998,
+          "voice_quality": 15.404999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.235,
-          "voice_articulation": 0.195,
-          "voice_microtone": 2.0999999999999996,
+          "voice_vibrato": 1.9499999999999997,
+          "voice_articulation": 8.384999999999998,
+          "voice_microtone": 8.19,
           "voice_tradition": 26.8125,
           "voice_mechanism_compound": 0.345,
           "voice_estill_quality": 1.6249999999999998,
-          "voice_speech_song": 8.969999999999999,
-          "voice_ensemble_config": 10.399999999999997,
+          "voice_speech_song": 9.034999999999998,
+          "voice_ensemble_config": 10.269999999999996,
           "voice_ornament_system": 4.647500000000001,
-          "voice_pitch_organization": 0.345,
-          "voice_processing_chain": 2.08,
-          "voice_multitrack_stack": 1.4949999999999999
+          "voice_pitch_organization": 0.195,
+          "voice_processing_chain": 4.3875,
+          "voice_multitrack_stack": 3.2175000000000007
         }
       },
       {
@@ -84,7 +84,7 @@
       }
     ],
     "room": "trinidad_calypso_panyard_outdoor",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

@@ -3,9 +3,9 @@
   "name": "Were music (Yoruba Ramadan procession)",
   "family": "global",
   "lineage": "Yoruba were music: pre-dawn Ramadan-procession devotional song-and-drumming tradition of southwestern Nigerian Muslim-Yoruba communities, performed by ajiwere groups moving through Muslim neighborhoods before the suhoor pre-dawn meal during Ramadan. Performance combines unison or call-and-response chorus singing in Yoruba and Arabic (Quranic phrases interpolated into Yoruba praise-poetry) with sákárà frame-drums and small bells. Direct ancestor of fuji music — Alhaji Ayinde Barrister brought the were aesthetic into post-Ramadan secular commercial performance contexts.",
-  "recipe": "classic North African modern were music, ritual Devotional, islamic branch, west African groove percussion indonesian jaipongan yoruba dùndún surrogate speech. thick, declaimed, pure, rhythmic. walnut bent frame canonical Iranian tar frame drum. atlas mountain village square. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 406,
-  "score": 172.77,
+  "recipe": "classic North African modern were music, ritual Devotional, islamic branch, west African groove percussion indonesian jaipongan yoruba dùndún surrogate speech. thick, breath veiled tone, straight note core, interlocked note trading. walnut bent frame canonical Iranian tar frame drum. atlas mountain village square. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 378,
+  "score": 200.777,
   "config": {
     "traditions": [
       "were_music_yoruba",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "straight_tone",
-          "voice_articulation": "spoken_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 3.8024999999999998,
-          "voice_quality": 13.29,
+          "voice_quality": 19.89,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.3900000000000001,
-          "voice_articulation": 0.845,
-          "voice_microtone": 3.1000000000000005,
+          "voice_vibrato": 1.9825,
+          "voice_articulation": 13.129999999999995,
+          "voice_microtone": 17.224999999999994,
           "voice_tradition": 54.24249999999999,
           "voice_mechanism_compound": 3.38,
           "voice_estill_quality": 4.03,
-          "voice_speech_song": 18.134999999999998,
-          "voice_ensemble_config": 13.194999999999997,
+          "voice_speech_song": 18.004999999999995,
+          "voice_ensemble_config": 13.064999999999994,
           "voice_ornament_system": 12.375,
           "voice_pitch_organization": 24.164999999999996,
-          "voice_processing_chain": 6.17,
-          "voice_multitrack_stack": 2.5349999999999997
+          "voice_processing_chain": 9.75,
+          "voice_multitrack_stack": 3.1200000000000006
         }
       },
       {
@@ -71,7 +71,7 @@
       }
     ],
     "room": "atlas_mountain_village_square",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

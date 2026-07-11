@@ -3,9 +3,9 @@
   "name": "Jewish Kaddish mourner recitation",
   "family": "global",
   "lineage": "The Kaddish is a doxology in Aramaic and Hebrew central to Jewish liturgy, its best-known form the Mourner's Kaddish (Kaddish Yatom) recited by the bereaved during the eleven months of mourning and on the yahrzeit. The text sanctifies God's name and, notably, contains no mention of death; it is delivered by the mourner in a rapid, low, rhythmic spoken flow, with the congregation answering the responsorial refrain 'Yehei shmei rabba mevarach.' Its melodic contours vary by rite (Ashkenazi, Sephardi, Yemenite) but the mourner's form leans toward recitation rather than song. The tradition is documented across the siddur manuscript tradition and centuries of synagogue practice.",
-  "recipe": "classic Middle Eastern modern jewish kaddish mourner recitation, ritual Devotional, Jewish branch shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, declaimed, melodic, rhythmic. mediterranean sephardi synagogue. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 372,
-  "score": 147.255,
+  "recipe": "classic Middle Eastern modern jewish kaddish mourner recitation, ritual Devotional, Jewish branch shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, breath veiled tone, straight note core, interlocked note trading. mediterranean sephardi synagogue. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 341,
+  "score": 215.305,
   "config": {
     "traditions": [
       "jewish_kaddish",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "vocal_fry",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "spoken_voice",
-          "voice_microtone": "blue_notes",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
           "voice_estill_quality": "voice_estill_opera",
@@ -30,31 +30,31 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 2.9899999999999998,
-          "voice_quality": 11.5665,
+          "voice_quality": 48.75000000000004,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.8488750000000005,
-          "voice_articulation": 1.6315,
-          "voice_microtone": 0.40800000000000003,
+          "voice_vibrato": 3.640000000000001,
+          "voice_articulation": 19.694999999999997,
+          "voice_microtone": 19.304999999999993,
           "voice_tradition": 23.009999999999994,
           "voice_mechanism_compound": 8.825000000000001,
           "voice_estill_quality": 9.165,
-          "voice_speech_song": 21.515,
-          "voice_ensemble_config": 20.41,
+          "voice_speech_song": 22.879999999999995,
+          "voice_ensemble_config": 20.279999999999998,
           "voice_ornament_system": 10.900000000000002,
           "voice_pitch_organization": 2.665000000000001,
-          "voice_processing_chain": 9.36,
-          "voice_multitrack_stack": 4.485
+          "voice_processing_chain": 17.224999999999998,
+          "voice_multitrack_stack": 9.1
         }
       }
     ],
     "room": "mediterranean_sephardi_synagogue",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

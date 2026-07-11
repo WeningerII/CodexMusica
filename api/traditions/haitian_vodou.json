@@ -3,9 +3,9 @@
   "name": "Haitian vodou ceremonial",
   "family": "global",
   "lineage": "Haitian vodou ceremonial music tradition — three principal drum-batteries governing the spirit-pantheons they call: asoto (West African Yoruba-derived), rada (Dahomeyan-derived, calmer spirits), petwo (Kreyol-Haitian innovation, hot fierce spirits); manbo or houngan officiants lead the ceremony with songs (chante vodou) summoning the lwa to mount worshippers in trance possession",
-  "recipe": "classic Caribbean modern haitian vodou ceremonial, ritual Devotional, Afro-diasporic branch, Caribbean groove percussion cadence-lypso kompa-direkt. thick, full chest belt, punctuated, equal tempered. lead open slap hand drum congas, maracas, a cappella small 3 to 8 one per part call response single leader group response andean three voice parallel thirds quechua aymara sacred liturgical global choir ensemble. haitian vodou lakou outdoor peristyle. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 582,
-  "score": 87.755,
+  "recipe": "classic Caribbean modern haitian vodou ceremonial, ritual Devotional, Afro-diasporic branch, Caribbean groove percussion cadence-lypso kompa-direkt. thick, breath veiled tone, straight onset, interlocked note trading. lead open slap hand drum congas, maracas, a cappella small 3 to 8 one per part call response single leader group response andean three voice parallel thirds quechua aymara sacred liturgical global choir ensemble. haitian vodou lakou outdoor peristyle. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 532,
+  "score": 102.88,
   "config": {
     "traditions": [
       "haitian_vodou",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "full_chest_belt_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "staccato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 3.7600000000000016,
-          "voice_quality": 4.3149999999999995,
+          "voice_quality": 8.515,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.325,
-          "voice_articulation": 1.4300000000000002,
-          "voice_microtone": 1.275,
+          "voice_vibrato": 1.7550000000000001,
+          "voice_articulation": 8.06,
+          "voice_microtone": 8.06,
           "voice_tradition": 18.645,
           "voice_mechanism_compound": 2.8600000000000003,
           "voice_estill_quality": 2.8600000000000008,
-          "voice_speech_song": 8.19,
-          "voice_ensemble_config": 7.54,
+          "voice_speech_song": 8.06,
+          "voice_ensemble_config": 7.41,
           "voice_ornament_system": 3.65,
           "voice_pitch_organization": 5.135000000000001,
           "voice_processing_chain": 3.6950000000000007,
-          "voice_multitrack_stack": 1.4300000000000002
+          "voice_multitrack_stack": 2.7950000000000004
         }
       },
       {
@@ -95,7 +95,7 @@
       }
     ],
     "room": "haitian_vodou_lakou_outdoor_peristyle",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

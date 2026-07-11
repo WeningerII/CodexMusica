@@ -1,0 +1,362 @@
+{
+  "id": "omnichord",
+  "name": "Omnichord (Suzuki electronic autoharp)",
+  "family": "electronic",
+  "class": "electronic",
+  "axes": {
+    "pitchFix": 2,
+    "sustain": 1,
+    "polyphony": 2,
+    "harmonicity": 1,
+    "register": 0,
+    "range": 1,
+    "articulation": 1,
+    "transduction": 2,
+    "dynamics": 0
+  },
+  "short": "omnichord",
+  "parts": [
+    {
+      "id": "omnichord_model",
+      "name": "Model / era",
+      "variants": [
+        {
+          "id": "omnichord_om27",
+          "default": true,
+          "name": "OM-27 System One (1981 original)",
+          "descriptors": [
+            "original",
+            "lo-fi-warm",
+            "chirpy"
+          ],
+          "match_tokens": [
+            "electronic",
+            "strummed",
+            "chordal"
+          ],
+          "canonical_tags": [
+            "twee-pop",
+            "dream-pop"
+          ]
+        },
+        {
+          "id": "omnichord_om84",
+          "name": "OM-84 System Two (1984, expanded chord matrix)",
+          "descriptors": [
+            "brighter",
+            "expanded-chords",
+            "mid-eighties"
+          ],
+          "match_tokens": [
+            "electronic",
+            "strummed",
+            "chordal"
+          ]
+        },
+        {
+          "id": "omnichord_qchord",
+          "name": "QChord QC-1 (late-1990s MIDI song-cartridge successor)",
+          "descriptors": [
+            "digital",
+            "general-midi",
+            "cartridge-based"
+          ],
+          "match_tokens": [
+            "electronic",
+            "strummed",
+            "chordal"
+          ]
+        },
+        {
+          "id": "omnichord_om108",
+          "name": "OM-108 (modern reissue, rechargeable stage build)",
+          "descriptors": [
+            "reissue",
+            "faithful",
+            "modern-build"
+          ],
+          "match_tokens": [
+            "electronic",
+            "strummed",
+            "chordal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "omnichord_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "omnichord_indie_strum",
+          "default": true,
+          "name": "Twee / dream-pop harp-plate strum",
+          "descriptors": [
+            "jangling",
+            "naive",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "electronic",
+            "strummed",
+            "chordal"
+          ],
+          "canonical_tags": [
+            "twee-pop",
+            "dream-pop"
+          ]
+        },
+        {
+          "id": "omnichord_rhythm_box",
+          "name": "Auto-rhythm singalong (preset drum groove + auto-bass)",
+          "descriptors": [
+            "preset-groove",
+            "homespun",
+            "lo-fi"
+          ],
+          "match_tokens": [
+            "electronic",
+            "chordal",
+            "rhythm-preset"
+          ]
+        },
+        {
+          "id": "omnichord_ambient_pad",
+          "name": "Studio ambient texture (producer colour, Lanois / Eno lineage)",
+          "descriptors": [
+            "atmospheric",
+            "floating",
+            "production-texture"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sustained-tone",
+            "chordal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "omnichord_sound_setting",
+      "surface": false,
+      "name": "Sound setting",
+      "variants": [
+        {
+          "id": "omnichord_sonic_strings",
+          "default": true,
+          "name": "SonicStrings touch strum plate (harp glissando)",
+          "descriptors": [
+            "harp-like",
+            "sparkling",
+            "touch-swept"
+          ],
+          "match_tokens": [
+            "electronic",
+            "strummed",
+            "chordal"
+          ]
+        },
+        {
+          "id": "omnichord_chord_organ",
+          "name": "Sustained chord-button pads (organ hold)",
+          "descriptors": [
+            "held",
+            "reedy",
+            "organ-like"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sustained-tone",
+            "chordal"
+          ]
+        },
+        {
+          "id": "omnichord_full_combo",
+          "name": "Full combo: strum + chord pads + auto rhythm section",
+          "descriptors": [
+            "one-man-band",
+            "layered",
+            "self-accompanied"
+          ],
+          "match_tokens": [
+            "electronic",
+            "chordal",
+            "rhythm-preset"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "omnichord_model",
+      "name": "Model / era",
+      "variants": [
+        {
+          "id": "omnichord_om27",
+          "default": true,
+          "name": "OM-27 System One (1981 original)",
+          "descriptors": [
+            "original",
+            "lo-fi-warm",
+            "chirpy"
+          ],
+          "match_tokens": [
+            "electronic",
+            "strummed",
+            "chordal"
+          ],
+          "canonical_tags": [
+            "twee-pop",
+            "dream-pop"
+          ]
+        },
+        {
+          "id": "omnichord_om84",
+          "name": "OM-84 System Two (1984, expanded chord matrix)",
+          "descriptors": [
+            "brighter",
+            "expanded-chords",
+            "mid-eighties"
+          ],
+          "match_tokens": [
+            "electronic",
+            "strummed",
+            "chordal"
+          ]
+        },
+        {
+          "id": "omnichord_qchord",
+          "name": "QChord QC-1 (late-1990s MIDI song-cartridge successor)",
+          "descriptors": [
+            "digital",
+            "general-midi",
+            "cartridge-based"
+          ],
+          "match_tokens": [
+            "electronic",
+            "strummed",
+            "chordal"
+          ]
+        },
+        {
+          "id": "omnichord_om108",
+          "name": "OM-108 (modern reissue, rechargeable stage build)",
+          "descriptors": [
+            "reissue",
+            "faithful",
+            "modern-build"
+          ],
+          "match_tokens": [
+            "electronic",
+            "strummed",
+            "chordal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "omnichord_context",
+      "name": "Playing context",
+      "variants": [
+        {
+          "id": "omnichord_indie_strum",
+          "default": true,
+          "name": "Twee / dream-pop harp-plate strum",
+          "descriptors": [
+            "jangling",
+            "naive",
+            "shimmering"
+          ],
+          "match_tokens": [
+            "electronic",
+            "strummed",
+            "chordal"
+          ],
+          "canonical_tags": [
+            "twee-pop",
+            "dream-pop"
+          ]
+        },
+        {
+          "id": "omnichord_rhythm_box",
+          "name": "Auto-rhythm singalong (preset drum groove + auto-bass)",
+          "descriptors": [
+            "preset-groove",
+            "homespun",
+            "lo-fi"
+          ],
+          "match_tokens": [
+            "electronic",
+            "chordal",
+            "rhythm-preset"
+          ]
+        },
+        {
+          "id": "omnichord_ambient_pad",
+          "name": "Studio ambient texture (producer colour, Lanois / Eno lineage)",
+          "descriptors": [
+            "atmospheric",
+            "floating",
+            "production-texture"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sustained-tone",
+            "chordal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "omnichord_sound_setting",
+      "surface": false,
+      "name": "Sound setting",
+      "variants": [
+        {
+          "id": "omnichord_sonic_strings",
+          "default": true,
+          "name": "SonicStrings touch strum plate (harp glissando)",
+          "descriptors": [
+            "harp-like",
+            "sparkling",
+            "touch-swept"
+          ],
+          "match_tokens": [
+            "electronic",
+            "strummed",
+            "chordal"
+          ]
+        },
+        {
+          "id": "omnichord_chord_organ",
+          "name": "Sustained chord-button pads (organ hold)",
+          "descriptors": [
+            "held",
+            "reedy",
+            "organ-like"
+          ],
+          "match_tokens": [
+            "electronic",
+            "sustained-tone",
+            "chordal"
+          ]
+        },
+        {
+          "id": "omnichord_full_combo",
+          "name": "Full combo: strum + chord pads + auto rhythm section",
+          "descriptors": [
+            "one-man-band",
+            "layered",
+            "self-accompanied"
+          ],
+          "match_tokens": [
+            "electronic",
+            "chordal",
+            "rhythm-preset"
+          ]
+        }
+      ]
+    }
+  ]
+}

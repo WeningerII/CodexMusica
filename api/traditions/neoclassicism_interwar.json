@@ -3,9 +3,9 @@
   "name": "Neoclassicism (interwar tonal-return movement)",
   "family": "classical",
   "lineage": "Interwar compositional movement (c.1920-1950) characterized by return to clear textures, balanced forms, and reference to pre-Romantic models (Bach, Haydn, Stravinsky himself looking back to his Russian-folk past), combined with extended chromatic and rhythmic vocabulary. Stravinsky's Pulcinella (1920), Octet (1923), and Symphony of Psalms (1930) are the canonical type-specimens. Distinguished from Romantic by neoclassicism's anti-emotional-excess aesthetic and from Second Viennese serialism by retention of tonal-modal centers.",
-  "recipe": "classic early-1920s neoclassicism, art Music, western modern branch, western common practice art music the mighty handful early romantic. thick, rap, chest resonance low mid, narrative. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, synthetic sitka spruce bigleaf maple western maple oil varnish violin orchestral. shoebox concert hall. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 453,
-  "score": 270.933,
+  "recipe": "classic early-1920s neoclassicism, art Music, western modern branch, western common practice art music the mighty handful early romantic. thick, breath veiled tone, slow rate, interlocked note trading. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, synthetic sitka spruce bigleaf maple western maple oil varnish violin orchestral. shoebox concert hall. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 469,
+  "score": 289.793,
   "config": {
     "traditions": [
       "neoclassicism_interwar",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "rap_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "narrative_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 10.775,
-          "voice_quality": 1.2,
+          "voice_quality": 5.330000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.6,
-          "voice_articulation": 1.4299999999999997,
-          "voice_microtone": 13.650000000000002,
+          "voice_vibrato": 6.5,
+          "voice_articulation": 11.634999999999994,
+          "voice_microtone": 13.97499999999999,
           "voice_tradition": 9.587500000000002,
           "voice_mechanism_compound": 4.9,
           "voice_estill_quality": 10.1875,
-          "voice_speech_song": 16.574999999999996,
-          "voice_ensemble_config": 11.699999999999996,
+          "voice_speech_song": 16.444999999999997,
+          "voice_ensemble_config": 11.569999999999993,
           "voice_ornament_system": 6.245,
           "voice_pitch_organization": 4.9,
           "voice_processing_chain": 5.915,
-          "voice_multitrack_stack": 1.3900000000000001
+          "voice_multitrack_stack": 1.95
         }
       },
       {

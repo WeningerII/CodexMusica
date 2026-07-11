@@ -3,9 +3,9 @@
   "name": "Huayno",
   "family": "global",
   "lineage": "Quechua-and-Aymara Andean dance-song tradition with anhemitonic-pentatonic five-tone (no half-step) melodic-vocabulary and characteristic short-short-long iambic-dance pattern (Q-Q-half rhythm) over moderate-fast 2/4 metric pulse. Pre-Columbian-origin (likely Inca-Imperial 1438-1533 onward, though oral-tradition extends earlier) with post-colonial mestizaje fusion (Spanish-criollo) integration of guitar, harp, charango ten-string-small-armadillo-back-guitar, and bandurria. Regional variants span Cuzco huayno-cusqueño (slower-court-elevated), Ayacucho huayno-ayacuchano (faster-rural), Junín huayno-orquestino (brass-band-and-saxophone modernized), and Aymara huayño-altiplánico (Bolivian-highland variant). The canonical instrumental ensemble includes quena vertical-notch-flute and zampoña panpipes.",
-  "recipe": "classic Andean early-1430s huayno, drone Modal, string branch, Latin am troubadour ballad poetry milonga chacarera. thick, forward-resonance, melodic, maqam neutral step. naranjillo andean premium wood pine traditional rural andean classical gut pre 1950s andean charango, bone melodic quena, andean tradition paired rows interlocking siku panpipes, guanaco hide hide ceibo canonical Argentine leguero hollowed trunk bombo andino, naranjillo bolivian peruvian gut pre modern andean strummed ronroco, melodic ocarina. andean altiplano outdoor. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 652,
-  "score": 228.02,
+  "recipe": "classic Andean early-1430s huayno, drone Modal, string branch, Latin am troubadour ballad poetry milonga chacarera. thick, forward-resonance, slow rate, interlocked note trading. armadillo shell shell pre 1973 historical pine traditional rural andean classical charango, bone melodic quena, andean tradition paired rows interlocking siku panpipes, guanaco hide hide ceibo canonical Argentine leguero hollowed trunk bombo andino, naranjillo bolivian peruvian gut pre modern andean strummed ronroco, melodic ocarina, altiplano mara canonical single block tarka. andean altiplano outdoor. shure SM57, transformer-coupled solid-state pre, colored vintage console, vari-mu. tape 15ips spring reverb germanium fuzz wah / envelope filter.",
+  "recipe_chars": 731,
+  "score": 290.392,
   "config": {
     "traditions": [
       "andean_huayno",
@@ -20,8 +20,8 @@
           "voice_quality": "twang_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "spoken_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "andean_quechua_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
@@ -38,16 +38,16 @@
           "voice_quality": 15.494999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.2349999999999999,
-          "voice_articulation": 0.39,
-          "voice_microtone": 0.7999999999999998,
+          "voice_vibrato": 2.1774999999999998,
+          "voice_articulation": 19.369999999999997,
+          "voice_microtone": 25.02499999999999,
           "voice_tradition": 25.589999999999996,
           "voice_mechanism_compound": 9.62,
           "voice_estill_quality": 6.37,
-          "voice_speech_song": 23.335,
-          "voice_ensemble_config": 19.824999999999996,
+          "voice_speech_song": 23.59499999999999,
+          "voice_ensemble_config": 20.084999999999997,
           "voice_ornament_system": 12.28,
-          "voice_pitch_organization": 2.34,
+          "voice_pitch_organization": 2.1449999999999996,
           "voice_processing_chain": 4.16,
           "voice_multitrack_stack": 1.69
         }
@@ -56,17 +56,17 @@
         "id": "charango",
         "slots": {
           "plucked_traditional_technique": "plucked_folk_strummed",
-          "charango_back": "charango_naranjillo",
+          "charango_back": "charango_armadillo",
           "charango_top_wood": "charango_pine_top",
           "charango_strings": "charango_5_double",
-          "charango_string_material": "charango_gut_historical"
+          "charango_string_material": "charango_nylon_canonical"
         },
         "scores": {
           "plucked_traditional_technique": 12.524999999999999,
-          "charango_back": 2.8600000000000003,
+          "charango_back": 3.9,
           "charango_top_wood": 5.59,
           "charango_strings": 2.6650000000000005,
-          "charango_string_material": 4.29
+          "charango_string_material": 2.145
         }
       },
       {
@@ -135,10 +135,25 @@
           "ocarina_chamber": 2.08,
           "ocarina_material": 0.39
         }
+      },
+      {
+        "id": "tarka",
+        "slots": {
+          "tarka_form": "tarka_curahuara",
+          "tarka_context": "tarka_tarkeada",
+          "tarka_consort_voice": "tarka_malta",
+          "tarka_body_wood": "tarka_mara_wood"
+        },
+        "scores": {
+          "tarka_form": 11.769999999999998,
+          "tarka_context": 6.35,
+          "tarka_consort_voice": 0.39,
+          "tarka_body_wood": 2.145
+        }
       }
     ],
     "room": "andean_altiplano_outdoor",
-    "archetype": "arch_early_tape_havana",
+    "archetype": "arch_lima_chicha",
     "inline_chain": {
       "mic": "mic_u47_tube_neumann",
       "pre": "tube_pre",

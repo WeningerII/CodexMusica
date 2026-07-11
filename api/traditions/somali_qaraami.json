@@ -3,9 +3,9 @@
   "name": "Somali qaraami song",
   "family": "global",
   "lineage": "Somali qaraami art-song tradition emerging in 1940s Mogadishu and Hargeisa as urban-classical Somali popular music, incorporating Arabian peninsular oud and qanun with Somali-language poetic-meter. The genre matured through the Somali Republic golden-age 1960s-1970s with Radio Mogadishu broadcasting the canonical Hargeisa-school singers. Vocal style features melismatic ornament over Arabic maqam vocabulary with Somali-Cushitic vocal-inflection. The post-1991 civil war disrupted institutional transmission; diaspora-revival in Minneapolis, London, and Toronto sustains contemporary practice.",
-  "recipe": "classic Middle Eastern mid-1940s somali qaraami song, ballad Poetry, med east poetic branch, middle eastern classical art music maghrebi andalusi nuba iraqi maqam of baghdad. vocal fry, low dynamic level, chest resonance low mid, punctuated. nylon plastic walnut ribs canonical mid tier spruce face oud, metal finger picks walnut body canonical decorative goat skin bridge plate gut historical qanun, spun aluminum Egyptian sombaty synthetic remo mylar modern canonical Egyptian iraqi maqam zarb drier finger darbuka. qat chew majlis room. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 681,
-  "score": 492.18,
+  "recipe": "classic Middle Eastern mid-1940s somali qaraami song, ballad Poetry, med east poetic branch, middle eastern classical art music maghrebi andalusi nuba iraqi maqam of baghdad. vocal fry, breath veiled tone, slow rate, interlocked note trading. nylon plastic walnut ribs canonical mid tier spruce face oud, metal finger picks walnut body canonical decorative goat skin bridge plate gut historical qanun, spun aluminum Egyptian sombaty synthetic remo mylar modern canonical Egyptian iraqi maqam zarb drier finger darbuka. qat chew majlis room. dynamic moving-coil, transformer-coupled solid-state pre, BBC broadcast console, optical compressor, passive program EQ. indian/lebanese/greek vinyl pressing spring reverb.",
+  "recipe_chars": 713,
+  "score": 594.393,
   "config": {
     "traditions": [
       "somali_qaraami",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "vocal_fry",
-          "voice_quality": "crooner_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "staccato_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "arabic_maqam_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
           "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
           "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
-          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
           "voice_register": 3.3649999999999998,
-          "voice_quality": 2.6000000000000005,
+          "voice_quality": 29.314999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 9.685,
-          "voice_articulation": 0.65,
-          "voice_microtone": 33.08,
+          "voice_vibrato": 23.8875,
+          "voice_articulation": 23.335,
+          "voice_microtone": 79.795,
           "voice_tradition": 57.66,
           "voice_mechanism_compound": 25.259999999999998,
           "voice_estill_quality": 20.525,
-          "voice_speech_song": 26.455000000000002,
-          "voice_ensemble_config": 25.35,
+          "voice_speech_song": 26.325,
+          "voice_ensemble_config": 26.714999999999996,
           "voice_ornament_system": 48.47500000000001,
           "voice_pitch_organization": 48.65500000000001,
           "voice_processing_chain": 7.0200000000000005,
-          "voice_multitrack_stack": 4.48
+          "voice_multitrack_stack": 4.090000000000001
         }
       },
       {
@@ -111,7 +111,7 @@
       }
     ],
     "room": "qat_chew_majlis_room",
-    "archetype": "arch_emi_lagos_african_70s",
+    "archetype": "arch_addis_ethiopiques",
     "inline_chain": {
       "mic": "mic_sm58_dynamic_shure",
       "pre": "transformer_solid_state",

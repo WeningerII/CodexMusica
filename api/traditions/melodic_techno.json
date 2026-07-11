@@ -3,9 +3,9 @@
   "name": "Melodic techno (2010s emotional-arpeggiated techno)",
   "family": "electronic",
   "lineage": "2010s techno subgenre emphasizing emotional-melodic-development over rhythmic-functional dance-floor utility, with characteristic long arpeggiated-synth lead-melodies and sweeping-orchestral pad textures. Tale of Us (Italian duo Carmine Conte and Matteo Milleri) and their Afterlife label (founded 2016) anchored the canonical sound. Mind Against, Mathame, Adriatique, and the broader Innervisions-Diynamic-Afterlife label network defined the contemporary roster.",
-  "recipe": "classic melodic techno, electronic Dance, techno branch, house electronic dance melodic house fidget house. extended whistle, rap, melodic, punctuated. TR-808, sustained pad analog synth, a 440 modern pitch us standard grand piano. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 425,
-  "score": 121.819,
+  "recipe": "classic melodic techno, electronic Dance, techno branch, house electronic dance melodic house fidget house. extended whistle, breath veiled tone, straight note core, interlocked note trading. TR-808, sustained pad analog synth, a 440 modern pitch us standard grand piano. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 465,
+  "score": 162.615,
   "config": {
     "traditions": [
       "melodic_techno",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "extended_whistle_register",
-          "voice_quality": "rap_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "staccato_voice",
-          "voice_microtone": "overtone_singing",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "bel_canto_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 1.56,
-          "voice_quality": 3.0437500000000006,
+          "voice_quality": 10.594999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.637499999999999,
-          "voice_articulation": 3.18875,
-          "voice_microtone": 0.6,
+          "voice_vibrato": 5.785,
+          "voice_articulation": 15.859999999999996,
+          "voice_microtone": 16.509999999999994,
           "voice_tradition": 4.2250000000000005,
           "voice_mechanism_compound": 3.38,
           "voice_estill_quality": 4.585,
-          "voice_speech_song": 15.989999999999998,
-          "voice_ensemble_config": 15.924999999999997,
+          "voice_speech_song": 16.705,
+          "voice_ensemble_config": 15.794999999999995,
           "voice_ornament_system": 3.1500000000000004,
-          "voice_pitch_organization": 3.38,
+          "voice_pitch_organization": 4.030000000000001,
           "voice_processing_chain": 16.50875,
-          "voice_multitrack_stack": 9.42625
+          "voice_multitrack_stack": 12.707499999999998
         }
       },
       {

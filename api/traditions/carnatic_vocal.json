@@ -3,9 +3,9 @@
   "name": "Carnatic vocal",
   "family": "classical",
   "lineage": "South Indian classical vocal tradition organized around the 72-melakarta scale system codified by Venkatamakhin in 1620 and the kriti-composition canon of the early-19th-century Trinity (Tyagaraja, Muthuswami Dikshitar, Syama Sastri); 20th-century lineage M.S. Subbulakshmi, D.K. Pattammal, M.D. Ramanathan, T.N. Krishnan, Semmangudi Srinivasa Iyer, T.R. Mahalingam",
-  "recipe": "classic South Asian early-1620s carnatic vocal, improv On Frame, indian classical improv branch, south Asian art music, hindu ritual devotional sinhala vannama telugu kirtana. vocal fry, declaimed, chest resonance low mid, punctuated. jackwood barrel canonical carnatic goat buffalo rice paste karanai palghat lineage canonical carnatic mridangam, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic, suited to female vocal bronze steel mix gourd body canonical traditional tanpura, ghatam, jackwood barrel canonical Tamil buffalo goat thumb cap canonical periya melam thavil, jackwood frame canonical carnatic brass jingle pair kanjira, concert forged steel sarvalaghu morsing. chennai madras music academy sabha. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 820,
-  "score": 403.245,
+  "recipe": "classic South Asian early-1620s carnatic vocal, improv On Frame, indian classical improv branch, south Asian art music, hindu ritual devotional sinhala vannama telugu kirtana. vocal fry, breath veiled tone, slow rate, interlocked note trading. jackwood barrel canonical carnatic goat buffalo rice paste karanai palghat lineage canonical carnatic mridangam, gut pre 1900 south indian historical lalgudi lineage carnatic legato violin carnatic, suited to female vocal bronze steel mix gourd body canonical traditional tanpura, ghatam, concert stage jackwood barrel canonical Tamil buffalo goat thumb cap canonical periya melam thavil, jackwood frame canonical carnatic brass jingle pair kanjira, concert forged steel sarvalaghu morsing, tanpura like sruti anchor tonic drone shruti box. chennai madras music academy sabha. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe_chars": 887,
+  "score": 466.77,
   "config": {
     "traditions": [
       "carnatic_vocal",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "vocal_fry",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "staccato_voice",
-          "voice_microtone": "shruti_inflected",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "carnatic_classical_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
@@ -30,25 +30,25 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_carnatic_gamaka",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
-          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
           "voice_register": 3.769999999999999,
-          "voice_quality": 6.0200000000000005,
+          "voice_quality": 19.89,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 8.319999999999999,
-          "voice_articulation": 0.845,
-          "voice_microtone": 2.0149999999999997,
+          "voice_vibrato": 18.129999999999995,
+          "voice_articulation": 9.294999999999998,
+          "voice_microtone": 9.1,
           "voice_tradition": 42.205,
           "voice_mechanism_compound": 15.149999999999999,
           "voice_estill_quality": 16.574999999999996,
           "voice_speech_song": 15.749999999999996,
-          "voice_ensemble_config": 10.205,
+          "voice_ensemble_config": 10.075,
           "voice_ornament_system": 34.81999999999999,
           "voice_pitch_organization": 35.16499999999999,
-          "voice_processing_chain": 3.6399999999999997,
+          "voice_processing_chain": 4.355,
           "voice_multitrack_stack": 5.2749999999999995
         }
       },
@@ -119,14 +119,14 @@
       {
         "id": "thavil",
         "slots": {
-          "thavil_context": "thavil_periya_melam",
-          "thavil_technique": "thavil_stick_finger",
+          "thavil_context": "thavil_concert",
+          "thavil_technique": "thavil_all_stick",
           "thavil_shell_wood": "thavil_jackwood",
           "thavil_head": "thavil_buffalo_goat"
         },
         "scores": {
-          "thavil_context": 0,
-          "thavil_technique": 0,
+          "thavil_context": 1.625,
+          "thavil_technique": 0.39,
           "thavil_shell_wood": 3.769999999999999,
           "thavil_head": 2.5349999999999997
         }
@@ -158,10 +158,25 @@
           "morsing_technique": 14.61,
           "morsing_material": 13.374999999999998
         }
+      },
+      {
+        "id": "shruti_box",
+        "slots": {
+          "free_reed_technique": "free_reed_folk_first_position",
+          "shruti_box_form": "shruti_box_form_standard_surpeti",
+          "shruti_box_role": "shruti_box_role_carnatic_vocal_drone",
+          "shruti_box_build": "shruti_box_build_brass_reeds_teak"
+        },
+        "scores": {
+          "free_reed_technique": 1.3399999999999999,
+          "shruti_box_form": 0.9099999999999999,
+          "shruti_box_role": 15.569999999999997,
+          "shruti_box_build": 0.39
+        }
       }
     ],
     "room": "chennai_madras_music_academy_sabha",
-    "archetype": "arch_electrical_disc_cut",
+    "archetype": "arch_hmv_dumdum_raga",
     "inline_chain": {
       "mic": "mic_u87_condenser_neumann",
       "pre": "tube_pre",

@@ -3,26 +3,26 @@
   "name": "Polish góralski (Tatra highlander)",
   "family": "global",
   "lineage": "Polish góralski Tatra-Mountain highlander music-and-dance tradition of the Podhale region in southern Poland, performed by the Polish góral mountain-folk community. The kapela góralska ensemble centers on the prymista (lead violinist) accompanied by sekund (second-violin) and basy (three-string Tatra-style upright-bass), with characteristic open-string drone-and-shifted-tonal-center modal vocabulary distinct from broader Polish lowland folk-music. Performance contexts span village-festival celebrations, wedding ceremonies, and (since 1968) the international Folk-Music Festival in Zakopane. The post-1980 Tatra-cultural-revival under the local Highlander Union has consolidated institutional preservation. Distinguished from Slovak fujara solo and Czech moravian folk by Polish góralski Podhale-Tatra specific stylistic-conventions.",
-  "recipe": "classic late-1960s polish góralski, functional Song, europop branch, Celtic balladic ballad poetry breton folk newfoundland outport balladry. thick, incomplete closure resting, melodic, unrestrained. half rectified sitka spruce hard rock maple acer saccharum French Polish violin orchestral. mountain valley. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 438,
-  "score": 175.662,
+  "recipe": "classic late-1960s polish góralski, functional Song, europop branch, Celtic balladic ballad poetry sean-nós solo singing cape breton milling-frolic. thick, breath veiled tone, straight note core, interlocked note trading. half rectified French Polish shellac pad Baroque setup short neck violin orchestral. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 386,
+  "score": 218.169,
   "config": {
     "traditions": [
       "polish_goralski",
-      "breton_folk",
-      "newfoundland_outport"
+      "sean_nos_solo",
+      "cape_breton_milling"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "incomplete_closure_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "shouted_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 18.820000000000004,
-          "voice_quality": 5.915000000000001,
+          "voice_register": 14.219999999999995,
+          "voice_quality": 15.534999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.035,
-          "voice_articulation": 0.78,
-          "voice_microtone": 2.48875,
-          "voice_tradition": 35.8475,
-          "voice_mechanism_compound": 4.03,
-          "voice_estill_quality": 5.495,
-          "voice_speech_song": 20.539999999999996,
-          "voice_ensemble_config": 15.274999999999995,
-          "voice_ornament_system": 9.586249999999998,
-          "voice_pitch_organization": 2.4050000000000002,
-          "voice_processing_chain": 5.459999999999999,
-          "voice_multitrack_stack": 1.885
+          "voice_vibrato": 1.2025,
+          "voice_articulation": 15.014999999999992,
+          "voice_microtone": 17.15999999999999,
+          "voice_tradition": 44.8825,
+          "voice_mechanism_compound": 5.46,
+          "voice_estill_quality": 4.42,
+          "voice_speech_song": 17.74499999999999,
+          "voice_ensemble_config": 15.50249999999999,
+          "voice_ornament_system": 30.566249999999993,
+          "voice_pitch_organization": 3.640000000000001,
+          "voice_processing_chain": 7.279999999999999,
+          "voice_multitrack_stack": 7.8
         }
       },
       {
@@ -60,28 +60,28 @@
           "orch_top_wood": "sitka_spruce_violin_top",
           "orch_back_wood": "hard_rock_maple_violin_back",
           "orch_varnish": "french_polish_violin",
-          "orch_setup_period": "modern_setup_violin",
+          "orch_setup_period": "baroque_setup_violin",
           "orch_bow": "baroque_bow",
-          "orch_bow_stick": "carbon_fiber_stick_orch",
+          "orch_bow_stick": "brazilwood_stick_orch",
           "orch_articulation": "arco_orch",
-          "orch_rosin": "magic_rosin_orch"
+          "orch_rosin": "bernardel_rosin_orch"
         },
         "scores": {
-          "bowed_technique": 7.119999999999999,
+          "bowed_technique": 5.6450000000000005,
           "orch_strings": 7.145,
-          "orch_top_wood": 1.9849999999999999,
-          "orch_back_wood": 2.275,
-          "orch_varnish": 7.824999999999999,
-          "orch_setup_period": 3.40375,
-          "orch_bow": 3.9699999999999998,
-          "orch_bow_stick": 2.10875,
-          "orch_articulation": 0.65,
-          "orch_rosin": 2.5675
+          "orch_top_wood": 0.325,
+          "orch_back_wood": -0.035,
+          "orch_varnish": 6.1499999999999995,
+          "orch_setup_period": 2.105,
+          "orch_bow": 1.885,
+          "orch_bow_stick": -0.035,
+          "orch_articulation": 0.39,
+          "orch_rosin": 0.7149999999999999
         }
       }
     ],
     "room": "mountain_valley",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ethnographic_field_digital",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

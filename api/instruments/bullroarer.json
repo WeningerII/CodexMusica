@@ -1,0 +1,374 @@
+{
+  "id": "bullroarer",
+  "name": "Bullroarer",
+  "family": "wind",
+  "class": "wind_free_aerophone",
+  "axes": {
+    "pitchFix": -1,
+    "sustain": 2,
+    "polyphony": -2,
+    "harmonicity": -1,
+    "register": -1,
+    "range": -1,
+    "articulation": -1,
+    "transduction": -2,
+    "dynamics": 1
+  },
+  "short": "Whirled slat free-aerophone (bullroarer / purerehua / turndun) spun on a cord to produce a pulsing, throbbing aerodynamic roar.",
+  "parts": [
+    {
+      "id": "bullroarer_regional_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "bullroarer_form_purerehua",
+          "default": true,
+          "name": "Purerehua (Maori taonga puoro)",
+          "descriptors": [
+            "leaf-shaped",
+            "carved-wood",
+            "whirring",
+            "taonga-puoro"
+          ],
+          "match_tokens": [
+            "whirled",
+            "wind-driven",
+            "maori",
+            "purerehua"
+          ],
+          "canonical_tags": [
+            "maori_waiata"
+          ]
+        },
+        {
+          "id": "bullroarer_form_turndun",
+          "name": "Turndun (Aboriginal Australian slat)",
+          "descriptors": [
+            "elongated-slat",
+            "deep-roar",
+            "incised",
+            "sacred"
+          ],
+          "match_tokens": [
+            "whirled",
+            "wind-driven",
+            "aboriginal",
+            "bullroarer"
+          ],
+          "canonical_tags": [
+            "aboriginal_australian_songlines"
+          ]
+        },
+        {
+          "id": "bullroarer_form_rhombos",
+          "name": "Rhombos (ancient ritual blade)",
+          "descriptors": [
+            "narrow-blade",
+            "ancient-ritual",
+            "droning-whir"
+          ],
+          "match_tokens": [
+            "whirled",
+            "wind-driven",
+            "ritual"
+          ]
+        },
+        {
+          "id": "bullroarer_form_concert",
+          "name": "Large concert slat (modern deep-tone)",
+          "descriptors": [
+            "large-slat",
+            "broad-blade",
+            "low-roar",
+            "modern"
+          ],
+          "match_tokens": [
+            "whirled",
+            "wind-driven",
+            "cinematic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bullroarer_whirl_style",
+      "name": "Whirl style / context",
+      "variants": [
+        {
+          "id": "bullroarer_whirl_ceremonial",
+          "default": true,
+          "name": "Ceremonial slow whirl (summoning)",
+          "descriptors": [
+            "slow-whirl",
+            "deep-swelling",
+            "ritual-summoning",
+            "droning"
+          ],
+          "match_tokens": [
+            "whirled",
+            "wind-driven",
+            "drone-foundation",
+            "rough-tone"
+          ]
+        },
+        {
+          "id": "bullroarer_whirl_ascending",
+          "name": "Accelerating whir (rising sweep)",
+          "descriptors": [
+            "accelerating",
+            "rising-pitch",
+            "quickening-whir"
+          ],
+          "match_tokens": [
+            "whirled",
+            "wind-driven",
+            "sweep"
+          ]
+        },
+        {
+          "id": "bullroarer_whirl_cinematic",
+          "name": "Sustained atmospheric pulse (sound design)",
+          "descriptors": [
+            "sustained-pulse",
+            "atmospheric",
+            "low-rumble",
+            "sound-design"
+          ],
+          "match_tokens": [
+            "whirled",
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bullroarer_slat_build",
+      "surface": false,
+      "name": "Slat construction",
+      "variants": [
+        {
+          "id": "bullroarer_build_hardwood",
+          "default": true,
+          "name": "Carved native hardwood slat",
+          "descriptors": [
+            "hardwood-slat",
+            "warm-roar",
+            "rounded-tone"
+          ],
+          "match_tokens": [
+            "whirled",
+            "wind-driven",
+            "wood"
+          ]
+        },
+        {
+          "id": "bullroarer_build_bone",
+          "name": "Bone or shell blade (brighter)",
+          "descriptors": [
+            "bone-blade",
+            "bright-whir",
+            "piercing"
+          ],
+          "match_tokens": [
+            "whirled",
+            "wind-driven",
+            "bone"
+          ]
+        },
+        {
+          "id": "bullroarer_build_serrated",
+          "name": "Serrated-edge slat (rougher buzz)",
+          "descriptors": [
+            "serrated-edge",
+            "rough-buzz",
+            "gritty"
+          ],
+          "match_tokens": [
+            "whirled",
+            "wind-driven",
+            "rough-tone"
+          ]
+        }
+      ]
+    }
+  ],
+  "_ownParts": [
+    {
+      "id": "bullroarer_regional_form",
+      "name": "Regional form",
+      "variants": [
+        {
+          "id": "bullroarer_form_purerehua",
+          "default": true,
+          "name": "Purerehua (Maori taonga puoro)",
+          "descriptors": [
+            "leaf-shaped",
+            "carved-wood",
+            "whirring",
+            "taonga-puoro"
+          ],
+          "match_tokens": [
+            "whirled",
+            "wind-driven",
+            "maori",
+            "purerehua"
+          ],
+          "canonical_tags": [
+            "maori_waiata"
+          ]
+        },
+        {
+          "id": "bullroarer_form_turndun",
+          "name": "Turndun (Aboriginal Australian slat)",
+          "descriptors": [
+            "elongated-slat",
+            "deep-roar",
+            "incised",
+            "sacred"
+          ],
+          "match_tokens": [
+            "whirled",
+            "wind-driven",
+            "aboriginal",
+            "bullroarer"
+          ],
+          "canonical_tags": [
+            "aboriginal_australian_songlines"
+          ]
+        },
+        {
+          "id": "bullroarer_form_rhombos",
+          "name": "Rhombos (ancient ritual blade)",
+          "descriptors": [
+            "narrow-blade",
+            "ancient-ritual",
+            "droning-whir"
+          ],
+          "match_tokens": [
+            "whirled",
+            "wind-driven",
+            "ritual"
+          ]
+        },
+        {
+          "id": "bullroarer_form_concert",
+          "name": "Large concert slat (modern deep-tone)",
+          "descriptors": [
+            "large-slat",
+            "broad-blade",
+            "low-roar",
+            "modern"
+          ],
+          "match_tokens": [
+            "whirled",
+            "wind-driven",
+            "cinematic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bullroarer_whirl_style",
+      "name": "Whirl style / context",
+      "variants": [
+        {
+          "id": "bullroarer_whirl_ceremonial",
+          "default": true,
+          "name": "Ceremonial slow whirl (summoning)",
+          "descriptors": [
+            "slow-whirl",
+            "deep-swelling",
+            "ritual-summoning",
+            "droning"
+          ],
+          "match_tokens": [
+            "whirled",
+            "wind-driven",
+            "drone-foundation",
+            "rough-tone"
+          ]
+        },
+        {
+          "id": "bullroarer_whirl_ascending",
+          "name": "Accelerating whir (rising sweep)",
+          "descriptors": [
+            "accelerating",
+            "rising-pitch",
+            "quickening-whir"
+          ],
+          "match_tokens": [
+            "whirled",
+            "wind-driven",
+            "sweep"
+          ]
+        },
+        {
+          "id": "bullroarer_whirl_cinematic",
+          "name": "Sustained atmospheric pulse (sound design)",
+          "descriptors": [
+            "sustained-pulse",
+            "atmospheric",
+            "low-rumble",
+            "sound-design"
+          ],
+          "match_tokens": [
+            "whirled",
+            "wind-driven",
+            "drone-foundation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bullroarer_slat_build",
+      "surface": false,
+      "name": "Slat construction",
+      "variants": [
+        {
+          "id": "bullroarer_build_hardwood",
+          "default": true,
+          "name": "Carved native hardwood slat",
+          "descriptors": [
+            "hardwood-slat",
+            "warm-roar",
+            "rounded-tone"
+          ],
+          "match_tokens": [
+            "whirled",
+            "wind-driven",
+            "wood"
+          ]
+        },
+        {
+          "id": "bullroarer_build_bone",
+          "name": "Bone or shell blade (brighter)",
+          "descriptors": [
+            "bone-blade",
+            "bright-whir",
+            "piercing"
+          ],
+          "match_tokens": [
+            "whirled",
+            "wind-driven",
+            "bone"
+          ]
+        },
+        {
+          "id": "bullroarer_build_serrated",
+          "name": "Serrated-edge slat (rougher buzz)",
+          "descriptors": [
+            "serrated-edge",
+            "rough-buzz",
+            "gritty"
+          ],
+          "match_tokens": [
+            "whirled",
+            "wind-driven",
+            "rough-tone"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -3,9 +3,9 @@
   "name": "Freak folk",
   "family": "global",
   "lineage": "Mid-2000s psychedelic-folk revival emerging from the Devendra Banhart / Vetiver / Joanna Newsom / CocoRosie cluster extending the 1960s-70s Vashti Bunyan / Karen Dalton / Linda Perhacs psychedelic-folk lineage into the post-millennium era; recordings: Devendra Banhart Rejoicing in the Hands 2004 and Cripple Crow 2005, Joanna Newsom The Milk-Eyed Mender 2004 and Ys 2006, CocoRosie La Maison de mon Rêve 2004, Vetiver Vetiver 2004",
-  "recipe": "classic North American 2004-2006 freak folk, ballad Poetry, freak folk branch, pop experimental experimental electric hyperpop. thick, incomplete closure resting, chest resonance low mid, unrestrained. cedar walnut phosphor bronze bronze fingerpicked acoustic guitar, concert harp, drone like fiddle, castagnari Italian premium folk music straight accordion, mass production synthetic varnish polyurethane violin orchestral, folk strummed open chord ringing overtones autoharp, walnut mid tier scruggs stelling bluegrass setup mastertone flathead banjo 5 string, mid attack plastic glockenspiel, maple mid tier Baroque alternative melodic recorder. takoma home recording fahey. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 824,
-  "score": 266.97,
+  "recipe": "classic North American 2004-2006 freak folk, ballad Poetry, freak folk branch, pop experimental experimental electric hyperpop. thick, breath veiled tone, straight onset, interlocked note trading. cedar walnut phosphor bronze bronze fingerpicked acoustic guitar, concert harp, drone like fiddle, castagnari Italian premium folk music straight accordion, mass production synthetic varnish polyurethane violin orchestral, folk strummed open chord ringing overtones autoharp, walnut mid tier scruggs stelling bluegrass setup mastertone flathead banjo 5 string, mid attack plastic glockenspiel, maple mid tier Baroque alternative melodic recorder. takoma home recording fahey. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 819,
+  "score": 282.408,
   "config": {
     "traditions": [
       "freak_folk_2000s",
@@ -16,11 +16,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "incomplete_closure_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "shouted_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "japanese_min_yo_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
@@ -34,21 +34,21 @@
         },
         "scores": {
           "voice_register": 25.98624999999999,
-          "voice_quality": 2.6120000000000005,
+          "voice_quality": 8.59925,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.042,
-          "voice_articulation": 0.945,
+          "voice_vibrato": 1.1049999999999998,
+          "voice_articulation": 9.426499999999994,
           "voice_microtone": 9.791249999999998,
           "voice_tradition": 18.782375,
           "voice_mechanism_compound": 0.956,
           "voice_estill_quality": 2.6590000000000003,
-          "voice_speech_song": 12.699624999999996,
-          "voice_ensemble_config": 9.532249999999996,
+          "voice_speech_song": 13.250374999999995,
+          "voice_ensemble_config": 9.637374999999995,
           "voice_ornament_system": 1.4264999999999999,
-          "voice_pitch_organization": 0.652,
+          "voice_pitch_organization": 1.0019999999999998,
           "voice_processing_chain": 2.1323749999999997,
-          "voice_multitrack_stack": 4.46125
+          "voice_multitrack_stack": 4.361250000000001
         }
       },
       {
