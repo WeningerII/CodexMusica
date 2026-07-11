@@ -33400,7 +33400,9 @@ function compressRichRecipe(cards, ceiling) {
 }
 
 function compileRecipeStack(cards, format, options) {
-  const ceiling = (options && options.ceiling) || 1000;
+  // Hard 1000-char recipe ceiling (RECIPE_CHAR_CEILING invariant): a requested
+  // ceiling may only LOWER the cap, never raise it past 1000.
+  const ceiling = Math.min((options && options.ceiling) || 1000, 1000);
   if (!cards || cards.length === 0) return '';
 
   // Recipe-context preface dedup: compute deduped preface ids for the recipe,

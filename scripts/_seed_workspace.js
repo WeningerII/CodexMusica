@@ -178,8 +178,11 @@ function recipeHeaderFromCards(cards) {
 function renderWorkspace(cards, { format = 'rich', ceiling = 1000 } = {}) {
   if (!cards || cards.length === 0) return '';
   assignDedupedPrefaces(cards);
+  // Hard 1000-char recipe ceiling (RECIPE_CHAR_CEILING): clamp the total budget
+  // before the header is subtracted so header+body can never exceed 1000.
+  const cap = Math.min(ceiling, 1000);
   const header = recipeHeaderFromCards(cards);
-  const body = compileStack(cards, format, Math.max(1, ceiling - header.length));
+  const body = compileStack(cards, format, Math.max(1, cap - header.length));
   return header + body;
 }
 

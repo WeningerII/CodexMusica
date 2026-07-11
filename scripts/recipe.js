@@ -21,7 +21,7 @@
 //      node scripts/recipe.js --axis-target "harm:1,density:2,intensity:2"
 //
 // Common flags:
-//   --max-chars=<n>     ceiling override (default 1000)
+//   --max-chars=<n>     lower the recipe length cap (1-1000; the 1000 ceiling is hard, larger values are capped)
 //   --json              emit configuration JSON instead of descriptor stack
 //   --trace             emit search trace to stderr
 //
@@ -80,6 +80,13 @@ if (flags['max-chars'] !== undefined) {
   if (!Number.isInteger(maxChars) || maxChars <= 0) {
     console.error(`--max-chars must be a positive integer; got "${flags['max-chars']}"`);
     process.exit(2);
+  }
+  // Hard 1000-char recipe ceiling (RECIPE_CHAR_CEILING): --max-chars can only
+  // shorten the recipe, never raise it past 1000. translate() clamps too; this
+  // makes the cap explicit at the CLI boundary.
+  if (maxChars > 1000) {
+    console.error(`--max-chars capped at the 1000-char recipe ceiling (requested ${maxChars})`);
+    maxChars = 1000;
   }
 }
 

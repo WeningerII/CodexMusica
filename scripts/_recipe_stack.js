@@ -1009,6 +1009,9 @@ function compressRichRecipe(cards, ceiling) {
 // ─────────────────────────── dispatch (no header) ───────────────────────────
 function compileStack(cards, format, ceiling) {
   if (!cards || cards.length === 0) return '';
+  // Hard 1000-char recipe ceiling (RECIPE_CHAR_CEILING): defensive clamp so any
+  // direct caller of the compressors is bounded, not just renderWorkspace.
+  ceiling = Math.min(ceiling || 1000, 1000);
   if (format === 'tags') return compressTagsRecipe(cards, ceiling);
   if (format === 'compact') return compressCompactRecipe(cards, ceiling);
   if (format === 'rich') return compressRichRecipe(cards, ceiling);

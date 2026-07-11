@@ -1918,7 +1918,9 @@ function buildTraditionContextTokens(config) {
 }
 
 function translate(config, options = {}) {
-  const ceiling = options.ceiling || 1000;
+  // Hard 1000-char recipe ceiling (RECIPE_CHAR_CEILING invariant): a requested
+  // ceiling may only LOWER the cap, never raise it past 1000.
+  const ceiling = Math.min(options.ceiling || 1000, 1000);
   const trustedTokens = buildTraditionContextTokens(config);
   const sentences = [];
   const s1 = buildSentence1(config);
