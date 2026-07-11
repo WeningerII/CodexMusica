@@ -24,8 +24,11 @@ const renderShape = {
     .number()
     .int()
     .positive()
+    .max(1000)
     .optional()
-    .describe('Length ceiling in characters (default 1000).'),
+    .describe(
+      'Trim the recipe to at most this many characters. 1000 is the canonical Current Recipe length — both the default and the hard maximum; pass a smaller value only to shorten. Values above 1000 are rejected.'
+    ),
 };
 
 const workspaceSchema = z

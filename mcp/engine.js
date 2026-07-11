@@ -68,7 +68,9 @@ function cardsSummary(ws) {
 // The standard recipe response: the deliverable string + the state to thread on.
 function shape(ws, params = {}, meta = {}) {
   const format = params.format || 'rich';
-  const ceiling = params.max_chars || 1000;
+  // 1000 is the canonical Current-Recipe cap; clamp defensively so a direct
+  // engine call (bypassing the tool-schema max) can't exceed it either.
+  const ceiling = Math.min(params.max_chars || 1000, 1000);
   const recipe = W.render(ws, { format, ceiling });
   const out = {
     recipe,
