@@ -3,9 +3,9 @@
   "name": "Dream pop",
   "family": "global",
   "lineage": "1980s-onward atmospheric guitar pop genre codified through the 4AD label catalog (Cocteau Twins, Treasure 1984, Heaven or Las Vegas 1990 the dream pop album), the Mazzy Star California canon (She Hangs Brightly 1990, So Tonight That I Might See 1993 with Hope Sandoval female-vocal-foreground), Galaxie 500 (the New England slowcore-adjacent canon), Beach House (Baltimore modern dream pop, Teen Dream 2010, Bloom 2012)",
-  "recipe": "classic Northern European mid-1980s dream pop, functional Song, pop rock branch, alternative distorted rock bedroom pop. thick, larynx lowered, melodic, rhythmic. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alder single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, oak pre muffled edge muffled hot rolled annealed drum kit, sequential lineage canonical prophet 5 1978 san jose ca lead analog poly yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, original production texture omnichord. UK 4ad and creation shoegaze 1986-1995 indie-commercial dream pop shoegaze 4ad studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb electro-harmonix deluxe memory man chorus.",
-  "recipe_chars": 899,
-  "score": 644.118,
+  "recipe": "classic Northern European mid-1980s dream pop, functional Song, pop rock branch, alternative distorted rock bedroom pop. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alder single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, oak pre muffled edge muffled hot rolled annealed drum kit, sequential lineage canonical prophet 5 1978 san jose ca lead analog poly yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, original production texture omnichord. UK 4ad and creation shoegaze 1986-1995 indie-commercial dream pop shoegaze 4ad studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb electro-harmonix deluxe memory man chorus.",
+  "recipe_chars": 930,
+  "score": 680.018,
   "config": {
     "traditions": [
       "dream_pop",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "lowered_larynx_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "spoken_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_polynesian_falsetto",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
           "voice_register": 47.95500000000002,
-          "voice_quality": 1.1999999999999997,
+          "voice_quality": 5.98,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.4699999999999998,
-          "voice_articulation": 0.845,
+          "voice_vibrato": 2.34,
+          "voice_articulation": 17.42,
           "voice_microtone": 44.17500000000002,
           "voice_tradition": 25.97,
           "voice_mechanism_compound": 8.027500000000002,
           "voice_estill_quality": 6.630000000000003,
-          "voice_speech_song": 20.54,
-          "voice_ensemble_config": 17.03,
+          "voice_speech_song": 21.19,
+          "voice_ensemble_config": 20.475,
           "voice_ornament_system": 1.575,
-          "voice_pitch_organization": 1.69,
-          "voice_processing_chain": 6.467499999999999,
-          "voice_multitrack_stack": 8.2875
+          "voice_pitch_organization": 2.1449999999999996,
+          "voice_processing_chain": 11.36,
+          "voice_multitrack_stack": 13.519999999999998
         }
       },
       {

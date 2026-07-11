@@ -3,9 +3,9 @@
   "name": "Anarcho-punk (Crass)",
   "family": "rock_punk",
   "lineage": "British post-1977 punk substyle centered on the Crass collective at Dial House (Essex commune, founded 1967, music project 1977-1984) and the parallel Poison Girls, Flux of Pink Indians, and Conflict scenes. Combines aggressive punk musical-aesthetic with explicit anarchist-pacifist-feminist-vegan political content, DIY-distribution-and-production self-organization, and rigorous anti-commercial cultural-stance. The 1980 Reality Asylum, 1981 Penis Envy, and 1982 Christ — The Album consolidated the canonical anarcho-punk register.",
-  "recipe": "classic mid-1980s anarcho-punk, distorted Rock, punk branch, regional distorted rock latin rock rasin. thick, declaimed, nervy, punctuated. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation palm muted humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. isolated rural 2005-present isolation diy isolation cabin diy. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 610,
-  "score": 427.373,
+  "recipe": "classic mid-1980s anarcho-punk, distorted Rock, punk branch, regional distorted rock latin rock rasin. thick, breath veiled tone, fast rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation palm muted humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. isolated rural 2005-present isolation diy isolation cabin diy. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 637,
+  "score": 453.818,
   "config": {
     "traditions": [
       "anarcho_punk_crass",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "fast_vibrato",
-          "voice_articulation": "staccato_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "beatboxing_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
-          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
           "voice_register": 22.577749999999995,
-          "voice_quality": 1.9699999999999998,
+          "voice_quality": 12.284999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.845,
-          "voice_articulation": 0.845,
+          "voice_articulation": 15.859999999999994,
           "voice_microtone": 22.845,
           "voice_tradition": 2.73,
           "voice_mechanism_compound": 4.615000000000001,
           "voice_estill_quality": 4.030000000000001,
-          "voice_speech_song": 15.989999999999997,
+          "voice_speech_song": 15.859999999999994,
           "voice_ensemble_config": 16.235,
           "voice_ornament_system": 0.7749999999999999,
-          "voice_pitch_organization": 2.52525,
+          "voice_pitch_organization": 2.34,
           "voice_processing_chain": 5.67525,
-          "voice_multitrack_stack": 4.4525
+          "voice_multitrack_stack": 5.8825
         }
       },
       {

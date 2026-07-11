@@ -3,53 +3,53 @@
   "name": "Kutiyattam Sanskrit recitation",
   "family": "classical",
   "lineage": "Kutiyattam is the Sanskrit temple theatre of Kerala in southwestern India, the oldest continuously performed classical theatre tradition of the subcontinent, staged in the kuttampalam theatres of Hindu temples and transmitted through the Chakyar and Nangyar hereditary performer families. Its recitation delivers Sanskrit and Prakrit verse in stylized, raga-based intonation with greatly elongated syllables, accompanied by the mizhavu copper drum, so that a single verse may be expanded across many hours of vachika (vocal) and angika (gestural) elaboration. The guru Ammannur Madhava Chakyar (1917-2008) is the emblematic 20th-century master. It is documented under UNESCO's intangible-cultural-heritage inscription (2001/2008) and in the Margi and Kerala Kalamandalam training institutions.",
-  "recipe": "classic South Asian early-1910s kutiyattam sanskrit recitation, art Music, south Asian branch thai classical telugu kirtana. vocal fry, declaimed, chest resonance low mid, microtonal. chennai madras music academy sabha. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 282,
-  "score": 196.957,
+  "recipe": "classic South Asian early-1910s kutiyattam sanskrit recitation, art Music, south Asian branch thai classical tibetan ache lhamo opera. thick, breath veiled tone, slow rate, interlocked note trading. chennai madras music academy sabha. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 297,
+  "score": 292.348,
   "config": {
     "traditions": [
       "kutiyattam_recitation",
       "thai_classical",
-      "telugu_kirtana"
+      "tibetan_ache_lhamo"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
-          "voice_quality": "praise_voice",
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "melisma_voice",
-          "voice_microtone": "shruti_inflected",
-          "voice_tradition": "carnatic_classical_tradition",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "chinese_classical_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_carnatic_gamaka",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_unison_double_take"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.69,
-          "voice_quality": 3.6350000000000007,
+          "voice_register": 1.945,
+          "voice_quality": 32.50000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 8.709999999999999,
-          "voice_articulation": 0.325,
-          "voice_microtone": 2.925,
-          "voice_tradition": 35.075,
-          "voice_mechanism_compound": 16.65,
-          "voice_estill_quality": 18.9,
-          "voice_speech_song": 20.345000000000006,
-          "voice_ensemble_config": 18.330000000000005,
-          "voice_ornament_system": 32.387499999999996,
-          "voice_pitch_organization": 32.6275,
-          "voice_processing_chain": 2.4699999999999998,
-          "voice_multitrack_stack": 3.2615000000000003
+          "voice_vibrato": 21.927999999999997,
+          "voice_articulation": 25.155,
+          "voice_microtone": 26.455,
+          "voice_tradition": 33.54,
+          "voice_mechanism_compound": 17.299999999999997,
+          "voice_estill_quality": 23.775,
+          "voice_speech_song": 26,
+          "voice_ensemble_config": 26.389999999999997,
+          "voice_ornament_system": 20.8625,
+          "voice_pitch_organization": 21.1025,
+          "voice_processing_chain": 9.49,
+          "voice_multitrack_stack": 5.980000000000002
         }
       }
     ],

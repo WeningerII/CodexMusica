@@ -3,72 +3,72 @@
   "name": "Italian canti partigiani (Resistance songs)",
   "family": "global",
   "lineage": "Italian Resistance-and-Partisan-songbook protest-song tradition continuous from 1943-1945 anti-fascist Resistance era (\"Bella Ciao\" as the Resistance anthem in its post-1948 mythologized form, though the song's actual partisan-era usage is disputed by scholars) through post-war Italian Communist Party and Italian left-wing political-songwriter tradition continuous into modern Italian protest-song repertoire",
-  "recipe": "classic 1943-1945 italian canti partigiani, protest Song, European branch, anglo American protest song, chanson fado ballad poetry, Mediterranean ballad ballad poetry american folk-revival protest song morna. thick, lament wail, tasteful, continuous-phonation. martin lifespan fingerpicked acoustic guitar. live tracking. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 384,
-  "score": 168.455,
+  "recipe": "classic 1943-1945 italian canti partigiani, protest Song, European branch, anglo American protest song, chanson fado ballad poetry, Mediterranean ballad ballad poetry sevdalinka american folk-revival protest song. thick, breath veiled tone, straight note core, interlocked note trading. martin lifespan fingerpicked acoustic guitar. live tracking. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 410,
+  "score": 202.26,
   "config": {
     "traditions": [
       "italian_canti_partigiani",
-      "american_folk_revival_protest",
-      "morna"
+      "sevdalinka",
+      "american_folk_revival_protest"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "fado_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
-          "voice_articulation": "legato_voice",
-          "voice_microtone": "tempered_voice",
-          "voice_tradition": "operatic_tradition",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 5.77,
-          "voice_quality": 8.035,
+          "voice_register": 6.17,
+          "voice_quality": 11.309999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.535,
-          "voice_articulation": 4.529999999999999,
-          "voice_microtone": 0.25999999999999995,
-          "voice_tradition": 18.485,
-          "voice_mechanism_compound": 1.4299999999999997,
-          "voice_estill_quality": 21.399999999999995,
-          "voice_speech_song": 28.632499999999997,
-          "voice_ensemble_config": 15.924999999999997,
-          "voice_ornament_system": 17.325,
-          "voice_pitch_organization": 4.334999999999999,
-          "voice_processing_chain": 4.9399999999999995,
-          "voice_multitrack_stack": 4.679999999999999
+          "voice_vibrato": 4.015000000000001,
+          "voice_articulation": 13.779999999999992,
+          "voice_microtone": 15.859999999999992,
+          "voice_tradition": 22.717499999999998,
+          "voice_mechanism_compound": 2.925,
+          "voice_estill_quality": 21.924999999999997,
+          "voice_speech_song": 28.729999999999993,
+          "voice_ensemble_config": 14.29999999999999,
+          "voice_ornament_system": 17.7,
+          "voice_pitch_organization": 4.4849999999999985,
+          "voice_processing_chain": 3.88,
+          "voice_multitrack_stack": 4.907499999999999
         }
       },
       {
         "id": "acoustic_guitar_om",
         "slots": {
           "acoustic_technique": "acoustic_fingerpicked",
-          "string_tuning": "open_d",
+          "string_tuning": "standard_tuning",
           "top_wood": "cedar_om",
           "back_sides": "walnut_bs_om",
           "string_acoustic": "martin_lifespan_om",
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 13.589999999999998,
-          "string_tuning": 0.45499999999999996,
+          "acoustic_technique": 13.264999999999999,
+          "string_tuning": 0,
           "top_wood": 0.54,
           "back_sides": 0.585,
-          "string_acoustic": 3.0749999999999997,
-          "acoustic_om_technique": 13.589999999999998
+          "string_acoustic": 2.925,
+          "acoustic_om_technique": 13.264999999999999
         }
       }
     ],

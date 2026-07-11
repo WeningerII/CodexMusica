@@ -3,9 +3,9 @@
   "name": "Assyrian Church of the East Beth Gazo chant",
   "family": "classical",
   "lineage": "Assyrian Church of the East liturgical chant, the canonical sacred-music tradition of the East-Syriac (Edessene) rite, descending from the Mesopotamian early-Christian community at Edessa and Nisibis. The Assyrian Beth Gazo collection comprises canonical melodies organized through an eight-mode system distinct from but related to the West-Syriac (Antiochene) Beth Gazo. Liturgical language is classical Syriac (Eastern dialect). The post-1915 Sayfo and Iraqi-Syrian displacement disrupted Hakkari-Mesopotamian transmission infrastructure; the Patriarchate (currently seated in Erbil) and diaspora communities in Chicago, Detroit, and Sydney sustain practice.",
-  "recipe": "classic Caucasian mid-1910s assyrian church of the east beth gazo chant, ritual Devotional, coptic branch, western early art music ars antiqua and organum renaissance sacred polyphony. thick, declaimed, chest resonance low mid, ornamental. mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. stone armenian church. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 481,
-  "score": 187.015,
+  "recipe": "classic Caucasian mid-1910s assyrian church of the east beth gazo chant, ritual Devotional, coptic branch, western early art music ars antiqua and organum renaissance sacred polyphony. thick, breath veiled tone, slow rate, interlocked note trading. mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. stone armenian church. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 490,
+  "score": 249.502,
   "config": {
     "traditions": [
       "assyrian_beth_gazo",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "melisma_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "chinese_classical_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 8.83,
-          "voice_quality": 11.040000000000001,
+          "voice_quality": 22.035000000000004,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.29,
-          "voice_articulation": 5.74,
-          "voice_microtone": 7.670000000000002,
+          "voice_vibrato": 10.575,
+          "voice_articulation": 21.3525,
+          "voice_microtone": 19.694999999999997,
           "voice_tradition": 16.509999999999998,
           "voice_mechanism_compound": 8.149999999999999,
           "voice_estill_quality": 14.909999999999998,
-          "voice_speech_song": 18.33,
-          "voice_ensemble_config": 25.675,
+          "voice_speech_song": 18.199999999999996,
+          "voice_ensemble_config": 31.979999999999997,
           "voice_ornament_system": 9.825,
-          "voice_pitch_organization": 12.805,
-          "voice_processing_chain": 4.725,
-          "voice_multitrack_stack": 1.6899999999999997
+          "voice_pitch_organization": 16.249999999999996,
+          "voice_processing_chain": 9.555,
+          "voice_multitrack_stack": 4.8100000000000005
         }
       },
       {

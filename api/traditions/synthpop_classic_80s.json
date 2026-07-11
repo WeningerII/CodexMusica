@@ -3,9 +3,9 @@
   "name": "Synthpop classic (80s)",
   "family": "pop",
   "lineage": "Early-1980s pop subgenre developed primarily in the UK through Depeche Mode, the Human League, Soft Cell, Yazoo, Heaven 17, and the Vince Clarke-related extended catalog. Characterized by all-synthesizer instrumentation (sometimes with drum-machine), melodic-pop song-form structure, and explicit electronic-future-aesthetic. The 1981-1984 chart-pop peak through Don't You Want Me, Tainted Love, Just Can't Get Enough constitutes the canonical commercial-mainstream emergence of synthpop as dominant chart-pop production aesthetic.",
-  "recipe": "classic British 1981-1984 synthpop classic, functional Song, pop rock branch, ambient experimental electric outrun / synthwave vaporwave aesthetic. thick, incomplete closure resting, nervy, equal tempered. pad like lead analog synth, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, mahogany ernie ball slinky electric bass. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 597,
-  "score": 198.912,
+  "recipe": "classic British 1981-1984 synthpop classic, functional Song, pop rock branch, ambient experimental electric outrun / synthwave vaporwave aesthetic. thick, breath veiled tone, straight note core, interlocked note trading. pad like lead analog synth, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, mahogany ernie ball slinky electric bass. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 612,
+  "score": 222.812,
   "config": {
     "traditions": [
       "synthpop_classic_80s",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "incomplete_closure_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "fast_vibrato",
-          "voice_articulation": "staccato_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 25.984999999999996,
-          "voice_quality": 2.350000000000001,
+          "voice_quality": 13.129999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
-          "voice_articulation": 0.09,
+          "voice_vibrato": 2.22,
+          "voice_articulation": 9.945,
           "voice_microtone": 26.099999999999998,
           "voice_tradition": 22.769999999999996,
           "voice_mechanism_compound": 3.3799999999999994,
           "voice_estill_quality": 3.185,
-          "voice_speech_song": 13.714999999999996,
-          "voice_ensemble_config": 10.009999999999998,
+          "voice_speech_song": 15.274999999999995,
+          "voice_ensemble_config": 10.724999999999994,
           "voice_ornament_system": 1.4949999999999999,
-          "voice_pitch_organization": 6.565000000000001,
+          "voice_pitch_organization": 6.370000000000002,
           "voice_processing_chain": 18.075,
-          "voice_multitrack_stack": 7.534999999999998
+          "voice_multitrack_stack": 8.19
         }
       },
       {

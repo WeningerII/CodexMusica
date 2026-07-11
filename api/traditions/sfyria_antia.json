@@ -3,9 +3,9 @@
   "name": "Sfyria whistled language (Antia, Greece)",
   "family": "global",
   "lineage": "Sfyria whistled-language tradition of Antia village on Mount Ochi in Evia island, Greece — a fully grammatical whistled register of the Greek language using turbulent lip-and-tongue-formed source to encode Greek phonemes across the mountain-and-canyon terrain of Mount Ochi; documented by the contemporary linguistic-anthropology lineage including Sotiris Apostolopoulos and the Onassis Foundation cultural-preservation initiatives; the smaller and more endangered sibling of Silbo Gomero, with only a handful of remaining fluent speakers in the Antia village; the whistled-language family includes the Kuşköy Turkish Black Sea whistled-Turkish tradition, the Hmong courtship-whistle, Mazatec, and other documented whistled-languages globally",
-  "recipe": "classic modern sfyria whistled language, drone Modal, vocal branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, declaimed, melodic, punctuated. lip aperture turbulent source whistled language signal communication whistled voice. canyon. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 365,
-  "score": 173.255,
+  "recipe": "classic modern sfyria whistled language, drone Modal, vocal branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, breath veiled tone, straight note core, interlocked note trading. lip aperture turbulent source whistled language signal communication whistled voice. canyon. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 399,
+  "score": 271.725,
   "config": {
     "traditions": [
       "sfyria_antia",
@@ -28,11 +28,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "vocal_fry",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "staccato_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
@@ -41,26 +41,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 3.6399999999999997,
-          "voice_quality": 10.165,
+          "voice_quality": 43.29000000000004,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.4299999999999997,
-          "voice_articulation": 0.9750000000000001,
-          "voice_microtone": 6.35,
+          "voice_vibrato": 3.640000000000001,
+          "voice_articulation": 21.774999999999995,
+          "voice_microtone": 31.84999999999999,
           "voice_tradition": 29.119999999999994,
           "voice_mechanism_compound": 11.655000000000001,
           "voice_estill_quality": 7.475,
-          "voice_speech_song": 21.904999999999998,
-          "voice_ensemble_config": 24.179999999999996,
+          "voice_speech_song": 23.269999999999996,
+          "voice_ensemble_config": 24.439999999999998,
           "voice_ornament_system": 7.15,
           "voice_pitch_organization": 8.585,
-          "voice_processing_chain": 7.15,
-          "voice_multitrack_stack": 5.135
+          "voice_processing_chain": 20.604999999999997,
+          "voice_multitrack_stack": 6.890000000000001
         }
       }
     ],

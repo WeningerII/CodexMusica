@@ -3,53 +3,53 @@
   "name": "Italian southern folk (tarantella, pizzica)",
   "family": "global",
   "lineage": "Southern Italian traditional dance-and-song heritage — tarantella (the broad family of Southern Italian fast 6/8 dance-music, regional variants from Campania, Calabria, Apulia, Sicily), pizzica (the Salentine Apulian variant historically associated with tarantismo, the cultural-spider-bite-ritual of bitten women dancing the trance out of their bodies), and broader Italian southern pastoral tradition with zampogna (Southern Italian bagpipe with two chanters and drones) and ciaramella (the small shawm partner of zampogna in the Christmas-novena outdoor piping-couple); modern revival through the Notte della Taranta festival (Melpignano, since 1998) and the figures Antonio Castrignanò, Mauro Durante, Alla Bua",
-  "recipe": "classic Southern European late-1990s italian southern folk, ballad Poetry, Mediterranean ballad branch, christian gospel ritual devotional, Celtic balladic ballad poetry black gospel bluegrass gospel. thick, declaimed, tasteful, ornamental. olive wood canonical southern Italian cane arundo donax canonical Italian whole goatskin canonical southern Italian pastoral melodic zampogna, dance driving ciaramella, central Italian trance pulse synthetic head tammorra. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 627,
-  "score": 339.478,
+  "recipe": "classic Southern European late-1990s italian southern folk, ballad Poetry, Mediterranean ballad branch, christian gospel ritual devotional, Celtic balladic ballad poetry black gospel ethiopian debtera liturgical incantation. thick, breath veiled tone, wide pitch sway, interlocked note trading. olive wood canonical southern Italian cane arundo donax canonical Italian whole goatskin canonical southern Italian pastoral melodic zampogna, dance driving ciaramella, central Italian healing rite synthetic head tammorra. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 681,
+  "score": 341.104,
   "config": {
     "traditions": [
       "italian_southern_folk",
       "black_gospel_choir",
-      "bluegrass_gospel"
+      "ethiopian_debtera_incantation"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
-          "voice_articulation": "melisma_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "gospel_pentecostal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_bel_canto",
-          "voice_pitch_organization": "voice_pitch_pythagorean",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+          "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 34.69500000000001,
-          "voice_quality": 31.590000000000003,
+          "voice_register": 25.67,
+          "voice_quality": 25.48,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.65,
-          "voice_articulation": 24.875000000000007,
-          "voice_microtone": 3.0155,
-          "voice_tradition": 36.62750000000001,
-          "voice_mechanism_compound": 5.329999999999999,
-          "voice_estill_quality": 26.625000000000007,
+          "voice_vibrato": 2.325,
+          "voice_articulation": 19.759999999999998,
+          "voice_microtone": 22.684999999999995,
+          "voice_tradition": 26.715000000000003,
+          "voice_mechanism_compound": 6.175,
+          "voice_estill_quality": 18.350000000000005,
           "voice_speech_song": 22.749999999999996,
-          "voice_ensemble_config": 26.027500000000003,
+          "voice_ensemble_config": 25.414999999999996,
           "voice_ornament_system": 13.899999999999999,
-          "voice_pitch_organization": 1.54,
-          "voice_processing_chain": 2.4890000000000003,
-          "voice_multitrack_stack": 1.8199999999999998
+          "voice_pitch_organization": 6.625,
+          "voice_processing_chain": 12.739999999999998,
+          "voice_multitrack_stack": 2.144999999999999
         }
       },
       {
@@ -64,11 +64,11 @@
         },
         "scores": {
           "wind_articulation": 4.385,
-          "zampogna_region": 14.889999999999999,
+          "zampogna_region": 14.139999999999999,
           "zampogna_context": 7.345000000000001,
-          "zampogna_chanter_wood": 13.694999999999999,
+          "zampogna_chanter_wood": 12.944999999999999,
           "zampogna_reed": 5.6,
-          "zampogna_bag": 14.995
+          "zampogna_bag": 14.245
         }
       },
       {
@@ -79,20 +79,20 @@
         },
         "scores": {
           "wind_articulation": 1.6499999999999997,
-          "ciaramella_use": 22.838999999999995
+          "ciaramella_use": 23.488999999999997
         }
       },
       {
         "id": "tammorra",
         "slots": {
           "tammorra_form": "tammorra_tamburello_ciociaro",
-          "tammorra_context": "tammorra_tammurriata",
+          "tammorra_context": "tammorra_pizzica_tarantata",
           "tammorra_head": "tammorra_pelle_sintetica"
         },
         "scores": {
-          "tammorra_form": 6.6945,
-          "tammorra_context": 16.974499999999995,
-          "tammorra_head": 5
+          "tammorra_form": 6.3445,
+          "tammorra_context": 21.575000000000003,
+          "tammorra_head": 3.75
         }
       }
     ],

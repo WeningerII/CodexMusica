@@ -3,9 +3,9 @@
   "name": "Emo revival (2010s)",
   "family": "rock_punk",
   "lineage": "Early-2010s revival of late-1990s midwest emo aesthetic through new bands continuing the Cap'n Jazz, American Football, and Promise Ring lineage. The World Is a Beautiful Place & I Am No Longer Afraid to Die (2009-onward), Algernon Cadwallader, Snowing, Joyce Manor, and the broader Topshelf Records and Run for Cover Records label rosters anchor the canonical roster. The 2014 American Football reunion and 1999-album re-release consolidated the revival's historical lineage.",
-  "recipe": "classic emo revival, distorted Rock, emo branch, alternative distorted rock funk metal madchester / baggy. thick, rap, chest resonance low mid, punctuated. Fender blackface amp American 60s amp spring reverb bright basswood mahogany humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, mahogany vintage ambassador asymmetric machine hammered symmetric pattern drum kit. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 607,
-  "score": 369.885,
+  "recipe": "classic emo revival, distorted Rock, emo branch, alternative distorted rock funk metal madchester / baggy. thick, breath veiled tone, straight onset, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright basswood mahogany humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, mahogany vintage ambassador asymmetric machine hammered symmetric pattern drum kit. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 627,
+  "score": 403.025,
   "config": {
     "traditions": [
       "emo_revival_2010s",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "rap_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "staccato_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "jazz_scat_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 22.205,
-          "voice_quality": 1.56,
+          "voice_quality": 18.199999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.4949999999999999,
-          "voice_articulation": 2.145,
+          "voice_vibrato": 6.32,
+          "voice_articulation": 12.479999999999995,
           "voice_microtone": 21.675,
           "voice_tradition": 3.25,
           "voice_mechanism_compound": 8.4175,
           "voice_estill_quality": 1.4949999999999999,
-          "voice_speech_song": 12.609999999999996,
-          "voice_ensemble_config": 13.389999999999997,
+          "voice_speech_song": 12.479999999999995,
+          "voice_ensemble_config": 13.259999999999994,
           "voice_ornament_system": 2.3400000000000003,
-          "voice_pitch_organization": 8.45,
+          "voice_pitch_organization": 8.254999999999999,
           "voice_processing_chain": 13.194999999999999,
-          "voice_multitrack_stack": 9.709999999999999
+          "voice_multitrack_stack": 11.504999999999995
         }
       },
       {

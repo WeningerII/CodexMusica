@@ -3,9 +3,9 @@
   "name": "Zeuhl (French progressive Magma)",
   "family": "rock_punk",
   "lineage": "1970s French progressive-rock subgenre invented by drummer-composer Christian Vander's Magma (founded 1969), characterized by Kobaïan invented-language vocals, complex polyrhythmic compositional structures, dark-symphonic orchestration, and explicit science-fiction mythological-narrative content. Magma's Mëkanïk Dëstruktïẁ Kömmandöh (1973), Köhntarkösz (1974), and Üdü Ẁüdü (1976) constitute the canonical core. The genre influenced subsequent French-progressive Univers Zéro, Art Zoyd, and Magma-affiliated solo projects.",
-  "recipe": "classic Western European mid-1970s zeuhl, distorted Rock, progressive rock branch, western modern art music second viennese school. thick, larynx lowered, tasteful, narrative. hiwatt amp British clean amp high wattage headroom basswood alnico humbucker electric guitar, hiwatt amp British clean amp high wattage headroom ernie ball slinky electric bass, walnut fiberskyn synthetic calf machine hammered symmetric pattern drum kit, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. intimate paris small studio. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
-  "recipe_chars": 621,
-  "score": 343.34,
+  "recipe": "classic Western European mid-1970s zeuhl, distorted Rock, progressive rock branch, western modern art music second viennese school. thick, breath veiled tone, straight onset, interlocked note trading. hiwatt amp British clean amp high wattage headroom basswood alnico humbucker electric guitar, hiwatt amp British clean amp high wattage headroom ernie ball slinky electric bass, walnut fiberskyn synthetic calf machine hammered symmetric pattern drum kit, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. intimate paris small studio. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 646,
+  "score": 364.178,
   "config": {
     "traditions": [
       "zeuhl_french",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "lowered_larynx_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
-          "voice_articulation": "narrative_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 16.824999999999996,
-          "voice_quality": 1.2349999999999997,
+          "voice_quality": 8.905,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.8600000000000003,
-          "voice_articulation": 1.0999999999999999,
+          "voice_vibrato": 5.752500000000001,
+          "voice_articulation": 10.789999999999996,
           "voice_microtone": 22.75,
           "voice_tradition": 7.085000000000001,
           "voice_mechanism_compound": 2.4,
           "voice_estill_quality": 3.1200000000000006,
-          "voice_speech_song": 13.78,
-          "voice_ensemble_config": 10.854999999999997,
+          "voice_speech_song": 14.689999999999998,
+          "voice_ensemble_config": 10.724999999999994,
           "voice_ornament_system": 2.6400000000000006,
           "voice_pitch_organization": 3.9000000000000004,
           "voice_processing_chain": 6.759999999999999,
-          "voice_multitrack_stack": 5.005000000000001
+          "voice_multitrack_stack": 4.810000000000001
         }
       },
       {

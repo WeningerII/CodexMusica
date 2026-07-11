@@ -3,53 +3,53 @@
   "name": "Jingju yunbai stage-speech",
   "family": "classical",
   "lineage": "In jingju (Beijing/Peking opera), which crystallized in the Qing capital after the 1790 arrival of the Anhui troupes, stage-speech falls into two registers: yunbai, a heightened stylized declamation using an archaic rhyme-speech pronunciation, and jingbai, closer to colloquial Beijing dialect used chiefly by clown (chou) and certain female roles. Both are delivered with bright, forward, tonally exaggerated projection, are role-type specific, and are set against the jinghu fiddle and percussion, as codified as the sung arias themselves. Actors train by role-type in academies descending from masters such as Mei Lanfang (1894-1961). It is documented in the China National Peking Opera Company records and extensive 20th-century recordings.",
-  "recipe": "classic East Asian early-1890s jingju yunbai stage-speech, art Music, east Asian branch beijing opera thai classical. thick, pressed, chest resonance low mid, rhythmic. chinese traditional teahouse. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 261,
-  "score": 231.938,
+  "recipe": "classic East Asian early-1890s jingju yunbai stage-speech, art Music, east Asian branch thai classical beijing opera. thick, breath veiled tone, slow rate, interlocked note trading. chinese traditional teahouse. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 274,
+  "score": 289.287,
   "config": {
     "traditions": [
       "jingju_yunbai",
-      "beijing_opera",
-      "thai_classical"
+      "thai_classical",
+      "beijing_opera"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "pressed_phonation_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "spoken_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "chinese_classical_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_recitative_free_rhythm",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_bel_canto",
-          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
           "voice_processing_chain": "voice_processing_stutter_edit",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 5.2860000000000005,
-          "voice_quality": 18.724999999999998,
+          "voice_quality": 20.084999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.409999999999999,
-          "voice_articulation": 2.2315,
-          "voice_microtone": 2.0534999999999997,
+          "voice_vibrato": 18.325874999999996,
+          "voice_articulation": 21.580000000000002,
+          "voice_microtone": 21.384999999999994,
           "voice_tradition": 41.4375,
           "voice_mechanism_compound": 14.149999999999999,
           "voice_estill_quality": 32.91499999999999,
           "voice_speech_song": 33.513999999999996,
-          "voice_ensemble_config": 22.229999999999997,
+          "voice_ensemble_config": 22.294999999999995,
           "voice_ornament_system": 27.579999999999995,
-          "voice_pitch_organization": 15.855499999999997,
+          "voice_pitch_organization": 17.568499999999997,
           "voice_processing_chain": 5.719999999999999,
-          "voice_multitrack_stack": 2.7299999999999995
+          "voice_multitrack_stack": 7.345000000000001
         }
       }
     ],

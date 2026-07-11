@@ -3,9 +3,9 @@
   "name": "Gothic rock",
   "family": "rock_punk",
   "lineage": "Late-1970s through 1980s post-punk-derived dark atmospheric rock — codified through Bauhaus (Bela Lugosi’s Dead 1979), Siouxsie and the Banshees, The Cure (Pornography 1982, Disintegration 1989), Joy Division’s Closer (1980), and the Birthday Party / Nick Cave lineage; characterized by chorused-and-flanged guitar atmospherics, theatrical-baritone vocals, and gothic-literary lyrical subject matter",
-  "recipe": "classic North American 1977-1979 gothic rock, distorted Rock, gothic rock branch, alternative distorted rock, experimental distorted rock grunge. thick, incomplete closure resting, melodic, rhythmic. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alder single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, walnut pre muffled edge muffled machine hammered symmetric pattern drum kit, pad like lead analog synth, sustained pad string machine. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 700,
-  "score": 730.965,
+  "recipe": "classic North American 1977-1979 gothic rock, distorted Rock, gothic rock branch, alternative distorted rock, experimental distorted rock grunge. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alder single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, walnut pre muffled edge muffled machine hammered symmetric pattern drum kit, pad like lead analog synth, sustained pad string machine. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 715,
+  "score": 792.72,
   "config": {
     "traditions": [
       "gothic_rock",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "incomplete_closure_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "spoken_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "japanese_min_yo_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_polynesian_falsetto",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
           "voice_processing_chain": "voice_processing_talkbox",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
           "voice_register": 52.83000000000002,
-          "voice_quality": 6.15,
+          "voice_quality": 29.119999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.2199999999999998,
-          "voice_articulation": 1.2349999999999999,
+          "voice_vibrato": 4.095000000000001,
+          "voice_articulation": 26.78,
           "voice_microtone": 45.05000000000001,
           "voice_tradition": 7.215,
           "voice_mechanism_compound": 18.37,
           "voice_estill_quality": 7.735000000000004,
-          "voice_speech_song": 27.105000000000008,
-          "voice_ensemble_config": 25.805000000000007,
+          "voice_speech_song": 27.560000000000002,
+          "voice_ensemble_config": 29.640000000000004,
           "voice_ornament_system": 3.5750000000000006,
-          "voice_pitch_organization": 2.085,
+          "voice_pitch_organization": 4.080000000000001,
           "voice_processing_chain": 11.045,
-          "voice_multitrack_stack": 12.255
+          "voice_multitrack_stack": 18.334999999999997
         }
       },
       {

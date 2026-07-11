@@ -3,9 +3,9 @@
   "name": "Industrial rock (late-1980s through 1990s American industrial-rock-band hybrid)",
   "family": "rock_punk",
   "lineage": "Late-1980s and 1990s American heavy-rock subgenre integrating industrial-electronic-production with rock-band-instrumentation. Nine Inch Nails (Trent Reznor, Cleveland 1988-onward) is the canonical type-specimen with Pretty Hate Machine (1989) and The Downward Spiral (1994); Ministry (Chicago, parallel scene), Filter, Stabbing Westward, Marilyn Manson (industrial-rock-glam-hybrid), and the broader Nothing Records and TVT Records label rosters anchor the canonical industrial rock roster.",
-  "recipe": "classic North American industrial rock, distorted Rock, avant branch, industrial noise experimental electric dark electro / aggrotech. thick, larynx lowered, equal tempered, 31 tet. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, mahogany machine hammered symmetric pattern organized rows full lathed drum kit, analog synth. mid manhattan 1975-1985 mid-major late70s nyc commercial. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
-  "recipe_chars": 606,
-  "score": 397.297,
+  "recipe": "classic North American industrial rock, distorted Rock, avant branch, industrial noise experimental electric dark electro / aggrotech. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, mahogany machine hammered symmetric pattern organized rows full lathed drum kit, analog synth. mid manhattan 1975-1985 mid-major late70s nyc commercial. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 628,
+  "score": 422.779,
   "config": {
     "traditions": [
       "industrial_rock",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "lowered_larynx_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "fast_vibrato",
-          "voice_articulation": "staccato_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "microtonal_31tet_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 23.156749999999995,
-          "voice_quality": 1.0399999999999996,
+          "voice_quality": 9.75,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.168,
-          "voice_articulation": 0.45675000000000004,
+          "voice_vibrato": 2.8600000000000003,
+          "voice_articulation": 14.169999999999996,
           "voice_microtone": 23.25,
           "voice_tradition": 7.15,
           "voice_mechanism_compound": 15.275,
           "voice_estill_quality": 3.185,
-          "voice_speech_song": 14.299999999999997,
-          "voice_ensemble_config": 15.079999999999997,
+          "voice_speech_song": 14.169999999999996,
+          "voice_ensemble_config": 14.949999999999996,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 5.069999999999999,
+          "voice_pitch_organization": 4.875,
           "voice_processing_chain": 20.043999999999997,
-          "voice_multitrack_stack": 11.00225
+          "voice_multitrack_stack": 11.823749999999999
         }
       },
       {

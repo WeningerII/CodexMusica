@@ -3,9 +3,9 @@
   "name": "Brazilian MPB-era protest (música popular brasileira during dictatorship)",
   "family": "global",
   "lineage": "Brazilian Música Popular Brasileira (MPB) protest-song tradition continuous from 1964-1985 Brazilian-military-dictatorship-era political-songwriter scene; centered on Chico Buarque (the foundational figure whose subtle-allegorical anti-dictatorship songs evaded censorship most consistently), Caetano Veloso, Gilberto Gil, Geraldo Vandré, Milton Nascimento, Edu Lobo",
-  "recipe": "classic Southern American mid-1970s brazilian mpb-era protest, protest Song, iberian Latin branch, European protest song, Brazilian song functional song, Latin am troubadour ballad poetry milonga greek éntechno politicized. thick, intimate aspirated, chest resonance low mid, continuous-phonation. cedar fingerpicked classical nylon-string guitar, jacaranda rosewood canonical Portuguese strummed cavaquinho. estudios scatena sp. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
-  "recipe_chars": 565,
-  "score": 132.637,
+  "recipe": "classic Southern American mid-1970s brazilian mpb-era protest, protest Song, iberian Latin branch, European protest song, Brazilian song functional song, Latin am troubadour ballad poetry milonga greek éntechno politicized. thick, breath veiled tone, slow rate, interlocked note trading. cedar fingerpicked classical nylon-string guitar, jacaranda rosewood canonical Portuguese strummed cavaquinho. estudios scatena sp. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
+  "recipe_chars": 555,
+  "score": 164.036,
   "config": {
     "traditions": [
       "brazilian_mpb_protest",
@@ -21,8 +21,8 @@
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "legato_voice",
-          "voice_microtone": "blue_notes",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 3.463214285714286,
-          "voice_quality": 8.569999999999999,
+          "voice_quality": 21.124999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.78,
-          "voice_articulation": 4.225,
-          "voice_microtone": 0.65,
+          "voice_vibrato": 1.2613392857142856,
+          "voice_articulation": 11.634999999999994,
+          "voice_microtone": 11.992499999999993,
           "voice_tradition": 16.444999999999997,
           "voice_mechanism_compound": 2.8599999999999994,
           "voice_estill_quality": 2.6650000000000005,
-          "voice_speech_song": 22.944999999999993,
-          "voice_ensemble_config": 11.829999999999995,
+          "voice_speech_song": 22.81499999999999,
+          "voice_ensemble_config": 11.699999999999992,
           "voice_ornament_system": 4.575,
           "voice_pitch_organization": 4.225,
           "voice_processing_chain": 1.885,
-          "voice_multitrack_stack": 8.319999999999999
+          "voice_multitrack_stack": 8.19
         }
       },
       {

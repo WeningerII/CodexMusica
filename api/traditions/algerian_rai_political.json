@@ -3,9 +3,9 @@
   "name": "Algerian raï (political and pre-commercial)",
   "family": "global",
   "lineage": "Algerian raï tradition from its 1920s-1930s Oran-region origin as Bedouin-Andalusian women's-tradition through 1970s-1980s pre-commercial cheikha-and-cheb politicization era; the political-and-anti-clerical content of pre-commercial raï made it a target of both Algerian-state censorship and Islamist-fundamentalist violence including the 1994 assassination of Cheb Hasni",
-  "recipe": "classic West African mid-1920s algerian raï, protest Song, middle east n African branch, European protest song, mid east n African pop functional song, Persian arab improv improv on frame tarab khaliji. extended whistle, low dynamic level, chest resonance low mid, continuous-phonation. walnut ribs canonical mid tier pyramid nylon arab school oud, clay pre modern traditional fish skin pre modern Egyptian traditional Egyptian sombaty canonical mid east darbuka, weltmeister east German mid tier vintage volk ensemble accordion, gasba, oranais processional heavy beat festive metal body guellal. dakar senegal mbalax defining 1979-present indie-commercial dakar mbalax oran rai studio. shure SM58, console-strip pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb chorus digital delay.",
-  "recipe_chars": 811,
-  "score": 297.1,
+  "recipe": "classic West African mid-1920s algerian raï, protest Song, middle east n African branch, European protest song, mid east n African pop functional song, Persian arab improv improv on frame tarab khaliji. extended whistle, breath veiled tone, slow rate, interlocked note trading. walnut ribs canonical mid tier pyramid nylon arab school oud, clay pre modern traditional fish skin pre modern Egyptian traditional Egyptian sombaty canonical mid east darbuka, weltmeister east German mid tier vintage volk ensemble accordion, gasba, oranais processional heavy beat festive metal body guellal. dakar senegal mbalax defining 1979-present indie-commercial dakar mbalax oran rai studio. shure SM58, console-strip pre, soundcraft TS24 / 3200, dbx 160 VCA, graphic EQ. cassette spring reverb chorus digital delay.",
+  "recipe_chars": 802,
+  "score": 352.03,
   "config": {
     "traditions": [
       "algerian_rai_political",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "extended_whistle_register",
-          "voice_quality": "crooner_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "legato_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "arabic_maqam_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 7.42,
-          "voice_quality": 3.5750000000000006,
+          "voice_quality": 10.269999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.8,
-          "voice_articulation": 2.235,
-          "voice_microtone": 11.125,
+          "voice_vibrato": 12.77,
+          "voice_articulation": 17.419999999999995,
+          "voice_microtone": 37.254999999999995,
           "voice_tradition": 20.15,
           "voice_mechanism_compound": 15.095,
           "voice_estill_quality": 10.409999999999998,
-          "voice_speech_song": 22.489999999999995,
-          "voice_ensemble_config": 16.639999999999993,
+          "voice_speech_song": 22.359999999999992,
+          "voice_ensemble_config": 16.70499999999999,
           "voice_ornament_system": 20.205000000000002,
           "voice_pitch_organization": 19.905,
           "voice_processing_chain": 11.434999999999999,
-          "voice_multitrack_stack": 4.12
+          "voice_multitrack_stack": 5.135000000000002
         }
       },
       {

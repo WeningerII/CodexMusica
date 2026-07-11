@@ -3,9 +3,9 @@
   "name": "Algerian rap (rap algérien)",
   "family": "global",
   "lineage": "Algerian Arabic-and-French hip-hop tradition codified through MBS, Lotfi Double Kanon, Soolking, and the broader Algiers-and-Marseille diaspora circuit — characterized by raï-and-chaabi influence, Arabic-French-Berber trilingual lyrics, and post-1990s war-and-protest political-activist tradition",
-  "recipe": "classic mid-1990s algerian rap, mc Rhythm, us hip hop branch, intl hip hop MC rhythm, Persian arab improv improv on frame gengetone french rap. extended whistle, rap, chest resonance low mid, narrative. behringer rd 8 modern clone analog circuit reproduction TR-808, chopped sampler, sub bass analog poly synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 457,
-  "score": 255.925,
+  "recipe": "classic mid-1990s algerian rap, mc Rhythm, us hip hop branch, intl hip hop MC rhythm, Persian arab improv improv on frame gengetone french rap. extended whistle, rap, breath pulsed, interlocked note trading. behringer rd 8 modern clone analog circuit reproduction TR-808, chopped sampler, sub bass analog poly synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 462,
+  "score": 275.523,
   "config": {
     "traditions": [
       "algerian_rap",
@@ -20,8 +20,8 @@
           "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "narrative_voice",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "beatboxing_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
           "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 3.0225,
           "voice_quality": 31.770000000000003,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.29,
-          "voice_articulation": 11.07,
-          "voice_microtone": 5.840000000000001,
+          "voice_vibrato": 0.65,
+          "voice_articulation": 14.494999999999996,
+          "voice_microtone": 21.839999999999993,
           "voice_tradition": 12.195,
           "voice_mechanism_compound": 2.08,
           "voice_estill_quality": 0.8449999999999999,
           "voice_speech_song": 29.585,
-          "voice_ensemble_config": 15.664999999999996,
+          "voice_ensemble_config": 15.534999999999995,
           "voice_ornament_system": 7.67,
           "voice_pitch_organization": 7.58,
           "voice_processing_chain": 22.995,
-          "voice_multitrack_stack": 3.6725000000000003
+          "voice_multitrack_stack": 4.615000000000001
         }
       },
       {

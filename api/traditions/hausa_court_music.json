@@ -3,9 +3,9 @@
   "name": "Hausa court music (roķon Sarkin Kano)",
   "family": "global",
   "lineage": "Sahelian-Hausa royal-court ceremonial tradition centered on the emirates of northern Nigeria and southern Niger (Kano, Katsina, Sokoto, Zaria, Daura) — characterized by kakaki long-trumpet fanfares, talking-drum (kalangu) praise-singing, ganga and tambari drum ensembles announcing emir presence; ritual functions tied to the masu sarauta court-titled-officials system",
-  "recipe": "classic North American mid-1990s hausa court music, ballad Poetry, west African griot branch, islamic ritual devotional, west African groove percussion yoruba dùndún surrogate speech were music. thick, declaimed, pure, rhythmic. sheet brass canonical hausa fulani hammered tube call ritual kakaki, iroko alternative west African goat skin leather tension cords canonical pressure bend talking drum, griot voice, goje, ceremonial praise driven algaita. adobe room. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 610,
-  "score": 234.035,
+  "recipe": "classic North American mid-1990s hausa court music, ballad Poetry, west African griot branch, islamic ritual devotional, west African groove percussion yoruba dùndún surrogate speech were music. thick, declaimed, pure, interlocked note trading. sheet brass canonical hausa fulani hammered tube call ritual kakaki, iroko alternative west African goat skin leather tension cords canonical pressure bend talking drum, griot voice, goje, ceremonial praise driven algaita. adobe room. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 626,
+  "score": 256.617,
   "config": {
     "traditions": [
       "hausa_court_music",
@@ -21,7 +21,7 @@
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "straight_tone",
-          "voice_articulation": "spoken_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
@@ -30,8 +30,8 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
           "voice_register": 1.4899999999999993,
@@ -39,17 +39,17 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.845,
-          "voice_articulation": 0.525,
-          "voice_microtone": 1.7599999999999998,
+          "voice_articulation": 10.529999999999994,
+          "voice_microtone": 12.512499999999992,
           "voice_tradition": 48.7175,
           "voice_mechanism_compound": 0.845,
           "voice_estill_quality": 4.0600000000000005,
-          "voice_speech_song": 14.689999999999996,
-          "voice_ensemble_config": 10.594999999999995,
+          "voice_speech_song": 14.949999999999996,
+          "voice_ensemble_config": 10.464999999999995,
           "voice_ornament_system": 9.934999999999999,
           "voice_pitch_organization": 15.104999999999995,
-          "voice_processing_chain": 3.7649999999999997,
-          "voice_multitrack_stack": 1.9500000000000002
+          "voice_processing_chain": 5.07,
+          "voice_multitrack_stack": 2.3399999999999994
         }
       },
       {

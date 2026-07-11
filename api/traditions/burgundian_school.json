@@ -3,68 +3,68 @@
   "name": "Burgundian School (early fifteenth century)",
   "family": "classical",
   "lineage": "Mid-fifteenth-century compositional school centered on the courts of the Dukes of Burgundy (Philip the Good, Charles the Bold) at Dijon and Brussels. Guillaume Dufay (c.1397-1474) and Gilles Binchois (c.1400-1460) are the principal composers. Developed the Mass cycle (cyclic Mass based on a single cantus firmus), the rondeau and ballade chanson forms, and the smoother-consonant fauxbourdon harmonic style. Direct precursor of the Franco-Flemish polyphonic school.",
-  "recipe": "classic early-1390s burgundian school, art Music, western early branch, christian gospel ritual devotional bluegrass gospel southern gospel quartet. thick, declaimed, chest resonance low mid, ornamental. a cappella small 3 to 8 one per part hocket interlocked single note distribution svanetian complex three voice highland polyphonic choir ensemble, single rank treble piping single line portative organ. parish church. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 493,
-  "score": 213.685,
+  "recipe": "classic early-1390s burgundian school, art Music, western early branch, christian gospel ritual devotional russian orthodox liturgical chant sacred steel. thick, breath veiled tone, slow rate, interlocked note trading. a cappella small 3 to 8 one per part four voice polyphonic regional svanetian complex three voice highland polyphonic sacred liturgical global choir ensemble, single rank treble piping chant doubling portative organ. parish church. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 523,
+  "score": 187.992,
   "config": {
     "traditions": [
       "burgundian_school",
-      "bluegrass_gospel",
-      "southern_gospel_quartet"
+      "russian_orthodox_chant",
+      "sacred_steel"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "melisma_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "gospel_pentecostal_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 25.945,
-          "voice_quality": 30.689999999999998,
+          "voice_register": 15.994999999999997,
+          "voice_quality": 26.520000000000003,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.9025,
-          "voice_articulation": 23.25,
-          "voice_microtone": 3.95375,
-          "voice_tradition": 30.16,
+          "voice_vibrato": 4.5975,
+          "voice_articulation": 16.639999999999993,
+          "voice_microtone": 17.289999999999992,
+          "voice_tradition": 18.46,
           "voice_mechanism_compound": 2.4,
-          "voice_estill_quality": 23.7,
-          "voice_speech_song": 15.534999999999998,
-          "voice_ensemble_config": 24.975,
-          "voice_ornament_system": 6.2749999999999995,
-          "voice_pitch_organization": 3.80375,
-          "voice_processing_chain": 4.354999999999999,
-          "voice_multitrack_stack": 2.34
+          "voice_estill_quality": 11.049999999999997,
+          "voice_speech_song": 18.654999999999994,
+          "voice_ensemble_config": 19.889999999999997,
+          "voice_ornament_system": 7.15,
+          "voice_pitch_organization": 4.16,
+          "voice_processing_chain": 5.525,
+          "voice_multitrack_stack": 2.065
         }
       },
       {
         "id": "choir_ensemble",
         "slots": {
           "choir_size": "a_cappella_small_ensemble_3_8",
-          "choir_polyphonic_configuration": "choir_polyphony_hocket_distribution",
+          "choir_polyphonic_configuration": "choir_polyphony_four_voice_polyphonic",
           "choir_regional_canonical_configuration": "choir_regional_svanetian_complex_three_voice",
-          "choir_ensemble_repertoire": "choir_ensemble_contemporary"
+          "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
         },
         "scores": {
-          "choir_size": 2.535,
-          "choir_polyphonic_configuration": 3.485,
-          "choir_regional_canonical_configuration": 2.08,
-          "choir_ensemble_repertoire": 4.484999999999999
+          "choir_size": 3.12,
+          "choir_polyphonic_configuration": 3.3150000000000004,
+          "choir_regional_canonical_configuration": 2.47,
+          "choir_ensemble_repertoire": 5.784999999999999
         }
       },
       {
@@ -72,13 +72,13 @@
         "slots": {
           "keyboard_technique": "keyboard_block_chord_pop",
           "portative_organ_form": "portative_organ_form_single_rank",
-          "portative_organ_repertoire": "portative_organ_repertoire_trecento_secular",
+          "portative_organ_repertoire": "portative_organ_repertoire_sacred_organum",
           "portative_organ_pipework": "portative_organ_pipework_metal"
         },
         "scores": {
           "keyboard_technique": -0.1,
           "portative_organ_form": 1.56,
-          "portative_organ_repertoire": 1.755,
+          "portative_organ_repertoire": 6.544999999999998,
           "portative_organ_pipework": -0.1
         }
       }

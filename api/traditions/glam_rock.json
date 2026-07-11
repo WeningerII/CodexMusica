@@ -3,9 +3,9 @@
   "name": "Glam rock",
   "family": "rock_punk",
   "lineage": "Early-mid-1970s UK androgynous-theatrical riff-rock — codified through T. Rex (Marc Bolans Electric Warrior 1971, Slider 1972), David Bowie (the Ziggy Stardust 1972 and Aladdin Sane 1973 glam-era persona before his Berlin Trilogy art-rock turn), Roxy Music (early glam-art-rock fusion), Slade (the British Black Country working-class glam rock canon), Sweet, Mott the Hoople, Suzi Quatro, Gary Glitter — followed by the proto-punk American extensions New York Dolls and Iggy and the Stooges glam-period albums",
-  "recipe": "classic Northern European 1974-1976 glam rock, distorted Rock, glam rock branch, classic distorted rock, art rock distorted rock hard rock. thick, low dynamic level, melodic, equal tempered. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany humbucker electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, birch pre muffled edge muffled machine hammered symmetric pattern drum kit, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, multiphonic saxophone, string machine. London major flagship studio 1968-1985 major-flagship uk 70s hard rock arena studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb MXR phase 90 dallas arbiter fuzz face.",
-  "recipe_chars": 855,
-  "score": 906.403,
+  "recipe": "classic Northern European 1974-1976 glam rock, distorted Rock, glam rock branch, classic distorted rock, art rock distorted rock hard rock. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany humbucker electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, birch pre muffled edge muffled machine hammered symmetric pattern drum kit, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, multiphonic saxophone, string machine. London major flagship studio 1968-1985 major-flagship uk 70s hard rock arena studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb MXR phase 90 dallas arbiter fuzz face.",
+  "recipe_chars": 877,
+  "score": 946.496,
   "config": {
     "traditions": [
       "glam_rock",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "crooner_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "spoken_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 67.89437500000004,
-          "voice_quality": 3.7050000000000005,
+          "voice_quality": 19.369999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.6899999999999995,
-          "voice_articulation": 0.49499999999999994,
+          "voice_vibrato": 10.209999999999999,
+          "voice_articulation": 17.094999999999988,
           "voice_microtone": 60.49500000000003,
           "voice_tradition": 5.694999999999999,
           "voice_mechanism_compound": 11.894999999999998,
           "voice_estill_quality": 5.466875,
-          "voice_speech_song": 18.39499999999999,
-          "voice_ensemble_config": 18.19999999999999,
+          "voice_speech_song": 18.654999999999987,
+          "voice_ensemble_config": 18.264999999999986,
           "voice_ornament_system": 1.1306249999999998,
-          "voice_pitch_organization": 3.3799999999999994,
+          "voice_pitch_organization": 5.297499999999999,
           "voice_processing_chain": 13.383125,
-          "voice_multitrack_stack": 10.465
+          "voice_multitrack_stack": 10.529999999999998
         }
       },
       {

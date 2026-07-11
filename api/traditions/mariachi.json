@@ -3,9 +3,9 @@
   "name": "Mariachi",
   "family": "vernacular",
   "lineage": "Mexican son tradition centered on Jalisco-Nayarit highlands and codified through the early-20th-century studio era (1930s-1950s commercial recording boom) into the standardized mariachi-orquesta of two trumpets, three-to-six violins, vihuela rhythm-chord, guitarrón six-string acoustic-bass, and Spanish guitar. Derived from rural son jalisciense and son alteño fiddle-and-vihuela ensembles, transformed by 1907-onward Cocula-and-Tecalitlán municipal contests, professionalized via the 1925-onward Mexico City cantina circuit, and globalized through 1930s-onward Mexican golden-age cinema. The bolero-ranchera-and-son repertoire alternates 6/8-against-3/4 hemiola with vocally projected open-throat ranchera belting over instrumental triadic-and-harmonic-third doublings.",
-  "recipe": "classic Southwestern American modern mariachi, functional Song, tejano border branch, Mexican functional song, americas wedding andean matrimonio huayno mariachi traditional. thick, full chest belt, pure, continuous-phonation. plain gut beef gut varnished sitka spruce European maple violin orchestral, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral unison standard rim orchestral balance trumpet, low mid rich spectrum cedar classical nylon-string guitar, cedar caoba paracho mixed string set nylon treble steel bass guitarron mexicano, mahogany canonical mariachi nylon octave doubled canonical mariachi strummed vihuela mexicana. mariachi and bolero defining room 1948-1975 mid tier mexico peerless musart 50s 60s. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 879,
-  "score": 221.454,
+  "recipe": "classic Southwestern American modern mariachi, functional Song, tejano border branch, Mexican functional song, americas wedding andean matrimonio huayno mariachi traditional. thick, full chest belt, straight note core, interlocked note trading. plain gut beef gut varnished sitka spruce European maple violin orchestral, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral unison standard rim orchestral balance trumpet, low mid rich spectrum cedar classical nylon-string guitar, cedar caoba paracho mixed string set nylon treble steel bass guitarron mexicano, mahogany canonical mariachi nylon octave doubled canonical mariachi strummed vihuela mexicana. mariachi and bolero defining room 1948-1975 mid tier mexico peerless musart 50s 60s. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 897,
+  "score": 258.203,
   "config": {
     "traditions": [
       "mariachi",
@@ -20,9 +20,9 @@
           "voice_quality": "full_chest_belt_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "straight_tone",
-          "voice_articulation": "legato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "andean_quechua_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_oral_twang",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_plate_reverb_medium",
-          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
           "voice_register": 1.9764999999999995,
           "voice_quality": 14.499999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.1949999999999998,
-          "voice_articulation": 1.6899999999999997,
-          "voice_microtone": 1.20625,
+          "voice_vibrato": 3.20625,
+          "voice_articulation": 16.817874999999997,
+          "voice_microtone": 18.044749999999997,
           "voice_tradition": 21.839999999999996,
           "voice_mechanism_compound": 2.6649999999999996,
           "voice_estill_quality": 8.60625,
-          "voice_speech_song": 21.677500000000002,
-          "voice_ensemble_config": 17.16,
+          "voice_speech_song": 22.522500000000004,
+          "voice_ensemble_config": 17.419999999999998,
           "voice_ornament_system": 16.086249999999996,
-          "voice_pitch_organization": 2.34,
+          "voice_pitch_organization": 4.0062500000000005,
           "voice_processing_chain": 5.6625,
-          "voice_multitrack_stack": 4.135249999999999
+          "voice_multitrack_stack": 4.135250000000001
         }
       },
       {

@@ -3,53 +3,53 @@
   "name": "Bulgarian womens diaphonic three-voice polyphony",
   "family": "global",
   "lineage": "Bulgarian womens unaccompanied three-voice diaphonic polyphony with open-throated high-pressure phonation, deliberate parallel-second-seventh-ninth cluster harmony, minimal vibrato, and Filip Kutev Choir state-ensemble canonical preservation — the Le Mystère des Voix Bulgares international canon (Marcel Cellier ethnomusicology-recording lineage 1975-onward) brought the tradition into the global-recording marketplace, with regional sub-traditions Shopski (West Bulgarian Sofia-Pirin region, the canonical paired-second-seventh-cluster), Rodopski (Rhodope mountains drone-with-ornament tradition), Pirin (Macedonian-Bulgarian border tradition), Thracian; the Plovdiv Academy of Music and Dance Arts and the Sofia State Folk Choir infrastructure preserve the academic-conservatoire lineage",
-  "recipe": "classic modern bulgarian womens diaphonic three-voice polyphony, drone Modal, vocal branch, Slavic bard ballad poetry, Mediterranean ballad ballad poetry karelian rune-singing russian folk balalaika and choral. thick, declaimed, chest resonance low mid, continuous-phonation. choir bulgarian womens, mixed satb canonical 4 part western three voice polyphonic regional bulgarian women three voice diaphonic cluster global traditional polyphonic choir ensemble, rhodope plum canonical rhodope cane arundo donax single reed canonical bulgarian whole goatskin fleece outside canonical rhodope melodic gaida bulgarian, plum canonical bulgarian melodic kaval, gadulka. parish church. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 752,
-  "score": 279.058,
+  "recipe": "classic modern bulgarian womens diaphonic three-voice polyphony, drone Modal, vocal branch, Slavic bard ballad poetry, Mediterranean ballad ballad poetry italian southern folk cante jondo siguiriya. thick, breath veiled tone, breath pulsed, interlocked note trading. choir bulgarian womens, a cappella small 3 to 8 one per part three voice polyphonic regional bulgarian women three voice diaphonic cluster global traditional polyphonic choir ensemble, rhodope plum canonical rhodope cane arundo donax single reed canonical bulgarian whole goatskin fleece outside canonical rhodope melodic gaida bulgarian, plum canonical bulgarian melodic kaval, gadulka. parish church. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 744,
+  "score": 327.537,
   "config": {
     "traditions": [
       "bulgarian_diaphonic_womens",
-      "karelian_rune_singing",
-      "russian_folk_balalaika_choir"
+      "italian_southern_folk",
+      "cante_jondo_siguiriya"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "legato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_andean_huayno",
+          "voice_ensemble_config": "voice_ensemble_three_voice_polyphony",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_bitcrusher",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 8.174999999999997,
-          "voice_quality": 4.870000000000001,
+          "voice_register": 4.9750000000000005,
+          "voice_quality": 26,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.145,
-          "voice_articulation": 1.69,
-          "voice_microtone": 0.45499999999999985,
-          "voice_tradition": 30.759999999999998,
-          "voice_mechanism_compound": 8.3,
-          "voice_estill_quality": 8.205000000000002,
-          "voice_speech_song": 12.414999999999996,
-          "voice_ensemble_config": 22.81499999999999,
-          "voice_ornament_system": 4.874999999999999,
-          "voice_pitch_organization": 4.435,
-          "voice_processing_chain": 5.004999999999999,
-          "voice_multitrack_stack": 4.869999999999999
+          "voice_vibrato": 2.695,
+          "voice_articulation": 12.447499999999996,
+          "voice_microtone": 13.259999999999993,
+          "voice_tradition": 30.384999999999998,
+          "voice_mechanism_compound": 9.8,
+          "voice_estill_quality": 13.139999999999997,
+          "voice_speech_song": 13.844999999999994,
+          "voice_ensemble_config": 25.054999999999996,
+          "voice_ornament_system": 7.42,
+          "voice_pitch_organization": 5.265,
+          "voice_processing_chain": 9.165,
+          "voice_multitrack_stack": 3.965
         }
       },
       {
@@ -60,22 +60,22 @@
         },
         "scores": {
           "technique": 0.15,
-          "arrangement": 4.029999999999999
+          "arrangement": 2.6
         }
       },
       {
         "id": "choir_ensemble",
         "slots": {
-          "choir_size": "mixed_4_part_satb",
+          "choir_size": "a_cappella_small_ensemble_3_8",
           "choir_polyphonic_configuration": "choir_polyphony_three_voice_polyphonic",
           "choir_regional_canonical_configuration": "choir_regional_bulgarian_diaphonic",
           "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
         },
         "scores": {
-          "choir_size": 5.039999999999999,
-          "choir_polyphonic_configuration": 13.805,
-          "choir_regional_canonical_configuration": 27.769999999999992,
-          "choir_ensemble_repertoire": 8.905
+          "choir_size": 6.825,
+          "choir_polyphonic_configuration": 14.304999999999996,
+          "choir_regional_canonical_configuration": 27.619999999999994,
+          "choir_ensemble_repertoire": 10.399999999999999
         }
       },
       {
@@ -89,12 +89,12 @@
           "gaida_bag": "gaida_goatskin_canonical"
         },
         "scores": {
-          "wind_articulation": 8.934999999999999,
-          "gaida_origin": 5.659999999999999,
-          "gaida_bulgarian_context": 5.590000000000001,
-          "gaida_chanter_wood": 5.585,
-          "gaida_reed": 9.784999999999998,
-          "gaida_bag": 5.585
+          "wind_articulation": 5.21,
+          "gaida_origin": 3.6399999999999997,
+          "gaida_bulgarian_context": 2.145,
+          "gaida_chanter_wood": 6.234999999999999,
+          "gaida_reed": 10.434999999999999,
+          "gaida_bag": 6.234999999999999
         }
       },
       {
@@ -102,14 +102,14 @@
         "slots": {
           "wind_articulation": "wind_folk_melodic",
           "kaval_region": "kaval_bulgarian",
-          "kaval_context": "kaval_art_music",
+          "kaval_context": "kaval_village",
           "kaval_body_wood": "kaval_plum_canonical"
         },
         "scores": {
-          "wind_articulation": 8.934999999999999,
-          "kaval_region": 2.8600000000000003,
-          "kaval_context": 1.04,
-          "kaval_body_wood": 9.784999999999998
+          "wind_articulation": 5.21,
+          "kaval_region": 1.7550000000000001,
+          "kaval_context": 0.65,
+          "kaval_body_wood": 10.434999999999999
         }
       },
       {
@@ -123,7 +123,7 @@
         "scores": {
           "bowed_technique": 0.25,
           "gadulka_form": 18.499999999999996,
-          "gadulka_repertoire": 18.874999999999993,
+          "gadulka_repertoire": 18.224999999999994,
           "gadulka_body": 0.7949999999999999
         }
       }

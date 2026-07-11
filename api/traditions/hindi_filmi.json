@@ -3,9 +3,9 @@
   "name": "Hindi filmi (Bollywood)",
   "family": "global",
   "lineage": "Hindi-language Bombay film-song playback tradition codified 1940s-onward, with first-wave golden-age 1940s-1960s through Naushad (Mughal-e-Azam 1960, the template-setting orchestrated-classical-folk-fusion music director), S.D. Burman (Pyaasa 1957, Aradhana 1969), Shankar-Jaikishan (Awaara 1951, Sangam 1964), Madan Mohan, Roshan, Salil Chowdhury; second-wave funk-fusion era 1970s-1980s through R.D. Burman (Hare Rama Hare Krishna 1971, Sholay 1975, the bossa-and-disco-and-funk-fusion auteur), Laxmikant-Pyarelal, Kalyanji-Anandji, Bappi Lahiri (the disco-filmi specialist); third-wave 1990s-onward through A.R. Rahman (Roja 1992, Bombay 1995, Dil Se 1998, Slumdog Millionaire 2008 global Oscar breakthrough), Vishal-Shekhar, Pritam, Amit Trivedi; the canonical playback singer lineage of Lata Mangeshkar (1929-2022, the 30000-song discography defining the female playback voice from 1948 onward), Mohammed Rafi (1924-1980, the male romantic-and-classical voice), Asha Bhosle (1933-, the cabaret-and-folk-versatile voice), Mukesh, Kishore Kumar (the 1970s comic-and-romantic voice and R.D. Burman collaborator), Manna Dey, Hemant Kumar",
-  "recipe": "classic South Asian early-1920s hindi filmi, functional Song, south Asian pop branch, indian classical improv improv on frame thumrī carnatic vocal. thick, low dynamic level, chest resonance low mid, equal tempered. vocal female straight harmonium indian, indian rosewood rosewood copper tabla, carpathian spruce European maple sycamore maple oil varnish amber tinted violin orchestral, kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, closed jawari ravi shankar canon articulate less buzz maihar gharana instrumental concert lineage sitar, goat skin syahi rope laced steel ring dholak, steel modern tun indian cedar alternative santoor canonical lineage santoor, mid 20th century banaras shehnai virtuoso classical solo raga tradition sheesham indian rosewood canonical Hindustani arundo donax quadruple folded canonical banaras shehnai. mumbai bombay filmi defining 1940-present major-flagship mumbai bombay filmi studio. Neumann U47.",
-  "recipe_chars": 999,
-  "score": 670.407,
+  "recipe": "classic South Asian early-1920s hindi filmi, functional Song, south Asian pop branch, indian classical improv improv on frame thumrī carnatic vocal. thick, breath veiled tone, slow rate, interlocked note trading. vocal female straight harmonium indian, indian rosewood rosewood copper tabla, carpathian spruce European maple sycamore maple oil varnish amber tinted violin orchestral, kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, closed jawari ravi shankar canon articulate less buzz maihar gharana instrumental concert lineage sitar, goat skin syahi rope laced steel ring dholak, steel modern tun indian cedar alternative santoor canonical lineage santoor, mid 20th century banaras shehnai virtuoso classical solo raga tradition sheesham indian rosewood canonical Hindustani arundo donax quadruple folded canonical banaras shehnai. mumbai bombay filmi defining 1940-present major-flagship mumbai bombay filmi studio. Neumann U47.",
+  "recipe_chars": 996,
+  "score": 742.232,
   "config": {
     "traditions": [
       "hindi_filmi",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "crooner_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "staccato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "carnatic_classical_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 13.319999999999999,
-          "voice_quality": 3.835,
+          "voice_quality": 29.250000000000014,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 11.829999999999997,
-          "voice_articulation": 0.195,
-          "voice_microtone": 8.325,
+          "voice_vibrato": 27.722499999999993,
+          "voice_articulation": 15.404999999999994,
+          "voice_microtone": 16.89999999999999,
           "voice_tradition": 40.705,
           "voice_mechanism_compound": 20.275,
           "voice_estill_quality": 23.73999999999999,
-          "voice_speech_song": 21.739999999999995,
-          "voice_ensemble_config": 21.124999999999996,
+          "voice_speech_song": 22.067499999999995,
+          "voice_ensemble_config": 20.994999999999994,
           "voice_ornament_system": 29.769999999999992,
           "voice_pitch_organization": 26.949999999999996,
           "voice_processing_chain": 14.795,
-          "voice_multitrack_stack": 6.6899999999999995
+          "voice_multitrack_stack": 13.224999999999998
         }
       },
       {

@@ -3,53 +3,53 @@
   "name": "Capoeira music",
   "family": "global",
   "lineage": "Bahian Afro-Brazilian martial-art-and-music ceremonial tradition led by three-berimbau monochord-bow ensemble — gunga lowest-tonic-keeper, médio middle-mid-tone-variation, viola highest-improvisation-lead — with pandeiro frame-drum, atabaque conical-hand-drum, agogô double-bell, and reco-reco scraped-bamboo. The roda circular-game-space is opened by ladainha lament-style sung-prayer-history, transitioned through corrido call-and-response chamada formal-invitation chant, and continues through quadras four-line verse-sections. The Angola-style slower-low-game and Regional-style faster-acrobatic-game subdivide the practice, both built on the eight-toque rhythmic-vocabulary (angola, são-bento-grande, são-bento-pequeno, iuna, miudinho, banguela, cavalaria, samango).",
-  "recipe": "classic Southern American modern capoeira music, ritual Devotional, Afro-diasporic branch, Brazilian groove percussion embolada maracatu. vocal fry, declaimed, chest resonance low mid, punctuated. berimbau, lead lighter regional goatskin cedrillo mid tier atabaque, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian hands layered pandeiro, agogo, snappy samba tradition metal construction reco reco, caxixi, capoeira roda. roda capoeira outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 578,
-  "score": 173.01,
+  "recipe": "classic Southern American modern capoeira music, ritual Devotional, Afro-diasporic branch, Brazilian groove percussion pagode embolada. vocal fry, breath veiled tone, slow rate, interlocked note trading. berimbau, lead lighter regional goatskin jacaranda canonical bahian candomble atabaque, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian hands layered pandeiro, agogo, snappy samba tradition metal construction reco reco, caxixi, capoeira roda. roda capoeira outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 604,
+  "score": 219.757,
   "config": {
     "traditions": [
       "capoeira_music",
-      "embolada",
-      "maracatu"
+      "pagode",
+      "embolada"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "vocal_fry",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "staccato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 2.795,
-          "voice_quality": 4.514500000000001,
+          "voice_register": 3.1849999999999996,
+          "voice_quality": 20.994999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.74,
-          "voice_articulation": 2.34,
-          "voice_microtone": 1.9499999999999997,
-          "voice_tradition": 10.79,
-          "voice_mechanism_compound": 3.6399999999999997,
-          "voice_estill_quality": 3.6400000000000006,
-          "voice_speech_song": 15.86,
-          "voice_ensemble_config": 17.29,
-          "voice_ornament_system": 4.525,
-          "voice_pitch_organization": 2.29,
-          "voice_processing_chain": 4.745,
-          "voice_multitrack_stack": 3.835
+          "voice_vibrato": 2.96,
+          "voice_articulation": 16.899999999999995,
+          "voice_microtone": 15.664999999999992,
+          "voice_tradition": 8.06,
+          "voice_mechanism_compound": 3.77,
+          "voice_estill_quality": 3.8025,
+          "voice_speech_song": 17.127499999999994,
+          "voice_ensemble_config": 17.289999999999992,
+          "voice_ornament_system": 3.65,
+          "voice_pitch_organization": 2.4400000000000004,
+          "voice_processing_chain": 5.46,
+          "voice_multitrack_stack": 7.735000000000001
         }
       },
       {
@@ -59,8 +59,8 @@
           "berimbau_use": "berimbau_capoeira"
         },
         "scores": {
-          "berimbau_size": 2.34,
-          "berimbau_use": 20.345
+          "berimbau_size": 2.535,
+          "berimbau_use": 17.81
         }
       },
       {
@@ -68,12 +68,12 @@
         "slots": {
           "atabaque_role": "atabaque_rum",
           "atabaque_skin": "atabaque_goatskin",
-          "atabaque_shell_wood": "atabaque_cedrillo"
+          "atabaque_shell_wood": "atabaque_jacaranda"
         },
         "scores": {
-          "atabaque_role": 1.135,
+          "atabaque_role": 1.435,
           "atabaque_skin": 1.045,
-          "atabaque_shell_wood": 1.65
+          "atabaque_shell_wood": 1.625
         }
       },
       {
@@ -87,12 +87,12 @@
           "pandeiro_jingles": "pandeiro_brass_platinelas"
         },
         "scores": {
-          "percussion_technique": 11.575,
-          "pandeiro_size": 2.8199999999999994,
-          "pandeiro_context": 4.03,
-          "pandeiro_head": 7.734999999999999,
-          "pandeiro_shell_wood": 7.734999999999999,
-          "pandeiro_jingles": 7.734999999999999
+          "percussion_technique": 7.825,
+          "pandeiro_size": 3.379999999999999,
+          "pandeiro_context": 6.795,
+          "pandeiro_head": 7.345000000000001,
+          "pandeiro_shell_wood": 7.345000000000001,
+          "pandeiro_jingles": 7.345000000000001
         }
       },
       {
@@ -102,8 +102,8 @@
           "agogo_context": "agogo_candomble"
         },
         "scores": {
-          "agogo_bell": 2.9899999999999998,
-          "agogo_context": 5.47
+          "agogo_bell": 5.914999999999998,
+          "agogo_context": 4.97
         }
       },
       {
@@ -112,7 +112,7 @@
           "reco_source": "reco_metal_springs"
         },
         "scores": {
-          "reco_source": 4.029999999999999
+          "reco_source": 6.564999999999999
         }
       },
       {
@@ -122,7 +122,7 @@
           "caxixi_filling": "caxixi_beads"
         },
         "scores": {
-          "caxixi_size": 6.595000000000001,
+          "caxixi_size": 6.745,
           "caxixi_filling": 0.65
         }
       },
@@ -133,7 +133,7 @@
           "school": "cap_angola"
         },
         "scores": {
-          "members": 4.515,
+          "members": 4.065,
           "school": 1.285
         }
       }

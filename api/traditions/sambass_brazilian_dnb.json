@@ -3,14 +3,14 @@
   "name": "Sambass (Brazilian drum-and-bass)",
   "family": "electronic",
   "lineage": "Late-1990s Brazilian drum-and-bass subgenre integrating Brazilian samba, bossa nova, and MPB melodic-rhythmic vocabulary with UK drum-and-bass production framework. DJ Marky, XRS, and Patife (collectively the Brazilian sambass triumvirate) anchored the canonical sound through 2000-2005 international peak visibility; the broader São Paulo electronic scene anchored institutional infrastructure.",
-  "recipe": "classic Southern American mid-2000s sambass, bass System, bass descendants branch, Brazilian groove percussion samba pagode. thick, intimate aspirated, melodic, punctuated. TR-808, low sub bass analog synth. estudios scatena sp. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 358,
-  "score": 143.095,
+  "recipe": "classic Southern American mid-2000s sambass, bass System, bass descendants branch, Brazilian groove percussion pagode samba. thick, breath veiled tone, straight onset, interlocked note trading. TR-808, low sub bass analog synth. estudios scatena sp. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 379,
+  "score": 194.547,
   "config": {
     "traditions": [
       "sambass_brazilian_dnb",
-      "samba",
-      "pagode"
+      "pagode",
+      "samba"
     ],
     "instruments": [
       {
@@ -20,9 +20,9 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "staccato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "beatboxing_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 2.650000000000001,
-          "voice_quality": 28.42,
+          "voice_quality": 44.839999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.595,
-          "voice_articulation": 1.885,
-          "voice_microtone": 2.6250000000000004,
+          "voice_vibrato": 3.9899999999999993,
+          "voice_articulation": 17.939999999999998,
+          "voice_microtone": 17.354999999999993,
           "voice_tradition": 4.16,
           "voice_mechanism_compound": 4.55,
           "voice_estill_quality": 4.5825,
-          "voice_speech_song": 19.499999999999996,
-          "voice_ensemble_config": 17.614999999999995,
+          "voice_speech_song": 19.369999999999994,
+          "voice_ensemble_config": 17.484999999999992,
           "voice_ornament_system": 1.5,
-          "voice_pitch_organization": 2.34,
+          "voice_pitch_organization": 2.145,
           "voice_processing_chain": 8.095,
-          "voice_multitrack_stack": 2.5024999999999995
+          "voice_multitrack_stack": 4.8100000000000005
         }
       },
       {

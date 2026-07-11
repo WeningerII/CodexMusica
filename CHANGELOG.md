@@ -80,6 +80,24 @@ All notable changes to this project are recorded here. Format loosely follows
   ~380 ethnographically-recorded traditions off studio chains. Each archetype's
   components resolve against the existing chain-item inventory; all 608
   re-homings validated; regression re-blessed.
+- **Voice option lists enriched across all 16 voice parts** (224 → 262
+  variants; 38 re-described, 38 added, 18 proposals rejected by an
+  orthogonality review). The 16-part decomposition is unchanged — this fixes
+  the OPTIONS under it. All five decade-named `voice_multitrack_stack`
+  options now describe the technique instead of the year (e.g. "Mid-1960s
+  double-tracking era stack" → "ADT / tape-offset unison double (phasey
+  detimed halo)"; eras moved to `canonical_tags`); ids unchanged, so the 1051
+  traditions pinning voice variants are unaffected. Thin parts filled:
+  `voice_effort` gains sustained-fortissimo and overdriven-scream pressure
+  levels; `voice_processing_chain` gains slapback tape echo, dub spring-send,
+  phrase-end delay throw, screwed pitch-down, megaphone/bullhorn,
+  reverse-reverb pre-swell, and sidechain ducking; `voice_multitrack_stack`
+  gains the hip-hop ad-lib/response lane, whisper-double, and the 10cc-style
+  massed tape-loop choir wall; plus vocal-tract postures, strohbass register,
+  toasting/deejay chat, gospel-runs and fado-voltinha ornament systems,
+  Georgian non-tempered and Byzantine 72-moria pitch systems, and five new
+  vocal-tradition schools. All additions are `auto: false` (explicit-only,
+  picker/connector-facing) so default recipes stay stable.
 
 ## [2.0.0] — 2026-06-27 — production hardening
 

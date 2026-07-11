@@ -3,9 +3,9 @@
   "name": "Ska and rocksteady",
   "family": "global",
   "lineage": "Jamaican ska (1959-1965, fast-tempo guitar-upbeat horn-section-foregrounded dance music) and its slower-tempo derivation rocksteady (1965-1968) — codified at Studio One, Treasure Isle, and Federal through the Skatalites (Tommy McCook, Don Drummond, Roland Alphonso, Lloyd Knibb, the ska house band), Prince Buster, Toots and the Maytals, the Wailers (early-period), Alton Ellis (Get Ready Rocksteady), Ken Boothe, the Heptones; preceded reggae and remains foundational to the broader Jamaican popular music lineage",
-  "recipe": "classic Caribbean mid-1960s ska and rocksteady, bass System, Jamaican branch, Caribbean groove percussion calypso zydeco. thick, forward-resonance, melodic, punctuated. ebony open string slide resonance single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character alder pyramid electric bass, bronze bell bronze over hammered post lathe strikes pin lathed drum kit, Hammond a 100 built in Leslie home spinet tonewheel organ, bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn trumpet, rose brass darker warmer saxophone, bach 42 canonical American orchestral tenor bass trombone trombone. Kingston studio one defining 1959-2004 indie-commercial kingston studio one brentford road. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 848,
-  "score": 255.465,
+  "recipe": "classic Caribbean mid-1960s ska and rocksteady, bass System, Jamaican branch, Caribbean groove percussion calypso zydeco. thick, breath veiled tone, straight note core, interlocked note trading. ebony open string slide resonance single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character alder pyramid electric bass, bronze bell bronze over hammered post lathe strikes pin lathed drum kit, Hammond a 100 built in Leslie home spinet tonewheel organ, bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn trumpet, rose brass darker warmer saxophone, bach 42 canonical American orchestral tenor bass trombone trombone. Kingston studio one defining 1959-2004 indie-commercial kingston studio one brentford road. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 874,
+  "score": 307.575,
   "config": {
     "traditions": [
       "ska_rocksteady",
@@ -161,12 +161,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "twang_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "staccato_voice",
-          "voice_microtone": "blue_notes",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -175,25 +175,25 @@
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
           "voice_register": 3.5350000000000015,
-          "voice_quality": 6.394999999999999,
+          "voice_quality": 20.14999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.3399999999999999,
-          "voice_articulation": 0.975,
-          "voice_microtone": 1.04,
+          "voice_vibrato": 4.67,
+          "voice_articulation": 17.744999999999997,
+          "voice_microtone": 16.50999999999999,
           "voice_tradition": 7.149999999999999,
           "voice_mechanism_compound": 4.484999999999999,
           "voice_estill_quality": 4.485,
-          "voice_speech_song": 19.629999999999995,
-          "voice_ensemble_config": 17.809999999999995,
+          "voice_speech_song": 21.124999999999996,
+          "voice_ensemble_config": 18.329999999999995,
           "voice_ornament_system": 1.65,
-          "voice_pitch_organization": 1.8399999999999999,
+          "voice_pitch_organization": 2.415,
           "voice_processing_chain": 4.614999999999999,
-          "voice_multitrack_stack": 2.0799999999999996
+          "voice_multitrack_stack": 2.275
         }
       },
       {

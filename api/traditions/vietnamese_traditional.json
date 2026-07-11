@@ -3,30 +3,30 @@
   "name": "Vietnamese chamber (nhạc tài tử and ca trù)",
   "family": "global",
   "lineage": "Vietnamese traditional chamber-music heritage spanning two distinct regional traditions — nhạc tài tử (Music of the Talented Amateurs), the Southern Vietnamese (Mekong Delta) chamber tradition of the 19th-century educated-amateur scholar-musician class, performed in private homes with đàn tranh (16-string Vietnamese zither), đàn bầu (Vietnamese monochord), đàn nguyệt (moon-shaped lute), đàn tỳ bà (pear-shaped lute), sáo trúc (bamboo flute), with characteristic improvisation and modal variation; ca trù (the Northern Vietnamese sung-poetry tradition), performed by female ca nương vocalist accompanied by đàn đáy (three-string lute) and phách (wooden percussion clapper)",
-  "recipe": "classic Southeast Asian mid-1930s vietnamese chamber, art Music, southeast Asian branch, east Asian art music, south Asian art music beijing opera cantonese opera. vocal fry, pressed, chest resonance low mid, rhythmic. dan bau, paulownia dan tranh, dan nguyet. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 428,
-  "score": 204.127,
+  "recipe": "classic Southeast Asian mid-1930s vietnamese chamber, art Music, southeast Asian branch, east Asian art music, south Asian art music beijing opera tibetan ache lhamo opera. thick, breath veiled tone, slow rate, interlocked note trading. dan bau, dan tranh, dan nguyet. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 436,
+  "score": 243.382,
   "config": {
     "traditions": [
       "vietnamese_traditional",
       "beijing_opera",
-      "cantonese_opera"
+      "tibetan_ache_lhamo"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "vocal_fry",
-          "voice_quality": "pressed_phonation_voice",
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "spoken_voice",
-          "voice_microtone": "bend_inflected",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "chinese_classical_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
-          "voice_speech_song": "voice_recitative_free_rhythm",
+          "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 2.145,
-          "voice_quality": 19.549999999999997,
+          "voice_register": 2.12,
+          "voice_quality": 18.524999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.77,
-          "voice_articulation": 0.975,
-          "voice_microtone": 1.4949999999999999,
-          "voice_tradition": 35.457499999999996,
-          "voice_mechanism_compound": 7.084999999999999,
-          "voice_estill_quality": 22.384999999999998,
-          "voice_speech_song": 18.81,
-          "voice_ensemble_config": 17.224999999999994,
-          "voice_ornament_system": 17.849999999999998,
-          "voice_pitch_organization": 31.084999999999994,
-          "voice_processing_chain": 5.59,
-          "voice_multitrack_stack": 3.3150000000000004
+          "voice_vibrato": 8.45,
+          "voice_articulation": 19.759999999999998,
+          "voice_microtone": 21.059999999999995,
+          "voice_tradition": 34.8075,
+          "voice_mechanism_compound": 7.539999999999998,
+          "voice_estill_quality": 21.634999999999994,
+          "voice_speech_song": 21.189999999999998,
+          "voice_ensemble_config": 22.554999999999996,
+          "voice_ornament_system": 16.099999999999998,
+          "voice_pitch_organization": 20.759999999999998,
+          "voice_processing_chain": 6.5,
+          "voice_multitrack_stack": 4.03
         }
       },
       {
@@ -73,11 +73,11 @@
           "dan_tranh_body_wood": "dan_tranh_paulownia"
         },
         "scores": {
-          "plucked_traditional_technique": 5.715,
-          "dan_tranh_use": 2.925,
-          "dan_tranh_strings": 5.85,
-          "dan_tranh_string_material": 0.39,
-          "dan_tranh_body_wood": 1.6799999999999997
+          "plucked_traditional_technique": 6.589999999999999,
+          "dan_tranh_use": 3.3799999999999994,
+          "dan_tranh_strings": 4.16,
+          "dan_tranh_string_material": 0.195,
+          "dan_tranh_body_wood": 0.845
         }
       },
       {
@@ -88,9 +88,9 @@
           "dan_nguyet_strings": "dan_nguyet_silk"
         },
         "scores": {
-          "dan_nguyet_form": 3.394999999999999,
-          "dan_nguyet_technique": 2.15,
-          "dan_nguyet_strings": 0.75
+          "dan_nguyet_form": 3.0199999999999996,
+          "dan_nguyet_technique": 5.025,
+          "dan_nguyet_strings": 0.375
         }
       }
     ],

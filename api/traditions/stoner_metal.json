@@ -3,9 +3,9 @@
   "name": "Stoner metal",
   "family": "rock",
   "lineage": "Southern California desert-rock-derived heavy-blues-revival genre that emerged in early-1990s Palm Desert and Los Angeles — codified through Kyuss (the founding band from Palm Desert, Welcome to Sky Valley 1994), Queens of the Stone Age (Josh Hommes post-Kyuss continuation, Songs for the Deaf 2002), Sleep (the Bay Area parallel canon, Sleeps Holy Mountain 1992 and the legendary 60-minute single-track Dopesmoker 2003), Fu Manchu, Monster Magnet; built on Sabbath chord vocabulary plus blues-rock pentatonic vocabulary plus down-tuned heavy-fuzz amplifier worship",
-  "recipe": "classic Midwestern American 1990-1993 stoner metal, distorted Rock, doom branch, sludge metal post-metal. thick, larynx lowered, pure, equal tempered. orange amp British heavy crunch basswood maple pau ferro humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky riff driven electric bass, mahogany machine hammered symmetric pattern organized rows full lathed drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi proco RAT.",
-  "recipe_chars": 607,
-  "score": 614.748,
+  "recipe": "classic Midwestern American 1990-1993 stoner metal, distorted Rock, doom branch, sludge metal post-metal. thick, larynx lowered, wide pitch sway, interlocked note trading. orange amp British heavy crunch basswood maple pau ferro humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky riff driven electric bass, mahogany machine hammered symmetric pattern organized rows full lathed drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi proco RAT.",
+  "recipe_chars": 628,
+  "score": 637.493,
   "config": {
     "traditions": [
       "stoner_metal",
@@ -105,8 +105,8 @@
           "voice_quality": "lowered_larynx_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "straight_tone",
-          "voice_articulation": "legato_voice",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "baroque_ornamental_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
@@ -115,7 +115,7 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
@@ -123,17 +123,17 @@
           "voice_quality": 25.199999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.1849999999999996,
-          "voice_articulation": 0.3,
+          "voice_vibrato": 8.406499999999998,
+          "voice_articulation": 14.624999999999993,
           "voice_microtone": 27.904999999999994,
           "voice_tradition": 5.329999999999999,
           "voice_mechanism_compound": 36.2515,
           "voice_estill_quality": 2.405,
-          "voice_speech_song": 15.729999999999995,
-          "voice_ensemble_config": 14.689999999999994,
+          "voice_speech_song": 15.599999999999993,
+          "voice_ensemble_config": 17.159999999999993,
           "voice_ornament_system": 2.6125000000000003,
-          "voice_pitch_organization": 2.925,
-          "voice_processing_chain": 5.412999999999999,
+          "voice_pitch_organization": 2.7300000000000004,
+          "voice_processing_chain": 6.467500000000001,
           "voice_multitrack_stack": 4.647
         }
       }

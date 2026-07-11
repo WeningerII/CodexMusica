@@ -3,53 +3,53 @@
   "name": "Javanese wedding gamelan music",
   "family": "global",
   "lineage": "Javanese wedding-music tradition continuous from medieval Javanese court-and-village gamelan practice through Islamic-period (post-15th-century) continuous performance into modern Indonesian-and-Javanese-diaspora practice; defined by gamelan-ensemble accompaniment to ceremonial-and-celebratory wedding-music repertoire",
-  "recipe": "classic Southeast Asian modern javanese wedding gamelan music, wedding, east Asian branch, south Asian wedding, east Asian art music, indigenous ritual devotional beijing opera tibetan ache lhamo opera. thick, pressed, melodic, continuous-phonation. gamelan javanese full, saron gamelan, bonang, gamelan javanese teak premium javanese court buffalo hide rattan lacing canonical javanese kendang indonesian. javanese pendopo pavilion. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 496,
-  "score": 218.952,
+  "recipe": "classic Southeast Asian modern javanese wedding gamelan music, wedding, east Asian branch, south Asian wedding, east Asian art music, indigenous ritual devotional beijing opera inuit katajjaq throat-singing game. sygyt, breath veiled tone, straight note core, interlocked note trading. gamelan javanese full, saron gamelan, bonang, gamelan javanese teak premium javanese court buffalo hide rattan lacing canonical javanese kendang indonesian. javanese pendopo pavilion. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 532,
+  "score": 278.918,
   "config": {
     "traditions": [
       "javanese_wedding_gamelan",
       "beijing_opera",
-      "tibetan_ache_lhamo"
+      "inuit_katajjaq_games"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
-          "voice_quality": "pressed_phonation_voice",
+          "voice_register": "sygyt_register",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "legato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "chinese_classical_vocal_tradition",
-          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_bel_canto",
+          "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_pelog_7",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 4.205,
-          "voice_quality": 11.074999999999998,
+          "voice_register": 6.4,
+          "voice_quality": 17.159999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.5100000000000002,
-          "voice_articulation": 3.26,
-          "voice_microtone": 2.2550000000000003,
-          "voice_tradition": 35.2625,
-          "voice_mechanism_compound": 7.049999999999999,
-          "voice_estill_quality": 22.139999999999997,
-          "voice_speech_song": 23.855,
-          "voice_ensemble_config": 23.269999999999996,
-          "voice_ornament_system": 16.099999999999998,
-          "voice_pitch_organization": 14.020000000000001,
+          "voice_vibrato": 5.915,
+          "voice_articulation": 22.879999999999995,
+          "voice_microtone": 21.839999999999996,
+          "voice_tradition": 29.087500000000006,
+          "voice_mechanism_compound": 16.095,
+          "voice_estill_quality": 17.089999999999996,
+          "voice_speech_song": 24.927500000000002,
+          "voice_ensemble_config": 23.724999999999994,
+          "voice_ornament_system": 13.36,
+          "voice_pitch_organization": 29.804999999999996,
           "voice_processing_chain": 4.81,
-          "voice_multitrack_stack": 4.029999999999999
+          "voice_multitrack_stack": 5.785
         }
       },
       {
@@ -59,8 +59,8 @@
           "tuning": "gj_pelog"
         },
         "scores": {
-          "sections": 3.3799999999999994,
-          "tuning": 5.459999999999999
+          "sections": 1.8849999999999996,
+          "tuning": 3.965
         }
       },
       {
@@ -70,7 +70,7 @@
           "saron_tuning_system": "saron_slendro"
         },
         "scores": {
-          "saron_size": 0.195,
+          "saron_size": 0.65,
           "saron_tuning_system": 0.84
         }
       },
@@ -82,7 +82,7 @@
         },
         "scores": {
           "bonang_tuning": 5.135,
-          "bonang_register": 0
+          "bonang_register": 0.5
         }
       },
       {
@@ -95,9 +95,9 @@
         },
         "scores": {
           "kendang_size": 4.47,
-          "kendang_context": 10.78,
+          "kendang_context": 11.43,
           "kendang_shell_wood": 9.304999999999998,
-          "kendang_head": 7.395
+          "kendang_head": 6.744999999999999
         }
       }
     ],

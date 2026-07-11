@@ -3,9 +3,9 @@
   "name": "Sophisti-pop",
   "family": "global",
   "lineage": "1980s British adult-contemporary jazz-pop subgenre characterized by smooth chord-rich production, electric-piano-led harmonic foundation, atmospheric backing vocals — codified through Sade (Diamond Life 1984, Promise 1985), Everything But the Girl (Eden 1984), the Style Council (Café Bleu 1984), Prefab Sprout (Steve McQueen 1985), and the early Swing Out Sister releases",
-  "recipe": "classic North American mid-1980s sophisti-pop, functional Song, pop rock branch, crooners functional song great american songbook brill building pop. thick, low dynamic level, chest resonance low mid, equal tempered. singing lead analog poly synth, marshall plexi amp British rock amp mahogany thomastik infeld low tension electric ampeg b15 amp American 60s bass amp flip top character ebony unlined fretless bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris rubber continuous-airflow saxophone, torrington spring steel tine canonical Rhodes 1965 1984 centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric. treated studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 909,
-  "score": 437.714,
+  "recipe": "classic North American mid-1980s sophisti-pop, functional Song, pop rock branch, crooners functional song great american songbook brill building pop. thick, breath veiled tone, straight onset, interlocked note trading. singing lead analog poly synth, marshall plexi amp British rock amp mahogany thomastik infeld low tension electric ampeg b15 amp American 60s bass amp flip top character ebony unlined fretless bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris rubber continuous-airflow saxophone, torrington spring steel tine canonical Rhodes 1965 1984 centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric. treated studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 911,
+  "score": 469.505,
   "config": {
     "traditions": [
       "sophisti_pop",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "crooner_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "legato_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 33.82500000000001,
-          "voice_quality": 4.4525,
+          "voice_quality": 8.905000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.4299999999999997,
-          "voice_articulation": 0,
+          "voice_vibrato": 15.095500000000001,
+          "voice_articulation": 12.479999999999995,
           "voice_microtone": 33.58,
           "voice_tradition": 24.775499999999994,
           "voice_mechanism_compound": 0.975,
           "voice_estill_quality": 4.375,
-          "voice_speech_song": 18.914999999999996,
-          "voice_ensemble_config": 12.544999999999996,
+          "voice_speech_song": 19.369999999999994,
+          "voice_ensemble_config": 12.414999999999994,
           "voice_ornament_system": 0.39,
-          "voice_pitch_organization": 1.21,
+          "voice_pitch_organization": 1.765,
           "voice_processing_chain": 5.691,
-          "voice_multitrack_stack": 4.1725
+          "voice_multitrack_stack": 4.485000000000001
         }
       },
       {

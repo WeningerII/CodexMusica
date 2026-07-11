@@ -3,9 +3,9 @@
   "name": "Future bass (mid-2010s Australian chopped-vocal electronic)",
   "family": "electronic",
   "lineage": "Mid-2010s Australian electronic subgenre developed by Flume (Harley Streten, Sydney) characterized by chopped-pitched-vocal sampling, metallic-wobble synth-bass leads, half-time drum-machine programming, and emotional-melodic content. Flume's self-titled debut (2012) and Skin (2016) inaugurated the canonical sound; Cashmere Cat, San Holo, Marshmello, and the broader Mad Decent and OWSLA label rosters extended the genre.",
-  "recipe": "classic future bass, bass System, bass descendants branch, house electronic dance fidget house latin house. vocal fry, low dynamic level, chest resonance low mid, unrestrained. sub bass analog synth, TR-808. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 401,
-  "score": 133.892,
+  "recipe": "classic future bass, bass System, bass descendants branch, house electronic dance fidget house latin house. vocal fry, breath veiled tone, slow rate, interlocked note trading. sub bass analog synth, TR-808. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 400,
+  "score": 178.19,
   "config": {
     "traditions": [
       "future_bass",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "vocal_fry",
-          "voice_quality": "crooner_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "shouted_voice",
-          "voice_microtone": "blue_notes",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "beatboxing_tradition",
           "voice_mechanism_compound": "voice_mechanism_ventricular_subharmonic",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_stutter_edit",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 5.265,
-          "voice_quality": 2.5250000000000004,
+          "voice_quality": 8.807500000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.675,
-          "voice_articulation": 1.34,
-          "voice_microtone": 1.3900000000000001,
+          "voice_vibrato": 2.925,
+          "voice_articulation": 17.354999999999997,
+          "voice_microtone": 19.694999999999993,
           "voice_tradition": 7.93,
           "voice_mechanism_compound": 2.440000000000001,
           "voice_estill_quality": 1.0399999999999998,
-          "voice_speech_song": 17.484999999999996,
-          "voice_ensemble_config": 18.459999999999997,
+          "voice_speech_song": 17.354999999999997,
+          "voice_ensemble_config": 18.329999999999995,
           "voice_ornament_system": 1.895,
-          "voice_pitch_organization": 2.535,
+          "voice_pitch_organization": 3.185000000000001,
           "voice_processing_chain": 16.365,
-          "voice_multitrack_stack": 10.075
+          "voice_multitrack_stack": 13.129999999999997
         }
       },
       {

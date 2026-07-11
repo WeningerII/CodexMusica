@@ -3,53 +3,53 @@
   "name": "Korean nongak (농악, farmer's percussion-and-dance)",
   "family": "global",
   "lineage": "Korean nongak (농악, \"farmer's music\") tradition continuous from premodern Korean-agricultural-village labor-and-festival practice through Japanese-colonial-era and post-1945 continuous performance into modern-recognized Korean-folk continuous practice; the nongak is the canonical Korean village-festival-and-labor music integrating samul (four-instrument) percussion with vocal-and-dance accompaniment",
-  "recipe": "classic mid-1940s korean nongak, field Work, east Asian branch, south Asian field work, east Asian wedding, east Asian carnival processional bengali bhatiali chinese xǐqìng (喜慶) wedding music. thick, yodel, tasteful, unrestrained. paulownia canonical Korean horse dog asymmetric canonical Korean pungmul outdoor village pre samul nori janggu, lead kkwaenggwari, reformed dense wood brass belled taepyeongso. forest clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 487,
-  "score": 234.323,
+  "recipe": "classic mid-1940s korean nongak, field Work, east Asian branch, south Asian field work, east Asian wedding, east Asian carnival processional chinese xǐqìng (喜慶) wedding music javanese wedding gamelan music. thick, breath veiled tone, straight note core, interlocked note trading. paulownia canonical Korean horse dog asymmetric canonical Korean pungmul outdoor village pre samul nori janggu, lead kkwaenggwari, reformed dense wood brass belled taepyeongso. forest clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 536,
+  "score": 271.368,
   "config": {
     "traditions": [
       "korean_nongak_field",
-      "bengali_bhatiali",
-      "chinese_xiqing_wedding"
+      "chinese_xiqing_wedding",
+      "javanese_wedding_gamelan"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "yodel_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
-          "voice_articulation": "shouted_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "korean_minsogak_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_pansori_sigimsae",
-          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
-          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_pitch_organization": "voice_pitch_slendro_5",
+          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 7.829500000000001,
-          "voice_quality": 0.7149999999999999,
+          "voice_register": 7.454500000000001,
+          "voice_quality": 7.214999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.38,
-          "voice_articulation": 8.44875,
-          "voice_microtone": 3.6500000000000004,
-          "voice_tradition": 31.841999999999995,
-          "voice_mechanism_compound": 2.62825,
-          "voice_estill_quality": 1.9517499999999999,
-          "voice_speech_song": 17.744999999999997,
-          "voice_ensemble_config": 16.834999999999997,
-          "voice_ornament_system": 23.525,
-          "voice_pitch_organization": 7.6049999999999995,
-          "voice_processing_chain": 3.380000000000001,
-          "voice_multitrack_stack": 3.3149999999999995
+          "voice_vibrato": 4.485,
+          "voice_articulation": 15.729999999999993,
+          "voice_microtone": 15.92499999999999,
+          "voice_tradition": 32.31699999999999,
+          "voice_mechanism_compound": 2.6282499999999995,
+          "voice_estill_quality": 2.10175,
+          "voice_speech_song": 15.729999999999993,
+          "voice_ensemble_config": 17.74499999999999,
+          "voice_ornament_system": 24.875,
+          "voice_pitch_organization": 16.516,
+          "voice_processing_chain": 2.8377500000000007,
+          "voice_multitrack_stack": 2.8600000000000003
         }
       },
       {
@@ -62,11 +62,11 @@
           "janggu_lineage": "janggu_pungmul_outdoor"
         },
         "scores": {
-          "janggu_use": 3.705,
+          "janggu_use": 4.355,
           "janggu_construction": 0.845,
-          "janggu_shell_wood": 10.437,
-          "janggu_head": 10.437,
-          "janggu_lineage": 5.042249999999999
+          "janggu_shell_wood": 9.786999999999999,
+          "janggu_head": 9.786999999999999,
+          "janggu_lineage": 5.69225
         }
       },
       {
@@ -75,7 +75,7 @@
           "kkwaenggwari_role": "kkwaenggwari_lead"
         },
         "scores": {
-          "kkwaenggwari_role": 2.525
+          "kkwaenggwari_role": 2.3000000000000003
         }
       },
       {

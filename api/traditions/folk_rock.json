@@ -3,9 +3,9 @@
   "name": "Folk rock",
   "family": "rock_punk",
   "lineage": "Mid-1960s through 1970s amplified folk-rock fusion codified by The Byrds Mr. Tambourine Man (1965), Buffalo Springfield, Crosby Stills Nash and Young, Simon and Garfunkel late-60s catalog",
-  "recipe": "classic North American 1964-1966 folk rock, functional Song, folk rock branch, country functional song country rock country-pop crossover. thick, incomplete closure resting, melodic, rhythmic. cedar phosphor bronze modern martin travis picked dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, steel pre muffled edge muffled hot rolled annealed drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ, tambourine orch. hyde street san francisco 1969-1980 major-flagship wally heider studios sf. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
-  "recipe_chars": 886,
-  "score": 849.286,
+  "recipe": "classic North American 1964-1966 folk rock, functional Song, folk rock branch, country functional song country rock country-pop crossover. thick, breath veiled tone, wide pitch sway, interlocked note trading. cedar phosphor bronze modern martin travis picked dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, steel pre muffled edge muffled hot rolled annealed drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ, tambourine orch. hyde street san francisco 1969-1980 major-flagship wally heider studios sf. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
+  "recipe_chars": 902,
+  "score": 872.23,
   "config": {
     "traditions": [
       "folk_rock",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "incomplete_closure_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "spoken_voice",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 91.31500000000001,
-          "voice_quality": 3.2699999999999996,
+          "voice_quality": 10.334999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 22.501250000000002,
-          "voice_articulation": 0.78,
+          "voice_vibrato": 23.015,
+          "voice_articulation": 14.88499999999999,
           "voice_microtone": 47.06000000000001,
           "voice_tradition": 30.836249999999993,
           "voice_mechanism_compound": 2.405,
           "voice_estill_quality": 25.8,
-          "voice_speech_song": 20.929999999999993,
-          "voice_ensemble_config": 15.339999999999991,
+          "voice_speech_song": 20.79999999999999,
+          "voice_ensemble_config": 16.44499999999999,
           "voice_ornament_system": 0.585,
           "voice_pitch_organization": 0.9062499999999999,
           "voice_processing_chain": 8.995,
-          "voice_multitrack_stack": 8.56375
+          "voice_multitrack_stack": 8.84875
         }
       },
       {

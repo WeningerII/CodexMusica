@@ -3,9 +3,9 @@
   "name": "Punta (Garifuna)",
   "family": "global",
   "lineage": "Garifuna (Black-Carib) Honduran-Belizean-Guatemalan-Nicaraguan Caribbean-coast Afro-Amerindian song-and-dance tradition descended from the 1797 British-deportation of the surviving Carib-Arawak-Afro-Caribbean people from St-Vincent to Roatan-island (now eastern-Caribbean-coast Central-America). The canonical punta ensemble: three garaon barrel-drums (primero high-improvisation, segunda middle-rhythm, tercera bass-drum) with maracas (sisira), conch-shell-trumpet, and call-and-response female-vocal-leadership. The 2/4 rapid-tempo punta-rhythm accentuates the dance characterized by virtuosic hip-and-glute movement. (under the broader Garifuna language-music-and-dance category). The 1980s-onward punta-rock electrified-and-commercialized variant brought guitar-and-keyboard to the genre.",
-  "recipe": "classic Caribbean mid-1980s punta, ritual Devotional, Afro-diasporic branch, Caribbean groove percussion chouval-bwa plena. thick, declaimed, melodic, unrestrained. log drum, maracas, a cappella small 3 to 8 one per part three voice polyphonic regional andean three voice parallel thirds quechua aymara global traditional polyphonic choir ensemble, interlocking celebratory fast hardwood shell deerskin head garaon. havana solar outdoor courtyard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 510,
-  "score": 184.819,
+  "recipe": "classic Caribbean mid-1980s punta, ritual Devotional, Afro-diasporic branch, Caribbean groove percussion chouval-bwa plena. thick, breath veiled tone, straight note core, interlocked note trading. log drum, maracas, a cappella small 3 to 8 one per part three voice polyphonic regional andean three voice parallel thirds quechua aymara global traditional polyphonic choir ensemble, interlocking celebratory fast hardwood shell deerskin head garaon. havana solar outdoor courtyard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 542,
+  "score": 231.849,
   "config": {
     "traditions": [
       "punta_garifuna",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "shouted_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_vedic_three_tone",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 3.6600000000000015,
-          "voice_quality": 5.875000000000001,
+          "voice_quality": 19.889999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.13,
-          "voice_articulation": 1.675,
-          "voice_microtone": 3.0500000000000007,
+          "voice_vibrato": 1.365,
+          "voice_articulation": 17.029999999999998,
+          "voice_microtone": 18.849999999999994,
           "voice_tradition": 10.985,
           "voice_mechanism_compound": 2.0799999999999996,
           "voice_estill_quality": 4.38,
-          "voice_speech_song": 19.305,
-          "voice_ensemble_config": 18.394999999999996,
+          "voice_speech_song": 19.824999999999996,
+          "voice_ensemble_config": 18.914999999999996,
           "voice_ornament_system": 6.075,
           "voice_pitch_organization": 1.7449999999999999,
-          "voice_processing_chain": 3.12,
-          "voice_multitrack_stack": 3.25
+          "voice_processing_chain": 3.5750000000000006,
+          "voice_multitrack_stack": 3.380000000000001
         }
       },
       {

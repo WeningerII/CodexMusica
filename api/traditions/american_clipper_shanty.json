@@ -3,26 +3,26 @@
   "name": "American clipper-ship shanty",
   "family": "global",
   "lineage": "American-clipper-ship-era shanty tradition continuous from 1830s-1880s American-merchant-marine clipper-ship work-song practice (the heyday of American clipper-ship trade between American-Eastern-Seaboard, California, China, and Australia) through 20th-century revival into modern American-folk-revival continuous practice; foundational repertoire includes \"Sacramento\" (capstan-shanty for California-gold-rush trade), \"Shenandoah\"",
-  "recipe": "classic mid-1830s american clipper-ship shanty, sea Shanty, atlantic branch, americas drinking song, American south field work, anglo singer song ballad poetry freak folk indie folk. thick, incomplete closure resting, chest resonance low mid, continuous-phonation. Celtic Irish straight concertina, magic rosin modern acrylic base drone like fiddle. beach. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 431,
-  "score": 165.817,
+  "recipe": "classic mid-1830s american clipper-ship shanty, sea Shanty, atlantic branch, americas drinking song, American south field work, anglo singer song ballad poetry indie folk freak folk. thick, breath veiled tone, straight note core, interlocked note trading. Celtic Irish straight concertina, magic rosin modern acrylic base drone like fiddle. beach. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 422,
+  "score": 183.69,
   "config": {
     "traditions": [
       "american_clipper_shanty",
-      "freak_folk_2000s",
-      "indie_folk_2000s"
+      "indie_folk_2000s",
+      "freak_folk_2000s"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "incomplete_closure_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "legato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 26.185,
-          "voice_quality": 6.095,
+          "voice_register": 26.184999999999995,
+          "voice_quality": 9.750000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.65,
-          "voice_articulation": 3.3799999999999994,
-          "voice_microtone": 6.905000000000001,
-          "voice_tradition": 27.007499999999993,
+          "voice_vibrato": 1.0074999999999998,
+          "voice_articulation": 12.349999999999994,
+          "voice_microtone": 12.154999999999992,
+          "voice_tradition": 27.00749999999999,
           "voice_mechanism_compound": 1.56,
           "voice_estill_quality": 3.5100000000000007,
-          "voice_speech_song": 19.564999999999994,
-          "voice_ensemble_config": 10.919999999999996,
+          "voice_speech_song": 19.434999999999995,
+          "voice_ensemble_config": 10.789999999999994,
           "voice_ornament_system": 2.8600000000000008,
           "voice_pitch_organization": 3.3799999999999994,
           "voice_processing_chain": 3.835,
-          "voice_multitrack_stack": 5.994999999999999
+          "voice_multitrack_stack": 5.895
         }
       },
       {
@@ -60,7 +60,7 @@
           "concertina_reed_grade": "concertina_hybrid_accordion_reed"
         },
         "scores": {
-          "free_reed_technique": 18.9,
+          "free_reed_technique": 18.899999999999995,
           "concertina_type": 10.53,
           "concertina_reed_grade": 0.975
         }
@@ -75,7 +75,7 @@
           "fiddle_articulation": "pizz"
         },
         "scores": {
-          "bowed_technique": 18.119999999999997,
+          "bowed_technique": 18.119999999999994,
           "fiddle_strings": 0.5700000000000001,
           "fiddle_bow": 2.185,
           "fiddle_mute": 0.85,

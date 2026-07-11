@@ -3,9 +3,9 @@
   "name": "Persian naqqāli (Shahnameh dramatic recitation)",
   "family": "global",
   "lineage": "Iranian dramatic storytelling, the oldest form of dramatic performance in Iran, in which the naqqal recites and enacts episodes of the national epic — above all Ferdowsi's Shahnameh — with declamatory verse, prose bridging, vivid gesture and, traditionally, a painted scroll or coffeehouse-painting backdrop (pardeh) as visual aid. Performed historically in the qahveh-khaneh (coffeehouse) and public square, it was inscribed on the UNESCO List of Intangible Cultural Heritage in Need of Urgent Safeguarding in 2011. Delivery moves between elevated chanted verse and animated spoken narration, the naqqal shifting stance and register to voice heroes, demons and kings.",
-  "recipe": "classic Middle Eastern early-2010s persian naqqāli, ballad Poetry, med east poetic branch swedish kulning herding-call jeju haenyeo songs. thick, chest mix belt, chest resonance low mid, narrative. tehran classical dastgah context. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 294,
-  "score": 154.551,
+  "recipe": "classic Middle Eastern early-2010s persian naqqāli, ballad Poetry, med east poetic branch swedish kulning herding-call jeju haenyeo songs. thick, breath veiled tone, wide pitch sway, interlocked note trading. tehran classical dastgah context. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 305,
+  "score": 255.523,
   "config": {
     "traditions": [
       "persian_naqqali",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "chest_mix_belt_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "narrative_voice",
-          "voice_microtone": "blue_notes",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_persian_dastgah",
-          "voice_processing_chain": "voice_processing_stutter_edit",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 9.5515,
-          "voice_quality": 6.539500000000002,
+          "voice_quality": 38.41499999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.9899999999999998,
-          "voice_articulation": 5.525000000000001,
-          "voice_microtone": 4.1315,
+          "voice_vibrato": 6.538,
+          "voice_articulation": 34.06,
+          "voice_microtone": 34.32,
           "voice_tradition": 17.744999999999997,
           "voice_mechanism_compound": 5.135,
           "voice_estill_quality": 7.475,
-          "voice_speech_song": 43.81000000000002,
-          "voice_ensemble_config": 33.28000000000001,
+          "voice_speech_song": 43.68000000000002,
+          "voice_ensemble_config": 33.150000000000006,
           "voice_ornament_system": 3.445,
           "voice_pitch_organization": 4.363,
-          "voice_processing_chain": 6.695,
-          "voice_multitrack_stack": 2.9899999999999998
+          "voice_processing_chain": 11.894999999999996,
+          "voice_multitrack_stack": 4.875
         }
       }
     ],

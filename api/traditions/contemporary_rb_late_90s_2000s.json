@@ -3,9 +3,9 @@
   "name": "Contemporary R&B (late-90s–2000s)",
   "family": "vernacular",
   "lineage": "Late-1990s-and-2000s producer-team-era contemporary R&B aesthetic codified by the Darkchild, Jam-and-Lewis (later Flyte Tyme), Timbaland, She'kspere, and Rodney Jerkins production-lineage. Built on the breath-admixed close-miked intimate-vocal-aesthetic with stacked harmony backgrounds (typically 4-to-8 voice layered), neo-soul jazz-extended chord-vocabulary (minor-9, major-7-sharp-11, sus-2, sus-4 voicings), and programmed drum-machine kit (typically Roland TR-909, Akai MPC60-3000, or Korg M1) playing swung-and-shuffled hi-hat-and-snare-with-808-kick. The genre layered Atlanta-Memphis-NYC studio-clusters and bridged classic-Motown-and-Philly-soul lineage to 2010s-modern-R&B and trap-soul.",
-  "recipe": "classic contemporary r&b, functional Song, soul R&B branch, us hip hop east coast golden-age sample-collage hip-hop boom bap. thick, breath admixed, tasteful, narrative. roland tr 8s modern aira digital recreation TR-808, chopped sampler, roland jupiter lineage canonical jupiter 8 1981 osaka sub bass analog poly synth, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 574,
-  "score": 353.042,
+  "recipe": "classic contemporary r&b, functional Song, soul R&B branch, us hip hop east coast golden-age sample-collage hip-hop boom bap. thick, breath admixed, straight onset, narrative. roland tr 8s modern aira digital recreation TR-808, chopped sampler, roland jupiter lineage canonical jupiter 8 1981 osaka sub bass analog poly synth, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 580,
+  "score": 381.911,
   "config": {
     "traditions": [
       "contemporary_rb_late_90s_2000s",
@@ -22,34 +22,34 @@
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "narrative_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "gospel_pentecostal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_andean_huayno",
-          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
           "voice_processing_chain": "voice_processing_retune_0ms_hard_correction",
-          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 23.132,
           "voice_quality": 12.11,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.3,
+          "voice_vibrato": 8.472999999999999,
           "voice_articulation": 22.37,
-          "voice_microtone": 7.449999999999999,
+          "voice_microtone": 21.96999999999999,
           "voice_tradition": 16.517500000000002,
           "voice_mechanism_compound": 5.85,
           "voice_estill_quality": 16.32,
-          "voice_speech_song": 22.295,
-          "voice_ensemble_config": 21.125,
-          "voice_ornament_system": 0.8999999999999999,
-          "voice_pitch_organization": 0.8999999999999999,
+          "voice_speech_song": 22.554999999999996,
+          "voice_ensemble_config": 21.644999999999996,
+          "voice_ornament_system": 2.860000000000001,
+          "voice_pitch_organization": 2.8000000000000007,
           "voice_processing_chain": 7.45,
-          "voice_multitrack_stack": 6.695
+          "voice_multitrack_stack": 9.23
         }
       },
       {

@@ -3,9 +3,9 @@
   "name": "Brill Building pop",
   "family": "global",
   "lineage": "American 1958-1965 songwriter-pop industry centered on the Brill Building at 1619 Broadway in Manhattan and the adjacent 1650 Broadway — codified through the Aldon Music writing rooms of Don Kirshner and Al Nevins housing Carole King and Gerry Goffin, Barry Mann and Cynthia Weil, Neil Sedaka and Howard Greenfield, Burt Bacharach and Hal David — assembly-line songwriter pairs producing girl-group and teen-idol hits",
-  "recipe": "classic Los Angeles mid-1960s brill building pop, functional Song, crooners branch, pop rock functional song new wave yacht rock. thick, chest mix belt, chest resonance low mid, equal tempered. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, a cappella small 3 to 8 one per part call response single leader group response sardinian cantu a tenore oche mesu contra bassu choir ensemble, choir doo wop group, castanets. compound architecture 1958-1970 indie-commercial small la chambers. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 916,
-  "score": 684.987,
+  "recipe": "classic Los Angeles mid-1960s brill building pop, functional Song, crooners branch, pop rock functional song new wave yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, a cappella small 3 to 8 one per part call response single leader group response sardinian cantu a tenore oche mesu contra bassu choir ensemble, choir doo wop group, castanets. compound architecture 1958-1970 indie-commercial small la chambers. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 921,
+  "score": 717.107,
   "config": {
     "traditions": [
       "brill_building_pop",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "chest_mix_belt_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "spoken_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
           "voice_processing_chain": "voice_processing_talkbox",
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
           "voice_register": 50.10500000000001,
-          "voice_quality": 5.490000000000002,
+          "voice_quality": 13.552499999999991,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.6650000000000005,
-          "voice_articulation": 0.39,
+          "voice_vibrato": 6.11,
+          "voice_articulation": 19.044999999999995,
           "voice_microtone": 47.875,
           "voice_tradition": 27.754999999999992,
           "voice_mechanism_compound": 1.755,
           "voice_estill_quality": 6.029999999999999,
-          "voice_speech_song": 25.089999999999996,
-          "voice_ensemble_config": 18.719999999999995,
+          "voice_speech_song": 26.194999999999993,
+          "voice_ensemble_config": 18.784999999999993,
           "voice_ornament_system": 0.645,
-          "voice_pitch_organization": 0.7400000000000001,
+          "voice_pitch_organization": 0.585,
           "voice_processing_chain": 9.945000000000002,
-          "voice_multitrack_stack": 7.865
+          "voice_multitrack_stack": 8.807500000000001
         }
       },
       {

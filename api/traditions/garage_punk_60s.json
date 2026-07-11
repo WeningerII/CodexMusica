@@ -3,9 +3,9 @@
   "name": "Garage punk (60s American)",
   "family": "rock_punk",
   "lineage": "Mid-1960s American amateur-and-semi-professional rock style characterized by deliberately raw production, simple three-chord structure, fuzz-and-distortion guitar tone, and snarling vocal aggression. The Nuggets compilation (1972, edited by Lenny Kaye) canonized the canonical 1965-1968 American garage-punk recordings; The Sonics, ? and the Mysterians, the Standells, the Seeds, and Count Five constitute the canonical roster. Direct precursor of late-1970s punk rock.",
-  "recipe": "classic North American 1965-1968 garage punk, distorted Rock, punk branch, regional distorted rock aussie pub rock greek rock. thick, low dynamic level, chest resonance low mid, equal tempered. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, psychedelic foregrounded organ driven rock selmer amp British 60s amp combo organ. scrappy 1980-2000 indie-commercial indie commercial us 80s. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 753,
-  "score": 514.293,
+  "recipe": "classic North American 1965-1968 garage punk, distorted Rock, punk branch, regional distorted rock aussie pub rock greek rock. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, psychedelic foregrounded organ driven rock selmer amp British 60s amp combo organ. scrappy 1980-2000 indie-commercial indie commercial us 80s. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 750,
+  "score": 550.663,
   "config": {
     "traditions": [
       "garage_punk_60s",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "crooner_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "staccato_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
           "voice_register": 30.04999999999999,
-          "voice_quality": 1.255,
+          "voice_quality": 20.734999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.405,
-          "voice_articulation": 0.24,
+          "voice_vibrato": 1.46,
+          "voice_articulation": 16.704999999999995,
           "voice_microtone": 27.99499999999999,
           "voice_tradition": 17.89925,
           "voice_mechanism_compound": 5.070000000000002,
           "voice_estill_quality": 0.6499999999999999,
-          "voice_speech_song": 16.834999999999997,
-          "voice_ensemble_config": 16.769999999999996,
+          "voice_speech_song": 16.704999999999995,
+          "voice_ensemble_config": 16.639999999999993,
           "voice_ornament_system": 0.6499999999999999,
-          "voice_pitch_organization": 3.6399999999999997,
+          "voice_pitch_organization": 3.49,
           "voice_processing_chain": 9.825000000000001,
-          "voice_multitrack_stack": 7.824999999999999
+          "voice_multitrack_stack": 8.605000000000002
         }
       },
       {

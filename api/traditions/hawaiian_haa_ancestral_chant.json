@@ -3,14 +3,14 @@
   "name": "Hawaiian haʻa ancestral chant",
   "family": "global",
   "lineage": "Sacred Hawaiian chant (oli) performed in the low, bent-knee haʻa posture reserved for akua and ancestors, encompassing genealogical (koʻihonua) and name (mele inoa) chants that transmit lineage and cosmology. The style is marked by sustained, measured vocal delivery and stylized ornaments such as the ʻiʻi trill, and was traditionally taught within the hula hālau under a kumu hula. The corpus and its performance practice were documented in Nathaniel B. Emerson's Unwritten Literature of Hawaii (1909) and in the later scholarship of Mary Kawena Pukui. Chant carried genealogy, prayer, and place-lore as authoritative oral record in pre-literate Hawaiʻi.",
-  "recipe": "classic Oceanian late-1900s hawaiian haʻa ancestral chant, praise Song, oceania pacific branch xhosa iimbongi praise oratory arabic madh and qasida. vocal fry, declaimed, chest resonance low mid, continuous-phonation. hawaiian heiau outdoor lava stone temple. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 322,
-  "score": 169.482,
+  "recipe": "classic Oceanian late-1900s hawaiian haʻa ancestral chant, praise Song, oceania pacific branch arabic madh and qasida māori whaikōrero oratory. vocal fry, declaimed, slow rate, interlocked note trading. hawaiian heiau outdoor lava stone temple. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 307,
+  "score": 206.207,
   "config": {
     "traditions": [
       "hawaiian_haa_ancestral_chant",
-      "xhosa_iimbongi",
-      "arabic_madh_qasida"
+      "arabic_madh_qasida",
+      "maori_whaikorero_oratory"
     ],
     "instruments": [
       {
@@ -21,35 +21,35 @@
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "legato_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_tradition": "mande_jeli_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
           "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 3.575,
-          "voice_quality": 28.727999999999994,
+          "voice_quality": 19.677999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.61,
-          "voice_articulation": 1.6899999999999997,
-          "voice_microtone": 9.569999999999997,
-          "voice_tradition": 21.839999999999996,
-          "voice_mechanism_compound": 6.4014999999999995,
-          "voice_estill_quality": 6.9355,
-          "voice_speech_song": 30.615000000000006,
-          "voice_ensemble_config": 21.580000000000002,
-          "voice_ornament_system": 14.544999999999996,
-          "voice_pitch_organization": 14.544999999999996,
-          "voice_processing_chain": 3.5749999999999993,
-          "voice_multitrack_stack": 1.885
+          "voice_vibrato": 6.535,
+          "voice_articulation": 21.320000000000004,
+          "voice_microtone": 32.5,
+          "voice_tradition": 16.477499999999996,
+          "voice_mechanism_compound": 5.4265,
+          "voice_estill_quality": 7.5855,
+          "voice_speech_song": 30.907500000000006,
+          "voice_ensemble_config": 21.644999999999996,
+          "voice_ornament_system": 13.569999999999999,
+          "voice_pitch_organization": 13.569999999999999,
+          "voice_processing_chain": 8.645,
+          "voice_multitrack_stack": 4.16
         }
       }
     ],

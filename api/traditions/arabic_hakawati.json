@@ -3,9 +3,9 @@
   "name": "Arabic hakawati coffeehouse storytelling",
   "family": "global",
   "lineage": "Traditional Arab coffeehouse storytelling of the Levant, Egypt and the wider Arab world, in which the hakawati ('teller') serialises long popular epics — the Sirat Bani Hilal, the exploits of Antar ibn Shaddad, Baybars, and tales from the Thousand and One Nights — across nightly installments, often reading from a chapbook while embellishing in performance. Seated on a raised chair with a cane or sword as prop, the teller times cliffhangers to the audience and the coffee trade; the art was near-extinct by the late twentieth century and is associated with figures such as Damascus's Abu Shadi (Rashid al-Hallak). Delivery is expressive spoken narration marked by direct address, formulaic openings and pious interjection.",
-  "recipe": "classic North African modern arabic hakawati coffeehouse storytelling, ballad Poetry, med east poetic branch cape verdean batuko of santiago island jeju haenyeo songs. thick, declaimed, chest resonance low mid, narrative. stone plaster medina room. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 311,
-  "score": 141.187,
+  "recipe": "classic North African modern arabic hakawati coffeehouse storytelling, ballad Poetry, med east poetic branch cape verdean batuko of santiago island jeju haenyeo songs. thick, breath veiled tone, wide pitch sway, interlocked note trading. stone plaster medina room. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 327,
+  "score": 258.506,
   "config": {
     "traditions": [
       "arabic_hakawati",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "narrative_voice",
-          "voice_microtone": "blue_notes",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
           "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
-          "voice_processing_chain": "voice_processing_stutter_edit",
-          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 4.001500000000001,
-          "voice_quality": 3.1525000000000003,
+          "voice_quality": 58.045000000000044,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.535,
-          "voice_articulation": 3.7050000000000005,
-          "voice_microtone": 4.1815,
+          "voice_vibrato": 3.4565,
+          "voice_articulation": 30.485000000000003,
+          "voice_microtone": 34.255,
           "voice_tradition": 19.694999999999997,
           "voice_mechanism_compound": 9.165,
           "voice_estill_quality": 8.515,
-          "voice_speech_song": 38.480000000000004,
-          "voice_ensemble_config": 28.860000000000003,
+          "voice_speech_song": 38.35000000000001,
+          "voice_ensemble_config": 28.73,
           "voice_ornament_system": 5.3315,
           "voice_pitch_organization": 5.3315,
-          "voice_processing_chain": 6.7235,
-          "voice_multitrack_stack": 5.135
+          "voice_processing_chain": 11.05,
+          "voice_multitrack_stack": 5.720000000000001
         }
       }
     ],

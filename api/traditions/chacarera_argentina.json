@@ -3,9 +3,9 @@
   "name": "Chacarera (Argentine northwest)",
   "family": "global",
   "lineage": "Argentine folk-dance-and-song tradition of northwestern provinces (Santiago del Estero, Tucumán, Salta, La Rioja). Characteristic 6/8 meter, fast-tempo paired-couple dance with handkerchiefs, lyrical content addressing rural-northwestern Argentine life. Voice with acoustic-guitar and bombo legüero large-frame-drum. Atahualpa Yupanqui and Los Hermanos Ábalos (founded 1932) consolidated canonical repertoire.",
-  "recipe": "classic Mexican early-1930s chacarera, ballad Poetry, Latin am troubadour branch, indigenous ritual devotional mongolian böö shamanic invocation inuit katajjaq throat-singing game. sygyt, declaimed, overtone rich sustained, punctuated. rosewood coated nanoweb fingerpicked parlor acoustic guitar, rim accented bombo leguero. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 471,
-  "score": 189.25,
+  "recipe": "classic Mexican early-1930s chacarera, ballad Poetry, Latin am troubadour branch, indigenous ritual devotional mongolian böö shamanic invocation inuit katajjaq throat-singing game. sygyt, breath veiled tone, breath pulsed, interlocked note trading. rosewood coated nanoweb fingerpicked parlor acoustic guitar, rim accented bombo leguero. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 484,
+  "score": 248.47,
   "config": {
     "traditions": [
       "chacarera_argentina",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "sygyt_register",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "diaphragm_vibrato",
-          "voice_articulation": "staccato_voice",
-          "voice_microtone": "overtone_singing",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "inuit_katajjaq_tradition",
           "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_sami_yoik",
           "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
-          "voice_processing_chain": "voice_processing_bitcrusher",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 8.67,
-          "voice_quality": 9.014999999999999,
+          "voice_quality": 21.255000000000003,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.7550000000000001,
-          "voice_articulation": 0.845,
-          "voice_microtone": 7.880000000000002,
+          "voice_vibrato": 4.9399999999999995,
+          "voice_articulation": 24.05,
+          "voice_microtone": 22.815,
           "voice_tradition": 36.945,
           "voice_mechanism_compound": 23.93,
           "voice_estill_quality": 6.369999999999999,
-          "voice_speech_song": 24.375000000000004,
-          "voice_ensemble_config": 25.805,
+          "voice_speech_song": 24.895000000000003,
+          "voice_ensemble_config": 25.675,
           "voice_ornament_system": 7.114999999999999,
           "voice_pitch_organization": 8.870000000000001,
-          "voice_processing_chain": 3.185,
-          "voice_multitrack_stack": 1.69
+          "voice_processing_chain": 7.41,
+          "voice_multitrack_stack": 2.7300000000000004
         }
       },
       {

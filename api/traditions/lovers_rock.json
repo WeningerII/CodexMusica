@@ -3,9 +3,9 @@
   "name": "Lovers' rock",
   "family": "global",
   "lineage": "UK Black-British soft-soul reggae subgenre that emerged from 1976 onward as the Black British response to Jamaican roots-reggae — codified through Louisa Mark (Caught You in a Lie 1975), Janet Kay (Silly Games 1979, the #2 UK chart breakthrough), Carroll Thompson, Sandra Cross, Brown Sugar, the Investigators production team (Dennis Bovell); female-vocal-led with softer mixing aesthetic and lyrical content centering on female romantic interiority",
-  "recipe": "classic Northern European mid-1970s lovers' rock, bass System, reggae diaspora branch, soul R&B functional song doo-wop dc go-go. thick, blues-shouter, chest resonance low mid, narrative. Fender blackface amp American 60s amp spring reverb bright mahogany chicken-scratch single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, birch pre muffled edge muffled hot rolled annealed drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative ostinato slow chorale tonewheel organ. London black British Caribbean 1976-1985 indie-commercial brixton uk lovers rock basement. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 791,
-  "score": 337.145,
+  "recipe": "classic Northern European mid-1970s lovers' rock, bass System, reggae diaspora branch, soul R&B functional song doo-wop dc go-go. thick, blues-shouter, slow rate, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright mahogany chicken-scratch single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, birch pre muffled edge muffled hot rolled annealed drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative ostinato slow chorale tonewheel organ. London black British Caribbean 1976-1985 indie-commercial brixton uk lovers rock basement. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 792,
+  "score": 347.575,
   "config": {
     "traditions": [
       "lovers_rock",
@@ -21,8 +21,8 @@
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "narrative_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "gospel_pentecostal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_belt",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_talkbox",
-          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
           "voice_register": 19.549999999999997,
           "voice_quality": 5.600000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.04,
-          "voice_articulation": 10.294999999999998,
-          "voice_microtone": 7.550000000000001,
+          "voice_vibrato": 0.975,
+          "voice_articulation": 14.299999999999997,
+          "voice_microtone": 13.519999999999992,
           "voice_tradition": 15.719999999999999,
           "voice_mechanism_compound": 3.3149999999999995,
           "voice_estill_quality": 11.694999999999999,
-          "voice_speech_song": 17.744999999999997,
-          "voice_ensemble_config": 12.284999999999997,
+          "voice_speech_song": 17.809999999999995,
+          "voice_ensemble_config": 12.154999999999994,
           "voice_ornament_system": 2.3449999999999998,
-          "voice_pitch_organization": 1.8850000000000002,
+          "voice_pitch_organization": 1.69,
           "voice_processing_chain": 9.429999999999998,
-          "voice_multitrack_stack": 6.239999999999998
+          "voice_multitrack_stack": 7.02
         }
       },
       {

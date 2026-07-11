@@ -3,9 +3,9 @@
   "name": "Hindi nursery rhyme (Indian school-curriculum children's songs)",
   "family": "global",
   "lineage": "Pan-Indian Hindi-medium children's school-song tradition continuous from late-19th-century Indian-Republican-modernization-era school-curriculum codification through post-independence 1947-onward Hindi-medium school-curriculum continuous practice; the tradition is intentionally constructed school-curriculum-music rather than continuous-folk-tradition",
-  "recipe": "classic modern hindi nursery rhyme, nursery Rhyme, south Asian branch, south Asian lullaby, European nursery rhyme, east Asian nursery rhyme hindi lori tamil thālāttu. thick, low dynamic level, tasteful, continuous-phonation. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 305,
-  "score": 91.813,
+  "recipe": "classic modern hindi nursery rhyme, nursery Rhyme, south Asian branch, south Asian lullaby, European nursery rhyme, east Asian nursery rhyme hindi lori tamil thālāttu. thick, breath veiled tone, straight onset, continuous-phonation. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 312,
+  "score": 97.481,
   "config": {
     "traditions": [
       "hindi_nursery_rhyme",
@@ -17,7 +17,7 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "crooner_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_carnatic_gamaka",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_plate_reverb_medium",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 8.100000000000001,
-          "voice_quality": 2.275,
+          "voice_quality": 5.200000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
+          "voice_vibrato": 3.640000000000001,
           "voice_articulation": 6.76,
           "voice_microtone": 4.3525,
           "voice_tradition": 24.5375,
           "voice_mechanism_compound": 2.5999999999999996,
           "voice_estill_quality": 2.265,
-          "voice_speech_song": 9.5875,
-          "voice_ensemble_config": 2.2099999999999995,
+          "voice_speech_song": 9.4575,
+          "voice_ensemble_config": 2.0799999999999996,
           "voice_ornament_system": 12.1,
           "voice_pitch_organization": 11.709999999999999,
           "voice_processing_chain": 3.643125,
-          "voice_multitrack_stack": 3.145
+          "voice_multitrack_stack": 4.198125000000001
         }
       }
     ],

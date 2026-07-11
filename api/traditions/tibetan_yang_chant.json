@@ -3,9 +3,9 @@
   "name": "Tibetan multiphonic yang chant",
   "family": "classical",
   "lineage": "Tibetan Buddhist monastic multiphonic yang chant tradition of the Gelug-school tantric colleges Gyuto and Gyume (founded 1474 and 1485, respectively, by Sherab Sengge, a direct disciple of Tsongkhapa). The yang chant technique produces a chest-register-pitched fundamental enriched with audible upper-partial overtones such that a single voice produces what sounds like a chord — the third, fifth, and sometimes higher partials being amplified into clearly audible voice-leading register. Multiple monks chanting in unison produce a thick texture of fundamental-plus-overtones across the assembly. Repertoire centers on the Lama Chöpa (Guru Puja), the Yamantaka tantric cycles, the Guhyasamaja tantric cycles, and the Chakrasamvara tantric cycles. Accompaniment by the canonical monastic-ensemble percussion: rolmo large paired cymbals, dril-bu small hand-bell, damaru double-headed hand-drum, dung-chen long telescoping copper-or-brass trumpet (the four-meter-long ceremonial instrument, played in pairs, capable of producing the very-low subharmonic that anchors the ensemble), rgya-gling double-reed oboe (the melodic-leading instrument when wind voices are present), and kangling thigh-bone trumpet (for specific wrathful-deity cycles). Huston Smith's 1967 Music of Tibet recordings (GemsTone GT1003-CD reissue 2005) and David Lewiston's 1971 Nonesuch Explorer H-72071 Tibetan Ritual Music constitute the principal Western-distributed documentation. Distinguished from Mongolian khoomei by Tibetan yang chant's ensemble (vs solo) and liturgical (vs secular) framework; distinguished from Sakya-school chant by Gelug-specific tantric-cycle repertoire; distinguished from Bön pre-Buddhist Tibetan chant by Buddhist tantric-text base.",
-  "recipe": "classic East Asian mid-1470s tibetan multiphonic yang chant, ritual Devotional, buddhist branch, overtone drone modal, east Asian Tibetan ritual tibetan ache lhamo opera khöömii. sygyt, false fold engaged, chest resonance low mid, unrestrained. large paired bronze cymbals canonical Tibetan monastic yang chant ensemble canonical gelug monastic rolmo, conical bore double reed canonical Tibetan monastic gelug monastic ceremonial canonical Tibetan rgya gling, copper brass telescoping silver inlay canonical Tibetan build gelug monastic yang chant ritual dung chen, double headed cord pellets rotated canonical Tibetan gelug monastic ritual canonical Tibetan damaru, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble heavy one piece matched to monette horn trumpet. tibetan gompa assembly hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 915,
-  "score": 449.564,
+  "recipe": "classic East Asian mid-1470s tibetan multiphonic yang chant, ritual Devotional, buddhist branch, overtone drone modal, east Asian Tibetan ritual tibetan ache lhamo opera khöömii. sygyt, breath veiled tone, slow rate, interlocked note trading. large paired bronze cymbals canonical Tibetan monastic yang chant ensemble canonical gelug monastic rolmo, conical bore double reed canonical Tibetan monastic gelug monastic ceremonial canonical Tibetan rgya gling, copper brass telescoping silver inlay canonical Tibetan build gelug monastic yang chant ritual dung chen, double headed cord pellets rotated canonical Tibetan gelug monastic ritual canonical Tibetan damaru, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble heavy one piece matched to monette horn trumpet. tibetan gompa assembly hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 913,
+  "score": 517.344,
   "config": {
     "traditions": [
       "tibetan_yang_chant",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "sygyt_register",
-          "voice_quality": "false_fold_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "shouted_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "khoomei_tuvan_tradition",
           "voice_mechanism_compound": "voice_mechanism_ventricular_subharmonic",
           "voice_estill_quality": "voice_estill_opera",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_unison_double_take"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 21.904999999999998,
-          "voice_quality": 16.1525,
+          "voice_quality": 31.59,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.279999999999999,
-          "voice_articulation": 1.625,
-          "voice_microtone": 3.95,
+          "voice_vibrato": 11.472499999999998,
+          "voice_articulation": 23.399999999999995,
+          "voice_microtone": 24.894999999999992,
           "voice_tradition": 20.2475,
           "voice_mechanism_compound": 25.330000000000002,
           "voice_estill_quality": 15.980999999999998,
-          "voice_speech_song": 22.879999999999995,
-          "voice_ensemble_config": 28.144999999999996,
+          "voice_speech_song": 22.944999999999997,
+          "voice_ensemble_config": 29.705,
           "voice_ornament_system": 8.2,
           "voice_pitch_organization": 23.139999999999997,
-          "voice_processing_chain": 10.075,
-          "voice_multitrack_stack": 7.309624999999999
+          "voice_processing_chain": 11.374999999999995,
+          "voice_multitrack_stack": 9.815000000000001
         }
       },
       {

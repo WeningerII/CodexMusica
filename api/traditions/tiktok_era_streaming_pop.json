@@ -3,9 +3,9 @@
   "name": "TikTok-era streaming pop",
   "family": "vernacular",
   "lineage": "2020s short-form-platform-native pop crafted for algorithmic discovery on TikTok and Instagram Reels — characterized by hook-foregrounded sub-thirty-second song structures, mid-song genre-and-tempo pivots, viral-dance-and-challenge-targeted composition, and rapid-iteration release cycles — exemplars include Olivia Rodrigo (SOUR 2021), Lil Nas X (Old Town Road 2019), Doja Cat, PinkPantheress, Ice Spice, with the form representing a structural shift from album-era pop construction",
-  "recipe": "classic mid-2020s tiktok-era streaming pop, functional Song, pop rock branch, pop experimental experimental electric hyperpop. extended whistle, low dynamic level, chest resonance low mid, equal tempered. field textural sampler, TR-808, plucked short envelope analog poly synth, ukulele. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 426,
-  "score": 195.111,
+  "recipe": "classic mid-2020s tiktok-era streaming pop, functional Song, pop rock branch, pop experimental experimental electric hyperpop. extended whistle, breath veiled tone, straight note core, interlocked note trading. field textural sampler, TR-808, plucked short envelope analog poly synth, ukulele. bedroom. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 432,
+  "score": 213.909,
   "config": {
     "traditions": [
       "tiktok_era_streaming_pop",
@@ -16,11 +16,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "extended_whistle_register",
-          "voice_quality": "crooner_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "shouted_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
@@ -34,21 +34,21 @@
         },
         "scores": {
           "voice_register": 27.235,
-          "voice_quality": 1.2999999999999998,
+          "voice_quality": 3.835000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.273,
-          "voice_articulation": 0.4765,
+          "voice_vibrato": 1.2999999999999998,
+          "voice_articulation": 9.294999999999998,
           "voice_microtone": 25.424999999999997,
           "voice_tradition": 27.43,
           "voice_mechanism_compound": 1.885,
           "voice_estill_quality": 1.6899999999999997,
-          "voice_speech_song": 15.209999999999999,
-          "voice_ensemble_config": 9.36,
+          "voice_speech_song": 15.274999999999995,
+          "voice_ensemble_config": 9.425,
           "voice_ornament_system": 1.15,
           "voice_pitch_organization": 1.3315000000000001,
-          "voice_processing_chain": 4.5045,
-          "voice_multitrack_stack": 2.6975000000000002
+          "voice_processing_chain": 8.510000000000002,
+          "voice_multitrack_stack": 5.98
         }
       },
       {

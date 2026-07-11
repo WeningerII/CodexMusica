@@ -3,9 +3,9 @@
   "name": "Brazilian samba-school enredo (samba-enredo, Carnaval processional)",
   "family": "global",
   "lineage": "Brazilian Rio Carnaval samba-school enredo (samba-enredo, \"theme-samba\") tradition continuous from 1928 first samba-school Deixa Falar foundation through the 1930s-1980s Estação Primeira de Mangueira and Portela canonical-school era into modern Sambódromo-procession continuous practice; the enredo is the canonical annual samba composition that narrates the parade-school's theme",
-  "recipe": "classic Southern American mid-1930s brazilian samba-school enredo, carnival Processional, Brazilian branch, Caribbean carnival processional, americas wedding, Brazilian song functional song trinidad calypso-soca road march brega and tecnobrega. thick, intimate aspirated, tasteful, continuous-phonation. samba foundation mahogany samba canon steel modern cavaquinho, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro, nylon canonical rio carnival aluminum canonical modern rio escola surdo, nylon multi rod cluster canonical samba aluminum canonical rio escola tamborim. bahian terreiro outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 737,
-  "score": 269.852,
+  "recipe": "classic Southern American mid-1930s brazilian samba-school enredo, carnival Processional, Brazilian branch, Caribbean carnival processional, americas wedding, Brazilian song functional song trinidad calypso-soca road march brega and tecnobrega. thick, breath veiled tone, straight onset, interlocked note trading. samba foundation mahogany samba canon steel modern cavaquinho, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian pandeiro, nylon canonical rio carnival aluminum canonical modern rio escola surdo, nylon multi rod cluster canonical samba aluminum canonical rio escola tamborim. bahian terreiro outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 747,
+  "score": 307.17,
   "config": {
     "traditions": [
       "brazilian_samba_school_enredo",
@@ -21,8 +21,8 @@
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
-          "voice_articulation": "legato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
           "voice_register": 1.6449999999999998,
-          "voice_quality": 22.830000000000002,
+          "voice_quality": 41.73000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.535,
-          "voice_articulation": 5.069999999999999,
-          "voice_microtone": 1.6999999999999997,
+          "voice_vibrato": 3.2500000000000004,
+          "voice_articulation": 11.764999999999997,
+          "voice_microtone": 11.959999999999994,
           "voice_tradition": 7.117500000000001,
           "voice_mechanism_compound": 1.2349999999999999,
           "voice_estill_quality": 1.0399999999999998,
-          "voice_speech_song": 16.965,
-          "voice_ensemble_config": 11.829999999999997,
+          "voice_speech_song": 16.834999999999997,
+          "voice_ensemble_config": 11.699999999999996,
           "voice_ornament_system": 1.2999999999999998,
           "voice_pitch_organization": 5.069999999999999,
           "voice_processing_chain": 6.89,
-          "voice_multitrack_stack": 3.8675
+          "voice_multitrack_stack": 4.875000000000001
         }
       },
       {

@@ -3,9 +3,9 @@
   "name": "Korean gagok lyric-song",
   "family": "classical",
   "lineage": "Korean gagok lyric-song tradition. Gagok is the formal courtly literary-chamber lyric-song genre of the Joseon-dynasty literati class (yangban), with origins traced to the late Goryeo through middle-Joseon periods (fifteenth-seventeenth centuries) and the canonical repertoire codified through the Cheong-gu-yeong-eon and Hae-dong-ga-yo song-book anthologies. Performance configuration: solo singer (male or female, with distinct namchang men's-repertoire and yeochang women's-repertoire repertoires) accompanied by the canonical jeongak ensemble — geomungo (six-string fretted board-zither, struck with bamboo plectrum), gayageum (twelve-string moveable-bridge plucked board-zither), daegeum (large bamboo end-blown flute), piri (cylindrical-bore double-reed pipe), haegeum (two-string upright fiddle), and janggu (hourglass barrel-drum). Twenty-six canonical men's songs and fifteen canonical women's songs constitute the core repertoire. Sijo poetic-form (three-line structure: initial verse, parallel verse, conclusion-with-twist) provides the lyric base. Slow tempo (a single song can take ten to fifteen minutes), wide melisma, and characteristic pitch-and-amplitude vibrato (nonghyeon) define the vocal aesthetic. Cho Soon-ja and Lee Dong-gyu among the twentieth-century canonical performers; the National Gugak Center maintains the institutional transmission. Distinguished from sijo (the closely-related but more austere sung-poetry form) by gagok's full ensemble accompaniment and longer melodic-elaboration register; distinguished from gasa (the longer narrative-lyric form) by gagok's strict sijo-poetic-meter base; distinguished from minyo folk-song by gagok's literary-chamber-with-jeongak-ensemble functional context.",
-  "recipe": "classic East Asian modern korean gagok lyric-song, art Music, east Asian branch, east Asian beijing opera. thick, pressed, chest resonance low mid, narrative. silk court paulownia canonical Korean geomungo, court paulownia Korean gayageum, traditional membrane buzz bamboo daegeum, Korean court ensemble small piri higher pitched bamboo canonical Korean arundo donax large canonical Korean gugak piri, silk canonical Korean court paulownia canonical Korean legato haegeum, composite material paulownia canonical Korean horse dog asymmetric canonical Korean pansori godo janggu. korean pungnyu pavilion. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 732,
-  "score": 330.13,
+  "recipe": "classic East Asian modern korean gagok lyric-song, art Music, east Asian branch, east Asian beijing opera. thick, breath veiled tone, slow rate, interlocked note trading. silk court paulownia canonical Korean geomungo, court paulownia Korean gayageum, traditional membrane buzz bamboo daegeum, Korean court ensemble small piri higher pitched bamboo canonical Korean arundo donax large canonical Korean gugak piri, silk canonical Korean court paulownia canonical Korean legato haegeum, composite material paulownia canonical Korean horse dog asymmetric canonical Korean pansori godo janggu. korean pungnyu pavilion. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 744,
+  "score": 389.612,
   "config": {
     "traditions": [
       "korean_gagok",
@@ -16,12 +16,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "pressed_phonation_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "narrative_voice",
-          "voice_microtone": "bend_inflected",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "chinese_classical_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
@@ -30,25 +30,25 @@
           "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 2.9050000000000002,
-          "voice_quality": 10.124999999999998,
+          "voice_quality": 23.725,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.1849999999999996,
-          "voice_articulation": 1.1314999999999997,
-          "voice_microtone": 1.2349999999999999,
+          "voice_vibrato": 9.24775,
+          "voice_articulation": 19.175,
+          "voice_microtone": 19.174999999999997,
           "voice_tradition": 27.8525,
           "voice_mechanism_compound": 8.709999999999999,
           "voice_estill_quality": 20.881499999999996,
-          "voice_speech_song": 30.225,
-          "voice_ensemble_config": 21.319999999999997,
+          "voice_speech_song": 30.095,
+          "voice_ensemble_config": 22.684999999999995,
           "voice_ornament_system": 15.137249999999998,
           "voice_pitch_organization": 7.87925,
           "voice_processing_chain": 8.098625,
-          "voice_multitrack_stack": 4.55
+          "voice_multitrack_stack": 7.150000000000001
         }
       },
       {

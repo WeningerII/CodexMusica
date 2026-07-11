@@ -3,9 +3,9 @@
   "name": "Kompa",
   "family": "global",
   "lineage": "Haitian dance-music genre invented in 1955 by Nemours Jean-Baptiste (kompa-direkt, the founder) and developing in parallel with Webert Sicots cadence-rampa lineage — the dominant secular popular-music genre of Haiti and the broader Haitian diaspora (Miami, New York, Montreal, Paris); extended through Tabou Combo (the second-generation kompa band, formed 1968), Skah Shah, Coupé Cloué, Magnum Band, Sweet Micky",
-  "recipe": "classic Caribbean mid-1950s kompa, groove Percussion, Afro-diasporic electric branch, tropical song functional song garifuna paranda and hungu-hungu kompa. extended whistle, full chest belt, pure, narrative. basswood maple pau ferro nickel plated steel nickel humbucker electric guitar, stainless steel roundwound sub heavy electric bass, steel leather castagnari Italian premium folk music accordion, birch pre muffled edge muffled hot rolled annealed drum kit. port au prince Haitian recording 1970-2000 indie-commercial port au prince haitian kompa studio. sennheiser MD421, transformer-coupled solid-state pre, colored vintage console, optical compressor, parametric EQ. tape 15ips spring reverb.",
-  "recipe_chars": 700,
-  "score": 207.273,
+  "recipe": "classic Caribbean mid-1950s kompa, groove Percussion, Afro-diasporic electric branch, tropical song functional song garifuna paranda and hungu-hungu kompa. extended whistle, breath veiled tone, pure, interlocked note trading. basswood maple pau ferro nickel plated steel nickel humbucker electric guitar, stainless steel roundwound sub heavy electric bass, steel leather castagnari Italian premium folk music accordion, birch pre muffled edge muffled hot rolled annealed drum kit. port au prince Haitian recording 1970-2000 indie-commercial port au prince haitian kompa studio. sennheiser MD421, transformer-coupled solid-state pre, colored vintage console, optical compressor, parametric EQ. tape 15ips spring reverb.",
+  "recipe_chars": 718,
+  "score": 243.897,
   "config": {
     "traditions": [
       "kompa",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "extended_whistle_register",
-          "voice_quality": "full_chest_belt_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "straight_tone",
-          "voice_articulation": "narrative_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
           "voice_estill_quality": "voice_estill_opera",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 3.9325000000000006,
-          "voice_quality": 19.999999999999996,
+          "voice_quality": 21.124999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.29,
-          "voice_articulation": 0.5199999999999999,
-          "voice_microtone": 3.1750000000000007,
+          "voice_articulation": 17.614999999999995,
+          "voice_microtone": 17.419999999999995,
           "voice_tradition": 11.765,
           "voice_mechanism_compound": 3.7699999999999996,
           "voice_estill_quality": 3.185,
-          "voice_speech_song": 28.729999999999997,
-          "voice_ensemble_config": 18.525,
+          "voice_speech_song": 29.184999999999995,
+          "voice_ensemble_config": 18.979999999999997,
           "voice_ornament_system": 1.1049999999999998,
           "voice_pitch_organization": 2.2099999999999995,
           "voice_processing_chain": 8.515,
-          "voice_multitrack_stack": 3.445
+          "voice_multitrack_stack": 6.695
         }
       },
       {

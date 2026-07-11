@@ -3,9 +3,9 @@
   "name": "Post-metal",
   "family": "rock",
   "lineage": "US and European long-form instrumental-foregrounded metal-and-post-rock fusion that emerged from late-1990s onward — codified through Isis (the Boston-area post-metal band, Oceanic 2002, Panopticon 2004), Pelican (the Chicago instrumental-only canon, The Fire in Our Throats Will Beckon the Thaw 2005), Cult of Luna (Swedish), Russian Circles (Chicago instrumental-only), Neurosis (the founding pre-post-metal Oakland band, Through Silver in Blood 1996); built on extended-composition song structures (10-20 minute pieces), ambient-textural sections alternating with heavy crescendo peaks",
-  "recipe": "classic Midwestern American 1997-1999 post-metal, distorted Rock, post metal branch, experimental distorted rock krautrock post-rock. thick, low dynamic level, pure, equal tempered. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, birch machine hammered symmetric pattern organized rows full lathed drum kit. stoner doom garage amplifier room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 608,
-  "score": 509.172,
+  "recipe": "classic Midwestern American 1997-1999 post-metal, distorted Rock, post metal branch, experimental distorted rock krautrock post-rock. thick, breath veiled tone, pure, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, birch machine hammered symmetric pattern organized rows full lathed drum kit. stoner doom garage amplifier room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 619,
+  "score": 540.037,
   "config": {
     "traditions": [
       "post_metal",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "crooner_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "straight_tone",
-          "voice_articulation": "staccato_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "microtonal_31tet_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 29.298749999999988,
-          "voice_quality": 1.8199999999999996,
+          "voice_quality": 12.010749999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 4.878749999999999,
-          "voice_articulation": 0.195,
+          "voice_articulation": 12.781499999999994,
           "voice_microtone": 29.099499999999992,
           "voice_tradition": 12.843749999999998,
           "voice_mechanism_compound": 27.865000000000002,
           "voice_estill_quality": 5.067749999999999,
-          "voice_speech_song": 14.448249999999998,
-          "voice_ensemble_config": 11.634999999999994,
+          "voice_speech_song": 14.811999999999994,
+          "voice_ensemble_config": 11.879249999999995,
           "voice_ornament_system": 5.58875,
           "voice_pitch_organization": 2.275,
-          "voice_processing_chain": 9.361249999999998,
-          "voice_multitrack_stack": 2.85125
+          "voice_processing_chain": 13.045249999999996,
+          "voice_multitrack_stack": 6.647500000000001
         }
       },
       {

@@ -3,9 +3,9 @@
   "name": "Korean minjung gayo (민중가요, people's song)",
   "family": "global",
   "lineage": "Korean minjung gayo (\"people's song\") democracy-movement protest-song tradition continuous from late-1970s anti-Park-Chung-hee resistance through the May 1980 Gwangju Uprising through 1980s anti-Chun-Doo-hwan student-and-labor-movement era; canonical anthems include \"Imjin River\" and \"Marching for our beloved\" (\"님을 위한 행진곡\")",
-  "recipe": "classic 1977-1979 korean minjung gayo, protest Song, east Asian branch, anglo American protest song, east Asian pop functional song, indian bard ballad poetry shidaiqu enka. thick, chest mix belt, melodic, continuous-phonation. indian rosewood rosewood flatwound thomastik strummed acoustic guitar. gymnasium. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 439,
-  "score": 215.948,
+  "recipe": "classic 1977-1979 korean minjung gayo, protest Song, east Asian branch, anglo American protest song, east Asian pop functional song, indian bard ballad poetry shidaiqu enka. thick, breath veiled tone, straight onset, interlocked note trading. indian rosewood rosewood flatwound thomastik strummed acoustic guitar. gymnasium. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 454,
+  "score": 264.615,
   "config": {
     "traditions": [
       "korean_minjung_gayo",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "chest_mix_belt_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "legato_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "japanese_min_yo_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_pansori_sigimsae",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
           "voice_register": 21.67499999999999,
-          "voice_quality": 3.1250000000000013,
+          "voice_quality": 23.465,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.9,
-          "voice_articulation": 1.69,
+          "voice_vibrato": 10.549999999999999,
+          "voice_articulation": 20.99500000000001,
           "voice_microtone": 22.894999999999996,
           "voice_tradition": 31.687500000000004,
           "voice_mechanism_compound": 2.4699999999999998,
           "voice_estill_quality": 3.185,
-          "voice_speech_song": 36.14000000000001,
-          "voice_ensemble_config": 23.595000000000013,
+          "voice_speech_song": 36.85500000000001,
+          "voice_ensemble_config": 23.660000000000007,
           "voice_ornament_system": 13.774999999999999,
           "voice_pitch_organization": 9.894999999999996,
           "voice_processing_chain": 11.205,
-          "voice_multitrack_stack": 7.02
+          "voice_multitrack_stack": 8.612500000000002
         }
       },
       {

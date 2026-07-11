@@ -3,9 +3,9 @@
   "name": "Mambo",
   "family": "global",
   "lineage": "Cuban big-band brass-and-saxophone urban-popular-dance music codified 1939-onward in Havana from son-cubano accelerated-and-orchestrated for big-band swing-orchestra adaptation. The mambo-typical ensemble: four-trumpets, five-saxophones (two altos, two tenors, plus baritone), piano, contrabass, congas, bongos, timbales, claves, maracas, and güiro. The mambo-section open-improvisation montuno-equivalent features brass-shouts (mambos), saxophone-and-piano riffs over ostinato-vamp, and percussion-and-vocal call-and-response. The 1947-onward Mexico-City-and-NYC-Palladium mambo-craze made it the international Cuban-dance-music ambassador; the 1950s saw mambo-fused-with-jazz (Afro-Cuban jazz, Latin-jazz), with cha-cha-chá and pachanga emerging as next-generation variants.",
-  "recipe": "classic Caribbean modern mambo, groove Percussion, charanga danza branch, American jazz early swing big band chicago jazz. thick, full chest belt, hocket articulation, equal tempered. cold pressed wurzen felt oversize maple tension resonator grand piano, growly gut upright bass, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, bronze open slap hand drum timbales, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor ensemble student commercial trombone, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow legato saxophone, claves. pre revolutionary cuba 1944-1960 mid tier panart puchito havana pre 1959. large-diaphragm condenser, tube pre.",
-  "recipe_chars": 983,
-  "score": 558.22,
+  "recipe": "classic Caribbean modern mambo, groove Percussion, charanga danza branch, American jazz early swing big band chicago jazz. thick, full chest belt, straight onset, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator grand piano, growly gut upright bass, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, bronze open slap hand drum timbales, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor ensemble student commercial trombone, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow legato saxophone, claves. pre revolutionary cuba 1944-1960 mid tier panart puchito havana pre 1959. large-diaphragm condenser, tube pre.",
+  "recipe_chars": 988,
+  "score": 608.879,
   "config": {
     "traditions": [
       "mambo",
@@ -20,7 +20,7 @@
           "voice_quality": "full_chest_belt_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "straight_tone",
+          "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "jazz_scat_tradition",
@@ -28,28 +28,28 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
           "voice_processing_chain": "voice_processing_vocoder_32_band_carrier_saw",
-          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
           "voice_register": 26.044999999999995,
           "voice_quality": 17.649999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.1365,
-          "voice_articulation": 0.78,
+          "voice_vibrato": 25.350499999999997,
+          "voice_articulation": 20.865000000000006,
           "voice_microtone": 25.544999999999998,
           "voice_tradition": 33.703374999999994,
           "voice_mechanism_compound": 5.45825,
           "voice_estill_quality": 5.9182500000000005,
-          "voice_speech_song": 20.15000000000001,
-          "voice_ensemble_config": 21.840000000000003,
-          "voice_ornament_system": 0.045,
-          "voice_pitch_organization": 4.55,
+          "voice_speech_song": 20.020000000000007,
+          "voice_ensemble_config": 23.010000000000005,
+          "voice_ornament_system": 1.2349999999999997,
+          "voice_pitch_organization": 4.695000000000001,
           "voice_processing_chain": 8.150625,
-          "voice_multitrack_stack": 1.435
+          "voice_multitrack_stack": 4.42
         }
       },
       {

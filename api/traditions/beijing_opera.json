@@ -3,9 +3,9 @@
   "name": "Beijing opera (jingju)",
   "family": "classical",
   "lineage": "Late-18th-century onward Chinese jingju classical theatrical tradition with the jinghu-led civilian orchestra and luogu martial percussion",
-  "recipe": "classic East Asian early-1950s beijing opera, art Music, beijing opera branch, east Asian Cantonese opera, east Asian Tibetan ritual tibetan ache lhamo opera. thick, pressed, chest resonance low mid, narrative. erhuang narrative bamboo body beijing opera steel modern jinghu, python skin snake skin bamboo silk red sandalwood zitan erhu, yueqin, silk mahogany commercial grade pipa, percussion section ban clapper luogu, theatrical jingju foundational sanxian. chinese traditional teahouse. large-diaphragm condenser, German V72 tube pre, German tube console, broadcast loudness EQ. tape 15ips hall reverb.",
-  "recipe_chars": 606,
-  "score": 438.911,
+  "recipe": "classic East Asian early-1950s beijing opera, art Music, beijing opera branch, east Asian Cantonese opera, east Asian Tibetan ritual tibetan ache lhamo opera. thick, pressed, slow rate, interlocked note trading. erhuang narrative bamboo body beijing opera steel modern jinghu, python skin snake skin bamboo silk red sandalwood zitan erhu, yueqin, silk mahogany commercial grade pipa, percussion section ban clapper luogu, theatrical jingju foundational sanxian. chinese traditional teahouse. large-diaphragm condenser, German V72 tube pre, German tube console, broadcast loudness EQ. tape 15ips hall reverb.",
+  "recipe_chars": 607,
+  "score": 490.094,
   "config": {
     "traditions": [
       "beijing_opera",
@@ -21,8 +21,8 @@
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "narrative_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "chinese_classical_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 2.8194999999999997,
           "voice_quality": 30.275,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.43575,
-          "voice_articulation": 1.8199999999999996,
-          "voice_microtone": 1.075,
+          "voice_vibrato": 13.9935,
+          "voice_articulation": 22.843499999999995,
+          "voice_microtone": 23.017999999999994,
           "voice_tradition": 45.25425,
           "voice_mechanism_compound": 12.87,
           "voice_estill_quality": 38.76649999999999,
           "voice_speech_song": 33.7195,
-          "voice_ensemble_config": 26.036249999999995,
+          "voice_ensemble_config": 26.593999999999998,
           "voice_ornament_system": 33.699999999999996,
           "voice_pitch_organization": 16.884999999999998,
           "voice_processing_chain": 4.9857499999999995,
-          "voice_multitrack_stack": 4.966499999999999
+          "voice_multitrack_stack": 5.067749999999999
         }
       },
       {

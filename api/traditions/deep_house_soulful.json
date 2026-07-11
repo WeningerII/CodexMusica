@@ -3,9 +3,9 @@
   "name": "Deep house (soulful)",
   "family": "global",
   "lineage": "Soulful-jazz house sub-style codified through 1990s New York and New Jersey production — Kerri Chandler, Masters at Work, Blaze, and Kenny Bobien (vocalist), extending the 1980s Chicago deep-house template of Larry Heard / Mr. Fingers — characterized by jazz-chord harmonic vocabulary, gospel-soul vocal performances, and warm analog-instrument production aesthetic",
-  "recipe": "classic mid-1990s deep house, electronic Dance, deep house branch, soul R&B functional song doo-wop alt-r&b. thick, blues-shouter, nervy, narrative. centered tine pickup gap canonical balanced Rhodes voicing gospel runs rhodes electric, singing lead digital subtractive, TR-909, field textural sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 448,
-  "score": 310.98,
+  "recipe": "classic mid-1990s deep house, electronic Dance, deep house branch, soul R&B functional song doo-wop alt-r&b. thick, breath veiled tone, straight onset, interlocked note trading. centered tine pickup gap canonical balanced Rhodes voicing gospel runs rhodes electric, singing lead digital subtractive, TR-909, field textural sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 477,
+  "score": 331.313,
   "config": {
     "traditions": [
       "deep_house_soulful",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "blues_shouter_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "fast_vibrato",
-          "voice_articulation": "narrative_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "gospel_pentecostal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_belt",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 30.774999999999995,
-          "voice_quality": 14.29999999999999,
+          "voice_quality": 17.03000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.595,
-          "voice_articulation": 11.794999999999996,
-          "voice_microtone": 13.724999999999998,
+          "voice_vibrato": 9.065,
+          "voice_articulation": 16.639999999999997,
+          "voice_microtone": 16.639999999999993,
           "voice_tradition": 18.169999999999998,
           "voice_mechanism_compound": 1.95,
           "voice_estill_quality": 16.444999999999993,
-          "voice_speech_song": 20.084999999999997,
-          "voice_ensemble_config": 16.704999999999995,
+          "voice_speech_song": 20.149999999999995,
+          "voice_ensemble_config": 16.574999999999992,
           "voice_ornament_system": 1.4299999999999997,
-          "voice_pitch_organization": 2.73,
+          "voice_pitch_organization": 2.925000000000001,
           "voice_processing_chain": 10.305,
-          "voice_multitrack_stack": 7.15
+          "voice_multitrack_stack": 9.3925
         }
       },
       {

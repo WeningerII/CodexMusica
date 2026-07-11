@@ -3,9 +3,9 @@
   "name": "Russian byliny (epic-narrative)",
   "family": "global",
   "lineage": "Russian (originally Kievan and Novgorodian) oral-epic recitation tradition of narrative songs about the legendary bogatyri heroes (Ilya Muromets, Dobrynya Nikitich, Alyosha Popovich); preserved through the 19th-20th centuries in the Russian Far North (Onega and White Sea regions) by Old Believer communities and documented by ethnomusicologists Pavel Rybnikov and Alexander Hilferding",
-  "recipe": "classic Eastern European early-1940s russian byliny, ballad Poetry, Slavic bard branch, christian gospel Russian orthodox, Celtic balladic Scottish ballad child ballad revival byzantine chant. thick, declaimed, chest resonance low mid, narrative. brass canonical Slavic maple birch canonical Slavic fingerpicked gusli. moscow state label 1964-present major-flagship moscow melodiya studio. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
-  "recipe_chars": 523,
-  "score": 91.765,
+  "recipe": "classic Eastern European early-1940s russian byliny, ballad Poetry, Slavic bard branch, christian gospel Russian orthodox, Celtic balladic Scottish ballad child ballad revival byzantine chant. thick, breath veiled tone, slow rate, interlocked note trading. brass canonical Slavic maple birch canonical Slavic fingerpicked gusli. moscow state label 1964-present major-flagship moscow melodiya studio. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
+  "recipe_chars": 533,
+  "score": 120.459,
   "config": {
     "traditions": [
       "russian_byliny",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "narrative_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 6.7250000000000005,
-          "voice_quality": 8.135000000000002,
+          "voice_quality": 10.464999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.845,
-          "voice_articulation": 4.644500000000001,
-          "voice_microtone": 0.22499999999999998,
+          "voice_vibrato": 1.7765,
+          "voice_articulation": 11.504999999999995,
+          "voice_microtone": 12.967499999999992,
           "voice_tradition": 20.7025,
           "voice_mechanism_compound": 2.925,
           "voice_estill_quality": 4.2705,
-          "voice_speech_song": 11.504999999999997,
-          "voice_ensemble_config": 11.374999999999998,
-          "voice_ornament_system": 5.33,
+          "voice_speech_song": 13.714999999999996,
+          "voice_ensemble_config": 11.244999999999996,
+          "voice_ornament_system": 5.375000000000001,
           "voice_pitch_organization": 1.4949999999999997,
           "voice_processing_chain": 7.214999999999998,
-          "voice_multitrack_stack": 1.04
+          "voice_multitrack_stack": 4.744999999999999
         }
       },
       {

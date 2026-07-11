@@ -3,9 +3,9 @@
   "name": "Historically-informed performance recording",
   "family": "global",
   "lineage": "Late-twentieth-century classical-performance movement aiming to play pre-1900 Western art-music repertoire on period-appropriate instruments using period-appropriate technique, tuning (typically A=415 Hz baroque, A=430 Hz classical), tempo, articulation, and ornamentation — codified through ensembles including The English Concert (Trevor Pinnock), Concentus Musicus Wien (Nikolaus Harnoncourt), Academy of Ancient Music (Christopher Hogwood), and continuing through generations of period-instrument-trained performers",
-  "recipe": "classic early-1900s historically-informed performance recording, art Music, western early branch, western common practice art music anglican cathedral-choral recording tradition hyperion-school classical-recording aesthetic. thick, declaimed, chest resonance low mid, hocket articulation. maple modern British folk brass wire canonical renaissance cittern, late medieval legato vielle medieval, sustained breathy chant doubling portative organ, plain lamb gut canonical period performance snakewood underhand grip canonical Baroque viol viola da gamba, boxwood canonical renaissance Baroque continuous-airflow legato recorder, mid renaissance English Spanish lute renaissance, boxwood canonical renaissance European shawm, tenor workhorse consort blend thin hammered brass sackbut, crumhorn, song support double bourdon early Italian baroque guitar, six course polyphonic vihuela de mano, treble voiced legato rebec, medieval psaltery. parish church. tube condenser, 500-series boutique pre.",
-  "recipe_chars": 991,
-  "score": 307.897,
+  "recipe": "classic early-1900s historically-informed performance recording, art Music, western early branch, western common practice art music anglican cathedral-choral recording tradition hyperion-school classical-recording aesthetic. thick, breath veiled tone, straight note core, interlocked note trading. maple modern British folk brass wire canonical renaissance cittern, late medieval legato vielle medieval, sustained breathy chant doubling portative organ, plain lamb gut canonical period performance snakewood underhand grip canonical Baroque viol viola da gamba, boxwood canonical renaissance Baroque continuous-airflow legato recorder, mid renaissance English Spanish lute renaissance, boxwood canonical renaissance European shawm, tenor workhorse consort blend thin hammered brass sackbut, crumhorn, song support double bourdon early Italian baroque guitar, six course polyphonic vihuela de mano, treble voiced legato rebec, medieval psaltery. parish church. tube condenser, 500-series boutique pre.",
+  "recipe_chars": 1000,
+  "score": 337.103,
   "config": {
     "traditions": [
       "historical_informed_performance",
@@ -17,10 +17,10 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "baroque_ornamental_tradition",
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_recitative_free_rhythm",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
-          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 7.3999999999999995,
-          "voice_quality": 1.5994999999999997,
+          "voice_quality": 7.280000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.525,
-          "voice_articulation": 1.25,
+          "voice_vibrato": 13.66,
+          "voice_articulation": 9.36,
           "voice_microtone": 15.8275,
           "voice_tradition": 18.494999999999997,
           "voice_mechanism_compound": 10.525,
           "voice_estill_quality": 12.3845,
           "voice_speech_song": 13.075,
-          "voice_ensemble_config": 8.125,
+          "voice_ensemble_config": 8.19,
           "voice_ornament_system": 10.724499999999999,
-          "voice_pitch_organization": 10.524999999999999,
-          "voice_processing_chain": 1.885,
-          "voice_multitrack_stack": 0.26
+          "voice_pitch_organization": 11.175,
+          "voice_processing_chain": 5.3950000000000005,
+          "voice_multitrack_stack": 3.315000000000001
         }
       },
       {

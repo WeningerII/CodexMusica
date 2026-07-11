@@ -3,14 +3,14 @@
   "name": "Sardinian boci de tela (weaving songs)",
   "family": "global",
   "lineage": "Sardinian boci de tela (\"weaving songs\") and broader Sardinian women's-domestic-textile-labor song tradition continuous from medieval-Sardinian-rural domestic-textile labor practice through 19th-20th century continuous performance into modern Sardinian-folk-revival",
-  "recipe": "classic Southern European modern sardinian boci de tela, domestic Rhythm, Celtic hebridean branch, Slavic baltic domestic rhythm, European lullaby, European funeral lament romanian cântece de tors albanian vajtim. thick, false fold engaged, tasteful, continuous-phonation. sardinian outdoor a tenore polyphony. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 373,
-  "score": 117.433,
+  "recipe": "classic Southern European modern sardinian boci de tela, domestic Rhythm, Celtic hebridean branch, Slavic baltic domestic rhythm, European lullaby, European funeral lament albanian vajtim italian ninna-nanna. thick, false fold engaged, straight onset, interlocked note trading. sardinian outdoor a tenore polyphony. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 378,
+  "score": 134.02,
   "config": {
     "traditions": [
       "sardinian_boci_de_tela",
-      "romanian_cantece_de_tors",
-      "albanian_vajtim"
+      "albanian_vajtim",
+      "italian_ninna_nanna"
     ],
     "instruments": [
       {
@@ -21,35 +21,35 @@
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
-          "voice_articulation": "legato_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_speech",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
           "voice_processing_chain": "voice_processing_plate_reverb_medium",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 6.51,
-          "voice_quality": 20.374999999999993,
+          "voice_register": 3.8100000000000005,
+          "voice_quality": 22.374999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.535,
-          "voice_articulation": 6.759999999999999,
-          "voice_microtone": 0.37499999999999994,
-          "voice_tradition": 42.85999999999999,
-          "voice_mechanism_compound": 2.795,
-          "voice_estill_quality": 2.015,
-          "voice_speech_song": 10.399999999999999,
-          "voice_ensemble_config": 7.02,
-          "voice_ornament_system": 5.402500000000001,
-          "voice_pitch_organization": 6.759999999999999,
-          "voice_processing_chain": 1.6524999999999999,
-          "voice_multitrack_stack": 1.9474999999999998
+          "voice_vibrato": 2.21,
+          "voice_articulation": 6.955000000000001,
+          "voice_microtone": 10.1075,
+          "voice_tradition": 41.935,
+          "voice_mechanism_compound": 3.8349999999999995,
+          "voice_estill_quality": 6.684999999999999,
+          "voice_speech_song": 11.504999999999997,
+          "voice_ensemble_config": 7.475000000000001,
+          "voice_ornament_system": 7.7575,
+          "voice_pitch_organization": 6.697500000000002,
+          "voice_processing_chain": 1.8525,
+          "voice_multitrack_stack": 2.47
         }
       }
     ],

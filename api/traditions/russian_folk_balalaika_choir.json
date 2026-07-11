@@ -3,9 +3,9 @@
   "name": "Russian folk balalaika and choral",
   "family": "global",
   "lineage": "Vassily Andreyev-codified (late 19th-century) Russian-folk-orchestra tradition — Andreyev standardized the balalaika family (prima, sekunda, alto, bass, kontrabass) and founded the Great Russian Orchestra (Velikorusskiy Orkestr) in St. Petersburg 1888, establishing the concert-stage Russian-folk-instrument ensemble model that the Soviet era institutionalized through state ensembles like the Pyatnitsky Choir",
-  "recipe": "classic Eastern European late-1880s russian folk balalaika and choral, ballad Poetry, Slavic bard branch, christian gospel Russian orthodox, western common practice art music russian orthodox liturgical chant byzantine chant. thick, declaimed, tasteful, ornamental. bass foundation andreyev concert orchestra canonical revival strummed balalaika, orchestral bass rare spruce maple andreyev gut pre andreyev historical strummed domra, b system buttons stradella bass Russian tradition estrada stage Soviet era bayan russian, willow pipe cow horn bell idioglot reed zhaleika. moscow state label 1964-present major-flagship moscow melodiya studio. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
-  "recipe_chars": 778,
-  "score": 282.817,
+  "recipe": "classic Eastern European late-1880s russian folk balalaika and choral, ballad Poetry, Slavic bard branch, christian gospel Russian orthodox, western common practice art music russian orthodox liturgical chant byzantine chant. thick, breath veiled tone, straight onset, interlocked note trading. bass foundation andreyev concert orchestra canonical revival strummed balalaika, orchestral bass rare spruce maple andreyev gut pre andreyev historical strummed domra, b system buttons stradella bass Russian tradition estrada stage Soviet era bayan russian, willow pipe cow horn bell idioglot reed zhaleika. moscow state label 1964-present major-flagship moscow melodiya studio. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
+  "recipe_chars": 807,
+  "score": 305.597,
   "config": {
     "traditions": [
       "russian_folk_balalaika_choir",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
-          "voice_articulation": "melisma_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_belt",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
           "voice_register": 18.9,
-          "voice_quality": 14.329999999999998,
+          "voice_quality": 14.624999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.845,
-          "voice_articulation": 6.375,
-          "voice_microtone": 3.0875,
+          "voice_vibrato": 2.0149999999999997,
+          "voice_articulation": 11.569999999999993,
+          "voice_microtone": 14.267499999999993,
           "voice_tradition": 24.894999999999992,
           "voice_mechanism_compound": 3.965,
           "voice_estill_quality": 6.175,
-          "voice_speech_song": 13.129999999999997,
-          "voice_ensemble_config": 12.479999999999995,
+          "voice_speech_song": 13.584999999999994,
+          "voice_ensemble_config": 15.079999999999993,
           "voice_ornament_system": 6.2749999999999995,
           "voice_pitch_organization": 1.6899999999999997,
           "voice_processing_chain": 4.225,
-          "voice_multitrack_stack": 1.82
+          "voice_multitrack_stack": 3.7050000000000014
         }
       },
       {

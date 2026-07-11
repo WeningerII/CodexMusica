@@ -3,9 +3,9 @@
   "name": "Noh kotoba spoken declamation",
   "family": "classical",
   "lineage": "In noh, the classical masked music-drama codified by Kan'ami and Zeami in 14th-century Japan, kotoba denotes the spoken (rather than chanted) passages of the text, delivered in a heightened, slow, resonant declamation with a characteristically lowered larynx and darkened timbre. Kotoba alternates with the melodic utai chant and is set against the hayashi ensemble of flute and drums, but is itself stylized speech governed by the strict schools Kanze, Hosho, Konparu, Kongo, and Kita. It is transmitted through hereditary iemoto lineages and preserved in centuries of utaibon libretti. It is documented in the National Noh Theatre records and the Nogaku UNESCO inscription.",
-  "recipe": "classic East Asian modern noh kotoba spoken declamation, art Music, east Asian branch thai classical beijing opera. thick, pressed, chest resonance low mid, rhythmic. noh stage japanese. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 249,
-  "score": 218.011,
+  "recipe": "classic East Asian modern noh kotoba spoken declamation, art Music, east Asian branch thai classical beijing opera. thick, breath veiled tone, slow rate, interlocked note trading. noh stage japanese. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 262,
+  "score": 304.739,
   "config": {
     "traditions": [
       "noh_kotoba",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "pressed_phonation_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "spoken_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "chinese_classical_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 2.635,
-          "voice_quality": 9.074999999999998,
+          "voice_quality": 23.465,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 9.099999999999998,
-          "voice_articulation": 0.78,
-          "voice_microtone": 2.0534999999999997,
+          "voice_vibrato": 23.106499999999997,
+          "voice_articulation": 25.350000000000005,
+          "voice_microtone": 25.154999999999998,
           "voice_tradition": 40.5925,
           "voice_mechanism_compound": 17.399999999999995,
           "voice_estill_quality": 30.134249999999994,
-          "voice_speech_song": 28.015000000000004,
-          "voice_ensemble_config": 26,
+          "voice_speech_song": 31.460000000000004,
+          "voice_ensemble_config": 26.064999999999998,
           "voice_ornament_system": 24.58499999999999,
           "voice_pitch_organization": 19.360499999999995,
-          "voice_processing_chain": 5.135,
-          "voice_multitrack_stack": 4.419999999999999
+          "voice_processing_chain": 9.36,
+          "voice_multitrack_stack": 7.345000000000001
         }
       }
     ],

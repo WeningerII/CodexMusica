@@ -3,53 +3,53 @@
   "name": "Zamba (Argentine slow-romantic)",
   "family": "global",
   "lineage": "Argentine slow-romantic folk-dance-and-song tradition of northwestern provinces, derived from Peruvian zamacueca (which also derived Chilean cueca and Andean tondero). Slow 6/8 meter, melancholic register addressing romance, loss, and northwestern-Argentine pampas-mountain landscape. Mid-twentieth-century commercial-folklore revival under Yupanqui, Cuchi Leguizamón, Mercedes Sosa consolidated canonical zamba repertoire.",
-  "recipe": "classic Mexican modern zamba, ballad Poetry, Latin am troubadour branch, chanson fado ballad poetry cape verdean batuko of santiago island french musette. thick, lament wail, chest resonance low mid, punctuated. cedar phosphor bronze bronze fingerpicked parlor acoustic guitar, swaying bombo leguero. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 447,
-  "score": 142.93,
+  "recipe": "classic Mexican modern zamba, ballad Poetry, Latin am troubadour branch, chanson fado ballad poetry cape verdean batuko of santiago island morna. thick, breath veiled tone, slow rate, interlocked note trading. cedar phosphor bronze bronze fingerpicked parlor acoustic guitar, swaying bombo leguero. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 445,
+  "score": 219.855,
   "config": {
     "traditions": [
       "zamba_argentina",
       "cape_verdean_batuko",
-      "french_musette"
+      "morna"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "fado_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "staccato_voice",
-          "voice_microtone": "blue_notes",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_andean_huayno",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
         },
         "scores": {
-          "voice_register": 8.27,
-          "voice_quality": 6.085,
+          "voice_register": 6.645000000000001,
+          "voice_quality": 24.96,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
-          "voice_articulation": 2.9899999999999998,
-          "voice_microtone": 1.4949999999999999,
-          "voice_tradition": 18.0375,
-          "voice_mechanism_compound": 4.29,
-          "voice_estill_quality": 6.8575,
-          "voice_speech_song": 24.895000000000003,
-          "voice_ensemble_config": 20.28,
-          "voice_ornament_system": 3.6252500000000003,
-          "voice_pitch_organization": 3.9850000000000003,
-          "voice_processing_chain": 5.49,
-          "voice_multitrack_stack": 4.29
+          "voice_vibrato": 8.825,
+          "voice_articulation": 23.92,
+          "voice_microtone": 24.245000000000005,
+          "voice_tradition": 18.849999999999994,
+          "voice_mechanism_compound": 4.484999999999999,
+          "voice_estill_quality": 4.5825,
+          "voice_speech_song": 28.015,
+          "voice_ensemble_config": 22.815,
+          "voice_ornament_system": 3.9252500000000006,
+          "voice_pitch_organization": 2.795000000000001,
+          "voice_processing_chain": 11.635000000000002,
+          "voice_multitrack_stack": 5.135
         }
       },
       {
@@ -62,8 +62,8 @@
           "string_acoustic_parlor": "phosphor_p"
         },
         "scores": {
-          "acoustic_technique": 13.570000000000002,
-          "string_tuning": 0.7149999999999999,
+          "acoustic_technique": 13.770000000000001,
+          "string_tuning": 1.2999999999999998,
           "top_wood_parlor": 1.69,
           "back_sides_parlor": 0,
           "string_acoustic_parlor": 1.69

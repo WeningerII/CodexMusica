@@ -3,9 +3,9 @@
   "name": "Mandopop",
   "family": "global",
   "lineage": "Mandarin-language mainstream Chinese-language pop tradition codified through 1980s Taiwan (Teresa Teng, Liu Wen-cheng) — through Jay Chou’s 2000-2010 Hua Yu pop (Mandarin pop with hip-hop and R&B production), and the contemporary cross-strait Mandarin entertainment industry spanning Taiwan, mainland China, Singapore, and Malaysia",
-  "recipe": "classic Asian mid-2000s mandopop, functional Song, east Asian pop branch, pop rock functional song new wave yacht rock. thick, chest mix belt, chest resonance low mid, narrative. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, string quartet inst. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
-  "recipe_chars": 704,
-  "score": 729.527,
+  "recipe": "classic Asian mid-2000s mandopop, functional Song, east Asian pop branch, pop rock functional song new wave yacht rock. thick, chest mix belt, straight onset, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, string quartet inst. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+  "recipe_chars": 710,
+  "score": 748.577,
   "config": {
     "traditions": [
       "mandopop",
@@ -20,8 +20,8 @@
           "voice_quality": "chest_mix_belt_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "narrative_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
@@ -38,18 +38,18 @@
           "voice_quality": 2.2850000000000015,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.275,
-          "voice_articulation": 1.9249999999999998,
+          "voice_vibrato": 9.02,
+          "voice_articulation": 12.674999999999995,
           "voice_microtone": 52.650000000000006,
           "voice_tradition": 38.155,
           "voice_mechanism_compound": 2.6649999999999996,
           "voice_estill_quality": 2.2749999999999995,
-          "voice_speech_song": 18.719999999999995,
-          "voice_ensemble_config": 12.349999999999994,
+          "voice_speech_song": 19.434999999999995,
+          "voice_ensemble_config": 12.414999999999994,
           "voice_ornament_system": 2.285,
           "voice_pitch_organization": 11.069999999999995,
           "voice_processing_chain": 12.64,
-          "voice_multitrack_stack": 11.705
+          "voice_multitrack_stack": 12.479999999999997
         }
       },
       {

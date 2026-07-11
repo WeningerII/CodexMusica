@@ -3,9 +3,9 @@
   "name": "Bengali chhōtōdēr chōṛā (children's rhymes)",
   "family": "global",
   "lineage": "Bengali-language children's play-song tradition continuous from premodern Bengali folk-play-song origins through 19th-20th century Bengali-Renaissance literary-elevation (Rabindranath Tagore's Sahaj Path 1930 children's-curriculum rhyme-and-text reader canonical) and Sukumar Ray's nonsense-verse Abol Tabol 1923 into modern continuous Bengali-and-Bangladeshi childhood-practice",
-  "recipe": "classic early-1930s bengali chhōtōdēr chōṛā, nursery Rhyme, south Asian branch, south Asian lullaby, European nursery rhyme, indian bard ballad poetry cambodian chapei dang veng hindi lori. thick, declaimed, tasteful, continuous-phonation. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 319,
-  "score": 96.011,
+  "recipe": "classic early-1930s bengali chhōtōdēr chōṛā, nursery Rhyme, south Asian branch, south Asian lullaby, European nursery rhyme, indian bard ballad poetry cambodian chapei dang veng hindi lori. thick, breath veiled tone, straight onset, interlocked note trading. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 338,
+  "score": 130.967,
   "config": {
     "traditions": [
       "bengali_chhotoder_chora",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
-          "voice_articulation": "legato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "carnatic_classical_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_unison_double_take"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 5.2250000000000005,
-          "voice_quality": 3.1250000000000013,
+          "voice_quality": 12.609999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.535,
-          "voice_articulation": 5.069999999999999,
-          "voice_microtone": 1.6249999999999998,
+          "voice_vibrato": 3.1525000000000003,
+          "voice_articulation": 13.519999999999998,
+          "voice_microtone": 14.722499999999997,
           "voice_tradition": 18.31,
           "voice_mechanism_compound": 2.5999999999999996,
           "voice_estill_quality": 5.070625,
-          "voice_speech_song": 21.9375,
-          "voice_ensemble_config": 12.739999999999998,
+          "voice_speech_song": 21.807499999999997,
+          "voice_ensemble_config": 12.609999999999996,
           "voice_ornament_system": 8.844999999999999,
           "voice_pitch_organization": 8.404999999999998,
           "voice_processing_chain": 3.3406249999999997,
-          "voice_multitrack_stack": 1.495
+          "voice_multitrack_stack": 5.060625
         }
       }
     ],

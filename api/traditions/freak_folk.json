@@ -3,9 +3,9 @@
   "name": "Freak folk (mid-2000s American psychedelic-experimental folk)",
   "family": "rock_punk",
   "lineage": "Mid-2000s American indie folk subgenre characterized by psychedelic-experimental orientation, intimate-eccentric-vocal-delivery, broad-folk-instrumentation including unusual instruments (autoharp, harpsichord, sitar), and explicit countercultural-and-mystical thematic content. Devendra Banhart (California 2002-onward) inaugurated the canonical sound; Joanna Newsom, Vetiver, Espers, and the broader Drag City Records label roster anchor the canonical freak folk roster.",
-  "recipe": "classic North American freak folk, ballad Poetry, indie folk branch, anglo singer song confessional60s late-60s interior confessional songwriter 1960s greenwich village confessional folk. thick, incomplete closure resting, chest resonance low mid, equal tempered. cedar phosphor bronze bronze fingerpicked parlor acoustic guitar, walnut mid tier scruggs stelling bluegrass setup mastertone flathead banjo 5 string, folk steel modern canonical 36 37 string set spruce maple modern strummed open chord ringing overtones autoharp, low mid rich spectrum traditional teak sitar, English kirkman shudi canonical mid 18th century London delrin plastic plectra canonical modern stable replacement vallotti canonical late Baroque Italian well temperament prepared harpsichord. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 941,
-  "score": 272.758,
+  "recipe": "classic North American freak folk, ballad Poetry, indie folk branch, anglo singer song confessional60s late-60s interior confessional songwriter 1960s greenwich village confessional folk. thick, incomplete closure resting, slow rate, interlocked note trading. cedar phosphor bronze bronze fingerpicked parlor acoustic guitar, walnut mid tier scruggs stelling bluegrass setup mastertone flathead banjo 5 string, folk steel modern canonical 36 37 string set spruce maple modern strummed open chord ringing overtones autoharp, low mid rich spectrum traditional teak sitar, English kirkman shudi canonical mid 18th century London delrin plastic plectra canonical modern stable replacement vallotti canonical late Baroque Italian well temperament prepared harpsichord. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 937,
+  "score": 284.496,
   "config": {
     "traditions": [
       "freak_folk",
@@ -21,8 +21,8 @@
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "legato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "japanese_min_yo_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
@@ -30,7 +30,7 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
@@ -38,18 +38,18 @@
           "voice_quality": 11.625,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.44625,
-          "voice_articulation": 0,
-          "voice_microtone": 2.3000000000000003,
+          "voice_vibrato": 2.5425,
+          "voice_articulation": 6.695,
+          "voice_microtone": 6.500000000000001,
           "voice_tradition": 31.789999999999996,
           "voice_mechanism_compound": 1.2349999999999999,
           "voice_estill_quality": 6.845250000000001,
-          "voice_speech_song": 13.39,
-          "voice_ensemble_config": 6.76,
+          "voice_speech_song": 13.454999999999997,
+          "voice_ensemble_config": 6.630000000000001,
           "voice_ornament_system": 6.139000000000001,
-          "voice_pitch_organization": 4.14375,
-          "voice_processing_chain": 2.69375,
-          "voice_multitrack_stack": 7.712249999999999
+          "voice_pitch_organization": 3.9937500000000004,
+          "voice_processing_chain": 3.7555000000000005,
+          "voice_multitrack_stack": 7.6122499999999995
         }
       },
       {

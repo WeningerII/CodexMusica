@@ -3,26 +3,26 @@
   "name": "Aka / Baka forest forager polyphony",
   "family": "global",
   "lineage": "Central African Republic and southeastern Cameroon Aka / Baka / BaYaka rainforest hunter-gatherer four-and-more-part polyphonic vocal tradition — characterized by four canonical voice-parts in the Aka system (motangole the principal melodic voice, ngue-wa-lembo the equivalent of a bass anchor, osese the middle voice, and diyei the upper yodeled M1-M2-rapid-alternation voice with open vowels in M1 and closed/high vowels in M2), hocket interlocking single-note distribution across the ensemble, polyrhythmic-layered independent ostinato cycles per voice, and overlap-driven entrance-and-exit aesthetic; documented through the Simha Arom canonical ethnomusicological field-recording-and-analysis program (1970s-onward Centre National de la Recherche Scientifique France) and Susanne Fürniss yodel-mechanism phonetic analysis, with parallel Mbenga-Mbuti (Ituri Forest DRC pygmy-polyphonic tradition) related-but-distinct repertoire",
-  "recipe": "classic mid-1970s aka / baka forest forager polyphony, drone Modal, heterophonic branch, indigenous ritual devotional, west African griot ballad poetry tuareg tendé pestle-rhythm song inuit katajjaq throat-singing game. sygyt, declaimed, overtone rich sustained, unrestrained. a cappella small 3 to 8 one per part four voice polyphonic regional mbenga mbuti three voice ostinato hocket yodel global traditional polyphonic choir ensemble. forest clearing. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 529,
-  "score": 286.467,
+  "recipe": "classic mid-1970s aka / baka forest forager polyphony, drone Modal, heterophonic branch, indigenous ritual devotional, west African griot ballad poetry inuit katajjaq throat-singing game tuareg tendé pestle-rhythm song. sygyt, breath veiled tone, breath pulsed, interlocked note trading. a cappella small 3 to 8 one per part four voice polyphonic regional mbenga mbuti three voice ostinato hocket yodel global traditional polyphonic choir ensemble. forest clearing. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 540,
+  "score": 379.904,
   "config": {
     "traditions": [
       "aka_baka_polyphony",
-      "tuareg_tende_pestle",
-      "inuit_katajjaq_games"
+      "inuit_katajjaq_games",
+      "tuareg_tende_pestle"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "sygyt_register",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "diaphragm_vibrato",
-          "voice_articulation": "shouted_voice",
-          "voice_microtone": "overtone_singing",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
           "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
           "voice_processing_chain": "voice_processing_tube_saturation",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 9.046875,
-          "voice_quality": 16.851874999999996,
+          "voice_quality": 43.74500000000003,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.1,
-          "voice_articulation": 4.095000000000001,
-          "voice_microtone": 6.395000000000001,
+          "voice_vibrato": 5.8462499999999995,
+          "voice_articulation": 37.76500000000001,
+          "voice_microtone": 32.40250000000001,
           "voice_tradition": 31.004999999999995,
           "voice_mechanism_compound": 17.119999999999997,
-          "voice_estill_quality": 10.01,
-          "voice_speech_song": 30.485000000000007,
-          "voice_ensemble_config": 51.02500000000002,
+          "voice_estill_quality": 10.009999999999998,
+          "voice_speech_song": 31.005000000000006,
+          "voice_ensemble_config": 52.58500000000002,
           "voice_ornament_system": 14.005,
           "voice_pitch_organization": 9.690625,
           "voice_processing_chain": 9.259999999999998,
-          "voice_multitrack_stack": 5.46
+          "voice_multitrack_stack": 6.500000000000002
         }
       },
       {

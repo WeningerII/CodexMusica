@@ -3,14 +3,14 @@
   "name": "Candomblé ceremonial",
   "family": "global",
   "lineage": "Bahian Yoruba-Nagô / Bantu-Jeje liturgical drumming tradition of the orixá-honoring terreiro — codified through the early-19th-century Yoruba and Fon enslaved-people religious continuity in Salvador, formalized through the Casa Branca, Gantois, and Ilê Axé Opô Afonjá foundational terreiros; characterized by the rum-rumpi-lê three-drum ensemble, agogô bell, and chants in Yoruba-derived liturgical language",
-  "recipe": "classic Southern American modern candomblé ceremonial, ritual Devotional, Afro-diasporic branch, Brazilian groove percussion maracatu pagode. thick, intimate aspirated, chest resonance low mid, equal tempered. jacaranda canonical bahian candomble atabaque, agogo, a cappella small 3 to 8 one per part call response single leader group response kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble, afoxe. bahian terreiro outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 527,
-  "score": 119.305,
+  "recipe": "classic Southern American modern candomblé ceremonial, ritual Devotional, Afro-diasporic branch, Brazilian groove percussion pagode maracatu. thick, breath veiled tone, slow rate, interlocked note trading. jacaranda canonical bahian candomble atabaque, agogo, a cappella small 3 to 8 one per part call response single leader group response kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble, afoxe. bahian terreiro outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 523,
+  "score": 166.485,
   "config": {
     "traditions": [
       "candomble_ceremonial",
-      "maracatu",
-      "pagode"
+      "pagode",
+      "maracatu"
     ],
     "instruments": [
       {
@@ -21,8 +21,8 @@
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "staccato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 3.6500000000000012,
-          "voice_quality": 6.294999999999998,
+          "voice_quality": 20.604999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.04,
-          "voice_articulation": 0.195,
-          "voice_microtone": 2.7500000000000004,
+          "voice_vibrato": 1.3324999999999998,
+          "voice_articulation": 15.794999999999998,
+          "voice_microtone": 15.209999999999994,
           "voice_tradition": 18.785,
           "voice_mechanism_compound": 3.5100000000000002,
           "voice_estill_quality": 3.5100000000000007,
-          "voice_speech_song": 16.444999999999997,
-          "voice_ensemble_config": 15.86,
+          "voice_speech_song": 16.964999999999996,
+          "voice_ensemble_config": 15.924999999999997,
           "voice_ornament_system": 4.525,
           "voice_pitch_organization": 11.889999999999999,
           "voice_processing_chain": 4.615,
-          "voice_multitrack_stack": 2.9575
+          "voice_multitrack_stack": 6.890000000000001
         }
       },
       {

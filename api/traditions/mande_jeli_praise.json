@@ -3,9 +3,9 @@
   "name": "Mande jeli / griot praise-song",
   "family": "global",
   "lineage": "Mande-and-Wolof West-African praise-song tradition continuous from medieval Mali Empire era (13th-15th century Sundiata Keita era when the jeli/griot caste-tradition was codified) through colonial-period continuous performance into modern Mande-and-Wolof and Mande-diaspora practice; the jeli is the hereditary praise-singer-and-historian role with documented professional-genealogical lineage",
-  "recipe": "classic West African modern mande jeli / griot praise-song, praise Song, sub saharan African branch, middle east n African praise song, west African griot ballad poetry, string drone modal mande griot narrative epic recitation donsongoni hunter's harp. thick, declaimed, tasteful, continuous-phonation. calabash nylon fishing line cowhide mande traditional kora, carved wood modern luthier nylon modern call-and-response ngoni, buzzy natural material resonance calabash gourd balafon. bamako griot jeli compound. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 642,
-  "score": 400.6,
+  "recipe": "classic West African modern mande jeli / griot praise-song, praise Song, sub saharan African branch, middle east n African praise song, west African griot ballad poetry, string drone modal mande griot narrative epic recitation donsongoni hunter's harp. thick, declaimed, straight note core, interlocked note trading. calabash nylon fishing line cowhide mande traditional kora, carved wood modern luthier nylon modern call-and-response ngoni, buzzy natural material resonance calabash gourd balafon. bamako griot jeli compound. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 656,
+  "score": 439.567,
   "config": {
     "traditions": [
       "mande_jeli_praise",
@@ -20,9 +20,9 @@
           "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
-          "voice_articulation": "legato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "mande_jeli_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
           "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 2.25,
           "voice_quality": 51.61,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
-          "voice_articulation": 3.3799999999999994,
-          "voice_microtone": 2.5,
+          "voice_vibrato": 3.9300000000000006,
+          "voice_articulation": 15.989999999999995,
+          "voice_microtone": 18.42749999999999,
           "voice_tradition": 94.525,
           "voice_mechanism_compound": 5.07,
           "voice_estill_quality": 3.5750000000000006,
-          "voice_speech_song": 21.96999999999999,
-          "voice_ensemble_config": 16.444999999999997,
+          "voice_speech_song": 21.839999999999993,
+          "voice_ensemble_config": 16.314999999999994,
           "voice_ornament_system": 18.864999999999995,
           "voice_pitch_organization": 3.3799999999999994,
-          "voice_processing_chain": 2.925,
-          "voice_multitrack_stack": 0.845
+          "voice_processing_chain": 8.905000000000005,
+          "voice_multitrack_stack": 3.315000000000001
         }
       },
       {

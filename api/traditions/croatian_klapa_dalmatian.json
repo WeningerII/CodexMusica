@@ -3,9 +3,9 @@
   "name": "Croatian klapa Dalmatian close-harmony",
   "family": "global",
   "lineage": "Croatian klapa Dalmatian close-harmony multipart-singing tradition of the Adriatic coastal region (Split, Šibenik, Zadar, Dubrovnik and the Adriatic islands). The classical klapa configuration is a male a-cappella quartet or quintet: lead tenor (prvi tenor), second tenor (drugi tenor), baritone (bariton), and bass (bas), with the optional addition of a second bass voice for fuller texture. Vocal architecture features close-harmony chordal-block writing (almost always homophonic, with all voices moving together rhythmically), characteristic Mediterranean modal-tonal ambiguity (major-mode tonic with frequent flattened-seventh and minor-mode plagal cadences), and the canonical klapa \"Dalmatian\" intonation with slightly stretched intervals producing a bright, resonant ensemble sound when sung in stone-walled outdoor narrow-street alleys (the canonical performance acoustic). Repertoire spans the dramatic Mediterranean-coastal love-and-loss ballad cycles, the religious-procession-and-feast-day repertoire, sea-and-fishing lament cycles, and the contemporary klapa-festival-composed repertoire of newer pieces in the traditional style. Klapa Cambi, Klapa Šufit, and Klapa Sebenico among the canonical twentieth-century ensembles. The annual Omiš Festival of Dalmatian Klapa (founded 1967) constitutes the principal performance-and-competition venue. Distinguished from Sardinian cantu a tenore by Croatian klapa's close-harmony tonal-chord-block (vs Sardinian drone-and-overtone) architecture; distinguished from Corsican paghjella by Croatian's four-or-five-voice quartet-with-bass (vs Corsican's three-voice male-trio) configuration; distinguished from Albanian iso-polyphony by Croatian's tonal-chord-block (vs Albanian iso-drone) foundation.",
-  "recipe": "classic Southern European late-1960s croatian klapa dalmatian close-harmony, ballad Poetry, Mediterranean ballad branch, vocal drone modal croatian istrian two-part-in-istrian-scale macedonian glasoechko male diaphonic. kargyraa, false fold engaged, overtone rich sustained, hocket articulation. dalmatian stone alley. large-diaphragm condenser, German V72 tube pre, Neve transformer console, LA-2A optical, Neve inductor EQ. tape 15ips plate reverb spring reverb.",
-  "recipe_chars": 464,
-  "score": 248.533,
+  "recipe": "classic Southern European late-1960s croatian klapa dalmatian close-harmony, ballad Poetry, Mediterranean ballad branch, vocal drone modal croatian istrian two-part-in-istrian-scale macedonian glasoechko male diaphonic. kargyraa, breath veiled tone, slow rate, interlocked note trading. dalmatian stone alley. large-diaphragm condenser, German V72 tube pre, Neve transformer console, LA-2A optical, Neve inductor EQ. tape 15ips plate reverb spring reverb.",
+  "recipe_chars": 455,
+  "score": 368.033,
   "config": {
     "traditions": [
       "croatian_klapa_dalmatian",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "kargyraa_register",
-          "voice_quality": "false_fold_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "diaphragm_vibrato",
+          "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
-          "voice_processing_chain": "voice_processing_bitcrusher",
-          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 9.76,
-          "voice_quality": 10.459999999999997,
+          "voice_quality": 48.385000000000026,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.525,
-          "voice_articulation": 2.295,
-          "voice_microtone": 6.67,
+          "voice_vibrato": 4.815,
+          "voice_articulation": 38.415000000000006,
+          "voice_microtone": 44.59000000000003,
           "voice_tradition": 45.6625,
           "voice_mechanism_compound": 17.810000000000002,
           "voice_estill_quality": 12.869999999999997,
-          "voice_speech_song": 30.420000000000012,
-          "voice_ensemble_config": 52.26000000000002,
+          "voice_speech_song": 30.940000000000012,
+          "voice_ensemble_config": 52.13000000000003,
           "voice_ornament_system": 15.925,
           "voice_pitch_organization": 10.725,
-          "voice_processing_chain": 14.365,
-          "voice_multitrack_stack": 11.785
+          "voice_processing_chain": 17.939999999999998,
+          "voice_multitrack_stack": 13.064999999999996
         }
       }
     ],

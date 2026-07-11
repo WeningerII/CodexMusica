@@ -3,9 +3,9 @@
   "name": "Funk metal (mid-1980s funk-slap-bass heavy rock)",
   "family": "rock_punk",
   "lineage": "Mid-1980s-and-onward American rock subgenre integrating funk slap-bass and rhythmic-syncopation with heavy-rock guitar-bass-drum aesthetic. Red Hot Chili Peppers (Los Angeles, 1983-onward) inaugurated the canonical sound; Faith No More, Primus, Mr. Bungle, and Fishbone constitute the canonical roster. Distinguished from broader rock by funk metal's explicit syncopated-funk-bass emphasis.",
-  "recipe": "classic Los Angeles funk metal, distorted Rock, alternative branch, funk percussive groove percussion future funk. thick, low dynamic level, chest resonance low mid, punctuated. Fender blackface amp American 60s amp spring reverb bright basswood mahogany humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, mahogany pre muffled edge muffled machine hammered symmetric pattern drum kit. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
-  "recipe_chars": 608,
-  "score": 480.487,
+  "recipe": "classic Los Angeles funk metal, distorted Rock, alternative branch, funk percussive groove percussion future funk. thick, breath veiled tone, slow rate, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright basswood mahogany humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, mahogany pre muffled edge muffled machine hammered symmetric pattern drum kit. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
+  "recipe_chars": 609,
+  "score": 494.164,
   "config": {
     "traditions": [
       "funk_metal",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "crooner_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "staccato_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "japanese_min_yo_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 21.160999999999994,
-          "voice_quality": 3.6400000000000006,
+          "voice_quality": 8.774999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.4944999999999995,
-          "voice_articulation": 5.741499999999999,
+          "voice_vibrato": 3.77,
+          "voice_articulation": 12.934999999999995,
           "voice_microtone": 18.674999999999997,
           "voice_tradition": 3.9,
           "voice_mechanism_compound": 9.172,
           "voice_estill_quality": 1.6899999999999997,
-          "voice_speech_song": 13.779999999999998,
-          "voice_ensemble_config": 14.104999999999997,
+          "voice_speech_song": 13.649999999999995,
+          "voice_ensemble_config": 13.974999999999994,
           "voice_ornament_system": 1.4365,
-          "voice_pitch_organization": 4.225,
+          "voice_pitch_organization": 4.03,
           "voice_processing_chain": 33.7865,
-          "voice_multitrack_stack": 7.247
+          "voice_multitrack_stack": 8.775
         }
       },
       {

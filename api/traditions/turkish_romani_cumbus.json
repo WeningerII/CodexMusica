@@ -3,9 +3,9 @@
   "name": "Turkish-Romani çümbüş music",
   "family": "global",
   "lineage": "Anatolian-Romani urban entertainment tradition centered around the Sulukule and Edirnekapı Romani quarters of Istanbul and the broader Turkish Romani diaspora across Anatolia; characteristic instrument the çümbüş (a banjo-oud hybrid invented 1930 by Zeynel Abidin Cümbüş), performed alongside kanun, darbuka, clarinet, violin for wedding-and-celebration repertoire",
-  "recipe": "classic Central European early-1930s turkish-romani çümbüş music, improv On Frame, Persian arab improv branch, med east poetic ballad poetry, klezmer improv improv on frame ethiopian azmari minstrel-poet pontic greek music. vocal fry, declaimed, pure, narrative. aluminum rim zeynel abidin skin head modern banjo like nylon oud courses strummed cumbus, kanun tortoiseshell traditional kanun, goat skin Turkish darbuka regional Turkish darbuka split finger smaller goat skin darbuka, ebonite hard rubber klezmer tradition clarinet. budapest carpathian csarda tavern. large-diaphragm condenser, transformer-coupled solid-state pre, colored vintage console, vari-mu, passive program EQ. vinyl master cut tape echo spring reverb germanium fuzz wah / envelope filter.",
-  "recipe_chars": 762,
-  "score": 159.606,
+  "recipe": "classic Central European early-1930s turkish-romani çümbüş music, improv On Frame, Persian arab improv branch, med east poetic ballad poetry, klezmer improv improv on frame ethiopian azmari minstrel-poet pontic greek music. vocal fry, breath veiled tone, pure, interlocked note trading. aluminum rim zeynel abidin skin head modern banjo like nylon oud courses strummed cumbus, kanun tortoiseshell traditional kanun, goat skin Turkish darbuka regional Turkish darbuka split finger smaller goat skin darbuka, ebonite hard rubber klezmer tradition clarinet. budapest carpathian csarda tavern. large-diaphragm condenser, transformer-coupled solid-state pre, colored vintage console, vari-mu, passive program EQ. vinyl master cut tape echo spring reverb germanium fuzz wah / envelope filter.",
+  "recipe_chars": 786,
+  "score": 230.414,
   "config": {
     "traditions": [
       "turkish_romani_cumbus",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "vocal_fry",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "straight_tone",
-          "voice_articulation": "narrative_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 1.430625,
-          "voice_quality": 4.750000000000001,
+          "voice_quality": 16.639999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.69,
-          "voice_articulation": 0.585,
-          "voice_microtone": 8.919999999999998,
+          "voice_articulation": 18.005000000000003,
+          "voice_microtone": 30.257499999999997,
           "voice_tradition": 24.180000000000007,
           "voice_mechanism_compound": 4.225,
           "voice_estill_quality": 3.185,
-          "voice_speech_song": 18.135000000000005,
-          "voice_ensemble_config": 18.070000000000004,
+          "voice_speech_song": 19.240000000000002,
+          "voice_ensemble_config": 17.94,
           "voice_ornament_system": 4.04,
-          "voice_pitch_organization": 11.024999999999999,
+          "voice_pitch_organization": 30.36,
           "voice_processing_chain": 5.85,
-          "voice_multitrack_stack": 3.8356249999999994
+          "voice_multitrack_stack": 3.685625
         }
       },
       {

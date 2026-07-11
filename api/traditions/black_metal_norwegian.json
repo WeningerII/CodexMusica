@@ -3,9 +3,9 @@
   "name": "Black metal (Norwegian second wave)",
   "family": "rock_punk",
   "lineage": "Early-1990s Norwegian heavy-metal subgenre developed from broader 1980s first-wave black-metal (Venom, Bathory, Hellhammer) into a distinct Norwegian extreme-metal style. Characterized by tremolo-picked-guitar-blast-beat percussion, raw-and-lo-fi production aesthetic, screeched-or-shrieked vocal-delivery, and explicit Norse-pagan-and-Satanic thematic content. Mayhem (founded 1984), Burzum, Darkthrone, Emperor, Immortal, and the broader Norwegian black-metal scene anchored the canonical aesthetic. The early-1990s church-arson and murder controversies mythologized the scene.",
-  "recipe": "classic 1990-1993 black metal, distorted Rock, death branch, thrash metal groove metal djent. thick, false fold engaged, chest resonance low mid, punctuated. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modeled amp modern rig alder ernie ball slinky electric bass, mahogany kevlar aramid extreme tension machine hammered drum kit. isolated rural 2005-present isolation diy isolation cabin diy. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 613,
-  "score": 450.39,
+  "recipe": "classic 1990-1993 black metal, distorted Rock, death branch, thrash metal groove metal djent. thick, breath veiled tone, breath pulsed, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modeled amp modern rig alder ernie ball slinky electric bass, mahogany kevlar aramid extreme tension machine hammered drum kit. isolated rural 2005-present isolation diy isolation cabin diy. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 617,
+  "score": 470.466,
   "config": {
     "traditions": [
       "black_metal_norwegian",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "false_fold_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "staccato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "baroque_ornamental_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
           "voice_estill_quality": "voice_estill_belt",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
           "voice_register": 11.233999999999996,
-          "voice_quality": 5.068000000000001,
+          "voice_quality": 11.43999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.34,
-          "voice_articulation": 2.535,
-          "voice_microtone": 10.905,
+          "voice_vibrato": 2.3735,
+          "voice_articulation": 13.324999999999996,
+          "voice_microtone": 13.129999999999992,
           "voice_tradition": 4.095000000000001,
           "voice_mechanism_compound": 43.64600000000001,
           "voice_estill_quality": 1.958,
-          "voice_speech_song": 13.454999999999997,
-          "voice_ensemble_config": 13.389999999999997,
+          "voice_speech_song": 13.324999999999996,
+          "voice_ensemble_config": 13.259999999999994,
           "voice_ornament_system": 0,
-          "voice_pitch_organization": 6.6899999999999995,
+          "voice_pitch_organization": 6.666,
           "voice_processing_chain": 4.9565,
-          "voice_multitrack_stack": 5.785
+          "voice_multitrack_stack": 6.725000000000001
         }
       },
       {

@@ -3,9 +3,9 @@
   "name": "Stoner rock",
   "family": "rock_punk",
   "lineage": "Late-1980s-and-1990s heavy-metal-and-rock subgenre developed primarily in California (Palm Desert \"desert rock\" scene) and northern Europe, characterized by down-tuned-distorted guitar tone, slow-to-mid-tempo grooves, vintage-1970s-Sabbath-Hendrix sonic reference, and improvisational-jam-oriented composition. Kyuss (Palm Desert, 1987-1995) and Sleep (San Jose, 1990-1998) inaugurated the canonical American sound; Queens of the Stone Age (1996-onward, Kyuss successor) extended the genre commercially.",
-  "recipe": "classic Midwestern American mid-1990s stoner rock, distorted Rock, doom branch, sludge metal post-metal. thick, larynx lowered, pure, equal tempered. orange amp British heavy crunch basswood maple pau ferro humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky riff driven electric bass, mahogany vintage ambassador asymmetric machine hammered symmetric pattern drum kit. stoner doom garage amplifier room. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay electro-harmonix big muff pi.",
-  "recipe_chars": 614,
-  "score": 594.016,
+  "recipe": "classic Midwestern American mid-1990s stoner rock, distorted Rock, doom branch, sludge metal post-metal. thick, larynx lowered, slow rate, interlocked note trading. orange amp British heavy crunch basswood maple pau ferro humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky riff driven electric bass, mahogany vintage ambassador asymmetric machine hammered symmetric pattern drum kit. stoner doom garage amplifier room. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay electro-harmonix big muff pi.",
+  "recipe_chars": 629,
+  "score": 610.864,
   "config": {
     "traditions": [
       "stoner_rock",
@@ -20,8 +20,8 @@
           "voice_quality": "lowered_larynx_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "straight_tone",
-          "voice_articulation": "spoken_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "baroque_ornamental_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
@@ -38,18 +38,18 @@
           "voice_quality": 19.999999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.1849999999999996,
-          "voice_articulation": 0.1995,
+          "voice_vibrato": 4.3549999999999995,
+          "voice_articulation": 16.184999999999995,
           "voice_microtone": 25.654999999999994,
           "voice_tradition": 3.6399999999999997,
           "voice_mechanism_compound": 36.7055,
           "voice_estill_quality": 1.6899999999999997,
-          "voice_speech_song": 16.509999999999998,
-          "voice_ensemble_config": 16.249999999999996,
+          "voice_speech_song": 16.379999999999995,
+          "voice_ensemble_config": 16.119999999999994,
           "voice_ornament_system": 2.9660000000000006,
-          "voice_pitch_organization": 2.535,
+          "voice_pitch_organization": 2.34,
           "voice_processing_chain": 10.271749999999999,
-          "voice_multitrack_stack": 7.170000000000001
+          "voice_multitrack_stack": 7.318250000000001
         }
       },
       {

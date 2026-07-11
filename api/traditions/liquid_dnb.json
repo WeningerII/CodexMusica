@@ -3,9 +3,9 @@
   "name": "Liquid drum-and-bass (mid-1990s atmospheric jazz-influenced D&B)",
   "family": "electronic",
   "lineage": "2000s and 2010s drum-and-bass subgenre extending atmospheric drum-and-bass with explicit soul-and-jazz vocal-feature emphasis and broader pop-crossover-friendly arrangement. Hospital Records (founded 1996, peak influence 2005-onward) anchored the canonical liquid drum-and-bass institutional infrastructure; High Contrast, Logistics, London Elektricity, Netsky, and the broader contemporary Hospital roster define the canonical liquid drum-and-bass aesthetic.",
-  "recipe": "classic liquid drum-and-bass, bass System, bass descendants branch, American jazz smooth vocal modern vocal jazz. thick, low dynamic level, chest resonance low mid, narrative. behringer rd 8 modern clone analog circuit reproduction TR-808, sub bass analog synth, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 547,
-  "score": 289.079,
+  "recipe": "classic liquid drum-and-bass, bass System, bass descendants branch, American jazz smooth vocal modern vocal jazz. thick, close mic intimate, straight onset, interlocked note trading. behringer rd 8 modern clone analog circuit reproduction TR-808, sub bass analog synth, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 554,
+  "score": 335.27,
   "config": {
     "traditions": [
       "liquid_dnb",
@@ -20,8 +20,8 @@
           "voice_quality": "crooner_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "narrative_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "jazz_scat_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 33.05650000000001,
-          "voice_quality": 4.534,
+          "voice_quality": 9.149,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.34,
-          "voice_articulation": 3.1000000000000005,
+          "voice_vibrato": 28.173249999999996,
+          "voice_articulation": 17.550000000000004,
           "voice_microtone": 29.974999999999994,
           "voice_tradition": 25.808499999999995,
           "voice_mechanism_compound": 2.3617500000000002,
           "voice_estill_quality": 6.189500000000001,
-          "voice_speech_song": 19.435000000000006,
-          "voice_ensemble_config": 17.615000000000006,
+          "voice_speech_song": 19.305000000000003,
+          "voice_ensemble_config": 17.485000000000003,
           "voice_ornament_system": 1.95,
-          "voice_pitch_organization": 3.3799999999999994,
+          "voice_pitch_organization": 3.185,
           "voice_processing_chain": 11.107750000000001,
-          "voice_multitrack_stack": 8.592500000000001
+          "voice_multitrack_stack": 10.339999999999998
         }
       },
       {

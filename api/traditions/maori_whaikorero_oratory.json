@@ -3,26 +3,26 @@
   "name": "Māori whaikōrero oratory",
   "family": "global",
   "lineage": "The formal oratory of the marae ātea (forecourt) in Māori ceremonial encounter (pōwhiri) in Aotearoa/New Zealand, performed by male speakers (kaikōrero) following the women's karanga. A whaikōrero is structured through a formulaic opening (tauparapara), recitation of whakapapa (genealogy), acknowledgement of the dead and the living, and the matter at hand, and is typically sealed by a sung waiata supported by the speaker's group. It is a primary vehicle of mana, whakapapa, and tikanga Māori, transmitted orally from senior orators to successors. Both an art of memory and of improvised response, it draws freely on proverb (whakataukī) and chanted passages.",
-  "recipe": "classic Oceanian modern māori whaikōrero oratory, praise Song, oceania pacific branch xhosa iimbongi praise oratory hawaiian haʻa ancestral chant. vocal fry, declaimed, overtone rich sustained, continuous-phonation. marae forecourt. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 295,
-  "score": 115.383,
+  "recipe": "classic Oceanian modern māori whaikōrero oratory, praise Song, oceania pacific branch hawaiian haʻa ancestral chant xhosa iimbongi praise oratory. vocal fry, breath veiled tone, breath pulsed, interlocked note trading. marae forecourt. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 298,
+  "score": 169.678,
   "config": {
     "traditions": [
       "maori_whaikorero_oratory",
-      "xhosa_iimbongi",
-      "hawaiian_haa_ancestral_chant"
+      "hawaiian_haa_ancestral_chant",
+      "xhosa_iimbongi"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "vocal_fry",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "diaphragm_vibrato",
-          "voice_articulation": "legato_voice",
-          "voice_microtone": "shruti_inflected",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
           "voice_estill_quality": "voice_estill_opera",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_polynesian_falsetto",
           "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 1.69,
-          "voice_quality": 21.234499999999993,
+          "voice_quality": 22.42499999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.3715,
-          "voice_articulation": 4.056,
-          "voice_microtone": 0.22499999999999998,
+          "voice_vibrato": 3.0215,
+          "voice_articulation": 21.775,
+          "voice_microtone": 21.58,
           "voice_tradition": 15.4375,
           "voice_mechanism_compound": 1.8,
           "voice_estill_quality": 2.34,
-          "voice_speech_song": 27.625000000000004,
-          "voice_ensemble_config": 21.84,
+          "voice_speech_song": 28.34,
+          "voice_ensemble_config": 21.71,
           "voice_ornament_system": 5.6515,
           "voice_pitch_organization": 4.056,
-          "voice_processing_chain": 6.861,
-          "voice_multitrack_stack": 0.845
+          "voice_processing_chain": 13.718999999999994,
+          "voice_multitrack_stack": 6.782500000000001
         }
       }
     ],

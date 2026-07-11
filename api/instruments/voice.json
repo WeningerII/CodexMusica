@@ -181,6 +181,27 @@
             "pop",
             "r&b"
           ]
+        },
+        {
+          "id": "strohbass_register",
+          "auto": false,
+          "name": "Strohbass (sustained pitched fry, sub-bass pedal)",
+          "descriptors": [
+            "strohbass",
+            "sustained-pitched-fry",
+            "sub-bass-rattle",
+            "choral-pedal-tone"
+          ],
+          "match_tokens": [
+            "breathing",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "russian-orthodox-choral",
+            "oktavist",
+            "barbershop",
+            "basso-profondo"
+          ]
         }
       ]
     },
@@ -325,6 +346,9 @@
           "surface": false,
           "name": "Aspirated voice (deliberate breath as expression)",
           "descriptors": [
+            "breath-veiled-tone",
+            "air-around-the-note",
+            "intimate-close-hush",
             "intimate-aspirated"
           ],
           "match_tokens": [
@@ -546,8 +570,12 @@
         {
           "id": "crooner_voice",
           "surface": false,
-          "name": "Crooner",
+          "name": "Crooner (close-mic intimate, low-dynamic)",
           "descriptors": [
+            "close-mic-intimate",
+            "low-dynamic-croon",
+            "smooth-sustained-legato",
+            "microphone-amplification-dependent",
             "low-dynamic-level",
             "mid-century",
             "crooner"
@@ -559,7 +587,9 @@
           "canonical_tags": [
             "crooner",
             "tin-pan-alley",
-            "great-american-songbook"
+            "great-american-songbook",
+            "mid-century",
+            "1930s-1950s"
           ]
         },
         {
@@ -702,6 +732,47 @@
           "canonical_tags": [
             "boys-choir"
           ]
+        },
+        {
+          "id": "ingenue_childlike_voice",
+          "auto": false,
+          "name": "Ingenue / childlike voice (adult-performed girlish brightness)",
+          "descriptors": [
+            "girlish-light-bright",
+            "raised-larynx-small-tract",
+            "wide-eyed-ingenue",
+            "adult-performing-childlike"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "musical-theater-ingenue",
+            "idol-pop",
+            "jazz-age-novelty"
+          ]
+        },
+        {
+          "id": "husky_smoky_voice",
+          "auto": false,
+          "name": "Husky / smoky voice (breath-plus-grain stylistic timbre)",
+          "descriptors": [
+            "husky-smoky",
+            "breath-plus-grain-simultaneous",
+            "warm-rasp-veiled",
+            "stylistic-not-pathological"
+          ],
+          "match_tokens": [
+            "breathy",
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "torch-song",
+            "blues-rock",
+            "soul"
+          ]
         }
       ]
     },
@@ -762,6 +833,73 @@
             "velopharyngeal-open",
             "nasal-coupled-resonance"
           ]
+        },
+        {
+          "id": "tongue_retroflex_r_colored",
+          "auto": false,
+          "name": "Tongue retroflex (r-colored, rhotic)",
+          "descriptors": [
+            "tongue-retroflex-bunched",
+            "r-colored-vowel",
+            "f3-lowered",
+            "rhotic-drawl"
+          ],
+          "match_tokens": [],
+          "canonical_tags": [
+            "country",
+            "americana"
+          ]
+        },
+        {
+          "id": "larynx_raised_brassy",
+          "auto": false,
+          "name": "Larynx raised (short-tract, brassy)",
+          "descriptors": [
+            "larynx-raised",
+            "tract-shortened",
+            "all-formant-raised-brassy",
+            "thin-bright-call"
+          ],
+          "match_tokens": [],
+          "canonical_tags": [
+            "broadway-soubrette",
+            "jingju",
+            "character-voice"
+          ]
+        },
+        {
+          "id": "lips_spread_smile_bright",
+          "auto": false,
+          "name": "Lips spread (smile-posture, bright)",
+          "descriptors": [
+            "lips-spread-smile",
+            "front-cavity-shortened",
+            "f2-raised-brightened",
+            "glassy-forward-vowel"
+          ],
+          "match_tokens": [],
+          "canonical_tags": [
+            "1960s-girl-group",
+            "surf-pop",
+            "k-pop"
+          ]
+        },
+        {
+          "id": "lips_rounded_darkened",
+          "auto": false,
+          "name": "Lips rounded-protruded (hooded, dark)",
+          "descriptors": [
+            "lips-rounded-protruded",
+            "all-formant-lowered",
+            "hooded-darkened-vowel",
+            "blend-muted"
+          ],
+          "match_tokens": [],
+          "canonical_tags": [
+            "choral",
+            "early-music",
+            "crooner-era"
+          ]
         }
       ]
     },
@@ -810,6 +948,40 @@
             "pressed-loud",
             "full-force"
           ]
+        },
+        {
+          "id": "effort_overdriven_scream",
+          "auto": false,
+          "name": "Overdriven scream pressure (past clean-phonation limit)",
+          "descriptors": [
+            "overdriven-subglottal-pressure",
+            "source-distorting",
+            "past-clean-limit",
+            "scream-pressure"
+          ],
+          "match_tokens": [],
+          "canonical_tags": [
+            "hardcore-punk",
+            "extreme-metal",
+            "raw-scream"
+          ]
+        },
+        {
+          "id": "effort_fortissimo_sustained",
+          "auto": false,
+          "name": "Sustained full-voice fortissimo (flow phonation at maximal loudness)",
+          "descriptors": [
+            "sustained-fortissimo",
+            "hall-filling",
+            "flow-phonation-unstrained",
+            "breath-anchored-loud"
+          ],
+          "match_tokens": [],
+          "canonical_tags": [
+            "operatic-climax",
+            "stadium-anthem",
+            "gospel-climax"
+          ]
         }
       ]
     },
@@ -835,8 +1007,11 @@
         {
           "id": "slow_vibrato",
           "default": true,
-          "name": "Slow vibrato",
+          "name": "Slow vibrato (relaxed rate, rounded pulse)",
           "descriptors": [
+            "slow-rate",
+            "rounded-even-pulse",
+            "warm-low-mid-resonance",
             "chest-resonance-low-mid",
             "expressive",
             "classical"
@@ -845,12 +1020,18 @@
             "vibrato-rich",
             "vibrato-y",
             "speech-derived"
+          ],
+          "canonical_tags": [
+            "classical"
           ]
         },
         {
           "id": "fast_vibrato",
-          "name": "Fast vibrato",
+          "name": "Fast vibrato (quick narrow shimmer)",
           "descriptors": [
+            "fast-rate",
+            "narrow-quick-shimmer",
+            "nervy-intensity",
             "nervy",
             "treble-extended"
           ],
@@ -863,8 +1044,11 @@
         },
         {
           "id": "diaphragm_vibrato",
-          "name": "Diaphragm vibrato",
+          "name": "Diaphragm vibrato (breath-pulsed loudness wave)",
           "descriptors": [
+            "breath-pulsed",
+            "amplitude-loudness-wave",
+            "deliberate-even-pulse",
             "overtone-rich-sustained",
             "controlled"
           ],
@@ -876,8 +1060,11 @@
         },
         {
           "id": "oscillating_vibrato",
-          "name": "Country oscillating vibrato",
+          "name": "Wide oscillating vibrato (cry-tinged pitch sway)",
           "descriptors": [
+            "wide-pitch-sway",
+            "cry-tinged",
+            "drawled-roll",
             "bluesy",
             "expressive"
           ],
@@ -888,13 +1075,17 @@
             "breathing"
           ],
           "canonical_tags": [
-            "country"
+            "country",
+            "blues"
           ]
         },
         {
           "id": "delayed_vibrato",
-          "name": "Delayed vibrato",
+          "name": "Delayed-onset vibrato (straight tone blooming into vibrato)",
           "descriptors": [
+            "straight-onset",
+            "late-blooming-waver",
+            "sustain-then-oscillate",
             "tasteful",
             "modern"
           ],
@@ -903,12 +1094,19 @@
             "vibrato-y",
             "speech-derived",
             "breathing"
+          ],
+          "canonical_tags": [
+            "contemporary-pop",
+            "jazz"
           ]
         },
         {
           "id": "terminal_vibrato",
-          "name": "Terminal (note-end only)",
+          "name": "Terminal vibrato (straight core, note-end flourish)",
           "descriptors": [
+            "straight-note-core",
+            "note-end-flourish",
+            "release-only-waver",
             "melodic",
             "period-honest"
           ],
@@ -919,7 +1117,9 @@
             "breathing"
           ],
           "canonical_tags": [
-            "country"
+            "country",
+            "early-music",
+            "period-performance"
           ]
         },
         {
@@ -930,6 +1130,26 @@
             "slow-rate",
             "wide-excursion",
             "terminal-sustain-only"
+          ]
+        },
+        {
+          "id": "wobble_vibrato",
+          "auto": false,
+          "name": "Wobble (wide-slow, pitch-center blurring)",
+          "descriptors": [
+            "wide-slow-oscillation",
+            "pitch-center-blurred",
+            "laboured-sway"
+          ],
+          "match_tokens": [
+            "vibrato-rich",
+            "vibrato-y",
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "late-career-operatic",
+            "dramatic-opera"
           ]
         }
       ]
@@ -972,8 +1192,11 @@
         {
           "id": "melisma_voice",
           "surface": false,
-          "name": "Melisma-heavy",
+          "name": "Melisma-heavy (runs and riffs on single syllables)",
           "descriptors": [
+            "multi-note-runs-per-syllable",
+            "cascading-riff-runs",
+            "vowel-carried-flourish",
             "ornamental",
             "expressive"
           ],
@@ -984,7 +1207,8 @@
             "articulated"
           ],
           "canonical_tags": [
-            "gospel"
+            "gospel",
+            "r-and-b"
           ]
         },
         {
@@ -1044,8 +1268,11 @@
         {
           "id": "hocket_voice",
           "surface": false,
-          "name": "Hocket (interlocking-voices)",
+          "name": "Hocket (interlocked note-trading, one melody split across voices)",
           "descriptors": [
+            "interlocked-note-trading",
+            "alternating-gap-and-hit",
+            "melody-split-between-voices",
             "hocket-articulation"
           ],
           "match_tokens": [
@@ -1054,14 +1281,19 @@
             "articulated"
           ],
           "canonical_tags": [
-            "sardinian-polyphony"
+            "sardinian-polyphony",
+            "medieval-motet",
+            "aka-pygmy-polyphony"
           ]
         },
         {
           "id": "call_response_voice",
           "surface": false,
-          "name": "Call-and-response",
+          "name": "Call-and-response (leader phrase answered by response phrase)",
           "descriptors": [
+            "leader-call-answered",
+            "antiphonal-phrase-exchange",
+            "question-answer-phrasing",
             "callresponse-articulation",
             "antiphonal-articulation"
           ],
@@ -1072,7 +1304,52 @@
             "articulated"
           ],
           "canonical_tags": [
-            "worksong"
+            "worksong",
+            "gospel",
+            "work-song",
+            "west-african"
+          ]
+        },
+        {
+          "id": "patter_voice",
+          "auto": false,
+          "name": "Patter (rapid-fire syllabic delivery at tongue-twister tempo)",
+          "descriptors": [
+            "rapid-fire-syllabic",
+            "tongue-twister-tempo",
+            "breathless-comic-precision",
+            "maximum-syllable-rate"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "gilbert-and-sullivan",
+            "opera-buffa",
+            "comic-song"
+          ]
+        },
+        {
+          "id": "mumbled_voice",
+          "auto": false,
+          "name": "Slurred / mumbled diction (vowel-smeared, consonants swallowed)",
+          "descriptors": [
+            "vowel-smeared",
+            "consonant-softened",
+            "under-articulated",
+            "half-swallowed-syllables"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "indie",
+            "dream-pop",
+            "mumble-rap",
+            "2010s"
           ]
         }
       ]
@@ -1134,8 +1411,12 @@
         },
         {
           "id": "maqam_inflected",
-          "name": "Maqam-inflected (neutral steps)",
+          "name": "Maqam-inflected (neutral-third quarter-steps)",
           "descriptors": [
+            "neutral-third-half-flat",
+            "quarter-step-shading",
+            "between-major-and-minor",
+            "modal-idiomatic-intonation",
             "maqam-neutral-step"
           ],
           "match_tokens": [
@@ -1148,7 +1429,9 @@
             "arabic",
             "middle-eastern",
             "egyptian",
-            "turkish"
+            "turkish",
+            "arabic-maqam",
+            "tarab"
           ]
         },
         {
@@ -1169,8 +1452,12 @@
         },
         {
           "id": "bend_inflected",
-          "name": "Bend-inflected (flamenco / blues bends)",
+          "name": "Bend-inflected (scooped attacks, curled releases)",
           "descriptors": [
+            "scooped-attack",
+            "curled-release",
+            "under-pitch-arrival",
+            "expressive-slide",
             "bend-inflected",
             "pitch-bending"
           ],
@@ -1181,7 +1468,30 @@
             "breathing"
           ],
           "canonical_tags": [
-            "flamenco"
+            "flamenco",
+            "blues"
+          ]
+        },
+        {
+          "id": "portamento_inflected",
+          "auto": false,
+          "name": "Portamento-heavy (audible slides connecting every note)",
+          "descriptors": [
+            "note-connecting-slide",
+            "swooping-legato",
+            "late-pitch-arrival",
+            "continuous-glide-between-targets"
+          ],
+          "match_tokens": [
+            "microtonal-bend",
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "early-recording-era",
+            "pre-1930-operatic",
+            "hawaiian-falsetto",
+            "classic-country"
           ]
         }
       ]
@@ -1821,6 +2131,108 @@
             "zulu",
             "african"
           ]
+        },
+        {
+          "id": "honky_tonk_high_lonesome_tradition",
+          "auto": false,
+          "name": "Country honky-tonk / high-lonesome (hard-twang cry-break)",
+          "descriptors": [
+            "hard-twang-cut",
+            "cry-break-catch",
+            "high-lonesome-tenor",
+            "nasal-keening-edge"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "country",
+            "honky-tonk",
+            "bluegrass"
+          ]
+        },
+        {
+          "id": "jamaican_dancehall_toasting_tradition",
+          "auto": false,
+          "name": "Jamaican toasting / dancehall deejay (patois sing-jay)",
+          "descriptors": [
+            "toasting-deejay-flow",
+            "patois-inflected",
+            "riddim-locked-chat",
+            "melodic-sing-jay"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "reggae",
+            "dancehall",
+            "jamaican"
+          ]
+        },
+        {
+          "id": "pansori_tradition",
+          "auto": false,
+          "name": "Pansori (Korean epic narrative, roughened virtuosity)",
+          "descriptors": [
+            "husky-roughened-projection",
+            "epic-narrative-declamation",
+            "trained-hoarse-timbre",
+            "hours-long-endurance"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "pansori",
+            "korean",
+            "gugak"
+          ]
+        },
+        {
+          "id": "bollywood_playback_tradition",
+          "auto": false,
+          "name": "Bollywood playback (high bright film-song tessitura)",
+          "descriptors": [
+            "high-bright-tessitura",
+            "thin-fold-agile",
+            "light-classical-ornamented",
+            "mic-close-precision"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "bollywood",
+            "hindi-film-song",
+            "filmi"
+          ]
+        },
+        {
+          "id": "french_chanson_tradition",
+          "auto": false,
+          "name": "French chanson (diction-first dramatic parlando)",
+          "descriptors": [
+            "diction-first-text-driven",
+            "dramatic-parlando-swell",
+            "rolled-r-articulation",
+            "cabaret-intimate-to-declaimed"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "chanson",
+            "french",
+            "cabaret"
+          ]
         }
       ]
     },
@@ -1986,6 +2398,27 @@
             "controlled-ventricular-overlay",
             "throat-clear-grain"
           ]
+        },
+        {
+          "id": "voice_mechanism_diplophonic_biphonation",
+          "auto": false,
+          "name": "Diplophonic biphonation (two independent simultaneous fundamentals, incommensurate F0 from asymmetric/split fold vibration)",
+          "descriptors": [
+            "two-independent-simultaneous-pitches",
+            "incommensurate-non-harmonic-beating",
+            "rough-double-toned-buzz",
+            "asymmetric-split-fold-oscillation"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "extended-vocal-technique",
+            "avant-garde-vocal",
+            "biphonic"
+          ]
         }
       ]
     },
@@ -2022,9 +2455,11 @@
         },
         {
           "id": "voice_estill_sob",
-          "name": "Sob quality (low larynx + thin folds — operatic cry configuration)",
+          "name": "Sob quality (low larynx + thin folds — darkened, muffled weeping)",
           "descriptors": [
             "sob-quality-low-larynx-thin-fold",
+            "darkened-weeping-warmth",
+            "hollow-muted-grief",
             "lowered-larynx-cry-configuration"
           ],
           "match_tokens": [
@@ -2107,6 +2542,24 @@
             "r&b",
             "ranchera"
           ]
+        },
+        {
+          "id": "voice_estill_cry",
+          "auto": false,
+          "name": "Cry quality (thin folds + tilted thyroid, larynx higher than sob — small, sweet, plaintive)",
+          "descriptors": [
+            "cry-quality-thin-fold-tilted-thyroid",
+            "raised-larynx-small-volume",
+            "sweet-plaintive-whimper-onset"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "contemporary-pop",
+            "soul-ballad"
+          ]
         }
       ]
     },
@@ -2172,8 +2625,11 @@
         },
         {
           "id": "voice_sprechgesang_notated",
-          "name": "Sprechgesang (notated approximate pitch)",
+          "name": "Sprechgesang (pitched speech-melody, song-leaning)",
           "descriptors": [
+            "notated-speech-melody",
+            "pitch-carried-not-just-touched",
+            "song-leaning-declamation",
             "sprechgesang-notated-approximate-pitch",
             "between-speech-and-song"
           ],
@@ -2182,7 +2638,9 @@
             "breathing"
           ],
           "canonical_tags": [
-            "modern-classical"
+            "modern-classical",
+            "second-viennese-school",
+            "wagnerian-declamation"
           ]
         },
         {
@@ -2218,6 +2676,9 @@
           "default": true,
           "name": "Syllabic singing (one note per syllable)",
           "descriptors": [
+            "one-note-per-syllable",
+            "text-forward",
+            "plain-direct-line",
             "syllabic-singing-one-note-per-syllable"
           ],
           "match_tokens": [
@@ -2230,6 +2691,9 @@
           "id": "voice_neumatic_singing",
           "name": "Neumatic singing (small note-groups per syllable)",
           "descriptors": [
+            "small-note-groups-per-syllable",
+            "gently-florid",
+            "text-still-legible",
             "neumatic-singing-small-groups-per-syllable"
           ],
           "match_tokens": [
@@ -2240,8 +2704,11 @@
         },
         {
           "id": "voice_melismatic_singing",
-          "name": "Melismatic singing (many notes per syllable)",
+          "name": "Melismatic singing (long runs on one syllable)",
           "descriptors": [
+            "many-notes-per-syllable",
+            "vowel-carried-runs",
+            "florid-extended-line",
             "melismatic-singing-many-notes-per-syllable"
           ],
           "match_tokens": [
@@ -2266,13 +2733,56 @@
         },
         {
           "id": "voice_non_lexical_vocable",
-          "name": "Non-lexical vocable (rhythmic non-lexical syllables)",
+          "name": "Non-lexical vocables (meaningless syllables as music)",
           "descriptors": [
+            "meaningless-syllables-carrying-melody",
+            "rhythm-forward-vocables",
+            "consonant-attack-as-percussion",
             "non-lexical-vocable-rhythmic-syllables"
           ],
           "match_tokens": [
             "speech-derived",
             "breathing"
+          ]
+        },
+        {
+          "id": "voice_sprechstimme_pitch_released",
+          "auto": false,
+          "name": "Sprechstimme (notated pitch touched then released, speech-dominant)",
+          "descriptors": [
+            "pitch-touched-then-abandoned",
+            "gliding-off-every-note",
+            "speech-dominant-contour"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "second-viennese-school",
+            "pierrot-lunaire",
+            "expressionism-1912"
+          ]
+        },
+        {
+          "id": "voice_toasting_deejay_chat",
+          "auto": false,
+          "name": "Toasting / deejay chat (pitched rhythmic chant over riddim)",
+          "descriptors": [
+            "pitched-rhythmic-chat",
+            "tonal-center-chanted-flow",
+            "riddim-locked-delivery",
+            "half-sung-half-spoken"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "jamaican-sound-system",
+            "reggae",
+            "dancehall",
+            "1970s-onward"
           ]
         }
       ]
@@ -2412,8 +2922,12 @@
         },
         {
           "id": "voice_ensemble_three_voice_polyphony",
-          "name": "Three-voice polyphony (regional-canonical configurations)",
+          "name": "Three-voice polyphony (interweaving independent trio)",
           "descriptors": [
+            "three-independent-lines",
+            "interweaving-trio-texture",
+            "close-interval-friction",
+            "cadence-convergence",
             "three-voice-polyphony-regional-canonical"
           ],
           "match_tokens": [
@@ -2426,13 +2940,19 @@
             "sardinian-polyphony",
             "georgian-three-voice-polyphony",
             "corsican-paghjella",
-            "bulgarian-diaphonic-womens"
+            "bulgarian-diaphonic-womens",
+            "georgian-trio",
+            "balkan"
           ]
         },
         {
           "id": "voice_ensemble_four_plus_polyphony",
-          "name": "Four-and-more voice polyphony",
+          "name": "Four-plus-voice polyphony (full-choir woven counterpoint)",
           "descriptors": [
+            "four-plus-independent-lines",
+            "overlapping-staggered-entries",
+            "woven-counterpoint",
+            "full-choir-density",
             "four-and-more-voice-polyphony"
           ],
           "match_tokens": [
@@ -2443,13 +2963,19 @@
           ],
           "canonical_tags": [
             "sardinian-polyphony",
-            "aka-baka-polyphony"
+            "aka-baka-polyphony",
+            "renaissance-polyphony",
+            "sacred-choral"
           ]
         },
         {
           "id": "voice_ensemble_antiphonal_double_choir",
-          "name": "Antiphonal double-choir (alternating ensembles)",
+          "name": "Antiphonal double-choir (spatially opposed groups trading phrases)",
           "descriptors": [
+            "two-spatially-opposed-choirs",
+            "phrase-trading-alternation",
+            "echo-answer-effect",
+            "massed-tutti-convergence",
             "antiphonal-double-choir-alternating"
           ],
           "match_tokens": [
@@ -2459,7 +2985,9 @@
             "ensemble"
           ],
           "canonical_tags": [
-            "sacred-traditional"
+            "sacred-traditional",
+            "venetian-polychoral",
+            "cori-spezzati"
           ]
         },
         {
@@ -2494,8 +3022,12 @@
         },
         {
           "id": "voice_ensemble_heterophonic",
-          "name": "Heterophonic ensemble (same melody, variant ornamentation)",
+          "name": "Heterophonic ensemble (one melody, individually varied — village-choir blur)",
           "descriptors": [
+            "same-melody-all-voices",
+            "individual-ornament-divergence",
+            "blurred-unison-shimmer",
+            "non-aligned-onsets",
             "heterophonic-same-melody-variant-ornament"
           ],
           "match_tokens": [
@@ -2506,7 +3038,10 @@
           "canonical_tags": [
             "gagaku",
             "gamelan",
-            "middle-eastern"
+            "middle-eastern",
+            "village-choir",
+            "gaelic-psalm",
+            "middle-eastern-takht"
           ]
         },
         {
@@ -2573,6 +3108,51 @@
           "canonical_tags": [
             "hardcore",
             "punk"
+          ]
+        },
+        {
+          "id": "voice_ensemble_homophonic_block",
+          "auto": false,
+          "name": "Homophonic block-chord (all voices in one rhythm, chord-stacked)",
+          "descriptors": [
+            "all-voices-same-rhythm",
+            "block-chord-motion",
+            "text-synchronized-declamation",
+            "hymn-chorale-solidity"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "choir-blendable",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "lutheran-chorale",
+            "hymnody",
+            "barbershop",
+            "doo-wop"
+          ]
+        },
+        {
+          "id": "voice_ensemble_round_canon",
+          "auto": false,
+          "name": "Round / canon (one melody at staggered entries)",
+          "descriptors": [
+            "staggered-identical-entries",
+            "self-overlapping-melody",
+            "imitative-interlock",
+            "cyclic-perpetual-texture"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "choir-blendable",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "medieval-rota",
+            "english-catch",
+            "campfire-round"
           ]
         }
       ]
@@ -2834,8 +3414,12 @@
         },
         {
           "id": "voice_ornament_connemara_unaccompanied",
-          "name": "Connemara unaccompanied (melismatic ametric, consonantal decoration grace, nasal-resonance traditional)",
+          "name": "Sean-nós ornament catalog (Connemara-style roll/casadh grace-clusters, melismatic free-rhythm line, glottal separation, nasal decoration)",
           "descriptors": [
+            "grace-note-cluster-rolls",
+            "melismatic-free-rhythm",
+            "glottal-stop-separation",
+            "nasal-resonance-decoration",
             "connemara-unaccompanied-melismatic-grace-nasal"
           ],
           "match_tokens": [
@@ -2846,7 +3430,10 @@
           "canonical_tags": [
             "celtic",
             "irish-traditional",
-            "sean-nos"
+            "sean-nos",
+            "irish",
+            "connemara",
+            "gaelic"
           ]
         },
         {
@@ -2865,6 +3452,54 @@
             "hindustani",
             "classical",
             "south-asian"
+          ]
+        },
+        {
+          "id": "voice_ornament_fado_voltinha",
+          "auto": false,
+          "name": "Fado voltinha catalog (voltinha small-turn figures, phrase-end melisma, rubato note-stretching, mordent-glide inflection)",
+          "descriptors": [
+            "voltinha-turn-figures",
+            "phrase-end-melisma",
+            "rubato-stretched-line",
+            "mordent-glide-inflected"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "ornamented",
+            "melismatic",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "fado",
+            "portuguese",
+            "lisbon"
+          ]
+        },
+        {
+          "id": "voice_ornament_gospel_runs",
+          "auto": false,
+          "name": "Gospel runs-and-riffs catalog (pentatonic run-cascade, chained riff-turns, trap-door descending run, blue-third melisma, squall accent)",
+          "descriptors": [
+            "pentatonic-run-cascades",
+            "chained-riff-turns",
+            "trap-door-descending-run",
+            "blue-third-inflected-melisma"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "ornamented",
+            "melismatic",
+            "blues-inflected",
+            "call-response"
+          ],
+          "canonical_tags": [
+            "gospel",
+            "pentecostal",
+            "soul",
+            "r-and-b"
           ]
         }
       ]
@@ -2888,20 +3523,33 @@
         },
         {
           "id": "voice_pitch_just_intonation",
-          "name": "Just intonation fixed-pitch (5-limit ratios)",
+          "name": "Just intonation fixed-pitch (5-limit, beatless ratio-lock)",
           "descriptors": [
+            "just-ratio-locked",
+            "beatless-pure-thirds",
+            "chordal-ring-lock",
+            "overtone-fused",
             "just-intonation-5-limit-fixed-pitch"
           ],
           "match_tokens": [
             "speech-derived",
             "breathing",
             "period-performance"
+          ],
+          "canonical_tags": [
+            "barbershop",
+            "early-music",
+            "a-cappella"
           ]
         },
         {
           "id": "voice_pitch_meantone_quarter_comma",
-          "name": "Quarter-comma meantone fixed-pitch (canonical Renaissance / early baroque)",
+          "name": "Quarter-comma meantone (pure thirds, unequal key colors)",
           "descriptors": [
+            "pure-major-thirds",
+            "narrowed-fifths",
+            "calm-beatless-triads",
+            "unequal-key-color",
             "quarter-comma-meantone-canonical-renaissance-early-baroque"
           ],
           "match_tokens": [
@@ -2909,12 +3557,21 @@
             "breathing",
             "period-performance",
             "classical-trained"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "early-baroque",
+            "period-performance"
           ]
         },
         {
           "id": "voice_pitch_pythagorean",
-          "name": "Pythagorean fifth-stacked fixed-pitch",
+          "name": "Pythagorean fifth-stacked (pure fifths, bright wide thirds)",
           "descriptors": [
+            "pure-fifth-stacked",
+            "wide-bright-thirds",
+            "hollow-open-fifth-ring",
+            "keen-narrow-semitones",
             "pythagorean-fifth-stacked-fixed-pitch"
           ],
           "match_tokens": [
@@ -2923,7 +3580,10 @@
           ],
           "canonical_tags": [
             "sacred-traditional",
-            "georgian-three-voice-polyphony"
+            "georgian-three-voice-polyphony",
+            "medieval",
+            "organum",
+            "early-music"
           ]
         },
         {
@@ -2995,8 +3655,12 @@
         },
         {
           "id": "voice_pitch_pelog_7",
-          "name": "Pelog 7-tone Indonesian fixed-pitch",
+          "name": "Pelog seven-tone (uneven wide-narrow steps, gamelan-matched)",
           "descriptors": [
+            "pelog-uneven-steps",
+            "alternating-wide-narrow-intervals",
+            "gamelan-matched-tuning",
+            "dark-plaintive-color",
             "pelog-7-tone-indonesian-fixed-pitch"
           ],
           "match_tokens": [
@@ -3005,13 +3669,19 @@
           ],
           "canonical_tags": [
             "gamelan",
-            "indonesian"
+            "indonesian",
+            "javanese",
+            "balinese"
           ]
         },
         {
           "id": "voice_pitch_slendro_5",
-          "name": "Slendro 5-tone Indonesian fixed-pitch",
+          "name": "Slendro five-tone (near-equidistant, floating tonality)",
           "descriptors": [
+            "slendro-near-equidistant",
+            "roughly-240-cent-steps",
+            "floating-ambiguous-tonality",
+            "gamelan-matched-tuning",
             "slendro-5-tone-indonesian-fixed-pitch"
           ],
           "match_tokens": [
@@ -3020,13 +3690,17 @@
           ],
           "canonical_tags": [
             "gamelan",
-            "indonesian"
+            "indonesian",
+            "javanese"
           ]
         },
         {
           "id": "voice_pitch_thai_7_equal_step",
-          "name": "Thai 7-equal-step fixed-pitch",
+          "name": "Thai seven-equal (171-cent even steps, blurred thirds)",
           "descriptors": [
+            "seven-equal-171-cent-steps",
+            "evenly-spaced-interval-blur",
+            "neither-major-nor-minor-thirds",
             "thai-7-equal-step-fixed-pitch"
           ],
           "match_tokens": [
@@ -3035,13 +3709,19 @@
           ],
           "canonical_tags": [
             "thai",
-            "southeast-asian"
+            "southeast-asian",
+            "thai-classical",
+            "piphat-mahori"
           ]
         },
         {
           "id": "voice_pitch_ethiopian_qenet",
-          "name": "Ethiopian qenet tetrachord fixed-pitch",
+          "name": "Ethiopian qenet pentatonic modes (tizita, bati, ambassel, anchihoye)",
           "descriptors": [
+            "qenet-pentatonic-modes",
+            "tizita-bati-ambassel-anchihoye",
+            "uneven-pentatonic-gaps",
+            "krar-masinqo-matched",
             "ethiopian-qenet-tetrachord-fixed-pitch"
           ],
           "match_tokens": [
@@ -3050,7 +3730,9 @@
           ],
           "canonical_tags": [
             "ethiopian",
-            "east-african"
+            "east-african",
+            "eritrean",
+            "azmari"
           ]
         },
         {
@@ -3153,6 +3835,51 @@
           "canonical_tags": [
             "south-asian",
             "vedic-chant"
+          ]
+        },
+        {
+          "id": "voice_pitch_byzantine_72_moria",
+          "auto": false,
+          "name": "Byzantine 72-moria octoechos (unequal diatonic + chromatic genera)",
+          "descriptors": [
+            "byzantine-72-moria-division",
+            "unequal-diatonic-steps",
+            "hard-chromatic-augmented-color",
+            "ison-drone-referenced"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "devotional",
+            "sacred-traditional",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "byzantine-chant",
+            "greek-orthodox",
+            "medieval-modal"
+          ]
+        },
+        {
+          "id": "voice_pitch_georgian_non_tempered",
+          "auto": false,
+          "name": "Georgian non-tempered triadic (pure-fifth anchored, neutral thirds)",
+          "descriptors": [
+            "pure-fifth-anchored-chords",
+            "neutral-third-shading",
+            "near-equidistant-seconds",
+            "non-tempered-triadic-lock"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "microtonal-bend",
+            "choir-blendable"
+          ],
+          "canonical_tags": [
+            "georgian",
+            "caucasus",
+            "polyphonic-folk-chant"
           ]
         }
       ]
@@ -3323,8 +4050,11 @@
         },
         {
           "id": "voice_processing_harmonizer_ai_trained_stack",
-          "name": "AI-trained harmonizer stack (mid-2020s)",
+          "name": "AI-trained harmonizer stack (timbre-matched choir-of-self)",
           "descriptors": [
+            "ai-timbre-matched-harmony-stack",
+            "choir-of-self-realistic-voices",
+            "phrase-tracked-generated-harmonies",
             "harmonizer-ai-trained-stack-mid-2020s"
           ],
           "match_tokens": [
@@ -3333,7 +4063,8 @@
           ],
           "canonical_tags": [
             "modern-pop",
-            "2020s"
+            "2020s",
+            "mid-2020s"
           ]
         },
         {
@@ -3465,8 +4196,11 @@
         },
         {
           "id": "voice_processing_multiband_aggressive_broadcast",
-          "name": "Multiband compression aggressive-broadcast (post-2010 commercial)",
+          "name": "Multiband compression aggressive-broadcast (dense forward loudness, no dynamic air)",
           "descriptors": [
+            "dense-forward-loudness",
+            "band-split-leveled-every-syllable",
+            "no-dynamic-air",
             "multiband-compression-aggressive-broadcast-post-2010"
           ],
           "match_tokens": [
@@ -3475,7 +4209,9 @@
           ],
           "canonical_tags": [
             "modern-pop",
-            "commercial"
+            "commercial",
+            "post-2010",
+            "commercial-pop-radio"
           ]
         },
         {
@@ -3487,6 +4223,139 @@
           "match_tokens": [
             "speech-derived",
             "breathing"
+          ]
+        },
+        {
+          "id": "voice_processing_sidechain_ducked_pump",
+          "auto": false,
+          "name": "Sidechain-ducked pumping (vocal keyed to the kick, rhythmic swell-back)",
+          "descriptors": [
+            "sidechain-ducked-to-kick",
+            "rhythmic-pump-swell",
+            "beat-locked-level-breathing"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "2010s",
+            "edm",
+            "future-bass"
+          ]
+        },
+        {
+          "id": "voice_processing_reverse_reverb_preswell",
+          "auto": false,
+          "name": "Reverse-reverb pre-swell (reversed tail rising into the word onset)",
+          "descriptors": [
+            "reversed-tail-pre-swell",
+            "rising-into-onset",
+            "ghost-inhale-before-word"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "1960s-tape-flip",
+            "dream-pop",
+            "trap"
+          ]
+        },
+        {
+          "id": "voice_processing_megaphone_bullhorn",
+          "auto": false,
+          "name": "Megaphone / bullhorn (horn-loaded midrange honk, peaky mechanical cut)",
+          "descriptors": [
+            "horn-loaded-midrange-honk",
+            "peaky-resonant-cut",
+            "paper-cone-rasp"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "1920s",
+            "pre-electric-crooner",
+            "tom-waits"
+          ]
+        },
+        {
+          "id": "voice_processing_screwed_pitch_down_4_8_semitones",
+          "auto": false,
+          "name": "Screwed pitch-down (-4 to -8 semitones, slowed tape-speed drawl)",
+          "descriptors": [
+            "pitched-down-4-8-semitones",
+            "slowed-tape-speed-drawl",
+            "syrup-slow-smeared"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "1990s",
+            "chopped-and-screwed",
+            "houston-hip-hop"
+          ]
+        },
+        {
+          "id": "voice_processing_tape_delay_throw_phrase_end",
+          "auto": false,
+          "name": "Tape-delay throw (send opened on the phrase-end word, regenerating repeats)",
+          "descriptors": [
+            "delay-throw-phrase-end-send",
+            "regenerating-tape-repeats",
+            "last-word-trailing-into-space"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "dub",
+            "reggae",
+            "modern-pop-mixing"
+          ]
+        },
+        {
+          "id": "voice_processing_spring_reverb_dub_send",
+          "auto": false,
+          "name": "Spring reverb (boingy metallic drip-tail, dub-console send)",
+          "descriptors": [
+            "spring-reverb-metallic-drip",
+            "boingy-flutter-tail",
+            "dub-console-send"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "1970s",
+            "dub",
+            "reggae"
+          ]
+        },
+        {
+          "id": "voice_processing_slapback_tape_echo_80_140ms",
+          "auto": false,
+          "name": "Slapback tape echo (single 80-140ms repeat, no regeneration)",
+          "descriptors": [
+            "slapback-single-repeat-80-140ms",
+            "tape-echo-no-regeneration",
+            "doubled-attack-thickened"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "1950s",
+            "sun-records",
+            "rockabilly"
           ]
         }
       ]
@@ -3627,8 +4496,12 @@
         },
         {
           "id": "voice_multitrack_mid_1960s_double_tracking_era",
-          "name": "Mid-1960s double-tracking era stack",
+          "name": "ADT / tape-offset unison double (phasey detimed halo)",
           "descriptors": [
+            "tape-offset-detimed-unison",
+            "phasey-comb-filter-halo",
+            "widened-smeared-center",
+            "two-pass-double-blur",
             "mid-1960s-double-tracking-era-stack"
           ],
           "match_tokens": [
@@ -3637,13 +4510,19 @@
           ],
           "canonical_tags": [
             "1960s",
-            "vintage"
+            "vintage",
+            "beatles-era",
+            "abbey-road-adt"
           ]
         },
         {
           "id": "voice_multitrack_late_1970s_thirds_fifths_octaves",
-          "name": "Late-1970s thirds-fifths-octaves stack",
+          "name": "Self-blended thirds-fifths-octaves overdub choir (tight-comped silk)",
           "descriptors": [
+            "thirds-fifths-octaves-voicing",
+            "self-blended-overdub-choir",
+            "tight-comped-attack-lock",
+            "silken-unified-timbre",
             "late-1970s-thirds-fifths-octaves-stack"
           ],
           "match_tokens": [
@@ -3652,13 +4531,20 @@
           ],
           "canonical_tags": [
             "1970s",
-            "vintage"
+            "vintage",
+            "soft-rock",
+            "disco",
+            "elo-bee-gees-era"
           ]
         },
         {
           "id": "voice_multitrack_late_1980s_reverb_saturated_bus",
-          "name": "Late-1980s reverb-saturated-bus stack",
+          "name": "Massed bus-glued stack drowned in gated/plate reverb (arena-scale wash)",
           "descriptors": [
+            "massed-bus-glued-blend",
+            "gated-plate-reverb-drowned",
+            "arena-scale-wash",
+            "voices-smeared-into-one",
             "late-1980s-reverb-saturated-bus-stack"
           ],
           "match_tokens": [
@@ -3666,13 +4552,19 @@
             "breathing"
           ],
           "canonical_tags": [
-            "1980s"
+            "1980s",
+            "arena-rock",
+            "power-ballad"
           ]
         },
         {
           "id": "voice_multitrack_2000s_elastic_pitch_edited",
-          "name": "2000s-onward elastic-pitch-edited stack",
+          "name": "Surgically time-and-pitch-aligned comp stack (zero-flam edit lock)",
           "descriptors": [
+            "elastic-pitch-time-snapped",
+            "zero-flam-onset-lock",
+            "airbrushed-uniform-takes",
+            "grid-quantized-phrasing",
             "2000s-onward-elastic-pitch-edited-stack"
           ],
           "match_tokens": [
@@ -3681,13 +4573,19 @@
           ],
           "canonical_tags": [
             "2000s",
-            "modern-pop"
+            "modern-pop",
+            "pro-tools-era",
+            "commercial-pop-r-and-b"
           ]
         },
         {
           "id": "voice_multitrack_2010s_melodyne_microtuned",
-          "name": "2010s-onward Melodyne-microtuned stack",
+          "name": "Cent-locked microtuned harmony stack (beatless glassy interval tuning)",
           "descriptors": [
+            "note-by-note-cent-locked-stack",
+            "beatless-interval-tuning",
+            "glassy-synthetic-sheen",
+            "zero-drift-harmony-grid",
             "2010s-onward-melodyne-microtuned-stack"
           ],
           "match_tokens": [
@@ -3696,7 +4594,69 @@
           ],
           "canonical_tags": [
             "2010s",
-            "modern-pop"
+            "modern-pop",
+            "melodyne-era",
+            "maximalist-pop"
+          ]
+        },
+        {
+          "id": "voice_multitrack_tape_loop_choir_wall",
+          "auto": false,
+          "name": "Massed tape-loop choir wall (sustained vowel loops, fader-played)",
+          "descriptors": [
+            "massed-loop-choir-wall",
+            "sustained-vowel-chord-pads",
+            "fader-swelled-voices",
+            "hazy-endless-sustain"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "choir-blendable"
+          ],
+          "canonical_tags": [
+            "1970s",
+            "art-pop",
+            "ambient"
+          ]
+        },
+        {
+          "id": "voice_multitrack_whisper_double_lead",
+          "auto": false,
+          "name": "Whisper-double over lead (unvoiced intimacy layer)",
+          "descriptors": [
+            "unvoiced-whisper-shadow",
+            "breath-texture-halo",
+            "close-mic-intimacy-layer"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "doubled"
+          ],
+          "canonical_tags": [
+            "bedroom-pop",
+            "dream-pop",
+            "r-and-b"
+          ]
+        },
+        {
+          "id": "voice_multitrack_adlib_response_lane",
+          "auto": false,
+          "name": "Ad-lib / echo-word response lane (punctuating second comp track)",
+          "descriptors": [
+            "echo-word-punctuation",
+            "off-lead-interjection-lane",
+            "yeah-uh-tag-accents"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "hip-hop",
+            "trap",
+            "dancehall"
           ]
         }
       ]
@@ -3868,6 +4828,27 @@
             "pop",
             "r&b"
           ]
+        },
+        {
+          "id": "strohbass_register",
+          "auto": false,
+          "name": "Strohbass (sustained pitched fry, sub-bass pedal)",
+          "descriptors": [
+            "strohbass",
+            "sustained-pitched-fry",
+            "sub-bass-rattle",
+            "choral-pedal-tone"
+          ],
+          "match_tokens": [
+            "breathing",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "russian-orthodox-choral",
+            "oktavist",
+            "barbershop",
+            "basso-profondo"
+          ]
         }
       ]
     },
@@ -4012,6 +4993,9 @@
           "surface": false,
           "name": "Aspirated voice (deliberate breath as expression)",
           "descriptors": [
+            "breath-veiled-tone",
+            "air-around-the-note",
+            "intimate-close-hush",
             "intimate-aspirated"
           ],
           "match_tokens": [
@@ -4233,8 +5217,12 @@
         {
           "id": "crooner_voice",
           "surface": false,
-          "name": "Crooner",
+          "name": "Crooner (close-mic intimate, low-dynamic)",
           "descriptors": [
+            "close-mic-intimate",
+            "low-dynamic-croon",
+            "smooth-sustained-legato",
+            "microphone-amplification-dependent",
             "low-dynamic-level",
             "mid-century",
             "crooner"
@@ -4246,7 +5234,9 @@
           "canonical_tags": [
             "crooner",
             "tin-pan-alley",
-            "great-american-songbook"
+            "great-american-songbook",
+            "mid-century",
+            "1930s-1950s"
           ]
         },
         {
@@ -4389,6 +5379,47 @@
           "canonical_tags": [
             "boys-choir"
           ]
+        },
+        {
+          "id": "ingenue_childlike_voice",
+          "auto": false,
+          "name": "Ingenue / childlike voice (adult-performed girlish brightness)",
+          "descriptors": [
+            "girlish-light-bright",
+            "raised-larynx-small-tract",
+            "wide-eyed-ingenue",
+            "adult-performing-childlike"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "musical-theater-ingenue",
+            "idol-pop",
+            "jazz-age-novelty"
+          ]
+        },
+        {
+          "id": "husky_smoky_voice",
+          "auto": false,
+          "name": "Husky / smoky voice (breath-plus-grain stylistic timbre)",
+          "descriptors": [
+            "husky-smoky",
+            "breath-plus-grain-simultaneous",
+            "warm-rasp-veiled",
+            "stylistic-not-pathological"
+          ],
+          "match_tokens": [
+            "breathy",
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "torch-song",
+            "blues-rock",
+            "soul"
+          ]
         }
       ]
     },
@@ -4449,6 +5480,73 @@
             "velopharyngeal-open",
             "nasal-coupled-resonance"
           ]
+        },
+        {
+          "id": "tongue_retroflex_r_colored",
+          "auto": false,
+          "name": "Tongue retroflex (r-colored, rhotic)",
+          "descriptors": [
+            "tongue-retroflex-bunched",
+            "r-colored-vowel",
+            "f3-lowered",
+            "rhotic-drawl"
+          ],
+          "match_tokens": [],
+          "canonical_tags": [
+            "country",
+            "americana"
+          ]
+        },
+        {
+          "id": "larynx_raised_brassy",
+          "auto": false,
+          "name": "Larynx raised (short-tract, brassy)",
+          "descriptors": [
+            "larynx-raised",
+            "tract-shortened",
+            "all-formant-raised-brassy",
+            "thin-bright-call"
+          ],
+          "match_tokens": [],
+          "canonical_tags": [
+            "broadway-soubrette",
+            "jingju",
+            "character-voice"
+          ]
+        },
+        {
+          "id": "lips_spread_smile_bright",
+          "auto": false,
+          "name": "Lips spread (smile-posture, bright)",
+          "descriptors": [
+            "lips-spread-smile",
+            "front-cavity-shortened",
+            "f2-raised-brightened",
+            "glassy-forward-vowel"
+          ],
+          "match_tokens": [],
+          "canonical_tags": [
+            "1960s-girl-group",
+            "surf-pop",
+            "k-pop"
+          ]
+        },
+        {
+          "id": "lips_rounded_darkened",
+          "auto": false,
+          "name": "Lips rounded-protruded (hooded, dark)",
+          "descriptors": [
+            "lips-rounded-protruded",
+            "all-formant-lowered",
+            "hooded-darkened-vowel",
+            "blend-muted"
+          ],
+          "match_tokens": [],
+          "canonical_tags": [
+            "choral",
+            "early-music",
+            "crooner-era"
+          ]
         }
       ]
     },
@@ -4497,6 +5595,40 @@
             "pressed-loud",
             "full-force"
           ]
+        },
+        {
+          "id": "effort_overdriven_scream",
+          "auto": false,
+          "name": "Overdriven scream pressure (past clean-phonation limit)",
+          "descriptors": [
+            "overdriven-subglottal-pressure",
+            "source-distorting",
+            "past-clean-limit",
+            "scream-pressure"
+          ],
+          "match_tokens": [],
+          "canonical_tags": [
+            "hardcore-punk",
+            "extreme-metal",
+            "raw-scream"
+          ]
+        },
+        {
+          "id": "effort_fortissimo_sustained",
+          "auto": false,
+          "name": "Sustained full-voice fortissimo (flow phonation at maximal loudness)",
+          "descriptors": [
+            "sustained-fortissimo",
+            "hall-filling",
+            "flow-phonation-unstrained",
+            "breath-anchored-loud"
+          ],
+          "match_tokens": [],
+          "canonical_tags": [
+            "operatic-climax",
+            "stadium-anthem",
+            "gospel-climax"
+          ]
         }
       ]
     },
@@ -4522,8 +5654,11 @@
         {
           "id": "slow_vibrato",
           "default": true,
-          "name": "Slow vibrato",
+          "name": "Slow vibrato (relaxed rate, rounded pulse)",
           "descriptors": [
+            "slow-rate",
+            "rounded-even-pulse",
+            "warm-low-mid-resonance",
             "chest-resonance-low-mid",
             "expressive",
             "classical"
@@ -4532,12 +5667,18 @@
             "vibrato-rich",
             "vibrato-y",
             "speech-derived"
+          ],
+          "canonical_tags": [
+            "classical"
           ]
         },
         {
           "id": "fast_vibrato",
-          "name": "Fast vibrato",
+          "name": "Fast vibrato (quick narrow shimmer)",
           "descriptors": [
+            "fast-rate",
+            "narrow-quick-shimmer",
+            "nervy-intensity",
             "nervy",
             "treble-extended"
           ],
@@ -4550,8 +5691,11 @@
         },
         {
           "id": "diaphragm_vibrato",
-          "name": "Diaphragm vibrato",
+          "name": "Diaphragm vibrato (breath-pulsed loudness wave)",
           "descriptors": [
+            "breath-pulsed",
+            "amplitude-loudness-wave",
+            "deliberate-even-pulse",
             "overtone-rich-sustained",
             "controlled"
           ],
@@ -4563,8 +5707,11 @@
         },
         {
           "id": "oscillating_vibrato",
-          "name": "Country oscillating vibrato",
+          "name": "Wide oscillating vibrato (cry-tinged pitch sway)",
           "descriptors": [
+            "wide-pitch-sway",
+            "cry-tinged",
+            "drawled-roll",
             "bluesy",
             "expressive"
           ],
@@ -4575,13 +5722,17 @@
             "breathing"
           ],
           "canonical_tags": [
-            "country"
+            "country",
+            "blues"
           ]
         },
         {
           "id": "delayed_vibrato",
-          "name": "Delayed vibrato",
+          "name": "Delayed-onset vibrato (straight tone blooming into vibrato)",
           "descriptors": [
+            "straight-onset",
+            "late-blooming-waver",
+            "sustain-then-oscillate",
             "tasteful",
             "modern"
           ],
@@ -4590,12 +5741,19 @@
             "vibrato-y",
             "speech-derived",
             "breathing"
+          ],
+          "canonical_tags": [
+            "contemporary-pop",
+            "jazz"
           ]
         },
         {
           "id": "terminal_vibrato",
-          "name": "Terminal (note-end only)",
+          "name": "Terminal vibrato (straight core, note-end flourish)",
           "descriptors": [
+            "straight-note-core",
+            "note-end-flourish",
+            "release-only-waver",
             "melodic",
             "period-honest"
           ],
@@ -4606,7 +5764,9 @@
             "breathing"
           ],
           "canonical_tags": [
-            "country"
+            "country",
+            "early-music",
+            "period-performance"
           ]
         },
         {
@@ -4617,6 +5777,26 @@
             "slow-rate",
             "wide-excursion",
             "terminal-sustain-only"
+          ]
+        },
+        {
+          "id": "wobble_vibrato",
+          "auto": false,
+          "name": "Wobble (wide-slow, pitch-center blurring)",
+          "descriptors": [
+            "wide-slow-oscillation",
+            "pitch-center-blurred",
+            "laboured-sway"
+          ],
+          "match_tokens": [
+            "vibrato-rich",
+            "vibrato-y",
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "late-career-operatic",
+            "dramatic-opera"
           ]
         }
       ]
@@ -4659,8 +5839,11 @@
         {
           "id": "melisma_voice",
           "surface": false,
-          "name": "Melisma-heavy",
+          "name": "Melisma-heavy (runs and riffs on single syllables)",
           "descriptors": [
+            "multi-note-runs-per-syllable",
+            "cascading-riff-runs",
+            "vowel-carried-flourish",
             "ornamental",
             "expressive"
           ],
@@ -4671,7 +5854,8 @@
             "articulated"
           ],
           "canonical_tags": [
-            "gospel"
+            "gospel",
+            "r-and-b"
           ]
         },
         {
@@ -4731,8 +5915,11 @@
         {
           "id": "hocket_voice",
           "surface": false,
-          "name": "Hocket (interlocking-voices)",
+          "name": "Hocket (interlocked note-trading, one melody split across voices)",
           "descriptors": [
+            "interlocked-note-trading",
+            "alternating-gap-and-hit",
+            "melody-split-between-voices",
             "hocket-articulation"
           ],
           "match_tokens": [
@@ -4741,14 +5928,19 @@
             "articulated"
           ],
           "canonical_tags": [
-            "sardinian-polyphony"
+            "sardinian-polyphony",
+            "medieval-motet",
+            "aka-pygmy-polyphony"
           ]
         },
         {
           "id": "call_response_voice",
           "surface": false,
-          "name": "Call-and-response",
+          "name": "Call-and-response (leader phrase answered by response phrase)",
           "descriptors": [
+            "leader-call-answered",
+            "antiphonal-phrase-exchange",
+            "question-answer-phrasing",
             "callresponse-articulation",
             "antiphonal-articulation"
           ],
@@ -4759,7 +5951,52 @@
             "articulated"
           ],
           "canonical_tags": [
-            "worksong"
+            "worksong",
+            "gospel",
+            "work-song",
+            "west-african"
+          ]
+        },
+        {
+          "id": "patter_voice",
+          "auto": false,
+          "name": "Patter (rapid-fire syllabic delivery at tongue-twister tempo)",
+          "descriptors": [
+            "rapid-fire-syllabic",
+            "tongue-twister-tempo",
+            "breathless-comic-precision",
+            "maximum-syllable-rate"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "gilbert-and-sullivan",
+            "opera-buffa",
+            "comic-song"
+          ]
+        },
+        {
+          "id": "mumbled_voice",
+          "auto": false,
+          "name": "Slurred / mumbled diction (vowel-smeared, consonants swallowed)",
+          "descriptors": [
+            "vowel-smeared",
+            "consonant-softened",
+            "under-articulated",
+            "half-swallowed-syllables"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "indie",
+            "dream-pop",
+            "mumble-rap",
+            "2010s"
           ]
         }
       ]
@@ -4821,8 +6058,12 @@
         },
         {
           "id": "maqam_inflected",
-          "name": "Maqam-inflected (neutral steps)",
+          "name": "Maqam-inflected (neutral-third quarter-steps)",
           "descriptors": [
+            "neutral-third-half-flat",
+            "quarter-step-shading",
+            "between-major-and-minor",
+            "modal-idiomatic-intonation",
             "maqam-neutral-step"
           ],
           "match_tokens": [
@@ -4835,7 +6076,9 @@
             "arabic",
             "middle-eastern",
             "egyptian",
-            "turkish"
+            "turkish",
+            "arabic-maqam",
+            "tarab"
           ]
         },
         {
@@ -4856,8 +6099,12 @@
         },
         {
           "id": "bend_inflected",
-          "name": "Bend-inflected (flamenco / blues bends)",
+          "name": "Bend-inflected (scooped attacks, curled releases)",
           "descriptors": [
+            "scooped-attack",
+            "curled-release",
+            "under-pitch-arrival",
+            "expressive-slide",
             "bend-inflected",
             "pitch-bending"
           ],
@@ -4868,7 +6115,30 @@
             "breathing"
           ],
           "canonical_tags": [
-            "flamenco"
+            "flamenco",
+            "blues"
+          ]
+        },
+        {
+          "id": "portamento_inflected",
+          "auto": false,
+          "name": "Portamento-heavy (audible slides connecting every note)",
+          "descriptors": [
+            "note-connecting-slide",
+            "swooping-legato",
+            "late-pitch-arrival",
+            "continuous-glide-between-targets"
+          ],
+          "match_tokens": [
+            "microtonal-bend",
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "early-recording-era",
+            "pre-1930-operatic",
+            "hawaiian-falsetto",
+            "classic-country"
           ]
         }
       ]
@@ -5508,6 +6778,108 @@
             "zulu",
             "african"
           ]
+        },
+        {
+          "id": "honky_tonk_high_lonesome_tradition",
+          "auto": false,
+          "name": "Country honky-tonk / high-lonesome (hard-twang cry-break)",
+          "descriptors": [
+            "hard-twang-cut",
+            "cry-break-catch",
+            "high-lonesome-tenor",
+            "nasal-keening-edge"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "country",
+            "honky-tonk",
+            "bluegrass"
+          ]
+        },
+        {
+          "id": "jamaican_dancehall_toasting_tradition",
+          "auto": false,
+          "name": "Jamaican toasting / dancehall deejay (patois sing-jay)",
+          "descriptors": [
+            "toasting-deejay-flow",
+            "patois-inflected",
+            "riddim-locked-chat",
+            "melodic-sing-jay"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "reggae",
+            "dancehall",
+            "jamaican"
+          ]
+        },
+        {
+          "id": "pansori_tradition",
+          "auto": false,
+          "name": "Pansori (Korean epic narrative, roughened virtuosity)",
+          "descriptors": [
+            "husky-roughened-projection",
+            "epic-narrative-declamation",
+            "trained-hoarse-timbre",
+            "hours-long-endurance"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "pansori",
+            "korean",
+            "gugak"
+          ]
+        },
+        {
+          "id": "bollywood_playback_tradition",
+          "auto": false,
+          "name": "Bollywood playback (high bright film-song tessitura)",
+          "descriptors": [
+            "high-bright-tessitura",
+            "thin-fold-agile",
+            "light-classical-ornamented",
+            "mic-close-precision"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "bollywood",
+            "hindi-film-song",
+            "filmi"
+          ]
+        },
+        {
+          "id": "french_chanson_tradition",
+          "auto": false,
+          "name": "French chanson (diction-first dramatic parlando)",
+          "descriptors": [
+            "diction-first-text-driven",
+            "dramatic-parlando-swell",
+            "rolled-r-articulation",
+            "cabaret-intimate-to-declaimed"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "chanson",
+            "french",
+            "cabaret"
+          ]
         }
       ]
     },
@@ -5673,6 +7045,27 @@
             "controlled-ventricular-overlay",
             "throat-clear-grain"
           ]
+        },
+        {
+          "id": "voice_mechanism_diplophonic_biphonation",
+          "auto": false,
+          "name": "Diplophonic biphonation (two independent simultaneous fundamentals, incommensurate F0 from asymmetric/split fold vibration)",
+          "descriptors": [
+            "two-independent-simultaneous-pitches",
+            "incommensurate-non-harmonic-beating",
+            "rough-double-toned-buzz",
+            "asymmetric-split-fold-oscillation"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "extended-vocal-technique",
+            "avant-garde-vocal",
+            "biphonic"
+          ]
         }
       ]
     },
@@ -5709,9 +7102,11 @@
         },
         {
           "id": "voice_estill_sob",
-          "name": "Sob quality (low larynx + thin folds — operatic cry configuration)",
+          "name": "Sob quality (low larynx + thin folds — darkened, muffled weeping)",
           "descriptors": [
             "sob-quality-low-larynx-thin-fold",
+            "darkened-weeping-warmth",
+            "hollow-muted-grief",
             "lowered-larynx-cry-configuration"
           ],
           "match_tokens": [
@@ -5794,6 +7189,24 @@
             "r&b",
             "ranchera"
           ]
+        },
+        {
+          "id": "voice_estill_cry",
+          "auto": false,
+          "name": "Cry quality (thin folds + tilted thyroid, larynx higher than sob — small, sweet, plaintive)",
+          "descriptors": [
+            "cry-quality-thin-fold-tilted-thyroid",
+            "raised-larynx-small-volume",
+            "sweet-plaintive-whimper-onset"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "contemporary-pop",
+            "soul-ballad"
+          ]
         }
       ]
     },
@@ -5859,8 +7272,11 @@
         },
         {
           "id": "voice_sprechgesang_notated",
-          "name": "Sprechgesang (notated approximate pitch)",
+          "name": "Sprechgesang (pitched speech-melody, song-leaning)",
           "descriptors": [
+            "notated-speech-melody",
+            "pitch-carried-not-just-touched",
+            "song-leaning-declamation",
             "sprechgesang-notated-approximate-pitch",
             "between-speech-and-song"
           ],
@@ -5869,7 +7285,9 @@
             "breathing"
           ],
           "canonical_tags": [
-            "modern-classical"
+            "modern-classical",
+            "second-viennese-school",
+            "wagnerian-declamation"
           ]
         },
         {
@@ -5905,6 +7323,9 @@
           "default": true,
           "name": "Syllabic singing (one note per syllable)",
           "descriptors": [
+            "one-note-per-syllable",
+            "text-forward",
+            "plain-direct-line",
             "syllabic-singing-one-note-per-syllable"
           ],
           "match_tokens": [
@@ -5917,6 +7338,9 @@
           "id": "voice_neumatic_singing",
           "name": "Neumatic singing (small note-groups per syllable)",
           "descriptors": [
+            "small-note-groups-per-syllable",
+            "gently-florid",
+            "text-still-legible",
             "neumatic-singing-small-groups-per-syllable"
           ],
           "match_tokens": [
@@ -5927,8 +7351,11 @@
         },
         {
           "id": "voice_melismatic_singing",
-          "name": "Melismatic singing (many notes per syllable)",
+          "name": "Melismatic singing (long runs on one syllable)",
           "descriptors": [
+            "many-notes-per-syllable",
+            "vowel-carried-runs",
+            "florid-extended-line",
             "melismatic-singing-many-notes-per-syllable"
           ],
           "match_tokens": [
@@ -5953,13 +7380,56 @@
         },
         {
           "id": "voice_non_lexical_vocable",
-          "name": "Non-lexical vocable (rhythmic non-lexical syllables)",
+          "name": "Non-lexical vocables (meaningless syllables as music)",
           "descriptors": [
+            "meaningless-syllables-carrying-melody",
+            "rhythm-forward-vocables",
+            "consonant-attack-as-percussion",
             "non-lexical-vocable-rhythmic-syllables"
           ],
           "match_tokens": [
             "speech-derived",
             "breathing"
+          ]
+        },
+        {
+          "id": "voice_sprechstimme_pitch_released",
+          "auto": false,
+          "name": "Sprechstimme (notated pitch touched then released, speech-dominant)",
+          "descriptors": [
+            "pitch-touched-then-abandoned",
+            "gliding-off-every-note",
+            "speech-dominant-contour"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "second-viennese-school",
+            "pierrot-lunaire",
+            "expressionism-1912"
+          ]
+        },
+        {
+          "id": "voice_toasting_deejay_chat",
+          "auto": false,
+          "name": "Toasting / deejay chat (pitched rhythmic chant over riddim)",
+          "descriptors": [
+            "pitched-rhythmic-chat",
+            "tonal-center-chanted-flow",
+            "riddim-locked-delivery",
+            "half-sung-half-spoken"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "jamaican-sound-system",
+            "reggae",
+            "dancehall",
+            "1970s-onward"
           ]
         }
       ]
@@ -6099,8 +7569,12 @@
         },
         {
           "id": "voice_ensemble_three_voice_polyphony",
-          "name": "Three-voice polyphony (regional-canonical configurations)",
+          "name": "Three-voice polyphony (interweaving independent trio)",
           "descriptors": [
+            "three-independent-lines",
+            "interweaving-trio-texture",
+            "close-interval-friction",
+            "cadence-convergence",
             "three-voice-polyphony-regional-canonical"
           ],
           "match_tokens": [
@@ -6113,13 +7587,19 @@
             "sardinian-polyphony",
             "georgian-three-voice-polyphony",
             "corsican-paghjella",
-            "bulgarian-diaphonic-womens"
+            "bulgarian-diaphonic-womens",
+            "georgian-trio",
+            "balkan"
           ]
         },
         {
           "id": "voice_ensemble_four_plus_polyphony",
-          "name": "Four-and-more voice polyphony",
+          "name": "Four-plus-voice polyphony (full-choir woven counterpoint)",
           "descriptors": [
+            "four-plus-independent-lines",
+            "overlapping-staggered-entries",
+            "woven-counterpoint",
+            "full-choir-density",
             "four-and-more-voice-polyphony"
           ],
           "match_tokens": [
@@ -6130,13 +7610,19 @@
           ],
           "canonical_tags": [
             "sardinian-polyphony",
-            "aka-baka-polyphony"
+            "aka-baka-polyphony",
+            "renaissance-polyphony",
+            "sacred-choral"
           ]
         },
         {
           "id": "voice_ensemble_antiphonal_double_choir",
-          "name": "Antiphonal double-choir (alternating ensembles)",
+          "name": "Antiphonal double-choir (spatially opposed groups trading phrases)",
           "descriptors": [
+            "two-spatially-opposed-choirs",
+            "phrase-trading-alternation",
+            "echo-answer-effect",
+            "massed-tutti-convergence",
             "antiphonal-double-choir-alternating"
           ],
           "match_tokens": [
@@ -6146,7 +7632,9 @@
             "ensemble"
           ],
           "canonical_tags": [
-            "sacred-traditional"
+            "sacred-traditional",
+            "venetian-polychoral",
+            "cori-spezzati"
           ]
         },
         {
@@ -6181,8 +7669,12 @@
         },
         {
           "id": "voice_ensemble_heterophonic",
-          "name": "Heterophonic ensemble (same melody, variant ornamentation)",
+          "name": "Heterophonic ensemble (one melody, individually varied — village-choir blur)",
           "descriptors": [
+            "same-melody-all-voices",
+            "individual-ornament-divergence",
+            "blurred-unison-shimmer",
+            "non-aligned-onsets",
             "heterophonic-same-melody-variant-ornament"
           ],
           "match_tokens": [
@@ -6193,7 +7685,10 @@
           "canonical_tags": [
             "gagaku",
             "gamelan",
-            "middle-eastern"
+            "middle-eastern",
+            "village-choir",
+            "gaelic-psalm",
+            "middle-eastern-takht"
           ]
         },
         {
@@ -6260,6 +7755,51 @@
           "canonical_tags": [
             "hardcore",
             "punk"
+          ]
+        },
+        {
+          "id": "voice_ensemble_homophonic_block",
+          "auto": false,
+          "name": "Homophonic block-chord (all voices in one rhythm, chord-stacked)",
+          "descriptors": [
+            "all-voices-same-rhythm",
+            "block-chord-motion",
+            "text-synchronized-declamation",
+            "hymn-chorale-solidity"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "choir-blendable",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "lutheran-chorale",
+            "hymnody",
+            "barbershop",
+            "doo-wop"
+          ]
+        },
+        {
+          "id": "voice_ensemble_round_canon",
+          "auto": false,
+          "name": "Round / canon (one melody at staggered entries)",
+          "descriptors": [
+            "staggered-identical-entries",
+            "self-overlapping-melody",
+            "imitative-interlock",
+            "cyclic-perpetual-texture"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "choir-blendable",
+            "ensemble"
+          ],
+          "canonical_tags": [
+            "medieval-rota",
+            "english-catch",
+            "campfire-round"
           ]
         }
       ]
@@ -6521,8 +8061,12 @@
         },
         {
           "id": "voice_ornament_connemara_unaccompanied",
-          "name": "Connemara unaccompanied (melismatic ametric, consonantal decoration grace, nasal-resonance traditional)",
+          "name": "Sean-nós ornament catalog (Connemara-style roll/casadh grace-clusters, melismatic free-rhythm line, glottal separation, nasal decoration)",
           "descriptors": [
+            "grace-note-cluster-rolls",
+            "melismatic-free-rhythm",
+            "glottal-stop-separation",
+            "nasal-resonance-decoration",
             "connemara-unaccompanied-melismatic-grace-nasal"
           ],
           "match_tokens": [
@@ -6533,7 +8077,10 @@
           "canonical_tags": [
             "celtic",
             "irish-traditional",
-            "sean-nos"
+            "sean-nos",
+            "irish",
+            "connemara",
+            "gaelic"
           ]
         },
         {
@@ -6552,6 +8099,54 @@
             "hindustani",
             "classical",
             "south-asian"
+          ]
+        },
+        {
+          "id": "voice_ornament_fado_voltinha",
+          "auto": false,
+          "name": "Fado voltinha catalog (voltinha small-turn figures, phrase-end melisma, rubato note-stretching, mordent-glide inflection)",
+          "descriptors": [
+            "voltinha-turn-figures",
+            "phrase-end-melisma",
+            "rubato-stretched-line",
+            "mordent-glide-inflected"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "ornamented",
+            "melismatic",
+            "folk-tradition"
+          ],
+          "canonical_tags": [
+            "fado",
+            "portuguese",
+            "lisbon"
+          ]
+        },
+        {
+          "id": "voice_ornament_gospel_runs",
+          "auto": false,
+          "name": "Gospel runs-and-riffs catalog (pentatonic run-cascade, chained riff-turns, trap-door descending run, blue-third melisma, squall accent)",
+          "descriptors": [
+            "pentatonic-run-cascades",
+            "chained-riff-turns",
+            "trap-door-descending-run",
+            "blue-third-inflected-melisma"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "ornamented",
+            "melismatic",
+            "blues-inflected",
+            "call-response"
+          ],
+          "canonical_tags": [
+            "gospel",
+            "pentecostal",
+            "soul",
+            "r-and-b"
           ]
         }
       ]
@@ -6575,20 +8170,33 @@
         },
         {
           "id": "voice_pitch_just_intonation",
-          "name": "Just intonation fixed-pitch (5-limit ratios)",
+          "name": "Just intonation fixed-pitch (5-limit, beatless ratio-lock)",
           "descriptors": [
+            "just-ratio-locked",
+            "beatless-pure-thirds",
+            "chordal-ring-lock",
+            "overtone-fused",
             "just-intonation-5-limit-fixed-pitch"
           ],
           "match_tokens": [
             "speech-derived",
             "breathing",
             "period-performance"
+          ],
+          "canonical_tags": [
+            "barbershop",
+            "early-music",
+            "a-cappella"
           ]
         },
         {
           "id": "voice_pitch_meantone_quarter_comma",
-          "name": "Quarter-comma meantone fixed-pitch (canonical Renaissance / early baroque)",
+          "name": "Quarter-comma meantone (pure thirds, unequal key colors)",
           "descriptors": [
+            "pure-major-thirds",
+            "narrowed-fifths",
+            "calm-beatless-triads",
+            "unequal-key-color",
             "quarter-comma-meantone-canonical-renaissance-early-baroque"
           ],
           "match_tokens": [
@@ -6596,12 +8204,21 @@
             "breathing",
             "period-performance",
             "classical-trained"
+          ],
+          "canonical_tags": [
+            "renaissance",
+            "early-baroque",
+            "period-performance"
           ]
         },
         {
           "id": "voice_pitch_pythagorean",
-          "name": "Pythagorean fifth-stacked fixed-pitch",
+          "name": "Pythagorean fifth-stacked (pure fifths, bright wide thirds)",
           "descriptors": [
+            "pure-fifth-stacked",
+            "wide-bright-thirds",
+            "hollow-open-fifth-ring",
+            "keen-narrow-semitones",
             "pythagorean-fifth-stacked-fixed-pitch"
           ],
           "match_tokens": [
@@ -6610,7 +8227,10 @@
           ],
           "canonical_tags": [
             "sacred-traditional",
-            "georgian-three-voice-polyphony"
+            "georgian-three-voice-polyphony",
+            "medieval",
+            "organum",
+            "early-music"
           ]
         },
         {
@@ -6682,8 +8302,12 @@
         },
         {
           "id": "voice_pitch_pelog_7",
-          "name": "Pelog 7-tone Indonesian fixed-pitch",
+          "name": "Pelog seven-tone (uneven wide-narrow steps, gamelan-matched)",
           "descriptors": [
+            "pelog-uneven-steps",
+            "alternating-wide-narrow-intervals",
+            "gamelan-matched-tuning",
+            "dark-plaintive-color",
             "pelog-7-tone-indonesian-fixed-pitch"
           ],
           "match_tokens": [
@@ -6692,13 +8316,19 @@
           ],
           "canonical_tags": [
             "gamelan",
-            "indonesian"
+            "indonesian",
+            "javanese",
+            "balinese"
           ]
         },
         {
           "id": "voice_pitch_slendro_5",
-          "name": "Slendro 5-tone Indonesian fixed-pitch",
+          "name": "Slendro five-tone (near-equidistant, floating tonality)",
           "descriptors": [
+            "slendro-near-equidistant",
+            "roughly-240-cent-steps",
+            "floating-ambiguous-tonality",
+            "gamelan-matched-tuning",
             "slendro-5-tone-indonesian-fixed-pitch"
           ],
           "match_tokens": [
@@ -6707,13 +8337,17 @@
           ],
           "canonical_tags": [
             "gamelan",
-            "indonesian"
+            "indonesian",
+            "javanese"
           ]
         },
         {
           "id": "voice_pitch_thai_7_equal_step",
-          "name": "Thai 7-equal-step fixed-pitch",
+          "name": "Thai seven-equal (171-cent even steps, blurred thirds)",
           "descriptors": [
+            "seven-equal-171-cent-steps",
+            "evenly-spaced-interval-blur",
+            "neither-major-nor-minor-thirds",
             "thai-7-equal-step-fixed-pitch"
           ],
           "match_tokens": [
@@ -6722,13 +8356,19 @@
           ],
           "canonical_tags": [
             "thai",
-            "southeast-asian"
+            "southeast-asian",
+            "thai-classical",
+            "piphat-mahori"
           ]
         },
         {
           "id": "voice_pitch_ethiopian_qenet",
-          "name": "Ethiopian qenet tetrachord fixed-pitch",
+          "name": "Ethiopian qenet pentatonic modes (tizita, bati, ambassel, anchihoye)",
           "descriptors": [
+            "qenet-pentatonic-modes",
+            "tizita-bati-ambassel-anchihoye",
+            "uneven-pentatonic-gaps",
+            "krar-masinqo-matched",
             "ethiopian-qenet-tetrachord-fixed-pitch"
           ],
           "match_tokens": [
@@ -6737,7 +8377,9 @@
           ],
           "canonical_tags": [
             "ethiopian",
-            "east-african"
+            "east-african",
+            "eritrean",
+            "azmari"
           ]
         },
         {
@@ -6840,6 +8482,51 @@
           "canonical_tags": [
             "south-asian",
             "vedic-chant"
+          ]
+        },
+        {
+          "id": "voice_pitch_byzantine_72_moria",
+          "auto": false,
+          "name": "Byzantine 72-moria octoechos (unequal diatonic + chromatic genera)",
+          "descriptors": [
+            "byzantine-72-moria-division",
+            "unequal-diatonic-steps",
+            "hard-chromatic-augmented-color",
+            "ison-drone-referenced"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "devotional",
+            "sacred-traditional",
+            "drone-foundation"
+          ],
+          "canonical_tags": [
+            "byzantine-chant",
+            "greek-orthodox",
+            "medieval-modal"
+          ]
+        },
+        {
+          "id": "voice_pitch_georgian_non_tempered",
+          "auto": false,
+          "name": "Georgian non-tempered triadic (pure-fifth anchored, neutral thirds)",
+          "descriptors": [
+            "pure-fifth-anchored-chords",
+            "neutral-third-shading",
+            "near-equidistant-seconds",
+            "non-tempered-triadic-lock"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "microtonal-bend",
+            "choir-blendable"
+          ],
+          "canonical_tags": [
+            "georgian",
+            "caucasus",
+            "polyphonic-folk-chant"
           ]
         }
       ]
@@ -7010,8 +8697,11 @@
         },
         {
           "id": "voice_processing_harmonizer_ai_trained_stack",
-          "name": "AI-trained harmonizer stack (mid-2020s)",
+          "name": "AI-trained harmonizer stack (timbre-matched choir-of-self)",
           "descriptors": [
+            "ai-timbre-matched-harmony-stack",
+            "choir-of-self-realistic-voices",
+            "phrase-tracked-generated-harmonies",
             "harmonizer-ai-trained-stack-mid-2020s"
           ],
           "match_tokens": [
@@ -7020,7 +8710,8 @@
           ],
           "canonical_tags": [
             "modern-pop",
-            "2020s"
+            "2020s",
+            "mid-2020s"
           ]
         },
         {
@@ -7152,8 +8843,11 @@
         },
         {
           "id": "voice_processing_multiband_aggressive_broadcast",
-          "name": "Multiband compression aggressive-broadcast (post-2010 commercial)",
+          "name": "Multiband compression aggressive-broadcast (dense forward loudness, no dynamic air)",
           "descriptors": [
+            "dense-forward-loudness",
+            "band-split-leveled-every-syllable",
+            "no-dynamic-air",
             "multiband-compression-aggressive-broadcast-post-2010"
           ],
           "match_tokens": [
@@ -7162,7 +8856,9 @@
           ],
           "canonical_tags": [
             "modern-pop",
-            "commercial"
+            "commercial",
+            "post-2010",
+            "commercial-pop-radio"
           ]
         },
         {
@@ -7174,6 +8870,139 @@
           "match_tokens": [
             "speech-derived",
             "breathing"
+          ]
+        },
+        {
+          "id": "voice_processing_sidechain_ducked_pump",
+          "auto": false,
+          "name": "Sidechain-ducked pumping (vocal keyed to the kick, rhythmic swell-back)",
+          "descriptors": [
+            "sidechain-ducked-to-kick",
+            "rhythmic-pump-swell",
+            "beat-locked-level-breathing"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "2010s",
+            "edm",
+            "future-bass"
+          ]
+        },
+        {
+          "id": "voice_processing_reverse_reverb_preswell",
+          "auto": false,
+          "name": "Reverse-reverb pre-swell (reversed tail rising into the word onset)",
+          "descriptors": [
+            "reversed-tail-pre-swell",
+            "rising-into-onset",
+            "ghost-inhale-before-word"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "1960s-tape-flip",
+            "dream-pop",
+            "trap"
+          ]
+        },
+        {
+          "id": "voice_processing_megaphone_bullhorn",
+          "auto": false,
+          "name": "Megaphone / bullhorn (horn-loaded midrange honk, peaky mechanical cut)",
+          "descriptors": [
+            "horn-loaded-midrange-honk",
+            "peaky-resonant-cut",
+            "paper-cone-rasp"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "1920s",
+            "pre-electric-crooner",
+            "tom-waits"
+          ]
+        },
+        {
+          "id": "voice_processing_screwed_pitch_down_4_8_semitones",
+          "auto": false,
+          "name": "Screwed pitch-down (-4 to -8 semitones, slowed tape-speed drawl)",
+          "descriptors": [
+            "pitched-down-4-8-semitones",
+            "slowed-tape-speed-drawl",
+            "syrup-slow-smeared"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "1990s",
+            "chopped-and-screwed",
+            "houston-hip-hop"
+          ]
+        },
+        {
+          "id": "voice_processing_tape_delay_throw_phrase_end",
+          "auto": false,
+          "name": "Tape-delay throw (send opened on the phrase-end word, regenerating repeats)",
+          "descriptors": [
+            "delay-throw-phrase-end-send",
+            "regenerating-tape-repeats",
+            "last-word-trailing-into-space"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "dub",
+            "reggae",
+            "modern-pop-mixing"
+          ]
+        },
+        {
+          "id": "voice_processing_spring_reverb_dub_send",
+          "auto": false,
+          "name": "Spring reverb (boingy metallic drip-tail, dub-console send)",
+          "descriptors": [
+            "spring-reverb-metallic-drip",
+            "boingy-flutter-tail",
+            "dub-console-send"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "1970s",
+            "dub",
+            "reggae"
+          ]
+        },
+        {
+          "id": "voice_processing_slapback_tape_echo_80_140ms",
+          "auto": false,
+          "name": "Slapback tape echo (single 80-140ms repeat, no regeneration)",
+          "descriptors": [
+            "slapback-single-repeat-80-140ms",
+            "tape-echo-no-regeneration",
+            "doubled-attack-thickened"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "1950s",
+            "sun-records",
+            "rockabilly"
           ]
         }
       ]
@@ -7314,8 +9143,12 @@
         },
         {
           "id": "voice_multitrack_mid_1960s_double_tracking_era",
-          "name": "Mid-1960s double-tracking era stack",
+          "name": "ADT / tape-offset unison double (phasey detimed halo)",
           "descriptors": [
+            "tape-offset-detimed-unison",
+            "phasey-comb-filter-halo",
+            "widened-smeared-center",
+            "two-pass-double-blur",
             "mid-1960s-double-tracking-era-stack"
           ],
           "match_tokens": [
@@ -7324,13 +9157,19 @@
           ],
           "canonical_tags": [
             "1960s",
-            "vintage"
+            "vintage",
+            "beatles-era",
+            "abbey-road-adt"
           ]
         },
         {
           "id": "voice_multitrack_late_1970s_thirds_fifths_octaves",
-          "name": "Late-1970s thirds-fifths-octaves stack",
+          "name": "Self-blended thirds-fifths-octaves overdub choir (tight-comped silk)",
           "descriptors": [
+            "thirds-fifths-octaves-voicing",
+            "self-blended-overdub-choir",
+            "tight-comped-attack-lock",
+            "silken-unified-timbre",
             "late-1970s-thirds-fifths-octaves-stack"
           ],
           "match_tokens": [
@@ -7339,13 +9178,20 @@
           ],
           "canonical_tags": [
             "1970s",
-            "vintage"
+            "vintage",
+            "soft-rock",
+            "disco",
+            "elo-bee-gees-era"
           ]
         },
         {
           "id": "voice_multitrack_late_1980s_reverb_saturated_bus",
-          "name": "Late-1980s reverb-saturated-bus stack",
+          "name": "Massed bus-glued stack drowned in gated/plate reverb (arena-scale wash)",
           "descriptors": [
+            "massed-bus-glued-blend",
+            "gated-plate-reverb-drowned",
+            "arena-scale-wash",
+            "voices-smeared-into-one",
             "late-1980s-reverb-saturated-bus-stack"
           ],
           "match_tokens": [
@@ -7353,13 +9199,19 @@
             "breathing"
           ],
           "canonical_tags": [
-            "1980s"
+            "1980s",
+            "arena-rock",
+            "power-ballad"
           ]
         },
         {
           "id": "voice_multitrack_2000s_elastic_pitch_edited",
-          "name": "2000s-onward elastic-pitch-edited stack",
+          "name": "Surgically time-and-pitch-aligned comp stack (zero-flam edit lock)",
           "descriptors": [
+            "elastic-pitch-time-snapped",
+            "zero-flam-onset-lock",
+            "airbrushed-uniform-takes",
+            "grid-quantized-phrasing",
             "2000s-onward-elastic-pitch-edited-stack"
           ],
           "match_tokens": [
@@ -7368,13 +9220,19 @@
           ],
           "canonical_tags": [
             "2000s",
-            "modern-pop"
+            "modern-pop",
+            "pro-tools-era",
+            "commercial-pop-r-and-b"
           ]
         },
         {
           "id": "voice_multitrack_2010s_melodyne_microtuned",
-          "name": "2010s-onward Melodyne-microtuned stack",
+          "name": "Cent-locked microtuned harmony stack (beatless glassy interval tuning)",
           "descriptors": [
+            "note-by-note-cent-locked-stack",
+            "beatless-interval-tuning",
+            "glassy-synthetic-sheen",
+            "zero-drift-harmony-grid",
             "2010s-onward-melodyne-microtuned-stack"
           ],
           "match_tokens": [
@@ -7383,7 +9241,69 @@
           ],
           "canonical_tags": [
             "2010s",
-            "modern-pop"
+            "modern-pop",
+            "melodyne-era",
+            "maximalist-pop"
+          ]
+        },
+        {
+          "id": "voice_multitrack_tape_loop_choir_wall",
+          "auto": false,
+          "name": "Massed tape-loop choir wall (sustained vowel loops, fader-played)",
+          "descriptors": [
+            "massed-loop-choir-wall",
+            "sustained-vowel-chord-pads",
+            "fader-swelled-voices",
+            "hazy-endless-sustain"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "choir-blendable"
+          ],
+          "canonical_tags": [
+            "1970s",
+            "art-pop",
+            "ambient"
+          ]
+        },
+        {
+          "id": "voice_multitrack_whisper_double_lead",
+          "auto": false,
+          "name": "Whisper-double over lead (unvoiced intimacy layer)",
+          "descriptors": [
+            "unvoiced-whisper-shadow",
+            "breath-texture-halo",
+            "close-mic-intimacy-layer"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "doubled"
+          ],
+          "canonical_tags": [
+            "bedroom-pop",
+            "dream-pop",
+            "r-and-b"
+          ]
+        },
+        {
+          "id": "voice_multitrack_adlib_response_lane",
+          "auto": false,
+          "name": "Ad-lib / echo-word response lane (punctuating second comp track)",
+          "descriptors": [
+            "echo-word-punctuation",
+            "off-lead-interjection-lane",
+            "yeah-uh-tag-accents"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "hip-hop",
+            "trap",
+            "dancehall"
           ]
         }
       ]

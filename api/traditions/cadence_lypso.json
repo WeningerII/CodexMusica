@@ -3,9 +3,9 @@
   "name": "Cadence-lypso",
   "family": "global",
   "lineage": "Dominica creole-French Caribbean dance-band tradition fusing Haitian compas and Trinidadian calypso, codified through Exile One and Grammacks in the 1970s",
-  "recipe": "classic North American mid-1970s cadence-lypso, groove Percussion, Caribbean branch, Afro-diasporic electric groove percussion kompa afrobeat. thick, full chest belt, nervy, narrative. maple pau ferro ceramic nickel plated steel nickel single coil electric guitar, thomastik infeld low tension jazz warm pocket fingerstyle electric bass, birch vintage ambassador asymmetric bronze bell bronze drum kit, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, open slap hand drum congas. nuyorican fania canon 1968-1977 mid tier fania la tierra studios ny. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, passive program EQ. tape 15ips spring reverb.",
-  "recipe_chars": 723,
-  "score": 165.904,
+  "recipe": "classic North American mid-1970s cadence-lypso, groove Percussion, Caribbean branch, Afro-diasporic electric groove percussion kompa afrobeat. thick, breath veiled tone, fast rate, interlocked note trading. maple pau ferro ceramic nickel plated steel nickel single coil electric guitar, thomastik infeld low tension jazz warm pocket fingerstyle electric bass, birch vintage ambassador asymmetric bronze bell bronze drum kit, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, open slap hand drum congas. nuyorican fania canon 1968-1977 mid tier fania la tierra studios ny. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, passive program EQ. tape 15ips spring reverb.",
+  "recipe_chars": 745,
+  "score": 183.233,
   "config": {
     "traditions": [
       "cadence_lypso",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "full_chest_belt_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "fast_vibrato",
-          "voice_articulation": "narrative_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 3.267000000000001,
-          "voice_quality": 6.284249999999998,
+          "voice_quality": 6.5649999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.4949999999999999,
-          "voice_articulation": 1.8215000000000001,
-          "voice_microtone": 2.9500000000000006,
+          "voice_articulation": 10.919999999999993,
+          "voice_microtone": 10.72499999999999,
           "voice_tradition": 9.1975,
           "voice_mechanism_compound": 1.69,
           "voice_estill_quality": 1.4949999999999999,
-          "voice_speech_song": 11.959999999999994,
-          "voice_ensemble_config": 10.399999999999997,
+          "voice_speech_song": 12.219999999999994,
+          "voice_ensemble_config": 10.464999999999995,
           "voice_ornament_system": 1.2999999999999998,
           "voice_pitch_organization": 2.628,
           "voice_processing_chain": 8.30325,
-          "voice_multitrack_stack": 4.6000000000000005
+          "voice_multitrack_stack": 4.450000000000001
         }
       },
       {

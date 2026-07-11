@@ -3,9 +3,9 @@
   "name": "Grunge",
   "family": "rock_punk",
   "lineage": "Seattle Pacific Northwest alternative-rock genre that emerged in the late 1980s and went global in 1991 — codified through Nirvana (Nevermind 1991, the commercial breakthrough produced by Butch Vig), Pearl Jam (Ten 1991), Soundgarden (Badmotorfinger 1991, then Superunknown 1994), Alice in Chains (Facelift 1990, Dirt 1992), Mudhoney (the Sub Pop founding band), Screaming Trees, Tad — built on a fusion of hardcore punk aggression and Sabbath-style heavy-blues-derived guitar tone",
-  "recipe": "classic North American 1987-1989 grunge, distorted Rock, alternative branch, sludge metal post-metal. thick, larynx lowered, pure, equal tempered. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, mahogany pre muffled edge muffled machine hammered symmetric pattern drum kit. seattle grunge defining 1986-1995 indie-commercial seattle reciprocal grunge studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi boss DS-1.",
-  "recipe_chars": 669,
-  "score": 533.04,
+  "recipe": "classic North American 1987-1989 grunge, distorted Rock, alternative branch, sludge metal post-metal. thick, larynx lowered, wide pitch sway, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, mahogany pre muffled edge muffled machine hammered symmetric pattern drum kit. seattle grunge defining 1986-1995 indie-commercial seattle reciprocal grunge studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi boss DS-1.",
+  "recipe_chars": 690,
+  "score": 555.384,
   "config": {
     "traditions": [
       "grunge",
@@ -20,8 +20,8 @@
           "voice_quality": "lowered_larynx_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "straight_tone",
-          "voice_articulation": "spoken_voice",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "baroque_ornamental_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
@@ -29,8 +29,8 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_gang_vocal_unison",
           "voice_ornament_system": "voice_ornament_polynesian_falsetto",
-          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
@@ -38,18 +38,18 @@
           "voice_quality": 16.749999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.1849999999999996,
-          "voice_articulation": 0.40950000000000003,
+          "voice_vibrato": 5.575,
+          "voice_articulation": 15.794999999999993,
           "voice_microtone": 26.204999999999995,
           "voice_tradition": 4.8845,
           "voice_mechanism_compound": 35.293,
           "voice_estill_quality": 1.2349999999999999,
-          "voice_speech_song": 16.119999999999997,
+          "voice_speech_song": 16.379999999999992,
           "voice_ensemble_config": 17.799,
           "voice_ornament_system": 3.95,
-          "voice_pitch_organization": 1.6315,
-          "voice_processing_chain": 7.639500000000001,
-          "voice_multitrack_stack": 7.870500000000001
+          "voice_pitch_organization": 1.8199999999999998,
+          "voice_processing_chain": 11.18,
+          "voice_multitrack_stack": 8.450000000000001
         }
       },
       {

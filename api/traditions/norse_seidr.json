@@ -3,53 +3,53 @@
   "name": "Old Norse seiðr ritual vocalization",
   "family": "global",
   "lineage": "Seiðr was an Old Norse shamanic ritual practice associated chiefly with the völva (seeress) and the goddess Freyja, attested most fully in the account of Þorbjörg lítilvölva in Eiríks saga rauða and scattered through Ynglinga saga and Eddic material. Central to the rite were varðlokkur ('ward-songs'), sung to attract helping spirits so the seeress on her raised seiðhjallr platform could prophesy; in the saga a chorus of women sings while the völva works. The practice carried strong gender associations (ergi) and was linked to trance and spirit-travel, placing it alongside circumpolar shamanic vocalization. It survives only through medieval Icelandic prose and is reconstructed by scholars and modern practitioners.",
-  "recipe": "classic modern old norse seiðr ritual vocalization, ritual Devotional, arctic branch, indigenous ritual devotional mongolian böö shamanic invocation shipibo-conibo icaros healing songs. kargyraa, declaimed, tasteful, punctuated. forest clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 308,
-  "score": 156.303,
+  "recipe": "classic modern old norse seiðr ritual vocalization, ritual Devotional, arctic branch, indigenous ritual devotional shipibo-conibo icaros healing songs mongolian böö shamanic invocation. kargyraa, breath veiled tone, breath pulsed, interlocked note trading. forest clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 336,
+  "score": 251.158,
   "config": {
     "traditions": [
       "norse_seidr",
-      "mongolian_boo_invocation",
-      "shipibo_icaros"
+      "shipibo_icaros",
+      "mongolian_boo_invocation"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "kargyraa_register",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
-          "voice_articulation": "staccato_voice",
-          "voice_microtone": "blue_notes",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "inuit_katajjaq_tradition",
           "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_single_lead"
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 1.4949999999999999,
-          "voice_quality": 14.319999999999999,
+          "voice_quality": 38.87000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.195,
-          "voice_articulation": 1.1115000000000002,
-          "voice_microtone": 0.5265,
+          "voice_vibrato": 2.8229999999999995,
+          "voice_articulation": 26.975000000000005,
+          "voice_microtone": 26.78,
           "voice_tradition": 29.120000000000005,
           "voice_mechanism_compound": 22.899500000000003,
           "voice_estill_quality": 8.71,
-          "voice_speech_song": 27.950000000000003,
-          "voice_ensemble_config": 28.535000000000004,
+          "voice_speech_song": 29.510000000000005,
+          "voice_ensemble_config": 28.405,
           "voice_ornament_system": 11.775,
-          "voice_pitch_organization": 1.4949999999999999,
-          "voice_processing_chain": 4.68,
-          "voice_multitrack_stack": 1.965
+          "voice_pitch_organization": 4.615000000000001,
+          "voice_processing_chain": 14.235,
+          "voice_multitrack_stack": 4.420000000000001
         }
       }
     ],

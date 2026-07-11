@@ -3,9 +3,9 @@
   "name": "Japanese taue-uta (田植唄, rice-planting songs)",
   "family": "global",
   "lineage": "Japanese taue-uta (田植唄, \"rice-planting songs\") tradition continuous from premodern Japanese-agricultural village-labor practice through Edo-period continuous performance into modern Japanese-and-Japanese-diaspora continuous rural practice (where it survives) and into intangible-heritage status for certain regional variants; foundational repertoire integrates rice-paddy planting and weeding-songs with characteristic Japanese-folk pentatonic vocabulary",
-  "recipe": "classic modern japanese taue-uta, field Work, east Asian branch, south Asian field work, east Asian wedding, east Asian lullaby japanese komoriuta korean jajanga. thick, yodel, tasteful, continuous-phonation. acrylic nylon modern tsugaru min yo folk song accompaniment shamisen. forest clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 358,
-  "score": 139.664,
+  "recipe": "classic modern japanese taue-uta, field Work, east Asian branch, south Asian field work, east Asian wedding, east Asian lullaby japanese komoriuta korean jajanga. thick, breath veiled tone, straight note core, interlocked note trading. acrylic nylon modern tsugaru min yo folk song accompaniment shamisen. forest clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 385,
+  "score": 157.869,
   "config": {
     "traditions": [
       "japanese_taue_uta",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "yodel_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
-          "voice_articulation": "legato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "japanese_min_yo_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_pansori_sigimsae",
           "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
-          "voice_processing_chain": "voice_processing_plate_reverb_medium",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
           "voice_register": 5.649999999999999,
-          "voice_quality": 0.9099999999999999,
+          "voice_quality": 4.0950000000000015,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.925,
-          "voice_articulation": 6.76,
-          "voice_microtone": 2.5999999999999996,
+          "voice_vibrato": 4.945250000000001,
+          "voice_articulation": 10.464999999999996,
+          "voice_microtone": 11.309999999999995,
           "voice_tradition": 50.77374999999999,
           "voice_mechanism_compound": 2.5349999999999997,
           "voice_estill_quality": 1.4949999999999997,
-          "voice_speech_song": 14.689999999999998,
-          "voice_ensemble_config": 10.919999999999998,
+          "voice_speech_song": 14.949999999999996,
+          "voice_ensemble_config": 10.789999999999996,
           "voice_ornament_system": 18.020000000000003,
           "voice_pitch_organization": 6.76,
-          "voice_processing_chain": 2.4049999999999994,
-          "voice_multitrack_stack": 2.7299999999999995
+          "voice_processing_chain": 2.6000000000000005,
+          "voice_multitrack_stack": 2.9899999999999998
         }
       },
       {

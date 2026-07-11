@@ -3,53 +3,53 @@
   "name": "Vietnamese hò (work-coordination song)",
   "family": "global",
   "lineage": "Vietnamese hò (work-coordination call-and-response song) tradition continuous from premodern Vietnamese-agricultural-and-maritime labor practice through 19th-20th century continuous performance into modern Vietnamese-folk-revival practice across Northern, Central, and Southern Vietnam; the hò is the canonical Vietnamese work-coordination song-form integrating leader-and-group call-and-response across rice-paddy-planting, fishing, boat-rowing, and other labor-contexts",
-  "recipe": "classic modern vietnamese hò, field Work, east Asian branch, south Asian field work, atlantic Southeast Asian shanty, east Asian protest song bengali bhatiali american clipper-ship shanty. thick, incomplete closure resting, tasteful, unrestrained. marsh swamp. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 323,
-  "score": 114.102,
+  "recipe": "classic modern vietnamese hò, field Work, east Asian branch, south Asian field work, atlantic Southeast Asian shanty, east Asian protest song bengali bhatiali korean minjung gayo. thick, breath veiled tone, straight onset, interlocked note trading. marsh swamp. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 324,
+  "score": 154.437,
   "config": {
     "traditions": [
       "vietnamese_ho",
       "bengali_bhatiali",
-      "american_clipper_shanty"
+      "korean_minjung_gayo"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "incomplete_closure_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
-          "voice_articulation": "shouted_voice",
-          "voice_microtone": "blue_notes",
-          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "korean_minsogak_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_overtone_isolation_F2",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_ornament_system": "voice_ornament_pansori_sigimsae",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 5.545,
-          "voice_quality": 3.4,
+          "voice_register": 5.219999999999999,
+          "voice_quality": 9.684999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.38,
-          "voice_articulation": 9.125,
-          "voice_microtone": 0.845,
-          "voice_tradition": 15.664999999999996,
+          "voice_vibrato": 3.2500000000000004,
+          "voice_articulation": 16.445,
+          "voice_microtone": 16.249999999999996,
+          "voice_tradition": 19.384999999999998,
           "voice_mechanism_compound": 2.7,
-          "voice_estill_quality": 1.1049999999999998,
-          "voice_speech_song": 27.235,
-          "voice_ensemble_config": 15.665000000000001,
-          "voice_ornament_system": 4.585,
-          "voice_pitch_organization": 18.831749999999996,
-          "voice_processing_chain": 2.925000000000001,
-          "voice_multitrack_stack": 1.8199999999999998
+          "voice_estill_quality": 0.6499999999999999,
+          "voice_speech_song": 29.575,
+          "voice_ensemble_config": 16.38,
+          "voice_ornament_system": 9.475,
+          "voice_pitch_organization": 18.681749999999997,
+          "voice_processing_chain": 3.9325000000000006,
+          "voice_multitrack_stack": 2.9575000000000005
         }
       }
     ],

@@ -3,14 +3,14 @@
   "name": "Aguinaldo (Puerto Rican Christmas)",
   "family": "global",
   "lineage": "Puerto Rican Christmas-and-Three-Kings-Day song tradition performed during canonical Christmas season at parrandas door-to-door musical-visits. Cuatro puerto-rico (ten-string-paired Puerto Rican lute), acoustic-guitar, güiro scraper, percussion, voice. Repertoire spans religious-devotional Christmas content, picaresque parranda material, and patriotic-cultural Puerto-Rican content. Décima ten-line stanza characteristic of jíbaro music.",
-  "recipe": "classic Mexican modern aguinaldo, ritual Devotional, spirituals branch, Latin am troubadour ballad poetry twoubadou milonga. thick, declaimed, pure, ornamental. fingerpicked parlor acoustic guitar. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 344,
-  "score": 93.39,
+  "recipe": "classic Mexican modern aguinaldo, ritual Devotional, spirituals branch, Latin am troubadour ballad poetry milonga twoubadou. thick, declaimed, straight note core, interlocked note trading. fingerpicked parlor acoustic guitar. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 372,
+  "score": 112.65,
   "config": {
     "traditions": [
       "aguinaldo_puertorican",
-      "twoubadou_haitian",
-      "milonga"
+      "milonga",
+      "twoubadou_haitian"
     ],
     "instruments": [
       {
@@ -20,9 +20,9 @@
           "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "straight_tone",
-          "voice_articulation": "melisma_voice",
-          "voice_microtone": "blue_notes",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "sean_nos_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_belt",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_unprocessed",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 9.295,
           "voice_quality": 10.627499999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.845,
-          "voice_articulation": 3.75,
-          "voice_microtone": 0.65,
+          "voice_vibrato": 1.4300000000000002,
+          "voice_articulation": 11.439999999999994,
+          "voice_microtone": 11.24499999999999,
           "voice_tradition": 10.53,
           "voice_mechanism_compound": 1.6899999999999997,
           "voice_estill_quality": 3.5500000000000007,
-          "voice_speech_song": 16.249999999999996,
-          "voice_ensemble_config": 13.584999999999994,
+          "voice_speech_song": 16.119999999999994,
+          "voice_ensemble_config": 13.454999999999993,
           "voice_ornament_system": 6.899999999999999,
-          "voice_pitch_organization": 2.73,
+          "voice_pitch_organization": 2.5350000000000006,
           "voice_processing_chain": 4.225,
-          "voice_multitrack_stack": 1.3649999999999998
+          "voice_multitrack_stack": 2.2099999999999995
         }
       },
       {

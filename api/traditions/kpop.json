@@ -3,9 +3,9 @@
   "name": "K-pop",
   "family": "global",
   "lineage": "The K-pop tradition — South Korean idol pop built on maximalist hybrid production, choreography, and multi-member groups, globalized in the streaming era",
-  "recipe": "classic Asian modern k-pop, functional Song, east Asian pop branch. extended whistle, equal tempered, modern pop training, sprechgesang notated approximate pitch. sampler, plucked short envelope digital subtractive, TR-808, pyramid pure nickel bass British mid 60s era electric bass, octuple plus dense stack multi track instrument multitrack vocal stack. multi room segmented 2010-present major-flagship kpop idol complex. tube condenser, avalon VT-737sp, empirical labs distressor, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
-  "recipe_chars": 548,
-  "score": 115.634,
+  "recipe": "classic Asian modern k-pop, functional Song, east Asian pop branch. extended whistle, breath veiled tone, straight onset, interlocked note trading. sampler, plucked short envelope digital subtractive, TR-808, pyramid pure nickel bass British mid 60s era electric bass, octuple plus dense stack multi track instrument multitrack vocal stack. multi room segmented 2010-present major-flagship kpop idol complex. tube condenser, avalon VT-737sp, empirical labs distressor, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
+  "recipe_chars": 533,
+  "score": 120.164,
   "config": {
     "traditions": [
       "kpop"
@@ -15,11 +15,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "extended_whistle_register",
-          "voice_quality": "rap_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "narrative_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
@@ -29,25 +29,25 @@
           "voice_ornament_system": "voice_ornament_pansori_sigimsae",
           "voice_pitch_organization": "voice_pitch_vedic_three_tone",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 19.434999999999995,
-          "voice_quality": 0.49974999999999997,
+          "voice_quality": 2.990000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.336,
-          "voice_articulation": 0.3899999999999999,
+          "voice_vibrato": 0.5199999999999999,
+          "voice_articulation": 1.885,
           "voice_microtone": 15.148999999999992,
           "voice_tradition": 19.824999999999996,
           "voice_mechanism_compound": 0.39,
           "voice_estill_quality": 0.19500000000000003,
-          "voice_speech_song": 3.9650000000000003,
-          "voice_ensemble_config": 1.95,
+          "voice_speech_song": 3.835000000000001,
+          "voice_ensemble_config": 1.8199999999999998,
           "voice_ornament_system": 6.25,
           "voice_pitch_organization": 1.681,
           "voice_processing_chain": 1.329,
-          "voice_multitrack_stack": 1.1340000000000001
+          "voice_multitrack_stack": 1.7550000000000001
         }
       },
       {

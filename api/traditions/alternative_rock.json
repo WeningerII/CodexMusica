@@ -3,9 +3,9 @@
   "name": "Alternative rock",
   "family": "rock_punk",
   "lineage": "Late-1980s through early-2000s American independent-label guitar-rock genre that crossed over to mainstream radio after the Nirvana breakthrough — the umbrella covering the underground-to-mainstream trajectory distinct from grunge (Pacific Northwest specific), shoegaze (UK MBV-derived), noise rock (narrower experimental scope), and emo (post-hardcore confessional). Codified through the Pixies (Surfer Rosa 1988, Doolittle 1989, Bossanova 1990, the soft-loud-soft dynamic Cobain cited as Nevermind template), Sonic Youth (Daydream Nation 1988, Goo 1990, Dirty 1992 produced by Butch Vig), R.E.M. (Murmur 1983, Reckoning 1984, Document 1987, Out of Time 1991 commercial breakthrough, Automatic for the People 1992), Pavement (Slanted and Enchanted 1992, Crooked Rain Crooked Rain 1994, Wowee Zowee 1995), Dinosaur Jr. (Youre Living All Over Me 1987, Bug 1988, Green Mind 1991), Hüsker Dü (Zen Arcade 1984, New Day Rising 1985, Candy Apple Grey 1986), the Replacements (Let It Be 1984, Tim 1985, Pleased to Meet Me 1987), Modest Mouse (The Lonesome Crowded West 1997, The Moon and Antarctica 2000), Built to Spill (Perfect From Now On 1997, Keep It Like a Secret 1999), Yo La Tengo (Painful 1993, I Can Hear the Heart Beating as One 1997), Guided by Voices (Bee Thousand 1994, Alien Lanes 1995), Wilco (Being There 1996, Yankee Hotel Foxtrot 2002, the post-alt-country reinvention), the Breeders (Last Splash 1993), Throwing Muses, the Lemonheads, the Flaming Lips (The Soft Bulletin 1999), Weezer (Blue Album 1994, Pinkerton 1996). Built around electric guitar as primary lead — single-coil Fender-derived for jangly REM/Pavement chime, humbucker Gibson-derived for Pixies/Dinosaur Jr full-bodied roar — drums dry and unpolished in deliberate contrast to 80s arena-rock gated-reverb production, bass clean and melodic carrying counter-lines rather than locking to kick, vocals untrained and conversational or shouted rather than belted, lyrics interior-and-oblique rather than anthemic-and-universal, song structures hewing to verse-chorus but with quirks of extended noise interludes, soft-loud-soft Pixies dynamics, sudden key-asymmetric bridges, dropped-time outros. Production approaches centered on independent labels (Matador, Merge, Sub Pop, SST, Twin/Tone, Touch and Go, Drag City, Kill Rock Stars) with budget constraints producing the genre characteristic dry-and-direct sound antagonistic to the polished mainstream rock production of the same era. Recurring producers Steve Albini (electric-and-acoustic-pair drum micing, ambient-room aesthetic, anti-compression), Butch Vig (the Smart Studios Madison Wisconsin sound), Brian Paulson, Brad Wood. The genre dissolved into the broader indie-rock continuum by mid-2000s as the underground-mainstream distinction collapsed",
-  "recipe": "classic North American 1987-1989 alternative rock, distorted Rock, alternative branch, punk distorted rock post-punk hardcore punk. thick, incomplete closure resting, melodic, rhythmic. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alder single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, oak pre muffled edge muffled machine hammered symmetric pattern drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape proco RAT boss DS-1.",
-  "recipe_chars": 757,
-  "score": 841.895,
+  "recipe": "classic North American 1987-1989 alternative rock, distorted Rock, alternative branch, punk distorted rock post-punk hardcore punk. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alder single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, oak pre muffled edge muffled machine hammered symmetric pattern drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape proco RAT boss DS-1.",
+  "recipe_chars": 776,
+  "score": 916.53,
   "config": {
     "traditions": [
       "alternative_rock",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "incomplete_closure_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "spoken_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_polynesian_falsetto",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
           "voice_register": 49.41500000000004,
-          "voice_quality": 9.95,
+          "voice_quality": 39.43000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.1899999999999995,
-          "voice_articulation": 2.145,
+          "voice_vibrato": 4.56,
+          "voice_articulation": 28.535000000000004,
           "voice_microtone": 42.675000000000026,
           "voice_tradition": 5.444999999999999,
           "voice_mechanism_compound": 20.81,
           "voice_estill_quality": 10.625000000000004,
-          "voice_speech_song": 30.485000000000003,
-          "voice_ensemble_config": 28.405,
+          "voice_speech_song": 31.135000000000005,
+          "voice_ensemble_config": 35.425,
           "voice_ornament_system": 3.2,
-          "voice_pitch_organization": 2.9899999999999998,
-          "voice_processing_chain": 9.25,
-          "voice_multitrack_stack": 10.575
+          "voice_pitch_organization": 4.095000000000001,
+          "voice_processing_chain": 9.685,
+          "voice_multitrack_stack": 19.759999999999998
         }
       },
       {

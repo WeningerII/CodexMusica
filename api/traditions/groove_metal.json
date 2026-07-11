@@ -3,9 +3,9 @@
   "name": "Groove metal",
   "family": "rock_punk",
   "lineage": "Late-1980s-and-1990s heavy-metal subgenre emerging from thrash metal's tempo-deceleration into mid-tempo headbanging-groove rhythmic foundation. Pantera (post-1990 reinvention from glam-metal origins) inaugurated the canonical groove-metal sound through Cowboys from Hell (1990) and Vulgar Display of Power (1992); Sepultura (post-1991 Arise reinvention), Machine Head, and Lamb of God (2000s extension) constitute the broader canonical roster.",
-  "recipe": "classic North American 1987-1989 groove metal, distorted Rock, thrash branch, death metal blackgaze brutal death metal. thick, larynx lowered, chest resonance low mid, rhythmic. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, mahogany machine hammered symmetric pattern organized rows full lathed drum kit. san francisco bay area thrash 1983-1991 indie-commercial bay area thrash metal studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay ibanez tube screamer TS9 / TS808.",
-  "recipe_chars": 730,
-  "score": 441.623,
+  "recipe": "classic North American 1987-1989 groove metal, distorted Rock, thrash branch, death metal blackgaze brutal death metal. thick, breath veiled tone, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, mahogany machine hammered symmetric pattern organized rows full lathed drum kit. san francisco bay area thrash 1983-1991 indie-commercial bay area thrash metal studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay ibanez tube screamer TS9 / TS808.",
+  "recipe_chars": 736,
+  "score": 456.363,
   "config": {
     "traditions": [
       "groove_metal",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "lowered_larynx_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "spoken_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "baroque_ornamental_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
           "voice_estill_quality": "voice_estill_belt",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 12.394999999999996,
-          "voice_quality": 4.545,
+          "voice_quality": 5.98,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.34,
-          "voice_articulation": 1.345,
-          "voice_microtone": 12.375,
+          "voice_vibrato": 2.275,
+          "voice_articulation": 11.829999999999997,
+          "voice_microtone": 12.479999999999995,
           "voice_tradition": 3.2500000000000004,
           "voice_mechanism_compound": 42.120000000000005,
           "voice_estill_quality": 1.335,
-          "voice_speech_song": 11.959999999999999,
-          "voice_ensemble_config": 11.894999999999998,
+          "voice_speech_song": 11.829999999999997,
+          "voice_ensemble_config": 11.764999999999997,
           "voice_ornament_system": 1.2999999999999998,
-          "voice_pitch_organization": 4.225,
+          "voice_pitch_organization": 5.720000000000001,
           "voice_processing_chain": 4.075,
-          "voice_multitrack_stack": 5.390000000000001
+          "voice_multitrack_stack": 6.935000000000001
         }
       },
       {

@@ -3,9 +3,9 @@
   "name": "Deathcore",
   "family": "rock",
   "lineage": "Mid-2000s onward American extreme metal subgenre fusing death-metal's growl-vocal-and-blast-beat vocabulary with metalcore's breakdown-section conventions and pig-squeal / inhale-scream vocal techniques — codified through Suicide Silence (The Cleansing 2007), Whitechapel (This Is Exile 2008), Job for a Cowboy (Doom EP 2005), Carnifex, Despised Icon (The Healing Process 2005), Thy Art Is Murder",
-  "recipe": "classic 2004-2006 deathcore, distorted Rock, death branch, thrash metal djent. thick, low dynamic level, chest resonance low mid, punctuated. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, orange amp British heavy crunch alder ernie ball slinky electric bass, birch machine hammered symmetric pattern organized rows full lathed drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 570,
-  "score": 449.083,
+  "recipe": "classic 2004-2006 deathcore, distorted Rock, death branch, thrash metal djent. thick, breath veiled tone, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, orange amp British heavy crunch alder ernie ball slinky electric bass, birch machine hammered symmetric pattern organized rows full lathed drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 571,
+  "score": 466.349,
   "config": {
     "traditions": [
       "deathcore",
@@ -102,11 +102,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "crooner_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "staccato_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
@@ -120,21 +120,21 @@
         },
         "scores": {
           "voice_register": 14.112749999999997,
-          "voice_quality": 4.42,
+          "voice_quality": 8.060000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.615,
-          "voice_articulation": 1.69,
+          "voice_vibrato": 4.55,
+          "voice_articulation": 13.064999999999994,
           "voice_microtone": 13.78,
           "voice_tradition": 5.654999999999999,
           "voice_mechanism_compound": 39.573499999999996,
           "voice_estill_quality": 3.315000000000001,
-          "voice_speech_song": 13.389999999999997,
-          "voice_ensemble_config": 12.999999999999995,
+          "voice_speech_song": 14.039999999999994,
+          "voice_ensemble_config": 13.064999999999994,
           "voice_ornament_system": 0.6499999999999999,
-          "voice_pitch_organization": 1.4949999999999999,
-          "voice_processing_chain": 4.095000000000001,
-          "voice_multitrack_stack": 8.943
+          "voice_pitch_organization": 1.2999999999999998,
+          "voice_processing_chain": 5.850000000000001,
+          "voice_multitrack_stack": 8.98325
         }
       }
     ],

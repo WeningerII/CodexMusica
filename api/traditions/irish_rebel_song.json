@@ -3,26 +3,26 @@
   "name": "Irish rebel song",
   "family": "global",
   "lineage": "Irish rebel-song tradition continuous from 18th-century 1798-United-Irishmen rebellion songs (\"The Wearing of the Green\" \"Bold Robert Emmet\") through 19th-century Young Ireland and Fenian songbook through 1916 Easter Rising era through Northern-Irish Troubles 1968-1998 era continuous into modern Irish-traditional-music repertoire",
-  "recipe": "classic late-1790s irish rebel song, protest Song, European branch, anglo American protest song, Celtic balladic ballad poetry, Celtic traditional improv on frame child ballad revival sean-nós solo singing. thick, incomplete closure resting, tasteful, continuous-phonation. dadgad tuning martin lifespan fingerpicked acoustic guitar, synthetic magic rosin modern acrylic base fiddle, African blackwood boxwood premium pre modern melodic tin whistle. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 523,
-  "score": 199.673,
+  "recipe": "classic late-1790s irish rebel song, protest Song, European branch, anglo American protest song, Celtic balladic ballad poetry, Celtic traditional improv on frame sean-nós solo singing child ballad revival. thick, breath veiled tone, straight onset, interlocked note trading. dadgad tuning martin lifespan fingerpicked acoustic guitar, synthetic magic rosin modern acrylic base fiddle, African blackwood boxwood premium pre modern melodic tin whistle. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 525,
+  "score": 251.037,
   "config": {
     "traditions": [
       "irish_rebel_song",
-      "child_ballad_revival",
-      "sean_nos_solo"
+      "sean_nos_solo",
+      "child_ballad_revival"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "incomplete_closure_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
-          "voice_articulation": "legato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_speech",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 5.420000000000001,
-          "voice_quality": 5.24,
+          "voice_quality": 8.969999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
-          "voice_articulation": 3.4249999999999994,
-          "voice_microtone": 1.7000000000000002,
+          "voice_vibrato": 2.6000000000000005,
+          "voice_articulation": 11.309999999999995,
+          "voice_microtone": 12.15499999999999,
           "voice_tradition": 31.557499999999997,
           "voice_mechanism_compound": 1.8199999999999998,
-          "voice_estill_quality": 1.2349999999999999,
-          "voice_speech_song": 17.744999999999997,
-          "voice_ensemble_config": 11.764999999999993,
-          "voice_ornament_system": 16.25,
+          "voice_estill_quality": 1.235,
+          "voice_speech_song": 18.394999999999992,
+          "voice_ensemble_config": 11.634999999999993,
+          "voice_ornament_system": 41.58,
           "voice_pitch_organization": 3.4249999999999994,
-          "voice_processing_chain": 2.6,
-          "voice_multitrack_stack": 2.0799999999999996
+          "voice_processing_chain": 4.290000000000001,
+          "voice_multitrack_stack": 2.925000000000001
         }
       },
       {

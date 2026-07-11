@@ -3,9 +3,9 @@
   "name": "Mapuche tayil genealogical chant",
   "family": "global",
   "lineage": "Mapuche (Araucanian) tayil women's genealogical-ritual chant tradition of the Mapuche communities of southern Argentina (Neuquén, Río Negro, Chubut provinces) and adjacent southern-central Chile (Araucanía Region). Tayil is a sung-evocation of a kin-group's tayil-spirit (each Mapuche kin-group / küpan has its own tayil-spirit-melody, inherited matrilineally), with the singer's voice bringing-present the spiritual essence of the ancestor-line during the ngillatún collective-ceremony (the central Mapuche public ritual cycle, held over multiple days in a sacred clearing). Performance involves a single woman singer-evocator (tayilfe) in melismatic-narrow-range melodic style with characteristic descending-contour cadential conventions and Mapuche pentatonic-leaning modal vocabulary, accompanied by kultrún (the one-headed shamanic frame-drum with cosmological-diagram-painted goat-skin or horse-skin head, struck with a curved beater) and sometimes trutruka long-trumpet or pifüllka end-blown whistles. The tayil tradition is distinct from but adjacent to the machi shamanic ülkantun (the curing-songs of the machi shaman, a separate role and repertoire). Carol E. Robertson-DeCarbo's 1976 Indiana doctoral dissertation (Tayil: Musical Communication and Social Organization Among the Mapuche of Argentina), her 1979 Ethnomusicology article Pulling the Ancestors (23/3), and María Ester Grebe Vicuña's 1973 Revista Musical Chilena article on the kultrún constitute the foundational scholarship. Distinguished from neighboring Tehuelche and Huilliche vocal traditions by Mapuche-Mapudungun language and tayil-spirit-evocation functional framework; distinguished from broader South American indigenous ritual-music by the specific küpan-spirit-inheritance kin-group structure.",
-  "recipe": "classic South American mid-1970s mapuche tayil genealogical chant, ritual Devotional, mapuche branch, Latin am troubadour ballad poetry mapuche ülkantun milonga. thick, declaimed, melodic, blues inflected. laurel lingue rauli wood canonical mapuche build goat or horse skin cosmological diagram painted machi shamanic ritual canonical ngillatun kultrun. ngillatun clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 436,
-  "score": 159.242,
+  "recipe": "classic South American mid-1970s mapuche tayil genealogical chant, ritual Devotional, mapuche branch, Latin am troubadour ballad poetry mapuche ülkantun milonga. thick, breath veiled tone, straight note core, interlocked note trading. laurel lingue rauli wood canonical mapuche build goat or horse skin cosmological diagram painted machi shamanic ritual canonical ngillatun kultrun. ngillatun clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 465,
+  "score": 241.987,
   "config": {
     "traditions": [
       "mapuche_tayil_ritual",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "spoken_voice",
-          "voice_microtone": "blue_notes",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_lo_fi_narrow_AM",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 3.4150000000000005,
-          "voice_quality": 5.7200000000000015,
+          "voice_quality": 34.12500000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.3150000000000004,
-          "voice_articulation": 0.39,
-          "voice_microtone": 0.65,
+          "voice_vibrato": 6.175,
+          "voice_articulation": 20.539999999999996,
+          "voice_microtone": 19.95499999999999,
           "voice_tradition": 25.095000000000002,
           "voice_mechanism_compound": 10.205,
           "voice_estill_quality": 8.905000000000001,
-          "voice_speech_song": 21.124999999999996,
-          "voice_ensemble_config": 20.994999999999997,
+          "voice_speech_song": 23.984999999999992,
+          "voice_ensemble_config": 20.864999999999995,
           "voice_ornament_system": 4.525,
           "voice_pitch_organization": 3.240000000000001,
-          "voice_processing_chain": 5.3950000000000005,
-          "voice_multitrack_stack": 3.835
+          "voice_processing_chain": 12.024999999999999,
+          "voice_multitrack_stack": 6.5
         }
       },
       {

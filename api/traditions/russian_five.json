@@ -3,9 +3,9 @@
   "name": "The Mighty Handful (Russian nationalist five)",
   "family": "classical",
   "lineage": "Nineteenth-century Russian nationalist-composer collective in Saint Petersburg (Mily Balakirev, César Cui, Modest Mussorgsky, Nikolai Rimsky-Korsakov, Alexander Borodin), articulating a distinct Russian art-music identity through folk-melodic integration, modal-and-pentatonic vocabulary, programmatic-nationalist narrative content, and characteristic Russian-orchestration-color techniques. Mussorgsky's Boris Godunov (1869, revised 1872) and Pictures at an Exhibition (1874) constitute the canonical type-specimens. Direct precursor to Stravinsky's pre-1914 ballet trilogy.",
-  "recipe": "classic Eastern European late-1860s the mighty handful, art Music, western common practice branch, western modern art music second viennese school neoclassicism. thick, low dynamic level, tasteful, narrative. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, synthetic sitka spruce bigleaf maple western maple oil varnish violin orchestral. moscow state label 1964-present major-flagship moscow melodiya studio. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
-  "recipe_chars": 586,
-  "score": 266.317,
+  "recipe": "classic Eastern European late-1860s the mighty handful, art Music, western common practice branch, western modern art music second viennese school neoclassicism. thick, breath veiled tone, slow rate, interlocked note trading. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, synthetic sitka spruce bigleaf maple western maple oil varnish violin orchestral. moscow state label 1964-present major-flagship moscow melodiya studio. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
+  "recipe_chars": 603,
+  "score": 287.035,
   "config": {
     "traditions": [
       "russian_five",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "crooner_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
-          "voice_articulation": "narrative_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "chinese_classical_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 10.775,
-          "voice_quality": 2.34,
+          "voice_quality": 6.825000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.8600000000000003,
-          "voice_articulation": 1.0999999999999999,
-          "voice_microtone": 13.412500000000001,
+          "voice_vibrato": 6.5,
+          "voice_articulation": 11.634999999999994,
+          "voice_microtone": 13.97499999999999,
           "voice_tradition": 9.555,
           "voice_mechanism_compound": 4.9,
           "voice_estill_quality": 9.417499999999999,
-          "voice_speech_song": 16.574999999999996,
-          "voice_ensemble_config": 11.699999999999996,
+          "voice_speech_song": 17.484999999999996,
+          "voice_ensemble_config": 11.569999999999993,
           "voice_ornament_system": 5.8225,
           "voice_pitch_organization": 5.98875,
           "voice_processing_chain": 4.225,
-          "voice_multitrack_stack": 1.495
+          "voice_multitrack_stack": 2.209999999999999
         }
       },
       {

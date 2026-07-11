@@ -3,9 +3,9 @@
   "name": "Russian estrada",
   "family": "global",
   "lineage": "Soviet-era (1940s-1991) and post-Soviet (1991-onward) Russian-language commercial-stage popular song — Edita Piekha, Joseph Kobzon, Lev Leshchenko, Alla Pugacheva (Pesnya goda annual TV festival regular), Sofia Rotaru, Filipp Kirkorov; characterized by sentimental minor-key lyrical content, orchestrated arrangements with strings and brass, and the centralized State-controlled distribution through Melodiya / Soviet TV / Radio infrastructure",
-  "recipe": "classic Eastern European modern russian estrada, functional Song, europop branch, pop rock functional song new wave folk rock. thick, incomplete closure resting, melodic, narrative. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, b system buttons stradella bass Russian tradition estrada stage Soviet era bayan russian, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, brass pre muffled edge muffled hot rolled annealed drum kit, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles choir ensemble, steel modern alternative Soviet orchestra canon strummed balalaika, rhythmic dance rhythm strummed domra. moscow state label 1964-present major-flagship moscow melodiya studio. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
-  "recipe_chars": 904,
-  "score": 624.15,
+  "recipe": "classic Eastern European modern russian estrada, functional Song, europop branch, pop rock functional song new wave folk rock. thick, breath veiled tone, breath pulsed, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, b system buttons stradella bass Russian tradition estrada stage Soviet era bayan russian, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, brass pre muffled edge muffled hot rolled annealed drum kit, a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles choir ensemble, steel modern alternative Soviet orchestra canon strummed balalaika, rhythmic dance rhythm strummed domra. moscow state label 1964-present major-flagship moscow melodiya studio. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
+  "recipe_chars": 917,
+  "score": 652.265,
   "config": {
     "traditions": [
       "russian_estrada",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "incomplete_closure_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "narrative_voice",
+          "voice_vibrato": "diaphragm_vibrato",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 52.625000000000014,
-          "voice_quality": 2.16,
+          "voice_quality": 10.724999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.1550000000000002,
-          "voice_articulation": 0.8249999999999998,
+          "voice_vibrato": 3.8999999999999995,
+          "voice_articulation": 18.39499999999999,
           "voice_microtone": 39.07500000000001,
           "voice_tradition": 24.244999999999997,
           "voice_mechanism_compound": 4.030000000000001,
           "voice_estill_quality": 7.1825,
-          "voice_speech_song": 27.13749999999999,
-          "voice_ensemble_config": 18.264999999999993,
+          "voice_speech_song": 27.852499999999992,
+          "voice_ensemble_config": 18.52499999999999,
           "voice_ornament_system": 0.9799999999999998,
           "voice_pitch_organization": 2.0699999999999994,
           "voice_processing_chain": 9.265,
-          "voice_multitrack_stack": 8.3525
+          "voice_multitrack_stack": 8.6125
         }
       },
       {

@@ -3,9 +3,9 @@
   "name": "Russian bard song (avtorskaya pesnya)",
   "family": "global",
   "lineage": "Soviet-era guitar-and-poet song (avtorskaya pesnya, literally authorial song) tradition codified by Vladimir Vysotsky (the raspy-voice baritone), Bulat Okudzhava (the gentle-tenor Arbat-Street troubadour), Alexander Galich (the dissident émigré voice), Yuri Vizbor (the mountain-climbing-and-friendship songwriter) — circulated through magnitizdat (self-distributed-tape underground circulation) under Soviet censorship rather than official Melodiya release",
-  "recipe": "classic Eastern European early-1960s russian bard song, ballad Poetry, Slavic bard branch, chanson fado ballad poetry, European protest song morna cape verdean batuko of santiago island. vocal fry, lament wail, tasteful, punctuated. martin lifespan fingerpicked acoustic guitar, sekunda tuning Soviet orchestra canon strummed balalaika. moscow state label 1964-present major-flagship moscow melodiya studio. dynamic moving-coil, tube pre. Walkman cassette.",
-  "recipe_chars": 456,
-  "score": 146.125,
+  "recipe": "classic Eastern European early-1960s russian bard song, ballad Poetry, Slavic bard branch, chanson fado ballad poetry, European protest song morna cape verdean batuko of santiago island. vocal fry, breath veiled tone, straight note core, interlocked note trading. martin lifespan fingerpicked acoustic guitar, sekunda tuning Soviet orchestra canon strummed balalaika. moscow state label 1964-present major-flagship moscow melodiya studio. dynamic moving-coil, tube pre. Walkman cassette.",
+  "recipe_chars": 487,
+  "score": 211.92,
   "config": {
     "traditions": [
       "russian_bard_song",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "vocal_fry",
-          "voice_quality": "fado_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
-          "voice_articulation": "staccato_voice",
-          "voice_microtone": "blue_notes",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_plate_reverb_medium",
-          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
           "voice_register": 3.6399999999999997,
-          "voice_quality": 9.91,
+          "voice_quality": 30.55,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.7350000000000001,
-          "voice_articulation": 2.145,
-          "voice_microtone": 1.6899999999999997,
+          "voice_vibrato": 3.055,
+          "voice_articulation": 22.23,
+          "voice_microtone": 22.555,
           "voice_tradition": 15.144999999999998,
           "voice_mechanism_compound": 4.875,
           "voice_estill_quality": 4.9725,
-          "voice_speech_song": 28.600000000000005,
-          "voice_ensemble_config": 23.855,
+          "voice_speech_song": 29.445000000000004,
+          "voice_ensemble_config": 23.725,
           "voice_ornament_system": 2.4850000000000003,
           "voice_pitch_organization": 2.795000000000001,
-          "voice_processing_chain": 6.0125,
-          "voice_multitrack_stack": 5.135
+          "voice_processing_chain": 6.955000000000003,
+          "voice_multitrack_stack": 5.3625
         }
       },
       {

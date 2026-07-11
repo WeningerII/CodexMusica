@@ -3,9 +3,9 @@
   "name": "Repente and embolada (NE Brazilian improvised)",
   "family": "global",
   "lineage": "Brazilian repente and embolada improvised-poetic-dueling traditions of the northeastern Brazilian sertão (Pernambuco, Paraíba, Ceará, Rio Grande do Norte states). Repente is the canonical extended-improvised-verse form of cantadores (poet-singers) performing in pairs, often using rabeca (Northeastern fiddle) or viola (Brazilian ten-string lute) accompaniment. Embolada is the faster-tempo subform with characteristic mocking-and-humorous-couplet improvisation, typically over a pandeiro frame-drum beat.",
-  "recipe": "classic Southern American modern repente and embolada, ballad Poetry, Latin am troubadour branch, med east poetic ballad poetry cypriot tsiattista ethiopian azmari minstrel-poet. extended whistle, declaimed, nervy, equal tempered. goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian hands layered pandeiro. estudio rozenblit recife. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 463,
-  "score": 117.052,
+  "recipe": "classic Southern American modern repente and embolada, ballad Poetry, Latin am troubadour branch, med east poetic ballad poetry cypriot tsiattista ethiopian azmari minstrel-poet. extended whistle, breath veiled tone, fast rate, interlocked note trading. goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian hands layered pandeiro. estudio rozenblit recife. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 486,
+  "score": 185.373,
   "config": {
     "traditions": [
       "repente_embolada",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "extended_whistle_register",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "fast_vibrato",
-          "voice_articulation": "legato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "mande_jeli_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
           "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 2.4050000000000002,
-          "voice_quality": 6.5443750000000005,
+          "voice_quality": 16.509999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.69,
-          "voice_articulation": 0,
-          "voice_microtone": 1.2999999999999998,
+          "voice_articulation": 18.005000000000003,
+          "voice_microtone": 18.655,
           "voice_tradition": 14.852500000000001,
           "voice_mechanism_compound": 5.915,
           "voice_estill_quality": 4.875,
-          "voice_speech_song": 18.135000000000005,
-          "voice_ensemble_config": 18.070000000000004,
+          "voice_speech_song": 18.85,
+          "voice_ensemble_config": 17.94,
           "voice_ornament_system": 1.79,
-          "voice_pitch_organization": 11.024999999999999,
-          "voice_processing_chain": 3.1499999999999995,
-          "voice_multitrack_stack": 1.77
+          "voice_pitch_organization": 30.36,
+          "voice_processing_chain": 5.719999999999999,
+          "voice_multitrack_stack": 2.2749999999999995
         }
       },
       {

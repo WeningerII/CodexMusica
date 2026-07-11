@@ -3,9 +3,9 @@
   "name": "Berber ahidus and ahwash (Atlas Mountains)",
   "family": "global",
   "lineage": "Berber (Imazighen / Amazigh) collective song-and-dance tradition of the Atlas Mountain ranges across Morocco, with ahidus the central-and-northern Middle-Atlas form (Tamazight-speaking populations) and ahwash the Souss-region southern-Atlas form (Tashelhiyt-speaking populations). Performance involves two facing rows of dancers (mixed men and women in ahidus, often single-sex in ahwash) executing synchronized arm-and-shoulder choreography while singing antiphonal call-and-response over bendir frame-drum accompaniment, with the amdyaz (poet-leader) improvising the opening verse-line that the chorus answers in unison. Modal vocabulary draws on regional pentatonic frameworks with characteristic Atlas-region melodic-contour conventions. The amzwaj poetic-form (couplet-and-response architecture) governs verse structure, with seasonal-and-occasional repertoires for harvest, wedding, and tribal-assembly contexts. Miriam Rovsing Olsen's 1990s Atlas fieldwork (published as Chants et danses de l'Atlas, Actes Sud / Cité de la musique 1997, with Ocora-Radio France C 559035 companion recordings) is the principal scholarly documentation. Distinguished from Berber Rif and Kabyle vocal traditions by Atlas-region poly-strophic verse structure and bendir-frame-drum-dominant percussion; distinguished from Andalusi-Maghrebi nuba by Tamazight-language and outdoor-village (not court-and-chamber) performance context; distinguished from Tuareg by sedentary-village (not nomadic-pastoral) base and bendir (vs tendé pestle-drum) percussion.",
-  "recipe": "classic North African mid-1990s berber ahidus and ahwash, ballad Poetry, Mediterranean ballad branch, west African groove percussion indonesian jaipongan yoruba dùndún surrogate speech. thick, rap, melodic, callresponse articulation. juniper bent frame canonical Maghrebi synthetic remo modern world music bendir, olive Mediterranean alternative arundo donax canonical Maghrebi ghaita. atlas mountain village square. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 479,
-  "score": 179.46,
+  "recipe": "classic North African mid-1990s berber ahidus and ahwash, ballad Poetry, Mediterranean ballad branch, west African groove percussion indonesian jaipongan yoruba dùndún surrogate speech. thick, breath veiled tone, straight note core, interlocked note trading. juniper bent frame canonical Maghrebi synthetic remo modern world music bendir, olive Mediterranean alternative arundo donax canonical Maghrebi ghaita. atlas mountain village square. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 504,
+  "score": 270.233,
   "config": {
     "traditions": [
       "berber_ahidus_ahwash",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "rap_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "call_response_voice",
-          "voice_microtone": "bend_inflected",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
           "voice_pitch_organization": "voice_pitch_slendro_5",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 3.8024999999999998,
-          "voice_quality": 3.055,
+          "voice_quality": 29.25,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.47,
-          "voice_articulation": 1.25,
-          "voice_microtone": 0.78,
+          "voice_vibrato": 3.6725000000000003,
+          "voice_articulation": 28.210000000000004,
+          "voice_microtone": 29.705000000000002,
           "voice_tradition": 36.30250000000001,
           "voice_mechanism_compound": 10.254999999999999,
           "voice_estill_quality": 8.32,
-          "voice_speech_song": 33.215,
-          "voice_ensemble_config": 28.275000000000006,
+          "voice_speech_song": 35.685,
+          "voice_ensemble_config": 28.145000000000003,
           "voice_ornament_system": 2.99,
-          "voice_pitch_organization": 10.024999999999999,
-          "voice_processing_chain": 5.59,
-          "voice_multitrack_stack": 4.68
+          "voice_pitch_organization": 10.364999999999998,
+          "voice_processing_chain": 9.75,
+          "voice_multitrack_stack": 5.330000000000001
         }
       },
       {

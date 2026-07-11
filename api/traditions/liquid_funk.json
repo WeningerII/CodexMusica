@@ -3,9 +3,9 @@
   "name": "Liquid funk (drum & bass)",
   "family": "global",
   "lineage": "Early-2000s onward drum-and-bass subgenre emphasizing soulful-jazz harmonic foundation, melodic content, and accessible vocal-pop arrangement against rolling drum-and-bass percussion — codified through Calibre, High Contrast (True Colours 2002), Logistics, Netsky (Netsky 2010), London Elektricity, and the broader Hospital Records label catalog",
-  "recipe": "classic 2000-2003 liquid funk, bass System, uk soundsystem branch, Afro-diasporic electric groove percussion afrobeat kompa. thick, full chest belt, melodic, narrative. melodic pitched sampler, TR-909, sub bass digital subtractive, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 486,
-  "score": 159.843,
+  "recipe": "classic 2000-2003 liquid funk, bass System, uk soundsystem branch, Afro-diasporic electric groove percussion afrobeat kompa. thick, breath veiled tone, straight onset, interlocked note trading. melodic pitched sampler, TR-909, sub bass digital subtractive, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 511,
+  "score": 181.588,
   "config": {
     "traditions": [
       "liquid_funk",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "full_chest_belt_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "narrative_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_belt",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_talkbox",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 9.868749999999995,
-          "voice_quality": 5.25,
+          "voice_quality": 6.955000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.838375,
-          "voice_articulation": 2.2750000000000004,
-          "voice_microtone": 8.699999999999998,
+          "voice_vibrato": 6.53625,
+          "voice_articulation": 12.739999999999995,
+          "voice_microtone": 12.544999999999991,
           "voice_tradition": 9.1975,
           "voice_mechanism_compound": 1.69,
           "voice_estill_quality": 1.5499999999999998,
-          "voice_speech_song": 13.779999999999994,
-          "voice_ensemble_config": 12.609999999999994,
+          "voice_speech_song": 14.039999999999994,
+          "voice_ensemble_config": 12.674999999999994,
           "voice_ornament_system": 1.99025,
           "voice_pitch_organization": 2.484375,
           "voice_processing_chain": 6.180000000000001,
-          "voice_multitrack_stack": 4.5901250000000005
+          "voice_multitrack_stack": 5.2975
         }
       },
       {

@@ -3,9 +3,9 @@
   "name": "Greek Cretan tabachaniotika (Cretan urban sea-faring song)",
   "family": "global",
   "lineage": "Greek-Cretan tabachaniotika (urban-Cretan sea-faring-and-port-side song) tradition continuous from late-19th-and-early-20th century Cretan-urban-port (Heraklion, Chania, Rethymno) song-and-tavern tradition through Cretan-Greek-Turkish population-exchange 1923-aftermath integration with Asia-Minor refugees into modern Cretan-folk-revival continuous practice; the tabachaniotika is the canonical Cretan-port-side-and-sea-faring repertoire",
-  "recipe": "classic Southern European early-1920s greek cretan tabachaniotika, sea Shanty, Mediterranean branch, balkan drinking song, European protest song, Mediterranean ballad ballad poetry sevdalinka georgian supra feast-singing. thick, low dynamic level, tasteful, continuous-phonation. mulberry canonical cretan gut pre modern cretan cretan lyra, mahogany modern alternative Lebanese cedar eastern Mediterranean brass wound bass oud, cretan rhythmic laouto. athens piraeus rebetadika. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 541,
-  "score": 234.227,
+  "recipe": "classic Southern European early-1920s greek cretan tabachaniotika, sea Shanty, Mediterranean branch, balkan drinking song, European protest song, Mediterranean ballad ballad poetry sevdalinka georgian supra feast-singing. thick, breath veiled tone, straight onset, interlocked note trading. mulberry canonical cretan gut pre modern cretan cretan lyra, mahogany modern alternative Lebanese cedar eastern Mediterranean brass wound bass oud, cretan rhythmic laouto. athens piraeus rebetadika. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 552,
+  "score": 281.182,
   "config": {
     "traditions": [
       "greek_tabachaniotika",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "crooner_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
-          "voice_articulation": "legato_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
           "voice_register": 4.270000000000001,
-          "voice_quality": 3.835000000000001,
+          "voice_quality": 12.349999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.185,
-          "voice_articulation": 6.109999999999999,
-          "voice_microtone": 5.295,
+          "voice_vibrato": 5.32,
+          "voice_articulation": 18.13499999999999,
+          "voice_microtone": 28.339999999999986,
           "voice_tradition": 38.97,
           "voice_mechanism_compound": 4.96,
           "voice_estill_quality": 7.865,
-          "voice_speech_song": 28.794999999999995,
-          "voice_ensemble_config": 19.174999999999994,
+          "voice_speech_song": 29.50999999999999,
+          "voice_ensemble_config": 19.04499999999999,
           "voice_ornament_system": 1.6899999999999997,
           "voice_pitch_organization": 6.109999999999999,
           "voice_processing_chain": 1.755,
-          "voice_multitrack_stack": 2.6649999999999996
+          "voice_multitrack_stack": 3.315000000000001
         }
       },
       {

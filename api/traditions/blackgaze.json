@@ -3,9 +3,9 @@
   "name": "Blackgaze (2010s black-metal-and-shoegaze hybrid)",
   "family": "rock_punk",
   "lineage": "2010s heavy-metal subgenre integrating black-metal extreme-vocal-and-percussion aggression with shoegaze-and-post-rock textural-and-melodic-arrangement. Alcest (France, 2000-onward) inaugurated the canonical sound; Deafheaven's Sunbather (2013) consolidated international visibility and the broader 2010s blackgaze wave through Bosse-de-Nage, Astronoid, Underling, and adjacent acts. Distinguished from atmospheric black metal by blackgaze's explicit shoegaze-textural-influence and major-key/melodic-emphasis.",
-  "recipe": "classic blackgaze, distorted Rock, death branch, alternative distorted rock madchester / baggy math rock. thick, larynx lowered, melodic, rhythmic. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, mahogany kevlar aramid extreme tension machine hammered drum kit. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 599,
-  "score": 483.997,
+  "recipe": "classic blackgaze, distorted Rock, death branch, alternative distorted rock madchester / baggy math rock. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, mahogany kevlar aramid extreme tension machine hammered drum kit. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 630,
+  "score": 511.652,
   "config": {
     "traditions": [
       "blackgaze",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "lowered_larynx_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "spoken_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "japanese_min_yo_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 24.654999999999994,
-          "voice_quality": 8.699999999999998,
+          "voice_quality": 13.129999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.2699999999999996,
-          "voice_articulation": 1.69,
+          "voice_vibrato": 3.185,
+          "voice_articulation": 18.004999999999995,
           "voice_microtone": 24.124999999999996,
           "voice_tradition": 3.6725000000000008,
           "voice_mechanism_compound": 24.319999999999997,
           "voice_estill_quality": 2.34,
-          "voice_speech_song": 18.134999999999998,
-          "voice_ensemble_config": 18.069999999999997,
+          "voice_speech_song": 18.004999999999995,
+          "voice_ensemble_config": 17.939999999999998,
           "voice_ornament_system": 0.6499999999999999,
-          "voice_pitch_organization": 6.76,
+          "voice_pitch_organization": 9.945000000000002,
           "voice_processing_chain": 5.720000000000001,
-          "voice_multitrack_stack": 11.659999999999998
+          "voice_multitrack_stack": 15.729999999999997
         }
       },
       {

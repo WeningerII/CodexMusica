@@ -3,9 +3,9 @@
   "name": "Italo dance",
   "family": "global",
   "lineage": "Late-1990s through early-2000s Italian commercial-dance genre evolved from italo-disco through eurodance, characterized by accelerated 140-150 bpm tempo, melodic synth-lead lines, and earnest pop-vocal hooks — codified through Eiffel 65 (Blue 1999), Gigi D'Agostino (L'Amour Toujours 1999, La Passion 2000), DJ Lhasa, Prezioso, with the genre serving as a distinct continental commercial-dance regional scene",
-  "recipe": "classic Asian 1997-1999 italo dance, electronic Dance, eurodance branch, continental electronic dance disco. thick, chest mix belt, melodic, narrative. singing lead digital subtractive, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, TR-909, melodic orchestral imitation pitched sampler. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
-  "recipe_chars": 577,
-  "score": 165.838,
+  "recipe": "classic Asian 1997-1999 italo dance, electronic Dance, eurodance branch, continental electronic dance disco. thick, chest mix belt, straight note core, interlocked note trading. singing lead digital subtractive, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, TR-909, melodic orchestral imitation pitched sampler. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+  "recipe_chars": 603,
+  "score": 173.44,
   "config": {
     "traditions": [
       "italo_dance",
@@ -20,8 +20,8 @@
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "narrative_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
@@ -30,25 +30,25 @@
           "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
           "voice_register": 8.988999999999999,
           "voice_quality": 14.157499999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.72475,
-          "voice_articulation": 2.7249999999999996,
-          "voice_microtone": 6.125000000000001,
+          "voice_vibrato": 1.885,
+          "voice_articulation": 6.759999999999999,
+          "voice_microtone": 6.175,
           "voice_tradition": 10.952749999999998,
           "voice_mechanism_compound": 3.055,
           "voice_estill_quality": 7.166999999999999,
-          "voice_speech_song": 7.344999999999999,
-          "voice_ensemble_config": 7.214999999999998,
+          "voice_speech_song": 7.215,
+          "voice_ensemble_config": 9.36,
           "voice_ornament_system": 6.8999999999999995,
-          "voice_pitch_organization": 1.2177499999999999,
+          "voice_pitch_organization": 1.1049999999999998,
           "voice_processing_chain": 10.295,
-          "voice_multitrack_stack": 4.32625
+          "voice_multitrack_stack": 5.780749999999999
         }
       },
       {

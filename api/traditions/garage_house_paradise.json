@@ -3,9 +3,9 @@
   "name": "Garage house",
   "family": "global",
   "lineage": "NYC Paradise-Garage house lineage named for the Larry Levan-resident Paradise Garage nightclub (1977-1987) — codified through Larry Levan, Frankie Knuckles (before his Chicago move), and the Salsoul / West End / Prelude labels; characterized by gospel-vocal-led songs, four-on-the-floor 120 BPM tempo, and live-instrument production retaining disco-era warmth",
-  "recipe": "classic Asian mid-1980s garage house, electronic Dance, garage house u s branch, soul R&B functional song doo-wop alt-r&b. thick, blues-shouter, nervy, narrative. Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched gospel runs full spectrum slow chorale tonewheel organ, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, singing lead digital subtractive, TR-909. jazz club. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
-  "recipe_chars": 610,
-  "score": 274.69,
+  "recipe": "classic Asian mid-1980s garage house, electronic Dance, garage house u s branch, soul R&B functional song doo-wop alt-r&b. thick, breath veiled tone, straight note core, interlocked note trading. Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched gospel runs full spectrum slow chorale tonewheel organ, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, singing lead digital subtractive, TR-909. jazz club. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+  "recipe_chars": 643,
+  "score": 296.417,
   "config": {
     "traditions": [
       "garage_house_paradise",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "blues_shouter_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "fast_vibrato",
-          "voice_articulation": "narrative_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "gospel_pentecostal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_belt",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 23.974999999999998,
-          "voice_quality": 13.149999999999991,
+          "voice_quality": 20.020000000000007,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.2349999999999999,
-          "voice_articulation": 10.045,
-          "voice_microtone": 7.175000000000001,
+          "voice_vibrato": 1.2999999999999998,
+          "voice_articulation": 15.729999999999995,
+          "voice_microtone": 15.339999999999991,
           "voice_tradition": 17.919999999999998,
           "voice_mechanism_compound": 1.95,
           "voice_estill_quality": 16.195,
-          "voice_speech_song": 19.174999999999997,
-          "voice_ensemble_config": 17.874999999999996,
+          "voice_speech_song": 20.019999999999992,
+          "voice_ensemble_config": 17.744999999999994,
           "voice_ornament_system": 1.15,
-          "voice_pitch_organization": 2.73,
+          "voice_pitch_organization": 2.5350000000000006,
           "voice_processing_chain": 7.754999999999999,
-          "voice_multitrack_stack": 6.76
+          "voice_multitrack_stack": 7.182499999999999
         }
       },
       {

@@ -3,26 +3,26 @@
   "name": "Japanese izakaya enka (居酒屋演歌, tavern enka)",
   "family": "global",
   "lineage": "Japanese izakaya (居酒屋, tavern) enka drinking-song tradition continuous from postwar-Japanese enka-popularization era (1950s-1960s Misora Hibari era) through 20th-century continuous performance into modern Japanese-and-Japanese-diaspora continuous izakaya-and-snack-bar (スナック) practice; the izakaya-enka repertoire emphasizes melancholic-drinking-song aesthetic distinct from the more-celebratory Korean-jubu-ga or German-trinklied",
-  "recipe": "classic mid-1950s japanese izakaya enka, drinking Song, east Asian branch, European drinking song, anglo singer song ballad poetry, east Asian lullaby 1960s greenwich village confessional folk freak folk. thick, incomplete closure resting, tasteful, continuous-phonation. fingerpicked acoustic guitar, acrylic nylon modern tsugaru min yo folk song accompaniment shamisen. jazz club. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 512,
-  "score": 219.239,
+  "recipe": "classic mid-1950s japanese izakaya enka, drinking Song, east Asian branch, European drinking song, anglo singer song ballad poetry, east Asian lullaby freak folk 1960s greenwich village confessional folk. thick, breath veiled tone, straight onset, interlocked note trading. fingerpicked acoustic guitar, acrylic nylon modern tsugaru min yo folk song accompaniment shamisen. jazz club. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 514,
+  "score": 233.979,
   "config": {
     "traditions": [
       "japanese_izakaya_enka",
-      "greenwich_village_confessional",
-      "freak_folk_2000s"
+      "freak_folk_2000s",
+      "greenwich_village_confessional"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "incomplete_closure_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
-          "voice_articulation": "legato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "japanese_min_yo_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
           "voice_register": 16.275,
-          "voice_quality": 8.425,
+          "voice_quality": 9.23,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.69,
-          "voice_articulation": 5.069999999999999,
-          "voice_microtone": 1.275,
+          "voice_vibrato": 1.755,
+          "voice_articulation": 9.944999999999997,
+          "voice_microtone": 10.139999999999997,
           "voice_tradition": 42.279999999999994,
           "voice_mechanism_compound": 2.145,
           "voice_estill_quality": 4.710000000000001,
-          "voice_speech_song": 20.669999999999995,
-          "voice_ensemble_config": 11.699999999999996,
+          "voice_speech_song": 20.734999999999992,
+          "voice_ensemble_config": 11.569999999999993,
           "voice_ornament_system": 7.5150000000000015,
           "voice_pitch_organization": 5.069999999999999,
-          "voice_processing_chain": 1.95,
-          "voice_multitrack_stack": 10.394999999999996
+          "voice_processing_chain": 2.245,
+          "voice_multitrack_stack": 10.294999999999995
         }
       },
       {

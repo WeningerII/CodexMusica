@@ -3,9 +3,9 @@
   "name": "Pizzica salentina (Salento spider-dance)",
   "family": "global",
   "lineage": "Pizzica salentina Southern Italian folk-dance-and-music tradition of the Salento peninsula (southern Puglia), historically tied to the tarantismo ritual-healing tradition where the pizzica dance ostensibly cured tarantism. Characterized by fast 12/8 or 6/8 meter, virtuoso tamburello frame-drum lead, and characteristic call-and-response courtship-and-warrior-dance choreography. Performance contexts include the annual Notte della Taranta festival in Melpignano (founded 1998, now drawing 200,000+ attendees), the canonical Salento-village wedding-and-festival cycle, and (post-2000) the international neo-folk revival circuit. Distinguished from Neapolitan tarantella by pizzica's Salentine regional dialect register and slower tempo-of-instrumental-acceleration arc.",
-  "recipe": "classic Southern European late-1990s pizzica salentina, ballad Poetry, Mediterranean ballad branch, indigenous ritual devotional, Brazilian groove percussion shipibo-conibo icaros healing songs mapuche tayil genealogical chant. thick, declaimed, pure, punctuated. tambourine orch, bowl back Italian Italian alpine spruce brescian calace big leaf maple modern American mandolin, sitka spruce spirit varnish shellac alcohol violin orchestral. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 594,
-  "score": 191.03,
+  "recipe": "classic Southern European late-1990s pizzica salentina, ballad Poetry, Mediterranean ballad branch, indigenous ritual devotional, Brazilian groove percussion shipibo-conibo icaros healing songs mapuche tayil genealogical chant. thick, breath veiled tone, fast rate, interlocked note trading. tambourine orch, bowl back Italian Italian alpine spruce brescian calace big leaf maple modern American mandolin, sitka spruce spirit varnish shellac alcohol violin orchestral. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 622,
+  "score": 282.655,
   "config": {
     "traditions": [
       "pizzica_salentina",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "straight_tone",
-          "voice_articulation": "staccato_voice",
-          "voice_microtone": "blue_notes",
+          "voice_vibrato": "fast_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
           "voice_estill_quality": "voice_estill_opera",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 6,
-          "voice_quality": 10.165,
+          "voice_quality": 38.61,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.495,
-          "voice_articulation": 0.9750000000000001,
-          "voice_microtone": 0.39,
+          "voice_vibrato": 3.185,
+          "voice_articulation": 24.765,
+          "voice_microtone": 24.375,
           "voice_tradition": 28.144999999999996,
           "voice_mechanism_compound": 11.655000000000001,
           "voice_estill_quality": 11.765,
-          "voice_speech_song": 24.895000000000003,
-          "voice_ensemble_config": 25.48,
+          "voice_speech_song": 26.260000000000005,
+          "voice_ensemble_config": 25.35,
           "voice_ornament_system": 7.15,
           "voice_pitch_organization": 2.665000000000001,
-          "voice_processing_chain": 7.67,
-          "voice_multitrack_stack": 2.795
+          "voice_processing_chain": 15.534999999999998,
+          "voice_multitrack_stack": 7.410000000000001
         }
       },
       {

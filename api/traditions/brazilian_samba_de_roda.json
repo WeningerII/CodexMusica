@@ -3,9 +3,9 @@
   "name": "Brazilian samba de roda do Recôncavo",
   "family": "global",
   "lineage": "Brazilian samba de roda Afro-Brazilian circle-dance tradition of the Recôncavo Baiano region (the coastal-inland area surrounding the Bay of All Saints in the state of Bahia, northeastern Brazil). Samba de roda is the most direct surviving ancestral form of all later Brazilian sambas — the Recôncavo Baiano region's population descended from West-African (Yoruba and Bantu) enslaved peoples brought to Bahia during the seventeenth-and-eighteenth-century Portuguese slave-trade, and samba de roda preserves the most direct Afro-Brazilian linguistic and rhythmic continuity. Performance configuration: a circle (roda) of participants, with one or two dancers moving into the center of the circle in turn to perform the characteristic samba-de-roda footwork (the umbigada navel-bump greeting an iconic moment in each turn), while the surrounding circle plays the percussion battery — atabaque barrel-drums, pandeiro frame-drum-with-jingles, viola machete small five-string lute (the genealogically older ancestor of all later Brazilian violas), reco-reco ridged scraper, and clapping. Vocal style features a lead singer (the puxador) singing the verse with chorus response from the circle, with characteristic Yoruba-derived linguistic substrate in many of the older repertoires. Repertoire connects to the broader Afro-Brazilian Candomblé religious-context (the terreiro yard being the canonical performance space) and to the secular festive-cycle repertoire. The 2007 IPHAN nomination dossier (Carlos Sandroni and Sant'Anna) and the Samba de Roda de São Felix ensemble constitute the principal documentation. Distinguished from Rio-de-Janeiro samba (the urban-twentieth-century descendant tradition) by samba-de-roda's rural-Bahia Recôncavo-specific and pre-urban-tradition configuration; distinguished from candomblé Afro-Brazilian ritual-music by samba-de-roda's secular-festive (vs orixá-ritual) functional framework.",
-  "recipe": "classic South American late-2000s brazilian samba de roda do recôncavo, functional Song, Brazilian song branch, Brazilian groove percussion, Afro-diasporic ritual devotional pagode baião. thick, intimate aspirated, pure, punctuated. small five string Portuguese cavaquinho canonical Brazilian samba de roda accompaniment canonical reconcavo viola machete, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian hands layered pandeiro, lead cowhide canonical candomble jacaranda canonical bahian candomble atabaque, snappy samba tradition metal construction reco reco. terreiro outdoor yard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 718,
-  "score": 355.573,
+  "recipe": "classic South American late-2000s brazilian samba de roda do recôncavo, functional Song, Brazilian song branch, Brazilian groove percussion, Afro-diasporic ritual devotional pagode baião. thick, breath veiled tone, pure, interlocked note trading. small five string Portuguese cavaquinho canonical Brazilian samba de roda accompaniment canonical reconcavo viola machete, goatskin canonical Brazilian premium eucalyptus imbuia canonical Brazilian luthier brass platinelas canonical Brazilian hands layered pandeiro, lead cowhide canonical candomble jacaranda canonical bahian candomble atabaque, snappy samba tradition metal construction reco reco. terreiro outdoor yard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 732,
+  "score": 452.193,
   "config": {
     "traditions": [
       "brazilian_samba_de_roda",
@@ -21,8 +21,8 @@
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "straight_tone",
-          "voice_articulation": "staccato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 2.1000000000000014,
-          "voice_quality": 35.745000000000005,
+          "voice_quality": 79.96500000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.69,
-          "voice_articulation": 1.885,
-          "voice_microtone": 1.4999999999999998,
+          "voice_articulation": 22.944999999999993,
+          "voice_microtone": 21.709999999999994,
           "voice_tradition": 22.88,
           "voice_mechanism_compound": 8.06,
           "voice_estill_quality": 9.07,
-          "voice_speech_song": 27.95,
-          "voice_ensemble_config": 21.514999999999997,
+          "voice_speech_song": 28.47,
+          "voice_ensemble_config": 21.384999999999994,
           "voice_ornament_system": 2.495,
           "voice_pitch_organization": 6.59,
-          "voice_processing_chain": 6.11,
-          "voice_multitrack_stack": 3.3799999999999994
+          "voice_processing_chain": 11.845,
+          "voice_multitrack_stack": 8.385000000000002
         }
       },
       {

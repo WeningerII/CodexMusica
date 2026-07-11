@@ -3,9 +3,9 @@
   "name": "Himalayan Vajrayana liturgy",
   "family": "global",
   "lineage": "Tibetan / Bhutanese / Ladakhi Vajrayana tantric ritual-music tradition with multiphonic chant and brass-and-percussion liturgical ensemble",
-  "recipe": "classic Northeast Asian modern himalayan vajrayana liturgy, ritual Devotional, buddhist branch, east Asian art music tibetan ache lhamo opera beijing opera. thick, pressed, chest resonance low mid, narrative. log drum, m1 modal compound with overtone tuning khoomei foundational mechanism 8th to 12th partial overtone range himalayan ritual chant subharmonic monastic throat singing voice, call ritual conch shell horn, ceremonial hammered copper brass telescoping canonical Tibetan gelug canonical Tibetan buddhist liturgy tibetan dungchen, wood rosewood body brass bell canonical Tibetan arundo donax canonical Tibetan monastic tibetan gyaling. tibetan monastery assembly. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 737,
-  "score": 273.502,
+  "recipe": "classic Northeast Asian modern himalayan vajrayana liturgy, ritual Devotional, buddhist branch, east Asian art music tibetan ache lhamo opera beijing opera. thick, breath veiled tone, slow rate, interlocked note trading. log drum, m1 modal compound with overtone tuning khoomei foundational mechanism 8th to 12th partial overtone range himalayan ritual chant subharmonic monastic throat singing voice, call ritual conch shell horn, ceremonial hammered copper brass telescoping canonical Tibetan gelug canonical Tibetan buddhist liturgy tibetan dungchen, wood rosewood body brass bell canonical Tibetan arundo donax canonical Tibetan monastic tibetan gyaling. tibetan monastery assembly. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 749,
+  "score": 315.372,
   "config": {
     "traditions": [
       "vajrayana_broader",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "pressed_phonation_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "narrative_voice",
-          "voice_microtone": "overtone_singing",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "chinese_classical_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 2.12,
-          "voice_quality": 11.074999999999998,
+          "voice_quality": 13.714999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.3799999999999994,
-          "voice_articulation": 1.4299999999999995,
-          "voice_microtone": 0.5499999999999999,
+          "voice_vibrato": 8.45,
+          "voice_articulation": 18.069999999999997,
+          "voice_microtone": 18.069999999999997,
           "voice_tradition": 30.9725,
           "voice_mechanism_compound": 7.049999999999999,
           "voice_estill_quality": 21.334999999999994,
-          "voice_speech_song": 18.85,
-          "voice_ensemble_config": 20.41,
+          "voice_speech_song": 18.72,
+          "voice_ensemble_config": 20.474999999999994,
           "voice_ornament_system": 16.099999999999998,
           "voice_pitch_organization": 7.51,
           "voice_processing_chain": 3.12,
-          "voice_multitrack_stack": 3.6399999999999997
+          "voice_multitrack_stack": 3.7050000000000005
         }
       },
       {

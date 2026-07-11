@@ -3,9 +3,9 @@
   "name": "Currulao (Colombian Pacific)",
   "family": "global",
   "lineage": "Afro-Colombian marimba-and-percussion ensemble tradition of Pacific coastal region (Chocó, Valle del Cauca, Cauca, Nariño departments) and adjacent Ecuadorian Pacific coast. Marimba de chonta (wooden marimba with bamboo resonators), bombo and cununo drums, guasá tubular shakers, voice (often female-lead with chorus).",
-  "recipe": "classic Andean modern currulao, groove Percussion, Latin am branch, Brazilian groove percussion maracatu pagode. thick, intimate aspirated, chest resonance low mid, equal tempered. two player palm wood bamboo tubes marimba de chonta, bombo andino. bogota colombian andean studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 342,
-  "score": 97.715,
+  "recipe": "classic Andean modern currulao, groove Percussion, Latin am branch, Brazilian groove percussion maracatu pagode. thick, breath veiled tone, slow rate, interlocked note trading. two player palm wood bamboo tubes marimba de chonta, bombo andino. bogota colombian andean studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 338,
+  "score": 139.435,
   "config": {
     "traditions": [
       "currulao_pacifico",
@@ -21,8 +21,8 @@
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "staccato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "beatboxing_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_polynesian_falsetto",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 2.3500000000000014,
-          "voice_quality": 6.294999999999998,
+          "voice_quality": 15.404999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.04,
-          "voice_articulation": 0.195,
-          "voice_microtone": 2.7500000000000004,
+          "voice_vibrato": 1.3324999999999998,
+          "voice_articulation": 16.185,
+          "voice_microtone": 15.599999999999994,
           "voice_tradition": 10.01,
           "voice_mechanism_compound": 6.5,
           "voice_estill_quality": 6.500000000000001,
-          "voice_speech_song": 16.835,
-          "voice_ensemble_config": 17.939999999999998,
+          "voice_speech_song": 17.354999999999997,
+          "voice_ensemble_config": 18.004999999999995,
           "voice_ornament_system": 8.95,
           "voice_pitch_organization": 1.5899999999999999,
-          "voice_processing_chain": 3.3149999999999995,
-          "voice_multitrack_stack": 2.9575
+          "voice_processing_chain": 3.5750000000000006,
+          "voice_multitrack_stack": 5.590000000000001
         }
       },
       {

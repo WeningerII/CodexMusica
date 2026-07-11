@@ -3,9 +3,9 @@
   "name": "Art pop",
   "family": "global",
   "lineage": "High-concept songwriter pop with avant-garde production sensibility — Kate Bush, Peter Gabriel, Brian Eno, Talk Talk Spirit of Eden, Bjork, Sufjan Stevens, Joanna Newsom, FKA twigs, Bon Iver",
-  "recipe": "classic North American modern art pop, functional Song, pop rock branch, pop experimental experimental electric hyperpop. extended whistle, declaimed, equal tempered, modern pop training. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, plucked short envelope analog poly synth, string quartet inst, alnico clean strummed humbucker electric guitar, 2010s melodyne microtuned stack multitrack vocal stack. eighth street greenwich village 1970-present major-flagship electric lady studios nyc. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 663,
-  "score": 233.392,
+  "recipe": "classic North American modern art pop, functional Song, pop rock branch, pop experimental experimental electric hyperpop. extended whistle, breath veiled tone, straight onset, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, plucked short envelope analog poly synth, string quartet inst, alnico clean strummed humbucker electric guitar, 2010s melodyne microtuned stack multitrack vocal stack. eighth street greenwich village 1970-present major-flagship electric lady studios nyc. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 677,
+  "score": 240.279,
   "config": {
     "traditions": [
       "art_pop",
@@ -16,11 +16,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "extended_whistle_register",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "spoken_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
@@ -28,27 +28,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_none",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_vocoder_32_band_carrier_saw",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 23.985,
-          "voice_quality": 0.8814999999999995,
+          "voice_quality": 2.144999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.378,
-          "voice_articulation": 0.195,
+          "voice_vibrato": 0.7149999999999999,
+          "voice_articulation": 3.7049999999999996,
           "voice_microtone": 23.674999999999997,
           "voice_tradition": 24.18,
           "voice_mechanism_compound": 1.4949999999999999,
           "voice_estill_quality": 1.2999999999999998,
-          "voice_speech_song": 7.02,
-          "voice_ensemble_config": 3.769999999999999,
+          "voice_speech_song": 7.085,
+          "voice_ensemble_config": 3.8349999999999995,
           "voice_ornament_system": 0.0315,
-          "voice_pitch_organization": 0.6615,
+          "voice_pitch_organization": 0.32500000000000007,
           "voice_processing_chain": 3.6375,
-          "voice_multitrack_stack": 2.6975000000000002
+          "voice_multitrack_stack": 4.680000000000001
         }
       },
       {

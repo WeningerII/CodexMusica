@@ -3,9 +3,9 @@
   "name": "Japanese kumi-daiko (modern taiko ensemble)",
   "family": "global",
   "lineage": "Japanese modern-concert taiko-ensemble (kumi-daiko) tradition codified 1951-onward by Daihachi Oguchi (Osuwa Daiko, Suwa city, Nagano prefecture) as a deliberate-modernization of older village-festival matsuri-and-shrine taiko-percussion. The canonical concert-ensemble: nagado-daiko medium-barrel-drums, odaiko large-barrel-drum (typically center-stage spectacle-instrument), shime-daiko small-tightly-tensioned drum (rhythmic-keeper), chappa hand-cymbals, and atarigane small-bell. Choreographed-and-virtuosic ensemble-staging differentiates concert-taiko from the older communal-festival-taiko. The 1970s-1980s rise of touring-troupes (Kodo on Sado-island, Ondekoza precursor, San Jose Taiko in North-America) made kumi-daiko a global Japanese-cultural ambassador and seeded an international Japanese-diaspora taiko-community.",
-  "recipe": "classic East Asian modern japanese kumi-daiko, groove Percussion, east Asian branch, east Asian art music, buddhist ritual devotional tibetan ache lhamo opera beijing opera. thick, pressed, chest resonance low mid, rhythmic. rope tensioned cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk oedo sukeroku canonical kumi daiko modern ensemble taiko drum, madake bamboo phyllostachys canonical Japanese root section kinko ryu canonical edo period concert continuous-airflow legato shakuhachi. noh stage japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 672,
-  "score": 247.982,
+  "recipe": "classic East Asian modern japanese kumi-daiko, groove Percussion, east Asian branch, east Asian art music, buddhist ritual devotional tibetan ache lhamo opera beijing opera. thick, breath veiled tone, slow rate, interlocked note trading. rope tensioned cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk oedo sukeroku canonical kumi daiko modern ensemble taiko drum, madake bamboo phyllostachys canonical Japanese root section kinko ryu canonical edo period concert continuous-airflow legato shakuhachi. noh stage japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 685,
+  "score": 297.998,
   "config": {
     "traditions": [
       "japanese_taiko_ensemble",
@@ -51,12 +51,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "pressed_phonation_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "spoken_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "chinese_classical_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
@@ -65,25 +65,25 @@
           "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 5.569999999999999,
-          "voice_quality": 11.074999999999998,
+          "voice_quality": 16.834999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.3799999999999994,
-          "voice_articulation": 1.78,
-          "voice_microtone": 3.7549999999999994,
+          "voice_vibrato": 8.45,
+          "voice_articulation": 20.669999999999998,
+          "voice_microtone": 20.669999999999995,
           "voice_tradition": 33.1175,
           "voice_mechanism_compound": 7.049999999999999,
           "voice_estill_quality": 21.334999999999994,
-          "voice_speech_song": 25.935,
-          "voice_ensemble_config": 23.4,
+          "voice_speech_song": 25.804999999999996,
+          "voice_ensemble_config": 23.464999999999996,
           "voice_ornament_system": 16.099999999999998,
           "voice_pitch_organization": 7.51,
           "voice_processing_chain": 5.2,
-          "voice_multitrack_stack": 3.6399999999999997
+          "voice_multitrack_stack": 7.085000000000001
         }
       }
     ],

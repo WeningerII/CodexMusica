@@ -3,14 +3,14 @@
   "name": "Bolero mexicano",
   "family": "pop",
   "lineage": "Mexican adaptation of the broader Latin-American bolero, developed in mid-twentieth-century Mexico City through Agustín Lara (born 1897) and the 1940s-1950s Mexican-cinema golden-age. Solo voice with piano-or-trio accompaniment, slow 2/4 meter with the canonical bolero rhythmic figure, intensely romantic-melancholic register. Distinguished from Cuban bolero by Mexican-Spanish lyrical register and elaborate harmonic-vocabulary.",
-  "recipe": "classic Mexican mid-1940s bolero mexicano, functional Song, Mexican branch, Latin am troubadour ballad poetry filin milonga. thick, full chest belt, chest resonance low mid, rhythmic. cedar phosphor bronze bronze fingerpicked parlor acoustic guitar, cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, growly gut upright bass. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
-  "recipe_chars": 556,
-  "score": 142.857,
+  "recipe": "classic Mexican mid-1940s bolero mexicano, functional Song, Mexican branch, Latin am troubadour ballad poetry milonga filin. thick, full chest belt, straight onset, interlocked note trading. cedar phosphor bronze bronze fingerpicked parlor acoustic guitar, cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, growly gut upright bass. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 563,
+  "score": 158.275,
   "config": {
     "traditions": [
       "bolero_mexicano",
-      "filin_cubano",
-      "milonga"
+      "milonga",
+      "filin_cubano"
     ],
     "instruments": [
       {
@@ -20,9 +20,9 @@
           "voice_quality": "full_chest_belt_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "spoken_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "jazz_scat_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -38,16 +38,16 @@
           "voice_quality": 11.599999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.275,
-          "voice_articulation": 1.9299999999999997,
-          "voice_microtone": 7.675,
+          "voice_vibrato": 5.9125,
+          "voice_articulation": 11.439999999999994,
+          "voice_microtone": 10.399999999999991,
           "voice_tradition": 6.37625,
-          "voice_mechanism_compound": 5.914999999999998,
-          "voice_estill_quality": 5.915,
-          "voice_speech_song": 14.819999999999997,
-          "voice_ensemble_config": 11.894999999999996,
+          "voice_mechanism_compound": 5.915,
+          "voice_estill_quality": 5.915000000000001,
+          "voice_speech_song": 14.689999999999994,
+          "voice_ensemble_config": 11.764999999999993,
           "voice_ornament_system": 1.755,
-          "voice_pitch_organization": 2.73,
+          "voice_pitch_organization": 2.5350000000000006,
           "voice_processing_chain": 3.5100000000000002,
           "voice_multitrack_stack": 3.185
         }

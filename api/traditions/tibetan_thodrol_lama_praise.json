@@ -3,9 +3,9 @@
   "name": "Tibetan thödröl praise-recitation",
   "family": "global",
   "lineage": "Tibetan-Buddhist praise-recitation tradition continuous from 8th-9th century Indo-Tibetan-Buddhist-foundation era through 11th-14th century Sarma-school monastery-formalization era into modern Tibetan-Buddhist-monastic and Tibetan-Buddhist-diaspora practice; thödröl (\"liberation through hearing\") and broader lama-praise repertoires constitute the praise-vocabulary",
-  "recipe": "classic Northeast Asian modern tibetan thödröl praise-recitation, praise Song, indian subcontinent branch, buddhist ritual devotional, overtone drone modal, east Asian Tibetan ritual khöömii tuvan kargyraa subharmonic throat-singing. sygyt, false fold engaged, overtone rich sustained, continuous-phonation. tibetan monastery assembly. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 398,
-  "score": 237.39,
+  "recipe": "classic Northeast Asian modern tibetan thödröl praise-recitation, praise Song, indian subcontinent branch, buddhist ritual devotional, overtone drone modal, east Asian Tibetan ritual khöömii tuvan kargyraa subharmonic throat-singing. sygyt, false fold engaged, breath pulsed, interlocked note trading. tibetan monastery assembly. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 392,
+  "score": 255.315,
   "config": {
     "traditions": [
       "tibetan_thodrol_lama_praise",
@@ -21,8 +21,8 @@
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "diaphragm_vibrato",
-          "voice_articulation": "legato_voice",
-          "voice_microtone": "overtone_singing",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "khoomei_tuvan_tradition",
           "voice_mechanism_compound": "voice_mechanism_overtone_isolation_F2",
           "voice_estill_quality": "voice_estill_opera",
@@ -30,7 +30,7 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
@@ -39,16 +39,16 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 8.19,
-          "voice_articulation": 1.345,
-          "voice_microtone": 13.489999999999998,
+          "voice_articulation": 13.389999999999997,
+          "voice_microtone": 16.509999999999994,
           "voice_tradition": 32.265,
           "voice_mechanism_compound": 32.989999999999995,
           "voice_estill_quality": 5.525,
-          "voice_speech_song": 16.119999999999997,
-          "voice_ensemble_config": 15.079999999999997,
+          "voice_speech_song": 16.184999999999995,
+          "voice_ensemble_config": 15.794999999999995,
           "voice_ornament_system": 3.2750000000000004,
           "voice_pitch_organization": 32.309999999999995,
-          "voice_processing_chain": 3.835,
+          "voice_processing_chain": 5.915,
           "voice_multitrack_stack": 5.07
         }
       }

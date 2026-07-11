@@ -3,9 +3,9 @@
   "name": "Latin alternative",
   "family": "global",
   "lineage": "Spanish-language alternative-rock tradition codified through Mexican Café Tacuba, Argentine Soda Stereo and Café Tacvba, Chilean Los Prisioneros, and the broader Hispanic-American post-1990s indie-rock ecosystem; characterized by rock instrumentation with regional-Latin folk and electronic crossovers, and Spanish-language alternative-poetic lyrical register",
-  "recipe": "classic mid-1990s latin alternative, distorted Rock, regional branch, alternative distorted rock grunge math rock and post-rock. thick, conversational, pure, rhythmic. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, walnut pre muffled edge muffled machine hammered symmetric pattern drum kit, water buffalo premium alternative oak staved canonical Cuban open slap hand drum congas. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 662,
-  "score": 460.653,
+  "recipe": "classic mid-1990s latin alternative, distorted Rock, regional branch, alternative distorted rock grunge math rock and post-rock. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, walnut pre muffled edge muffled machine hammered symmetric pattern drum kit, water buffalo premium alternative oak staved canonical Cuban open slap hand drum congas. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 692,
+  "score": 479.99,
   "config": {
     "traditions": [
       "latin_alternative",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "speech_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "straight_tone",
-          "voice_articulation": "spoken_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_polynesian_falsetto",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 38.95500000000002,
-          "voice_quality": 1.5599999999999996,
+          "voice_quality": 5.07,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.0799999999999996,
-          "voice_articulation": 0.585,
+          "voice_vibrato": 2.405,
+          "voice_articulation": 14.299999999999994,
           "voice_microtone": 33.17500000000001,
           "voice_tradition": 7.279999999999999,
           "voice_mechanism_compound": 11.634999999999998,
           "voice_estill_quality": 2.2749999999999995,
-          "voice_speech_song": 15.274999999999995,
-          "voice_ensemble_config": 14.169999999999993,
+          "voice_speech_song": 15.339999999999991,
+          "voice_ensemble_config": 14.039999999999992,
           "voice_ornament_system": 1.95,
           "voice_pitch_organization": 3.5850000000000004,
           "voice_processing_chain": 6.5600000000000005,
-          "voice_multitrack_stack": 2.6324999999999994
+          "voice_multitrack_stack": 4.485000000000001
         }
       },
       {

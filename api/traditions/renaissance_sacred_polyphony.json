@@ -3,9 +3,9 @@
   "name": "Renaissance sacred polyphony (1450-1600)",
   "family": "classical",
   "lineage": "Renaissance European sacred-music tradition c.1450-1600, the mass-cycle and motet repertoire of the Franco-Flemish and Italian schools. Canonical compositional features: imitative counterpoint with successive voice-entries on the same melodic subject; smooth melodic voice-leading with stepwise motion and small leaps; controlled dissonance through suspension-and-resolution; modal scales transitioning gradually into tonal practice; a cappella ideal with optional organ accompaniment for liturgical performance. Canonical composers: Josquin des Prez (Franco-Flemish, c.1450-1521, founding figure of the imitative-mass tradition); Giovanni Pierluigi da Palestrina (Roman, 1525-1594, Missa Papae Marcelli 1567 the Counter-Reformation touchstone for the smoothness-and-clarity ideal); Thomas Tallis (English, c.1505-1585, the forty-voice motet Spem in alium c.1570); William Byrd (English, c.1543-1623, Mass for Four Voices); Orlande de Lassus (Flemish, 1532-1594); Tomás Luis de Victoria (Spanish, 1548-1611). Geographical centers: Cambrai, Antwerp, Rome (Cappella Sistina), Venice (San Marco), London (Chapel Royal). Distinguished from medieval organum by full imitative counterpoint and tempered-meantone tuning vocabulary; distinguished from Baroque sacred polyphony by absence of basso continuo and absence of operatic-aria stylistic vocabulary; distinguished from Orthodox liturgical chant by Latin-text Roman-rite (vs Slavonic / Greek Orthodox-rite) liturgical framework",
-  "recipe": "classic European renaissance sacred polyphony, art Music, western early branch, christian gospel anglican choral anglican choral evensong. thick, declaimed, melodic, ornamental. a cappella small 3 to 8 one per part four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble, Baroque leaning silbermann saxon canonical bach era central German Baroque early 18th century tin lead 75 25 canonical principal rank bright projecting quarter comma meantone canonical renaissance early Baroque mechanical tracker canonical Baroque direct touch pipe organ, mid renaissance English Spanish ayre and lieder yew ribs Italian brescian lute renaissance, tenor workhorse colla parte thin hammered brass sackbut, treble tuned polyphonic vihuela de mano. cathedral. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
-  "recipe_chars": 883,
-  "score": 280.765,
+  "recipe": "classic European renaissance sacred polyphony, art Music, western early branch, christian gospel anglican choral anglican choral evensong. thick, breath veiled tone, straight note core, interlocked note trading. a cappella small 3 to 8 one per part four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble, Baroque leaning silbermann saxon canonical bach era central German Baroque early 18th century tin lead 75 25 canonical principal rank bright projecting quarter comma meantone canonical renaissance early Baroque mechanical tracker canonical Baroque direct touch pipe organ, mid renaissance English Spanish ayre and lieder yew ribs Italian brescian lute renaissance, tenor workhorse colla parte thin hammered brass sackbut, treble tuned polyphonic vihuela de mano. cathedral. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+  "recipe_chars": 917,
+  "score": 349.115,
   "config": {
     "traditions": [
       "renaissance_sacred_polyphony",
@@ -16,12 +16,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "melisma_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "chinese_classical_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
@@ -29,26 +29,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 5.011000000000001,
-          "voice_quality": 7.173,
+          "voice_quality": 15.469999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.3149999999999995,
-          "voice_articulation": 3.793,
-          "voice_microtone": 5.7200000000000015,
+          "voice_vibrato": 6.625,
+          "voice_articulation": 20.28,
+          "voice_microtone": 17.484999999999996,
           "voice_tradition": 9.034999999999998,
           "voice_mechanism_compound": 7.647874999999999,
           "voice_estill_quality": 7.605,
-          "voice_speech_song": 16.12,
-          "voice_ensemble_config": 26,
+          "voice_speech_song": 15.989999999999998,
+          "voice_ensemble_config": 43.3875,
           "voice_ornament_system": 5.7,
-          "voice_pitch_organization": 12.155,
-          "voice_processing_chain": 6.5,
-          "voice_multitrack_stack": 3.0094999999999996
+          "voice_pitch_organization": 18.403125,
+          "voice_processing_chain": 8.969999999999999,
+          "voice_multitrack_stack": 5.525000000000001
         }
       },
       {

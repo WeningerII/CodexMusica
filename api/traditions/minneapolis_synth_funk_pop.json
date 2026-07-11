@@ -3,14 +3,14 @@
   "name": "Minneapolis synth-funk-pop",
   "family": "vernacular",
   "lineage": "1980s Minneapolis funk-pop hybrid centered on the Paisley Park studio aesthetic — codified through Prince (1999 1982, Purple Rain 1984, Sign O the Times 1987), the Time (the Morris Day vehicle, What Time Is It 1982), Sheila E (The Glamorous Life 1984), Jesse Johnson, the Family — characterized by drum-machine-led groove construction, dirty-funk synth-bass, falsetto vocal lead, and explicit sexual-and-spiritual thematic mixing",
-  "recipe": "classic mid-1980s minneapolis synth-funk-pop, groove Percussion, funk percussive branch, us hip hop MC rhythm conscious hip-hop gangsta rap. thick, rap, chest resonance low mid, narrative. linn lm 1 1980 1982 earliest sample based drum machine 5000 production only linndrum, low sub bass analog poly yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity sub bass fm synth, Fender blackface amp American 60s amp spring reverb bright mahogany wenge single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, centered tine pickup gap canonical balanced Rhodes voicing ostinato rhodes electric. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 914,
-  "score": 378.211,
+  "recipe": "classic mid-1980s minneapolis synth-funk-pop, groove Percussion, funk percussive branch, us hip hop MC rhythm conscious hip-hop golden-age sample-collage hip-hop. thick, rap, straight onset, narrative. linn lm 1 1980 1982 earliest sample based drum machine 5000 production only linndrum, low sub bass analog poly yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity sub bass fm synth, Fender blackface amp American 60s amp spring reverb bright alder wenge single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, centered tine pickup gap canonical balanced Rhodes voicing ostinato rhodes electric. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 924,
+  "score": 381.314,
   "config": {
     "traditions": [
       "minneapolis_synth_funk_pop",
       "conscious_hip_hop",
-      "gangsta_rap"
+      "golden_age_hip_hop_1986_1991"
     ],
     "instruments": [
       {
@@ -20,36 +20,36 @@
           "voice_quality": "rap_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "narrative_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "beatboxing_tradition",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_mechanism_compound": "voice_mechanism_ventricular_subharmonic",
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_rhythmic_spoken_flow",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_andean_huayno",
-          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
           "voice_processing_chain": "voice_processing_talkbox",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 15.769999999999996,
-          "voice_quality": 29.093749999999996,
+          "voice_register": 18.544999999999995,
+          "voice_quality": 23.757499999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.8199999999999998,
-          "voice_articulation": 16.504999999999995,
-          "voice_microtone": 11.099999999999994,
-          "voice_tradition": 13.613124999999998,
-          "voice_mechanism_compound": 1.625,
-          "voice_estill_quality": 5.232499999999999,
-          "voice_speech_song": 27.283125,
-          "voice_ensemble_config": 15.339999999999998,
-          "voice_ornament_system": 0.175,
-          "voice_pitch_organization": 1.04,
-          "voice_processing_chain": 21.389999999999997,
-          "voice_multitrack_stack": 9
+          "voice_vibrato": 6.1949999999999985,
+          "voice_articulation": 15.229999999999999,
+          "voice_microtone": 13.974999999999998,
+          "voice_tradition": 12.913124999999999,
+          "voice_mechanism_compound": 1.1699999999999995,
+          "voice_estill_quality": 6.607499999999999,
+          "voice_speech_song": 21.808124999999997,
+          "voice_ensemble_config": 14.754999999999999,
+          "voice_ornament_system": 3.7700000000000014,
+          "voice_pitch_organization": 0.225,
+          "voice_processing_chain": 19.514999999999997,
+          "voice_multitrack_stack": 8.10875
         }
       },
       {
@@ -60,9 +60,9 @@
           "linndrum_production_origin": "linndrum_lm_1_earlier"
         },
         "scores": {
-          "linndrum_voice": 6.875,
-          "linndrum_context": 5.6343749999999995,
-          "linndrum_production_origin": 12.61
+          "linndrum_voice": 4.875,
+          "linndrum_context": 5.834374999999999,
+          "linndrum_production_origin": 10.79
         }
       },
       {
@@ -74,10 +74,10 @@
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
-          "electronic_technique": 13.868749999999999,
-          "poly_archetypes": 0.195,
-          "poly_voices": 0.585,
-          "poly_maker_lineage": 0.12999999999999998
+          "electronic_technique": 12.19375,
+          "poly_archetypes": 1.04,
+          "poly_voices": 0.39,
+          "poly_maker_lineage": -0.035
         }
       },
       {
@@ -85,7 +85,7 @@
         "slots": {
           "electric_technique": "electric_chicken_scratch",
           "amp_make": "amp_american_fender_blackface",
-          "body_wood": "mahogany",
+          "body_wood": "alder",
           "neck_wood": "wenge_neck",
           "fretboard": "ebony_fb",
           "pickup_magnet": "alnico_2",
@@ -94,21 +94,21 @@
           "bridge": "locking_trem",
           "scale_length": "scale_gibson",
           "finish": "oil_satin",
-          "string_tuning": "d_standard"
+          "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 18.490624999999998,
-          "amp_make": 20.179999999999996,
-          "body_wood": 1.4299999999999997,
-          "neck_wood": 1.9181249999999999,
-          "fretboard": 2.34,
-          "pickup_magnet": 0.195,
+          "electric_technique": 19.490624999999994,
+          "amp_make": 20.379999999999995,
+          "body_wood": 1.4949999999999999,
+          "neck_wood": 2.268125,
+          "fretboard": 3.116875,
+          "pickup_magnet": 0.845,
           "string_material": 0.195,
-          "string_gauge": 1.4299999999999997,
-          "bridge": 1.723125,
-          "scale_length": 1.4299999999999997,
-          "finish": 0.195,
-          "string_tuning": 1.04
+          "string_gauge": 1.2349999999999999,
+          "bridge": 2.073125,
+          "scale_length": 1.2349999999999999,
+          "finish": 0.045,
+          "string_tuning": 2.73
         }
       },
       {
@@ -119,19 +119,19 @@
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "la_bella_flats_motown",
-          "scale_length_b": "short_scale_b",
+          "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretted",
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "electric_technique": 18.2,
-          "amp_make": 9.2175,
-          "body_wood": 1.4299999999999997,
-          "pickup_config": 0.45499999999999996,
-          "string_type": 8.5475,
-          "scale_length_b": 1.4299999999999997,
-          "fretted_or_not": 1.723125,
-          "bass_technique": 18.2
+          "electric_technique": 19.199999999999996,
+          "amp_make": 9.992499999999998,
+          "body_wood": 1.2349999999999999,
+          "pickup_config": 1.105,
+          "string_type": 10.581874999999998,
+          "scale_length_b": 2.145,
+          "fretted_or_not": 2.073125,
+          "bass_technique": 19.199999999999996
         }
       },
       {
@@ -145,12 +145,12 @@
           "rhodes_pickup_position": "rhodes_pickup_centered"
         },
         "scores": {
-          "keyboard_technique": 18.25,
-          "rhodes_model": 5.973749999999999,
-          "rhodes_use": 3.5100000000000002,
+          "keyboard_technique": 19.249999999999996,
+          "rhodes_model": 5.823749999999999,
+          "rhodes_use": 2.925,
           "rhodes_tine_material": 0.1949999999999999,
-          "rhodes_hammer_tip": -0.5950000000000001,
-          "rhodes_pickup_position": 1.545625
+          "rhodes_hammer_tip": -1.0050000000000001,
+          "rhodes_pickup_position": 1.695625
         }
       },
       {
@@ -163,11 +163,11 @@
           "fm_model_lineage": "fm_yamaha_dx7"
         },
         "scores": {
-          "electronic_technique": 13.868749999999999,
-          "fm_algorithm": 1.8231249999999999,
-          "fm_modulator_ratio": 0.195,
+          "electronic_technique": 12.19375,
+          "fm_algorithm": 2.1731249999999998,
+          "fm_modulator_ratio": 0.845,
           "fm_polyphony": 1.3,
-          "fm_model_lineage": 8.41375
+          "fm_model_lineage": 7.16375
         }
       }
     ],

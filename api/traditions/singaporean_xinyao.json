@@ -3,9 +3,9 @@
   "name": "Singaporean xinyao (Mandarin youth folk)",
   "family": "global",
   "lineage": "Singaporean xinyao (\"Singapore songs\") Mandarin-language singer-songwriter youth-folk movement emerging in early-1980s Singapore among ethnic-Chinese tertiary-education students at the National University of Singapore, Nanyang Technological Institute, and the major junior colleges. The form developed as a youth-cultural alternative to Cantopop and Mandopop commercial-pop dominance, with simple acoustic-guitar-accompanied original Mandarin-language compositions addressing youth concerns, campus life, and Singaporean identity. The Liang Wern Fook ensemble and Singapore Youth Festival 1983-1985 xinyao competitions consolidated institutional visibility. Distinguished from Taiwan campus-folk min-ge yundong (1970s) by Singaporean specific cultural-context and Singlish-inflected Mandarin register.",
-  "recipe": "classic East Asian 1983-1985 singaporean xinyao, ballad Poetry, anglo singer song branch, east Asian pop functional song enka j-indie. thick, chest mix belt, melodic, ornamental. coated nanoweb strummed open chord ringing overtones parlor acoustic guitar. hong kong flagship 1980-2000 mid tier hong kong cantopop studio 80s. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
-  "recipe_chars": 458,
-  "score": 215.917,
+  "recipe": "classic East Asian 1983-1985 singaporean xinyao, ballad Poetry, anglo singer song branch, east Asian pop functional song enka j-indie. thick, breath veiled tone, straight note core, interlocked note trading. coated nanoweb strummed open chord ringing overtones parlor acoustic guitar. hong kong flagship 1980-2000 mid tier hong kong cantopop studio 80s. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+  "recipe_chars": 487,
+  "score": 248.188,
   "config": {
     "traditions": [
       "singaporean_xinyao",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "chest_mix_belt_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "melisma_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "japanese_min_yo_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 29.999999999999993,
-          "voice_quality": 5.330000000000002,
+          "voice_quality": 14.364999999999991,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.275,
-          "voice_articulation": 0.585,
+          "voice_vibrato": 3.835,
+          "voice_articulation": 18.265000000000004,
           "voice_microtone": 21.72,
           "voice_tradition": 37.5375,
           "voice_mechanism_compound": 2.08,
           "voice_estill_quality": 5.575,
-          "voice_speech_song": 25.285000000000007,
-          "voice_ensemble_config": 18.330000000000005,
+          "voice_speech_song": 26.000000000000004,
+          "voice_ensemble_config": 20.085000000000004,
           "voice_ornament_system": 6.000000000000001,
           "voice_pitch_organization": 16.749999999999996,
           "voice_processing_chain": 10.405000000000001,
-          "voice_multitrack_stack": 8.515
+          "voice_multitrack_stack": 10.04
         }
       },
       {

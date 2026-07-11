@@ -3,9 +3,9 @@
   "name": "Indeterminacy and aleatoric (mid-20th-century chance composition)",
   "family": "classical",
   "lineage": "American twentieth-century compositional approach centered on John Cage (1912-1992) employing chance procedures (I Ching coin-tossing, star-charts, environmental noise) to determine compositional material, removing the composer's expressive intentionality. Music of Changes (1951), 4'33\" (1952), Imaginary Landscape No. 4 (1951 for twelve radios), and the Number Pieces (1987-92) constitute the canonical types. Influenced subsequent Fluxus intermedia, conceptual composition, and improvisation traditions.",
-  "recipe": "classic North American early-1910s indeterminacy and aleatoric, art Music, western modern branch, jam free improv on frame jam band free improvisation. thick, low dynamic level, chest resonance low mid, ornamental. no chemical hardener t rivet beech laminated maple laminated European tradition grand piano. shoebox concert hall. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 424,
-  "score": 119.567,
+  "recipe": "classic North American early-1910s indeterminacy and aleatoric, art Music, western modern branch, jam free improv on frame jam band free improvisation. thick, breath veiled tone, slow rate, interlocked note trading. no chemical hardener t rivet beech laminated maple laminated European tradition grand piano. shoebox concert hall. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 425,
+  "score": 136.542,
   "config": {
     "traditions": [
       "indeterminacy_aleatoric",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "crooner_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "melisma_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "persian_dastgah_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 5.850000000000001,
-          "voice_quality": 3.4365000000000006,
+          "voice_quality": 6.630000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.29,
-          "voice_articulation": 1.3865,
-          "voice_microtone": 9.024625,
+          "voice_vibrato": 6.32175,
+          "voice_articulation": 10.399999999999999,
+          "voice_microtone": 10.854999999999995,
           "voice_tradition": 7.605,
           "voice_mechanism_compound": 2.4,
           "voice_estill_quality": 4.532500000000001,
-          "voice_speech_song": 12.284999999999998,
-          "voice_ensemble_config": 9.620000000000001,
+          "voice_speech_song": 12.154999999999998,
+          "voice_ensemble_config": 9.685000000000002,
           "voice_ornament_system": 4.258,
           "voice_pitch_organization": 3.063,
           "voice_processing_chain": 1.56,
-          "voice_multitrack_stack": 4.4115
+          "voice_multitrack_stack": 5.383
         }
       },
       {

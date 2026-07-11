@@ -3,53 +3,53 @@
   "name": "Dub poetry",
   "family": "global",
   "lineage": "Jamaican-British poetic-spoken-word performance tradition over reggae rhythm backing — codified through Linton Kwesi Johnson (UK Black-British, the figure, his 1978 Dread Beat an Blood the founding album), Mutabaruka (Jamaican), Oku Onuora (Jamaican, who coined the genre name in 1979), Mikey Smith (Jamaican), Benjamin Zephaniah (UK Black-British)",
-  "recipe": "classic Northern European late-1970s dub poetry, bass System, reggae diaspora branch, intl hip hop MC rhythm, anglo singer song ballad poetry freak folk rapso. thick, rap, chest resonance low mid, narrative. orange amp British heavy crunch mahogany rosewood clean single coil electric guitar, orange amp British heavy crunch mahogany pyramid pure nickel bass electric bass, fx9 manganese bronze over hammered post lathe strikes unlathed drum kit. London black British Caribbean 1976-1985 indie-commercial brixton uk lovers rock basement. dynamic moving-coil, tube pre, colored vintage console, optical compressor, Pultec passive program EQ. tape 15ips echo spring reverb.",
-  "recipe_chars": 671,
-  "score": 205.76,
+  "recipe": "classic Northern European late-1970s dub poetry, bass System, reggae diaspora branch, intl hip hop MC rhythm, anglo singer song ballad poetry rapso freak folk. thick, breath veiled tone, slow rate, interlocked note trading. orange amp British heavy crunch mahogany rosewood clean single coil electric guitar, orange amp British heavy crunch mahogany pyramid pure nickel bass electric bass, fx9 manganese bronze over hammered post lathe strikes unlathed drum kit. London black British Caribbean 1976-1985 indie-commercial brixton uk lovers rock basement. dynamic moving-coil, tube pre, colored vintage console, optical compressor, Pultec passive program EQ. tape 15ips echo spring reverb.",
+  "recipe_chars": 687,
+  "score": 235.017,
   "config": {
     "traditions": [
       "dub_poetry",
-      "freak_folk",
-      "rapso"
+      "rapso",
+      "freak_folk"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "rap_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "narrative_voice",
-          "voice_microtone": "blue_notes",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "sean_nos_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_rhythmic_spoken_flow",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
           "voice_register": 10.134999999999996,
-          "voice_quality": 5.07,
+          "voice_quality": 10.919999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.8849999999999996,
-          "voice_articulation": 1.26,
-          "voice_microtone": 0.39,
+          "voice_vibrato": 2.0149999999999997,
+          "voice_articulation": 11.699999999999996,
+          "voice_microtone": 12.089999999999991,
           "voice_tradition": 18.085,
           "voice_mechanism_compound": 1.9499999999999997,
           "voice_estill_quality": 4.16,
           "voice_speech_song": 15.99,
-          "voice_ensemble_config": 11.374999999999995,
-          "voice_ornament_system": 3.1200000000000006,
-          "voice_pitch_organization": 2.0799999999999996,
+          "voice_ensemble_config": 11.634999999999994,
+          "voice_ornament_system": 3.4450000000000016,
+          "voice_pitch_organization": 2.4699999999999998,
           "voice_processing_chain": 5.625,
-          "voice_multitrack_stack": 2.4699999999999998
+          "voice_multitrack_stack": 2.6325000000000003
         }
       },
       {

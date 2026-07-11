@@ -3,9 +3,9 @@
   "name": "Banda sinaloense",
   "family": "global",
   "lineage": "Mexican brass-band tradition of Sinaloa state, derived from late-nineteenth-century German-immigrant military-band tradition adapted to Mexican-rural-popular celebration-music. Large ensemble of clarinets, trumpets, trombones, sousaphone, tambora, tarola, voice — entirely brass-and-percussion. Repertoire spans ranchera, corrido, cumbia. Banda El Recodo (founded 1938) anchors the canonical sound.",
-  "recipe": "classic Mexican late-1930s banda sinaloense, functional Song, Mexican branch, American marching groove percussion american drumline. thick, full chest belt, unrestrained, Scottish Gaelic vocal. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor large cup tenor large trombone, American orchestral brass yellow brass canonical orchestral piston valves American school besson sovereign British brass band tuba, ebonite hard rubber klezmer tradition clarinet, banda sinaloense. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 808,
-  "score": 111.357,
+  "recipe": "classic Mexican late-1930s banda sinaloense, functional Song, Mexican branch, American marching groove percussion american drumline. thick, full chest belt, straight onset, interlocked note trading. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor large cup tenor large trombone, American orchestral brass yellow brass canonical orchestral piston valves American school besson sovereign British brass band tuba, ebonite hard rubber klezmer tradition clarinet, banda sinaloense. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 813,
+  "score": 121.99,
   "config": {
     "traditions": [
       "banda_sinaloense",
@@ -19,9 +19,9 @@
           "voice_quality": "full_chest_belt_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "diaphragm_vibrato",
-          "voice_articulation": "shouted_voice",
-          "voice_microtone": "bend_inflected",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_belt",
@@ -30,25 +30,25 @@
           "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_vocoder_32_band_carrier_saw",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 0.7499999999999996,
           "voice_quality": 5.948750000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.45499999999999996,
-          "voice_articulation": 1.4915,
-          "voice_microtone": 0.12999999999999998,
+          "voice_vibrato": 2.114,
+          "voice_articulation": 5.07,
+          "voice_microtone": 4.875000000000001,
           "voice_tradition": 5.36,
           "voice_mechanism_compound": 1.09875,
           "voice_estill_quality": 3.353,
-          "voice_speech_song": 7.345000000000001,
-          "voice_ensemble_config": 6.825,
+          "voice_speech_song": 7.41,
+          "voice_ensemble_config": 6.695,
           "voice_ornament_system": 1.56,
-          "voice_pitch_organization": 1.69,
+          "voice_pitch_organization": 1.4949999999999999,
           "voice_processing_chain": 3.1979999999999995,
-          "voice_multitrack_stack": 0.9099999999999999
+          "voice_multitrack_stack": 1.8199999999999998
         }
       },
       {

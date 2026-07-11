@@ -3,9 +3,9 @@
   "name": "Ethiopian azmari minstrel-poet (centuries-old)",
   "family": "global",
   "lineage": "Ethiopian azmari itinerant minstrel-poet tradition, etymologically from Amharic mazammar (to sing), with centuries-old documentation. Compared in performance-economic role to medieval European troubadours and West African griots — improvisational extemporaneous-poetry minstrel performing for patrons in tej bet (honey-wine houses) and after the 1970s in dedicated azmari bet performance venues. Canonical instruments: masenqo one-string bowed lute (held vertically on the knee, virtuosic) and krar five-or-six-string bowl-lyre (held against the chest), with kebero conical drum and washint end-blown notched flute in larger ensembles. Modal vocabulary built on the Ethiopian qenet pentatonic mode-system: tizita (the nostalgic mode), bati (the praise-mode), ambassel (the festive-mode), anchihoye (the mournful-mode), all in pure-temperament (not equal-tempered). Eskista shoulder-dance characteristic accompaniment-form. Famous twentieth-century azmari include Asnaketch Worku (krar player and Ethiopia's first theatre actress), Bahru Qäññé, and Yerga Dubalä. Kazanchis district of Addis Ababa peaked at approximately seventeen azmari venues in the 1970s, with Fendika (founded 1990s, under Melaku Belay since 2008) now the last-bastion of the district's azmari-bet performers' styles and teacher's teacher transmission lineage. Distinguished from West African griot by Ethiopian qenet pentatonic-mode vocabulary and masenqo-and-krar instrumental signature; distinguished from Sudanese azmari-cognate traditions by Amhara-language repertoire and Addis-Ababa-Kazanchis venue-context",
-  "recipe": "classic East African mid-1970s ethiopian azmari minstrel-poet, ballad Poetry, med east poetic branch, west African griot ballad poetry tigrinya music donsongoni hunter's harp. extended whistle, declaimed, pure, equal tempered. curved horsehair bow canonical ethiopian azmari canonical ethiopian minstrel masenqo, gut ethiopian historical krar, washint, calfskin canonical ethiopian orthodox ethiopian olive canonical conical staved orthodox tewahedo liturgy kebero. addis kazanchis azmari bet tej house. dynamic moving-coil, transformer-coupled solid-state pre, BBC broadcast console, optical compressor, passive program EQ. indian/lebanese/greek vinyl pressing spring reverb.",
-  "recipe_chars": 676,
-  "score": 236.3,
+  "recipe": "classic East African mid-1970s ethiopian azmari minstrel-poet, ballad Poetry, med east poetic branch, west African griot ballad poetry tigrinya music donsongoni hunter's harp. extended whistle, breath veiled tone, pure, interlocked note trading. curved horsehair bow canonical ethiopian azmari canonical ethiopian minstrel masenqo, gut ethiopian historical krar, washint, calfskin canonical ethiopian orthodox ethiopian olive canonical conical staved orthodox tewahedo liturgy kebero. addis kazanchis azmari bet tej house. dynamic moving-coil, transformer-coupled solid-state pre, BBC broadcast console, optical compressor, passive program EQ. indian/lebanese/greek vinyl pressing spring reverb.",
+  "recipe_chars": 695,
+  "score": 336.675,
   "config": {
     "traditions": [
       "azmari_ethiopian",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "extended_whistle_register",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "straight_tone",
-          "voice_articulation": "staccato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "mande_jeli_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 2.255,
-          "voice_quality": 16.5,
+          "voice_quality": 25.805000000000007,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.835,
-          "voice_articulation": 0.045,
-          "voice_microtone": 2.300000000000001,
+          "voice_articulation": 24.31000000000001,
+          "voice_microtone": 25.805000000000007,
           "voice_tradition": 53.43000000000001,
           "voice_mechanism_compound": 10.14,
           "voice_estill_quality": 8.255,
-          "voice_speech_song": 24.440000000000012,
-          "voice_ensemble_config": 24.375000000000007,
+          "voice_speech_song": 26.000000000000007,
+          "voice_ensemble_config": 24.245000000000008,
           "voice_ornament_system": 6.4350000000000005,
-          "voice_pitch_organization": 20.215,
+          "voice_pitch_organization": 62.23500000000001,
           "voice_processing_chain": 6.744999999999999,
-          "voice_multitrack_stack": 6.6899999999999995
+          "voice_multitrack_stack": 6.54
         }
       },
       {

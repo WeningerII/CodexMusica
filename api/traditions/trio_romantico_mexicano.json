@@ -3,26 +3,26 @@
   "name": "Trío romántico (Mexican bolero trio)",
   "family": "pop",
   "lineage": "Mexican trío romántico bolero-trio tradition emerging in 1930s-1940s Mexico City. Three-male-voice harmonized chorus with two acoustic guitars and one requinto (smaller higher-tuned lead guitar). Trio Los Panchos (founded 1944, New York) crystallized the form, established the requinto-lead-with-three-voice-harmony as canonical, and exported the genre internationally throughout Latin America.",
-  "recipe": "classic Mexican mid-1930s trío romántico, functional Song, Mexican branch, Latin am troubadour ballad poetry filipino kundiman milonga. thick, full chest belt, melodic, equal tempered. cedar phosphor bronze bronze fingerpicked parlor acoustic guitar, cedrillo canonical veracruz strummed requinto jarocho. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
-  "recipe_chars": 503,
-  "score": 114.504,
+  "recipe": "classic Mexican mid-1930s trío romántico, functional Song, Mexican branch, Latin am troubadour ballad poetry milonga filipino kundiman. thick, breath veiled tone, straight note core, interlocked note trading. cedar phosphor bronze bronze fingerpicked parlor acoustic guitar, cedrillo canonical veracruz strummed requinto jarocho. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 527,
+  "score": 149.859,
   "config": {
     "traditions": [
       "trio_romantico_mexicano",
-      "filipino_kundiman",
-      "milonga"
+      "milonga",
+      "filipino_kundiman"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "full_chest_belt_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "spoken_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "sean_nos_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -35,19 +35,19 @@
         },
         "scores": {
           "voice_register": 7.590000000000002,
-          "voice_quality": 5.1000000000000005,
+          "voice_quality": 14.364999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.4699999999999998,
-          "voice_articulation": 0.39,
-          "voice_microtone": 2.250000000000001,
+          "voice_vibrato": 2.6975,
+          "voice_articulation": 12.284999999999995,
+          "voice_microtone": 13.779999999999992,
           "voice_tradition": 9.685000000000002,
-          "voice_mechanism_compound": 5.914999999999998,
-          "voice_estill_quality": 5.915,
-          "voice_speech_song": 19.304999999999996,
-          "voice_ensemble_config": 15.274999999999995,
+          "voice_mechanism_compound": 5.915,
+          "voice_estill_quality": 5.915000000000001,
+          "voice_speech_song": 19.174999999999997,
+          "voice_ensemble_config": 15.144999999999992,
           "voice_ornament_system": 3.445,
-          "voice_pitch_organization": 5.264999999999999,
+          "voice_pitch_organization": 7.962499999999998,
           "voice_processing_chain": 3.5749999999999993,
           "voice_multitrack_stack": 4.92875
         }

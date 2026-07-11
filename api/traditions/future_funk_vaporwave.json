@@ -3,9 +3,9 @@
   "name": "Future funk (vaporwave subgenre)",
   "family": "electronic",
   "lineage": "Mid-2010s vaporwave-derived electronic subgenre integrating French house, disco, and Japanese city-pop sampling into accessible, uplifting dance-music. Saint Pepsi (later Skylar Spence), Yung Bae, Macross 82-99, and the broader Business Casual and Local Business label rosters anchor the canonical future funk aesthetic. Distinguished from broader vaporwave by future funk's explicit dance-functional and uplifting (vs vaporwave's ironic-melancholic) emotional register.",
-  "recipe": "classic 2014-2016 future funk, groove Percussion, funk percussive branch, east Asian pop functional song, ambient experimental electric enka k-indie. thick, low dynamic level, chest resonance low mid, punctuated. TR-808, fast decay focused low lead analog synth, mahogany ernie ball slinky electric bass. no single room 2015-present distributed distributed production. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 467,
-  "score": 231.005,
+  "recipe": "classic 2014-2016 future funk, groove Percussion, funk percussive branch, east Asian pop functional song, ambient experimental electric enka k-indie. thick, breath veiled tone, slow rate, interlocked note trading. TR-808, fast decay focused low lead analog synth, mahogany ernie ball slinky electric bass. no single room 2015-present distributed distributed production. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 468,
+  "score": 262.815,
   "config": {
     "traditions": [
       "future_funk_vaporwave",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "crooner_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "staccato_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "japanese_min_yo_tradition",
           "voice_mechanism_compound": "voice_mechanism_yodel_M1_M2_alternation",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 23.92499999999999,
-          "voice_quality": 2.9750000000000005,
+          "voice_quality": 10.984999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.535,
-          "voice_articulation": 1.5,
+          "voice_vibrato": 3.7700000000000005,
+          "voice_articulation": 19.110000000000003,
           "voice_microtone": 21.72,
           "voice_tradition": 26.7475,
           "voice_mechanism_compound": 1.7349999999999999,
           "voice_estill_quality": 2.34,
-          "voice_speech_song": 24.180000000000007,
-          "voice_ensemble_config": 19.175000000000004,
+          "voice_speech_song": 24.895000000000003,
+          "voice_ensemble_config": 20.085000000000004,
           "voice_ornament_system": 6.175000000000001,
-          "voice_pitch_organization": 2.535,
+          "voice_pitch_organization": 3.7375000000000007,
           "voice_processing_chain": 14.909999999999998,
-          "voice_multitrack_stack": 6.720000000000001
+          "voice_multitrack_stack": 9.847500000000002
         }
       },
       {

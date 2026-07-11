@@ -3,9 +3,9 @@
   "name": "Flamenco",
   "family": "global",
   "lineage": "Andalusian gitano-and-payo song-dance-guitar tradition codified across the southern Spanish provinces (Seville, Cádiz, Granada, Córdoba, Jerez de la Frontera, Málaga) with origins in the 18th-century Romaní migration through Andalusia, formalized as concert-stage repertoire from the 1840s Café de Chinitas era through the mid-20th-century commercial recording canon and into the modern Camarón de la Isla / Paco de Lucía / Tomatito flamenco-nuevo era",
-  "recipe": "classic Iberian mid-1840s flamenco, drone Modal, vocal branch, Persian arab improv improv on frame, Mediterranean ballad ballad poetry rebetiko greek nisiotika. thick, nasal, chest resonance low mid, punctuated. cypress body percussive attack strong flamenco tradition rasgueado strum picado scale runs flamenco guitar, open back Afro peruvian tradition festejo tradition cajon peruano. andalusian tablao seville madrid. Neumann U47, tube pre, colored vintage console, LA-2A optical, passive program EQ. tape 15ips plate reverb.",
+  "recipe": "classic Iberian mid-1840s flamenco, drone Modal, vocal branch, Persian arab improv improv on frame, Mediterranean ballad ballad poetry rebetiko greek nisiotika. thick, nasal, slow rate, interlocked note trading. cypress body percussive attack strong flamenco tradition rasgueado strum picado scale runs flamenco guitar, open back Afro peruvian tradition festejo tradition cajon peruano. andalusian tablao seville madrid. Neumann U47, tube pre, colored vintage console, LA-2A optical, passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 528,
-  "score": 160.992,
+  "score": 186.532,
   "config": {
     "traditions": [
       "flamenco",
@@ -21,8 +21,8 @@
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "staccato_voice",
-          "voice_microtone": "bend_inflected",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -38,18 +38,18 @@
           "voice_quality": 8.749999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.7299999999999995,
-          "voice_articulation": 0.8999999999999999,
-          "voice_microtone": 8.749999999999996,
+          "voice_vibrato": 3.607499999999999,
+          "voice_articulation": 14.624999999999993,
+          "voice_microtone": 19.402499999999993,
           "voice_tradition": 32.8705,
           "voice_mechanism_compound": 5.265000000000001,
           "voice_estill_quality": 13.358499999999996,
-          "voice_speech_song": 18.427499999999995,
-          "voice_ensemble_config": 14.689999999999994,
+          "voice_speech_song": 18.492499999999993,
+          "voice_ensemble_config": 14.559999999999992,
           "voice_ornament_system": 8.699999999999996,
           "voice_pitch_organization": 3.672499999999999,
           "voice_processing_chain": 6.075000000000001,
-          "voice_multitrack_stack": 5.179499999999999
+          "voice_multitrack_stack": 5.5295000000000005
         }
       },
       {

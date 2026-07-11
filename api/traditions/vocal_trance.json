@@ -3,67 +3,67 @@
   "name": "Vocal trance",
   "family": "global",
   "lineage": "Pop-vocal trance subgenre fusing trance instrumentation with female-led vocal performances — codified through Tiësto featuring Kirsty Hawkshaw \"Just Be\" (2003), Armin van Buuren’s collaborations with Sharon den Adel, ATB and York-style productions, characterized by main-room emotional-vocal builds",
-  "recipe": "classic early-2000s vocal trance, electronic Dance, trance branch, house electronic dance tech-house chicago house. thick, blues-shouter, pure, ornamental. singing lead analog poly synth, singing lead digital subtractive, TR-909, sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 384,
-  "score": 219.033,
+  "recipe": "classic early-2000s vocal trance, electronic Dance, trance branch, house electronic dance chicago house latin house. thick, breath veiled tone, straight note core, interlocked note trading. singing lead analog poly synth, singing lead digital subtractive, TR-909, looped layered sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 433,
+  "score": 250.492,
   "config": {
     "traditions": [
       "vocal_trance",
-      "tech_house_classic",
-      "chicago_house"
+      "chicago_house",
+      "latin_house_percussion"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "blues_shouter_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "straight_tone",
-          "voice_articulation": "melisma_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "japanese_min_yo_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_just_intonation",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 12.365625000000001,
-          "voice_quality": 3.1200000000000028,
+          "voice_register": 10.265625,
+          "voice_quality": 7.507500000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.035,
-          "voice_articulation": 2.125,
-          "voice_microtone": 6.925000000000001,
-          "voice_tradition": 10.984999999999996,
-          "voice_mechanism_compound": 4.615,
-          "voice_estill_quality": 4.2250000000000005,
-          "voice_speech_song": 18.46,
-          "voice_ensemble_config": 17.29,
+          "voice_vibrato": 3.38,
+          "voice_articulation": 16.379999999999995,
+          "voice_microtone": 15.794999999999993,
+          "voice_tradition": 13.259999999999996,
+          "voice_mechanism_compound": 3.5749999999999993,
+          "voice_estill_quality": 3.9750000000000005,
+          "voice_speech_song": 20.214999999999996,
+          "voice_ensemble_config": 18.394999999999996,
           "voice_ornament_system": 0.7749999999999999,
-          "voice_pitch_organization": 1,
-          "voice_processing_chain": 13.295000000000002,
-          "voice_multitrack_stack": 9.374374999999999
+          "voice_pitch_organization": 1.6949999999999998,
+          "voice_processing_chain": 12.27,
+          "voice_multitrack_stack": 10.450624999999999
         }
       },
       {
         "id": "analog_poly_synth",
         "slots": {
           "electronic_technique": "electronic_lead_line",
-          "poly_archetypes": "juno_60",
+          "poly_archetypes": "jupiter_8",
           "poly_voices": "poly_8_voice",
           "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
           "electronic_technique": 6.415625,
-          "poly_archetypes": 0.78,
-          "poly_voices": 0.585,
+          "poly_archetypes": 0.39,
+          "poly_voices": 0.39,
           "poly_maker_lineage": -1.225
         }
       },
@@ -88,8 +88,8 @@
           "tr909_production_origin": "tr909_tr_8s_modern"
         },
         "scores": {
-          "tr909_voice": 19.125000000000004,
-          "drum_machine_909_context": 4.549999999999999,
+          "tr909_voice": 17.625,
+          "drum_machine_909_context": 4.9399999999999995,
           "tr909_production_origin": 0.78
         }
       },
@@ -99,15 +99,15 @@
           "electronic_technique": "electronic_sample_chopped",
           "sampler_archetypes": "emu_emax",
           "sampler_bit_depth": "sampler_sixteen_bit_lowfi",
-          "sampler_workflow": "sampler_one_shot_pitched",
+          "sampler_workflow": "sampler_loop_layered",
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
           "electronic_technique": 0.52,
           "sampler_archetypes": 0.3,
-          "sampler_bit_depth": 0.7149999999999999,
-          "sampler_workflow": 0.7149999999999999,
-          "sampler_classic_context": 51.211875000000006
+          "sampler_bit_depth": 0.52,
+          "sampler_workflow": 1.3649999999999998,
+          "sampler_classic_context": 51.111875
         }
       }
     ],

@@ -3,9 +3,9 @@
   "name": "Forró pé-de-serra (traditional forró)",
   "family": "global",
   "lineage": "Traditional Brazilian forró sub-form preserving the canonical Luiz Gonzaga-era 1940s-1960s northeastern Brazilian dance-music form. Trio configuration: sanfona button-accordion lead, zabumba double-headed bass-drum, triangle, plus voice. Distinguished from later forró eletrônico and forró universitário by pé-de-serra's acoustic-trio (vs full-band-electronic) instrumental signature. Repertoire centers on Luiz Gonzaga's canonical compositional corpus and parallel northeastern forró composers.",
-  "recipe": "classic Southern American mid-1940s forró pé-de-serra, functional Song, Brazilian song branch, Brazilian groove percussion pagode baião. thick, intimate aspirated, pure, punctuated. leather castagnari Italian premium folk music accordion, wood baião tradition low stick with high bacalhau buzz zabumba, gourd wood guiro. estudio rozenblit recife. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 409,
-  "score": 96.325,
+  "recipe": "classic Southern American mid-1940s forró pé-de-serra, functional Song, Brazilian song branch, Brazilian groove percussion pagode baião. thick, breath veiled tone, pure, interlocked note trading. leather castagnari Italian premium folk music accordion, wood baião tradition low stick with high bacalhau buzz zabumba, gourd wood guiro. estudio rozenblit recife. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 423,
+  "score": 139.132,
   "config": {
     "traditions": [
       "forro_pe_de_serra",
@@ -21,8 +21,8 @@
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "straight_tone",
-          "voice_articulation": "staccato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "carnatic_classical_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 1.0999999999999996,
-          "voice_quality": 10.469999999999997,
+          "voice_quality": 23.822499999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 1.69,
-          "voice_articulation": 0.585,
-          "voice_microtone": 1.4999999999999998,
+          "voice_articulation": 13.844999999999995,
+          "voice_microtone": 12.609999999999992,
           "voice_tradition": 3.71,
           "voice_mechanism_compound": 2.4699999999999998,
           "voice_estill_quality": 2.5024999999999995,
-          "voice_speech_song": 18.849999999999994,
-          "voice_ensemble_config": 14.104999999999995,
+          "voice_speech_song": 19.369999999999994,
+          "voice_ensemble_config": 17.354999999999993,
           "voice_ornament_system": 2.135,
-          "voice_pitch_organization": 3.3499999999999996,
+          "voice_pitch_organization": 3.185,
           "voice_processing_chain": 6.8950000000000005,
-          "voice_multitrack_stack": 5.995000000000001
+          "voice_multitrack_stack": 7.475
         }
       },
       {

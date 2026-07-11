@@ -3,9 +3,9 @@
   "name": "Yambú",
   "family": "global",
   "lineage": "Slow-tempo Cuban rumba subform 1850s-onward, the oldest of the three rumba subforms and the precursor parent-form to guaguanco and rumba-columbia. Traditionally played on cajones wooden-shipping-crate-percussion (originating in dockworker-and-warehouse-improvised-drumming) rather than congas, alongside palitos stick-rhythm-and-clave 3-2 wood-block. Performed at funerals, wakes, and elder-honoring contexts, the yambú is the only rumba subform that prohibits the vacunao symbolic-pursuit choreographic-element — the dance is restrained, near-stationary, with subtle-hip-rotational gesture and exaggerated-elderly-mock-tremulous movement. The repertoire preserves the oldest pre-conga rumba percussion vocabulary.",
-  "recipe": "classic Caribbean mid-1850s yambú, groove Percussion, rumba branch, Afro-diasporic ritual devotional candomblé ceremonial haitian vodou ceremonial. thick, blues-shouter, punctuated, blues inflected. open back Afro peruvian tradition festejo tradition cajon peruano, lead mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, wood hardwood claves, a cappella small 3 to 8 one per part three voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. havana solar outdoor courtyard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 634,
-  "score": 147.34,
+  "recipe": "classic Caribbean mid-1850s yambú, groove Percussion, rumba branch, Afro-diasporic ritual devotional candomblé ceremonial haitian vodou ceremonial. thick, breath veiled tone, straight note core, interlocked note trading. open back Afro peruvian tradition festejo tradition cajon peruano, lead mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, wood hardwood claves, a cappella small 3 to 8 one per part three voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. havana solar outdoor courtyard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 656,
+  "score": 185.309,
   "config": {
     "traditions": [
       "rumba_yambu",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "blues_shouter_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "staccato_voice",
-          "voice_microtone": "blue_notes",
+          "voice_vibrato": "terminal_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 1.4299999999999993,
-          "voice_quality": 11.594999999999999,
+          "voice_quality": 15.210000000000004,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.3,
-          "voice_articulation": 0.585,
-          "voice_microtone": 0.585,
+          "voice_vibrato": 3.065,
+          "voice_articulation": 15.209999999999994,
+          "voice_microtone": 15.014999999999992,
           "voice_tradition": 18.2975,
           "voice_mechanism_compound": 3.3149999999999995,
           "voice_estill_quality": 4.2250000000000005,
-          "voice_speech_song": 15.339999999999996,
-          "voice_ensemble_config": 14.689999999999996,
+          "voice_speech_song": 15.599999999999994,
+          "voice_ensemble_config": 14.559999999999995,
           "voice_ornament_system": 5.4,
           "voice_pitch_organization": 8.0795,
-          "voice_processing_chain": 2.795,
-          "voice_multitrack_stack": 2.535
+          "voice_processing_chain": 3.9000000000000004,
+          "voice_multitrack_stack": 3.835000000000001
         }
       },
       {

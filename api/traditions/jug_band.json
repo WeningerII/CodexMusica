@@ -3,9 +3,9 @@
   "name": "Jug band",
   "family": "blues_gospel",
   "lineage": "1920s and 1930s African-American Memphis-and-Cincinnati DIY blues string-band tradition — codified through the Memphis Jug Band (recorded 1927-1934), Cannon’s Jug Stompers (Gus Cannon with Noah Lewis), and the Dixieland Jug Blowers — characterized by amateur-improvised instrumentation (clay jug as bass, kazoo, washboard, harmonica, banjo, guitar) and country-blues repertoire performed for working-class audiences",
-  "recipe": "classic mid-1930s jug band, ballad Poetry, jug band branch, blues narrative hokum blues, blues narrative delta narrative, pop rock skiffle. thick, worn fold, melodic, narrative. traditional ceramic clay jug inst, frottoir, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, kazoo, open g tuning mahogany fingerpicked parlor acoustic guitar, wood scruggs stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string, drone like fiddle, bowl back Italian adirondack red spruce loar canon hard rock maple mandolin. wooden barn. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 676,
-  "score": 671.765,
+  "recipe": "classic mid-1930s jug band, ballad Poetry, jug band branch, blues narrative hokum blues, blues narrative delta narrative, pop rock skiffle. thick, worn fold, wide pitch sway, interlocked note trading. traditional ceramic clay jug inst, frottoir, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, kazoo, open g tuning mahogany fingerpicked parlor acoustic guitar, wood scruggs stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string, drone like fiddle, bowl back Italian adirondack red spruce loar canon hard rock maple mandolin. wooden barn. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 699,
+  "score": 737.389,
   "config": {
     "traditions": [
       "jug_band",
@@ -20,9 +20,9 @@
           "voice_quality": "worn_fold_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "narrative_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "bend_inflected",
           "voice_tradition": "gospel_pentecostal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
           "voice_processing_chain": "voice_processing_lo_fi_narrow_AM",
-          "voice_multitrack_stack": "voice_multitrack_unison_double_take"
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
           "voice_register": 64.28062500000001,
           "voice_quality": 34.85,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.320250000000001,
-          "voice_articulation": 6.884500000000001,
-          "voice_microtone": 18.474999999999998,
+          "voice_vibrato": 37.945,
+          "voice_articulation": 21.825999999999997,
+          "voice_microtone": 33.895,
           "voice_tradition": 17.061124999999997,
           "voice_mechanism_compound": 4.615,
           "voice_estill_quality": 8.3275,
-          "voice_speech_song": 25.0565,
-          "voice_ensemble_config": 21.441000000000003,
+          "voice_speech_song": 26.008000000000003,
+          "voice_ensemble_config": 22.07,
           "voice_ornament_system": 0.45500000000000007,
           "voice_pitch_organization": 0.845,
           "voice_processing_chain": 12.244125,
-          "voice_multitrack_stack": 2.8350000000000004
+          "voice_multitrack_stack": 2.8925
         }
       },
       {

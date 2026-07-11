@@ -3,9 +3,9 @@
   "name": "Early Romantic (1800-1850)",
   "family": "classical",
   "lineage": "European art-music period c.1800-1850 emerging from late Beethoven through the first generation of explicitly Romantic composers. Characterized by expanded chromatic harmony, programmatic narrative content, virtuoso performer-composer figures, and the lieder cycle as song-form. Schubert's 600+ songs, Schumann's piano-cycles, Chopin's piano-études-and-nocturnes, and Mendelssohn's symphonies constitute the canonical core.",
-  "recipe": "classic British early romantic, art Music, western common practice branch, western modern art music second viennese school spectralism. thick, low dynamic level, chest resonance low mid, narrative. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, silver wound lamb gut core carpathian spruce bigleaf maple western maple violin orchestral, silver wound lamb gut core carpathian spruce European maple sycamore maple cello. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
-  "recipe_chars": 542,
-  "score": 331.046,
+  "recipe": "classic British early romantic, art Music, western common practice branch, western modern art music second viennese school spectralism. thick, breath veiled tone, slow rate, interlocked note trading. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, silver wound lamb gut core carpathian spruce bigleaf maple western maple violin orchestral, silver wound lamb gut core carpathian spruce European maple sycamore maple cello. shoebox concert hall. decca tree, German V72 tube pre, Emi redd.51. tape 15ips.",
+  "recipe_chars": 544,
+  "score": 353.476,
   "config": {
     "traditions": [
       "early_romantic_19c",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "crooner_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "narrative_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "chinese_classical_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 5.85,
-          "voice_quality": 1.4949999999999999,
+          "voice_quality": 10.594999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.445,
-          "voice_articulation": 1.0999999999999999,
+          "voice_vibrato": 7.345000000000001,
+          "voice_articulation": 9.945,
           "voice_microtone": 13.007500000000002,
           "voice_tradition": 8.06,
           "voice_mechanism_compound": 4.9,
           "voice_estill_quality": 6.07,
-          "voice_speech_song": 16.575,
-          "voice_ensemble_config": 10.009999999999998,
+          "voice_speech_song": 17.485,
+          "voice_ensemble_config": 9.879999999999999,
           "voice_ornament_system": 5.140000000000001,
           "voice_pitch_organization": 5.98875,
           "voice_processing_chain": 5.069999999999999,
-          "voice_multitrack_stack": 6.2075000000000005
+          "voice_multitrack_stack": 6.012500000000001
         }
       },
       {

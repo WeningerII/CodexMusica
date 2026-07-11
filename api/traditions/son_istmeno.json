@@ -3,9 +3,9 @@
   "name": "Son istmeño (Oaxaca Isthmus)",
   "family": "global",
   "lineage": "Regional Mexican son tradition of the Isthmus of Tehuantepec (southeastern Oaxaca), the Zapotec-cultural-region southern-Mexican-Pacific lowland. Zapotec-language vocal repertoire alongside Spanish, characteristic 6/8 alternating-with-3/4, and Tehuana-feminine cultural register. Marimba ensemble (parallel to but distinct from Guatemalan Maya marimba), acoustic-guitar, voice. La Sandunga (Andrés Gutiérrez 1853) is the unofficial Zapotec anthem.",
-  "recipe": "classic Mexican early-1850s son istmeño, ballad Poetry, Latin am troubadour branch, Brazilian groove percussion pagode baião. vocal fry, intimate aspirated, punctuated, equal tempered. tehuana sones marimba centroamericana, parlor acoustic guitar. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 394,
-  "score": 82.36,
+  "recipe": "classic Mexican early-1850s son istmeño, ballad Poetry, Latin am troubadour branch, Brazilian groove percussion pagode baião. vocal fry, breath veiled tone, straight onset, interlocked note trading. tehuana sones marimba centroamericana, parlor acoustic guitar. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 408,
+  "score": 126.557,
   "config": {
     "traditions": [
       "son_istmeno",
@@ -20,9 +20,9 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "straight_tone",
-          "voice_articulation": "staccato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "chinese_classical_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_polynesian_falsetto",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 2.0799999999999996,
-          "voice_quality": 10.994999999999997,
+          "voice_quality": 27.884999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.38999999999999996,
-          "voice_articulation": 0.585,
-          "voice_microtone": 1.4999999999999998,
+          "voice_vibrato": 0.78,
+          "voice_articulation": 13.844999999999995,
+          "voice_microtone": 10.919999999999993,
           "voice_tradition": 6.8575,
           "voice_mechanism_compound": 4.159999999999999,
           "voice_estill_quality": 5.8825,
-          "voice_speech_song": 13.259999999999998,
-          "voice_ensemble_config": 12.414999999999996,
+          "voice_speech_song": 13.779999999999998,
+          "voice_ensemble_config": 12.284999999999995,
           "voice_ornament_system": 3.2,
           "voice_pitch_organization": 2.0900000000000003,
-          "voice_processing_chain": 3.5949999999999998,
-          "voice_multitrack_stack": 2.9575
+          "voice_processing_chain": 4.615,
+          "voice_multitrack_stack": 5.785
         }
       },
       {

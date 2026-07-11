@@ -3,14 +3,14 @@
   "name": "Zulu izibongo (praise-poetry)",
   "family": "global",
   "lineage": "Zulu izibongo praise-poetry tradition continuous from pre-colonial Zulu royal-court praise-singer (imbongi) practice through 19th-century Shaka-kaSenzangakhona-era continuous performance into modern South-African Zulu cultural-practice; the imbongi is the hereditary praise-poetry-and-political-orator role",
-  "recipe": "classic Southern African modern zulu izibongo, praise Song, sub saharan African branch, oceania pacific praise song, west African griot ballad poetry, African pop isicathamiya māori waiata mōteatea / patere. thick, declaimed, tasteful, continuous-phonation. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 405,
-  "score": 153.835,
+  "recipe": "classic Southern African modern zulu izibongo, praise Song, sub saharan African branch, oceania pacific praise song, west African griot ballad poetry, African pop isicathamiya māori waiata mōteatea / patere mande griot narrative epic recitation. thick, declaimed, straight onset, interlocked note trading. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 453,
+  "score": 170.13,
   "config": {
     "traditions": [
       "zulu_izibongo",
       "maori_waiata_moteatea_patere",
-      "isicathamiya"
+      "mande_griot_epic_narrative"
     ],
     "instruments": [
       {
@@ -21,35 +21,35 @@
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
-          "voice_articulation": "legato_voice",
-          "voice_microtone": "tempered_voice",
-          "voice_tradition": "yoruba_tonal_vocal_tradition",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "mande_jeli_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_yodel_M1_M2_alternation",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
           "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
-          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 5.700000000000002,
-          "voice_quality": 37.945000000000014,
+          "voice_register": 3.175000000000001,
+          "voice_quality": 42.84500000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.12,
-          "voice_articulation": 4.68,
-          "voice_microtone": 3.750000000000001,
-          "voice_tradition": 48.55499999999999,
+          "voice_vibrato": 2.7950000000000004,
+          "voice_articulation": 7.67,
+          "voice_microtone": 7.085000000000001,
+          "voice_tradition": 49.92,
           "voice_mechanism_compound": 1.925,
-          "voice_estill_quality": 3.9000000000000012,
-          "voice_speech_song": 17.615,
-          "voice_ensemble_config": 9.36,
-          "voice_ornament_system": 8.675,
+          "voice_estill_quality": 2.4699999999999998,
+          "voice_speech_song": 16.054999999999996,
+          "voice_ensemble_config": 7.605,
+          "voice_ornament_system": 12.149999999999999,
           "voice_pitch_organization": 4.68,
-          "voice_processing_chain": 3.6850000000000005,
-          "voice_multitrack_stack": 3.1950000000000003
+          "voice_processing_chain": 8.970000000000004,
+          "voice_multitrack_stack": 3.835
         }
       }
     ],

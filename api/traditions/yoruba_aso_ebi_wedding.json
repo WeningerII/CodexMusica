@@ -3,9 +3,9 @@
   "name": "Yoruba aso ebi wedding music",
   "family": "global",
   "lineage": "Yoruba wedding-music tradition continuous from pre-colonial Yoruba ritual-practice through 19th-20th century continuous performance into modern Yoruba-and-Yoruba-diaspora domestic practice across southwestern Nigeria, Benin, Togo, and the Atlantic Afro-diaspora; the aso ebi (unified-dress) wedding tradition emphasizes group-celebration vocal-and-drumming participation",
-  "recipe": "classic modern yoruba aso ebi wedding music, wedding, African diasporic branch, south Asian wedding, African pop functional song, west African groove percussion yoruba dùndún surrogate speech congolese rumba. thick, rap, tasteful, continuous-phonation. omo cedrela odorata canonical Yoruba dundun goat skin leather tension cords canonical pressure bend talking drum, iroko west African premium cowhide rope lacing canonical mande dunun, shekere. festival stage. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 524,
-  "score": 244.27,
+  "recipe": "classic modern yoruba aso ebi wedding music, wedding, African diasporic branch, south Asian wedding, African pop functional song, west African groove percussion yoruba dùndún surrogate speech congolese rumba. thick, breath veiled tone, straight onset, interlocked note trading. omo cedrela odorata canonical Yoruba dundun goat skin leather tension cords canonical pressure bend talking drum, iroko west African premium cowhide rope lacing canonical mande dunun, shekere. festival stage. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 549,
+  "score": 296.757,
   "config": {
     "traditions": [
       "yoruba_aso_ebi_wedding",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "rap_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
-          "voice_articulation": "legato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
@@ -30,26 +30,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 12.429999999999998,
-          "voice_quality": 3.575,
+          "voice_quality": 21.319999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.08,
-          "voice_articulation": 2.9899999999999998,
-          "voice_microtone": 10.835,
+          "voice_vibrato": 7.3774999999999995,
+          "voice_articulation": 18.33,
+          "voice_microtone": 17.744999999999994,
           "voice_tradition": 63.884999999999984,
           "voice_mechanism_compound": 0.585,
           "voice_estill_quality": 3.575,
-          "voice_speech_song": 24.634999999999998,
-          "voice_ensemble_config": 18.654999999999998,
+          "voice_speech_song": 25.284999999999993,
+          "voice_ensemble_config": 18.524999999999995,
           "voice_ornament_system": 9.849999999999996,
           "voice_pitch_organization": 27.96999999999999,
-          "voice_processing_chain": 3.3850000000000007,
-          "voice_multitrack_stack": 3.93
+          "voice_processing_chain": 9.115,
+          "voice_multitrack_stack": 4.875000000000001
         }
       },
       {

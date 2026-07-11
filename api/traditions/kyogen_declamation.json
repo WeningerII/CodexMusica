@@ -3,53 +3,53 @@
   "name": "Kyogen comic declamation",
   "family": "classical",
   "lineage": "Kyogen is the comic spoken-theatre form performed as interludes between the solemn noh plays on the same stage, codified in Muromachi-period Japan (14th to 16th centuries) and transmitted through the Okura and Izumi hereditary schools. Its dialogue is delivered in a highly stylized, clearly projected declamation with fixed cadences and stock phrases such as the entrance line 'Kore wa kono atari no mono de gozaru', serving as the spoken counterpart to noh's chanted utai. Performers train from childhood in the family line, with the Nomura and Shigeyama families among the best-known modern lineages. It is documented in the repertories of the Nohgaku Performers' Association and UNESCO's Nogaku intangible-heritage inscription (2001/2008).",
-  "recipe": "classic East Asian early-2000s kyogen comic declamation, art Music, east Asian branch beijing opera thai classical. thick, pressed, chest resonance low mid, rhythmic. noh stage japanese. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 249,
-  "score": 200.513,
+  "recipe": "classic East Asian early-2000s kyogen comic declamation, art Music, east Asian branch thai classical beijing opera. thick, breath veiled tone, slow rate, interlocked note trading. noh stage japanese. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 262,
+  "score": 280.083,
   "config": {
     "traditions": [
       "kyogen_declamation",
-      "beijing_opera",
-      "thai_classical"
+      "thai_classical",
+      "beijing_opera"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "pressed_phonation_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "spoken_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "chinese_classical_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_bel_canto",
-          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
           "voice_processing_chain": "voice_processing_stutter_edit",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 3.285,
-          "voice_quality": 9.074999999999998,
+          "voice_quality": 28.535000000000004,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.409999999999999,
-          "voice_articulation": 0.78,
-          "voice_microtone": 4.0035,
+          "voice_vibrato": 18.72,
+          "voice_articulation": 23.660000000000004,
+          "voice_microtone": 23.464999999999996,
           "voice_tradition": 36.3675,
           "voice_mechanism_compound": 14.149999999999999,
           "voice_estill_quality": 28.856499999999997,
-          "voice_speech_song": 27.17000000000001,
-          "voice_ensemble_config": 22.619999999999997,
+          "voice_speech_song": 30.615000000000006,
+          "voice_ensemble_config": 22.684999999999995,
           "voice_ornament_system": 21.334999999999997,
-          "voice_pitch_organization": 17.4105,
+          "voice_pitch_organization": 19.1235,
           "voice_processing_chain": 5.719999999999999,
-          "voice_multitrack_stack": 2.7299999999999995
+          "voice_multitrack_stack": 3.9650000000000007
         }
       }
     ],

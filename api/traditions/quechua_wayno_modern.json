@@ -3,9 +3,9 @@
   "name": "Quechua wayno modern revival",
   "family": "global",
   "lineage": "Twentieth-and-twenty-first-century revival of the Quechua wayno Andean folk-music form, integrating electric-band-instruments and contemporary-pop production with the canonical Quechua-language vocal repertoire and Andean instrumental signature. Wayno chichero subgenre (1980s onward) introduced cumbia-influenced rhythmic vocabulary. The 1990s-2000s wayno-rock movement under Pelo Madueño, Tongo, and various Cusco-Lima fusion groups extended into rock-Andean-fusion contexts.",
-  "recipe": "classic Andean mid-1980s quechua wayno modern revival, ballad Poetry, Latin am troubadour branch, country functional song country rock western swing. thick, forward-resonance, melodic, rhythmic. pvc melodic quena, naranjillo andean premium wood cedar andean andean classical charango, composite material ceibo canonical Argentine leguero hollowed trunk bombo andino, Fender blackface amp American 60s amp spring reverb bright basswood maple humbucker electric guitar. bogota colombian andean studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 562,
-  "score": 352.345,
+  "recipe": "classic Andean mid-1980s quechua wayno modern revival, ballad Poetry, Latin am troubadour branch, country functional song country rock western swing. thick, breath veiled tone, wide pitch sway, interlocked note trading. pvc melodic quena, naranjillo andean premium wood cedar andean andean classical charango, composite material ceibo canonical Argentine leguero hollowed trunk bombo andino, Fender blackface amp American 60s amp spring reverb bright basswood maple humbucker electric guitar. bogota colombian andean studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 587,
+  "score": 369.865,
   "config": {
     "traditions": [
       "quechua_wayno_modern",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "twang_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "spoken_voice",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "andean_quechua_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 57.79000000000002,
-          "voice_quality": 9.784999999999995,
+          "voice_quality": 10.594999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 20.24,
-          "voice_articulation": 1.8699999999999999,
+          "voice_vibrato": 22.015,
+          "voice_articulation": 16.119999999999997,
           "voice_microtone": 32.835,
           "voice_tradition": 26.549999999999997,
           "voice_mechanism_compound": 3.25,
           "voice_estill_quality": 30.179999999999996,
-          "voice_speech_song": 20.019999999999996,
-          "voice_ensemble_config": 16.379999999999995,
+          "voice_speech_song": 20.084999999999994,
+          "voice_ensemble_config": 16.249999999999996,
           "voice_ornament_system": 13.69,
-          "voice_pitch_organization": 2.145,
+          "voice_pitch_organization": 2.1449999999999996,
           "voice_processing_chain": 10.185,
-          "voice_multitrack_stack": 6.53
+          "voice_multitrack_stack": 7.280000000000001
         }
       },
       {

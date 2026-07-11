@@ -3,9 +3,9 @@
   "name": "Rockabilly",
   "family": "rock",
   "lineage": "Mid-1950s American Mid-South rockabilly genre codified at Sun Studios Memphis under Sam Phillips production — Elvis Presley Thats All Right Mama 1954 (the founding rockabilly recording), Carl Perkins Blue Suede Shoes 1955, Jerry Lee Lewis Whole Lotta Shakin Goin On 1957, Johnny Cash I Walk the Line 1956, Roy Orbison Ooby Dooby 1956; characterized by slap-bass upright bass, Gretsch hollowbody or Fender Telecaster electric guitar with travis-picking right-hand technique, the Sun Studios slapback short-tape-delay processing, and the country I-IV-V harmonic foundation fused with blues pentatonic vocabulary",
-  "recipe": "classic Southern American 1954-1956 rockabilly, functional Song, honky tonk era branch, pop rock functional song, blues narrative ballad poetry new wave folk rock. thick, low dynamic level, melodic, rhythmic. Fender tweed amp American 50s amp tweed breakup dual p90 rockabilly semi hollow, Fender tweed amp American 50s amp tweed breakup mahogany rosewood single coil electric guitar, upright bass, maple pre muffled edge muffled hot rolled annealed drum kit. sun studios 706 union avenue memphis 1950-1968 indie-commercial sun studios memphis 706 union. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 649,
-  "score": 554.998,
+  "recipe": "classic Southern American 1954-1956 rockabilly, functional Song, honky tonk era branch, pop rock functional song, blues narrative ballad poetry new wave folk rock. thick, breath veiled tone, wide pitch sway, interlocked note trading. Fender tweed amp American 50s amp tweed breakup dual p90 rockabilly semi hollow, Fender tweed amp American 50s amp tweed breakup mahogany rosewood single coil electric guitar, upright bass, maple pre muffled edge muffled hot rolled annealed drum kit. sun studios 706 union avenue memphis 1950-1968 indie-commercial sun studios memphis 706 union. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 674,
+  "score": 583.945,
   "config": {
     "traditions": [
       "rockabilly_50s",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "crooner_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "spoken_voice",
+          "voice_vibrato": "oscillating_vibrato",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "japanese_min_yo_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 63.15000000000001,
-          "voice_quality": 4.905,
+          "voice_quality": 14.234999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 10.905,
-          "voice_articulation": 1.56,
+          "voice_vibrato": 14.719999999999997,
+          "voice_articulation": 14.234999999999992,
           "voice_microtone": 38.150000000000006,
           "voice_tradition": 16.509999999999994,
           "voice_mechanism_compound": 4.9399999999999995,
           "voice_estill_quality": 15.999999999999998,
-          "voice_speech_song": 20.539999999999992,
-          "voice_ensemble_config": 13.714999999999995,
+          "voice_speech_song": 21.254999999999992,
+          "voice_ensemble_config": 13.974999999999993,
           "voice_ornament_system": 2.2,
           "voice_pitch_organization": 1.435,
           "voice_processing_chain": 9.815000000000001,
-          "voice_multitrack_stack": 10.237499999999999
+          "voice_multitrack_stack": 12.389999999999997
         }
       },
       {

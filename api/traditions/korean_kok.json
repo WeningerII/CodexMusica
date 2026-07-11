@@ -3,70 +3,70 @@
   "name": "Korean kok (곡, funeral wailing)",
   "family": "global",
   "lineage": "Korean Confucian-and-shamanic funeral mourning tradition codified from the Joseon-dynasty period through Confucian ritual-mourning specification (the codified mourning-stages including kok wailing-cycles); continuous through 20th-century practice particularly in rural Korean Confucian funeral context",
-  "recipe": "classic East Asian modern korean kok, funeral Lament, east Asian branch, indigenous ritual devotional, vocal drone modal, east Asian art music skolt sámi leuʹdd northern sámi luohti yoik. vocal fry, declaimed, melodic, narrative. cheonsa clear modal non rough yoseong pitch oscillation ornament jungmori medium 12 4 narrative cross tradition fusion concert context pansori voice. korean pungnyu pavilion. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 467,
-  "score": 133.835,
+  "recipe": "classic East Asian modern korean kok, funeral Lament, east Asian branch, indigenous ritual devotional, vocal drone modal, east Asian art music shipibo-conibo icaros healing songs skolt sámi leuʹdd. vocal fry, breath veiled tone, straight note core, interlocked note trading. aniri spoken narrative quality interleaved yoseong pitch oscillation ornament jungmori medium 12 4 narrative cross tradition fusion concert context pansori voice. korean pungnyu pavilion. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 525,
+  "score": 190.437,
   "config": {
     "traditions": [
       "korean_kok",
-      "sami_skolt_leudd",
-      "sami_northern_luohti"
+      "shipibo_icaros",
+      "sami_skolt_leudd"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "vocal_fry",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "narrative_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "korean_minsogak_vocal_tradition",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_pansori_sigimsae",
-          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
-          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 7.215,
-          "voice_quality": 4.68,
+          "voice_register": 5.2,
+          "voice_quality": 38.805,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.965,
-          "voice_articulation": 1.8849999999999996,
-          "voice_microtone": 1.1049999999999995,
-          "voice_tradition": 28.22,
-          "voice_mechanism_compound": 6.240000000000001,
-          "voice_estill_quality": 7.41,
-          "voice_speech_song": 13.585,
-          "voice_ensemble_config": 12.284999999999998,
+          "voice_vibrato": 4.1275,
+          "voice_articulation": 10.724999999999998,
+          "voice_microtone": 11.764999999999993,
+          "voice_tradition": 25.919999999999998,
+          "voice_mechanism_compound": 9.705,
+          "voice_estill_quality": 6.5649999999999995,
+          "voice_speech_song": 13.259999999999998,
+          "voice_ensemble_config": 11.309999999999997,
           "voice_ornament_system": 15.599999999999998,
-          "voice_pitch_organization": 2.665000000000001,
-          "voice_processing_chain": 7.085,
-          "voice_multitrack_stack": 9.555
+          "voice_pitch_organization": 3.5100000000000016,
+          "voice_processing_chain": 16.315000000000005,
+          "voice_multitrack_stack": 6.5
         }
       },
       {
         "id": "pansori_voice",
         "slots": {
-          "pansori_phonation_mechanism": "pansori_cheonsa_clear_modal",
+          "pansori_phonation_mechanism": "pansori_aniri_speech_quality",
           "pansori_sigimsae_ornament": "pansori_sigimsae_yoseong",
           "pansori_jangdan_cycle": "pansori_jangdan_jungmori",
           "pansori_chuimsae_response": "pansori_chuimsae_none",
           "pansori_voice_repertoire": "pansori_voice_fusion_concert"
         },
         "scores": {
-          "pansori_phonation_mechanism": 3.705,
+          "pansori_phonation_mechanism": 2.795,
           "pansori_sigimsae_ornament": 1.4300000000000002,
           "pansori_jangdan_cycle": 2.145,
           "pansori_chuimsae_response": 0.99,
-          "pansori_voice_repertoire": 6.37
+          "pansori_voice_repertoire": 7.67
         }
       }
     ],

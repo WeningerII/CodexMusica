@@ -3,9 +3,9 @@
   "name": "Lebanese tarab-pop",
   "family": "global",
   "lineage": "Beirut-centered modern Arabic-pop with classical-tarab roots, melismatic-ornate praise-and-devotional vocal style emerging from 1950s-onward post-Egyptian-classical Levantine regional expansion. The 1960s-1970s Lebanese-orchestral-style integrated rahbani-school theatrical-musical compositional vocabulary with classical maqam modal-foundation (Rast, Hijaz, Bayati, Nahawand), tarab ecstatic-vocal listener-state aesthetic, and Western-string-section-and-electric-instrumentation arrangement-modernization. The 1980s-civil-war-period diaspora-expansion took Beirut-tarab to Paris-and-London recording-studios, transformed in the 2000s-onward via electronic-arabic-pop and house-influenced-arabic-pop into the modern khaleeji-and-shami pan-Arab pop-mainstream.",
-  "recipe": "classic mid-1950s lebanese tarab-pop, functional Song, mid east n African pop branch, Persian arab improv improv on frame, middle eastern classical art music andalusī nūba turkish makam. thick, declaimed, chest resonance low mid, punctuated. maple ribs Turkish school Lebanese cedar eastern Mediterranean pyramid oud, brass metal finger picks maple body Turkish school synthetic bridge plate qanun, mahogany rosewood clean strummed single coil electric guitar, plucked short envelope analog poly synth, pre muffled edge muffled hot rolled annealed machine hammered drum kit. live tracking. Neumann U47, tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb hall reverb.",
-  "recipe_chars": 699,
-  "score": 616.11,
+  "recipe": "classic mid-1950s lebanese tarab-pop, functional Song, mid east n African pop branch, Persian arab improv improv on frame, middle eastern classical art music andalusī nūba turkish makam. thick, breath veiled tone, slow rate, interlocked note trading. maple ribs Turkish school Lebanese cedar eastern Mediterranean pyramid oud, brass metal finger picks maple body Turkish school synthetic bridge plate qanun, mahogany rosewood clean strummed single coil electric guitar, plucked short envelope analog poly synth, pre muffled edge muffled hot rolled annealed machine hammered drum kit. live tracking. Neumann U47, tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb hall reverb.",
+  "recipe_chars": 708,
+  "score": 681.56,
   "config": {
     "traditions": [
       "lebanese_pop_tarab",
@@ -17,12 +17,12 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "staccato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "arabic_maqam_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 25.199999999999992,
-          "voice_quality": 6.190000000000001,
+          "voice_quality": 10.334999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 13.714999999999998,
-          "voice_articulation": 1.04,
-          "voice_microtone": 26.324999999999992,
+          "voice_vibrato": 29.104999999999997,
+          "voice_articulation": 15.209999999999997,
+          "voice_microtone": 58.10499999999999,
           "voice_tradition": 47.025000000000006,
           "voice_mechanism_compound": 29.584999999999997,
           "voice_estill_quality": 26.124999999999996,
           "voice_speech_song": 22.959999999999997,
-          "voice_ensemble_config": 14.819999999999999,
+          "voice_ensemble_config": 14.689999999999996,
           "voice_ornament_system": 41.63499999999999,
           "voice_pitch_organization": 42.07,
           "voice_processing_chain": 7.59,
-          "voice_multitrack_stack": 7.089999999999999
+          "voice_multitrack_stack": 7.184999999999999
         }
       },
       {

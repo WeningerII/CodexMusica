@@ -3,53 +3,53 @@
   "name": "Greek éntechno politicized (Theodorakis era)",
   "family": "global",
   "lineage": "Greek politicized éntechno (\"artistic music\") protest-song tradition centered on Mikis Theodorakis (1925-2021, the foundational figure whose Communist-Party-aligned political-songwriter career spanned the 1944-1945 Civil-War partisan era through the 1967-1974 Greek Junta exile-and-imprisonment era and continuous through post-Metapolitefsi democratic-era continuous performance) and continuous through the broader 1960s-1990s Greek éntechno politicized songwriter scene including Manos Loizos and Yannis Markopoulos",
-  "recipe": "classic Southern European early-1920s greek éntechno politicized, protest Song, European branch, middle east n African protest song, Mediterranean ballad ballad poetry, iberian functional song galician kantautor and folk-pop laikó. thick, lament wail, melodic, continuous-phonation. walnut staves canonical Greek gut pre 1950s rebetiko strummed bouzouki, cedar fingerpicked classical nylon-string guitar. athens major label 1955-1985 mid tier athens minos studios 60s 70s. large-diaphragm condenser, tube pre, Emi redd.51, vari-mu, passive program EQ. tape 15ips plate reverb.",
-  "recipe_chars": 576,
-  "score": 152.012,
+  "recipe": "classic Southern European early-1920s greek éntechno politicized, protest Song, European branch, middle east n African protest song, Mediterranean ballad ballad poetry, iberian functional song galician kantautor and folk-pop algerian raï. thick, breath veiled tone, straight note core, interlocked note trading. walnut staves canonical Greek gut pre 1950s rebetiko strummed bouzouki, cedar pre 1940 period gut fingerpicked classical nylon-string guitar. athens major label 1955-1985 mid tier athens minos studios 60s 70s. large-diaphragm condenser, tube pre, Emi redd.51, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 625,
+  "score": 196.332,
   "config": {
     "traditions": [
       "greek_entechno_politicized",
       "galician_kantautor",
-      "laiko"
+      "algerian_rai_political"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "fado_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
-          "voice_articulation": "legato_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "mediterranean_demotic_tradition",
-          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
           "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
-          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 8.12,
-          "voice_quality": 2.2749999999999995,
+          "voice_register": 9.094999999999999,
+          "voice_quality": 13.909999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.1049999999999998,
-          "voice_articulation": 3.9299999999999997,
-          "voice_microtone": 3.0700000000000003,
-          "voice_tradition": 36.165,
-          "voice_mechanism_compound": 2.015,
-          "voice_estill_quality": 3.4299999999999997,
-          "voice_speech_song": 22.619999999999994,
-          "voice_ensemble_config": 16.769999999999996,
+          "voice_vibrato": 1.4299999999999997,
+          "voice_articulation": 17.224999999999994,
+          "voice_microtone": 20.539999999999992,
+          "voice_tradition": 32.695,
+          "voice_mechanism_compound": 2.0749999999999997,
+          "voice_estill_quality": 1.6899999999999997,
+          "voice_speech_song": 26.584999999999994,
+          "voice_ensemble_config": 18.199999999999992,
           "voice_ornament_system": 3.5749999999999997,
           "voice_pitch_organization": 3.885,
-          "voice_processing_chain": 3.67,
-          "voice_multitrack_stack": 11.08
+          "voice_processing_chain": 7.164999999999998,
+          "voice_multitrack_stack": 11.27
         }
       },
       {
@@ -62,11 +62,11 @@
           "bouzouki_strings": "bouzouki_gut_historical"
         },
         "scores": {
-          "plucked_traditional_technique": 6.134999999999999,
-          "bouzouki_courses": 3.9,
+          "plucked_traditional_technique": 5.9849999999999985,
+          "bouzouki_courses": 1.3649999999999998,
           "bouzouki_pick": 0.195,
-          "bouzouki_body_wood": 7.559999999999999,
-          "bouzouki_strings": 2.8600000000000003
+          "bouzouki_body_wood": 6.759999999999999,
+          "bouzouki_strings": 3.0549999999999997
         }
       },
       {
@@ -80,12 +80,12 @@
           "attack_technique_cl": "apoyando_cl"
         },
         "scores": {
-          "acoustic_technique": 10.375,
+          "acoustic_technique": 8.725,
           "string_tuning": 0,
-          "top_wood_classical": 1.69,
+          "top_wood_classical": 1.6899999999999997,
           "bracing_classical": 0.39,
-          "string_classical": 0.39,
-          "attack_technique_cl": 0.945
+          "string_classical": 3.119999999999999,
+          "attack_technique_cl": 0.795
         }
       }
     ],

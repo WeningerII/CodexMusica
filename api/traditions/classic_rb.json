@@ -3,9 +3,9 @@
   "name": "Classic R&B (1948-1962 era)",
   "family": "blues_gospel",
   "lineage": "Atlantic Records New York 1948-1962 small-combo R&B canon — Ruth Brown, LaVern Baker, the Drifters, Ray Charles I Got a Woman and What Did I Say, Big Joe Turner Shake Rattle and Roll, the Coasters — tracked by Tom Dowd at Atlantic Studios 11 West 60th Street with a recurring NYC session rhythm section, distinct from later Stax / Motown / Philly Soul subgenres",
-  "recipe": "classic North American classic r&b, functional Song, soul R&B branch, christian gospel black gospel contemporary urban gospel. thick, declaimed, chest resonance low mid, ornamental. Fender blackface amp American 60s amp spring reverb bright lower tension down tuning chicken-scratch single coil electric guitar, upright bass, pre muffled edge muffled bronze bell bronze machine hammered drum kit, gospel runs upright piano, tenor gold brass warmer tone ensemble honking saxophone. eleventh floor office converted studio 1947-1976 mid tier atlantic studios nyc. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac ibanez tube screamer TS9 / TS808.",
-  "recipe_chars": 666,
-  "score": 407.416,
+  "recipe": "classic North American classic r&b, functional Song, soul R&B branch, christian gospel black gospel contemporary urban gospel. thick, declaimed, wide pitch sway, multi note runs per syllable. Fender blackface amp American 60s amp spring reverb bright lower tension down tuning chicken-scratch single coil electric guitar, upright bass, pre muffled edge muffled bronze bell bronze machine hammered drum kit, gospel runs upright piano, tenor gold brass warmer tone ensemble honking saxophone. eleventh floor office converted studio 1947-1976 mid tier atlantic studios nyc. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac ibanez tube screamer TS9 / TS808.",
+  "recipe_chars": 676,
+  "score": 434.259,
   "config": {
     "traditions": [
       "classic_rb",
@@ -127,9 +127,9 @@
           "voice_quality": "praise_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "slow_vibrato",
+          "voice_vibrato": "oscillating_vibrato",
           "voice_articulation": "melisma_voice",
-          "voice_microtone": "blue_notes",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "gospel_pentecostal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_belt",
@@ -137,26 +137,26 @@
           "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_pythagorean",
-          "voice_processing_chain": "voice_processing_plate_reverb_medium",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
           "voice_register": 42.80350000000001,
           "voice_quality": 31.246999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 0.78,
-          "voice_articulation": 25.5,
-          "voice_microtone": 2.9899999999999998,
+          "voice_vibrato": 5.575,
+          "voice_articulation": 30.5115,
+          "voice_microtone": 15.664999999999992,
           "voice_tradition": 44.3825,
           "voice_mechanism_compound": 4.355,
           "voice_estill_quality": 36.10500000000001,
-          "voice_speech_song": 19.889999999999997,
+          "voice_speech_song": 20.929999999999993,
           "voice_ensemble_config": 26.102,
           "voice_ornament_system": 5.4,
-          "voice_pitch_organization": 0.8049999999999999,
-          "voice_processing_chain": 4.2575,
-          "voice_multitrack_stack": 1.365
+          "voice_pitch_organization": 0.7149999999999997,
+          "voice_processing_chain": 4.8100000000000005,
+          "voice_multitrack_stack": 4.225
         }
       }
     ],

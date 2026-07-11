@@ -3,9 +3,9 @@
   "name": "Arabesk (Turkish)",
   "family": "global",
   "lineage": "Turkish urban-melancholic Egyptian-music-influenced crossover-pop tradition that dominated Turkish mass culture from the 1970s through the 1990s — codified through Orhan Gencebay (the founder, 1968 onward), Müslüm Gürses, İbrahim Tatlıses (the 80s-90s voice), Ferdi Tayfur, Bülent Ersoy; thematically anchored in the urban-rural migration anxiety of Turkish working-class internal-migrant audiences, with characteristic minor-key Egyptian-inspired string arrangements over Turkish-language vocals",
-  "recipe": "classic Middle Eastern mid-1970s arabesk, functional Song, mid east n African pop branch, Persian arab improv improv on frame iraqi maqam malhun. extended whistle, declaimed, chest resonance low mid, maqam neutral step. rosewood premium iraqi Turkish la bella Turkish school canon drone like oud, metal finger picks maple body Turkish school drone like modal qanun, mahogany rosewood clean strummed single coil electric guitar, alder electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, kanun drone like modal tortoiseshell traditional kanun. istanbul recording canon 1955-present mid tier istanbul makam kilic ali pasha studio. large-diaphragm condenser, transformer-coupled solid-state pre, colored vintage console, vari-mu, passive program EQ. vinyl master cut tape echo spring reverb germanium fuzz wah / envelope filter.",
-  "recipe_chars": 859,
-  "score": 262.428,
+  "recipe": "classic Middle Eastern mid-1970s arabesk, functional Song, mid east n African pop branch, Persian arab improv improv on frame iraqi maqam malhun. extended whistle, breath veiled tone, slow rate, interlocked note trading. rosewood premium iraqi Turkish la bella Turkish school canon drone like oud, metal finger picks maple body Turkish school drone like modal qanun, mahogany rosewood clean strummed single coil electric guitar, alder electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, kanun drone like modal tortoiseshell traditional kanun. istanbul recording canon 1955-present mid tier istanbul makam kilic ali pasha studio. large-diaphragm condenser, transformer-coupled solid-state pre, colored vintage console, vari-mu, passive program EQ. vinyl master cut tape echo spring reverb germanium fuzz wah / envelope filter.",
+  "recipe_chars": 860,
+  "score": 285.461,
   "config": {
     "traditions": [
       "arabesk_turkish",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "extended_whistle_register",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "staccato_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "persian_dastgah_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 8.806999999999999,
-          "voice_quality": 4.118875,
+          "voice_quality": 9.100000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.485,
-          "voice_articulation": 0.06675,
-          "voice_microtone": 25.828749999999996,
+          "voice_vibrato": 8.2875,
+          "voice_articulation": 3.2500000000000004,
+          "voice_microtone": 37.304125,
           "voice_tradition": 16.055,
           "voice_mechanism_compound": 11.7765,
           "voice_estill_quality": 7.359125000000001,
-          "voice_speech_song": 5.330000000000001,
-          "voice_ensemble_config": 4.615,
+          "voice_speech_song": 5.200000000000001,
+          "voice_ensemble_config": 4.485000000000001,
           "voice_ornament_system": 14.553250000000002,
           "voice_pitch_organization": 17.044999999999998,
           "voice_processing_chain": 3.4132500000000006,
-          "voice_multitrack_stack": 3.7190000000000003
+          "voice_multitrack_stack": 3.569000000000001
         }
       },
       {

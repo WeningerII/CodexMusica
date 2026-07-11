@@ -3,14 +3,14 @@
   "name": "Irish spinning song (amhrán snímh)",
   "family": "global",
   "lineage": "Irish-Gaelic spinning-and-domestic-labor song tradition continuous from medieval-and-early-modern Irish-rural domestic-textile-labor practice through 19th-20th century continuous performance into modern Irish-Gaelic-and-Scottish-Gaelic revival",
-  "recipe": "classic Northern European modern irish spinning song, domestic Rhythm, Celtic hebridean branch, Slavic baltic domestic rhythm, European lullaby, Celtic balladic ballad poetry scottish gaelic tàladh sean-nós solo singing. vocal fry, declaimed, tasteful, continuous-phonation. connemara kitchen sean nos. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 365,
-  "score": 111.499,
+  "recipe": "classic Northern European modern irish spinning song, domestic Rhythm, Celtic hebridean branch, Slavic baltic domestic rhythm, European lullaby, Celtic balladic ballad poetry sean-nós solo singing scottish gaelic tàladh. vocal fry, declaimed, straight onset, interlocked note trading. connemara kitchen sean nos. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 375,
+  "score": 180.217,
   "config": {
     "traditions": [
       "irish_spinning_song",
-      "scottish_gaelic_taladh",
-      "sean_nos_solo"
+      "sean_nos_solo",
+      "scottish_gaelic_taladh"
     ],
     "instruments": [
       {
@@ -21,15 +21,15 @@
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
-          "voice_articulation": "legato_voice",
-          "voice_microtone": "blue_notes",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_speech",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
           "voice_processing_chain": "voice_processing_plate_reverb_medium",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
@@ -38,16 +38,16 @@
           "voice_quality": 3.5162500000000008,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.225,
-          "voice_articulation": 4.614999999999999,
-          "voice_microtone": 0,
+          "voice_vibrato": 4.745,
+          "voice_articulation": 11.569999999999993,
+          "voice_microtone": 13.06499999999999,
           "voice_tradition": 40.40875,
           "voice_mechanism_compound": 2.275,
           "voice_estill_quality": 1.69,
-          "voice_speech_song": 16.314999999999994,
-          "voice_ensemble_config": 11.829999999999995,
-          "voice_ornament_system": 14.98125,
-          "voice_pitch_organization": 4.614999999999999,
+          "voice_speech_song": 16.379999999999992,
+          "voice_ensemble_config": 11.699999999999992,
+          "voice_ornament_system": 62.41375,
+          "voice_pitch_organization": 5.4262500000000005,
           "voice_processing_chain": 2.85625,
           "voice_multitrack_stack": 3.769999999999999
         }

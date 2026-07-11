@@ -3,9 +3,9 @@
   "name": "Post-metal (2000s post-rock-meets-sludge extended-instrumental metal)",
   "family": "rock_punk",
   "lineage": "2000s heavy-metal subgenre developed from post-rock instrumental-architecture and sludge-metal heavy-distortion. Characterized by extended-instrumental compositions (typically 8-15 minutes), gradual-crescendo dynamic-architecture, melodic-and-screamed vocal-alternation, and explicit-progressive-cinematic compositional ambition. Neurosis (foundational Bay Area 1985-onward), Isis (Boston 1997-2010), Cult of Luna (Sweden), Pelican (Chicago, instrumental), and the broader Hydra Head Records and Robotic Empire roster anchor the canonical post-metal roster.",
-  "recipe": "classic Midwestern American post-metal, distorted Rock, sludge branch, western modern art music polish avant-garde / sonorism indeterminacy and aleatoric. thick, larynx lowered, pure, ornamental. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, orange amp British heavy crunch alder ernie ball slinky electric bass, mahogany pre muffled edge muffled machine hammered symmetric pattern drum kit. stoner doom garage amplifier room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 645,
-  "score": 402.91,
+  "recipe": "classic Midwestern American post-metal, distorted Rock, sludge branch, western modern art music polish avant-garde / sonorism indeterminacy and aleatoric. thick, larynx lowered, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, orange amp British heavy crunch alder ernie ball slinky electric bass, mahogany pre muffled edge muffled machine hammered symmetric pattern drum kit. stoner doom garage amplifier room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 664,
+  "score": 419.165,
   "config": {
     "traditions": [
       "post_metal_2000s",
@@ -20,8 +20,8 @@
           "voice_quality": "lowered_larynx_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "straight_tone",
-          "voice_articulation": "melisma_voice",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
@@ -38,18 +38,18 @@
           "voice_quality": 9.589999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.9399999999999995,
-          "voice_articulation": 1.445,
+          "voice_vibrato": 6.4350000000000005,
+          "voice_articulation": 13.129999999999997,
           "voice_microtone": 19.475,
           "voice_tradition": 7.085000000000001,
           "voice_mechanism_compound": 21.849999999999998,
           "voice_estill_quality": 4.8100000000000005,
-          "voice_speech_song": 15.275,
-          "voice_ensemble_config": 13.194999999999999,
+          "voice_speech_song": 15.144999999999998,
+          "voice_ensemble_config": 13.064999999999996,
           "voice_ornament_system": 4.94,
           "voice_pitch_organization": 2.7900000000000005,
-          "voice_processing_chain": 7.335,
-          "voice_multitrack_stack": 7.93
+          "voice_processing_chain": 11.184999999999997,
+          "voice_multitrack_stack": 8.415
         }
       },
       {

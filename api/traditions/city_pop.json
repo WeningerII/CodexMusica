@@ -3,9 +3,9 @@
   "name": "City pop (Japanese)",
   "family": "global",
   "lineage": "Japanese 1976-1986 sophisticated urban-adult-pop genre fusing late-1970s American AOR (adult-oriented rock), funk, fusion-jazz, and disco-soul into a distinct Tokyo-bubble-era mature-pop aesthetic. The instrumentation features electric-piano (Rhodes-and-Wurlitzer), fretless-bass, clean-electric-guitar (often with chorus pedal), brass section (often Roland JX-3P synth-brass), and breathy-intimate close-miked vocal-style. Lyrically focused on urban-leisure: nighttime-driving, summer-resort-and-beach, romantic-rendezvous-in-cafes-and-bars, and Tokyo-Yokohama-Shōnan coastal lifestyle. Originally a quiet commercial-niche aimed at the Japanese middle-class consumer-boom audience, city-pop gained massive 2010s-onward Western internet-re-discovery via vaporwave and YouTube-algorithmic-suggestion.",
-  "recipe": "classic East Asian mid-1980s city pop, functional Song, east Asian pop branch, soul R&B functional song doo-wop alt-r&b. thick, blues-shouter, nervy, narrative. harder neoprene late 1970s bark grit centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric, Fender blackface amp American 60s amp spring reverb bright maple pau ferro single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character ebony unlined fretless bass, brass pre muffled edge muffled hot rolled annealed drum kit, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble honking saxophone, yamaha cs lineage canonical cs 80 1976 hamamatsu polyphonic flagship lead analog poly synth, Wurlitzer 200a canonical 1974 1982 solid state soft rock canon steel reed lead solder tip canonical Wurlitzer ep voicing block chord wurlitzer ep. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. Neumann U87, console-strip pre, sony MXP-3000 series.",
-  "recipe_chars": 992,
-  "score": 655.012,
+  "recipe": "classic East Asian mid-1980s city pop, functional Song, east Asian pop branch, soul R&B functional song doo-wop alt-r&b. thick, breath veiled tone, straight onset, interlocked note trading. harder neoprene late 1970s bark grit centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric, Fender blackface amp American 60s amp spring reverb bright maple pau ferro single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character ebony unlined fretless bass, brass pre muffled edge muffled hot rolled annealed drum kit, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble honking saxophone, yamaha cs lineage canonical cs 80 1976 hamamatsu polyphonic flagship lead analog poly synth, Wurlitzer 200a canonical 1974 1982 solid state soft rock canon steel reed lead solder tip canonical Wurlitzer ep voicing block chord wurlitzer ep. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. Neumann U87, console-strip pre.",
+  "recipe_chars": 999,
+  "score": 684.1,
   "config": {
     "traditions": [
       "city_pop",
@@ -17,11 +17,11 @@
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "blues_shouter_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "fast_vibrato",
-          "voice_articulation": "narrative_voice",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 44.725,
-          "voice_quality": 4.745000000000002,
+          "voice_quality": 6.37,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.2349999999999999,
-          "voice_articulation": 9.544999999999998,
+          "voice_vibrato": 9.415000000000001,
+          "voice_articulation": 23.399999999999995,
           "voice_microtone": 34.475,
           "voice_tradition": 28.639999999999993,
           "voice_mechanism_compound": 3.6400000000000006,
           "voice_estill_quality": 11.245,
-          "voice_speech_song": 28.405,
-          "voice_ensemble_config": 23.075,
+          "voice_speech_song": 28.86,
+          "voice_ensemble_config": 22.944999999999997,
           "voice_ornament_system": 2.345,
-          "voice_pitch_organization": 2.73,
+          "voice_pitch_organization": 2.925000000000001,
           "voice_processing_chain": 8.854999999999999,
-          "voice_multitrack_stack": 6.110000000000001
+          "voice_multitrack_stack": 11.017499999999997
         }
       },
       {

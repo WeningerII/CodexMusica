@@ -3,9 +3,9 @@
   "name": "Italian ninna-nanna (cradle song)",
   "family": "global",
   "lineage": "Italian cradle-song tradition continuous from medieval Marian-cradle laude through regional-dialect folksong (Sicilian, Neapolitan, Tuscan, Sardinian variants) into modern Italian domestic practice",
-  "recipe": "classic modern italian ninna-nanna, lullaby, European branch, Mediterranean ballad ballad poetry, vocal drone modal, christian gospel ritual devotional southern gospel piano-bass southern gospel quartet. thick, declaimed, melodic, ornamental. parlor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 313,
-  "score": 174.815,
+  "recipe": "classic modern italian ninna-nanna, lullaby, European branch, Mediterranean ballad ballad poetry, vocal drone modal, christian gospel ritual devotional southern gospel piano-bass southern gospel quartet. thick, declaimed, straight note core, multi note runs per syllable. parlor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 342,
+  "score": 193.42,
   "config": {
     "traditions": [
       "italian_ninna_nanna",
@@ -22,34 +22,34 @@
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "melisma_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "gospel_pentecostal_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_belt",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
           "voice_ornament_system": "voice_ornament_bel_canto",
-          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
           "voice_register": 25.745,
           "voice_quality": 28.289999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 3.9699999999999998,
-          "voice_articulation": 21.92,
-          "voice_microtone": 1.5199999999999998,
+          "voice_vibrato": 6.27,
+          "voice_articulation": 24.27,
+          "voice_microtone": 9.685,
           "voice_tradition": 23.354999999999997,
           "voice_mechanism_compound": 4.095000000000001,
           "voice_estill_quality": 21.72,
-          "voice_speech_song": 10.594999999999999,
+          "voice_speech_song": 10.659999999999997,
           "voice_ensemble_config": 22.945,
           "voice_ornament_system": 9.649999999999999,
-          "voice_pitch_organization": 1.3900000000000001,
+          "voice_pitch_organization": 3.8000000000000007,
           "voice_processing_chain": 6.369999999999998,
-          "voice_multitrack_stack": 3.575
+          "voice_multitrack_stack": 6.89
         }
       }
     ],

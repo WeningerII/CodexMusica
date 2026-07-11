@@ -3,53 +3,53 @@
   "name": "Wayang kulit dalang narration",
   "family": "classical",
   "lineage": "In Javanese wayang kulit shadow-puppet theatre, the dalang (puppeteer-narrator) delivers the story through janturan and carita narration, heightened descriptive speech intoned over the soft grimingan shimmer of the gamelan, alternating with sulukan mood-songs and character dialogue across an all-night performance. The dalang is simultaneously narrator, voice of every character, conductor of the gamelan, and manipulator of the puppets, working within the court traditions of Surakarta and Yogyakarta in central Java. Ki Nartosabdho (1925-1985) is among the most celebrated 20th-century dalang. It is documented under UNESCO's Wayang intangible-heritage inscription (2003/2008).",
-  "recipe": "classic Southeast Asian early-1920s wayang kulit dalang narration, art Music, southeast Asian branch thai classical beijing opera. thick, pressed, chest resonance low mid, rhythmic. javanese pendopo pavilion. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 271,
-  "score": 185.991,
+  "recipe": "classic Southeast Asian early-1920s wayang kulit dalang narration, art Music, southeast Asian branch thai classical tibetan ache lhamo opera. thick, breath veiled tone, slow rate, interlocked note trading. javanese pendopo pavilion. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 295,
+  "score": 268.325,
   "config": {
     "traditions": [
       "wayang_dalang_narration",
       "thai_classical",
-      "beijing_opera"
+      "tibetan_ache_lhamo"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "pressed_phonation_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
-          "voice_articulation": "spoken_voice",
-          "voice_microtone": "tempered_voice",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
           "voice_tradition": "chinese_classical_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_bel_canto",
-          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
-          "voice_processing_chain": "voice_processing_tube_saturation",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_pitch_organization": "voice_pitch_thai_7_equal_step",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 2.1249999999999996,
-          "voice_quality": 9.074999999999998,
+          "voice_register": 3.2,
+          "voice_quality": 32.89000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.409999999999999,
-          "voice_articulation": 0.78,
-          "voice_microtone": 2.4374999999999996,
-          "voice_tradition": 33.4425,
-          "voice_mechanism_compound": 14.149999999999999,
-          "voice_estill_quality": 27.072499999999994,
-          "voice_speech_song": 22.945000000000004,
-          "voice_ensemble_config": 22.620000000000005,
-          "voice_ornament_system": 20.824999999999996,
-          "voice_pitch_organization": 15.039499999999997,
-          "voice_processing_chain": 3.4395000000000002,
-          "voice_multitrack_stack": 2.7299999999999995
+          "voice_vibrato": 17.744999999999997,
+          "voice_articulation": 24.245000000000005,
+          "voice_microtone": 22.164999999999996,
+          "voice_tradition": 25.934999999999995,
+          "voice_mechanism_compound": 14.049999999999997,
+          "voice_estill_quality": 23.757499999999993,
+          "voice_speech_song": 25.09,
+          "voice_ensemble_config": 25.479999999999997,
+          "voice_ornament_system": 16.324999999999996,
+          "voice_pitch_organization": 21.272,
+          "voice_processing_chain": 11.179999999999996,
+          "voice_multitrack_stack": 4.290000000000001
         }
       }
     ],
