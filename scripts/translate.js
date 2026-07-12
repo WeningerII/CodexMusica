@@ -1918,9 +1918,10 @@ function buildTraditionContextTokens(config) {
 }
 
 function translate(config, options = {}) {
-  // Hard 1000-char recipe ceiling (RECIPE_CHAR_CEILING invariant): a requested
-  // ceiling may only LOWER the cap, never raise it past 1000.
-  const ceiling = Math.min(options.ceiling || 1000, 1000);
+  // Hard recipe ceiling: a requested ceiling may only LOWER the cap, never
+  // raise it past RECIPE_CHAR_CEILING (the product-defining constant).
+  const { RECIPE_CHAR_CEILING } = require('./_api_contract.js');
+  const ceiling = Math.min(options.ceiling || RECIPE_CHAR_CEILING, RECIPE_CHAR_CEILING);
   const trustedTokens = buildTraditionContextTokens(config);
   const sentences = [];
   const s1 = buildSentence1(config);

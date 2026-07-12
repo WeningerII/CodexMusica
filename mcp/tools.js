@@ -12,6 +12,7 @@
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { z } from 'zod';
 import * as E from './engine.js';
+import { RECIPE_CHAR_CEILING } from './engine.js';
 
 const renderShape = {
   format: z
@@ -24,10 +25,10 @@ const renderShape = {
     .number()
     .int()
     .positive()
-    .max(1000)
+    .max(RECIPE_CHAR_CEILING)
     .optional()
     .describe(
-      'Trim the recipe to at most this many characters. 1000 is the canonical Current Recipe length — both the default and the hard maximum; pass a smaller value only to shorten. Values above 1000 are rejected.'
+      `Trim the recipe to at most this many characters. ${RECIPE_CHAR_CEILING} is the hard product-wide recipe ceiling (the app's Current Recipe cap) — both the default and the maximum; pass a smaller value only to shorten. Values above ${RECIPE_CHAR_CEILING} are rejected.`
     ),
 };
 

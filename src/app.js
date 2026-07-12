@@ -5,6 +5,12 @@
 // Cards in two states: signature (small multiple) and composer (focal)
 // ============================================================
 
+// The product-defining hard recipe cap. Mirrors RECIPE_CHAR_CEILING in
+// scripts/_api_contract.js (the browser bundle has no module system, so the
+// value is restated here); every recipe render and counter derives from this
+// one constant — a requested ceiling can only lower it, never exceed it.
+const RECIPE_CHAR_CEILING = 1000;
+
 // ---- Tradition signatures: distinctive descriptors that flow into every card created in this tradition ----
 const TRADITION_SIGNATURES = {
   'honky_tonk': ['folk', 'folk-rock', 'folkloric', 'walking', 'dance-friendly', 'slide', 'characteristic-cry', 'glissando-heavy', 'fast-tremolo', 'sustained-high-register', 'twangy-foundational', 'country-twang', 'pedal-steel-twang'],
@@ -4066,9 +4072,10 @@ function compressRichRecipe(cards, ceiling) {
 }
 
 function compileRecipeStack(cards, format, options) {
-  // Hard 1000-char recipe ceiling (RECIPE_CHAR_CEILING invariant): a requested
-  // ceiling may only LOWER the cap, never raise it past 1000.
-  const ceiling = Math.min((options && options.ceiling) || 1000, 1000);
+  const ceiling = Math.min(
+    (options && options.ceiling) || RECIPE_CHAR_CEILING,
+    RECIPE_CHAR_CEILING
+  );
   if (!cards || cards.length === 0) return '';
 
   // Recipe-context preface dedup: compute deduped preface ids for the recipe,
@@ -4975,7 +4982,7 @@ function renderSidebarRecipePreview() {
   if (!host) return;
   if (app.cards.length === 0) { host.innerHTML = ''; return; }
 
-  const CEILING = 1000;
+  const CEILING = RECIPE_CHAR_CEILING;
   let text = '';
   // Route through compileRecipeStack — same path the modal uses — so the
   // sidebar gets the tradition header (e.g. "Gangsta rap + UK drill + West
@@ -6485,7 +6492,7 @@ function renderRecipeStack() {
   // current render is, and replaces the prior "unique descriptors" count
   // which lost meaning after the Tags renderer moved to a chunk-per-source
   // model (the chunks repeat tokens across sources by design).
-  const CEILING = 1000;
+  const CEILING = RECIPE_CHAR_CEILING;
   // All four formats (Prose, Tags, Rich, Compact) respect CEILING. Rich now
   // honors the ceiling via the same 3-phase trim cascade Tags uses.
   const lengthLabel = `${text.length} / ${CEILING} chars`;

@@ -175,12 +175,13 @@ function recipeHeaderFromCards(cards) {
 // Render a workspace (array of cards) to the recipe string. Default format
 // 'rich' = the app's "Current Recipe". Header + body within `ceiling`, prefaces
 // auto-assigned (deduped) unless a card carries prefaceLock.
-function renderWorkspace(cards, { format = 'rich', ceiling = 1000 } = {}) {
+function renderWorkspace(cards, { format = 'rich', ceiling } = {}) {
   if (!cards || cards.length === 0) return '';
   assignDedupedPrefaces(cards);
-  // Hard 1000-char recipe ceiling (RECIPE_CHAR_CEILING): clamp the total budget
-  // before the header is subtracted so header+body can never exceed 1000.
-  const cap = Math.min(ceiling, 1000);
+  // Hard recipe ceiling (RECIPE_CHAR_CEILING): clamp the total budget before
+  // the header is subtracted so header+body can never exceed the cap.
+  const { RECIPE_CHAR_CEILING } = require('./_api_contract.js');
+  const cap = Math.min(ceiling || RECIPE_CHAR_CEILING, RECIPE_CHAR_CEILING);
   const header = recipeHeaderFromCards(cards);
   const body = compileStack(cards, format, Math.max(1, cap - header.length));
   return header + body;
