@@ -22,6 +22,10 @@ const C = require('../scripts/_loader.js');
 const W = require('../scripts/_workspace_ops.js');
 const { tokensOf } = require('../scripts/_preface_match.js');
 const { assignDedupedPrefaces } = require('../scripts/_recipe_stack.js');
+// The product-defining hard recipe cap — single source of truth, re-exported so
+// the tool schema (tools.js) derives its max_chars bound from the same constant.
+const { RECIPE_CHAR_CEILING } = require('../scripts/_api_contract.js');
+export { RECIPE_CHAR_CEILING };
 
 class EngineError extends Error {}
 
@@ -68,7 +72,9 @@ function cardsSummary(ws) {
 // The standard recipe response: the deliverable string + the state to thread on.
 function shape(ws, params = {}, meta = {}) {
   const format = params.format || 'rich';
-  const ceiling = params.max_chars || 1000;
+  // RECIPE_CHAR_CEILING is the canonical Current-Recipe cap; clamp defensively
+  // so a direct engine call (bypassing the tool-schema max) can't exceed it.
+  const ceiling = Math.min(params.max_chars || RECIPE_CHAR_CEILING, RECIPE_CHAR_CEILING);
   const recipe = W.render(ws, { format, ceiling });
   const out = {
     recipe,

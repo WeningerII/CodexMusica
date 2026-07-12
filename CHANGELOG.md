@@ -98,6 +98,19 @@ All notable changes to this project are recorded here. Format loosely follows
   Georgian non-tempered and Byzantine 72-moria pitch systems, and five new
   vocal-tradition schools. All additions are `auto: false` (explicit-only,
   picker/connector-facing) so default recipes stay stable.
+- **The 1000-char recipe ceiling is now a HARD invariant on every render
+  path.** The ceiling was threaded as a soft `|| 1000` default that any caller
+  could raise: the MCP `max_chars` param advertised `maximum: 9007199254740991`
+  and accepted 4000+; `recipe.js --max-chars` had no upper bound; and
+  `translate()`, `renderWorkspace()`, `compileStack()`, and the browser
+  `compileRecipeStack()` all honored whatever ceiling they were passed. Every
+  one now clamps `Math.min(requested, 1000)` — a requested ceiling can only
+  *lower* the cap, never raise it past the canonical Current-Recipe length. The
+  MCP tool schema now advertises `maximum: 1000` (and rejects larger values at
+  the boundary); `recipe.js --max-chars` clamps with a notice. Guard tests
+  assert `MAX_SAFE_INTEGER` requests still yield ≤ 1000 across the connector,
+  translate, and engine paths. No output changed (no recipe ever exceeded 1000
+  under the build gate); this closes the override.
 
 ## [2.0.0] — 2026-06-27 — production hardening
 

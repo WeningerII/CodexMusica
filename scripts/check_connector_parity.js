@@ -51,6 +51,26 @@ check(
 );
 check('NO search staples in header', !/\bGarage rock \+/.test(recipe));
 check('within 1000-char ceiling', recipe.length <= 1000, `${recipe.length} chars`);
+
+// The 1000-char ceiling is HARD, not a raisable default: a giant requested
+// ceiling on any render path must still clamp to <= 1000 (RECIPE_CHAR_CEILING).
+{
+  const HUGE = Number.MAX_SAFE_INTEGER;
+  const rw = renderWorkspace(cards, { format: 'rich', ceiling: HUGE });
+  check(
+    'hard ceiling: renderWorkspace(ceiling=MAX_SAFE) <= 1000',
+    rw.length <= 1000,
+    `${rw.length} chars`
+  );
+  const { translate } = require('./translate.js');
+  const { seedFromTradition } = require('./search.js');
+  const tr = translate(seedFromTradition('garage_rock'), { ceiling: HUGE });
+  check(
+    'hard ceiling: translate(ceiling=MAX_SAFE) <= 1000',
+    tr.length <= 1000,
+    `${tr.length} chars`
+  );
+}
 check(
   'voice carries the tradition voice (belt / mid-1960s double-tracking)',
   /double-tracking|belt/.test(recipe)

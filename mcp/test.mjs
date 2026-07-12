@@ -54,6 +54,15 @@ check('max_chars ceiling honored', () => {
   assert.ok(r.recipe_chars <= 300, `got ${r.recipe_chars}`);
 });
 
+check('max_chars above 1000 is clamped to the canonical 1000-char cap', () => {
+  // The tool schema rejects >1000 at the boundary (max: 1000); the engine
+  // clamps defensively so a direct call can't blow past the Current-Recipe cap.
+  for (const mc of [1001, 4000, Number.MAX_SAFE_INTEGER]) {
+    const r = E.startRecipe({ traditions: ['garage_rock'], max_chars: mc });
+    assert.ok(r.recipe_chars <= 1000, `max_chars=${mc} produced ${r.recipe_chars} chars`);
+  }
+});
+
 check('edit_recipe set_preface re-derives + labels verbatim (state threaded)', () => {
   const s = E.startRecipe({ traditions: ['garage_rock'] });
   const r = E.editRecipe({
