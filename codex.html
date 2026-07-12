@@ -23723,6 +23723,20 @@ const CHAIN_SECTIONS = [
       { id: 'bullet_mic', name: 'Bullet mic (harp / vocal)', descriptors: ['top-rolled-off-8k', 'mid-rolled-off', 'hf-distortion-prone', 'bandwidth-narrow', 'dynamic', 'bullet'], canonical_tags: ['harp', 'blues-canonical'] },
       { id: 'lavalier_mic', name: 'Lavalier', descriptors: ['full-range-flat', 'mouth-close', 'condenser', 'lavalier'], canonical_tags: ['broadcast'] },
       { id: 'boundary_mic', name: 'Boundary (PZM)', descriptors: ['boundary-half-space-pickup', 'no-floor-comb', 'full-range-flat', 'condenser', 'boundary', 'room-mic'], canonical_tags: ['orchestral'] },
+      // Carbon-button transducers — the 1920s electrical-transition era, between the
+      // acoustic horn and the ribbon/condenser generation. Telephone/early-radio lo-fi.
+      { id: 'carbon_button_single', name: 'Single-button carbon', descriptors: ['top-rolled-off-4k', 'no-bass-extension', 'bandwidth-narrow', 'midrange-honk', 'carbon-hiss', 'harmonic-distortion-nonlinear', 'carbon', 'single-button', 'vintage', 'lo-fi'], canonical_tags: ['pre-1930', 'early-radio', 'telephone-lo-fi'] },
+      { id: 'carbon_button_double', name: 'Double-button carbon (broadcast)', descriptors: ['top-rolled-off-6k', 'bandwidth-narrow', 'mid-forward-presence', 'reduced-self-noise', 'lower-distortion-than-single-button', 'carbon', 'double-button', 'vintage', 'classic-broadcast'], canonical_tags: ['1920s-30s-broadcast', 'electrical-transition'] },
+      // Piezoelectric family — crystal (Rochelle salt), ceramic, and contact pickups.
+      // High-impedance, honky-midrange, gritty when driven; 1930s–70s home/PA/harp lo-fi.
+      { id: 'crystal_rochelle', name: 'Crystal (Rochelle-salt piezoelectric)', descriptors: ['top-rolled-off-7k', 'low-rolled-off', 'midrange-honk', 'peaky-presence', 'high-impedance-output', 'distortion-when-driven', 'humidity-fragile', 'crystal', 'piezoelectric', 'rochelle-salt', 'vintage', 'lo-fi'], canonical_tags: ['home-recording-40s-50s', 'pa-vintage', 'lo-fi'] },
+      { id: 'crystal_bullet_harp', name: 'Crystal bullet (blues harp)', descriptors: ['midrange-honk', 'top-rolled-off-6k', 'low-rolled-off', 'peaky-presence-2k', 'breaks-up-when-cupped', 'harmonic-distortion-nonlinear', 'high-impedance-output', 'crystal', 'piezoelectric', 'bullet', 'vintage'], canonical_tags: ['harp', 'blues-canonical', 'chicago-blues-harp'] },
+      { id: 'ceramic_piezo', name: 'Ceramic (piezoelectric)', descriptors: ['top-rolled-off-8k', 'low-rolled-off', 'mid-forward-presence', 'high-impedance-output', 'moderate-distortion', 'humidity-robust', 'ceramic', 'piezoelectric', 'lo-fi'], canonical_tags: ['consumer-50s-70s', 'cb-radio', 'pa-vintage', 'lo-fi'] },
+      { id: 'contact_piezo_pickup', name: 'Contact / piezo pickup (instrument body)', descriptors: ['direct-body-transduction', 'no-room-pickup', 'no-air-component', 'piezo-quack', 'peaky-upper-mid', 'high-impedance-output', 'contact', 'piezoelectric', 'pickup'], canonical_tags: ['amplified-acoustic', 'folk', 'busking', 'diy-amplification'] },
+      // Modern low-cost transducers — electret condenser and silicon MEMS. The sound of
+      // cassette recorders, camcorders, and phone/laptop capture (essential for lo-fi/voice-memo).
+      { id: 'electret_condenser', name: 'Electret condenser (consumer)', descriptors: ['full-range-slightly-hyped', 'self-noise-elevated', 'fet-impedance-converter', 'permanently-charged-backplate', 'condenser', 'electret', 'consumer', 'lo-fi-clean'], canonical_tags: ['cassette-recorder', 'camcorder', 'field-recording', 'consumer-lo-fi'] },
+      { id: 'mems_phone', name: 'MEMS (phone / laptop silicon)', descriptors: ['bandlimited-100hz-8k', 'agc-pumping', 'self-noise-elevated', 'digital-clip-when-loud', 'silicon-diaphragm', 'condenser', 'mems', 'phone-mic', 'modern-lo-fi'], canonical_tags: ['smartphone', 'voice-memo', 'laptop', 'modern-lo-fi'] },
       // Named historical tube condensers — the canonical vocal/upright/strings mics 1947-1970
       { id: 'mic_u47_tube_neumann', name: 'Neumann U47 (tube, 1947)', descriptors: ['even-harmonic-rich', 'transformer-coupled-output', 'body-resonance-low-mid', 'mid-forward-presence', 'condenser', 'tube', 'vintage', 'm7-capsule', 'vf14-tube-circuit', 'large-diaphragm'], canonical_tags: ['vocal', 'classic-jazz', 'british-invasion-canonical', 'crooner-american-50s-canonical', 'detroit-soul-60s-canonical'] },
       { id: 'mic_c12_tube_akg', name: 'AKG C12 (tube, 1953)', descriptors: ['even-harmonic-rich', 'silky-airy-top', 'transformer-coupled-output', 'condenser', 'tube', 'vintage', 'ck12-capsule', 'remote-pattern-control', 'large-diaphragm'], canonical_tags: ['vocal', 'orchestral', 'piano', 'american-musical-theatre-canonical'] },
@@ -33432,6 +33446,176 @@ function compileRecipeStack(cards, format, options) {
 }
 
 // ---- Storage ----
+// Save/Load/Fork/Delete persist through window.storage — an async key/value store:
+//   get(key)    → { key, value, shared } | null
+//   set(key,v)  → { key, value, shared }
+//   delete(key) → { key, deleted, shared }
+//   list(prefix)→ { keys, prefix, shared }
+// A host may inject this (Claude.ai provides it to artifacts). When nothing does —
+// the standalone site, which is how this ships — nobody used to, so every Save hit
+// the `!window.storage` guard and failed. Install a browser-backed store so Save
+// actually persists: IndexedDB is the primary backend (async-native, large quota,
+// a perfect fit for this API's shape), localStorage the fallback, an in-memory Map
+// the last resort (no-DOM / locked-down engines) so calls degrade instead of throw.
+// Guarded three ways: a host-provided window.storage always wins; the reachability
+// gate's deterministic mock (window.storage._gate_mock) wins too — this shim tags
+// itself _local_shim so the gate swaps its mock in for isolation.
+(function installStorageShim() {
+  if (typeof window === 'undefined') return; // no DOM (node parity harness) — nothing to persist
+  if (window.storage) return; // host store or gate mock already present — never clobber it
+  const DB = 'codex-musica',
+    STORE = 'kv',
+    VER = 1;
+  const idb = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || null;
+
+  // localStorage (namespaced) or, if even that is unavailable, an in-memory Map.
+  function makeFallback() {
+    let ls = null;
+    try {
+      ls = window.localStorage || null;
+    } catch {
+      ls = null;
+    }
+    if (ls) {
+      const P = 'codexkv:';
+      return {
+        name: 'localstorage',
+        async get(k) {
+          const v = ls.getItem(P + k);
+          return v == null ? null : { key: k, value: v, shared: false };
+        },
+        async set(k, v) {
+          ls.setItem(P + k, String(v));
+          return { key: k, value: String(v), shared: false };
+        },
+        async delete(k) {
+          ls.removeItem(P + k);
+          return { key: k, deleted: true, shared: false };
+        },
+        async list(pre) {
+          const keys = [];
+          for (let i = 0; i < ls.length; i++) {
+            const kk = ls.key(i);
+            if (kk && kk.startsWith(P)) {
+              const bare = kk.slice(P.length);
+              if (!pre || bare.startsWith(pre)) keys.push(bare);
+            }
+          }
+          return { keys, prefix: pre || null, shared: false };
+        },
+      };
+    }
+    const mem = new Map();
+    return {
+      name: 'memory',
+      async get(k) {
+        return mem.has(k) ? { key: k, value: mem.get(k), shared: false } : null;
+      },
+      async set(k, v) {
+        mem.set(k, String(v));
+        return { key: k, value: String(v), shared: false };
+      },
+      async delete(k) {
+        const had = mem.delete(k);
+        return { key: k, deleted: had, shared: false };
+      },
+      async list(pre) {
+        const keys = [...mem.keys()].filter((x) => !pre || x.startsWith(pre));
+        return { keys, prefix: pre || null, shared: false };
+      },
+    };
+  }
+
+  function makeIdb() {
+    let dbP = null;
+    const open = () =>
+      dbP ||
+      (dbP = new Promise((res, rej) => {
+        let req;
+        try {
+          req = idb.open(DB, VER);
+        } catch (e) {
+          rej(e);
+          return;
+        }
+        req.onupgradeneeded = () => {
+          try {
+            if (!req.result.objectStoreNames.contains(STORE)) req.result.createObjectStore(STORE);
+          } catch {
+            /* store may already exist on a racing connection */
+          }
+        };
+        req.onsuccess = () => res(req.result);
+        req.onerror = () => rej(req.error || new Error('indexedDB open failed'));
+        req.onblocked = () => rej(new Error('indexedDB blocked'));
+      }).catch((e) => {
+        dbP = null; // let a later call retry the open
+        throw e;
+      }));
+    const op = (mode, fn) =>
+      open().then(
+        (db) =>
+          new Promise((res, rej) => {
+            let req;
+            const tx = db.transaction(STORE, mode);
+            try {
+              req = fn(tx.objectStore(STORE));
+            } catch (e) {
+              rej(e);
+              return;
+            }
+            tx.oncomplete = () => res(req && req.result);
+            tx.onabort = tx.onerror = () => rej(tx.error || new Error('indexedDB tx failed'));
+          })
+      );
+    return {
+      name: 'indexeddb',
+      async get(k) {
+        const v = await op('readonly', (s) => s.get(k));
+        return v == null ? null : { key: k, value: String(v), shared: false };
+      },
+      async set(k, v) {
+        await op('readwrite', (s) => s.put(String(v), k));
+        return { key: k, value: String(v), shared: false };
+      },
+      async delete(k) {
+        await op('readwrite', (s) => s.delete(k));
+        return { key: k, deleted: true, shared: false };
+      },
+      async list(pre) {
+        const keys = await op('readonly', (s) => s.getAllKeys());
+        const kk = (keys || []).map(String).filter((x) => !pre || x.startsWith(pre));
+        return { keys: kk, prefix: pre || null, shared: false };
+      },
+    };
+  }
+
+  const fallback = makeFallback();
+  let active = idb ? makeIdb() : fallback;
+  const store = { _local_shim: true, backend: active.name };
+  // Self-heal: if IndexedDB throws on first real use (Firefox private mode exposes
+  // the API but forbids opening a DB), permanently switch to the fallback and retry
+  // the call once. Nothing is lost — the switch only fires when IDB never worked.
+  function guard(method) {
+    return async function (...args) {
+      try {
+        return await active[method](...args);
+      } catch (e) {
+        if (active !== fallback) {
+          active = fallback;
+          store.backend = fallback.name;
+          return await fallback[method](...args);
+        }
+        throw e;
+      }
+    };
+  }
+  store.get = guard('get');
+  store.set = guard('set');
+  store.delete = guard('delete');
+  store.list = guard('list');
+  window.storage = store;
+})();
 async function safeGet(key) {
   try { return window.storage ? await window.storage.get(key) : null; }
   catch { return null; }

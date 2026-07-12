@@ -7,6 +7,26 @@ All notable changes to this project are recorded here. Format loosely follows
 ## [Unreleased]
 
 ### Added
+- **8 microphone transducer principles** the catalog was entirely missing (mic
+  chain stage 32 → 40 items). The existing mic list had deep named-model coverage
+  but spanned only four transduction principles — acoustic horn, ribbon, condenser,
+  dynamic — with **zero** carbon, crystal, piezoelectric, ceramic, electret, MEMS,
+  or contact transducers anywhere in the catalog. Added, as selectable override
+  options: **carbon-button** single (`carbon_button_single`) and double/broadcast
+  (`carbon_button_double`) — the 1920s electrical-transition telephone/early-radio
+  lo-fi era between the horn and the ribbon generation; the **piezoelectric family**
+  — Rochelle-salt **crystal** (`crystal_rochelle`), the **crystal bullet**
+  (`crystal_bullet_harp`, the Astatic-JT-30 blues-harp tone the existing
+  dynamic-modeled `bullet_mic` was missing), **ceramic** (`ceramic_piezo`), and the
+  **contact/piezo pickup** (`contact_piezo_pickup`) for direct instrument-body
+  amplification; and the **modern low-cost transducers** — **electret** condenser
+  (`electret_condenser`, cassette/camcorder/consumer capture) and silicon **MEMS**
+  (`mems_phone`, the phone/laptop voice-memo lo-fi sound). Each carries authored
+  descriptors (e.g. `carbon-hiss`, `midrange-honk`, `breaks-up-when-cupped`,
+  `agc-pumping`, `direct-body-transduction`) and canonical tags, is discoverable by
+  its natural query word (carbon/crystal/piezo/ceramic/electret/mems/contact), and
+  renders inside the 1000-char ceiling. Added as override options only — no archetype
+  defaults changed, so recipe snapshots are unchanged (1198/1198 fixtures match).
 - **`tagelharpa` instrument** (490 → 491): the horsehair-strung Nordic/Baltic
   bowed lyre was entirely missing — a catalog search returned zero hits, so the
   nearest name-match a browse could surface was a generic plucked harp
@@ -111,6 +131,26 @@ All notable changes to this project are recorded here. Format loosely follows
   assert `MAX_SAFE_INTEGER` requests still yield ≤ 1000 across the connector,
   translate, and engine paths. No output changed (no recipe ever exceeded 1000
   under the build gate); this closes the override.
+
+### Fixed
+- **Saving workspaces now works on the live site.** The Save / Load / Fork /
+  Delete flow was written against an async `window.storage` host API
+  (`get`/`set`/`delete`/`list`), but nothing ever provided that object outside
+  the test harness — its own mock comment gave it away (*"Claude.ai provides
+  window.storage as a host API at runtime; headless Chromium doesn't"*). The app
+  ships as a standalone static site where no host injects it, so every Save hit
+  the `!window.storage` guard and toasted "Save failed." It was never cut off —
+  the logic was all real; the backing store was expected from outside and never
+  arrived. `src/app.js` now installs a **guarded browser-backed store**:
+  **IndexedDB** primary (async-native, large quota — a natural fit for the
+  existing `{key,value,shared}` contract), **localStorage** fallback, in-memory
+  Map last resort, with self-heal if IndexedDB opens but a first op fails
+  (private-mode engines). It installs **only when no store exists**, so a
+  host-provided `window.storage` (Claude.ai artifact) still wins, and it tags
+  itself `_local_shim` so the reachability gate swaps in its deterministic mock
+  for isolation (a real host store is never clobbered). Proven in real Chromium:
+  raw round-trip and app-level `saveWS`/`listSaved`/`loadWS` both **survive a
+  page reload**. No catalog or recipe output changed; `codex.html` rebuilt.
 
 ## [2.0.0] — 2026-06-27 — production hardening
 

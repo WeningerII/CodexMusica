@@ -352,12 +352,13 @@ async function main() {
     if (app.instrumentAxisFilters) app.instrumentAxisFilters.clear();
     if (app.treeExpanded) app.treeExpanded.clear();
     // Install storage mock if not present. Claude.ai provides window.storage
-    // as a host API at runtime; headless Chromium doesn't, so the gate mocks
-    // it for any precondition that needs persisted state (saved workspaces).
-    // The _gate_mock flag distinguishes mock from real storage — if real
-    // storage is ever present, the mock won't be installed and the fixture
-    // preconditions won't pollute real data (they only write through the mock).
-    if (!window.storage) {
+    // as a host API at runtime; the standalone site installs a browser-backed
+    // shim (tagged _local_shim) so Save persists in real Chromium. Either way,
+    // for gate isolation we swap in a deterministic in-memory mock: treat both
+    // "absent" and "our own shim" as replaceable, but NEVER clobber a real
+    // host store (no _local_shim / _gate_mock tag) so fixture preconditions
+    // can't pollute real data (they only ever write through the mock).
+    if (!window.storage || window.storage._local_shim) {
       window.storage = {
         _gate_mock: true,
         _data: new Map(),
