@@ -33432,6 +33432,176 @@ function compileRecipeStack(cards, format, options) {
 }
 
 // ---- Storage ----
+// Save/Load/Fork/Delete persist through window.storage — an async key/value store:
+//   get(key)    → { key, value, shared } | null
+//   set(key,v)  → { key, value, shared }
+//   delete(key) → { key, deleted, shared }
+//   list(prefix)→ { keys, prefix, shared }
+// A host may inject this (Claude.ai provides it to artifacts). When nothing does —
+// the standalone site, which is how this ships — nobody used to, so every Save hit
+// the `!window.storage` guard and failed. Install a browser-backed store so Save
+// actually persists: IndexedDB is the primary backend (async-native, large quota,
+// a perfect fit for this API's shape), localStorage the fallback, an in-memory Map
+// the last resort (no-DOM / locked-down engines) so calls degrade instead of throw.
+// Guarded three ways: a host-provided window.storage always wins; the reachability
+// gate's deterministic mock (window.storage._gate_mock) wins too — this shim tags
+// itself _local_shim so the gate swaps its mock in for isolation.
+(function installStorageShim() {
+  if (typeof window === 'undefined') return; // no DOM (node parity harness) — nothing to persist
+  if (window.storage) return; // host store or gate mock already present — never clobber it
+  const DB = 'codex-musica',
+    STORE = 'kv',
+    VER = 1;
+  const idb = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || null;
+
+  // localStorage (namespaced) or, if even that is unavailable, an in-memory Map.
+  function makeFallback() {
+    let ls = null;
+    try {
+      ls = window.localStorage || null;
+    } catch {
+      ls = null;
+    }
+    if (ls) {
+      const P = 'codexkv:';
+      return {
+        name: 'localstorage',
+        async get(k) {
+          const v = ls.getItem(P + k);
+          return v == null ? null : { key: k, value: v, shared: false };
+        },
+        async set(k, v) {
+          ls.setItem(P + k, String(v));
+          return { key: k, value: String(v), shared: false };
+        },
+        async delete(k) {
+          ls.removeItem(P + k);
+          return { key: k, deleted: true, shared: false };
+        },
+        async list(pre) {
+          const keys = [];
+          for (let i = 0; i < ls.length; i++) {
+            const kk = ls.key(i);
+            if (kk && kk.startsWith(P)) {
+              const bare = kk.slice(P.length);
+              if (!pre || bare.startsWith(pre)) keys.push(bare);
+            }
+          }
+          return { keys, prefix: pre || null, shared: false };
+        },
+      };
+    }
+    const mem = new Map();
+    return {
+      name: 'memory',
+      async get(k) {
+        return mem.has(k) ? { key: k, value: mem.get(k), shared: false } : null;
+      },
+      async set(k, v) {
+        mem.set(k, String(v));
+        return { key: k, value: String(v), shared: false };
+      },
+      async delete(k) {
+        const had = mem.delete(k);
+        return { key: k, deleted: had, shared: false };
+      },
+      async list(pre) {
+        const keys = [...mem.keys()].filter((x) => !pre || x.startsWith(pre));
+        return { keys, prefix: pre || null, shared: false };
+      },
+    };
+  }
+
+  function makeIdb() {
+    let dbP = null;
+    const open = () =>
+      dbP ||
+      (dbP = new Promise((res, rej) => {
+        let req;
+        try {
+          req = idb.open(DB, VER);
+        } catch (e) {
+          rej(e);
+          return;
+        }
+        req.onupgradeneeded = () => {
+          try {
+            if (!req.result.objectStoreNames.contains(STORE)) req.result.createObjectStore(STORE);
+          } catch {
+            /* store may already exist on a racing connection */
+          }
+        };
+        req.onsuccess = () => res(req.result);
+        req.onerror = () => rej(req.error || new Error('indexedDB open failed'));
+        req.onblocked = () => rej(new Error('indexedDB blocked'));
+      }).catch((e) => {
+        dbP = null; // let a later call retry the open
+        throw e;
+      }));
+    const op = (mode, fn) =>
+      open().then(
+        (db) =>
+          new Promise((res, rej) => {
+            let req;
+            const tx = db.transaction(STORE, mode);
+            try {
+              req = fn(tx.objectStore(STORE));
+            } catch (e) {
+              rej(e);
+              return;
+            }
+            tx.oncomplete = () => res(req && req.result);
+            tx.onabort = tx.onerror = () => rej(tx.error || new Error('indexedDB tx failed'));
+          })
+      );
+    return {
+      name: 'indexeddb',
+      async get(k) {
+        const v = await op('readonly', (s) => s.get(k));
+        return v == null ? null : { key: k, value: String(v), shared: false };
+      },
+      async set(k, v) {
+        await op('readwrite', (s) => s.put(String(v), k));
+        return { key: k, value: String(v), shared: false };
+      },
+      async delete(k) {
+        await op('readwrite', (s) => s.delete(k));
+        return { key: k, deleted: true, shared: false };
+      },
+      async list(pre) {
+        const keys = await op('readonly', (s) => s.getAllKeys());
+        const kk = (keys || []).map(String).filter((x) => !pre || x.startsWith(pre));
+        return { keys: kk, prefix: pre || null, shared: false };
+      },
+    };
+  }
+
+  const fallback = makeFallback();
+  let active = idb ? makeIdb() : fallback;
+  const store = { _local_shim: true, backend: active.name };
+  // Self-heal: if IndexedDB throws on first real use (Firefox private mode exposes
+  // the API but forbids opening a DB), permanently switch to the fallback and retry
+  // the call once. Nothing is lost — the switch only fires when IDB never worked.
+  function guard(method) {
+    return async function (...args) {
+      try {
+        return await active[method](...args);
+      } catch (e) {
+        if (active !== fallback) {
+          active = fallback;
+          store.backend = fallback.name;
+          return await fallback[method](...args);
+        }
+        throw e;
+      }
+    };
+  }
+  store.get = guard('get');
+  store.set = guard('set');
+  store.delete = guard('delete');
+  store.list = guard('list');
+  window.storage = store;
+})();
 async function safeGet(key) {
   try { return window.storage ? await window.storage.get(key) : null; }
   catch { return null; }

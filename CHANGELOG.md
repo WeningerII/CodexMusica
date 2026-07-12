@@ -112,6 +112,26 @@ All notable changes to this project are recorded here. Format loosely follows
   translate, and engine paths. No output changed (no recipe ever exceeded 1000
   under the build gate); this closes the override.
 
+### Fixed
+- **Saving workspaces now works on the live site.** The Save / Load / Fork /
+  Delete flow was written against an async `window.storage` host API
+  (`get`/`set`/`delete`/`list`), but nothing ever provided that object outside
+  the test harness — its own mock comment gave it away (*"Claude.ai provides
+  window.storage as a host API at runtime; headless Chromium doesn't"*). The app
+  ships as a standalone static site where no host injects it, so every Save hit
+  the `!window.storage` guard and toasted "Save failed." It was never cut off —
+  the logic was all real; the backing store was expected from outside and never
+  arrived. `src/app.js` now installs a **guarded browser-backed store**:
+  **IndexedDB** primary (async-native, large quota — a natural fit for the
+  existing `{key,value,shared}` contract), **localStorage** fallback, in-memory
+  Map last resort, with self-heal if IndexedDB opens but a first op fails
+  (private-mode engines). It installs **only when no store exists**, so a
+  host-provided `window.storage` (Claude.ai artifact) still wins, and it tags
+  itself `_local_shim` so the reachability gate swaps in its deterministic mock
+  for isolation (a real host store is never clobbered). Proven in real Chromium:
+  raw round-trip and app-level `saveWS`/`listSaved`/`loadWS` both **survive a
+  page reload**. No catalog or recipe output changed; `codex.html` rebuilt.
+
 ## [2.0.0] — 2026-06-27 — production hardening
 
 ### Added
