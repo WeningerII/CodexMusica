@@ -7,6 +7,31 @@ All notable changes to this project are recorded here. Format loosely follows
 ## [Unreleased]
 
 ### Added
+- **50 new options across the 7 thin voice-production parts.** The earlier voice
+  round fattened the *contextual* parts (tradition 39, processing-chain 32,
+  quality 27) but left the parts that describe how the voice physically makes
+  sound woefully under-filled. Enriched each toward parity, all authored with
+  real physiological/acoustic detail and added as `auto: false` manual palette
+  options (selectable in the app picker and via the connector, but not
+  auto-derived — so **zero recipe churn**): **voice_effort** / phonatory effort
+  6 → 14 (subtone, messa di voce, decrescendo al niente, terraced dynamics,
+  sforzando, gospel breath-pulse, edge-of-clean cuivré, marcato); **voice_microtone**
+  / pitch flexibility 7 → 15 (just intonation, Pythagorean leading tones,
+  meantone, Byzantine genera, pelog/slendro, gapped-pentatonic glide, untempered
+  drift, siren glissando); **voice_estill_quality** 8 → 16 (the figure-level
+  controls underlying the six qualities — glottal/aspirate/smooth onsets, thick/
+  thin/stiff true-fold body-cover, retracted vs constricted false folds);
+  **voice_vocal_tract** 9 → 17 (singer's-formant ring, jaw-dropped open call,
+  raised velum, narrowed epilarynx, lengthened/lowered larynx, cupped-hand
+  muffle, forward mask vs back-swallowed placement); **voice_vibrato** 9 → 16
+  (bleat/caprino, narrow shimmer, pure-pitch vs amplitude-only, accelerating,
+  decelerating-widening, asymmetric under-pitch scoop); **voice_register** 10 →
+  15 (reinforced falsetto, countertenor, leggiero head, heavy-M1 belt, oktavist
+  sub-bass); **voice_articulation** 10 → 16 (marcato, portato, glottal-stop
+  punctuation, vocable syllable-drumming, ululation, sighed falling releases).
+  Each renders its descriptors when picked (verified 7/7 in an isolated card,
+  all ≤1000 chars); preface regression 79/79 and recipe regression 1198/1198
+  both unchanged.
 - **8 microphone transducer principles** the catalog was entirely missing (mic
   chain stage 32 → 40 items). The existing mic list had deep named-model coverage
   but spanned only four transduction principles — acoustic horn, ribbon, condenser,
