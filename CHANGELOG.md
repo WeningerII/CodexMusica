@@ -158,6 +158,19 @@ All notable changes to this project are recorded here. Format loosely follows
   under the build gate); this closes the override.
 
 ### Fixed
+- **36 instruments had prose stuffed into their `short` field.** `short` is the
+  instrument's concise label — and, critically, the string `_recipe_stack` kebab-
+  cases into the recipe's instrument label. A minority of records had a full
+  descriptive sentence there instead (lineage, technique, even artist names —
+  "Tiny Moore, Johnny Gimble"), 104–329 chars long, so adding one to a workspace
+  produced a garbage 180-char kebab label like
+  `amplified-solid-body-mandolin-—-bright-cutting-pick-and-tremolo-lead-voice-of-western-swing-…`.
+  All 36 normalized to the majority convention — `short` = the name with its
+  parenthetical stripped, lowercased (`"Electric mandolin"` → `electric mandolin`,
+  `"Tonkori (Ainu five-string plucked zither)"` → `tonkori`). The descriptive
+  character of each instrument already lives in its parts, where it belongs.
+  Longest `short` is now 38 chars (was 329); recipe regression 1198/1198 unchanged
+  (none of the 36 were in a default recipe — the broken labels were purely latent).
 - **Saving workspaces now works on the live site.** The Save / Load / Fork /
   Delete flow was written against an async `window.storage` host API
   (`get`/`set`/`delete`/`list`), but nothing ever provided that object outside

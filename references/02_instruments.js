@@ -20746,7 +20746,7 @@ const INSTRUMENTS = [
     family: 'percussion',
     class: 'tuned_percussion',
     axes: { pitchFix: 2, sustain: -2, polyphony: 1, harmonicity: -1, register: 0, range: 1, articulation: 1, transduction: -2, dynamics: 1 },
-    short: 'Buganda court log xylophone of twelve loose wooden bars on banana-stem supports, pentatonically tuned and played by two or three drummers in fast interlocking okunaga/okwawula parts that spin off resultant melodies.',
+    short: 'amadinda',
     parts: [
       { id: 'amadinda_form', name: 'Court form and size', variants: [
         { id: 'amadinda_form_amadinda_twelve', default: true, name: 'Amadinda (twelve-key, two players)', descriptors: ['twelve-log-bars', 'pentatonic-tuned', 'two-player-court'], match_tokens: ['struck', 'log-xylophone', 'pentatonic', 'interlocking'], canonical_tags: ['amadinda'] },
@@ -20770,7 +20770,7 @@ const INSTRUMENTS = [
     family: 'plucked_traditional',
     class: 'plucked_string_lead',
     axes: { pitchFix: 2, sustain: -1, polyphony: 0, harmonicity: 1, register: 0, range: -1, articulation: 0, transduction: -2, dynamics: -1 },
-    short: 'Ainu five-string open-strung zither from Sakhalin, plucked with both hands in shimmering interlocking patterns; gentle, soft-spoken voice central to Ainu song and the modern Ainu revival.',
+    short: 'tonkori',
     parts: [
       { id: 'tonkori_form', name: 'Regional form and build', variants: [
         { id: 'tonkori_form_sakhalin', default: true, name: 'Sakhalin (Karafuto) classic tonkori', descriptors: ['carved-spruce-body', 'open-strung', 'five-string', 'slender-plank'], match_tokens: ['plucked', 'zither', 'open-string', 'drone-foundation'], canonical_tags: ['ainu', 'sakhalin', 'traditional'] },
@@ -20795,7 +20795,7 @@ const INSTRUMENTS = [
     family: 'plucked_traditional',
     class: 'bass_lamellophone',
     axes: { pitchFix: 2, sustain: -1, polyphony: 0, harmonicity: 0, register: -2, range: -1, articulation: 1, transduction: -2, dynamics: 0 },
-    short: 'Large Caribbean box lamellophone whose thumb-plucked steel tongues supply the walking bass foundation of Jamaican mento and early Cuban son.',
+    short: 'marímbula',
     parts: [
       { id: 'marimbula_regional_form', name: 'Regional form', variants: [
         { id: 'marimbula_form_cubana', default: true, name: 'Cuban son / changüí marímbula', descriptors: ['deep-oriente-bass', 'large-tumbao-box', 'son-changui-anchor'], match_tokens: ['plucked', 'bass-foundation', 'son', 'changui'], canonical_tags: ['cuba', 'son', 'changui'] },
@@ -20820,7 +20820,7 @@ const INSTRUMENTS = [
     family: 'percussion',
     class: 'double_headed_drum',
     axes: { pitchFix: 0, sustain: -1, polyphony: -1, harmonicity: 0, register: -1, range: 1, articulation: 2, transduction: -2, dynamics: 1 },
-    short: 'Double-headed horizontal barrel drum of the Colombian Caribbean coast, struck with two sticks — one beating the goatskin head, the other rapping the wooden shell — to lay the driving low-mid pulse of cumbia, porro and fandango.',
+    short: 'tambora colombiana',
     parts: [
       { id: 'tambora_colombiana_form', name: 'Regional form and size', variants: [
         { id: 'tambora_colombiana_form_costena', default: true, name: 'Tambora costena (coastal cumbia barrel)', descriptors: ['deep-barrel', 'coastal-cumbia', 'rope-tensioned', 'wide-shell'], match_tokens: ['struck', 'double-headed', 'bass-pulse', 'cumbia', 'driving'], canonical_tags: ['cumbia', 'caribbean-coast', 'barrel-drum'] },
@@ -20844,7 +20844,7 @@ const INSTRUMENTS = [
     family: 'plucked_traditional',
     class: 'plucked_string_lead',
     axes: { pitchFix: 2, sustain: -1, polyphony: 0, harmonicity: 1, register: 1, range: 1, articulation: 1, transduction: -2, dynamics: 0 },
-    short: 'Pear-shaped 4-string fretted plectrum lute of the Venezuelan-Colombian llanos, the driving "pin-pon" lead voice of joropo alongside the harp and cuatro.',
+    short: 'bandola llanera',
     parts: [
       { id: 'bandola_llanera_form', name: 'Regional form', variants: [
         { id: 'bandola_llanera_form_four_string', default: true, name: 'Four-string llanera (classic)', descriptors: ['pear-shaped', 'four-string', 'single-strung', 'bright-attack'], match_tokens: ['plucked', 'bandola', 'four-string', 'llanera'], canonical_tags: ['bandola_llanera', 'four_string'] },
@@ -20868,7 +20868,7 @@ const INSTRUMENTS = [
     family: 'free_reed',
     class: 'free_reed',
     axes: { pitchFix: 2, sustain: 2, polyphony: 1, harmonicity: 1, register: 1, range: 1, articulation: 1, transduction: -2, dynamics: 1 },
-    short: 'Bright, fast bisonoric two-row diatonic button accordion of the Basque Country — the lead voice of trikiti dance music, paired with the pandero, punchier and higher-pitched than a full chromatic accordion.',
+    short: 'trikitixa',
     parts: [
       { id: 'trikitixa_form', name: 'Row layout & tuning', variants: [
         { id: 'trikitixa_form_two_row_gc', default: true, name: 'Two-row G/C soinu txikia', descriptors: ['two-row-diatonic', 'bisonoric', 'bright-treble', 'small-box'], match_tokens: ['diatonic', 'bisonoric', 'two-row', 'reed-driven'], canonical_tags: ['diatonic', 'bisonoric'] },
@@ -20892,7 +20892,7 @@ const INSTRUMENTS = [
     family: 'plucked_traditional',
     class: 'chordophone',
     axes: { pitchFix: 2, sustain: -1, polyphony: 1, harmonicity: 1, register: 0, range: 1, articulation: 1, transduction: -2, dynamics: -1 },
-    short: 'Six-course gut-strung Spanish Renaissance plucked lute, the Iberian counterpart to the lute carrying the printed vihuela repertoire of Milán, Narváez and Mudarra.',
+    short: 'vihuela de mano',
     parts: [
       { id: 'vihuela_de_mano_form', name: 'Form and courses', variants: [
         { id: 'vihuela_de_mano_form_six_course', default: true, name: 'Six-course vihuela in G', descriptors: ['six-course', 'paired-courses', 'guitar-shaped', 'tied-gut-frets'], match_tokens: ['plucked', 'fretted', 'renaissance', 'six-course'], canonical_tags: ['six_course', 'standard'] },
@@ -20916,7 +20916,7 @@ const INSTRUMENTS = [
     family: 'ensemble',
     class: 'free_reed',
     axes: { pitchFix: 1, sustain: 1, polyphony: 2, harmonicity: 1, register: 0, range: 2, articulation: 1, transduction: -1, dynamics: 1 },
-    short: 'Northern Mexican / Texas border ensemble built on button accordion and bajo sexto over electric bass and drum kit, the engine of norteño, corrido and Tejano dance music.',
+    short: 'conjunto norteño',
     parts: [
       { id: 'conjunto_norteno_lineup', name: 'Lineup', variants: [
         { id: 'conjunto_norteno_lineup_four_piece', default: true, name: 'Classic four-piece', descriptors: ['accordion-led', 'bajo-sexto-strum', 'electric-bass-anchored', 'drum-kit-backbeat'], match_tokens: ['ensemble', 'reed-driven', 'plucked', 'electric'], canonical_tags: ['button-accordion', 'bajo-sexto', 'electric-bass', 'drum-kit'] },
@@ -20942,7 +20942,7 @@ const INSTRUMENTS = [
     family: 'wind',
     class: 'duct_flute',
     axes: { pitchFix: 1, sustain: 2, polyphony: -2, harmonicity: 1, register: 1, range: 1, articulation: 2, transduction: -2, dynamics: 0 },
-    short: 'Ukrainian fipple duct flute, the bright agile melody voice of Carpathian and troisti muzyky folk music, from six-hole village pipes to the ten-hole chromatic concert instrument.',
+    short: 'sopilka',
     parts: [
       { id: 'sopilka_form', name: 'Regional form and size', variants: [
         { id: 'sopilka_form_six_hole', default: true, name: 'Traditional six-hole diatonic sopilka', descriptors: ['bright', 'breathy', 'folk-diatonic', 'woody'], match_tokens: ['wind-driven', 'blown', 'duct-flute', 'fipple', 'folk'], canonical_tags: ['duct-flute', 'diatonic'] },
@@ -20991,7 +20991,7 @@ const INSTRUMENTS = [
     family: 'plucked_traditional',
     class: 'arched_harp',
     axes: { pitchFix: 1, sustain: -1, polyphony: 1, harmonicity: 1, register: 0, range: 0, articulation: 1, transduction: -2, dynamics: -1 },
-    short: 'Alur arched bow harp of northwestern Uganda: a curved wooden neck rising from a hide-faced trough resonator, carrying seven to nine diatonically tuned strings that are plucked and strummed. Built in a soprano-to-bass family and now the most widely heard Ugandan string instrument in dance troupes, churches, and school ensembles.',
+    short: 'adungu',
     parts: [
       { id: 'adungu_size', name: 'Family size / register', variants: [
         { id: 'adungu_size_soprano', default: true, name: 'Soprano adungu (lead melody)', descriptors: ['bright-treble', 'silvery', 'nimble-picked'], match_tokens: ['plucked', 'harp', 'high-register', 'lead'], canonical_tags: ['arched-harp', 'diatonic', 'melody-lead'] },
@@ -21016,7 +21016,7 @@ const INSTRUMENTS = [
     family: 'wind',
     class: 'aerophone (gourd-chambered idioglot double clarinet)',
     axes: { pitchFix: 0, sustain: 2, polyphony: 0, harmonicity: 1, register: 1, range: 0, articulation: 0, transduction: -2, dynamics: 0 },
-    short: 'Gourd wind-chamber feeding twin single-reed cane pipes — one fingered melody pipe over a constant drone, sounded by circular breathing for an unbroken nasal buzz. The globally recognizable snake-charmer voice of Rajasthani Kalbeliya dance and the Bollywood \'Nagin\' theme.',
+    short: 'pungi',
     parts: [
       { id: 'pungi_regional_form', name: 'Regional form', variants: [
         { id: 'pungi_regional_form_rajasthani_been', default: true, name: 'Rajasthani been (Kalbeliya)', descriptors: ['deep-droning', 'gourd-warm', 'reedy', 'swirling'], match_tokens: ['reed-driven', 'drone-foundation', 'rough-tone', 'nasal'], canonical_tags: ['kalbeliya', 'rajasthan', 'large-gourd'] },
@@ -21040,7 +21040,7 @@ const INSTRUMENTS = [
     family: 'percussion',
     class: 'hand_percussion',
     axes: { pitchFix: 0, sustain: -2, polyphony: -2, harmonicity: 0, register: -1, range: 1, articulation: 2, transduction: -2, dynamics: 1 },
-    short: 'Single-headed conical hand drum, the improvising lead voice of Colombian coastal cumbia and bullerengue.',
+    short: 'tambor alegre',
     parts: [
       { id: 'tambor_alegre_form', name: 'Regional form', variants: [
         { id: 'tambor_alegre_form_gaita', default: true, name: 'Alegre de conjunto de gaitas', descriptors: ['gaita-ensemble', 'montes-de-maria', 'cumbia-lead'], match_tokens: ['struck', 'hand-drum', 'lead-drum'], canonical_tags: ['colombia', 'cumbia', 'gaita'] },
@@ -21065,7 +21065,7 @@ const INSTRUMENTS = [
     family: 'wind',
     class: 'wind_free_aerophone',
     axes: { pitchFix: -1, sustain: 2, polyphony: -2, harmonicity: -1, register: -1, range: -1, articulation: -1, transduction: -2, dynamics: 1 },
-    short: 'Whirled slat free-aerophone (bullroarer / purerehua / turndun) spun on a cord to produce a pulsing, throbbing aerodynamic roar.',
+    short: 'bullroarer',
     parts: [
       { id: 'bullroarer_regional_form', name: 'Regional form', variants: [
         { id: 'bullroarer_form_purerehua', default: true, name: 'Purerehua (Maori taonga puoro)', descriptors: ['leaf-shaped', 'carved-wood', 'whirring', 'taonga-puoro'], match_tokens: ['whirled', 'wind-driven', 'maori', 'purerehua'], canonical_tags: ['maori_waiata'] },
@@ -21091,7 +21091,7 @@ const INSTRUMENTS = [
     family: 'percussion',
     class: 'hand_percussion',
     axes: { pitchFix: -2, sustain: 0, polyphony: -2, harmonicity: -2, register: 1, range: -2, articulation: -2, transduction: -2, dynamics: -1 },
-    short: 'Tilt-shaken tube of cascading seeds and pins that pours a soft, sustained rainfall hiss — a signature texture of Andean nueva canción.',
+    short: 'rainstick',
     parts: [
       { id: 'rainstick_form', name: 'Regional form', variants: [
         { id: 'rainstick_form_diaguita_cactus', default: true, name: 'Diaguita cactus tube', descriptors: ['dried-cactus', 'quisco-spined', 'organic-hiss', 'hand-length'], match_tokens: ['shaken', 'cactus', 'traditional', 'chilean', 'andean', 'rough-tone'], canonical_tags: ['cactus-tube', 'cactus-spines'] },
@@ -21115,7 +21115,7 @@ const INSTRUMENTS = [
     family: 'electric_strings',
     class: 'bowed_string_lead',
     axes: { pitchFix: -1, sustain: 2, polyphony: 0, harmonicity: 1, register: 1, range: 1, articulation: 0, transduction: 2, dynamics: 1 },
-    short: 'Solid-body amplified violin, the signature bowed lead of 1970s jazz-rock fusion and prog — continuous unfretted pitch driven through a pickup and effects chain.',
+    short: 'electric violin',
     parts: [
       { id: 'electric_violin_form', name: 'String configuration', variants: [
         { id: 'electric_violin_form_four_string', default: true, name: 'Four-string solid-body', descriptors: ['solid-body', 'four-string', 'standard-gdae', 'bright-cutting'], match_tokens: ['bowed', 'electric', 'solid-body', 'four-string'], canonical_tags: ['solid_body', 'four_string'] },
@@ -21141,7 +21141,7 @@ const INSTRUMENTS = [
     family: 'free_reed',
     class: 'free_reed',
     axes: { pitchFix: 2, sustain: 2, polyphony: 1, harmonicity: 1, register: 0, range: 0, articulation: -1, transduction: -2, dynamics: 0 },
-    short: 'Keyless bellows-driven free-reed drone box that sustains the tonic and fifth as a steady sruti bed, central to Carnatic vocal practice, bhajan and kirtan, and widely adopted as an ambient drone source.',
+    short: 'shruti box',
     parts: [
       { id: 'shruti_box_form', name: 'Form and size', variants: [
         { id: 'shruti_box_form_standard_surpeti', default: true, name: 'Standard portable surpeti', descriptors: ['steady-drone', 'reedy', 'warm-bellows-swell'], match_tokens: ['bellows-driven', 'reed-driven', 'drone-foundation'], canonical_tags: ['free-reed', 'drone'] },
@@ -21191,7 +21191,7 @@ const INSTRUMENTS = [
     family: 'percussion',
     class: 'hand_percussion',
     axes: { pitchFix: -1, sustain: 0, polyphony: -2, harmonicity: -1, register: -1, range: -1, articulation: 0, transduction: -2, dynamics: 0 },
-    short: 'Iberian friction drum: a cane rod through a skin-headed pot, stroked with a wet hand to produce a low, buzzing rhythmic growl that drives Andalusian Christmas villancicos and the zambombá de Jerez.',
+    short: 'zambomba',
     parts: [
       { id: 'zambomba_regional_form', name: 'Regional form', variants: [
         { id: 'zambomba_form_jerez', default: true, name: 'Zambomba de Jerez', descriptors: ['deep-clay-pot', 'resonant-growl', 'andalusian'], match_tokens: ['friction-driven', 'rough-tone', 'low-growl', 'drone-foundation'], canonical_tags: ['jerez', 'andalusia', 'earthenware'] },
@@ -21215,7 +21215,7 @@ const INSTRUMENTS = [
     family: 'plucked_traditional',
     class: 'plucked_string_lead',
     axes: { pitchFix: 2, sustain: -1, polyphony: 1, harmonicity: 1, register: 1, range: 1, articulation: 1, transduction: -2, dynamics: 0 },
-    short: 'Bright, high-pitched Spanish double-course lute with six paired steel courses tuned in fourths, played in shimmering plectrum tremolo; the lead voice of the rondalla and tuna estudiantina.',
+    short: 'bandurria',
     parts: [
       { id: 'bandurria_form', name: 'Regional form and size', variants: [
         { id: 'bandurria_form_spanish_soprano', default: true, name: 'Spanish soprano bandurria', descriptors: ['bright', 'high-pitched', 'silvery'], match_tokens: ['plucked', 'bandurria', 'soprano', 'rondalla'], canonical_tags: ['spanish', 'rondalla', 'tuna'] },
@@ -21264,7 +21264,7 @@ const INSTRUMENTS = [
     family: 'percussion',
     class: 'hand_percussion',
     axes: { pitchFix: 2, sustain: -1, polyphony: 0, harmonicity: -1, register: 0, range: -1, articulation: 1, transduction: -2, dynamics: 1 },
-    short: 'Forged-iron double bell of the Ewe of Ghana and Togo, a large low bell welded to a small high bell on a curved iron handle and struck with a hardwood stick; it keeps the master timeline for Agbadza, Gahu and Atsiagbekor drumming.',
+    short: 'gankogui',
     parts: [
       { id: 'gankogui_bell_form', name: 'Bell form', variants: [
         { id: 'gankogui_bell_form_double_standard', default: true, name: 'Standard double gankogui', descriptors: ['twin-belled', 'two-toned', 'boat-shaped'], match_tokens: ['struck', 'bell', 'iron', 'double-bell', 'two-tone'], canonical_tags: ['double-bell', 'high-low-pair'] },
@@ -21313,7 +21313,7 @@ const INSTRUMENTS = [
     family: 'acoustic_strings',
     class: 'plucked_string_rhythm',
     axes: { pitchFix: 0, sustain: -1, polyphony: 1, harmonicity: 1, register: 0, range: 1, articulation: 1, transduction: -2, dynamics: 0 },
-    short: 'Four-string steel-strung guitar with a short banjo-scale neck, tuned in fifths (CGDA) or GDAE; the tenor-banjoist\'s crossover instrument in 1920s trad-jazz rhythm sections, a folk-revival strummer, and a modern indie lead voice.',
+    short: 'tenor guitar',
     parts: [
       { id: 'tenor_guitar_form', name: 'Tuning and form', variants: [
         { id: 'tenor_guitar_form_cgda', default: true, name: 'Standard CGDA fifths tuning', descriptors: ['fifths-tuned', 'banjo-scale', 'open-ringing'], match_tokens: ['plucked', 'strummed', 'fifths-tuning', 'cgda'], canonical_tags: ['tuning:cgda', 'scale:short'] },
@@ -21337,7 +21337,7 @@ const INSTRUMENTS = [
     family: 'free_reed',
     class: 'free_reed',
     axes: { pitchFix: 2, sustain: 2, polyphony: 1, harmonicity: 1, register: 1, range: 1, articulation: 1, transduction: -2, dynamics: 1 },
-    short: 'Bright bellows-driven button accordion of the Caucasus, central to Azerbaijani mugham and lezginka dance music.',
+    short: 'garmon',
     parts: [
       { id: 'garmon_regional_form', name: 'Regional form', variants: [
         { id: 'garmon_regional_form_azerbaijani', default: true, name: 'Azerbaijani qarmon', descriptors: ['bright-reeded', 'piercing', 'mugham-tuned', 'high-set'], match_tokens: ['bellows-driven', 'free-reed', 'reed-driven', 'bright-tone'], canonical_tags: ['azerbaijani', 'chromatic-button'] },
@@ -21387,7 +21387,7 @@ const INSTRUMENTS = [
     family: 'wind',
     class: 'globular vessel flute (aerophone)',
     axes: { pitchFix: 1, sustain: 1, polyphony: -2, harmonicity: 1, register: 0, range: -1, articulation: 0, transduction: -2, dynamics: -1 },
-    short: 'Ancient Chinese egg-shaped clay vessel flute, blown across a top hole for a dark, hollow, mournful tone in a narrow low-mid range.',
+    short: 'xun',
     parts: [
       { id: 'xun_form', name: 'Form and size', variants: [
         { id: 'xun_form_eight_hole', default: true, name: 'Modern eight-hole xun', descriptors: ['conservatory-standard', 'near-chromatic', 'even-toned'], match_tokens: ['wind', 'blown', 'vessel-flute', 'chromatic'], canonical_tags: ['reformed', 'solo-capable'] },
@@ -21412,7 +21412,7 @@ const INSTRUMENTS = [
     family: 'keyboard',
     class: 'keyboard_acoustic',
     axes: { pitchFix: 2, sustain: 2, polyphony: 0, harmonicity: 2, register: 1, range: 0, articulation: 0, transduction: -2, dynamics: 0 },
-    short: 'Small lap-held medieval flue-pipe organ: one hand pumps the bellows, the other plays a single row of keys, giving a breathy, continuous single-line voice central to Trecento and Ars Nova ensembles.',
+    short: 'portative organ',
     parts: [
       { id: 'portative_organ_form', name: 'Instrument form and size', variants: [
         { id: 'portative_organ_form_single_rank', default: true, name: 'Single-rank treble organetto', descriptors: ['single-rank', 'treble-piping', 'one-row', 'compact'], match_tokens: ['wind-driven', 'keyed', 'single-line', 'treble'], canonical_tags: ['portative', 'organetto'] },
@@ -21436,7 +21436,7 @@ const INSTRUMENTS = [
     family: 'bowed',
     class: 'bowed_string',
     axes: { pitchFix: -2, sustain: 2, polyphony: 0, harmonicity: 1, register: 1, range: 1, articulation: 2, transduction: -2, dynamics: 0 },
-    short: 'Small pear-shaped medieval European bowed fiddle carved from a single block, with two or three gut strings tuned in fifths and a bright, penetrating, nasal tone; the treble bowed voice of the medieval ensemble alongside the vielle.',
+    short: 'rebec',
     parts: [
       { id: 'rebec_form', name: 'Form and register', variants: [
         { id: 'rebec_form_treble', default: true, name: 'Treble rebec', descriptors: ['bright', 'nasal', 'pear-shaped', 'treble-voiced'], match_tokens: ['bowed', 'high-register', 'nasal-tone'], canonical_tags: ['treble', 'three-string'] },
@@ -21460,7 +21460,7 @@ const INSTRUMENTS = [
     family: 'percussion',
     class: 'idiophone',
     axes: { pitchFix: -2, sustain: -1, polyphony: -2, harmonicity: -2, register: 2, range: -2, articulation: 2, transduction: -2, dynamics: 0 },
-    short: 'Punjabi jingle-studded fire-tongs idiophone: two long flat steel arms fitted with paired brass discs, clashed and shaken to lay a bright metallic clank-and-shimmer over bhangra, Punjabi folk and Sikh dhadi music.',
+    short: 'chimta',
     parts: [
       { id: 'chimta_form', name: 'Regional form', variants: [
         { id: 'chimta_form_bhangra_jingle', default: true, name: 'Bhangra jingle chimta', descriptors: ['jingle-studded', 'bright-clanking', 'folk-tongs'], match_tokens: ['struck', 'jingle', 'bhangra', 'metallic'], canonical_tags: ['punjabi-folk', 'bhangra'] },
@@ -21484,7 +21484,7 @@ const INSTRUMENTS = [
     family: 'keyboard',
     class: 'electromechanical_electric_piano',
     axes: { pitchFix: 2, sustain: 0, polyphony: 1, harmonicity: 0, register: 0, range: 1, articulation: 0, transduction: 0, dynamics: 0 },
-    short: 'Hohner\'s sticky-pad reed electric piano: a buzzy, plucky, slightly nasal keyboard bite that is the sound of the Zombies\' \'She\'s Not There\' and Small Faces — a distinct electromechanical mechanism from Rhodes tines and Wurlitzer struck reeds.',
+    short: 'pianet',
     parts: [
       { id: 'hohner_pianet_model', name: 'Model / era', variants: [
         { id: 'hohner_pianet_model_n', default: true, name: 'Pianet N (1960s sticky-pad)', descriptors: ['sticky-pad-plucked', 'bright-reedy-bite', 'sixties-beat-tone'], match_tokens: ['pianet-n', 'electric', 'sixties', 'reed-plucked'], canonical_tags: ['pianet-n'] },
@@ -21508,7 +21508,7 @@ const INSTRUMENTS = [
     family: 'percussion',
     class: 'tuned_percussion',
     axes: { pitchFix: 2, sustain: 2, polyphony: 1, harmonicity: 1, register: 1, range: 2, articulation: -1, transduction: -2, dynamics: -1 },
-    short: 'Acoustic friction idiophone of tuned glass rods stroked with wet fingers, whose vibrations pass through mass-tuned metal weights to cut metal cones, a fiberglass flame, and a high whisker, giving a sustained, pure, glassy tone.',
+    short: 'cristal baschet',
     parts: [
       { id: 'cristal_baschet_form', name: 'Instrument form', variants: [
         { id: 'cristal_baschet_form_concert', default: true, name: 'Concert Cristal Baschet (full five-octave)', descriptors: ['full-range', 'five-octave-cristal', 'concert-glass-organ'], match_tokens: ['friction-driven', 'glassy', 'sustained', 'wide-range'], canonical_tags: ['friction_idiophone', 'concert_form'] },
@@ -21533,7 +21533,7 @@ const INSTRUMENTS = [
     family: 'plucked_traditional',
     class: 'plucked_box_zither',
     axes: { pitchFix: 2, sustain: -1, polyphony: 1, harmonicity: 1, register: 0, range: 1, articulation: 1, transduction: -2, dynamics: -1 },
-    short: 'Medieval Western plucked box zither with open metal or gut strings stretched across a flat trapezoidal or pig\'s-head soundbox, sounded with quills or fingertips in courtly and sacred early-music ensembles.',
+    short: 'medieval psaltery',
     parts: [
       { id: 'medieval_psaltery_form', name: 'Body form', variants: [
         { id: 'medieval_psaltery_form_pigs_head', default: true, name: 'Pig\'s-head (istrumento di porco)', descriptors: ['pigs-head-outline', 'double-trapezoid-box', 'snout-shaped-soundbox'], match_tokens: ['plucked', 'psaltery', 'pigs-head', 'trapezoidal', 'iconic-medieval'], canonical_tags: ['pigs_head_psaltery'] },
@@ -21557,7 +21557,7 @@ const INSTRUMENTS = [
     family: 'ensemble',
     class: 'vocal_choir',
     axes: { pitchFix: -1, sustain: 1, polyphony: 2, harmonicity: 1, register: 0, range: 1, articulation: 2, transduction: -2, dynamics: 2 },
-    short: 'Codified Montevideo carnival unit: 13-17 nasal male voices in stacked, throat-forward harmony driven by a bombo-redoblante-platillos batería.',
+    short: 'murga uruguaya',
     parts: [
       { id: 'murga_uruguaya_formation', name: 'Ensemble formation', variants: [
         { id: 'murga_uruguaya_formation_carnaval', default: true, name: 'Full carnival murga (13-17 voices + batería)', descriptors: ['stacked-male-chorus', 'carnival-scale', 'nasal-throat-forward', 'codified-unit'], match_tokens: ['ensemble', 'choir', 'vocal', 'carnival', 'drone-foundation'], canonical_tags: ['murga', 'tablado'] },
@@ -21634,7 +21634,7 @@ const INSTRUMENTS = [
     family: 'plucked_traditional',
     class: 'plucked_string_lead',
     axes: { pitchFix: 1, sustain: -1, polyphony: 1, harmonicity: 1, register: 0, range: 0, articulation: 1, transduction: -2, dynamics: -1 },
-    short: 'Eight-string anthropomorphic arched harp of Gabon, the sacred lead voice of Mitsogo and Fang Bwiti ceremonies, played in interlocking ostinatos through all-night iboga vigils.',
+    short: 'ngombi',
     parts: [
       { id: 'ngombi_harp_form', name: 'Regional form', variants: [
         { id: 'ngombi_harp_form_tsogo', default: true, name: 'Mitsogo (Tsogo) eight-string', descriptors: ['anthropomorphic-carved-body', 'eight-string-arched', 'ancestress-figure'], match_tokens: ['plucked', 'harp', 'ritual', 'drone-foundation'], canonical_tags: ['gabon', 'bwiti', 'tsogo'] },
@@ -21658,7 +21658,7 @@ const INSTRUMENTS = [
     family: 'keyboard',
     class: 'keyboard_electric',
     axes: { pitchFix: 2, sustain: 1, polyphony: 2, harmonicity: 0, register: 0, range: 1, articulation: 0, transduction: 1, dynamics: 0 },
-    short: 'Mattel\'s optical-disc sample keyboard: pre-recorded instrument-and-accompaniment loops read off spinning celluloid film discs by a photocell, giving warbly, wow-and-flutter lo-fi voices. A hauntology signifier distinct from the tape-based mellotron.',
+    short: 'optigan',
     parts: [
       { id: 'optigan_model', name: 'Model and era', variants: [
         { id: 'optigan_model_mattel', default: true, name: 'Mattel Optigan (1971 home organ)', descriptors: ['warbly-optical', 'home-organ-lofi', 'wow-and-flutter'], match_tokens: ['optical', 'electric', 'electronic', 'lo-fi'], canonical_tags: ['consumer-instrument', 'optical-loop'] },
@@ -21682,7 +21682,7 @@ const INSTRUMENTS = [
     family: 'keyboard',
     class: 'keyboard_acoustic',
     axes: { pitchFix: 2, sustain: 2, polyphony: 1, harmonicity: 1, register: 1, range: 1, articulation: 0, transduction: -2, dynamics: 2 },
-    short: 'Keyboard-operated bank of large tuned brass whistles blown by live boiler steam — a piercing, ear-splitting circus and riverboat instrument audible for miles.',
+    short: 'steam calliope',
     parts: [
       { id: 'steam_calliope_form', name: 'Form / power source', variants: [
         { id: 'steam_calliope_form_showman', default: true, name: 'Circus wagon steam calliope', descriptors: ['ear-splitting', 'steam-driven', 'shrill', 'carnival-bright'], match_tokens: ['wind-driven', 'steam', 'loud', 'piercing'], canonical_tags: ['steam', 'circus'] },
@@ -21707,7 +21707,7 @@ const INSTRUMENTS = [
     family: 'keyboard',
     class: 'keyboard_acoustic',
     axes: { pitchFix: 2, sustain: 2, polyphony: 2, harmonicity: 1, register: 0, range: 1, articulation: 0, transduction: -2, dynamics: 1 },
-    short: 'Hand-cranked mechanical pipe organ that reads a pinned wooden barrel or perforated cardboard book to sound flue and reed pipes — the buzzing, unwavering voice of the Parisian orgue de Barbarie, the Dutch draaiorgel, and Mexico City\'s organilleros.',
+    short: 'barrel organ',
     parts: [
       { id: 'barrel_organ_form', name: 'Regional form and size', variants: [
         { id: 'barrel_organ_form_barbarie', default: true, name: 'Orgue de Barbarie (small Parisian hand-cranked street organ)', descriptors: ['hand-cranked', 'small-street-organ', 'reedy-buzz'], match_tokens: ['street-organ', 'hand-cranked', 'busking', 'crank-driven'], canonical_tags: ['barrel_organ', 'orgue_de_barbarie'] },
@@ -21733,7 +21733,7 @@ const INSTRUMENTS = [
     family: 'wind',
     class: 'mouth_blown_bagpipe',
     axes: { pitchFix: 0, sustain: 2, polyphony: 0, harmonicity: 0, register: 0, range: 0, articulation: 0, transduction: -2, dynamics: 1 },
-    short: 'Estonian single-reed mouth-blown bagpipe with a continuous drone, its non-tempered chanter scale driving village dance tunes and the runo-song folk revival.',
+    short: 'torupill',
     parts: [
       { id: 'torupill_form', name: 'Regional form and drone configuration', variants: [
         { id: 'torupill_form_single_drone', default: true, name: 'Single-drone farmhouse torupill', descriptors: ['single-drone', 'farmhouse-rustic', 'one-toll-drone', 'parallel-bore'], match_tokens: ['wind-driven', 'reed-driven', 'drone-foundation', 'mouth-blown', 'rough-tone'], canonical_tags: ['traditional', 'single_drone'] },
@@ -21758,7 +21758,7 @@ const INSTRUMENTS = [
     family: 'electric_strings',
     class: 'plucked_string_lead',
     axes: { pitchFix: 0, sustain: 0, polyphony: 1, harmonicity: 1, register: 1, range: 1, articulation: 2, transduction: 2, dynamics: 1 },
-    short: 'Amplified solid-body mandolin — bright, cutting pick-and-tremolo lead voice of western swing (Tiny Moore, Johnny Gimble) and electrified newgrass, distinct from the acoustic mandolin.',
+    short: 'electric mandolin',
     parts: [
       { id: 'electric_mandolin_form', name: 'Instrument form and course layout', variants: [
         { id: 'electric_mandolin_form_4course', default: true, name: 'Four-course solid-body (8-string GDAE)', descriptors: ['solid-body', 'double-course', 'bright-lead', 'tight-tremolo'], match_tokens: ['electric', 'plucked', 'solid-body', 'mandolin', 'double-course'], canonical_tags: ['electric-mandolin', 'solid-body'] },
@@ -21809,7 +21809,7 @@ const INSTRUMENTS = [
     family: 'free_reed',
     class: 'free_reed',
     axes: { pitchFix: 2, sustain: 2, polyphony: 1, harmonicity: 1, register: 0, range: 0, articulation: 1, transduction: -2, dynamics: 1 },
-    short: 'Miao/Hmong multi-pipe bamboo free-reed mouth organ — buzzy, danced festival and courtship instrument of southwest China and the Hmong diaspora, distinct from the sheng and khaen in size, tuning, and dance function.',
+    short: 'lusheng',
     parts: [
       { id: 'lusheng_form', name: 'Regional form / size', variants: [
         { id: 'lusheng_form_miao_six_pipe', default: true, name: 'Miao six-pipe lusheng', descriptors: ['six-pipe', 'buzzy', 'mid-register', 'festival'], match_tokens: ['lusheng', 'miao', 'six-pipe', 'reed-driven'], canonical_tags: ['form:six-pipe'] },
