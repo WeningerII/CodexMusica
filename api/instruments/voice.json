@@ -202,6 +202,107 @@
             "barbershop",
             "basso-profondo"
           ]
+        },
+        {
+          "id": "reinforced_falsetto",
+          "auto": false,
+          "name": "Reinforced falsetto (fuller M2, supported not breathy)",
+          "descriptors": [
+            "reinforced-falsetto",
+            "fuller-supported-m2",
+            "less-air-than-pure-falsetto"
+          ],
+          "match_tokens": [
+            "high-falsetto",
+            "speech-derived",
+            "breathing",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "pop",
+            "r&b",
+            "musical-theater"
+          ]
+        },
+        {
+          "id": "countertenor_register",
+          "auto": false,
+          "name": "Countertenor (developed head/falsetto as primary range)",
+          "descriptors": [
+            "countertenor-developed-head",
+            "male-alto-to-soprano-range",
+            "trained-m2-primary"
+          ],
+          "match_tokens": [
+            "high-falsetto",
+            "speech-derived",
+            "breathing",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "early-music",
+            "classical"
+          ]
+        },
+        {
+          "id": "leggiero_head_coloratura",
+          "auto": false,
+          "name": "Leggiero head (light agile coloratura)",
+          "descriptors": [
+            "leggiero-light-head",
+            "agile-thin-fold-coloratura",
+            "high-flexible-runs"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "bel-canto",
+            "coloratura",
+            "classical"
+          ]
+        },
+        {
+          "id": "heavy_m1_belt_register",
+          "auto": false,
+          "name": "Heavy-mechanism belt (M1 carried high, chest-dominant)",
+          "descriptors": [
+            "heavy-m1-carried-high",
+            "chest-dominant-belt-register",
+            "thick-fold-up-high"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "broadway-belt",
+            "gospel",
+            "soul"
+          ]
+        },
+        {
+          "id": "oktavist_sub_bass_register",
+          "auto": false,
+          "name": "Oktavist sub-bass (full-voiced extended low modal)",
+          "descriptors": [
+            "oktavist-modal-sub-bass",
+            "profondo-extended-low-modal",
+            "full-voiced-not-fried-low"
+          ],
+          "match_tokens": [
+            "breathing",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "russian-orthodox-choral",
+            "basso-profondo",
+            "barbershop"
+          ]
         }
       ]
     },
@@ -900,6 +1001,119 @@
             "early-music",
             "crooner-era"
           ]
+        },
+        {
+          "id": "tract_singers_formant_ring",
+          "auto": false,
+          "name": "Singer's formant cluster (2.8-3.2 kHz ring, cutting ping)",
+          "descriptors": [
+            "singers-formant-cluster-3k",
+            "operatic-ring-ping",
+            "carrying-over-orchestra"
+          ],
+          "match_tokens": [],
+          "canonical_tags": [
+            "classical",
+            "opera"
+          ]
+        },
+        {
+          "id": "tract_jaw_dropped_open_call",
+          "auto": false,
+          "name": "Jaw dropped / open-call resonance (wide oral, shout-carry)",
+          "descriptors": [
+            "jaw-dropped-wide-oral",
+            "open-call-carrying-resonance",
+            "field-holler-projection"
+          ],
+          "match_tokens": [],
+          "canonical_tags": [
+            "field-holler",
+            "gospel-shout"
+          ]
+        },
+        {
+          "id": "tract_velum_raised_denasal",
+          "auto": false,
+          "name": "Velum raised (fully de-nasalized, clean oral core)",
+          "descriptors": [
+            "velum-raised-denasalized",
+            "oral-only-no-nasal-coupling",
+            "clean-vowel-core"
+          ],
+          "match_tokens": []
+        },
+        {
+          "id": "tract_epilaryngeal_narrowed",
+          "auto": false,
+          "name": "Epilaryngeal tube narrowed (AES resonance boost, ring)",
+          "descriptors": [
+            "epilaryngeal-tube-narrowed",
+            "aes-resonance-boost-3k",
+            "ring-without-nasal"
+          ],
+          "match_tokens": [],
+          "canonical_tags": [
+            "country",
+            "beijing-opera"
+          ]
+        },
+        {
+          "id": "tract_lengthened_lowered_larynx",
+          "auto": false,
+          "name": "Lengthened tract / lowered larynx (covered, dark formants)",
+          "descriptors": [
+            "tract-lengthened-lowered-larynx",
+            "covered-darkened-formants",
+            "rounded-warm-depth"
+          ],
+          "match_tokens": [],
+          "canonical_tags": [
+            "classical",
+            "crooner-era"
+          ]
+        },
+        {
+          "id": "tract_cupped_hand_muffle",
+          "auto": false,
+          "name": "Cupped-hand / hand-over-mouth muffle (lo-fi filter)",
+          "descriptors": [
+            "cupped-hand-muffle",
+            "hand-over-mouth-filter",
+            "muted-lo-fi-vocal"
+          ],
+          "match_tokens": [],
+          "canonical_tags": [
+            "lo-fi",
+            "harmonica-vocal",
+            "blues"
+          ]
+        },
+        {
+          "id": "tract_mask_placement_forward",
+          "auto": false,
+          "name": "Forward mask placement (sinus/mask resonance, buzzy-bright)",
+          "descriptors": [
+            "mask-placement-forward",
+            "sinus-mask-resonance-buzz",
+            "forward-bright-placement"
+          ],
+          "match_tokens": [],
+          "canonical_tags": [
+            "musical-theater",
+            "pop"
+          ]
+        },
+        {
+          "id": "tract_back_swallowed_placement",
+          "auto": false,
+          "name": "Back / swallowed placement (pulled-back, muffled)",
+          "descriptors": [
+            "back-swallowed-placement",
+            "pulled-back-muffled-tone",
+            "throaty-recessed"
+          ],
+          "match_tokens": []
         }
       ]
     },
@@ -981,6 +1195,122 @@
             "operatic-climax",
             "stadium-anthem",
             "gospel-climax"
+          ]
+        },
+        {
+          "id": "effort_subtone_low_breath",
+          "auto": false,
+          "name": "Subtone (low pressure, intimate breathy-low)",
+          "descriptors": [
+            "subtone-low-subglottal-pressure",
+            "breath-heavy-low-volume",
+            "intimate-jazz-subtone"
+          ],
+          "match_tokens": [],
+          "canonical_tags": [
+            "cool-jazz-vocal",
+            "crooner"
+          ]
+        },
+        {
+          "id": "effort_messa_di_voce",
+          "auto": false,
+          "name": "Messa di voce (crescendo-decrescendo on one note)",
+          "descriptors": [
+            "messa-di-voce-swell",
+            "crescendo-then-decrescendo-single-note",
+            "breath-controlled-dynamic-arc"
+          ],
+          "match_tokens": [],
+          "canonical_tags": [
+            "bel-canto",
+            "classical"
+          ]
+        },
+        {
+          "id": "effort_decrescendo_niente",
+          "auto": false,
+          "name": "Decrescendo al niente (fade to nothing)",
+          "descriptors": [
+            "decrescendo-al-niente",
+            "fade-to-inaudible",
+            "tapered-breath-release"
+          ],
+          "match_tokens": [],
+          "canonical_tags": [
+            "classical",
+            "art-song"
+          ]
+        },
+        {
+          "id": "effort_terraced_dynamics",
+          "auto": false,
+          "name": "Terraced dynamics (abrupt loud/soft blocks)",
+          "descriptors": [
+            "terraced-dynamic-steps",
+            "abrupt-loud-soft-blocks",
+            "baroque-echo-dynamic"
+          ],
+          "match_tokens": [],
+          "canonical_tags": [
+            "baroque",
+            "early-music"
+          ]
+        },
+        {
+          "id": "effort_sforzando_accent",
+          "auto": false,
+          "name": "Sforzando accents (sudden pressure spikes)",
+          "descriptors": [
+            "sforzando-stress-accent",
+            "sudden-pressure-spike-then-back",
+            "marked-dynamic-jab"
+          ],
+          "match_tokens": []
+        },
+        {
+          "id": "effort_pulsed_gospel_push",
+          "auto": false,
+          "name": "Rhythmic breath-pulse push (gospel/soul emphasis)",
+          "descriptors": [
+            "rhythmic-breath-pulse-push",
+            "gospel-emphasis-surge",
+            "soul-dynamic-swell"
+          ],
+          "match_tokens": [],
+          "canonical_tags": [
+            "gospel",
+            "soul"
+          ]
+        },
+        {
+          "id": "effort_edge_of_clean_cuivre",
+          "auto": false,
+          "name": "Edge-of-clean brassy (cuivré, controlled brink)",
+          "descriptors": [
+            "edge-of-clean-limit-controlled",
+            "cuivre-brassy-edge",
+            "pressure-brink-not-past"
+          ],
+          "match_tokens": [],
+          "canonical_tags": [
+            "rock-belt",
+            "musical-theater"
+          ]
+        },
+        {
+          "id": "effort_marcato_declamatory",
+          "auto": false,
+          "name": "Marcato declamation (weighted, each note stressed)",
+          "descriptors": [
+            "marcato-weighted-declamation",
+            "heavy-emphatic-delivery",
+            "each-syllable-pressed"
+          ],
+          "match_tokens": [],
+          "canonical_tags": [
+            "opera",
+            "anthem"
           ]
         }
       ]
@@ -1150,6 +1480,135 @@
           "canonical_tags": [
             "late-career-operatic",
             "dramatic-opera"
+          ]
+        },
+        {
+          "id": "bleat_caprino_vibrato",
+          "auto": false,
+          "name": "Bleat / caprino (fast narrow goat-trill)",
+          "descriptors": [
+            "fast-bleat-caprino",
+            "goat-trill-narrow-fast",
+            "nervous-tight-flutter"
+          ],
+          "match_tokens": [
+            "vibrato-rich",
+            "vibrato-y",
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "early-music-caution"
+          ]
+        },
+        {
+          "id": "narrow_shimmer_vibrato",
+          "auto": false,
+          "name": "Narrow continuous shimmer (subtle close-mic waver)",
+          "descriptors": [
+            "narrow-continuous-shimmer",
+            "close-mic-subtle-waver",
+            "pop-tasteful-narrow"
+          ],
+          "match_tokens": [
+            "vibrato-rich",
+            "vibrato-y",
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "contemporary-pop"
+          ]
+        },
+        {
+          "id": "pure_pitch_no_amplitude_vibrato",
+          "auto": false,
+          "name": "Pure-pitch vibrato (fold-tension modulation, no loudness change)",
+          "descriptors": [
+            "pure-pitch-vibrato-no-amplitude",
+            "fold-tension-modulation-only",
+            "string-like-pitch-waver"
+          ],
+          "match_tokens": [
+            "vibrato-rich",
+            "vibrato-y",
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "amplitude_tremolo_vibrato",
+          "auto": false,
+          "name": "Amplitude tremolo (loudness pulse, pitch stays)",
+          "descriptors": [
+            "amplitude-tremolo-pitch-stable",
+            "loudness-only-pulse",
+            "organ-like-throb"
+          ],
+          "match_tokens": [
+            "vibrato-rich",
+            "vibrato-y",
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "gospel-organ-vocal"
+          ]
+        },
+        {
+          "id": "accelerating_vibrato",
+          "auto": false,
+          "name": "Accelerating (slow onset speeding up, intensifying)",
+          "descriptors": [
+            "accelerating-vibrato-rate",
+            "intensifying-over-sustain",
+            "building-flutter"
+          ],
+          "match_tokens": [
+            "vibrato-rich",
+            "vibrato-y",
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "decelerating_widening_vibrato",
+          "auto": false,
+          "name": "Decelerating + widening toward release (dramatic open)",
+          "descriptors": [
+            "decelerating-widening-toward-release",
+            "dramatic-opening-waver",
+            "slow-wide-finish"
+          ],
+          "match_tokens": [
+            "vibrato-rich",
+            "vibrato-y",
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "dramatic-opera",
+            "power-ballad"
+          ]
+        },
+        {
+          "id": "asymmetric_scoop_vibrato",
+          "auto": false,
+          "name": "Asymmetric under-pitch scoop (leans flat, blues/soul lean)",
+          "descriptors": [
+            "asymmetric-under-pitch-scoop",
+            "blues-soul-lean-flat-cycle",
+            "bluesy-drawled-sway"
+          ],
+          "match_tokens": [
+            "vibrato-rich",
+            "vibrato-y",
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "blues",
+            "soul"
           ]
         }
       ]
@@ -1351,6 +1810,118 @@
             "mumble-rap",
             "2010s"
           ]
+        },
+        {
+          "id": "marcato_voice",
+          "auto": false,
+          "name": "Marcato (each note marked/separated, weighted)",
+          "descriptors": [
+            "marcato-each-note-marked",
+            "weighted-separation",
+            "emphatic-detachment"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "opera",
+            "anthem"
+          ]
+        },
+        {
+          "id": "portato_voice",
+          "auto": false,
+          "name": "Portato (semi-detached, breath-pulsed carry)",
+          "descriptors": [
+            "portato-semi-detached-carried",
+            "breath-pulsed-legato",
+            "gently-articulated-sustain"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "articulated"
+          ]
+        },
+        {
+          "id": "glottal_stop_percussive_voice",
+          "auto": false,
+          "name": "Glottal-stop punctuated (okina / hamza percussive onsets)",
+          "descriptors": [
+            "glottal-stop-punctuation",
+            "okina-hamza-percussive-onset",
+            "hard-attack-separation"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "hawaiian",
+            "arabic"
+          ]
+        },
+        {
+          "id": "vocable_syllabic_drum_voice",
+          "auto": false,
+          "name": "Vocable syllable-drumming (konnakol / bol / mouth-music)",
+          "descriptors": [
+            "vocable-syllable-drumming",
+            "konnakol-bol-mouth-music",
+            "non-lexical-rhythmic-attack"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "carnatic-konnakol",
+            "puirt-a-beul",
+            "scat"
+          ]
+        },
+        {
+          "id": "ululation_trilled_voice",
+          "auto": false,
+          "name": "Ululation (rapid uvular-trilled celebratory)",
+          "descriptors": [
+            "ululation-rapid-uvular-trill",
+            "celebratory-zaghrouta",
+            "high-trilled-cry"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "middle-eastern",
+            "african",
+            "celebratory"
+          ]
+        },
+        {
+          "id": "sighed_falling_release_voice",
+          "auto": false,
+          "name": "Sighed falling-off releases (phrase-end downward sigh)",
+          "descriptors": [
+            "sighed-falling-release",
+            "phrase-end-downward-sigh",
+            "languid-drop-off"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "torch-song",
+            "r&b-ballad",
+            "indie"
+          ]
         }
       ]
     },
@@ -1492,6 +2063,158 @@
             "pre-1930-operatic",
             "hawaiian-falsetto",
             "classic-country"
+          ]
+        },
+        {
+          "id": "just_intonation_pure",
+          "auto": false,
+          "name": "Just intonation (pure beatless ratios, chord-lock)",
+          "descriptors": [
+            "just-intonation-pure-ratios",
+            "beatless-chord-lock",
+            "harmonic-series-tuning"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "barbershop",
+            "sacred-harp",
+            "choral"
+          ]
+        },
+        {
+          "id": "pythagorean_leading",
+          "auto": false,
+          "name": "Pythagorean expressive leading tones (wide sharpened semitones)",
+          "descriptors": [
+            "pythagorean-wide-leading-tone",
+            "expressive-sharpened-semitone",
+            "melodic-tension-tuning"
+          ],
+          "match_tokens": [
+            "microtonal-bend",
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "expressive-classical"
+          ]
+        },
+        {
+          "id": "meantone_comma_inflected",
+          "auto": false,
+          "name": "Meantone / comma-inflected (narrow pure thirds, early music)",
+          "descriptors": [
+            "meantone-comma-inflected",
+            "narrow-pure-third-early-music",
+            "historically-tuned"
+          ],
+          "match_tokens": [
+            "microtonal-bend",
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "early-music",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "byzantine_morai_microtone",
+          "auto": false,
+          "name": "Byzantine chant microtones (soft/hard chromatic genera)",
+          "descriptors": [
+            "byzantine-morai-microtone",
+            "soft-hard-chromatic-genera",
+            "orthodox-modal-shading"
+          ],
+          "match_tokens": [
+            "microtonal-bend",
+            "shruti-inflected",
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "byzantine",
+            "orthodox-chant"
+          ]
+        },
+        {
+          "id": "pelog_slendro_inflected",
+          "auto": false,
+          "name": "Pelog / slendro inflected (gamelan non-tempered, stretched)",
+          "descriptors": [
+            "pelog-slendro-inflected",
+            "gamelan-non-tempered",
+            "stretched-non-octave-tuning"
+          ],
+          "match_tokens": [
+            "microtonal-bend",
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "gamelan",
+            "indonesian"
+          ]
+        },
+        {
+          "id": "pentatonic_gapped_glide",
+          "auto": false,
+          "name": "Gapped-pentatonic glides (sliding between anhemitonic degrees)",
+          "descriptors": [
+            "pentatonic-gapped-glide",
+            "sliding-between-anhemitonic-degrees",
+            "east-asian-pitch-slide"
+          ],
+          "match_tokens": [
+            "microtonal-bend",
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "chinese",
+            "east-asian"
+          ]
+        },
+        {
+          "id": "untempered_pitch_drift",
+          "auto": false,
+          "name": "Untempered pitch drift (free-intonation, floating center)",
+          "descriptors": [
+            "untempered-pitch-drift",
+            "free-intonation-folk",
+            "pitch-center-floating"
+          ],
+          "match_tokens": [
+            "microtonal-bend",
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "field-recording",
+            "untrained-folk"
+          ]
+        },
+        {
+          "id": "siren_glissando_full",
+          "auto": false,
+          "name": "Full siren glissando (continuous sweep across register)",
+          "descriptors": [
+            "full-range-siren-glissando",
+            "continuous-sweep-across-register",
+            "swooping-pitch-sweep"
+          ],
+          "match_tokens": [
+            "microtonal-bend",
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "avant-garde-vocal",
+            "r&b-run"
           ]
         }
       ]
@@ -2559,6 +3282,136 @@
           "canonical_tags": [
             "contemporary-pop",
             "soul-ballad"
+          ]
+        },
+        {
+          "id": "voice_estill_onset_glottal",
+          "auto": false,
+          "name": "Glottal onset (firm TVF adduction, coup-de-glotte hard start)",
+          "descriptors": [
+            "glottal-onset-firm-adduction",
+            "hard-coup-de-glotte-start",
+            "clean-pressed-attack"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "classical",
+            "rock-belt"
+          ]
+        },
+        {
+          "id": "voice_estill_onset_aspirate",
+          "auto": false,
+          "name": "Aspirate onset (breath before tone, /h/ start)",
+          "descriptors": [
+            "aspirate-onset-breath-before-tone",
+            "h-onset-soft-start",
+            "breathy-attack"
+          ],
+          "match_tokens": [
+            "breathy",
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "pop-ballad",
+            "soul"
+          ]
+        },
+        {
+          "id": "voice_estill_onset_smooth_simultaneous",
+          "auto": false,
+          "name": "Smooth simultaneous onset (balanced airflow + adduction)",
+          "descriptors": [
+            "smooth-simultaneous-onset",
+            "balanced-airflow-adduction",
+            "even-clean-start"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "voice_estill_tvf_thick_body",
+          "auto": false,
+          "name": "Thick true-fold body (heavy mechanism, full mass)",
+          "descriptors": [
+            "thick-true-fold-body-mass",
+            "heavy-mechanism-full-adduction",
+            "rich-low-harmonic"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "voice_estill_tvf_thin_cover",
+          "auto": false,
+          "name": "Thin true-fold cover (light mechanism, reduced mass)",
+          "descriptors": [
+            "thin-true-fold-cover",
+            "light-mechanism-reduced-mass",
+            "flute-clear-upper"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "voice_estill_tvf_stiff_creak",
+          "auto": false,
+          "name": "Stiff true-folds (creak / pulse-register anchor)",
+          "descriptors": [
+            "stiff-true-fold-creak",
+            "pulse-register-anchor",
+            "low-creaky-onset"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "voice_estill_false_fold_retract",
+          "auto": false,
+          "name": "Retracted false folds (open, clean, laugh-posture)",
+          "descriptors": [
+            "false-fold-retracted-open",
+            "laugh-posture-clean",
+            "constriction-released"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "classical",
+            "clean-belt"
+          ]
+        },
+        {
+          "id": "voice_estill_false_fold_constrict_grit",
+          "auto": false,
+          "name": "Constricted false folds (grit / distortion overlay)",
+          "descriptors": [
+            "false-fold-constricted-grit",
+            "ventricular-distortion-overlay",
+            "rasp-effect-on-core"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "rock",
+            "metal",
+            "blues-growl"
           ]
         }
       ]
@@ -4849,6 +5702,107 @@
             "barbershop",
             "basso-profondo"
           ]
+        },
+        {
+          "id": "reinforced_falsetto",
+          "auto": false,
+          "name": "Reinforced falsetto (fuller M2, supported not breathy)",
+          "descriptors": [
+            "reinforced-falsetto",
+            "fuller-supported-m2",
+            "less-air-than-pure-falsetto"
+          ],
+          "match_tokens": [
+            "high-falsetto",
+            "speech-derived",
+            "breathing",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "pop",
+            "r&b",
+            "musical-theater"
+          ]
+        },
+        {
+          "id": "countertenor_register",
+          "auto": false,
+          "name": "Countertenor (developed head/falsetto as primary range)",
+          "descriptors": [
+            "countertenor-developed-head",
+            "male-alto-to-soprano-range",
+            "trained-m2-primary"
+          ],
+          "match_tokens": [
+            "high-falsetto",
+            "speech-derived",
+            "breathing",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "baroque",
+            "early-music",
+            "classical"
+          ]
+        },
+        {
+          "id": "leggiero_head_coloratura",
+          "auto": false,
+          "name": "Leggiero head (light agile coloratura)",
+          "descriptors": [
+            "leggiero-light-head",
+            "agile-thin-fold-coloratura",
+            "high-flexible-runs"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "bel-canto",
+            "coloratura",
+            "classical"
+          ]
+        },
+        {
+          "id": "heavy_m1_belt_register",
+          "auto": false,
+          "name": "Heavy-mechanism belt (M1 carried high, chest-dominant)",
+          "descriptors": [
+            "heavy-m1-carried-high",
+            "chest-dominant-belt-register",
+            "thick-fold-up-high"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "broadway-belt",
+            "gospel",
+            "soul"
+          ]
+        },
+        {
+          "id": "oktavist_sub_bass_register",
+          "auto": false,
+          "name": "Oktavist sub-bass (full-voiced extended low modal)",
+          "descriptors": [
+            "oktavist-modal-sub-bass",
+            "profondo-extended-low-modal",
+            "full-voiced-not-fried-low"
+          ],
+          "match_tokens": [
+            "breathing",
+            "sustained-tone"
+          ],
+          "canonical_tags": [
+            "russian-orthodox-choral",
+            "basso-profondo",
+            "barbershop"
+          ]
         }
       ]
     },
@@ -5547,6 +6501,119 @@
             "early-music",
             "crooner-era"
           ]
+        },
+        {
+          "id": "tract_singers_formant_ring",
+          "auto": false,
+          "name": "Singer's formant cluster (2.8-3.2 kHz ring, cutting ping)",
+          "descriptors": [
+            "singers-formant-cluster-3k",
+            "operatic-ring-ping",
+            "carrying-over-orchestra"
+          ],
+          "match_tokens": [],
+          "canonical_tags": [
+            "classical",
+            "opera"
+          ]
+        },
+        {
+          "id": "tract_jaw_dropped_open_call",
+          "auto": false,
+          "name": "Jaw dropped / open-call resonance (wide oral, shout-carry)",
+          "descriptors": [
+            "jaw-dropped-wide-oral",
+            "open-call-carrying-resonance",
+            "field-holler-projection"
+          ],
+          "match_tokens": [],
+          "canonical_tags": [
+            "field-holler",
+            "gospel-shout"
+          ]
+        },
+        {
+          "id": "tract_velum_raised_denasal",
+          "auto": false,
+          "name": "Velum raised (fully de-nasalized, clean oral core)",
+          "descriptors": [
+            "velum-raised-denasalized",
+            "oral-only-no-nasal-coupling",
+            "clean-vowel-core"
+          ],
+          "match_tokens": []
+        },
+        {
+          "id": "tract_epilaryngeal_narrowed",
+          "auto": false,
+          "name": "Epilaryngeal tube narrowed (AES resonance boost, ring)",
+          "descriptors": [
+            "epilaryngeal-tube-narrowed",
+            "aes-resonance-boost-3k",
+            "ring-without-nasal"
+          ],
+          "match_tokens": [],
+          "canonical_tags": [
+            "country",
+            "beijing-opera"
+          ]
+        },
+        {
+          "id": "tract_lengthened_lowered_larynx",
+          "auto": false,
+          "name": "Lengthened tract / lowered larynx (covered, dark formants)",
+          "descriptors": [
+            "tract-lengthened-lowered-larynx",
+            "covered-darkened-formants",
+            "rounded-warm-depth"
+          ],
+          "match_tokens": [],
+          "canonical_tags": [
+            "classical",
+            "crooner-era"
+          ]
+        },
+        {
+          "id": "tract_cupped_hand_muffle",
+          "auto": false,
+          "name": "Cupped-hand / hand-over-mouth muffle (lo-fi filter)",
+          "descriptors": [
+            "cupped-hand-muffle",
+            "hand-over-mouth-filter",
+            "muted-lo-fi-vocal"
+          ],
+          "match_tokens": [],
+          "canonical_tags": [
+            "lo-fi",
+            "harmonica-vocal",
+            "blues"
+          ]
+        },
+        {
+          "id": "tract_mask_placement_forward",
+          "auto": false,
+          "name": "Forward mask placement (sinus/mask resonance, buzzy-bright)",
+          "descriptors": [
+            "mask-placement-forward",
+            "sinus-mask-resonance-buzz",
+            "forward-bright-placement"
+          ],
+          "match_tokens": [],
+          "canonical_tags": [
+            "musical-theater",
+            "pop"
+          ]
+        },
+        {
+          "id": "tract_back_swallowed_placement",
+          "auto": false,
+          "name": "Back / swallowed placement (pulled-back, muffled)",
+          "descriptors": [
+            "back-swallowed-placement",
+            "pulled-back-muffled-tone",
+            "throaty-recessed"
+          ],
+          "match_tokens": []
         }
       ]
     },
@@ -5628,6 +6695,122 @@
             "operatic-climax",
             "stadium-anthem",
             "gospel-climax"
+          ]
+        },
+        {
+          "id": "effort_subtone_low_breath",
+          "auto": false,
+          "name": "Subtone (low pressure, intimate breathy-low)",
+          "descriptors": [
+            "subtone-low-subglottal-pressure",
+            "breath-heavy-low-volume",
+            "intimate-jazz-subtone"
+          ],
+          "match_tokens": [],
+          "canonical_tags": [
+            "cool-jazz-vocal",
+            "crooner"
+          ]
+        },
+        {
+          "id": "effort_messa_di_voce",
+          "auto": false,
+          "name": "Messa di voce (crescendo-decrescendo on one note)",
+          "descriptors": [
+            "messa-di-voce-swell",
+            "crescendo-then-decrescendo-single-note",
+            "breath-controlled-dynamic-arc"
+          ],
+          "match_tokens": [],
+          "canonical_tags": [
+            "bel-canto",
+            "classical"
+          ]
+        },
+        {
+          "id": "effort_decrescendo_niente",
+          "auto": false,
+          "name": "Decrescendo al niente (fade to nothing)",
+          "descriptors": [
+            "decrescendo-al-niente",
+            "fade-to-inaudible",
+            "tapered-breath-release"
+          ],
+          "match_tokens": [],
+          "canonical_tags": [
+            "classical",
+            "art-song"
+          ]
+        },
+        {
+          "id": "effort_terraced_dynamics",
+          "auto": false,
+          "name": "Terraced dynamics (abrupt loud/soft blocks)",
+          "descriptors": [
+            "terraced-dynamic-steps",
+            "abrupt-loud-soft-blocks",
+            "baroque-echo-dynamic"
+          ],
+          "match_tokens": [],
+          "canonical_tags": [
+            "baroque",
+            "early-music"
+          ]
+        },
+        {
+          "id": "effort_sforzando_accent",
+          "auto": false,
+          "name": "Sforzando accents (sudden pressure spikes)",
+          "descriptors": [
+            "sforzando-stress-accent",
+            "sudden-pressure-spike-then-back",
+            "marked-dynamic-jab"
+          ],
+          "match_tokens": []
+        },
+        {
+          "id": "effort_pulsed_gospel_push",
+          "auto": false,
+          "name": "Rhythmic breath-pulse push (gospel/soul emphasis)",
+          "descriptors": [
+            "rhythmic-breath-pulse-push",
+            "gospel-emphasis-surge",
+            "soul-dynamic-swell"
+          ],
+          "match_tokens": [],
+          "canonical_tags": [
+            "gospel",
+            "soul"
+          ]
+        },
+        {
+          "id": "effort_edge_of_clean_cuivre",
+          "auto": false,
+          "name": "Edge-of-clean brassy (cuivré, controlled brink)",
+          "descriptors": [
+            "edge-of-clean-limit-controlled",
+            "cuivre-brassy-edge",
+            "pressure-brink-not-past"
+          ],
+          "match_tokens": [],
+          "canonical_tags": [
+            "rock-belt",
+            "musical-theater"
+          ]
+        },
+        {
+          "id": "effort_marcato_declamatory",
+          "auto": false,
+          "name": "Marcato declamation (weighted, each note stressed)",
+          "descriptors": [
+            "marcato-weighted-declamation",
+            "heavy-emphatic-delivery",
+            "each-syllable-pressed"
+          ],
+          "match_tokens": [],
+          "canonical_tags": [
+            "opera",
+            "anthem"
           ]
         }
       ]
@@ -5797,6 +6980,135 @@
           "canonical_tags": [
             "late-career-operatic",
             "dramatic-opera"
+          ]
+        },
+        {
+          "id": "bleat_caprino_vibrato",
+          "auto": false,
+          "name": "Bleat / caprino (fast narrow goat-trill)",
+          "descriptors": [
+            "fast-bleat-caprino",
+            "goat-trill-narrow-fast",
+            "nervous-tight-flutter"
+          ],
+          "match_tokens": [
+            "vibrato-rich",
+            "vibrato-y",
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "early-music-caution"
+          ]
+        },
+        {
+          "id": "narrow_shimmer_vibrato",
+          "auto": false,
+          "name": "Narrow continuous shimmer (subtle close-mic waver)",
+          "descriptors": [
+            "narrow-continuous-shimmer",
+            "close-mic-subtle-waver",
+            "pop-tasteful-narrow"
+          ],
+          "match_tokens": [
+            "vibrato-rich",
+            "vibrato-y",
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "contemporary-pop"
+          ]
+        },
+        {
+          "id": "pure_pitch_no_amplitude_vibrato",
+          "auto": false,
+          "name": "Pure-pitch vibrato (fold-tension modulation, no loudness change)",
+          "descriptors": [
+            "pure-pitch-vibrato-no-amplitude",
+            "fold-tension-modulation-only",
+            "string-like-pitch-waver"
+          ],
+          "match_tokens": [
+            "vibrato-rich",
+            "vibrato-y",
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "amplitude_tremolo_vibrato",
+          "auto": false,
+          "name": "Amplitude tremolo (loudness pulse, pitch stays)",
+          "descriptors": [
+            "amplitude-tremolo-pitch-stable",
+            "loudness-only-pulse",
+            "organ-like-throb"
+          ],
+          "match_tokens": [
+            "vibrato-rich",
+            "vibrato-y",
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "gospel-organ-vocal"
+          ]
+        },
+        {
+          "id": "accelerating_vibrato",
+          "auto": false,
+          "name": "Accelerating (slow onset speeding up, intensifying)",
+          "descriptors": [
+            "accelerating-vibrato-rate",
+            "intensifying-over-sustain",
+            "building-flutter"
+          ],
+          "match_tokens": [
+            "vibrato-rich",
+            "vibrato-y",
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "decelerating_widening_vibrato",
+          "auto": false,
+          "name": "Decelerating + widening toward release (dramatic open)",
+          "descriptors": [
+            "decelerating-widening-toward-release",
+            "dramatic-opening-waver",
+            "slow-wide-finish"
+          ],
+          "match_tokens": [
+            "vibrato-rich",
+            "vibrato-y",
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "dramatic-opera",
+            "power-ballad"
+          ]
+        },
+        {
+          "id": "asymmetric_scoop_vibrato",
+          "auto": false,
+          "name": "Asymmetric under-pitch scoop (leans flat, blues/soul lean)",
+          "descriptors": [
+            "asymmetric-under-pitch-scoop",
+            "blues-soul-lean-flat-cycle",
+            "bluesy-drawled-sway"
+          ],
+          "match_tokens": [
+            "vibrato-rich",
+            "vibrato-y",
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "blues",
+            "soul"
           ]
         }
       ]
@@ -5998,6 +7310,118 @@
             "mumble-rap",
             "2010s"
           ]
+        },
+        {
+          "id": "marcato_voice",
+          "auto": false,
+          "name": "Marcato (each note marked/separated, weighted)",
+          "descriptors": [
+            "marcato-each-note-marked",
+            "weighted-separation",
+            "emphatic-detachment"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "opera",
+            "anthem"
+          ]
+        },
+        {
+          "id": "portato_voice",
+          "auto": false,
+          "name": "Portato (semi-detached, breath-pulsed carry)",
+          "descriptors": [
+            "portato-semi-detached-carried",
+            "breath-pulsed-legato",
+            "gently-articulated-sustain"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "articulated"
+          ]
+        },
+        {
+          "id": "glottal_stop_percussive_voice",
+          "auto": false,
+          "name": "Glottal-stop punctuated (okina / hamza percussive onsets)",
+          "descriptors": [
+            "glottal-stop-punctuation",
+            "okina-hamza-percussive-onset",
+            "hard-attack-separation"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "hawaiian",
+            "arabic"
+          ]
+        },
+        {
+          "id": "vocable_syllabic_drum_voice",
+          "auto": false,
+          "name": "Vocable syllable-drumming (konnakol / bol / mouth-music)",
+          "descriptors": [
+            "vocable-syllable-drumming",
+            "konnakol-bol-mouth-music",
+            "non-lexical-rhythmic-attack"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "carnatic-konnakol",
+            "puirt-a-beul",
+            "scat"
+          ]
+        },
+        {
+          "id": "ululation_trilled_voice",
+          "auto": false,
+          "name": "Ululation (rapid uvular-trilled celebratory)",
+          "descriptors": [
+            "ululation-rapid-uvular-trill",
+            "celebratory-zaghrouta",
+            "high-trilled-cry"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing",
+            "articulated"
+          ],
+          "canonical_tags": [
+            "middle-eastern",
+            "african",
+            "celebratory"
+          ]
+        },
+        {
+          "id": "sighed_falling_release_voice",
+          "auto": false,
+          "name": "Sighed falling-off releases (phrase-end downward sigh)",
+          "descriptors": [
+            "sighed-falling-release",
+            "phrase-end-downward-sigh",
+            "languid-drop-off"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "torch-song",
+            "r&b-ballad",
+            "indie"
+          ]
         }
       ]
     },
@@ -6139,6 +7563,158 @@
             "pre-1930-operatic",
             "hawaiian-falsetto",
             "classic-country"
+          ]
+        },
+        {
+          "id": "just_intonation_pure",
+          "auto": false,
+          "name": "Just intonation (pure beatless ratios, chord-lock)",
+          "descriptors": [
+            "just-intonation-pure-ratios",
+            "beatless-chord-lock",
+            "harmonic-series-tuning"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "barbershop",
+            "sacred-harp",
+            "choral"
+          ]
+        },
+        {
+          "id": "pythagorean_leading",
+          "auto": false,
+          "name": "Pythagorean expressive leading tones (wide sharpened semitones)",
+          "descriptors": [
+            "pythagorean-wide-leading-tone",
+            "expressive-sharpened-semitone",
+            "melodic-tension-tuning"
+          ],
+          "match_tokens": [
+            "microtonal-bend",
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "expressive-classical"
+          ]
+        },
+        {
+          "id": "meantone_comma_inflected",
+          "auto": false,
+          "name": "Meantone / comma-inflected (narrow pure thirds, early music)",
+          "descriptors": [
+            "meantone-comma-inflected",
+            "narrow-pure-third-early-music",
+            "historically-tuned"
+          ],
+          "match_tokens": [
+            "microtonal-bend",
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "early-music",
+            "renaissance"
+          ]
+        },
+        {
+          "id": "byzantine_morai_microtone",
+          "auto": false,
+          "name": "Byzantine chant microtones (soft/hard chromatic genera)",
+          "descriptors": [
+            "byzantine-morai-microtone",
+            "soft-hard-chromatic-genera",
+            "orthodox-modal-shading"
+          ],
+          "match_tokens": [
+            "microtonal-bend",
+            "shruti-inflected",
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "byzantine",
+            "orthodox-chant"
+          ]
+        },
+        {
+          "id": "pelog_slendro_inflected",
+          "auto": false,
+          "name": "Pelog / slendro inflected (gamelan non-tempered, stretched)",
+          "descriptors": [
+            "pelog-slendro-inflected",
+            "gamelan-non-tempered",
+            "stretched-non-octave-tuning"
+          ],
+          "match_tokens": [
+            "microtonal-bend",
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "gamelan",
+            "indonesian"
+          ]
+        },
+        {
+          "id": "pentatonic_gapped_glide",
+          "auto": false,
+          "name": "Gapped-pentatonic glides (sliding between anhemitonic degrees)",
+          "descriptors": [
+            "pentatonic-gapped-glide",
+            "sliding-between-anhemitonic-degrees",
+            "east-asian-pitch-slide"
+          ],
+          "match_tokens": [
+            "microtonal-bend",
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "chinese",
+            "east-asian"
+          ]
+        },
+        {
+          "id": "untempered_pitch_drift",
+          "auto": false,
+          "name": "Untempered pitch drift (free-intonation, floating center)",
+          "descriptors": [
+            "untempered-pitch-drift",
+            "free-intonation-folk",
+            "pitch-center-floating"
+          ],
+          "match_tokens": [
+            "microtonal-bend",
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "field-recording",
+            "untrained-folk"
+          ]
+        },
+        {
+          "id": "siren_glissando_full",
+          "auto": false,
+          "name": "Full siren glissando (continuous sweep across register)",
+          "descriptors": [
+            "full-range-siren-glissando",
+            "continuous-sweep-across-register",
+            "swooping-pitch-sweep"
+          ],
+          "match_tokens": [
+            "microtonal-bend",
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "avant-garde-vocal",
+            "r&b-run"
           ]
         }
       ]
@@ -7206,6 +8782,136 @@
           "canonical_tags": [
             "contemporary-pop",
             "soul-ballad"
+          ]
+        },
+        {
+          "id": "voice_estill_onset_glottal",
+          "auto": false,
+          "name": "Glottal onset (firm TVF adduction, coup-de-glotte hard start)",
+          "descriptors": [
+            "glottal-onset-firm-adduction",
+            "hard-coup-de-glotte-start",
+            "clean-pressed-attack"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "classical",
+            "rock-belt"
+          ]
+        },
+        {
+          "id": "voice_estill_onset_aspirate",
+          "auto": false,
+          "name": "Aspirate onset (breath before tone, /h/ start)",
+          "descriptors": [
+            "aspirate-onset-breath-before-tone",
+            "h-onset-soft-start",
+            "breathy-attack"
+          ],
+          "match_tokens": [
+            "breathy",
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "pop-ballad",
+            "soul"
+          ]
+        },
+        {
+          "id": "voice_estill_onset_smooth_simultaneous",
+          "auto": false,
+          "name": "Smooth simultaneous onset (balanced airflow + adduction)",
+          "descriptors": [
+            "smooth-simultaneous-onset",
+            "balanced-airflow-adduction",
+            "even-clean-start"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "voice_estill_tvf_thick_body",
+          "auto": false,
+          "name": "Thick true-fold body (heavy mechanism, full mass)",
+          "descriptors": [
+            "thick-true-fold-body-mass",
+            "heavy-mechanism-full-adduction",
+            "rich-low-harmonic"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "voice_estill_tvf_thin_cover",
+          "auto": false,
+          "name": "Thin true-fold cover (light mechanism, reduced mass)",
+          "descriptors": [
+            "thin-true-fold-cover",
+            "light-mechanism-reduced-mass",
+            "flute-clear-upper"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "voice_estill_tvf_stiff_creak",
+          "auto": false,
+          "name": "Stiff true-folds (creak / pulse-register anchor)",
+          "descriptors": [
+            "stiff-true-fold-creak",
+            "pulse-register-anchor",
+            "low-creaky-onset"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ]
+        },
+        {
+          "id": "voice_estill_false_fold_retract",
+          "auto": false,
+          "name": "Retracted false folds (open, clean, laugh-posture)",
+          "descriptors": [
+            "false-fold-retracted-open",
+            "laugh-posture-clean",
+            "constriction-released"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "classical",
+            "clean-belt"
+          ]
+        },
+        {
+          "id": "voice_estill_false_fold_constrict_grit",
+          "auto": false,
+          "name": "Constricted false folds (grit / distortion overlay)",
+          "descriptors": [
+            "false-fold-constricted-grit",
+            "ventricular-distortion-overlay",
+            "rasp-effect-on-core"
+          ],
+          "match_tokens": [
+            "speech-derived",
+            "breathing"
+          ],
+          "canonical_tags": [
+            "rock",
+            "metal",
+            "blues-growl"
           ]
         }
       ]
