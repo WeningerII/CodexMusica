@@ -65,6 +65,16 @@ for (const inst of C.INSTRUMENTS || [])
       for (const d of v.match_tokens || []) allCard.add(d);
     }
 
+// Also pool every chain-section item's descriptors (mic / pre / medium / console
+// / fx / comp / eq / amp). mic, pre, medium and console are reshape-optimizer
+// axes, so a preface token matching one of their item descriptors legitimately
+// steers the derivation toward that item (e.g. a spatial preface -> a stereo
+// capture mic). fx/comp/eq/amp aren't derivation axes but their items are still
+// manually selectable via set_environment, so their descriptors are real
+// authored vocabulary, not dead. Same rationale as the variant pool above.
+for (const sec of C.CHAIN_SECTIONS || [])
+  for (const it of sec.items || []) for (const d of it.descriptors || []) allCard.add(d);
+
 const issues = [];
 for (const e of C.PREFACE_LEXICON) {
   const tokens = Array.isArray(e.tokens) ? e.tokens : [];

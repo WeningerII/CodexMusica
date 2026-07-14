@@ -1555,7 +1555,7 @@ const PREFACE_LEXICON = [
   {
     id: 'cinematic',
     note: "scored for an unseen screen — lush orchestral sustain layered into wide ambient space",
-    tokens: ['orchestral', 'late-Romantic-onward', 'sustained-projection', 'layered-ambient', 'lush-ambient', 'dark-romantic', 'asymmetric-saturation', 'sustained-tone', 'full']
+    tokens: ['orchestral', 'late-Romantic-onward', 'sustained-projection', 'layered-ambient', 'lush-ambient', 'dark-romantic', 'asymmetric-saturation', 'sustained-tone', 'full', 'decca-tree-three-mic']
   },
   {
     id: 'warm',
@@ -1870,17 +1870,17 @@ const PREFACE_LEXICON = [
   {
     id: 'spacious',
     note: "the big room breathing — long reverberant decay opening wide behind the source",
-    tokens: ['expansive-reverb', 'naturally-reverberant', 'cavernous', 'reverberant', 'wide', 'wide-soundstage', 'ambient', 'sustained-tone', 'vast']
+    tokens: ['expansive-reverb', 'naturally-reverberant', 'cavernous', 'reverberant', 'wide', 'wide-soundstage', 'ambient', 'sustained-tone', 'vast', 'wide-imaging']
   },
   {
     id: 'panoramic',
     note: "the wide vista — image spread edge to edge, the field opening past the speakers",
-    tokens: ['panoramic-image', 'wide-soundstage', 'wide', 'dynamic-range-wide', 'expansive-reverb', 'layered-ambient', 'vast', 'soaring', 'naturally-reverberant']
+    tokens: ['panoramic-image', 'wide-soundstage', 'wide', 'dynamic-range-wide', 'expansive-reverb', 'layered-ambient', 'vast', 'soaring', 'naturally-reverberant', 'wide-diffuse-image']
   },
   {
     id: 'stereophonic',
     note: "width as the subject — hard-panned spread and wide-format image, the field fully opened",
-    tokens: ['panoramic-image', 'wide-soundstage', 'stereo-pair-tracking', 'wide', 'dynamic-range-wide', 'wide-frequency', 'expansive-reverb', 'head-bump-wide-format', 'soaring']
+    tokens: ['panoramic-image', 'wide-soundstage', 'stereo-pair-tracking', 'wide', 'dynamic-range-wide', 'wide-frequency', 'expansive-reverb', 'head-bump-wide-format', 'soaring', 'xy-coincident']
   },
   {
     id: 'unpredictable',
@@ -2750,7 +2750,7 @@ const PREFACE_LEXICON = [
   {
     id: 'vast',
     note: "boundless space — expansive wide-soundstage openness, panoramic",
-    tokens: ['vast', 'expansive-reverb', 'wide-soundstage', 'panoramic-image', 'naturally-reverberant', 'wide', 'layered-ambient', 'reverberant', 'sustained-tone']
+    tokens: ['vast', 'expansive-reverb', 'wide-soundstage', 'panoramic-image', 'naturally-reverberant', 'wide', 'layered-ambient', 'reverberant', 'sustained-tone', 'decca-tree-three-mic']
   },
   {
     id: 'immense',
@@ -2860,7 +2860,7 @@ const PREFACE_LEXICON = [
   {
     id: 'oceanic',
     note: "vast and fluid — washy swimming reverberation, deep and floating",
-    tokens: ['washy', 'swimming', 'expansive-reverb', 'layered-ambient', 'reverberant', 'drone-foundation', 'sustained-tone', 'lush-ambient', 'floating']
+    tokens: ['washy', 'swimming', 'expansive-reverb', 'layered-ambient', 'reverberant', 'drone-foundation', 'sustained-tone', 'lush-ambient', 'floating', 'ambisonic-tetrahedral']
   },
   {
     id: 'cavernous',
@@ -2905,7 +2905,7 @@ const PREFACE_LEXICON = [
   {
     id: 'widescreen',
     note: "cinematic panorama — a wide-soundstage orchestral expanse, vast",
-    tokens: ['wide-soundstage', 'panoramic-image', 'expansive-reverb', 'orchestral', 'dynamic-range-wide', 'lush-orchestral-soul-aesthetic', 'vast', 'wide', 'stereo-pair-tracking']
+    tokens: ['wide-soundstage', 'panoramic-image', 'expansive-reverb', 'orchestral', 'dynamic-range-wide', 'lush-orchestral-soul-aesthetic', 'vast', 'wide', 'stereo-pair-tracking', 'blumlein-coincident']
   },
   {
     id: 'dystopian',
