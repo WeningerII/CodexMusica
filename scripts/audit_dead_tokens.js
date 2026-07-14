@@ -49,6 +49,22 @@ for (const t of C.TRADITIONS)
     for (const tok of M.cardDescriptors(traditionCard(t.id, iid))) allCard.add(tok);
   }
 
+// Also pool the descriptors + match_tokens of every SELECTABLE (non-expanded)
+// variant of every instrument part. These are reachable via preface reshape-
+// derivation and manual set_variant even when no tradition defaults to them, so
+// a preface token matching one is NOT dead — it fires the moment the derivation
+// (or a human) selects that variant. Excluding them would wrongly flag the
+// authored vocabulary of every non-default option as aspirational. (`expanded`
+// = the universal cross-instrument materials, which the optimizer never auto-
+// selects; keep those out so a genuinely unreachable material token still fails.)
+for (const inst of C.INSTRUMENTS || [])
+  for (const p of inst.parts || [])
+    for (const v of p.variants || []) {
+      if (v.expanded) continue;
+      for (const d of v.descriptors || []) allCard.add(d);
+      for (const d of v.match_tokens || []) allCard.add(d);
+    }
+
 const issues = [];
 for (const e of C.PREFACE_LEXICON) {
   const tokens = Array.isArray(e.tokens) ? e.tokens : [];

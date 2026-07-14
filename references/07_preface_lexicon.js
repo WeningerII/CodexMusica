@@ -12,7 +12,7 @@ const PREFACE_LEXICON = [
   {
     id: 'wailing',
     note: "blues lament voice — vocal cry-and-bend register, gospel-rooted but secular-mourning",
-    tokens: ['lament-wail', 'blues-shouter', 'blues-derived', 'blues-inflected', 'bluesy', 'mournful', 'melismatic', 'glissando-heavy', 'gospel-rooted']
+    tokens: ['lament-wail', 'blues-shouter', 'blues-derived', 'blues-inflected', 'bluesy', 'mournful', 'melismatic', 'glissando-heavy', 'gospel-rooted', 'full-range-siren-glissando']
   },
   {
     id: 'groaning',
@@ -21,7 +21,7 @@ const PREFACE_LEXICON = [
   },
   {
     id: 'moaning',
-    tokens: ['blues-shouter', 'slide', 'glissando-heavy', 'bluesy', 'blues-derived', 'blues-inflected', 'mournful', 'gospel-rooted', 'intimate-aspirated']
+    tokens: ['blues-shouter', 'slide', 'glissando-heavy', 'bluesy', 'blues-derived', 'blues-inflected', 'mournful', 'gospel-rooted', 'intimate-aspirated', 'asymmetric-under-pitch-scoop']
   },
   {
     id: 'howling',
@@ -38,7 +38,7 @@ const PREFACE_LEXICON = [
   },
   {
     id: 'pleading',
-    tokens: ['choir-blendable', 'thick', 'grounded', 'blues-shouter', 'gospel-runs', 'melismatic', 'ornamental-melismatic', 'speech-derived', 'gospel-rooted']
+    tokens: ['choir-blendable', 'thick', 'grounded', 'blues-shouter', 'gospel-runs', 'melismatic', 'ornamental-melismatic', 'speech-derived', 'gospel-rooted', 'rhythmic-breath-pulse-push']
   },
   {
     id: 'conspiring',
@@ -47,15 +47,15 @@ const PREFACE_LEXICON = [
   {
     id: 'sermonizing',
     note: "preacher-cadence vocal — rhythmic gospel oratory, declamatory speech-mimicking with chest-anchored projection",
-    tokens: ['rhythmic-speech', 'speech-mimicking', 'speech-mimicry', 'declaimed', 'gospel-rooted', 'sacred-traditional', 'blues-inflected', 'projecting', 'congregation-loud']
+    tokens: ['rhythmic-speech', 'speech-mimicking', 'speech-mimicry', 'declaimed', 'gospel-rooted', 'sacred-traditional', 'blues-inflected', 'projecting', 'congregation-loud', 'marcato-weighted-declamation']
   },
   {
     id: 'purring',
-    tokens: ['soft-onset', 'warmed', 'intimate-aspirated', 'smoothed', 'breathy-low', 'chest-resonance-low-mid', 'plush', 'warm-glowing', 'cozy']
+    tokens: ['soft-onset', 'warmed', 'intimate-aspirated', 'smoothed', 'breathy-low', 'chest-resonance-low-mid', 'plush', 'warm-glowing', 'cozy', 'subtone-low-subglottal-pressure', 'aspirate-onset-breath-before-tone']
   },
   {
     id: 'bellowing',
-    tokens: ['characteristic-cry', 'blues-shouter', 'congregation-loud', 'projecting', 'low-fundamental-tuning', 'low-end-heavy', 'glissando-heavy', 'slide', 'balanced']
+    tokens: ['characteristic-cry', 'blues-shouter', 'congregation-loud', 'projecting', 'low-fundamental-tuning', 'low-end-heavy', 'glissando-heavy', 'slide', 'balanced', 'thick-true-fold-body-mass', 'jaw-dropped-wide-oral']
   },
   {
     id: 'babbling',
@@ -63,7 +63,7 @@ const PREFACE_LEXICON = [
   },
   {
     id: 'crooning',
-    tokens: ['choir-blendable', 'thick', 'grounded', 'classical-jazz', 'jazz-trained', 'jazz-influenced', 'speech-derived', 'blanket-damped', 'vibrato-rich']
+    tokens: ['choir-blendable', 'thick', 'grounded', 'classical-jazz', 'jazz-trained', 'jazz-influenced', 'speech-derived', 'blanket-damped', 'vibrato-rich', 'subtone-low-subglottal-pressure']
   },
   {
     id: 'raging',
@@ -71,7 +71,7 @@ const PREFACE_LEXICON = [
   },
   {
     id: 'swooning',
-    tokens: ['late-Romantic-onward', 'haunted-romantic', 'recital', 'romantic-orchestra', 'romantic', 'dark-romantic', 'singing', 'sustained-high-register', 'vibrato-rich']
+    tokens: ['late-Romantic-onward', 'haunted-romantic', 'recital', 'romantic-orchestra', 'romantic', 'dark-romantic', 'singing', 'sustained-high-register', 'vibrato-rich', 'messa-di-voce-swell']
   },
   {
     id: 'choking',
@@ -206,7 +206,7 @@ const PREFACE_LEXICON = [
   },
   {
     id: 'pulse-quickening',
-    tokens: ['strummed', 'rhythmic', 'dance-rhythm', 'treble-extended', 'articulate', 'dance-driving', 'rapid-tremolo', 'hyped-mids', 'dynamic']
+    tokens: ['strummed', 'rhythmic', 'dance-rhythm', 'treble-extended', 'articulate', 'dance-driving', 'rapid-tremolo', 'hyped-mids', 'dynamic', 'accelerating-vibrato-rate']
   },
   {
     id: 'jaw-dropping',
@@ -264,7 +264,7 @@ const PREFACE_LEXICON = [
   },
   {
     id: 'sepulchral',
-    tokens: ['drone-foundation', 'reverberant', 'medieval', 'sacred-Latin', 'naturally-reverberant', 'low-mid-rich', 'sustained-tone', 'ceremonial', 'sustained-projection']
+    tokens: ['drone-foundation', 'reverberant', 'medieval', 'sacred-Latin', 'naturally-reverberant', 'low-mid-rich', 'sustained-tone', 'ceremonial', 'sustained-projection', 'tract-lengthened-lowered-larynx', 'oktavist-modal-sub-bass']
   },
   {
     id: 'oracular',
@@ -276,11 +276,11 @@ const PREFACE_LEXICON = [
   },
   {
     id: 'liturgical',
-    tokens: ['sacred-Latin', 'ceremonial', 'devotional', 'reverberant', 'medieval', 'singing-sustain', 'choir-blendable', 'sacred-traditional', 'liturgical']
+    tokens: ['sacred-Latin', 'ceremonial', 'devotional', 'reverberant', 'medieval', 'singing-sustain', 'choir-blendable', 'sacred-traditional', 'liturgical', 'just-intonation-pure-ratios', 'byzantine-morai-microtone', 'countertenor-developed-head', 'oktavist-modal-sub-bass']
   },
   {
     id: 'elegiac',
-    tokens: ['late-Romantic-onward', 'lament-leaning', 'dark-romantic', 'legato', 'sustained', 'expressive', 'romantic', 'haunted-romantic', 'full']
+    tokens: ['late-Romantic-onward', 'lament-leaning', 'dark-romantic', 'legato', 'sustained', 'expressive', 'romantic', 'haunted-romantic', 'full', 'decrescendo-al-niente']
   },
   {
     id: 'vatic',
@@ -288,7 +288,7 @@ const PREFACE_LEXICON = [
   },
   {
     id: 'monastic',
-    tokens: ['choir-blendable', 'sacred-Latin', 'medieval', 'sustained-high-register', 'ceremonial', 'sacred-traditional', 'devotional', 'liturgical', 'classical']
+    tokens: ['choir-blendable', 'sacred-Latin', 'medieval', 'sustained-high-register', 'ceremonial', 'sacred-traditional', 'devotional', 'liturgical', 'classical', 'byzantine-morai-microtone', 'oktavist-modal-sub-bass']
   },
   {
     id: 'apocalyptic',
@@ -304,7 +304,7 @@ const PREFACE_LEXICON = [
   },
   {
     id: 'ecstatic',
-    tokens: ['devotional', 'sufi', 'sustained-projection', 'sufi-mystical', 'melismatic', 'ornamental-melismatic', 'court-ceremonial', 'raga-bound', 'ceremonial']
+    tokens: ['devotional', 'sufi', 'sustained-projection', 'sufi-mystical', 'melismatic', 'ornamental-melismatic', 'court-ceremonial', 'raga-bound', 'ceremonial', 'rhythmic-breath-pulse-push', 'full-range-siren-glissando', 'accelerating-vibrato-rate', 'ululation-rapid-uvular-trill']
   },
   {
     id: 'shamanic',
@@ -356,7 +356,7 @@ const PREFACE_LEXICON = [
   },
   {
     id: 'saudade',
-    tokens: ['fado-lead', 'university-fado', 'singing-sustain', 'celtic', 'mournful', 'lament-leaning', 'iberian-celtic', 'body-resonance-low-mid', 'cozy']
+    tokens: ['fado-lead', 'university-fado', 'singing-sustain', 'celtic', 'mournful', 'lament-leaning', 'iberian-celtic', 'body-resonance-low-mid', 'cozy', 'sighed-falling-release']
   },
   {
     id: 'duende',
@@ -493,7 +493,7 @@ const PREFACE_LEXICON = [
   },
   {
     id: 'tender',
-    tokens: ['soft-onset', 'warmed', 'warm-glowing', 'intimate-aspirated', 'soft', 'folk', 'plush', 'cozy', 'smoothed']
+    tokens: ['soft-onset', 'warmed', 'warm-glowing', 'intimate-aspirated', 'soft', 'folk', 'plush', 'cozy', 'smoothed', 'decrescendo-al-niente', 'narrow-continuous-shimmer', 'portato-semi-detached-carried']
   },
   {
     id: 'covetous',
@@ -600,7 +600,7 @@ const PREFACE_LEXICON = [
   },
   {
     id: 'throbbing',
-    tokens: ['sub-bass-foundational', 'sub-driven', 'foundational-sub', 'sub-bass', 'rhythmic', 'low-fundamental-tuning', 'hyped-mids', 'moving-coil', 'low-end-heavy']
+    tokens: ['sub-bass-foundational', 'sub-driven', 'foundational-sub', 'sub-bass', 'rhythmic', 'low-fundamental-tuning', 'hyped-mids', 'moving-coil', 'low-end-heavy', 'amplitude-tremolo-pitch-stable']
   },
   {
     id: 'hissing',
@@ -632,7 +632,7 @@ const PREFACE_LEXICON = [
   },
   {
     id: 'scatting',
-    tokens: ['choir-blendable', 'thick', 'grounded', 'overtone-rich-sustained', 'classical-jazz', 'jazz-trained', 'jazz-influenced', 'blanket-damped', 'jazz-friendly']
+    tokens: ['choir-blendable', 'thick', 'grounded', 'overtone-rich-sustained', 'classical-jazz', 'jazz-trained', 'jazz-influenced', 'blanket-damped', 'jazz-friendly', 'vocable-syllable-drumming']
   },
   {
     id: 'shoulder-bouncing',
@@ -741,12 +741,12 @@ const PREFACE_LEXICON = [
   {
     id: 'belting',
     note: "voice flung outward to fill the room — chest voice at maximum, theater-trained or stadium-trained",
-    tokens: ['projecting', 'chest-resonance-low-mid', 'vibrato-rich', 'late-Romantic-onward', 'ringing', 'blues-shouter', 'characteristic-cry', 'choir-blendable', 'classical']
+    tokens: ['projecting', 'chest-resonance-low-mid', 'vibrato-rich', 'late-Romantic-onward', 'ringing', 'blues-shouter', 'characteristic-cry', 'choir-blendable', 'classical', 'cuivre-brassy-edge', 'heavy-m1-carried-high']
   },
   {
     id: 'harmonizing',
     note: "voices stacked deliberately — barbershop close-harmony, doo-wop, gospel, vocal-jazz arrangement",
-    tokens: ['pure', 'beat-free', 'key-locked', 'choir-blendable', 'sacred-traditional', 'devotional', 'congregation-loud', 'low-mid-rich', 'natural-absorption']
+    tokens: ['pure', 'beat-free', 'key-locked', 'choir-blendable', 'sacred-traditional', 'devotional', 'congregation-loud', 'low-mid-rich', 'natural-absorption', 'just-intonation-pure-ratios']
   },
   {
     id: 'meandering',
@@ -795,7 +795,7 @@ const PREFACE_LEXICON = [
   {
     id: 'billowing',
     note: "the sound expanding outward as it sustains — fabric in slow wind, pad swelling at the edges",
-    tokens: ['pad', 'sustained', 'swimming', 'layered-ambient', 'lush-ambient', 'paraphonic', 'soaring', 'dense', 'classic']
+    tokens: ['pad', 'sustained', 'swimming', 'layered-ambient', 'lush-ambient', 'paraphonic', 'soaring', 'dense', 'classic', 'messa-di-voce-swell']
   },
   {
     id: 'kora-cascading',
@@ -835,7 +835,7 @@ const PREFACE_LEXICON = [
   {
     id: 'cutting',
     note: "the high-frequency strike that opens space in the mix — punctuation more than sustain",
-    tokens: ['treble-extended', 'snappy', 'hyped-mids', 'glassy', 'fast-attack-transient', 'projecting', 'articulate', 'balanced', 'expansive-reverb']
+    tokens: ['treble-extended', 'snappy', 'hyped-mids', 'glassy', 'fast-attack-transient', 'projecting', 'articulate', 'balanced', 'expansive-reverb', 'epilaryngeal-tube-narrowed']
   },
   {
     id: 'mizmar-piping',
@@ -860,7 +860,7 @@ const PREFACE_LEXICON = [
   {
     id: 'breath-coloring',
     note: "air moving through the tube colored by the player's mouth shape",
-    tokens: ['octave-below-concert', 'soloistic', 'continuous-airflow', 'overtone-rich', 'full', 'balanced', 'drone-foundation', 'ornamental-melismatic', 'legato']
+    tokens: ['octave-below-concert', 'soloistic', 'continuous-airflow', 'overtone-rich', 'full', 'balanced', 'drone-foundation', 'ornamental-melismatic', 'legato', 'aspirate-onset-breath-before-tone']
   },
   {
     id: 'string-conversing',
@@ -885,7 +885,7 @@ const PREFACE_LEXICON = [
   {
     id: 'grounding',
     note: "the low end the rest of the ensemble stands on — bassoon, tuba, contrabass, bass voice",
-    tokens: ['continuous-airflow', 'legato', 'low-overtone-rich', 'full', 'foundation-bass', 'concert', 'overtone-rich', 'sub-driven', 'low-fundamental-tuning']
+    tokens: ['continuous-airflow', 'legato', 'low-overtone-rich', 'full', 'foundation-bass', 'concert', 'overtone-rich', 'sub-driven', 'low-fundamental-tuning', 'thick-true-fold-body-mass']
   },
   {
     id: 'atmospheric',
@@ -975,7 +975,7 @@ const PREFACE_LEXICON = [
   {
     id: 'undulating',
     note: "the line refuses a fixed pitch — oscillation as content, the wave itself the message",
-    tokens: ['microtonal', 'melismatic', 'ornamental-melismatic', 'ornamented', 'devotional', 'traditional', 'dhrupad-suited', 'drone-foundation', 'drone-like']
+    tokens: ['microtonal', 'melismatic', 'ornamental-melismatic', 'ornamented', 'devotional', 'traditional', 'dhrupad-suited', 'drone-foundation', 'drone-like', 'messa-di-voce-swell']
   },
   {
     id: 'meend-sliding',
@@ -1005,22 +1005,22 @@ const PREFACE_LEXICON = [
   {
     id: 'shanshui-misting',
     note: "mountain-and-water painting aesthetic — sustained pipa or dizi suggesting depth without describing it",
-    tokens: ['sustained', 'beat-free', 'pure', 'overtone-rich', 'classical', 'balanced', 'key-locked', 'full', 'drone-foundation']
+    tokens: ['sustained', 'beat-free', 'pure', 'overtone-rich', 'classical', 'balanced', 'key-locked', 'full', 'drone-foundation', 'pentatonic-gapped-glide']
   },
   {
     id: 'piercing',
     note: "the high-pitch sustained note that pierces the listener's attention — soprano forte, jinghu, bagpipe chanter",
-    tokens: ['sustained-high-register', 'projecting', 'treble-extended', 'folk', 'hyped-mids', 'moving-coil', 'plosive-resistant', 'top-rolled-off-12k', 'dynamic']
+    tokens: ['sustained-high-register', 'projecting', 'treble-extended', 'folk', 'hyped-mids', 'moving-coil', 'plosive-resistant', 'top-rolled-off-12k', 'dynamic', 'epilaryngeal-tube-narrowed', 'singers-formant-cluster-3k']
   },
   {
     id: 'erhuang',
     note: "Beijing opera erhuang mode — slow, contemplative, tragic-leaning",
-    tokens: ['legato', 'sustained', 'expressive', 'sustaining', 'stable', 'full', 'balanced', 'melodic', 'romantic']
+    tokens: ['legato', 'sustained', 'expressive', 'sustaining', 'stable', 'full', 'balanced', 'melodic', 'romantic', 'pentatonic-gapped-glide']
   },
   {
     id: 'jiangnan-suiting',
     note: "Jiangnan silk-and-bamboo aesthetic — refined Han chamber ensemble pace, balanced pentatonic interplay",
-    tokens: ['jiangnan-suited', 'Chinese-classical', 'pentatonic', 'pentatonic-rooted', 'balanced', 'beat-free', 'overtone-rich', 'meditative']
+    tokens: ['jiangnan-suited', 'Chinese-classical', 'pentatonic', 'pentatonic-rooted', 'balanced', 'beat-free', 'overtone-rich', 'meditative', 'pentatonic-gapped-glide']
   },
   {
     id: 'wabi-rustic',
@@ -1080,7 +1080,7 @@ const PREFACE_LEXICON = [
   {
     id: 'inshad-cantillating',
     note: "Islamic vocal art of inshad — sustained text-driven melismatic devotional singing",
-    tokens: ['melismatic', 'microtonal', 'ornamented', 'devotional', 'ornamental-melismatic', 'sacred-traditional', 'court-ceremonial', 'classical', 'traditional']
+    tokens: ['melismatic', 'microtonal', 'ornamented', 'devotional', 'ornamental-melismatic', 'sacred-traditional', 'court-ceremonial', 'classical', 'traditional', 'byzantine-morai-microtone']
   },
   {
     id: 'taqsim-roaming',
@@ -1160,7 +1160,7 @@ const PREFACE_LEXICON = [
   {
     id: 'refined',
     note: "the technique invisible to the listener — the line so well-formed it sounds inevitable",
-    tokens: ['classical', 'controlled', 'ornamented', 'articulate', 'virtuoso', 'lively', 'versatile', 'balanced', 'overtone-rich']
+    tokens: ['classical', 'controlled', 'ornamented', 'articulate', 'virtuoso', 'lively', 'versatile', 'balanced', 'overtone-rich', 'pure-pitch-vibrato-no-amplitude']
   },
   {
     id: 'cascading',
@@ -1175,7 +1175,7 @@ const PREFACE_LEXICON = [
   {
     id: 'stuttering',
     note: "the signal interrupting itself — chops, fragments, the rhythm refusing to settle",
-    tokens: ['chopped', 'cassette', 'consumer-format', 'hf-distortion-prone', 'beat-suited', 'breaks-and-loops', 'sampled', 'fast-attack-transient', 'percussive']
+    tokens: ['chopped', 'cassette', 'consumer-format', 'hf-distortion-prone', 'beat-suited', 'breaks-and-loops', 'sampled', 'fast-attack-transient', 'percussive', 'glottal-stop-punctuation']
   },
   {
     id: 'head-nodding',
@@ -1205,12 +1205,12 @@ const PREFACE_LEXICON = [
   {
     id: 'effortless',
     note: "the run that costs nothing — articulation so clean the listener forgets there's a player",
-    tokens: ['virtuoso', 'legato', 'controlled', 'jazz-trained', 'classical-jazz', 'swung', 'articulate', 'jazz-influenced', 'flowing']
+    tokens: ['virtuoso', 'legato', 'controlled', 'jazz-trained', 'classical-jazz', 'swung', 'articulate', 'jazz-influenced', 'flowing', 'false-fold-retracted-open']
   },
   {
     id: 'snarling',
     note: "anti-virtuosic raw distorted rock — Pacific-Northwest grunge register, chest-belt aggression over chugged power-chord riffs in dropped tunings",
-    tokens: ['rock-context', 'distorted', 'high-gain-saturation', 'palm-muting-chugged-riff', 'power-chord-fifths-no-third', 'drop-tunings-common-d-and-c', 'seattle-grunge-defining', 'pacific-northwest-rain-aesthetic', 'chest-resonance-low-mid']
+    tokens: ['rock-context', 'distorted', 'high-gain-saturation', 'palm-muting-chugged-riff', 'power-chord-fifths-no-third', 'drop-tunings-common-d-and-c', 'seattle-grunge-defining', 'pacific-northwest-rain-aesthetic', 'chest-resonance-low-mid', 'false-fold-constricted-grit', 'cuivre-brassy-edge']
   },
   {
     id: 'dream-floating',
@@ -1220,7 +1220,7 @@ const PREFACE_LEXICON = [
   {
     id: 'primitive-meandering',
     note: "solo-acoustic-fingerpicked-steel-string raga-influenced drone-and-melody, single-mic intimate home-recording aesthetic — instrumental wandering between blues vamp, hymnody, and raga suspension",
-    tokens: ['instrumental-fingerpicked-solo', 'instrumental-fingerstyle-solo', 'open-tuning-drone', 'indian-raga-harmonic-suspension', 'delta-blues-bones', 'ragtime-and-hymnody-residual', 'minimalist-classical-influence', 'single-mic-or-stereo-pair', 'home-recording-aesthetic']
+    tokens: ['instrumental-fingerpicked-solo', 'instrumental-fingerstyle-solo', 'open-tuning-drone', 'indian-raga-harmonic-suspension', 'delta-blues-bones', 'ragtime-and-hymnody-residual', 'minimalist-classical-influence', 'single-mic-or-stereo-pair', 'home-recording-aesthetic', 'untempered-pitch-drift']
   },
   {
     id: 'mbira-cycling',
@@ -1240,7 +1240,7 @@ const PREFACE_LEXICON = [
   {
     id: 'gospel-belting',
     note: "Pentecostal-and-Black-American gospel vocal — melismatic blues-inflected call-response group-vocal with characteristic gospel-runs and congregation-loud projection",
-    tokens: ['gospel-pentecostal', 'gospel-rooted', 'gospel-runs', 'blues-inflected', 'melismatic', 'chest-resonance-low-mid', 'projecting', 'vibrato-rich', 'mixed-belt']
+    tokens: ['gospel-pentecostal', 'gospel-rooted', 'gospel-runs', 'blues-inflected', 'melismatic', 'chest-resonance-low-mid', 'projecting', 'vibrato-rich', 'mixed-belt', 'rhythmic-breath-pulse-push', 'heavy-m1-carried-high']
   },
   {
     id: 'griot-praising',
@@ -1280,7 +1280,7 @@ const PREFACE_LEXICON = [
   {
     id: 'demotic-keening',
     note: "Mediterranean demotic-folk vocal — modal-melismatic-folk delivery with descending-cry cadence, drawing on professional-keening tradition lineage",
-    tokens: ['mediterranean-demotic-vocal', 'modal-melismatic-folk', 'descending-cry-cadence', 'professional-keening-tradition-lineage', 'mournful', 'lament-wail', 'ornamented', 'melismatic', 'glissando-heavy']
+    tokens: ['mediterranean-demotic-vocal', 'modal-melismatic-folk', 'descending-cry-cadence', 'professional-keening-tradition-lineage', 'mournful', 'lament-wail', 'ornamented', 'melismatic', 'glissando-heavy', 'untempered-pitch-drift']
   },
   {
     id: 'tahrir-ornamenting',
@@ -1300,7 +1300,7 @@ const PREFACE_LEXICON = [
   {
     id: 'hollering',
     note: "Mississippi Delta field-holler and pre-blues vocal-cry tradition — melismatic field-cry stylized-shouting across rural-agricultural and prison-labor contexts",
-    tokens: ['unrestrained', 'outdoor-pitched', 'lament-wail', 'characteristic-cry', 'blues-shouter', 'projecting', 'speech-derived', 'unaccompanied', 'gospel-rooted']
+    tokens: ['unrestrained', 'outdoor-pitched', 'lament-wail', 'characteristic-cry', 'blues-shouter', 'projecting', 'speech-derived', 'unaccompanied', 'gospel-rooted', 'jaw-dropped-wide-oral']
   },
   {
     id: 'narrating',
@@ -1310,7 +1310,7 @@ const PREFACE_LEXICON = [
   {
     id: 'clapping-and-syllabicizing',
     note: "Staccato syllabic vocal — punctuated rhythmic delivery typical of nursery rhyme, hand-clap game, jump-rope, and counting-rhyme contexts",
-    tokens: ['punctuated', 'percussive', 'syllabic-singing-one-note-per-syllable', 'call-response', 'rhythmic-speech', 'projecting', 'ensemble']
+    tokens: ['punctuated', 'percussive', 'syllabic-singing-one-note-per-syllable', 'call-response', 'rhythmic-speech', 'projecting', 'ensemble', 'vocable-syllable-drumming']
   },
   {
     id: 'melisma-spinning',
@@ -1320,7 +1320,7 @@ const PREFACE_LEXICON = [
   {
     id: 'declaiming',
     note: "Recitative free-rhythm declamation — rhythmically-free pitched-speech for praise-recitation, name-and-genealogy chant, and bardic text-setting",
-    tokens: ['recitative-rhythmically-free-pitched-speech', 'declamatory-free-rhythm', 'declamatory', 'speech-derived', 'narrative', 'projecting', 'rhythmic-speech', 'classical', 'expressive']
+    tokens: ['recitative-rhythmically-free-pitched-speech', 'declamatory-free-rhythm', 'declamatory', 'speech-derived', 'narrative', 'projecting', 'rhythmic-speech', 'classical', 'expressive', 'marcato-weighted-declamation', 'glottal-onset-firm-adduction', 'marcato-each-note-marked']
   },
   {
     id: 'ametrical-intoning',
@@ -1330,7 +1330,7 @@ const PREFACE_LEXICON = [
   {
     id: 'orating',
     note: "Heightened-speech stylized intonation — theatrical-projection no-fixed-pitch delivery for praise-orator, izibongo-reciter, and ceremonial-declamation contexts",
-    tokens: ['heightened-speech-stylized-intonation', 'theatrical-projection-no-fixed-pitch', 'speech-derived', 'projecting', 'classical', 'narrative', 'rhythmic-speech', 'expressive', 'ensemble']
+    tokens: ['heightened-speech-stylized-intonation', 'theatrical-projection-no-fixed-pitch', 'speech-derived', 'projecting', 'classical', 'narrative', 'rhythmic-speech', 'expressive', 'ensemble', 'marcato-weighted-declamation']
   },
   {
     id: 'spoken-flowing',
@@ -1340,7 +1340,7 @@ const PREFACE_LEXICON = [
   {
     id: 'syllabicizing',
     note: "One-note-per-syllable singing — folk-strophic delivery for ballad, hymn, work-song, lullaby, and group-anthem contexts",
-    tokens: ['syllabic-singing-one-note-per-syllable', 'speech-derived', 'rhythmic-speech', 'choir-blendable', 'liturgical', 'ensemble', 'historical', 'classical']
+    tokens: ['syllabic-singing-one-note-per-syllable', 'speech-derived', 'rhythmic-speech', 'choir-blendable', 'liturgical', 'ensemble', 'historical', 'classical', 'vocable-syllable-drumming']
   },
   {
     id: 'yodel-throating',
@@ -1425,7 +1425,7 @@ const PREFACE_LEXICON = [
   {
     id: 'oratorial',
     note: "formal-stage rhetorical projection — public-address register with declamatory-projection and classical-rhetoric cadence",
-    tokens: ['declamatory', 'declaimed', 'projecting', 'belt-projection', 'sustained-projection', 'speech-derived', 'heightened-speech-stylized-intonation', 'projection-prioritized', 'theatrical-projection-no-fixed-pitch']
+    tokens: ['declamatory', 'declaimed', 'projecting', 'belt-projection', 'sustained-projection', 'speech-derived', 'heightened-speech-stylized-intonation', 'projection-prioritized', 'theatrical-projection-no-fixed-pitch', 'marcato-weighted-declamation']
   },
   {
     id: 'lobbying',
@@ -1580,12 +1580,12 @@ const PREFACE_LEXICON = [
   {
     id: 'savage',
     note: "the attack with the teeth still in it — saturated mid-range aggression, raw and unrelenting",
-    tokens: ['growly', 'high-gain-cascading-saturation', 'transient-grab-aggressive', 'metallic', 'sub-bass', 'distorted', 'fast-attack-transient', 'mid-rich', 'articulate']
+    tokens: ['growly', 'high-gain-cascading-saturation', 'transient-grab-aggressive', 'metallic', 'sub-bass', 'distorted', 'fast-attack-transient', 'mid-rich', 'articulate', 'false-fold-constricted-grit']
   },
   {
     id: 'barbaric',
     note: "the primal stomp — thunderous low end under distorted brute force, ceremony before civilization",
-    tokens: ['thunderous', 'sub-bass-foundational', 'transient-grab-aggressive', 'distorted', 'metal-context', 'growly', 'low-mid-thick', 'percussive', 'articulate']
+    tokens: ['thunderous', 'sub-bass-foundational', 'transient-grab-aggressive', 'distorted', 'metal-context', 'growly', 'low-mid-thick', 'percussive', 'articulate', 'false-fold-constricted-grit']
   },
   {
     id: 'sad',
@@ -1610,7 +1610,7 @@ const PREFACE_LEXICON = [
   {
     id: 'nervous',
     note: "the jitter under the surface — rapid tremolo and shallow breath, the line unable to hold still",
-    tokens: ['rapid-tremolo', 'fast-tremolo', 'vibrato-y', 'breath-heavy', 'breathy-low', 'articulated', 'fast-attack-transient', 'soft-onset', 'intimate-aspirated']
+    tokens: ['rapid-tremolo', 'fast-tremolo', 'vibrato-y', 'breath-heavy', 'breathy-low', 'articulated', 'fast-attack-transient', 'soft-onset', 'intimate-aspirated', 'fast-bleat-caprino']
   },
   {
     id: 'frustrated',
@@ -1715,7 +1715,7 @@ const PREFACE_LEXICON = [
   {
     id: 'jovial',
     note: "hearty good cheer — warm full-throated lift, the laugh just under every phrase",
-    tokens: ['lively', 'warm-glowing', 'expressive', 'vibrato-y', 'dance-driving', 'hyped-mids', 'plush', 'balanced', 'conversational']
+    tokens: ['lively', 'warm-glowing', 'expressive', 'vibrato-y', 'dance-driving', 'hyped-mids', 'plush', 'balanced', 'conversational', 'ululation-rapid-uvular-trill']
   },
   {
     id: 'merry',
@@ -1735,7 +1735,7 @@ const PREFACE_LEXICON = [
   {
     id: 'somber',
     note: "grave and low-lit — dark sustained weight, the register of a service for the dead",
-    tokens: ['low-mid-thick', 'dark', 'dark-romantic', 'sub-bass-foundational', 'mournful', 'sustained-tone', 'late-Romantic-onward', 'low-end-heavy', 'controlled']
+    tokens: ['low-mid-thick', 'dark', 'dark-romantic', 'sub-bass-foundational', 'mournful', 'sustained-tone', 'late-Romantic-onward', 'low-end-heavy', 'controlled', 'tract-lengthened-lowered-larynx']
   },
   {
     id: 'solemn',
@@ -1780,7 +1780,7 @@ const PREFACE_LEXICON = [
   {
     id: 'exhilarating',
     note: "the rush that lifts the pulse — energetic lead and fast tremolo driving the room upward",
-    tokens: ['energetic', 'trance-suited', 'dance-driving', 'lead-and-pad', 'high-gain-saturation', 'rapid-tremolo', 'hyped-mids', 'digital', 'soaring']
+    tokens: ['energetic', 'trance-suited', 'dance-driving', 'lead-and-pad', 'high-gain-saturation', 'rapid-tremolo', 'hyped-mids', 'digital', 'soaring', 'accelerating-vibrato-rate']
   },
   {
     id: 'braggadocious',
@@ -1800,7 +1800,7 @@ const PREFACE_LEXICON = [
   {
     id: 'melancholic',
     note: "the sweet ache of dwelling in sorrow — late-Romantic shadow, longing with nowhere to go",
-    tokens: ['dark-romantic', 'haunted-romantic', 'mournful', 'lament-leaning', 'late-Romantic-onward', 'intimate-aspirated', 'sustained-tone', 'low-mid-rich-spectrum', 'expressive']
+    tokens: ['dark-romantic', 'haunted-romantic', 'mournful', 'lament-leaning', 'late-Romantic-onward', 'intimate-aspirated', 'sustained-tone', 'low-mid-rich-spectrum', 'expressive', 'sighed-falling-release']
   },
   {
     id: 'vengeful',
@@ -1825,32 +1825,32 @@ const PREFACE_LEXICON = [
   {
     id: 'imperfect',
     note: "the rough edge left in on purpose — wabi-rustic plainness, the flaw that makes it human",
-    tokens: ['pure', 'beat-free', 'low-overtone-rich', 'soft', 'rough', 'gritty', 'broken-in', 'surface-noise-bedded', 'natural-material-resonance']
+    tokens: ['pure', 'beat-free', 'low-overtone-rich', 'soft', 'rough', 'gritty', 'broken-in', 'surface-noise-bedded', 'natural-material-resonance', 'untempered-pitch-drift']
   },
   {
     id: 'sensual',
     note: "the body in the tone — breathy vibrato-rich warmth leaning slow against the listener",
-    tokens: ['breathy-low', 'intimate-aspirated', 'vibrato-rich', 'soft-onset', 'smoothed', 'plush', 'close', 'warm-glowing', 'jazz-influenced']
+    tokens: ['breathy-low', 'intimate-aspirated', 'vibrato-rich', 'soft-onset', 'smoothed', 'plush', 'close', 'warm-glowing', 'jazz-influenced', 'aspirate-onset-breath-before-tone']
   },
   {
     id: 'authentic',
     note: "unprocessed and rooted — acoustic traditional sound with the room left honestly in",
-    tokens: ['authentic', 'traditional', 'folk-tradition', 'folkloric', 'acoustic-only', 'natural-absorption', 'low-distortion-low-coloration', 'naturally-reverberant', 'classical']
+    tokens: ['authentic', 'traditional', 'folk-tradition', 'folkloric', 'acoustic-only', 'natural-absorption', 'low-distortion-low-coloration', 'naturally-reverberant', 'classical', 'untempered-pitch-drift']
   },
   {
     id: 'heavy',
     note: "weight you feel in the floor — sub-driven low-mid mass, the sound pressing down",
-    tokens: ['sub-bass', 'sub-driven', 'low-fundamental-tuning', 'low-mid-thick', 'sub-bass-foundational', 'foundational-sub', 'low-end-heavy', 'boomy', 'dark']
+    tokens: ['sub-bass', 'sub-driven', 'low-fundamental-tuning', 'low-mid-thick', 'sub-bass-foundational', 'foundational-sub', 'low-end-heavy', 'boomy', 'dark', 'thick-true-fold-body-mass']
   },
   {
     id: 'light',
     note: "weightless and bright — airy soft onset with the low end stripped away",
-    tokens: ['airy', 'soft', 'soft-attack', 'breath-tone-airy', 'treble-extended', 'bright', 'plush', 'gentle', 'clean']
+    tokens: ['airy', 'soft', 'soft-attack', 'breath-tone-airy', 'treble-extended', 'bright', 'plush', 'gentle', 'clean', 'thin-true-fold-cover']
   },
   {
     id: 'airy',
     note: "more air than note — breath-toned top end floating in open space",
-    tokens: ['airy', 'breath-tone-airy', 'silky-airy-top', 'breathy', 'floating', 'halo', 'ambient', 'lush-ambient', 'naturally-reverberant']
+    tokens: ['airy', 'breath-tone-airy', 'silky-airy-top', 'breathy', 'floating', 'halo', 'ambient', 'lush-ambient', 'naturally-reverberant', 'thin-true-fold-cover']
   },
   {
     id: 'focused',
@@ -1910,7 +1910,7 @@ const PREFACE_LEXICON = [
   {
     id: 'choirmasters',
     note: "voices ruled into one — pure key-locked choral blend, every part placed by a guiding ear",
-    tokens: ['choir-blendable', 'pure', 'beat-free', 'key-locked', 'sacred-traditional', 'devotional', 'congregation-loud', 'sustained-projection', 'close-harmony']
+    tokens: ['choir-blendable', 'pure', 'beat-free', 'key-locked', 'sacred-traditional', 'devotional', 'congregation-loud', 'sustained-projection', 'close-harmony', 'just-intonation-pure-ratios']
   },
   {
     id: 'conductors',
@@ -1930,7 +1930,7 @@ const PREFACE_LEXICON = [
   {
     id: 'twangy',
     note: "the country pluck — bright woody string snap with the bend left ringing",
-    tokens: ['twangy', 'country-twang', 'woody', 'flatpicked', 'backbeat', 'articulate', 'balanced', 'bright', 'snappy']
+    tokens: ['twangy', 'country-twang', 'woody', 'flatpicked', 'backbeat', 'articulate', 'balanced', 'bright', 'snappy', 'epilaryngeal-tube-narrowed']
   },
   {
     id: 'jangling',
@@ -1945,7 +1945,7 @@ const PREFACE_LEXICON = [
   {
     id: 'anxious',
     note: "the worry that won't settle — rapid tremolo and shallow breath edged with dark tension",
-    tokens: ['rapid-tremolo', 'fast-tremolo', 'vibrato-y', 'breath-heavy', 'articulated', 'fast-attack-transient', 'dark', 'transient-grab-aggressive', 'breathy-low']
+    tokens: ['rapid-tremolo', 'fast-tremolo', 'vibrato-y', 'breath-heavy', 'articulated', 'fast-attack-transient', 'dark', 'transient-grab-aggressive', 'breathy-low', 'fast-bleat-caprino']
   },
   {
     id: 'calming',
@@ -2045,7 +2045,7 @@ const PREFACE_LEXICON = [
   {
     id: 'ornate',
     note: "every surface carved — ornament-heavy melismatic line where decoration is the content",
-    tokens: ['ornament-heavy', 'ornamental-melismatic', 'ornamented', 'baroque-ornamental', 'melismatic', 'microtonal-bend', 'expressive', 'classical', 'ornamental']
+    tokens: ['ornament-heavy', 'ornamental-melismatic', 'ornamented', 'baroque-ornamental', 'melismatic', 'microtonal-bend', 'expressive', 'classical', 'ornamental', 'leggiero-light-head']
   },
   {
     id: 'embellished',
@@ -2080,7 +2080,7 @@ const PREFACE_LEXICON = [
   {
     id: 'brutal',
     note: "force without mercy — cascading metal saturation over a sub floor, sheer crushing mass",
-    tokens: ['high-gain-cascading-saturation', 'sub-bass', 'metal-context', 'metallic', 'transient-grab-aggressive', 'low-mid-thick', 'growly', 'thunderous', 'articulate']
+    tokens: ['high-gain-cascading-saturation', 'sub-bass', 'metal-context', 'metallic', 'transient-grab-aggressive', 'low-mid-thick', 'growly', 'thunderous', 'articulate', 'false-fold-constricted-grit']
   },
   {
     id: 'brutalist',
@@ -2110,12 +2110,12 @@ const PREFACE_LEXICON = [
   {
     id: 'radiant',
     note: "bright outpouring of light — projecting shimmer over lifted, glowing mids",
-    tokens: ['bright', 'warm-glowing', 'shimmering', 'hyped-mids', 'sustained-projection', 'bright-high-register', 'lively']
+    tokens: ['bright', 'warm-glowing', 'shimmering', 'hyped-mids', 'sustained-projection', 'bright-high-register', 'lively', 'false-fold-retracted-open']
   },
   {
     id: 'serene',
     note: "unhurried calm — soft pastoral warmth, airy and smoothed at rest",
-    tokens: ['gentle', 'soft-onset', 'soft', 'plush', 'cozy', 'smoothed', 'warm-glowing', 'pastoral', 'airy']
+    tokens: ['gentle', 'soft-onset', 'soft', 'plush', 'cozy', 'smoothed', 'warm-glowing', 'pastoral', 'airy', 'decrescendo-al-niente']
   },
   {
     id: 'euphoric',
@@ -2125,7 +2125,7 @@ const PREFACE_LEXICON = [
   {
     id: 'jubilant',
     note: "celebratory brightness — snappy dance-driving exultation in full voice",
-    tokens: ['lively', 'snappy', 'dance-driving', 'hyped-mids', 'sustained-projection', 'bright', 'articulate', 'expressive', 'ceremonial']
+    tokens: ['lively', 'snappy', 'dance-driving', 'hyped-mids', 'sustained-projection', 'bright', 'articulate', 'expressive', 'ceremonial', 'ululation-rapid-uvular-trill']
   },
   {
     id: 'blissful',
@@ -2145,7 +2145,7 @@ const PREFACE_LEXICON = [
   {
     id: 'shimmering',
     note: "glistening high-end haze — controlled shimmer floating in airy light",
-    tokens: ['shimmering', 'bright', 'warm-glowing', 'airy', 'floating', 'bright-high-register', 'silky-airy-top']
+    tokens: ['shimmering', 'bright', 'warm-glowing', 'airy', 'floating', 'bright-high-register', 'silky-airy-top', 'narrow-continuous-shimmer']
   },
   {
     id: 'icy',
@@ -2190,7 +2190,7 @@ const PREFACE_LEXICON = [
   {
     id: 'weary',
     note: "bone-tired heaviness — slow mournful low register, breath-worn and intimate",
-    tokens: ['mournful', 'lament-leaning', 'low-register', 'breath-heavy', 'soft-onset', 'meditative-tempo', 'sustained-tone', 'intimate-aspirated', 'low-mid-rich-spectrum']
+    tokens: ['mournful', 'lament-leaning', 'low-register', 'breath-heavy', 'soft-onset', 'meditative-tempo', 'sustained-tone', 'intimate-aspirated', 'low-mid-rich-spectrum', 'sighed-falling-release']
   },
   {
     id: 'creepy',
@@ -2235,7 +2235,7 @@ const PREFACE_LEXICON = [
   {
     id: 'mellow',
     note: "warm and unhurried — soft smoothed jazz-influenced ease",
-    tokens: ['mellow', 'mellowed', 'soft', 'warm-glowing', 'smoothed', 'intimate', 'plush', 'soft-onset', 'jazz-influenced']
+    tokens: ['mellow', 'mellowed', 'soft', 'warm-glowing', 'smoothed', 'intimate', 'plush', 'soft-onset', 'jazz-influenced', 'subtone-low-subglottal-pressure']
   },
   {
     id: 'breezy',
@@ -2245,7 +2245,7 @@ const PREFACE_LEXICON = [
   {
     id: 'defiant',
     note: "unbowed challenge — shouted projecting belt with a cutting, rough edge",
-    tokens: ['declamatory', 'shouted', 'projecting', 'biting', 'unrestrained', 'belt-projection', 'cutting', 'edgy', 'rough']
+    tokens: ['declamatory', 'shouted', 'projecting', 'biting', 'unrestrained', 'belt-projection', 'cutting', 'edgy', 'rough', 'sforzando-stress-accent', 'glottal-onset-firm-adduction', 'marcato-each-note-marked']
   },
   {
     id: 'worried',
@@ -2255,7 +2255,7 @@ const PREFACE_LEXICON = [
   {
     id: 'frantic',
     note: "panicked rush — fast tremolo and runs in unrestrained, cutting urgency",
-    tokens: ['fast-tremolo', 'fast-runs', 'fast-attack-transient', 'rapid-tremolo', 'percussive', 'fast-tempo-110-160', 'cutting', 'unrestrained', 'punctuated']
+    tokens: ['fast-tremolo', 'fast-runs', 'fast-attack-transient', 'rapid-tremolo', 'percussive', 'fast-tempo-110-160', 'cutting', 'unrestrained', 'punctuated', 'fast-bleat-caprino']
   },
   {
     id: 'aggressive',
@@ -2265,7 +2265,7 @@ const PREFACE_LEXICON = [
   {
     id: 'fierce',
     note: "ferocious intensity — unrestrained shouted belt with cutting transient force",
-    tokens: ['biting', 'cutting', 'unrestrained', 'high-gain-saturation', 'shouted', 'belt-projection', 'sharp', 'transient-grab-aggressive', 'projecting']
+    tokens: ['biting', 'cutting', 'unrestrained', 'high-gain-saturation', 'shouted', 'belt-projection', 'sharp', 'transient-grab-aggressive', 'projecting', 'sforzando-stress-accent']
   },
   {
     id: 'bold',
@@ -2305,22 +2305,22 @@ const PREFACE_LEXICON = [
   {
     id: 'elegant',
     note: "refined poise — ornamented baroque grace, legato and smoothed",
-    tokens: ['ornamental', 'baroque-ornamental', 'baroque-soloistic', 'recital', 'lyrical', 'smoothed', 'subtle-virtuosity', 'legato', 'classical']
+    tokens: ['ornamental', 'baroque-ornamental', 'baroque-soloistic', 'recital', 'lyrical', 'smoothed', 'subtle-virtuosity', 'legato', 'classical', 'smooth-simultaneous-onset', 'pure-pitch-vibrato-no-amplitude']
   },
   {
     id: 'graceful',
     note: "flowing ease — legato lyrical glide, supple and gentle",
-    tokens: ['legato', 'lyrical', 'smoothed', 'soft-onset', 'gliding', 'flowing', 'supple', 'gentle', 'ornamental']
+    tokens: ['legato', 'lyrical', 'smoothed', 'soft-onset', 'gliding', 'flowing', 'supple', 'gentle', 'ornamental', 'smooth-simultaneous-onset']
   },
   {
     id: 'regal',
     note: "stately grandeur — court-ceremonial orchestral majesty, reverent and soaring",
-    tokens: ['court-ceremonial', 'ceremonial', 'operatic', 'orchestral', 'romantic-orchestra', 'reverent', 'dynamic-arc-foundational', 'soaring', 'sustained-projection']
+    tokens: ['court-ceremonial', 'ceremonial', 'operatic', 'orchestral', 'romantic-orchestra', 'reverent', 'dynamic-arc-foundational', 'soaring', 'sustained-projection', 'singers-formant-cluster-3k']
   },
   {
     id: 'dramatic',
     note: "theatrical sweep — a wide dynamic operatic arc with expansive reverb",
-    tokens: ['dramatic', 'dynamic', 'dynamic-arc-foundational', 'dynamic-range-wide', 'soaring', 'operatic', 'romantic-orchestra', 'expansive-reverb', 'theatrical']
+    tokens: ['dramatic', 'dynamic', 'dynamic-arc-foundational', 'dynamic-range-wide', 'soaring', 'operatic', 'romantic-orchestra', 'expansive-reverb', 'theatrical', 'decelerating-widening-toward-release']
   },
   {
     id: 'theatrical',
@@ -2345,12 +2345,12 @@ const PREFACE_LEXICON = [
   {
     id: 'silky',
     note: "smooth sheen — supple legato glide with airy warm-glowing softness",
-    tokens: ['silky-airy-top', 'smoothed', 'soft', 'supple', 'legato', 'warm-glowing', 'mellow', 'plush', 'gliding']
+    tokens: ['silky-airy-top', 'smoothed', 'soft', 'supple', 'legato', 'warm-glowing', 'mellow', 'plush', 'gliding', 'smooth-simultaneous-onset', 'narrow-continuous-shimmer']
   },
   {
     id: 'hollow',
     note: "empty resonance — boxy woody drone in airless cavernous space",
-    tokens: ['hollow', 'boxy', 'woody', 'drone-like', 'airless', 'undamped-resonance', 'cavernous', 'low-overtone-rich', 'neutral']
+    tokens: ['hollow', 'boxy', 'woody', 'drone-like', 'airless', 'undamped-resonance', 'cavernous', 'low-overtone-rich', 'neutral', 'back-swallowed-placement']
   },
   {
     id: 'whispering',
@@ -2360,12 +2360,12 @@ const PREFACE_LEXICON = [
   {
     id: 'muddy',
     note: "murky low-fi thickness — boomy dark low-mid wash, damped and indistinct",
-    tokens: ['low-mid-thick', 'boomy', 'low-end-heavy', 'dark', 'boxy', 'low-mid-rich', 'sub-heavy', 'top-rolled-off-8k', 'blanket-damped']
+    tokens: ['low-mid-thick', 'boomy', 'low-end-heavy', 'dark', 'boxy', 'low-mid-rich', 'sub-heavy', 'top-rolled-off-8k', 'blanket-damped', 'cupped-hand-muffle']
   },
   {
     id: 'crisp',
     note: "clean snap — tight transient articulation, bright and present",
-    tokens: ['crisp', 'snappy', 'fast-attack-transient', 'clean', 'articulate', 'tight-articulation', 'bright', 'present', 'clean-articulation-low-blur']
+    tokens: ['crisp', 'snappy', 'fast-attack-transient', 'clean', 'articulate', 'tight-articulation', 'bright', 'present', 'clean-articulation-low-blur', 'velum-raised-denasalized']
   },
   {
     id: 'deafening',
@@ -2545,7 +2545,7 @@ const PREFACE_LEXICON = [
   {
     id: 'gentle',
     note: "tender softness — soft-onset plush warmth, smoothed and intimate",
-    tokens: ['soft', 'soft-onset', 'gentle', 'smoothed', 'plush', 'warm-glowing', 'intimate', 'mellow', 'pastoral']
+    tokens: ['soft', 'soft-onset', 'gentle', 'smoothed', 'plush', 'warm-glowing', 'intimate', 'mellow', 'pastoral', 'portato-semi-detached-carried']
   },
   {
     id: 'soft',
@@ -2590,7 +2590,7 @@ const PREFACE_LEXICON = [
   {
     id: 'bubbly',
     note: "effervescent fizz — lively snappy brightness, jangly and danceable",
-    tokens: ['lively', 'snappy', 'bright', 'jangly', 'hyped-mids', 'dance-driving', 'twangy', 'expressive', 'vibrato-y']
+    tokens: ['lively', 'snappy', 'bright', 'jangly', 'hyped-mids', 'dance-driving', 'twangy', 'expressive', 'vibrato-y', 'leggiero-light-head']
   },
   {
     id: 'eager',
@@ -2675,7 +2675,7 @@ const PREFACE_LEXICON = [
   {
     id: 'fragile',
     note: "delicate frailty — soft breath-tone air, hushed and low",
-    tokens: ['soft', 'soft-onset', 'breath-tone-airy', 'intimate-aspirated', 'quiet', 'low-projection-volume', 'breathy', 'subtle', 'mellowed']
+    tokens: ['soft', 'soft-onset', 'breath-tone-airy', 'intimate-aspirated', 'quiet', 'low-projection-volume', 'breathy', 'subtle', 'mellowed', 'thin-true-fold-cover']
   },
   {
     id: 'fuzzy',
@@ -2695,7 +2695,7 @@ const PREFACE_LEXICON = [
   {
     id: 'thick',
     note: "dense and heavy — low-mid bulk with full sub weight",
-    tokens: ['low-mid-thick', 'dense', 'full', 'low-end-heavy', 'sub-bass', 'low-mid-rich', 'full-bodied', 'foundation', 'overtone-rich']
+    tokens: ['low-mid-thick', 'dense', 'full', 'low-end-heavy', 'sub-bass', 'low-mid-rich', 'full-bodied', 'foundation', 'overtone-rich', 'thick-true-fold-body-mass']
   },
   {
     id: 'rich',
@@ -2705,17 +2705,17 @@ const PREFACE_LEXICON = [
   {
     id: 'deep',
     note: "subterranean low end — a deep sub-bass foundation, low and heavy",
-    tokens: ['deep', 'deep-bass', 'sub-bass', 'low-fundamental', 'sub-heavy', 'low-register', 'sub-driven', 'low-end-heavy', 'foundation']
+    tokens: ['deep', 'deep-bass', 'sub-bass', 'low-fundamental', 'sub-heavy', 'low-register', 'sub-driven', 'low-end-heavy', 'foundation', 'oktavist-modal-sub-bass']
   },
   {
     id: 'raspy',
     note: "grated rasp — rough gritty growl with a chest-anchored cry",
-    tokens: ['rough', 'gritty', 'growly', 'chest-resonance-low-mid', 'low-mid-rich-spectrum', 'speech-derived', 'edgy', 'biting', 'characteristic-cry']
+    tokens: ['rough', 'gritty', 'growly', 'chest-resonance-low-mid', 'low-mid-rich-spectrum', 'speech-derived', 'edgy', 'biting', 'characteristic-cry', 'stiff-true-fold-creak']
   },
   {
     id: 'dull',
     note: "muffled and flat — rolled-off damped dark, low and lifeless",
-    tokens: ['top-rolled-off-8k', 'blanket-damped', 'dark', 'low-distortion-low-coloration', 'neutral', 'mellowed', 'boxy', 'low-overtone-rich', 'airless']
+    tokens: ['top-rolled-off-8k', 'blanket-damped', 'dark', 'low-distortion-low-coloration', 'neutral', 'mellowed', 'boxy', 'low-overtone-rich', 'airless', 'back-swallowed-placement']
   },
   {
     id: 'wet',
@@ -2780,7 +2780,7 @@ const PREFACE_LEXICON = [
   {
     id: 'coarse',
     note: "coarse rasp — a rough gritty low-register growl, unrefined",
-    tokens: ['rough', 'gritty', 'growly', 'chest-resonance-low-mid', 'low-register', 'edgy', 'biting', 'speech-derived', 'low-mid-rich-spectrum']
+    tokens: ['rough', 'gritty', 'growly', 'chest-resonance-low-mid', 'low-register', 'edgy', 'biting', 'speech-derived', 'low-mid-rich-spectrum', 'stiff-true-fold-creak']
   },
   {
     id: 'clean',
@@ -2825,7 +2825,7 @@ const PREFACE_LEXICON = [
   {
     id: 'incantatory',
     note: "ritual chant — free-rhythm drone melisma, microtonal and reverent",
-    tokens: ['sustained-tones-free-rhythm', 'drone-like', 'ametrical-pitched-chant-free-rhythm', 'melismatic', 'ritual', 'meditative-tempo', 'reverent', 'microtonal', 'free-rhythm']
+    tokens: ['sustained-tones-free-rhythm', 'drone-like', 'ametrical-pitched-chant-free-rhythm', 'melismatic', 'ritual', 'meditative-tempo', 'reverent', 'microtonal', 'free-rhythm', 'byzantine-morai-microtone']
   },
   {
     id: 'hypnotic',
@@ -2855,7 +2855,7 @@ const PREFACE_LEXICON = [
   {
     id: 'subterranean',
     note: "deep underground — sub-bass cavern weight, dark and droning",
-    tokens: ['sub-bass', 'sub-bass-foundational', 'deep-bass', 'sub-heavy', 'low-fundamental', 'cavernous', 'dark', 'drone-foundation', 'low-end-heavy']
+    tokens: ['sub-bass', 'sub-bass-foundational', 'deep-bass', 'sub-heavy', 'low-fundamental', 'cavernous', 'dark', 'drone-foundation', 'low-end-heavy', 'oktavist-modal-sub-bass']
   },
   {
     id: 'oceanic',
@@ -2865,7 +2865,7 @@ const PREFACE_LEXICON = [
   {
     id: 'cavernous',
     note: "echoing stone vault — reverberant expanse, dark and sub-heavy",
-    tokens: ['cavernous', 'reverberant', 'expansive-reverb', 'dark', 'sub-heavy', 'naturally-reverberant', 'drone-foundation', 'low-end-heavy', 'sustained-tone']
+    tokens: ['cavernous', 'reverberant', 'expansive-reverb', 'dark', 'sub-heavy', 'naturally-reverberant', 'drone-foundation', 'low-end-heavy', 'sustained-tone', 'tract-lengthened-lowered-larynx']
   },
   {
     id: 'frenetic',
@@ -2875,7 +2875,7 @@ const PREFACE_LEXICON = [
   {
     id: 'languid',
     note: "slow and luxuriant — mellow legato sustain at a drowsy pace",
-    tokens: ['mellow', 'meditative-tempo', 'smoothed', 'soft-onset', 'legato', 'sustained-tone', 'warm-glowing', 'swung', 'plush']
+    tokens: ['mellow', 'meditative-tempo', 'smoothed', 'soft-onset', 'legato', 'sustained-tone', 'warm-glowing', 'swung', 'plush', 'subtone-low-subglottal-pressure', 'sighed-falling-release']
   },
   {
     id: 'propulsive',
@@ -2885,12 +2885,12 @@ const PREFACE_LEXICON = [
   {
     id: 'pulsing',
     note: "throbbing pulse — trance-suited dance rhythm, percussive and motoric",
-    tokens: ['trance-suited', 'dance-rhythm', 'percussive', 'foundation', 'dance-driving', 'backbeat', 'tight-rhythmic-articulation', 'rhythmic', 'marching']
+    tokens: ['trance-suited', 'dance-rhythm', 'percussive', 'foundation', 'dance-driving', 'backbeat', 'tight-rhythmic-articulation', 'rhythmic', 'marching', 'amplitude-tremolo-pitch-stable']
   },
   {
     id: 'vintage',
     note: "aged analog — tape and shellac warmth with wow-flutter and surface noise",
-    tokens: ['cassette', 'shellac', 'wow-and-flutter-noticeable', 'surface-noise-bedded', 'vintage-electronic', 'top-rolled-off-8k', 'analog-drift-character', 'pre-war', 'mellowed']
+    tokens: ['cassette', 'shellac', 'wow-and-flutter-noticeable', 'surface-noise-bedded', 'vintage-electronic', 'top-rolled-off-8k', 'analog-drift-character', 'pre-war', 'mellowed', 'cupped-hand-muffle']
   },
   {
     id: 'retro',
@@ -2925,22 +2925,22 @@ const PREFACE_LEXICON = [
   {
     id: 'gothic',
     note: "cathedral dark — dark-romantic cavern weight, reverberant and liturgical",
-    tokens: ['dark', 'dark-romantic', 'haunted-romantic', 'cavernous', 'sub-bass-foundational', 'reverberant', 'sustained-tone', 'liturgical', 'low-end-heavy']
+    tokens: ['dark', 'dark-romantic', 'haunted-romantic', 'cavernous', 'sub-bass-foundational', 'reverberant', 'sustained-tone', 'liturgical', 'low-end-heavy', 'tract-lengthened-lowered-larynx']
   },
   {
     id: 'baroque',
     note: "ornate period grandeur — baroque ornament and melisma, classical and soloistic",
-    tokens: ['baroque-ornamental', 'baroque-soloistic', 'baroque-leaning', 'ornamental', 'ornament-heavy', 'ornamental-melismatic', 'recital', 'classical', 'sustained-projection']
+    tokens: ['baroque-ornamental', 'baroque-soloistic', 'baroque-leaning', 'ornamental', 'ornament-heavy', 'ornamental-melismatic', 'recital', 'classical', 'sustained-projection', 'terraced-dynamic-steps', 'meantone-comma-inflected', 'countertenor-developed-head']
   },
   {
     id: 'ethereal',
     note: "gossamer float — an airy halo shimmer, weightless and reverberant",
-    tokens: ['airy', 'floating', 'breath-tone-airy', 'halo', 'silky-airy-top', 'shimmering', 'reverberant', 'sustained-tone']
+    tokens: ['airy', 'floating', 'breath-tone-airy', 'halo', 'silky-airy-top', 'shimmering', 'reverberant', 'sustained-tone', 'decrescendo-al-niente', 'thin-true-fold-cover', 'countertenor-developed-head']
   },
   {
     id: 'hazy',
     note: "soft-focus blur — washy rolled-off damping, dreamy and smeared",
-    tokens: ['washy', 'smoothed', 'top-rolled-off-12k', 'blanket-damped', 'soft-onset', 'reverberant', 'mellowed', 'layered-ambient', 'breath-tone-airy']
+    tokens: ['washy', 'smoothed', 'top-rolled-off-12k', 'blanket-damped', 'soft-onset', 'reverberant', 'mellowed', 'layered-ambient', 'breath-tone-airy', 'cupped-hand-muffle']
   },
   {
     id: 'crystalline',
@@ -2955,22 +2955,22 @@ const PREFACE_LEXICON = [
   {
     id: 'operatic',
     note: "grand opera voice — sustained high-register vibrato, soaring and belted",
-    tokens: ['operatic', 'sustained-high-register', 'vibrato-rich', 'soaring', 'romantic-orchestra', 'recital', 'sustained-projection', 'belt-projection', 'dynamic']
+    tokens: ['operatic', 'sustained-high-register', 'vibrato-rich', 'soaring', 'romantic-orchestra', 'recital', 'sustained-projection', 'belt-projection', 'dynamic', 'messa-di-voce-swell', 'singers-formant-cluster-3k', 'decelerating-widening-toward-release']
   },
   {
     id: 'anthemic',
     note: "stadium singalong — soaring belted projection, wide and crowd-loud",
-    tokens: ['soaring', 'belt-projection', 'congregation-loud', 'full', 'dance-driving', 'hyped-mids', 'sustained-projection', 'wide', 'present']
+    tokens: ['soaring', 'belt-projection', 'congregation-loud', 'full', 'dance-driving', 'hyped-mids', 'sustained-projection', 'wide', 'present', 'cuivre-brassy-edge', 'marcato-weighted-declamation', 'heavy-m1-carried-high']
   },
   {
     id: 'soulful',
     note: "gospel-soul warmth — melismatic gospel runs, vibrato-rich and belted",
-    tokens: ['gospel-rooted', 'gospel-runs', 'melismatic', 'vibrato-rich', 'warm-glowing', 'blues-inflected', 'expressive', 'ornamental-melismatic', 'belt-projection']
+    tokens: ['gospel-rooted', 'gospel-runs', 'melismatic', 'vibrato-rich', 'warm-glowing', 'blues-inflected', 'expressive', 'ornamental-melismatic', 'belt-projection', 'asymmetric-under-pitch-scoop', 'reinforced-falsetto']
   },
   {
     id: 'bluesy',
     note: "blues cry — bent slide melisma, mournful and gritty",
-    tokens: ['bluesy', 'blues-derived', 'blues-inflected', 'blues-shouter', 'slide', 'glissando-heavy', 'mournful', 'melismatic', 'gritty']
+    tokens: ['bluesy', 'blues-derived', 'blues-inflected', 'blues-shouter', 'slide', 'glissando-heavy', 'mournful', 'melismatic', 'gritty', 'asymmetric-under-pitch-scoop']
   },
   {
     id: 'jazzy',
@@ -2985,7 +2985,7 @@ const PREFACE_LEXICON = [
   {
     id: 'triumphant',
     note: "victorious blaze — a soaring belted orchestral arc, bright and full",
-    tokens: ['soaring', 'belt-projection', 'sustained-projection', 'dynamic-arc-foundational', 'full', 'projecting', 'orchestral', 'bright', 'present']
+    tokens: ['soaring', 'belt-projection', 'sustained-projection', 'dynamic-arc-foundational', 'full', 'projecting', 'orchestral', 'bright', 'present', 'false-fold-retracted-open', 'singers-formant-cluster-3k', 'heavy-m1-carried-high']
   },
   {
     id: 'sentimental',
@@ -2995,7 +2995,7 @@ const PREFACE_LEXICON = [
   {
     id: 'sultry',
     note: "smoldering heat — breathy warm closeness, heavy and low",
-    tokens: ['breathy', 'warm-glowing', 'intimate-aspirated', 'plush', 'smoothed', 'low-mid-rich-spectrum', 'vibrato-rich', 'soft-onset', 'breathy-low']
+    tokens: ['breathy', 'warm-glowing', 'intimate-aspirated', 'plush', 'smoothed', 'low-mid-rich-spectrum', 'vibrato-rich', 'soft-onset', 'breathy-low', 'subtone-low-subglottal-pressure', 'aspirate-onset-breath-before-tone']
   },
   {
     id: 'stormy',
@@ -3045,7 +3045,7 @@ const PREFACE_LEXICON = [
   {
     id: 'soaring',
     note: "uplifting flight — sustained high-register projection, vibrato-rich and wide",
-    tokens: ['soaring', 'sustained-high-register', 'sustained-projection', 'belt-projection', 'vibrato-rich', 'dynamic-arc-foundational', 'projecting', 'expansive-reverb', 'bright']
+    tokens: ['soaring', 'sustained-high-register', 'sustained-projection', 'belt-projection', 'vibrato-rich', 'dynamic-arc-foundational', 'projecting', 'expansive-reverb', 'bright', 'messa-di-voce-swell', 'reinforced-falsetto', 'full-range-siren-glissando']
   },
   {
     id: 'floating',
@@ -3055,7 +3055,7 @@ const PREFACE_LEXICON = [
   {
     id: 'smoky',
     note: "smoldering husk — breathy warm low-mids, jazz-club intimate",
-    tokens: ['breathy', 'warm-glowing', 'low-mid-rich-spectrum', 'smoothed', 'intimate-aspirated', 'jazz-influenced', 'mellow', 'rough', 'breathy-low']
+    tokens: ['breathy', 'warm-glowing', 'low-mid-rich-spectrum', 'smoothed', 'intimate-aspirated', 'jazz-influenced', 'mellow', 'rough', 'breathy-low', 'subtone-low-subglottal-pressure', 'cupped-hand-muffle']
   },
   {
     id: 'pastoral',
@@ -3065,7 +3065,7 @@ const PREFACE_LEXICON = [
   {
     id: 'sacred',
     note: "holy reverence — liturgical sacred chant, choir-blended and devout",
-    tokens: ['sacred-traditional', 'liturgical', 'reverent', 'devotional', 'sustained-tone', 'choir-blendable', 'sacred-Latin', 'meditative-tempo', 'ceremonial']
+    tokens: ['sacred-traditional', 'liturgical', 'reverent', 'devotional', 'sustained-tone', 'choir-blendable', 'sacred-Latin', 'meditative-tempo', 'ceremonial', 'just-intonation-pure-ratios']
   },
   {
     id: 'bittersweet',
@@ -3075,7 +3075,7 @@ const PREFACE_LEXICON = [
   {
     id: 'yearning',
     note: "aching longing — lament-leaning high register, soaring and expressive",
-    tokens: ['lament-leaning', 'mournful', 'sustained-high-register', 'vibrato-rich', 'expressive', 'soaring', 'intimate-aspirated', 'glissando-heavy', 'romantic']
+    tokens: ['lament-leaning', 'mournful', 'sustained-high-register', 'vibrato-rich', 'expressive', 'soaring', 'intimate-aspirated', 'glissando-heavy', 'romantic', 'pythagorean-wide-leading-tone']
   },
 ];
 
