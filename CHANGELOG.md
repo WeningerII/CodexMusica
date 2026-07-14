@@ -6,6 +6,37 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Changed
+- **Wired the 50 new voice-production options into the preface intent path.** A
+  usage audit found that the options added in the voice round were reachable only
+  by manual `set_variant` — no preface's derivation ever selected one, because no
+  preface carried a token matching their descriptors (applying `operatic` vs
+  `snarling` vs `crooning` derived *identical* effort/estill/tract/vibrato). Added
+  142 bridging tokens across 106 prefaces so mood/technique words now auto-derive
+  the right option: `operatic` → messa-di-voce + singer's-formant ring;
+  `snarling` → constricted-false-fold grit + cuivré edge; `crooning`/`smoky` →
+  subtone; `liturgical` → just-intonation + countertenor + oktavist; `bellowing`
+  → thick-fold + jaw-dropped; `ecstatic` → gospel-push + accelerating vibrato +
+  ululation; `saudade` → sighed release; `baroque` → terraced dynamics + meantone;
+  and so on across all seven enriched parts. The derivation scores a variant's
+  descriptors against the target preface's tokens, so this is purely additive:
+  **default recipes are unchanged** (recipe regression 1198/1198; 0 of 1195
+  traditions changed auto-preface) — the tokens only steer the on-demand
+  `set_preface` reshape. Preface auto-suggestion is untouched (79/79) after
+  keeping voice tokens off the two non-vocal-primary prefaces (`raging`,
+  `marching`) whose match scores they diluted.
+
+### Fixed
+- **Dead-token audit now counts derivation-reachable variants.** `audit_dead_tokens`
+  only pooled descriptors from a card's *default/override* variants, so a preface
+  token matching a non-default option read as "dead" even though the reshape
+  optimizer (and manual `set_variant`) can select that option — making its
+  descriptor a live, working token. Broadened the audit to also pool every
+  selectable (non-`expanded`) variant's descriptors + match_tokens, matching its
+  own stated intent ("tokens that exist anywhere in the authoring catalog
+  associated with this card"). Still catches genuine typos/orphans (a token no
+  variant anywhere carries). Audit is CLEAN with the new bridging tokens.
+
 ### Added
 - **50 new options across the 7 thin voice-production parts.** The earlier voice
   round fattened the *contextual* parts (tradition 39, processing-chain 32,
