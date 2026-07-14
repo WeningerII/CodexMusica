@@ -130,15 +130,15 @@ assert(
 // ── §3g — the preface inverse outputs the docs cite as "Verified" ──
 assert(
   '§3g',
-  'preface_configure: voice+liturgical covers 0/9→2/9; voice+caressing moves Room→Front parlor',
+  'preface_configure: voice+liturgical covers 0/13→4/13; voice+caressing moves Room→Front parlor',
   () => {
     const lit = run([PREF, '--instrument', 'voice', '--preface', 'liturgical']).out;
     const car = run([PREF, '--instrument', 'voice', '--preface', 'caressing']).out;
-    const litOk = /0\/9\s*→\s*2\/9/.test(lit),
+    const litOk = /0\/13\s*→\s*4\/13/.test(lit),
       carOk = /Front parlor/.test(car);
     return {
       ok: litOk && carOk,
-      detail: `liturgical(0/9→2/9)=${litOk}, caressing(Room→Front parlor)=${carOk}`,
+      detail: `liturgical(0/13→4/13)=${litOk}, caressing(Room→Front parlor)=${carOk}`,
     };
   }
 );

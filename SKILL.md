@@ -444,7 +444,8 @@ browser app's `inverseConfigureForPreface`).
 
 ```bash
 node scripts/preface_configure.js --instrument voice --preface liturgical
-#   target coverage: 0/9 → 2/9 tokens
+#   target coverage: 0/13 → 4/13 tokens
+#   Register: Chest → Countertenor;  Pitch flexibility: Tempered → Just intonation
 #   Tuning: (none) → Pythagorean tuning   [+medieval]
 #   Room: (none) → Tin-roofed shack
 ```

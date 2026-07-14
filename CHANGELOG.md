@@ -6,6 +6,24 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Added
+- **Microphone taxonomy + exhaustive gap-fill (mic stage 40 → 53).** Organized
+  every mic under a `family` field — Acoustic, Carbon, Dynamic, Ribbon,
+  Condenser, Electret, Piezoelectric, MEMS, Optical, Capture technique — and the
+  chain-stage picker now renders those as grouped headers (with the inline filter
+  header-aware: typing "ribbon" collapses to just the Ribbon group). Auditing the
+  families by transducer principle, form-factor, and capture technique surfaced 13
+  gaps, now added: **large-diaphragm / variable-D dynamic** (RE20-class broadcast/
+  kick); **shotgun** (interference-tube), **measurement/reference omni**, and
+  **headset** condensers; **hydrophone** and **throat/laryngophone** piezos;
+  **optical/laser** (a transducer principle the catalog was entirely missing); and
+  six capture techniques — **X-Y**, **A-B spaced**, **NOS**, **binaural
+  dummy-head**, **ambisonic soundfield**, and **parabolic** (the stereo palette
+  had the esoteric Blumlein/Decca but was missing the two most common, X-Y and
+  A-B). Added as selectable options only — no archetype defaults changed, so
+  recipe snapshots are unchanged. Sets up character-appropriate mic-default
+  assignment off a complete, organized palette.
+
 ### Changed
 - **Wired the 50 new voice-production options into the preface intent path.** A
   usage audit found that the options added in the voice round were reachable only

@@ -5703,6 +5703,17 @@ function attachInlineFilter(panel, opts) {
         g.style.display = any ? '' : 'none';
       });
     }
+    // Family headers (siblings, not wrappers): show a header only when at least
+    // one visible item follows it before the next header.
+    if (opts.headerSelector) {
+      panel.querySelectorAll(opts.headerSelector).forEach(h => {
+        let any = false;
+        for (let n = h.nextElementSibling; n && !n.matches(opts.headerSelector); n = n.nextElementSibling) {
+          if (n.matches(itemSel) && n.style.display !== 'none') { any = true; break; }
+        }
+        h.style.display = any ? '' : 'none';
+      });
+    }
     countEl.textContent = q ? (shown + ' match' + (shown === 1 ? '' : 'es')) : '';
   }
   input.addEventListener('input', apply);
@@ -5846,25 +5857,49 @@ function renderChainSection(card) {
         noneBtn.textContent = 'Not set';
         opts.appendChild(noneBtn);
       }
-      stageDef.items.forEach(it => {
+      const makeChip = it => {
         const b = document.createElement('button');
-        let isSelected;
-        if (isMulti) {
-          isSelected = (card.chain[stageDef.id] || []).includes(it.id);
-        } else {
-          isSelected = card.chain[stageDef.id] === it.id;
-        }
+        const isSelected = isMulti
+          ? (card.chain[stageDef.id] || []).includes(it.id)
+          : card.chain[stageDef.id] === it.id;
         b.className = 'chip-block' + (isSelected ? ' selected' : '');
         b.dataset.setChain = stageDef.id;
         b.dataset.item = it.id;
         const descs = entryRenderDescs(it);
         b.innerHTML = `${esc(it.name)}${descs.length ? `<span class="chip-block-sub">${esc(descs.join(' · '))}</span>` : ''}`;
-        opts.appendChild(b);
-      });
+        return b;
+      };
+      // Stages whose items carry a `family` (e.g. mics) render grouped under
+      // family headers; everything else stays a flat list.
+      const CHAIN_FAMILY_ORDER = ['Acoustic', 'Carbon', 'Dynamic', 'Ribbon', 'Condenser', 'Electret', 'Piezoelectric', 'MEMS', 'Optical', 'Capture technique'];
+      if (stageDef.items.some(it => it.family)) {
+        const groups = new Map();
+        for (const it of stageDef.items) {
+          const f = it.family || 'Other';
+          if (!groups.has(f)) groups.set(f, []);
+          groups.get(f).push(it);
+        }
+        const ordered = [
+          ...CHAIN_FAMILY_ORDER.filter(f => groups.has(f)),
+          ...[...groups.keys()].filter(f => !CHAIN_FAMILY_ORDER.includes(f)),
+        ];
+        for (const f of ordered) {
+          const h = document.createElement('div');
+          h.className = 'chain-family-header';
+          h.textContent = `${f} · ${groups.get(f).length}`;
+          opts.appendChild(h);
+          groups.get(f).forEach(it => opts.appendChild(makeChip(it)));
+        }
+      } else {
+        stageDef.items.forEach(it => opts.appendChild(makeChip(it)));
+      }
       panel.appendChild(opts);
       // Long stages (e.g. mics, mediums) get a live filter; small ones don't need it.
       if (stageDef.items.length > 8) {
-        attachInlineFilter(opts, { placeholder: `Filter ${stageDef.items.length} options…` });
+        attachInlineFilter(opts, {
+          placeholder: `Filter ${stageDef.items.length} options…`,
+          headerSelector: '.chain-family-header',
+        });
       }
       sec.appendChild(panel);
     }
