@@ -7,6 +7,42 @@ All notable changes to this project are recorded here. Format loosely follows
 ## [Unreleased]
 
 ### Added
+- **Stereo/spatial imaging — auto-derived from intent (additive core).** Recipes
+  rarely conveyed any sense of stereo/panorama. A fan-out audit (5 dimensions)
+  found the cause and, critically, corrected a wrong premise: the reshape
+  optimizer's axes are only `mic / pre / medium / console` (+ room / parts /
+  tuning) — **fx / comp / eq / amp are NOT derivation axes** — so prefaces can
+  auto-derive a stereo *capture mic* but never an fx. Shipped the additive,
+  zero-churn core:
+  - **Spatial prefaces now auto-derive a capture technique**: `panoramic` → A-B
+    spaced pair, `stereophonic` → X-Y, `widescreen` → Blumlein, `spacious` →
+    ORTF, `oceanic` → ambisonic, `cinematic`/`vast` → Decca tree (one verified
+    real-descriptor token added per preface). This is the "recipes now read
+    stereo" win, on the mic axis the earlier round stocked.
+  - **10 imaging FX items** (fx 42 → 52): stereo widener (M/S), ping-pong delay,
+    Haas doubler, auto-panner, mid-side processor, dimension chorus, rotary-speaker
+    sim, mono-maker (bass-mono), pseudo-stereo, true-stereo reverb. Manually/
+    connector-selectable (fx isn't a derivation axis).
+  - **4 console/medium items**: wide stereo bus + mono summing bus (console 27 →
+    29); mono master + stereo-spectacular master (medium 23 → 25).
+  - **Dead-token audit** extended to pool chain-section item descriptors (mic/pre/
+    medium/console are optimizer axes, so their item descriptors are live preface
+    targets) — required for the capture-mic tokens to register as reachable.
+  - **Room spatial descriptors** — 7 sacred/hall rooms now read wide (byzantine
+    monastery, lalibela, Armenian/Coptic churches, tibetan gompa, wooden pagoda:
+    `hall-like` / `expansive-reverb` / `cathedral-air` / `cavernous`) and
+    `closet_booth` reads narrow (`dry` / `boxy` / `close` / `intimate` / `narrow`),
+    so spatial prefaces retain/select the right room for those traditions.
+  - **Archival → mono** — `reminiscing` / `sabi-patinated` / `tarnished` now derive
+    the mono summing bus (verified). So a preface applied to a pre-war/shellac card
+    reads mono, the correct image for the era.
+  All additive/clean: recipe regression 1198/1198 and preface auto-suggestion 79/79
+  both unchanged even with the room + archival edits; dead-tokens CLEAN. (The one
+  remaining churny piece — ~34 capture-technique *defaults*, e.g. orchestral →
+  Decca tree — is staged for the mic-default assignment task, since it re-blesses
+  recipes and overlaps that work.)
+
+### Added
 - **Microphone taxonomy + exhaustive gap-fill (mic stage 40 → 53).** Organized
   every mic under a `family` field — Acoustic, Carbon, Dynamic, Ribbon,
   Condenser, Electret, Piezoelectric, MEMS, Optical, Capture technique — and the
