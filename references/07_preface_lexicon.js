@@ -552,7 +552,7 @@ const PREFACE_LEXICON = [
   },
   {
     id: 'reminiscing',
-    tokens: ['archival', 'pre-war', 'shellac', 'surface-noise-bedded', 'horn-mechanical-pickup', 'disc', 'no-bass-extension', 'strummed', 'bandwidth-narrow']
+    tokens: ['archival', 'pre-war', 'shellac', 'surface-noise-bedded', 'horn-mechanical-pickup', 'disc', 'no-bass-extension', 'strummed', 'bandwidth-narrow', 'sum-to-mono']
   },
   {
     id: 'thrumming',
@@ -1030,7 +1030,7 @@ const PREFACE_LEXICON = [
   {
     id: 'sabi-patinated',
     note: "lonely-elegant patina — koto or shakuhachi line carrying the weight of the years that played it",
-    tokens: ['archival', 'horn-mechanical-pickup', 'pre-war', 'surface-noise-bedded', 'bandwidth-narrow', 'disc', 'mid-emphasized', 'no-bass-extension', 'pre-microgroove']
+    tokens: ['archival', 'horn-mechanical-pickup', 'pre-war', 'surface-noise-bedded', 'bandwidth-narrow', 'disc', 'mid-emphasized', 'no-bass-extension', 'pre-microgroove', 'sum-to-mono']
   },
   {
     id: 'ma-pausing',
@@ -2060,7 +2060,7 @@ const PREFACE_LEXICON = [
   {
     id: 'tarnished',
     note: "the patina of years on it — shellac surface-noise and narrowed band, beauty under the wear",
-    tokens: ['archival', 'pre-war', 'shellac', 'surface-noise-bedded', 'horn-mechanical-pickup', 'disc', 'no-bass-extension', 'bandwidth-narrow', 'mid-emphasized']
+    tokens: ['archival', 'pre-war', 'shellac', 'surface-noise-bedded', 'horn-mechanical-pickup', 'disc', 'no-bass-extension', 'bandwidth-narrow', 'mid-emphasized', 'sum-to-mono']
   },
   {
     id: 'austere',

@@ -28,10 +28,19 @@ All notable changes to this project are recorded here. Format loosely follows
   - **Dead-token audit** extended to pool chain-section item descriptors (mic/pre/
     medium/console are optimizer axes, so their item descriptors are live preface
     targets) — required for the capture-mic tokens to register as reachable.
-  All additive: recipe regression 1198/1198 and preface auto-suggestion 79/79 both
-  unchanged; dead-tokens CLEAN. (Churny follow-ons — room spatial descriptors,
-  archival→mono prefaces, and ~34 capture-technique *defaults* — are staged for
-  the mic-default assignment task.)
+  - **Room spatial descriptors** — 7 sacred/hall rooms now read wide (byzantine
+    monastery, lalibela, Armenian/Coptic churches, tibetan gompa, wooden pagoda:
+    `hall-like` / `expansive-reverb` / `cathedral-air` / `cavernous`) and
+    `closet_booth` reads narrow (`dry` / `boxy` / `close` / `intimate` / `narrow`),
+    so spatial prefaces retain/select the right room for those traditions.
+  - **Archival → mono** — `reminiscing` / `sabi-patinated` / `tarnished` now derive
+    the mono summing bus (verified). So a preface applied to a pre-war/shellac card
+    reads mono, the correct image for the era.
+  All additive/clean: recipe regression 1198/1198 and preface auto-suggestion 79/79
+  both unchanged even with the room + archival edits; dead-tokens CLEAN. (The one
+  remaining churny piece — ~34 capture-technique *defaults*, e.g. orchestral →
+  Decca tree — is staged for the mic-default assignment task, since it re-blesses
+  recipes and overlaps that work.)
 
 ### Added
 - **Microphone taxonomy + exhaustive gap-fill (mic stage 40 → 53).** Organized
