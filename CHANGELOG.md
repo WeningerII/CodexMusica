@@ -29,6 +29,11 @@ All notable changes to this project are recorded here. Format loosely follows
     pedal** (e.g. "pre-muffled edge-muffled sticks-backbeat drum kit") instead of
     "oak … machine-hammered symmetric-pattern drum kit". 278 fixtures re-blessed;
     preface 79/79 unchanged; congas/percussion unaffected.
+  - The 8 detail parts also had `default: true` removed from their variants, so the
+    interactive app (`defaultParts`, which keys off `default: true`, not the
+    search-only `auto: false`) renders them as "—/not set" too — the two paths now
+    agree. validate's missing-default rule exempts all-`auto:false` (explicit-only)
+    parts, since search skips them and a canonical default is moot.
 
 ### Fixed
 - **Mood prefaces no longer hijack tuning to Brazilian carnival.** Applying an
@@ -42,10 +47,10 @@ All notable changes to this project are recorded here. Format loosely follows
   (it matched zero instrument variants, so nothing else changed); frevo stays
   reachable via its frevo/carnival/pernambuco descriptors. Preface regression
   79/79 unchanged.
-- **Double-pedal now reads as a double kick.** `bass_drum_double_pedal`
+- **Double-pedal now reads as a double bass.** `bass_drum_double_pedal`
   rendered only its abstract descriptors `rapid`/`gallop`, which don't read as a
-  pedal choice. Descriptors are now `double-kick` / `rapid-double-strokes` /
-  `gallop`, so selecting it surfaces "double-kick" in the recipe.
+  pedal choice. Descriptors are now `double-bass` / `rapid-double-strokes`, so
+  selecting it surfaces "double-bass" in the recipe.
 
 ### Added
 - **Kick pedal part on the drum kit.** The `drum_kit` instrument had four cymbal
@@ -53,7 +58,7 @@ All notable changes to this project are recorded here. Format loosely follows
   the pedal existed only on the separate `bass_drum` instrument. Added a
   `drum_kit_kick_pedal` part: single felt (default), single wood/plastic, and
   double pedal. The two non-default options are `auto: false` (explicit-only, so
-  the reshape optimizer never spuriously auto-selects a double-kick for a
+  the reshape optimizer never spuriously auto-selects a double-bass pedal for a
   bossa-nova or modal-jazz kit) and the felt default carries no descriptors, so
   the addition is fully additive — recipe regression 1198/1198 unchanged, no
   re-bless.
