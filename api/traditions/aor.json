@@ -3,9 +3,9 @@
   "name": "Album-oriented rock",
   "family": "rock",
   "lineage": "Late-1970s polished mainstream rock genre crafted for FM-radio rotation, characterized by smooth productions, melodic hook-foregrounded songwriting, and adult-contemporary instrumental polish — codified through Toto (Toto IV 1982), Foreigner (4 1981), REO Speedwagon (Hi Infidelity 1980), Boston, Journey, Asia, Survivor (Vital Signs 1984), with the form serving as the late-1970s and 1980s commercial-rock mainstream",
-  "recipe": "classic North American 1977-1979 album-oriented rock, distorted Rock, late analog major branch, pop rock functional song, American jazz improv on frame new wave yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, birch pre muffled edge muffled hot rolled annealed drum kit, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, string machine. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 804,
-  "score": 801.973,
+  "recipe": "classic North American 1977-1979 album-oriented rock, distorted Rock, late analog major branch, pop rock functional song, American jazz improv on frame new wave yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, string machine. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 794,
+  "score": 612.108,
   "config": {
     "traditions": [
       "aor",
@@ -109,32 +109,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "birch_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "sticks_rock",
           "drumhead": "ec_pre_muffled_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b15_signature",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "machine_hammered",
-          "drum_technique": "sticks_rock"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 17.224999999999994,
-          "shell_wood": 1.17,
-          "shell_thickness": 0.045,
-          "bearing_edges": 2.275,
+          "drum_technique": 39.17,
           "drumhead": 15.839999999999996,
-          "snare_wires": 2.275,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 54.78499999999999,
-          "cymbal_hammering": 55.82,
-          "cymbal_lathing": 55.33999999999999,
-          "cymbal_finish": 0.9299999999999999,
-          "drum_technique": 39.17
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -208,17 +190,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_walking",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "voice_register": "chest_voice",
       "voice_quality": "full_chest_belt_voice",
       "voice_speech_song": "voice_syllabic_singing",

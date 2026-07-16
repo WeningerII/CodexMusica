@@ -3,9 +3,9 @@
   "name": "Ska and rocksteady",
   "family": "global",
   "lineage": "Jamaican ska (1959-1965, fast-tempo guitar-upbeat horn-section-foregrounded dance music) and its slower-tempo derivation rocksteady (1965-1968) — codified at Studio One, Treasure Isle, and Federal through the Skatalites (Tommy McCook, Don Drummond, Roland Alphonso, Lloyd Knibb, the ska house band), Prince Buster, Toots and the Maytals, the Wailers (early-period), Alton Ellis (Get Ready Rocksteady), Ken Boothe, the Heptones; preceded reggae and remains foundational to the broader Jamaican popular music lineage",
-  "recipe": "classic Caribbean mid-1960s ska and rocksteady, bass System, Jamaican branch, Caribbean groove percussion calypso zydeco. thick, breath veiled tone, straight note core, interlocked note trading. ebony open string slide resonance single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character alder pyramid electric bass, bronze bell bronze over hammered post lathe strikes pin lathed drum kit, Hammond a 100 built in Leslie home spinet tonewheel organ, bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn trumpet, rose brass darker warmer saxophone, bach 42 canonical American orchestral tenor bass trombone trombone. Kingston studio one defining 1959-2004 indie-commercial kingston studio one brentford road. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 874,
-  "score": 307.575,
+  "recipe": "classic Caribbean mid-1960s ska and rocksteady, bass System, Jamaican branch, Caribbean groove percussion calypso zydeco. thick, breath veiled tone, straight note core, interlocked note trading. ebony open string slide resonance single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character alder pyramid electric bass, brushes-and-sticks drum kit, Hammond a 100 built in Leslie home spinet tonewheel organ, bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn trumpet, rose brass darker warmer saxophone, bach 42 canonical American orchestral tenor bass trombone trombone. Kingston studio one defining 1959-2004 indie-commercial kingston studio one brentford road. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 830,
+  "score": 282.48,
   "config": {
     "traditions": [
       "ska_rocksteady",
@@ -70,32 +70,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "brass_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "ec_pre_muffled_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b20",
-          "cymbal_hammering": "over_hammered",
-          "cymbal_lathing": "pin_lathe",
-          "cymbal_finish": "hand_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 16.769999999999996,
-          "shell_wood": 0.39,
-          "shell_thickness": 0,
-          "bearing_edges": 0.195,
+          "drum_technique": 16.769999999999996,
           "drumhead": 0.5449999999999999,
-          "snare_wires": 0.195,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 1.85,
-          "cymbal_hammering": 2.0799999999999996,
-          "cymbal_lathing": 3.3150000000000004,
-          "cymbal_finish": 0.3,
-          "drum_technique": 16.769999999999996
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -251,17 +233,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_locked",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "thin_shell",
-      "bearing_edges": "edge_30",
       "drumhead": "calfskin_drum",
-      "snare_wires": "wires_12",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "hand_random_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "rim_clicks_dub",
-      "percussion_technique": "percussion_rim_clicks_dub",
       "voice_register": "mix_voice",
       "voice_quality": "chest_mix_belt_voice",
       "voice_speech_song": "voice_syllabic_singing",

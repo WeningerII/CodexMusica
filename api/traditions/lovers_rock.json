@@ -3,9 +3,9 @@
   "name": "Lovers' rock",
   "family": "global",
   "lineage": "UK Black-British soft-soul reggae subgenre that emerged from 1976 onward as the Black British response to Jamaican roots-reggae — codified through Louisa Mark (Caught You in a Lie 1975), Janet Kay (Silly Games 1979, the #2 UK chart breakthrough), Carroll Thompson, Sandra Cross, Brown Sugar, the Investigators production team (Dennis Bovell); female-vocal-led with softer mixing aesthetic and lyrical content centering on female romantic interiority",
-  "recipe": "classic Northern European mid-1970s lovers' rock, bass System, reggae diaspora branch, soul R&B functional song doo-wop dc go-go. thick, blues-shouter, slow rate, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright mahogany chicken-scratch single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, birch pre muffled edge muffled hot rolled annealed drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative ostinato slow chorale tonewheel organ. London black British Caribbean 1976-1985 indie-commercial brixton uk lovers rock basement. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 792,
-  "score": 347.575,
+  "recipe": "classic Northern European mid-1970s lovers' rock, bass System, reggae diaspora branch, soul R&B functional song doo-wop dc go-go. thick, blues-shouter, slow rate, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright mahogany chicken-scratch single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, pre muffled edge muffled brushes-and-sticks drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative ostinato slow chorale tonewheel organ. London black British Caribbean 1976-1985 indie-commercial brixton uk lovers rock basement. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 785,
+  "score": 307.455,
   "config": {
     "traditions": [
       "lovers_rock",
@@ -109,32 +109,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "birch_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "ec_pre_muffled_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b15_signature",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "machine_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 12.089999999999996,
-          "shell_wood": 1.04,
-          "shell_thickness": 0,
-          "bearing_edges": 1.04,
+          "drum_technique": 12.089999999999996,
           "drumhead": 4.04,
-          "snare_wires": 1.04,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 7.885,
-          "cymbal_hammering": 8.285,
-          "cymbal_lathing": 7.8950000000000005,
-          "cymbal_finish": 0.845,
-          "drum_technique": 12.089999999999996
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -187,17 +169,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_locked",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "thin_shell",
-      "bearing_edges": "edge_30",
       "drumhead": "calfskin_drum",
-      "snare_wires": "wires_12",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "hand_random_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "rim_clicks_dub",
-      "percussion_technique": "percussion_rim_clicks_dub",
       "voice_register": "mix_voice",
       "voice_quality": "chest_mix_belt_voice",
       "voice_speech_song": "voice_syllabic_singing",

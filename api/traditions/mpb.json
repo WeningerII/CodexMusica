@@ -3,9 +3,9 @@
   "name": "MPB (Música Popular Brasileira)",
   "family": "global",
   "lineage": "Brazilian MPB (Música Popular Brasileira) post-bossa-nova-and-tropicália sophisticated-popular-music umbrella-tradition emerging 1965-onward from the bossa-nova-tropicália-festival circuit. Built on harmonically-extended chord-vocabulary (minor-7-and-maj-7-and-9-and-11 jazz-extensions), Brazilian-rhythmic foundation (samba, baião, choro, bossa derivatives), and singer-songwriter literary-poetic-lyrical-sophistication. The 1970s mpb-jovem-guarda commercial-pop wave, the 1980s mpb-de-câmara chamber-mpb, and 1990s-onward mpb-as-heritage-institution comprise the genre's historical arc. Canonical instrumentation: violão acoustic-guitar nylon-string fingerstyle-led, with optional flute, piano, cavaquinho, and contemporary-rhythm-section. The MPB-canon overlaps significantly with samba-canção and bossa-nova but retains a distinct singer-songwriter-as-poet aesthetic identity.",
-  "recipe": "classic Southern American modern mpb, groove Percussion, Brazilian branch, Latin am troubadour ballad poetry milonga jíbaro. thick, breath veiled tone, straight onset, interlocked note trading. cedar nylon fingerpicked classical nylon-string guitar, no chemical hardener t rivet birch laminated maple laminated sitka spruce grand piano, thomastik infeld low tension jazz warm walking fingerstyle electric bass, birch pre muffled edge muffled hot rolled annealed drum kit, samba bateria, samba foundation mahogany samba canon steel modern strummed cavaquinho. phonogram brasil studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
-  "recipe_chars": 719,
-  "score": 394.035,
+  "recipe": "classic Southern American modern mpb, groove Percussion, Brazilian branch, Latin am troubadour ballad poetry milonga jíbaro. thick, breath veiled tone, straight onset, interlocked note trading. cedar nylon fingerpicked classical nylon-string guitar, no chemical hardener t rivet birch laminated maple laminated sitka spruce grand piano, thomastik infeld low tension jazz warm walking fingerstyle electric bass, pre muffled edge muffled brushes-and-sticks drum kit, samba bateria, samba foundation mahogany samba canon steel modern strummed cavaquinho. phonogram brasil studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
+  "recipe_chars": 712,
+  "score": 354.21,
   "config": {
     "traditions": [
       "mpb",
@@ -122,32 +122,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "birch_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "ec_pre_muffled_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b15_signature",
-          "cymbal_hammering": "over_hammered",
-          "cymbal_lathing": "pin_lathe",
-          "cymbal_finish": "machine_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 21.58,
-          "shell_wood": 1.1949999999999998,
-          "shell_thickness": 0.39,
-          "bearing_edges": 0.39,
+          "drum_technique": 21.58,
           "drumhead": 4.890000000000001,
-          "snare_wires": 0.39,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 3.2,
-          "cymbal_hammering": 5.375000000000001,
-          "cymbal_lathing": 6.305000000000001,
-          "cymbal_finish": 1,
-          "drum_technique": 21.58
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -205,17 +187,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_walking",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "top_wood_classical": "spruce_cl",
       "bracing_classical": "fan_torres_cl",
       "string_classical": "nylon_high_cl",

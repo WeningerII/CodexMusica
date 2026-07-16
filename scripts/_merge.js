@@ -29,6 +29,14 @@ function mergeFamilyParts(instruments, familyParts) {
     const ownParts = Array.isArray(inst.parts) ? inst.parts : [];
     inst._ownParts = ownParts;
     const fParts = familyParts[inst.family] || [];
+    // An instrument may opt OUT of specific family parts it would otherwise
+    // inherit — e.g. drum_kit excludes the generic `percussion_technique`
+    // because its own `drum_technique` is a strict superset. Listed ids are
+    // simply skipped during the merge (the part stays available to every other
+    // instrument in the family).
+    const excludeFamilyIds = new Set(
+      Array.isArray(inst.exclude_family_parts) ? inst.exclude_family_parts : []
+    );
     if (fParts.length === 0) {
       inst.parts = ownParts;
       continue;
@@ -42,6 +50,7 @@ function mergeFamilyParts(instruments, familyParts) {
     const merged = [];
     for (const fp of fParts) {
       if (fullOverrideIds.has(fp.id)) continue;
+      if (excludeFamilyIds.has(fp.id)) continue;
       let filteredVariants = (fp.variants || []).filter((v) => {
         if (!v.applies_to) return true;
         return Array.isArray(v.applies_to) && v.applies_to.includes(inst.id);

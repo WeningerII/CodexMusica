@@ -3,9 +3,9 @@
   "name": "Norteño (northern Mexican)",
   "family": "country",
   "lineage": "Northern-Mexican popular-music of border states (Tamaulipas, Nuevo León, Coahuila, Chihuahua), accordion-and-bajo-sexto-led with bass-drum-kit. Origin in late-nineteenth-century German-Czech-Polish-immigrant accordion music synthesized with Mexican forms. Repertoire: corrido, ranchera, polka, cumbia. Falcon Records (McAllen, 1948 onward) anchored commercial circulation.",
-  "recipe": "classic Mexican late-1940s norteño, functional Song, tejano border branch, country functional song country rock western swing. thick, full chest belt, wide pitch sway, interlocked note trading. steel castagnari Italian premium folk music straight accordion, Fender tweed amp American 50s amp tweed breakup ernie ball slinky fingerpicked electric bass, steel vintage ambassador asymmetric hot rolled annealed drum kit, nickel wound modern tejano strummed bajo sexto, accordion and bajo duo instrumental polka redova vals dance texas tejano conjunto conjunto norteno. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 796,
-  "score": 420.803,
+  "recipe": "classic Mexican late-1940s norteño, functional Song, tejano border branch, country functional song country rock western swing. thick, full chest belt, wide pitch sway, interlocked note trading. steel castagnari Italian premium folk music straight accordion, Fender tweed amp American 50s amp tweed breakup ernie ball slinky fingerpicked electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, nickel wound modern tejano strummed bajo sexto, accordion and bajo duo instrumental polka redova vals dance texas tejano conjunto conjunto norteno. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 789,
+  "score": 359.08,
   "config": {
     "traditions": [
       "norteno",
@@ -99,32 +99,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "steel_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "vintage_ambassador_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b15_signature",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "hand_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 15.827499999999999,
-          "shell_wood": 1.625,
-          "shell_thickness": 0.045,
-          "bearing_edges": 0.24,
+          "drum_technique": 15.827499999999999,
           "drumhead": 5.9799999999999995,
-          "snare_wires": 0.24,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 14.420000000000007,
-          "cymbal_hammering": 14.625000000000007,
-          "cymbal_lathing": 14.415000000000006,
-          "cymbal_finish": 0.28500000000000003,
-          "drum_technique": 15.827499999999999
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -184,17 +166,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerpicked_country_b",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_30",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "brushes_and_sticks",
-      "percussion_technique": "percussion_brushes_and_sticks",
       "voice_register": "chest_voice",
       "voice_quality": "twang_voice",
       "voice_speech_song": "voice_syllabic_singing",

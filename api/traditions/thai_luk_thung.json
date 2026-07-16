@@ -3,14 +3,14 @@
   "name": "Thai lûk thûng (\"child of the field,\" country song)",
   "family": "country",
   "lineage": "Thai lûk thûng (\"child of the field\") country-song genre emerging in mid-twentieth-century Thailand from the synthesis of Central Thai folk-music with Latin (Cuban, Mexican) rhythmic-influences imported through 1950s-1960s American military presence and Western commercial pop. Characterized by strong vibrato-laden vocal projection, slow-to-mid-tempo orchestral-with-electric-instruments arrangement, and rural-life-and-romantic-loss lyrical content addressing the experience of the rural-Thai migrant worker class. Suraphol Sombatcharoen (1930-1968) is considered the foundational artist; Pumpuang Duangjan (1961-1992) consolidated the modern form. Distinguished from Thai mor lam by lûk thûng's Central Thai (vs Isan northeastern) regional base.",
-  "recipe": "classic Southeast Asian early-1930s thai lûk thûng, functional Song, east Asian pop branch, chanson fado ballad poetry cape verdean batuko of santiago island morna. thick, breath veiled tone, straight note core, interlocked note trading. Fender tweed amp American 50s amp tweed breakup mahogany maple humbucker electric guitar, pre muffled edge muffled hot rolled annealed machine hammered drum kit, Fender tweed amp American 50s amp tweed breakup mahogany fingerpicked electric bass, singing lead analog poly synth. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 743,
-  "score": 452.899,
+  "recipe": "classic Southeast Asian early-1930s thai lûk thûng, functional Song, east Asian pop branch, chanson fado ballad poetry cape verdean batuko of santiago island chanson réaliste. thick, breath veiled tone, straight note core, interlocked note trading. Fender tweed amp American 50s amp tweed breakup basswood mahogany humbucker electric guitar, pre muffled edge muffled brushes-and-sticks drum kit, Fender tweed amp American 50s amp tweed breakup mahogany fingerpicked electric bass, singing lead analog poly synth. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 739,
+  "score": 390.091,
   "config": {
     "traditions": [
       "thai_luk_thung",
       "cape_verdean_batuko",
-      "morna"
+      "chanson_realiste"
     ],
     "instruments": [
       {
@@ -23,7 +23,7 @@
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 21.855249999999998,
-          "voice_quality": 36.4,
+          "voice_register": 21.580249999999996,
+          "voice_quality": 37.83,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 11.00525,
-          "voice_articulation": 23.92,
-          "voice_microtone": 24.245000000000005,
-          "voice_tradition": 18.915,
-          "voice_mechanism_compound": 7.865,
-          "voice_estill_quality": 15.700499999999998,
-          "voice_speech_song": 31.622500000000002,
-          "voice_ensemble_config": 22.815,
-          "voice_ornament_system": 3.325,
-          "voice_pitch_organization": 21.759999999999994,
-          "voice_processing_chain": 16.054999999999996,
+          "voice_articulation": 20.215,
+          "voice_microtone": 20.669999999999998,
+          "voice_tradition": 17.615000000000002,
+          "voice_mechanism_compound": 7.67,
+          "voice_estill_quality": 15.9005,
+          "voice_speech_song": 28.665,
+          "voice_ensemble_config": 19.305,
+          "voice_ornament_system": 3.1750000000000003,
+          "voice_pitch_organization": 20.509999999999994,
+          "voice_processing_chain": 17.16,
           "voice_multitrack_stack": 7.67
         }
       },
@@ -57,7 +57,7 @@
         "slots": {
           "electric_technique": "electric_clean_strummed",
           "amp_make": "amp_american_fender_tweed",
-          "body_wood": "mahogany_maple_cap",
+          "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "rosewood_fb_h",
           "pickup_magnet": "alnico_2_h",
@@ -72,48 +72,30 @@
         "scores": {
           "electric_technique": 9.5,
           "amp_make": 9.444999999999999,
-          "body_wood": 3.2899999999999996,
-          "neck_wood": 3.1399999999999997,
-          "fretboard": 3.09,
+          "body_wood": 4.8100000000000005,
+          "neck_wood": 3.7899999999999996,
+          "fretboard": 3.7399999999999998,
           "pickup_magnet": 0,
-          "pickup_winding": 0.6599999999999999,
+          "pickup_winding": 0.975,
           "string_material": 0.845,
-          "bridge": 3.1399999999999997,
-          "scale_length": 3.3799999999999994,
-          "string_gauge": 5.675,
+          "bridge": 3.7899999999999996,
+          "scale_length": 4.225,
+          "string_gauge": 5.375,
           "finish": 0,
-          "string_tuning": 2.145
+          "string_tuning": 2.34
         }
       },
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "steel_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "ec_pre_muffled_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b15_signature",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "machine_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 21.710000000000004,
-          "shell_wood": 0.39,
-          "shell_thickness": 0,
-          "bearing_edges": 3.3799999999999994,
-          "drumhead": 10.534999999999998,
-          "snare_wires": 3.1399999999999997,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 7.794999999999999,
-          "cymbal_hammering": 10.2,
-          "cymbal_lathing": 10.395000000000001,
-          "cymbal_finish": 0.15,
-          "drum_technique": 21.710000000000004
+          "drum_technique": 18.785,
+          "drumhead": 10.385,
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -131,10 +113,10 @@
         "scores": {
           "electric_technique": 1.4299999999999997,
           "amp_make": 9.444999999999999,
-          "body_wood": 3.3799999999999994,
+          "body_wood": 4.225,
           "pickup_config": 0,
-          "string_type": 4.829999999999999,
-          "scale_length_b": 3.1399999999999997,
+          "string_type": 5.329999999999999,
+          "scale_length_b": 3.7899999999999996,
           "fretted_or_not": 1.4949999999999999,
           "bass_technique": 8.295
         }
@@ -149,9 +131,9 @@
         },
         "scores": {
           "electronic_technique": 8.229999999999999,
-          "poly_archetypes": 0.6599999999999999,
+          "poly_archetypes": 0.975,
           "poly_voices": 0.195,
-          "poly_maker_lineage": 0.12999999999999998
+          "poly_maker_lineage": 0.78
         }
       }
     ],
@@ -185,17 +167,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_locked",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "voice_register": "mix_voice",
       "voice_quality": "chest_mix_belt_voice",
       "voice_speech_song": "voice_syllabic_singing",

@@ -3,9 +3,9 @@
   "name": "Dreampop (modern)",
   "family": "rock_punk",
   "lineage": "1980s-onward indie rock subgenre developed from Cocteau Twins (UK 1979-1997) and continuing through Mazzy Star, Beach House, and the broader contemporary scene. Characterized by ethereal-reverberant production, atmospheric-pad textures, female-vocal-feature presentation, and explicit slow-emotional-dream-state aesthetic. Distinguished from shoegaze by dreampop's emphasis on melodic-songcraft over wall-of-noise.",
-  "recipe": "classic mid-1980s dreampop, distorted Rock, alternative branch, ambient experimental electric, anglo singer song confessional60s vaporwave aesthetic hauntology. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp basswood alnico soft down tuning humbucker electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, walnut pre muffled edge muffled fx9 manganese bronze drum kit, pad like pad analog synth. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 687,
-  "score": 264.627,
+  "recipe": "classic mid-1980s dreampop, distorted Rock, alternative branch, ambient experimental electric, anglo singer song confessional60s vaporwave aesthetic hauntology. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp basswood alnico soft down tuning humbucker electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, pad like pad analog synth. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 678,
+  "score": 211.232,
   "config": {
     "traditions": [
       "dreampop_modern",
@@ -111,32 +111,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "walnut_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_45",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "ec_pre_muffled_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "meinl_fx9",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "hand_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 13.389999999999999,
-          "shell_wood": 1.455,
-          "shell_thickness": 0,
-          "bearing_edges": 1.3,
+          "drum_technique": 13.389999999999999,
           "drumhead": 4.215,
-          "snare_wires": 0.585,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 12.675,
-          "cymbal_hammering": 11.215,
-          "cymbal_lathing": 11.32,
-          "cymbal_finish": 1.455,
-          "drum_technique": 13.389999999999999
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -187,17 +169,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_locked",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "voice_register": "mix_voice",
       "voice_quality": "aspirated_voice",
       "voice_speech_song": "voice_syllabic_singing",

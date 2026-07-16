@@ -3,9 +3,9 @@
   "name": "Shidaiqu (Shanghai Mandarin jazz-pop)",
   "family": "global",
   "lineage": "Pre-revolutionary Shanghai Mandarin popular jazz-and-pop song tradition codified 1927-1949, the foundational stratum of Chinese-language popular music — Li Jinhui (1891-1967, the father of Chinese popular music, composer of the seminal 1927 song Drizzle / Maomao Yu often cited as the first shidaiqu) establishing the genre by fusing Western jazz-band orchestration with Mandarin-language vocal melodic vocabulary at his Bright Moon Song-and-Dance Troupe in Shanghai; the seven great singing stars (qida ge xing) era of the 1940s through Zhou Xuan (1918-1957, the Golden Voice, the canonical female playback voice through When Will You Return / He Ri Jun Zai Lai 1937 and Shanghai Nights / Ye Shanghai 1947), Bai Hong, Yao Lee, Bai Guang, Li Xianglan (Yamaguchi Yoshiko, the Japanese-Manchurian crossover voice), Wu Yingyin, Gong Qiuxia; composer-arranger lineage Chen Gexin (Rose Rose I Love You 1940), Yao Min (Zhou Xuan collaborator), Li Houxiang; production infrastructure of the EMI Pathé / Pathé Records Shanghai studios on Hengshan Road and Great China Records on the French Concession (the dominant pre-revolutionary recording labels for Mandarin popular music); ended abruptly with the 1949 Communist takeover when shidaiqu was banned in Mainland China as \"yellow music\" / huang se yinyue (pornographic music) and many singers and composers fled to British Hong Kong where the tradition continued under the Pathé Hong Kong umbrella through Yao Lee and Pan Wan-ching late careers, seeding the later Mandopop and Cantopop traditions of the 1970s-onward",
-  "recipe": "classic East Asian mid-1930s shidaiqu, functional Song, east Asian pop branch, American jazz early new orleans jazz swing-era jazz orchestra. thick, breath veiled tone, straight onset, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, lyon twisted plain cremonese pre 1750 four layer system Baroque setup double bass, vintage ambassador asymmetric bronze bell bronze over hammered drum kit, python skin snake skin bamboo silk red sandalwood zitan erhu, silk red sandalwood zitan premium pipa, silver wound lamb gut core sitka spruce bigleaf maple western maple violin orchestral. shanghai emi pathe 1930s. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 992,
-  "score": 747.717,
+  "recipe": "classic East Asian mid-1930s shidaiqu, functional Song, east Asian pop branch, American jazz early new orleans jazz swing-era jazz orchestra. thick, breath veiled tone, straight onset, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, lyon twisted plain cremonese pre 1750 four layer system Baroque setup double bass, vintage ambassador asymmetric brushes-and-sticks drum kit, python skin snake skin bamboo silk red sandalwood zitan erhu, silk red sandalwood zitan premium pipa, silver wound lamb gut core sitka spruce bigleaf maple western maple violin orchestral. shanghai emi pathe 1930s. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 978,
+  "score": 629.28,
   "config": {
     "traditions": [
       "shidaiqu",
@@ -149,32 +149,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "brass_shell",
-          "shell_thickness": "thick_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "vintage_ambassador_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b20",
-          "cymbal_hammering": "over_hammered",
-          "cymbal_lathing": "pin_lathe",
-          "cymbal_finish": "hand_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 35.295000000000016,
-          "shell_wood": 0.845,
-          "shell_thickness": 0.105,
-          "bearing_edges": 0.063,
+          "drum_technique": 35.295000000000016,
           "drumhead": 30.597499999999997,
-          "snare_wires": 0.16799999999999998,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 28.676499999999997,
-          "cymbal_hammering": 26.814999999999994,
-          "cymbal_lathing": 26.2745,
-          "cymbal_finish": 0.195,
-          "drum_technique": 35.295000000000016
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -261,17 +243,8 @@
     "tuning": "twelve_tet",
     "room": "shanghai_emi_pathe_1930s",
     "parts": {
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_30",
       "drumhead": "calfskin_drum",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "hand_random_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "brushes_jazz",
-      "percussion_technique": "percussion_brushes_jazz",
       "voice_register": "chest_voice",
       "voice_quality": "crooner_voice",
       "voice_speech_song": "voice_syllabic_singing",

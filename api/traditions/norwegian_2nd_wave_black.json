@@ -3,9 +3,9 @@
   "name": "Norwegian 2nd-wave black metal",
   "family": "global",
   "lineage": "Early-1990s Norwegian black-metal scene centered on Oslo, codified through Mayhem (De Mysteriis Dom Sathanas 1994), Burzum (Filosofem 1996), Darkthrone (Transilvanian Hunger 1994), Emperor (In the Nightside Eclipse 1994), and Immortal — characterized by raw lo-fi production, false-fold ventricular shriek vocals, tremolo-picked tremolo-feast guitar work, blast-beat drumming, and Satanist / anti-Christian lyrical content with the church-burning context that made the scene internationally notorious",
-  "recipe": "classic North American 1990-1993 norwegian 2nd-wave black metal, distorted Rock, black branch, ambient experimental electric witch house vaporwave aesthetic. thick, false fold engaged, straight onset, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ernie ball slinky electric bass, walnut vintage ambassador asymmetric machine hammered symmetric pattern drum kit. bedroom. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 599,
-  "score": 225.937,
+  "recipe": "classic North American 1990-1993 norwegian 2nd-wave black metal, distorted Rock, black branch, ambient experimental electric witch house vaporwave aesthetic. thick, false fold engaged, straight onset, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ernie ball slinky electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit. bedroom. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 576,
+  "score": 183.057,
   "config": {
     "traditions": [
       "norwegian_2nd_wave_black",
@@ -111,32 +111,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "walnut_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_45",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "vintage_ambassador_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b8",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "lathing_raw_unlathed",
-          "cymbal_finish": "hand_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 10.464999999999996,
-          "shell_wood": 1.2349999999999999,
-          "shell_thickness": 0,
-          "bearing_edges": 0.54,
+          "drum_technique": 10.464999999999996,
           "drumhead": 2.0475000000000003,
-          "snare_wires": 0.39,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 13.59,
-          "cymbal_hammering": 5.415,
-          "cymbal_lathing": 10.400000000000002,
-          "cymbal_finish": 0.845,
-          "drum_technique": 10.464999999999996
+          "drum_kit_kick_pedal": 0
         }
       }
     ],
@@ -169,17 +151,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "pick_aggressive",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "thick_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "double_coated",
-      "snare_wires": "wires_30",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "hand_random_hammering",
-      "cymbal_lathing": "pin_lathe",
-      "cymbal_finish": "brilliant_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "voice_register": "chest_voice",
       "voice_quality": "false_fold_voice",
       "voice_speech_song": "voice_syllabic_singing",

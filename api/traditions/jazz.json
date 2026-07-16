@@ -3,9 +3,9 @@
   "name": "Jazz",
   "family": "jazz",
   "lineage": "The broad jazz tradition — African-American improvised-ensemble art music codified from early-20th-century New Orleans through swing, bebop, and modal jazz",
-  "recipe": "classic North American mid-1970s jazz, improv On Frame, bop branch. alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, bach stradivarius 180 canonical American orchestral jazz balance trumpet, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, growly gut upright bass, vintage ambassador asymmetric bronze bell bronze fourteen step drum kit. converted armenian church 1949-1981 major-flagship columbia 30th street studio nyc. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 646,
-  "score": 222.826,
+  "recipe": "classic North American mid-1970s jazz, improv On Frame, bop branch. alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, bach stradivarius 180 canonical American orchestral jazz balance trumpet, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, growly gut upright bass, vintage ambassador asymmetric brushes drum kit. converted armenian church 1949-1981 major-flagship columbia 30th street studio nyc. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 621,
+  "score": 162.177,
   "config": {
     "traditions": [
       "jazz"
@@ -94,32 +94,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "birch_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "brushes_jazz",
           "drumhead": "vintage_ambassador_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b20",
-          "cymbal_hammering": "fourteen_step_hammering",
-          "cymbal_lathing": "pin_lathe",
-          "cymbal_finish": "machine_hammered",
-          "drum_technique": "brushes_jazz"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 11.439999999999998,
-          "shell_wood": 0.3534642857142857,
-          "shell_thickness": 0,
-          "bearing_edges": 0.00964285714285714,
+          "drum_technique": 16,
           "drumhead": 18.025892857142857,
-          "snare_wires": 0.003214285714285714,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 15.853214285714284,
-          "cymbal_hammering": 16.627714285714283,
-          "cymbal_lathing": 16.011142857142858,
-          "cymbal_finish": 0.35025,
-          "drum_technique": 16
+          "drum_kit_kick_pedal": 0
         }
       }
     ],
@@ -143,17 +125,8 @@
     "tuning": "modal_jazz_dorian_static",
     "room": "columbia_30th_street_studio_nyc",
     "parts": {
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_30",
       "drumhead": "calfskin_drum",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "hand_random_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "brushes_jazz",
-      "percussion_technique": "percussion_brushes_jazz",
       "wind_articulation": "wind_bebop_runs",
       "sax_size": "tenor_sax",
       "sax_technique": "sax_bebop_runs",

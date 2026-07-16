@@ -3,9 +3,9 @@
   "name": "Modern vocal jazz (crooner revival)",
   "family": "global",
   "lineage": "Late-1990s onward mainstream jazz-vocal revival — Diana Krall, Norah Jones, Michael Bublé, Cassandra Wilson, Madeleine Peyroux — revisiting the Great American Songbook canon with modern recording-aesthetic polish",
-  "recipe": "classic North American 1997-1999 modern vocal jazz, improv On Frame, smooth vocal branch, crooners functional song great american songbook american barbershop quartet. thick, close mic intimate, straight onset, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, growly gut upright bass, fiberskyn synthetic calf bronze bell bronze over hammered drum kit, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, bach stradivarius 180 canonical American orchestral jazz balance trumpet. capitol tower 1750 vine 1956-present major-flagship capitol tower studios la. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 794,
-  "score": 392.061,
+  "recipe": "classic North American 1997-1999 modern vocal jazz, improv On Frame, smooth vocal branch, crooners functional song great american songbook american barbershop quartet. thick, close mic intimate, straight onset, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, growly gut upright bass, fiberskyn synthetic calf brushes drum kit, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, bach stradivarius 180 canonical American orchestral jazz balance trumpet. capitol tower 1750 vine 1956-present major-flagship capitol tower studios la. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 769,
+  "score": 331.191,
   "config": {
     "traditions": [
       "modern_vocal_jazz",
@@ -93,32 +93,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "birch_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_45",
+          "drum_technique": "brushes_jazz",
           "drumhead": "fiberskyn_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b20",
-          "cymbal_hammering": "over_hammered",
-          "cymbal_lathing": "pin_lathe",
-          "cymbal_finish": "hand_hammered",
-          "drum_technique": "brushes_jazz"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 11.959999999999999,
-          "shell_wood": 0.009,
-          "shell_thickness": 0.195,
-          "bearing_edges": 2.659,
+          "drum_technique": 14.375,
           "drumhead": 20.625,
-          "snare_wires": 1.2349999999999999,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 14.239999999999998,
-          "cymbal_hammering": 14.74325,
-          "cymbal_lathing": 15.633624999999999,
-          "cymbal_finish": 0.195,
-          "drum_technique": 14.375
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -184,17 +166,8 @@
     "tuning": "jazz_swing_eighth_4_4",
     "room": "capitol_tower_studios_la",
     "parts": {
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_30",
       "drumhead": "calfskin_drum",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "hand_random_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "brushes_jazz",
-      "percussion_technique": "percussion_brushes_jazz",
       "voice_register": "chest_voice",
       "voice_quality": "crooner_voice",
       "voice_speech_song": "voice_syllabic_singing",

@@ -3,9 +3,9 @@
   "name": "Power pop",
   "family": "global",
   "lineage": "Late-1960s through 1970s British Invasion-derived guitar-pop subgenre codified through the Who (the term power pop was coined by Pete Townshend to describe the Whos sound), Big Star (the Memphis power-pop band, #1 Record 1972, Radio City 1974), Badfinger (the Apple Records 1970-72 power-pop voice), Cheap Trick (the mainstream-commercial post-Big-Star extension), the Raspberries, the Knack (My Sharona 1979 the commercial breakthrough); foundational sound: melodic-hook-centric three-minute songs with chord-driven electric guitars, harmony vocals, and tight rhythm-section foundation",
-  "recipe": "classic North American 1967-1969 power pop, functional Song, pop rock branch, alternative distorted rock modern indie rock slacker rock. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation clean single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, mahogany pre muffled edge muffled hot rolled annealed drum kit. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 797,
-  "score": 651.935,
+  "recipe": "classic North American 1967-1969 power pop, functional Song, pop rock branch, alternative distorted rock modern indie rock slacker rock. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation clean single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 784,
+  "score": 491.79,
   "config": {
     "traditions": [
       "power_pop",
@@ -142,32 +142,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "mahogany_shell",
-          "shell_thickness": "thick_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "sticks_rock",
           "drumhead": "ec_pre_muffled_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b15_signature",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "hand_hammered",
-          "drum_technique": "sticks_rock"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 11.504999999999997,
-          "shell_wood": 1.02,
-          "shell_thickness": 0.43499999999999994,
-          "bearing_edges": 0.845,
+          "drum_technique": 24.299999999999997,
           "drumhead": 24.87,
-          "snare_wires": 0.845,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 47.515,
-          "cymbal_hammering": 48.42,
-          "cymbal_lathing": 49.169999999999995,
-          "cymbal_finish": 0.38999999999999996,
-          "drum_technique": 24.299999999999997
+          "drum_kit_kick_pedal": 0
         }
       }
     ],
@@ -201,17 +183,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_locked",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "voice_register": "mix_voice",
       "voice_quality": "chest_mix_belt_voice",
       "voice_speech_song": "voice_syllabic_singing",

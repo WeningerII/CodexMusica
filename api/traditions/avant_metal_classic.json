@@ -3,9 +3,9 @@
   "name": "Avant-garde metal",
   "family": "global",
   "lineage": "Experimental-leaning metal subgenre codified through Voivod (Canadian dissonant prog-metal), Sigh (Japanese avant-black-metal), Mr. Bungle, Diabolic Masquerade, and the broader Tzadik / Hydra Head label ecosystem — characterized by atonal harmony, irregular meter, genre-collage composition, and prog-metal sectional architecture",
-  "recipe": "classic modern avant-garde metal, distorted Rock, avant branch, idm glitch experimental electric chiptune / 8-bit drill'n'bass. thick, breath veiled tone, straight note core, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, machine hammered symmetric pattern organized rows unlathed natural finish drum kit, sub bass analog poly synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 660,
-  "score": 324.598,
+  "recipe": "classic modern avant-garde metal, distorted Rock, avant branch, idm glitch experimental electric chiptune / 8-bit drill'n'bass. thick, breath veiled tone, straight note core, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, brushes-and-sticks drum kit, sub bass analog poly synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 605,
+  "score": 262.048,
   "config": {
     "traditions": [
       "avant_metal_classic",
@@ -111,32 +111,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "mahogany_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "double_coated",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b8",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "lathing_raw_unlathed",
-          "cymbal_finish": "machine_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 12.219999999999995,
-          "shell_wood": 0.9239999999999999,
-          "shell_thickness": 0.3,
-          "bearing_edges": 1.795,
+          "drum_technique": 12.219999999999995,
           "drumhead": 1.795,
-          "snare_wires": 1.795,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 28.686500000000006,
-          "cymbal_hammering": 6.604500000000002,
-          "cymbal_lathing": 9.835,
-          "cymbal_finish": 0.39,
-          "drum_technique": 12.219999999999995
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -184,17 +166,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "pick_aggressive",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "thick_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "double_coated",
-      "snare_wires": "wires_30",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "hand_random_hammering",
-      "cymbal_lathing": "pin_lathe",
-      "cymbal_finish": "brilliant_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "voice_register": "chest_voice",
       "voice_quality": "pressed_phonation_voice",
       "voice_speech_song": "voice_syllabic_singing",

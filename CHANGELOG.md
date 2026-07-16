@@ -6,6 +6,30 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Changed
+- **Drum-kit recipes are now technique-first, not boilerplate-cluttered.** A kit
+  carried 11+ parts, most of them fine-grained boilerplate stamped identically on
+  all 257 drum traditions (shell ply, bearing edges, snare wires, cymbal lathing/
+  finish/hammering — each only 2–3 distinct values catalog-wide, one dominating
+  64–81%), which crowded the playing approach out of the recipe. Now:
+  - **8 parts default to "not set"** (all variants `auto: false`, pins removed from
+    the 257 traditions) so they contribute nothing unless a user selects them —
+    shell_wood, shell_thickness, bearing_edges, snare_wires, cymbal_alloy,
+    cymbal_hammering, cymbal_lathing, cymbal_finish. All stay fully selectable.
+  - **`percussion_technique` dropped from the kit.** It's a generic percussion-
+    family part and a strict subset of the kit's own `drum_technique` (Playing
+    approach) — every drum tradition redundantly pinned both. A new
+    `exclude_family_parts` mechanism on the instrument (single source in
+    `_merge.js`, inlined into the HTML build) lets an instrument opt out of an
+    inherited family part; `percussion_technique` stays intact on the other 13
+    percussion instruments (congas, timpani, marimba…).
+  - **`drum_technique` promoted to the top** of the kit's parts (Playing approach
+    is the single most defining choice for a kit in a recording).
+  - Net: a kit recipe now foregrounds **playing approach + batter head + kick
+    pedal** (e.g. "pre-muffled edge-muffled sticks-backbeat drum kit") instead of
+    "oak … machine-hammered symmetric-pattern drum kit". 278 fixtures re-blessed;
+    preface 79/79 unchanged; congas/percussion unaffected.
+
 ### Fixed
 - **Mood prefaces no longer hijack tuning to Brazilian carnival.** Applying an
   energy preface (`up-tempo`, `exuberant`, `energetic`, `frantic`, `frenetic`)

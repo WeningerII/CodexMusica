@@ -3,9 +3,9 @@
   "name": "Garage rock",
   "family": "rock_punk",
   "lineage": "Mid-1960s American teenage-band rock-and-roll tradition characterized by raw production, basic three-chord songwriting, and amateur-virtuoso instrumental performance — codified through the original garage-rock canon documented on Nuggets (Lenny Kaye compilation, 1972): The Sonics, The Standells, ? and the Mysterians, The Seeds, Count Five, The Electric Prunes, with the form serving as the protopunk template",
-  "recipe": "classic North American 1964-1966 garage rock, distorted Rock, classic branch, punk distorted rock hardcore punk. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ. concrete basement. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 761,
-  "score": 593.521,
+  "recipe": "classic North American 1964-1966 garage rock, distorted Rock, classic branch, punk distorted rock hardcore punk. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ. concrete basement. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 697,
+  "score": 474.033,
   "config": {
     "traditions": [
       "garage_rock",
@@ -109,32 +109,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "maple_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "sticks_rock",
           "drumhead": "double_coated",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b8",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "machine_hammered",
-          "drum_technique": "sticks_rock"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 15.827499999999993,
-          "shell_wood": 0.65,
-          "shell_thickness": 0,
-          "bearing_edges": 2.145,
+          "drum_technique": 27.5,
           "drumhead": 2.145,
-          "snare_wires": 2.145,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 41.84,
-          "cymbal_hammering": 28.59,
-          "cymbal_lathing": 28.2,
-          "cymbal_finish": 0.09,
-          "drum_technique": 27.5
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -187,17 +169,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "pick_aggressive",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "voice_register": "chest_voice",
       "voice_quality": "blues_shouter_voice",
       "voice_speech_song": "voice_syllabic_singing",

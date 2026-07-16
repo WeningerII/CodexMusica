@@ -3,92 +3,92 @@
   "name": "Yacht rock",
   "family": "rock_punk",
   "lineage": "Late-1970s through mid-1980s smooth West-Coast AOR pop-rock codified by Steely Dan Aja and Gaucho, the Doobie Brothers post-Michael McDonald era, Toto, Christopher Cross, Kenny Loggins, the Eagles Hotel California aesthetic",
-  "recipe": "classic North American 1977-1979 yacht rock, functional Song, yacht rock branch, late analog major distorted rock, American jazz smooth vocal album-oriented rock hair metal. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, raymac steel tine premium 1970s vintage replacement harder neoprene late 1970s bark grit block chord rhodes electric, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, singing lead analog synth, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, string machine. west la 1616 butler avenue 1968-present major-flagship the village recorder west la. large-diaphragm condenser, Neve 1073 inductor pre.",
-  "recipe_chars": 983,
-  "score": 787.341,
+  "recipe": "classic North American 1977-1979 yacht rock, functional Song, yacht rock branch, late analog major distorted rock, American jazz smooth vocal album-oriented rock modern vocal jazz. thick, close mic intimate, straight onset, interlocked note trading. marshall plexi amp British rock amp basswood mahogany rosewood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, vintage ambassador asymmetric sticks backbeat drum kit, raymac steel tine premium 1970s vintage replacement harder neoprene late 1970s bark grit block chord rhodes electric, soft felt lacquer voiced 17 ply hard rock maple Asian spruce grand piano, singing lead analog synth, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, string machine. west la 1616 butler avenue 1968-present major-flagship the village recorder west la. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical.",
+  "recipe_chars": 992,
+  "score": 625.351,
   "config": {
     "traditions": [
       "yacht_rock",
       "aor",
-      "hair_metal"
+      "modern_vocal_jazz"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "aspirated_voice",
+          "voice_quality": "crooner_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
           "voice_tradition": "modern_pop_vocal_training",
-          "voice_mechanism_compound": "voice_mechanism_false_fold_distorted",
+          "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 55.82924107142859,
-          "voice_quality": 9.555,
+          "voice_register": 54.95424107142859,
+          "voice_quality": 10.259553571428569,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 16.523169642857145,
-          "voice_articulation": 12.089999999999996,
-          "voice_microtone": 54.47500000000001,
-          "voice_tradition": 16.0515625,
-          "voice_mechanism_compound": 7.712187499999999,
-          "voice_estill_quality": 2.2099999999999995,
-          "voice_speech_song": 14.104999999999995,
-          "voice_ensemble_config": 12.024999999999995,
+          "voice_vibrato": 22.623169642857142,
+          "voice_articulation": 10.009999999999998,
+          "voice_microtone": 53.60000000000001,
+          "voice_tradition": 17.276562499999997,
+          "voice_mechanism_compound": 3.6399999999999997,
+          "voice_estill_quality": 2.8600000000000008,
+          "voice_speech_song": 12.479999999999995,
+          "voice_ensemble_config": 9.749999999999998,
           "voice_ornament_system": 0.6684374999999999,
-          "voice_pitch_organization": 2.8600000000000008,
-          "voice_processing_chain": 15.195714285714285,
-          "voice_multitrack_stack": 18.581249999999997
+          "voice_pitch_organization": 1.6899999999999997,
+          "voice_processing_chain": 13.945714285714285,
+          "voice_multitrack_stack": 16.272276785714283
         }
       },
       {
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_british_marshall_jcm800",
+          "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "rosewood_fb_h",
-          "pickup_magnet": "alnico_5_h",
+          "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
           "bridge": "stoptail",
-          "scale_length": "scale_baritone_h",
+          "scale_length": "scale_gibson_h",
           "string_gauge": "g_11_hum",
           "finish": "nitro_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 9.7,
-          "amp_make": 20.7909375,
-          "body_wood": 4.976607142857143,
-          "neck_wood": 2.1938392857142857,
-          "fretboard": 2.143839285714286,
-          "pickup_magnet": 0.39,
-          "pickup_winding": 0.33214285714285713,
+          "electric_technique": 9.324999999999998,
+          "amp_make": 17.3009375,
+          "body_wood": 4.55,
+          "neck_wood": 2.343839285714286,
+          "fretboard": 2.293839285714286,
+          "pickup_magnet": 1.3,
+          "pickup_winding": 1.3,
           "string_material": 0.8184375,
-          "bridge": 2.1938392857142857,
-          "scale_length": 3.12,
-          "string_gauge": 2.1938392857142857,
+          "bridge": 2.343839285714286,
+          "scale_length": 2.6376785714285718,
+          "string_gauge": 2.343839285714286,
           "finish": 0,
-          "string_tuning": 23.183526785714285
+          "string_tuning": 19.433526785714285
         }
       },
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
+          "electric_technique": "electric_bass_walking",
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -98,45 +98,27 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 0.26,
-          "amp_make": 20.176964285714288,
-          "body_wood": 2.47,
-          "pickup_config": 0.845,
-          "string_type": 42.14031250000001,
-          "scale_length_b": 2.1938392857142857,
+          "electric_technique": -0.05,
+          "amp_make": 17.401964285714286,
+          "body_wood": 2.6376785714285718,
+          "pickup_config": 1.95,
+          "string_type": 37.01531250000001,
+          "scale_length_b": 2.343839285714286,
           "fretted_or_not": 0,
-          "bass_technique": 38.46500000000001
+          "bass_technique": 32.54000000000001
         }
       },
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "birch_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
-          "drumhead": "ec_pre_muffled_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b15_signature",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "machine_hammered",
-          "drum_technique": "sticks_rock"
+          "drum_technique": "sticks_rock",
+          "drumhead": "vintage_ambassador_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 15.274999999999995,
-          "shell_wood": 0.82125,
-          "shell_thickness": 0,
-          "bearing_edges": 2.1938392857142857,
-          "drumhead": 9.715,
-          "snare_wires": 2.1938392857142857,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 47.880625,
-          "cymbal_hammering": 48.13892857142858,
-          "cymbal_lathing": 48.32000000000001,
-          "cymbal_finish": 0.975,
-          "drum_technique": 38.12500000000001
+          "drum_technique": 32.50000000000001,
+          "drumhead": 15.302901785714283,
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -150,12 +132,12 @@
           "rhodes_pickup_position": "rhodes_pickup_centered"
         },
         "scores": {
-          "keyboard_technique": 10.808526785714283,
-          "rhodes_model": 9.183839285714289,
-          "rhodes_use": 4.55,
+          "keyboard_technique": 10.433526785714282,
+          "rhodes_model": 14.608839285714286,
+          "rhodes_use": 7.41,
           "rhodes_tine_material": 3.8578125,
-          "rhodes_hammer_tip": 10.594999999999999,
-          "rhodes_pickup_position": 0.49499999999999994
+          "rhodes_hammer_tip": 10.27,
+          "rhodes_pickup_position": 0.345
         }
       },
       {
@@ -165,22 +147,22 @@
           "grand_piano_size": "grand_7_foot",
           "grand_piano_brand": "bosendorfer",
           "piano_hammer": "steinway_original_hammer",
-          "piano_rim": "steinway_18_ply_hard_rock_maple_rim",
+          "piano_rim": "steinway_17_ply_hard_rock_maple_rim",
           "piano_soundboard": "asian_spruce_soundboard",
           "piano_pinblock": "standard_multi_laminate_pinblock",
           "piano_plate": "wet_sand_cast_plate",
           "piano_pitch_standard": "a_440_modern"
         },
         "scores": {
-          "keyboard_technique": 10.808526785714283,
-          "grand_piano_size": 2.433839285714286,
-          "grand_piano_brand": 2.47,
-          "piano_hammer": 20.15375,
-          "piano_rim": 21.394732142857144,
-          "piano_soundboard": 9.7,
-          "piano_pinblock": 2.1478125000000006,
-          "piano_plate": 1.8849999999999996,
-          "piano_pitch_standard": 0.9099999999999999
+          "keyboard_technique": 10.433526785714282,
+          "grand_piano_size": 2.7338392857142857,
+          "grand_piano_brand": 2.791026785714286,
+          "piano_hammer": 19.953750000000003,
+          "piano_rim": 19.6565625,
+          "piano_soundboard": 11.875,
+          "piano_pinblock": 4.6978125,
+          "piano_plate": 4.3549999999999995,
+          "piano_pitch_standard": 3.704017857142857
         }
       },
       {
@@ -193,9 +175,9 @@
           "modulation": "lfo_pitch"
         },
         "scores": {
-          "electronic_technique": 10.995,
-          "oscillator": 2.1134375,
-          "filter_topology": 5.525,
+          "electronic_technique": 10.119999999999997,
+          "oscillator": 1.6134375,
+          "filter_topology": 4.55,
           "envelope": 0.35062499999999996,
           "modulation": 0.009375
         }
@@ -203,22 +185,22 @@
       {
         "id": "saxophone",
         "slots": {
-          "wind_articulation": "wind_split_tone_overblown",
+          "wind_articulation": "wind_cool_lyrical",
           "sax_size": "baritone_sax",
           "sax_reed": "soft_reed",
-          "sax_body_alloy": "phosphor_bronze_sax",
+          "sax_body_alloy": "nickel_silver_sax",
           "sax_mouthpiece": "metal_mp",
           "sax_technique": "sax_continuous_legato",
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 0.12999999999999998,
-          "sax_size": 2.1938392857142857,
+          "wind_articulation": -0.035,
+          "sax_size": 2.343839285714286,
           "sax_reed": 0.8184375,
-          "sax_body_alloy": 6.750000000000001,
+          "sax_body_alloy": 14.375,
           "sax_mouthpiece": 0.8184375,
-          "sax_technique": 6.750000000000001,
-          "sax_maker_school": 6.110000000000001
+          "sax_technique": 11.875,
+          "sax_maker_school": 12.598526785714284
         }
       },
       {
@@ -233,7 +215,7 @@
           "electronic_technique": 0.24781250000000002,
           "sm_voice_count": 0,
           "sm_chorus": 0.8571428571428571,
-          "sm_voicing": 0.195
+          "sm_voicing": 0.045
         }
       }
     ],
@@ -267,17 +249,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_walking",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "voice_register": "chest_voice",
       "voice_quality": "crooner_voice",
       "voice_speech_song": "voice_syllabic_singing",

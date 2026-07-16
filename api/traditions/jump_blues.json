@@ -3,9 +3,9 @@
   "name": "Jump blues",
   "family": "blues_gospel",
   "lineage": "Post-WWII African-American small-combo shuffle blues with tenor-saxophone foreground, codified by Louis Jordan and his Tympany Five (1939-1950), Big Joe Turner, Wynonie Harris, Roy Brown, and the late-1940s Atlantic Records small-combo catalog",
-  "recipe": "classic North American mid-1940s jump blues, functional Song, blues electric branch, American jazz early swing-era jazz orchestra new orleans jazz. thick, blues-shouter, straight onset, interlocked note trading. tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, red brass 90 10 darkest bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, growly gut upright bass, vintage ambassador asymmetric bronze bell bronze fourteen step drum kit, upright piano, Fender blackface amp American 60s amp spring reverb bright lower tension down tuning single coil electric guitar. eleventh floor office converted studio 1947-1976 mid tier atlantic studios nyc. passive ribbon, tube pre, German tube console. Studer 30ips tape.",
-  "recipe_chars": 800,
-  "score": 381.369,
+  "recipe": "classic North American mid-1940s jump blues, functional Song, blues electric branch, American jazz early swing-era jazz orchestra new orleans jazz. thick, blues-shouter, straight onset, interlocked note trading. tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, red brass 90 10 darkest bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, upright piano, Fender blackface amp American 60s amp spring reverb bright lower tension down tuning single coil electric guitar. eleventh floor office converted studio 1947-1976 mid tier atlantic studios nyc. passive ribbon, tube pre, German tube console. Studer 30ips tape.",
+  "recipe_chars": 786,
+  "score": 305.48,
   "config": {
     "traditions": [
       "jump_blues",
@@ -110,32 +110,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "brass_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "vintage_ambassador_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b20",
-          "cymbal_hammering": "fourteen_step_hammering",
-          "cymbal_lathing": "pin_lathe",
-          "cymbal_finish": "hand_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 15.534999999999997,
-          "shell_wood": 0.845,
-          "shell_thickness": 0.337125,
-          "bearing_edges": 0.07275,
+          "drum_technique": 15.534999999999997,
           "drumhead": 18.297500000000003,
-          "snare_wires": 0.06712499999999999,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 27.595,
-          "cymbal_hammering": 16.7865,
-          "cymbal_lathing": 14.455625,
-          "cymbal_finish": 0.195,
-          "drum_technique": 15.534999999999997
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -209,17 +191,8 @@
       "bridge": "hardtail",
       "scale_length": "scale_gibson",
       "electric_technique": "electric_slide_blues",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_30",
       "drumhead": "calfskin_drum",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "hand_random_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "brushes_jazz",
-      "percussion_technique": "percussion_brushes_jazz",
       "voice_register": "chest_voice",
       "voice_quality": "blues_shouter_voice",
       "voice_speech_song": "voice_neumatic_singing",

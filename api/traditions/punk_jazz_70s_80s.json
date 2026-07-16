@@ -3,9 +3,9 @@
   "name": "Punk jazz / no-wave jazz",
   "family": "jazz",
   "lineage": "Late-1970s-1980s convergence of free-jazz improvisational practice with punk-rock-and-no-wave aesthetic, emerging from the New York Downtown scene. James Chance and the Contortions, James Blood Ulmer (with his harmolodic system), and the Lounge Lizards constituted the canonical core; the Knitting Factory NYC venue (founded 1987) anchored the institutional infrastructure for subsequent jazz-and-experimental development.",
-  "recipe": "classic North American 1977-1979 punk jazz / no-wave jazz, improv On Frame, avant branch, noise rock distorted rock. phosphor bronze selmer mark vi canonical 1954 1974 jazz paris multiphonic continuous-airflow legato saxophone, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation low output no compression humbucker electric guitar, ampeg svt amp rock bass amp thomastik infeld low tension jazz warm electric bass, vintage ambassador asymmetric over hammered post lathe strikes pin lathed drum kit. mid manhattan 1975-1985 mid-major late70s nyc commercial. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 723,
-  "score": 308.645,
+  "recipe": "classic North American 1977-1979 punk jazz / no-wave jazz, improv On Frame, avant branch, noise rock distorted rock. phosphor bronze selmer mark vi canonical 1954 1974 jazz paris multiphonic continuous-airflow legato saxophone, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation low output no compression humbucker electric guitar, ampeg svt amp rock bass amp thomastik infeld low tension jazz warm electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit. mid manhattan 1975-1985 mid-major late70s nyc commercial. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 698,
+  "score": 222.291,
   "config": {
     "traditions": [
       "punk_jazz_70s_80s",
@@ -92,32 +92,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "birch_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "vintage_ambassador_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b8",
-          "cymbal_hammering": "over_hammered",
-          "cymbal_lathing": "pin_lathe",
-          "cymbal_finish": "hand_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 21.514999999999997,
-          "shell_wood": 0.39,
-          "shell_thickness": 0.0315,
-          "bearing_edges": 0.39,
+          "drum_technique": 21.514999999999997,
           "drumhead": 20.11875,
-          "snare_wires": 0.195,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 25.097499999999997,
-          "cymbal_hammering": 18.42425,
-          "cymbal_lathing": 19.660499999999995,
-          "cymbal_finish": 0.65,
-          "drum_technique": 21.514999999999997
+          "drum_kit_kick_pedal": 0
         }
       }
     ],
@@ -151,17 +133,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_walking",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_30",
       "drumhead": "calfskin_drum",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "hand_random_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "brushes_jazz",
-      "percussion_technique": "percussion_brushes_jazz",
       "wind_articulation": "wind_punchy_ensemble",
       "sax_size": "tenor_sax",
       "string_tuning": "standard_tuning"

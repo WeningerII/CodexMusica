@@ -3,9 +3,9 @@
   "name": "Black Pentecostal gospel",
   "family": "blues_gospel",
   "lineage": "Black Pentecostal / COGIC (Church of God in Christ) liturgical music tradition characterized by Hammond B3 organ, piano, drums, electric bass, congregational call-and-response with melismatic lead vocal — codified through James Cleveland, Mahalia Jackson, the Caravans, Edwin Hawkins, Andrae Crouch, Aretha Franklins Amazing Grace (1972, New Temple Missionary Baptist Church LA)",
-  "recipe": "classic North American early-1970s black pentecostal gospel, ritual Devotional, pentecostal branch, soul R&B functional song southern soul classic r&b. thick, declaimed, wide pitch sway, multi note runs per syllable. Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched gospel runs full spectrum fast tremolo tonewheel organ, gospel runs upright piano, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled bronze bell bronze fourteen step drum kit, ecstatic call response choir pentecostal cogic, choir southern black gospel. pentecostal storefront church. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 830,
-  "score": 449.037,
+  "recipe": "classic North American early-1970s black pentecostal gospel, ritual Devotional, pentecostal branch, soul R&B functional song southern soul classic r&b. thick, declaimed, wide pitch sway, multi note runs per syllable. Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched gospel runs full spectrum fast tremolo tonewheel organ, gospel runs upright piano, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled sticks pocket drum kit, ecstatic call response choir pentecostal cogic, choir southern black gospel. pentecostal storefront church. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 811,
+  "score": 424.379,
   "config": {
     "traditions": [
       "pentecostal_gospel",
@@ -110,32 +110,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_sticks_motown",
-          "shell_wood": "brass_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "sticks_motown",
           "drumhead": "ec_pre_muffled_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b20",
-          "cymbal_hammering": "fourteen_step_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "hand_hammered",
-          "drum_technique": "sticks_motown"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 14.624999999999996,
-          "shell_wood": 0.8025,
-          "shell_thickness": 0.3,
-          "bearing_edges": 0.39,
+          "drum_technique": 14.624999999999996,
           "drumhead": 1.59,
-          "snare_wires": 0.39,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 3.215,
-          "cymbal_hammering": 1.8900000000000001,
-          "cymbal_lathing": 2.3949999999999996,
-          "cymbal_finish": 0.65,
-          "drum_technique": 14.624999999999996
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -189,17 +171,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_locked",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "thin_shell",
-      "bearing_edges": "edge_30",
       "drumhead": "single_coated",
-      "snare_wires": "wires_12",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_motown",
-      "percussion_technique": "percussion_sticks_motown",
       "voice_register": "mix_voice",
       "voice_quality": "chest_mix_belt_voice",
       "voice_speech_song": "voice_melismatic_singing",

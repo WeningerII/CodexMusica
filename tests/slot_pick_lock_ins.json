@@ -3,41 +3,6 @@
   "_locked_in_by": "scripts/check_slot_picks.js — runs in tandem.js [1/4] source pipeline.",
   "tests": [
     {
-      "tradition": "new_orleans",
-      "instrument": "drum_kit",
-      "part": "cymbal_alloy",
-      "expected_variant": "b20",
-      "rationale": "NOLA second-line jazz cymbal canonical (b20 jazz alloy). Locks in isolated_parts: ['cymbal_alloy'] on improvOnFrame.americanJazz.bop crossRef — without isolation, bebop staples push to b23 (rock-canonical)."
-    },
-    {
-      "tradition": "chicago_blues",
-      "instrument": "drum_kit",
-      "part": "cymbal_alloy",
-      "expected_variant": "b20",
-      "rationale": "Electric blues canonical (Chess Records-era jazz-leaning cymbals). Locks in isolated_parts: ['cymbal_alloy'] on improvOnFrame.americanJazz crossRef — without isolation, free_jazz/spiritual_jazz staples push to b8 (cheap rock)."
-    },
-    {
-      "tradition": "frevo",
-      "instrument": "drum_kit",
-      "part": "cymbal_alloy",
-      "expected_variant": "b20",
-      "rationale": "Brazilian carnival ensemble canonical b20. Locks in isolated_parts: ['voice_quality', 'cymbal_alloy'] on improvOnFrame.americanJazz crossRef."
-    },
-    {
-      "tradition": "british_invasion_rb",
-      "instrument": "drum_kit",
-      "part": "shell_wood",
-      "expected_variant": "mahogany_shell",
-      "rationale": "Beatles/Stones Ludwig mahogany kit canonical. Locks in isolated_parts: ['shell_wood'] on functionalSong.bluesElectric crossRef — without isolation, blues staples push to walnut."
-    },
-    {
-      "tradition": "fusion",
-      "instrument": "drum_kit",
-      "part": "shell_wood",
-      "expected_variant": "birch_shell",
-      "rationale": "Yamaha Recording Custom birch canonical for fusion (Steve Gadd, Vinnie Colaiuta). Locks in isolated_parts: ['shell_wood'] on improvOnFrame.americanJazz.bop crossRef — without isolation, bebop staples push to walnut."
-    },
-    {
       "tradition": "tuvan_throat",
       "instrument": "voice",
       "part": "voice_quality",

@@ -3,9 +3,9 @@
   "name": "Southern soul (Stax / FAME / Muscle Shoals tradition)",
   "family": "blues_gospel",
   "lineage": "African-American gospel-belt vocal soul tradition codified through Stax Records Memphis (Otis Redding, Sam and Dave, Wilson Pickett, Eddie Floyd, Booker T and the MGs), FAME Studios Muscle Shoals (Aretha Franklin I Never Loved a Man, Wilson Pickett Mustang Sally, Etta James Tell Mama), and Muscle Shoals Sound Studio (Aretha Franklin Spirit in the Dark, Bob Seger, Wilson Pickett)",
-  "recipe": "classic Southern American mid-1970s southern soul, functional Song, soul R&B branch, christian gospel ritual devotional black gospel gospel quartet. thick, blues-shouter, wide pitch sway, leader call answered. Fender blackface amp American 60s amp spring reverb bright wenge flatwound single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, walnut pre muffled edge muffled bronze bell bronze drum kit, gospel runs upright piano, tenor gold brass warmer tone ensemble ebonite saxophone, bach stradivarius 180 canonical American orchestral ensemble standard rim orchestral balance trumpet. converted movie theatre 1957-1975 mid tier stax studio memphis. passive ribbon, Neve 1073 inductor pre, colored vintage console, LA-2A optical, Neve inductor EQ. Studer 30ips tape ibanez tube screamer TS9 / TS808.",
-  "recipe_chars": 883,
-  "score": 615.758,
+  "recipe": "classic Southern American mid-1970s southern soul, functional Song, soul R&B branch, christian gospel ritual devotional black gospel gospel quartet. thick, blues-shouter, wide pitch sway, leader call answered. Fender blackface amp American 60s amp spring reverb bright wenge flatwound single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled sticks pocket drum kit, gospel runs upright piano, tenor gold brass warmer tone ensemble ebonite saxophone, bach stradivarius 180 canonical American orchestral ensemble standard rim orchestral balance trumpet. converted movie theatre 1957-1975 mid tier stax studio memphis. passive ribbon, Neve 1073 inductor pre, colored vintage console, LA-2A optical, Neve inductor EQ. Studer 30ips tape ibanez tube screamer TS9 / TS808.",
+  "recipe_chars": 871,
+  "score": 583.123,
   "config": {
     "traditions": [
       "southern_soul",
@@ -70,32 +70,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_sticks_motown",
-          "shell_wood": "walnut_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "sticks_motown",
           "drumhead": "ec_pre_muffled_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b20",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "hand_hammered",
-          "drum_technique": "sticks_motown"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 16.5,
-          "shell_wood": 1,
-          "shell_thickness": 0.2475,
-          "bearing_edges": 0.045,
+          "drum_technique": 16.5,
           "drumhead": 5.345,
-          "snare_wires": 0.045,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 3.9750000000000005,
-          "cymbal_hammering": 4.645,
-          "cymbal_lathing": 5.132499999999999,
-          "cymbal_finish": 1.045,
-          "drum_technique": 16.5
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -226,17 +208,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "pick_motown",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "thin_shell",
-      "bearing_edges": "edge_30",
       "drumhead": "single_coated",
-      "snare_wires": "wires_12",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_motown",
-      "percussion_technique": "percussion_sticks_motown",
       "voice_register": "mix_voice",
       "voice_quality": "chest_mix_belt_voice",
       "voice_speech_song": "voice_melismatic_singing",

@@ -3,9 +3,9 @@
   "name": "Korean trot (twentieth-century popular ballad)",
   "family": "pop",
   "lineage": "Korean trot (teuroteu) twentieth-century popular ballad genre emerging in 1920s-1930s colonial-period Korea from the synthesis of Japanese enka (then dominant on the colonial-Korean recording market) with native Korean folk vocal-inflection. Characterized by the canonical 2/4 \"trot rhythm\" (a swung syncopated pulse derived ultimately from foxtrot dance-band music), characteristic Korean vocal-vibrato called kkeokgi (\"bending\"), and emotionally direct sentimental-romantic-and-loss lyrical register. The genre survived multiple cycles of cultural-policy suppression (especially the 1965 anti-Japanese-influence purge) and remains a major mainstream Korean popular-music form today. The 2010s trot-revival under Korean cable-television trot-contests reinvigorated the genre with young audiences.",
-  "recipe": "classic East Asian mid-1920s korean trot, functional Song, east Asian pop branch, chanson fado ballad poetry cape verdean batuko of santiago island morna. thick, breath veiled tone, slow rate, interlocked note trading. mahogany maple ebony clean strummed humbucker electric guitar, pre muffled edge muffled hot rolled annealed machine hammered drum kit, low mid rich spectrum low-mid-thick mahogany electric bass. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
-  "recipe_chars": 597,
-  "score": 364.185,
+  "recipe": "classic East Asian mid-1920s korean trot, functional Song, east Asian pop branch, chanson fado ballad poetry cape verdean batuko of santiago island morna. thick, breath veiled tone, slow rate, interlocked note trading. mahogany maple ebony clean strummed humbucker electric guitar, pre muffled edge muffled brushes-and-sticks drum kit, low mid rich spectrum low-mid-thick mahogany electric bass. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 579,
+  "score": 321.29,
   "config": {
     "traditions": [
       "korean_trot",
@@ -88,32 +88,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "steel_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "ec_pre_muffled_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b15_signature",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "machine_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 21.710000000000004,
-          "shell_wood": 0.39,
-          "shell_thickness": 0,
-          "bearing_edges": 0.195,
+          "drum_technique": 21.710000000000004,
           "drumhead": 6.484999999999999,
-          "snare_wires": 0.9105,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 7.045000000000001,
-          "cymbal_hammering": 6.15,
-          "cymbal_lathing": 6.345,
-          "cymbal_finish": 0.15,
-          "drum_technique": 21.710000000000004
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -170,17 +152,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_locked",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "voice_register": "chest_voice",
       "voice_quality": "crooner_voice",
       "voice_speech_song": "voice_syllabic_singing",

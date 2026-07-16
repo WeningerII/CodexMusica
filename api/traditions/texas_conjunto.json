@@ -3,9 +3,9 @@
   "name": "Texas conjunto",
   "family": "vernacular",
   "lineage": "Texas-Mexican (tejano) accordion-and-bajo-sexto dance-band tradition of South Texas and the Texas-Mexico borderlands, developed in the late-nineteenth-century from German-Czech accordion-polka traditions imported into Texas through Central European migration — codified through Narciso Martínez (Texas conjunto founding figure, recording 1936 onward), Santiago Jiménez Sr, Valerio Longoria, Tony de la Rosa, Flaco Jiménez",
-  "recipe": "classic North American mid-1930s texas conjunto, functional Song, tejano border branch, Latin am groove percussion forró brasileiro joropo. thick, breath veiled tone, fast rate, interlocked note trading. steel hohner gola canonical premium German concert chordal accordion, spruce nickel wound modern tejano strummed bajo sexto, ampeg svt amp rock bass amp alder la bella flats Detroit soul bass canon electric bass, oak hot rolled annealed machine hammered symmetric pattern drum kit, accordion and bajo duo instrumental polka redova vals dance texas tejano conjunto conjunto norteno. honky tonk dance hall. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 703,
-  "score": 242.32,
+  "recipe": "classic North American mid-1930s texas conjunto, functional Song, tejano border branch, Latin am groove percussion forró brasileiro joropo. thick, breath veiled tone, fast rate, interlocked note trading. steel hohner gola canonical premium German concert chordal accordion, spruce nickel wound modern tejano strummed bajo sexto, ampeg svt amp rock bass amp alder la bella flats Detroit soul bass canon electric bass, brushes-and-sticks drum kit, accordion and bajo duo instrumental polka redova vals dance texas tejano conjunto conjunto norteno. honky tonk dance hall. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 663,
+  "score": 217.085,
   "config": {
     "traditions": [
       "texas_conjunto",
@@ -116,32 +116,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "oak_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "ec_pre_muffled_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b15_signature",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "pin_lathe",
-          "cymbal_finish": "brilliant_finish",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 13.39,
-          "shell_wood": 1.09,
-          "shell_thickness": 0.3,
-          "bearing_edges": 0.65,
+          "drum_technique": 13.39,
           "drumhead": 0.8949999999999999,
-          "snare_wires": 0.65,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 1.695,
-          "cymbal_hammering": 3.185,
-          "cymbal_lathing": 3.185,
-          "cymbal_finish": 1.09,
-          "drum_technique": 13.39
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -184,17 +166,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerpicked_country_b",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_30",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "brushes_and_sticks",
-      "percussion_technique": "percussion_brushes_and_sticks",
       "voice_register": "chest_voice",
       "voice_quality": "twang_voice",
       "voice_speech_song": "voice_syllabic_singing",

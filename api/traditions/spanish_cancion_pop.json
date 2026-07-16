@@ -3,9 +3,9 @@
   "name": "Spanish canción pop",
   "family": "global",
   "lineage": "Spanish-language mainstream song tradition centered on Iberian and Latin American crossover — codified through Mecano, Joaquín Sabina, Alejandro Sanz, and Rosalía bringing flamenco-pop and electronic-pop fusions into the international mainstream from the 1980s through 2020s",
-  "recipe": "classic mid-1980s spanish canción pop, functional Song, iberian branch, chanson fado ballad poetry cape verdean batuko of santiago island morna. thick, breath veiled tone, slow rate, interlocked note trading. martin lifespan strummed open chord ringing overtones fingerpicked acoustic wenge ebony clean strummed single coil electric guitar, low mid rich spectrum low-mid-thick mahogany electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 618,
-  "score": 430.867,
+  "recipe": "classic mid-1980s spanish canción pop, functional Song, iberian branch, chanson fado ballad poetry cape verdean batuko of santiago island morna. thick, breath veiled tone, slow rate, interlocked note trading. martin lifespan strummed open chord ringing overtones fingerpicked acoustic wenge ebony clean strummed single coil electric guitar, low mid rich spectrum low-mid-thick mahogany electric bass, pre muffled edge muffled brushes-and-sticks drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 600,
+  "score": 350.474,
   "config": {
     "traditions": [
       "spanish_cancion_pop",
@@ -128,32 +128,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "steel_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_45",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "ec_pre_muffled_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b15_signature",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "machine_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 23.270000000000003,
-          "shell_wood": 0.39,
-          "shell_thickness": 0,
-          "bearing_edges": 1.1032499999999998,
+          "drum_technique": 23.270000000000003,
           "drumhead": 17.484999999999996,
-          "snare_wires": 0.54,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 18.844999999999995,
-          "cymbal_hammering": 17.949999999999992,
-          "cymbal_lathing": 18.144999999999992,
-          "cymbal_finish": 0.15,
-          "drum_technique": 23.270000000000003
+          "drum_kit_kick_pedal": 0
         }
       }
     ],
@@ -187,17 +169,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_locked",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "voice_register": "mix_voice",
       "voice_quality": "chest_mix_belt_voice",
       "voice_speech_song": "voice_syllabic_singing",

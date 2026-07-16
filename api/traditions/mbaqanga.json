@@ -3,9 +3,9 @@
   "name": "Mbaqanga (South African township jive, 1960s-1980s)",
   "family": "global",
   "lineage": "South African mbaqanga township-jive tradition emerging in early 1960s Johannesburg township studios (Soweto and Alexandra). Roots in 1920s-1930s marabi shebeen piano-and-banjo and 1950s kwela pennywhistle jive. Studios: Mavuthela (the Black-music division of Gallo Record Company, established 1964) under producer Rupert Bopape. Sound: electric instrumentation over township 8/8 beat, with Zulu vocal harmonies in five-part configuration (not Western four-part). \"Groaning\" basso-profundo male vocal — canonical bass-register growl with hyper-low fundamental — paired against female-trio harmonies (Mahotella Queens, Dark City Sisters). Backing-band canonical lineup of Makgona Tsohle Band: Marks Mankwane lead electric guitar, Joseph Makwela electric bass, West Nkosi tenor saxophone (later producer in his own right), Vivian Ngubane rhythm guitar, Lucky Monama drums. Mgqashiyo dance variant emerged late 1960s. The word \"mbaqanga\" is Zulu for cornmeal porridge / steamed bread. The 1986 Graceland sessions brought international revival. Distinguished from kwela by electric-instrumentation and 8/8 township-beat configuration; distinguished from isicathamiya by groaning-bass + female-trio configuration vs male-only close-harmony; distinguished from marabi by electric vs acoustic shebeen-piano-banjo instrumentation",
-  "recipe": "classic Southern African mbaqanga, functional Song, African pop branch, African pop isicathamiya. extended whistle, breath veiled tone, straight note core, interlocked note trading. mahogany rosewood alnico flatwound clean single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character mahogany pyramid electric bass, walnut pre muffled edge muffled hot rolled annealed drum kit, selmer mark vi canonical 1954 1974 jazz paris ebonite saxophone, wood walnut mid tier scruggs stelling bluegrass setup banjo 5 string. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, tube pre, BBC broadcast console, vari-mu, passive program EQ. vinyl master cut.",
-  "recipe_chars": 721,
-  "score": 316.56,
+  "recipe": "classic Southern African mbaqanga, functional Song, African pop branch, African pop isicathamiya. extended whistle, breath veiled tone, straight note core, interlocked note trading. mahogany rosewood alnico flatwound clean single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character mahogany pyramid electric bass, pre muffled edge muffled brushes-and-sticks drum kit, selmer mark vi canonical 1954 1974 jazz paris ebonite saxophone, wood walnut mid tier scruggs stelling bluegrass setup banjo 5 string. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, tube pre, BBC broadcast console, vari-mu, passive program EQ. vinyl master cut.",
+  "recipe_chars": 713,
+  "score": 271.915,
   "config": {
     "traditions": [
       "mbaqanga",
@@ -108,32 +108,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "walnut_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "ec_pre_muffled_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b15_signature",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "hand_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 10.399999999999997,
-          "shell_wood": 3.942,
-          "shell_thickness": 0,
-          "bearing_edges": 3.05675,
+          "drum_technique": 10.399999999999997,
           "drumhead": 8.5465,
-          "snare_wires": 1.7117499999999999,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 7.868,
-          "cymbal_hammering": 8.260250000000001,
-          "cymbal_lathing": 8.211500000000001,
-          "cymbal_finish": 1.1949999999999998,
-          "drum_technique": 10.399999999999997
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -217,17 +199,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_locked",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "voice_register": "mix_voice",
       "voice_quality": "chest_mix_belt_voice",
       "voice_speech_song": "voice_syllabic_singing",

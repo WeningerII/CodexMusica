@@ -3,9 +3,9 @@
   "name": "Early rock-and-roll (1954–1958)",
   "family": "vernacular",
   "lineage": "Mid-1950s rhythm-and-blues into rock-and-roll transitional zone — codified through Bill Haley and His Comets (\"Rock Around the Clock\" 1954), Chuck Berry (\"Maybellene\" 1955), Elvis Presley’s Sun Records sessions (1954-55) and RCA crossover (1956), Little Richard (\"Tutti Frutti\" 1955), Fats Domino, and Jerry Lee Lewis — characterized by 12-bar-blues form adapted to teen-pop subject matter, electric-guitar-led instrumentation, and the Sun / Chess / Specialty / Atlantic indie-label distribution ecosystem",
-  "recipe": "classic North American early rock-and-roll, distorted Rock, classic branch, blues electric functional song chicago blues jump blues. thick, blues-shouter, wide pitch sway, interlocked note trading. Fender tweed amp American 50s amp tweed breakup dearmond vintage jazz archtop, growly gut upright bass, vintage ambassador asymmetric bronze bell bronze machine hammered drum kit, soft felt lacquer voiced 17 ply hard rock maple Asian spruce grand piano, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone. dry but alive 1948-1965 indie-commercial early tape us small. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 707,
-  "score": 337.175,
+  "recipe": "classic North American early rock-and-roll, distorted Rock, classic branch, blues electric functional song chicago blues jump blues. thick, blues-shouter, wide pitch sway, interlocked note trading. Fender tweed amp American 50s amp tweed breakup dearmond vintage jazz archtop, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, soft felt lacquer voiced 17 ply hard rock maple Asian spruce grand piano, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone. dry but alive 1948-1965 indie-commercial early tape us small. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 690,
+  "score": 258.729,
   "config": {
     "traditions": [
       "early_rock_and_roll_50s",
@@ -89,32 +89,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "mahogany_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "vintage_ambassador_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b20",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "traditional_finish",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 14.754999999999997,
-          "shell_wood": 0.195,
-          "shell_thickness": 0.39,
-          "bearing_edges": 1.4949999999999999,
+          "drum_technique": 14.754999999999997,
           "drumhead": 3.0549999999999997,
-          "snare_wires": 1.4949999999999999,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 27.825,
-          "cymbal_hammering": 16.07,
-          "cymbal_lathing": 16.0355,
-          "cymbal_finish": 0.18525,
-          "drum_technique": 14.754999999999997
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -184,17 +166,8 @@
     "tuning": "twelve_tet",
     "room": "studio_early_tape_us_small",
     "parts": {
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "voice_register": "chest_voice",
       "voice_quality": "full_chest_belt_voice",
       "voice_speech_song": "voice_syllabic_singing",

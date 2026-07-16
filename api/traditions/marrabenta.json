@@ -3,9 +3,9 @@
   "name": "Marrabenta",
   "family": "global",
   "lineage": "Mozambican urban dance-song born in 1950s Lourenço Marques — the galloping majika rhythm born on homemade oil-can guitars and electrified across the 1960s-1970s into orchestra-scale dance bands, voiced in Ronga and Changana and canonized from Rádio Moçambique and the Gallo sessions by Fany Pfumo, Dilon Djindji and Orchestra Marrabenta Star",
-  "recipe": "classic Southern African mid-1950s marrabenta, functional Song, African pop branch, central east south African groove percussion soukous ndombolo. extended whistle, breath veiled tone, slow rate, interlocked note trading. mahogany ebony clean strummed single coil electric cedar strummed open chord ringing overtones dreadnought acoustic guitar, alder la bella flats Detroit soul bass canon electric bass, mahogany pre muffled edge muffled hot rolled annealed drum kit. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, tube pre, BBC broadcast console, vari-mu, passive program EQ. vinyl master cut.",
-  "recipe_chars": 655,
-  "score": 192.308,
+  "recipe": "classic Southern African mid-1950s marrabenta, functional Song, African pop branch, central east south African groove percussion soukous ndombolo. extended whistle, breath veiled tone, slow rate, interlocked note trading. mahogany ebony clean strummed single coil electric cedar strummed open chord ringing overtones dreadnought acoustic guitar, alder la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled brushes-and-sticks drum kit. johannesburg gallo studios 1932-present mid tier johannesburg gallo african studios. dynamic moving-coil, tube pre, BBC broadcast console, vari-mu, passive program EQ. vinyl master cut.",
+  "recipe_chars": 645,
+  "score": 160.182,
   "config": {
     "traditions": [
       "marrabenta",
@@ -126,32 +126,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "mahogany_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "ec_pre_muffled_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b15_signature",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "hand_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 11.959999999999997,
-          "shell_wood": 1.4300000000000002,
-          "shell_thickness": 0,
-          "bearing_edges": 1.04,
+          "drum_technique": 11.959999999999997,
           "drumhead": 5.3565,
-          "snare_wires": 1.04,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 5.3565000000000005,
-          "cymbal_hammering": 5.62,
-          "cymbal_lathing": 5.575,
-          "cymbal_finish": 0.105,
-          "drum_technique": 11.959999999999997
+          "drum_kit_kick_pedal": 0
         }
       }
     ],
@@ -185,17 +167,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_locked",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "voice_register": "mix_voice",
       "voice_quality": "chest_mix_belt_voice",
       "voice_speech_song": "voice_syllabic_singing",

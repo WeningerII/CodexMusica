@@ -3,9 +3,9 @@
   "name": "Mandopop modern (2000s-onward Taiwan-Mainland Mandarin R&B-influenced)",
   "family": "pop",
   "lineage": "Modern Mandarin Chinese popular music developed from 2000s onward through Jay Chou's post-2000 commercial peak and the broader Taiwanese and Mainland Chinese market. Characterized by sophisticated R&B-and-hip-hop-influenced production, romantic-ballad emphasis, and contemporary Mandarin-pop commercial-radio aesthetic. Jay Chou, JJ Lin, Eason Chan (Cantopop crossover), G.E.M., and the contemporary Mainland Chinese reality-show winners constitute the canonical contemporary mandopop roster.",
-  "recipe": "classic East Asian mandopop modern, functional Song, east Asian pop branch, chanson fado ballad poetry cape verdean batuko of santiago island greek éntechno. thick, breath veiled tone, straight onset, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, modeled amp modern rig mahogany stainless steel roundwound electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, fast decay focused low lead analog synth. hong kong flagship 1980-2000 mid tier hong kong cantopop studio 80s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 704,
-  "score": 511.902,
+  "recipe": "classic East Asian mandopop modern, functional Song, east Asian pop branch, chanson fado ballad poetry cape verdean batuko of santiago island greek éntechno. thick, breath veiled tone, straight onset, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, modeled amp modern rig mahogany stainless steel roundwound electric bass, pre muffled edge muffled brushes-and-sticks drum kit, fast decay focused low lead analog synth. hong kong flagship 1980-2000 mid tier hong kong cantopop studio 80s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 686,
+  "score": 442.049,
   "config": {
     "traditions": [
       "mandopop_modern",
@@ -103,32 +103,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "steel_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_45",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "ec_pre_muffled_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b15_signature",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "hand_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 20.929999999999996,
-          "shell_wood": 0.28500000000000003,
-          "shell_thickness": 0,
-          "bearing_edges": 3.6399999999999997,
+          "drum_technique": 20.929999999999996,
           "drumhead": 17.283,
-          "snare_wires": 0.54,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 10.294999999999998,
-          "cymbal_hammering": 16.9615,
-          "cymbal_lathing": 17.0065,
-          "cymbal_finish": 0.195,
-          "drum_technique": 20.929999999999996
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -175,17 +157,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "sub_bass_synth_blend",
-      "shell_wood": "aluminum_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "ec_pre_muffled_drumhead",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b8",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "machine_drum_program",
-      "percussion_technique": "percussion_breakbeat_chopped",
       "voice_register": "mix_voice",
       "voice_quality": "chest_mix_belt_voice",
       "voice_speech_song": "voice_syllabic_singing",

@@ -3,9 +3,9 @@
   "name": "Post-hardcore (90s)",
   "family": "rock_punk",
   "lineage": "Late-1980s and 1990s American post-hardcore subgenre developed from 1980s hardcore-punk through more melodic and experimental compositional approach. Fugazi (Washington D.C., 1987-2003), Drive Like Jehu, Quicksand, Refused, At the Drive-In, and the broader Dischord Records label roster anchor the canonical American post-hardcore roster. Direct ancestor of 2000s screamo, midwest emo, and broader emocore developments.",
-  "recipe": "classic North American mid-1990s post-hardcore, distorted Rock, emo branch, punk distorted rock garage punk folk punk. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character ernie ball slinky electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 662,
-  "score": 434.596,
+  "recipe": "classic North American mid-1990s post-hardcore, distorted Rock, emo branch, punk distorted rock garage punk folk punk. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character ernie ball slinky electric bass, sticks drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 589,
+  "score": 353.561,
   "config": {
     "traditions": [
       "post_hardcore_90s",
@@ -111,32 +111,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_sticks_punk",
-          "shell_wood": "maple_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "sticks_punk",
           "drumhead": "double_coated",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b8",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "machine_hammered",
-          "drum_technique": "sticks_punk"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 19.375,
-          "shell_wood": 0.15,
-          "shell_thickness": 0,
-          "bearing_edges": 0.845,
+          "drum_technique": 19.375,
           "drumhead": 0.845,
-          "snare_wires": 0.845,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 32.79,
-          "cymbal_hammering": 13.664999999999997,
-          "cymbal_lathing": 13.274999999999997,
-          "cymbal_finish": 0.09,
-          "drum_technique": 19.375
+          "drum_kit_kick_pedal": 0
         }
       }
     ],
@@ -170,17 +152,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_locked",
-      "shell_wood": "birch_shell",
-      "shell_thickness": "thin_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b8",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_punk",
-      "percussion_technique": "percussion_sticks_punk",
       "voice_register": "chest_voice",
       "voice_quality": "false_fold_voice",
       "voice_speech_song": "voice_syllabic_singing",

@@ -5,7 +5,7 @@
   "lineage": "The gospel tradition — African-American Christian devotional music built on choir, soloist, and call-and-response, codified in the early-20th-century Black church",
   "recipe": "classic Southern American mid-1970s gospel, ritual Devotional, black gospel branch. thick, declaimed, straight note core, leader call answered. call response single leader group response sub saharan call response ostinato polyrhythmic choir ensemble, Hammond b3 canonical 1955 1975 jazz gospel rock standard gospel runs full spectrum fast tremolo tonewheel organ, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, electric bass, brushes-and-sticks drum kit, choir southern black gospel. southern black church gospel choir. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 691,
-  "score": 240.364,
+  "score": 234.726,
   "config": {
     "traditions": [
       "gospel"
@@ -135,32 +135,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "birch_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "single_clear",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b8",
-          "cymbal_hammering": "over_hammered",
-          "cymbal_lathing": "unlathed_bell",
-          "cymbal_finish": "machine_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 4.419999999999999,
-          "shell_wood": 0.34275,
-          "shell_thickness": 0,
-          "bearing_edges": 0.0325,
+          "drum_technique": 4.419999999999999,
           "drumhead": 0.34275,
-          "snare_wires": 0.0325,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 0.19275000000000003,
-          "cymbal_hammering": 0.325,
-          "cymbal_lathing": -0.05,
-          "cymbal_finish": 0.34275,
-          "drum_technique": 4.419999999999999
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -203,17 +185,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "pick_motown",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "thin_shell",
-      "bearing_edges": "edge_30",
       "drumhead": "single_coated",
-      "snare_wires": "wires_12",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_motown",
-      "percussion_technique": "percussion_sticks_motown",
       "voice_register": "mix_voice",
       "voice_quality": "chest_mix_belt_voice",
       "voice_speech_song": "voice_melismatic_singing",

@@ -3,14 +3,14 @@
   "name": "Hot country (2010s mainstream)",
   "family": "global",
   "lineage": "2010s mainstream country radio format dominated by Nashville Music Row major-label production — Carrie Underwood, Miranda Lambert, Eric Church, Jason Aldean, and the radio-format Top 40 country chart; characterized by stadium-pop production scale, modern country-vocal performance, and the moving boundary between country and rock-pop crossover",
-  "recipe": "classic hot country, functional Song, contemp main branch, pop rock functional song new wave folk rock. thick, breath veiled tone, straight note core, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, Fender blackface amp American 60s amp spring reverb bright classic country brass pedal steel, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, synthetic magic rosin modern acrylic base double stops fiddle. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 747,
-  "score": 801.371,
+  "recipe": "classic hot country, functional Song, contemp main branch, pop rock functional song folk rock new wave. thick, breath veiled tone, straight note core, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, Fender blackface amp American 60s amp spring reverb bright classic country brass pedal steel, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, synthetic magic rosin modern acrylic base double stops fiddle. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 726,
+  "score": 642.24,
   "config": {
     "traditions": [
       "hot_country_2010s",
-      "new_wave",
-      "folk_rock"
+      "folk_rock",
+      "new_wave"
     ],
     "instruments": [
       {
@@ -39,13 +39,13 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 21.164999999999996,
-          "voice_articulation": 15.794999999999993,
+          "voice_articulation": 15.794999999999991,
           "voice_microtone": 44.10000000000001,
           "voice_tradition": 27.625,
           "voice_mechanism_compound": 1.17,
           "voice_estill_quality": 23.004374999999996,
           "voice_speech_song": 23.20499999999999,
-          "voice_ensemble_config": 14.624999999999993,
+          "voice_ensemble_config": 14.624999999999991,
           "voice_ornament_system": 0.45499999999999996,
           "voice_pitch_organization": 1.1049999999999998,
           "voice_processing_chain": 8.338750000000001,
@@ -80,7 +80,7 @@
           "bridge": 1.39,
           "scale_length": 2.08,
           "finish": 0.09,
-          "string_tuning": 13.65
+          "string_tuning": 13.649999999999999
         }
       },
       {
@@ -123,41 +123,23 @@
           "amp_make": 20.991249999999994,
           "body_wood": 2.08,
           "pickup_config": 1.4949999999999999,
-          "string_type": 31.475625,
+          "string_type": 31.475624999999994,
           "scale_length_b": 2.08,
           "fretted_or_not": 0.195,
-          "bass_technique": 28.783749999999998
+          "bass_technique": 28.78374999999999
         }
       },
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "birch_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "sticks_rock",
           "drumhead": "ec_pre_muffled_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b15_signature",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "hand_hammered",
-          "drum_technique": "sticks_rock"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 17.289999999999996,
-          "shell_wood": 0.78,
-          "shell_thickness": 0.195,
-          "bearing_edges": 2.08,
+          "drum_technique": 24.425624999999993,
           "drumhead": 21.345625,
-          "snare_wires": 2.08,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 44.035,
-          "cymbal_hammering": 46.375,
-          "cymbal_lathing": 46.10125,
-          "cymbal_finish": 0.195,
-          "drum_technique": 24.425625
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -208,17 +190,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerpicked_country_b",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_30",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "brushes_and_sticks",
-      "percussion_technique": "percussion_brushes_and_sticks",
       "voice_register": "chest_voice",
       "voice_quality": "twang_voice",
       "voice_speech_song": "voice_syllabic_singing",

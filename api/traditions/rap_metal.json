@@ -3,9 +3,9 @@
   "name": "Rap metal (early-1990s hip-hop-and-metal hybrid)",
   "family": "rock_punk",
   "lineage": "Early-1990s-and-onward American heavy-rock subgenre integrating hip-hop vocal-delivery and rhythmic-foundation with heavy-metal guitar-bass-drum aesthetic. Rage Against the Machine (Los Angeles, 1991-2000, 2007-onward) is the canonical type-specimen, with explicit revolutionary-political lyric content; the parallel Body Count (Ice-T project) and (later) the 2000s wave of Hed PE and Sevendust extended the genre.",
-  "recipe": "classic Los Angeles rap metal, distorted Rock, avant branch, us hip hop conscious rap conscious hip-hop. thick, rap, straight onset, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character ernie ball slinky pocket electric bass, mahogany fiberskyn synthetic calf machine hammered symmetric pattern drum kit. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape digitech whammy.",
-  "recipe_chars": 661,
-  "score": 371.573,
+  "recipe": "classic Los Angeles rap metal, distorted Rock, avant branch, us hip hop conscious rap conscious hip-hop. thick, rap, straight onset, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character ernie ball slinky pocket electric bass, fiberskyn synthetic calf brushes-and-sticks drum kit. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape digitech whammy.",
+  "recipe_chars": 636,
+  "score": 308.041,
   "config": {
     "traditions": [
       "rap_metal",
@@ -110,32 +110,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "mahogany_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_45",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "fiberskyn_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b8",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "machine_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 17.485,
-          "shell_wood": 3.6859999999999995,
-          "shell_thickness": 0.0315,
-          "bearing_edges": 1.9402499999999998,
+          "drum_technique": 17.485,
           "drumhead": 4.874999999999998,
-          "snare_wires": 0.195,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 20.70525,
-          "cymbal_hammering": 9.878,
-          "cymbal_lathing": 8.231499999999999,
-          "cymbal_finish": 1.38025,
-          "drum_technique": 17.485
+          "drum_kit_kick_pedal": 0
         }
       }
     ],
@@ -171,17 +153,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "pick_aggressive",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "thick_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "double_coated",
-      "snare_wires": "wires_30",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "hand_random_hammering",
-      "cymbal_lathing": "pin_lathe",
-      "cymbal_finish": "brilliant_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "voice_register": "chest_voice",
       "voice_quality": "pressed_phonation_voice",
       "voice_speech_song": "voice_syllabic_singing",

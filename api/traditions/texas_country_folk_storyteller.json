@@ -3,9 +3,9 @@
   "name": "Texas country-folk storyteller",
   "family": "global",
   "lineage": "Texas songwriter narrative-folk tradition centered around Townes Van Zandt, Guy Clark, Steve Earle, Jerry Jeff Walker, Lyle Lovett, Robert Earl Keen, Slaid Cleaves, James McMurtry — storytelling-foregrounded songwriting often tracked in Austin and Nashville",
-  "recipe": "classic Southern American mid-1970s texas country-folk storyteller, ballad Poetry, country folk story branch, outlaw country. thick, breath veiled tone, straight note core, interlocked note trading. travis picked fingerpicked acoustic guitar, double stops fiddle, Fender tweed amp American 50s amp tweed breakup fingerpicked electric bass, brushes-and-sticks drum kit, bowl back Italian k and k twin internal mounted acoustic faithful mandolin, pearwood marine band tradition straight harmonica. rural louisiana pine forest 1973-present mid tier in the country bogalusa. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 702,
-  "score": 331.561,
+  "recipe": "classic Southern American mid-1970s texas country-folk storyteller, ballad Poetry, country folk story branch, outlaw country. thick, breath veiled tone, straight note core, interlocked note trading. travis picked fingerpicked acoustic guitar, double stops fiddle, Fender tweed amp American 50s amp tweed breakup fingerpicked electric bass, ride-driven brushes-and-sticks drum kit, bowl back Italian k and k twin internal mounted acoustic faithful mandolin, pearwood marine band tradition straight harmonica. rural louisiana pine forest 1973-present mid tier in the country bogalusa. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 714,
+  "score": 320.355,
   "config": {
     "traditions": [
       "texas_country_folk_storyteller",
@@ -113,32 +113,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "steel_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "double_coated",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b10",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "unlathed_bell",
-          "cymbal_finish": "hand_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 7.134999999999999,
-          "shell_wood": 0.195,
-          "shell_thickness": 0,
-          "bearing_edges": 0.65,
+          "drum_technique": 7.134999999999999,
           "drumhead": 0.65,
-          "snare_wires": 0.65,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 0.7575,
-          "cymbal_hammering": 0.6574999999999999,
-          "cymbal_lathing": 0.8499999999999999,
-          "cymbal_finish": 0.31124999999999997,
-          "drum_technique": 7.134999999999999
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -212,17 +194,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerpicked_country_b",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_30",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "brushes_and_sticks",
-      "percussion_technique": "percussion_brushes_and_sticks",
       "voice_register": "chest_voice",
       "voice_quality": "speech_voice",
       "voice_speech_song": "voice_syllabic_singing",

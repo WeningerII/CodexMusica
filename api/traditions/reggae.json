@@ -5,7 +5,7 @@
   "lineage": "The reggae tradition — Jamaican popular music built on the offbeat skank and one-drop drum, evolved from ska and rocksteady",
   "recipe": "classic Caribbean mid-1970s reggae, bass System, Jamaican branch, Afro-diasporic ritual devotional umbanda ceremonial paranda. breath veiled tone, straight note core, interlocked note trading, neutral third half flat. pyramid pure nickel bass British mid 60s era thumb muted electric bass, rim clicks drum kit, single coil electric guitar, Hammond a 100 built in Leslie home spinet tonewheel organ, hohner melodica canonical 1959 dub roots tradition melodica. Kingston channel one defining 1972-1985 indie-commercial kingston channel one maxfield avenue. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips roland RE-201 space echo spring reverb.",
   "recipe_chars": 697,
-  "score": 112.092,
+  "score": 101.262,
   "config": {
     "traditions": [
       "reggae",
@@ -78,32 +78,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_rim_clicks_dub",
-          "shell_wood": "mahogany_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "rim_clicks_dub",
           "drumhead": "double_coated",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "brass_cymbal",
-          "cymbal_hammering": "fourteen_step_hammering",
-          "cymbal_lathing": "pin_lathe",
-          "cymbal_finish": "traditional_finish",
-          "drum_technique": "rim_clicks_dub"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 8.749999999999998,
-          "shell_wood": 0.65,
-          "shell_thickness": 0,
-          "bearing_edges": 0.44999999999999996,
+          "drum_technique": 8.749999999999998,
           "drumhead": 0.3,
-          "snare_wires": 0.3,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 0,
-          "cymbal_hammering": -0.035,
-          "cymbal_lathing": 0.7149999999999997,
-          "cymbal_finish": 0,
-          "drum_technique": 8.749999999999998
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -206,17 +188,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_locked",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "thin_shell",
-      "bearing_edges": "edge_30",
       "drumhead": "calfskin_drum",
-      "snare_wires": "wires_12",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "hand_random_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "rim_clicks_dub",
-      "percussion_technique": "percussion_rim_clicks_dub",
       "voice_register": "mix_voice",
       "voice_quality": "chest_mix_belt_voice",
       "voice_speech_song": "voice_syllabic_singing",

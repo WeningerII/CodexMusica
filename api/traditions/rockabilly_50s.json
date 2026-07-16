@@ -3,14 +3,14 @@
   "name": "Rockabilly",
   "family": "rock",
   "lineage": "Mid-1950s American Mid-South rockabilly genre codified at Sun Studios Memphis under Sam Phillips production — Elvis Presley Thats All Right Mama 1954 (the founding rockabilly recording), Carl Perkins Blue Suede Shoes 1955, Jerry Lee Lewis Whole Lotta Shakin Goin On 1957, Johnny Cash I Walk the Line 1956, Roy Orbison Ooby Dooby 1956; characterized by slap-bass upright bass, Gretsch hollowbody or Fender Telecaster electric guitar with travis-picking right-hand technique, the Sun Studios slapback short-tape-delay processing, and the country I-IV-V harmonic foundation fused with blues pentatonic vocabulary",
-  "recipe": "classic Southern American 1954-1956 rockabilly, functional Song, honky tonk era branch, pop rock functional song, blues narrative ballad poetry new wave folk rock. thick, breath veiled tone, wide pitch sway, interlocked note trading. Fender tweed amp American 50s amp tweed breakup dual p90 rockabilly semi hollow, Fender tweed amp American 50s amp tweed breakup mahogany rosewood single coil electric guitar, upright bass, maple pre muffled edge muffled hot rolled annealed drum kit. sun studios 706 union avenue memphis 1950-1968 indie-commercial sun studios memphis 706 union. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 674,
-  "score": 583.945,
+  "recipe": "classic Southern American 1954-1956 rockabilly, functional Song, honky tonk era branch, pop rock functional song, blues narrative ballad poetry folk rock classic blues women. thick, breath veiled tone, wide pitch sway, interlocked note trading. Fender tweed amp American 50s amp tweed breakup dual p90 flatwound semi hollow, Fender tweed amp American 50s amp tweed breakup mahogany rosewood single coil electric guitar, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. sun studios 706 union avenue memphis 1950-1968 indie-commercial sun studios memphis 706 union. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 693,
+  "score": 426.12,
   "config": {
     "traditions": [
       "rockabilly_50s",
-      "new_wave",
-      "folk_rock"
+      "folk_rock",
+      "classic_blues_women"
     ],
     "instruments": [
       {
@@ -23,7 +23,7 @@
           "voice_vibrato": "oscillating_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "tempered_voice",
-          "voice_tradition": "japanese_min_yo_tradition",
+          "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 63.15000000000001,
-          "voice_quality": 14.234999999999994,
+          "voice_register": 66.50000000000001,
+          "voice_quality": 13.552499999999991,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 14.719999999999997,
-          "voice_articulation": 14.234999999999992,
-          "voice_microtone": 38.150000000000006,
-          "voice_tradition": 16.509999999999994,
-          "voice_mechanism_compound": 4.9399999999999995,
-          "voice_estill_quality": 15.999999999999998,
-          "voice_speech_song": 21.254999999999992,
-          "voice_ensemble_config": 13.974999999999993,
+          "voice_vibrato": 31.470000000000002,
+          "voice_articulation": 14.234999999999989,
+          "voice_microtone": 24.849999999999998,
+          "voice_tradition": 18.069999999999993,
+          "voice_mechanism_compound": 5.784999999999999,
+          "voice_estill_quality": 17.4,
+          "voice_speech_song": 18.13499999999999,
+          "voice_ensemble_config": 14.16999999999999,
           "voice_ornament_system": 2.2,
           "voice_pitch_organization": 1.435,
-          "voice_processing_chain": 9.815000000000001,
-          "voice_multitrack_stack": 12.389999999999997
+          "voice_processing_chain": 5.525000000000001,
+          "voice_multitrack_stack": 12.339999999999996
         }
       },
       {
@@ -59,22 +59,22 @@
           "amp_make": "amp_american_fender_tweed",
           "semi_archetypes": "semi_casino",
           "semi_hollow_pickup": "semi_dual_p90",
-          "semi_hollow_strings": "semi_pure_nickel",
+          "semi_hollow_strings": "semi_flatwound_jazz",
           "semi_hollow_context": "semi_hollow_rockabilly_gretsch"
         },
         "scores": {
-          "electric_technique": 15.329999999999998,
-          "amp_make": 21.264999999999997,
-          "semi_archetypes": 17.809999999999995,
-          "semi_hollow_pickup": 13.779999999999994,
-          "semi_hollow_strings": 0.39,
-          "semi_hollow_context": 4.3
+          "electric_technique": 4.555,
+          "amp_make": 23.514999999999997,
+          "semi_archetypes": 13.129999999999997,
+          "semi_hollow_pickup": 13.779999999999992,
+          "semi_hollow_strings": 6.15,
+          "semi_hollow_context": 4.45
         }
       },
       {
         "id": "electric_guitar_single_coil",
         "slots": {
-          "electric_technique": "electric_clean_strummed",
+          "electric_technique": "electric_country_chicken_pickin",
           "amp_make": "amp_american_fender_tweed",
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
@@ -88,62 +88,44 @@
           "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": 15.329999999999998,
-          "amp_make": 21.264999999999997,
-          "body_wood": 5.249999999999999,
-          "neck_wood": 5.249999999999999,
-          "fretboard": 5.109999999999999,
-          "pickup_magnet": 0.195,
+          "electric_technique": 13.615,
+          "amp_make": 23.514999999999997,
+          "body_wood": 4.6,
+          "neck_wood": 4.6,
+          "fretboard": 4.459999999999999,
+          "pickup_magnet": 0.39,
           "string_material": 0.39,
-          "string_gauge": 5.659999999999999,
-          "bridge": 0.65,
-          "scale_length": 5.459999999999999,
+          "string_gauge": 4.51,
+          "bridge": 0.15,
+          "scale_length": 4.614999999999999,
           "finish": 0.09,
-          "string_tuning": 14.884999999999998
+          "string_tuning": 18.525
         }
       },
       {
         "id": "upright_bass",
         "slots": {
           "acoustic_technique": "acoustic_chord_melody",
-          "upright_strings": "steel_upright",
-          "upright_play": "slap_upright"
+          "upright_strings": "gut_wound_upright",
+          "upright_play": "pizz_upright"
         },
         "scores": {
-          "acoustic_technique": 0.12999999999999998,
-          "upright_strings": 0.39,
-          "upright_play": 3.84
+          "acoustic_technique": -0.035,
+          "upright_strings": 4.875,
+          "upright_play": 4.875
         }
       },
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "maple_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
-          "drumhead": "ec_pre_muffled_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b15_signature",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "hand_hammered",
-          "drum_technique": "sticks_rock"
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "vintage_ambassador_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 17.029999999999994,
-          "shell_wood": 1.045,
-          "shell_thickness": 0.195,
-          "bearing_edges": 5.01,
-          "drumhead": 13.839999999999998,
-          "snare_wires": 5.01,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 38.934999999999995,
-          "cymbal_hammering": 38.92,
-          "cymbal_lathing": 38.589999999999996,
-          "cymbal_finish": 0.195,
-          "drum_technique": 24.42
+          "drum_technique": 18.52499999999999,
+          "drumhead": 6.922499999999999,
+          "drum_kit_kick_pedal": 0
         }
       }
     ],
@@ -172,17 +154,8 @@
       "string_material": "pure_nickel",
       "bridge": "vintage_trem",
       "scale_length": "scale_fender",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "voice_register": "chest_voice",
       "voice_quality": "twang_voice",
       "voice_speech_song": "voice_syllabic_singing",

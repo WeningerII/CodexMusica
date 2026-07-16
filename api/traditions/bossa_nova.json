@@ -3,9 +3,9 @@
   "name": "Bossa nova",
   "family": "global",
   "lineage": "Rio de Janeiro 1958-1965 chamber-samba intimate-vocal tradition — codified through João Gilberto’s Chega de Saudade (1959) defining the genre’s syncopated guitar batida, Antônio Carlos Jobim’s compositions, Vinícius de Moraes’s lyrics, and the Stan Getz / João Gilberto Getz/Gilberto (1964) international crossover; characterized by close-miked whispered-vocal aesthetic, jazz-chord harmonic vocabulary, and Zona Sul apartment-recording origin",
-  "recipe": "classic mid-1960s bossa nova, functional Song, Brazilian song branch, Latin am troubadour ballad poetry milonga tango. thick, breath veiled tone, straight onset, interlocked note trading. cedar fingerpicked classical nylon-string guitar, no chemical hardener t rivet oversize maple tension resonator European spruce grand piano, vintage ambassador asymmetric bronze bell bronze cluster hammered drum kit, growly gut upright bass. parlor. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
-  "recipe_chars": 573,
-  "score": 224.89,
+  "recipe": "classic mid-1960s bossa nova, functional Song, Brazilian song branch, Latin am troubadour ballad poetry milonga tango. thick, breath veiled tone, straight onset, interlocked note trading. cedar fingerpicked classical nylon-string guitar, no chemical hardener t rivet oversize maple tension resonator European spruce grand piano, vintage ambassador asymmetric brushes-and-sticks drum kit, growly gut upright bass. parlor. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
+  "recipe_chars": 556,
+  "score": 191.38,
   "config": {
     "traditions": [
       "bossa_nova",
@@ -99,32 +99,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "birch_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "vintage_ambassador_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b20",
-          "cymbal_hammering": "cluster_hammered",
-          "cymbal_lathing": "pin_lathe",
-          "cymbal_finish": "machine_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 14.949999999999996,
-          "shell_wood": 0.49499999999999994,
-          "shell_thickness": 0.39,
-          "bearing_edges": 0.39,
+          "drum_technique": 14.949999999999996,
           "drumhead": 5.545000000000001,
-          "snare_wires": 0.39,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 4.6000000000000005,
-          "cymbal_hammering": 5.74,
-          "cymbal_lathing": 6.255000000000001,
-          "cymbal_finish": 0.3,
-          "drum_technique": 14.949999999999996
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -161,17 +143,8 @@
     "tuning": "samba_2_4_telecoteco",
     "room": "parlor",
     "parts": {
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_30",
       "drumhead": "calfskin_drum",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "hand_random_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "brushes_jazz",
-      "percussion_technique": "percussion_brushes_jazz",
       "top_wood_classical": "spruce_cl",
       "bracing_classical": "fan_torres_cl",
       "string_classical": "nylon_high_cl",

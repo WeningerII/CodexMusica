@@ -3,9 +3,9 @@
   "name": "Chamber pop",
   "family": "rock_punk",
   "lineage": "Late-1990s-and-2000s indie rock subgenre integrating orchestral-and-chamber-instrument arrangements (strings, woodwinds, brass) with pop song-form structure, often referencing the 1960s Brian Wilson/Beach Boys, Burt Bacharach, and Van Dyke Parks compositional aesthetic. The High Llamas (UK, 1992-onward, Sean O'Hagan), Belle and Sebastian, Lambchop, the Divine Comedy, and Sufjan Stevens constitute the canonical roster.",
-  "recipe": "classic Los Angeles modern chamber pop, distorted Rock, art rock branch, western common practice art music classical period grand opera. thick, breath veiled tone, slow rate, interlocked note trading. marshall plexi amp British rock amp alder pau ferro nickel plated steel single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, brass pre muffled edge muffled hot rolled annealed drum kit, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, synthetic norway spruce European alpine European maple bosnian source violin orchestral. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
-  "recipe_chars": 776,
-  "score": 500.882,
+  "recipe": "classic Los Angeles modern chamber pop, distorted Rock, art rock branch, western common practice art music classical period grand opera. thick, breath veiled tone, slow rate, interlocked note trading. marshall plexi amp British rock amp alder pau ferro nickel plated steel single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, synthetic norway spruce European alpine European maple bosnian source violin orchestral. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
+  "recipe_chars": 769,
+  "score": 425.322,
   "config": {
     "traditions": [
       "chamber_pop_high_llamas",
@@ -109,32 +109,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "brass_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_45",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "ec_pre_muffled_drumhead",
-          "snare_wires": "wires_20",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b15_signature",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "machine_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 16.769999999999992,
-          "shell_wood": 3.4450000000000003,
-          "shell_thickness": 1.7550000000000001,
-          "bearing_edges": 0.8699999999999999,
+          "drum_technique": 16.769999999999992,
           "drumhead": 6.164999999999999,
-          "snare_wires": 1.7550000000000001,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 16.545,
-          "cymbal_hammering": 16.45,
-          "cymbal_lathing": 17.775,
-          "cymbal_finish": 0.195,
-          "drum_technique": 16.769999999999992
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -220,17 +202,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_locked",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "voice_register": "mix_voice",
       "voice_quality": "aspirated_voice",
       "voice_speech_song": "voice_syllabic_singing",

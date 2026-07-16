@@ -3,9 +3,9 @@
   "name": "Zeuhl (French progressive Magma)",
   "family": "rock_punk",
   "lineage": "1970s French progressive-rock subgenre invented by drummer-composer Christian Vander's Magma (founded 1969), characterized by Kobaïan invented-language vocals, complex polyrhythmic compositional structures, dark-symphonic orchestration, and explicit science-fiction mythological-narrative content. Magma's Mëkanïk Dëstruktïẁ Kömmandöh (1973), Köhntarkösz (1974), and Üdü Ẁüdü (1976) constitute the canonical core. The genre influenced subsequent French-progressive Univers Zéro, Art Zoyd, and Magma-affiliated solo projects.",
-  "recipe": "classic Western European mid-1970s zeuhl, distorted Rock, progressive rock branch, western modern art music second viennese school. thick, breath veiled tone, straight onset, interlocked note trading. hiwatt amp British clean amp high wattage headroom basswood alnico humbucker electric guitar, hiwatt amp British clean amp high wattage headroom ernie ball slinky electric bass, walnut fiberskyn synthetic calf machine hammered symmetric pattern drum kit, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. intimate paris small studio. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
-  "recipe_chars": 646,
-  "score": 364.178,
+  "recipe": "classic Western European mid-1970s zeuhl, distorted Rock, progressive rock branch, western modern art music second viennese school. thick, breath veiled tone, straight onset, interlocked note trading. hiwatt amp British clean amp high wattage headroom basswood alnico humbucker electric guitar, hiwatt amp British clean amp high wattage headroom ernie ball slinky electric bass, fiberskyn synthetic calf brushes-and-sticks drum kit, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. intimate paris small studio. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 623,
+  "score": 289.623,
   "config": {
     "traditions": [
       "zeuhl_french",
@@ -111,32 +111,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "walnut_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_45",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "fiberskyn_drumhead",
-          "snare_wires": "wires_20",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b23",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "hand_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 11.699999999999998,
-          "shell_wood": 1.495,
-          "shell_thickness": 0.45499999999999996,
-          "bearing_edges": 2.8600000000000003,
+          "drum_technique": 11.699999999999998,
           "drumhead": 7.125,
-          "snare_wires": 0.45499999999999996,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 23.5,
-          "cymbal_hammering": 16.2,
-          "cymbal_lathing": 16.395,
-          "cymbal_finish": 1.495,
-          "drum_technique": 11.699999999999998
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -195,17 +177,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "pick_aggressive",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "voice_register": "chest_voice",
       "voice_quality": "full_chest_belt_voice",
       "voice_speech_song": "voice_syllabic_singing",

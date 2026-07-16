@@ -3,9 +3,9 @@
   "name": "Riot grrrl (early 90s feminist punk)",
   "family": "rock_punk",
   "lineage": "Early-1990s American feminist punk subgenre emerging in Olympia, Washington and Washington, D.C., addressing rape, domestic violence, female empowerment, and patriarchal critique through aggressive punk musical-aesthetic. Bikini Kill (1990 founded), Bratmobile, Heavens to Betsy, and Huggy Bear constitute the canonical roster; the Riot Grrrl manifesto and zine-distribution-network anchored the broader cultural movement. K Records and Kill Rock Stars provided institutional infrastructure.",
-  "recipe": "classic Pacific Northwest 1990-1993 riot grrrl, distorted Rock, punk branch, regional distorted rock latin rock aussie pub rock. thick, breath veiled tone, fast rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, birch machine hammered symmetric pattern organized rows full lathed drum kit. regional commercial 1985-2005 mid-major pacnw commercial indie. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay boss DS-1.",
-  "recipe_chars": 675,
-  "score": 471.652,
+  "recipe": "classic Pacific Northwest 1990-1993 riot grrrl, distorted Rock, punk branch, regional distorted rock latin rock aussie pub rock. thick, breath veiled tone, fast rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. regional commercial 1985-2005 mid-major pacnw commercial indie. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay boss DS-1.",
+  "recipe_chars": 623,
+  "score": 358.516,
   "config": {
     "traditions": [
       "riot_grrrl",
@@ -111,32 +111,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "birch_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_45",
+          "drum_technique": "sticks_rock",
           "drumhead": "single_clear",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b8",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "machine_hammered",
-          "drum_technique": "sticks_rock"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 17.614999999999995,
-          "shell_wood": 1.69,
-          "shell_thickness": 0.09,
-          "bearing_edges": 1.69,
+          "drum_technique": 25.250000000000004,
           "drumhead": 1.69,
-          "snare_wires": 0.1365,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 39.64,
-          "cymbal_hammering": 25.345000000000002,
-          "cymbal_lathing": 25.240000000000002,
-          "cymbal_finish": 1.69,
-          "drum_technique": 25.250000000000004
+          "drum_kit_kick_pedal": 0
         }
       }
     ],
@@ -173,17 +155,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "pick_aggressive",
-      "shell_wood": "birch_shell",
-      "shell_thickness": "thin_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b8",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_punk",
-      "percussion_technique": "percussion_sticks_punk",
       "voice_register": "chest_voice",
       "voice_quality": "blues_shouter_voice",
       "voice_speech_song": "voice_syllabic_singing",

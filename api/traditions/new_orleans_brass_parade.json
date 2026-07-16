@@ -3,9 +3,9 @@
   "name": "New Orleans brass band second-line",
   "family": "global",
   "lineage": "New Orleans brass-band second-line tradition continuous from late-19th-century African-American funeral-and-celebration brass-band practice through early-20th-century jazz-foundation era through late-20th-century brass-band-revival (Dirty Dozen Brass Band, Rebirth Brass Band 1980s-onward) into modern New Orleans continuous brass-parade practice; the second-line is the documented processional form where mourners-and-celebrants-and-onlookers parade behind the band",
-  "recipe": "classic Caribbean mid-1980s new orleans brass band second-line, carnival Processional, American south branch, Caribbean carnival processional, African diasporic funeral lament, americas wedding andean matrimonio huayno trinidadian panorama steelpan competition. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral front line student friendly trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor front line tenor standard standard backbore trombone, compact tuba brass yellow brass canonical orchestral piston valves American school besson sovereign British brass band tuba, brass fiberskyn synthetic calf machine hammered symmetric pattern drum kit. havana solar outdoor courtyard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 837,
-  "score": 228.84,
+  "recipe": "classic Caribbean mid-1980s new orleans brass band second-line, carnival Processional, American south branch, Caribbean carnival processional, African diasporic funeral lament, americas wedding andean matrimonio huayno trinidadian panorama steelpan competition. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral front line student friendly trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor front line tenor standard standard backbore trombone, compact tuba brass yellow brass canonical orchestral piston valves American school besson sovereign British brass band tuba, fiberskyn synthetic calf brushes-and-sticks drum kit. havana solar outdoor courtyard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 815,
+  "score": 177.208,
   "config": {
     "traditions": [
       "new_orleans_brass_parade",
@@ -77,32 +77,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "brass_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_45",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "fiberskyn_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "brass_cymbal",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "machine_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 14.754999999999995,
-          "shell_wood": 10.058928571428575,
-          "shell_thickness": 0,
-          "bearing_edges": 3.38,
+          "drum_technique": 14.754999999999995,
           "drumhead": 11.25,
-          "snare_wires": 0.1486875,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 10.058928571428575,
-          "cymbal_hammering": 6.821500000000001,
-          "cymbal_lathing": 6.4,
-          "cymbal_finish": 0.008839285714285713,
-          "drum_technique": 14.754999999999995
+          "drum_kit_kick_pedal": 0
         }
       }
     ],
@@ -126,17 +108,8 @@
     "tuning": "twelve_tet",
     "room": "havana_solar_outdoor_courtyard",
     "parts": {
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_30",
       "drumhead": "calfskin_drum",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "hand_random_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "brushes_jazz",
-      "percussion_technique": "percussion_brushes_jazz",
       "wind_articulation": "wind_punchy_ensemble",
       "brass_size": "cornet",
       "trumpet_technique": "trumpet_punchy_ensemble",

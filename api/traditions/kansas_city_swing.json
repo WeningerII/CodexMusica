@@ -3,9 +3,9 @@
   "name": "Kansas City swing",
   "family": "jazz",
   "lineage": "1930s-40s Kansas City African-American big-band swing tradition (Count Basie, Bennie Moten, Mary Lou Williams, Lester Young, Charlie Parker) built on blues-frame riff-foreground structure and head arrangements rather than pre-written scores",
-  "recipe": "classic North American mid-1930s kansas city swing, improv On Frame, kansas city branch, American jazz early, American jazz bop, American jazz boogie woogie new orleans jazz boogie-woogie. thick, blues-shouter, straight onset, interlocked note trading. alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, red brass 90 10 darkest bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, red brass 90 10 darker orchestral bach 42 canonical American orchestral tenor front line student commercial trombone, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, growly gut upright bass, birch vintage ambassador asymmetric bronze bell bronze drum kit. voluminous 1935-1955 major-flagship swing live room. passive ribbon, tube pre, German tube console. Studer 30ips tape.",
-  "recipe_chars": 879,
-  "score": 733.937,
+  "recipe": "classic North American mid-1930s kansas city swing, improv On Frame, kansas city branch, American jazz early, American jazz bop, American jazz boogie woogie new orleans jazz boogie-woogie. thick, blues-shouter, straight onset, interlocked note trading. alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, red brass 90 10 darkest bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, red brass 90 10 darker orchestral bach 42 canonical American orchestral tenor front line student commercial trombone, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. voluminous 1935-1955 major-flagship swing live room. passive ribbon, tube pre, German tube console. Studer 30ips tape.",
+  "recipe_chars": 873,
+  "score": 602.062,
   "config": {
     "traditions": [
       "kansas_city_swing",
@@ -117,32 +117,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "birch_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "vintage_ambassador_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b20",
-          "cymbal_hammering": "fourteen_step_hammering",
-          "cymbal_lathing": "hand_lathed_pit_retaining",
-          "cymbal_finish": "machine_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 31.52499999999999,
-          "shell_wood": 1.640625,
-          "shell_thickness": 0,
-          "bearing_edges": 0.195,
+          "drum_technique": 31.52499999999999,
           "drumhead": 32.684749999999994,
-          "snare_wires": 0.195,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 41.36825,
-          "cymbal_hammering": 28.450624999999995,
-          "cymbal_lathing": 27.854999999999997,
-          "cymbal_finish": 0.645,
-          "drum_technique": 31.52499999999999
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -205,17 +187,8 @@
     "tuning": "jazz_swing_eighth_4_4",
     "room": "studio_swing_live_room",
     "parts": {
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_30",
       "drumhead": "calfskin_drum",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "hand_random_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "brushes_jazz",
-      "percussion_technique": "percussion_brushes_jazz",
       "voice_register": "chest_voice",
       "voice_quality": "crooner_voice",
       "voice_speech_song": "voice_neumatic_singing",

@@ -3,9 +3,9 @@
   "name": "Blues",
   "family": "blues_gospel",
   "lineage": "The blues tradition — African-American vernacular form built on the twelve-bar progression, blue notes, and call-and-response, originating in the Deep South at the turn of the 20th century and electrified in postwar Chicago",
-  "recipe": "classic Midwestern American mid-1970s blues, functional Song, blues electric branch. thick, breath veiled tone, wide pitch sway, interlocked note trading. rock blues lower tension down tuning single coil electric guitar, Hammond a 100 built in Leslie home spinet tonewheel organ, electric bass, bronze bell bronze pin lathed tonal groove brushes-and-sticks drum kit, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. 2120 south michigan avenue 1957-1975 indie-commercial chess studios chicago. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb ibanez tube screamer TS9 / TS808.",
-  "recipe_chars": 719,
-  "score": 187.015,
+  "recipe": "classic Midwestern American mid-1970s blues, functional Song, blues electric branch. thick, breath veiled tone, wide pitch sway, interlocked note trading. rock blues lower tension down tuning single coil electric guitar, Hammond a 100 built in Leslie home spinet tonewheel organ, electric bass, jazz-trained brushes-and-sticks drum kit, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. 2120 south michigan avenue 1957-1975 indie-commercial chess studios chicago. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb ibanez tube screamer TS9 / TS808.",
+  "recipe_chars": 689,
+  "score": 167.019,
   "config": {
     "traditions": [
       "blues"
@@ -126,32 +126,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "steel_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "vintage_ambassador_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b20",
-          "cymbal_hammering": "fourteen_step_hammering",
-          "cymbal_lathing": "pin_lathe",
-          "cymbal_finish": "traditional_finish",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 6.0551249999999985,
-          "shell_wood": 0.050625,
-          "shell_thickness": 0.07425,
-          "bearing_edges": 0.06774999999999999,
+          "drum_technique": 6.0551249999999985,
           "drumhead": 0.9099999999999999,
-          "snare_wires": 0.06774999999999999,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 11.66875,
-          "cymbal_hammering": 0.975,
-          "cymbal_lathing": 1.0371249999999999,
-          "cymbal_finish": 0,
-          "drum_technique": 6.0551249999999985
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -209,17 +191,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_locked",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "harmonica_tuning": "harmonica_richter_canonical",
       "voice_register": "chest_voice",
       "voice_quality": "blues_shouter_voice",
