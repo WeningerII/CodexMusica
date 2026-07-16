@@ -3,14 +3,14 @@
   "name": "Donsongoni hunter's harp (Mande)",
   "family": "global",
   "lineage": "Mande donsongoni (\"hunter's harp\") vocal-and-instrumental tradition of the Wassoulou region of southern Mali and adjacent eastern Guinea, performed by initiated hunters at hunter-society gatherings and at funerals. The donsongoni is a six-string calabash harp distinct from the larger courtly kora — associated with the rural-egalitarian hunter's society (donso-tòn) rather than the hereditary griot caste. Repertoire spans hunting-praise, ancestor-evocation, and esoteric hunter-society initiation material. The Wassoulou modernization brought the donsongoni into popular music through Oumou Sangaré.",
-  "recipe": "classic East African modern donsongoni hunter's harp, ballad Poetry, west African griot branch, indigenous ritual devotional shipibo-conibo icaros healing songs ju|'hoansi healing songs. vocal fry, breath veiled tone, pure, interlocked note trading. donso ritual large calabash mande gut pre modern hunters donso ngoni, foundational low fundamental tuning deep calabash inverted calabash, hunters four string bolon. tanzanian outdoor village clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe": "classic East African modern donsongoni hunter's harp, ballad Poetry, west African griot branch, indigenous ritual devotional ju|'hoansi healing songs shipibo-conibo icaros healing songs. vocal fry, breath veiled tone, pure, interlocked note trading. donso ritual large calabash mande gut pre modern hunters donso ngoni, foundational low fundamental tuning deep calabash inverted calabash, hunters four string bolon. tanzanian outdoor village clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 514,
-  "score": 307.903,
+  "score": 307.317,
   "config": {
     "traditions": [
       "donsongoni_hunter_harp",
-      "shipibo_icaros",
-      "juhoansi_healing_nom"
+      "juhoansi_healing_nom",
+      "shipibo_icaros"
     ],
     "instruments": [
       {
@@ -42,7 +42,7 @@
           "voice_articulation": 22.815,
           "voice_microtone": 22.035,
           "voice_tradition": 33.214999999999996,
-          "voice_mechanism_compound": 10.405000000000001,
+          "voice_mechanism_compound": 9.520000000000001,
           "voice_estill_quality": 5.330000000000001,
           "voice_speech_song": 23.465,
           "voice_ensemble_config": 26.585,
@@ -65,7 +65,7 @@
           "plucked_traditional_technique": 33.995000000000005,
           "donso_ngoni_strings": 7.32,
           "donso_ngoni_use": 10.725,
-          "donso_ngoni_resonator": 5.029999999999999,
+          "donso_ngoni_resonator": 5.18,
           "donso_ngoni_string_material": 1.625
         }
       },
@@ -90,7 +90,7 @@
         "scores": {
           "bolon_form": 14.045,
           "bolon_repertoire": 17.095000000000002,
-          "bolon_strings": 1.475
+          "bolon_strings": 1.625
         }
       }
     ],

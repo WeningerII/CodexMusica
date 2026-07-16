@@ -3,14 +3,14 @@
   "name": "Indonesian rice-planting song traditions",
   "family": "global",
   "lineage": "Indonesian rice-planting song tradition across Javanese, Sundanese, Balinese, Sumatran-Minangkabau, and Sulawesi regional-cultures continuous from premodern Indonesian-agricultural village-labor practice through colonial-period continuous performance into modern Indonesian-rural continuous practice; the Indonesian rice-paddy planting and harvest-songs integrate gamelan-and-vocal arrangements distinct to each regional culture",
-  "recipe": "classic East African modern indonesian rice-planting song traditions, field Work, east Asian branch, south Asian field work, east Asian wedding, east Asian lullaby chinese xǐqìng (喜慶) wedding music javanese wedding gamelan music. thick, breath veiled tone, straight note core, interlocked note trading. bamboo rattan band fipple canonical javanese balinese continuous-airflow legato suling. tanzanian outdoor village clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 489,
-  "score": 181.942,
+  "recipe": "classic East African modern indonesian rice-planting song traditions, field Work, east Asian branch, south Asian field work, east Asian wedding, east Asian lullaby chinese xǐqìng (喜慶) wedding music japanese komoriuta. thick, breath veiled tone, straight note core, interlocked note trading. bamboo rattan band fipple canonical javanese balinese continuous-airflow legato suling. tanzanian outdoor village clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 477,
+  "score": 168.514,
   "config": {
     "traditions": [
       "indonesian_padi_planting",
       "chinese_xiqing_wedding",
-      "javanese_wedding_gamelan"
+      "japanese_komoriuta"
     ],
     "instruments": [
       {
@@ -28,28 +28,28 @@
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_jingju_role",
+          "voice_ornament_system": "voice_ornament_pansori_sigimsae",
           "voice_pitch_organization": "voice_pitch_pelog_7",
           "voice_processing_chain": "voice_processing_plate_reverb_medium",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 3.4000000000000004,
-          "voice_quality": 4.745000000000001,
+          "voice_register": 4.75,
+          "voice_quality": 5.330000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.720250000000001,
-          "voice_articulation": 13.129999999999992,
-          "voice_microtone": 12.93499999999999,
-          "voice_tradition": 30.5175,
-          "voice_mechanism_compound": 1.17,
-          "voice_estill_quality": 2.3850000000000002,
-          "voice_speech_song": 16.50999999999999,
-          "voice_ensemble_config": 13.454999999999993,
-          "voice_ornament_system": 7.97,
-          "voice_pitch_organization": 44.775000000000006,
-          "voice_processing_chain": 2.34,
-          "voice_multitrack_stack": 2.8600000000000003
+          "voice_vibrato": 5.58275,
+          "voice_articulation": 12.739999999999995,
+          "voice_microtone": 13.389999999999992,
+          "voice_tradition": 31.711999999999996,
+          "voice_mechanism_compound": 1.8199999999999998,
+          "voice_estill_quality": 1.3525,
+          "voice_speech_song": 18.459999999999994,
+          "voice_ensemble_config": 12.674999999999994,
+          "voice_ornament_system": 8.97,
+          "voice_pitch_organization": 29.584999999999997,
+          "voice_processing_chain": 3.6400000000000006,
+          "voice_multitrack_stack": 4.159999999999999
         }
       },
       {
@@ -61,10 +61,10 @@
           "suling_body_material": "suling_bamboo_canonical"
         },
         "scores": {
-          "wind_articulation": 7.67,
-          "suling_use": 2.8600000000000003,
-          "suling_tuning": 3.5100000000000002,
-          "suling_body_material": 9.0895
+          "wind_articulation": 6.630000000000001,
+          "suling_use": 4.159999999999999,
+          "suling_tuning": 1.625,
+          "suling_body_material": 5.282
         }
       }
     ],

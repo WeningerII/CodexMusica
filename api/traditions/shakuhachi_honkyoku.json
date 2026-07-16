@@ -5,7 +5,7 @@
   "lineage": "Japanese Fuke-Zen shakuhachi five-hole bamboo-flute solo tradition with the 36-piece honkyoku canonical-repertoire codified by the Komuso mendicant-monk lineage of the Edo-period (1603-1868). Originated from Tang-dynasty Chinese chi imported via 8th-century Buddhist transmission, transformed through medieval Japanese ascetic-monastic practice into a meditative suizen blowing-as-zen contemplative discipline. Each honkyoku piece is ametrical-rhythmically-free (no fixed pulse), built around the wabi-sabi aesthetic of single-tone meri-kari microtonal bending, atari-and-mura-iki breath-attack and breath-noise as expressive elements, and silence as compositional structure. The Meiji-era 1871 suppression of the Fuke sect transitioned the repertoire from religious to concert context.",
   "recipe": "classic East Asian early-1600s shakuhachi honkyoku, art Music, east Asian branch, wind pipe drone modal, buddhist ritual devotional shōmyō. madake bamboo phyllostachys canonical Japanese root section komuso fuke shu canonical pre meiji honkyoku zen breath tone airy low dynamic level shakuhachi. tatami parlor japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 449,
-  "score": 46.235,
+  "score": 46.625,
   "config": {
     "traditions": [
       "shakuhachi_honkyoku",
@@ -22,11 +22,11 @@
           "shakuhachi_lineage": "shakuhachi_komuso_fuke"
         },
         "scores": {
-          "wind_articulation": 5.245,
+          "wind_articulation": 5.395,
           "shaku_length": 10.499999999999998,
           "shaku_technique": 5.3950000000000005,
-          "shakuhachi_body_material": 9.075,
-          "shakuhachi_lineage": 15.045
+          "shakuhachi_body_material": 9.12,
+          "shakuhachi_lineage": 15.239999999999998
         }
       }
     ],

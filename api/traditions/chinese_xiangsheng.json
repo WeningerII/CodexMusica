@@ -5,7 +5,7 @@
   "lineage": "Chinese comic dialogue (xiangsheng, 'crosstalk'), most characteristically the two-person duikou form in which a lead funnyman (dougen) and a straight-man feed (penggen) trade rapid witty patter, wordplay, mimicry and song at a small table on stage. A Beijing-Tianjin vernacular art crystallised in the late Qing and Republican eras and canonised through masters such as Hou Baolin, its skills are summed as the four arts of speaking, imitating, teasing and singing (shuo, xue, dou, chang), including tongue-twisting guankou set-pieces. Delivery is fast, rhythmic conversational comedy built on precise timing between the two voices.",
   "recipe": "classic East Asian modern chinese xiangsheng crosstalk, art Music, east Asian branch tibetan ache lhamo opera beijing opera. kargyraa, breath veiled tone, slow rate, interlocked note trading. chinese traditional teahouse. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 351,
-  "score": 242.781,
+  "score": 242.832,
   "config": {
     "traditions": [
       "chinese_xiangsheng",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 2.9345000000000003,
+          "voice_register": 2.7815000000000003,
           "voice_quality": 19.694999999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -43,10 +43,10 @@
           "voice_microtone": 24.43999999999999,
           "voice_tradition": 39.22749999999999,
           "voice_mechanism_compound": 7.049999999999999,
-          "voice_estill_quality": 22.662499999999994,
+          "voice_estill_quality": 22.942999999999998,
           "voice_speech_song": 26.779999999999998,
           "voice_ensemble_config": 26.84499999999999,
-          "voice_ornament_system": 18.921000000000003,
+          "voice_ornament_system": 18.8445,
           "voice_pitch_organization": 8.3605,
           "voice_processing_chain": 5.655000000000001,
           "voice_multitrack_stack": 3.7050000000000005

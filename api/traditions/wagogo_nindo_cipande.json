@@ -5,7 +5,7 @@
   "lineage": "Wagogo polyphonic singing tradition of central Tanzania (Dodoma region), one of sub-Saharan Africa's most structurally distinctive choral traditions. Multi-part harmony built on overlapping ostinato pattern-cycles with characteristic diaphonic-and-triadic intervals — nindo work-songs and msunyunho ritual songs sit alongside the cipande circumcision-initiation repertoire. Polo Vallejo's 1995-2002 fieldwork in Nzali village (published as Mbudi Mbudi na Mhanga, Madrid 2004) and David Fanshawe's 1969-1975 East African field recordings (Saydisc CMIL 98 Fabulous Gogo Music) constitute the canonical documentation. Performance involves women's choral antiphonal patterns over zeze board-zither and kebero drum accompaniment, with characteristic call-and-response between soloist and group across staggered melodic entries. Modal vocabulary draws on pentatonic-and-hexatonic frameworks with characteristic equiheptatonic-leaning inflections distinct from neighboring Bantu traditions. Distinguished from Burundi inanga-chuchotée by Wagogo's open-voiced choral-with-instruments configuration; distinguished from Aka and Baka pygmy polyphony by Wagogo's ostinato-cycle (vs hocketed yodel) architecture; distinguished from Maasai and Sukuma neighbors by Wagogo-Dodoma dialect-specific cadential conventions.",
   "recipe": "classic East African mid-1990s wagogo nindo and cipande polyphony, drone Modal, heterophonic branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. extended whistle, breath veiled tone, straight note core, interlocked note trading. board zither multiple strings canonical wagogo tanzanian wagogo non ritual canonical central tanzania zeze, calfskin canonical ethiopian orthodox ethiopian olive canonical conical staved orthodox tewahedo liturgy kebero. tanzanian outdoor village clearing. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 615,
-  "score": 295.632,
+  "score": 296.667,
   "config": {
     "traditions": [
       "wagogo_nindo_cipande",
@@ -47,7 +47,7 @@
           "voice_speech_song": 33.54,
           "voice_ensemble_config": 39.975,
           "voice_ornament_system": 8.248750000000001,
-          "voice_pitch_organization": 4.44,
+          "voice_pitch_organization": 4.680000000000001,
           "voice_processing_chain": 12.675,
           "voice_multitrack_stack": 5.070000000000002
         }
@@ -59,8 +59,8 @@
           "zeze_tradition": "zeze_wagogo_non_ritual_canonical"
         },
         "scores": {
-          "zeze_body": 11.178749999999999,
-          "zeze_tradition": 22.064999999999998
+          "zeze_body": 11.32875,
+          "zeze_tradition": 22.71
         }
       },
       {

@@ -5,7 +5,7 @@
   "lineage": "Vietnamese traditional chamber-music heritage spanning two distinct regional traditions — nhạc tài tử (Music of the Talented Amateurs), the Southern Vietnamese (Mekong Delta) chamber tradition of the 19th-century educated-amateur scholar-musician class, performed in private homes with đàn tranh (16-string Vietnamese zither), đàn bầu (Vietnamese monochord), đàn nguyệt (moon-shaped lute), đàn tỳ bà (pear-shaped lute), sáo trúc (bamboo flute), with characteristic improvisation and modal variation; ca trù (the Northern Vietnamese sung-poetry tradition), performed by female ca nương vocalist accompanied by đàn đáy (three-string lute) and phách (wooden percussion clapper)",
   "recipe": "classic Southeast Asian mid-1930s vietnamese chamber, art Music, southeast Asian branch, east Asian art music, south Asian art music beijing opera tibetan ache lhamo opera. thick, breath veiled tone, slow rate, interlocked note trading. dan bau, dan tranh, dan nguyet. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 436,
-  "score": 243.382,
+  "score": 243.847,
   "config": {
     "traditions": [
       "vietnamese_traditional",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 2.12,
+          "voice_register": 1.97,
           "voice_quality": 18.524999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -43,10 +43,10 @@
           "voice_microtone": 21.059999999999995,
           "voice_tradition": 34.8075,
           "voice_mechanism_compound": 7.539999999999998,
-          "voice_estill_quality": 21.634999999999994,
+          "voice_estill_quality": 22.099999999999994,
           "voice_speech_song": 21.189999999999998,
           "voice_ensemble_config": 22.554999999999996,
-          "voice_ornament_system": 16.099999999999998,
+          "voice_ornament_system": 16.249999999999996,
           "voice_pitch_organization": 20.759999999999998,
           "voice_processing_chain": 6.5,
           "voice_multitrack_stack": 4.03

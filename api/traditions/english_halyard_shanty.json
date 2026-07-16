@@ -5,7 +5,7 @@
   "lineage": "English-Anglo-American halyard-shanty tradition continuous from 18th-19th-century Atlantic-merchant-marine work-song practice through the great-age-of-sail 1830s-1880s peak-shanty-period continuous into 20th-century revival (the Stan Hugill Shanties from the Seven Seas 1961 canonical scholarly-documentation) into modern Anglosphere folk-revival continuous practice; foundational repertoire includes \"Drunken Sailor,\" \"Blow the Man Down,\" \"Haul Away Joe\"",
   "recipe": "classic mid-1830s english halyard shanty, sea Shanty, atlantic branch, American south field work, European drinking song, anglo singer song ballad poetry texas country-folk storyteller indie folk. thick, breath veiled tone, straight note core, interlocked note trading. Celtic Irish straight concertina. beach. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 385,
-  "score": 173.407,
+  "score": 173.652,
   "config": {
     "traditions": [
       "english_halyard_shanty",
@@ -23,7 +23,7 @@
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -41,12 +41,12 @@
           "voice_vibrato": 8.809999999999997,
           "voice_articulation": 8.514999999999999,
           "voice_microtone": 8.319999999999999,
-          "voice_tradition": 25.317499999999995,
+          "voice_tradition": 24.797499999999992,
           "voice_mechanism_compound": 1.17,
-          "voice_estill_quality": 6.854999999999999,
+          "voice_estill_quality": 7.154999999999999,
           "voice_speech_song": 17.159999999999993,
           "voice_ensemble_config": 8.645,
-          "voice_ornament_system": 2.3500000000000005,
+          "voice_ornament_system": 2.8150000000000004,
           "voice_pitch_organization": 5.265,
           "voice_processing_chain": 5.2325,
           "voice_multitrack_stack": 3.185

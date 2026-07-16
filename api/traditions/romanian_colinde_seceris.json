@@ -3,53 +3,53 @@
   "name": "Romanian colinde de seceriş (harvest carols)",
   "family": "global",
   "lineage": "Romanian harvest-carol (colinde de seceriş, \"harvest-colinde\") tradition continuous from premodern Romanian-agricultural village-labor practice through 19th-century Romanian-folklorist documentation (Vasile Alecsandri and Constantin Brăiloiu documented the Romanian harvest-carol corpus) through 20th-century Béla Bartók-and-Constantin-Brăiloiu canonical-ethnomusicology into modern Romanian-folk-revival continuous practice",
-  "recipe": "classic Northern European modern romanian colinde de seceriş, field Work, Slavic balkan branch, east Asian field work, European wedding, European lullaby sardinian wedding cantu and launeddas music chinese chayang-diao. thick, false fold engaged, straight onset, interlocked note trading. baltic outdoor village. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 375,
-  "score": 114.572,
+  "recipe": "classic Northern European modern romanian colinde de seceriş, field Work, Slavic balkan branch, east Asian field work, European wedding, European lullaby chinese chayang-diao japanese taue-uta. thick, close mic intimate, straight onset, unrestrained. baltic outdoor village. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 337,
+  "score": 110.807,
   "config": {
     "traditions": [
       "romanian_colinde_seceris",
-      "sardinian_wedding_cantu_launeddas",
-      "chinese_chayang_diao"
+      "chinese_chayang_diao",
+      "japanese_taue_uta"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "false_fold_voice",
+          "voice_quality": "crooner_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
-          "voice_articulation": "hocket_voice",
+          "voice_articulation": "shouted_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "mediterranean_demotic_tradition",
+          "voice_tradition": "japanese_min_yo_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_speech",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_pansori_sigimsae",
           "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
           "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
-          "voice_multitrack_stack": "voice_multitrack_granular_texture"
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 9.225000000000001,
-          "voice_quality": 9.974999999999996,
+          "voice_register": 7.500000000000002,
+          "voice_quality": 5.329999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.2500000000000004,
-          "voice_articulation": 9.62,
-          "voice_microtone": 11.114999999999991,
-          "voice_tradition": 30.372500000000002,
-          "voice_mechanism_compound": 2.4699999999999998,
-          "voice_estill_quality": 1.6899999999999997,
-          "voice_speech_song": 11.504999999999995,
-          "voice_ensemble_config": 9.555,
-          "voice_ornament_system": 3.1750000000000007,
-          "voice_pitch_organization": 6.109999999999999,
-          "voice_processing_chain": 2.5350000000000006,
-          "voice_multitrack_stack": 2.2749999999999995
+          "voice_articulation": 11,
+          "voice_microtone": 10.204999999999997,
+          "voice_tradition": 30.247500000000002,
+          "voice_mechanism_compound": 1.8199999999999998,
+          "voice_estill_quality": 1.0399999999999998,
+          "voice_speech_song": 11.699999999999996,
+          "voice_ensemble_config": 9.945,
+          "voice_ornament_system": 5.3500000000000005,
+          "voice_pitch_organization": 6.759999999999999,
+          "voice_processing_chain": 1.6899999999999997,
+          "voice_multitrack_stack": 1.8199999999999996
         }
       }
     ],

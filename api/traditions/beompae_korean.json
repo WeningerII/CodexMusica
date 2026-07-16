@@ -5,7 +5,7 @@
   "lineage": "Korean Buddhist liturgical chant tradition with Joseon-era codification, allied to the broader yeombul devotional practice",
   "recipe": "classic Northeast Asian modern beompae, ritual Devotional, buddhist branch, east Asian art music beijing opera tibetan ache lhamo opera. thick, breath veiled tone, slow rate, interlocked note trading. log drum. tibetan monastery assembly. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 301,
-  "score": 183.837,
+  "score": 184.107,
   "config": {
     "traditions": [
       "beompae_korean",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 2.12,
+          "voice_register": 1.97,
           "voice_quality": 15.014999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -43,11 +43,11 @@
           "voice_microtone": 15.859999999999996,
           "voice_tradition": 32.9225,
           "voice_mechanism_compound": 7.049999999999999,
-          "voice_estill_quality": 22.634999999999994,
-          "voice_speech_song": 17.06,
+          "voice_estill_quality": 23.099999999999994,
+          "voice_speech_song": 16.714999999999996,
           "voice_ensemble_config": 18.264999999999997,
-          "voice_ornament_system": 16.099999999999998,
-          "voice_pitch_organization": 7.51,
+          "voice_ornament_system": 16.249999999999996,
+          "voice_pitch_organization": 7.66,
           "voice_processing_chain": 3.5100000000000002,
           "voice_multitrack_stack": 4.095000000000001
         }
@@ -55,7 +55,7 @@
       {
         "id": "log_drum",
         "slots": {
-          "log_drum_voice": "log_drum_mid",
+          "log_drum_voice": "log_drum_sub",
           "log_drum_context": "log_drum_amapiano"
         },
         "scores": {

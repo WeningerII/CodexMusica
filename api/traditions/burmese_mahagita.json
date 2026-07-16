@@ -5,7 +5,7 @@
   "lineage": "Burmese mahagita (\"great song\") classical Burmese art-music canon, comprising the codified repertoire of the late-Konbaung-dynasty (eighteenth-nineteenth century) royal court at Mandalay. The mahagita corpus is organized through several song-categories (kyò devotional-style, bwèh ceremonial-style, thachingan classical-song-form, etc.) with distinct modal-and-rhythmic conventions per category. Performance configuration ranges from solo voice with saung gauk arched-harp accompaniment (the most refined chamber form) to fuller ensembles with pat-tala xylophone, hsaing-waing drum-circle, and additional wind-instruments. The post-1885 British annexation of Burma terminated the royal-court patronage; the post-1962 Burma Socialist Programme cultural-policy and the State School of Music and Drama anchor modern transmission.",
   "recipe": "classic Southeast Asian mid-1880s burmese mahagita, art Music, southeast Asian branch, east Asian art music beijing opera tibetan ache lhamo opera. thick, breath veiled tone, slow rate, interlocked note trading. sanxian, indoor lead melodic drums hsaing waing ensemble, court classical saung gauk, ornate gilded pattala. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 488,
-  "score": 515.765,
+  "score": 515.42,
   "config": {
     "traditions": [
       "burmese_mahagita",
@@ -30,25 +30,25 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
-          "voice_processing_chain": "voice_processing_tape_saturation",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 4.07,
+          "voice_register": 3.9200000000000004,
           "voice_quality": 26.455000000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 21.06,
+          "voice_vibrato": 21.18,
           "voice_articulation": 21.06,
           "voice_microtone": 22.749999999999996,
-          "voice_tradition": 43.400000000000006,
+          "voice_tradition": 42.785000000000004,
           "voice_mechanism_compound": 18.549999999999997,
-          "voice_estill_quality": 34.135,
+          "voice_estill_quality": 34.599999999999994,
           "voice_speech_song": 29.314999999999998,
           "voice_ensemble_config": 25.154999999999994,
-          "voice_ornament_system": 27.599999999999998,
-          "voice_pitch_organization": 19.009999999999998,
-          "voice_processing_chain": 3.1799999999999997,
+          "voice_ornament_system": 27.75,
+          "voice_pitch_organization": 19.159999999999997,
+          "voice_processing_chain": 3.12,
           "voice_multitrack_stack": 3.4450000000000003
         }
       },
@@ -68,7 +68,7 @@
           "sanxian_context": 4.615,
           "sanxian_head": 0.78,
           "sanxian_strings": 0.845,
-          "sanxian_body_wood": 0.24
+          "sanxian_body_wood": 0.39
         }
       },
       {
@@ -80,8 +80,8 @@
         },
         "scores": {
           "hsaing_waing_ensemble_lineup": 37.495,
-          "hsaing_waing_ensemble_context": 39.355,
-          "hsaing_waing_ensemble_roles": 13.209999999999997
+          "hsaing_waing_ensemble_context": 39.26499999999999,
+          "hsaing_waing_ensemble_roles": 13.164999999999997
         }
       },
       {
@@ -92,7 +92,7 @@
           "saung_gauk_strings": "saung_gauk_silk_strings"
         },
         "scores": {
-          "saung_gauk_form": 22.31,
+          "saung_gauk_form": 22.025,
           "saung_gauk_role": 20.279999999999998,
           "saung_gauk_strings": 9.33
         }
@@ -106,7 +106,7 @@
         },
         "scores": {
           "pattala_type": 11.25,
-          "pattala_repertoire": 28.6,
+          "pattala_repertoire": 28.465,
           "pattala_body": 9
         }
       }

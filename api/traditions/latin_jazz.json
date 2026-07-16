@@ -3,9 +3,9 @@
   "name": "Latin jazz",
   "family": "jazz",
   "lineage": "NYC-centered fusion of Afro-Cuban rhythmic spine (clave, montuno, tumbao) with bebop / post-bop harmonic language, codified through Machito-Bauzá Cubop (1940s), Cal Tjader-Mongo Santamaría West Coast Latin jazz (1950s-60s), and Eddie Palmieri / Tito Puente / Chucho Valdés modern Latin jazz canon",
-  "recipe": "classic North American mid-1940s latin jazz, improv On Frame, Latin jazz branch, American jazz bop, tropical song functional song, Brazilian song functional song bebop modal jazz. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral jazz balance trumpet, bach 42 canonical American orchestral tenor student commercial trombone, cold pressed wurzen felt oversize maple tension resonator sitka spruce grand piano, growly gut upright bass, vintage ambassador asymmetric brushes drum kit, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, bronze open slap hand drum timbales, claves, shekere. nyc jazz vocal engineered 1958-1998 mid tier a and r recording nyc. large-diaphragm condenser, API 312 op-amp pre.",
-  "recipe_chars": 994,
-  "score": 704.431,
+  "recipe": "classic North American mid-1940s latin jazz, improv On Frame, Latin jazz branch, American jazz bop, tropical song functional song, Brazilian song functional song bebop modal jazz. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, bach stradivarius 180 canonical American orchestral jazz balance trumpet, bach 42 canonical American orchestral tenor student commercial trombone, cold pressed wurzen felt oversize maple tension resonator sitka spruce grand piano, growly gut upright bass, vintage ambassador asymmetric brushes drum kit, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, bronze open slap hand drum timbales, claves, shekere. nyc jazz vocal engineered 1958-1998 mid tier a and r recording nyc. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ.",
+  "recipe_chars": 1000,
+  "score": 702.421,
   "config": {
     "traditions": [
       "latin_jazz",
@@ -26,12 +26,12 @@
         },
         "scores": {
           "wind_articulation": 8.75,
-          "sax_size": 9.23,
+          "sax_size": 9.47,
           "sax_reed": 0.3,
           "sax_body_alloy": 47.62500000000003,
-          "sax_mouthpiece": 0.8849999999999999,
+          "sax_mouthpiece": 0.9299999999999999,
           "sax_technique": 45.12500000000003,
-          "sax_maker_school": 46.84000000000003
+          "sax_maker_school": 46.69000000000003
         }
       },
       {
@@ -51,7 +51,7 @@
           "trumpet_mouthpiece": 47.76500000000003,
           "brass_mute": 0.39,
           "trumpet_technique": 8.75,
-          "trumpet_bell_metal": 1.17,
+          "trumpet_bell_metal": 0.7799999999999998,
           "trumpet_maker_school": 6.044999999999999
         }
       },
@@ -61,7 +61,7 @@
           "wind_articulation": "wind_bebop_runs",
           "trombone_type": "tenor_trombone",
           "trombone_mouthpiece": "bach_trombone_mp_12c",
-          "trombone_mute": "no_mute_trb",
+          "trombone_mute": "cup_mute_trb",
           "trombone_technique": "big_band_punch",
           "trombone_bell_metal": "trombone_yellow_brass",
           "trombone_maker_school": "trombone_bach_42"
@@ -70,8 +70,8 @@
           "wind_articulation": 8.75,
           "trombone_type": 45.12500000000003,
           "trombone_mouthpiece": 45.42000000000003,
-          "trombone_mute": 0.045,
-          "trombone_technique": 5.984999999999999,
+          "trombone_mute": 0,
+          "trombone_technique": 6.045,
           "trombone_bell_metal": 0.39,
           "trombone_maker_school": 5.654999999999999
         }
@@ -91,14 +91,14 @@
         },
         "scores": {
           "keyboard_technique": 2.34,
-          "grand_piano_size": 0.345,
-          "grand_piano_brand": 0.6749999999999999,
+          "grand_piano_size": 0.39,
+          "grand_piano_brand": 0.54,
           "piano_hammer": 5.59,
           "piano_rim": 5.9799999999999995,
-          "piano_soundboard": 3.38,
+          "piano_soundboard": 3.035,
           "piano_pinblock": 2.5,
           "piano_plate": 3.0006250000000003,
-          "piano_pitch_standard": 5.52125
+          "piano_pitch_standard": 5.1762500000000005
         }
       },
       {
@@ -136,8 +136,8 @@
           "conga_shell_wood": "conga_oak_staved"
         },
         "scores": {
-          "percussion_technique": 21.97,
-          "conga_set": 0.72,
+          "percussion_technique": 21.729999999999997,
+          "conga_set": 0.6300000000000001,
           "conga_skin": 3.6399999999999997,
           "conga_shell_wood": 3.6399999999999997
         }
@@ -151,8 +151,8 @@
           "bongos_shell_wood": "bongos_oak_staved"
         },
         "scores": {
-          "percussion_technique": 21.97,
-          "bongos_skin": 5.59,
+          "percussion_technique": 21.729999999999997,
+          "bongos_skin": 5.319999999999999,
           "bongos_context": 1.275,
           "bongos_shell_wood": 3.6399999999999997
         }
@@ -165,9 +165,9 @@
           "timbales_context": "timbales_salsa"
         },
         "scores": {
-          "percussion_technique": 21.97,
-          "timbales_shell": 20.84000000000001,
-          "timbales_context": 1.2
+          "percussion_technique": 21.729999999999997,
+          "timbales_shell": 20.690000000000012,
+          "timbales_context": 1.395
         }
       },
       {
@@ -188,8 +188,8 @@
           "shekere_beads": "shekere_seed"
         },
         "scores": {
-          "shekere_size": 4.593749999999999,
-          "shekere_beads": 1.38
+          "shekere_size": 4.6987499999999995,
+          "shekere_beads": 1.3199999999999998
         }
       }
     ],

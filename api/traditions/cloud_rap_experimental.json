@@ -5,7 +5,7 @@
   "lineage": "Early-2010s atmospheric-trap experimental hip-hop subgenre extending cloud-rap aesthetic through more ambient-arrangement, washed-out post-rock textures, and surreal lyrical content — codified through early Lil B (Rain in England 2010), Yung Lean (Unknown Death 2013), Sad Boys, Spaceghostpurrp, Awful Records, with the form serving as a key conduit for the late-2010s online-distributed rap scene",
   "recipe": "classic Southern American 2010-2013 cloud rap, mc Rhythm, experimental branch, lofi experimental electric chillwave hypnagogic pop. thick, rap, straight onset, interlocked note trading. glitched textural sampler, singing lead digital subtractive, TR-808. treated studio. tube condenser, 500-series boutique pre, pumping sidechain, dynamic EQ. 24-bit digital autotune pitch shifter digital delay lexicon 224 / 480L.",
   "recipe_chars": 414,
-  "score": 204.559,
+  "score": 204.551,
   "config": {
     "traditions": [
       "cloud_rap_experimental",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 10.522624999999994,
-          "voice_quality": 13.05825,
+          "voice_register": 10.498624999999993,
+          "voice_quality": 13.053749999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.0149999999999997,
           "voice_articulation": 8.774999999999999,
           "voice_microtone": 10.424999999999997,
-          "voice_tradition": 17.252750000000002,
+          "voice_tradition": 17.284000000000002,
           "voice_mechanism_compound": 3.38,
           "voice_estill_quality": 3.185000000000001,
-          "voice_speech_song": 12.311499999999999,
+          "voice_speech_song": 12.304499999999999,
           "voice_ensemble_config": 10.009999999999998,
           "voice_ornament_system": 1.5599999999999996,
-          "voice_pitch_organization": 3.2145000000000006,
+          "voice_pitch_organization": 3.1995000000000005,
           "voice_processing_chain": 9.399999999999999,
           "voice_multitrack_stack": 12.057499999999996
         }
@@ -64,8 +64,8 @@
         "scores": {
           "electronic_technique": 15.117750000000003,
           "sampler_archetypes": 5.265000000000001,
-          "sampler_bit_depth": 1.7952500000000002,
-          "sampler_workflow": 15.669000000000002,
+          "sampler_bit_depth": 1.799,
+          "sampler_workflow": 15.685250000000002,
           "sampler_classic_context": 19.304999999999996
         }
       },
@@ -77,7 +77,7 @@
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
-          "electronic_technique": 7.286,
+          "electronic_technique": 7.2815,
           "va_archetypes": 0.845,
           "digital_subtractive_context": 9.359999999999996
         }
@@ -90,7 +90,7 @@
           "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 2.334,
+          "tr808_voice": 2.3295000000000003,
           "drum_machine_808_context": 7.41,
           "tr808_production_origin": 0.105
         }

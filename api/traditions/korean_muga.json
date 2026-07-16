@@ -5,7 +5,7 @@
   "lineage": "Muga are the sung and chanted ritual songs of the Korean mudang (shaman), performed within the kut ceremony to invoke, entertain, and petition the spirits (gods, ancestors, and the dead). Regional forms range from the hereditary tradition of the southwestern seseummu to the possession-based gangsinmu of the north, and the repertoire encompasses invocation, narrative epic (such as the Bari Gongju abandoned-princess myth), and divination speech, all accompanied by janggu and other percussion. Muga is widely regarded as a root source of pansori epic singing and of shinawi and sinawi-derived instrumental music. It is documented through twentieth-century field recordings and the scholarship of Korean folklorists and is designated within the Important Intangible Cultural Property system.",
   "recipe": "classic East Asian modern korean muga shamanic ritual narrative, ritual Devotional, indigenous branch shipibo-conibo icaros healing songs sufi inshad. thick, breath veiled tone, slow rate, interlocked note trading. korean gugak hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 296,
-  "score": 267.97,
+  "score": 268.207,
   "config": {
     "traditions": [
       "korean_muga",
@@ -47,7 +47,7 @@
           "voice_speech_song": 33.150000000000006,
           "voice_ensemble_config": 29.705000000000005,
           "voice_ornament_system": 17.950000000000003,
-          "voice_pitch_organization": 4.768000000000001,
+          "voice_pitch_organization": 5.005000000000001,
           "voice_processing_chain": 20.15,
           "voice_multitrack_stack": 3.575000000000001
         }

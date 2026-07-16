@@ -5,7 +5,7 @@
   "lineage": "Early-1990s Norwegian heavy-metal subgenre developed from broader 1980s first-wave black-metal (Venom, Bathory, Hellhammer) into a distinct Norwegian extreme-metal style. Characterized by tremolo-picked-guitar-blast-beat percussion, raw-and-lo-fi production aesthetic, screeched-or-shrieked vocal-delivery, and explicit Norse-pagan-and-Satanic thematic content. Mayhem (founded 1984), Burzum, Darkthrone, Emperor, Immortal, and the broader Norwegian black-metal scene anchored the canonical aesthetic. The early-1990s church-arson and murder controversies mythologized the scene.",
   "recipe": "classic 1990-1993 black metal, distorted Rock, death branch, thrash metal groove metal djent. thick, breath veiled tone, breath pulsed, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modeled amp modern rig alder ernie ball slinky electric bass, kevlar aramid extreme tension brushes-and-sticks drum kit. isolated rural 2005-present isolation diy isolation cabin diy. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 610,
-  "score": 379.939,
+  "score": 379.897,
   "config": {
     "traditions": [
       "black_metal_norwegian",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 11.233999999999996,
+          "voice_register": 11.202499999999995,
           "voice_quality": 11.43999999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 6.666,
           "voice_processing_chain": 4.9565,
-          "voice_multitrack_stack": 6.725000000000001
+          "voice_multitrack_stack": 6.756500000000002
         }
       },
       {
@@ -70,7 +70,7 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 49.976000000000006,
+          "electric_technique": 49.90250000000001,
           "amp_make": 28.1125,
           "body_wood": 26.715,
           "neck_wood": 2.34,
@@ -81,7 +81,7 @@
           "bridge": 2.34,
           "scale_length": 23.53,
           "string_gauge": 3.1849999999999996,
-          "finish": 1.3,
+          "finish": 1.3315000000000001,
           "string_tuning": 29.185000000000002
         }
       },

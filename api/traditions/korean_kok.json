@@ -5,7 +5,7 @@
   "lineage": "Korean Confucian-and-shamanic funeral mourning tradition codified from the Joseon-dynasty period through Confucian ritual-mourning specification (the codified mourning-stages including kok wailing-cycles); continuous through 20th-century practice particularly in rural Korean Confucian funeral context",
   "recipe": "classic East Asian modern korean kok, funeral Lament, east Asian branch, indigenous ritual devotional, vocal drone modal, east Asian art music shipibo-conibo icaros healing songs skolt sámi leuʹdd. vocal fry, breath veiled tone, straight note core, interlocked note trading. aniri spoken narrative quality interleaved yoseong pitch oscillation ornament jungmori medium 12 4 narrative cross tradition fusion concert context pansori voice. korean pungnyu pavilion. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 525,
-  "score": 190.437,
+  "score": 189.237,
   "config": {
     "traditions": [
       "korean_kok",
@@ -41,8 +41,8 @@
           "voice_vibrato": 4.1275,
           "voice_articulation": 10.724999999999998,
           "voice_microtone": 11.764999999999993,
-          "voice_tradition": 25.919999999999998,
-          "voice_mechanism_compound": 9.705,
+          "voice_tradition": 25.619999999999997,
+          "voice_mechanism_compound": 8.82,
           "voice_estill_quality": 6.5649999999999995,
           "voice_speech_song": 13.259999999999998,
           "voice_ensemble_config": 11.309999999999997,
@@ -58,14 +58,14 @@
           "pansori_phonation_mechanism": "pansori_aniri_speech_quality",
           "pansori_sigimsae_ornament": "pansori_sigimsae_yoseong",
           "pansori_jangdan_cycle": "pansori_jangdan_jungmori",
-          "pansori_chuimsae_response": "pansori_chuimsae_none",
+          "pansori_chuimsae_response": "pansori_chuimsae_eolssu",
           "pansori_voice_repertoire": "pansori_voice_fusion_concert"
         },
         "scores": {
           "pansori_phonation_mechanism": 2.795,
           "pansori_sigimsae_ornament": 1.4300000000000002,
           "pansori_jangdan_cycle": 2.145,
-          "pansori_chuimsae_response": 0.99,
+          "pansori_chuimsae_response": 0.975,
           "pansori_voice_repertoire": 7.67
         }
       }

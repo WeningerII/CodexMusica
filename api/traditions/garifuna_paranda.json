@@ -3,9 +3,9 @@
   "name": "Paranda (Garifuna)",
   "family": "global",
   "lineage": "Garifuna (Black-Carib) Spanish-Latin-influenced ballad tradition performed across the Garifuna diaspora in Belize, Honduras, Guatemala, Nicaragua, and the Garifuna emigrant communities in New York and Los Angeles — codified through Andy Palacio (the Belizean Garifuna paranda voice, 2007 Wátina album, his death in 2008 marking the end of the second-generation paranda era), Aurelio Martinez, the broader Stonetree Records catalog",
-  "recipe": "classic Caribbean late-2000s paranda, ritual Devotional, Afro-diasporic branch, west African griot ballad poetry hausa court music wassoulou. thick, breath veiled tone, straight note core, interlocked note trading. cedar concert modern carbon fiber fingerpicked classical nylon-string guitar, plastic synthetic maracas. trinidad calypso panyard outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 416,
-  "score": 105.845,
+  "recipe": "classic Caribbean late-2000s paranda, ritual Devotional, Afro-diasporic branch, west African griot ballad poetry hausa court music wassoulou. thick, breath veiled tone, straight note core, interlocked note trading. cedar concert modern carbon fiber fingerpicked classical nylon-string guitar, plastic synthetic maracas, durable synthetic oak staved modern atabaque, gourd seeds hardwood handle canonical garifuna paranda accompaniment canonical garifuna sisera, interlocking song accompaniment hardwood shell deerskin head garaon. trinidad calypso panyard outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 627,
+  "score": 187.295,
   "config": {
     "traditions": [
       "garifuna_paranda",
@@ -80,6 +80,43 @@
         "scores": {
           "maracas_construction": 1.235,
           "maracas_filling": 1.4300000000000002
+        }
+      },
+      {
+        "id": "atabaque",
+        "slots": {
+          "atabaque_role": "atabaque_rum",
+          "atabaque_skin": "atabaque_synth",
+          "atabaque_shell_wood": "atabaque_oak_staved"
+        },
+        "scores": {
+          "atabaque_role": 0.195,
+          "atabaque_skin": 1.235,
+          "atabaque_shell_wood": 1.235
+        }
+      },
+      {
+        "id": "sisera",
+        "slots": {
+          "sisera_body": "sisera_gourd_seeds_hardwood_handle_canonical",
+          "sisera_tradition": "sisera_paranda_canonical"
+        },
+        "scores": {
+          "sisera_body": 5.989999999999999,
+          "sisera_tradition": 9.439999999999998
+        }
+      },
+      {
+        "id": "garaon",
+        "slots": {
+          "garaon_drum": "garaon_cuerda",
+          "garaon_repertoire": "garaon_paranda",
+          "garaon_build": "garaon_mahogany_deerskin"
+        },
+        "scores": {
+          "garaon_drum": 26.064999999999998,
+          "garaon_repertoire": 23.095,
+          "garaon_build": 14.194999999999999
         }
       }
     ],

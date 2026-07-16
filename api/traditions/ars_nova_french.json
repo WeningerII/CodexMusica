@@ -3,14 +3,14 @@
   "name": "Ars Nova (fourteenth-century French)",
   "family": "classical",
   "lineage": "Fourteenth-century French compositional style codified in Philippe de Vitry's 1322 treatise of the same name, introducing isorhythmic motet construction, mensural rhythmic notation, and increased rhythmic-and-harmonic complexity. Guillaume de Machaut (c.1300-1377) is the principal composer; his Messe de Nostre Dame (c.1365) is the first known complete polyphonic setting of the Mass Ordinary by a single composer. Distinguished from ars antiqua by ars nova's sophisticated rhythmic-isorhythmic and notational developments.",
-  "recipe": "classic European early-1300s ars nova, art Music, western early branch, christian gospel ritual devotional bluegrass gospel sacred steel. thick, declaimed, straight note core, leader call answered. a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody svanetian complex three voice highland polyphonic choir ensemble, rhythmic dance driving vielle medieval, single rank treble piping single line portative organ, single trapezoid box fingertip plucking medieval psaltery. parish church. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
-  "recipe_chars": 591,
-  "score": 226.501,
+  "recipe": "classic European early-1300s ars nova, art Music, western early branch, christian gospel ritual devotional sacred steel jubilee quartet. thick, declaimed, straight note core, leader call answered. a cappella small 3 to 8 one per part four voice polyphonic regional svanetian complex three voice highland polyphonic choir ensemble, rhythmic dance driving vielle medieval, single rank treble piping single line portative organ, single trapezoid box fingertip plucking medieval psaltery. parish church. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+  "recipe_chars": 574,
+  "score": 207.431,
   "config": {
     "traditions": [
       "ars_nova_french",
-      "bluegrass_gospel",
-      "sacred_steel"
+      "sacred_steel",
+      "jubilee_quartet"
     ],
     "instruments": [
       {
@@ -29,42 +29,42 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_call_response_leader_group",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
-          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_pitch_organization": "voice_pitch_just_intonation",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 23.544999999999998,
-          "voice_quality": 27.96,
+          "voice_register": 21.27,
+          "voice_quality": 25.364999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.029999999999999,
-          "voice_articulation": 21.19,
+          "voice_vibrato": 3.8349999999999995,
+          "voice_articulation": 16.394999999999996,
           "voice_microtone": 12.804999999999993,
-          "voice_tradition": 28.372500000000002,
+          "voice_tradition": 26.0975,
           "voice_mechanism_compound": 2.4,
-          "voice_estill_quality": 19.325,
-          "voice_speech_song": 18.199999999999996,
-          "voice_ensemble_config": 20.945,
-          "voice_ornament_system": 6.2749999999999995,
-          "voice_pitch_organization": 2.6349999999999993,
-          "voice_processing_chain": 5.2,
-          "voice_multitrack_stack": 6.14
+          "voice_estill_quality": 16.474999999999998,
+          "voice_speech_song": 14.689999999999996,
+          "voice_ensemble_config": 17.549999999999997,
+          "voice_ornament_system": 8.025,
+          "voice_pitch_organization": 2.8,
+          "voice_processing_chain": 5.719999999999999,
+          "voice_multitrack_stack": 6.4350000000000005
         }
       },
       {
         "id": "choir_ensemble",
         "slots": {
           "choir_size": "a_cappella_small_ensemble_3_8",
-          "choir_polyphonic_configuration": "choir_polyphony_drone_plus_voices",
+          "choir_polyphonic_configuration": "choir_polyphony_four_voice_polyphonic",
           "choir_regional_canonical_configuration": "choir_regional_svanetian_complex_three_voice",
           "choir_ensemble_repertoire": "choir_ensemble_contemporary"
         },
         "scores": {
           "choir_size": 2.535,
-          "choir_polyphonic_configuration": 2.4699999999999993,
-          "choir_regional_canonical_configuration": 2.02,
-          "choir_ensemble_repertoire": 5.258749999999999
+          "choir_polyphonic_configuration": 3.445,
+          "choir_regional_canonical_configuration": 2.665,
+          "choir_ensemble_repertoire": 5.81375
         }
       },
       {
@@ -77,8 +77,8 @@
         },
         "scores": {
           "bowed_technique": 2.59,
-          "vielle_medieval_form": 0.39,
-          "vielle_medieval_repertoire": 3.9899999999999993,
+          "vielle_medieval_form": 1.04,
+          "vielle_medieval_repertoire": 4.29,
           "vielle_medieval_stringing": 0.195
         }
       },
@@ -93,7 +93,7 @@
         "scores": {
           "keyboard_technique": -0.1,
           "portative_organ_form": 1.56,
-          "portative_organ_repertoire": 5.914999999999999,
+          "portative_organ_repertoire": 5.72,
           "portative_organ_pipework": -0.1
         }
       },
@@ -105,8 +105,8 @@
           "medieval_psaltery_stringing": "medieval_psaltery_stringing_brass_wire"
         },
         "scores": {
-          "medieval_psaltery_form": 1.69,
-          "medieval_psaltery_playing": 4.29,
+          "medieval_psaltery_form": 1.295,
+          "medieval_psaltery_playing": 2.795,
           "medieval_psaltery_stringing": -0.05
         }
       }

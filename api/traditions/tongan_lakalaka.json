@@ -5,7 +5,7 @@
   "lineage": "Tongan lakalaka sung-poetry-and-choreographed-dance tradition. Lakalaka is the canonical ceremonial-public performance form of contemporary Tonga: large mixed-gender groups (up to several hundred performers) stand in two parallel rows facing the audience, with women on one side and men on the other, performing synchronized standing-arm-and-hand choreography (the women in characteristic graceful hand-gestures, the men in more vigorous percussive-stance) while singing the poetic verse-text in unison-and-octave choral configuration. Accompaniment by nafa wooden slit-drum (the canonical Tongan percussion instrument), with optional fakatangi vocal-buzz percussive ornament from the men's chorus. The poetic verse-form (also called lakalaka in Tongan usage) is composed by a punake poet-composer-choreographer for a specific occasion — coronation, royal birthday, opening of major public building, district-festival celebration — and the verse-text is occasion-specific historical-praise narrative tied to the immediate ceremonial context. Lakalaka thus functions as a fully-integrated occasion-specific genre, with each new commission producing a new lakalaka. Queen Sālote Tupou III (1900-1965, reigned 1918-1965) was the dominant twentieth-century lakalaka punake, composing over a hundred lakalaka still in active repertoire. Adrienne Kaeppler's 2012 monograph Lakalaka: A Tongan Masterpiece of Performing Arts is the canonical English-language scholarship. Distinguished from earlier Tongan ceremonial forms (me'etu'upaki, fakapale) by lakalaka's post-1850s synthesized-new-form status; distinguished from Samoan siva and Fijian meke by Tongan-specific poetic-and-choreographic vocabulary; distinguished from Hawaiian hula by lakalaka's very-large-group (vs solo-or-small-group) configuration.",
   "recipe": "classic Oceanian early-1900s tongan lakalaka sung-speech-dance, ritual Devotional, indigenous branch, tropical song functional song garifuna punta-rock bachata. thick, breath veiled tone, straight onset, interlocked note trading. wooden slit drum struck sticks canonical tongan lakalaka choreographed canonical tongan nafa. tongan outdoor village green. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 416,
-  "score": 208.655,
+  "score": 207.081,
   "config": {
     "traditions": [
       "tongan_lakalaka",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 4.235000000000001,
+          "voice_register": 3.9950000000000014,
           "voice_quality": 22.23,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -46,10 +46,10 @@
           "voice_estill_quality": 6.4350000000000005,
           "voice_speech_song": 26.91,
           "voice_ensemble_config": 20.085,
-          "voice_ornament_system": 5.45,
-          "voice_pitch_organization": 5.38,
-          "voice_processing_chain": 9.95,
-          "voice_multitrack_stack": 9.002500000000001
+          "voice_ornament_system": 5.405,
+          "voice_pitch_organization": 5.035,
+          "voice_processing_chain": 9.665,
+          "voice_multitrack_stack": 8.426875
         }
       },
       {
@@ -59,8 +59,8 @@
           "nafa_tradition": "nafa_lakalaka_canonical"
         },
         "scores": {
-          "nafa_body": 16.405,
-          "nafa_tradition": 24.430000000000003
+          "nafa_body": 16.667125,
+          "nafa_tradition": 24.085000000000004
         }
       }
     ],

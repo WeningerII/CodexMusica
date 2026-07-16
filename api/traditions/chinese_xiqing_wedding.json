@@ -5,7 +5,7 @@
   "lineage": "Chinese wedding-music tradition continuous from imperial-era Chinese ceremonial-music practice through Republican-period and post-1949 evolution into modern Chinese-Mandarin-speaking domestic practice across mainland China, Taiwan, and Chinese-diaspora communities; the suona (Chinese shawm) is the canonical wedding-music instrument though here represented by sheng-and-dizi-and-erhu substitute ensemble",
   "recipe": "classic East Asian late-1940s chinese xǐqìng (喜慶) wedding music, wedding, east Asian branch, south Asian wedding, east Asian art music, carnival processional tibetan ache lhamo opera beijing opera. thick, breath veiled tone, slow rate, interlocked note trading. traditional bamboo pipes copper brass free reeds canonical Chinese straight sheng, no membrane buzz bitter bamboo phyllostachys nigra canonical jiangnan suzhou bangdi northern sharp opera percussive continuous-airflow legato dizi, python skin snake skin bamboo silk red sandalwood zitan erhu, silk red sandalwood zitan premium pipa, piercing shrill high suona. shanghai emi pathe 1930s. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 711,
-  "score": 381.207,
+  "score": 378.893,
   "config": {
     "traditions": [
       "chinese_xiqing_wedding",
@@ -34,19 +34,19 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 4.062500000000001,
+          "voice_register": 3.9125000000000005,
           "voice_quality": 17.484999999999992,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 8.45,
           "voice_articulation": 22.229999999999997,
           "voice_microtone": 22.229999999999993,
-          "voice_tradition": 55.9685,
+          "voice_tradition": 54.571,
           "voice_mechanism_compound": 7.049999999999999,
-          "voice_estill_quality": 20.494999999999994,
+          "voice_estill_quality": 20.059999999999995,
           "voice_speech_song": 25.414999999999996,
           "voice_ensemble_config": 24.634999999999994,
-          "voice_ornament_system": 18.21,
+          "voice_ornament_system": 18.165,
           "voice_pitch_organization": 8.459999999999999,
           "voice_processing_chain": 4.8100000000000005,
           "voice_multitrack_stack": 5.395000000000001
@@ -61,10 +61,10 @@
           "sheng_pipe_material": "sheng_bamboo_canonical"
         },
         "scores": {
-          "free_reed_technique": 4.13375,
+          "free_reed_technique": 3.93875,
           "sheng_size": 3.3799999999999994,
           "sheng_context": 22.035,
-          "sheng_pipe_material": 15.209499999999998
+          "sheng_pipe_material": 15.094499999999996
         }
       },
       {
@@ -77,7 +77,7 @@
           "dizi_regional_style": "dizi_bangdi_northern"
         },
         "scores": {
-          "wind_articulation": 9.02475,
+          "wind_articulation": 9.447249999999999,
           "dizi_membrane": 4.029999999999999,
           "dizi_pitch": 7.994999999999998,
           "dizi_body_material": 2.925,
@@ -98,7 +98,7 @@
           "bowed_technique": 6.589999999999999,
           "erhu_skin": 4.744999999999999,
           "erhu_use": 3.965,
-          "erhu_body_wood": 2.7445000000000004,
+          "erhu_body_wood": 2.8600000000000003,
           "erhu_strings": 5.005,
           "erhu_bow": 2.925
         }
@@ -117,7 +117,7 @@
           "pipa_frets": 0.195,
           "pipa_strings": 4.744999999999999,
           "pipa_pick": 0.195,
-          "pipa_body_wood": 2.7445000000000004
+          "pipa_body_wood": 2.8600000000000003
         }
       },
       {
@@ -128,9 +128,9 @@
           "suona_body": "suona_all_metal"
         },
         "scores": {
-          "suona_size": 4.13,
-          "suona_context": 13.994999999999997,
-          "suona_body": 5.97
+          "suona_size": 3.995,
+          "suona_context": 13.649999999999999,
+          "suona_body": 5.82
         }
       }
     ],

@@ -3,9 +3,9 @@
   "name": "Welsh moliannu and cerdd dant (Welsh praise-poetry)",
   "family": "global",
   "lineage": "Welsh medieval praise-poetry tradition continuous from 6th-7th-century Taliesin-and-Aneirin foundational era (the Cynfeirdd \"early-poets\") through 12th-13th century Gogynfeirdd \"poets-of-the-princes\" era of court-praise-poetry through continuous-Welsh-bardic transmission into modern penillion-singing and cerdd dant (\"string-craft\") harp-and-voice tradition",
-  "recipe": "classic Northern European modern welsh moliannu and cerdd dant, praise Song, Celtic British branch, sub saharan African praise song, Celtic balladic ballad poetry, string drone modal welsh hymn-balladry zulu izibongo. thick, declaimed, straight onset, interlocked note trading. cerdd dant nylon strung welsh triple harp, foundational foundational warm informal choir welsh male, drone under song bardic crwth. uk folk revival club 60s. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 498,
-  "score": 313.605,
+  "recipe": "classic Northern European modern welsh moliannu and cerdd dant, praise Song, Celtic British branch, sub saharan African praise song, Celtic balladic ballad poetry, string drone modal welsh hymn-balladry zulu izibongo. thick, declaimed, straight onset, interlocked note trading. cerdd dant nylon strung welsh triple harp, foundational foundational warm informal choir welsh male, folk revival bardic crwth. uk folk revival club 60s. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 494,
+  "score": 312.605,
   "config": {
     "traditions": [
       "welsh_moliannu_cerdd_dant",
@@ -35,7 +35,7 @@
         },
         "scores": {
           "voice_register": 2.73,
-          "voice_quality": 29.455,
+          "voice_quality": 29.409999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.6000000000000005,
@@ -61,8 +61,8 @@
         },
         "scores": {
           "welsh_triple_harp_form": 28.775000000000006,
-          "welsh_triple_harp_repertoire": 36.79500000000001,
-          "welsh_triple_harp_stringing": 6.615
+          "welsh_triple_harp_repertoire": 36.84000000000001,
+          "welsh_triple_harp_stringing": 6.42
         }
       },
       {
@@ -72,22 +72,22 @@
           "context": "welsh_rugby_terraces"
         },
         "scores": {
-          "voicing": 1.435,
-          "context": 1.3900000000000001
+          "voicing": 1.3900000000000001,
+          "context": 1.3
         }
       },
       {
         "id": "crwth",
         "slots": {
           "bowed_technique": "bowed_legato_classical",
-          "crwth_form": "crwth_trithant",
+          "crwth_form": "crwth_revival",
           "crwth_playing": "crwth_cerdd_dant",
           "crwth_strings": "crwth_synthetic"
         },
         "scores": {
           "bowed_technique": -0.035,
-          "crwth_form": 30.945000000000004,
-          "crwth_playing": 48.93000000000001,
+          "crwth_form": 31.100000000000005,
+          "crwth_playing": 48.105000000000004,
           "crwth_strings": 4.615
         }
       }

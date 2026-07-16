@@ -5,7 +5,7 @@
   "lineage": "Mexican Veracruz-Gulf-Coast Afro-Mestizo-Indigenous son tradition with characteristic jarana five-double-course strum-guitar, requinto-jarocho four-string lead-melody-guitar, harp, quijada-de-burro donkey-jawbone scraper, and zapateado wooden-platform dance-percussion. Originated late-17th-century in the Sotavento lowlands south of Veracruz-Port out of Afro-Cuban habanera, Spanish-baroque fandango, and Indigenous-Totonac musical-fusion. The canonical La Bamba is the most internationally recognized son jarocho son, but the tradition spans 80+ son sones with characteristic 6/8-against-2/4 sesquialteral hemiola, call-and-response sung verses (often improvised, decimas Spanish-poetic-form), and circular fandango community-dance-and-music-making fiesta-context. The 1970s-1980s son-jarocho-revival reconnected urban Mexico City to rural Sotavento source-communities.",
   "recipe": "classic Southwestern American mid-1970s son jarocho, drone Modal, string branch, Mexican functional song banda sinaloense bolero mexicano. thick, breath veiled tone, slow rate, interlocked note trading. diatonic only son jarocho tradition cedrillo canonical veracruz gut pre modern son jarocho bass and harmony arpa palo escrito Mexican rosewood gut pre 1950s son jarocho strummed jarana jarocha, son jarocho standard cedrillo canonical veracruz strummed requinto jarocho, cedrillo canonical veracruz leona. plaza garibaldi outdoor mariachi. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 655,
-  "score": 284.932,
+  "score": 283.723,
   "config": {
     "traditions": [
       "son_jarocho",
@@ -41,15 +41,15 @@
           "voice_vibrato": 1.625,
           "voice_articulation": 14.819999999999999,
           "voice_microtone": 15.274999999999995,
-          "voice_tradition": 12.3725,
+          "voice_tradition": 12.345500000000001,
           "voice_mechanism_compound": 7.409999999999999,
           "voice_estill_quality": 6.5649999999999995,
           "voice_speech_song": 18.849999999999998,
           "voice_ensemble_config": 16.835,
           "voice_ornament_system": 3.575,
           "voice_pitch_organization": 4.095000000000001,
-          "voice_processing_chain": 8.21675,
-          "voice_multitrack_stack": 4.921500000000001
+          "voice_processing_chain": 8.12675,
+          "voice_multitrack_stack": 4.908
         }
       },
       {
@@ -61,10 +61,10 @@
           "arpa_jarocha_role": "arpa_jarocha_bass_and_arpeggio"
         },
         "scores": {
-          "arpa_jarocha_strings": 18.809624999999997,
-          "arpa_jarocha_body_wood": 6.958749999999998,
-          "arpa_jarocha_string_material": 10.881874999999997,
-          "arpa_jarocha_role": 33.215624999999996
+          "arpa_jarocha_strings": 18.620624999999997,
+          "arpa_jarocha_body_wood": 6.9137499999999985,
+          "arpa_jarocha_string_material": 10.673374999999998,
+          "arpa_jarocha_role": 33.202125
         }
       },
       {
@@ -78,10 +78,10 @@
         },
         "scores": {
           "plucked_traditional_technique": 3.7700000000000005,
-          "jarana_size": 11.889999999999999,
+          "jarana_size": 11.799999999999999,
           "jarana_jarocha_context": 4.615,
           "jarana_jarocha_body_wood": 9.099999999999998,
-          "jarana_jarocha_strings": 13.090374999999998
+          "jarana_jarocha_strings": 12.881874999999999
         }
       },
       {
@@ -95,9 +95,9 @@
         },
         "scores": {
           "plucked_traditional_technique": 3.7700000000000005,
-          "requinto_jarocho_pluck": 12.767124999999998,
+          "requinto_jarocho_pluck": 12.668124999999998,
           "requinto_jarocho_tuning": 3.25,
-          "requinto_jarocho_body_wood": 6.958749999999998,
+          "requinto_jarocho_body_wood": 6.9137499999999985,
           "requinto_jarocho_strings": 0.78
         }
       },
@@ -112,9 +112,9 @@
         },
         "scores": {
           "plucked_traditional_technique": -0.1,
-          "leona_tuning": 11.889999999999999,
-          "leona_technique": 0.945,
-          "leona_body_wood": 6.958749999999998,
+          "leona_tuning": 11.799999999999999,
+          "leona_technique": 0.8999999999999999,
+          "leona_body_wood": 6.9137499999999985,
           "leona_strings": 0.78
         }
       }

@@ -5,7 +5,7 @@
   "lineage": "Kyogen is the comic spoken-theatre form performed as interludes between the solemn noh plays on the same stage, codified in Muromachi-period Japan (14th to 16th centuries) and transmitted through the Okura and Izumi hereditary schools. Its dialogue is delivered in a highly stylized, clearly projected declamation with fixed cadences and stock phrases such as the entrance line 'Kore wa kono atari no mono de gozaru', serving as the spoken counterpart to noh's chanted utai. Performers train from childhood in the family line, with the Nomura and Shigeyama families among the best-known modern lineages. It is documented in the repertories of the Nohgaku Performers' Association and UNESCO's Nogaku intangible-heritage inscription (2001/2008).",
   "recipe": "classic East Asian early-2000s kyogen comic declamation, art Music, east Asian branch thai classical beijing opera. thick, breath veiled tone, slow rate, interlocked note trading. noh stage japanese. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 262,
-  "score": 280.083,
+  "score": 281.219,
   "config": {
     "traditions": [
       "kyogen_declamation",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 3.285,
+          "voice_register": 3.03,
           "voice_quality": 28.535000000000004,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 18.72,
+          "voice_vibrato": 18.505499999999998,
           "voice_articulation": 23.660000000000004,
           "voice_microtone": 23.464999999999996,
           "voice_tradition": 36.3675,
           "voice_mechanism_compound": 14.149999999999999,
-          "voice_estill_quality": 28.856499999999997,
+          "voice_estill_quality": 30.131499999999996,
           "voice_speech_song": 30.615000000000006,
           "voice_ensemble_config": 22.684999999999995,
           "voice_ornament_system": 21.334999999999997,
-          "voice_pitch_organization": 19.1235,
+          "voice_pitch_organization": 19.455,
           "voice_processing_chain": 5.719999999999999,
           "voice_multitrack_stack": 3.9650000000000007
         }

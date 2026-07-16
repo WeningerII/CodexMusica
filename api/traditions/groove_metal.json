@@ -5,7 +5,7 @@
   "lineage": "Late-1980s-and-1990s heavy-metal subgenre emerging from thrash metal's tempo-deceleration into mid-tempo headbanging-groove rhythmic foundation. Pantera (post-1990 reinvention from glam-metal origins) inaugurated the canonical groove-metal sound through Cowboys from Hell (1990) and Vulgar Display of Power (1992); Sepultura (post-1991 Arise reinvention), Machine Head, and Lamb of God (2000s extension) constitute the broader canonical roster.",
   "recipe": "classic North American 1987-1989 groove metal, distorted Rock, thrash branch, death metal blackgaze brutal death metal. thick, breath veiled tone, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit. san francisco bay area thrash 1983-1991 indie-commercial bay area thrash metal studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay ibanez tube screamer TS9 / TS808.",
   "recipe_chars": 681,
-  "score": 361.637,
+  "score": 361.791,
   "config": {
     "traditions": [
       "groove_metal",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 12.394999999999996,
+          "voice_register": 12.349999999999996,
           "voice_quality": 5.98,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -42,14 +42,14 @@
           "voice_articulation": 11.829999999999997,
           "voice_microtone": 12.479999999999995,
           "voice_tradition": 3.2500000000000004,
-          "voice_mechanism_compound": 42.120000000000005,
+          "voice_mechanism_compound": 42.027,
           "voice_estill_quality": 1.335,
           "voice_speech_song": 11.829999999999997,
           "voice_ensemble_config": 11.764999999999997,
           "voice_ornament_system": 1.2999999999999998,
           "voice_pitch_organization": 5.720000000000001,
-          "voice_processing_chain": 4.075,
-          "voice_multitrack_stack": 6.935000000000001
+          "voice_processing_chain": 3.958,
+          "voice_multitrack_stack": 7.176500000000002
         }
       },
       {
@@ -70,14 +70,14 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 48.69499999999999,
+          "electric_technique": 48.706999999999994,
           "amp_make": 19.499999999999996,
           "body_wood": 24.569999999999997,
           "neck_wood": 2.34,
           "fretboard": 2.275,
-          "pickup_magnet": 0.345,
+          "pickup_magnet": 0.363,
           "pickup_winding": 0.65,
-          "string_material": 0.285,
+          "string_material": 0.4215,
           "bridge": 2.34,
           "scale_length": 23.529999999999998,
           "string_gauge": 2.34,

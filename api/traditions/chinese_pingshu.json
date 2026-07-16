@@ -5,7 +5,7 @@
   "lineage": "Northern Chinese solo oral storytelling (pingshu, 'commentary-book'), in which a standing teller serialises long historical and martial-heroic novels — Romance of the Three Kingdoms, Water Margin, Generals of the Yang Family — over many nightly episodes, traditionally in teahouses using a folding fan, a handkerchief and a wooden waking-block (xingmu) rapped for emphasis. A Beijing-Tianjin Mandarin-language art distinct from the southern sung tanci, it reached mass audiences through radio and television, with Yuan Kuocheng and Shan Tianfang among its best-known twentieth-century masters. Delivery is vivid narrative speech with sudden gesture, mimicry and the crack of the block to mark suspense.",
   "recipe": "classic East Asian modern chinese pingshu storytelling, art Music, east Asian branch beijing opera tibetan ache lhamo opera. thick, breath veiled tone, slow rate, interlocked note trading. chinese traditional teahouse. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 348,
-  "score": 238.265,
+  "score": 238.641,
   "config": {
     "traditions": [
       "chinese_pingshu",
@@ -29,12 +29,12 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_jingju_role",
-          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 3.9360000000000004,
+          "voice_register": 3.681,
           "voice_quality": 21.384999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -43,11 +43,11 @@
           "voice_microtone": 22.74999999999999,
           "voice_tradition": 40.9175,
           "voice_mechanism_compound": 7.049999999999999,
-          "voice_estill_quality": 21.335999999999995,
+          "voice_estill_quality": 21.692999999999998,
           "voice_speech_song": 25.089999999999996,
           "voice_ensemble_config": 25.154999999999994,
-          "voice_ornament_system": 18.334500000000002,
-          "voice_pitch_organization": 8.086500000000001,
+          "voice_ornament_system": 18.5895,
+          "voice_pitch_organization": 8.1055,
           "voice_processing_chain": 7.345000000000001,
           "voice_multitrack_stack": 3.7050000000000005
         }

@@ -5,7 +5,7 @@
   "lineage": "Southern Sámi vuelie yoik tradition of the Southern Sámi (Åarjelsaemien gïele-speaking) population of central Norway and adjacent Swedish Härjedalen and Jämtland. Vuelie (\"yoik\" in the Southern Sámi language) features differ from the Northern Sámi luohti and Skolt leuʹdd: typically a slightly wider melodic range, a more strophic-and-cyclical formal structure, and characteristic ornamental conventions distinct from the Northern Sámi vocabulary. The Southern Sámi homeland is the most geographically southern and linguistically distinct of the Sámi communities, with the language considered the most endangered of the Sámi languages. Repertoire spans the personal-evocation yoik (parallel to Northern Sámi luohti), the place-and-reindeer-herd vuelie, and the narrative-historical sequences. The Southern Sámi mid-twentieth-century cultural-revival lineage — including Frode Fjellheim, whose contemporary vuelie composition \"Eatnemen Vuelie\" featured in the 2013 Disney film Frozen, bringing international visibility — has restored public-performance space for the tradition. Heikki Laitinen's scholarship in Folkmusik i Sverige (Lundberg & Ternhag 2005) provides Swedish-side documentation; the Norwegian Sami Center maintains parallel institutional infrastructure. Distinguished from Northern Sámi luohti by Southern-Sámi dialect and characteristic wider-range cyclical-strophic structure; distinguished from Skolt leuʹdd by Southern Sámi's evocation-and-place (vs Skolt narrative-personal-history) functional framework; distinguished from Lule and Pite Sámi (the intermediate dialect-regions) by southern-most-geographic origin and the distinct Åarjelsaemien linguistic-cultural identity.",
   "recipe": "classic early-2010s southern sámi vuelie, drone Modal, vocal branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. extended whistle, breath veiled tone, straight note core, interlocked note trading. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 331,
-  "score": 287.17,
+  "score": 286.48,
   "config": {
     "traditions": [
       "sami_southern_vuelie",
@@ -42,12 +42,12 @@
           "voice_articulation": 30.875000000000004,
           "voice_microtone": 32.435,
           "voice_tradition": 28.209999999999994,
-          "voice_mechanism_compound": 11.655000000000001,
+          "voice_mechanism_compound": 10.770000000000001,
           "voice_estill_quality": 7.085,
           "voice_speech_song": 32.370000000000005,
           "voice_ensemble_config": 33.150000000000006,
           "voice_ornament_system": 11.314999999999998,
-          "voice_pitch_organization": 5.340000000000002,
+          "voice_pitch_organization": 5.535000000000001,
           "voice_processing_chain": 20.214999999999996,
           "voice_multitrack_stack": 7.9300000000000015
         }

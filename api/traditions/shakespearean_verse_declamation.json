@@ -5,7 +5,7 @@
   "lineage": "Shakespearean verse declamation is the stage delivery of English Renaissance blank verse, unrhymed iambic pentameter, as developed in the London playhouses of the 1590s to 1610s and transmitted through four centuries of Anglophone theatre practice. Modern declamatory technique, associated with the Royal Shakespeare Company and conservatoires such as RADA, foregrounds the metrical line, caesura, and end-stopping while projecting to an unamplified house. The delivery is heightened spoken speech rather than song, though its scansion is metrically governed. It is documented in recorded stage and broadcast performances by actors such as John Gielgud, Laurence Olivier, and Ian McKellen.",
   "recipe": "classic mid-1590s shakespearean verse declamation, art Music, western early branch thai classical tibetan ache lhamo opera. thick, breath veiled tone, slow rate, interlocked note trading. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 339,
-  "score": 281.12,
+  "score": 280.931,
   "config": {
     "traditions": [
       "shakespearean_verse_declamation",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 8.216000000000001,
+          "voice_register": 7.8845,
           "voice_quality": 27.819999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 17.602499999999996,
+          "voice_vibrato": 17.744999999999997,
           "voice_articulation": 24.245000000000005,
           "voice_microtone": 23.854999999999997,
           "voice_tradition": 25.934999999999995,
           "voice_mechanism_compound": 14.049999999999997,
-          "voice_estill_quality": 26.204499999999996,
+          "voice_estill_quality": 25.872999999999998,
           "voice_speech_song": 33.995,
           "voice_ensemble_config": 27.5275,
           "voice_ornament_system": 16.324999999999996,
-          "voice_pitch_organization": 16.089499999999997,
+          "voice_pitch_organization": 16.420999999999996,
           "voice_processing_chain": 7.8,
           "voice_multitrack_stack": 5.980000000000002
         }

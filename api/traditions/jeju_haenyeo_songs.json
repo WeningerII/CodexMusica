@@ -5,7 +5,7 @@
   "lineage": "Jeju Island haenyeo women's sea-diving culture and accompanying song repertoire. The haenyeo (\"sea women\") of Jeju are women who free-dive (without breathing apparatus, in pre-modern leather-suit and modern wetsuit) to harvest shellfish, sea-urchin, sea-cucumber, and seaweed from the seabed around the island. The accompanying song repertoire includes ieo-do-sa-na (the rowing song sung while paddling out to the diving grounds, with distinctive sumbisori-breath-whistle as the haenyeo surface for air), nodeu-jak (the work-song sung between dives on the boat or rocky shore), and minyo (general folk-song repertoire). Vocal style features unaccompanied female-group antiphonal call-and-response with characteristic Jeju-dialect-specific melodic-contour conventions and a chest-register projection developed through the sea-diving-breath-control discipline. The tradition is matrilineal (mother-to-daughter transmission) and tied to the haenyeo cooperative-economic-collective structure (the village haenyeo guild divides diving territories and harvest income collectively). The 2016 ICH inscription explicitly frames the entire haenyeo culture as the heritage element, with the song repertoire as one component alongside diving practice, ecological knowledge, and the collective social structure. Field-recording archive at the Jeju Haenyeo Museum constitutes the institutional documentary base. Distinguished from mainland Korean minyo by Jeju-dialect-specific vocabulary and sea-diving-work functional context; distinguished from Japanese ama-diver tradition by Jeju's antiphonal-group-song and matrilineal cooperative-economic structure.",
   "recipe": "classic mid-2010s jeju haenyeo songs, ballad Poetry, work song branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. thick, breath veiled tone, wide pitch sway, interlocked note trading. beach. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 309,
-  "score": 295.819,
+  "score": 294.829,
   "config": {
     "traditions": [
       "jeju_haenyeo_songs",
@@ -42,8 +42,8 @@
           "voice_articulation": 30.875,
           "voice_microtone": 30.485,
           "voice_tradition": 25.544999999999998,
-          "voice_mechanism_compound": 14.255,
-          "voice_estill_quality": 11.738749999999996,
+          "voice_mechanism_compound": 13.370000000000001,
+          "voice_estill_quality": 11.633749999999997,
           "voice_speech_song": 44.98000000000002,
           "voice_ensemble_config": 29.769999999999996,
           "voice_ornament_system": 7.15,

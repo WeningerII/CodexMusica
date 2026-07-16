@@ -5,7 +5,7 @@
   "lineage": "Kazakh aitys improvisational poetic-contest tradition: a competitive verbal-dueling form in which two akyn improvising poet-singers face off in extempore Kazakh-language verse exchange, each responding to the previous while introducing new poetic-philosophical material, accompanied by akyn's own dombyra. Performance traditionally at weddings, autumn-harvest celebrations, and festival days, with audience reaction signaling who is winning. Survived Soviet period as sanctioned-folk practice and entered post-1991 cultural revival as national-cultural symbol. Annual televised aitys competitions broadcast since the 1990s.",
   "recipe": "classic Northeast Asian mid-1990s kazakh aitys, ballad Poetry, Slavic bard branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. thick, breath veiled tone, straight note core, interlocked note trading. turkmen long necked bagshy tradition fergana tashkent maqom tradition distinct from bukharan dutar, teardrop bodied gut strung dombyra. open steppe outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 474,
-  "score": 224.73,
+  "score": 223.845,
   "config": {
     "traditions": [
       "kazakh_aitys",
@@ -42,7 +42,7 @@
           "voice_articulation": 16.314999999999998,
           "voice_microtone": 15.924999999999995,
           "voice_tradition": 23.919999999999998,
-          "voice_mechanism_compound": 11.655000000000001,
+          "voice_mechanism_compound": 10.770000000000001,
           "voice_estill_quality": 7.475,
           "voice_speech_song": 17.81,
           "voice_ensemble_config": 16.9,

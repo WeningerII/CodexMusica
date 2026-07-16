@@ -3,14 +3,14 @@
   "name": "Byzantine psaltic art (modern Greek Orthodox)",
   "family": "classical",
   "lineage": "Modern Greek-Orthodox Byzantine chant tradition (post-1814 New Method notational reform by the Three Teachers Chrysanthos of Madytos, Gregorios the Protopsaltis, and Chourmouzios the Archivist). Performance: cantor (psaltis) and right-and-left choir (psaltries) alternating in the eight-mode oktoechos canonical liturgical-cycle. Distinguished from broader Byzantine-Orthodox chant by the New Method's simplified notational system and characteristic post-1814 vocal-style. The contemporary Mount Athos monastic tradition and the Athens-Constantinople patriarchal lineages constitute the institutional anchors.",
-  "recipe": "classic Caucasian mid-1810s byzantine psaltic art, ritual Devotional, christian gospel branch, middle eastern classical art music libyan maluf maghrebi andalusi nuba. thick, breath veiled tone, slow rate, interlocked note trading. three voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble. stone armenian church. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 452,
-  "score": 360.827,
+  "recipe": "classic Caucasian mid-1810s byzantine psaltic art, ritual Devotional, christian gospel branch, middle eastern classical art music libyan maluf azerbaijani mugham. thick, breath veiled tone, slow rate, interlocked note trading. three voice polyphonic regional kakhetian three voice two soloists choral drone global traditional polyphonic choir ensemble. stone armenian church. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 448,
+  "score": 281.358,
   "config": {
     "traditions": [
       "byzantine_psaltic",
       "libyan_maluf",
-      "maghrebi_andalusi_nuba"
+      "azerbaijani_mugham"
     ],
     "instruments": [
       {
@@ -23,33 +23,33 @@
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "arabic_maqam_tradition",
+          "voice_tradition": "persian_dastgah_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
-          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_pitch_organization": "voice_pitch_persian_dastgah",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 7.550000000000001,
-          "voice_quality": 32.370000000000005,
+          "voice_register": 7.5,
+          "voice_quality": 28.145000000000007,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 22.425,
-          "voice_articulation": 20.864999999999995,
-          "voice_microtone": 46.962500000000006,
-          "voice_tradition": 41.959999999999994,
-          "voice_mechanism_compound": 22.235,
-          "voice_estill_quality": 18.749999999999996,
-          "voice_speech_song": 23.725,
-          "voice_ensemble_config": 23.595,
-          "voice_ornament_system": 35.225,
-          "voice_pitch_organization": 35.405,
-          "voice_processing_chain": 6.76,
-          "voice_multitrack_stack": 2.34
+          "voice_vibrato": 19.5,
+          "voice_articulation": 14.169999999999996,
+          "voice_microtone": 29.509999999999998,
+          "voice_tradition": 34.9375,
+          "voice_mechanism_compound": 21.765,
+          "voice_estill_quality": 18.98,
+          "voice_speech_song": 18.004999999999995,
+          "voice_ensemble_config": 14.949999999999996,
+          "voice_ornament_system": 24.49,
+          "voice_pitch_organization": 26.564999999999998,
+          "voice_processing_chain": 6.564999999999999,
+          "voice_multitrack_stack": 2.535
         }
       },
       {
@@ -57,14 +57,14 @@
         "slots": {
           "choir_size": "chamber_choir",
           "choir_polyphonic_configuration": "choir_polyphony_three_voice_polyphonic",
-          "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
+          "choir_regional_canonical_configuration": "choir_regional_kakhetian_three_voice",
           "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
         },
         "scores": {
-          "choir_size": 8.45,
-          "choir_polyphonic_configuration": 7.215,
-          "choir_regional_canonical_configuration": 3.77,
-          "choir_ensemble_repertoire": 4.875
+          "choir_size": 7.8,
+          "choir_polyphonic_configuration": 5.069999999999999,
+          "choir_regional_canonical_configuration": 1.69,
+          "choir_ensemble_repertoire": 3.3799999999999994
         }
       }
     ],

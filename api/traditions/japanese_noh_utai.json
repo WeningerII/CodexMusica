@@ -5,7 +5,7 @@
   "lineage": "Japanese Noh utai sung-and-chanted vocal tradition of the canonical Noh theatre form, codified in the fourteenth-fifteenth centuries by Zeami Motokiyo (1363-1443). Performance integrates the male shite-actor's utai chant (the central narrative-and-character voice) with the jiutai chorus (typically eight male singers seated stage-right), supported by the hayashi instrumental ensemble (nohkan flute, ko-tsuzumi shoulder-drum, o-tsuzumi hip-drum, taiko stick-drum). Vocal architecture features extremely slow tempi, characteristic narrow-range melodic vocabulary in the yowagin \"weak-style\" and tsuyogin \"strong-style\" registers, with strictly codified breath-pause and vibrato conventions.",
   "recipe": "classic East Asian early-1360s noh utai, art Music, east Asian branch, buddhist ritual devotional theravada pali chant tibetan chöd rite. vocal fry, breath veiled tone, slow rate, interlocked note trading. cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk oedo sukeroku canonical kumi daiko modern ensemble taiko drum, pitch bent shoulder held tsuzumi. noh stage japanese. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 468,
-  "score": 197.012,
+  "score": 196.472,
   "config": {
     "traditions": [
       "japanese_noh_utai",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 3.5749999999999993,
+          "voice_register": 3.2337499999999997,
           "voice_quality": 25.870000000000005,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -47,9 +47,9 @@
           "voice_speech_song": 14.819999999999997,
           "voice_ensemble_config": 16.704999999999995,
           "voice_ornament_system": 6.2749999999999995,
-          "voice_pitch_organization": 3.2127499999999998,
+          "voice_pitch_organization": 3.4125,
           "voice_processing_chain": 5.914999999999998,
-          "voice_multitrack_stack": 7.344999999999999
+          "voice_multitrack_stack": 7.06075
         }
       },
       {
@@ -74,12 +74,12 @@
         "slots": {
           "tsuzumi_type": "tsuzumi_kotsuzumi",
           "tsuzumi_context": "tsuzumi_noh",
-          "tsuzumi_body": "tsuzumi_cherry"
+          "tsuzumi_body": "tsuzumi_zelkova"
         },
         "scores": {
-          "tsuzumi_type": 16.47525,
-          "tsuzumi_context": 21.96125,
-          "tsuzumi_body": 3.355
+          "tsuzumi_type": 16.538249999999998,
+          "tsuzumi_context": 21.67925,
+          "tsuzumi_body": 3.46
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Late-1990s onward Caribbean popular-music genre fusing reggae rhythmic and vocal vocabulary with hip-hop, pop, R-and-B, and electronic-dance production techniques — codified through Sean Paul (Dutty Rock 2002), Shaggy (Hot Shot 2000), Sean Kingston (Sean Kingston 2007), Magic! (Don't Kill the Magic 2014), with the form serving as the international-mainstream commercial-reggae substream",
   "recipe": "classic 1997-1999 reggae fusion, bass System, reggae diaspora branch, intl hip hop MC rhythm australian hip-hop japanese hip-hop. thick, rap, straight onset, interlocked note trading. modeled amp modern rig clean strummed single coil electric guitar, modeled amp modern rig ernie ball slinky thumb muted electric bass, pre muffled edge muffled brushes-and-sticks drum kit, pitched chopped sampler, Hammond a 100 built in Leslie home spinet block chord fast tremolo tonewheel organ. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 627,
-  "score": 359.224,
+  "score": 359.359,
   "config": {
     "traditions": [
       "reggae_fusion_modern",
@@ -41,14 +41,14 @@
           "voice_vibrato": 4.7250000000000005,
           "voice_articulation": 16.249999999999996,
           "voice_microtone": 16.054999999999993,
-          "voice_tradition": 16.973,
-          "voice_mechanism_compound": 3.876499999999999,
-          "voice_estill_quality": 3.5765,
+          "voice_tradition": 16.978625,
+          "voice_mechanism_compound": 3.900874999999999,
+          "voice_estill_quality": 3.600875,
           "voice_speech_song": 18.81,
           "voice_ensemble_config": 17.029999999999994,
           "voice_ornament_system": 3.7700000000000014,
           "voice_pitch_organization": 1.3649999999999995,
-          "voice_processing_chain": 14.6515,
+          "voice_processing_chain": 14.657125,
           "voice_multitrack_stack": 13.295
         }
       },
@@ -75,7 +75,7 @@
           "neck_wood": 0.195,
           "fretboard": 0.195,
           "pickup_magnet": 0.195,
-          "string_material": 0.3315,
+          "string_material": 0.337125,
           "string_gauge": 0.39,
           "bridge": 1.45,
           "scale_length": 0.3,
@@ -100,7 +100,7 @@
           "amp_make": 4.23,
           "body_wood": 0.3,
           "pickup_config": 1.645,
-          "string_type": 2.6785,
+          "string_type": 2.691625,
           "scale_length_b": 1.45,
           "fretted_or_not": 0,
           "bass_technique": 17.199999999999996
@@ -133,7 +133,7 @@
           "sampler_archetypes": 18.525,
           "sampler_bit_depth": 1.6,
           "sampler_workflow": 10.799999999999999,
-          "sampler_classic_context": 29.333
+          "sampler_classic_context": 29.376124999999995
         }
       },
       {
@@ -150,7 +150,7 @@
           "keyboard_technique": 7.825,
           "drawbar_setting": 2.695,
           "rotary_speed": 2.45,
-          "percussion_setting": 1.1785,
+          "percussion_setting": 1.191625,
           "tonewheel_model": 2.015,
           "leslie_cabinet_model": 0.78
         }

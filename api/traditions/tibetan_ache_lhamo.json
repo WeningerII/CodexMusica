@@ -5,7 +5,7 @@
   "lineage": "Tibetan ache lhamo (\"sister-goddess\") folk-opera tradition. Origin traced by tradition to the fourteenth-century yogi-engineer-saint Thangtong Gyalpo, who is said to have founded the form and organized the first performance-troupe to raise funds for his iron-chain suspension-bridge construction projects across Tibet. The canonical repertoire comprises eight classical plays drawn from Indo-Tibetan Buddhist narrative cycles, including Sukyi Nyima (the deer-girl), Drowa Sangmo (the celestial-bride), Chöyi Nyima, Pema Wöbar, Drimé Künden, Nangsa Wöbum, Gyasa Belsa, and Donyö Dondrup. Performance integrates singing (with distinctive named melodic-modes), stylized dance-and-mime movement, recited dialogue, and percussion accompaniment (rolmo large paired cymbals and damaru double-headed hand-drum the principal instruments — no melodic instruments, the form is essentially voice-and-percussion). The Lhasa-region Kyumolung style and the Shang and Gyenpa regional styles constitute the three main lineages. Performance traditionally outdoors during summer festivals, particularly the Shotön (yogurt-festival) at Norbulingka in Lhasa. The Tibetan Institute of Performing Arts (TIPA, Dharamshala, India) maintains the principal exile-community transmission lineage post-1959. Distinguished from the parallel monastic-liturgical yang chant by ache lhamo's secular-narrative (vs liturgical) functional framework and absence of long-trumpets and double-reed monastic-ensemble instrumentation; distinguished from Chinese jingju by Tibetan-language repertoire and characteristic voice-and-percussion-only ensemble configuration.",
   "recipe": "classic East Asian late-1950s tibetan ache lhamo opera, art Music, Tibetan ritual branch, buddhist ritual devotional tibetan chöd rite himalayan vajrayana liturgy. thick, breath veiled tone, slow rate, interlocked note trading. large paired bronze cymbals canonical Tibetan monastic yang chant ensemble canonical gelug monastic rolmo, double headed cord pellets rotated canonical Tibetan gelug monastic ritual canonical Tibetan damaru. tibetan gompa assembly hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 527,
-  "score": 293.502,
+  "score": 290.012,
   "config": {
     "traditions": [
       "tibetan_ache_lhamo",
@@ -35,17 +35,17 @@
         },
         "scores": {
           "voice_register": 3.7450000000000006,
-          "voice_quality": 31.200000000000003,
+          "voice_quality": 30.448125000000005,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 7.023875,
-          "voice_articulation": 23.789999999999996,
-          "voice_microtone": 23.59499999999999,
-          "voice_tradition": 20.382125000000002,
-          "voice_mechanism_compound": 7.569999999999999,
-          "voice_estill_quality": 18.749374999999997,
-          "voice_speech_song": 24.83,
-          "voice_ensemble_config": 28.209999999999994,
+          "voice_vibrato": 7.032875000000001,
+          "voice_articulation": 23.146124999999998,
+          "voice_microtone": 23.299874999999993,
+          "voice_tradition": 20.071625,
+          "voice_mechanism_compound": 7.419999999999999,
+          "voice_estill_quality": 18.593374999999998,
+          "voice_speech_song": 24.725374999999996,
+          "voice_ensemble_config": 28.029624999999996,
           "voice_ornament_system": 11.45,
           "voice_pitch_organization": 5.935,
           "voice_processing_chain": 5.9799999999999995,
@@ -59,7 +59,7 @@
           "rolmo_tradition": "rolmo_yang_chant_ensemble_canonical"
         },
         "scores": {
-          "rolmo_body": 20.14825,
+          "rolmo_body": 19.67275,
           "rolmo_tradition": 15.145
         }
       },
@@ -70,7 +70,7 @@
           "damaru_tradition": "damaru_gelug_ritual_canonical"
         },
         "scores": {
-          "damaru_body": 18.62325,
+          "damaru_body": 18.192749999999997,
           "damaru_tradition": 23.855
         }
       }

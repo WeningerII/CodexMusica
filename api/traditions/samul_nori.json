@@ -3,9 +3,9 @@
   "name": "Samul nori",
   "family": "classical",
   "lineage": "1978-onward Korean four-instrument concert-percussion ensemble codified by the Kim Duk-soo founding troupe, derived from rural pungmul village-ritual-and-harvest-procession percussion of the late-Joseon era. The four instruments — kkwaenggwari small-gong-leader, jing large-gong-pulse, janggu hourglass-drum, buk barrel-drum — interlock through five canonical jangdan rhythmic-pattern movements (Bibari, Samdo-Sori, Yeongnam, Honam-udo, Jwadodulgi) that compress regional pungmul styles into a 60-90 minute staged concert form. The genre catalyzed the 1980s-onward Korean traditional-music revival and is widely taught in Korean elementary curricula.",
-  "recipe": "classic East Asian modern samul nori, groove Percussion, samul nori branch, east Asian art music korean sinawi tibetan ache lhamo opera. lead kkwaenggwari, jing paulownia canonical Korean cowhide canonical Korean buk korean, composite material paulownia canonical Korean horse dog asymmetric canonical Korean pungmul outdoor village pre samul nori janggu. korean gugak hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 504,
-  "score": 118.525,
+  "recipe": "classic East Asian modern samul nori, groove Percussion, samul nori branch, east Asian art music korean sinawi tibetan ache lhamo opera. lead kkwaenggwari, jing paulownia canonical Korean cowhide canonical Korean buk korean, composite material paulownia canonical Korean horse dog asymmetric canonical Korean samul nori kim duk soo 1978 founding janggu. korean gugak hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 502,
+  "score": 120.115,
   "config": {
     "traditions": [
       "samul_nori",
@@ -38,14 +38,14 @@
           "janggu_construction": "janggu_composite",
           "janggu_shell_wood": "janggu_paulownia_canonical",
           "janggu_head": "janggu_horse_dog_asymmetric",
-          "janggu_lineage": "janggu_pungmul_outdoor"
+          "janggu_lineage": "janggu_samul_lineage"
         },
         "scores": {
-          "janggu_use": 10.18,
+          "janggu_use": 10.434999999999999,
           "janggu_construction": 2.08,
-          "janggu_shell_wood": 10.474999999999998,
-          "janggu_head": 10.325,
-          "janggu_lineage": 14.434999999999997
+          "janggu_shell_wood": 10.79,
+          "janggu_head": 10.669999999999998,
+          "janggu_lineage": 14.494999999999997
         }
       },
       {
@@ -57,10 +57,10 @@
           "buk_korean_head": "buk_korean_cowhide_canonical"
         },
         "scores": {
-          "buk_korean_context": 12.244999999999997,
-          "buk_korean_construction": 2.825,
-          "buk_korean_shell_wood": 10.474999999999998,
-          "buk_korean_head": 10.325
+          "buk_korean_context": 12.094999999999997,
+          "buk_korean_construction": 2.93,
+          "buk_korean_shell_wood": 10.79,
+          "buk_korean_head": 10.669999999999998
         }
       }
     ],

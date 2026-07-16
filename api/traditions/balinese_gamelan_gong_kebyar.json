@@ -5,7 +5,7 @@
   "lineage": "Balinese gamelan gong kebyar Indonesian virtuosic gamelan ensemble form crystallizing in early-twentieth-century north Bali (Buleleng region) from the older gamelan gong gede court-ensemble form. The kebyar style is characterized by sudden dynamic-and-tempo contrasts (the term \"kebyar\" means \"burst of flame\"), virtuoso metallophone-player technique, and a more compressed performance duration suited to the post-colonial Balinese village-and-tourist performance economy. Performance configuration: ensemble of approximately 25-30 musicians playing tuned bronze metallophones (gangsa, ugal, jegogan, calung), gong chimes (reyong, trompong), kendang drums, and gong-cymbals. The annual Bali Arts Festival in Denpasar features kebyar competitions across all Bali regencies.",
   "recipe": "classic Southeast Asian mid-1930s balinese gamelan gong kebyar, art Music, southeast Asian branch, indigenous ritual devotional. refined gamelan balinese full, gamelan balinese paired male female jackwood barrel canonical javanese balinese kendang indonesian, saron gamelan. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 442,
-  "score": 27.965,
+  "score": 27.635,
   "config": {
     "traditions": [
       "balinese_gamelan_gong_kebyar"
@@ -19,7 +19,7 @@
         },
         "scores": {
           "type": 1,
-          "characteristic": 1.69
+          "characteristic": 1.6
         }
       },
       {
@@ -31,10 +31,10 @@
           "kendang_head": "kendang_buffalo_hide_canonical"
         },
         "scores": {
-          "kendang_size": 6.515,
-          "kendang_context": 12.05,
-          "kendang_shell_wood": 4.484999999999999,
-          "kendang_head": 0.7350000000000001
+          "kendang_size": 6.664999999999999,
+          "kendang_context": 11.51,
+          "kendang_shell_wood": 4.635,
+          "kendang_head": 0.8850000000000001
         }
       },
       {
@@ -44,7 +44,7 @@
           "saron_tuning_system": "saron_slendro"
         },
         "scores": {
-          "saron_size": 0.54,
+          "saron_size": 0.39,
           "saron_tuning_system": 0.3
         }
       }

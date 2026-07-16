@@ -5,7 +5,7 @@
   "lineage": "Saltarello central-and-southern Italian folk-dance-and-music tradition of Lazio, Abruzzo, Marche, and Molise regions, characterized by fast triple-meter or 6/8 leaping-dance with characteristic accelerating tempo. Origin documented in fourteenth-century Italian musical manuscripts (the Saltarello primo and secondo in the Add MS 29987 British Library manuscript) and preserved in continuous folk-tradition through the medieval-Renaissance-modern transition. Performance: tambourine-led ensemble with accordion, fiddle, organetto button-accordion, and chorus. Distinguished from tarantella by saltarello's central-Italian regional base and characteristic standing-leap (vs spinning) choreographic register. The post-1970s Italian-folk-revival reactivated the genre in the original regional contexts.",
   "recipe": "classic Southern European mid-1970s saltarello, ballad Poetry, Mediterranean ballad branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. thick, breath veiled tone, fast rate, interlocked note trading. central Italian healing rite synthetic head tammorra, castagnari Italian premium folk music straight accordion. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 520,
-  "score": 336.685,
+  "score": 335.98,
   "config": {
     "traditions": [
       "saltarello_italian_central",
@@ -42,8 +42,8 @@
           "voice_articulation": 24.765,
           "voice_microtone": 24.375,
           "voice_tradition": 32.37,
-          "voice_mechanism_compound": 11.655000000000001,
-          "voice_estill_quality": 22.94,
+          "voice_mechanism_compound": 10.770000000000001,
+          "voice_estill_quality": 22.835,
           "voice_speech_song": 26.260000000000005,
           "voice_ensemble_config": 25.35,
           "voice_ornament_system": 15.399999999999999,
@@ -61,7 +61,7 @@
         },
         "scores": {
           "tammorra_form": 18.98,
-          "tammorra_context": 26.665000000000003,
+          "tammorra_context": 27.355,
           "tammorra_head": 4.095000000000001
         }
       },
@@ -77,13 +77,13 @@
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 12.164999999999997,
-          "accordion_reed_material": 0.66,
+          "free_reed_technique": 12.314999999999998,
+          "accordion_reed_material": 0.255,
           "musette_offset": 0.845,
           "reed_config": 0.195,
           "bellows": 0.65,
           "voicing_chamber": 0,
-          "accordion_maker_school": 13.989999999999998
+          "accordion_maker_school": 13.839999999999998
         }
       }
     ],

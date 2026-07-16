@@ -3,21 +3,21 @@
   "name": "Bulgarian zhetvarski pesni (harvest songs)",
   "family": "global",
   "lineage": "Bulgarian harvest-song (zhetvarski pesni, женски pesni women's-songs) tradition continuous from premodern Bulgarian-agricultural village-labor practice through 19th-century Bulgarian-folklorist documentation through 20th-century Le Mystère des Voix Bulgares-era canonization into modern Bulgarian-folk-revival continuous practice; foundational harvest-song repertoire integrates women's-group-vocal close-harmony arrangement with characteristic Bulgarian-folk modal vocabulary",
-  "recipe": "classic Northern European modern bulgarian zhetvarski pesni, field Work, Slavic balkan branch, east Asian field work, European wedding, European lullaby sardinian wedding cantu and launeddas music chinese chayang-diao. thick, false fold engaged, straight onset, unrestrained. baltic outdoor village. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 362,
-  "score": 120.58,
+  "recipe": "classic Northern European modern bulgarian zhetvarski pesni, field Work, Slavic balkan branch, east Asian field work, European wedding, European lullaby chinese chayang-diao indonesian rice-planting song traditions. thick, close mic intimate, straight onset, unrestrained. baltic outdoor village. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 359,
+  "score": 120.215,
   "config": {
     "traditions": [
       "bulgarian_zhetvarski",
-      "sardinian_wedding_cantu_launeddas",
-      "chinese_chayang_diao"
+      "chinese_chayang_diao",
+      "indonesian_padi_planting"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "false_fold_voice",
+          "voice_quality": "crooner_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "delayed_vibrato",
@@ -25,31 +25,31 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_speech",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_three_voice_polyphony",
           "voice_ornament_system": "voice_ornament_pansori_sigimsae",
-          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
+          "voice_pitch_organization": "voice_pitch_pelog_7",
           "voice_processing_chain": "voice_processing_plate_reverb_medium",
-          "voice_multitrack_stack": "voice_multitrack_granular_texture"
+          "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
         "scores": {
-          "voice_register": 11.724999999999998,
-          "voice_quality": 9.674999999999997,
+          "voice_register": 8.749999999999996,
+          "voice_quality": 5.965000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.2500000000000004,
-          "voice_articulation": 8.25,
-          "voice_microtone": 7.865000000000001,
-          "voice_tradition": 34.48499999999999,
-          "voice_mechanism_compound": 5.07,
-          "voice_estill_quality": 2.6,
-          "voice_speech_song": 9.945,
-          "voice_ensemble_config": 9.425,
-          "voice_ornament_system": 3.1750000000000007,
-          "voice_pitch_organization": 6.109999999999999,
-          "voice_processing_chain": 3.6400000000000006,
-          "voice_multitrack_stack": 3.965
+          "voice_articulation": 11,
+          "voice_microtone": 7.15,
+          "voice_tradition": 24.954999999999995,
+          "voice_mechanism_compound": 4.159999999999999,
+          "voice_estill_quality": 2.4699999999999998,
+          "voice_speech_song": 12.024999999999995,
+          "voice_ensemble_config": 9.685,
+          "voice_ornament_system": 5.3500000000000005,
+          "voice_pitch_organization": 16.405,
+          "voice_processing_chain": 3.185,
+          "voice_multitrack_stack": 3.3149999999999995
         }
       }
     ],

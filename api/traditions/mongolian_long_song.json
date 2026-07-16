@@ -5,7 +5,7 @@
   "lineage": "Mongolian urtyn-duu ceremonial-long-song tradition with sustained-melismatic vocal-line over morin-khuur horse-head-fiddle drone-accompaniment, the canonical singing style of the inner-Asian steppe nomadic-pastoralist horse-and-herder culture. intangible-cultural-heritage $1-onward, with three regional variants (Eastern Khalkha aristocratic-court style, Western Oirat folk-rural style, Southern Inner-Mongolia diasporic style). Long-songs unfold over 5-20 minute durations through ornamental-throat-glottal techniques (kazargai, shuranhai), strict-textual three-line couplets typically about horses, mountains, ancestors, and steppe-landscape, and free-rhythm ametrical pulse anchored only by breath-phrase boundaries.",
   "recipe": "classic Northeast Asian modern mongolian long-song, drone Modal, heterophonic branch, overtone drone modal tuvan kargyraa subharmonic throat-singing tuvan sygyt high-whistle overtone. sygyt, false fold engaged, breath pulsed, interlocked note trading. long song morin khuur sycamore canonical mongolian horsehair 118 130 strands morin khuur, mongolian tuvan tradition wood hide tovshuur. mongolian ger interior. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 474,
-  "score": 511.767,
+  "score": 501.801,
   "config": {
     "traditions": [
       "mongolian_long_song",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 68.91149999999999,
-          "voice_quality": 52.2415,
+          "voice_register": 67.39649999999999,
+          "voice_quality": 51.551500000000004,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 14.365,
           "voice_articulation": 17.744999999999997,
           "voice_microtone": 22.619999999999994,
-          "voice_tradition": 54.749500000000005,
-          "voice_mechanism_compound": 54.57,
+          "voice_tradition": 52.756375000000006,
+          "voice_mechanism_compound": 52.14,
           "voice_estill_quality": 7.280000000000001,
           "voice_speech_song": 20.864999999999995,
           "voice_ensemble_config": 19.759999999999994,
-          "voice_ornament_system": 6.4165,
-          "voice_pitch_organization": 59.89999999999999,
+          "voice_ornament_system": 6.319,
+          "voice_pitch_organization": 58.429624999999994,
           "voice_processing_chain": 11.959999999999997,
           "voice_multitrack_stack": 10.27
         }
@@ -62,8 +62,8 @@
           "morin_khuur_strings": "morin_khuur_horsehair_canonical"
         },
         "scores": {
-          "bowed_technique": 11.05,
-          "morin_khuur_use": 36.3485,
+          "bowed_technique": 10.884625,
+          "morin_khuur_use": 34.743125,
           "morin_khuur_construction": 1.95,
           "morin_khuur_body_wood": 10.139999999999999,
           "morin_khuur_strings": 8.059999999999999

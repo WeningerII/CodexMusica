@@ -5,7 +5,7 @@
   "lineage": "Yueju Shaoxing opera, a Chinese regional opera tradition originating in the rural Sheng County of Zhejiang province at the turn of the twentieth century and crystallizing in 1920s-1930s Shanghai as an all-female-cast operatic form (yueju is one of only a handful of Chinese operas traditionally performed exclusively by female actors playing both male and female roles). Distinguished from kunqu and jingju by its lyrical, romance-focused dramaturgical orientation, accessible Wu-dialect Shaoxing-area linguistic register, and the all-female casting convention. The 1953 film adaptation of the canonical Liang Shanbo and Zhu Yingtai butterfly-lovers legend (with Yuan Xuefen and Fan Ruijuan in the principal roles) consolidated the national audience.",
   "recipe": "classic Southeast Asian mid-1920s yueju, art Music, east Asian branch, east Asian Cantonese opera. pressed, slow rate, interlocked note trading, neutral third half flat. python skin silk canonical traditional sanxian, silk red sandalwood zitan premium pipa. wooden pagoda hall. large-diaphragm condenser, German V72 tube pre, German tube console, broadcast loudness EQ. tape 15ips hall reverb.",
   "recipe_chars": 393,
-  "score": 219.405,
+  "score": 218.785,
   "config": {
     "traditions": [
       "yueju_shanghai_opera",
@@ -42,11 +42,11 @@
           "voice_microtone": 14.364999999999991,
           "voice_tradition": 28.144999999999996,
           "voice_mechanism_compound": 4.4,
-          "voice_estill_quality": 26.1935,
-          "voice_speech_song": 21.646,
+          "voice_estill_quality": 25.920499999999997,
+          "voice_speech_song": 21.4045,
           "voice_ensemble_config": 15.079999999999993,
           "voice_ornament_system": 20.947499999999998,
-          "voice_pitch_organization": 13.262999999999995,
+          "voice_pitch_organization": 13.157999999999996,
           "voice_processing_chain": 7.15,
           "voice_multitrack_stack": 2.4049999999999994
         }

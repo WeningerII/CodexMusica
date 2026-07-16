@@ -2,7 +2,7 @@
   "name": "Codex Musica — all recipes",
   "description": "Every tradition with its compressed recording recipe, in one file. For full structured arrangements per tradition, fetch traditions/{id}.json.",
   "generated": "2026-07-16",
-  "count": 1195,
+  "count": 1165,
   "items": [
     {
       "id": "honky_tonk",
@@ -29,8 +29,8 @@
       "id": "bluegrass",
       "name": "Bluegrass",
       "family": "vernacular",
-      "recipe": "classic Southern American 1945-1948 bluegrass, improv On Frame, bluegrass branch, appalachian drone modal, American south field work old-time appalachian mississippi delta field holler. open g tuning sitka spruce spruce maple martin dreadnought acoustic guitar, Gibson f 5 loar scrolled carved adirondack red spruce loar canon mandolin, bronze 3 ply maple Gibson mastertone canon maple bluegrass canon banjo 5 string, steel flatpicked upright bass, steel magic rosin modern acrylic base double stops fiddle, Italian alpine brescian tradition big leaf maple flatpicked mandola. bristol sessions appalachian pre commercial. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-      "recipe_chars": 753
+      "recipe": "classic Southern American 1945-1948 bluegrass, improv On Frame, bluegrass branch, appalachian drone modal, American south field work old-time appalachian. sitka spruce spruce maple martin lifespan dreadnought acoustic guitar, Gibson f 5 loar scrolled carved adirondack red spruce loar canon mandolin, bronze 3 ply maple Gibson mastertone canon maple bluegrass canon banjo 5 string, steel flatpicked upright bass, steel magic rosin modern acrylic base double stops fiddle, Italian alpine brescian tradition big leaf maple flatpicked mandola. bristol sessions appalachian pre commercial. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+      "recipe_chars": 717
     },
     {
       "id": "old_time",
@@ -50,8 +50,8 @@
       "id": "mariachi",
       "name": "Mariachi",
       "family": "vernacular",
-      "recipe": "classic Southwestern American modern mariachi, functional Song, tejano border branch, Mexican functional song, americas wedding andean matrimonio huayno mariachi traditional. thick, full chest belt, straight note core, interlocked note trading. plain gut beef gut varnished sitka spruce European maple violin orchestral, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral unison standard rim orchestral balance trumpet, low mid rich spectrum cedar classical nylon-string guitar, cedar caoba paracho mixed string set nylon treble steel bass guitarron mexicano, mahogany canonical mariachi nylon octave doubled canonical mariachi strummed vihuela mexicana. mariachi and bolero defining room 1948-1975 mid tier mexico peerless musart 50s 60s. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-      "recipe_chars": 897
+      "recipe": "classic Southwestern American modern mariachi, functional Song, tejano border branch, Mexican functional song, americas wedding andean matrimonio huayno bolero mexicano. thick, full chest belt, straight note core, interlocked note trading. plain gut beef gut varnished sitka spruce European maple violin orchestral, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral unison standard rim orchestral balance trumpet, cedar strummed open chord ringing overtones classical nylon-string guitar, cedar caoba paracho mixed string set nylon treble steel bass guitarron mexicano, mahogany canonical mariachi nylon octave doubled canonical mariachi strummed vihuela mexicana, foundational rural mariachi full. mariachi and bolero defining room 1948-1975 mid tier mexico peerless musart 50s 60s. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+      "recipe_chars": 942
     },
     {
       "id": "ranchera",
@@ -85,8 +85,8 @@
       "id": "delta_blues",
       "name": "Delta blues",
       "family": "blues_gospel",
-      "recipe": "classic late-1920s delta blues, ballad Poetry, delta narrative branch, vocal drone modal, blues acoustic functional song, American south field work piedmont blues mississippi delta field holler. thick, worn fold, wide pitch sway, unrestrained. open g tuning slide steel resonator guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. tin roofed shack. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-      "recipe_chars": 489
+      "recipe": "classic late-1920s delta blues, ballad Poetry, delta narrative branch, vocal drone modal, blues acoustic functional song, American south field work piedmont blues corsican paghjella three-voice unaccompanied. thick, worn fold, wide pitch sway, interlocked note trading. open g tuning slide steel resonator guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. tin roofed shack. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+      "recipe_chars": 515
     },
     {
       "id": "piedmont_blues",
@@ -134,8 +134,8 @@
       "id": "new_orleans",
       "name": "New Orleans jazz",
       "family": "jazz",
-      "recipe": "classic mid-1930s new orleans jazz, improv On Frame, early branch, American jazz bop bebop cool jazz / west coast. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris lyrical continuous-airflow saxophone, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick call-and-response banjo 5 string, growly gut upright bass, vintage ambassador asymmetric brushes drum kit, brass band new orleans, ebonite hard rubber klezmer tradition front line clarinet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor front line student commercial trombone. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-      "recipe_chars": 882
+      "recipe": "classic mid-1930s new orleans jazz, improv On Frame, early branch, American jazz bop bebop cool jazz / west coast. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral lyrical jazz balance trumpet, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris lyrical continuous-airflow saxophone, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick call-and-response banjo 5 string, growly gut upright bass, vintage ambassador asymmetric brushes drum kit, brass band new orleans, ebonite hard rubber klezmer tradition front line clarinet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor front line student commercial trombone, yellow brass canonical brass band conn vintage early jazz canon lyrical cornet, tenor guitar. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+      "recipe_chars": 973
     },
     {
       "id": "ragtime",
@@ -162,8 +162,8 @@
       "id": "latin_jazz",
       "name": "Latin jazz",
       "family": "jazz",
-      "recipe": "classic North American mid-1940s latin jazz, improv On Frame, Latin jazz branch, American jazz bop, tropical song functional song, Brazilian song functional song bebop modal jazz. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral jazz balance trumpet, bach 42 canonical American orchestral tenor student commercial trombone, cold pressed wurzen felt oversize maple tension resonator sitka spruce grand piano, growly gut upright bass, vintage ambassador asymmetric brushes drum kit, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, bronze open slap hand drum timbales, claves, shekere. nyc jazz vocal engineered 1958-1998 mid tier a and r recording nyc. large-diaphragm condenser, API 312 op-amp pre.",
-      "recipe_chars": 994
+      "recipe": "classic North American mid-1940s latin jazz, improv On Frame, Latin jazz branch, American jazz bop, tropical song functional song, Brazilian song functional song bebop modal jazz. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, bach stradivarius 180 canonical American orchestral jazz balance trumpet, bach 42 canonical American orchestral tenor student commercial trombone, cold pressed wurzen felt oversize maple tension resonator sitka spruce grand piano, growly gut upright bass, vintage ambassador asymmetric brushes drum kit, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, bronze open slap hand drum timbales, claves, shekere. nyc jazz vocal engineered 1958-1998 mid tier a and r recording nyc. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ.",
+      "recipe_chars": 1000
     },
     {
       "id": "progressive_rock",
@@ -386,8 +386,8 @@
       "id": "gagaku",
       "name": "Gagaku",
       "family": "classical",
-      "recipe": "classic East Asian modern gagaku, art Music, east Asian branch, buddhist ritual devotional. cluster chord bamboo sho mouth organ, bamboo cherry bark binding canonical gagaku yoshi arundo donax canonical gagaku imperial court continuous-airflow legato hichiriki double reed, biwa lute, cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk kodo sado island lineage taiko drum, Korean repertoire higher pitched six holed ryuteki, massed cluster chords gagaku kangen. noh stage japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 643
+      "recipe": "classic East Asian modern gagaku, art Music, east Asian branch, buddhist ritual devotional. cluster chord bamboo sho mouth organ, bamboo cherry bark binding canonical gagaku yoshi arundo donax canonical gagaku imperial court continuous-airflow legato hichiriki double reed, biwa lute, cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk kodo sado island lineage taiko drum, Korean repertoire higher pitched six holed ryuteki, sustained cluster chords gagaku kangen. noh stage japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 646
     },
     {
       "id": "beijing_opera",
@@ -719,13 +719,6 @@
       "recipe_chars": 706
     },
     {
-      "id": "shape_note",
-      "name": "Sacred Harp shape-note",
-      "family": "vernacular",
-      "recipe": "classic Southern American mid-1840s sacred harp shape-note, ritual Devotional, American sacred branch, vocal drone modal bulgarian women's choir lithuanian sutartinės multipart. vocal fry, breath veiled tone, straight note core, interlocked note trading. choir sacred harp, community specific regional variant shape note voice. southern white church gospel quartet. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-      "recipe_chars": 440
-    },
-    {
       "id": "work_songs_hollers",
       "name": "Field hollers and work songs",
       "family": "vernacular",
@@ -750,8 +743,8 @@
       "id": "southern_soul",
       "name": "Southern soul (Stax / FAME / Muscle Shoals tradition)",
       "family": "blues_gospel",
-      "recipe": "classic Southern American mid-1970s southern soul, functional Song, soul R&B branch, christian gospel ritual devotional black gospel gospel quartet. thick, blues-shouter, wide pitch sway, leader call answered. Fender blackface amp American 60s amp spring reverb bright wenge flatwound single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled sticks pocket drum kit, gospel runs upright piano, tenor gold brass warmer tone ensemble ebonite saxophone, bach stradivarius 180 canonical American orchestral ensemble standard rim orchestral balance trumpet. converted movie theatre 1957-1975 mid tier stax studio memphis. passive ribbon, Neve 1073 inductor pre, colored vintage console, LA-2A optical, Neve inductor EQ. Studer 30ips tape ibanez tube screamer TS9 / TS808.",
-      "recipe_chars": 871
+      "recipe": "classic Southern American mid-1970s southern soul, functional Song, soul R&B branch, christian gospel ritual devotional black gospel gospel quartet. thick, blues-shouter, wide pitch sway, multi note runs per syllable. Fender blackface amp American 60s amp spring reverb bright wenge flatwound single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled sticks pocket drum kit, gospel runs upright piano, tenor gold brass warmer tone ensemble ebonite saxophone, bach stradivarius 180 canonical American orchestral ensemble standard rim orchestral balance trumpet. converted movie theatre 1957-1975 mid tier stax studio memphis. passive ribbon, Neve 1073 inductor pre, colored vintage console, LA-2A optical, Neve inductor EQ. Studer 30ips tape ibanez tube screamer TS9 / TS808.",
+      "recipe_chars": 879
     },
     {
       "id": "northern_soul_motown",
@@ -897,15 +890,15 @@
       "id": "tango",
       "name": "Tango",
       "family": "global",
-      "recipe": "classic South American mid-1940s tango, ballad Poetry, Latin am troubadour branch, tropical song functional song garifuna paranda and hungu-hungu bolero. thick, breath veiled tone, straight onset, interlocked note trading. tango virtuoso premier German tango premium alternative bellows articulated bandoneon, sitka spruce pernambuco paubrasilia echinata classical canon bernardel violin orchestral, upright piano, growly gut upright bass, pirastro cellisto cello specific pernambuco classical canon cello. large tracking room 1920-1965 mid tier odeon rca buenos aires. RCA 44-BX, German V72 tube pre, German tube console. 78rpm shellac.",
-      "recipe_chars": 637
+      "recipe": "classic South American mid-1940s tango, ballad Poetry, Latin am troubadour branch, tropical song functional song bolero bachata. thick, full chest belt, straight onset, interlocked note trading. tango virtuoso premier German tango premium alternative bellows articulated bandoneon, sitka spruce hard rock maple acer saccharum synthetic varnish polyurethane violin orchestral, upright piano, growly gut upright bass, venice catlin high twist renaissance bass engelmann spruce hard rock maple cello. large tracking room 1920-1965 mid tier odeon rca buenos aires. RCA 44-BX, German V72 tube pre, German tube console. 78rpm shellac.",
+      "recipe_chars": 628
     },
     {
       "id": "milonga",
       "name": "Milonga",
       "family": "global",
-      "recipe": "classic South American mid-1870s milonga, ballad Poetry, milonga branch, tropical song functional song garifuna paranda and hungu-hungu bachata. thick, breath veiled tone, slow rate, interlocked note trading. cedar fingerpicked classical nylon-string guitar, tango virtuoso premier German tango premium alternative steel reeds canonical aa pre 1949 voicing bellows articulated bandoneon, sitka spruce hard rock maple acer saccharum French Polish shellac pad violin orchestral, upright bass. large tracking room 1920-1965 mid tier odeon rca buenos aires. RCA 44-BX, German V72 tube pre, German tube console. 78rpm shellac.",
-      "recipe_chars": 621
+      "recipe": "classic South American mid-1870s milonga, ballad Poetry, milonga branch, tropical song functional song bachata merengue urbano. thick, full chest belt, slow rate, interlocked note trading. cedar fingerpicked classical nylon-string guitar, tango virtuoso premier German tango premium alternative bellows articulated bandoneon, sitka spruce hard rock maple acer saccharum synthetic varnish polyurethane violin orchestral, upright bass. large tracking room 1920-1965 mid tier odeon rca buenos aires. RCA 44-BX, German V72 tube pre, German tube console. 78rpm shellac.",
+      "recipe_chars": 564
     },
     {
       "id": "samba",
@@ -964,13 +957,6 @@
       "recipe_chars": 408
     },
     {
-      "id": "mariachi_traditional",
-      "name": "Mariachi traditional",
-      "family": "global",
-      "recipe": "classic Southwestern American mid-1950s mariachi traditional, functional Song, Mexican branch, tejano border functional song, americas wedding ranchera mariachi. sygyt, full chest belt, slow rate, interlocked note trading. sitka spruce European maple sycamore maple French Polish shellac pad violin orchestral, low mid rich spectrum cedar classical nylon-string guitar, cedar caoba paracho mixed string set nylon treble steel bass guitarron mexicano, mahogany canonical mariachi nylon octave doubled canonical mariachi vihuela mexicana, foundational rural mariachi full. plaza garibaldi outdoor mariachi. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-      "recipe_chars": 714
-    },
-    {
       "id": "mbalax",
       "name": "Mbalax",
       "family": "global",
@@ -1023,8 +1009,8 @@
       "id": "congolese_rumba",
       "name": "Congolese rumba",
       "family": "global",
-      "recipe": "classic Central African mid-1940s congolese rumba, functional Song, congolese rumba branch, central east south African groove percussion, tropical song functional song bachata soukous. thick, breath veiled tone, straight onset, interlocked note trading. mahogany rosewood clean strummed single coil electric guitar, alder thomastik infeld low tension jazz warm walking electric bass, fiberskyn synthetic calf brushes-and-sticks drum kit, lead mule hide canonical Cuban premium oak staved canonical Cuban congas, maracas, weltmeister east German mid tier vintage volk accordion, claves. kinshasa leopoldville defining 1953-present mid tier kinshasa african jazz studio. dynamic moving-coil, tube pre. 78rpm shellac.",
-      "recipe_chars": 714
+      "recipe": "classic Central African mid-1940s congolese rumba, functional Song, congolese rumba branch, central east south African groove percussion, tropical song functional song bachata soukous. thick, breath veiled tone, straight onset, interlocked note trading. mahogany rosewood clean strummed single coil electric guitar, alder thomastik infeld low tension jazz warm walking electric bass, fiberskyn synthetic calf brushes-and-sticks drum kit, lead mule hide canonical Cuban premium oak staved canonical Cuban congas, traditional gourd calabash maracas, leather weltmeister east German mid tier vintage volk accordion, claves. kinshasa leopoldville defining 1953-present mid tier kinshasa african jazz studio. dynamic moving-coil, tube pre. 78rpm shellac.",
+      "recipe_chars": 749
     },
     {
       "id": "ndombolo",
@@ -1107,8 +1093,8 @@
       "id": "andalusi_nuba",
       "name": "Andalusī nūba",
       "family": "classical",
-      "recipe": "classic North African early-1490s andalusī nūba, art Music, middle eastern classical branch, vocal drone modal bulgarian women's choir albanian iso-polyphony. vocal fry, breath veiled tone, slow rate, interlocked note trading. walnut ribs canonical mid tier Lebanese cedar eastern Mediterranean pyramid oud, metal finger picks walnut body canonical decorative goat skin bridge plate qanun, modal legato rabab maghribi, goat skin Turkish darbuka regional darbuka, riq, juniper bent frame canonical Maghrebi synthetic remo modern world music bendir. fez andalusi palace riad. large-diaphragm condenser, German V72 tube pre, German tube console. tape 15ips.",
-      "recipe_chars": 654
+      "recipe": "classic North African early-1490s andalusī nūba, art Music, middle eastern classical branch, vocal drone modal. vocal fry, breath veiled tone, slow rate, interlocked note trading. walnut ribs canonical mid tier Lebanese cedar eastern Mediterranean pyramid oud, metal finger picks walnut body canonical decorative goat skin bridge plate qanun, heterophonic melodic lead legato rabab maghribi, darbuka, riq, juniper bent frame canonical Maghrebi synthetic remo modern world music bendir, three voice polyphonic regional svanetian complex three voice highland polyphonic global traditional polyphonic choir ensemble. fez andalusi palace riad. large-diaphragm condenser, German V72 tube pre, German tube console. tape 15ips.",
+      "recipe_chars": 720
     },
     {
       "id": "arab_tarab",
@@ -1202,13 +1188,6 @@
       "recipe_chars": 978
     },
     {
-      "id": "jingju",
-      "name": "Jīngjù (Beijing opera)",
-      "family": "classical",
-      "recipe": "classic East Asian mid-1820s jīngjù, art Music, east Asian branch, vocal drone modal pansori macedonian glasoechko male diaphonic. vocal fry, breath veiled tone, straight note core, interlocked note trading. python skin snake skin bamboo stick horsehair threaded between strings erhu, yueqin, silk mahogany commercial grade pipa, erhuang narrative bamboo body beijing opera legato jinghu, padauk mid tier sanxian, percussion section ban clapper luogu. chinese traditional teahouse. large-diaphragm condenser, German V72 tube pre, German tube console, broadcast loudness EQ. tape 15ips hall reverb.",
-      "recipe_chars": 597
-    },
-    {
       "id": "guqin",
       "name": "Gǔqín",
       "family": "classical",
@@ -1247,8 +1226,8 @@
       "id": "samul_nori",
       "name": "Samul nori",
       "family": "classical",
-      "recipe": "classic East Asian modern samul nori, groove Percussion, samul nori branch, east Asian art music korean sinawi tibetan ache lhamo opera. lead kkwaenggwari, jing paulownia canonical Korean cowhide canonical Korean buk korean, composite material paulownia canonical Korean horse dog asymmetric canonical Korean pungmul outdoor village pre samul nori janggu. korean gugak hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 504
+      "recipe": "classic East Asian modern samul nori, groove Percussion, samul nori branch, east Asian art music korean sinawi tibetan ache lhamo opera. lead kkwaenggwari, jing paulownia canonical Korean cowhide canonical Korean buk korean, composite material paulownia canonical Korean horse dog asymmetric canonical Korean samul nori kim duk soo 1978 founding janggu. korean gugak hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 502
     },
     {
       "id": "mongolian_long_song",
@@ -1268,8 +1247,8 @@
       "id": "balinese_gamelan",
       "name": "Balinese gamelan",
       "family": "classical",
-      "recipe": "classic Southeast Asian modern balinese gamelan, art Music, southeast Asian branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. kargyraa, breath veiled tone, slow rate, interlocked note trading. pentatonic slendro tuning saron gamelan, gender, bonang, gamelan balinese paired male female jackwood barrel canonical javanese balinese buffalo hide rattan lacing canonical javanese kendang indonesian, slendro tuning kenong, bamboo rattan band fipple canonical javanese balinese suling, gamelan balinese full. balinese banjar courtyard. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-      "recipe_chars": 662
+      "recipe": "classic Southeast Asian modern balinese gamelan, art Music, southeast Asian branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. extended whistle, breath veiled tone, slow rate, interlocked note trading. pentatonic slendro tuning saron gamelan, gender, bonang, gamelan balinese paired male female jackwood barrel canonical javanese balinese buffalo hide rattan lacing canonical javanese kendang indonesian, slendro tuning kenong, bamboo rattan band fipple canonical javanese balinese suling, gamelan balinese full. balinese banjar courtyard. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+      "recipe_chars": 670
     },
     {
       "id": "kulintang",
@@ -1324,15 +1303,15 @@
       "id": "mento",
       "name": "Mento",
       "family": "global",
-      "recipe": "classic Caribbean mid-1970s mento, groove Percussion, Caribbean branch, tropical song functional song bachata garifuna paranda and hungu-hungu. thick, breath veiled tone, straight note core, interlocked note trading. alternating thumb travis picked parlor acoustic guitar, 3 ply maple Gibson mastertone canon scruggs stelling bluegrass setup mastertone flathead banjo 5 string, traditional gourd calabash maracas, mento rhumba box repeating bass ostinato forged iron tongues marimbula. Kingston studio one defining 1959-2004 indie-commercial kingston studio one brentford road. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-      "recipe_chars": 681
+      "recipe": "classic Caribbean mid-1970s mento, groove Percussion, Caribbean branch, tropical song functional song bachata merengue urbano. thick, full chest belt, straight note core, interlocked note trading. alternating thumb travis picked parlor acoustic guitar, walnut warmer than maple mid tier scruggs stelling bluegrass setup banjo 5 string, traditional gourd calabash maracas, mento rhumba box repeating bass ostinato forged iron tongues marimbula. Kingston studio one defining 1959-2004 indie-commercial kingston studio one brentford road. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+      "recipe_chars": 639
     },
     {
       "id": "calypso",
       "name": "Calypso",
       "family": "global",
-      "recipe": "classic Caribbean mid-1830s calypso, groove Percussion, Caribbean branch, tropical song functional song, Caribbean carnival processional garifuna paranda and hungu-hungu bachata. thick, breath veiled tone, straight note core, interlocked note trading. narrative fingerpicked dreadnought acoustic guitar, claves, pyramid pure nickel bass British mid 60s era sub heavy electric bass, steelpan, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn ensemble trumpet, tenor yellow brass modern standard yamaha custom 875ex modern Japanese premium saxophone, steel orchestra. trinidad calypso panyard outdoor. sennheiser MD421, transformer-coupled solid-state pre, MCI JH-636 US 70s indie/jazz, dbx 160 VCA, parametric EQ. Studer 30ips tape plate reverb digital delay.",
-      "recipe_chars": 848
+      "recipe": "classic Caribbean mid-1830s calypso, groove Percussion, Caribbean branch, tropical song functional song, Caribbean carnival processional bachata merengue urbano. vocal fry, full chest belt, straight note core, interlocked note trading. dreadnought acoustic guitar, claves, pyramid pure nickel bass British mid 60s era sub heavy electric bass, steelpan, bach stradivarius 180 canonical American orchestral shallow cup lead trumpet ensemble trumpet, yellow brass modern standard yamaha custom 875ex modern Japanese premium rubber saxophone, steel orchestra. trinidad calypso panyard outdoor. sennheiser MD421, transformer-coupled solid-state pre, MCI JH-636 US 70s indie/jazz, dbx 160 VCA, parametric EQ. Studer 30ips tape plate reverb digital delay.",
+      "recipe_chars": 748
     },
     {
       "id": "soca",
@@ -1345,15 +1324,15 @@
       "id": "kompa",
       "name": "Kompa",
       "family": "global",
-      "recipe": "classic Caribbean mid-1950s kompa, groove Percussion, Afro-diasporic electric branch, tropical song functional song garifuna paranda and hungu-hungu kompa. extended whistle, breath veiled tone, pure, interlocked note trading. basswood maple pau ferro nickel plated steel nickel humbucker electric guitar, stainless steel roundwound sub heavy electric bass, steel leather castagnari Italian premium folk music accordion, pre muffled edge muffled brushes-and-sticks drum kit. port au prince Haitian recording 1970-2000 indie-commercial port au prince haitian kompa studio. sennheiser MD421, transformer-coupled solid-state pre, colored vintage console, optical compressor, parametric EQ. tape 15ips spring reverb.",
-      "recipe_chars": 711
+      "recipe": "classic Caribbean mid-1950s kompa, groove Percussion, Afro-diasporic electric branch, tropical song functional song merengue urbano bachata. extended whistle, full chest belt, straight note core, interlocked note trading. basswood maple pau ferro alnico nickel plated steel humbucker electric maple pau ferro ceramic nickel plated steel nickel single coil electric guitar, stainless steel roundwound sub heavy electric bass, steel leather castagnari Italian premium folk music accordion, pre muffled edge muffled brushes-and-sticks drum kit, lead synthetic remo fiberskyn modern stable siam oak mid tier modern open slap hand drum congas. port au prince Haitian recording 1970-2000 indie-commercial port au prince haitian kompa studio. sennheiser MD421, transformer-coupled solid-state pre, colored vintage console, optical compressor, parametric EQ. tape 15ips spring reverb.",
+      "recipe_chars": 876
     },
     {
       "id": "kizomba",
       "name": "Kizomba",
       "family": "global",
-      "recipe": "classic early-1980s kizomba, groove Percussion, Afro-diasporic electric branch, tropical song functional song kizomba merengue urbano. vocal fry, breath veiled tone, slow rate, interlocked note trading. basswood humbucker electric guitar, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca analog poly synth, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 568
+      "recipe": "classic early-1980s kizomba, groove Percussion, Afro-diasporic electric branch, tropical song functional song merengue urbano bachata. vocal fry, breath veiled tone, slow rate, interlocked note trading. basswood alnico clean strummed humbucker electric clean strummed single coil electric guitar, analog poly synth, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, la bella flats Detroit soul bass canon sub heavy electric bass, lead mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 721
     },
     {
       "id": "kuduro",
@@ -1615,25 +1594,11 @@
       "recipe_chars": 402
     },
     {
-      "id": "mongolian_xoomii",
-      "name": "Khöömii (Mongolian overtone singing)",
-      "family": "global",
-      "recipe": "classic Northeast Asian modern khöömii, drone Modal, overtone branch, buddhist ritual devotional beompae shōmyō. m1 modal compound with overtone tuning khoomei foundational mechanism 8th to 12th partial overtone range himalayan ritual chant subharmonic monastic throat singing voice, long song morin khuur sycamore canonical mongolian horsehair 118 130 strands morin khuur, traditional mongolian tuvan tradition tovshuur. mongolian ger interior. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 508
-    },
-    {
-      "id": "tibetan_gyuto",
-      "name": "Gyütö multiphonic chant (Tibetan Buddhist)",
-      "family": "global",
-      "recipe": "classic Northeast Asian mid-1470s gyütö multiphonic chant, ritual Devotional, buddhist branch, overtone drone modal, indian subcontinent praise song tibetan thödröl praise-recitation khöömii. m1 modal compound with overtone tuning khoomei foundational mechanism 8th to 12th partial overtone range himalayan ritual chant subharmonic monastic throat singing voice, a cappella small 3 to 8 one per part three voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble, ceremonial hammered copper brass telescoping canonical Tibetan gelug canonical Tibetan buddhist liturgy tibetan dungchen, wood rosewood body brass bell canonical Tibetan arundo donax canonical Tibetan monastic tibetan gyaling. tibetan monastery assembly. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-      "recipe_chars": 850
-    },
-    {
       "id": "inuit_katajjaq",
       "name": "Katajjaq (Inuit throat-singing game)",
       "family": "global",
-      "recipe": "classic Pacific Northwest mid-2010s katajjaq, hunting Song, arctic branch, central Asian hunting song, indigenous hunting song, sub saharan African hunting song san (khoisan) hunting and trance song aboriginal australian hunting songlines. ingressive egressive paired breath alternation interlocked supraglottic both phases 8th to 12th partial overtone range arctic paired game tradition interlocked breath throat singing voice. iglu community hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 512
+      "recipe": "classic Pacific Northwest mid-2010s katajjaq, hunting Song, arctic branch, central Asian hunting song, indigenous hunting song, sub saharan African hunting song mongolian hunting-khoomei aboriginal australian hunting songlines. sygyt, false fold engaged, straight onset, interlocked note trading. ingressive egressive paired breath alternation interlocked supraglottic both phases 8th to 12th partial overtone range arctic paired game tradition interlocked breath throat singing voice. iglu community hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 569
     },
     {
       "id": "tin_pan_alley_song",
@@ -1853,20 +1818,6 @@
       "recipe_chars": 621
     },
     {
-      "id": "kompa_song_form",
-      "name": "Kompa (song-form)",
-      "family": "global",
-      "recipe": "classic Caribbean mid-1970s kompa, functional Song, tropical song branch, Afro-diasporic electric groove percussion afrobeat kompa. thick, full chest belt, straight onset, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright maple pau ferro single coil electric guitar, steel castagnari Italian premium folk music accordion, thomastik infeld low tension jazz warm pocket fingerstyle electric bass, open slap hand drum congas, vintage ambassador asymmetric brushes-and-sticks drum kit. port au prince Haitian recording 1970-2000 indie-commercial port au prince haitian kompa studio. sennheiser MD421, transformer-coupled solid-state pre, colored vintage console, optical compressor, parametric EQ. tape 15ips spring reverb.",
-      "recipe_chars": 754
-    },
-    {
-      "id": "kizomba_song_form",
-      "name": "Kizomba (song-form)",
-      "family": "global",
-      "recipe": "classic modern kizomba, functional Song, tropical song branch, Afro-diasporic electric groove percussion kizomba kompa. vocal fry, breath veiled tone, slow rate, interlocked note trading. single coil electric guitar, electric bass, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, behringer rd 8 modern clone analog circuit reproduction TR-808. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 530
-    },
-    {
       "id": "tropical_bolero",
       "name": "Bolero (tropical romantic)",
       "family": "global",
@@ -1947,8 +1898,8 @@
       "id": "cumbia_colombiana",
       "name": "Cumbia colombiana",
       "family": "global",
-      "recipe": "classic South American mid-1940s cumbia colombiana, groove Percussion, Latin am branch, tropical song functional song kompa garifuna paranda and hungu-hungu. thick, full chest belt, slow rate, interlocked note trading. castagnari Italian premium folk music accordion, gaita macho rhythmic drone gaita deep barrel coastal cumbia head and shell steady pulse tambora colombiana, ampeg b15 amp American 60s bass amp flip top character mahogany pyramid electric bass, traditional gourd guiro, traditional gourd calabash maracas, cumbia lead gaita ensemble tambor alegre. colombian canon 1934-present mid tier discos fuentes medellin. shure SM57, transformer-coupled solid-state pre, colored vintage console, optical compressor. tape 15ips spring reverb.",
-      "recipe_chars": 748
+      "recipe": "classic South American mid-1940s cumbia colombiana, groove Percussion, Latin am branch, tropical song functional song bachata garifuna punta-rock. thick, full chest belt, slow rate, interlocked note trading. weltmeister east German mid tier vintage volk accordion, gaita macho rhythmic drone gaita deep barrel coastal cumbia head and shell steady pulse tambora colombiana, ampeg svt amp rock bass amp mahogany pyramid pure nickel bass electric bass, guiro, maracas, cumbia lead gaita ensemble tambor alegre. colombian canon 1934-present mid tier discos fuentes medellin. shure SM57, transformer-coupled solid-state pre, colored vintage console, optical compressor. tape 15ips spring reverb.",
+      "recipe_chars": 690
     },
     {
       "id": "cumbia_peruvian",
@@ -2486,15 +2437,15 @@
       "id": "hokum_blues_vaudeville",
       "name": "Hokum blues",
       "family": "global",
-      "recipe": "classic North American mid-1920s hokum blues, ballad Poetry, hokum blues branch, American jazz early dixieland new orleans jazz. thick, breath veiled tone, wide pitch sway, interlocked note trading. flatwound thomastik fingerpicked slide acoustic guitar, growly gut upright bass, frottoir, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick call-and-response banjo 5 string, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, kazoo. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+      "recipe": "classic North American mid-1920s hokum blues, ballad Poetry, hokum blues branch, American jazz early new orleans jazz swing big band. thick, blues-shouter, wide pitch sway, interlocked note trading. flatwound thomastik fingerpicked slide acoustic guitar, growly gut upright bass, frottoir, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick call-and-response banjo 5 string, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, kazoo. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
       "recipe_chars": 673
     },
     {
       "id": "classic_blues_women",
       "name": "Classic blues women",
       "family": "blues_gospel",
-      "recipe": "classic mid-1920s classic blues women, ballad Poetry, classic blues women branch, blues narrative hokum blues, American jazz early new orleans jazz. thick, blues-shouter, wide pitch sway, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, yellow brass canonical brass band conn vintage early jazz canon front line cornet, ebonite hard rubber klezmer tradition front line clarinet, alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, red brass 90 10 darker orchestral bach 42 canonical American orchestral tenor front line student commercial trombone, growly gut upright bass, compensated bridge snuffy smith scruggs stelling bluegrass setup mastertone flathead banjo 5 string, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser.",
-      "recipe_chars": 992
+      "recipe": "classic mid-1920s classic blues women, ballad Poetry, classic blues women branch, blues narrative hokum blues, American jazz early new orleans jazz. thick, blues-shouter, wide pitch sway, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, yellow brass canonical brass band conn vintage early jazz canon front line cornet, ebonite hard rubber klezmer tradition front line clarinet, alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, red brass 90 10 darker orchestral bach 42 canonical American orchestral tenor ensemble student commercial trombone, growly gut upright bass, compensated bridge snuffy smith scruggs stelling bluegrass setup mastertone flathead banjo 5 string, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre.",
+      "recipe_chars": 1000
     },
     {
       "id": "talking_blues_dustbowl",
@@ -2521,8 +2472,8 @@
       "id": "greek_entechno",
       "name": "Greek éntechno",
       "family": "global",
-      "recipe": "classic Southern European 1957-1959 greek éntechno, ballad Poetry, Greek entechno branch, middle eastern classical art music maghrebi andalusi nuba libyan maluf. thick, breath veiled tone, slow rate, interlocked note trading. walnut staves canonical Greek steel canonical octave unison pairs drone like modal bouzouki, cedar carbon fiber fingerpicked classical nylon-string guitar, beech laminated maple laminated European tradition European spruce norway spruce grand piano, sustained legato string quartet inst, carpathian spruce European maple sycamore maple oil varnish amber tinted violin orchestral. athens major label 1955-1985 mid tier athens minos studios 60s 70s. large-diaphragm condenser, tube pre, Emi redd.51, vari-mu, passive program EQ. tape 15ips plate reverb.",
-      "recipe_chars": 777
+      "recipe": "classic Southern European 1957-1959 greek éntechno, ballad Poetry, Greek entechno branch, middle eastern classical art music libyan maluf tunisian malouf. thick, breath veiled tone, slow rate, interlocked note trading. walnut staves canonical Greek gut pre 1950s rebetiko ornamented bouzouki, cedar carbon fiber fingerpicked classical nylon-string guitar, beech laminated maple laminated European tradition European spruce norway spruce grand piano, sustained legato string quartet inst, carpathian spruce European maple sycamore maple oil varnish amber tinted violin orchestral. athens major label 1955-1985 mid tier athens minos studios 60s 70s. large-diaphragm condenser, tube pre, Emi redd.51, vari-mu, passive program EQ. tape 15ips plate reverb.",
+      "recipe_chars": 751
     },
     {
       "id": "nwobhm",
@@ -2626,15 +2577,8 @@
       "id": "russian_orthodox_chant",
       "name": "Russian Orthodox liturgical chant",
       "family": "global",
-      "recipe": "classic modern russian orthodox liturgical chant, ritual Devotional, Russian orthodox branch, christian gospel coptic coptic liturgical chant ethiopian tewahedo zema chant. thick, declaimed, straight note core, interlocked note trading. a cappella small 3 to 8 one per part four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble, choir russian orthodox. cathedral. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 558
-    },
-    {
-      "id": "coptic_liturgical",
-      "name": "Coptic liturgical chant",
-      "family": "global",
-      "recipe": "classic modern coptic liturgical chant, ritual Devotional, coptic branch, middle eastern classical art music andalusī nūba azerbaijani mugham. thick, breath veiled tone, slow rate, interlocked note trading. polyrhythmic vocal layering independent cycles sardinian cantu a tenore oche mesu contra bassu sacred liturgical global choir ensemble. cathedral. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 483
+      "recipe": "classic modern russian orthodox liturgical chant, ritual Devotional, Russian orthodox branch, christian gospel coptic ethiopian tewahedo zema chant syriac orthodox liturgical chant. thick, breath veiled tone, straight note core, interlocked note trading. mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble, choir russian orthodox. cathedral. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 575
     },
     {
       "id": "bro_country",
@@ -2693,13 +2637,6 @@
       "recipe_chars": 613
     },
     {
-      "id": "melodic_death_swedish",
-      "name": "Melodic death metal (Swedish)",
-      "family": "global",
-      "recipe": "classic mid-1990s melodic death metal, distorted Rock, death branch, power metal. thick, breath veiled tone, straight note core, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 531
-    },
-    {
       "id": "technical_death_metal",
       "name": "Technical death metal",
       "family": "global",
@@ -2712,13 +2649,6 @@
       "family": "global",
       "recipe": "classic early-1990s brutal death metal, distorted Rock, death branch, thrash metal groove metal djent. thick, breath veiled tone, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modeled amp modern rig mahogany ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
       "recipe_chars": 538
-    },
-    {
-      "id": "norwegian_2nd_wave_black",
-      "name": "Norwegian 2nd-wave black metal",
-      "family": "global",
-      "recipe": "classic North American 1990-1993 norwegian 2nd-wave black metal, distorted Rock, black branch, ambient experimental electric witch house vaporwave aesthetic. thick, false fold engaged, straight onset, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ernie ball slinky electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit. bedroom. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-      "recipe_chars": 576
     },
     {
       "id": "gospel_quartet_male",
@@ -3116,8 +3046,8 @@
       "id": "garifuna_paranda",
       "name": "Paranda (Garifuna)",
       "family": "global",
-      "recipe": "classic Caribbean late-2000s paranda, ritual Devotional, Afro-diasporic branch, west African griot ballad poetry hausa court music wassoulou. thick, breath veiled tone, straight note core, interlocked note trading. cedar concert modern carbon fiber fingerpicked classical nylon-string guitar, plastic synthetic maracas. trinidad calypso panyard outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 416
+      "recipe": "classic Caribbean late-2000s paranda, ritual Devotional, Afro-diasporic branch, west African griot ballad poetry hausa court music wassoulou. thick, breath veiled tone, straight note core, interlocked note trading. cedar concert modern carbon fiber fingerpicked classical nylon-string guitar, plastic synthetic maracas, durable synthetic oak staved modern atabaque, gourd seeds hardwood handle canonical garifuna paranda accompaniment canonical garifuna sisera, interlocking song accompaniment hardwood shell deerskin head garaon. trinidad calypso panyard outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 627
     },
     {
       "id": "cadence_lypso",
@@ -3130,8 +3060,8 @@
       "id": "kompa_direkt",
       "name": "Kompa-direkt (Haitian)",
       "family": "global",
-      "recipe": "classic Caribbean mid-1950s kompa-direkt, groove Percussion, Caribbean branch, American jazz early swing-era jazz orchestra dixieland. thick, breath veiled tone, straight onset, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright clean strummed single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes drum kit, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, synthetic remo fiberskyn modern stable congas. port au prince Haitian recording 1970-2000 indie-commercial port au prince haitian kompa studio. sennheiser MD421, transformer-coupled solid-state pre, colored vintage console, optical compressor, parametric EQ. tape 15ips spring reverb.",
-      "recipe_chars": 855
+      "recipe": "classic Caribbean mid-1950s kompa-direkt, groove Percussion, Caribbean branch, American jazz early swing-era jazz orchestra new orleans jazz. thick, breath veiled tone, straight onset, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright open string slide resonance single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, congas. port au prince Haitian recording 1970-2000 indie-commercial port au prince haitian kompa studio. sennheiser MD421, transformer-coupled solid-state pre, colored vintage console, optical compressor, parametric EQ. tape 15ips spring reverb.",
+      "recipe_chars": 847
     },
     {
       "id": "bouyon",
@@ -3179,8 +3109,8 @@
       "id": "tarab_egyptian",
       "name": "Tarab (Egyptian classical)",
       "family": "global",
-      "recipe": "classic North African mid-1950s tarab, improv On Frame, Persian arab improv branch, middle eastern classical art music, Sufi ritual devotional armenian liturgical and folk andalusī nūba. thick, breath veiled tone, slow rate, interlocked note trading. padauk Egyptian Syrian premium Lebanese cedar eastern Mediterranean pyramid oud, metal finger picks rosewood body arab premium goat skin bridge plate qanun, brass nickel silver Egyptian modern hassan kassai canonical 20th century Persian radif continuous-airflow legato ney, court tradition pre twentieth century takht arab, traditional kanun kanun, half rectified carpathian spruce European maple sycamore maple cremonese pre 1750 violin orchestral. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb.",
-      "recipe_chars": 903
+      "recipe": "classic North African mid-1950s tarab, improv On Frame, Persian arab improv branch, middle eastern classical art music, Sufi ritual devotional armenian liturgical and folk andalusī nūba. thick, breath veiled tone, slow rate, interlocked note trading. padauk Egyptian Syrian premium Lebanese cedar eastern Mediterranean pyramid oud, metal finger picks rosewood body arab premium goat skin bridge plate qanun, brass nickel silver Egyptian modern hassan kassai canonical 20th century Persian radif continuous-airflow legato ney, court tradition pre twentieth century takht arab, traditional kanun kanun, half rectified carpathian spruce European maple sycamore maple oil varnish violin orchestral. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb.",
+      "recipe_chars": 896
     },
     {
       "id": "arabesk_turkish",
@@ -3221,8 +3151,8 @@
       "id": "iraqi_maqam",
       "name": "Iraqi maqam (al-Maqam al-Iraqi)",
       "family": "global",
-      "recipe": "classic Middle Eastern early-1940s iraqi maqam, improv On Frame, Persian arab improv branch, middle eastern classical art music armenian liturgical and folk turkish makam. thick, breath veiled tone, slow rate, interlocked note trading. santur, metal finger picks maple body Turkish school goat skin bridge plate qanun, spun aluminum Egyptian sombaty goat skin Turkish darbuka regional iraqi maqam zarb drier finger darbuka, rosewood mop inlay canonical Egyptian takht fish skin canonical Egyptian light responsive brass jingles canonical takht riq. baghdad iraqi maqam context. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb.",
-      "recipe_chars": 688
+      "recipe": "classic Middle Eastern early-1940s iraqi maqam, improv On Frame, Persian arab improv branch, middle eastern classical art music armenian liturgical and folk turkish makam. thick, breath veiled tone, slow rate, interlocked note trading. santur, metal finger picks maple body Turkish school goat skin bridge plate qanun, spun aluminum Egyptian sombaty goat skin Turkish darbuka regional iraqi maqam zarb drier finger darbuka, rosewood mop inlay canonical Egyptian takht fish skin canonical Egyptian light responsive brass jingles canonical takht riq, coconut shell resonator skin face canonical baghdadi chalghi ensemble lead canonical iraqi maqam legato joza, small kettle pair stick struck canonical chalghi time keeping chalghi time keeping canonical baghdadi maqam naqqarat. baghdad iraqi maqam context. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb.",
+      "recipe_chars": 916
     },
     {
       "id": "shomyo_japanese",
@@ -3291,8 +3221,8 @@
       "id": "mande_griot",
       "name": "Mandé jeli",
       "family": "global",
-      "recipe": "classic West African modern mandé jeli, ballad Poetry, west African griot branch, west African groove percussion, Sufi ritual devotional, African pop functional song sufi inshad congolese rumba. griot voice, nylon fishing line cowhide mande traditional mande hardwood kora, balafon, calabash gourd canonical bambara cowhide nylon modern call-and-response ngoni, donso ritual large calabash mande call-and-response donso ngoni, bell on shell iroko west African premium cowhide rope lacing canonical mande dunun, goat skin canonical jola call-and-response akonting, gourd cowhide call-and-response xalam. bamako griot jeli compound. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 760
+      "recipe": "classic West African modern mandé jeli, ballad Poetry, west African griot branch, west African groove percussion, Sufi ritual devotional, African pop functional song sufi inshad congolese rumba. thick, declaimed, straight onset, interlocked note trading. griot voice, nylon fishing line cowhide mande traditional mande hardwood kora, balafon, calabash gourd canonical bambara cowhide nylon modern call-and-response ngoni, donso ritual large calabash mande call-and-response donso ngoni, bell on shell iroko west African premium cowhide rope lacing canonical mande dunun, goat skin canonical jola call-and-response akonting, gourd cowhide call-and-response xalam. bamako griot jeli compound. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 820
     },
     {
       "id": "wassoulou",
@@ -3417,8 +3347,8 @@
       "id": "sardinian_traditional",
       "name": "Sardinian cantu a tenore and launeddas",
       "family": "global",
-      "recipe": "classic Southern European early-1500s sardinian cantu a tenore and launeddas, ballad Poetry, Mediterranean ballad branch, vocal drone modal macedonian glasoechko male diaphonic alpine yodel. kargyraa, false fold engaged, straight note core, interlocked note trading. cane arundo donax three pipes canonical sardinian archaic idioglottic single reeds canonical sardinian drone like circular breathing launeddas, m1 modal compound with overtone tuning khoomei foundational mechanism 8th to 12th partial overtone range Mediterranean pastoral polyphonic subharmonic bassu throat singing voice. sardinian outdoor a tenore polyphony. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 690
+      "recipe": "classic Southern European early-1500s sardinian cantu a tenore and launeddas, ballad Poetry, Mediterranean ballad branch, vocal drone modal macedonian glasoechko male diaphonic alpine yodel. kargyraa, false fold engaged, straight note core, interlocked note trading. cane arundo donax three pipes canonical sardinian archaic idioglottic single reeds canonical sardinian drone like circular breathing launeddas, m1 modal compound with overtone tuning khoomei foundational mechanism 8th to 12th partial overtone range Mediterranean pastoral polyphonic subharmonic bassu throat singing voice, leather castagnari Italian premium folk music drone like accordion, softer tone ebonite hard rubber klezmer tradition clarinet. sardinian outdoor a tenore polyphony. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 818
     },
     {
       "id": "italian_southern_folk",
@@ -3494,8 +3424,8 @@
       "id": "aka_baka_polyphony",
       "name": "Aka / Baka forest forager polyphony",
       "family": "global",
-      "recipe": "classic mid-1970s aka / baka forest forager polyphony, drone Modal, heterophonic branch, indigenous ritual devotional, west African griot ballad poetry inuit katajjaq throat-singing game tuareg tendé pestle-rhythm song. sygyt, breath veiled tone, breath pulsed, interlocked note trading. a cappella small 3 to 8 one per part four voice polyphonic regional mbenga mbuti three voice ostinato hocket yodel global traditional polyphonic choir ensemble. forest clearing. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-      "recipe_chars": 540
+      "recipe": "classic mid-1970s aka / baka forest forager polyphony, drone Modal, heterophonic branch, indigenous ritual devotional, west African griot ballad poetry tuareg tendé pestle-rhythm song shipibo-conibo icaros healing songs. vocal fry, breath veiled tone, straight note core, interlocked note trading. a cappella small 3 to 8 one per part four voice polyphonic regional mbenga mbuti three voice ostinato hocket yodel global traditional polyphonic choir ensemble. forest clearing. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+      "recipe_chars": 550
     },
     {
       "id": "corsican_paghjella",
@@ -3529,8 +3459,8 @@
       "id": "silbo_gomero",
       "name": "Silbo Gomero whistled language",
       "family": "global",
-      "recipe": "classic modern silbo gomero whistled language, drone Modal, vocal branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, breath veiled tone, breath pulsed, interlocked note trading. lip aperture turbulent source whistled language signal communication whistled voice. canyon. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 400
+      "recipe": "classic modern silbo gomero whistled language, drone Modal, vocal branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, breath veiled tone, wide pitch sway, interlocked note trading. lip aperture turbulent source whistled language signal communication whistled voice. canyon. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 402
     },
     {
       "id": "sfyria_antia",
@@ -3666,18 +3596,11 @@
       "recipe_chars": 504
     },
     {
-      "id": "mongolian_urtiin_duu",
-      "name": "Mongolian urtiin duu long-song",
-      "family": "classical",
-      "recipe": "classic Northeast Asian early-1930s mongolian urtiin duu long-song, drone Modal, heterophonic branch, vocal drone modal northern sámi luohti yoik southern sámi vuelie. kargyraa, breath veiled tone, slow rate, interlocked note trading. long song morin khuur sycamore canonical mongolian horsehair 118 130 strands morin khuur. open steppe outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 408
-    },
-    {
       "id": "mongolian_khoomei",
       "name": "Mongolian khoomei overtone singing",
       "family": "global",
-      "recipe": "classic Northeast Asian early-1990s mongolian khoomei overtone singing, drone Modal, overtone branch, vocal drone modal northern sámi luohti yoik southern sámi vuelie. sygyt, breath veiled tone, slow rate, interlocked note trading. long song morin khuur sycamore canonical mongolian horsehair 118 130 strands morin khuur, mongolian tuvan tradition wood hide tovshuur. open steppe outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 451
+      "recipe": "classic Northeast Asian early-1990s mongolian khoomei overtone singing, drone Modal, overtone branch, vocal drone modal northern sámi luohti yoik southern sámi vuelie. sygyt, breath veiled tone, slow rate, interlocked note trading. long song morin khuur sycamore canonical mongolian horsehair 118 130 strands morin khuur, mongolian tuvan tradition wood hide tovshuur, m1 modal compound with overtone tuning khoomei foundational mechanism 8th to 12th partial overtone range himalayan ritual chant subharmonic monastic throat singing voice. open steppe outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 622
     },
     {
       "id": "tuvan_kargyraa",
@@ -3718,8 +3641,8 @@
       "id": "vietnamese_quan_ho",
       "name": "Vietnamese quan họ Bắc Ninh",
       "family": "global",
-      "recipe": "classic modern vietnamese quan họ bắc ninh, art Music, southeast Asian branch, indigenous ritual devotional inuit katajjaq throat-singing game shipibo-conibo icaros healing songs. kargyraa, breath veiled tone, breath pulsed, interlocked note trading. forest clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 330
+      "recipe": "classic modern vietnamese quan họ bắc ninh, art Music, southeast Asian branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, breath veiled tone, straight note core, interlocked note trading. forest clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 334
     },
     {
       "id": "vietnamese_hat_xoan",
@@ -3760,8 +3683,8 @@
       "id": "chinese_kunqu_opera",
       "name": "Chinese kunqu opera",
       "family": "classical",
-      "recipe": "classic Southeast Asian mid-1550s chinese kunqu opera, art Music, east Asian branch, east Asian Cantonese opera. thick, breath veiled tone, slow rate, interlocked note trading. jingju foundational python skin silk canonical traditional padauk mid tier sanxian, silk red sandalwood zitan premium pipa, composite material paulownia canonical Korean horse dog asymmetric canonical Korean pansori godo janggu. wooden pagoda hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 555
+      "recipe": "classic Southeast Asian mid-1550s chinese kunqu opera, art Music, east Asian branch, east Asian Cantonese opera. extended whistle, breath veiled tone, slow rate, interlocked note trading. jingju foundational python skin silk canonical traditional padauk mid tier sanxian, silk red sandalwood zitan premium pipa, composite material paulownia canonical Korean horse dog asymmetric canonical Korean pansori godo janggu. wooden pagoda hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 566
     },
     {
       "id": "tibetan_ache_lhamo",
@@ -3774,8 +3697,8 @@
       "id": "tibetan_yang_chant",
       "name": "Tibetan multiphonic yang chant",
       "family": "classical",
-      "recipe": "classic East Asian mid-1470s tibetan multiphonic yang chant, ritual Devotional, buddhist branch, overtone drone modal, east Asian Tibetan ritual tibetan ache lhamo opera khöömii. sygyt, breath veiled tone, slow rate, interlocked note trading. large paired bronze cymbals canonical Tibetan monastic yang chant ensemble canonical gelug monastic rolmo, conical bore double reed canonical Tibetan monastic gelug monastic ceremonial canonical Tibetan rgya gling, copper brass telescoping silver inlay canonical Tibetan build gelug monastic yang chant ritual dung chen, double headed cord pellets rotated canonical Tibetan gelug monastic ritual canonical Tibetan damaru, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble heavy one piece matched to monette horn trumpet. tibetan gompa assembly hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 913
+      "recipe": "classic East Asian mid-1470s tibetan multiphonic yang chant, ritual Devotional, buddhist branch, overtone drone modal, east Asian Tibetan ritual tibetan ache lhamo opera tuvan throat singing. sygyt, breath veiled tone, slow rate, interlocked note trading. large paired bronze cymbals canonical Tibetan monastic yang chant ensemble canonical gelug monastic rolmo, conical bore double reed canonical Tibetan monastic gelug monastic ceremonial canonical Tibetan rgya gling, copper brass telescoping silver inlay canonical Tibetan build gelug monastic yang chant ritual dung chen, double headed cord pellets rotated canonical Tibetan gelug monastic ritual canonical Tibetan damaru, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble heavy one piece matched to monette horn trumpet.",
+      "recipe_chars": 834
     },
     {
       "id": "japanese_gidayu_bushi",
@@ -3790,13 +3713,6 @@
       "family": "global",
       "recipe": "classic South Asian mid-1960s rajasthani manganiyar tradition, ballad Poetry, indian bard branch, south Asian art music, indian classical improv improv on frame thumrī carnatic vocal. thick, breath veiled tone, slow rate, interlocked note trading. mango sheesham wood canonical thar desert build gut main sympathetic resonance manganiyar hereditary lineage legato kamaicha, wooden castanet pair canonical manganiyar percussion manganiyar accompaniment canonical thar desert khartal, goat skin syahi rope laced steel ring dholak, gut 3 main playing strings tun cedar legato sarangi. manganiyar haveli courtyard. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
       "recipe_chars": 685
-    },
-    {
-      "id": "sardinian_cantu_a_tenore",
-      "name": "Sardinian cantu a tenore",
-      "family": "global",
-      "recipe": "classic Southern European late-1990s sardinian cantu a tenore, drone Modal, vocal branch, Mediterranean ballad ballad poetry, overtone drone modal xhosa umngqokolo overtone singing tuvan throat singing. sygyt, false fold engaged, breath pulsed, interlocked note trading. sardinian su zilleri stone bar. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-      "recipe_chars": 377
     },
     {
       "id": "croatian_klapa_dalmatian",
@@ -3823,22 +3739,22 @@
       "id": "armenian_duduk_chant",
       "name": "Armenian duduk-accompanied chant",
       "family": "global",
-      "recipe": "classic Caucasian early-1920s armenian duduk-accompanied chant, drone Modal, vocal branch, middle eastern classical art music, christian gospel coptic iraqi maqam of baghdad yemeni sanaani song. thick, breath veiled tone, slow rate, interlocked note trading. apricot canonical armenian prunus armeniaca arundo donax ghamish canonical armenian areni valley djivan gasparyan canonical 20th century armenian continuous-airflow legato duduk. stone armenian church. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 523
+      "recipe": "classic Caucasian early-1920s armenian duduk-accompanied chant, drone Modal, vocal branch, middle eastern classical art music, christian gospel coptic yemeni sanaani song armenian liturgical and folk. thick, breath veiled tone, slow rate, interlocked note trading. apricot canonical armenian prunus armeniaca arundo donax ghamish canonical armenian areni valley djivan gasparyan canonical 20th century armenian continuous-airflow legato duduk. stone armenian church. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 529
     },
     {
       "id": "lithuanian_sutartines",
       "name": "Lithuanian sutartinės multipart",
       "family": "global",
-      "recipe": "classic Northern European 1958-1959 lithuanian sutartinės multipart, drone Modal, vocal branch, indigenous ritual devotional inuit katajjaq throat-singing game shipibo-conibo icaros healing songs. kargyraa, breath veiled tone, straight note core, interlocked note trading. board zither finger plucked canonical lithuanian instrumental sutartines canonical lithuanian kankles, multiple tube pipes hocketed canonical lithuanian instrumental sutartines hocketed canonical lithuanian skuduciai. baltic outdoor village. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 577
+      "recipe": "classic Northern European 1958-1959 lithuanian sutartinės multipart, drone Modal, vocal branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, breath veiled tone, straight note core, interlocked note trading. board zither finger plucked canonical lithuanian instrumental sutartines canonical lithuanian kankles, multiple tube pipes hocketed canonical lithuanian instrumental sutartines hocketed canonical lithuanian skuduciai. baltic outdoor village. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 576
     },
     {
       "id": "estonian_setu_leelo",
       "name": "Estonian Setu leelo polyphonic song",
       "family": "global",
-      "recipe": "classic Northern European early-1990s estonian setu leelo polyphonic song, drone Modal, vocal branch, indigenous ritual devotional inuit katajjaq throat-singing game mapuche tayil genealogical chant. kargyraa, breath veiled tone, breath pulsed, interlocked note trading. setu farmhouse wood. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 354
+      "recipe": "classic Northern European early-1990s estonian setu leelo polyphonic song, drone Modal, vocal branch, indigenous ritual devotional mapuche tayil genealogical chant shipibo-conibo icaros healing songs. vocal fry, breath veiled tone, straight note core, interlocked note trading. setu farmhouse wood. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 361
     },
     {
       "id": "swedish_kulning",
@@ -3869,13 +3785,6 @@
       "recipe_chars": 331
     },
     {
-      "id": "inuit_katajjaq_games",
-      "name": "Inuit katajjaq throat-singing game",
-      "family": "global",
-      "recipe": "classic Pacific Northwest late-1990s inuit katajjaq throat-singing game, ritual Devotional, arctic branch, overtone drone modal tuvan throat singing khöömii. sygyt, false fold engaged, breath pulsed, interlocked note trading. iglu community hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 309
-    },
-    {
       "id": "mapuche_tayil_ritual",
       "name": "Mapuche tayil genealogical chant",
       "family": "global",
@@ -3890,18 +3799,11 @@
       "recipe_chars": 470
     },
     {
-      "id": "garifuna_paranda_hungu_hungu",
-      "name": "Garifuna paranda and hungu-hungu",
-      "family": "global",
-      "recipe": "classic Los Angeles early-1960s garifuna paranda and hungu-hungu, functional Song, tropical song branch, Caribbean groove percussion zydeco cadence-lypso. thick, breath veiled tone, wide pitch sway, interlocked note trading. cowhide canonical candomble jacaranda canonical bahian candomble atabaque, gourd seeds hardwood handle canonical garifuna paranda accompaniment canonical garifuna sisera, interlocking song accompaniment hardwood shell deerskin head garaon. garifuna beach hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 548
-    },
-    {
       "id": "cape_verdean_batuko",
       "name": "Cape Verdean batuko of Santiago Island",
       "family": "global",
-      "recipe": "classic West African modern cape verdean batuko of santiago island, ballad Poetry, morna branch, tropical song functional song garifuna paranda and hungu-hungu kompa. vocal fry, breath veiled tone, straight note core, interlocked note trading. batuko outdoor village. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 330
+      "recipe": "classic West African modern cape verdean batuko of santiago island, ballad Poetry, morna branch, tropical song functional song merengue urbano garifuna punta-rock. vocal fry, breath veiled tone, slow rate, interlocked note trading. batuko outdoor village. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 318
     },
     {
       "id": "brazilian_samba_de_roda",
@@ -3939,25 +3841,11 @@
       "recipe_chars": 369
     },
     {
-      "id": "iraqi_maqam_baghdad",
-      "name": "Iraqi maqam of Baghdad",
-      "family": "classical",
-      "recipe": "classic Middle Eastern early-1900s iraqi maqam of baghdad, art Music, middle eastern classical branch, Persian arab improv improv on frame tarab turkish-romani çümbüş music. vocal fry, breath veiled tone, slow rate, interlocked note trading. drone like modal santur, coconut shell resonator skin face canonical baghdadi chalghi ensemble lead canonical iraqi maqam legato joza, rosewood mop inlay canonical Egyptian takht fish skin canonical Egyptian light responsive brass jingles canonical takht riq, spun aluminum Egyptian sombaty synthetic remo mylar modern canonical Egyptian iraqi maqam zarb drier finger darbuka, small kettle pair stick struck canonical chalghi time keeping chalghi time keeping canonical baghdadi maqam naqqarat. iraqi baghdad chamber. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb.",
-      "recipe_chars": 870
-    },
-    {
       "id": "coptic_orthodox_chant",
       "name": "Coptic Orthodox liturgical chant",
       "family": "classical",
       "recipe": "classic North African early-1890s coptic orthodox liturgical chant, ritual Devotional, coptic branch, western early art music ars antiqua and organum renaissance sacred polyphony. thick, breath veiled tone, straight note core, interlocked note trading. mixed satb canonical 4 part western three voice polyphonic regional andean three voice parallel thirds quechua aymara sacred liturgical global choir ensemble, paired bronze small canonical coptic orthodox coptic liturgical hymn canonical Egyptian orthodox sanj, metal triangle struck rod canonical coptic liturgical coptic specific hymn canonical Egyptian orthodox muthallath. coptic basilica. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
       "recipe_chars": 709
-    },
-    {
-      "id": "maghrebi_andalusi_nuba",
-      "name": "Maghrebi Andalusi nuba",
-      "family": "classical",
-      "recipe": "classic North African early-1490s maghrebi andalusi nuba, art Music, middle eastern classical branch, Persian arab improv improv on frame tarab turkish-romani çümbüş music. vocal fry, breath veiled tone, slow rate, interlocked note trading. a cappella small 3 to 8 one per part five voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble, walnut ribs canonical mid tier spruce face pyramid nylon oud, heterophonic melodic lead legato rabab maghribi, metal finger picks walnut body canonical decorative goat skin bridge plate gut historical qanun, spun aluminum Egyptian sombaty synthetic remo mylar modern canonical Egyptian Egyptian sombaty canonical mid east darbuka. nuba courtyard hall. large-diaphragm condenser, German V72 tube pre, German tube console. tape 15ips.",
-      "recipe_chars": 835
     },
     {
       "id": "tigrinya_music_eritrean",
@@ -3977,8 +3865,8 @@
       "id": "somali_qaraami",
       "name": "Somali qaraami song",
       "family": "global",
-      "recipe": "classic Middle Eastern mid-1940s somali qaraami song, ballad Poetry, med east poetic branch, middle eastern classical art music maghrebi andalusi nuba iraqi maqam of baghdad. vocal fry, breath veiled tone, slow rate, interlocked note trading. nylon plastic walnut ribs canonical mid tier spruce face oud, metal finger picks walnut body canonical decorative goat skin bridge plate gut historical qanun, spun aluminum Egyptian sombaty synthetic remo mylar modern canonical Egyptian iraqi maqam zarb drier finger darbuka. qat chew majlis room. dynamic moving-coil, transformer-coupled solid-state pre, BBC broadcast console, optical compressor, passive program EQ. indian/lebanese/greek vinyl pressing spring reverb.",
-      "recipe_chars": 713
+      "recipe": "classic Middle Eastern mid-1940s somali qaraami song, ballad Poetry, med east poetic branch, middle eastern classical art music libyan maluf sawt. vocal fry, breath veiled tone, slow rate, interlocked note trading. nylon plastic walnut ribs canonical mid tier Lebanese cedar oud, metal finger picks walnut body canonical decorative goat skin bridge plate qanun, spun aluminum Egyptian sombaty goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka. qat chew majlis room. dynamic moving-coil, transformer-coupled solid-state pre, BBC broadcast console, optical compressor, passive program EQ. indian/lebanese/greek vinyl pressing spring reverb.",
+      "recipe_chars": 667
     },
     {
       "id": "sudanese_aghani_al_banat",
@@ -4005,7 +3893,7 @@
       "id": "donsongoni_hunter_harp",
       "name": "Donsongoni hunter's harp (Mande)",
       "family": "global",
-      "recipe": "classic East African modern donsongoni hunter's harp, ballad Poetry, west African griot branch, indigenous ritual devotional shipibo-conibo icaros healing songs ju|'hoansi healing songs. vocal fry, breath veiled tone, pure, interlocked note trading. donso ritual large calabash mande gut pre modern hunters donso ngoni, foundational low fundamental tuning deep calabash inverted calabash, hunters four string bolon. tanzanian outdoor village clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe": "classic East African modern donsongoni hunter's harp, ballad Poetry, west African griot branch, indigenous ritual devotional ju|'hoansi healing songs shipibo-conibo icaros healing songs. vocal fry, breath veiled tone, pure, interlocked note trading. donso ritual large calabash mande gut pre modern hunters donso ngoni, foundational low fundamental tuning deep calabash inverted calabash, hunters four string bolon. tanzanian outdoor village clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
       "recipe_chars": 514
     },
     {
@@ -4103,8 +3991,8 @@
       "id": "khaliji_gulf",
       "name": "Khaliji (Arabian Gulf music)",
       "family": "global",
-      "recipe": "classic Middle Eastern mid-1970s khaliji, functional Song, mid east n African pop branch, middle eastern classical art music maghrebi andalusi nuba shashmaqam. extended whistle, breath veiled tone, slow rate, interlocked note trading. walnut ribs canonical mid tier spruce face pyramid nylon oud, spun aluminum Egyptian sombaty synthetic remo mylar modern canonical Egyptian Egyptian sombaty canonical mid east darbuka. qat chew majlis room. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 504
+      "recipe": "classic Middle Eastern mid-1970s khaliji, functional Song, mid east n African pop branch, middle eastern classical art music shashmaqam uyghur on ikki muqam. extended whistle, breath veiled tone, slow rate, interlocked note trading. walnut ribs canonical mid tier Lebanese cedar eastern Mediterranean pyramid oud, spun aluminum Egyptian sombaty synthetic remo mylar modern canonical Egyptian Egyptian sombaty canonical mid east darbuka. qat chew majlis room. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 521
     },
     {
       "id": "sawt_bahraini_kuwaiti",
@@ -4271,8 +4159,8 @@
       "id": "qinqiang_shaanxi",
       "name": "Qinqiang (Shaanxi opera, \"the ancestor of bangzi\")",
       "family": "classical",
-      "recipe": "classic Southeast Asian late-1940s qinqiang, art Music, east Asian branch, east Asian Cantonese opera. vocal fry, breath veiled tone, slow rate, interlocked note trading. silk canonical traditional sanxian, composite material janggu. wooden pagoda hall. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-      "recipe_chars": 326
+      "recipe": "classic Southeast Asian late-1940s qinqiang, art Music, east Asian branch, east Asian Cantonese opera. vocal fry, breath veiled tone, slow rate, interlocked note trading. silk canonical traditional sanxian, composite material paulownia canonical Korean horse dog asymmetric canonical Korean pansori godo janggu. wooden pagoda hall. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+      "recipe_chars": 404
     },
     {
       "id": "yu_opera_henan",
@@ -4320,15 +4208,15 @@
       "id": "korean_sinawi",
       "name": "Korean sinawi (shaman ensemble improvisation)",
       "family": "classical",
-      "recipe": "classic East Asian mid-1930s korean sinawi, art Music, east Asian branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. extended whistle, breath veiled tone, pure, interlocked note trading. composite material paulownia canonical Korean horse dog asymmetric canonical Korean pansori godo janggu, cheonsa clear modal non rough toeseong descending off glide jungmori medium 12 4 narrative no interjected chuimsae solo cross tradition fusion concert context pansori voice, silk canonical Korean court paulownia canonical Korean haegeum, traditional membrane buzz bamboo daegeum, forsythia canonical Korean paulownia canonical Korean silk canonical Korean court ajaeng. korean gugak hall. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-      "recipe_chars": 809
+      "recipe": "classic East Asian mid-1930s korean sinawi, art Music, east Asian branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. extended whistle, breath veiled tone, pure, interlocked note trading. paulownia canonical Korean horse dog asymmetric canonical Korean pansori godo janggu, cheonsa clear modal non rough toeseong descending off glide jungmori medium 12 4 narrative no interjected chuimsae solo cross tradition fusion concert context pansori voice, silk canonical Korean court paulownia canonical Korean haegeum, traditional membrane buzz bamboo daegeum, forsythia canonical Korean paulownia canonical Korean silk canonical Korean court ajaeng. korean gugak hall. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+      "recipe_chars": 790
     },
     {
       "id": "korean_chongmyo_jeryeak",
       "name": "Chongmyo jeryeak (royal ancestral shrine music)",
       "family": "classical",
-      "recipe": "classic East Asian mid-1460s chongmyo jeryeak, art Music, east Asian branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. thick, breath veiled tone, slow rate, interlocked note trading. a cappella small 3 to 8 one per part four voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble, composite material paulownia canonical Korean horse dog asymmetric canonical Korean pungmul outdoor village pre samul nori janggu. korean gugak hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 614
+      "recipe": "classic East Asian mid-1460s chongmyo jeryeak, art Music, east Asian branch, indigenous ritual devotional shipibo-conibo icaros healing songs māori waiata + taonga pūoro. extended whistle, breath veiled tone, slow rate, interlocked note trading. a cappella small 3 to 8 one per part four voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu choir ensemble, composite material paulownia canonical Korean horse dog asymmetric canonical Korean pungmul outdoor village pre samul nori janggu. korean gugak hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 590
     },
     {
       "id": "korean_trot",
@@ -4488,8 +4376,8 @@
       "id": "papua_new_guinean_polyphony",
       "name": "Papua New Guinean panpipe and polyphonic singing",
       "family": "global",
-      "recipe": "classic Southeast Asian mid-1970s papua new guinean panpipe and polyphonic singing, drone Modal, heterophonic branch, indigenous ritual devotional inuit katajjaq throat-singing game shipibo-conibo icaros healing songs. sygyt, breath veiled tone, breath pulsed, interlocked note trading. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 444
+      "recipe": "classic Southeast Asian mid-1970s papua new guinean panpipe and polyphonic singing, drone Modal, heterophonic branch, indigenous ritual devotional shipibo-conibo icaros healing songs mongolian böö shamanic invocation. vocal fry, breath veiled tone, pure, interlocked note trading. jakarta dangdut defining 1968-present indie-commercial jakarta bangkok southeast asian studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 438
     },
     {
       "id": "solomon_islands_panpipe",
@@ -4544,8 +4432,8 @@
       "id": "quechua_wayno_traditional",
       "name": "Quechua wayno (traditional Andean)",
       "family": "global",
-      "recipe": "classic Andean modern quechua wayno, ballad Poetry, Latin am troubadour branch, indigenous ritual devotional shipibo-conibo icaros healing songs fijian meke. thick, breath veiled tone, straight note core, interlocked note trading. bamboo melodic quena, naranjillo andean premium wood cedar andean andean classical charango, guanaco hide hide ceibo canonical Argentine leguero hollowed trunk bombo andino, call ritual conch shell horn, ceramic melodic ocarina, altiplano lead carrying mara canonical single block tarka. bogota colombian andean studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 613
+      "recipe": "classic Andean modern quechua wayno, ballad Poetry, Latin am troubadour branch, indigenous ritual devotional shipibo-conibo icaros healing songs fijian meke. thick, breath veiled tone, straight note core, interlocked note trading. bamboo melodic quena, naranjillo andean premium wood cedar andean andean classical charango, guanaco hide hide ceibo canonical Argentine leguero hollowed trunk bombo andino, call ritual conch shell horn, ceramic melodic ocarina, altiplano lead carrying mara canonical single block tarka, basswood mahogany rosewood humbucker electric guitar. bogota colombian andean studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 667
     },
     {
       "id": "mapuche_ulkantun",
@@ -4635,7 +4523,7 @@
       "id": "flamenco_solea",
       "name": "Soleá (flamenco \"mother of cante\")",
       "family": "global",
-      "recipe": "classic North African early-1950s soleá, ballad Poetry, Mediterranean ballad branch, indigenous ritual devotional shipibo-conibo icaros healing songs ju|'hoansi healing songs. vocal fry, breath veiled tone, pure, interlocked note trading. cypress body percussive attack strong flamenco tradition rasgueado strum picado scale runs flamenco guitar. casablanca and marrakech recording 1970-present indie-commercial casablanca chaabi moroccan studio. Neumann U47, tube pre, colored vintage console, LA-2A optical, passive program EQ. tape 15ips plate reverb.",
+      "recipe": "classic North African early-1950s soleá, ballad Poetry, Mediterranean ballad branch, indigenous ritual devotional ju|'hoansi healing songs shipibo-conibo icaros healing songs. vocal fry, breath veiled tone, pure, interlocked note trading. cypress body percussive attack strong flamenco tradition rasgueado strum picado scale runs flamenco guitar. casablanca and marrakech recording 1970-present indie-commercial casablanca chaabi moroccan studio. Neumann U47, tube pre, colored vintage console, LA-2A optical, passive program EQ. tape 15ips plate reverb.",
       "recipe_chars": 554
     },
     {
@@ -4726,8 +4614,8 @@
       "id": "cypriot_tsiattista",
       "name": "Cypriot tsiattista (improvised dueling couplets)",
       "family": "global",
-      "recipe": "classic Southern European modern cypriot tsiattista, ballad Poetry, med east poetic branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. kargyraa, breath veiled tone, breath pulsed, interlocked note trading. sitka spruce spirit varnish shellac alcohol violin orchestral, spruce face oud. athens major label 1955-1985 mid tier athens minos studios 60s 70s. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 472
+      "recipe": "classic Southern European modern cypriot tsiattista, ballad Poetry, med east poetic branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. extended whistle, breath veiled tone, straight note core, interlocked note trading. sitka spruce spirit varnish shellac alcohol violin orchestral, spruce face oud. athens major label 1955-1985 mid tier athens minos studios 60s 70s. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 485
     },
     {
       "id": "latvian_dainas",
@@ -4740,8 +4628,8 @@
       "id": "karelian_rune_singing",
       "name": "Karelian rune-singing (Kalevala-meter)",
       "family": "global",
-      "recipe": "classic mid-1830s karelian rune-singing, ballad Poetry, Slavic bard branch, indigenous ritual devotional inuit katajjaq throat-singing game shipibo-conibo icaros healing songs. sygyt, breath veiled tone, breath pulsed, interlocked note trading. birch alder karelian kantele. mountain valley. acoustic horn. wax cylinder.",
-      "recipe_chars": 320
+      "recipe": "classic mid-1830s karelian rune-singing, ballad Poetry, Slavic bard branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, breath veiled tone, straight note core, interlocked note trading. birch alder karelian kantele. mountain valley. acoustic horn. wax cylinder.",
+      "recipe_chars": 327
     },
     {
       "id": "faroese_kvaedi",
@@ -4964,8 +4852,8 @@
       "id": "chacarera_argentina",
       "name": "Chacarera (Argentine northwest)",
       "family": "global",
-      "recipe": "classic Mexican early-1930s chacarera, ballad Poetry, Latin am troubadour branch, indigenous ritual devotional mongolian böö shamanic invocation inuit katajjaq throat-singing game. sygyt, breath veiled tone, breath pulsed, interlocked note trading. rosewood coated nanoweb fingerpicked parlor acoustic guitar, rim accented bombo leguero. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 484
+      "recipe": "classic Mexican early-1930s chacarera, ballad Poetry, Latin am troubadour branch, indigenous ritual devotional mongolian böö shamanic invocation shipibo-conibo icaros healing songs. thick, breath veiled tone, fast rate, interlocked note trading. coated nanoweb fingerpicked parlor acoustic guitar, rim accented bombo leguero. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 472
     },
     {
       "id": "zamba_argentina",
@@ -5006,8 +4894,8 @@
       "id": "champeta_cartagenera",
       "name": "Champeta (Cartagena Afro-Colombian)",
       "family": "global",
-      "recipe": "classic Andean mid-1980s champeta, functional Song, tropical song branch, Afro-diasporic MC rhythm south african kwaito kwaito. thick, full chest belt, slow rate, interlocked note trading. basswood mahogany soft down tuning clean strummed humbucker electric guitar, mahogany pyramid pure nickel bass British mid 60s era thumb muted electric bass, TR-808. bogota colombian andean studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 516
+      "recipe": "classic Andean mid-1980s champeta, functional Song, tropical song branch, Afro-diasporic MC rhythm south african kwaito kwaito. extended whistle, full chest belt, slow rate, interlocked note trading. basswood mahogany lower tension down tuning clean strummed humbucker electric guitar, mahogany pyramid pure nickel bass British mid 60s era thumb muted electric bass, TR-808. bogota colombian andean studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 536
     },
     {
       "id": "sertanejo_universitario",
@@ -5064,20 +4952,6 @@
       "family": "global",
       "recipe": "classic Southern American modern jongo, ritual Devotional, Afro-diasporic branch, Brazilian groove percussion pagode embolada. vocal fry, breath veiled tone, straight note core, interlocked note trading. tambourine orch. estudios scatena sp. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
       "recipe_chars": 304
-    },
-    {
-      "id": "quechua_wayno_modern",
-      "name": "Quechua wayno modern revival",
-      "family": "global",
-      "recipe": "classic Andean mid-1980s quechua wayno modern revival, ballad Poetry, Latin am troubadour branch, country functional song country rock western swing. thick, breath veiled tone, wide pitch sway, interlocked note trading. pvc melodic quena, naranjillo andean premium wood cedar andean andean classical charango, composite material ceibo canonical Argentine leguero hollowed trunk bombo andino, Fender blackface amp American 60s amp spring reverb bright basswood maple humbucker electric guitar. bogota colombian andean studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 587
-    },
-    {
-      "id": "maya_marimba_guatemalteca",
-      "name": "Maya marimba (Guatemalan Highlands)",
-      "family": "global",
-      "recipe": "classic Mexican modern maya marimba, groove Percussion, Latin am branch, Brazilian groove percussion pagode. chromatic ensemble grande multi player full ensemble marimba centroamericana, large diameter venice catlin high twist renaissance bass double bass. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 403
     },
     {
       "id": "classical_period_18c",
@@ -5146,7 +5020,7 @@
       "id": "holy_minimalism",
       "name": "Holy Minimalism (late 20th-century spiritual minimalism)",
       "family": "classical",
-      "recipe": "classic Caucasian mid-1970s holy minimalism, art Music, western modern branch, christian gospel ritual devotional russian orthodox liturgical chant sacred steel. thick, declaimed, straight onset, interlocked note trading. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. stone armenian church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe": "classic Caucasian mid-1970s holy minimalism, art Music, western modern branch, christian gospel ritual devotional russian orthodox liturgical chant sacred steel. thick, declaimed, straight onset, interlocked note trading. modern bright beech laminated maple laminated European tradition sitka spruce grand piano, mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. stone armenian church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
       "recipe_chars": 621
     },
     {
@@ -5216,8 +5090,8 @@
       "id": "ars_nova_french",
       "name": "Ars Nova (fourteenth-century French)",
       "family": "classical",
-      "recipe": "classic European early-1300s ars nova, art Music, western early branch, christian gospel ritual devotional bluegrass gospel sacred steel. thick, declaimed, straight note core, leader call answered. a cappella small 3 to 8 one per part drone plus voices sustained pedal under melody svanetian complex three voice highland polyphonic choir ensemble, rhythmic dance driving vielle medieval, single rank treble piping single line portative organ, single trapezoid box fingertip plucking medieval psaltery. parish church. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
-      "recipe_chars": 591
+      "recipe": "classic European early-1300s ars nova, art Music, western early branch, christian gospel ritual devotional sacred steel jubilee quartet. thick, declaimed, straight note core, leader call answered. a cappella small 3 to 8 one per part four voice polyphonic regional svanetian complex three voice highland polyphonic choir ensemble, rhythmic dance driving vielle medieval, single rank treble piping single line portative organ, single trapezoid box fingertip plucking medieval psaltery. parish church. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+      "recipe_chars": 574
     },
     {
       "id": "burgundian_school",
@@ -5272,8 +5146,8 @@
       "id": "shakers_singing",
       "name": "Shaker singing (Shaker hymnody)",
       "family": "classical",
-      "recipe": "classic North American late-1840s shaker singing, ritual Devotional, christian gospel branch, American sacred ritual devotional sacred harp shape-note. thick, declaimed, slow rate, interlocked note trading. mountain valley. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-      "recipe_chars": 318
+      "recipe": "classic North American late-1840s shaker singing, ritual Devotional, christian gospel branch, American sacred ritual devotional. thick, declaimed, slow rate, interlocked note trading. mountain valley. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+      "recipe_chars": 295
     },
     {
       "id": "mormon_tabernacle_choir",
@@ -5286,8 +5160,8 @@
       "id": "byzantine_psaltic",
       "name": "Byzantine psaltic art (modern Greek Orthodox)",
       "family": "classical",
-      "recipe": "classic Caucasian mid-1810s byzantine psaltic art, ritual Devotional, christian gospel branch, middle eastern classical art music libyan maluf maghrebi andalusi nuba. thick, breath veiled tone, slow rate, interlocked note trading. three voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble. stone armenian church. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-      "recipe_chars": 452
+      "recipe": "classic Caucasian mid-1810s byzantine psaltic art, ritual Devotional, christian gospel branch, middle eastern classical art music libyan maluf azerbaijani mugham. thick, breath veiled tone, slow rate, interlocked note trading. three voice polyphonic regional kakhetian three voice two soloists choral drone global traditional polyphonic choir ensemble. stone armenian church. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+      "recipe_chars": 448
     },
     {
       "id": "renaissance_madrigal",
@@ -5337,13 +5211,6 @@
       "family": "classical",
       "recipe": "classic Southern European mid-1890s canzone napoletana, functional Song, iberian branch, Mediterranean ballad ballad poetry kabyle music greek nisiotika. thick, breath veiled tone, slow rate, interlocked note trading. bowl back Italian German spruce classical leaning phosphor bronze bronze mandolin, cedar phosphor bronze bronze fingerpicked parlor acoustic guitar, cold pressed weikert felt beech laminated maple laminated European tradition grand piano. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. Neumann U67, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
       "recipe_chars": 661
-    },
-    {
-      "id": "dixieland_traditional_jazz",
-      "name": "Dixieland (traditional/New Orleans-Chicago)",
-      "family": "jazz",
-      "recipe": "classic North American mid-1910s dixieland, improv On Frame, early branch, American jazz pre jazz ragtime. bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, grenadilla African blackwood traditional front line clarinet, bach 42 canonical American orchestral tenor front line student commercial trombone, growly gut upright bass, vintage ambassador asymmetric brushes drum kit, walnut warmer than maple scruggs stelling bluegrass setup mastertone flathead banjo 5 string, yellow brass canonical brass band conn vintage early jazz canon front line cornet, chord friendly guitar topped tenor guitar. dry but alive 1948-1965 indie-commercial early tape us small. acoustic horn. 78rpm shellac.",
-      "recipe_chars": 722
     },
     {
       "id": "chicago_jazz_1920s",
@@ -6098,8 +5965,8 @@
       "id": "dungeon_synth",
       "name": "Dungeon synth",
       "family": "electronic",
-      "recipe": "classic mid-1990s dungeon synth, experimental Elec, ambient branch, indigenous ritual devotional inuit katajjaq throat-singing game shipibo-conibo icaros healing songs. resonant pad like pad analog synth. isolated rural 2005-present isolation diy isolation cabin diy. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 397
+      "recipe": "classic mid-1990s dungeon synth, experimental Elec, ambient branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. pad like pad analog synth. isolated rural 2005-present isolation diy isolation cabin diy. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 386
     },
     {
       "id": "outrun_synthwave",
@@ -6207,13 +6074,6 @@
       "recipe_chars": 713
     },
     {
-      "id": "contemporary_rb_2010s_alt",
-      "name": "Contemporary alt-R&B (2010s)",
-      "family": "pop",
-      "recipe": "classic contemporary alt-r&b, functional Song, soul R&B branch, us hip hop MC rhythm conscious hip-hop west coast hip-hop. thick, rap, straight onset, interlocked note trading. low sub bass analog synth, TR-808, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 499
-    },
-    {
       "id": "prog_rb",
       "name": "Progressive R&B (2010s virtuoso-instrumental jazz-fusion R&B)",
       "family": "pop",
@@ -6224,8 +6084,8 @@
       "id": "alt_rnb",
       "name": "Alt-R&B (2010s atmospheric experimental R&B)",
       "family": "pop",
-      "recipe": "classic alt-r&b, functional Song, soul R&B branch, ambient experimental electric outrun / synthwave witch house. thick, breath veiled tone, fast rate, interlocked note trading. pad like pad analog synth, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 500
+      "recipe": "classic alt-r&b, functional Song, soul R&B branch, ambient experimental electric outrun / synthwave witch house. thick, breath veiled tone, fast rate, interlocked note trading. pad like pad analog synth, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 594
     },
     {
       "id": "modern_indie_rock_2010s",
@@ -6382,13 +6242,6 @@
       "recipe_chars": 519
     },
     {
-      "id": "avant_doom_metal",
-      "name": "Avant-garde doom / funeral doom",
-      "family": "rock_punk",
-      "recipe": "classic North American mid-1990s avant-garde doom / funeral doom, distorted Rock, doom branch, christian gospel ritual devotional black gospel sacred steel. thick, declaimed, wide pitch sway, leader call answered. orange amp British heavy crunch basswood alnico nickel plated steel humbucker electric guitar, orange amp British heavy crunch stainless steel roundwound riff driven electric bass, kevlar aramid extreme tension brushes-and-sticks drum kit. denver gothic basement studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 614
-    },
-    {
       "id": "teen_pop_late_90s",
       "name": "Teen pop late 90s-00s",
       "family": "pop",
@@ -6436,13 +6289,6 @@
       "family": "rock_punk",
       "recipe": "classic blackgaze, distorted Rock, death branch, alternative distorted rock madchester / baggy math rock. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, kevlar aramid extreme tension sticks backbeat drum kit. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
       "recipe_chars": 620
-    },
-    {
-      "id": "blackmetal_dsbm",
-      "name": "DSBM (depressive suicidal black metal)",
-      "family": "rock_punk",
-      "recipe": "classic modern dsbm, distorted Rock, death branch, christian gospel ritual devotional black gospel sacred steel. thick, declaimed, wide pitch sway, leader call answered. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character mahogany stainless steel electric bass, pre muffled edge muffled brushes-and-sticks drum kit. isolated rural 2005-present isolation diy isolation cabin diy. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 646
     },
     {
       "id": "post_punk_revival",
@@ -6728,15 +6574,15 @@
       "id": "hawaiian_kanikau",
       "name": "Hawaiian kanikau (mele kanikau, mourning-chant)",
       "family": "global",
-      "recipe": "classic Oceanian mid-1830s hawaiian kanikau, funeral Lament, oceania pacific branch, indigenous ritual devotional, vocal drone modal, indian bard ballad poetry shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, breath veiled tone, breath pulsed, interlocked note trading. hawaiian heiau outdoor lava stone temple. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 406
+      "recipe": "classic Oceanian mid-1830s hawaiian kanikau, funeral Lament, oceania pacific branch, indigenous ritual devotional, vocal drone modal, indian bard ballad poetry shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, breath veiled tone, straight note core, interlocked note trading. hawaiian heiau outdoor lava stone temple. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 411
     },
     {
       "id": "maori_waiata_tangi",
       "name": "Māori waiata tangi (mourning-song)",
       "family": "global",
-      "recipe": "classic Oceanian modern māori waiata tangi, funeral Lament, oceania pacific branch, indigenous ritual devotional, vocal drone modal, Celtic balladic ballad poetry shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, breath veiled tone, straight note core, interlocked note trading. maori marae carved wharenui. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 401
+      "recipe": "classic Oceanian modern māori waiata tangi, funeral Lament, oceania pacific branch, indigenous ritual devotional, vocal drone modal, Celtic balladic ballad poetry shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, breath veiled tone, straight onset, interlocked note trading. maori marae carved wharenui. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 397
     },
     {
       "id": "yiddish_wedding_bulgar",
@@ -6751,13 +6597,6 @@
       "family": "global",
       "recipe": "classic mid-1980s roma balkan svatba, wedding, European branch, middle eastern wedding, Mediterranean ballad ballad poetry, string improv improv on frame lebanese-arab wedding takht persian aroosi. thick, breath veiled tone, slow rate, interlocked note trading. brass castagnari Italian premium folk music ensemble accordion, synthetic magic rosin modern acrylic base legato fiddle, grenadilla African blackwood traditional continuous-airflow legato clarinet, brass warmer alternative synthetic remo mylar modern canonical Egyptian darbuka, yellow brass canonical 70 30 bach stradivarius yamaha xeno modern Japanese continuous-airflow legato student friendly trumpet, continuous-airflow legato kaval, yellow brass modern standard yamaha custom 875ex modern Japanese premium continuous-airflow legato saxophone, bolt tuned tapan. irish pub. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
       "recipe_chars": 906
-    },
-    {
-      "id": "sardinian_wedding_cantu_launeddas",
-      "name": "Sardinian wedding cantu and launeddas music",
-      "family": "global",
-      "recipe": "classic Southern European modern sardinian wedding cantu and launeddas music, wedding, European branch, vocal drone modal, wind pipe drone modal, Mediterranean ballad ballad poetry sevdalinka bulgarian women's choir. thick, false fold engaged, straight note core, interlocked note trading. cane arundo donax three pipes canonical sardinian archaic idioglottic single reeds canonical sardinian drone like circular breathing launeddas, castagnari Italian premium folk music drone like accordion, grenadilla African blackwood traditional continuous-airflow legato clarinet. sardinian outdoor a tenore polyphony. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 671
     },
     {
       "id": "greek_gamilio_glendi",
@@ -6814,13 +6653,6 @@
       "family": "global",
       "recipe": "classic East Asian late-1940s chinese xǐqìng (喜慶) wedding music, wedding, east Asian branch, south Asian wedding, east Asian art music, carnival processional tibetan ache lhamo opera beijing opera. thick, breath veiled tone, slow rate, interlocked note trading. traditional bamboo pipes copper brass free reeds canonical Chinese straight sheng, no membrane buzz bitter bamboo phyllostachys nigra canonical jiangnan suzhou bangdi northern sharp opera percussive continuous-airflow legato dizi, python skin snake skin bamboo silk red sandalwood zitan erhu, silk red sandalwood zitan premium pipa, piercing shrill high suona. shanghai emi pathe 1930s. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
       "recipe_chars": 711
-    },
-    {
-      "id": "javanese_wedding_gamelan",
-      "name": "Javanese wedding gamelan music",
-      "family": "global",
-      "recipe": "classic Southeast Asian modern javanese wedding gamelan music, wedding, east Asian branch, south Asian wedding, east Asian art music, indigenous ritual devotional beijing opera inuit katajjaq throat-singing game. sygyt, breath veiled tone, straight note core, interlocked note trading. gamelan javanese full, saron gamelan, bonang, gamelan javanese teak premium javanese court buffalo hide rattan lacing canonical javanese kendang indonesian. javanese pendopo pavilion. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 532
     },
     {
       "id": "yoruba_aso_ebi_wedding",
@@ -6980,8 +6812,8 @@
       "id": "shona_mbira_praise",
       "name": "Shona mbira praise music (Zimbabwe)",
       "family": "global",
-      "recipe": "classic Southern African modern shona mbira praise music, praise Song, sub saharan African branch, indigenous ritual devotional, string drone modal, central east south African groove percussion shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, breath veiled tone, straight note core, interlocked note trading. steel maple mbira, hosho. harare formerly salisbury 1971-present indie-commercial harare zimbabwean chimurenga studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 522
+      "recipe": "classic Southern African modern shona mbira praise music, praise Song, sub saharan African branch, indigenous ritual devotional, string drone modal, central east south African groove percussion shipibo-conibo icaros healing songs chimurenga. vocal fry, breath veiled tone, straight note core, interlocked note trading. steel maple calabash mbira, hosho. harare formerly salisbury 1971-present indie-commercial harare zimbabwean chimurenga studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 509
     },
     {
       "id": "hindu_stuti_bhajan",
@@ -7008,15 +6840,15 @@
       "id": "tibetan_thodrol_lama_praise",
       "name": "Tibetan thödröl praise-recitation",
       "family": "global",
-      "recipe": "classic Northeast Asian modern tibetan thödröl praise-recitation, praise Song, indian subcontinent branch, buddhist ritual devotional, overtone drone modal, east Asian Tibetan ritual khöömii tuvan kargyraa subharmonic throat-singing. sygyt, false fold engaged, breath pulsed, interlocked note trading. tibetan monastery assembly. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 392
+      "recipe": "classic Northeast Asian modern tibetan thödröl praise-recitation, praise Song, indian subcontinent branch, buddhist ritual devotional, overtone drone modal, east Asian Tibetan ritual tuvan kargyraa subharmonic throat-singing tuvan throat singing. sygyt, false fold engaged, breath pulsed, interlocked note trading. tibetan monastery assembly. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 405
     },
     {
       "id": "welsh_moliannu_cerdd_dant",
       "name": "Welsh moliannu and cerdd dant (Welsh praise-poetry)",
       "family": "global",
-      "recipe": "classic Northern European modern welsh moliannu and cerdd dant, praise Song, Celtic British branch, sub saharan African praise song, Celtic balladic ballad poetry, string drone modal welsh hymn-balladry zulu izibongo. thick, declaimed, straight onset, interlocked note trading. cerdd dant nylon strung welsh triple harp, foundational foundational warm informal choir welsh male, drone under song bardic crwth. uk folk revival club 60s. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 498
+      "recipe": "classic Northern European modern welsh moliannu and cerdd dant, praise Song, Celtic British branch, sub saharan African praise song, Celtic balladic ballad poetry, string drone modal welsh hymn-balladry zulu izibongo. thick, declaimed, straight onset, interlocked note trading. cerdd dant nylon strung welsh triple harp, foundational foundational warm informal choir welsh male, folk revival bardic crwth. uk folk revival club 60s. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 494
     },
     {
       "id": "hawaiian_mele_inoa",
@@ -7038,13 +6870,6 @@
       "family": "global",
       "recipe": "classic Middle Eastern early-1940s arabic madh and qasida, praise Song, middle east n African branch, indian subcontinent praise song, middle eastern classical art music, med east poetic ballad poetry andalusī nūba persian dastgāh. vocal fry, declaimed, slow rate, interlocked note trading. walnut ribs canonical mid tier spruce face pyramid nylon oud. qat chew majlis room. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb.",
       "recipe_chars": 485
-    },
-    {
-      "id": "mande_jeli_praise",
-      "name": "Mande jeli / griot praise-song",
-      "family": "global",
-      "recipe": "classic West African modern mande jeli / griot praise-song, praise Song, sub saharan African branch, middle east n African praise song, west African griot ballad poetry, string drone modal mande griot narrative epic recitation donsongoni hunter's harp. thick, declaimed, straight note core, interlocked note trading. calabash nylon fishing line cowhide mande traditional kora, carved wood modern luthier nylon modern call-and-response ngoni, buzzy natural material resonance calabash gourd balafon. bamako griot jeli compound. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 656
     },
     {
       "id": "english_nursery_rhyme",
@@ -7141,8 +6966,8 @@
       "id": "yoruba_omo_iya",
       "name": "Yoruba ọmọ-iya nursery and play-song",
       "family": "global",
-      "recipe": "classic modern yoruba ọmọ-iya nursery and play-song, nursery Rhyme, sub saharan African branch, sub saharan African praise song, americas nursery rhyme zulu izibongo mande jeli / griot praise-song. extended whistle, declaimed, straight onset, interlocked note trading. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 348
+      "recipe": "classic modern yoruba ọmọ-iya nursery and play-song, nursery Rhyme, sub saharan African branch, sub saharan African praise song, americas nursery rhyme zulu izibongo american hand-game clapping rhymes. thick, declaimed, straight onset, interlocked note trading. field recording. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 341
     },
     {
       "id": "lebanese_egyptian_aghani_atfal",
@@ -7218,22 +7043,22 @@
       "id": "hungarian_bordal",
       "name": "Hungarian bordal (wine song)",
       "family": "global",
-      "recipe": "classic modern hungarian bordal, drinking Song, European branch, balkan drinking song, iberian functional song, European wedding sardinian wedding cantu and launeddas music georgian supra feast-singing. thick, false fold engaged, straight note core, interlocked note trading. synthetic magic rosin modern acrylic base drone like rubber fiddle, sustained and staccato hungarian tradition concert pedal cimbalom large frame pedal damper cimbalom. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 518
+      "recipe": "classic modern hungarian bordal, drinking Song, European branch, balkan drinking song, iberian functional song, European wedding georgian supra feast-singing macedonian-serbian kafana drinking song. thick, breath veiled tone, fast rate, interlocked note trading. synthetic magic rosin modern acrylic base drone like fiddle, sustained and staccato hungarian tradition concert pedal cimbalom large frame pedal damper cimbalom. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 498
     },
     {
       "id": "polish_biesiadne",
       "name": "Polish biesiadne (feast and drinking songs)",
       "family": "global",
-      "recipe": "classic modern polish biesiadne, drinking Song, European branch, balkan drinking song, European wedding, Slavic bard ballad poetry sardinian wedding cantu and launeddas music macedonian-serbian kafana drinking song. thick, false fold engaged, straight onset, interlocked note trading. castagnari Italian premium folk music accordion. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 407
+      "recipe": "classic modern polish biesiadne, drinking Song, European branch, balkan drinking song, European wedding, Slavic bard ballad poetry macedonian-serbian kafana drinking song georgian supra feast-singing. extended whistle, breath veiled tone, straight onset, interlocked note trading. steel castagnari Italian premium folk music accordion. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 409
     },
     {
       "id": "russian_zastolnaya",
       "name": "Russian zastol'naya pesnya (table song / drinking song)",
       "family": "global",
-      "recipe": "classic modern russian zastol'naya pesnya, drinking Song, European branch, balkan drinking song, Slavic bard ballad poetry, European wedding sardinian wedding cantu and launeddas music georgian supra feast-singing. thick, breath veiled tone, straight onset, interlocked note trading. b system buttons stradella bass Russian tradition song accompaniment chastushka dance bayan russian, prima nylon modern spruce maple andreyev concert orchestra canonical revival balalaika. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 546
+      "recipe": "classic modern russian zastol'naya pesnya, drinking Song, European branch, balkan drinking song, Slavic bard ballad poetry, European wedding georgian supra feast-singing macedonian-serbian kafana drinking song. thick, breath veiled tone, straight onset, interlocked note trading. b system buttons stradella bass Russian tradition song accompaniment chastushka dance bayan russian, prima nylon modern spruce maple Soviet orchestra canon strummed balalaika. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 529
     },
     {
       "id": "macedonian_kafana_drinking",
@@ -7246,8 +7071,8 @@
       "id": "georgian_supra_drinking",
       "name": "Georgian supra feast-singing",
       "family": "global",
-      "recipe": "classic modern georgian supra feast-singing, drinking Song, balkan branch, European drinking song, European wedding, middle east n African praise song sardinian wedding cantu and launeddas music sufi munajat and naat. thick, declaimed, straight onset, interlocked note trading. eastern georgian three string panduri, drone bass choir georgian polyphonic. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 428
+      "recipe": "classic modern georgian supra feast-singing, drinking Song, balkan branch, European drinking song, European wedding, middle east n African praise song sufi munajat and naat arabic madh and qasida. extended whistle, declaimed, slow rate, interlocked note trading. eastern georgian three string panduri, massed male voices drone bass choir georgian polyphonic. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 432
     },
     {
       "id": "korean_jubu_ga",
@@ -7386,8 +7211,8 @@
       "id": "japanese_matsuri_taiko",
       "name": "Japanese matsuri festival drumming (祭, matsuri-bayashi)",
       "family": "global",
-      "recipe": "classic East Asian early-1600s japanese matsuri festival drumming, carnival Processional, east Asian branch, European carnival processional, buddhist ritual devotional, east Asian wedding chinese xǐqìng (喜慶) wedding music javanese wedding gamelan music. thick, breath veiled tone, straight note core, interlocked note trading. cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk oedo sukeroku canonical kumi daiko modern ensemble taiko drum, acrylic red sandalwood premium nylon modern tsugaru shamisen, madake bamboo phyllostachys canonical Japanese root section kinko ryu canonical edo period concert continuous-airflow legato shakuhachi. kabuki theater japanese. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 759
+      "recipe": "classic East Asian early-1600s japanese matsuri festival drumming, carnival Processional, east Asian branch, European carnival processional, buddhist ritual devotional, east Asian wedding chinese xǐqìng (喜慶) wedding music tibetan chöd rite. thick, breath veiled tone, straight note core, interlocked note trading. cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk oedo sukeroku canonical kumi daiko modern ensemble taiko drum, acrylic red sandalwood premium nylon modern tsugaru shamisen, madake bamboo phyllostachys canonical Japanese root section kinko ryu canonical edo period concert continuous-airflow legato shakuhachi. kabuki theater japanese. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 746
     },
     {
       "id": "venice_carnevale",
@@ -7411,46 +7236,39 @@
       "recipe_chars": 547
     },
     {
-      "id": "mississippi_delta_field_holler",
-      "name": "Mississippi Delta field holler",
-      "family": "global",
-      "recipe": "classic Midwestern American early-1940s mississippi delta field holler, field Work, American south branch, sub saharan African field work, African diasporic funeral lament, anglo American protest song west-african rice-planting song mande-wolof west-african harvest-and-field song. thick, blues-shouter, wide pitch sway, unrestrained. us dustbowl outdoor woody guthrie. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-      "recipe_chars": 444
-    },
-    {
       "id": "bulgarian_zhetvarski",
       "name": "Bulgarian zhetvarski pesni (harvest songs)",
       "family": "global",
-      "recipe": "classic Northern European modern bulgarian zhetvarski pesni, field Work, Slavic balkan branch, east Asian field work, European wedding, European lullaby sardinian wedding cantu and launeddas music chinese chayang-diao. thick, false fold engaged, straight onset, unrestrained. baltic outdoor village. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 362
+      "recipe": "classic Northern European modern bulgarian zhetvarski pesni, field Work, Slavic balkan branch, east Asian field work, European wedding, European lullaby chinese chayang-diao indonesian rice-planting song traditions. thick, close mic intimate, straight onset, unrestrained. baltic outdoor village. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 359
     },
     {
       "id": "romanian_colinde_seceris",
       "name": "Romanian colinde de seceriş (harvest carols)",
       "family": "global",
-      "recipe": "classic Northern European modern romanian colinde de seceriş, field Work, Slavic balkan branch, east Asian field work, European wedding, European lullaby sardinian wedding cantu and launeddas music chinese chayang-diao. thick, false fold engaged, straight onset, interlocked note trading. baltic outdoor village. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 375
+      "recipe": "classic Northern European modern romanian colinde de seceriş, field Work, Slavic balkan branch, east Asian field work, European wedding, European lullaby chinese chayang-diao japanese taue-uta. thick, close mic intimate, straight onset, unrestrained. baltic outdoor village. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 337
     },
     {
       "id": "hungarian_aratonota",
       "name": "Hungarian aratónóta (harvest songs)",
       "family": "global",
-      "recipe": "classic Northern European mid-1910s hungarian aratónóta, field Work, Slavic balkan branch, east Asian field work, European wedding, European drinking song sardinian wedding cantu and launeddas music scottish bothy ballad. thick, false fold engaged, straight note core, interlocked note trading. baltic outdoor village. acoustic horn. wax cylinder.",
-      "recipe_chars": 347
+      "recipe": "classic Northern European mid-1910s hungarian aratónóta, field Work, Slavic balkan branch, east Asian field work, European wedding, European drinking song scottish bothy ballad hungarian bordal. thick, close mic intimate, interlocked note trading, neutral third half flat. baltic outdoor village. acoustic horn. wax cylinder.",
+      "recipe_chars": 325
     },
     {
       "id": "russian_zhnitvenye",
       "name": "Russian zhnitvenye pesni (Russian harvest songs)",
       "family": "global",
-      "recipe": "classic Northern European modern russian zhnitvenye pesni, field Work, Slavic balkan branch, east Asian field work, European wedding, Slavic bard ballad poetry sardinian wedding cantu and launeddas music chinese chayang-diao. thick, false fold engaged, straight onset, interlocked note trading. baltic outdoor village. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 381
+      "recipe": "classic Northern European modern russian zhnitvenye pesni, field Work, Slavic balkan branch, east Asian field work, European wedding, Slavic bard ballad poetry chinese chayang-diao vietnamese hò. thick, breath veiled tone, straight onset, interlocked note trading. baltic outdoor village. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 351
     },
     {
       "id": "mande_wolof_harvest",
       "name": "Mande-Wolof West-African harvest-and-field song",
       "family": "global",
-      "recipe": "classic East African modern mande-wolof west-african harvest-and-field song, field Work, sub saharan African branch, American south field work, sub saharan African praise song, African diasporic wedding mande jeli / griot praise-song shona mbira praise music. thick, declaimed, straight note core, interlocked note trading. calabash nylon fishing line cowhide mande traditional kora, balafon. tanzanian outdoor village clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 491
+      "recipe": "classic East African modern mande-wolof west-african harvest-and-field song, field Work, sub saharan African branch, American south field work, sub saharan African praise song, African diasporic wedding shona mbira praise music yoruba oríkì. vocal fry, declaimed, straight note core, interlocked note trading. calabash nylon fishing line cowhide mande traditional kora, balafon. tanzanian outdoor village clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 477
     },
     {
       "id": "andean_huayno_trabajo",
@@ -7470,8 +7288,8 @@
       "id": "korean_nongak_field",
       "name": "Korean nongak (농악, farmer's percussion-and-dance)",
       "family": "global",
-      "recipe": "classic mid-1940s korean nongak, field Work, east Asian branch, south Asian field work, east Asian wedding, east Asian carnival processional chinese xǐqìng (喜慶) wedding music javanese wedding gamelan music. thick, breath veiled tone, straight note core, interlocked note trading. paulownia canonical Korean horse dog asymmetric canonical Korean pungmul outdoor village pre samul nori janggu, lead kkwaenggwari, reformed dense wood brass belled taepyeongso. forest clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 536
+      "recipe": "classic mid-1940s korean nongak, field Work, east Asian branch, south Asian field work, east Asian wedding, east Asian carnival processional chinese xǐqìng (喜慶) wedding music bengali bhatiali. thick, breath veiled tone, straight onset, interlocked note trading. paulownia canonical Korean horse dog asymmetric canonical Korean pungmul outdoor village pre samul nori janggu, lead kkwaenggwari, reformed dense wood brass belled taepyeongso. forest clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 518
     },
     {
       "id": "vietnamese_ho",
@@ -7498,8 +7316,8 @@
       "id": "indonesian_padi_planting",
       "name": "Indonesian rice-planting song traditions",
       "family": "global",
-      "recipe": "classic East African modern indonesian rice-planting song traditions, field Work, east Asian branch, south Asian field work, east Asian wedding, east Asian lullaby chinese xǐqìng (喜慶) wedding music javanese wedding gamelan music. thick, breath veiled tone, straight note core, interlocked note trading. bamboo rattan band fipple canonical javanese balinese continuous-airflow legato suling. tanzanian outdoor village clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 489
+      "recipe": "classic East African modern indonesian rice-planting song traditions, field Work, east Asian branch, south Asian field work, east Asian wedding, east Asian lullaby chinese xǐqìng (喜慶) wedding music japanese komoriuta. thick, breath veiled tone, straight note core, interlocked note trading. bamboo rattan band fipple canonical javanese balinese continuous-airflow legato suling. tanzanian outdoor village clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 477
     },
     {
       "id": "west_african_rice_planting",
@@ -7512,8 +7330,8 @@
       "id": "baaka_hunting_polyphony",
       "name": "Baaka (Aka pygmy) hunting polyphony",
       "family": "global",
-      "recipe": "classic Southern African early-1940s baaka (aka pygmy) hunting polyphony, hunting Song, sub saharan African branch, arctic hunting song, sub saharan African praise song, indigenous ritual devotional mande jeli / griot praise-song shipibo-conibo icaros healing songs. vocal fry, declaimed, straight note core, interlocked note trading. outdoor kalahari fire circle. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-      "recipe_chars": 439
+      "recipe": "classic Southern African early-1940s baaka (aka pygmy) hunting polyphony, hunting Song, sub saharan African branch, arctic hunting song, sub saharan African praise song, indigenous ritual devotional shipibo-conibo icaros healing songs shona mbira praise music. vocal fry, breath veiled tone, straight note core, interlocked note trading. outdoor kalahari fire circle. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+      "recipe_chars": 442
     },
     {
       "id": "san_bushman_hunting",
@@ -7619,13 +7437,6 @@
       "family": "global",
       "recipe": "classic Southern European modern sardinian boci de tela, domestic Rhythm, Celtic hebridean branch, Slavic baltic domestic rhythm, European lullaby, European funeral lament albanian vajtim italian ninna-nanna. thick, false fold engaged, straight onset, interlocked note trading. sardinian outdoor a tenore polyphony. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
       "recipe_chars": 378
-    },
-    {
-      "id": "faroese_kvaedi_domestic",
-      "name": "Faroese kvæði (chain-dance ballad and domestic song)",
-      "family": "global",
-      "recipe": "classic North American modern faroese kvæði, domestic Rhythm, east Asian arctic branch, Celtic hebridean domestic rhythm, Celtic balladic ballad poetry, European wedding irish spinning song sean-nós solo singing. vocal fry, breath veiled tone, straight onset, interlocked note trading. newfoundland outport kitchen party. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 384
     },
     {
       "id": "japanese_domestic_hataori",
@@ -7974,8 +7785,8 @@
       "id": "norse_seidr",
       "name": "Old Norse seiðr ritual vocalization",
       "family": "global",
-      "recipe": "classic modern old norse seiðr ritual vocalization, ritual Devotional, arctic branch, indigenous ritual devotional shipibo-conibo icaros healing songs mongolian böö shamanic invocation. kargyraa, breath veiled tone, breath pulsed, interlocked note trading. forest clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 336
+      "recipe": "classic modern old norse seiðr ritual vocalization, ritual Devotional, arctic branch, indigenous ritual devotional shipibo-conibo icaros healing songs mongolian böö shamanic invocation. sygyt, breath veiled tone, straight note core, interlocked note trading. forest clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 338
     },
     {
       "id": "norse_blot",
@@ -7995,8 +7806,8 @@
       "id": "wiccan_chant_circle",
       "name": "Wiccan chant-circle incantation",
       "family": "global",
-      "recipe": "classic mid-1950s wiccan chant-circle incantation, ritual Devotional, indigenous branch inuit katajjaq throat-singing game shipibo-conibo icaros healing songs. sygyt, breath veiled tone, breath pulsed, interlocked note trading. forest clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 307
+      "recipe": "classic mid-1950s wiccan chant-circle incantation, ritual Devotional, indigenous branch shipibo-conibo icaros healing songs maasai adumu warrior jumping-song. vocal fry, breath veiled tone, straight note core, interlocked note trading. forest clearing. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 315
     },
     {
       "id": "shinto_norito",
@@ -8044,22 +7855,22 @@
       "id": "mongolian_boo_invocation",
       "name": "Mongolian böö shamanic invocation",
       "family": "global",
-      "recipe": "classic Northeast Asian early-1990s mongolian böö shamanic invocation, ritual Devotional, arctic branch, indigenous ritual devotional shipibo-conibo icaros healing songs korean muga shamanic ritual narrative. kargyraa, breath veiled tone, breath pulsed, interlocked note trading. open steppe outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 363
+      "recipe": "classic Northeast Asian early-1990s mongolian böö shamanic invocation, ritual Devotional, arctic branch, indigenous ritual devotional shipibo-conibo icaros healing songs korean muga shamanic ritual narrative. sygyt, breath veiled tone, breath pulsed, interlocked note trading. open steppe outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 360
     },
     {
       "id": "sami_noaidi_drum_journey",
       "name": "Sami noaidi drum-journey joik-chant",
       "family": "global",
-      "recipe": "classic Northern European modern sami noaidi drum-journey joik-chant, ritual Devotional, arctic branch, indigenous ritual devotional shipibo-conibo icaros healing songs korean muga shamanic ritual narrative. vocal fry, breath veiled tone, breath pulsed, interlocked note trading. sapmi outdoor tundra yoik. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe": "classic Northern European modern sami noaidi drum-journey joik-chant, ritual Devotional, arctic branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, breath veiled tone, straight note core, interlocked note trading. sapmi outdoor tundra yoik. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
       "recipe_chars": 369
     },
     {
       "id": "navajo_blessingway",
       "name": "Navajo Blessingway (Hózhǫ́ǫ́jí) recitation",
       "family": "global",
-      "recipe": "classic early-1890s navajo blessingway (hózhǫ́ǫ́jí) recitation, ritual Devotional, indigenous branch maasai adumu warrior jumping-song inuit katajjaq throat-singing game. sygyt, breath veiled tone, breath pulsed, interlocked note trading. adobe room. acoustic horn. wax cylinder.",
-      "recipe_chars": 279
+      "recipe": "classic early-1890s navajo blessingway (hózhǫ́ǫ́jí) recitation, ritual Devotional, indigenous branch maasai adumu warrior jumping-song shipibo-conibo icaros healing songs. vocal fry, breath veiled tone, straight note core, interlocked note trading. adobe room. acoustic horn. wax cylinder.",
+      "recipe_chars": 289
     },
     {
       "id": "nahua_flower_song",
@@ -8086,8 +7897,8 @@
       "id": "palo_mayombe_mambo",
       "name": "Palo Mayombe Kongo mambo ritual chant",
       "family": "global",
-      "recipe": "classic South American modern palo mayombe kongo mambo ritual chant, ritual Devotional, Afro-diasporic branch black gospel inuit katajjaq throat-singing game. thick, breath veiled tone, breath pulsed, interlocked note trading. terreiro outdoor yard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 312
+      "recipe": "classic South American modern palo mayombe kongo mambo ritual chant, ritual Devotional, Afro-diasporic branch black gospel shipibo-conibo icaros healing songs. thick, breath veiled tone, wide pitch sway, interlocked note trading. terreiro outdoor yard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+      "recipe_chars": 315
     },
     {
       "id": "icelandic_kvaedi_thula",
@@ -8123,13 +7934,6 @@
       "family": "classical",
       "recipe": "classic mid-1590s shakespearean verse declamation, art Music, western early branch thai classical tibetan ache lhamo opera. thick, breath veiled tone, slow rate, interlocked note trading. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
       "recipe_chars": 339
-    },
-    {
-      "id": "greek_tragic_chorus",
-      "name": "Greek tragic chorus declamation",
-      "family": "classical",
-      "recipe": "classic early-1990s greek tragic chorus declamation, art Music, western early branch thai classical tibetan ache lhamo opera. thick, breath veiled tone, slow rate, interlocked note trading. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 341
     },
     {
       "id": "kutiyattam_recitation",
@@ -8214,13 +8018,6 @@
       "family": "country",
       "recipe": "classic mid-1910s appalachian square-dance calling, ballad Poetry, anglo singer song branch cape verdean batuko of santiago island berber ahidus and ahwash. thick, breath veiled tone, straight note core, interlocked note trading. wooden barn. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
       "recipe_chars": 317
-    },
-    {
-      "id": "spoken_word_jazz_poetry",
-      "name": "Spoken-word jazz-poetry",
-      "family": "jazz",
-      "recipe": "classic North American late-1960s spoken-word jazz-poetry, mc Rhythm, southern branch, us hip hop MC rhythm conscious hip-hop gangsta rap. thick, rap, straight onset, interlocked note trading. independent loft jazz 1971-1978 indie-commercial strata east loft nyc. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-      "recipe_chars": 395
     },
     {
       "id": "maori_whaikorero_oratory",
@@ -8347,13 +8144,6 @@
       "family": "global",
       "recipe": "classic Northeast Asian mid-1930s manchu shamanic seance chant, ritual Devotional, indigenous branch mongolian böö shamanic invocation shipibo-conibo icaros healing songs. sygyt, breath veiled tone, breath pulsed, interlocked note trading. wooden balagan. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
       "recipe_chars": 318
-    },
-    {
-      "id": "mongolian_boo_murgel_invocation",
-      "name": "Mongolian böö mörgöl invocation",
-      "family": "global",
-      "recipe": "classic Northeast Asian early-1990s mongolian böö mörgöl invocation, ritual Devotional, indigenous branch mongolian böö shamanic invocation shipibo-conibo icaros healing songs. sygyt, breath veiled tone, breath pulsed, interlocked note trading. mongolian ger interior. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 331
     },
     {
       "id": "yoruba_dundun_surrogate_speech",

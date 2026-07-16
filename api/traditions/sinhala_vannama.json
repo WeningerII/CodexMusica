@@ -5,7 +5,7 @@
   "lineage": "Sinhala vannama Sri Lankan classical court dance-song tradition, comprising eighteen canonical pieces composed in the seventeenth-eighteenth centuries at the Kandyan royal court for performance at state ceremonies. Each of the eighteen vannamas evokes a specific subject (gaja-vannama elephant, ashva-vannama horse, mayura-vannama peacock, sinha-vannama lion, etc.) through characteristic melodic-and-rhythmic gesture and stylized choreographic movement. Performance combines solo male voice with geta-bera double-headed barrel drum and elaborate choreography. The Sri Lankan Cultural Department and Royal Asiatic Society preserve the canonical transmission.",
   "recipe": "classic Southeast Asian modern sinhala vannama, art Music, south Asian branch, indigenous ritual devotional ju|'hoansi healing songs shipibo-conibo icaros healing songs. vocal fry, breath veiled tone, slow rate, interlocked note trading. goat skin syahi rope laced steel ring dholak. wooden pagoda hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 366,
-  "score": 227.418,
+  "score": 226.379,
   "config": {
     "traditions": [
       "sinhala_vannama",
@@ -23,7 +23,7 @@
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "chinese_classical_vocal_tradition",
+          "voice_tradition": "polynesian_oli_tradition",
           "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -41,8 +41,8 @@
           "voice_vibrato": 7.0093749999999995,
           "voice_articulation": 22.815,
           "voice_microtone": 22.035,
-          "voice_tradition": 15.664999999999996,
-          "voice_mechanism_compound": 10.405000000000001,
+          "voice_tradition": 15.665000000000001,
+          "voice_mechanism_compound": 9.520000000000001,
           "voice_estill_quality": 11.179999999999996,
           "voice_speech_song": 26.455,
           "voice_ensemble_config": 28.275,
@@ -62,9 +62,9 @@
         },
         "scores": {
           "dholak_use": 4.03,
-          "dholak_construction": 1.2299999999999998,
+          "dholak_construction": 0.9299999999999998,
           "dholak_head": 4.029999999999999,
-          "dholak_tensioning": 5.5737499999999995
+          "dholak_tensioning": 5.719999999999999
         }
       }
     ],

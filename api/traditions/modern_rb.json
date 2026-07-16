@@ -5,7 +5,7 @@
   "lineage": "Modern neo-soul breath-admixed contemporary-r&b vocal aesthetic codified through D’Angelo (Brown Sugar 1995, Voodoo 2000), Erykah Badu (Baduizm 1997), Maxwell, Lauryn Hill (The Miseducation of Lauryn Hill 1998), and the Soulquarians collective with Questlove and J Dilla — characterized by jazz-chord harmonic vocabulary, drum-machine-and-live-band hybrid production, and intimate-confessional vocal performance",
   "recipe": "classic mid-1990s modern r&b, functional Song, soul R&B branch, us hip hop modern cloud rap. thick, breath admixed, straight onset, interlocked note trading. drum machine analog, sub bass wavetable synth, gospel runs electric piano tine. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 383,
-  "score": 170.688,
+  "score": 170.943,
   "config": {
     "traditions": [
       "modern_rb",
@@ -36,7 +36,7 @@
           "wt_polyphony": "wt_mono"
         },
         "scores": {
-          "electronic_technique": 8.62275,
+          "electronic_technique": 8.75925,
           "wt_position": 4.09875,
           "wt_family": 4.09875,
           "wt_polyphony": 0.063
@@ -83,13 +83,13 @@
           "voice_vibrato": 7.5035,
           "voice_articulation": 11.764999999999997,
           "voice_microtone": 11.179999999999993,
-          "voice_tradition": 13.1705,
+          "voice_tradition": 13.065500000000002,
           "voice_mechanism_compound": 4.355,
-          "voice_estill_quality": 6.291500000000001,
+          "voice_estill_quality": 6.428000000000001,
           "voice_speech_song": 14.884999999999994,
           "voice_ensemble_config": 11.309999999999995,
           "voice_ornament_system": 1.8849999999999996,
-          "voice_pitch_organization": 1.0179999999999998,
+          "voice_pitch_organization": 1.1049999999999998,
           "voice_processing_chain": 9.92375,
           "voice_multitrack_stack": 6.045
         }

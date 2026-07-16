@@ -3,27 +3,27 @@
   "name": "Chongmyo jeryeak (royal ancestral shrine music)",
   "family": "classical",
   "lineage": "Korean Chongmyo jeryeak (Royal Ancestral Shrine Music) Joseon-dynasty court ritual music for the spring-and-autumn ancestor-veneration ceremony at the Chongmyo Royal Shrine in Seoul. Composed in 1463 by King Sejo (reigned 1455-1468) from earlier Goryeo-and-Tang-derived material, the suite comprises two parts: Botaepyeong (eleven movements praising civil virtue, performed during the literary-rite portion of the ceremony) and Jeongdaeeop (eleven movements praising martial virtue, performed during the military-rite portion). Performance configuration: a large court ensemble of approximately fifty musicians plus sixty-four dancers performing the strict ilmu line-dance choreography.",
-  "recipe": "classic East Asian mid-1460s chongmyo jeryeak, art Music, east Asian branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. thick, breath veiled tone, slow rate, interlocked note trading. a cappella small 3 to 8 one per part four voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu global traditional polyphonic choir ensemble, composite material paulownia canonical Korean horse dog asymmetric canonical Korean pungmul outdoor village pre samul nori janggu. korean gugak hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 614,
-  "score": 233.84,
+  "recipe": "classic East Asian mid-1460s chongmyo jeryeak, art Music, east Asian branch, indigenous ritual devotional shipibo-conibo icaros healing songs māori waiata + taonga pūoro. extended whistle, breath veiled tone, slow rate, interlocked note trading. a cappella small 3 to 8 one per part four voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu choir ensemble, composite material paulownia canonical Korean horse dog asymmetric canonical Korean pungmul outdoor village pre samul nori janggu. korean gugak hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 590,
+  "score": 232.622,
   "config": {
     "traditions": [
       "korean_chongmyo_jeryeak",
       "shipibo_icaros",
-      "mapuche_tayil_ritual"
+      "maori_waiata"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "extended_whistle_register",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "scottish_gaelic_taladh_tradition",
+          "voice_tradition": "polynesian_oli_tradition",
           "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 1.5499999999999996,
-          "voice_quality": 40.300000000000004,
+          "voice_register": 4.745,
+          "voice_quality": 34.644999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 3.085,
-          "voice_articulation": 18.004999999999995,
-          "voice_microtone": 17.614999999999995,
-          "voice_tradition": 17.939999999999998,
-          "voice_mechanism_compound": 11.655000000000001,
-          "voice_estill_quality": 9.1,
-          "voice_speech_song": 19.499999999999996,
-          "voice_ensemble_config": 21.96999999999999,
+          "voice_articulation": 20.019999999999996,
+          "voice_microtone": 19.629999999999995,
+          "voice_tradition": 16.997500000000002,
+          "voice_mechanism_compound": 9.520000000000001,
+          "voice_estill_quality": 8.645,
+          "voice_speech_song": 21.06,
+          "voice_ensemble_config": 23.334999999999994,
           "voice_ornament_system": 7.15,
-          "voice_pitch_organization": 4.13,
-          "voice_processing_chain": 15.534999999999998,
-          "voice_multitrack_stack": 5.720000000000001
+          "voice_pitch_organization": 5.279999999999999,
+          "voice_processing_chain": 14.884999999999998,
+          "voice_multitrack_stack": 5.265000000000001
         }
       },
       {
@@ -58,13 +58,13 @@
           "choir_size": "a_cappella_small_ensemble_3_8",
           "choir_polyphonic_configuration": "choir_polyphony_four_voice_polyphonic",
           "choir_regional_canonical_configuration": "choir_regional_sardinian_cantu_a_tenore",
-          "choir_ensemble_repertoire": "choir_ensemble_global_traditional"
+          "choir_ensemble_repertoire": "choir_ensemble_romantic"
         },
         "scores": {
-          "choir_size": 16.185000000000002,
-          "choir_polyphonic_configuration": 3.835,
-          "choir_regional_canonical_configuration": 11.635000000000002,
-          "choir_ensemble_repertoire": 2.6
+          "choir_size": 12.285000000000002,
+          "choir_polyphonic_configuration": 4.68,
+          "choir_regional_canonical_configuration": 5.655000000000001,
+          "choir_ensemble_repertoire": 5.915
         }
       },
       {
@@ -77,11 +77,11 @@
           "janggu_lineage": "janggu_pungmul_outdoor"
         },
         "scores": {
-          "janggu_use": 1.69,
-          "janggu_construction": 1.69,
+          "janggu_use": 1.6,
+          "janggu_construction": 3.3799999999999994,
           "janggu_shell_wood": 2.34,
-          "janggu_head": 3.185,
-          "janggu_lineage": 1.125
+          "janggu_head": 2.34,
+          "janggu_lineage": 1.6899999999999997
         }
       }
     ],

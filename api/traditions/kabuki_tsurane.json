@@ -5,7 +5,7 @@
   "lineage": "Tsurane are the extended rhetorical set-speeches of the aragoto ('rough business') style of kabuki, the bravura acting mode created by Ichikawa Danjuro I in late-17th-century Edo and carried through the Ichikawa Danjuro line to the present. Delivered by the leading male-role actor in exaggerated, rhythmically pointed declamation, often as a boastful self-introduction punctuated by the mie pose and tsuke wooden clappers, the tsurane is stage-speech distinct from the sung nagauta and chanted gidayu music that accompany the play. Canonical examples occur in the 'Shibaraku' interlude and other Kabuki Juhachiban 'eighteen great plays' of the Ichikawa house. It is documented in the Kabuki-za and National Theatre of Japan performance records and the Shochiku theatrical archive.",
   "recipe": "classic East Asian modern kabuki tsurane declamation, art Music, east Asian branch thai classical tibetan ache lhamo opera. thick, breath veiled tone, slow rate, interlocked note trading. kabuki theater japanese. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 275,
-  "score": 294.08,
+  "score": 295.547,
   "config": {
     "traditions": [
       "kabuki_tsurane",
@@ -38,16 +38,16 @@
           "voice_quality": 40.95000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 17.578999999999997,
+          "voice_vibrato": 17.744999999999997,
           "voice_articulation": 25.545,
           "voice_microtone": 25.154999999999998,
           "voice_tradition": 30.55,
           "voice_mechanism_compound": 14.049999999999997,
-          "voice_estill_quality": 24.205,
+          "voice_estill_quality": 24.9955,
           "voice_speech_song": 32.76,
           "voice_ensemble_config": 26.779999999999998,
-          "voice_ornament_system": 16.579999999999995,
-          "voice_pitch_organization": 17.916249999999994,
+          "voice_ornament_system": 16.834999999999997,
+          "voice_pitch_organization": 18.171249999999997,
           "voice_processing_chain": 10.789999999999996,
           "voice_multitrack_stack": 9.36
         }

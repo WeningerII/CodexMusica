@@ -5,7 +5,7 @@
   "lineage": "Northern Sámi luohti yoik tradition of the Sápmi region of northern Norway, Sweden, Finland, and the Russian Kola Peninsula. Luohti is the principal yoik subgenre of the Northern Sámi (Davvisámegiella-speaking) population — a sung-vocal form whose conceptual orientation is fundamentally different from Western lyric song: a yoik does not sing \"about\" its subject but rather is the subject — to yoik a person, a place, or an animal is to evoke and bring-present that subject through the act of yoiking. Vocal style features narrow-range melody (two-to-five pitches typically), characteristic nasal-resonant timbre, characteristic descending-melodic-contour shapes, repeated melodic-formula cycling, and a strikingly non-strophic open-ended performance temporality (a yoik does not have a definite beginning or ending — the singer enters and exits a yoik mid-phrase). Pre-tempered tonal system with characteristic fourth, fifth, and octave intervals as the structural skeleton. Repertoire is personal: each Sámi person traditionally has an assigned-or-received luohti that names them, and natural-feature luohti exist for specific mountains, lakes, and reindeer-herd boundaries. The Sámi Christian-mission suppression-era 1850s-1950s pushed the tradition underground; the post-1970s Sámi cultural revival (anchored in the founding of the Sámi Parliament and the Sami University College) has restored public-performance space, with figures such as Nils-Aslak Valkeapää, Mari Boine, and Wimme Saari among the canonical twentieth-century revival figures. Arnt Bakke's 1949-1972 field-recording collection at UiT The Norwegian Arctic University Museum (Tromsø) and Ola Graff's continued 1982-2019 collection constitute the principal documentary anchor. Distinguished from Skolt and Southern Sámi yoik by Northern-Sámi-Davvisámegiella dialect; distinguished from Finnish joiku by language-specific cadential and intonation vocabulary.",
   "recipe": "classic mid-1960s northern sámi luohti yoik, drone Modal, vocal branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, breath veiled tone, straight note core, interlocked note trading. mountain valley. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 327,
-  "score": 332.022,
+  "score": 331.04,
   "config": {
     "traditions": [
       "sami_northern_luohti",
@@ -42,8 +42,8 @@
           "voice_articulation": 31.394999999999996,
           "voice_microtone": 32.565,
           "voice_tradition": 38.87,
-          "voice_mechanism_compound": 14.155000000000001,
-          "voice_estill_quality": 13.454999999999997,
+          "voice_mechanism_compound": 13.270000000000001,
+          "voice_estill_quality": 13.357499999999998,
           "voice_speech_song": 37.57,
           "voice_ensemble_config": 30.289999999999996,
           "voice_ornament_system": 21.902500000000003,

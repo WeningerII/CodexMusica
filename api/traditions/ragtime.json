@@ -5,7 +5,7 @@
   "lineage": "1890s-1910s composed syncopated piano dance form developed in African-American midwestern saloon and brothel piano tradition — codified through Scott Joplin (Maple Leaf Rag 1899 and The Entertainer 1902) plus Tom Turpin, James Scott and Joseph Lamb, with the form serving as the principal pre-jazz American popular dance music until eclipsed by stride and early jazz around 1920",
   "recipe": "classic mid-1890s ragtime, improv On Frame, pre jazz ragtime branch, American jazz early, crooners functional song swing-era jazz orchestra new orleans jazz. cold pressed wurzen felt oversize maple tension resonator European spruce grand stride upright piano, 3 ply maple Gibson mastertone canon maple bluegrass canon plain gut banjo 5 string, yellow brass canonical brass band conn vintage early jazz canon front line cornet, red brass 90 10 darker orchestral bach 42 canonical American orchestral tenor front line student commercial trombone. parlor. acoustic horn. 78rpm shellac.",
   "recipe_chars": 582,
-  "score": 232.307,
+  "score": 230.937,
   "config": {
     "traditions": [
       "ragtime",
@@ -28,11 +28,11 @@
         },
         "scores": {
           "keyboard_technique": 3.1000000000000005,
-          "grand_piano_size": 0.975,
+          "grand_piano_size": 0.9774999999999999,
           "grand_piano_brand": 1.04,
           "piano_hammer": 11.7,
           "piano_rim": 18.135,
-          "piano_soundboard": 5.78,
+          "piano_soundboard": 5.793333333333334,
           "piano_pinblock": 2.3000000000000003,
           "piano_plate": 0.7,
           "piano_pitch_standard": 2.275
@@ -68,13 +68,13 @@
         },
         "scores": {
           "plucked_traditional_technique": 15.079999999999993,
-          "banjo_back": 0,
+          "banjo_back": 0.0025,
           "tone_ring": 0,
           "banjo_head": 14.234999999999996,
-          "banjo_pot": 0.15,
+          "banjo_pot": 0,
           "banjo_play": 0,
           "banjo_rim_wood": 2.015,
-          "banjo_neck_wood": 1.4,
+          "banjo_neck_wood": 1.4025,
           "banjo_strings": 1.3649999999999995,
           "banjo_bridge": 1.4299999999999995,
           "banjo_setup_period": 13.974999999999994
@@ -90,8 +90,8 @@
           "cornet_maker_school": "cornet_conn_vintage"
         },
         "scores": {
-          "wind_articulation": 4.47,
-          "cornet_pitch": 13.375,
+          "wind_articulation": 4.079999999999999,
+          "cornet_pitch": 13.18,
           "cornet_context": 7.475,
           "cornet_bell_metal": 4.29,
           "cornet_maker_school": 22.034999999999993
@@ -109,11 +109,11 @@
           "trombone_maker_school": "trombone_bach_42"
         },
         "scores": {
-          "wind_articulation": 4.47,
+          "wind_articulation": 4.079999999999999,
           "trombone_type": 32.425,
-          "trombone_mouthpiece": 32.615,
-          "trombone_mute": 0.3,
-          "trombone_technique": 2.4050000000000002,
+          "trombone_mouthpiece": 32.42,
+          "trombone_mute": 0.3158333333333333,
+          "trombone_technique": 2.3175,
           "trombone_bell_metal": 1.4299999999999997,
           "trombone_maker_school": 10.725
         }

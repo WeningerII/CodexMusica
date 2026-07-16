@@ -1,6 +1,6 @@
 ---
 name: codex-music-tool
-description: Query, compose, validate, and mutate the Codex Musica dataset — 1195 recorded-music traditions (in a 317-node genre tree, 13-axis space), 651 instruments across 11 families with shared parts/variants, 256 rooms, 84 chain archetypes, 21 production aesthetics, 120 tunings, and a 649-entry voice/preface lexicon. Use to look entries up, build an ensemble + room/chain/tuning setup from a tradition (or blend), compile a compressed descriptor-stack "recipe", validate every cross-reference and invariant, and safely add/edit/delete instruments, traditions, rooms, and other entities.
+description: Query, compose, validate, and mutate the Codex Musica dataset — 1165 recorded-music traditions (in a 317-node genre tree, 13-axis space), 651 instruments across 11 families with shared parts/variants, 256 rooms, 84 chain archetypes, 21 production aesthetics, 120 tunings, and a 649-entry voice/preface lexicon. Use to look entries up, build an ensemble + room/chain/tuning setup from a tradition (or blend), compile a compressed descriptor-stack "recipe", validate every cross-reference and invariant, and safely add/edit/delete instruments, traditions, rooms, and other entities.
 license: UNLICENSED
 ---
 
@@ -57,8 +57,8 @@ Hard rule: **anything you emit (recipe or arrangement) MUST pass §6 before you 
 | arrangement templates | 5 | bare slug | `ARRANGEMENTS` (array) |
 | tunings | 120 | bare slug, e.g. `twelve_tet` | `TUNINGS` (array) |
 | tree nodes | 317 | **full dotted path**, e.g. `groovePercussion.afroDiasporicElec` | `TREE_NODES` (array) |
-| traditions | 1195 | bare slug, e.g. `afrobeat` | `TRADITIONS` (array) |
-| tradition extras | 1195 | keyed by tradition id | `TRADITION_EXTRAS` (object) |
+| traditions | 1165 | bare slug, e.g. `afrobeat` | `TRADITIONS` (array) |
+| tradition extras | 1165 | keyed by tradition id | `TRADITION_EXTRAS` (object) |
 | voice/preface lexicon | 649 | bare slug, e.g. `sobbing` | `PREFACE_LEXICON` (array) |
 | axis definitions | 13 (trad) / 9 (inst) | bare slug, e.g. `harm` | `AXIS_DEFINITIONS`, `INSTRUMENT_AXIS_DEFINITIONS` |
 
@@ -124,7 +124,7 @@ Facts that bite if you miss them:
 - **`instrument.family`** ∈ the 11-value `INSTRUMENT_FAMILIES` table (always resolves).
   **`tradition.family`** is a *different* 12-value vocabulary (`global, classical,
   rock_punk, electronic, hip_hop, vernacular, jazz, pop, blues_gospel, rock, country,
-  pop_rock`; `global` dominates at 733/1195) — a top-level genre bucket, NOT an
+  pop_rock`; `global` dominates at 714/1165) — a top-level genre bucket, NOT an
   instrument family.
 - **Tree-node ids are full dotted paths.** 292 of 317 ids contain dots
   (`functionalSong.country.honkyTonkEra`); `extras.parent`/`crossRefs` hold such ids and
@@ -173,7 +173,7 @@ module.exports = T;
 ```bash
 CODEX_REF="$PWD/references" node -e 'const T=require("./load.js");
 console.log("loaded:",T.INSTRUMENTS.length,"insts,",T.TRADITIONS.length,"trads")'
-# → loaded: 651 insts, 1195 trads
+# → loaded: 651 insts, 1165 trads
 ```
 
 ### B. `require` for the preface lexicon only (it has `module.exports`)
@@ -828,7 +828,7 @@ name: Bill Monroe`, and the made-up archetype in `soft` (verified).
 - Load once with `q.js`; reuse `db.by*` and `db.partsFor`. Never re-parse the 1–2 MB
   bundles per query.
 - Project to `{id,name}` and `slice`/`head` before printing — never dump a full table
-  (651 instruments / 1195 traditions — a lot of tokens).
+  (651 instruments / 1165 traditions — a lot of tokens).
 - Prefer counts/samples while exploring; pull full records only for the few ids that
   land in the output.
 - For a single name lookup, `grep -oE "name: '…'"` beats spinning up node.

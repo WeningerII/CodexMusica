@@ -3,9 +3,9 @@
   "name": "Alt-R&B (2010s atmospheric experimental R&B)",
   "family": "pop",
   "lineage": "2010s alternative R&B subgenre emphasizing emotional-vulnerability, experimental-electronic production, atmospheric-vocal layering, and explicit indie-rock-aesthetic-influence over the broader commercial R&B mainstream. FKA twigs' EP1 (2012) and LP1 (2014) inaugurated the canonical British alt-R&B sound; Jhené Aiko, Banks, Kelela, Tinashe (early career), and the broader Top Dawg Entertainment and Atlantic Records alt-R&B rosters extended the genre.",
-  "recipe": "classic alt-r&b, functional Song, soul R&B branch, ambient experimental electric outrun / synthwave witch house. thick, breath veiled tone, fast rate, interlocked note trading. pad like pad analog synth, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 500,
-  "score": 159.81,
+  "recipe": "classic alt-r&b, functional Song, soul R&B branch, ambient experimental electric outrun / synthwave witch house. thick, breath veiled tone, fast rate, interlocked note trading. pad like pad analog synth, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 594,
+  "score": 179.435,
   "config": {
     "traditions": [
       "alt_rnb",
@@ -80,6 +80,29 @@
           "tr808_voice": 1.0650000000000002,
           "drum_machine_808_context": 5.869999999999999,
           "tr808_production_origin": 1.1700000000000002
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_pocket",
+          "amp_make": "amp_american_ampeg_b15",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "fingerstyle_locked"
+        },
+        "scores": {
+          "electric_technique": 3.6500000000000004,
+          "amp_make": 5.380000000000001,
+          "body_wood": 1.17,
+          "pickup_config": 0.15,
+          "string_type": 5.039999999999999,
+          "scale_length_b": 0.585,
+          "fretted_or_not": 0,
+          "bass_technique": 3.65
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Mid-1980s onward extreme metal subgenre characterized by down-tuned humbucker guitar, palm-muted chug riffs, blast-beat drumming, growl-vocal delivery, and morbid thematic content — codified through Florida-tampa-bay (Death — Scream Bloody Gore 1987, Morbid Angel — Altars of Madness 1989, Obituary, Deicide), and Stockholm (Entombed — Left Hand Path 1990, Dismember, Grave) with the genre splitting into technical, brutal, and melodic substreams by the mid-1990s",
   "recipe": "classic North American 1984-1986 death metal, distorted Rock, death branch, thrash metal djent. thick, breath veiled tone, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, orange amp British heavy crunch alder ernie ball slinky electric bass, ride-driven brushes-and-sticks drum kit. concrete basement. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay ibanez tube screamer TS9 / TS808.",
   "recipe_chars": 605,
-  "score": 370.625,
+  "score": 371.045,
   "config": {
     "traditions": [
       "death_metal",
@@ -27,7 +27,7 @@
           "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_12_hum",
-          "finish": "nitro_hum",
+          "finish": "oil_satin_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
@@ -41,8 +41,8 @@
           "string_material": 1.2349999999999999,
           "bridge": 6.201,
           "scale_length": 15.665,
-          "string_gauge": 7.15,
-          "finish": 0.0315,
+          "string_gauge": 7.046,
+          "finish": 0.168,
           "string_tuning": 20.474999999999998
         }
       },
@@ -59,14 +59,14 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 4.2444999999999995,
+          "electric_technique": 4.380999999999999,
           "amp_make": 7.085,
-          "body_wood": 7.41,
+          "body_wood": 7.3580000000000005,
           "pickup_config": 1.8850000000000002,
           "string_type": 13.628499999999999,
           "scale_length_b": 6.201,
           "fretted_or_not": 1.145,
-          "bass_technique": 13.7695
+          "bass_technique": 13.906
         }
       },
       {
@@ -103,7 +103,7 @@
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
-          "voice_register": 11.877499999999994,
+          "voice_register": 11.845999999999995,
           "voice_quality": 8.84,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -118,7 +118,7 @@
           "voice_ornament_system": 0.6499999999999999,
           "voice_pitch_organization": 2.0799999999999996,
           "voice_processing_chain": 6.240000000000001,
-          "voice_multitrack_stack": 5.846500000000001
+          "voice_multitrack_stack": 6.045
         }
       }
     ],

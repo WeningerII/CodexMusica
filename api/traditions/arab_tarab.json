@@ -5,7 +5,7 @@
   "lineage": "Arab East (Egyptian, Levantine, Syrian, Iraqi) classical-vocal art-music tradition built on the takht ensemble (oud, qanun, ney, riq, kamancheh, with violin section added in the 20th-century Egyptian extension) accompanying a virtuoso vocal soloist performing elaborated maqam-system vocal-form on classical Arabic poetry; figures include Mohammed Abdel Wahab, Sayed Darwish, and the post-WWII era anchored by Umm Kulthum and Abdel Halim Hafez",
   "recipe": "classic North African early-1940s tarab, improv On Frame, Persian arab improv branch, middle eastern classical art music, med east poetic ballad poetry shashmaqam azerbaijani mugham. vocal fry, breath veiled tone, slow rate, interlocked note trading. padauk Egyptian Syrian premium Lebanese cedar eastern Mediterranean pyramid oud, metal finger picks rosewood body arab premium goat skin bridge plate qanun, rosewood mop inlay canonical Egyptian takht fish skin canonical Egyptian light responsive brass jingles canonical takht riq, arundo donax cane canonical Persian nine segment hassan kassai canonical 20th century Persian radif continuous-airflow legato ney, kayhan kalhor canon walnut canonical Persian steel modern legato kamancheh, court tradition pre twentieth century takht arab. cairo major flagship studio 1934-present major-flagship cairo studio misr umm kulthum era. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb.",
   "recipe_chars": 991,
-  "score": 682.661,
+  "score": 675.396,
   "config": {
     "traditions": [
       "arab_tarab",
@@ -38,18 +38,18 @@
           "voice_quality": 21.710000000000004,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 30.615000000000006,
+          "voice_vibrato": 30.259500000000003,
           "voice_articulation": 12.739999999999995,
           "voice_microtone": 49.82249999999999,
-          "voice_tradition": 59.77825,
-          "voice_mechanism_compound": 37.36000000000001,
-          "voice_estill_quality": 31.0865,
+          "voice_tradition": 57.90325,
+          "voice_mechanism_compound": 37.01500000000001,
+          "voice_estill_quality": 30.6965,
           "voice_speech_song": 24.96,
           "voice_ensemble_config": 13.909999999999993,
-          "voice_ornament_system": 41.17875,
-          "voice_pitch_organization": 43.33500000000001,
+          "voice_ornament_system": 39.048750000000005,
+          "voice_pitch_organization": 43.035000000000004,
           "voice_processing_chain": 8.189999999999998,
-          "voice_multitrack_stack": 5.1049999999999995
+          "voice_multitrack_stack": 4.955
         }
       },
       {
@@ -65,12 +65,12 @@
         },
         "scores": {
           "plucked_traditional_technique": 23.25,
-          "oud_school": 7.11,
+          "oud_school": 6.960000000000001,
           "oud_strings": 12.09,
-          "oud_pick": 1.2349999999999999,
-          "oud_body_wood": 3.795,
+          "oud_pick": 1.19,
+          "oud_body_wood": 3.3449999999999998,
           "oud_soundboard_wood": 2.8600000000000003,
-          "oud_string_material": 9.619999999999997
+          "oud_string_material": 9.529499999999999
         }
       },
       {
@@ -106,7 +106,7 @@
         "scores": {
           "riq_size": 14.17,
           "riq_context": 4.16,
-          "riq_shell_wood": 7.54,
+          "riq_shell_wood": 6.9007499999999995,
           "riq_head_material": 5.525,
           "riq_jingles": 5.459999999999999
         }
@@ -122,7 +122,7 @@
         },
         "scores": {
           "wind_articulation": 23.290000000000003,
-          "ney_use": 9.013749999999998,
+          "ney_use": 8.86375,
           "ney_pitch": 12.09,
           "ney_body_material": 7.93,
           "ney_lineage": 15.535000000000002
@@ -152,7 +152,7 @@
           "takht_arab_era": "takht_arab_classical"
         },
         "scores": {
-          "members": 0.24,
+          "members": 0.045,
           "takht_arab_era": 9.684999999999999
         }
       }
