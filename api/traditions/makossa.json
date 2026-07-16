@@ -3,9 +3,9 @@
   "name": "Makossa",
   "family": "global",
   "lineage": "Cameroonian (Douala / Bantu coastal) popular music genre codified by Manu Dibango from 1972 onward (Soul Makossa, the international breakthrough that established the genre name in the global pop vocabulary) — built on a fusion of Douala traditional drumming, jazz horn-section vocabulary, and Cameroonian Catholic-mission church music; tracked extensively at Paris Pathé-Marconi studios for European distribution and recurring back to Yaoundé and Douala studios",
-  "recipe": "classic Western European early-1970s makossa, groove Percussion, west African branch, African pop functional song congolese rumba isicathamiya. thick, breath veiled tone, straight onset, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright clean strummed single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, mule hide canonical Cuban premium oak staved canonical Cuban congas, ensemble student commercial trombone, ensemble shallow cup lead trumpet trumpet. paris African diaspora recording 1970-2000 mid tier paris pathe marconi african diaspora. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 972,
-  "score": 425.297,
+  "recipe": "classic Western European early-1970s makossa, groove Percussion, west African branch, African pop functional song congolese rumba isicathamiya. thick, breath veiled tone, straight onset, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright clean strummed single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, pre muffled edge muffled brushes-and-sticks drum kit, tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, mule hide canonical Cuban premium oak staved canonical Cuban congas, ensemble student commercial trombone, ensemble shallow cup lead trumpet trumpet. paris African diaspora recording 1970-2000 mid tier paris pathe marconi african diaspora. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 954,
+  "score": 364.082,
   "config": {
     "traditions": [
       "makossa",
@@ -109,32 +109,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "birch_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "ec_pre_muffled_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b15_signature",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "machine_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 25.35,
-          "shell_wood": 0.9899999999999999,
-          "shell_thickness": 0,
-          "bearing_edges": 0.585,
+          "drum_technique": 25.35,
           "drumhead": 11.629999999999999,
-          "snare_wires": 0.585,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 10.815,
-          "cymbal_hammering": 11.445,
-          "cymbal_lathing": 11.145,
-          "cymbal_finish": 0.3,
-          "drum_technique": 25.35
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -246,17 +228,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_locked",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "voice_register": "mix_voice",
       "voice_quality": "chest_mix_belt_voice",
       "voice_speech_song": "voice_syllabic_singing",

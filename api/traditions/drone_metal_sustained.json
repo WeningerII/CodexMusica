@@ -3,9 +3,9 @@
   "name": "Drone metal (1990s extreme-deceleration sustained-tone metal)",
   "family": "rock_punk",
   "lineage": "1990s heavy-metal subgenre developed from doom metal's extreme deceleration, characterized by extreme-down-tuned distorted-guitar drone textures, glacial tempi (often single notes sustained 30-90 seconds), heavy amplifier-and-feedback emphasis, and minimal-to-absent traditional rhythmic-or-vocal content. Earth's Earth 2 (1993, Dylan Carlson) inaugurated the canonical sound; Sunn O))) (Stephen O'Malley and Greg Anderson, founded 1998), Boris, and the broader Southern Lord Records label roster anchor the canonical drone metal aesthetic.",
-  "recipe": "classic Midwestern American drone metal, distorted Rock, doom branch, ambient experimental electric dark ambient darksynth. orange amp British heavy crunch basswood mahogany rosewood humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky riff driven electric bass, walnut kevlar aramid extreme tension machine hammered drum kit. stoner doom garage amplifier room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 524,
-  "score": 202.835,
+  "recipe": "classic Midwestern American drone metal, distorted Rock, doom branch, ambient experimental electric dark ambient darksynth. orange amp British heavy crunch basswood mahogany rosewood humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky riff driven electric bass, kevlar aramid extreme tension brushes-and-sticks drum kit. stoner doom garage amplifier room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 519,
+  "score": 140.962,
   "config": {
     "traditions": [
       "drone_metal_sustained",
@@ -72,32 +72,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "walnut_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "kevlar_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b8",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "lathing_raw_unlathed",
-          "cymbal_finish": "hand_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 12.544999999999998,
-          "shell_wood": 3.1849999999999996,
-          "shell_thickness": 0,
-          "bearing_edges": 1.4949999999999999,
+          "drum_technique": 12.544999999999998,
           "drumhead": 3.55,
-          "snare_wires": 1.4949999999999999,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 24.99,
-          "cymbal_hammering": 4.615,
-          "cymbal_lathing": 10.363571428571428,
-          "cymbal_finish": 3.1849999999999996,
-          "drum_technique": 12.544999999999998
+          "drum_kit_kick_pedal": 0
         }
       }
     ],
@@ -131,17 +113,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "pick_aggressive",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "thick_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "double_coated",
-      "snare_wires": "wires_30",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "hand_random_hammering",
-      "cymbal_lathing": "pin_lathe",
-      "cymbal_finish": "brilliant_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "string_tuning": "standard_tuning"
     },
     "chain_mic": "condenser_ldc",

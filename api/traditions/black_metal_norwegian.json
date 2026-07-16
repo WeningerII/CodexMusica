@@ -3,9 +3,9 @@
   "name": "Black metal (Norwegian second wave)",
   "family": "rock_punk",
   "lineage": "Early-1990s Norwegian heavy-metal subgenre developed from broader 1980s first-wave black-metal (Venom, Bathory, Hellhammer) into a distinct Norwegian extreme-metal style. Characterized by tremolo-picked-guitar-blast-beat percussion, raw-and-lo-fi production aesthetic, screeched-or-shrieked vocal-delivery, and explicit Norse-pagan-and-Satanic thematic content. Mayhem (founded 1984), Burzum, Darkthrone, Emperor, Immortal, and the broader Norwegian black-metal scene anchored the canonical aesthetic. The early-1990s church-arson and murder controversies mythologized the scene.",
-  "recipe": "classic 1990-1993 black metal, distorted Rock, death branch, thrash metal groove metal djent. thick, breath veiled tone, breath pulsed, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modeled amp modern rig alder ernie ball slinky electric bass, mahogany kevlar aramid extreme tension machine hammered drum kit. isolated rural 2005-present isolation diy isolation cabin diy. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 617,
-  "score": 470.466,
+  "recipe": "classic 1990-1993 black metal, distorted Rock, death branch, thrash metal groove metal djent. thick, breath veiled tone, breath pulsed, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modeled amp modern rig alder ernie ball slinky electric bass, kevlar aramid extreme tension brushes-and-sticks drum kit. isolated rural 2005-present isolation diy isolation cabin diy. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 610,
+  "score": 379.939,
   "config": {
     "traditions": [
       "black_metal_norwegian",
@@ -111,32 +111,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "mahogany_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "kevlar_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b8",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "machine_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 13.389999999999997,
-          "shell_wood": 2.535,
-          "shell_thickness": 0.0315,
-          "bearing_edges": 2.34,
+          "drum_technique": 13.389999999999997,
           "drumhead": 2.8274999999999997,
-          "snare_wires": 2.34,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 46.71950000000001,
-          "cymbal_hammering": 11.795000000000002,
-          "cymbal_lathing": 10.9815,
-          "cymbal_finish": 0.39449999999999996,
-          "drum_technique": 13.389999999999997
+          "drum_kit_kick_pedal": 0
         }
       }
     ],
@@ -169,17 +151,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "pick_aggressive",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "thick_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "double_coated",
-      "snare_wires": "wires_30",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "hand_random_hammering",
-      "cymbal_lathing": "pin_lathe",
-      "cymbal_finish": "brilliant_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "voice_register": "chest_voice",
       "voice_quality": "false_fold_voice",
       "voice_speech_song": "voice_syllabic_singing",

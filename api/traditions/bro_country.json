@@ -3,9 +3,9 @@
   "name": "Bro-country",
   "family": "global",
   "lineage": "2010s mainstream country-pop-rap hybrid codified through Florida Georgia Line \"Cruise\" (2012), Luke Bryan, Jason Aldean, and the Nashville radio-format that adopted hip-hop-derived production cues — characterized by 808-bass-and-drum-machine programming, party-celebrating lyrical subject matter, and pop-rock guitar work over country-vocal lead",
-  "recipe": "classic mid-2010s bro-country, functional Song, contemp main branch, us hip hop southern plugg pluggnb. thick, rap, straight note core, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright basswood humbucker electric guitar, Fender tweed amp American 50s amp tweed breakup la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick call-and-response banjo 5 string, pitched chopped sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 708,
-  "score": 374.361,
+  "recipe": "classic mid-2010s bro-country, functional Song, contemp main branch, us hip hop southern plugg pluggnb. thick, rap, straight note core, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright basswood humbucker electric guitar, Fender tweed amp American 50s amp tweed breakup la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled brushes-and-sticks drum kit, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick call-and-response banjo 5 string, pitched chopped sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 690,
+  "score": 331.941,
   "config": {
     "traditions": [
       "bro_country",
@@ -111,32 +111,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "birch_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "ec_pre_muffled_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b15_signature",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "machine_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 10.854999999999997,
-          "shell_wood": 0.845,
-          "shell_thickness": 0,
-          "bearing_edges": 0.845,
+          "drum_technique": 10.854999999999997,
           "drumhead": 5.699999999999999,
-          "snare_wires": 0.845,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 9,
-          "cymbal_hammering": 10.19,
-          "cymbal_lathing": 8.995,
-          "cymbal_finish": 0.845,
-          "drum_technique": 10.854999999999997
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -216,17 +198,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerpicked_country_b",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_30",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "brushes_and_sticks",
-      "percussion_technique": "percussion_brushes_and_sticks",
       "voice_register": "chest_voice",
       "voice_quality": "twang_voice",
       "voice_speech_song": "voice_syllabic_singing",

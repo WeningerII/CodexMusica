@@ -3,9 +3,9 @@
   "name": "Brutal death metal",
   "family": "global",
   "lineage": "Extreme-aggressive death-metal sub-style codified through Suffocation (Effigy of the Forgotten 1991), Cannibal Corpse (Tomb of the Mutilated 1992), Cryptopsy (None So Vile 1996), Disgorge — characterized by guttural-pig-squeal vocals, sub-200-BPM blast-beat drums, and downtuned-baritone-guitar low-end",
-  "recipe": "classic early-1990s brutal death metal, distorted Rock, death branch, thrash metal groove metal djent. thick, breath veiled tone, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modeled amp modern rig mahogany ernie ball slinky electric bass, mahogany machine hammered symmetric pattern organized rows full lathed drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 593,
-  "score": 390.721,
+  "recipe": "classic early-1990s brutal death metal, distorted Rock, death branch, thrash metal groove metal djent. thick, breath veiled tone, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modeled amp modern rig mahogany ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 538,
+  "score": 312.413,
   "config": {
     "traditions": [
       "brutal_death_metal",
@@ -111,32 +111,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "mahogany_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "sticks_rock",
           "drumhead": "double_coated",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b8",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "machine_hammered",
-          "drum_technique": "sticks_rock"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 7.409999999999999,
-          "shell_wood": 3.445,
-          "shell_thickness": 0.0315,
-          "bearing_edges": 3.6399999999999997,
+          "drum_technique": 10.125000000000002,
           "drumhead": 3.6399999999999997,
-          "snare_wires": 3.6399999999999997,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 36.969500000000004,
-          "cymbal_hammering": 11.795000000000002,
-          "cymbal_lathing": 10.9815,
-          "cymbal_finish": 0.39449999999999996,
-          "drum_technique": 10.125000000000002
+          "drum_kit_kick_pedal": 0
         }
       }
     ],
@@ -169,17 +151,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "pick_aggressive",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "thick_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "double_coated",
-      "snare_wires": "wires_30",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "hand_random_hammering",
-      "cymbal_lathing": "pin_lathe",
-      "cymbal_finish": "brilliant_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "voice_register": "chest_voice",
       "voice_quality": "pressed_phonation_voice",
       "voice_speech_song": "voice_syllabic_singing",

@@ -3,9 +3,9 @@
   "name": "Desert rock (Palm Desert scene)",
   "family": "rock_punk",
   "lineage": "Late-1980s-and-1990s Palm Desert California scene that birthed stoner rock through generator-party performances in the high desert outside Palm Springs and Joshua Tree. The \"generator parties\" allowed local bands (Kyuss, Yawning Man, Across the River, Fatso Jetson) to perform with the band powered by gasoline generators in remote desert locations free of police interference. The 1988-1992 generator-party period mythologized the geographic-cultural specificity of the desert-rock scene.",
-  "recipe": "classic Midwestern American 1988-1992 desert rock, distorted Rock, doom branch, sludge metal post-metal. thick, larynx lowered, pure, interlocked note trading. orange amp British heavy crunch basswood maple pau ferro humbucker electric guitar, orange amp British heavy crunch ernie ball slinky riff driven electric bass, mahogany machine hammered symmetric pattern organized rows full lathed drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi.",
-  "recipe_chars": 597,
-  "score": 520.559,
+  "recipe": "classic Midwestern American 1988-1992 desert rock, distorted Rock, doom branch, sludge metal post-metal. thick, larynx lowered, pure, interlocked note trading. orange amp British heavy crunch basswood maple pau ferro humbucker electric guitar, orange amp British heavy crunch ernie ball slinky riff driven electric bass, sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi.",
+  "recipe_chars": 542,
+  "score": 402.034,
   "config": {
     "traditions": [
       "desert_rock_palm",
@@ -111,32 +111,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "mahogany_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "sticks_rock",
           "drumhead": "single_clear",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b8",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "machine_hammered",
-          "drum_technique": "sticks_rock"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 12.869999999999997,
-          "shell_wood": 2.4699999999999998,
-          "shell_thickness": 0.0315,
-          "bearing_edges": 0.39,
+          "drum_technique": 24.875,
           "drumhead": 1.6899999999999997,
-          "snare_wires": 0.39,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 49.25125,
-          "cymbal_hammering": 25.7,
-          "cymbal_lathing": 25.7315,
-          "cymbal_finish": 1.6899999999999997,
-          "drum_technique": 24.875
+          "drum_kit_kick_pedal": 0
         }
       }
     ],
@@ -173,17 +155,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "pick_aggressive",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "voice_register": "chest_voice",
       "voice_quality": "full_chest_belt_voice",
       "voice_speech_song": "voice_syllabic_singing",

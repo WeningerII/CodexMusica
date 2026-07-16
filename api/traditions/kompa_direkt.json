@@ -3,9 +3,9 @@
   "name": "Kompa-direkt (Haitian)",
   "family": "global",
   "lineage": "The original founding Haitian kompa-direkt tradition invented by Nemours Jean-Baptiste in 1955 — characterized by big-band horn-section arrangement, slower 2/4 dance tempo (90-110 BPM), and the meringue Haitian rhythmic foundation; figures Nemours Jean-Baptiste (the founder), his orchestra Ensemble Aux Calebasses, and the parallel cadence-rampa lineage of Webert Sicot",
-  "recipe": "classic Caribbean mid-1950s kompa-direkt, groove Percussion, Caribbean branch, American jazz early swing-era jazz orchestra dixieland. thick, breath veiled tone, straight onset, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright clean strummed single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric bronze bell bronze over hammered drum kit, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, synthetic remo fiberskyn modern stable congas. port au prince Haitian recording 1970-2000 indie-commercial port au prince haitian kompa studio. sennheiser MD421, transformer-coupled solid-state pre, colored vintage console, optical compressor, parametric EQ. tape 15ips spring reverb.",
-  "recipe_chars": 880,
-  "score": 318.001,
+  "recipe": "classic Caribbean mid-1950s kompa-direkt, groove Percussion, Caribbean branch, American jazz early swing-era jazz orchestra dixieland. thick, breath veiled tone, straight onset, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright clean strummed single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes drum kit, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, synthetic remo fiberskyn modern stable congas. port au prince Haitian recording 1970-2000 indie-commercial port au prince haitian kompa studio. sennheiser MD421, transformer-coupled solid-state pre, colored vintage console, optical compressor, parametric EQ. tape 15ips spring reverb.",
+  "recipe_chars": 855,
+  "score": 253.183,
   "config": {
     "traditions": [
       "kompa_direkt",
@@ -109,32 +109,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "brass_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_45",
+          "drum_technique": "brushes_jazz",
           "drumhead": "vintage_ambassador_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b20",
-          "cymbal_hammering": "over_hammered",
-          "cymbal_lathing": "pin_lathe",
-          "cymbal_finish": "machine_hammered",
-          "drum_technique": "brushes_jazz"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 13.259999999999998,
-          "shell_wood": 0.195,
-          "shell_thickness": 0,
-          "bearing_edges": 0.39,
+          "drum_technique": 15,
           "drumhead": 19.34,
-          "snare_wires": 0.3,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 16.57,
-          "cymbal_hammering": 16.2365,
-          "cymbal_lathing": 17.7625,
-          "cymbal_finish": 0.105,
-          "drum_technique": 15
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -204,17 +186,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_locked",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "voice_register": "mix_voice",
       "voice_quality": "chest_mix_belt_voice",
       "voice_speech_song": "voice_syllabic_singing",

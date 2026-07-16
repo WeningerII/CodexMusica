@@ -3,9 +3,9 @@
   "name": "Dixieland (traditional/New Orleans-Chicago)",
   "family": "jazz",
   "lineage": "Earliest documented jazz style (c.1905-1928) emerging from New Orleans through cornet-led front-line (cornet/trumpet, clarinet, trombone) playing collective polyphonic improvisation over banjo/guitar-bass-drums rhythm section. Original Dixieland Jass Band's 1917 Livery Stable Blues was the first commercial jazz recording. Distinguished from later swing era by Dixieland's collective-improvisation (vs solo-feature) ensemble principle and 2/4 march-derived rhythmic pulse.",
-  "recipe": "classic North American mid-1910s dixieland, improv On Frame, early branch, American jazz pre jazz ragtime. bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, grenadilla African blackwood traditional front line clarinet, bach 42 canonical American orchestral tenor front line student commercial trombone, growly gut upright bass, vintage ambassador asymmetric bronze bell bronze over hammered drum kit, walnut warmer than maple scruggs stelling bluegrass setup mastertone flathead banjo 5 string, yellow brass canonical brass band conn vintage early jazz canon front line cornet, chord friendly guitar topped tenor guitar. dry but alive 1948-1965 indie-commercial early tape us small. acoustic horn. 78rpm shellac.",
-  "recipe_chars": 747,
-  "score": 456.184,
+  "recipe": "classic North American mid-1910s dixieland, improv On Frame, early branch, American jazz pre jazz ragtime. bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, grenadilla African blackwood traditional front line clarinet, bach 42 canonical American orchestral tenor front line student commercial trombone, growly gut upright bass, vintage ambassador asymmetric brushes drum kit, walnut warmer than maple scruggs stelling bluegrass setup mastertone flathead banjo 5 string, yellow brass canonical brass band conn vintage early jazz canon front line cornet, chord friendly guitar topped tenor guitar. dry but alive 1948-1965 indie-commercial early tape us small. acoustic horn. 78rpm shellac.",
+  "recipe_chars": 722,
+  "score": 349.14,
   "config": {
     "traditions": [
       "dixieland_traditional_jazz",
@@ -87,32 +87,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "maple_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "brushes_jazz",
           "drumhead": "vintage_ambassador_drumhead",
-          "snare_wires": "wires_20",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b20",
-          "cymbal_hammering": "over_hammered",
-          "cymbal_lathing": "hand_lathed_pit_retaining",
-          "cymbal_finish": "hand_hammered",
-          "drum_technique": "brushes_jazz"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 20.084999999999994,
-          "shell_wood": 0.845,
-          "shell_thickness": 0,
-          "bearing_edges": 0,
+          "drum_technique": 26.125,
           "drumhead": 30.009499999999996,
-          "snare_wires": 0,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 29.6815,
-          "cymbal_hammering": 28.577749999999998,
-          "cymbal_lathing": 27.659999999999997,
-          "cymbal_finish": 0.195,
-          "drum_technique": 26.125
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -195,17 +177,8 @@
     "tuning": "jazz_swing_eighth_4_4",
     "room": "studio_early_tape_us_small",
     "parts": {
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_30",
       "drumhead": "calfskin_drum",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "hand_random_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "brushes_jazz",
-      "percussion_technique": "percussion_brushes_jazz",
       "wind_articulation": "wind_punchy_ensemble",
       "brass_size": "cornet",
       "trumpet_technique": "trumpet_punchy_ensemble",

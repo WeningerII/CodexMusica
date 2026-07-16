@@ -3,9 +3,9 @@
   "name": "Brill Building pop",
   "family": "global",
   "lineage": "American 1958-1965 songwriter-pop industry centered on the Brill Building at 1619 Broadway in Manhattan and the adjacent 1650 Broadway — codified through the Aldon Music writing rooms of Don Kirshner and Al Nevins housing Carole King and Gerry Goffin, Barry Mann and Cynthia Weil, Neil Sedaka and Howard Greenfield, Burt Bacharach and Hal David — assembly-line songwriter pairs producing girl-group and teen-idol hits",
-  "recipe": "classic Los Angeles mid-1960s brill building pop, functional Song, crooners branch, pop rock functional song new wave yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, a cappella small 3 to 8 one per part call response single leader group response sardinian cantu a tenore oche mesu contra bassu choir ensemble, choir doo wop group, castanets. compound architecture 1958-1970 indie-commercial small la chambers. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 921,
-  "score": 717.107,
+  "recipe": "classic Los Angeles mid-1960s brill building pop, functional Song, crooners branch, pop rock functional song new wave yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, a cappella small 3 to 8 one per part call response single leader group response sardinian cantu a tenore oche mesu contra bassu choir ensemble, choir doo wop group, castanets. compound architecture 1958-1970 indie-commercial small la chambers. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 900,
+  "score": 551.412,
   "config": {
     "traditions": [
       "brill_building_pop",
@@ -134,32 +134,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "birch_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "sticks_rock",
           "drumhead": "ec_pre_muffled_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b15_signature",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "machine_hammered",
-          "drum_technique": "sticks_rock"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 21.254999999999995,
-          "shell_wood": 0.78,
-          "shell_thickness": 0.045,
-          "bearing_edges": 2.6650000000000005,
+          "drum_technique": 23.17,
           "drumhead": 22.689999999999994,
-          "snare_wires": 2.6650000000000005,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 45.584999999999994,
-          "cymbal_hammering": 46.275,
-          "cymbal_lathing": 45.83999999999999,
-          "cymbal_finish": 0.585,
-          "drum_technique": 23.17
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -230,17 +212,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_locked",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "thin_shell",
-      "bearing_edges": "edge_30",
       "drumhead": "single_coated",
-      "snare_wires": "wires_12",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_motown",
-      "percussion_technique": "percussion_sticks_motown",
       "voice_register": "mix_voice",
       "voice_quality": "chest_mix_belt_voice",
       "voice_speech_song": "voice_melismatic_singing",

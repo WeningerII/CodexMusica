@@ -3,9 +3,9 @@
   "name": "Tehrangeles Persian pop",
   "family": "global",
   "lineage": "Iranian-diaspora Los Angeles-recorded pop tradition (1980-1995) codified by the post-1979-revolution émigré recording industry centered on Westwood / Tarzana — Andy and Kouros, Moein, Dariush, Googoosh’s post-2000 return, with characteristic Farsi-language vocals over Westernized pop-rock production",
-  "recipe": "classic Los Angeles mid-1980s tehrangeles persian pop, functional Song, mid east n African pop branch, Persian arab improv improv on frame iraqi maqam malhun. thick, close mic intimate, slow rate, interlocked note trading. oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly synth, mahogany rosewood clean strummed single coil electric guitar, alder ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
-  "recipe_chars": 660,
-  "score": 281.004,
+  "recipe": "classic Los Angeles mid-1980s tehrangeles persian pop, functional Song, mid east n African pop branch, Persian arab improv improv on frame iraqi maqam malhun. thick, close mic intimate, slow rate, interlocked note trading. oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly synth, mahogany rosewood clean strummed single coil electric guitar, alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
+  "recipe_chars": 642,
+  "score": 223.475,
   "config": {
     "traditions": [
       "persian_pop_los_angeles",
@@ -124,32 +124,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "walnut_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "ec_pre_muffled_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b15_signature",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "machine_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 5.3950000000000005,
-          "shell_wood": 0.09099999999999998,
-          "shell_thickness": 0.045,
-          "bearing_edges": 1.95,
+          "drum_technique": 5.3950000000000005,
           "drumhead": 13.69,
-          "snare_wires": 1.95,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 16.045,
-          "cymbal_hammering": 16.012999999999998,
-          "cymbal_lathing": 15.995,
-          "cymbal_finish": 0.045,
-          "drum_technique": 5.3950000000000005
+          "drum_kit_kick_pedal": 0
         }
       }
     ],
@@ -183,17 +165,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_locked",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "voice_register": "mix_voice",
       "voice_quality": "chest_mix_belt_voice",
       "voice_speech_song": "voice_syllabic_singing",

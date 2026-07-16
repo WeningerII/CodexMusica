@@ -3,9 +3,9 @@
   "name": "Bakersfield country",
   "family": "vernacular",
   "lineage": "California Central Valley honky-tonk-derived country tradition that emerged in 1950s-60s Bakersfield as a West Coast reaction against the smoother Nashville Sound — codified through Buck Owens (Capitol Records Bakersfield voice from 1959 onward, Together Again 1964) and Merle Haggard (post-Owens Bakersfield extension, Mama Tried 1968, Okie from Muskogee 1969), played by the Buckaroos (Owens band led by Don Rich) and the Strangers (Haggards band); built on Telecaster-and-pedal-steel-foreground arrangement, faster shuffle tempos than typical Nashville fare, and Dust-Bowl-migration cultural lineage",
-  "recipe": "classic Southern American mid-1950s bakersfield country, functional Song, honky tonk era branch, outlaw country. thick, breath veiled tone, straight note core, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright classic country brass pedal steel, Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, Fender tweed amp American 50s amp tweed breakup alder pyramid electric bass, steel hot rolled annealed machine hammered symmetric pattern drum kit, steel double stops fiddle. nashville music row defining 1957-present major-flagship nashville rca studio b quonset hut. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay spring reverb analog bucket-brigade delay.",
-  "recipe_chars": 842,
-  "score": 386.903,
+  "recipe": "classic Southern American mid-1950s bakersfield country, functional Song, honky tonk era branch, outlaw country. thick, breath veiled tone, straight note core, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright classic country brass pedal steel, Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, Fender tweed amp American 50s amp tweed breakup alder pyramid electric bass, ride-driven brushes-and-sticks drum kit, steel double stops fiddle. nashville music row defining 1957-present major-flagship nashville rca studio b quonset hut. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay spring reverb analog bucket-brigade delay.",
+  "recipe_chars": 812,
+  "score": 366.028,
   "config": {
     "traditions": [
       "bakersfield",
@@ -131,32 +131,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "steel_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "vintage_ambassador_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b15_signature",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "brilliant_finish",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 8.8515,
-          "shell_wood": 1.6761249999999999,
-          "shell_thickness": 0.04462499999999999,
-          "bearing_edges": 0.65,
+          "drum_technique": 8.8515,
           "drumhead": 0.95,
-          "snare_wires": 0.65,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 3.0444999999999998,
-          "cymbal_hammering": 2.9262500000000005,
-          "cymbal_lathing": 2.9446250000000003,
-          "cymbal_finish": 0.08662499999999998,
-          "drum_technique": 8.8515
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -211,17 +193,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerpicked_country_b",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_30",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "brushes_and_sticks",
-      "percussion_technique": "percussion_brushes_and_sticks",
       "voice_register": "chest_voice",
       "voice_quality": "twang_voice",
       "voice_speech_song": "voice_syllabic_singing",

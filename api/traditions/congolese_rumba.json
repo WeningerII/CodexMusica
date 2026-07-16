@@ -3,9 +3,9 @@
   "name": "Congolese rumba",
   "family": "global",
   "lineage": "1940s-1960s Congolese-Kinshasa-and-Brazzaville Cuban-rumba-influenced urban dance music — codified through Joseph Kabasele (Grand Kallé) and African Jazz (Indépendance Cha-Cha 1960, the de facto anthem of Congolese independence) and Luambo Makiadi (Franco) and OK Jazz; built on the GV series Cuban son 78 records that came to the Congo through Belgian colonial trade in the 1930s-40s, then reinterpreted through Congolese guitar-and-voice ensembles into a distinct genre",
-  "recipe": "classic Central African mid-1940s congolese rumba, functional Song, congolese rumba branch, central east south African groove percussion, tropical song functional song bachata soukous. thick, breath veiled tone, straight onset, interlocked note trading. mahogany rosewood clean strummed single coil electric guitar, alder thomastik infeld low tension jazz warm walking electric bass, fiberskyn synthetic calf bronze bell bronze machine hammered drum kit, lead mule hide canonical Cuban premium oak staved canonical Cuban congas, maracas, weltmeister east German mid tier vintage volk accordion, claves. kinshasa leopoldville defining 1953-present mid tier kinshasa african jazz studio. dynamic moving-coil, tube pre. 78rpm shellac.",
-  "recipe_chars": 731,
-  "score": 372.265,
+  "recipe": "classic Central African mid-1940s congolese rumba, functional Song, congolese rumba branch, central east south African groove percussion, tropical song functional song bachata soukous. thick, breath veiled tone, straight onset, interlocked note trading. mahogany rosewood clean strummed single coil electric guitar, alder thomastik infeld low tension jazz warm walking electric bass, fiberskyn synthetic calf brushes-and-sticks drum kit, lead mule hide canonical Cuban premium oak staved canonical Cuban congas, maracas, weltmeister east German mid tier vintage volk accordion, claves. kinshasa leopoldville defining 1953-present mid tier kinshasa african jazz studio. dynamic moving-coil, tube pre. 78rpm shellac.",
+  "recipe_chars": 714,
+  "score": 310.005,
   "config": {
     "traditions": [
       "congolese_rumba",
@@ -109,32 +109,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "mahogany_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "fiberskyn_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b20",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "pin_lathe",
-          "cymbal_finish": "hand_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 28.34000000000001,
-          "shell_wood": 0.39,
-          "shell_thickness": 0,
-          "bearing_edges": 1.625,
+          "drum_technique": 28.34000000000001,
           "drumhead": 8.874999999999998,
-          "snare_wires": 1.625,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 9.075,
-          "cymbal_hammering": 9.780000000000001,
-          "cymbal_lathing": 11.274999999999999,
-          "cymbal_finish": 0.15,
-          "drum_technique": 28.34000000000001
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -226,17 +208,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_locked",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "voice_register": "mix_voice",
       "voice_quality": "chest_mix_belt_voice",
       "voice_speech_song": "voice_syllabic_singing",

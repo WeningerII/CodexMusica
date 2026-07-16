@@ -3,9 +3,9 @@
   "name": "Shibuya-kei",
   "family": "global",
   "lineage": "1990s Japanese eclectic-pop subgenre centered on Tokyo’s Shibuya district record-store scene — codified through Pizzicato Five, Cornelius (Keigo Oyamada), Fantastic Plastic Machine, and Kahimi Karie; characterized by sampledelic crate-digger production, sixties-French-pop and bossa-nova references, and ironic-cosmopolitan pop sensibility",
-  "recipe": "classic Asian mid-1990s shibuya-kei, functional Song, east Asian pop branch, pop experimental experimental electric hyperpop. extended whistle, breath veiled tone, straight onset, interlocked note trading. field textural sampler, centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric, clean strummed single coil electric guitar, ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, samba bateria. treated studio. Neumann U87, console-strip pre, SSL inline console, SMART research c1/c2, SSL surgical EQ. 16-bit digital eventide harmonizer TC electronic 2290 delay digital delay.",
-  "recipe_chars": 663,
-  "score": 389.049,
+  "recipe": "classic Asian mid-1990s shibuya-kei, functional Song, east Asian pop branch, pop experimental experimental electric hyperpop. extended whistle, breath veiled tone, straight onset, interlocked note trading. field textural sampler, centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric, clean strummed single coil electric guitar, ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, samba bateria. treated studio. Neumann U87, console-strip pre, SSL inline console, SMART research c1/c2, SSL surgical EQ. 16-bit digital eventide harmonizer TC electronic 2290 delay digital delay.",
+  "recipe_chars": 645,
+  "score": 292.879,
   "config": {
     "traditions": [
       "shibuya_kei",
@@ -144,32 +144,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "acrylic_shell",
-          "shell_thickness": "thick_shell",
-          "bearing_edges": "edge_45",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "ec_pre_muffled_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b15_signature",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "machine_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 14.364999999999997,
-          "shell_wood": 0.22874999999999998,
-          "shell_thickness": 0.12374999999999999,
-          "bearing_edges": 0.205125,
+          "drum_technique": 14.364999999999997,
           "drumhead": 25.791624999999996,
-          "snare_wires": 0.32325,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 26.7065,
-          "cymbal_hammering": 27.4615,
-          "cymbal_lathing": 26.656499999999998,
-          "cymbal_finish": 0.10012499999999999,
-          "drum_technique": 14.364999999999997
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -214,17 +196,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_walking",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "voice_register": "mix_voice",
       "voice_quality": "aspirated_voice",
       "voice_speech_song": "voice_syllabic_singing",

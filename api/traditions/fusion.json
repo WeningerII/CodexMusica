@@ -3,9 +3,9 @@
   "name": "Fusion",
   "family": "jazz",
   "lineage": "Late-1960s through 1970s jazz-rock hybrid genre electrifying jazz instrumentation and incorporating rock rhythms, funk grooves, modal harmonic language, and extended improvised form — codified through Miles Davis (In a Silent Way 1969, Bitches Brew 1970), Weather Report (Heavy Weather 1977), Mahavishnu Orchestra (Inner Mounting Flame 1971), Return to Forever, Herbie Hancock (Head Hunters 1973)",
-  "recipe": "classic Los Angeles 1967-1969 fusion, improv On Frame, fusion branch, American jazz bop bebop modal jazz. pocket ostinato electric piano tine, Fender blackface amp American 60s amp spring reverb bright basswood maple humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, birch vintage ambassador asymmetric bronze bell bronze drum kit, analog synth, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, bach stradivarius 180 canonical American orchestral jazz balance trumpet, raymac steel tine premium 1970s vintage replacement harder neoprene late 1970s bark grit ostinato rhodes electric, Wurlitzer 200a canonical 1974 1982 solid state soft rock canon ostinato wurlitzer ep, five string extended low range warm low c fusion lead electric violin. treated studio. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ.",
-  "recipe_chars": 997,
-  "score": 585.434,
+  "recipe": "classic Los Angeles 1967-1969 fusion, improv On Frame, fusion branch, American jazz bop bebop modal jazz. pocket ostinato electric piano tine, Fender blackface amp American 60s amp spring reverb bright basswood maple humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, analog synth, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, bach stradivarius 180 canonical American orchestral jazz balance trumpet, raymac steel tine premium 1970s vintage replacement harder neoprene late 1970s bark grit ostinato rhodes electric, Wurlitzer 200a canonical 1974 1982 solid state soft rock canon ostinato wurlitzer ep, five string extended low range warm low c fusion lead electric violin. treated studio. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ.",
+  "recipe_chars": 991,
+  "score": 440.292,
   "config": {
     "traditions": [
       "fusion",
@@ -85,32 +85,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "birch_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_45",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "vintage_ambassador_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b20",
-          "cymbal_hammering": "fourteen_step_hammering",
-          "cymbal_lathing": "pin_lathe",
-          "cymbal_finish": "machine_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 36.00999999999999,
-          "shell_wood": 1.514875,
-          "shell_thickness": 0.0045,
-          "bearing_edges": 1.87975,
+          "drum_technique": 36.00999999999999,
           "drumhead": 37.9685,
-          "snare_wires": 0.155625,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 39.075,
-          "cymbal_hammering": 33.301875,
-          "cymbal_lathing": 31.545875,
-          "cymbal_finish": 1.65475,
-          "drum_technique": 36.00999999999999
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -253,17 +235,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_walking",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_30",
       "drumhead": "calfskin_drum",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "hand_random_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "brushes_jazz",
-      "percussion_technique": "percussion_brushes_jazz",
       "electronic_technique": "electronic_pad_drone",
       "wind_articulation": "wind_bebop_runs",
       "sax_size": "tenor_sax",

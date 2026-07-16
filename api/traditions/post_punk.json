@@ -3,9 +3,9 @@
   "name": "Post-punk",
   "family": "rock_punk",
   "lineage": "Late-1970s through early-1980s underground rock movement extending punk's rejection of rock-tradition conventions through more harmonic-and-rhythmic experimentation, dub-and-disco bass-and-rhythm sensibility, and intellectualized lyrical content — codified through Wire (Pink Flag 1977), Joy Division (Unknown Pleasures 1979), Gang of Four (Entertainment! 1979), The Fall, Public Image Ltd (Metal Box 1979), Magazine, Talking Heads (Remain in Light 1980)",
-  "recipe": "classic British 1977-1979 post-punk, distorted Rock, punk branch, alternative distorted rock math rock and post-rock. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alder single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation 28 625 inch baritone electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, oak pre muffled edge muffled machine hammered symmetric pattern drum kit, pad like sub bass analog synth. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb chorus boss DS-1.",
-  "recipe_chars": 841,
-  "score": 791.755,
+  "recipe": "classic British 1977-1979 post-punk, distorted Rock, punk branch, alternative distorted rock math rock and post-rock. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alder single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation 28 625 inch baritone electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, pad like sub bass analog synth. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb chorus boss DS-1.",
+  "recipe_chars": 818,
+  "score": 618.95,
   "config": {
     "traditions": [
       "post_punk",
@@ -109,32 +109,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "oak_shell",
-          "shell_thickness": "thick_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "sticks_rock",
           "drumhead": "ec_pre_muffled_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b8",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "hand_hammered",
-          "drum_technique": "sticks_rock"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 23.725,
-          "shell_wood": 2.835,
-          "shell_thickness": 1.4949999999999999,
-          "bearing_edges": 1.04,
+          "drum_technique": 37.875,
           "drumhead": 2.8949999999999996,
-          "snare_wires": 2.7299999999999995,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 57.25000000000001,
-          "cymbal_hammering": 40.620000000000005,
-          "cymbal_lathing": 41.42000000000001,
-          "cymbal_finish": 1.6899999999999997,
-          "drum_technique": 37.875
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -209,17 +191,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "pick_aggressive",
-      "shell_wood": "birch_shell",
-      "shell_thickness": "thin_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b8",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_punk",
-      "percussion_technique": "percussion_sticks_punk",
       "voice_register": "mix_voice",
       "voice_quality": "aspirated_voice",
       "voice_speech_song": "voice_syllabic_singing",

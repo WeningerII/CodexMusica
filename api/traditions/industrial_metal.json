@@ -3,9 +3,9 @@
   "name": "Industrial metal (1980s-1990s electro-industrial heavy rock)",
   "family": "rock_punk",
   "lineage": "1980s-and-1990s heavy-metal subgenre integrating industrial-electronic production techniques (drum-machine programming, sampling, distorted-synthesizer textures) with heavy-metal guitar-and-vocal aesthetic. Ministry's The Land of Rape and Honey (1988), Nine Inch Nails' The Downward Spiral (1994), and Rammstein's 1995-onward German-language work constitute canonical type-specimens. Distinguished from broader industrial by integration of guitar-band rock framework.",
-  "recipe": "classic North American industrial metal, distorted Rock, avant branch, industrial noise experimental electric dark electro / aggrotech. thick, breath veiled tone, straight note core, interlocked note trading. orange amp British heavy crunch basswood power chord humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, mahogany machine hammered symmetric pattern organized rows full lathed drum kit, analog synth, field textural sampler. mid manhattan 1975-1985 mid-major late70s nyc commercial. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 656,
-  "score": 380.354,
+  "recipe": "classic North American industrial metal, distorted Rock, avant branch, industrial noise experimental electric dark electro / aggrotech. thick, breath veiled tone, straight note core, interlocked note trading. orange amp British heavy crunch basswood power chord humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, brushes-and-sticks drum kit, analog synth, field textural sampler. mid manhattan 1975-1985 mid-major late70s nyc commercial. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 604,
+  "score": 309.976,
   "config": {
     "traditions": [
       "industrial_metal",
@@ -111,32 +111,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "mahogany_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_45",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "single_clear",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b8",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "hand_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 14.234999999999996,
-          "shell_wood": 4.23975,
-          "shell_thickness": 0.0315,
-          "bearing_edges": 0.273,
+          "drum_technique": 14.234999999999996,
           "drumhead": 0.168,
-          "snare_wires": 0.0315,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 25.867999999999995,
-          "cymbal_hammering": 13.022999999999996,
-          "cymbal_lathing": 11.181499999999994,
-          "cymbal_finish": 1.4949999999999999,
-          "drum_technique": 14.234999999999996
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -203,17 +185,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "pick_aggressive",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "thick_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "double_coated",
-      "snare_wires": "wires_30",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "hand_random_hammering",
-      "cymbal_lathing": "pin_lathe",
-      "cymbal_finish": "brilliant_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "voice_register": "chest_voice",
       "voice_quality": "pressed_phonation_voice",
       "voice_speech_song": "voice_syllabic_singing",

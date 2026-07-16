@@ -3,9 +3,9 @@
   "name": "Emo",
   "family": "rock_punk",
   "lineage": "Mid-1980s through present post-hardcore-derived confessional rock — codified through Rites of Spring (Rites of Spring 1985 on Dischord Records), Embrace, Sunny Day Real Estate (Diary 1994), Texas Is the Reason, the Promise Ring, and Mineral codifying the second-wave emo aesthetic; later mainstreamed through Jimmy Eat World (Bleed American 2001), Dashboard Confessional, and the Drive-Thru / Vagrant Records scene",
-  "recipe": "classic North American 1984-1986 emo, distorted Rock, emo branch, punk distorted rock, pop punk distorted rock, alternative distorted rock pop-punk crust punk. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, oak pre muffled edge muffled machine hammered symmetric pattern drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 778,
-  "score": 812.79,
+  "recipe": "classic North American 1984-1986 emo, distorted Rock, emo branch, punk distorted rock, pop punk distorted rock, alternative distorted rock pop-punk crust punk. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 746,
+  "score": 650.01,
   "config": {
     "traditions": [
       "emo",
@@ -142,32 +142,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_sticks_punk",
-          "shell_wood": "oak_shell",
-          "shell_thickness": "thick_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "sticks_punk",
           "drumhead": "ec_pre_muffled_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b8",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "machine_hammered",
-          "drum_technique": "sticks_punk"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 27.249999999999996,
-          "shell_wood": 1.59,
-          "shell_thickness": 1.2,
-          "bearing_edges": 3.485,
+          "drum_technique": 27.249999999999996,
           "drumhead": 17.799999999999997,
-          "snare_wires": 3.485,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 49.89,
-          "cymbal_hammering": 37.79,
-          "cymbal_lathing": 37.7,
-          "cymbal_finish": 0.39,
-          "drum_technique": 27.249999999999996
+          "drum_kit_kick_pedal": 0
         }
       }
     ],
@@ -201,17 +183,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "pick_aggressive",
-      "shell_wood": "birch_shell",
-      "shell_thickness": "thin_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b8",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_punk",
-      "percussion_technique": "percussion_sticks_punk",
       "voice_register": "chest_voice",
       "voice_quality": "blues_shouter_voice",
       "voice_speech_song": "voice_syllabic_singing",

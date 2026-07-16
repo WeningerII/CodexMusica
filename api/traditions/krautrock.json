@@ -3,9 +3,9 @@
   "name": "Krautrock",
   "family": "rock_punk",
   "lineage": "West German experimental rock genre that emerged in 1968-1980 — codified through Can (Tago Mago 1971, Ege Bamyasi 1972, Future Days 1973), Kraftwerk (Autobahn 1974, Trans-Europe Express 1977 — the electronic-pop founding albums), Neu! (Neu! 1972, Neu! 2 1973 — the motorik-rhythm-foundation albums), Faust, Amon Düül II, Tangerine Dream, Cluster, Harmonia, Popol Vuh; characterized by repetitive motorik rhythm (the Klaus Dinger drumbeat), tape-loop and tape-delay manipulation, modular-synthesizer sequencing, and a deliberate philosophical break from Anglo-American rock idiom",
-  "recipe": "classic Central European mid-1970s krautrock, distorted Rock, experimental branch, ambient experimental electric mallsoft vaporwave aesthetic. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation wenge single coil electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, walnut pre muffled edge muffled hot rolled annealed drum kit, pad like pad analog synth, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched block chord fast tremolo tonewheel organ. dusseldorf cologne krautrock defining 1968-1980 indie-commercial krautrock dusseldorf kling klang studio. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo phaser.",
-  "recipe_chars": 779,
-  "score": 215.702,
+  "recipe": "classic Central European mid-1970s krautrock, distorted Rock, experimental branch, ambient experimental electric mallsoft vaporwave aesthetic. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation wenge single coil electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, pad like pad analog synth, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched block chord fast tremolo tonewheel organ. dusseldorf cologne krautrock defining 1968-1980 indie-commercial krautrock dusseldorf kling klang studio. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo phaser.",
+  "recipe_chars": 771,
+  "score": 143.347,
   "config": {
     "traditions": [
       "krautrock",
@@ -70,32 +70,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "walnut_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "ec_pre_muffled_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b15_signature",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "hand_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 14.169999999999996,
-          "shell_wood": 1.455,
-          "shell_thickness": 0,
-          "bearing_edges": 0.845,
+          "drum_technique": 14.169999999999996,
           "drumhead": 5.04,
-          "snare_wires": 0.845,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 17.799999999999997,
-          "cymbal_hammering": 18.139999999999997,
-          "cymbal_lathing": 17.644999999999996,
-          "cymbal_finish": 1.455,
-          "drum_technique": 14.169999999999996
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -168,17 +150,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "pick_aggressive",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "electronic_technique": "electronic_arpeggiated",
       "drawbar_setting": "rock_drawbars",
       "rotary_speed": "fast_tremolo",

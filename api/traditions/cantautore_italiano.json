@@ -3,9 +3,9 @@
   "name": "Cantautore italiano",
   "family": "global",
   "lineage": "Italian songwriter tradition codified through the Genoa school (Fabrizio De André, Luigi Tenco, Bruno Lauzi, Gino Paoli, Umberto Bindi), the Milan school (Enzo Jannacci, Giorgio Gaber), the Roman school (Antonello Venditti, Francesco De Gregori, Lucio Dalla, Claudio Baglioni), and the modern continuation (Vinicio Capossela, Cristiano De André), with French chanson and Brazilian bossa nova as primary external lineage influences",
-  "recipe": "classic Central European mid-1960s cantautore italiano, ballad Poetry, post chanson branch, chanson fado classic chanson, chanson fado fado lisboa chanson classique. thick, lament wail, slow rate, interlocked note trading. cedar walnut phosphor bronze bronze fingerpicked acoustic guitar, birch laminated maple laminated sitka spruce diaphragmatic multi laminate grand piano, mahogany pyramid pure nickel bass British mid 60s era sub heavy electric bass, pre muffled edge muffled fx9 manganese bronze machine hammered drum kit. german liedermacher kabarett berlin. Neumann U67, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
-  "recipe_chars": 678,
-  "score": 194.688,
+  "recipe": "classic Central European mid-1960s cantautore italiano, ballad Poetry, post chanson branch, chanson fado classic chanson, chanson fado fado lisboa chanson classique. thick, lament wail, slow rate, interlocked note trading. cedar walnut phosphor bronze bronze fingerpicked acoustic guitar, birch laminated maple laminated sitka spruce diaphragmatic multi laminate grand piano, mahogany pyramid pure nickel bass British mid 60s era sub heavy electric bass, pre muffled edge muffled brushes-and-sticks drum kit. german liedermacher kabarett berlin. Neumann U67, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
+  "recipe_chars": 659,
+  "score": 168.821,
   "config": {
     "traditions": [
       "cantautore_italiano",
@@ -122,32 +122,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "steel_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "ec_pre_muffled_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "meinl_fx9",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "machine_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 8.124999999999998,
-          "shell_wood": 0.845,
-          "shell_thickness": 0,
-          "bearing_edges": 1.4949999999999999,
+          "drum_technique": 8.124999999999998,
           "drumhead": 5.64,
-          "snare_wires": 1.4949999999999999,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 2.8562499999999997,
-          "cymbal_hammering": 5.199999999999999,
-          "cymbal_lathing": 5.199999999999999,
-          "cymbal_finish": 0.65,
-          "drum_technique": 8.124999999999998
+          "drum_kit_kick_pedal": 0
         }
       }
     ],
@@ -177,17 +159,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_locked",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "voice_register": "chest_voice",
       "voice_quality": "crooner_voice",
       "voice_speech_song": "voice_syllabic_singing",

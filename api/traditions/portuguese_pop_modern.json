@@ -3,9 +3,9 @@
   "name": "Portuguese pop (modern)",
   "family": "global",
   "lineage": "Modern Portuguese mainstream pop tradition extending past the fado canon — codified through Madredeus, Mariza’s fado-fusion, the 2000s Buraka Som Sistema kuduro crossover, and contemporary artists like Sara Tavares, David Carreira; characterized by Portuguese-language vocals over electronic-and-organic hybrid production",
-  "recipe": "classic mid-2000s portuguese pop, functional Song, iberian branch, chanson fado ballad poetry cape verdean batuko of santiago island morna. extended whistle, breath veiled tone, straight onset, interlocked note trading. martin lifespan strummed open chord ringing overtones fingerpicked acoustic mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier wenge single coil electric guitar, modeled amp modern rig mahogany stainless steel roundwound electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 721,
-  "score": 428.951,
+  "recipe": "classic mid-2000s portuguese pop, functional Song, iberian branch, chanson fado ballad poetry cape verdean batuko of santiago island morna. extended whistle, breath veiled tone, straight onset, interlocked note trading. martin lifespan strummed open chord ringing overtones fingerpicked acoustic mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier wenge single coil electric guitar, modeled amp modern rig mahogany stainless steel roundwound electric bass, pre muffled edge muffled brushes-and-sticks drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 703,
+  "score": 354.301,
   "config": {
     "traditions": [
       "portuguese_pop_modern",
@@ -128,32 +128,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "steel_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_45",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "ec_pre_muffled_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b15_signature",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "machine_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 26.065,
-          "shell_wood": 0.39,
-          "shell_thickness": 0,
-          "bearing_edges": 3.6149999999999993,
+          "drum_technique": 26.065,
           "drumhead": 17.034999999999997,
-          "snare_wires": 0.54,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 10.294999999999998,
-          "cymbal_hammering": 16.699999999999996,
-          "cymbal_lathing": 16.894999999999996,
-          "cymbal_finish": 0.15,
-          "drum_technique": 26.065
+          "drum_kit_kick_pedal": 0
         }
       }
     ],
@@ -187,17 +169,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_locked",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "voice_register": "mix_voice",
       "voice_quality": "chest_mix_belt_voice",
       "voice_speech_song": "voice_syllabic_singing",

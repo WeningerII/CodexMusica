@@ -3,9 +3,9 @@
   "name": "Punk",
   "family": "rock_punk",
   "lineage": "Mid-1970s underground rock movement reasserting amateur three-chord rock against progressive-rock complexity, with simplified song-form, aggressive vocal delivery, and anti-establishment thematic content — codified through the New York scene (Ramones, Television, Patti Smith, the Voidoids) and the UK scene (Sex Pistols Never Mind the Bollocks 1977, The Clash 1977, Buzzcocks, The Damned), spreading worldwide through the late-1970s as a distinct underground commercial-and-DIY scene",
-  "recipe": "classic North American 1974-1976 punk, distorted Rock, punk branch, classic distorted rock garage rock hard rock. thick, breath veiled tone, wide pitch sway, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. concrete basement. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb boss DS-1.",
-  "recipe_chars": 626,
-  "score": 592.389,
+  "recipe": "classic North American 1974-1976 punk, distorted Rock, punk branch, classic distorted rock garage rock hard rock. thick, breath veiled tone, wide pitch sway, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, sticks backbeat drum kit. concrete basement. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb boss DS-1.",
+  "recipe_chars": 562,
+  "score": 447.319,
   "config": {
     "traditions": [
       "punk",
@@ -109,32 +109,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "mahogany_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "sticks_rock",
           "drumhead": "double_coated",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b8",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "traditional_finish",
-          "drum_technique": "sticks_rock"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 15.534999999999995,
-          "shell_wood": 0.845,
-          "shell_thickness": 0,
-          "bearing_edges": 1.95,
+          "drum_technique": 36.86875,
           "drumhead": 1.95,
-          "snare_wires": 1.95,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 47.53875,
-          "cymbal_hammering": 38.737500000000004,
-          "cymbal_lathing": 38.31875,
-          "cymbal_finish": 0.195,
-          "drum_technique": 36.86875
+          "drum_kit_kick_pedal": 0
         }
       }
     ],
@@ -171,17 +153,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "pick_aggressive",
-      "shell_wood": "birch_shell",
-      "shell_thickness": "thin_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b8",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_punk",
-      "percussion_technique": "percussion_sticks_punk",
       "voice_register": "chest_voice",
       "voice_quality": "blues_shouter_voice",
       "voice_speech_song": "voice_syllabic_singing",

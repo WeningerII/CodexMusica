@@ -3,9 +3,9 @@
   "name": "Sahel praise music (Mali, Senegal, Mauritania, Niger)",
   "family": "global",
   "lineage": "Contemporary West African Sahel praise-music tradition that extends the Mande jeli vocal-and-praise lineage into the modern electric-band context — Salif Keita (Maninka noble-line singer who broke caste taboo by becoming a commercial musician, 1987 Soro album the Paris-recorded breakthrough), Youssou NDour (Senegalese Wolof, his 1984 Immigrés the Paris recording), Baaba Maal (Senegalese Fulani Pulaar-language), Mory Kanté (Guinean kora-virtuoso, 1987 Yé Ké Yé Ké), Ali Farka Touré, Toumani Diabaté, Khaira Arby, Oumou Sangaré",
-  "recipe": "classic Western European late-1980s sahel praise music, functional Song, African pop branch, Sufi ritual devotional, west African griot ballad poetry sudanese aghani al-banat wassoulou. thick, declaimed, straight onset, interlocked note trading. open string slide resonance clean strummed single coil electric guitar, sub heavy electric bass, pre muffled edge muffled fx9 manganese bronze machine hammered drum kit, calabash nylon fishing line cowhide mande traditional kora, griot voice, bell on shell iroko west African premium cowhide rope lacing canonical mande dunun, donso ritual large calabash mande gut pre modern hunters donso ngoni. paris African diaspora recording 1970-2000 mid tier paris pathe marconi african diaspora. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 874,
-  "score": 331.913,
+  "recipe": "classic Western European late-1980s sahel praise music, functional Song, African pop branch, Sufi ritual devotional, west African griot ballad poetry sudanese aghani al-banat wassoulou. thick, declaimed, straight onset, interlocked note trading. open string slide resonance clean strummed single coil electric guitar, sub heavy electric bass, pre muffled edge muffled brushes-and-sticks drum kit, calabash nylon fishing line cowhide mande traditional kora, griot voice, bell on shell iroko west African premium cowhide rope lacing canonical mande dunun, donso ritual large calabash mande gut pre modern hunters donso ngoni. paris African diaspora recording 1970-2000 mid tier paris pathe marconi african diaspora. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 855,
+  "score": 293.987,
   "config": {
     "traditions": [
       "sahel_praise",
@@ -109,32 +109,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "maple_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_45",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "ec_pre_muffled_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "meinl_fx9",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "hand_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 7.215,
-          "shell_wood": 0.845,
-          "shell_thickness": 0.15,
-          "bearing_edges": 1.3650000000000002,
+          "drum_technique": 7.215,
           "drumhead": 11.435,
-          "snare_wires": 0.845,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 5.3500000000000005,
-          "cymbal_hammering": 10.95,
-          "cymbal_lathing": 11.1,
-          "cymbal_finish": 0.105,
-          "drum_technique": 7.215
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -232,17 +214,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_locked",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "voice_register": "mix_voice",
       "voice_quality": "chest_mix_belt_voice",
       "voice_speech_song": "voice_syllabic_singing",

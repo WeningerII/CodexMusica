@@ -3,9 +3,9 @@
   "name": "D-beat (Swedish hardcore)",
   "family": "rock_punk",
   "lineage": "Punk subgenre named for the distinctive 1-and-3 kick / 2-and-4 snare beat-pattern codified by Discharge (UK 1977-onward). Swedish D-beat-revival scene centered on Anti-Cimex, Mob 47, and (in the 1990s D-beat wave) Driller Killer and Wolfpack drove international circulation. Characterized by Discharge-derived beat-pattern, distorted-bass-and-guitar tone, and bleak anti-war anti-government political content.",
-  "recipe": "classic Northern European modern d-beat, distorted Rock, punk branch, thrash metal groove metal djent. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit. gothenburg Swedish metal defining 1992-present indie-commercial gothenburg swedish melodic death studio. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 665,
-  "score": 397.712,
+  "recipe": "classic Northern European modern d-beat, distorted Rock, punk branch, thrash metal groove metal djent. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, brushes-and-sticks drum kit. gothenburg Swedish metal defining 1992-present indie-commercial gothenburg swedish melodic death studio. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 604,
+  "score": 317.088,
   "config": {
     "traditions": [
       "d_beat_swedish",
@@ -111,32 +111,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "mahogany_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "double_coated",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b8",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "machine_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 15.079999999999995,
-          "shell_wood": 0.845,
-          "shell_thickness": 0,
-          "bearing_edges": 2.34,
+          "drum_technique": 15.079999999999995,
           "drumhead": 2.34,
-          "snare_wires": 2.34,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 34.38300000000001,
-          "cymbal_hammering": 14.427500000000002,
-          "cymbal_lathing": 10.950000000000001,
-          "cymbal_finish": 0.258,
-          "drum_technique": 15.079999999999995
+          "drum_kit_kick_pedal": 0
         }
       }
     ],
@@ -171,17 +153,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "pick_aggressive",
-      "shell_wood": "birch_shell",
-      "shell_thickness": "thin_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b8",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_punk",
-      "percussion_technique": "percussion_sticks_punk",
       "voice_register": "chest_voice",
       "voice_quality": "blues_shouter_voice",
       "voice_speech_song": "voice_syllabic_singing",

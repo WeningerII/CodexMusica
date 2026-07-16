@@ -3,9 +3,9 @@
   "name": "Progressive metal",
   "family": "global",
   "lineage": "Metal-prog-rock hybrid subgenre codified through Queensrÿche (Operation: Mindcrime 1988), Fates Warning (Awaken the Guardian 1986), Dream Theater (Images and Words 1992), Symphony X, and Watchtower; characterized by operatic-clean-vocal performances, virtuosic-twin-guitar lead lines, complex multi-meter compositions, and the conceptual-album / fantasy-narrative lyrical subject-matter tradition",
-  "recipe": "classic late-1980s progressive metal, distorted Rock, prog branch, American jazz fusion acid jazz nu jazz / electro-jazz. thick, breath veiled tone, straight onset, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, birch vintage ambassador asymmetric bronze bell bronze drum kit, roland jupiter lineage canonical jupiter 8 1981 osaka analog poly synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 708,
-  "score": 551.823,
+  "recipe": "classic late-1980s progressive metal, distorted Rock, prog branch, American jazz fusion acid jazz nu jazz / electro-jazz. thick, breath veiled tone, straight onset, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, roland jupiter lineage canonical jupiter 8 1981 osaka analog poly synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 702,
+  "score": 424.169,
   "config": {
     "traditions": [
       "progressive_metal_classic",
@@ -111,32 +111,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "birch_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_45",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "vintage_ambassador_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b20",
-          "cymbal_hammering": "fourteen_step_hammering",
-          "cymbal_lathing": "unlathed_bell",
-          "cymbal_finish": "machine_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 38.80499999999999,
-          "shell_wood": 1.2349999999999999,
-          "shell_thickness": 0.024375,
-          "bearing_edges": 1.2349999999999999,
+          "drum_technique": 38.80499999999999,
           "drumhead": 30.925000000000004,
-          "snare_wires": 0.20625,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 33.41312500000001,
-          "cymbal_hammering": 26.750000000000007,
-          "cymbal_lathing": 24.750000000000007,
-          "cymbal_finish": 1.2349999999999999,
-          "drum_technique": 38.80499999999999
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -184,17 +166,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "pick_aggressive",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "thick_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "double_coated",
-      "snare_wires": "wires_30",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "hand_random_hammering",
-      "cymbal_lathing": "pin_lathe",
-      "cymbal_finish": "brilliant_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "voice_register": "chest_voice",
       "voice_quality": "full_chest_belt_voice",
       "voice_speech_song": "voice_syllabic_singing",

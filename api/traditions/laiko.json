@@ -3,9 +3,9 @@
   "name": "Laikó",
   "family": "global",
   "lineage": "Post-rebetiko Greek popular song that emerged in the 1950s-1960s as rebetiko transitioned from tavern-context to commercial-nightclub-context — codified through Manolis Chiotis (who introduced the three-course-to-four-course (trichordo-to-tetrachordo) bouzouki conversion and electric amplification), Stelios Kazantzidis (the voice of laiko), Marinella, Stratos Dionysiou, Yiannis Parios, Glykeria, and the Athens Minos / Columbia Greece / Lyra label catalog",
-  "recipe": "classic Southern European mid-1950s laikó, ballad Poetry, Mediterranean ballad branch, vocal drone modal, chanson fado ballad poetry cape verdean batuko of santiago island greek éntechno. thick, breath veiled tone, slow rate, interlocked note trading. walnut staves canonical Greek gut pre 1950s rebetiko strummed bouzouki, cedar fingerpicked classical nylon-string guitar, beech laminated maple laminated European tradition European spruce norway spruce grand piano, sub heavy electric bass, pre muffled edge muffled nickel silver German silver over hammered drum kit. athens major label 1955-1985 mid tier athens minos studios 60s 70s. large-diaphragm condenser, tube pre, Emi redd.51, vari-mu, passive program EQ. tape 15ips plate reverb.",
-  "recipe_chars": 741,
-  "score": 333.402,
+  "recipe": "classic Southern European mid-1950s laikó, ballad Poetry, Mediterranean ballad branch, vocal drone modal, chanson fado ballad poetry cape verdean batuko of santiago island greek éntechno. thick, breath veiled tone, slow rate, interlocked note trading. walnut staves canonical Greek gut pre 1950s rebetiko strummed bouzouki, cedar fingerpicked classical nylon-string guitar, beech laminated maple laminated European tradition European spruce norway spruce grand piano, sub heavy electric bass, pre muffled edge muffled brushes-and-sticks drum kit. athens major label 1955-1985 mid tier athens minos studios 60s 70s. large-diaphragm condenser, tube pre, Emi redd.51, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 718,
+  "score": 308.567,
   "config": {
     "traditions": [
       "laiko",
@@ -139,32 +139,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "mahogany_shell",
-          "shell_thickness": "thin_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "ec_pre_muffled_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "nickel_silver_cymbal",
-          "cymbal_hammering": "over_hammered",
-          "cymbal_lathing": "hand_lathed_pit_retaining",
-          "cymbal_finish": "hand_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 16.64,
-          "shell_wood": 0.39,
-          "shell_thickness": 0.045,
-          "bearing_edges": 0.54,
+          "drum_technique": 16.64,
           "drumhead": 1.905,
-          "snare_wires": 0.345,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 1.1849999999999998,
-          "cymbal_hammering": 3.0900000000000003,
-          "cymbal_lathing": 2.4050000000000002,
-          "cymbal_finish": 0.195,
-          "drum_technique": 16.64
+          "drum_kit_kick_pedal": 0
         }
       }
     ],
@@ -194,17 +176,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_locked",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "top_wood_classical": "spruce_cl",
       "bracing_classical": "fan_torres_cl",
       "string_classical": "nylon_normal_cl",

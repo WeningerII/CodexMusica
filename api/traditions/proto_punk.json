@@ -3,9 +3,9 @@
   "name": "Proto-punk (late 60s-early 70s)",
   "family": "rock_punk",
   "lineage": "Late-1960s-early-1970s American-and-European rock styles prefiguring punk's 1976-77 emergence. The Velvet Underground & Nico (1967), the Stooges (1969), the MC5 (1969), the New York Dolls (1973), and the Modern Lovers (recorded 1971-72) constitute the canonical American proto-punk core; the Detroit-MC5-Stooges nexus and the New York Velvet Underground-Dolls scene defined the principal geographic-cultural axes.",
-  "recipe": "classic North American 1967-1969 proto-punk, distorted Rock, punk branch, classic distorted rock merseybeat. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, pre muffled edge muffled machine hammered symmetric pattern organized rows drum kit. eighth street greenwich village 1970-present major-flagship electric lady studios nyc. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 686,
-  "score": 426.971,
+  "recipe": "classic North American 1967-1969 proto-punk, distorted Rock, punk branch, classic distorted rock merseybeat. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. eighth street greenwich village 1970-present major-flagship electric lady studios nyc. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 652,
+  "score": 341.186,
   "config": {
     "traditions": [
       "proto_punk",
@@ -111,32 +111,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "mahogany_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "sticks_rock",
           "drumhead": "ec_pre_muffled_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b8",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "traditional_finish",
-          "drum_technique": "sticks_rock"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 15.924999999999995,
-          "shell_wood": 0.39,
-          "shell_thickness": 0,
-          "bearing_edges": 1.185,
+          "drum_technique": 15.964999999999998,
           "drumhead": 3.29,
-          "snare_wires": 0.99,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 28.709999999999997,
-          "cymbal_hammering": 19.224999999999994,
-          "cymbal_lathing": 19.164999999999996,
-          "cymbal_finish": 0.195,
-          "drum_technique": 15.964999999999998
+          "drum_kit_kick_pedal": 0
         }
       }
     ],
@@ -170,17 +152,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "pick_aggressive",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "voice_register": "chest_voice",
       "voice_quality": "full_chest_belt_voice",
       "voice_speech_song": "voice_syllabic_singing",

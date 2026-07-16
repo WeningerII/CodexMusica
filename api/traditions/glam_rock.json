@@ -3,9 +3,9 @@
   "name": "Glam rock",
   "family": "rock_punk",
   "lineage": "Early-mid-1970s UK androgynous-theatrical riff-rock — codified through T. Rex (Marc Bolans Electric Warrior 1971, Slider 1972), David Bowie (the Ziggy Stardust 1972 and Aladdin Sane 1973 glam-era persona before his Berlin Trilogy art-rock turn), Roxy Music (early glam-art-rock fusion), Slade (the British Black Country working-class glam rock canon), Sweet, Mott the Hoople, Suzi Quatro, Gary Glitter — followed by the proto-punk American extensions New York Dolls and Iggy and the Stooges glam-period albums",
-  "recipe": "classic Northern European 1974-1976 glam rock, distorted Rock, glam rock branch, classic distorted rock, art rock distorted rock hard rock. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany humbucker electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, birch pre muffled edge muffled machine hammered symmetric pattern drum kit, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, multiphonic saxophone, string machine. London major flagship studio 1968-1985 major-flagship uk 70s hard rock arena studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb MXR phase 90 dallas arbiter fuzz face.",
-  "recipe_chars": 877,
-  "score": 946.496,
+  "recipe": "classic Northern European 1974-1976 glam rock, distorted Rock, glam rock branch, classic distorted rock, art rock distorted rock hard rock. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany humbucker electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, multiphonic saxophone, string machine. London major flagship studio 1968-1985 major-flagship uk 70s hard rock arena studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb MXR phase 90 dallas arbiter fuzz face.",
+  "recipe_chars": 852,
+  "score": 727.819,
   "config": {
     "traditions": [
       "glam_rock",
@@ -111,32 +111,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "birch_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "sticks_rock",
           "drumhead": "ec_pre_muffled_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b8",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "machine_hammered",
-          "drum_technique": "sticks_rock"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 20.47499999999999,
-          "shell_wood": 1.7756249999999998,
-          "shell_thickness": 0,
-          "bearing_edges": 3.9,
+          "drum_technique": 55.87062500000002,
           "drumhead": 5.070625,
-          "snare_wires": 3.9,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 65.53062500000003,
-          "cymbal_hammering": 61.11875000000003,
-          "cymbal_lathing": 60.69562500000002,
-          "cymbal_finish": 1.280625,
-          "drum_technique": 55.87062500000002
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -234,17 +216,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_locked",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "voice_register": "chest_voice",
       "voice_quality": "full_chest_belt_voice",
       "voice_speech_song": "voice_syllabic_singing",

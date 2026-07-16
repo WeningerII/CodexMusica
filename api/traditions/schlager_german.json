@@ -3,9 +3,9 @@
   "name": "Schlager (German)",
   "family": "global",
   "lineage": "German-language popular sentimental song genre with 1920s Weimar cabaret roots, mid-century commercial extension (Heino, Roy Black, Freddy Quinn), and modern continuation (Helene Fischer, Andrea Berg) — major-key sentimental melodies, accordion-and-strings-and-occasional-yodel arrangements, lyrical content concerning love, home country (Heimat), nostalgia, holidays, alpine landscapes; distinct from Liedermacher (politically engaged literary-cabaret tradition)",
-  "recipe": "classic Central European mid-1920s schlager, functional Song, europop branch, crooners functional song brill building pop american barbershop quartet. thick, breath veiled tone, wide pitch sway, interlocked note trading. weltmeister east German mid tier vintage volk straight accordion, Fender tweed amp American 50s amp tweed breakup alder pyramid electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, singing lead analog poly synth. german liedermacher kabarett berlin. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
-  "recipe_chars": 592,
-  "score": 258.396,
+  "recipe": "classic Central European mid-1920s schlager, functional Song, europop branch, crooners functional song brill building pop american barbershop quartet. thick, breath veiled tone, wide pitch sway, interlocked note trading. weltmeister east German mid tier vintage volk straight accordion, Fender tweed amp American 50s amp tweed breakup alder pyramid electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog poly synth. german liedermacher kabarett berlin. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
+  "recipe_chars": 574,
+  "score": 209.124,
   "config": {
     "traditions": [
       "schlager_german",
@@ -99,32 +99,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "brass_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_45",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "ec_pre_muffled_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b15_signature",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "hand_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 13.714999999999996,
-          "shell_wood": 0.39,
-          "shell_thickness": 0.195,
-          "bearing_edges": 1.926,
+          "drum_technique": 13.714999999999996,
           "drumhead": 9.915000000000001,
-          "snare_wires": 1.885,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 7.975625,
-          "cymbal_hammering": 11.375,
-          "cymbal_lathing": 11.615,
-          "cymbal_finish": 0.195,
-          "drum_technique": 13.714999999999996
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -169,17 +151,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_locked",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "voice_register": "chest_voice",
       "voice_quality": "crooner_voice",
       "voice_speech_song": "voice_syllabic_singing",

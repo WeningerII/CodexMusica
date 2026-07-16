@@ -3,9 +3,9 @@
   "name": "Powerviolence (US extreme hardcore)",
   "family": "rock_punk",
   "lineage": "Late-1980s-1990s American hardcore subgenre characterized by extreme tempo contrasts (alternating blast-beat-fast-sections with sludge-slow-sections), brief song durations (often under one minute), and explicit anti-musical aggression. Bay Area scene centered on Spazz, Crossed Out, Infest, and Man Is the Bastard. Distinguished from broader grindcore by powerviolence's slower-section-emphasis (vs grindcore's relentless-blast-beat) structural framework.",
-  "recipe": "classic 1987-1989 powerviolence, distorted Rock, punk branch, thrash metal groove metal djent. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, orange amp British heavy crunch alder ernie ball slinky electric bass, kevlar aramid extreme tension machine hammered symmetric pattern drum kit. isolated rural 2005-present isolation diy isolation cabin diy. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape proco RAT.",
-  "recipe_chars": 614,
-  "score": 364.199,
+  "recipe": "classic 1987-1989 powerviolence, distorted Rock, punk branch, thrash metal groove metal djent. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, orange amp British heavy crunch alder ernie ball slinky electric bass, kevlar aramid extreme tension sticks backbeat drum kit. isolated rural 2005-present isolation diy isolation cabin diy. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape proco RAT.",
+  "recipe_chars": 595,
+  "score": 295.88,
   "config": {
     "traditions": [
       "powerviolence",
@@ -111,32 +111,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "mahogany_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "sticks_rock",
           "drumhead": "kevlar_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b8",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "machine_hammered",
-          "drum_technique": "sticks_rock"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 8.319999999999999,
-          "shell_wood": 0.845,
-          "shell_thickness": 0,
-          "bearing_edges": 2.34,
+          "drum_technique": 10.125000000000002,
           "drumhead": 3.6784999999999997,
-          "snare_wires": 2.34,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 31.133000000000006,
-          "cymbal_hammering": 12.133000000000001,
-          "cymbal_lathing": 10.950000000000001,
-          "cymbal_finish": 0.258,
-          "drum_technique": 10.125000000000002
+          "drum_kit_kick_pedal": 0
         }
       }
     ],
@@ -173,17 +155,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "pick_aggressive",
-      "shell_wood": "birch_shell",
-      "shell_thickness": "thin_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b8",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_punk",
-      "percussion_technique": "percussion_sticks_punk",
       "voice_register": "chest_voice",
       "voice_quality": "blues_shouter_voice",
       "voice_speech_song": "voice_syllabic_singing",

@@ -3,9 +3,9 @@
   "name": "Melodic death metal",
   "family": "rock",
   "lineage": "Gothenburg Swedish melodic death metal canon that emerged in the early 1990s — codified at Studio Fredman (Fredrik Nordström producer-engineer) through In Flames (The Jester Race 1996, Whoracle 1997), Dark Tranquillity (The Gallery 1995), At the Gates (Slaughter of the Soul 1995, the post-Heartwork melodic death recording), Soilwork; characterized by twin-guitar harmony NWOBHM-influenced melodic leads over death metal rhythm-section foundation, growled vocals retained from death metal but with cleaner production aesthetic",
-  "recipe": "classic Northern European 1990-1993 melodic death metal, distorted Rock, death branch, power metal. thick, breath veiled tone, straight note core, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, walnut vintage ambassador asymmetric machine hammered symmetric pattern drum kit. gothenburg Swedish metal defining 1992-present indie-commercial gothenburg swedish melodic death studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 694,
-  "score": 374.897,
+  "recipe": "classic Northern European 1990-1993 melodic death metal, distorted Rock, death branch, power metal. thick, breath veiled tone, straight note core, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, vintage ambassador asymmetric sticks backbeat drum kit. gothenburg Swedish metal defining 1992-present indie-commercial gothenburg swedish melodic death studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 668,
+  "score": 301.192,
   "config": {
     "traditions": [
       "melodic_death_metal",
@@ -71,32 +71,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "walnut_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "sticks_rock",
           "drumhead": "vintage_ambassador_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b8",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "hand_hammered",
-          "drum_technique": "sticks_rock"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 5.784999999999999,
-          "shell_wood": 2.145,
-          "shell_thickness": 0.0315,
-          "bearing_edges": 1.1445,
+          "drum_technique": 10.750000000000002,
           "drumhead": 1.0365,
-          "snare_wires": 0.9135,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 40.918000000000006,
-          "cymbal_hammering": 10.65,
-          "cymbal_lathing": 10.6815,
-          "cymbal_finish": 1.4365,
-          "drum_technique": 10.750000000000002
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -168,17 +150,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "pick_aggressive",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "thick_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "double_coated",
-      "snare_wires": "wires_30",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "hand_random_hammering",
-      "cymbal_lathing": "pin_lathe",
-      "cymbal_finish": "brilliant_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "voice_register": "chest_voice",
       "voice_quality": "pressed_phonation_voice",
       "voice_speech_song": "voice_syllabic_singing",

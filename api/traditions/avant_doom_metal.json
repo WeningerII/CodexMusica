@@ -3,9 +3,9 @@
   "name": "Avant-garde doom / funeral doom",
   "family": "rock_punk",
   "lineage": "1990s heavy-metal subgenre extending traditional doom-metal slow-tempo into extreme funereal-tempo (typically 30-50 BPM, sometimes far slower) with explicit funeral-procession-funereal-rite thematic content. Thergothon (Finland 1990s), Skepticism (Finland), Esoteric (UK), Mournful Congregation (Australia), and Bell Witch constitute the canonical funeral doom roster. Distinguished from broader doom by funeral doom's extreme tempo and explicit funereal-grief register.",
-  "recipe": "classic North American mid-1990s avant-garde doom / funeral doom, distorted Rock, doom branch, christian gospel ritual devotional black gospel sacred steel. thick, declaimed, wide pitch sway, leader call answered. orange amp British heavy crunch basswood alnico nickel plated steel humbucker electric guitar, orange amp British heavy crunch stainless steel roundwound riff driven electric bass, steel kevlar aramid extreme tension machine hammered drum kit. denver gothic basement studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 618,
-  "score": 440.27,
+  "recipe": "classic North American mid-1990s avant-garde doom / funeral doom, distorted Rock, doom branch, christian gospel ritual devotional black gospel sacred steel. thick, declaimed, wide pitch sway, leader call answered. orange amp British heavy crunch basswood alnico nickel plated steel humbucker electric guitar, orange amp British heavy crunch stainless steel roundwound riff driven electric bass, kevlar aramid extreme tension brushes-and-sticks drum kit. denver gothic basement studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 614,
+  "score": 390.88,
   "config": {
     "traditions": [
       "avant_doom_metal",
@@ -111,32 +111,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "steel_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_45",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "kevlar_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b8",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "machine_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 13.779999999999998,
-          "shell_wood": 4.874999999999999,
-          "shell_thickness": 0.65,
-          "bearing_edges": 1.4949999999999999,
+          "drum_technique": 13.779999999999998,
           "drumhead": 5.1,
-          "snare_wires": 0.195,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 14.444999999999999,
-          "cymbal_hammering": 6.395,
-          "cymbal_lathing": 7.36,
-          "cymbal_finish": 0.195,
-          "drum_technique": 13.779999999999998
+          "drum_kit_kick_pedal": 0
         }
       }
     ],
@@ -170,17 +152,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "pick_aggressive",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "thick_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "double_coated",
-      "snare_wires": "wires_30",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "hand_random_hammering",
-      "cymbal_lathing": "pin_lathe",
-      "cymbal_finish": "brilliant_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "voice_register": "chest_voice",
       "voice_quality": "pressed_phonation_voice",
       "voice_speech_song": "voice_syllabic_singing",

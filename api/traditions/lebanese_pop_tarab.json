@@ -3,9 +3,9 @@
   "name": "Lebanese tarab-pop",
   "family": "global",
   "lineage": "Beirut-centered modern Arabic-pop with classical-tarab roots, melismatic-ornate praise-and-devotional vocal style emerging from 1950s-onward post-Egyptian-classical Levantine regional expansion. The 1960s-1970s Lebanese-orchestral-style integrated rahbani-school theatrical-musical compositional vocabulary with classical maqam modal-foundation (Rast, Hijaz, Bayati, Nahawand), tarab ecstatic-vocal listener-state aesthetic, and Western-string-section-and-electric-instrumentation arrangement-modernization. The 1980s-civil-war-period diaspora-expansion took Beirut-tarab to Paris-and-London recording-studios, transformed in the 2000s-onward via electronic-arabic-pop and house-influenced-arabic-pop into the modern khaleeji-and-shami pan-Arab pop-mainstream.",
-  "recipe": "classic mid-1950s lebanese tarab-pop, functional Song, mid east n African pop branch, Persian arab improv improv on frame, middle eastern classical art music andalusī nūba turkish makam. thick, breath veiled tone, slow rate, interlocked note trading. maple ribs Turkish school Lebanese cedar eastern Mediterranean pyramid oud, brass metal finger picks maple body Turkish school synthetic bridge plate qanun, mahogany rosewood clean strummed single coil electric guitar, plucked short envelope analog poly synth, pre muffled edge muffled hot rolled annealed machine hammered drum kit. live tracking. Neumann U47, tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb hall reverb.",
-  "recipe_chars": 708,
-  "score": 681.56,
+  "recipe": "classic mid-1950s lebanese tarab-pop, functional Song, mid east n African pop branch, Persian arab improv improv on frame, middle eastern classical art music andalusī nūba turkish makam. thick, breath veiled tone, slow rate, interlocked note trading. maple ribs Turkish school Lebanese cedar eastern Mediterranean pyramid oud, brass metal finger picks maple body Turkish school synthetic bridge plate qanun, mahogany rosewood clean strummed single coil electric guitar, plucked short envelope analog poly synth, pre muffled edge muffled brushes-and-sticks drum kit. live tracking. Neumann U47, tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb hall reverb.",
+  "recipe_chars": 690,
+  "score": 590.57,
   "config": {
     "traditions": [
       "lebanese_pop_tarab",
@@ -143,32 +143,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "walnut_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_45",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "ec_pre_muffled_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b15_signature",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "machine_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 14.624999999999998,
-          "shell_wood": 0.7,
-          "shell_thickness": 0.195,
-          "bearing_edges": 1.8849999999999996,
+          "drum_technique": 14.624999999999998,
           "drumhead": 26.16,
-          "snare_wires": 1.59,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 19.064999999999998,
-          "cymbal_hammering": 26.669999999999998,
-          "cymbal_lathing": 26.064999999999998,
-          "cymbal_finish": 0.195,
-          "drum_technique": 14.624999999999998
+          "drum_kit_kick_pedal": 0
         }
       }
     ],
@@ -197,17 +179,8 @@
       "string_material": "nickel_plated",
       "bridge": "vintage_trem",
       "scale_length": "scale_fender",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "voice_register": "mix_voice",
       "voice_quality": "chest_mix_belt_voice",
       "voice_speech_song": "voice_syllabic_singing",

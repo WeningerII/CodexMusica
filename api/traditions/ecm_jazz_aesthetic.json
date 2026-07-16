@@ -3,9 +3,9 @@
   "name": "ECM-school jazz aesthetic",
   "family": "global",
   "lineage": "Eicher-school audiophile-jazz recording-aesthetic codified through ECM Records (founded 1969 Munich by Manfred Eicher) — characterized by close-miked silence, near-zero compression, long natural decay, and the \"most beautiful sound next to silence\" mastering signature; Keith Jarrett (The Köln Concert 1975), Pat Metheny (Bright Size Life 1976), Arvo Pärt (Tabula Rasa 1984) as canonical exponents",
-  "recipe": "classic late-1960s ecm-school jazz aesthetic, improv On Frame, American jazz branch, western modern art music indeterminacy and aleatoric fluxus intermedia composition. modern bright beech laminated maple laminated European tradition sitka spruce grand piano, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, gut chord melody upright bass, maple fiberskyn synthetic calf bronze bell bronze drum kit. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 617,
-  "score": 236.76,
+  "recipe": "classic late-1960s ecm-school jazz aesthetic, improv On Frame, American jazz branch, western modern art music indeterminacy and aleatoric fluxus intermedia composition. modern bright beech laminated maple laminated European tradition sitka spruce grand piano, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, gut chord melody upright bass, fiberskyn synthetic calf brushes-and-sticks drum kit. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 611,
+  "score": 174.765,
   "config": {
     "traditions": [
       "ecm_jazz_aesthetic",
@@ -75,32 +75,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "maple_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_45",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "fiberskyn_drumhead",
-          "snare_wires": "wires_20",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b20",
-          "cymbal_hammering": "hand_random_hammering",
-          "cymbal_lathing": "pin_lathe",
-          "cymbal_finish": "hand_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 12.999999999999998,
-          "shell_wood": 1.8199999999999998,
-          "shell_thickness": 1.8199999999999998,
-          "bearing_edges": 3.25,
+          "drum_technique": 12.999999999999998,
           "drumhead": 15,
-          "snare_wires": 1.8199999999999998,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 12.434999999999997,
-          "cymbal_hammering": 10.749999999999998,
-          "cymbal_lathing": 15.254999999999997,
-          "cymbal_finish": 1.845,
-          "drum_technique": 12.999999999999998
+          "drum_kit_kick_pedal": 0
         }
       }
     ],
@@ -124,17 +106,8 @@
     "tuning": "twelve_tet",
     "room": "concert_hall_shoebox",
     "parts": {
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_30",
       "drumhead": "calfskin_drum",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "hand_random_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "brushes_jazz",
-      "percussion_technique": "percussion_brushes_jazz",
       "keyboard_technique": "keyboard_jazz_comping",
       "piano_pitch_standard": "a_440_modern",
       "wind_articulation": "wind_bebop_runs",

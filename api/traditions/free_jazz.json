@@ -3,14 +3,14 @@
   "name": "Free jazz",
   "family": "jazz",
   "lineage": "1960-onward avant-garde jazz dispensing with fixed harmony and steady meter — Ornette Coleman, Cecil Taylor, Albert Ayler, late John Coltrane (Ascension 1965, Meditations 1965), Pharoah Sanders, Sun Ra Arkestra; ESP-Disk, Impulse!, BYG-Actuel, and Strata-East labels",
-  "recipe": "classic North American modern free jazz, improv On Frame, avant branch, industrial noise experimental electric, jam free improv on frame noise music dark electro / aggrotech. alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris multiphonic ebonite saxophone, bach stradivarius 180 canonical American orchestral multiphonic jazz balance trumpet, growly gut upright bass, walnut vintage ambassador asymmetric bronze bell bronze drum kit, multiphonic clarinet. radio city music hall eighth floor 1949-1985 mid tier plaza sound radio city nyc. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 685,
-  "score": 320.856,
+  "recipe": "classic North American modern free jazz, improv On Frame, avant branch, industrial noise experimental electric, jam free improv on frame noise music free improvisation. alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris multiphonic saxophone, bach stradivarius 180 canonical American orchestral multiphonic jazz balance trumpet, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, ebonite hard rubber klezmer tradition multiphonic clarinet. radio city music hall eighth floor 1949-1985 mid tier plaza sound radio city nyc. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 702,
+  "score": 236.358,
   "config": {
     "traditions": [
       "free_jazz",
       "noise_music",
-      "dark_electro_aggrotech"
+      "free_improvisation"
     ],
     "instruments": [
       {
@@ -18,20 +18,20 @@
         "slots": {
           "wind_articulation": "wind_multiphonic_avant",
           "sax_size": "alto_sax",
-          "sax_reed": "hard_reed",
+          "sax_reed": "soft_reed",
           "sax_body_alloy": "phosphor_bronze_sax",
-          "sax_mouthpiece": "ebonite_vintage",
+          "sax_mouthpiece": "metal_mp",
           "sax_technique": "sax_multiphonic_avant",
           "sax_maker_school": "sax_selmer_mark_vi"
         },
         "scores": {
-          "wind_articulation": 23.55,
-          "sax_size": 1.3649999999999998,
-          "sax_reed": 1.4949999999999999,
+          "wind_articulation": 24.15,
+          "sax_size": 2.21,
+          "sax_reed": 1.2349999999999999,
           "sax_body_alloy": 16.499999999999996,
-          "sax_mouthpiece": 1.4949999999999999,
-          "sax_technique": 19.875,
-          "sax_maker_school": 17.5995
+          "sax_mouthpiece": 1.2349999999999999,
+          "sax_technique": 18.375,
+          "sax_maker_school": 16.949499999999997
         }
       },
       {
@@ -41,18 +41,18 @@
           "brass_size": "trumpet_b_flat",
           "trumpet_mouthpiece": "yamaha_bobby_shew_jazz_mp",
           "brass_mute": "harmon_in",
-          "trumpet_technique": "trumpet_dixieland_lead",
+          "trumpet_technique": "trumpet_punchy_ensemble",
           "trumpet_bell_metal": "trumpet_yellow_brass",
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 23.55,
-          "brass_size": 0.39,
+          "wind_articulation": 24.15,
+          "brass_size": 1.2349999999999999,
           "trumpet_mouthpiece": 18.667999999999996,
           "brass_mute": 0.15,
-          "trumpet_technique": 1.5599999999999996,
-          "trumpet_bell_metal": 0.845,
-          "trumpet_maker_school": 3.6399999999999997
+          "trumpet_technique": 0.8339999999999999,
+          "trumpet_bell_metal": 0.502,
+          "trumpet_maker_school": 4.29
         }
       },
       {
@@ -63,7 +63,7 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "acoustic_technique": 1.5750000000000002,
+          "acoustic_technique": 0.5499999999999999,
           "upright_strings": 16.499999999999996,
           "upright_play": 16.499999999999996
         }
@@ -71,32 +71,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "walnut_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "vintage_ambassador_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b20",
-          "cymbal_hammering": "fourteen_step_hammering",
-          "cymbal_lathing": "pin_lathe",
-          "cymbal_finish": "hand_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 22.489999999999995,
-          "shell_wood": 1.4949999999999999,
-          "shell_thickness": 0.3,
-          "bearing_edges": 0.3,
+          "drum_technique": 22.099999999999994,
           "drumhead": 19.13983333333333,
-          "snare_wires": 0.15,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 19.739833333333326,
-          "cymbal_hammering": 18.327499999999997,
-          "cymbal_lathing": 17.176499999999997,
-          "cymbal_finish": 2.7299999999999995,
-          "drum_technique": 22.489999999999995
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -104,15 +86,15 @@
         "slots": {
           "wind_articulation": "wind_multiphonic_avant",
           "clarinet_body": "ebonite_clarinet",
-          "clarinet_size": "bass_clarinet",
-          "clarinet_reed": "hard_clarinet_reed",
+          "clarinet_size": "e_flat_clarinet",
+          "clarinet_reed": "soft_clarinet_reed",
           "clarinet_articulation": "tongued_clarinet"
         },
         "scores": {
-          "wind_articulation": 23.55,
-          "clarinet_body": 0.52,
-          "clarinet_size": 1.4949999999999999,
-          "clarinet_reed": 1.4949999999999999,
+          "wind_articulation": 24.15,
+          "clarinet_body": 1.3649999999999998,
+          "clarinet_size": 1.2349999999999999,
+          "clarinet_reed": 1.2349999999999999,
           "clarinet_articulation": 0
         }
       }
@@ -137,17 +119,8 @@
     "tuning": "free_jazz_no_changes",
     "room": "plaza_sound_radio_city_nyc",
     "parts": {
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_30",
       "drumhead": "calfskin_drum",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "hand_random_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "brushes_jazz",
-      "percussion_technique": "percussion_brushes_jazz",
       "wind_articulation": "wind_bebop_runs",
       "sax_size": "tenor_sax",
       "sax_technique": "sax_bebop_runs",

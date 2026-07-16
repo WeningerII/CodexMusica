@@ -3,9 +3,9 @@
   "name": "Post-punk (late 70s)",
   "family": "rock_punk",
   "lineage": "Late-1970s British rock subgenre emerging immediately after the 1976-77 punk-rock peak. Characterized by experimental compositional approach, angular-and-dissonant guitar-textures, prominent-driving bass-line emphasis, and existential-philosophical-and-political lyrical content. Joy Division (Manchester 1976-1980), Wire, Gang of Four, Public Image Ltd. (John Lydon post-Sex-Pistols), the Fall, Magazine, and the broader Factory Records-Rough Trade-Mute Records-Domino label network anchored the canonical post-punk roster.",
-  "recipe": "classic British 1976-1980 post-punk, distorted Rock, punk branch, alternative distorted rock new wave funk metal. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, mahogany pre muffled edge muffled machine hammered symmetric pattern drum kit. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 673,
-  "score": 530.745,
+  "recipe": "classic British 1976-1980 post-punk, distorted Rock, punk branch, alternative distorted rock new wave funk metal. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 645,
+  "score": 410.97,
   "config": {
     "traditions": [
       "post_punk_late_70s",
@@ -111,32 +111,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_sticks_punk",
-          "shell_wood": "mahogany_shell",
-          "shell_thickness": "thick_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "sticks_rock",
           "drumhead": "ec_pre_muffled_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b8",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "hand_hammered",
-          "drum_technique": "sticks_rock"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 15.675,
-          "shell_wood": 1.4949999999999999,
-          "shell_thickness": 0.43499999999999994,
-          "bearing_edges": 1.4949999999999999,
+          "drum_technique": 25.999999999999996,
           "drumhead": 2.42,
-          "snare_wires": 1.4949999999999999,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 43.4,
-          "cymbal_hammering": 27.619999999999997,
-          "cymbal_lathing": 27.769999999999996,
-          "cymbal_finish": 0.38999999999999996,
-          "drum_technique": 25.999999999999996
+          "drum_kit_kick_pedal": 0
         }
       }
     ],
@@ -170,17 +152,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "pick_aggressive",
-      "shell_wood": "birch_shell",
-      "shell_thickness": "thin_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b8",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_punk",
-      "percussion_technique": "percussion_sticks_punk",
       "voice_register": "mix_voice",
       "voice_quality": "aspirated_voice",
       "voice_speech_song": "voice_syllabic_singing",

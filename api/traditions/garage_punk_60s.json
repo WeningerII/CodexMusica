@@ -3,9 +3,9 @@
   "name": "Garage punk (60s American)",
   "family": "rock_punk",
   "lineage": "Mid-1960s American amateur-and-semi-professional rock style characterized by deliberately raw production, simple three-chord structure, fuzz-and-distortion guitar tone, and snarling vocal aggression. The Nuggets compilation (1972, edited by Lenny Kaye) canonized the canonical 1965-1968 American garage-punk recordings; The Sonics, ? and the Mysterians, the Standells, the Seeds, and Count Five constitute the canonical roster. Direct precursor of late-1970s punk rock.",
-  "recipe": "classic North American 1965-1968 garage punk, distorted Rock, punk branch, regional distorted rock aussie pub rock greek rock. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, machine hammered symmetric pattern organized rows full lathed both sides lathed drum kit, psychedelic foregrounded organ driven rock selmer amp British 60s amp combo organ. scrappy 1980-2000 indie-commercial indie commercial us 80s. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 750,
-  "score": 550.663,
+  "recipe": "classic North American 1965-1968 garage punk, distorted Rock, punk branch, regional distorted rock aussie pub rock greek rock. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit, psychedelic foregrounded organ driven rock selmer amp British 60s amp combo organ. scrappy 1980-2000 indie-commercial indie commercial us 80s. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 686,
+  "score": 433.728,
   "config": {
     "traditions": [
       "garage_punk_60s",
@@ -109,32 +109,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "birch_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "sticks_rock",
           "drumhead": "double_coated",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b8",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "machine_hammered",
-          "drum_technique": "sticks_rock"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 16.769999999999996,
-          "shell_wood": 0.845,
-          "shell_thickness": 0.09,
-          "bearing_edges": 1.405,
+          "drum_technique": 27.249999999999996,
           "drumhead": 1.51,
-          "snare_wires": 1.405,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 40.989999999999995,
-          "cymbal_hammering": 27.344999999999995,
-          "cymbal_lathing": 27.239999999999995,
-          "cymbal_finish": 0.845,
-          "drum_technique": 27.249999999999996
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -185,17 +167,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_locked",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "voice_register": "chest_voice",
       "voice_quality": "blues_shouter_voice",
       "voice_speech_song": "voice_syllabic_singing",

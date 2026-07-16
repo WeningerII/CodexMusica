@@ -3,9 +3,9 @@
   "name": "Ndombolo",
   "family": "global",
   "lineage": "Late-1990s onward Congolese fast-tempo dance derivation of soukous codified through Wenge Musica Maison Mère (the breakthrough), JB Mpiana, Werrason, Koffi Olomide, Awilo Longomba — characterized by accelerated tempo (180+ BPM in the sebene section), heavy-percussion-foregrounded mix, and the namesake ndombolo hip-shaking dance form",
-  "recipe": "classic Central African 1997-1999 ndombolo, groove Percussion, central east south African branch, west African groove percussion hiplife makossa. thick, breath veiled tone, straight onset, interlocked note trading. wenge ebony clean strummed single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, mahogany pre muffled edge muffled hot rolled annealed drum kit, congas. kinshasa leopoldville defining 1953-present mid tier kinshasa african jazz studio. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
-  "recipe_chars": 658,
-  "score": 189.838,
+  "recipe": "classic Central African 1997-1999 ndombolo, groove Percussion, central east south African branch, west African groove percussion hiplife makossa. thick, breath veiled tone, straight onset, interlocked note trading. wenge ebony clean strummed single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, pre muffled edge muffled brushes-and-sticks drum kit, congas. kinshasa leopoldville defining 1953-present mid tier kinshasa african jazz studio. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 648,
+  "score": 154.941,
   "config": {
     "traditions": [
       "ndombolo",
@@ -109,32 +109,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "mahogany_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "ec_pre_muffled_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b15_signature",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "pin_lathe",
-          "cymbal_finish": "machine_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 13.194999999999999,
-          "shell_wood": 2.08,
-          "shell_thickness": 0,
-          "bearing_edges": 0.39,
+          "drum_technique": 13.194999999999999,
           "drumhead": 5.925,
-          "snare_wires": 0.39,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 4.4750000000000005,
-          "cymbal_hammering": 6.176875000000001,
-          "cymbal_lathing": 7.345000000000001,
-          "cymbal_finish": 0.845,
-          "drum_technique": 13.194999999999999
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -183,17 +165,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_locked",
-      "shell_wood": "aluminum_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "ec_pre_muffled_drumhead",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b8",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "machine_drum_program",
-      "percussion_technique": "percussion_breakbeat_chopped",
       "voice_register": "mix_voice",
       "voice_quality": "chest_mix_belt_voice",
       "voice_speech_song": "voice_syllabic_singing",

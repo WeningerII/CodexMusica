@@ -3,9 +3,9 @@
   "name": "J-indie (Japanese indie)",
   "family": "pop",
   "lineage": "Japanese independent music scene developing from 1980s onward parallel to the J-pop mainstream industry. The Shimokitazawa neighborhood of Tokyo anchors institutional infrastructure. Number Girl (Hakata 1995-2002, 2019-onward), Toe (math-rock instrumental, Tokyo), Mono (post-rock instrumental, Tokyo), Lillies and Remains, and the broader Japan independent label network (P-Vine, Headz, Kakubarhythm) anchor the canonical roster.",
-  "recipe": "classic East Asian mid-1990s j-indie, functional Song, east Asian pop branch, alternative distorted rock modern indie rock bedroom pop. thick, breath veiled tone, pure, interlocked note trading. marshall plexi amp British rock amp basswood clean strummed humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 612,
-  "score": 455.979,
+  "recipe": "classic East Asian mid-1990s j-indie, functional Song, east Asian pop branch, alternative distorted rock modern indie rock bedroom pop. thick, breath veiled tone, pure, interlocked note trading. marshall plexi amp British rock amp basswood clean strummed humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 591,
+  "score": 335.124,
   "config": {
     "traditions": [
       "j_indie",
@@ -111,32 +111,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "mahogany_shell",
-          "shell_thickness": "thick_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "sticks_rock",
           "drumhead": "ec_pre_muffled_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b15_signature",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "hand_hammered",
-          "drum_technique": "sticks_rock"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 10.854999999999997,
-          "shell_wood": 0.675,
-          "shell_thickness": 0.43499999999999994,
-          "bearing_edges": 0.845,
+          "drum_technique": 19,
           "drumhead": 16.875,
-          "snare_wires": 0.845,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 34.82,
-          "cymbal_hammering": 35.92,
-          "cymbal_lathing": 36.07,
-          "cymbal_finish": 0.38999999999999996,
-          "drum_technique": 19
+          "drum_kit_kick_pedal": 0
         }
       }
     ],
@@ -170,17 +152,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_locked",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "voice_register": "mix_voice",
       "voice_quality": "aspirated_voice",
       "voice_speech_song": "voice_syllabic_singing",

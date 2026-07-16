@@ -3,9 +3,9 @@
   "name": "J-rock",
   "family": "global",
   "lineage": "Japanese-language alternative-rock and visual-kei tradition codified through X Japan (1980s-90s), Luna Sea, B’z, Mr. Children, L’Arc-en-Ciel, and the Buck-Tick visual-kei progenitor lineage — characterized by Western-rock instrumentation with Japanese-language vocals, dramatic stage personas, and extensive crossover with anime soundtrack production",
-  "recipe": "classic mid-1980s j-rock, distorted Rock, regional branch, east Asian pop functional song enka k-pop. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation soft down tuning single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 701,
-  "score": 428.047,
+  "recipe": "classic mid-1980s j-rock, distorted Rock, regional branch, east Asian pop functional song enka k-pop. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation soft down tuning single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 683,
+  "score": 321.845,
   "config": {
     "traditions": [
       "j_rock",
@@ -142,32 +142,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "brass_shell",
-          "shell_thickness": "thin_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "ec_pre_muffled_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b15_signature",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "hand_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 16.152500000000003,
-          "shell_wood": 0.3,
-          "shell_thickness": 0.65,
-          "bearing_edges": 0.845,
+          "drum_technique": 16.152500000000003,
           "drumhead": 14.729999999999999,
-          "snare_wires": 0.845,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 28.47,
-          "cymbal_hammering": 29.21999999999999,
-          "cymbal_lathing": 29.069999999999993,
-          "cymbal_finish": 0.65,
-          "drum_technique": 16.152500000000003
+          "drum_kit_kick_pedal": 0
         }
       }
     ],
@@ -201,17 +183,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_locked",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "voice_register": "chest_voice",
       "voice_quality": "full_chest_belt_voice",
       "voice_speech_song": "voice_syllabic_singing",

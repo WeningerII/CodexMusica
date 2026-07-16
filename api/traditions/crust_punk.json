@@ -3,9 +3,9 @@
   "name": "Crust punk (D-beat-derived UK 80s)",
   "family": "rock_punk",
   "lineage": "Mid-1980s British and European punk-and-extreme-metal hybrid genre developed from anarcho-punk through Discharge (Stoke-on-Trent, 1977-onward) and Amebix (Bristol, 1978-onward), integrating thicker distorted-guitar-and-bass production, slower-doom-influenced tempi alongside fast hardcore tempos, and bleak political content. The 1984 Amebix Arise! and the 1989 Doom Police Bastard albums anchored the canonical sound. Direct precursor of broader crustcore and grindcore.",
-  "recipe": "classic modern crust punk, distorted Rock, punk branch, thrash metal groove metal speed metal. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, orange amp British heavy crunch alder ernie ball slinky electric bass, mahogany machine hammered symmetric pattern organized rows full lathed drum kit. isolated rural 2005-present isolation diy isolation cabin diy. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
-  "recipe_chars": 610,
-  "score": 554.057,
+  "recipe": "classic modern crust punk, distorted Rock, punk branch, thrash metal groove metal speed metal. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, orange amp British heavy crunch alder ernie ball slinky electric bass, brushes-and-sticks drum kit. isolated rural 2005-present isolation diy isolation cabin diy. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 558,
+  "score": 448.178,
   "config": {
     "traditions": [
       "crust_punk",
@@ -111,32 +111,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "mahogany_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "double_coated",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b8",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "machine_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 18.46,
-          "shell_wood": 2.5349999999999997,
-          "shell_thickness": 0,
-          "bearing_edges": 3.38,
+          "drum_technique": 18.46,
           "drumhead": 3.38,
-          "snare_wires": 3.38,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 54.883,
-          "cymbal_hammering": 12.083,
-          "cymbal_lathing": 10.899999999999999,
-          "cymbal_finish": 0.258,
-          "drum_technique": 18.46
+          "drum_kit_kick_pedal": 0
         }
       }
     ],
@@ -171,17 +153,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "pick_aggressive",
-      "shell_wood": "birch_shell",
-      "shell_thickness": "thin_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b8",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_punk",
-      "percussion_technique": "percussion_sticks_punk",
       "voice_register": "chest_voice",
       "voice_quality": "blues_shouter_voice",
       "voice_speech_song": "voice_syllabic_singing",

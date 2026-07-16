@@ -3,9 +3,9 @@
   "name": "Surf rock",
   "family": "rock_punk",
   "lineage": "Early-1960s southern California instrumental rock genre built on reverb-drenched single-coil-guitar lead lines and the wet-spring-reverb-tank sound — codified through Dick Dale (Surfer's Choice 1962, Misirlou), The Ventures (Walk Don't Run 1960), The Surfaris (Wipe Out 1963), The Chantays (Pipeline 1963), and the surfing-subculture commercial scene around Hermosa Beach and the South Bay",
-  "recipe": "classic North American 1960-1963 surf rock, distorted Rock, surf rock branch, classic distorted rock, pop rock functional song new wave yacht rock. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, birch pre muffled edge muffled hot rolled annealed drum kit, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone. dry but alive 1948-1965 indie-commercial early tape us small. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips spring reverb tremolo.",
-  "recipe_chars": 702,
-  "score": 480.285,
+  "recipe": "classic North American 1960-1963 surf rock, distorted Rock, surf rock branch, classic distorted rock, pop rock functional song new wave yacht rock. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone. dry but alive 1948-1965 indie-commercial early tape us small. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips spring reverb tremolo.",
+  "recipe_chars": 692,
+  "score": 277.189,
   "config": {
     "traditions": [
       "surf_rock",
@@ -70,32 +70,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "birch_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "sticks_rock",
           "drumhead": "ec_pre_muffled_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b15_signature",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "hand_hammered",
-          "drum_technique": "sticks_rock"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 21.514999999999997,
-          "shell_wood": 1.7278125,
-          "shell_thickness": 0,
-          "bearing_edges": 2.275,
+          "drum_technique": 41.2178125,
           "drumhead": 16.142812499999998,
-          "snare_wires": 2.275,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 58.8378125,
-          "cymbal_hammering": 58.00937499999999,
-          "cymbal_lathing": 57.41781249999999,
-          "cymbal_finish": 1.0378124999999998,
-          "drum_technique": 41.2178125
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -154,17 +136,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_locked",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "wind_articulation": "wind_bebop_runs",
       "sax_size": "tenor_sax",
       "sax_technique": "sax_bebop_runs",

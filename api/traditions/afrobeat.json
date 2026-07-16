@@ -3,9 +3,9 @@
   "name": "Afrobeat",
   "family": "global",
   "lineage": "West African 1970s polyrhythmic horn-driven big-band genre fusing Yoruba highlife, jazz, and James Brown funk — codified by Fela Kuti at his Shrine club in Lagos with Tony Allen on drums (Afrika 70 and Egypt 80 ensembles), characterized by extended jam-form arrangements, political-protest lyrics, and the dense polyrhythmic interlock that became the genre signature",
-  "recipe": "classic African mid-1970s afrobeat, groove Percussion, Afro-diasporic electric branch, American jazz fusion, Afro-diasporic MC rhythm acid jazz. thick, breath veiled tone, straight onset, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright maple pau ferro single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, birch vintage ambassador asymmetric bronze bell bronze drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 145 smaller 25w tube home club ostinato slow chorale tonewheel organ, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet, foundational bass rhythm calabash shekere, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas.",
-  "recipe_chars": 984,
-  "score": 860.914,
+  "recipe": "classic African mid-1970s afrobeat, groove Percussion, Afro-diasporic electric branch, American jazz fusion, Afro-diasporic MC rhythm acid jazz. thick, breath veiled tone, straight onset, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright maple pau ferro single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 145 smaller 25w tube home club ostinato slow chorale tonewheel organ, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet, foundational bass rhythm calabash shekere, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas.",
+  "recipe_chars": 978,
+  "score": 713.295,
   "config": {
     "traditions": [
       "afrobeat",
@@ -70,32 +70,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "birch_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_45",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "vintage_ambassador_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b20",
-          "cymbal_hammering": "over_hammered",
-          "cymbal_lathing": "pin_lathe",
-          "cymbal_finish": "machine_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 47.7425,
-          "shell_wood": 2.46375,
-          "shell_thickness": 0,
-          "bearing_edges": 0.5850000000000002,
+          "drum_technique": 47.7425,
           "drumhead": 32.81875,
-          "snare_wires": 0.4665,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 36.900000000000006,
-          "cymbal_hammering": 28.505625000000006,
-          "cymbal_lathing": 28.492375000000006,
-          "cymbal_finish": 2.46375,
-          "drum_technique": 47.7425
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -255,17 +237,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_locked",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_30",
       "drumhead": "calfskin_drum",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "hand_random_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "brushes_jazz",
-      "percussion_technique": "percussion_brushes_jazz",
       "voice_register": "mix_voice",
       "voice_quality": "chest_mix_belt_voice",
       "voice_speech_song": "voice_syllabic_singing",

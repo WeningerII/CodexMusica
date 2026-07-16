@@ -3,9 +3,9 @@
   "name": "Sacred steel",
   "family": "blues_gospel",
   "lineage": "Black Pentecostal pedal-and-lap-steel-guitar gospel tradition developed in the House of God and Church of the Living God Pentecostal denominations from the 1930s onward — the pedal steel guitar functions as the foreground praise-and-worship instrument substituting for the tonewheel organ standard in most Black Pentecostal churches; codified through Aubrey Ghent, Sonny Treadway, Calvin Cooke, the modern Robert Randolph and the Family Band post-2000s extension",
-  "recipe": "classic Southern American mid-1930s sacred steel, ritual Devotional, sacred steel branch, christian gospel black gospel gospel quartet. thick, declaimed, wide pitch sway, leader call answered. Fender blackface amp American 60s amp spring reverb bright steel zum steel pedal steel, ampeg b15 amp American 60s bass amp flip top character stainless steel roundwound electric bass, steel pre muffled edge muffled fx9 manganese bronze drum kit. southern black church gospel choir. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 607,
-  "score": 465.381,
+  "recipe": "classic Southern American mid-1930s sacred steel, ritual Devotional, sacred steel branch, christian gospel black gospel gospel quartet. thick, declaimed, wide pitch sway, leader call answered. Fender blackface amp American 60s amp spring reverb bright steel zum steel pedal steel, ampeg b15 amp American 60s bass amp flip top character stainless steel roundwound electric bass, pre muffled edge muffled brushes-and-sticks drum kit. southern black church gospel choir. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 599,
+  "score": 422.369,
   "config": {
     "traditions": [
       "sacred_steel",
@@ -101,32 +101,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "steel_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_45",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "ec_pre_muffled_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "meinl_fx9",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "machine_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 15.639749999999998,
-          "shell_wood": 7.394999999999999,
-          "shell_thickness": 1.00375,
-          "bearing_edges": 0.8449999999999999,
+          "drum_technique": 15.639749999999998,
           "drumhead": 6.90375,
-          "snare_wires": 0.32625,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 3.79875,
-          "cymbal_hammering": 6.4025,
-          "cymbal_lathing": 7.40625,
-          "cymbal_finish": 0.195,
-          "drum_technique": 15.639749999999998
+          "drum_kit_kick_pedal": 0
         }
       }
     ],
@@ -156,17 +138,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerpicked_country_b",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_30",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "brushes_and_sticks",
-      "percussion_technique": "percussion_brushes_and_sticks",
       "voice_register": "chest_voice",
       "voice_quality": "twang_voice",
       "voice_speech_song": "voice_syllabic_singing",

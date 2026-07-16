@@ -3,9 +3,9 @@
   "name": "Post-rock (1990s Montreal-Chicago-Glasgow extended-instrumental indie)",
   "family": "rock_punk",
   "lineage": "1990s indie rock subgenre developed in Montreal, Chicago, and Glasgow scenes characterized by extended-instrumental composition (typically 10-25 minute pieces), gradual-crescendo dynamic-architecture, classical-art-music-influenced harmonic vocabulary, and minimal-to-absent vocal-content. Godspeed You! Black Emperor (Montreal, 1994-onward) is the canonical type-specimen with F♯ A♯ ∞ (1997) and Lift Your Skinny Fists Like Antennas to Heaven (2000); Mogwai (Glasgow), Explosions in the Sky (Austin), Sigur Rós (Iceland), and Tortoise (Chicago) constitute the canonical international roster.",
-  "recipe": "classic post-rock, distorted Rock, experimental branch, western modern art music polish avant-garde / sonorism american minimalism. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, birch pre muffled edge muffled fx9 manganese bronze drum kit, steel sitka spruce European maple sycamore maple oil varnish violin orchestral. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 677,
-  "score": 275.9,
+  "recipe": "classic post-rock, distorted Rock, experimental branch, western modern art music polish avant-garde / sonorism american minimalism. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, steel sitka spruce European maple sycamore maple oil varnish violin orchestral. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 669,
+  "score": 207.065,
   "config": {
     "traditions": [
       "post_rock_extended",
@@ -72,32 +72,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "birch_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_45",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "ec_pre_muffled_drumhead",
-          "snare_wires": "wires_20",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "meinl_fx9",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "machine_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 13.194999999999997,
-          "shell_wood": 2.54,
-          "shell_thickness": 0.9099999999999999,
-          "bearing_edges": 5.85,
+          "drum_technique": 13.194999999999997,
           "drumhead": 6.49,
-          "snare_wires": 0.9099999999999999,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 12.795000000000002,
-          "cymbal_hammering": 14.95,
-          "cymbal_lathing": 15.145,
-          "cymbal_finish": 2.54,
-          "drum_technique": 13.194999999999997
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -158,17 +140,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_locked",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "bowed_technique": "bowed_chopped_old_time",
       "orch_setup_period": "modern_setup_violin",
       "orch_bow": "modern_bow",

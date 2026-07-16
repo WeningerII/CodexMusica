@@ -3,9 +3,9 @@
   "name": "Arena rock",
   "family": "rock",
   "lineage": "1970s-1980s American stadium-rock genre crafting anthemic compositions for large-venue performance — codified through Boston (Boston 1976), Foreigner (Foreigner 1977), Journey (Escape 1981), Styx (Paradise Theatre 1981), REO Speedwagon (Hi Infidelity 1980), Kansas (Leftoverture 1976), and continuing through Bon Jovi (Slippery When Wet 1986) and Heart",
-  "recipe": "classic North American mid-1970s arena rock, distorted Rock, late analog major branch, pop rock functional song, classic distorted rock new wave yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled hot rolled annealed machine hammered drum kit, string machine, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay MXR phase 90 electro-harmonix deluxe memory man.",
-  "recipe_chars": 842,
-  "score": 769.168,
+  "recipe": "classic North American mid-1970s arena rock, distorted Rock, late analog major branch, pop rock functional song, classic distorted rock new wave yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, string machine, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay MXR phase 90 electro-harmonix deluxe memory man.",
+  "recipe_chars": 821,
+  "score": 585.447,
   "config": {
     "traditions": [
       "arena_rock",
@@ -111,32 +111,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "birch_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "sticks_rock",
           "drumhead": "ec_pre_muffled_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b15_signature",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "machine_hammered",
-          "drum_technique": "sticks_rock"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 15.534999999999997,
-          "shell_wood": 0.78,
-          "shell_thickness": 0.045,
-          "bearing_edges": 2.6650000000000005,
+          "drum_technique": 36.92,
           "drumhead": 16.59,
-          "snare_wires": 2.6650000000000005,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 53.285,
-          "cymbal_hammering": 54.32,
-          "cymbal_lathing": 53.83999999999999,
-          "cymbal_finish": 0.585,
-          "drum_technique": 36.92
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -214,17 +196,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_locked",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "voice_register": "chest_voice",
       "voice_quality": "full_chest_belt_voice",
       "voice_speech_song": "voice_syllabic_singing",

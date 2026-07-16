@@ -3,9 +3,9 @@
   "name": "Southern rock",
   "family": "rock_punk",
   "lineage": "Late-1960s through 1970s American Southern blues-rock genre — codified through the Allman Brothers Band (Live at Fillmore East 1971), Lynyrd Skynyrd (Pronounced Leh-Nerd Skin-Nerd 1973, Sweet Home Alabama 1974), the Marshall Tucker Band, Wet Willie, the Charlie Daniels Band, ZZ Top (the Texas extension), Molly Hatchet; twin-lead-guitar harmony foreground, blues-rock harmonic foundation extended with country and gospel-influenced songwriting",
-  "recipe": "classic Southern American 1967-1969 southern rock, distorted Rock, southern rock branch, classic distorted rock, country rock country hard rock. thick, breath veiled tone, wide pitch sway, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple humbucker electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, steel machine hammered symmetric pattern organized rows full lathed drum kit, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative gospel runs fast tremolo tonewheel organ, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano. converted coffin warehouse 1969-1979 mid tier muscle shoals sound studio.",
-  "recipe_chars": 996,
-  "score": 1293.757,
+  "recipe": "classic Southern American 1967-1969 southern rock, distorted Rock, southern rock branch, classic distorted rock, country rock country hard rock. thick, breath veiled tone, wide pitch sway, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple humbucker electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative gospel runs fast tremolo tonewheel organ, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano. converted coffin warehouse 1969-1979 mid tier muscle shoals sound studio. passive ribbon, Neve 1073 inductor pre.",
+  "recipe_chars": 984,
+  "score": 1107.836,
   "config": {
     "traditions": [
       "southern_rock",
@@ -142,32 +142,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "steel_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "sticks_rock",
           "drumhead": "single_clear",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b8",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "machine_hammered",
-          "drum_technique": "sticks_rock"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 15.372499999999995,
-          "shell_wood": 4.1695,
-          "shell_thickness": 0,
-          "bearing_edges": 1.08,
+          "drum_technique": 51.994500000000016,
           "drumhead": 2.4895,
-          "snare_wires": 0.885,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 55.86450000000002,
-          "cymbal_hammering": 53.24000000000003,
-          "cymbal_lathing": 52.81950000000002,
-          "cymbal_finish": 2.4895,
-          "drum_technique": 51.994500000000016
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -268,17 +250,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_locked",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "voice_register": "chest_voice",
       "voice_quality": "full_chest_belt_voice",
       "voice_speech_song": "voice_syllabic_singing",

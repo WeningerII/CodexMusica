@@ -3,9 +3,9 @@
   "name": "Cool jazz / West Coast (1950s)",
   "family": "jazz",
   "lineage": "Late-1940s-1950s jazz substyle emerging in response to bebop's frenetic energy, characterized by lighter timbral palette, restrained dynamic register, and arrangement-heavy compositional approach. Miles Davis's Birth of the Cool sessions (1949-1950) established the canonical sound; the West Coast cool subgenre developed in 1950s Los Angeles through Gerry Mulligan, Chet Baker, Lennie Niehaus, Shorty Rogers, and Dave Brubeck. Distinguished from bebop by cool's slower-and-more-relaxed (vs frenetic) emotional register.",
-  "recipe": "classic North American cool jazz / west coast, improv On Frame, bop branch, American jazz smooth vocal cool jazz vocal. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral lyrical jazz balance trumpet, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris lyrical continuous-airflow saxophone, cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, growly gut upright bass, mahogany vintage ambassador asymmetric bronze bell bronze drum kit. capitol tower 1750 vine 1956-present major-flagship capitol tower studios la. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 703,
-  "score": 447.38,
+  "recipe": "classic North American cool jazz / west coast, improv On Frame, bop branch, American jazz smooth vocal cool jazz vocal. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral lyrical jazz balance trumpet, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris lyrical continuous-airflow saxophone, cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, growly gut upright bass, vintage ambassador asymmetric brushes drum kit. capitol tower 1750 vine 1956-present major-flagship capitol tower studios la. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 683,
+  "score": 328.25,
   "config": {
     "traditions": [
       "cool_jazz_west_coast",
@@ -96,32 +96,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "mahogany_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "brushes_jazz",
           "drumhead": "vintage_ambassador_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b20",
-          "cymbal_hammering": "over_hammered",
-          "cymbal_lathing": "pin_lathe",
-          "cymbal_finish": "machine_hammered",
-          "drum_technique": "brushes_jazz"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 24.76175,
-          "shell_wood": 1.3,
-          "shell_thickness": 0,
-          "bearing_edges": 0.845,
+          "drum_technique": 29,
           "drumhead": 33.655625,
-          "snare_wires": 0.845,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 30.525,
-          "cymbal_hammering": 30.007749999999998,
-          "cymbal_lathing": 30.000874999999997,
-          "cymbal_finish": 0.845,
-          "drum_technique": 29
+          "drum_kit_kick_pedal": 0
         }
       }
     ],
@@ -145,17 +127,8 @@
     "tuning": "bebop_complex_changes",
     "room": "capitol_tower_studios_la",
     "parts": {
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_30",
       "drumhead": "calfskin_drum",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "hand_random_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "brushes_jazz",
-      "percussion_technique": "percussion_brushes_jazz",
       "wind_articulation": "wind_bebop_runs",
       "brass_size": "trumpet_b_flat",
       "trumpet_technique": "trumpet_bebop_lines",

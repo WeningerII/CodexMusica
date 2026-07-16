@@ -3,9 +3,9 @@
   "name": "Bebop",
   "family": "jazz",
   "lineage": "1944-1955 small-group jazz vocabulary codified by Charlie Parker, Dizzy Gillespie, Thelonious Monk, Bud Powell, Max Roach, Kenny Clarke — rapid chord changes, virtuosic melodic improvisation, complex rhythmic displacement, intimate quintet-sextet format displacing swing-era big bands",
-  "recipe": "classic North American mid-1950s bebop, improv On Frame, bop branch, American jazz early swing-era jazz orchestra new orleans jazz. alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, red brass 90 10 darkest bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, growly gut upright bass, vintage ambassador asymmetric bronze bell bronze fourteen step drum kit. converted living room 1944-1959 indie-commercial van gelder hackensack. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 698,
-  "score": 359.864,
+  "recipe": "classic North American mid-1950s bebop, improv On Frame, bop branch, American jazz early swing-era jazz orchestra new orleans jazz. alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, red brass 90 10 darkest bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, growly gut upright bass, vintage ambassador asymmetric brushes drum kit. converted living room 1944-1959 indie-commercial van gelder hackensack. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 673,
+  "score": 260.378,
   "config": {
     "traditions": [
       "bebop",
@@ -96,32 +96,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "brass_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "brushes_jazz",
           "drumhead": "vintage_ambassador_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b20",
-          "cymbal_hammering": "fourteen_step_hammering",
-          "cymbal_lathing": "hand_lathed_pit_retaining",
-          "cymbal_finish": "hand_hammered",
-          "drum_technique": "brushes_jazz"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 19.044999999999998,
-          "shell_wood": 0.845,
-          "shell_thickness": 0.005625,
-          "bearing_edges": 0.016875,
+          "drum_technique": 24.375,
           "drumhead": 30.34225,
-          "snare_wires": 0.016875,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 27.595,
-          "cymbal_hammering": 27.280624999999997,
-          "cymbal_lathing": 24.48625,
-          "cymbal_finish": 0.195,
-          "drum_technique": 24.375
+          "drum_kit_kick_pedal": 0
         }
       }
     ],
@@ -145,17 +127,8 @@
     "tuning": "bebop_complex_changes",
     "room": "van_gelder_hackensack",
     "parts": {
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_30",
       "drumhead": "calfskin_drum",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "hand_random_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "brushes_jazz",
-      "percussion_technique": "percussion_brushes_jazz",
       "wind_articulation": "wind_bebop_runs",
       "sax_size": "tenor_sax",
       "sax_technique": "sax_bebop_runs",

@@ -3,9 +3,9 @@
   "name": "Free improvisation (non-idiomatic)",
   "family": "global",
   "lineage": "Post-1960s European and American non-idiomatic improvisation tradition — codified through Derek Bailey’s Improvisation: Its Nature and Practice in Music (1980) as theoretical foundation, the Spontaneous Music Ensemble (London 1966 onward), AMM, Music Improvisation Company, the Globe Unity Orchestra, and the Bay Area / Knitting Factory NYC American scenes — characterized by genre-disavowal posture, no-pre-arranged-material premise, and timbre-and-extended-technique-foreground performance",
-  "recipe": "classic mid-1960s free improvisation, improv On Frame, jam free branch, musique concrete experimental electric musique concrète electroacoustic composition. extended whistle, breath veiled tone, fast rate, interlocked note trading. alto yellow brass modern standard saxophone, steel plywood laminate European maple sycamore maple double bass, oak pre muffled edge muffled fx9 manganese bronze drum kit, glitched textural granular synth, whale song waterphone. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 605,
-  "score": 169.139,
+  "recipe": "classic mid-1960s free improvisation, improv On Frame, jam free branch, musique concrete experimental electric musique concrète electroacoustic composition. extended whistle, breath veiled tone, fast rate, interlocked note trading. alto yellow brass modern standard saxophone, steel plywood laminate European maple sycamore maple double bass, pre muffled edge muffled brushes-and-sticks drum kit, glitched textural granular synth, whale song waterphone. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 599,
+  "score": 135.493,
   "config": {
     "traditions": [
       "free_improvisation",
@@ -103,32 +103,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "oak_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_45",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "ec_pre_muffled_drumhead",
-          "snare_wires": "wires_20",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "meinl_fx9",
-          "cymbal_hammering": "over_hammered",
-          "cymbal_lathing": "lathing_raw_unlathed",
-          "cymbal_finish": "hand_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 10.27,
-          "shell_wood": 1.4399615384615385,
-          "shell_thickness": 0.45499999999999996,
-          "bearing_edges": 2.3530034965034967,
+          "drum_technique": 10.27,
           "drumhead": 4.123814102564102,
-          "snare_wires": 0.45499999999999996,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 8.900246794871796,
-          "cymbal_hammering": 2.73,
-          "cymbal_lathing": 5.545,
-          "cymbal_finish": 1.4984615384615385,
-          "drum_technique": 10.27
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -180,17 +162,8 @@
     "tuning": "twelve_tet",
     "room": "treated_studio",
     "parts": {
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_30",
       "drumhead": "calfskin_drum",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "hand_random_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "brushes_jazz",
-      "percussion_technique": "percussion_brushes_jazz",
       "voice_register": "chest_voice",
       "voice_quality": "crooner_voice",
       "voice_speech_song": "voice_neumatic_singing",

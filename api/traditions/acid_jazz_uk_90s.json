@@ -3,14 +3,14 @@
   "name": "Acid jazz (UK 1990s)",
   "family": "jazz",
   "lineage": "UK-originated 1980s-1990s dance-club jazz fusion style integrating hard-bop and soul-jazz influences with dance-club rhythmic-foundation, hip-hop production-elements, and electronic-instrumentation. Acid Jazz Records (founded 1987 by Eddie Piller and Gilles Peterson) consolidated the canonical sound; Galliano, Brand New Heavies, Jamiroquai, Incognito, and James Taylor Quartet anchored the recording roster. Distinguished from broader 1980s-jazz-fusion by acid jazz's dance-club orientation and UK-cultural context.",
-  "recipe": "classic British acid jazz, improv On Frame, fusion branch, soul R&B functional song new jack swing doo-wop. thick, breath veiled tone, straight onset, interlocked note trading. tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric bronze bell bronze over hammered drum kit, sampled chopped turntable. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 793,
-  "score": 715.423,
+  "recipe": "classic British acid jazz, improv On Frame, fusion branch, soul R&B functional song doo-wop new jack swing. thick, breath veiled tone, straight onset, interlocked note trading. tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, sampled chopped turntable. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 779,
+  "score": 577.61,
   "config": {
     "traditions": [
       "acid_jazz_uk_90s",
-      "new_jack_swing",
-      "doo_wop"
+      "doo_wop",
+      "new_jack_swing"
     ],
     "instruments": [
       {
@@ -124,32 +124,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "oak_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_45",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "vintage_ambassador_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b20",
-          "cymbal_hammering": "over_hammered",
-          "cymbal_lathing": "pin_lathe",
-          "cymbal_finish": "machine_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 46.085,
-          "shell_wood": 0.345,
-          "shell_thickness": 0,
-          "bearing_edges": 0.9450000000000001,
+          "drum_technique": 46.085,
           "drumhead": 25.70000000000001,
-          "snare_wires": 0.195,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 36.938750000000006,
-          "cymbal_hammering": 25.99000000000001,
-          "cymbal_lathing": 26.968750000000007,
-          "cymbal_finish": 0.345,
-          "drum_technique": 46.085
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -190,17 +172,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_walking",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_30",
       "drumhead": "calfskin_drum",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "hand_random_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "brushes_jazz",
-      "percussion_technique": "percussion_brushes_jazz",
       "voice_register": "chest_voice",
       "voice_quality": "crooner_voice",
       "voice_speech_song": "voice_neumatic_singing",

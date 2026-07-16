@@ -3,9 +3,9 @@
   "name": "Symphonic metal",
   "family": "global",
   "lineage": "Metal-orchestral-choral hybrid subgenre codified through Nightwish (Oceanborn 1998), Within Temptation (Mother Earth 2000), Epica (The Phantom Agony 2003), Therion, and Edenbridge; characterized by operatic-soprano-led-vocal performances, full-orchestral arrangements (often with film-score session ensembles), choral-backing-vocal stacks, and fantasy-and-mythology lyrical subject-matter tradition",
-  "recipe": "classic late-1990s symphonic metal, distorted Rock, symphonic branch, western common practice art music grand opera the mighty handful. thick, breath veiled tone, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, alder ernie ball slinky electric bass, brass pre muffled edge muffled machine hammered symmetric pattern drum kit, polyrhythmic vocal layering independent cycles kakhetian three voice two soloists choral drone choir ensemble, string quartet inst, synthetic carpathian spruce European maple sycamore maple oil varnish violin orchestral, mallets timpani. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 839,
-  "score": 390.352,
+  "recipe": "classic late-1990s symphonic metal, distorted Rock, symphonic branch, western common practice art music grand opera the mighty handful. thick, breath veiled tone, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, polyrhythmic vocal layering independent cycles kakhetian three voice two soloists choral drone choir ensemble, string quartet inst, synthetic carpathian spruce European maple sycamore maple oil varnish violin orchestral, mallets timpani. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 817,
+  "score": 338.527,
   "config": {
     "traditions": [
       "symphonic_metal_classic",
@@ -111,32 +111,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "brass_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_45",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "ec_pre_muffled_drumhead",
-          "snare_wires": "wires_20",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b8",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "machine_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 12.934999999999995,
-          "shell_wood": 3.4449999999999994,
-          "shell_thickness": 1.3649999999999998,
-          "bearing_edges": 0.45499999999999996,
+          "drum_technique": 12.934999999999995,
           "drumhead": 2.2399999999999998,
-          "snare_wires": 1.3649999999999998,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 20.93999999999999,
-          "cymbal_hammering": 4.574999999999999,
-          "cymbal_lathing": 6.55,
-          "cymbal_finish": 0.195,
-          "drum_technique": 12.934999999999995
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -237,17 +219,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "pick_aggressive",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "thick_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "double_coated",
-      "snare_wires": "wires_30",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "hand_random_hammering",
-      "cymbal_lathing": "pin_lathe",
-      "cymbal_finish": "brilliant_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "voice_register": "head_voice",
       "voice_quality": "opera_voice",
       "voice_speech_song": "voice_melismatic_singing",

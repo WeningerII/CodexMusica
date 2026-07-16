@@ -3,9 +3,9 @@
   "name": "Grindcore",
   "family": "rock",
   "lineage": "UK and US extreme-metal-and-hardcore fusion that emerged in the mid-late 1980s — codified through Napalm Death (Birmingham UK, Scum 1987 the foundational album with You Suffer the 28-second-song sonic-economy gesture), Carcass (Liverpool UK gore-grindcore, Reek of Putrefaction 1988), Repulsion (Michigan US founding band, Horrified 1989), the modern continuation through Pig Destroyer, Magrudergrind; hardcore-punks compressed-song-format extended to its logical conclusion",
-  "recipe": "classic Midwestern American 1987-1989 grindcore, distorted Rock, death branch, punk distorted rock crust punk d-beat. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, birch kevlar aramid extreme tension machine hammered drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 601,
-  "score": 500.618,
+  "recipe": "classic Midwestern American 1987-1989 grindcore, distorted Rock, death branch, punk distorted rock crust punk d-beat. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, kevlar aramid extreme tension brushes-and-sticks drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 597,
+  "score": 393.967,
   "config": {
     "traditions": [
       "grindcore",
@@ -72,32 +72,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "birch_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "brushes_and_sticks",
           "drumhead": "kevlar_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b8",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "machine_hammered",
-          "drum_technique": "brushes_and_sticks"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 22.424999999999997,
-          "shell_wood": 1.135,
-          "shell_thickness": 0,
-          "bearing_edges": 2.535,
+          "drum_technique": 22.424999999999997,
           "drumhead": 6.0249999999999995,
-          "snare_wires": 2.535,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 43.34,
-          "cymbal_hammering": 17.64,
-          "cymbal_lathing": 15.950000000000001,
-          "cymbal_finish": 1.09,
-          "drum_technique": 22.424999999999997
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -169,17 +151,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "pick_aggressive",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "thick_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "double_coated",
-      "snare_wires": "wires_30",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "hand_random_hammering",
-      "cymbal_lathing": "pin_lathe",
-      "cymbal_finish": "brilliant_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "voice_register": "chest_voice",
       "voice_quality": "pressed_phonation_voice",
       "voice_speech_song": "voice_syllabic_singing",

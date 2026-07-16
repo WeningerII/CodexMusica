@@ -3,9 +3,9 @@
   "name": "Greek rock",
   "family": "rock_punk",
   "lineage": "Greek-language rock music developed from 1960s onward, integrating Greek-laiko and rebetiko folk-music influences with broader Western rock vocabulary. The 1960s Pavlos Sidiropoulos and Stamatis Spanoudakis era inaugurated the form; the 1980s-90s \"Greek rock\" wave through Magic de Spell, Trypes, Tripes, Pyx Lax, and the broader post-1981 Athens scene consolidated commercial visibility. Distinguished by Greek-language lyrics and frequent integration of bouzouki/baglamas folk-instruments into rock contexts.",
-  "recipe": "classic Southern European mid-1960s greek rock, distorted Rock, regional branch, chanson fado Greek entechno greek éntechno. thick, breath veiled tone, slow rate, interlocked note trading. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, kevlar aramid extreme tension machine hammered symmetric pattern drum kit, strummed baglamas, walnut staves canonical Greek strummed bouzouki. athens major label 1955-1985 mid tier athens minos studios 60s 70s. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 655,
-  "score": 372.067,
+  "recipe": "classic Southern European mid-1960s greek rock, distorted Rock, regional branch, chanson fado Greek entechno greek éntechno. thick, breath veiled tone, slow rate, interlocked note trading. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, kevlar aramid extreme tension sticks backbeat drum kit, strummed baglamas, walnut staves canonical Greek strummed bouzouki. athens major label 1955-1985 mid tier athens minos studios 60s 70s. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 636,
+  "score": 301.411,
   "config": {
     "traditions": [
       "greek_rock",
@@ -110,32 +110,14 @@
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "birch_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
+          "drum_technique": "sticks_rock",
           "drumhead": "kevlar_drumhead",
-          "snare_wires": "wires_20",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b8",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "machine_hammered",
-          "drum_technique": "sticks_rock"
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 8.775,
-          "shell_wood": 0.273,
-          "shell_thickness": 0.063,
-          "bearing_edges": 0,
+          "drum_technique": 19.25,
           "drumhead": 1.625,
-          "snare_wires": 0,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 19.423,
-          "cymbal_hammering": 20.9615,
-          "cymbal_lathing": 20.887999999999998,
-          "cymbal_finish": 0.273,
-          "drum_technique": 19.25
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -203,17 +185,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_locked",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "voice_register": "chest_voice",
       "voice_quality": "full_chest_belt_voice",
       "voice_speech_song": "voice_syllabic_singing",

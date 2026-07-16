@@ -3,14 +3,14 @@
   "name": "Folk rock",
   "family": "rock_punk",
   "lineage": "Mid-1960s through 1970s amplified folk-rock fusion codified by The Byrds Mr. Tambourine Man (1965), Buffalo Springfield, Crosby Stills Nash and Young, Simon and Garfunkel late-60s catalog",
-  "recipe": "classic North American 1964-1966 folk rock, functional Song, folk rock branch, country functional song country rock country-pop crossover. thick, breath veiled tone, wide pitch sway, interlocked note trading. cedar phosphor bronze modern martin travis picked dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, steel pre muffled edge muffled hot rolled annealed drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ, tambourine orch. hyde street san francisco 1969-1980 major-flagship wally heider studios sf. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
-  "recipe_chars": 902,
-  "score": 872.23,
+  "recipe": "classic North American 1964-1966 folk rock, functional Song, folk rock branch, country functional song country rock western swing. thick, breath veiled tone, wide pitch sway, interlocked note trading. cedar flatwound thomastik travis picked dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, vintage ambassador asymmetric sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ, tambourine orch. hyde street san francisco 1969-1980 major-flagship wally heider studios sf. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
+  "recipe_chars": 879,
+  "score": 716.335,
   "config": {
     "traditions": [
       "folk_rock",
       "country_rock",
-      "country_pop_crossover"
+      "western_swing"
     ],
     "instruments": [
       {
@@ -28,28 +28,28 @@
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_jingju_role",
-          "voice_pitch_organization": "voice_pitch_vedic_three_tone",
-          "voice_processing_chain": "voice_processing_talkbox",
+          "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
+          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 91.31500000000001,
-          "voice_quality": 10.334999999999994,
+          "voice_register": 91.49,
+          "voice_quality": 11.89499999999999,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 23.015,
-          "voice_articulation": 14.88499999999999,
-          "voice_microtone": 47.06000000000001,
-          "voice_tradition": 30.836249999999993,
-          "voice_mechanism_compound": 2.405,
-          "voice_estill_quality": 25.8,
-          "voice_speech_song": 20.79999999999999,
-          "voice_ensemble_config": 16.44499999999999,
-          "voice_ornament_system": 0.585,
-          "voice_pitch_organization": 0.9062499999999999,
-          "voice_processing_chain": 8.995,
-          "voice_multitrack_stack": 8.84875
+          "voice_vibrato": 25.015,
+          "voice_articulation": 19.36999999999999,
+          "voice_microtone": 46.78500000000001,
+          "voice_tradition": 30.286249999999992,
+          "voice_mechanism_compound": 2.7299999999999995,
+          "voice_estill_quality": 26.799999999999997,
+          "voice_speech_song": 25.28499999999999,
+          "voice_ensemble_config": 19.88999999999999,
+          "voice_ornament_system": 1.6249999999999998,
+          "voice_pitch_organization": 0.8125,
+          "voice_processing_chain": 9.646249999999998,
+          "voice_multitrack_stack": 9.223749999999999
         }
       },
       {
@@ -59,20 +59,20 @@
           "string_tuning": "open_d",
           "top_wood": "cedar",
           "back_sides": "koa_bs",
-          "string_acoustic": "phosphor_bronze"
+          "string_acoustic": "thomastik_flat_top"
         },
         "scores": {
-          "acoustic_technique": 44.24999999999999,
-          "string_tuning": 0.475,
+          "acoustic_technique": 44.99999999999999,
+          "string_tuning": 1.225,
           "top_wood": 1.99,
-          "back_sides": 0.6950000000000001,
-          "string_acoustic": 2.685
+          "back_sides": 0.045,
+          "string_acoustic": 2.9249999999999994
         }
       },
       {
         "id": "electric_guitar_single_coil",
         "slots": {
-          "electric_technique": "electric_fingerstyle_country",
+          "electric_technique": "electric_country_chicken_pickin",
           "amp_make": "amp_american_fender_blackface",
           "body_wood": "mahogany",
           "neck_wood": "mahogany_neck",
@@ -86,18 +86,18 @@
           "string_tuning": "d_standard"
         },
         "scores": {
-          "electric_technique": 22.745000000000005,
-          "amp_make": 24.622500000000006,
+          "electric_technique": 23.794999999999998,
+          "amp_make": 26.4725,
           "body_wood": 1.99,
           "neck_wood": 1.99,
           "fretboard": 1.94,
           "pickup_magnet": 0.045,
           "string_material": 2.0149999999999997,
           "string_gauge": 1.84,
-          "bridge": 0.5,
+          "bridge": 0,
           "scale_length": 2.08,
           "finish": 0.045,
-          "string_tuning": 17.503750000000004
+          "string_tuning": 17.653750000000002
         }
       },
       {
@@ -114,44 +114,26 @@
         },
         "scores": {
           "electric_technique": 0.5449999999999999,
-          "amp_make": 23.2475,
+          "amp_make": 24.347499999999997,
           "body_wood": 2.08,
-          "pickup_config": 0.6950000000000001,
-          "string_type": 37.4575,
-          "scale_length_b": 2.6175,
+          "pickup_config": 0.045,
+          "string_type": 36.58250000000001,
+          "scale_length_b": 2.7675,
           "fretted_or_not": 0.345,
-          "bass_technique": 35.206250000000004
+          "bass_technique": 34.331250000000004
         }
       },
       {
         "id": "drum_kit",
         "slots": {
-          "percussion_technique": "percussion_brushes_and_sticks",
-          "shell_wood": "steel_shell",
-          "shell_thickness": "medium_shell",
-          "bearing_edges": "edge_30",
-          "drumhead": "ec_pre_muffled_drumhead",
-          "snare_wires": "cable_snares",
-          "drum_kit_kick_pedal": "dk_kick_single_felt",
-          "cymbal_alloy": "b15_signature",
-          "cymbal_hammering": "machine_symmetric_hammering",
-          "cymbal_lathing": "full_lathe_both_sides",
-          "cymbal_finish": "hand_hammered",
-          "drum_technique": "sticks_rock"
+          "drum_technique": "sticks_rock",
+          "drumhead": "vintage_ambassador_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "percussion_technique": 20.76749999999999,
-          "shell_wood": 2.0149999999999997,
-          "shell_thickness": 0.345,
-          "bearing_edges": 1.84,
-          "drumhead": 12.745,
-          "snare_wires": 1.84,
-          "drum_kit_kick_pedal": 0,
-          "cymbal_alloy": 46.795,
-          "cymbal_hammering": 47,
-          "cymbal_lathing": 47.74000000000001,
-          "cymbal_finish": 0.39,
-          "drum_technique": 34.93
+          "drum_technique": 34.205000000000005,
+          "drumhead": 6.9799999999999995,
+          "drum_kit_kick_pedal": 0
         }
       },
       {
@@ -165,23 +147,23 @@
           "leslie_cabinet_model": "leslie_760_solid_state"
         },
         "scores": {
-          "keyboard_technique": 12.945,
-          "drawbar_setting": 35.30125,
-          "rotary_speed": 34.7,
-          "percussion_setting": 16.652500000000003,
-          "tonewheel_model": 15.665000000000001,
-          "leslie_cabinet_model": 2.925
+          "keyboard_technique": 6.695,
+          "drawbar_setting": 34.42625,
+          "rotary_speed": 33.82500000000001,
+          "percussion_setting": 16.302500000000002,
+          "tonewheel_model": 21.1175,
+          "leslie_cabinet_model": 3.12
         }
       },
       {
         "id": "tambourine_orch",
         "slots": {
           "tambourine_orch_jingle": "tambourine_orch_mixed",
-          "tambourine_orch_context": "tambourine_orch_orch"
+          "tambourine_orch_context": "tambourine_orch_pop"
         },
         "scores": {
           "tambourine_orch_jingle": 0.285,
-          "tambourine_orch_context": 0
+          "tambourine_orch_context": 0.12999999999999998
         }
       }
     ],
@@ -215,17 +197,8 @@
       "scale_length_b": "long_scale_b",
       "fretted_or_not": "fretted",
       "bass_technique": "fingerstyle_locked",
-      "shell_wood": "maple_shell",
-      "shell_thickness": "medium_shell",
-      "bearing_edges": "edge_45",
       "drumhead": "single_coated",
-      "snare_wires": "wires_20",
-      "cymbal_alloy": "b20",
-      "cymbal_hammering": "machine_symmetric_hammering",
-      "cymbal_lathing": "full_lathe_both_sides",
-      "cymbal_finish": "traditional_finish",
       "drum_technique": "sticks_rock",
-      "percussion_technique": "percussion_sticks_rock",
       "voice_register": "chest_voice",
       "voice_quality": "speech_voice",
       "voice_speech_song": "voice_syllabic_singing",
