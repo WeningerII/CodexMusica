@@ -655,6 +655,54 @@
       ]
     },
     {
+      "id": "drum_kit_kick_pedal",
+      "surface": false,
+      "name": "Kick pedal",
+      "variants": [
+        {
+          "id": "dk_kick_single_felt",
+          "default": true,
+          "name": "Single pedal, felt beater",
+          "descriptors": [],
+          "match_tokens": [
+            "rock",
+            "pop",
+            "jazz",
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "dk_kick_single_wood",
+          "auto": false,
+          "name": "Single pedal, wood / plastic beater",
+          "descriptors": [
+            "clicky-attack",
+            "defined-point"
+          ],
+          "match_tokens": [
+            "metal",
+            "modern",
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "dk_kick_double",
+          "auto": false,
+          "name": "Double pedal",
+          "descriptors": [
+            "double-kick",
+            "rapid-double-strokes",
+            "gallop"
+          ],
+          "match_tokens": [
+            "metal",
+            "double-bass",
+            "extreme-metal"
+          ]
+        }
+      ]
+    },
+    {
       "id": "cymbal_alloy",
       "surface": false,
       "name": "Cymbal alloy",
@@ -1761,6 +1809,54 @@
             "percussive-attack",
             "sticks",
             "rhythm-section-pocket"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "drum_kit_kick_pedal",
+      "surface": false,
+      "name": "Kick pedal",
+      "variants": [
+        {
+          "id": "dk_kick_single_felt",
+          "default": true,
+          "name": "Single pedal, felt beater",
+          "descriptors": [],
+          "match_tokens": [
+            "rock",
+            "pop",
+            "jazz",
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "dk_kick_single_wood",
+          "auto": false,
+          "name": "Single pedal, wood / plastic beater",
+          "descriptors": [
+            "clicky-attack",
+            "defined-point"
+          ],
+          "match_tokens": [
+            "metal",
+            "modern",
+            "percussive-attack"
+          ]
+        },
+        {
+          "id": "dk_kick_double",
+          "auto": false,
+          "name": "Double pedal",
+          "descriptors": [
+            "double-kick",
+            "rapid-double-strokes",
+            "gallop"
+          ],
+          "match_tokens": [
+            "metal",
+            "double-bass",
+            "extreme-metal"
           ]
         }
       ]
