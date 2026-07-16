@@ -2015,7 +2015,7 @@ const PREFACE_LEXICON = [
   {
     id: 'up-tempo',
     note: "fast and lifting — quick dance-driving pulse pushing past the comfortable",
-    tokens: ['fast-tempo-110-160', 'dance-driving', 'snappy', 'fast-attack-transient', 'lively', 'hyped-mids', 'articulate', 'dance-rhythm', 'controlled']
+    tokens: ['dance-driving', 'snappy', 'fast-attack-transient', 'lively', 'hyped-mids', 'articulate', 'dance-rhythm', 'controlled']
   },
   {
     id: 'down-tempo',
@@ -2210,7 +2210,7 @@ const PREFACE_LEXICON = [
   {
     id: 'exuberant',
     note: "overflowing high spirits — lively, soaring, dance-driven energy",
-    tokens: ['lively', 'energetic', 'dance-driving', 'hyped-mids', 'fast-tempo-110-160', 'soaring', 'expressive', 'vibrato-rich', 'sustained-projection']
+    tokens: ['lively', 'energetic', 'dance-driving', 'hyped-mids', 'soaring', 'expressive', 'vibrato-rich', 'sustained-projection']
   },
   {
     id: 'vivacious',
@@ -2225,7 +2225,7 @@ const PREFACE_LEXICON = [
   {
     id: 'energetic',
     note: "kinetic drive — fast, snappy, percussive dance momentum",
-    tokens: ['energetic', 'lively', 'dance-driving', 'fast-tempo-110-160', 'fast-attack-transient', 'snappy', 'percussive', 'backbeat', 'club-staple']
+    tokens: ['energetic', 'lively', 'dance-driving', 'fast-attack-transient', 'snappy', 'percussive', 'backbeat', 'club-staple']
   },
   {
     id: 'cheerful',
@@ -2255,7 +2255,7 @@ const PREFACE_LEXICON = [
   {
     id: 'frantic',
     note: "panicked rush — fast tremolo and runs in unrestrained, cutting urgency",
-    tokens: ['fast-tremolo', 'fast-runs', 'fast-attack-transient', 'rapid-tremolo', 'percussive', 'fast-tempo-110-160', 'cutting', 'unrestrained', 'punctuated', 'fast-bleat-caprino']
+    tokens: ['fast-tremolo', 'fast-runs', 'fast-attack-transient', 'rapid-tremolo', 'percussive', 'cutting', 'unrestrained', 'punctuated', 'fast-bleat-caprino']
   },
   {
     id: 'aggressive',
@@ -2870,7 +2870,7 @@ const PREFACE_LEXICON = [
   {
     id: 'frenetic',
     note: "manic velocity — fast runs and transients, percussive and unrestrained",
-    tokens: ['fast-tempo-110-160', 'fast-runs', 'fast-attack-transient', 'fast-tremolo', 'percussive', 'rapid-tremolo', 'punctuated', 'unrestrained', 'dance-driving']
+    tokens: ['fast-runs', 'fast-attack-transient', 'fast-tremolo', 'percussive', 'rapid-tremolo', 'punctuated', 'unrestrained', 'dance-driving']
   },
   {
     id: 'languid',

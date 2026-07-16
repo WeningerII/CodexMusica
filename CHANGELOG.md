@@ -6,7 +6,34 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Fixed
+- **Mood prefaces no longer hijack tuning to Brazilian carnival.** Applying an
+  energy preface (`up-tempo`, `exuberant`, `energetic`, `frantic`, `frenetic`)
+  to any card in any genre flipped its tuning to `frevo_2_4_fast` ("carnival-
+  march feel") — e.g. a doom-metal drum reshaped from `doom_sabbath_tritone_
+  diminished` to frevo. Cause: those 5 prefaces carried the generic token
+  `fast-tempo-110-160`, and frevo was the *only* tuning in the catalog carrying
+  it (a tempo descriptor mis-used as a matchable token on a culturally-specific
+  rhythm), so it was a unique magnet. Removed that token from the 5 prefaces
+  (it matched zero instrument variants, so nothing else changed); frevo stays
+  reachable via its frevo/carnival/pernambuco descriptors. Preface regression
+  79/79 unchanged.
+- **Double-pedal now reads as a double kick.** `bass_drum_double_pedal`
+  rendered only its abstract descriptors `rapid`/`gallop`, which don't read as a
+  pedal choice. Descriptors are now `double-kick` / `rapid-double-strokes` /
+  `gallop`, so selecting it surfaces "double-kick" in the recipe.
+
 ### Added
+- **Kick pedal part on the drum kit.** The `drum_kit` instrument had four cymbal
+  parts (alloy, hammering, lathing, finish) but no foot/kick-pedal part at all —
+  the pedal existed only on the separate `bass_drum` instrument. Added a
+  `drum_kit_kick_pedal` part: single felt (default), single wood/plastic, and
+  double pedal. The two non-default options are `auto: false` (explicit-only, so
+  the reshape optimizer never spuriously auto-selects a double-kick for a
+  bossa-nova or modal-jazz kit) and the felt default carries no descriptors, so
+  the addition is fully additive — recipe regression 1198/1198 unchanged, no
+  re-bless.
+
 - **Stereo/spatial imaging — auto-derived from intent (additive core).** Recipes
   rarely conveyed any sense of stereo/panorama. A fan-out audit (5 dimensions)
   found the cause and, critically, corrected a wrong premise: the reshape

@@ -112,7 +112,8 @@
           "id": "bass_drum_double_pedal",
           "name": "Double pedal",
           "descriptors": [
-            "rapid",
+            "double-kick",
+            "rapid-double-strokes",
             "gallop"
           ],
           "match_tokens": [
@@ -220,7 +221,8 @@
           "id": "bass_drum_double_pedal",
           "name": "Double pedal",
           "descriptors": [
-            "rapid",
+            "double-kick",
+            "rapid-double-strokes",
             "gallop"
           ],
           "match_tokens": [

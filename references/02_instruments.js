@@ -4811,7 +4811,7 @@ const INSTRUMENTS = [
       { id: 'bass_drum_beater', surface: false, name: 'Beater / pedal', variants: [
         { id: 'bass_drum_felt_pedal', default: true, name: 'Felt beater, single pedal', descriptors: ['rounded-attack', 'felt-thump'], match_tokens: ['rock', 'pop'] },
         { id: 'bass_drum_wood_click', name: 'Wood / plastic beater', descriptors: ['clicky-attack', 'defined-point'], match_tokens: ['metal', 'modern'] },
-        { id: 'bass_drum_double_pedal', name: 'Double pedal', descriptors: ['rapid', 'gallop'], match_tokens: ['metal', 'double-bass'] },
+        { id: 'bass_drum_double_pedal', name: 'Double pedal', descriptors: ['double-kick', 'rapid-double-strokes', 'gallop'], match_tokens: ['metal', 'double-bass'] },
       ] },
     ]
   },
@@ -4860,6 +4860,11 @@ const INSTRUMENTS = [
         { id: 'wires_30', name: '30+ strand heavy', descriptors: ['dry', 'busy', 'sensitive'], match_tokens: ['percussive-attack', 'sticks', 'rhythm-section-pocket'] },
         { id: 'wires_12', name: '12-strand light', descriptors: ['undamped-resonance', 'ringing', 'wide'], match_tokens: ['percussive-attack', 'sticks', 'rhythm-section-pocket'] },
         { id: 'cable_snares', name: 'Cable snares', descriptors: ['focused', 'dry', 'low-mid-thick'], match_tokens: ['percussive-attack', 'sticks', 'rhythm-section-pocket'] },
+      ] },
+      { id: 'drum_kit_kick_pedal', surface: false, name: 'Kick pedal', variants: [
+        { id: 'dk_kick_single_felt', default: true, name: 'Single pedal, felt beater', descriptors: [], match_tokens: ['rock', 'pop', 'jazz', 'percussive-attack'] },
+        { id: 'dk_kick_single_wood', auto: false, name: 'Single pedal, wood / plastic beater', descriptors: ['clicky-attack', 'defined-point'], match_tokens: ['metal', 'modern', 'percussive-attack'] },
+        { id: 'dk_kick_double', auto: false, name: 'Double pedal', descriptors: ['double-kick', 'rapid-double-strokes', 'gallop'], match_tokens: ['metal', 'double-bass', 'extreme-metal'] },
       ] },
       { id: 'cymbal_alloy', surface: false, name: 'Cymbal alloy', variants: [
         { id: 'b20', default: true, name: 'B20 bell bronze (cast)', descriptors: ['dark', 'overtone-rich', 'musical', 'bronze', 'bell-bronze'], match_tokens: ['percussive-attack', 'sticks', 'rhythm-section-pocket'], canonical_tags: ['jazz', 'blues', 'classic-blues', 'fusion'] },
