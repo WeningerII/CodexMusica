@@ -4811,7 +4811,7 @@ const INSTRUMENTS = [
       { id: 'bass_drum_beater', surface: false, name: 'Beater / pedal', variants: [
         { id: 'bass_drum_felt_pedal', default: true, name: 'Felt beater, single pedal', descriptors: ['rounded-attack', 'felt-thump'], match_tokens: ['rock', 'pop'] },
         { id: 'bass_drum_wood_click', name: 'Wood / plastic beater', descriptors: ['clicky-attack', 'defined-point'], match_tokens: ['metal', 'modern'] },
-        { id: 'bass_drum_double_pedal', name: 'Double pedal', descriptors: ['double-kick', 'rapid-double-strokes', 'gallop'], match_tokens: ['metal', 'double-bass'] },
+        { id: 'bass_drum_double_pedal', name: 'Double pedal', descriptors: ['double-bass', 'rapid-double-strokes'], match_tokens: ['metal', 'double-bass'] },
       ] },
     ]
   },
@@ -4842,7 +4842,7 @@ const INSTRUMENTS = [
       { id: 'shell_wood', surface: false, name: 'Shell material', variants: [
         { id: 'maple_shell', auto: false, name: 'Maple', descriptors: ['balanced', 'low-fundamental-tuning', 'all-purpose', 'maple'], match_tokens: ['percussive-attack', 'sticks', 'rhythm-section-pocket'] },
         { id: 'birch_shell', auto: false, name: 'Birch', descriptors: ['treble-extended', 'attack-forward', 'cutting', 'birch'], match_tokens: ['percussive-attack', 'sticks', 'rhythm-section-pocket'] },
-        { id: 'mahogany_shell', auto: false, default: true, name: 'Mahogany', descriptors: ['low-fundamental-tuning', 'low-end-heavy', 'vintage', 'mahogany'], match_tokens: ['percussive-attack', 'sticks', 'rhythm-section-pocket'] },
+        { id: 'mahogany_shell', auto: false, name: 'Mahogany', descriptors: ['low-fundamental-tuning', 'low-end-heavy', 'vintage', 'mahogany'], match_tokens: ['percussive-attack', 'sticks', 'rhythm-section-pocket'] },
         { id: 'oak_shell', auto: false, name: 'Oak', descriptors: ['loud', 'treble-extended', 'projecting', 'oak'], match_tokens: ['percussive-attack', 'sticks', 'rhythm-section-pocket'] },
         { id: 'walnut_shell', auto: false, name: 'Walnut', descriptors: ['dark', 'low-fundamental-tuning', 'controlled', 'walnut'], match_tokens: ['percussive-attack', 'sticks', 'rhythm-section-pocket'] },
         { id: 'steel_shell', auto: false, name: 'Steel (snare)', descriptors: ['treble-extended', 'cutting', 'ringing', 'steel'], match_tokens: ['percussive-attack', 'sticks', 'rhythm-section-pocket'] },
@@ -4852,12 +4852,12 @@ const INSTRUMENTS = [
       ] },
       { id: 'shell_thickness', surface: false, name: 'Shell ply count', variants: [
         { id: 'thin_shell', auto: false, name: 'Thin (4–6 ply)', descriptors: ['resonant', 'undamped-resonance'], match_tokens: ['percussive-attack', 'sticks', 'rhythm-section-pocket'] },
-        { id: 'medium_shell', auto: false, default: true, name: 'Medium (7–8 ply)', descriptors: ['balanced', 'versatile', 'standard'], match_tokens: ['percussive-attack', 'sticks', 'rhythm-section-pocket'] },
+        { id: 'medium_shell', auto: false, name: 'Medium (7–8 ply)', descriptors: ['balanced', 'versatile', 'standard'], match_tokens: ['percussive-attack', 'sticks', 'rhythm-section-pocket'] },
         { id: 'thick_shell', auto: false, name: 'Thick (8+ ply)', descriptors: ['loud', 'focused'], match_tokens: ['percussive-attack', 'sticks', 'rhythm-section-pocket'] },
       ] },
       { id: 'bearing_edges', surface: false, name: 'Bearing edges', variants: [
         { id: 'edge_45', auto: false, name: '45° sharp', descriptors: ['treble-extended', 'attacky', 'modern'], match_tokens: ['percussive-attack', 'sticks', 'rhythm-section-pocket'] },
-        { id: 'edge_30', auto: false, default: true, name: '30° rounded', descriptors: ['low-fundamental-tuning', 'low-mid-thick', 'vintage'], match_tokens: ['percussive-attack', 'sticks', 'rhythm-section-pocket'] },
+        { id: 'edge_30', auto: false, name: '30° rounded', descriptors: ['low-fundamental-tuning', 'low-mid-thick', 'vintage'], match_tokens: ['percussive-attack', 'sticks', 'rhythm-section-pocket'] },
         { id: 'edge_round', auto: false, name: 'Roundover (vintage)', descriptors: ['low-fundamental-tuning', 'fundamental', 'low-attack'], match_tokens: ['percussive-attack', 'sticks', 'rhythm-section-pocket'] },
       ] },
       { id: 'drumhead', surface: false, name: 'Batter heads', variants: [
@@ -4872,7 +4872,7 @@ const INSTRUMENTS = [
         { id: 'fiberskyn_drumhead', name: 'Fiberskyn (synthetic calf emulation)', descriptors: ['fiberskyn', 'synthetic-calf', 'fiberglass-polyester'], match_tokens: ['percussive-attack', 'sticks', 'rhythm-section-pocket'], canonical_tags: ['jazz', 'modern'] },
       ] },
       { id: 'snare_wires', surface: false, name: 'Snare wires', variants: [
-        { id: 'wires_20', auto: false, default: true, name: '20-strand standard', descriptors: ['balanced', 'crisp', 'articulate'], match_tokens: ['percussive-attack', 'sticks', 'rhythm-section-pocket'] },
+        { id: 'wires_20', auto: false, name: '20-strand standard', descriptors: ['balanced', 'crisp', 'articulate'], match_tokens: ['percussive-attack', 'sticks', 'rhythm-section-pocket'] },
         { id: 'wires_30', auto: false, name: '30+ strand heavy', descriptors: ['dry', 'busy', 'sensitive'], match_tokens: ['percussive-attack', 'sticks', 'rhythm-section-pocket'] },
         { id: 'wires_12', auto: false, name: '12-strand light', descriptors: ['undamped-resonance', 'ringing', 'wide'], match_tokens: ['percussive-attack', 'sticks', 'rhythm-section-pocket'] },
         { id: 'cable_snares', auto: false, name: 'Cable snares', descriptors: ['focused', 'dry', 'low-mid-thick'], match_tokens: ['percussive-attack', 'sticks', 'rhythm-section-pocket'] },
@@ -4880,10 +4880,10 @@ const INSTRUMENTS = [
       { id: 'drum_kit_kick_pedal', surface: false, name: 'Kick pedal', variants: [
         { id: 'dk_kick_single_felt', default: true, name: 'Single pedal, felt beater', descriptors: [], match_tokens: ['rock', 'pop', 'jazz', 'percussive-attack'] },
         { id: 'dk_kick_single_wood', auto: false, name: 'Single pedal, wood / plastic beater', descriptors: ['clicky-attack', 'defined-point'], match_tokens: ['metal', 'modern', 'percussive-attack'] },
-        { id: 'dk_kick_double', auto: false, name: 'Double pedal', descriptors: ['double-kick', 'rapid-double-strokes', 'gallop'], match_tokens: ['metal', 'double-bass', 'extreme-metal'] },
+        { id: 'dk_kick_double', auto: false, name: 'Double pedal', descriptors: ['double-bass', 'rapid-double-strokes'], match_tokens: ['metal', 'double-bass', 'extreme-metal'] },
       ] },
       { id: 'cymbal_alloy', surface: false, name: 'Cymbal alloy', variants: [
-        { id: 'b20', auto: false, default: true, name: 'B20 bell bronze (cast)', descriptors: ['dark', 'overtone-rich', 'musical', 'bronze', 'bell-bronze'], match_tokens: ['percussive-attack', 'sticks', 'rhythm-section-pocket'], canonical_tags: ['jazz', 'blues', 'classic-blues', 'fusion'] },
+        { id: 'b20', auto: false, name: 'B20 bell bronze (cast)', descriptors: ['dark', 'overtone-rich', 'musical', 'bronze', 'bell-bronze'], match_tokens: ['percussive-attack', 'sticks', 'rhythm-section-pocket'], canonical_tags: ['jazz', 'blues', 'classic-blues', 'fusion'] },
         { id: 'b8', auto: false, name: 'B8 (sheet)', descriptors: ['treble-extended', 'cutting', 'focused'], match_tokens: ['percussive-attack', 'sticks', 'rhythm-section-pocket'], canonical_tags: ['rock', 'metal', 'punk'] },
         { id: 'b23', auto: false, name: 'B23', descriptors: ['singing', 'sustaining'], match_tokens: ['percussive-attack', 'sticks', 'rhythm-section-pocket'], canonical_tags: ['rock', 'progressive'] },
         { id: 'brass_cymbal', auto: false, name: 'Brass', descriptors: ['dull', 'brass'], match_tokens: ['percussive-attack', 'sticks', 'rhythm-section-pocket'], },
@@ -4894,14 +4894,14 @@ const INSTRUMENTS = [
         { id: 'meinl_fx9', auto: false, name: 'Meinl FX9 (Cu-Mn-Zn-Al, manganese-bronze)', descriptors: ['fx9', 'manganese-bronze', 'modern-experimental'], match_tokens: ['percussive-attack', 'sticks', 'rhythm-section-pocket'], canonical_tags: ['experimental', 'modern'] },
       ] },
       { id: 'cymbal_hammering', surface: false, name: 'Cymbal hammering pattern', variants: [
-        { id: 'machine_symmetric_hammering', auto: false, default: true, name: 'Machine-symmetric (organized rows)', descriptors: ['machine-hammered', 'symmetric-pattern', 'organized-rows', 'bright-uniform'], match_tokens: ['percussive-attack', 'sticks', 'rhythm-section-pocket'], canonical_tags: ['rock', 'pop', 'modern'] },
+        { id: 'machine_symmetric_hammering', auto: false, name: 'Machine-symmetric (organized rows)', descriptors: ['machine-hammered', 'symmetric-pattern', 'organized-rows', 'bright-uniform'], match_tokens: ['percussive-attack', 'sticks', 'rhythm-section-pocket'], canonical_tags: ['rock', 'pop', 'modern'] },
         { id: 'hand_random_hammering', auto: false, name: 'Hand-hammered random/asymmetric', descriptors: ['hand-hammered', 'random-pattern', 'asymmetric', 'dark-uneven', 'organic-decay'], match_tokens: ['percussive-attack', 'sticks', 'rhythm-section-pocket'], canonical_tags: ['jazz', 'vintage'] },
         { id: 'fourteen_step_hammering', auto: false, name: '14-step process (K Constantinople-canonical)', descriptors: ['fourteen-step', 'hand-hammered', 'multi-stage', 'small-batch', 'dark-complex'], match_tokens: ['percussive-attack', 'sticks', 'rhythm-section-pocket'], canonical_tags: ['jazz'] },
         { id: 'over_hammered', auto: false, name: 'Over-hammered (post-lathe additional strikes)', descriptors: ['over-hammered', 'post-lathe-strikes', 'darker-drier', 'reduced-shimmer'], match_tokens: ['percussive-attack', 'sticks', 'rhythm-section-pocket'], canonical_tags: ['jazz'] },
         { id: 'cluster_hammered', auto: false, name: 'Cluster-hammered (8 clusters around bow)', descriptors: ['cluster-hammered', 'eight-cluster', 'bow-pattern', 'controlled-trash'], match_tokens: ['percussive-attack', 'sticks', 'rhythm-section-pocket'], canonical_tags: ['jazz'] },
       ] },
       { id: 'cymbal_lathing', surface: false, name: 'Cymbal lathing pattern', variants: [
-        { id: 'full_lathe_both_sides', auto: false, default: true, name: 'Full-lathe both sides', descriptors: ['full-lathed', 'both-sides-lathed', 'bright-clear', 'standard-finish'], match_tokens: ['percussive-attack', 'sticks', 'rhythm-section-pocket'], canonical_tags: ['rock', 'pop', 'modern'] },
+        { id: 'full_lathe_both_sides', auto: false, name: 'Full-lathe both sides', descriptors: ['full-lathed', 'both-sides-lathed', 'bright-clear', 'standard-finish'], match_tokens: ['percussive-attack', 'sticks', 'rhythm-section-pocket'], canonical_tags: ['rock', 'pop', 'modern'] },
         { id: 'pin_lathe', auto: false, name: 'Pin-lathing (additional tonal groove)', descriptors: ['pin-lathed', 'tonal-groove', 'vintage-aesthetic', 'controlled-decay'], match_tokens: ['percussive-attack', 'sticks', 'rhythm-section-pocket'], canonical_tags: ['jazz', 'vintage'] },
         { id: 'unlathed_bell', auto: false, name: 'Unlathed bell underside (clearer stick definition)', descriptors: ['unlathed-bell', 'preserved-bell-character', 'stick-definition', 'dry-stick'], match_tokens: ['percussive-attack', 'sticks', 'rhythm-section-pocket'], canonical_tags: ['jazz'] },
         { id: 'hand_lathed_pit_retaining', auto: false, name: 'Hand-lathed retaining surface pits', descriptors: ['hand-lathed', 'old-tool-cutting', 'pit-retaining', 'surface-impurity-preserved', 'visually-traditional'], match_tokens: ['percussive-attack', 'sticks', 'rhythm-section-pocket'], canonical_tags: ['jazz', 'vintage'] },
@@ -4910,7 +4910,7 @@ const INSTRUMENTS = [
       { id: 'cymbal_finish', surface: false, name: 'Cymbal finish', variants: [
         { id: 'hand_hammered', auto: false, name: 'Hand-hammered', descriptors: ['dark', 'natural-material-resonance', 'dry'], match_tokens: ['percussive-attack', 'sticks', 'rhythm-section-pocket'] },
         { id: 'machine_hammered', auto: false, name: 'Machine-hammered', descriptors: ['even', 'consistent', 'treble-extended'], match_tokens: ['percussive-attack', 'sticks', 'rhythm-section-pocket'] },
-        { id: 'traditional_finish', auto: false, default: true, name: 'Traditional finish', descriptors: ['vintage', 'washy'], match_tokens: ['traditional', 'folk-tradition', 'percussive-attack', 'sticks'] },
+        { id: 'traditional_finish', auto: false, name: 'Traditional finish', descriptors: ['vintage', 'washy'], match_tokens: ['traditional', 'folk-tradition', 'percussive-attack', 'sticks'] },
         { id: 'brilliant_finish', auto: false, surface: false, name: 'Brilliant finish', descriptors: ['treble-extended', 'glassy', 'projecting'], match_tokens: ['percussive-attack', 'sticks', 'rhythm-section-pocket'] },
         { id: 'raw_unlathed', auto: false, name: 'Raw / unlathed', descriptors: ['trashy', 'dry', 'primitive'], match_tokens: ['percussive-attack', 'sticks', 'rhythm-section-pocket'] },
       ] },

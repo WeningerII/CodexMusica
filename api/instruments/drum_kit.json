@@ -245,7 +245,6 @@
         {
           "id": "mahogany_shell",
           "auto": false,
-          "default": true,
           "name": "Mahogany",
           "descriptors": [
             "low-fundamental-tuning",
@@ -380,7 +379,6 @@
         {
           "id": "medium_shell",
           "auto": false,
-          "default": true,
           "name": "Medium (7–8 ply)",
           "descriptors": [
             "balanced",
@@ -432,7 +430,6 @@
         {
           "id": "edge_30",
           "auto": false,
-          "default": true,
           "name": "30° rounded",
           "descriptors": [
             "low-fundamental-tuning",
@@ -632,7 +629,6 @@
         {
           "id": "wires_20",
           "auto": false,
-          "default": true,
           "name": "20-strand standard",
           "descriptors": [
             "balanced",
@@ -728,9 +724,8 @@
           "auto": false,
           "name": "Double pedal",
           "descriptors": [
-            "double-kick",
-            "rapid-double-strokes",
-            "gallop"
+            "double-bass",
+            "rapid-double-strokes"
           ],
           "match_tokens": [
             "metal",
@@ -748,7 +743,6 @@
         {
           "id": "b20",
           "auto": false,
-          "default": true,
           "name": "B20 bell bronze (cast)",
           "descriptors": [
             "dark",
@@ -926,7 +920,6 @@
         {
           "id": "machine_symmetric_hammering",
           "auto": false,
-          "default": true,
           "name": "Machine-symmetric (organized rows)",
           "descriptors": [
             "machine-hammered",
@@ -1034,7 +1027,6 @@
         {
           "id": "full_lathe_both_sides",
           "auto": false,
-          "default": true,
           "name": "Full-lathe both sides",
           "descriptors": [
             "full-lathed",
@@ -1173,7 +1165,6 @@
         {
           "id": "traditional_finish",
           "auto": false,
-          "default": true,
           "name": "Traditional finish",
           "descriptors": [
             "vintage",
@@ -1447,7 +1438,6 @@
         {
           "id": "mahogany_shell",
           "auto": false,
-          "default": true,
           "name": "Mahogany",
           "descriptors": [
             "low-fundamental-tuning",
@@ -1582,7 +1572,6 @@
         {
           "id": "medium_shell",
           "auto": false,
-          "default": true,
           "name": "Medium (7–8 ply)",
           "descriptors": [
             "balanced",
@@ -1634,7 +1623,6 @@
         {
           "id": "edge_30",
           "auto": false,
-          "default": true,
           "name": "30° rounded",
           "descriptors": [
             "low-fundamental-tuning",
@@ -1834,7 +1822,6 @@
         {
           "id": "wires_20",
           "auto": false,
-          "default": true,
           "name": "20-strand standard",
           "descriptors": [
             "balanced",
@@ -1930,9 +1917,8 @@
           "auto": false,
           "name": "Double pedal",
           "descriptors": [
-            "double-kick",
-            "rapid-double-strokes",
-            "gallop"
+            "double-bass",
+            "rapid-double-strokes"
           ],
           "match_tokens": [
             "metal",
@@ -1950,7 +1936,6 @@
         {
           "id": "b20",
           "auto": false,
-          "default": true,
           "name": "B20 bell bronze (cast)",
           "descriptors": [
             "dark",
@@ -2128,7 +2113,6 @@
         {
           "id": "machine_symmetric_hammering",
           "auto": false,
-          "default": true,
           "name": "Machine-symmetric (organized rows)",
           "descriptors": [
             "machine-hammered",
@@ -2236,7 +2220,6 @@
         {
           "id": "full_lathe_both_sides",
           "auto": false,
-          "default": true,
           "name": "Full-lathe both sides",
           "descriptors": [
             "full-lathed",
@@ -2375,7 +2358,6 @@
         {
           "id": "traditional_finish",
           "auto": false,
-          "default": true,
           "name": "Traditional finish",
           "descriptors": [
             "vintage",

@@ -435,6 +435,11 @@ for (const i of C.INSTRUMENTS || []) {
   for (const part of i.parts || []) {
     const variants = part.variants || [];
     if (variants.length < 2) continue;
+    // A part whose every variant is `auto: false` is intentionally explicit-only:
+    // "not set" by default, the user selects it. The search optimizer skips such a
+    // part entirely (never reaching the array-order tie-break this rule guards),
+    // and the app renders it as "—", so a canonical default is moot. Exempt it.
+    if (variants.every((v) => v.auto === false)) continue;
     const defaults = variants.filter((v) => v.default === true);
     if (defaults.length === 0) {
       errors.push([
