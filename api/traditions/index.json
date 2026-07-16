@@ -1,5 +1,5 @@
 {
-  "count": 1195,
+  "count": 1165,
   "items": [
     {
       "id": "honky_tonk",
@@ -614,12 +614,6 @@
       "href": "traditions/klezmer.json"
     },
     {
-      "id": "shape_note",
-      "name": "Sacred Harp shape-note",
-      "family": "vernacular",
-      "href": "traditions/shape_note.json"
-    },
-    {
       "id": "work_songs_hollers",
       "name": "Field hollers and work songs",
       "family": "vernacular",
@@ -824,12 +818,6 @@
       "href": "traditions/sardinian_polyphony.json"
     },
     {
-      "id": "mariachi_traditional",
-      "name": "Mariachi traditional",
-      "family": "global",
-      "href": "traditions/mariachi_traditional.json"
-    },
-    {
       "id": "mbalax",
       "name": "Mbalax",
       "family": "global",
@@ -1026,12 +1014,6 @@
       "name": "Shidaiqu (Shanghai Mandarin jazz-pop)",
       "family": "global",
       "href": "traditions/shidaiqu.json"
-    },
-    {
-      "id": "jingju",
-      "name": "Jīngjù (Beijing opera)",
-      "family": "classical",
-      "href": "traditions/jingju.json"
     },
     {
       "id": "guqin",
@@ -1382,18 +1364,6 @@
       "href": "traditions/zydeco.json"
     },
     {
-      "id": "mongolian_xoomii",
-      "name": "Khöömii (Mongolian overtone singing)",
-      "family": "global",
-      "href": "traditions/mongolian_xoomii.json"
-    },
-    {
-      "id": "tibetan_gyuto",
-      "name": "Gyütö multiphonic chant (Tibetan Buddhist)",
-      "family": "global",
-      "href": "traditions/tibetan_gyuto.json"
-    },
-    {
       "id": "inuit_katajjaq",
       "name": "Katajjaq (Inuit throat-singing game)",
       "family": "global",
@@ -1584,18 +1554,6 @@
       "name": "Bachata",
       "family": "global",
       "href": "traditions/bachata.json"
-    },
-    {
-      "id": "kompa_song_form",
-      "name": "Kompa (song-form)",
-      "family": "global",
-      "href": "traditions/kompa_song_form.json"
-    },
-    {
-      "id": "kizomba_song_form",
-      "name": "Kizomba (song-form)",
-      "family": "global",
-      "href": "traditions/kizomba_song_form.json"
     },
     {
       "id": "tropical_bolero",
@@ -2252,12 +2210,6 @@
       "href": "traditions/russian_orthodox_chant.json"
     },
     {
-      "id": "coptic_liturgical",
-      "name": "Coptic liturgical chant",
-      "family": "global",
-      "href": "traditions/coptic_liturgical.json"
-    },
-    {
       "id": "bro_country",
       "name": "Bro-country",
       "family": "global",
@@ -2306,12 +2258,6 @@
       "href": "traditions/funeral_doom.json"
     },
     {
-      "id": "melodic_death_swedish",
-      "name": "Melodic death metal (Swedish)",
-      "family": "global",
-      "href": "traditions/melodic_death_swedish.json"
-    },
-    {
       "id": "technical_death_metal",
       "name": "Technical death metal",
       "family": "global",
@@ -2322,12 +2268,6 @@
       "name": "Brutal death metal",
       "family": "global",
       "href": "traditions/brutal_death_metal.json"
-    },
-    {
-      "id": "norwegian_2nd_wave_black",
-      "name": "Norwegian 2nd-wave black metal",
-      "family": "global",
-      "href": "traditions/norwegian_2nd_wave_black.json"
     },
     {
       "id": "gospel_quartet_male",
@@ -3140,12 +3080,6 @@
       "href": "traditions/berber_ahidus_ahwash.json"
     },
     {
-      "id": "mongolian_urtiin_duu",
-      "name": "Mongolian urtiin duu long-song",
-      "family": "classical",
-      "href": "traditions/mongolian_urtiin_duu.json"
-    },
-    {
       "id": "mongolian_khoomei",
       "name": "Mongolian khoomei overtone singing",
       "family": "global",
@@ -3248,12 +3182,6 @@
       "href": "traditions/rajasthani_manganiyar.json"
     },
     {
-      "id": "sardinian_cantu_a_tenore",
-      "name": "Sardinian cantu a tenore",
-      "family": "global",
-      "href": "traditions/sardinian_cantu_a_tenore.json"
-    },
-    {
       "id": "croatian_klapa_dalmatian",
       "name": "Croatian klapa Dalmatian close-harmony",
       "family": "global",
@@ -3314,12 +3242,6 @@
       "href": "traditions/sami_southern_vuelie.json"
     },
     {
-      "id": "inuit_katajjaq_games",
-      "name": "Inuit katajjaq throat-singing game",
-      "family": "global",
-      "href": "traditions/inuit_katajjaq_games.json"
-    },
-    {
       "id": "mapuche_tayil_ritual",
       "name": "Mapuche tayil genealogical chant",
       "family": "global",
@@ -3330,12 +3252,6 @@
       "name": "Shipibo-Conibo icaros healing songs",
       "family": "global",
       "href": "traditions/shipibo_icaros.json"
-    },
-    {
-      "id": "garifuna_paranda_hungu_hungu",
-      "name": "Garifuna paranda and hungu-hungu",
-      "family": "global",
-      "href": "traditions/garifuna_paranda_hungu_hungu.json"
     },
     {
       "id": "cape_verdean_batuko",
@@ -3374,22 +3290,10 @@
       "href": "traditions/yemeni_sanaani.json"
     },
     {
-      "id": "iraqi_maqam_baghdad",
-      "name": "Iraqi maqam of Baghdad",
-      "family": "classical",
-      "href": "traditions/iraqi_maqam_baghdad.json"
-    },
-    {
       "id": "coptic_orthodox_chant",
       "name": "Coptic Orthodox liturgical chant",
       "family": "classical",
       "href": "traditions/coptic_orthodox_chant.json"
-    },
-    {
-      "id": "maghrebi_andalusi_nuba",
-      "name": "Maghrebi Andalusi nuba",
-      "family": "classical",
-      "href": "traditions/maghrebi_andalusi_nuba.json"
     },
     {
       "id": "tigrinya_music_eritrean",
@@ -4340,18 +4244,6 @@
       "href": "traditions/jongo_brasileiro.json"
     },
     {
-      "id": "quechua_wayno_modern",
-      "name": "Quechua wayno modern revival",
-      "family": "global",
-      "href": "traditions/quechua_wayno_modern.json"
-    },
-    {
-      "id": "maya_marimba_guatemalteca",
-      "name": "Maya marimba (Guatemalan Highlands)",
-      "family": "global",
-      "href": "traditions/maya_marimba_guatemalteca.json"
-    },
-    {
       "id": "classical_period_18c",
       "name": "Classical period (1750-1820)",
       "family": "classical",
@@ -4572,12 +4464,6 @@
       "name": "Canzone napoletana (Neapolitan song)",
       "family": "classical",
       "href": "traditions/canzone_napoletana.json"
-    },
-    {
-      "id": "dixieland_traditional_jazz",
-      "name": "Dixieland (traditional/New Orleans-Chicago)",
-      "family": "jazz",
-      "href": "traditions/dixieland_traditional_jazz.json"
     },
     {
       "id": "chicago_jazz_1920s",
@@ -5318,12 +5204,6 @@
       "href": "traditions/neo_soul_classic.json"
     },
     {
-      "id": "contemporary_rb_2010s_alt",
-      "name": "Contemporary alt-R&B (2010s)",
-      "family": "pop",
-      "href": "traditions/contemporary_rb_2010s_alt.json"
-    },
-    {
       "id": "prog_rb",
       "name": "Progressive R&B (2010s virtuoso-instrumental jazz-fusion R&B)",
       "family": "pop",
@@ -5468,12 +5348,6 @@
       "href": "traditions/drone_metal_sustained.json"
     },
     {
-      "id": "avant_doom_metal",
-      "name": "Avant-garde doom / funeral doom",
-      "family": "rock_punk",
-      "href": "traditions/avant_doom_metal.json"
-    },
-    {
       "id": "teen_pop_late_90s",
       "name": "Teen pop late 90s-00s",
       "family": "pop",
@@ -5514,12 +5388,6 @@
       "name": "Blackgaze (2010s black-metal-and-shoegaze hybrid)",
       "family": "rock_punk",
       "href": "traditions/blackgaze.json"
-    },
-    {
-      "id": "blackmetal_dsbm",
-      "name": "DSBM (depressive suicidal black metal)",
-      "family": "rock_punk",
-      "href": "traditions/blackmetal_dsbm.json"
     },
     {
       "id": "post_punk_revival",
@@ -5786,12 +5654,6 @@
       "href": "traditions/roma_svatba_balkan.json"
     },
     {
-      "id": "sardinian_wedding_cantu_launeddas",
-      "name": "Sardinian wedding cantu and launeddas music",
-      "family": "global",
-      "href": "traditions/sardinian_wedding_cantu_launeddas.json"
-    },
-    {
       "id": "greek_gamilio_glendi",
       "name": "Greek gamílio glendí (γαμήλιο γλέντι, wedding feast music)",
       "family": "global",
@@ -5838,12 +5700,6 @@
       "name": "Chinese xǐqìng (喜慶) wedding music",
       "family": "global",
       "href": "traditions/chinese_xiqing_wedding.json"
-    },
-    {
-      "id": "javanese_wedding_gamelan",
-      "name": "Javanese wedding gamelan music",
-      "family": "global",
-      "href": "traditions/javanese_wedding_gamelan.json"
     },
     {
       "id": "yoruba_aso_ebi_wedding",
@@ -6030,12 +5886,6 @@
       "name": "Arabic madh and qasida (Arabic praise-poetry)",
       "family": "global",
       "href": "traditions/arabic_madh_qasida.json"
-    },
-    {
-      "id": "mande_jeli_praise",
-      "name": "Mande jeli / griot praise-song",
-      "family": "global",
-      "href": "traditions/mande_jeli_praise.json"
     },
     {
       "id": "english_nursery_rhyme",
@@ -6350,12 +6200,6 @@
       "href": "traditions/caribbean_carnival_steelpan_panorama.json"
     },
     {
-      "id": "mississippi_delta_field_holler",
-      "name": "Mississippi Delta field holler",
-      "family": "global",
-      "href": "traditions/mississippi_delta_field_holler.json"
-    },
-    {
       "id": "bulgarian_zhetvarski",
       "name": "Bulgarian zhetvarski pesni (harvest songs)",
       "family": "global",
@@ -6528,12 +6372,6 @@
       "name": "Sardinian boci de tela (weaving songs)",
       "family": "global",
       "href": "traditions/sardinian_boci_de_tela.json"
-    },
-    {
-      "id": "faroese_kvaedi_domestic",
-      "name": "Faroese kvæði (chain-dance ballad and domestic song)",
-      "family": "global",
-      "href": "traditions/faroese_kvaedi_domestic.json"
     },
     {
       "id": "japanese_domestic_hataori",
@@ -6962,12 +6800,6 @@
       "href": "traditions/shakespearean_verse_declamation.json"
     },
     {
-      "id": "greek_tragic_chorus",
-      "name": "Greek tragic chorus declamation",
-      "family": "classical",
-      "href": "traditions/greek_tragic_chorus.json"
-    },
-    {
       "id": "kutiyattam_recitation",
       "name": "Kutiyattam Sanskrit recitation",
       "family": "classical",
@@ -7038,12 +6870,6 @@
       "name": "Appalachian square-dance calling",
       "family": "country",
       "href": "traditions/appalachian_square_dance_calling.json"
-    },
-    {
-      "id": "spoken_word_jazz_poetry",
-      "name": "Spoken-word jazz-poetry",
-      "family": "jazz",
-      "href": "traditions/spoken_word_jazz_poetry.json"
     },
     {
       "id": "maori_whaikorero_oratory",
@@ -7152,12 +6978,6 @@
       "name": "Manchu shamanic seance chant",
       "family": "global",
       "href": "traditions/manchu_shamanic_seance.json"
-    },
-    {
-      "id": "mongolian_boo_murgel_invocation",
-      "name": "Mongolian böö mörgöl invocation",
-      "family": "global",
-      "href": "traditions/mongolian_boo_murgel_invocation.json"
     },
     {
       "id": "yoruba_dundun_surrogate_speech",

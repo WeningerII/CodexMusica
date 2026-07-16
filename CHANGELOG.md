@@ -6,6 +6,22 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Removed
+- **Deduplicated 30 redundant tradition records (1195 → 1165).** A catalog-wide
+  name-similarity scan (distinctive-token overlap, transliteration-folded) surfaced
+  clusters of entries that were the *same* tradition under a rephrasing,
+  transliteration, or minor scene/era/context sub-tag; a per-cluster classification
+  pass (leaning "merge" for borderline, per catalog policy) confirmed 30 merge
+  groups while keeping genuinely-distinct neighbors separate (early vs late
+  Romantic, distinct Orthodox churches, distinct drill scenes, Thai field vs city
+  song). Each removed record was folded into its canonical keeper — the keeper
+  absorbs any instruments the duplicate carried that it lacked — so no roster
+  coverage is lost. Examples: `mongolian_xoomii`→`mongolian_khoomei`,
+  `jingju`→`beijing_opera`, `mariachi_traditional`→`mariachi`,
+  `dixieland_traditional_jazz`→`new_orleans`, `shape_note`→`sacred_harp_singing`,
+  `coptic_liturgical`→`coptic_orthodox_chant`. Regression fixtures and audit
+  fixtures repointed to keepers; the 30 stale `api/traditions/*.json` files removed.
+
 ### Changed
 - **Drum-kit recipes are now technique-first, not boilerplate-cluttered.** A kit
   carried 11+ parts, most of them fine-grained boilerplate stamped identically on

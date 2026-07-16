@@ -3,27 +3,27 @@
   "name": "Baaka (Aka pygmy) hunting polyphony",
   "family": "global",
   "lineage": "Baaka (Aka, Bayaka) Central-African pygmy hunting-and-ritual polyphonic-vocal tradition continuous from premodern Congolese-and-Central-African-Republic rainforest hunting practice through 20th-century continuous performance into modern Baaka-and-broader-Mbuti continuous practice",
-  "recipe": "classic Southern African early-1940s baaka (aka pygmy) hunting polyphony, hunting Song, sub saharan African branch, arctic hunting song, sub saharan African praise song, indigenous ritual devotional mande jeli / griot praise-song shipibo-conibo icaros healing songs. vocal fry, declaimed, straight note core, interlocked note trading. outdoor kalahari fire circle. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 439,
-  "score": 222.43,
+  "recipe": "classic Southern African early-1940s baaka (aka pygmy) hunting polyphony, hunting Song, sub saharan African branch, arctic hunting song, sub saharan African praise song, indigenous ritual devotional shipibo-conibo icaros healing songs shona mbira praise music. vocal fry, breath veiled tone, straight note core, interlocked note trading. outdoor kalahari fire circle. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 442,
+  "score": 187.14,
   "config": {
     "traditions": [
       "baaka_hunting_polyphony",
-      "mande_jeli_praise",
-      "shipibo_icaros"
+      "shipibo_icaros",
+      "shona_mbira_praise"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "vocal_fry",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "mande_jeli_vocal_tradition",
+          "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 4.68,
-          "voice_quality": 26.74,
+          "voice_register": 5.915,
+          "voice_quality": 22.749999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.6325,
-          "voice_articulation": 22.619999999999997,
-          "voice_microtone": 18.52499999999999,
-          "voice_tradition": 50.667500000000004,
-          "voice_mechanism_compound": 9.545,
-          "voice_estill_quality": 4.03,
-          "voice_speech_song": 26.389999999999997,
-          "voice_ensemble_config": 21.319999999999993,
-          "voice_ornament_system": 23.14,
+          "voice_articulation": 19.759999999999998,
+          "voice_microtone": 15.664999999999994,
+          "voice_tradition": 35.879999999999995,
+          "voice_mechanism_compound": 10.42,
+          "voice_estill_quality": 3.185,
+          "voice_speech_song": 21.58,
+          "voice_ensemble_config": 18.459999999999997,
+          "voice_ornament_system": 16.2825,
           "voice_pitch_organization": 6.759999999999999,
-          "voice_processing_chain": 4.55,
-          "voice_multitrack_stack": 5.329999999999999
+          "voice_processing_chain": 5.785,
+          "voice_multitrack_stack": 6.5649999999999995
         }
       }
     ],

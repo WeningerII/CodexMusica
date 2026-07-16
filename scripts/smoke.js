@@ -327,7 +327,7 @@ const MULTI_TRAD_SCENARIOS = [
   },
   {
     name: 'classical × 5 cross-region (~30 cards)',
-    traditions: ['hindustani', 'persian_dastgah', 'turkish_makam', 'jingju', 'wenrenyue'],
+    traditions: ['hindustani', 'persian_dastgah', 'turkish_makam', 'beijing_opera', 'wenrenyue'],
   },
   {
     name: 'rock-canon × 6 (~40 cards)',

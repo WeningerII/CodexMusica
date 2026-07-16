@@ -5,7 +5,7 @@
   "lineage": "Japanese gidayū-bushi sung-and-spoken narration tradition, the canonical narrative-vocal style of ningyō jōruri Bunraku puppet-theater. Named after the founding seventeenth-century narrator Takemoto Gidayū (1651-1714), who codified the style at the Takemoto-za puppet-theater in Osaka beginning in 1684 and whose canonical works (such as the Sonezaki Shinjū love-suicide play, 1703, written by his collaborator Chikamatsu Monzaemon) established the genre's core repertoire. Bunraku-as-form. Performance configuration: a single tayū (narrator) sits on a raised platform stage-right, holding the maruhon scroll-text and shifting between speaking voices for multiple characters and the omniscient narrator, while a shamisen player (three-string plucked lute, specifically the heavy-bodied futozao shamisen reserved for jōruri) sits beside providing accompaniment that is structurally inseparable from the vocal narration — a single composition of tayū-and-shamisen voice. The narrative style spans a vast emotional and acoustic range: from quiet bedchamber confidence to climactic suicide-scene wails, from comedic banter to mortal-injury death-rattle, with the tayū employing a striking range of voice-types and registers. Repertoire genealogically connected to the older Heike-monogatari biwa-narrative and to the medieval Buddhist sermon-chant traditions. Twentieth-century canonical tayū include Toyotake Yamashiro-no-Shōjō, Takemoto Tsudayū, and contemporary masters of the National Bunraku Theatre lineage. Distinguished from gagaku court music by gidayū's narrative-theatrical (vs ceremonial-orchestral) functional framework; distinguished from kabuki nagauta by jōruri's puppet-theater accompaniment context.",
   "recipe": "classic Southeast Asian early-1650s japanese gidayū-bushi, art Music, east Asian branch, indian bard ballad poetry cambodian chapei dang veng bengali baul. vocal fry, breath veiled tone, slow rate, interlocked note trading. synthetic ivory red sandalwood premium silk shamisen. wooden pagoda hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 360,
-  "score": 247.479,
+  "score": 246.381,
   "config": {
     "traditions": [
       "japanese_gidayu_bushi",
@@ -23,7 +23,7 @@
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "mande_jeli_vocal_tradition",
+          "voice_tradition": "japanese_min_yo_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -34,16 +34,16 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 2.8729999999999998,
+          "voice_register": 2.6314999999999995,
           "voice_quality": 35.75,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 4.875,
           "voice_articulation": 27.625000000000004,
           "voice_microtone": 26.39,
-          "voice_tradition": 20.5245,
+          "voice_tradition": 19.593999999999998,
           "voice_mechanism_compound": 3.65,
-          "voice_estill_quality": 12.309999999999999,
+          "voice_estill_quality": 12.110499999999998,
           "voice_speech_song": 28.015,
           "voice_ensemble_config": 26.129999999999995,
           "voice_ornament_system": 4.787999999999999,
@@ -70,7 +70,7 @@
           "shamisen_pick": 1.885,
           "shamisen_neck_wood": 5.115,
           "shamisen_strings": 6.4695,
-          "shamisen_tradition": 6.736
+          "shamisen_tradition": 7.009
         }
       }
     ],

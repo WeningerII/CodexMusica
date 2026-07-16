@@ -5,7 +5,7 @@
   "lineage": "Plains-Northern intertribal Native American powwow drum-circle song tradition — the pan-tribal Native American performance format that emerged in the late-19th-century post-reservation period from older tribal-specific song traditions (Plains Lakota / Dakota / Crow, Great Lakes Ojibwe, Northern Plains Cree) and codified through the 20th century into an intertribal cultural-renewal celebration network; performed on the powwow drum (a single large frame drum shared by 6-10 drummers in a circle) with unison falsetto-high vocable lyrics — drum groups: Black Lodge Singers (Blackfeet), Northern Cree Singers, Whitefish Bay Singers (Ojibwe)",
   "recipe": "classic Midwestern American early-1890s powwow song, ritual Devotional, indigenous branch, overtone drone modal tuvan throat singing xhosa umngqokolo overtone singing. sygyt, false fold engaged, breath pulsed, interlocked note trading. foundational high pitched powwow drum circle. plains northern powwow drum circle outdoor. acoustic horn. wax cylinder.",
   "recipe_chars": 354,
-  "score": 269.734,
+  "score": 268.649,
   "config": {
     "traditions": [
       "powwow",
@@ -35,7 +35,7 @@
         },
         "scores": {
           "voice_register": 38.67499999999999,
-          "voice_quality": 26.104999999999997,
+          "voice_quality": 25.415,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 10.009999999999998,
@@ -47,9 +47,9 @@
           "voice_speech_song": 21.059999999999995,
           "voice_ensemble_config": 15.534999999999995,
           "voice_ornament_system": 7.1175,
-          "voice_pitch_organization": 36.85499999999999,
+          "voice_pitch_organization": 36.32249999999999,
           "voice_processing_chain": 4.355,
-          "voice_multitrack_stack": 5.194500000000001
+          "voice_multitrack_stack": 5.331
         }
       },
       {

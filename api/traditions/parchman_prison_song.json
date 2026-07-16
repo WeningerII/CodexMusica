@@ -5,7 +5,7 @@
   "lineage": "Mississippi State Penitentiary (Parchman Farm) Black prison-labor work-song tradition documented by John A. Lomax and Alan Lomax for the Library of Congress in their 1933-onward Southern field recordings — captured the antiphonal call-and-response work-song tradition (the lead-singer call answered by the gang chorus, synchronized to the axe-stroke or hoe-stroke timing) that preserved African polyrhythmic vocal practice in the most brutal post-Reconstruction prison-labor context; figures Leadbelly (Huddie Ledbetter, recorded at Angola Louisiana State Penitentiary 1933 by John Lomax), the broader Parchman prison-farm corpus continuing through Alan Lomaxs 1959 and 1968 return recordings",
   "recipe": "classic Midwestern American modern parchman prison work song, ballad Poetry, prison song branch, christian gospel black gospel contemporary urban gospel. thick, breath veiled tone, wide pitch sway, leader call answered. a cappella small 3 to 8 one per part antiphonal double choir alternating sub saharan call response ostinato polyrhythmic sacred liturgical global choir ensemble. us dustbowl outdoor woody guthrie. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
   "recipe_chars": 491,
-  "score": 248.654,
+  "score": 248.584,
   "config": {
     "traditions": [
       "parchman_prison_song",
@@ -39,16 +39,16 @@
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 6.825,
-          "voice_articulation": 34.72387500000001,
-          "voice_microtone": 16.358249999999995,
-          "voice_tradition": 37.349000000000004,
+          "voice_articulation": 34.74337500000001,
+          "voice_microtone": 16.309499999999993,
+          "voice_tradition": 37.359500000000004,
           "voice_mechanism_compound": 2.6649999999999996,
           "voice_estill_quality": 25.225,
-          "voice_speech_song": 23.926499999999994,
-          "voice_ensemble_config": 25.5795,
+          "voice_speech_song": 23.937749999999994,
+          "voice_ensemble_config": 25.574625,
           "voice_ornament_system": 5.4,
           "voice_pitch_organization": 0.65,
-          "voice_processing_chain": 5.524249999999999,
+          "voice_processing_chain": 5.543749999999999,
           "voice_multitrack_stack": 5.005000000000001
         }
       },
@@ -61,10 +61,10 @@
           "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
         },
         "scores": {
-          "choir_size": 5.4571250000000004,
+          "choir_size": 5.384,
           "choir_polyphonic_configuration": 5.68,
           "choir_regional_canonical_configuration": 5.029,
-          "choir_ensemble_repertoire": 4.270875
+          "choir_ensemble_repertoire": 4.267125
         }
       }
     ],

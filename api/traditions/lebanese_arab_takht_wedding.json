@@ -5,7 +5,7 @@
   "lineage": "Lebanese-and-pan-Arab wedding-music tradition centered on the takht (small classical Arabic ensemble of oud, qanun, riq or tabla, violin or rebab, and vocalist); continuous from 19th-century Levantine-Arab classical-and-domestic-music practice through 20th-century Beirut-Cairo-Damascus golden-age wedding-music recording",
   "recipe": "classic North African mid-1960s lebanese-arab wedding takht, wedding, middle eastern branch, European wedding, middle eastern classical art music, Persian arab improv improv on frame tarab andalusī nūba. vocal fry, breath veiled tone, slow rate, interlocked note trading. padauk Egyptian Syrian premium Lebanese cedar eastern Mediterranean pyramid oud, metal finger picks rosewood body arab premium qanun, rosewood mop inlay canonical Egyptian takht fish skin canonical Egyptian light responsive brass jingles canonical takht riq, spun aluminum Egyptian sombaty Egyptian sombaty canonical mid east darbuka, sustained legato fiddle, sustained legato rabab maghribi, indian rosewood rosewood copper tabla. stone plaster medina room. Neumann U47, tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb hall reverb.",
   "recipe_chars": 840,
-  "score": 508.382,
+  "score": 511.668,
   "config": {
     "traditions": [
       "lebanese_arab_takht_wedding",
@@ -23,7 +23,7 @@
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "arabic_maqam_tradition",
+          "voice_tradition": "persian_dastgah_tradition",
           "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_recitative_free_rhythm",
@@ -38,16 +38,16 @@
           "voice_quality": 7.930000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 23.779999999999998,
+          "voice_vibrato": 24.499999999999996,
           "voice_articulation": 10.009999999999998,
           "voice_microtone": 38.349999999999994,
-          "voice_tradition": 38.105,
+          "voice_tradition": 39.455,
           "voice_mechanism_compound": 29.039999999999996,
-          "voice_estill_quality": 22.699999999999992,
+          "voice_estill_quality": 23.089999999999993,
           "voice_speech_song": 20.754999999999995,
           "voice_ensemble_config": 10.614999999999998,
-          "voice_ornament_system": 40.66499999999999,
-          "voice_pitch_organization": 40.95,
+          "voice_ornament_system": 40.769999999999996,
+          "voice_pitch_organization": 41.055,
           "voice_processing_chain": 3.0550000000000006,
           "voice_multitrack_stack": 3.575
         }
@@ -70,7 +70,7 @@
           "oud_pick": 0.195,
           "oud_body_wood": 1.8449999999999998,
           "oud_soundboard_wood": 7.67,
-          "oud_string_material": 8.315
+          "oud_string_material": 8.42
         }
       },
       {
@@ -89,7 +89,7 @@
           "qanun_strings": 10.594999999999999,
           "qanun_levers": -1.05,
           "qanun_pick": 10.79,
-          "qanun_body_wood": 7.2,
+          "qanun_body_wood": 7.305,
           "qanun_bridge_skin": 0.39,
           "qanun_string_material": 0
         }
@@ -104,7 +104,7 @@
           "riq_jingles": "riq_brass_jingles"
         },
         "scores": {
-          "riq_size": 14.744999999999997,
+          "riq_size": 15.014999999999997,
           "riq_context": 0.78,
           "riq_shell_wood": 5.76,
           "riq_head_material": 2.0799999999999996,
@@ -132,14 +132,14 @@
           "bowed_technique": "bowed_legato_classical",
           "fiddle_strings": "steel_core",
           "fiddle_bow": "light_rosin",
-          "fiddle_mute": "practice_mute",
+          "fiddle_mute": "no_mute",
           "fiddle_articulation": "arco"
         },
         "scores": {
           "bowed_technique": 20.419999999999998,
           "fiddle_strings": 0.195,
           "fiddle_bow": 0.195,
-          "fiddle_mute": 0.105,
+          "fiddle_mute": 0.24,
           "fiddle_articulation": 0.195
         }
       },

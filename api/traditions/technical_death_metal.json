@@ -5,7 +5,7 @@
   "lineage": "Virtuosic death-metal sub-style codified through Atheist (Piece of Time 1990, Unquestionable Presence 1991), Cynic (Focus 1993), Death’s later records (Human 1991, Individual Thought Patterns 1993), and the Suffocation 1990s lineage — characterized by complex multi-meter compositions, fretboard-acrobatic guitar work, and jazz-fusion influences",
   "recipe": "classic early-1990s technical death metal, distorted Rock, death branch, prog metal progressive metal. thick, breath veiled tone, straight onset, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 581,
-  "score": 217.02,
+  "score": 214.989,
   "config": {
     "traditions": [
       "technical_death_metal",
@@ -33,20 +33,20 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 14.458124999999994,
+          "voice_register": 14.426624999999992,
           "voice_quality": 2.990000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.71775,
+          "voice_vibrato": 4.74025,
           "voice_articulation": 5.915,
           "voice_microtone": 14.049999999999997,
-          "voice_tradition": 4.243125,
-          "voice_mechanism_compound": 22.80925,
+          "voice_tradition": 4.270125,
+          "voice_mechanism_compound": 22.45825,
           "voice_estill_quality": 0.7799999999999998,
           "voice_speech_song": 6.11,
           "voice_ensemble_config": 6.695,
-          "voice_ornament_system": 1.6236249999999997,
-          "voice_pitch_organization": 1.8051249999999999,
+          "voice_ornament_system": 1.5996249999999999,
+          "voice_pitch_organization": 1.788625,
           "voice_processing_chain": 2.73,
           "voice_multitrack_stack": 2.665000000000001
         }
@@ -59,27 +59,27 @@
           "body_wood": "basswood_h",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "pau_ferro_fb_h",
-          "pickup_magnet": "alnico_8_h",
+          "pickup_magnet": "alnico_5_h",
           "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
           "bridge": "stoptail",
           "scale_length": "scale_baritone_h",
-          "string_gauge": "g_12_hum",
+          "string_gauge": "g_11_hum",
           "finish": "oil_satin_hum",
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 23.33775,
+          "electric_technique": 22.91325,
           "amp_make": 11.894999999999998,
           "body_wood": 9.1,
-          "neck_wood": 0.9135,
+          "neck_wood": 0.7844999999999999,
           "fretboard": 0.585,
-          "pickup_magnet": 0.2415,
+          "pickup_magnet": 0.195,
           "pickup_winding": 0.2415,
           "string_material": 0.585,
-          "bridge": 0.9135,
+          "bridge": 0.7844999999999999,
           "scale_length": 9.685,
-          "string_gauge": 1.155,
+          "string_gauge": 0.7844999999999999,
           "finish": 0.168,
           "string_tuning": 15.34
         }
@@ -99,12 +99,12 @@
         "scores": {
           "electric_technique": 0.06499999999999999,
           "amp_make": 5.3950000000000005,
-          "body_wood": 1.8270000000000002,
+          "body_wood": 1.5690000000000002,
           "pickup_config": 0.195,
-          "string_type": 13.1625,
-          "scale_length_b": 0.9135,
+          "string_type": 12.967875,
+          "scale_length_b": 0.7844999999999999,
           "fretted_or_not": 0.195,
-          "bass_technique": 10.538124999999997
+          "bass_technique": 10.542624999999997
         }
       },
       {
@@ -116,7 +116,7 @@
         },
         "scores": {
           "drum_technique": 13.552499999999998,
-          "drumhead": 4.298124999999999,
+          "drumhead": 4.317625,
           "drum_kit_kick_pedal": 0
         }
       }

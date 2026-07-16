@@ -5,7 +5,7 @@
   "lineage": "Late-1960s through 1970s LA-centered amplified country-and-rock fusion codified by The Byrds Sweetheart of the Rodeo (1968), The Flying Burrito Brothers, Poco, the Eagles Take It Easy era, Linda Ronstadt, Emmylou Harris",
   "recipe": "classic North American 1967-1969 country rock, functional Song, country rock branch, pop rock folk rock, southern rock distorted rock. thick, breath veiled tone, wide pitch sway, interlocked note trading. open e tuning sitka spruce spruce maple steel dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright mahogany maple single coil electric guitar, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, steel double stops fiddle. hollywood flagship 1958-present major-flagship sunset sound studios hollywood. large-diaphragm condenser, Neve 1073 inductor pre.",
   "recipe_chars": 990,
-  "score": 1128.297,
+  "score": 1128.416,
   "config": {
     "traditions": [
       "country_rock",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 105.155,
-          "voice_quality": 14.333749999999993,
+          "voice_register": 105.125,
+          "voice_quality": 14.421124999999993,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 35.77437499999999,
-          "voice_articulation": 14.239999999999993,
+          "voice_articulation": 14.242624999999993,
           "voice_microtone": 53.800000000000026,
-          "voice_tradition": 22.967499999999994,
-          "voice_mechanism_compound": 3.3093749999999997,
-          "voice_estill_quality": 33.200625,
-          "voice_speech_song": 20.289374999999993,
-          "voice_ensemble_config": 15.202499999999993,
+          "voice_tradition": 22.883124999999993,
+          "voice_mechanism_compound": 3.2939999999999996,
+          "voice_estill_quality": 33.18525,
+          "voice_speech_song": 20.111249999999995,
+          "voice_ensemble_config": 15.203999999999994,
           "voice_ornament_system": 1.2349999999999999,
           "voice_pitch_organization": 0.8449999999999999,
-          "voice_processing_chain": 11.24,
-          "voice_multitrack_stack": 10.928749999999999
+          "voice_processing_chain": 11.2445,
+          "voice_multitrack_stack": 10.938124999999998
         }
       },
       {
@@ -66,7 +66,7 @@
           "string_tuning": 4.449999999999999,
           "top_wood": 1.4300000000000002,
           "back_sides": 1.4300000000000002,
-          "string_acoustic": 2.99125
+          "string_acoustic": 2.9957499999999997
         }
       },
       {
@@ -92,12 +92,12 @@
           "neck_wood": 1.4300000000000002,
           "fretboard": 1.4300000000000002,
           "pickup_magnet": 1.4300000000000002,
-          "string_material": 3.6125,
+          "string_material": 3.6214999999999997,
           "string_gauge": 1.04,
           "bridge": 0.01875,
           "scale_length": 1.04,
           "finish": 0,
-          "string_tuning": 26.284375000000004
+          "string_tuning": 26.270125000000007
         }
       },
       {
@@ -113,14 +113,14 @@
           "pedal_steel_strings": "pedal_steel_george_l_e9"
         },
         "scores": {
-          "electric_technique": 34.56625,
+          "electric_technique": 34.57075,
           "amp_make": 33.38374999999999,
           "pickup_steel": 1.04,
-          "string_setup": 13.39125,
-          "bar_material": 3.4212499999999997,
-          "pedal_steel_brand": 32.36749999999999,
-          "pedal_steel_neck_config": 31.0675,
-          "pedal_steel_strings": 30.381249999999994
+          "string_setup": 13.502249999999998,
+          "bar_material": 3.42575,
+          "pedal_steel_brand": 32.397499999999994,
+          "pedal_steel_neck_config": 31.1785,
+          "pedal_steel_strings": 30.411249999999995
         }
       },
       {
@@ -140,7 +140,7 @@
           "amp_make": 31.571249999999996,
           "body_wood": 1.04,
           "pickup_config": 0.01875,
-          "string_type": 53.27625000000002,
+          "string_type": 53.28075000000001,
           "scale_length_b": 2.1,
           "fretted_or_not": 0.195,
           "bass_technique": 50.45625000000002
@@ -172,10 +172,10 @@
         "scores": {
           "keyboard_technique": 4.6450000000000005,
           "drawbar_setting": 50.506250000000016,
-          "rotary_speed": 51.630625000000016,
-          "percussion_setting": 23.276250000000008,
-          "tonewheel_model": 23.246250000000003,
-          "leslie_cabinet_model": 3.26375
+          "rotary_speed": 51.625000000000014,
+          "percussion_setting": 23.28075000000001,
+          "tonewheel_model": 23.232000000000006,
+          "leslie_cabinet_model": 3.29375
         }
       },
       {
@@ -195,10 +195,10 @@
           "keyboard_technique": 4.6450000000000005,
           "grand_piano_size": 1.04,
           "grand_piano_brand": 1.4300000000000002,
-          "piano_hammer": 23.396250000000006,
-          "piano_rim": 23.716875000000005,
+          "piano_hammer": 23.400750000000006,
+          "piano_rim": 23.721375000000005,
           "piano_soundboard": 3.95,
-          "piano_pinblock": 0.615,
+          "piano_pinblock": 0.6345,
           "piano_plate": 1.101875,
           "piano_pitch_standard": 0.5199999999999999
         }
@@ -214,10 +214,10 @@
         },
         "scores": {
           "bowed_technique": 30.474999999999998,
-          "fiddle_strings": 3.4212499999999997,
+          "fiddle_strings": 3.42575,
           "fiddle_bow": 1.4300000000000002,
           "fiddle_mute": 0.195,
-          "fiddle_articulation": 1.1099999999999999
+          "fiddle_articulation": 1.1043749999999999
         }
       }
     ],

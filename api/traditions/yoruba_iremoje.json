@@ -5,7 +5,7 @@
   "lineage": "Yoruba mourning-song tradition continuous from pre-colonial Yoruba ritual-practice through 19th-20th century continuous performance by Yoruba hunters'-guild and hunters'-widows; particularly preserved in Ọ̀yọ́, Òṣun, Ọ̀ǹdó, Èkìtì Yoruba cultural zones",
   "recipe": "classic West African modern yoruba ìrèmọjẹ, funeral Lament, African diasporic branch, indigenous ritual devotional, vocal drone modal, west African griot ballad poetry shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, breath veiled tone, straight note core, interlocked note trading. bamako griot jeli compound. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 405,
-  "score": 224.775,
+  "score": 224.085,
   "config": {
     "traditions": [
       "yoruba_iremoje",
@@ -42,12 +42,12 @@
           "voice_articulation": 17.485,
           "voice_microtone": 18.004999999999995,
           "voice_tradition": 47.44999999999998,
-          "voice_mechanism_compound": 11.655000000000001,
+          "voice_mechanism_compound": 10.770000000000001,
           "voice_estill_quality": 6.5649999999999995,
           "voice_speech_song": 20.669999999999998,
           "voice_ensemble_config": 18.069999999999997,
           "voice_ornament_system": 9.579999999999998,
-          "voice_pitch_organization": 23.884999999999994,
+          "voice_pitch_organization": 24.079999999999995,
           "voice_processing_chain": 12.155,
           "voice_multitrack_stack": 6.5
         }

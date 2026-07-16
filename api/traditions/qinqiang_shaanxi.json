@@ -3,9 +3,9 @@
   "name": "Qinqiang (Shaanxi opera, \"the ancestor of bangzi\")",
   "family": "classical",
   "lineage": "Qinqiang Northwest Chinese regional opera tradition of Shaanxi province, considered the ancestor of the broader bangzi (wooden-clapper) opera family that includes jin opera (Shanxi), yu opera (Henan), and Hebei bangzi. Origin traced to the Qin and Han dynasty court music of the Wei River basin. Performance features powerful declamatory vocal projection (characteristically loud and emotionally intense, reflecting the Loess Plateau aesthetic), the bangzi wooden-clapper as principal percussion-pulse keeper, and pi-pa accompanied martial-arts and historical-warrior repertoire. The post-1949 Shaanxi Provincial Qinqiang Theatre and the Yi Su She troupe (founded 1912 in Xi'an) anchor institutional transmission.",
-  "recipe": "classic Southeast Asian late-1940s qinqiang, art Music, east Asian branch, east Asian Cantonese opera. vocal fry, breath veiled tone, slow rate, interlocked note trading. silk canonical traditional sanxian, composite material janggu. wooden pagoda hall. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 326,
-  "score": 228.039,
+  "recipe": "classic Southeast Asian late-1940s qinqiang, art Music, east Asian branch, east Asian Cantonese opera. vocal fry, breath veiled tone, slow rate, interlocked note trading. silk canonical traditional sanxian, composite material paulownia canonical Korean horse dog asymmetric canonical Korean pansori godo janggu. wooden pagoda hall. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 404,
+  "score": 230.842,
   "config": {
     "traditions": [
       "qinqiang_shaanxi",
@@ -33,7 +33,7 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 2.08,
+          "voice_register": 1.9955,
           "voice_quality": 16.770000000000003,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -42,11 +42,11 @@
           "voice_microtone": 14.364999999999991,
           "voice_tradition": 27.3,
           "voice_mechanism_compound": 4.4,
-          "voice_estill_quality": 32.7925,
-          "voice_speech_song": 29.277,
+          "voice_estill_quality": 32.9395,
+          "voice_speech_song": 29.0355,
           "voice_ensemble_config": 15.079999999999993,
           "voice_ornament_system": 27.305,
-          "voice_pitch_organization": 13.305749999999996,
+          "voice_pitch_organization": 13.200749999999996,
           "voice_processing_chain": 3.1200000000000006,
           "voice_multitrack_stack": 2.275
         }
@@ -66,7 +66,7 @@
           "sanxian_size": 2.275,
           "sanxian_context": 2.5349999999999997,
           "sanxian_head": 0,
-          "sanxian_strings": 1.17325,
+          "sanxian_strings": 1.8242499999999997,
           "sanxian_body_wood": 0.845
         }
       },
@@ -82,9 +82,9 @@
         "scores": {
           "janggu_use": 2.34,
           "janggu_construction": 2.7299999999999995,
-          "janggu_shell_wood": 0.9842499999999998,
-          "janggu_head": 0.8792499999999999,
-          "janggu_lineage": 0.7742499999999999
+          "janggu_shell_wood": 1.87675,
+          "janggu_head": 1.77175,
+          "janggu_lineage": 1.4252499999999997
         }
       }
     ],

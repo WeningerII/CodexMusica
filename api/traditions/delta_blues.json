@@ -3,14 +3,14 @@
   "name": "Delta blues",
   "family": "blues_gospel",
   "lineage": "Country-blues tradition of the Mississippi Delta region — slide-guitar-and-vocal solo and small-ensemble repertoire developed in the early twentieth century through the lineage of Charley Patton (the 1929 Paramount recordings), Son House, Robert Johnson (the 1936-37 San Antonio and Dallas sessions), Skip James, Bukka White, and continuing through the post-WWII Chicago-blues electrification by Muddy Waters, Howlin' Wolf, and others",
-  "recipe": "classic late-1920s delta blues, ballad Poetry, delta narrative branch, vocal drone modal, blues acoustic functional song, American south field work piedmont blues mississippi delta field holler. thick, worn fold, wide pitch sway, unrestrained. open g tuning slide steel resonator guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. tin roofed shack. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 489,
-  "score": 406.01,
+  "recipe": "classic late-1920s delta blues, ballad Poetry, delta narrative branch, vocal drone modal, blues acoustic functional song, American south field work piedmont blues corsican paghjella three-voice unaccompanied. thick, worn fold, wide pitch sway, interlocked note trading. open g tuning slide steel resonator guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. tin roofed shack. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 515,
+  "score": 396.281,
   "config": {
     "traditions": [
       "delta_blues",
       "piedmont_blues",
-      "mississippi_delta_field_holler"
+      "corsican_paghjella"
     ],
     "instruments": [
       {
@@ -21,7 +21,7 @@
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "oscillating_vibrato",
-          "voice_articulation": "shouted_voice",
+          "voice_articulation": "hocket_voice",
           "voice_microtone": "bend_inflected",
           "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_andean_huayno",
-          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
-          "voice_processing_chain": "voice_processing_plate_reverb_medium",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
+          "voice_processing_chain": "voice_processing_tape_saturation",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 31.8875,
-          "voice_quality": 26.775,
+          "voice_register": 29.887499999999996,
+          "voice_quality": 21.174999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 30.425000000000004,
-          "voice_articulation": 14.125000000000004,
-          "voice_microtone": 27.973750000000003,
-          "voice_tradition": 14.819999999999997,
-          "voice_mechanism_compound": 3.3149999999999995,
-          "voice_estill_quality": 6.175,
-          "voice_speech_song": 15.274999999999999,
-          "voice_ensemble_config": 11.829999999999997,
-          "voice_ornament_system": 5.395,
-          "voice_pitch_organization": 1.56,
-          "voice_processing_chain": 4.29,
-          "voice_multitrack_stack": 4.81
+          "voice_vibrato": 28.125,
+          "voice_articulation": 14.787499999999994,
+          "voice_microtone": 25.97375,
+          "voice_tradition": 17.485,
+          "voice_mechanism_compound": 5.525,
+          "voice_estill_quality": 7.410000000000001,
+          "voice_speech_song": 15.859999999999994,
+          "voice_ensemble_config": 19.89,
+          "voice_ornament_system": 6.954999999999999,
+          "voice_pitch_organization": 2.99,
+          "voice_processing_chain": 6.24,
+          "voice_multitrack_stack": 5.004999999999999
         }
       },
       {
@@ -58,15 +58,15 @@
           "acoustic_technique": "acoustic_bottleneck_slide",
           "string_tuning": "open_g",
           "cone_type": "biscuit",
-          "body_resonator": "brass_body",
+          "body_resonator": "steel_body",
           "res_strings": "phosphor_res"
         },
         "scores": {
-          "acoustic_technique": 19.275,
-          "string_tuning": 19.67,
-          "cone_type": 15.124999999999998,
-          "body_resonator": 0.57,
-          "res_strings": 0.615
+          "acoustic_technique": 17.599999999999998,
+          "string_tuning": 16.045,
+          "cone_type": 11.5,
+          "body_resonator": 0.49874999999999997,
+          "res_strings": 0.45499999999999996
         }
       },
       {
@@ -81,13 +81,13 @@
           "harmonica_tuning": "harmonica_richter_canonical"
         },
         "scores": {
-          "free_reed_technique": 15.349999999999998,
+          "free_reed_technique": 13.674999999999999,
           "harmonica_type": 0.66,
-          "harmonica_comb": 32.95125,
-          "harmonica_reed": 26.895,
-          "harmonica_technique": 41.5,
-          "harmonica_maker_school": 26.81625,
-          "harmonica_tuning": 12.95125
+          "harmonica_comb": 30.30125,
+          "harmonica_reed": 24.895,
+          "harmonica_technique": 35.875,
+          "harmonica_maker_school": 26.116249999999997,
+          "harmonica_tuning": 13.451249999999998
         }
       }
     ],

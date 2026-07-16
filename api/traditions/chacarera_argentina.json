@@ -3,52 +3,52 @@
   "name": "Chacarera (Argentine northwest)",
   "family": "global",
   "lineage": "Argentine folk-dance-and-song tradition of northwestern provinces (Santiago del Estero, Tucumán, Salta, La Rioja). Characteristic 6/8 meter, fast-tempo paired-couple dance with handkerchiefs, lyrical content addressing rural-northwestern Argentine life. Voice with acoustic-guitar and bombo legüero large-frame-drum. Atahualpa Yupanqui and Los Hermanos Ábalos (founded 1932) consolidated canonical repertoire.",
-  "recipe": "classic Mexican early-1930s chacarera, ballad Poetry, Latin am troubadour branch, indigenous ritual devotional mongolian böö shamanic invocation inuit katajjaq throat-singing game. sygyt, breath veiled tone, breath pulsed, interlocked note trading. rosewood coated nanoweb fingerpicked parlor acoustic guitar, rim accented bombo leguero. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 484,
-  "score": 248.47,
+  "recipe": "classic Mexican early-1930s chacarera, ballad Poetry, Latin am troubadour branch, indigenous ritual devotional mongolian böö shamanic invocation shipibo-conibo icaros healing songs. thick, breath veiled tone, fast rate, interlocked note trading. coated nanoweb fingerpicked parlor acoustic guitar, rim accented bombo leguero. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 472,
+  "score": 200.8,
   "config": {
     "traditions": [
       "chacarera_argentina",
       "mongolian_boo_invocation",
-      "inuit_katajjaq_games"
+      "shipibo_icaros"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
-          "voice_register": "sygyt_register",
+          "voice_register": "chest_voice",
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "diaphragm_vibrato",
+          "voice_vibrato": "fast_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "inuit_katajjaq_tradition",
+          "voice_tradition": "polynesian_oli_tradition",
           "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_sami_yoik",
-          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_ornament_system": "voice_ornament_quranic_tajwid",
+          "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 8.67,
-          "voice_quality": 21.255000000000003,
+          "voice_register": 2.750000000000001,
+          "voice_quality": 25.35,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.9399999999999995,
-          "voice_articulation": 24.05,
-          "voice_microtone": 22.815,
-          "voice_tradition": 36.945,
-          "voice_mechanism_compound": 23.93,
+          "voice_vibrato": 2.34,
+          "voice_articulation": 20.215,
+          "voice_microtone": 20.019999999999996,
+          "voice_tradition": 19.760000000000005,
+          "voice_mechanism_compound": 15.195,
           "voice_estill_quality": 6.369999999999999,
-          "voice_speech_song": 24.895000000000003,
-          "voice_ensemble_config": 25.675,
-          "voice_ornament_system": 7.114999999999999,
-          "voice_pitch_organization": 8.870000000000001,
-          "voice_processing_chain": 7.41,
+          "voice_speech_song": 22.75,
+          "voice_ensemble_config": 23.335,
+          "voice_ornament_system": 8.025,
+          "voice_pitch_organization": 2.145,
+          "voice_processing_chain": 12.544999999999998,
           "voice_multitrack_stack": 2.7300000000000004
         }
       },
@@ -62,10 +62,10 @@
           "string_acoustic_parlor": "coated_nano_p"
         },
         "scores": {
-          "acoustic_technique": 9.065,
+          "acoustic_technique": 7.065000000000001,
           "string_tuning": 0,
           "top_wood_parlor": 0,
-          "back_sides_parlor": 5.135,
+          "back_sides_parlor": 0.78,
           "string_acoustic_parlor": 1.69
         }
       },

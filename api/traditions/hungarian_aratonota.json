@@ -3,24 +3,24 @@
   "name": "Hungarian aratónóta (harvest songs)",
   "family": "global",
   "lineage": "Hungarian aratónóta (\"harvest-song\") tradition continuous from premodern Hungarian-agricultural village-labor practice through 19th-century Hungarian-folklorist documentation through Béla Bartók and Zoltán Kodály 1905-1918 Hungarian-folk-collection canonical-ethnomusicology into modern Hungarian-folk-revival continuous practice; foundational repertoire includes harvest-binding songs accompanying grain-bundle-stacking and threshing-floor labor",
-  "recipe": "classic Northern European mid-1910s hungarian aratónóta, field Work, Slavic balkan branch, east Asian field work, European wedding, European drinking song sardinian wedding cantu and launeddas music scottish bothy ballad. thick, false fold engaged, straight note core, interlocked note trading. baltic outdoor village. acoustic horn. wax cylinder.",
-  "recipe_chars": 347,
-  "score": 131.877,
+  "recipe": "classic Northern European mid-1910s hungarian aratónóta, field Work, Slavic balkan branch, east Asian field work, European wedding, European drinking song scottish bothy ballad hungarian bordal. thick, close mic intimate, interlocked note trading, neutral third half flat. baltic outdoor village. acoustic horn. wax cylinder.",
+  "recipe_chars": 325,
+  "score": 120.265,
   "config": {
     "traditions": [
       "hungarian_aratonota",
-      "sardinian_wedding_cantu_launeddas",
-      "scottish_bothy_ballad"
+      "scottish_bothy_ballad",
+      "hungarian_bordal"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "false_fold_voice",
+          "voice_quality": "crooner_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "delayed_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "mediterranean_demotic_tradition",
@@ -31,25 +31,25 @@
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
           "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
-          "voice_multitrack_stack": "voice_multitrack_granular_texture"
+          "voice_multitrack_stack": "voice_multitrack_single_lead"
         },
         "scores": {
-          "voice_register": 12.474999999999998,
-          "voice_quality": 9.674999999999997,
+          "voice_register": 11.499999999999996,
+          "voice_quality": 4.745,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.3325000000000002,
-          "voice_articulation": 12.414999999999994,
-          "voice_microtone": 14.29999999999999,
-          "voice_tradition": 35.36,
-          "voice_mechanism_compound": 2.8599999999999994,
-          "voice_estill_quality": 2.0799999999999996,
-          "voice_speech_song": 18.32999999999999,
-          "voice_ensemble_config": 12.349999999999993,
+          "voice_vibrato": 0.45500000000000024,
+          "voice_articulation": 12.609999999999994,
+          "voice_microtone": 13.389999999999992,
+          "voice_tradition": 28.239999999999995,
+          "voice_mechanism_compound": 1.56,
+          "voice_estill_quality": 0.975,
+          "voice_speech_song": 23.789999999999992,
+          "voice_ensemble_config": 12.739999999999995,
           "voice_ornament_system": 1.4399999999999997,
-          "voice_pitch_organization": 6.954999999999998,
-          "voice_processing_chain": 2.5350000000000006,
-          "voice_multitrack_stack": 2.4699999999999998
+          "voice_pitch_organization": 7.6049999999999995,
+          "voice_processing_chain": 2.4699999999999998,
+          "voice_multitrack_stack": 1.645
         }
       }
     ],

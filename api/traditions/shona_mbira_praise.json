@@ -3,14 +3,14 @@
   "name": "Shona mbira praise music (Zimbabwe)",
   "family": "global",
   "lineage": "Shona mbira-and-vocal praise-music tradition continuous from pre-colonial Zimbabwe Karanga-Shona ritual-practice through colonial-period continuous performance into modern Zimbabwean Shona-cultural practice; the mbira dzavadzimu (mbira of the ancestors) is the canonical Shona ritual-and-praise instrument",
-  "recipe": "classic Southern African modern shona mbira praise music, praise Song, sub saharan African branch, indigenous ritual devotional, string drone modal, central east south African groove percussion shipibo-conibo icaros healing songs mapuche tayil genealogical chant. vocal fry, breath veiled tone, straight note core, interlocked note trading. steel maple mbira, hosho. harare formerly salisbury 1971-present indie-commercial harare zimbabwean chimurenga studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 522,
-  "score": 268.34,
+  "recipe": "classic Southern African modern shona mbira praise music, praise Song, sub saharan African branch, indigenous ritual devotional, string drone modal, central east south African groove percussion shipibo-conibo icaros healing songs chimurenga. vocal fry, breath veiled tone, straight note core, interlocked note trading. steel maple calabash mbira, hosho. harare formerly salisbury 1971-present indie-commercial harare zimbabwean chimurenga studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 509,
+  "score": 252.543,
   "config": {
     "traditions": [
       "shona_mbira_praise",
       "shipibo_icaros",
-      "mapuche_tayil_ritual"
+      "chimurenga"
     ],
     "instruments": [
       {
@@ -25,31 +25,31 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "yoruba_tonal_vocal_tradition",
           "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 3.7700000000000005,
-          "voice_quality": 35.49,
+          "voice_register": 3.3150000000000004,
+          "voice_quality": 28.729999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.240000000000001,
-          "voice_articulation": 17.485,
-          "voice_microtone": 18.394999999999996,
-          "voice_tradition": 26.65,
-          "voice_mechanism_compound": 11.655000000000001,
-          "voice_estill_quality": 6.11,
-          "voice_speech_song": 20.929999999999996,
-          "voice_ensemble_config": 18.46,
-          "voice_ornament_system": 7.15,
+          "voice_vibrato": 4.94,
+          "voice_articulation": 13.454999999999997,
+          "voice_microtone": 15.209999999999994,
+          "voice_tradition": 27.6575,
+          "voice_mechanism_compound": 7.645000000000001,
+          "voice_estill_quality": 4.095000000000001,
+          "voice_speech_song": 16.639999999999997,
+          "voice_ensemble_config": 14.624999999999995,
+          "voice_ornament_system": 6.150000000000001,
           "voice_pitch_organization": 4.535,
-          "voice_processing_chain": 13.844999999999999,
-          "voice_multitrack_stack": 5.265000000000001
+          "voice_processing_chain": 9.717500000000003,
+          "voice_multitrack_stack": 5.6875
         }
       },
       {
@@ -57,13 +57,13 @@
         "slots": {
           "tine_material": "spring_steel",
           "mbira_board": "maple_kalimba",
-          "mbira_resonator": "box_resonator",
+          "mbira_resonator": "deze_calabash",
           "mbira_buzz": "metal_beads"
         },
         "scores": {
           "tine_material": 1.495,
           "mbira_board": 1.495,
-          "mbira_resonator": 1.495,
+          "mbira_resonator": 1.6899999999999997,
           "mbira_buzz": 1.495
         }
       },
@@ -75,9 +75,9 @@
           "hosho_filler": "hosho_hota_seeds"
         },
         "scores": {
-          "hosho_form": 22.689999999999998,
-          "hosho_groove": 32.19,
-          "hosho_filler": 16.974999999999998
+          "hosho_form": 27.07,
+          "hosho_groove": 42.56999999999999,
+          "hosho_filler": 21.049999999999997
         }
       }
     ],

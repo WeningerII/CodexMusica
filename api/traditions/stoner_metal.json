@@ -5,7 +5,7 @@
   "lineage": "Southern California desert-rock-derived heavy-blues-revival genre that emerged in early-1990s Palm Desert and Los Angeles — codified through Kyuss (the founding band from Palm Desert, Welcome to Sky Valley 1994), Queens of the Stone Age (Josh Hommes post-Kyuss continuation, Songs for the Deaf 2002), Sleep (the Bay Area parallel canon, Sleeps Holy Mountain 1992 and the legendary 60-minute single-track Dopesmoker 2003), Fu Manchu, Monster Magnet; built on Sabbath chord vocabulary plus blues-rock pentatonic vocabulary plus down-tuned heavy-fuzz amplifier worship",
   "recipe": "classic Midwestern American 1990-1993 stoner metal, distorted Rock, doom branch, sludge metal post-metal. thick, larynx lowered, wide pitch sway, interlocked note trading. orange amp British heavy crunch basswood maple pau ferro humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky riff driven electric bass, sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi proco RAT.",
   "recipe_chars": 573,
-  "score": 496.963,
+  "score": 496.269,
   "config": {
     "traditions": [
       "stoner_metal",
@@ -31,8 +31,8 @@
           "string_tuning": "drop_d"
         },
         "scores": {
-          "electric_technique": 34.167,
-          "amp_make": 32.4775,
+          "electric_technique": 34.009499999999996,
+          "amp_make": 32.354499999999994,
           "body_wood": 13,
           "neck_wood": 2.7624999999999997,
           "fretboard": 2.7624999999999997,
@@ -60,12 +60,12 @@
         },
         "scores": {
           "electric_technique": 14.6625,
-          "amp_make": 32.4775,
+          "amp_make": 32.354499999999994,
           "body_wood": 1.17,
           "pickup_config": 0,
-          "string_type": 32.1015,
-          "scale_length_b": 1.2929999999999997,
-          "fretted_or_not": 0.0315,
+          "string_type": 31.9635,
+          "scale_length_b": 1.2974999999999999,
+          "fretted_or_not": 0.036,
           "bass_technique": 28.5115
         }
       },
@@ -111,8 +111,8 @@
           "voice_articulation": 14.624999999999993,
           "voice_microtone": 27.904999999999994,
           "voice_tradition": 5.329999999999999,
-          "voice_mechanism_compound": 36.2515,
-          "voice_estill_quality": 2.405,
+          "voice_mechanism_compound": 36.094,
+          "voice_estill_quality": 2.4004999999999996,
           "voice_speech_song": 15.599999999999993,
           "voice_ensemble_config": 17.159999999999993,
           "voice_ornament_system": 2.6125000000000003,

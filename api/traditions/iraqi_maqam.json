@@ -3,9 +3,9 @@
   "name": "Iraqi maqam (al-Maqam al-Iraqi)",
   "family": "global",
   "lineage": "Iraqi classical vocal tradition codified in the Baghdadi school as a corpus of 56 canonical maqams (mode-pieces), each with a specific opening tahrir vocal cadenza, body section called miyana, and closing teslim cadence; performed by a solo qari vocalist accompanied by the chalghi small ensemble of santur, jawza Iraqi spike-fiddle, tabla, and riq — figures Mohammed al-Qabbanchi, Yusuf Omar, Hussein Al-Aazami, Hamid al-Saadi",
-  "recipe": "classic Middle Eastern early-1940s iraqi maqam, improv On Frame, Persian arab improv branch, middle eastern classical art music armenian liturgical and folk turkish makam. thick, breath veiled tone, slow rate, interlocked note trading. santur, metal finger picks maple body Turkish school goat skin bridge plate qanun, spun aluminum Egyptian sombaty goat skin Turkish darbuka regional iraqi maqam zarb drier finger darbuka, rosewood mop inlay canonical Egyptian takht fish skin canonical Egyptian light responsive brass jingles canonical takht riq. baghdad iraqi maqam context. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb.",
-  "recipe_chars": 688,
-  "score": 332,
+  "recipe": "classic Middle Eastern early-1940s iraqi maqam, improv On Frame, Persian arab improv branch, middle eastern classical art music armenian liturgical and folk turkish makam. thick, breath veiled tone, slow rate, interlocked note trading. santur, metal finger picks maple body Turkish school goat skin bridge plate qanun, spun aluminum Egyptian sombaty goat skin Turkish darbuka regional iraqi maqam zarb drier finger darbuka, rosewood mop inlay canonical Egyptian takht fish skin canonical Egyptian light responsive brass jingles canonical takht riq, coconut shell resonator skin face canonical baghdadi chalghi ensemble lead canonical iraqi maqam legato joza, small kettle pair stick struck canonical chalghi time keeping chalghi time keeping canonical baghdadi maqam naqqarat. baghdad iraqi maqam context. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp. tape 15ips hall reverb.",
+  "recipe_chars": 916,
+  "score": 371.915,
   "config": {
     "traditions": [
       "iraqi_maqam",
@@ -28,8 +28,8 @@
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_recitative_free_rhythm",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
-          "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
-          "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
+          "voice_ornament_system": "voice_ornament_persian_tahrir",
+          "voice_pitch_organization": "voice_pitch_persian_dastgah",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_chopped_sample_rhythmic_bed"
         },
@@ -42,14 +42,14 @@
           "voice_articulation": 11.829999999999997,
           "voice_microtone": 28.404999999999994,
           "voice_tradition": 34.092499999999994,
-          "voice_mechanism_compound": 26.409999999999997,
-          "voice_estill_quality": 17.924999999999997,
+          "voice_mechanism_compound": 26.064999999999998,
+          "voice_estill_quality": 17.729999999999997,
           "voice_speech_song": 15.159999999999997,
           "voice_ensemble_config": 10.464999999999996,
-          "voice_ornament_system": 28.549999999999997,
-          "voice_pitch_organization": 29.18,
+          "voice_ornament_system": 27.804999999999996,
+          "voice_pitch_organization": 28.365000000000002,
           "voice_processing_chain": 4.615,
-          "voice_multitrack_stack": 4.8100000000000005
+          "voice_multitrack_stack": 4.705
         }
       },
       {
@@ -98,7 +98,7 @@
           "percussion_technique": 0.06499999999999999,
           "darbuka_material": 1.3,
           "darbuka_skin": 2.859999999999999,
-          "darbuka_regional_style": 10.139999999999999
+          "darbuka_regional_style": 8.969999999999999
         }
       },
       {
@@ -116,6 +116,30 @@
           "riq_shell_wood": 1.2349999999999999,
           "riq_head_material": 1.3,
           "riq_jingles": 1.3
+        }
+      },
+      {
+        "id": "joza",
+        "slots": {
+          "bowed_technique": "bowed_legato_classical",
+          "joza_body": "joza_coconut_shell_canonical",
+          "joza_tradition": "joza_chalghi_canonical"
+        },
+        "scores": {
+          "bowed_technique": 15.124999999999998,
+          "joza_body": 2.9899999999999998,
+          "joza_tradition": 13.229999999999999
+        }
+      },
+      {
+        "id": "naqqarat",
+        "slots": {
+          "naqqarat_body": "naqqarat_small_kettle_pair_stick_struck_canonical",
+          "naqqarat_tradition": "naqqarat_chalghi_canonical"
+        },
+        "scores": {
+          "naqqarat_body": 4.095,
+          "naqqarat_tradition": 7.85
         }
       }
     ],

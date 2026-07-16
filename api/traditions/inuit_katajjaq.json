@@ -3,13 +3,13 @@
   "name": "Katajjaq (Inuit throat-singing game)",
   "family": "global",
   "lineage": "Inuit Arctic throat-singing game tradition preserved across Nunavik (northern Quebec), Nunavut, Greenland, and the Inuit Russian Far East — two women face each other in close proximity (often forehead to forehead) and alternate inhale-exhale vocal patterns at high speed, attempting to break each others rhythm until one laughs or runs out of breath; modern revival through Tanya Tagaq (the solo katajjaq performer who extended the tradition into solo electronic-collaboration work, Animism 2014 Polaris Music Prize), Susan Aglukark, the Pirurvik Centre cultural preservation infrastructure",
-  "recipe": "classic Pacific Northwest mid-2010s katajjaq, hunting Song, arctic branch, central Asian hunting song, indigenous hunting song, sub saharan African hunting song san (khoisan) hunting and trance song aboriginal australian hunting songlines. ingressive egressive paired breath alternation interlocked supraglottic both phases 8th to 12th partial overtone range arctic paired game tradition interlocked breath throat singing voice. iglu community hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 512,
-  "score": 52.463,
+  "recipe": "classic Pacific Northwest mid-2010s katajjaq, hunting Song, arctic branch, central Asian hunting song, indigenous hunting song, sub saharan African hunting song mongolian hunting-khoomei aboriginal australian hunting songlines. sygyt, false fold engaged, straight onset, interlocked note trading. ingressive egressive paired breath alternation interlocked supraglottic both phases 8th to 12th partial overtone range arctic paired game tradition interlocked breath throat singing voice. iglu community hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 569,
+  "score": 223.102,
   "config": {
     "traditions": [
       "inuit_katajjaq",
-      "san_bushman_hunting",
+      "mongolian_hunting_khoomei",
       "aboriginal_australian_songlines"
     ],
     "instruments": [
@@ -22,8 +22,47 @@
         },
         "scores": {
           "throat_mechanism_root": 20.25,
-          "throat_overtone_target_region": 3.302964285714285,
-          "throat_singing_voice_region": 28.95985714285714
+          "throat_overtone_target_region": 3.902964285714285,
+          "throat_singing_voice_region": 28.80985714285714
+        }
+      },
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "sygyt_register",
+          "voice_quality": "false_fold_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "delayed_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "inuit_katajjaq_tradition",
+          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_sami_yoik",
+          "voice_pitch_organization": "voice_pitch_drone_overtone_harmonic_series",
+          "voice_processing_chain": "voice_processing_vocoder_32_band_carrier_saw",
+          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
+        },
+        "scores": {
+          "voice_register": 12.379999999999999,
+          "voice_quality": 14.684999999999995,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 3.6400000000000006,
+          "voice_articulation": 11.114999999999997,
+          "voice_microtone": 10.529999999999992,
+          "voice_tradition": 34.92707142857142,
+          "voice_mechanism_compound": 22.4,
+          "voice_estill_quality": 3.2787499999999996,
+          "voice_speech_song": 20.474999999999994,
+          "voice_ensemble_config": 10.464999999999995,
+          "voice_ornament_system": 10.368857142857141,
+          "voice_pitch_organization": 10.899999999999999,
+          "voice_processing_chain": 3.695,
+          "voice_multitrack_stack": 3.0549999999999997
         }
       }
     ],

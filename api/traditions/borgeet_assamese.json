@@ -5,7 +5,7 @@
   "lineage": "Borgeet (\"noble songs\") Assamese Neo-Vaishnavite devotional vocal tradition composed in the fifteenth-sixteenth centuries by Srimanta Sankardev (1449-1568) and his disciple Madhavdev (1489-1596), the founders of the Ekasarana Dharma neo-Vaishnavite reform movement in Assam. The canonical corpus comprises approximately 250 songs in the Brajavali language (a literary-religious mix of Brajabhasha and Assamese). Performance configuration: solo voice with khol two-headed barrel-drum and taal small cymbals, in slow-tempo melismatic-melodic style. The naamghar (Sankardev-tradition village-temple) and sattra (monastic institution) circuits maintain transmission infrastructure.",
   "recipe": "classic South Asian early-1440s borgeet, ritual Devotional, hindu branch, indigenous ritual devotional shipibo-conibo icaros healing songs mongolian böö shamanic invocation. kargyraa, breath veiled tone, straight note core, interlocked note trading. goat skin syahi rope laced steel ring dholak, liturgical khol. kolkata dum dum EMI hmv 1928-present major-flagship kolkata hmv dum dum studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 455,
-  "score": 249.815,
+  "score": 248.54,
   "config": {
     "traditions": [
       "borgeet_assamese",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 3.035,
+          "voice_register": 2.645,
           "voice_quality": 35.49,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -42,7 +42,7 @@
           "voice_articulation": 21.905,
           "voice_microtone": 21.71,
           "voice_tradition": 19.760000000000005,
-          "voice_mechanism_compound": 14.780000000000001,
+          "voice_mechanism_compound": 13.895000000000001,
           "voice_estill_quality": 4.68,
           "voice_speech_song": 22.75,
           "voice_ensemble_config": 25.025,

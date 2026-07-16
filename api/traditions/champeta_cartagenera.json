@@ -3,9 +3,9 @@
   "name": "Champeta (Cartagena Afro-Colombian)",
   "family": "global",
   "lineage": "Afro-Colombian dance-music genre of Cartagena and the Colombian Caribbean coast, emerging in 1980s from synthesis of African soukous, juju, and highlife (transmitted through cassette-and-vinyl trade with Africa via maritime sailors) with local Colombian Caribbean costeño rhythmic-vocabulary. Performed at picós large mobile sound-systems in working-class barrios. Distinguished from cumbia by champeta's African-pop-derived (vs cumbia's indigenous-Afro-Spanish-syncretic) lineage.",
-  "recipe": "classic Andean mid-1980s champeta, functional Song, tropical song branch, Afro-diasporic MC rhythm south african kwaito kwaito. thick, full chest belt, slow rate, interlocked note trading. basswood mahogany soft down tuning clean strummed humbucker electric guitar, mahogany pyramid pure nickel bass British mid 60s era thumb muted electric bass, TR-808. bogota colombian andean studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 516,
-  "score": 155.794,
+  "recipe": "classic Andean mid-1980s champeta, functional Song, tropical song branch, Afro-diasporic MC rhythm south african kwaito kwaito. extended whistle, full chest belt, slow rate, interlocked note trading. basswood mahogany lower tension down tuning clean strummed humbucker electric guitar, mahogany pyramid pure nickel bass British mid 60s era thumb muted electric bass, TR-808. bogota colombian andean studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 536,
+  "score": 154.041,
   "config": {
     "traditions": [
       "champeta_cartagenera",
@@ -16,7 +16,7 @@
       {
         "id": "voice",
         "slots": {
-          "voice_register": "chest_voice",
+          "voice_register": "extended_whistle_register",
           "voice_quality": "full_chest_belt_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 4.218000000000003,
-          "voice_quality": 5.955,
+          "voice_register": 4.067,
+          "voice_quality": 5.85,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 0.975,
           "voice_articulation": 12.804999999999994,
           "voice_microtone": 12.609999999999992,
-          "voice_tradition": 23.981499999999997,
+          "voice_tradition": 22.987,
           "voice_mechanism_compound": 4.615,
-          "voice_estill_quality": 4.42,
+          "voice_estill_quality": 4.35325,
           "voice_speech_song": 16.704999999999995,
           "voice_ensemble_config": 12.739999999999995,
           "voice_ornament_system": 2.470000000000001,
           "voice_pitch_organization": 0.6499999999999999,
-          "voice_processing_chain": 6.379499999999999,
+          "voice_processing_chain": 6.326249999999999,
           "voice_multitrack_stack": 3.9000000000000012
         }
       },
@@ -67,15 +67,15 @@
           "scale_length": "scale_gibson_h",
           "string_gauge": "g_12_hum",
           "finish": "nitro_hum",
-          "string_tuning": "eb_standard"
+          "string_tuning": "d_standard"
         },
         "scores": {
           "electric_technique": 8.7815,
-          "amp_make": 1.3179999999999998,
+          "amp_make": 1.15,
           "body_wood": 1.8850000000000002,
           "neck_wood": 1.04,
           "fretboard": 0.975,
-          "pickup_magnet": 0.46424999999999994,
+          "pickup_magnet": 0.4327499999999999,
           "pickup_winding": 0.4327499999999999,
           "string_material": 0.402,
           "bridge": 1.04,
@@ -117,7 +117,7 @@
         },
         "scores": {
           "tr808_voice": 2.9575,
-          "drum_machine_808_context": 6.88275,
+          "drum_machine_808_context": 6.7005,
           "tr808_production_origin": 0.8032499999999999
         }
       }

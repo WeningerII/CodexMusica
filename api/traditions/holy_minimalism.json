@@ -3,9 +3,9 @@
   "name": "Holy Minimalism (late 20th-century spiritual minimalism)",
   "family": "classical",
   "lineage": "Late-twentieth-century compositional movement centered on Estonian Arvo Pärt, English John Tavener, and late-Polish Henryk Górecki, characterized by slow tempi, modal-and-triadic harmonic vocabulary, sacred-or-spiritual textual content (often Orthodox Christian liturgical), and minimal compositional means. Pärt's tintinnabuli style (developed 1976 onward in Spiegel im Spiegel, Cantus, and Tabula Rasa) and Tavener's The Protecting Veil (1989) constitute the canonical type-specimens.",
-  "recipe": "classic Caucasian mid-1970s holy minimalism, art Music, western modern branch, christian gospel ritual devotional russian orthodox liturgical chant sacred steel. thick, declaimed, straight onset, interlocked note trading. beech laminated maple laminated European tradition sitka spruce diaphragmatic grand piano, mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. stone armenian church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe": "classic Caucasian mid-1970s holy minimalism, art Music, western modern branch, christian gospel ritual devotional russian orthodox liturgical chant sacred steel. thick, declaimed, straight onset, interlocked note trading. modern bright beech laminated maple laminated European tradition sitka spruce grand piano, mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. stone armenian church. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 621,
-  "score": 283.332,
+  "score": 283.562,
   "config": {
     "traditions": [
       "holy_minimalism",
@@ -35,10 +35,10 @@
         },
         "scores": {
           "voice_register": 16.97,
-          "voice_quality": 21.209999999999997,
+          "voice_quality": 21.014999999999997,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 6.9625,
+          "voice_vibrato": 7.2625,
           "voice_articulation": 18.32999999999999,
           "voice_microtone": 20.669999999999987,
           "voice_tradition": 18.46,
@@ -58,7 +58,7 @@
           "keyboard_technique": "keyboard_gospel_chord_runs",
           "grand_piano_size": "grand_9_foot",
           "grand_piano_brand": "steinway_d",
-          "piano_hammer": "renner_standard_hammer",
+          "piano_hammer": "renner_blue_hammer",
           "piano_rim": "european_laminated_rim_beech_maple",
           "piano_soundboard": "sitka_spruce_diaphragmatic",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
@@ -69,12 +69,12 @@
           "keyboard_technique": 14.559999999999999,
           "grand_piano_size": 0.225,
           "grand_piano_brand": 0.78,
-          "piano_hammer": 9.794999999999998,
-          "piano_rim": 14.605,
+          "piano_hammer": 9.86,
+          "piano_rim": 14.559999999999999,
           "piano_soundboard": 9.215,
           "piano_pinblock": 9.275,
-          "piano_plate": 9.86,
-          "piano_pitch_standard": 10.294999999999998
+          "piano_plate": 10.01,
+          "piano_pitch_standard": 10.249999999999998
         }
       },
       {

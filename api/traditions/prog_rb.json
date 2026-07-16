@@ -5,7 +5,7 @@
   "lineage": "2010s and 2020s R&B subgenre characterized by virtuoso-instrumental playing (especially electric bass), jazz-and-fusion harmonic complexity, lo-fi-and-experimental production aesthetic, and explicit Los-Angeles-Brainfeeder-scene cultural affiliation. Thundercat (Stephen Bruner, born 1984) anchored the canonical sound through Drunk (2017); Steve Lacy (The Internet), Hiatus Kaiyote (Australian, parallel scene), and the broader Brainfeeder, Stones Throw, and Anticon label rosters extended the genre.",
   "recipe": "classic progressive r&b, functional Song, soul R&B branch, American jazz fusion acid jazz nu jazz / electro-jazz. thick, breath veiled tone, straight onset, interlocked note trading. ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, analog synth. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 632,
-  "score": 458.412,
+  "score": 459.699,
   "config": {
     "traditions": [
       "prog_rb",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 38.98950000000002,
+          "voice_register": 39.05250000000002,
           "voice_quality": 10.594999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 31.126500000000007,
+          "voice_vibrato": 31.473000000000006,
           "voice_articulation": 17.549999999999997,
           "voice_microtone": 32.90500000000001,
-          "voice_tradition": 36.92000000000001,
+          "voice_tradition": 37.025000000000006,
           "voice_mechanism_compound": 1.69,
           "voice_estill_quality": 9.294999999999998,
           "voice_speech_song": 19.954999999999995,
           "voice_ensemble_config": 18.329999999999995,
           "voice_ornament_system": 2.19,
           "voice_pitch_organization": 3.185000000000001,
-          "voice_processing_chain": 6.786,
-          "voice_multitrack_stack": 10.659999999999997
+          "voice_processing_chain": 6.890999999999999,
+          "voice_multitrack_stack": 10.634499999999997
         }
       },
       {
@@ -60,17 +60,17 @@
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
           "string_type": "thomastik_jazz_bass_flat",
-          "scale_length_b": "short_scale_b",
+          "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretless",
           "bass_technique": "fingerstyle_walking"
         },
         "scores": {
           "electric_technique": 6.15,
-          "amp_make": 16.8825,
-          "body_wood": 0.726,
-          "pickup_config": 1.6,
-          "string_type": 36.72500000000001,
-          "scale_length_b": 0.408,
+          "amp_make": 16.914,
+          "body_wood": 0.7889999999999999,
+          "pickup_config": 1.69,
+          "string_type": 36.830000000000005,
+          "scale_length_b": 0.615,
           "fretted_or_not": 0.0315,
           "bass_technique": 30.500000000000007
         }
@@ -84,7 +84,7 @@
         },
         "scores": {
           "drum_technique": 52.38999999999999,
-          "drumhead": 36.78000000000001,
+          "drumhead": 36.885000000000005,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -103,7 +103,7 @@
         },
         "scores": {
           "keyboard_technique": 6.7145,
-          "grand_piano_size": 0.363,
+          "grand_piano_size": 0.39449999999999996,
           "grand_piano_brand": 2.3400000000000003,
           "piano_hammer": 4.485,
           "piano_rim": 4.485,
@@ -117,14 +117,14 @@
         "id": "analog_synth",
         "slots": {
           "electronic_technique": "electronic_lead_line",
-          "oscillator": "saw_single",
+          "oscillator": "triangle_osc",
           "filter_topology": "transistor_ladder",
           "envelope": "gated_env",
           "modulation": "lfo_pitch"
         },
         "scores": {
           "electronic_technique": 2.5130000000000003,
-          "oscillator": 2.3715,
+          "oscillator": 2.4315,
           "filter_topology": 1.69,
           "envelope": 1.69,
           "modulation": 0

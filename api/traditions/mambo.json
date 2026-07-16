@@ -5,7 +5,7 @@
   "lineage": "Cuban big-band brass-and-saxophone urban-popular-dance music codified 1939-onward in Havana from son-cubano accelerated-and-orchestrated for big-band swing-orchestra adaptation. The mambo-typical ensemble: four-trumpets, five-saxophones (two altos, two tenors, plus baritone), piano, contrabass, congas, bongos, timbales, claves, maracas, and güiro. The mambo-section open-improvisation montuno-equivalent features brass-shouts (mambos), saxophone-and-piano riffs over ostinato-vamp, and percussion-and-vocal call-and-response. The 1947-onward Mexico-City-and-NYC-Palladium mambo-craze made it the international Cuban-dance-music ambassador; the 1950s saw mambo-fused-with-jazz (Afro-Cuban jazz, Latin-jazz), with cha-cha-chá and pachanga emerging as next-generation variants.",
   "recipe": "classic Caribbean modern mambo, groove Percussion, charanga danza branch, American jazz early swing big band chicago jazz. thick, full chest belt, straight onset, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator grand piano, growly gut upright bass, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, bronze open slap hand drum timbales, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor ensemble student commercial trombone, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow legato saxophone, claves. pre revolutionary cuba 1944-1960 mid tier panart puchito havana pre 1959. large-diaphragm condenser, tube pre.",
   "recipe_chars": 988,
-  "score": 608.879,
+  "score": 604.886,
   "config": {
     "traditions": [
       "mambo",
@@ -34,21 +34,21 @@
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 26.044999999999995,
+          "voice_register": 25.849999999999994,
           "voice_quality": 17.649999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 25.350499999999997,
           "voice_articulation": 20.865000000000006,
           "voice_microtone": 25.544999999999998,
-          "voice_tradition": 33.703374999999994,
-          "voice_mechanism_compound": 5.45825,
+          "voice_tradition": 32.338375,
+          "voice_mechanism_compound": 5.263249999999999,
           "voice_estill_quality": 5.9182500000000005,
           "voice_speech_song": 20.020000000000007,
           "voice_ensemble_config": 23.010000000000005,
           "voice_ornament_system": 1.2349999999999997,
           "voice_pitch_organization": 4.695000000000001,
-          "voice_processing_chain": 8.150625,
+          "voice_processing_chain": 7.9556249999999995,
           "voice_multitrack_stack": 4.42
         }
       },
@@ -101,8 +101,8 @@
         "scores": {
           "percussion_technique": 6.8875,
           "conga_set": 0.845,
-          "conga_skin": 8.992875,
-          "conga_shell_wood": 8.992875
+          "conga_skin": 9.017249999999999,
+          "conga_shell_wood": 9.017249999999999
         }
       },
       {
@@ -128,9 +128,9 @@
         },
         "scores": {
           "percussion_technique": 6.8875,
-          "bongos_skin": 12.633625,
+          "bongos_skin": 12.658,
           "bongos_context": 0.39,
-          "bongos_shell_wood": 8.992875
+          "bongos_shell_wood": 9.017249999999999
         }
       },
       {
@@ -147,7 +147,7 @@
         "scores": {
           "wind_articulation": 5.135000000000002,
           "brass_size": 0.105,
-          "trumpet_mouthpiece": 30.25525,
+          "trumpet_mouthpiece": 29.28025,
           "brass_mute": 0,
           "trumpet_technique": 5.135000000000002,
           "trumpet_bell_metal": 5.525,
@@ -168,7 +168,7 @@
         "scores": {
           "wind_articulation": 5.135000000000002,
           "trombone_type": 25.75,
-          "trombone_mouthpiece": 26.805,
+          "trombone_mouthpiece": 26.61,
           "trombone_mute": 0,
           "trombone_technique": 2.8600000000000003,
           "trombone_bell_metal": 5.525,
@@ -182,7 +182,7 @@
           "sax_size": "tenor_sax",
           "sax_reed": "soft_reed",
           "sax_body_alloy": "phosphor_bronze_sax",
-          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_mouthpiece": "metal_mp",
           "sax_technique": "sax_continuous_legato",
           "sax_maker_school": "sax_selmer_mark_vi"
         },
@@ -191,9 +191,9 @@
           "sax_size": 0.6499999999999999,
           "sax_reed": 0.105,
           "sax_body_alloy": 26.049999999999997,
-          "sax_mouthpiece": 0.15,
+          "sax_mouthpiece": 0.105,
           "sax_technique": 25.75,
-          "sax_maker_school": 32.30675
+          "sax_maker_school": 31.356125
         }
       },
       {
@@ -204,7 +204,7 @@
         },
         "scores": {
           "claves_pattern": 15.014999999999999,
-          "claves_wood": 0.045
+          "claves_wood": 0.06937499999999999
         }
       }
     ],

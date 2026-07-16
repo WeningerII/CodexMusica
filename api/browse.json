@@ -16,7 +16,7 @@
     "percussion",
     "cyclicity"
   ],
-  "count": 1195,
+  "count": 1165,
   "items": [
     {
       "id": "honky_tonk",
@@ -284,7 +284,8 @@
         "trumpet",
         "classical_nylon_string_guitar",
         "guitarron_mexicano",
-        "vihuela_mexicana"
+        "vihuela_mexicana",
+        "mariachi_full"
       ],
       "description": "Mariachi ensemble tradition (Jalisco origin, 19th-century ranchera roots; trumpet incorporated 1930s, professional codification 1940s-1960s). Standard ensemble: 4-8 violins playing in unison-and-thirds, 2 trumpets, guitarrón (large six-string acoustic bass), vihuela (small five-string rhythm guitar), 1-2 acoustic guitars, occasional harp. Vocal lead with full-ensemble harmony backgrounds. Repertoire: rancheras (3/4 or 4/4 ballads), sones (regional dance forms), boleros, huapangos. Distinguished from norteño (different ensemble — accordion-led) and Spanish flamenco (Andalusian, not Mexican). Standardized aesthetic codified by Mariachi Vargas de Tecalitlán (1898 founded, modern recordings from 1944).",
       "exemplars": [
@@ -780,7 +781,9 @@
         "drum_kit",
         "brass_band_new_orleans",
         "clarinet",
-        "trombone"
+        "trombone",
+        "cornet",
+        "tenor_guitar"
       ],
       "description": "New Orleans jazz jazz (codified ca. 1900-1925 in New Orleans Storyville red-light district and broader African-American-and-Creole musical communities, with the post-1917-Storyville-closure Chicago migration and 1923-onward recording-era documentation establishing the genre), the polyphonic-combo jazz tradition with collective improvisation. Defined by trumpet-clarinet-trombone front-line ensemble each playing complementary improvised-melodic counterpoint simultaneously (the polyphonic-collective-improvisation feature that distinguishes Dixieland from later jazz where soloists trade), banjo-and-tuba-and-drums rhythm-section foundation (later piano replacing tuba and string-bass replacing tuba in some second-line ensembles), repertoire of Storyville-era ragtime-derived compositions, blues-derived twelve-bar structures, and church-and-march-band material, and dance-functional 2/4-and-march-tempo metric foundation. Distinguished from later Chicago Dixieland by New-Orleans-specific polyphonic-collective-improvisation foreground; distinguished from later swing by absence of section-arrangement and big-band ensemble size; distinguished from ragtime by improvisation foreground.",
       "exemplars": [
@@ -4296,44 +4299,6 @@
       ]
     },
     {
-      "id": "shape_note",
-      "name": "Sacred Harp shape-note",
-      "family": "vernacular",
-      "lineage": "Sacred Harp shape-note congregational singing tradition descended from the 1844 B.F. White and E.J. King tunebook compilation — uses the four-shape solmization notation system (fa-sol-la-mi assigned distinctive note-head shapes for pedagogical accessibility) preserved in the Sacred Harp Cooper revision (1902 onward) and Denson revision (1936 onward) tunebooks, with the Southern singing conventions in Henegar Alabama, Liberty Georgia, and the broader Southern Sacred Harp Singing Convention network",
-      "parent": "ritualDevotional.americanSacred",
-      "axes": [
-        0,
-        -1,
-        -1,
-        1,
-        1,
-        -1,
-        -2,
-        -2,
-        1,
-        2,
-        1,
-        -2,
-        2
-      ],
-      "instruments": [
-        "voice",
-        "choir_sacred_harp",
-        "shape_note_voice"
-      ],
-      "description": "Shape-note / Sacred Harp singing tradition (1844 Sacred Harp tunebook compilation onward, Southern US Protestant origin). Unaccompanied four-part vocal harmony (treble-alto-tenor-bass arranged in hollow-square seating), with notation system using four geometric shapes (fa-sol-la-mi) replacing standard solfège. Repertoire: pre-1865 American shape-note hymnody, fuging-tunes (homophonic verse → polyphonic chorus), modal-not-tonal harmonic vocabulary. Performance practice: lead singer in center of square, all parts at full chest voice, no choir-blend technique (deliberate raw-power aesthetic). Distinguished from later gospel-quartet by full-congregation-not-quartet format and from Anglican choral by shape-note-codification. Sacred Harp Publishing Company maintains the 1991 revision.",
-      "exemplars": [
-        "Sacred Harp Singers at Liberty Baptist Church (1959)",
-        "Cooper Book recordings",
-        "Awake My Soul: The Story of the Sacred Harp",
-        "Henagar-Union Convention recordings",
-        "Sacred Harp Publishing Company recordings"
-      ],
-      "crossRefs": [
-        "droneModal.vocal"
-      ]
-    },
-    {
       "id": "work_songs_hollers",
       "name": "Field hollers and work songs",
       "family": "vernacular",
@@ -5732,46 +5697,6 @@
       ]
     },
     {
-      "id": "mariachi_traditional",
-      "name": "Mariachi traditional",
-      "family": "global",
-      "lineage": "Pre-studio mariachi tradition (Jalisco rural origins, Plaza Garibaldi outdoor serenata) before the 20th-century studio standardization of trumpets and orquesta size",
-      "parent": "functionalSong.mexican",
-      "axes": [
-        2,
-        -1,
-        2,
-        1,
-        1,
-        0,
-        0,
-        -2,
-        1,
-        1,
-        1,
-        0,
-        2
-      ],
-      "instruments": [
-        "voice",
-        "violin_orchestral",
-        "classical_nylon_string_guitar",
-        "guitarron_mexicano",
-        "vihuela_mexicana",
-        "mariachi_full"
-      ],
-      "description": "Traditional mariachi (codified late-19th century onward in Jalisco-and-Nayarit-and-Michoacán western Mexico, with the Guadalajara-and-Mexico-City golden era 1936-1960 establishing the ensemble configuration), the Mexican mariachi tradition as performed in Mexico. Defined by violins as melodic lead (often 4-8 violins playing in unison or parallel-third harmony), trumpets in unison or parallel-thirds providing brass-melodic counterweight (added to the ensemble in the 1930s-40s), classical-nylon-string guitar providing harmonic accompaniment with rasgueado strumming, vihuela mexicana (small five-string deep-bodied guitar with high-tessitura strumming role) and guitarrón mexicano (six-string acoustic-bass-guitar) providing rhythm-section foundation, and Spanish-language vocal lyrics on canciones rancheras, sones jaliscienses, huapangos, and bolero-ranchero subjects. Distinguished from Mexican-American Tejano by Mexican-not-cross-border lineage and traditional-not-electric-band instrumentation; distinguished from Mexican son jarocho by Jalisco-not-Veracruz origin; distinguished from norteño by absence of accordion and bajo sexto.",
-      "exemplars": [
-        "Mariachi Vargas de Tecalitlán",
-        "Mariachi Los Camperos de Nati Cano",
-        "José Alfredo Jiménez"
-      ],
-      "crossRefs": [
-        "functionalSong.tejanoBorder",
-        "wedding.americas"
-      ]
-    },
-    {
       "id": "mbalax",
       "name": "Mbalax",
       "family": "global",
@@ -6555,7 +6480,8 @@
         "rabab_maghribi",
         "darbuka",
         "riq",
-        "bendir"
+        "bendir",
+        "choir_ensemble"
       ],
       "description": "Andalusi nuba (codified ca. 9th century Córdoba, transmitted through Maghrebi conservatory schools 1492 onward in Fez, Tetouan, Tlemcen, Algiers, and Tunis), the multi-movement classical suite descended from medieval Al-Andalus court music. Each nuba is built on one of the eleven surviving ṭubūʿ (modal-melodic frameworks comparable to maqam but with distinct Maghrebi inflection), structured as a fixed sequence of five movements progressing from slow free-rhythm istikhbar through metric mizan sections at increasing tempos. Standard ensemble: ʻud, rabāb (bowed lute), kamanjah (violin held vertically), qanun, nay, darbuka, and a unison vocal chorus. Distinguished from Mashriqi (Egyptian/Levantine) takht ensemble by Maghrebi-Andalusi mode-system and codified-suite-not-tarab-improvisation form; distinguished from Sufi sama by court-classical context and absence of dhikr framing.",
       "exemplars": [
@@ -7101,46 +7027,6 @@
       ],
       "crossRefs": [
         "improvOnFrame.americanJazz.early"
-      ]
-    },
-    {
-      "id": "jingju",
-      "name": "Jīngjù (Beijing opera)",
-      "family": "classical",
-      "lineage": "Late-18th-century onward Chinese capital-region operatic synthesis emerging in Beijing from the Anhui-Hui troupes 1790 and the Hubei kunqu-pihuang merger 1820s onward, codified by the four great male role-types (sheng, jing chou-and-dan painted-face roles) and the four schools of female dan voice. Built on jinghu-erhu fiddle accompaniment with bangu-and-paigu percussion section setting the jianzipu rhythmic patterns. Court patronage in the Qing late-imperial period gave way to commercial troupe-theaters of late-Qing and Republican-era Shanghai-and-Beijing. The vocal stylization layers melismatic-modal pihuang (xipi-and-erhuang aria modes) with declamatory speech-tone alignment, where Mandarin tones constrain melodic contour.",
-      "parent": "artMusic.eastAsian",
-      "axes": [
-        -1,
-        1,
-        2,
-        0,
-        1,
-        0,
-        0,
-        -2,
-        2,
-        2,
-        2,
-        2,
-        0
-      ],
-      "instruments": [
-        "voice",
-        "erhu",
-        "yueqin",
-        "pipa",
-        "jinghu",
-        "sanxian",
-        "luogu"
-      ],
-      "description": "Jingju / Beijing opera (codified 1790 onward, with the Anhui troupes' 1790 arrival in Beijing as the foundation event and Mei Lanfang's 1920s-1940s reform period as crystallizing era), the Chinese codified-classical theater tradition. Defined by codified role-types (sheng — male, dan — female, jing — painted-face, chou — clown), each with distinctive vocal-style conventions and movement-vocabulary, melodic system organized around two main musical modes (xipi — bright and lively, erhuang — somber and lyrical), instrumental ensemble led by jinghu high-pitched fiddle (bamboo-bodied two-string spike fiddle giving the genre its signature timbre) with yueqin moon-lute, sanxian three-string lute, and high-and-low percussion (gongs, cymbals, ban wood-clapper), elaborate stylized-acting and operatic-singing-and-movement integration, and repertoire drawn from historical-and-legendary narrative material. Distinguished from kunqu (the older Chinese classical opera) by faster pace and military-and-acrobatic emphasis; distinguished from regional Chinese operas by Beijing-court codification and pan-Chinese standardization status.",
-      "exemplars": [
-        "Mei Lanfang",
-        "Cheng Yanqiu",
-        "Li Shaochun"
-      ],
-      "crossRefs": [
-        "droneModal.vocal"
       ]
     },
     {
@@ -7901,7 +7787,9 @@
         "electric_guitar_humbucker",
         "electric_bass",
         "accordion",
-        "drum_kit"
+        "drum_kit",
+        "electric_guitar_single_coil",
+        "congas"
       ],
       "description": "Kompa / compas direct (codified 1955 onward through Nemours Jean-Baptiste's Conjunto International establishing the genre, with parallel Webert Sicot tradition and continuous Haitian dance-music presence through to present), the Haitian dance music genre. Defined by methodical mid-tempo groove around 90-110 BPM, electric-or-acoustic guitar lead lines providing melodic foreground, accordion or synth supplying additional melodic texture (the kompa-traditional accordion lineage from Cuban conjunto influence, replaced or supplemented by synth in modern kompa), conjunto-like horn-and-percussion arrangement extending the basic guitar-and-vocal core, French-and-Haitian-Creole vocal lyrics addressing romantic and social-life subjects, and characteristic offbeat-emphasis groove organized around the kata percussion pattern. Distinguished from kompa direct by sub-style nuance; distinguished from Dominican merengue by Haitian-not-Dominican lineage and slower tempo; distinguished from Trinidadian calypso by French-Haitian-Creole language and conjunto-derived ensemble.",
       "exemplars": [
@@ -7938,7 +7826,10 @@
         "voice",
         "electric_guitar_humbucker",
         "analog_poly_synth",
-        "drum_machine_808"
+        "drum_machine_808",
+        "electric_guitar_single_coil",
+        "electric_bass",
+        "congas"
       ],
       "description": "Kizomba (codified 1980s onward Angola, descending from semba dance and zouk influence, with international diffusion from 2000s onward through Portuguese and Cape Verdean diaspora), the slow sensual Angolan dance music genre. Defined by Portuguese-language vocal performance with smooth romantic-tenor delivery, programmed slow-zouk-derived back-line at 60-80 BPM with characteristic three-step-pattern percussion, electric-bass and synth-pad accompaniment supplying melodic foundation, optional acoustic-or-electric guitar lead voice, and lyric content addressing romantic-yearning subjects suited to close-partnered slow-dance choreography. Distinguished from semba (its parent) by slower tempo and absence of vigorous-leaping dance-form; distinguished from straight zouk by Angolan-Portuguese-language lineage and slower tempo; distinguished from later kuduro (faster Angolan electronic genre) by sensual-slow rather than aggressive-fast register.",
       "exemplars": [
@@ -9372,80 +9263,6 @@
       ]
     },
     {
-      "id": "mongolian_xoomii",
-      "name": "Khöömii (Mongolian overtone singing)",
-      "family": "global",
-      "lineage": "Mongolian throat-singing overtone-vocal-technique tradition, the canonical method of simultaneous fundamental-and-formant-overtone production via aryepiglottic-fold steppe-narrowing of the throat. Eight named sub-techniques: kharkhiraa deep-low-fundamental-with-loud-overtones, sygyt high-melodic-overtone-isolation, ezengileer rhythmic-jaw-vibration, dumchuktaar nasal-passage technique, shahaa fluttering-overtone-modulation, khoomei middle-register basic-style, bagalzuuryn-khoomei smooth-style, and khamryn-khoomei nostril-and-mouth combined-resonance. Practiced traditionally by Western-Mongolian Khalkha-Oirat herder communities, contextualized within nomadic-pastoralist horse-and-livestock work-song repertoire and shamanic-spirit-communication ritual.",
-      "parent": "droneModal.overtone",
-      "axes": [
-        -2,
-        -2,
-        1,
-        -1,
-        -1,
-        1,
-        1,
-        -2,
-        0,
-        2,
-        2,
-        -1,
-        0
-      ],
-      "instruments": [
-        "throat_singing_voice",
-        "morin_khuur",
-        "tovshuur"
-      ],
-      "description": "Mongolian overtone-singing tradition distinct from urtyn duu long-song; multiple sub-styles (kharkhiraa low, isgeree whistle, tagnain throat-roof) producing simultaneous fundamental and overtone melody.",
-      "exemplars": [
-        "Khusugtun",
-        "Hosoo",
-        "Egschiglen"
-      ],
-      "crossRefs": [
-        "ritualDevotional.buddhist"
-      ]
-    },
-    {
-      "id": "tibetan_gyuto",
-      "name": "Gyütö multiphonic chant (Tibetan Buddhist)",
-      "family": "global",
-      "lineage": "Tibetan Vajrayana-Buddhist Gelugpa-school tantric-chant tradition of the Gyuto Tantric University monastery (founded 1474 by Je Sherab Sengge, originally located in Lhasa, exiled 1959 to Dharamsala-and-Mysore India). The signature gyumey rang-chen multiphonic-vocal-technique produces a single chord per voice through subharmonic-overtone-isolation, with the chord typically including the fundamental, a fifth, and a major-third harmonic-overtone (heard simultaneously). Liturgical-context is the tantric sadhana practice cycle: protector-deity invocation (kangso), initiation-empowerment (wangkur), and meditation-on-tutelary-deity (yidam). The dungchen long-trumpets, gyaling oboe-like-shawms, and damaru hourglass-hand-drums punctuate the chant at canonical liturgical-points.",
-      "parent": "ritualDevotional.buddhist",
-      "axes": [
-        -2,
-        -2,
-        0,
-        -2,
-        0,
-        2,
-        -1,
-        -2,
-        1,
-        2,
-        2,
-        -1,
-        1
-      ],
-      "instruments": [
-        "throat_singing_voice",
-        "choir_ensemble",
-        "tibetan_dungchen",
-        "tibetan_gyaling"
-      ],
-      "description": "Tantric Buddhist monastic chanting where each monk produces 2-3 simultaneous pitches — a deep fundamental with overtone melody — performed as massed unison-multiphonic at extremely slow tempo, alternating with long-horn dungchen and ceremonial percussion.",
-      "exemplars": [
-        "Gyütö Monks of Tibet",
-        "Gyume Tantric University",
-        "Drepung Loseling Monastery"
-      ],
-      "crossRefs": [
-        "droneModal.overtone",
-        "praiseSong.indianSubcontinent"
-      ]
-    },
-    {
       "id": "inuit_katajjaq",
       "name": "Katajjaq (Inuit throat-singing game)",
       "family": "global",
@@ -9467,7 +9284,8 @@
         2
       ],
       "instruments": [
-        "throat_singing_voice"
+        "throat_singing_voice",
+        "voice"
       ],
       "description": "The Inuit katajjaq (throat-singing) tradition continuous from premodern Inuit-Arctic-hunter-gatherer practice across Northern Canada (Nunavut, Nunavik, Nunatsiavut) and Greenland through colonial-era continuous performance (including a documented period of missionary-suppression in the late-19th-and-early-20th-century) into modern Inuit-cultural-revival; the katajjaq is performed as a vocal-game-and-competition between two women face-to-face, with characteristic interlocking-throat-sound arrangement evoking Arctic-environment sounds (wind, geese, dogs, walrus, mosquitoes). Defined by unaccompanied two-women-face-to-face hocket-and-throat-percussion arrangement, Inuktitut text register with characteristic vocables-and-ideophones, characteristic interlocking-percussive-vocal architecture.",
       "exemplars": [
@@ -10733,83 +10551,6 @@
       ],
       "crossRefs": [
         "balladPoetry.latinAmTroubadour"
-      ]
-    },
-    {
-      "id": "kompa_song_form",
-      "name": "Kompa (song-form)",
-      "family": "global",
-      "lineage": "Haitian kompa in its song-form (chanson-format) presentation — distinct from the dance-floor instrumental kompa-direkt by foregrounding the song-form vocal-and-harmonic structure over the dance-rhythm groove; figures include the later Tabou Combo lineage where song-form kompa became dominant alongside dance-floor instrumental kompa",
-      "parent": "functionalSong.tropicalSong",
-      "axes": [
-        1,
-        1,
-        0,
-        1,
-        1,
-        1,
-        1,
-        0,
-        0,
-        2,
-        1,
-        2,
-        1
-      ],
-      "instruments": [
-        "voice",
-        "electric_guitar_single_coil",
-        "accordion",
-        "electric_bass",
-        "congas",
-        "drum_kit"
-      ],
-      "description": "Kompa song-form (the Haitian song-form variant of compas direct, distinguished from the broader kompa dance-music tradition by foregrounded narrative-vocal lyrics in Haitian Creole and French rather than instrumental-band foreground), the Haitian song-form kompa tradition. Defined by narrative-vocal foregrounded lyrics in Haitian Creole and French addressing romantic-narrative, social-commentary, and personal-life subjects, mid-tempo kompa rhythmic foundation (electric-guitar-and-bass-and-drums with accordion or synth lead lines), conjunto-like horn-section arrangement when expanded ensemble is used, song-form built on tight verse-chorus pop structure (3:00-4:30 song-length), and intimate-club and concert-hall performance contexts contrasting with the open-dance-floor function of straight kompa dance-music. Distinguished from straight kompa by narrative-lyric foreground over dance-function; distinguished from Haitian méringue by post-1955 timestamp; distinguished from French-Caribbean zouk by Haitian-not-Antillean lineage.",
-      "exemplars": [
-        "Tabou Combo",
-        "Carimi",
-        "Sweet Micky"
-      ],
-      "crossRefs": [
-        "groovePercussion.afroDiasporicElec"
-      ]
-    },
-    {
-      "id": "kizomba_song_form",
-      "name": "Kizomba (song-form)",
-      "family": "global",
-      "lineage": "Angolan-derived song-form vocal tradition adapted from kizomba dance — slower-tempo, ballad-leaning, lyrical Portuguese-Creole-Spanish material with cabo-zouk-and-kizomba rhythm; canonical exponents include Anselmo Ralph, C4 Pedro, Bonga in his vocal repertoire, and the Cabo Verdean-Angolan-Portuguese diaspora circuit",
-      "parent": "functionalSong.tropicalSong",
-      "axes": [
-        1,
-        1,
-        1,
-        1,
-        0,
-        1,
-        0,
-        1,
-        -1,
-        2,
-        1,
-        1,
-        1
-      ],
-      "instruments": [
-        "voice",
-        "electric_guitar_single_coil",
-        "electric_bass",
-        "congas",
-        "drum_machine_808"
-      ],
-      "description": "Kizomba song-form (codified 1980s onward in Angola, descending from semba dance-and-song lineage and zouk influence, with international diffusion from 2000s onward through Portuguese and Cape Verdean diaspora), the Angolan-derived sensual midtempo song form. Defined by smooth romantic-tenor vocal performance over slow-zouk-derived backline at 60-80 BPM, programmed three-step-pattern percussion foundation (the kizomba-rhythmic signature), electric-bass and synth-pad accompaniment supplying melodic foundation, optional acoustic-or-electric guitar lead voice, Portuguese-language lyric content addressing romantic-yearning subjects, and song-form built on tight verse-chorus structure designed for close-partnered slow-dance choreography. Distinguished from semba (its parent dance-tradition) by slower tempo and absence of vigorous-leaping dance-form; distinguished from straight zouk by Angolan-Portuguese-language lineage and slower tempo; distinguished from later kuduro by sensual-slow rather than aggressive-fast register.",
-      "exemplars": [
-        "Anselmo Ralph",
-        "Bonga",
-        "Kyaku Kyadaff"
-      ],
-      "crossRefs": [
-        "groovePercussion.afroDiasporicElec"
       ]
     },
     {
@@ -15018,41 +14759,6 @@
       ]
     },
     {
-      "id": "coptic_liturgical",
-      "name": "Coptic liturgical chant",
-      "family": "global",
-      "lineage": "Coptic Orthodox liturgical chant tradition of Egypt, preserved continuously since the early Christian centuries with characteristic features including Coptic-language liturgical text, antiphonal-choral-and-deacon-leader vocal exchange, and characteristic melismatic ornamental melodic style — claimed by tradition to preserve features of pre-Christian Egyptian temple-music practice, with the canonical repertoire codified across the Holy Week and Eucharistic-liturgy cycles",
-      "parent": "ritualDevotional.christianGospel.coptic",
-      "axes": [
-        -2,
-        1,
-        2,
-        -2,
-        0,
-        0,
-        0,
-        -1,
-        1,
-        2,
-        2,
-        -1,
-        -2
-      ],
-      "instruments": [
-        "voice",
-        "choir_ensemble"
-      ],
-      "description": "Coptic liturgical chant (codified through the Coptic Orthodox Church of Alexandria's continuous tradition from the 1st century CE through to present-day Cairo, Alexandria, and the global Coptic diaspora), the Egyptian Christian liturgical chant tradition. Defined by melismatic-modal solo-and-congregational vocal recitation in Coptic, Greek, and Arabic languages, the eight-mode (echos) system inherited from Byzantine practice but with distinctly Egyptian melodic vocabulary, triangle-and-cymbal sparse percussion accents (no other instruments — Coptic liturgical practice excludes melodic instruments), call-and-response between cantor (psaltos) and congregation, and a year-cycle of the Coptic calendar's liturgical seasons each with characteristic melodies. Distinguished from Greek Byzantine chant by Coptic-language and Egyptian melodic distinctness; distinguished from Ethiopian Orthodox Tewahedo zema by absence of begena lyre and frame-drum percussion; distinguished from Catholic Gregorian chant by responsorial congregational participation and Coptic-language transmission.",
-      "exemplars": [
-        "Coptic Orthodox Patriarchate",
-        "David Ensemble",
-        "Coptic seminary cantorial"
-      ],
-      "crossRefs": [
-        "artMusic.middleEasternClassical"
-      ]
-    },
-    {
       "id": "bro_country",
       "name": "Bro-country",
       "family": "global",
@@ -15372,43 +15078,6 @@
       ]
     },
     {
-      "id": "melodic_death_swedish",
-      "name": "Melodic death metal (Swedish)",
-      "family": "global",
-      "lineage": "Gothenburg-school melodic-death subgenre codified through At the Gates (Slaughter of the Soul 1995), In Flames (The Jester Race 1996), and Dark Tranquillity (The Gallery 1995) — characterized by twin-guitar harmony lead lines drawn from Iron Maiden, growled death-metal vocals, and the dual-guitar melodic-attack aesthetic that became the genre signature",
-      "parent": "distortedRock.metal.death",
-      "axes": [
-        1,
-        1,
-        0,
-        1,
-        2,
-        1,
-        0,
-        1,
-        2,
-        2,
-        1,
-        1,
-        0
-      ],
-      "instruments": [
-        "voice",
-        "electric_guitar_humbucker",
-        "electric_bass",
-        "drum_kit"
-      ],
-      "description": "Gothenburg-school melodic-death-metal sub-style; harmonized-twin-guitar-lead lines integrated with death-metal-derived growled vocals and double-bass-pedal back-line, structured-and-melodic compositional approach.",
-      "exemplars": [
-        "In Flames",
-        "At The Gates",
-        "Dark Tranquillity"
-      ],
-      "crossRefs": [
-        "distortedRock.metal.power"
-      ]
-    },
-    {
       "id": "technical_death_metal",
       "name": "Technical death metal",
       "family": "global",
@@ -15480,43 +15149,6 @@
       ],
       "crossRefs": [
         "distortedRock.metal.thrash"
-      ]
-    },
-    {
-      "id": "norwegian_2nd_wave_black",
-      "name": "Norwegian 2nd-wave black metal",
-      "family": "global",
-      "lineage": "Early-1990s Norwegian black-metal scene centered on Oslo, codified through Mayhem (De Mysteriis Dom Sathanas 1994), Burzum (Filosofem 1996), Darkthrone (Transilvanian Hunger 1994), Emperor (In the Nightside Eclipse 1994), and Immortal — characterized by raw lo-fi production, false-fold ventricular shriek vocals, tremolo-picked tremolo-feast guitar work, blast-beat drumming, and Satanist / anti-Christian lyrical content with the church-burning context that made the scene internationally notorious",
-      "parent": "distortedRock.metal.black",
-      "axes": [
-        0,
-        1,
-        0,
-        1,
-        1,
-        0,
-        0,
-        -1,
-        2,
-        2,
-        2,
-        2,
-        0
-      ],
-      "instruments": [
-        "voice",
-        "electric_guitar_humbucker",
-        "electric_bass",
-        "drum_kit"
-      ],
-      "description": "Early-90s Norwegian black-metal scene sub-style; tremolo-picked-atmospheric riffing, blast-beat back-line, shrieked-vocal delivery, deliberately-low-fidelity cassette-recording aesthetic, anti-Christian-and-pagan lyric subjects.",
-      "exemplars": [
-        "Mayhem",
-        "Burzum",
-        "Darkthrone"
-      ],
-      "crossRefs": [
-        "experimentalElec.ambient"
       ]
     },
     {
@@ -17788,7 +17420,10 @@
       "instruments": [
         "voice",
         "classical_nylon_string_guitar",
-        "maracas"
+        "maracas",
+        "atabaque",
+        "sisera",
+        "garaon"
       ],
       "description": "Garifuna ballad form distinct from punta — slower tempo, Spanish-Latin-influenced acoustic-guitar accompaniment, individual-singer-and-guitarist solo presentation rather than ensemble drum-and-chorus context. Romantic and reflective lyric register. The ballad-tradition counterpart to punta’s celebratory-drum tradition within the same Garifuna culture.",
       "exemplars": [
@@ -18383,7 +18018,9 @@
         "santur",
         "qanun",
         "darbuka",
-        "riq"
+        "riq",
+        "joza",
+        "naqqarat"
       ],
       "description": "Iraqi classical-vocal art-music tradition (al-Maqam al-Iraqi), distinct from but related to broader Arabic-maqam tradition. Suite-form structure of fixed sections (tahrir, miyana, jalsa) framing improvisation. Specifically Baghdadi performance-context, with characteristic Iraqi-vernacular lyric register.",
       "exemplars": [
@@ -18764,7 +18401,8 @@
         "dunun",
         "akonting",
         "xalam",
-        "donso_ngoni"
+        "donso_ngoni",
+        "voice"
       ],
       "description": "Hereditary praise-singing tradition of the Mandé peoples (Mandinka, Bambara, Khassonké), descended from the Mali Empire (1235-1670). Jeli (also jali, géwél, gawlo) are professional specialists transmitting oral history, panegyric, and ceremonial recitation through patrilineal succession. Heptatonic Mande tonal organization with characteristic neutral-third intonation. Traditional ensemble: griot voice, kora (21-string harp-lute), balafon (resonator-gourd xylophone), ngoni (plucked spike-lute). Performance contexts span chiefly courts, life-cycle ceremonies (weddings, naming-days, funerals), and family-compound gatherings. Vocal style features extensive melisma, ornamental flourishes, and sustained high-register declamation. Modern lineage carriers maintain pre-electric instrumental traditions while engaging with international concert and recording infrastructure.",
       "exemplars": [
@@ -19480,7 +19118,9 @@
       "instruments": [
         "voice",
         "launeddas",
-        "throat_singing_voice"
+        "throat_singing_voice",
+        "accordion",
+        "clarinet"
       ],
       "description": "Sardinian pastoral-polyphony and triple-pipe tradition. Cantu a tenore: four-male-voice polyphony (bassu, contra, mesu boche, boche), throat-produced bassu-and-contra parts characteristic. intangible-heritage tradition associated with central-Sardinian pastoral villages (Bitti, Orune). Launeddas: triple-pipe single-reed instrument played with continuous-circular-breathing, oldest-extant European polyphonic instrument (3000-year archaeological lineage). Distinguished from continental-Italian folk by language (Sardinian, not Italian) and by ancient-pre-Roman musical-substrate.",
       "exemplars": [
@@ -20824,41 +20464,6 @@
       ]
     },
     {
-      "id": "mongolian_urtiin_duu",
-      "name": "Mongolian urtiin duu long-song",
-      "family": "classical",
-      "lineage": "Mongolian urtiin duu (\"long song\") tradition. Solo vocal art-form characterized by extreme melisma — single text syllables extended across many breaths in elaborate ornamental melodic territory, with characteristic falsetto-and-chest-register alternation, a vibrato called shuranhai produced by ornamental throat-tremolo, and an overall melodic range extending across two-and-a-half octaves. Repertoire draws on praise-songs to natural features (rivers, mountains, the eternal blue sky tngri), ancestor-veneration cycles, and ceremonial-occasion repertoire. Accompaniment on morin khuur (the two-string horsehead fiddle that is the canonical Mongolian instrument). Pentatonic modal vocabulary with mode-specific ornament conventions and a strongly pastoral-derived expressive register. Norovbanzad (1931-2002) is the twentieth-century canonical singer. Carole Pegg's Mongolian Music, Dance & Oral Narrative (University of Washington Press 2001) is the principal English-language scholarly documentation, with Mongolian National Folk Song and Dance Academy archives the institutional anchor. Distinguished from Mongolian bogino duu (\"short song\") by the long-song's extreme-melisma extended-form structure; distinguished from Tuvan ezengileer melodic-style by Mongolian-Khalkh dialect-specific cadential conventions; distinguished from Kazakh küy by voice-led (vs instrumental-led) tradition structure.",
-      "parent": "droneModal.heterophonic",
-      "axes": [
-        -2,
-        2,
-        2,
-        -2,
-        -1,
-        2,
-        2,
-        -1,
-        1,
-        2,
-        1,
-        -2,
-        -1
-      ],
-      "instruments": [
-        "voice",
-        "morin_khuur"
-      ],
-      "description": "Mongolian urtiin duu (\"long song\") tradition. Solo vocal art-form characterized by extreme melisma — single text syllables extended across many breaths in elaborate ornamental melodic territory, with characteristic falsetto-and-chest-register alternation, a vibrato called shuranhai produced by ornamental throat-tremolo, and an overall melodic range extending across two-and-a-half octaves. Repertoire draws on praise-songs to natural features, ancestor-veneration cycles, and ceremonial-occasion repertoire. Accompaniment on morin khuur (the two-string horsehead fiddle). Pentatonic modal vocabulary with mode-specific ornament conventions.",
-      "exemplars": [
-        "Carole Pegg — Mongolian Music, Dance & Oral Narrative (U. Washington Press 2001)",
-        "Smithsonian Folkways magazine feature 2015",
-        "Norovbanzad (twentieth-century canonical singer)"
-      ],
-      "crossRefs": [
-        "droneModal.vocal"
-      ]
-    },
-    {
       "id": "mongolian_khoomei",
       "name": "Mongolian khoomei overtone singing",
       "family": "global",
@@ -20882,7 +20487,8 @@
       "instruments": [
         "voice",
         "morin_khuur",
-        "tovshuur"
+        "tovshuur",
+        "throat_singing_voice"
       ],
       "description": "Mongolian khoomei overtone-singing tradition. The technique produces a sustained chest-register fundamental while shaping the vocal tract to amplify upper partials of the harmonic series, generating a clearly audible whistle-tone melody floating above the fundamental. Khalkh-Mongol vocabulary distinguishes several techniques: kharkhiraa (low-register subharmonic), iisgerekh (mid-register whistle-tone), shakhaa (constricted-throat variant), bagalzuuriin (deep throat-tension), and uyangiin (a singing-leaning lyrical variant). Performance contexts span solo concert, pastoral solo, morin-khuur-accompanied ensemble, and the contemporary international touring circuit.",
       "exemplars": [
@@ -21374,7 +20980,11 @@
         "rgya_gling",
         "dung_chen",
         "damaru",
-        "trumpet"
+        "trumpet",
+        "throat_singing_voice",
+        "choir_ensemble",
+        "tibetan_dungchen",
+        "tibetan_gyaling"
       ],
       "description": "Tibetan Buddhist monastic multiphonic yang chant tradition of the Gelug-school tantric colleges Gyuto and Gyume (founded 1474 and 1485, by Sherab Sengge, a direct disciple of Tsongkhapa). The yang chant technique produces a chest-register-pitched fundamental enriched with audible upper-partial overtones such that a single voice produces what sounds like a chord. Multiple monks chanting in unison produce a thick texture of fundamental-plus-overtones across the assembly. Accompaniment by the canonical monastic-ensemble percussion: rolmo large paired cymbals, damaru double-headed hand-drum, dung-chen long telescoping copper-or-brass trumpet (the four-meter-long ceremonial instrument), and rgya-gling double-reed oboe.",
       "exemplars": [
@@ -21462,42 +21072,6 @@
       "crossRefs": [
         "artMusic.southAsian",
         "improvOnFrame.indianClassicalImprov"
-      ]
-    },
-    {
-      "id": "sardinian_cantu_a_tenore",
-      "name": "Sardinian cantu a tenore",
-      "family": "global",
-      "lineage": "Sardinian cantu a tenore four-male-voice polyphonic tradition of the Barbagia region (interior central-northeast Sardinia, particularly the Nuoro province villages of Bitti, Orgosolo, Orune, and Orosei). The ensemble consists of four named voice-parts: the boghe (the soloist who initiates each verse with the verse-text, leading the ensemble), the mesu boghe (the high tenor-register harmony voice), the contra (the guttural-ventricular harmony voice producing a deep bass-register growl through false-vocal-fold co-oscillation), and the bassu (the lowest guttural-ventricular voice, producing the deepest growling subharmonic). The contra and bassu employ the same false-vocal-fold technique that produces Tuvan kargyraa subharmonic — a striking case of independent convergence between two unrelated traditions. Performance occurs traditionally in the su zilleri stone-walled village bar, with the four singers facing inward in a tight circle. Repertoire spans religious processional cycles (such as the Holy Week passion-passages), pastoral courtship and praise songs, and the satirical-improvisatory cantu a tenore-with-improvised-text contest contexts. Tenores di Bitti and Tenores di Orosei among the canonical twentieth-century ensembles. Bernard Lortat-Jacob's Chants de Passion (Éditions du Cerf 1998) and the Smithsonian Folkways SFW 50402 Sardinia: Music of the Shepherds (1995) constitute the principal documentary anchors. Distinguished from Corsican paghjella by Sardinian's four-voice (vs Corsican three-voice) configuration and guttural-ventricular subharmonic vocal architecture; distinguished from Albanian iso-polyphony by Sardinian's no-drone subharmonic-voice-as-bass (vs Albanian iso-drone foundation) configuration.",
-      "parent": "droneModal.vocal",
-      "axes": [
-        -2,
-        1,
-        1,
-        0,
-        2,
-        2,
-        0,
-        -2,
-        2,
-        2,
-        2,
-        -2,
-        1
-      ],
-      "instruments": [
-        "voice"
-      ],
-      "description": "Sardinian cantu a tenore four-male-voice polyphonic tradition of the Barbagia region (interior central-northeast Sardinia, particularly the Nuoro province villages of Bitti, Orgosolo, Orune, and Orosei). The ensemble consists of four named voice-parts: the boghe (the soloist who initiates each verse), the mesu boghe (the high tenor-register harmony voice), the contra (the guttural-ventricular harmony voice producing a deep bass-register growl through false-vocal-fold co-oscillation), and the bassu (the lowest guttural-ventricular voice). The contra and bassu employ the same false-vocal-fold technique that produces Tuvan kargyraa subharmonic — a striking case of independent convergence. Performance occurs traditionally in the su zilleri stone-walled village bar.",
-      "exemplars": [
-        "Bernard Lortat-Jacob — Chants de Passion: Au cœur d'une confrérie de Sardaigne (Éditions du Cerf 1998)",
-        "Smithsonian Folkways SFW 50402 — Sardinia: Music of the Shepherds (1995)",
-        "Tenores di Bitti",
-        "Tenores di Orosei"
-      ],
-      "crossRefs": [
-        "balladPoetry.mediterraneanBallad",
-        "droneModal.overtone"
       ]
     },
     {
@@ -21846,42 +21420,6 @@
       ]
     },
     {
-      "id": "inuit_katajjaq_games",
-      "name": "Inuit katajjaq throat-singing game",
-      "family": "global",
-      "lineage": "Inuit katajjaq throat-singing game tradition of the eastern Canadian Arctic (Nunavut, Nunavik, and Nunatsiavut Inuit communities), with cognate forms across the Inuit cultural area including nipaquhiit in the Kivalliq region, pirqsirniq in Iglulik, and parallel Iñupiaq and Yupik forms in Alaska and Chukotka. Performed by two women standing face-to-face, very close together, taking turns producing rhythmic vocal patterns of inhaled-and-exhaled breath-sounds, throat-clicks, glottal-stops, and pitched-fundamental tones — each woman's mouth and throat resonating as a chamber that the other's breath excites, with the two voices interlocking in rapid hocketed alternation. The game ends when one performer either laughs, cannot maintain the breath-cycle, or breaks the established pattern. Functionally a game (entertainment, competition) rather than ritual or aesthetic performance — though in some communities also functions as a women's collective-bonding practice and as a contest-skill display. Katajjaq is genealogically and acoustically connected to the Ainu rekuhkara women's-throat-game tradition (extinct early twentieth century), with both forms hypothesized to descend from a circum-Pacific-Arctic ancient substrate. Jean-Jacques Nattiez's 1999 Ethnomusicology article (Inuit Throat-Games and Siberian Throat Singing, 43/3) and Beverley Cavanagh's 1976 Canadian Folk Music Journal piece constitute the foundational scholarship; Tanya Tagaq (born 1975, Cambridge Bay, Nunavut) is the contemporary revival figure whose performance-art interpretation has brought international visibility to the tradition. Distinguished from Tuvan and Mongolian overtone-singing by katajjaq's female-duo hocketed-breath-and-throat-sound configuration (vs solo single-voice-overtone-melody); distinguished from broader throat-singing by katajjaq's game/contest functional context.",
-      "parent": "ritualDevotional.indigenous.arctic",
-      "axes": [
-        -2,
-        -1,
-        0,
-        1,
-        1,
-        2,
-        1,
-        -2,
-        0,
-        2,
-        2,
-        -2,
-        2
-      ],
-      "instruments": [
-        "voice"
-      ],
-      "description": "Inuit katajjaq throat-singing game tradition of the eastern Canadian Arctic (Nunavut, Nunavik, and Nunatsiavut Inuit communities), with cognate forms across the Inuit cultural area. Performed by two women standing face-to-face, very close together, taking turns producing rhythmic vocal patterns of inhaled-and-exhaled breath-sounds, throat-clicks, glottal-stops, and pitched-fundamental tones — each woman's mouth and throat resonating as a chamber that the other's breath excites, with the two voices interlocking in rapid hocketed alternation. The game ends when one performer either laughs, cannot maintain the breath-cycle, or breaks the established pattern. Functionally a game rather than ritual or aesthetic performance — though in some communities also functions as a women's collective-bonding practice.",
-      "exemplars": [
-        "Jean-Jacques Nattiez — Inuit Throat-Games and Siberian Throat Singing (Ethnomusicology 43/3, 1999)",
-        "Beverley Cavanagh — Some Throat Games of Netsilik Eskimo Women (Canadian Folk Music Journal 4, 1976)",
-        "Nicole Beaudry — Le katajjaq, un jeu inuit traditionnel (Inuit Studies 2/1, 1978)",
-        "Laura Boulton — Folkways (1955)",
-        "Tanya Tagaq (contemporary revival figure)"
-      ],
-      "crossRefs": [
-        "droneModal.overtone"
-      ]
-    },
-    {
       "id": "mapuche_tayil_ritual",
       "name": "Mapuche tayil genealogical chant",
       "family": "global",
@@ -21950,43 +21488,6 @@
       "crossRefs": [
         "ritualDevotional.indigenous.mapuche",
         "ritualDevotional.indigenous.arctic"
-      ]
-    },
-    {
-      "id": "garifuna_paranda_hungu_hungu",
-      "name": "Garifuna paranda and hungu-hungu",
-      "family": "global",
-      "lineage": "Garifuna paranda and hungu-hungu Afro-Indigenous-Caribbean song traditions of the Garifuna (Garinagu) community of the Central American Caribbean coast — Belize (Stann Creek and Toledo districts), Honduras (Atlántida and Colón departments), Guatemala (Izabal department), and Nicaragua (Caribbean coast). Garifuna culture, language, and music. The Garifuna are descended from West African Black-Carib peoples deported from St. Vincent by British colonial authorities in 1797 to the Honduran Caribbean coast and subsequently spread along the Central American littoral; the Garifuna language is a unique Arawakan-with-African-and-Spanish-French-substrate hybrid. Paranda is the canonical Garifuna song-form: solo-or-small-group voice accompanied by acoustic guitar, atabaque-style barrel-drums (the primero/segunda paired drum configuration in Garifuna nomenclature), sisera gourd-shaker, and characteristic male tenor-and-falsetto-alternation vocal style. Hungu-hungu is the parallel drum-rhythm cycle (in a characteristic 3/4-against-6/8 polyrhythm) that anchors much Garifuna sacred-and-secular repertoire. Andy Palacio (1960-2008) and the Stonetree Records Paranda Project (1990s, recording elderly first-generation parandero performers) brought paranda to international attention. Aurelio Martínez (born 1969) continues the post-Palacio paranda lineage. Distinguished from Trinidadian calypso by Garifuna-language repertoire and characteristic 3/4-against-6/8 hungu-hungu polyrhythmic foundation; distinguished from Honduran-mestizo punta rock by paranda's acoustic-and-traditional (vs electric-pop) instrumentation; distinguished from Afro-Brazilian samba de roda by Garifuna's Central-American-Caribbean specific Afro-Indigenous-hybrid linguistic-cultural identity.",
-      "parent": "functionalSong.tropicalSong",
-      "axes": [
-        0,
-        0,
-        0,
-        1,
-        1,
-        1,
-        1,
-        -1,
-        1,
-        2,
-        1,
-        2,
-        1
-      ],
-      "instruments": [
-        "voice",
-        "atabaque",
-        "sisera",
-        "garaon"
-      ],
-      "description": "Garifuna paranda and hungu-hungu Afro-Indigenous-Caribbean song traditions of the Garifuna (Garinagu) community of the Central American Caribbean coast — Belize, Honduras, Guatemala, and Nicaragua. Garifuna culture, language, and music. The Garifuna are descended from West African Black-Carib peoples deported from St. Vincent by British colonial authorities in 1797. Paranda is the canonical Garifuna song-form: solo-or-small-group voice accompanied by acoustic guitar, atabaque-style barrel-drums (the primero/segunda paired drum configuration), sisera gourd-shaker, and characteristic male tenor-and-falsetto-alternation vocal style. Hungu-hungu is the parallel drum-rhythm cycle (in a characteristic 3/4-against-6/8 polyrhythm).",
-      "exemplars": [
-        "Stonetree Records Paranda Project (1990s)",
-        "Andy Palacio — Wátina (2007)",
-        "Aurelio Martínez"
-      ],
-      "crossRefs": [
-        "groovePercussion.caribbean"
       ]
     },
     {
@@ -22196,46 +21697,6 @@
       ]
     },
     {
-      "id": "iraqi_maqam_baghdad",
-      "name": "Iraqi maqam of Baghdad",
-      "family": "classical",
-      "lineage": "Iraqi maqam (\"al-maqam al-iraqi\") classical modal-suite tradition of Baghdad and the broader Iraqi cultural area, with development through the Ottoman-Mamluk and Ottoman-Hashemite periods into the twentieth-century canonical form. The Iraqi maqam repertoire comprises approximately fifty-six canonical maqamat (\"modal-suites\"), each organized as a multi-movement suite including tahrir (opening melismatic-improvisation movement), miyana (middle-register heightened-emotional section), and taslim (concluding-return cadential section). Performance configuration centers on the male qari (singer-reciter, a respected community-cultural-figure trained through extended apprenticeship) accompanied by the chalghi instrumental ensemble: joza (four-string spike-fiddle with coconut-shell resonator, the lead instrument), santur (struck-board-zither, distantly cognate with the Persian santur and the European hammered dulcimer), riqq (small tambourine with brass jingles), dumbek (goblet-drum), and naqqarat (small kettle-drum pair). Lyric base draws on classical Arabic poetry, with particularly heavy use of the seventh-century pre-Islamic mu'allaqat poetic tradition and the medieval Arabic poets al-Mutanabbi and Abu Nuwas. Modal vocabulary draws on the Arabic maqam framework with characteristic Iraqi-specific maqamat (such as maqam Bayat al-Iraqi, maqam Awj al-Iraqi) that have no exact parallel in Egyptian or Levantine maqam practice. Twentieth-century canonical qari include Mohammed al-Qubanchi (1900-1989), Yousuf Omar (1918-1987), and Hashim al-Rajab. Scheherezade Hassan's scholarship constitutes the principal Western-distributed academic documentation. Distinguished from Egyptian and Levantine maqam by Iraqi's joza-and-santur (vs oud-and-qanun) instrumental ensemble base; distinguished from Iranian dastgah and Azerbaijani mugham by Arabic-language repertoire and Baghdadi-specific maqamat; distinguished from Yemeni Sanaani by Iraqi maqam's suite-of-movements (vs Yemeni qomah-with-three-movements) architecture.",
-      "parent": "artMusic.middleEasternClassical",
-      "axes": [
-        0,
-        2,
-        2,
-        -1,
-        0,
-        2,
-        2,
-        -1,
-        0,
-        2,
-        2,
-        0,
-        0
-      ],
-      "instruments": [
-        "voice",
-        "santur",
-        "joza",
-        "riq",
-        "darbuka",
-        "naqqarat"
-      ],
-      "description": "Iraqi maqam (\"al-maqam al-iraqi\") classical modal-suite tradition of Baghdad and the broader Iraqi cultural area, with development through the Ottoman-Mamluk and Ottoman-Hashemite periods into the twentieth-century canonical form. The Iraqi maqam repertoire comprises approximately fifty-six canonical maqamat (\"modal-suites\"), each organized as a multi-movement suite including tahrir (opening melismatic-improvisation), miyana (middle-register heightened-emotional section), and taslim (concluding-return cadential section). Performance configuration centers on the male qari (singer-reciter) accompanied by the chalghi instrumental ensemble: joza, santur, riqq, dumbek, and naqqarat. Lyric base draws on classical Arabic poetry.",
-      "exemplars": [
-        "Scheherezade Hassan scholarship",
-        "Yousuf Omar (twentieth-century qari)",
-        "Hashim al-Rajab",
-        "Mohammed al-Qubanchi"
-      ],
-      "crossRefs": [
-        "improvOnFrame.persianArabImprov"
-      ]
-    },
-    {
       "id": "coptic_orthodox_chant",
       "name": "Coptic Orthodox liturgical chant",
       "family": "classical",
@@ -22272,45 +21733,6 @@
       ],
       "crossRefs": [
         "artMusic.westernEarly"
-      ]
-    },
-    {
-      "id": "maghrebi_andalusi_nuba",
-      "name": "Maghrebi Andalusi nuba",
-      "family": "classical",
-      "lineage": "Maghrebi Andalusi nuba (al-Āla in Moroccan usage, gharnati in Algerian, ma'luf in Tunisian and Libyan) classical modal-suite tradition descended directly from the medieval Andalusi music of al-Andalus (Muslim Spain, ninth-fifteenth centuries) through the post-1492 expulsion-diaspora that brought the Andalusi musical tradition to the North African Maghreb. Each of the four primary Maghrebi traditions preserves a regional-variant repertoire: Moroccan al-Āla preserves eleven canonical nubat (suites), Algerian gharnati and san'a preserve overlapping suite-cycles, Tunisian ma'luf preserves thirteen nubat, and Libyan ma'luf preserves a smaller set in the same family. Each nuba is a multi-movement suite organized around a single maqam (modal-cycle), comprising five canonical movements: mizan al-busayt (slow-opening rhythmic-movement), mizan al-qaim wa-nisf (mid-tempo movement), mizan al-btayhi (lighter-tempo middle movement), mizan al-darj (faster movement), and mizan al-quddam (concluding fast-tempo movement). Performance configuration: male choir of cantor-and-chorus (the singers carry the lyric verse, drawn from classical Arabic and Andalusi-period muwashshah strophic poetry and zajal vernacular-Arabic verse) accompanied by the canonical Andalusi ensemble — oud (the canonical Arabic-Andalusi lute), rebab (the two-string spike-fiddle), qanun (the trapezoidal box-zither), nay (the end-blown reed flute), and darbuka or tar percussion. Modal vocabulary draws on the Andalusi-specific tab' modal system (twenty-four named modes in the Moroccan recension), with characteristic microtonal intonation distinct from Mashriq Arabic maqam. Carl Davila's The Andalusian Music of Morocco: al-Āla (Reichert Verlag 2013) and the Maison des Cultures du Monde Inédit W260027 catalog constitute the principal Western-distributed scholarship and recordings. Distinguished from Mashriq Arabic maqam (Iraqi, Egyptian, Levantine) by Andalusi-specific suite-of-five-mizans (vs Mashriq tahrir-miyana-taslim) architecture and Andalusi-specific tab' modal vocabulary; distinguished from neighboring Saharan and West-African Sufi traditions by Andalusi nuba's elite-urban-court-and-chamber (vs popular-religious-or-pastoral) functional context.",
-      "parent": "artMusic.middleEasternClassical",
-      "axes": [
-        0,
-        2,
-        2,
-        0,
-        1,
-        2,
-        1,
-        -1,
-        0,
-        2,
-        2,
-        0,
-        0
-      ],
-      "instruments": [
-        "voice",
-        "choir_ensemble",
-        "oud",
-        "rabab_maghribi",
-        "qanun",
-        "darbuka"
-      ],
-      "description": "Maghrebi Andalusi nuba (al-Āla in Moroccan usage, gharnati in Algerian, ma'luf in Tunisian and Libyan) classical modal-suite tradition descended directly from the medieval Andalusi music of al-Andalus (Muslim Spain, ninth-fifteenth centuries) through the post-1492 expulsion-diaspora that brought the Andalusi musical tradition to the North African Maghreb. Moroccan al-Āla preserves eleven canonical nubat (suites), Algerian gharnati and san'a preserve overlapping suite-cycles, Tunisian ma'luf preserves thirteen nubat. Each nuba is a multi-movement suite organized around a single maqam, comprising five canonical movements: mizan al-busayt, mizan al-qaim wa-nisf, mizan al-btayhi, mizan al-darj, and mizan al-quddam. Canonical Andalusi ensemble: oud, rebab, qanun, nay, and darbuka or tar percussion.",
-      "exemplars": [
-        "Carl Davila — The Andalusian Music of Morocco: al-Āla (Reichert Verlag 2013)",
-        "Inédit / Maison des Cultures du Monde W260027 — Maroc: Anthologie d'al-Āla",
-        "Orchestre de Tétouan (Moroccan al-Āla canonical ensemble)"
-      ],
-      "crossRefs": [
-        "improvOnFrame.persianArabImprov"
       ]
     },
     {
@@ -25458,7 +24880,8 @@
         "bombo_andino",
         "conch_shell_horn",
         "ocarina",
-        "tarka"
+        "tarka",
+        "electric_guitar_humbucker"
       ],
       "description": "Traditional Quechua wayno (also huayno, huayño) Andean folk-music form of the Quechua-and-Aymara-speaking populations of highland Peru, Bolivia, and Ecuador. The wayno is the canonical Andean dance-and-song form, in 2/4 meter with characteristic syncopation pattern, slow-to-medium tempo, and pentatonic-to-modal melodic vocabulary. Performance: small ensemble of quena end-blown notched flute, charango armadillo-shell ten-string-paired lute, bombo bass-drum, and voice — with the lyric content addressing rural-Andean life, love, mourning, and Quechua-cultural-identity. The mid-twentieth-century Cusco-and-Ayacucho-and-Huancayo regional canonical traditions are the most institutionally preserved; the Bolivian Cochabamba-and-Potosí lineages constitute the parallel highland-Bolivian tradition.",
       "exemplars": [
@@ -28317,82 +27740,6 @@
       ]
     },
     {
-      "id": "quechua_wayno_modern",
-      "name": "Quechua wayno modern revival",
-      "family": "global",
-      "lineage": "Twentieth-and-twenty-first-century revival of the Quechua wayno Andean folk-music form, integrating electric-band-instruments and contemporary-pop production with the canonical Quechua-language vocal repertoire and Andean instrumental signature. Wayno chichero subgenre (1980s onward) introduced cumbia-influenced rhythmic vocabulary. The 1990s-2000s wayno-rock movement under Pelo Madueño, Tongo, and various Cusco-Lima fusion groups extended into rock-Andean-fusion contexts.",
-      "parent": "balladPoetry.latinAmTroubadour",
-      "axes": [
-        0,
-        1,
-        1,
-        1,
-        2,
-        1,
-        1,
-        0,
-        1,
-        2,
-        1,
-        1,
-        1
-      ],
-      "instruments": [
-        "voice",
-        "quena",
-        "charango",
-        "bombo_andino",
-        "electric_guitar_humbucker"
-      ],
-      "description": "Twentieth-and-twenty-first-century revival of the Quechua wayno Andean folk-music form, integrating electric-band-instruments and contemporary-pop production with the canonical Quechua-language vocal repertoire and Andean instrumental signature. Wayno chichero subgenre (1980s onward) introduced cumbia-influenced rhythmic vocabulary. The 1990s-2000s wayno-rock movement under Pelo Madueño, Tongo, and various Cusco-Lima fusion groups extended into rock-Andean-fusion contexts.",
-      "exemplars": [
-        "Tongo",
-        "Dina Páucar",
-        "Sonia Morales",
-        "Pelo Madueño",
-        "Damaris (2008 Viña del Mar Festival winner)"
-      ],
-      "crossRefs": [
-        "functionalSong.country"
-      ]
-    },
-    {
-      "id": "maya_marimba_guatemalteca",
-      "name": "Maya marimba (Guatemalan Highlands)",
-      "family": "global",
-      "lineage": "Guatemalan Highlands Maya marimba tradition (Quetzaltenango, Sololá, Huehuetenango departments) and adjacent Chiapas, featuring large wooden-resonator marimba ensembles played by three-to-four marimberos simultaneously (marimba doble or marimba grande). Instrument arrived through West-African enslaved-population introduction and was adopted as Guatemalan-cultural-marker. Repertoire spans son chapín nineteenth-and-twentieth-century Guatemalan national-popular forms, religious cofradía music, and contemporary dance-band material.",
-      "parent": "groovePercussion.latinAm",
-      "axes": [
-        0,
-        1,
-        1,
-        1,
-        1,
-        2,
-        1,
-        -1,
-        1,
-        -1,
-        1,
-        2,
-        1
-      ],
-      "instruments": [
-        "marimba_centroamericana",
-        "double_bass"
-      ],
-      "description": "Guatemalan Highlands Maya marimba tradition (Quetzaltenango, Sololá, Huehuetenango departments) and adjacent Chiapas, featuring large wooden-resonator marimba ensembles played by three-to-four marimberos simultaneously (marimba doble or marimba grande). Instrument arrived through West-African enslaved-population introduction and was adopted as Guatemalan-cultural-marker. Repertoire spans son chapín nineteenth-and-twentieth-century Guatemalan national-popular forms, religious cofradía music, and contemporary dance-band material.",
-      "exemplars": [
-        "Sebastián Hurtado (founding 1899 marimba-doble builder)",
-        "Marimba Chapinlandia",
-        "Marimba Maderas de mi Tierra",
-        "Quetzaltenango regional ensembles"
-      ],
-      "crossRefs": [
-        "groovePercussion.brazilian"
-      ]
-    },
-    {
       "id": "classical_period_18c",
       "name": "Classical period (1750-1820)",
       "family": "classical",
@@ -29801,49 +29148,6 @@
       ],
       "crossRefs": [
         "balladPoetry.mediterraneanBallad"
-      ]
-    },
-    {
-      "id": "dixieland_traditional_jazz",
-      "name": "Dixieland (traditional/New Orleans-Chicago)",
-      "family": "jazz",
-      "lineage": "Earliest documented jazz style (c.1905-1928) emerging from New Orleans through cornet-led front-line (cornet/trumpet, clarinet, trombone) playing collective polyphonic improvisation over banjo/guitar-bass-drums rhythm section. Original Dixieland Jass Band's 1917 Livery Stable Blues was the first commercial jazz recording. Distinguished from later swing era by Dixieland's collective-improvisation (vs solo-feature) ensemble principle and 2/4 march-derived rhythmic pulse.",
-      "parent": "improvOnFrame.americanJazz.early",
-      "axes": [
-        1,
-        1,
-        1,
-        1,
-        2,
-        1,
-        2,
-        -1,
-        2,
-        1,
-        1,
-        2,
-        1
-      ],
-      "instruments": [
-        "trumpet",
-        "clarinet",
-        "trombone",
-        "upright_bass",
-        "drum_kit",
-        "banjo_5_string",
-        "cornet",
-        "tenor_guitar"
-      ],
-      "description": "Earliest documented jazz style (c.1905-1928) emerging from New Orleans through cornet-led front-line (cornet/trumpet, clarinet, trombone) playing collective polyphonic improvisation over banjo/guitar-bass-drums rhythm section. Original Dixieland Jass Band's 1917 Livery Stable Blues was the first commercial jazz recording. Distinguished from later swing era by Dixieland's collective-improvisation (vs solo-feature) ensemble principle and 2/4 march-derived rhythmic pulse.",
-      "exemplars": [
-        "Original Dixieland Jass Band",
-        "King Oliver",
-        "Louis Armstrong (Hot Five/Seven)",
-        "Jelly Roll Morton",
-        "Sidney Bechet"
-      ],
-      "crossRefs": [
-        "improvOnFrame.americanJazz.preJazzRagtime"
       ]
     },
     {
@@ -34764,46 +34068,6 @@
       ]
     },
     {
-      "id": "contemporary_rb_2010s_alt",
-      "name": "Contemporary alt-R&B (2010s)",
-      "family": "pop",
-      "lineage": "2010s R&B subgenre developed in the wake of Frank Ocean's 2011 Nostalgia, Ultra mixtape and 2012 Channel Orange album, characterized by electronic-production-and-traditional-R&B-hybrid aesthetic, intimate-confessional lyrical content, atmospheric-and-spacious arrangements, and explicit indie-rock-meets-R&B cross-genre orientation. The Weeknd's 2011 House of Balloons-Thursday-Echoes of Silence mixtape trilogy, Miguel's Kaleidoscope Dream (2012), and the broader OVO Sound and XO Records label rosters anchor the canonical sound.",
-      "parent": "functionalSong.soulRb",
-      "axes": [
-        2,
-        1,
-        1,
-        1,
-        2,
-        1,
-        1,
-        1,
-        1,
-        2,
-        1,
-        2,
-        0
-      ],
-      "instruments": [
-        "voice",
-        "analog_synth",
-        "drum_machine_808",
-        "electric_bass"
-      ],
-      "description": "2010s R&B subgenre developed in the wake of Frank Ocean's 2011 Nostalgia, Ultra mixtape and 2012 Channel Orange album, characterized by electronic-production-and-traditional-R&B-hybrid aesthetic, intimate-confessional lyrical content, atmospheric-and-spacious arrangements, and explicit indie-rock-meets-R&B cross-genre orientation. The Weeknd's 2011 House of Balloons-Thursday-Echoes of Silence mixtape trilogy, Miguel's Kaleidoscope Dream (2012), and the broader OVO Sound and XO Records label rosters anchor the canonical sound.",
-      "exemplars": [
-        "Frank Ocean",
-        "The Weeknd",
-        "Miguel",
-        "SZA",
-        "Daniel Caesar",
-        "Solange"
-      ],
-      "crossRefs": [
-        "mcRhythm.usHipHop"
-      ]
-    },
-    {
       "id": "prog_rb",
       "name": "Progressive R&B (2010s virtuoso-instrumental jazz-fusion R&B)",
       "family": "pop",
@@ -34868,7 +34132,8 @@
       "instruments": [
         "voice",
         "analog_synth",
-        "drum_machine_808"
+        "drum_machine_808",
+        "electric_bass"
       ],
       "description": "2010s alternative R&B subgenre emphasizing emotional-vulnerability, experimental-electronic production, atmospheric-vocal layering, and explicit indie-rock-aesthetic-influence over the broader commercial R&B mainstream. FKA twigs' EP1 (2012) and LP1 (2014) inaugurated the canonical British alt-R&B sound; Jhené Aiko, Banks, Kelela, Tinashe (early career), and the broader Top Dawg Entertainment and Atlantic Records alt-R&B rosters extended the genre.",
       "exemplars": [
@@ -35770,46 +35035,6 @@
       ]
     },
     {
-      "id": "avant_doom_metal",
-      "name": "Avant-garde doom / funeral doom",
-      "family": "rock_punk",
-      "lineage": "1990s heavy-metal subgenre extending traditional doom-metal slow-tempo into extreme funereal-tempo (typically 30-50 BPM, sometimes far slower) with explicit funeral-procession-funereal-rite thematic content. Thergothon (Finland 1990s), Skepticism (Finland), Esoteric (UK), Mournful Congregation (Australia), and Bell Witch constitute the canonical funeral doom roster. Distinguished from broader doom by funeral doom's extreme tempo and explicit funereal-grief register.",
-      "parent": "distortedRock.metal.doom",
-      "axes": [
-        0,
-        1,
-        1,
-        -1,
-        2,
-        1,
-        1,
-        -1,
-        2,
-        -1,
-        1,
-        2,
-        0
-      ],
-      "instruments": [
-        "voice",
-        "electric_guitar_humbucker",
-        "electric_bass",
-        "drum_kit"
-      ],
-      "description": "1990s heavy-metal subgenre extending traditional doom-metal slow-tempo into extreme funereal-tempo (typically 30-50 BPM, sometimes far slower) with explicit funeral-procession-funereal-rite thematic content. Thergothon (Finland 1990s), Skepticism (Finland), Esoteric (UK), Mournful Congregation (Australia), and Bell Witch constitute the canonical funeral doom roster. Distinguished from broader doom by funeral doom's extreme tempo and explicit funereal-grief register.",
-      "exemplars": [
-        "Thergothon",
-        "Skepticism",
-        "Esoteric",
-        "Mournful Congregation",
-        "Bell Witch",
-        "Profound Lore Records"
-      ],
-      "crossRefs": [
-        "ritualDevotional.christianGospel"
-      ]
-    },
-    {
       "id": "teen_pop_late_90s",
       "name": "Teen pop late 90s-00s",
       "family": "pop",
@@ -36090,46 +35315,6 @@
       ],
       "crossRefs": [
         "distortedRock.alternative"
-      ]
-    },
-    {
-      "id": "blackmetal_dsbm",
-      "name": "DSBM (depressive suicidal black metal)",
-      "family": "rock_punk",
-      "lineage": "Mid-1990s and onward black-metal subgenre emphasizing slow-tempo melancholic-and-suicidal-depressive thematic content. Bethlehem (Germany 1991-onward) inaugurated the canonical aesthetic; Shining (Sweden), Silencer, Xasthur (USA), Wigrid (Germany), and the broader European-and-American DSBM scene anchor the canonical roster. Distinguished from broader black metal by DSBM's slower-tempo emphasis and explicit depression-suicide thematic register.",
-      "parent": "distortedRock.metal.death",
-      "axes": [
-        0,
-        1,
-        1,
-        1,
-        2,
-        1,
-        1,
-        -1,
-        2,
-        -2,
-        1,
-        1,
-        0
-      ],
-      "instruments": [
-        "voice",
-        "electric_guitar_humbucker",
-        "electric_bass",
-        "drum_kit"
-      ],
-      "description": "Mid-1990s and onward black-metal subgenre emphasizing slow-tempo melancholic-and-suicidal-depressive thematic content. Bethlehem (Germany 1991-onward) inaugurated the canonical aesthetic; Shining (Sweden), Silencer, Xasthur (USA), Wigrid (Germany), and the broader European-and-American DSBM scene anchor the canonical roster. Distinguished from broader black metal by DSBM's slower-tempo emphasis and explicit depression-suicide thematic register.",
-      "exemplars": [
-        "Bethlehem",
-        "Shining",
-        "Silencer",
-        "Xasthur",
-        "Wigrid",
-        "Lifelover"
-      ],
-      "crossRefs": [
-        "ritualDevotional.christianGospel"
       ]
     },
     {
@@ -37839,47 +37024,6 @@
       ]
     },
     {
-      "id": "sardinian_wedding_cantu_launeddas",
-      "name": "Sardinian wedding cantu and launeddas music",
-      "family": "global",
-      "lineage": "Sardinian wedding-music tradition continuous from pre-Christian Sardinian rural practice through medieval-and-early-modern continuous performance; the launeddas (triple-clarinet) is the canonical Sardinian wedding-music instrument and the cantu a tenore polyphonic male-quartet vocal also features at weddings",
-      "parent": "wedding.european",
-      "axes": [
-        0,
-        0,
-        1,
-        0,
-        0,
-        -2,
-        1,
-        -2,
-        1,
-        1,
-        0,
-        -2,
-        1
-      ],
-      "instruments": [
-        "voice",
-        "launeddas",
-        "accordion",
-        "clarinet"
-      ],
-      "description": "The Sardinian wedding-music tradition continuous from pre-Christian Sardinian rural practice through medieval-and-early-modern continuous performance; the launeddas (triple-clarinet, the canonical Sardinian wedding-music instrument with documented continuity from Nuragic-era 8th-century-BCE bronze figurine evidence) provides the dance-music foundation and the cantu a tenore polyphonic male-quartet vocal also features at weddings particularly in Nuorese-Sardinian zones. Defined by characteristic Sardinian-modal vocabulary, drone-foundation polyphonic-vocal texture, the launeddas' continuous-circular-breathing performance practice (the player sustains an unbroken drone-line for hours), Sardinian-language text register, Logudorese-and-Campidanese-and-Nuorese regional variants.",
-      "exemplars": [
-        "Luigi Lai — canonical Sardinian launeddas master",
-        "Tenores di Bitti Mialinu Pira — cantu a tenore wedding repertoire",
-        "Elena Ledda — Sardinian wedding-song recordings",
-        "Maria Carta — Sardinian wedding-tradition recordings",
-        "Tenores di Neoneli — Nuorese wedding-cantu-a-tenore"
-      ],
-      "crossRefs": [
-        "droneModal.vocal",
-        "droneModal.windPipe",
-        "balladPoetry.mediterraneanBallad"
-      ]
-    },
-    {
       "id": "greek_gamilio_glendi",
       "name": "Greek gamílio glendí (γαμήλιο γλέντι, wedding feast music)",
       "family": "global",
@@ -38217,48 +37361,6 @@
         "wedding.southAsian",
         "artMusic.eastAsian",
         "carnivalProcessional"
-      ]
-    },
-    {
-      "id": "javanese_wedding_gamelan",
-      "name": "Javanese wedding gamelan music",
-      "family": "global",
-      "lineage": "Javanese wedding-music tradition continuous from medieval Javanese court-and-village gamelan practice through Islamic-period (post-15th-century) continuous performance into modern Indonesian-and-Javanese-diaspora practice; defined by gamelan-ensemble accompaniment to ceremonial-and-celebratory wedding-music repertoire",
-      "parent": "wedding.eastAsian",
-      "axes": [
-        -1,
-        0,
-        0,
-        0,
-        1,
-        -1,
-        0,
-        -2,
-        0,
-        0,
-        -1,
-        1,
-        1
-      ],
-      "instruments": [
-        "voice",
-        "gamelan_javanese_full",
-        "saron_gamelan",
-        "bonang",
-        "kendang_indonesian"
-      ],
-      "description": "The Javanese wedding-music tradition continuous from medieval Javanese court-and-village gamelan practice through Islamic-period (post-15th-century) continuous performance into modern Indonesian-and-Javanese-diaspora practice; defined by gamelan-ensemble (the full Central-Javanese gamelan with bonang, saron, gender, gong, kendang, and pesinden vocal soloist) accompaniment to ceremonial-and-celebratory wedding-music repertoire, characteristic gendhing-form compositional vocabulary spanning the ceremonial-stages of the Javanese wedding (panggih bride-and-groom-meeting, sungkeman parent-reverence, kacar-kucur grain-pouring, dahar-klimah shared-meal). Pelog-and-slendro tuning systems, restrained court-vocal practice (legato, syllabic, in contrast to more melismatic East-Javanese-or-Sundanese practice), Javanese-language text register.",
-      "exemplars": [
-        "Yogyakarta kraton (palace) wedding gamelan canonical",
-        "Solo (Surakarta) kraton wedding gamelan tradition",
-        "Gendhing \"Ladrang Mugi Rahayu\" wedding-canonical",
-        "\"Kebogiro\" panggih-meeting wedding-music",
-        "Pesinden Tukinem — traditional Javanese wedding-vocal"
-      ],
-      "crossRefs": [
-        "wedding.southAsian",
-        "artMusic.eastAsian",
-        "ritualDevotional.indigenous"
       ]
     },
     {
@@ -39505,47 +38607,6 @@
         "praiseSong.indianSubcontinent",
         "artMusic.middleEasternClassical",
         "balladPoetry.medEastPoetic"
-      ]
-    },
-    {
-      "id": "mande_jeli_praise",
-      "name": "Mande jeli / griot praise-song",
-      "family": "global",
-      "lineage": "Mande-and-Wolof West-African praise-song tradition continuous from medieval Mali Empire era (13th-15th century Sundiata Keita era when the jeli/griot caste-tradition was codified) through colonial-period continuous performance into modern Mande-and-Wolof and Mande-diaspora practice; the jeli is the hereditary praise-singer-and-historian role with documented professional-genealogical lineage",
-      "parent": "praiseSong.subSaharanAfrican",
-      "axes": [
-        -1,
-        0,
-        1,
-        -1,
-        0,
-        -2,
-        1,
-        -2,
-        -1,
-        2,
-        0,
-        -2,
-        1
-      ],
-      "instruments": [
-        "voice",
-        "kora",
-        "ngoni",
-        "balafon"
-      ],
-      "description": "The Mande-and-Wolof West-African praise-song tradition continuous from medieval Mali Empire era (13th-15th century Sundiata Keita era when the jeli/griot caste-tradition was codified) through colonial-period continuous performance into modern Mande-and-Wolof and Mande-diaspora practice across Mali, Senegal, Guinea, Gambia, Burkina Faso, and the broader Sahel; the jeli (Mande) / géwél (Wolof) / griot (French-colonial-loanword) is the hereditary praise-singer-and-historian role with documented professional-genealogical lineage (the Kouyaté and Diabaté and Tounkara families being among the most-documented jeli lineages). Defined by kora (21-string harp-lute) and ngoni and balafon and voice arrangement, Mande-pentatonic modal vocabulary, characteristic praise-narrative-form structure (the canonical Sundiata epic is the foundational jeli-praise-narrative), Manding-Maninka-Bambara-Wolof-Mandinka text register with specialized praise-and-genealogical vocabulary, accumulated-name-and-epithet declamatory style. Distinguished from the broader West-African pop traditions descended from jeli practice (Salif Keita and Toumani Diabaté's Symmetric Orchestra crossing into popular form).",
-      "exemplars": [
-        "Toumani Diabaté — modern kora-jeli canonical",
-        "Kasse Mady Diabaté — Mande jeli-vocal canonical",
-        "Mory Kanté — Guinean jeli crossover",
-        "Ali Farka Touré — Songhai-influenced Mande blues-praise",
-        "Sundiata Keita epic-praise-narrative (foundational jeli text canonical 13th-century)"
-      ],
-      "crossRefs": [
-        "praiseSong.middleEastNAfrican",
-        "balladPoetry.westAfricanGriot",
-        "droneModal.string"
       ]
     },
     {
@@ -41602,44 +40663,6 @@
       ]
     },
     {
-      "id": "mississippi_delta_field_holler",
-      "name": "Mississippi Delta field holler",
-      "family": "global",
-      "lineage": "Mississippi-Delta-and-broader-American-South field-holler tradition continuous from antebellum-slavery-era African-American field-labor work-song practice through Reconstruction-era and Jim-Crow-era sharecropping-and-tenant-farming-labor continuous practice; the field-holler is documented as the foundational pre-blues vocal-tradition where solo field-laborers communicated across cotton-fields by stylized melismatic-shouting",
-      "parent": "fieldWork.americanSouth",
-      "axes": [
-        -2,
-        0,
-        1,
-        -2,
-        -2,
-        -2,
-        2,
-        -2,
-        0,
-        2,
-        0,
-        -2,
-        0
-      ],
-      "instruments": [
-        "voice"
-      ],
-      "description": "The Mississippi-Delta-and-broader-American-South field-holler tradition continuous from antebellum-slavery-era African-American field-labor work-song practice through Reconstruction-era and Jim-Crow-era sharecropping-and-tenant-farming-labor continuous practice; the field-holler is documented as the foundational pre-blues vocal-tradition where solo field-laborers communicated across cotton-fields by stylized melismatic-shouting (the \"field-cry\" or \"arwhoolie\" or \"cornfield holler\"). The field-holler is the documented antecedent to the Mississippi-Delta-blues vocal-style and the broader African-American vocal-music corpus; Alan Lomax's 1940s-onward fieldwork at Parchman Farm and across the Delta documented the canonical field-holler corpus. Defined by unaccompanied solo-vocal melismatic-foreground arrangement, English-African-American-vernacular text register, characteristic field-cry-and-arwhoolie vocal-style.",
-      "exemplars": [
-        "Alan Lomax — Parchman Farm 1940s-onward field-recordings canonical",
-        "\"Levee Camp Holler\" canonical Lomax-documented",
-        "Vera Hall — Lomax-recorded Alabama field-holler canonical",
-        "Otis Brown — Lomax-recorded canonical",
-        "Ed Lewis — Parchman Farm Lomax-recorded canonical"
-      ],
-      "crossRefs": [
-        "fieldWork.subSaharanAfrican",
-        "funeralLament.africanDiasporic",
-        "protestSong.angloAmerican"
-      ]
-    },
-    {
       "id": "bulgarian_zhetvarski",
       "name": "Bulgarian zhetvarski pesni (harvest songs)",
       "family": "global",
@@ -42759,44 +41782,6 @@
         "domesticRhythm.slavicBaltic",
         "lullaby.european",
         "funeralLament.european"
-      ]
-    },
-    {
-      "id": "faroese_kvaedi_domestic",
-      "name": "Faroese kvæði (chain-dance ballad and domestic song)",
-      "family": "global",
-      "lineage": "Faroese kvæði (chain-dance ballad and broader domestic song) tradition continuous from medieval-Faroese narrative-ballad practice through 17th-18th-century continuous performance into modern Faroese continuous practice; the kvæði integrates medieval-Norse-and-Faroese narrative-balladry with characteristic Faroese chain-dance domestic-and-community ritual",
-      "parent": "domesticRhythm.eastAsianArctic",
-      "axes": [
-        -2,
-        0,
-        0,
-        0,
-        -2,
-        -2,
-        0,
-        -2,
-        -1,
-        2,
-        0,
-        -2,
-        1
-      ],
-      "instruments": [
-        "voice"
-      ],
-      "description": "The Faroese kvæði (chain-dance ballad and broader domestic song) tradition continuous from medieval-Faroese narrative-ballad practice through 17th-18th-century continuous performance into modern Faroese continuous practice; the kvæði integrates medieval-Norse-and-Faroese narrative-balladry with characteristic Faroese chain-dance domestic-and-community ritual (the canonical Faroese chain-dance, where the entire community joins hands in a chain that moves to the rhythm of the unaccompanied-vocal ballad, is documented as one of the few surviving medieval-European chain-dance traditions). The canonical Faroese ballad repertoire includes \"Ormurin Langi\" (the long-serpent, narrative of King Olav Tryggvason) and the broader Faroese kvæðabók 19th-century song-collection canonical-documentation. Defined by unaccompanied lead-singer-and-chain-dance-group call-and-response arrangement, Faroese-language text register, characteristic Nordic-modal vocabulary, characteristic chain-dance domestic-community ritual-context.",
-      "exemplars": [
-        "\"Ormurin Langi\" canonical Faroese ballad (King Olav Tryggvason narrative)",
-        "Modern Faroese chain-dance continuous-living tradition",
-        "V. U. Hammershaimb — 19th-century Faroese ballad-collection canonical",
-        "Eivør Pálsdóttir — modern Faroese vocalist canonical",
-        "Faroese kvæðabók canonical-folkloric-publication"
-      ],
-      "crossRefs": [
-        "domesticRhythm.celticHebridean",
-        "balladPoetry.celticBalladic",
-        "wedding.european"
       ]
     },
     {
@@ -45061,35 +44046,6 @@
       ]
     },
     {
-      "id": "greek_tragic_chorus",
-      "name": "Greek tragic chorus declamation",
-      "family": "classical",
-      "lineage": "The choral declamation of ancient Greek tragedy, composed for the Athenian dramatic festivals of the 5th century BCE by Aeschylus, Sophocles, and Euripides, was delivered by a chorus of twelve to fifteen members in rhythmically measured, metrically strict group utterance occupying a register between speech and song. Reconstructions informed by surviving metrical texts, vase iconography, and the scholarship of Martin West render the parodos and stasima as unison or antiphonal declaimed verse. Modern staging traditions, from 19th-century revivals to the Cambridge Greek Play and the Epidaurus festival, preserve the practice. It is documented in performance recordings and in West's 'Ancient Greek Music' (1992).",
-      "parent": "artMusic.westernEarly",
-      "axes": [
-        -1,
-        0,
-        0,
-        1,
-        0,
-        2,
-        -1,
-        -1,
-        1,
-        2,
-        0,
-        -1,
-        0
-      ],
-      "instruments": [
-        "voice"
-      ],
-      "description": "The choral declamation of ancient Greek tragedy, composed for the Athenian dramatic festivals of the 5th century BCE by Aeschylus, Sophocles, and Euripides, was delivered by a chorus of twelve to fifteen members in rhythmically measured, metrically strict group utterance occupying a register between speech and song. Reconstructions informed by surviving metrical texts, vase iconography, and the scholarship of Martin West render the parodos and stasima as unison or antiphonal declaimed verse. Modern staging traditions, from 19th-century revivals to the Cambridge Greek Play and the Epidaurus festival, preserve the practice. It is documented in performance recordings and in West's 'Ancient Gree",
-      "crossRefs": [
-        "artMusic"
-      ]
-    },
-    {
       "id": "kutiyattam_recitation",
       "name": "Kutiyattam Sanskrit recitation",
       "family": "classical",
@@ -45435,35 +44391,6 @@
       "description": "The caller's rhythmic patter directing figures for old-time Appalachian square and big-circle dances, delivered in strict time over a string band of fiddle and banjo. It descends from Anglo-Celtic and French quadrille calling adapted in the southern mountains, where the caller became an improvising rhythmic voice rather than a mere prompter. The running-set dancing that underlies it was documented by Cecil Sharp during his 1916 to 1918 Appalachian fieldwork, and figures such as Bascom Lamar Lunsford institutionalized the practice through the Asheville Mountain Dance and Folk Festival from 1928. Calls are locked to the reel's meter, blending fixed figure-names with spontaneous filler.",
       "crossRefs": [
         "balladPoetry"
-      ]
-    },
-    {
-      "id": "spoken_word_jazz_poetry",
-      "name": "Spoken-word jazz-poetry",
-      "family": "jazz",
-      "lineage": "African-American declamatory poetry performed over jazz, funk, and hand percussion, the direct proto-hip-hop lineage of The Last Poets (formed 1968 in Harlem) and Gil Scott-Heron with Brian Jackson (e.g. The Revolution Will Not Be Televised, 1970). Politically charged, rhythmically delivered spoken verse rides congas and jazz-funk grooves, growing out of the Black Arts Movement and Harlem's earlier Beat and jazz-poetry readings. The delivery foregrounds cadence, repetition, and rhetorical build over sung melody, and it is widely regarded as a foundational ancestor of rap. Recordings were often cut in loft and small studio settings in New York.",
-      "parent": "mcRhythm.usHipHop.southern",
-      "axes": [
-        0,
-        0,
-        0,
-        1,
-        0,
-        2,
-        1,
-        -1,
-        1,
-        2,
-        1,
-        1,
-        1
-      ],
-      "instruments": [
-        "voice"
-      ],
-      "description": "African-American declamatory poetry performed over jazz, funk, and hand percussion, the direct proto-hip-hop lineage of The Last Poets (formed 1968 in Harlem) and Gil Scott-Heron with Brian Jackson (e.g. The Revolution Will Not Be Televised, 1970). Politically charged, rhythmically delivered spoken verse rides congas and jazz-funk grooves, growing out of the Black Arts Movement and Harlem's earlier Beat and jazz-poetry readings. The delivery foregrounds cadence, repetition, and rhetorical build over sung melody, and it is widely regarded as a foundational ancestor of rap. Recordings were often cut in loft and small studio settings in New York.",
-      "crossRefs": [
-        "mcRhythm.usHipHop"
       ]
     },
     {
@@ -45984,35 +44911,6 @@
         "voice"
       ],
       "description": "Trance-seance chant of Manchu and related Tungusic peoples of Manchuria (northeast China) and adjacent Siberia — the culture from whose language the word 'shaman' (saman) entered Western usage. In the seance the shaman invokes clan and wild spirits in pulsed chanted verse driven by a hand-held frame drum and jingling waist bells, building toward possession-trance, with assistants answering the shaman's calls in fixed responses. Domestic clan rites were codified under the Qing dynasty in an imperially commissioned 18th-century ritual code, while the ecstatic wild-spirit seances survived in village practice; S. M. Shirokogoroff's Psychomental Complex of the Tungus (1935) remains the canonical ",
-      "crossRefs": [
-        "ritualDevotional"
-      ]
-    },
-    {
-      "id": "mongolian_boo_murgel_invocation",
-      "name": "Mongolian böö mörgöl invocation",
-      "family": "global",
-      "lineage": "Spirit-calling invocation chant of Mongolian shamanism (böö mörgöl), in which the shaman (böö, or female udgan) summons ancestral ongon spirits with rhythmic chanted verse over a single-headed frame drum, wearing a fringed costume and mirror-hung regalia inside the ger or at outdoor ovoo cairns. The invocation begins as measured praise and petition naming the spirit's lineage and mountains, accelerating with the drum toward possession, after which the shaman speaks in the voice of the arrived spirit. The tradition is strongest among the Darkhad of Khövsgöl province and the Buryats, and after decades of socialist-era suppression it has undergone a marked post-1990 revival in Ulaanbaatar and the countryside.",
-      "parent": "ritualDevotional.indigenous",
-      "axes": [
-        -2,
-        0,
-        0,
-        1,
-        -1,
-        2,
-        1,
-        -2,
-        1,
-        2,
-        1,
-        1,
-        1
-      ],
-      "instruments": [
-        "voice"
-      ],
-      "description": "Spirit-calling invocation chant of Mongolian shamanism (böö mörgöl), in which the shaman (böö, or female udgan) summons ancestral ongon spirits with rhythmic chanted verse over a single-headed frame drum, wearing a fringed costume and mirror-hung regalia inside the ger or at outdoor ovoo cairns. The invocation begins as measured praise and petition naming the spirit's lineage and mountains, accelerating with the drum toward possession, after which the shaman speaks in the voice of the arrived spirit. The tradition is strongest among the Darkhad of Khövsgöl province and the Buryats, and after decades of socialist-era suppression it has undergone a marked post-1990 revival in Ulaanbaatar and t",
       "crossRefs": [
         "ritualDevotional"
       ]

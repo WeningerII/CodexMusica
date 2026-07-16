@@ -3,14 +3,14 @@
   "name": "Soleá (flamenco \"mother of cante\")",
   "family": "global",
   "lineage": "Andalusian soleá flamenco palo (song-form), considered the \"mother of cante\" foundational form from which much of the broader flamenco palo system derives. Characterized by the canonical twelve-beat soleá compás (with accents on beats 3, 6, 8, 10, 12), grave-philosophical lyrical content addressing solitude, the existential condition, and contemplative resignation. Performance: solo cantaor voice with sole flamenco guitar accompaniment, in slower tempo than siguiriya with characteristic falsetas (guitar-instrumental-interludes) between vocal sections. The Triana neighborhood of Seville and the Jerez de la Frontera lineages constitute the canonical regional sub-traditions of soleá. Distinguished from siguiriya by soleá's more contemplative-philosophical (vs anguished-tragic) emotional register.",
-  "recipe": "classic North African early-1950s soleá, ballad Poetry, Mediterranean ballad branch, indigenous ritual devotional shipibo-conibo icaros healing songs ju|'hoansi healing songs. vocal fry, breath veiled tone, pure, interlocked note trading. cypress body percussive attack strong flamenco tradition rasgueado strum picado scale runs flamenco guitar. casablanca and marrakech recording 1970-present indie-commercial casablanca chaabi moroccan studio. Neumann U47, tube pre, colored vintage console, LA-2A optical, passive program EQ. tape 15ips plate reverb.",
+  "recipe": "classic North African early-1950s soleá, ballad Poetry, Mediterranean ballad branch, indigenous ritual devotional ju|'hoansi healing songs shipibo-conibo icaros healing songs. vocal fry, breath veiled tone, pure, interlocked note trading. cypress body percussive attack strong flamenco tradition rasgueado strum picado scale runs flamenco guitar. casablanca and marrakech recording 1970-present indie-commercial casablanca chaabi moroccan studio. Neumann U47, tube pre, colored vintage console, LA-2A optical, passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 554,
-  "score": 232.105,
+  "score": 231.37,
   "config": {
     "traditions": [
       "flamenco_solea",
-      "shipibo_icaros",
-      "juhoansi_healing_nom"
+      "juhoansi_healing_nom",
+      "shipibo_icaros"
     ],
     "instruments": [
       {
@@ -42,7 +42,7 @@
           "voice_articulation": 21.125,
           "voice_microtone": 20.345,
           "voice_tradition": 16.79,
-          "voice_mechanism_compound": 10.405000000000001,
+          "voice_mechanism_compound": 9.520000000000001,
           "voice_estill_quality": 22.674999999999997,
           "voice_speech_song": 23.465,
           "voice_ensemble_config": 26.585000000000004,
@@ -62,7 +62,7 @@
         "scores": {
           "flamenco_body": 9.555,
           "flamenco_features": 0,
-          "flamenco_technique": 6.09
+          "flamenco_technique": 6.239999999999999
         }
       }
     ],

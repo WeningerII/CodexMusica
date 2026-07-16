@@ -3,21 +3,21 @@
   "name": "Hokum blues",
   "family": "global",
   "lineage": "1920s-30s vaudeville-blues humorous-narrative subgenre — codified through Tampa Red (Tampa Red and the Hokum Jug Band, his Its Tight Like That 1928 with Georgia Tom Dorsey the hokum recording), Memphis Minnie, the Hokum Boys (the studio collective recording for Paramount and Vocalion 1928-30), Blind Boy Fuller (whose Trucking My Blues Away 1937 extended the hokum tradition into the Piedmont blues style), the Mississippi Sheiks; lyrical content alternates explicit double-entendre sexual humor with topical social-commentary and broader vaudeville-derived theatrical-humor narrative",
-  "recipe": "classic North American mid-1920s hokum blues, ballad Poetry, hokum blues branch, American jazz early dixieland new orleans jazz. thick, breath veiled tone, wide pitch sway, interlocked note trading. flatwound thomastik fingerpicked slide acoustic guitar, growly gut upright bass, frottoir, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick call-and-response banjo 5 string, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, kazoo. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe": "classic North American mid-1920s hokum blues, ballad Poetry, hokum blues branch, American jazz early new orleans jazz swing big band. thick, blues-shouter, wide pitch sway, interlocked note trading. flatwound thomastik fingerpicked slide acoustic guitar, growly gut upright bass, frottoir, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick call-and-response banjo 5 string, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, kazoo. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 673,
-  "score": 463.968,
+  "score": 460.019,
   "config": {
     "traditions": [
       "hokum_blues_vaudeville",
-      "dixieland_traditional_jazz",
-      "new_orleans"
+      "new_orleans",
+      "swing_big_band"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "aspirated_voice",
+          "voice_quality": "blues_shouter_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "oscillating_vibrato",
@@ -30,25 +30,25 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_lo_fi_narrow_AM",
+          "voice_processing_chain": "voice_processing_vocoder_32_band_carrier_saw",
           "voice_multitrack_stack": "voice_multitrack_unison_double_take"
         },
         "scores": {
-          "voice_register": 47.221250000000026,
-          "voice_quality": 12.636874999999996,
+          "voice_register": 43.87625000000002,
+          "voice_quality": 12.844999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 27.505625000000006,
-          "voice_articulation": 11.244999999999996,
-          "voice_microtone": 25.974375000000002,
-          "voice_tradition": 25.056875000000005,
-          "voice_mechanism_compound": 4.225,
-          "voice_estill_quality": 4.80125,
-          "voice_speech_song": 12.024999999999995,
-          "voice_ensemble_config": 10.984999999999994,
+          "voice_vibrato": 25.880625000000006,
+          "voice_articulation": 13.349999999999994,
+          "voice_microtone": 24.349375000000002,
+          "voice_tradition": 21.516875,
+          "voice_mechanism_compound": 4.706874999999999,
+          "voice_estill_quality": 6.1012499999999985,
+          "voice_speech_song": 14.531249999999995,
+          "voice_ensemble_config": 13.369374999999994,
           "voice_ornament_system": 0.8556249999999999,
-          "voice_pitch_organization": 2.665000000000001,
-          "voice_processing_chain": 4.745,
+          "voice_pitch_organization": 3.5100000000000007,
+          "voice_processing_chain": 6.01,
           "voice_multitrack_stack": 1.616875
         }
       },
@@ -67,8 +67,8 @@
           "string_tuning": 2.2,
           "top_wood": 0.005625,
           "back_sides": 0.005625,
-          "string_acoustic": 9.295,
-          "acoustic_om_technique": 27.650000000000006
+          "string_acoustic": 8.839999999999998,
+          "acoustic_om_technique": 26.025000000000006
         }
       },
       {
@@ -79,20 +79,20 @@
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "acoustic_technique": -0.044375000000000005,
-          "upright_strings": 17.875,
-          "upright_play": 17.875
+          "acoustic_technique": 0.9806250000000001,
+          "upright_strings": 17,
+          "upright_play": 17
         }
       },
       {
         "id": "frottoir",
         "slots": {
           "frottoir_construction": "frottoir_handheld",
-          "frottoir_striker": "frottoir_spoons"
+          "frottoir_striker": "frottoir_thimbles"
         },
         "scores": {
-          "frottoir_construction": 7.670000000000001,
-          "frottoir_striker": 0.65
+          "frottoir_construction": 8.17,
+          "frottoir_striker": 0
         }
       },
       {
@@ -111,17 +111,17 @@
           "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
         "scores": {
-          "plucked_traditional_technique": 11.699999999999998,
+          "plucked_traditional_technique": 13.504999999999997,
           "banjo_back": 1.005625,
           "tone_ring": 0.01125,
-          "banjo_head": 11.439999999999998,
-          "banjo_pot": 1.655625,
+          "banjo_head": 13.259999999999998,
+          "banjo_pot": 1.005625,
           "banjo_play": 1,
           "banjo_rim_wood": 0.016874999999999998,
           "banjo_neck_wood": 0.035625,
           "banjo_strings": 0.195,
           "banjo_bridge": 0,
-          "banjo_setup_period": 10.984999999999996
+          "banjo_setup_period": 12.864999999999995
         }
       },
       {
@@ -137,12 +137,12 @@
         },
         "scores": {
           "free_reed_technique": 1.9174999999999998,
-          "harmonica_type": 9.295,
-          "harmonica_comb": 34.15250000000001,
-          "harmonica_reed": 27.495625000000008,
-          "harmonica_technique": 26.750000000000007,
-          "harmonica_maker_school": 29.640000000000004,
-          "harmonica_tuning": 19.674375
+          "harmonica_type": 8.839999999999998,
+          "harmonica_comb": 32.8325,
+          "harmonica_reed": 25.870625000000004,
+          "harmonica_technique": 25.125000000000007,
+          "harmonica_maker_school": 29.425000000000004,
+          "harmonica_tuning": 18.604374999999997
         }
       },
       {

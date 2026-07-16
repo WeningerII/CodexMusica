@@ -108,7 +108,6 @@
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/morna.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/celtic_irish_trad.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/klezmer.json</loc><lastmod>2026-07-16</lastmod></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/shape_note.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/work_songs_hollers.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/alt_country_americana.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/funk.json</loc><lastmod>2026-07-16</lastmod></url>
@@ -143,7 +142,6 @@
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/ska_rocksteady.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/tuvan_throat.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/sardinian_polyphony.json</loc><lastmod>2026-07-16</lastmod></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/mariachi_traditional.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/mbalax.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/juju.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/fuji.json</loc><lastmod>2026-07-16</lastmod></url>
@@ -177,7 +175,6 @@
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/bhangra_modern.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/hindi_filmi.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/shidaiqu.json</loc><lastmod>2026-07-16</lastmod></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/jingju.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/guqin.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/wenrenyue.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/shakuhachi_honkyoku.json</loc><lastmod>2026-07-16</lastmod></url>
@@ -236,8 +233,6 @@
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/samba_jazz.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/cajun.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/zydeco.json</loc><lastmod>2026-07-16</lastmod></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/mongolian_xoomii.json</loc><lastmod>2026-07-16</lastmod></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/tibetan_gyuto.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/inuit_katajjaq.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/tin_pan_alley_song.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/brill_building_pop.json</loc><lastmod>2026-07-16</lastmod></url>
@@ -270,8 +265,6 @@
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/galician_kantautor.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/basque_kantautor.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/bachata.json</loc><lastmod>2026-07-16</lastmod></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/kompa_song_form.json</loc><lastmod>2026-07-16</lastmod></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/kizomba_song_form.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/tropical_bolero.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/son_cubano.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/salsa_nuyorican.json</loc><lastmod>2026-07-16</lastmod></url>
@@ -381,7 +374,6 @@
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/sacred_harp_singing.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/anglican_choral_evensong.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/russian_orthodox_chant.json</loc><lastmod>2026-07-16</lastmod></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/coptic_liturgical.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/bro_country.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/hot_country_2010s.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/country_pop_crossover.json</loc><lastmod>2026-07-16</lastmod></url>
@@ -390,10 +382,8 @@
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/rumba_columbia.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/traditional_doom.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/funeral_doom.json</loc><lastmod>2026-07-16</lastmod></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/melodic_death_swedish.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/technical_death_metal.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/brutal_death_metal.json</loc><lastmod>2026-07-16</lastmod></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/norwegian_2nd_wave_black.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/gospel_quartet_male.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/contemporary_urban_gospel.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/southern_gospel_quartet.json</loc><lastmod>2026-07-16</lastmod></url>
@@ -529,7 +519,6 @@
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/maasai_adumu_olaranyani.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/ethiopian_zema_yared.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/berber_ahidus_ahwash.json</loc><lastmod>2026-07-16</lastmod></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/mongolian_urtiin_duu.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/mongolian_khoomei.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/tuvan_kargyraa.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/tuvan_sygyt.json</loc><lastmod>2026-07-16</lastmod></url>
@@ -547,7 +536,6 @@
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/tibetan_yang_chant.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/japanese_gidayu_bushi.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/rajasthani_manganiyar.json</loc><lastmod>2026-07-16</lastmod></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/sardinian_cantu_a_tenore.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/croatian_klapa_dalmatian.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/croatian_istrian_diaphonic.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/macedonian_glasoechko.json</loc><lastmod>2026-07-16</lastmod></url>
@@ -558,19 +546,15 @@
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/sami_northern_luohti.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/sami_skolt_leudd.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/sami_southern_vuelie.json</loc><lastmod>2026-07-16</lastmod></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/inuit_katajjaq_games.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/mapuche_tayil_ritual.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/shipibo_icaros.json</loc><lastmod>2026-07-16</lastmod></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/garifuna_paranda_hungu_hungu.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/cape_verdean_batuko.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/brazilian_samba_de_roda.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/tongan_lakalaka.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/maori_karanga_powhiri.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/maori_haka_taparahi.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/yemeni_sanaani.json</loc><lastmod>2026-07-16</lastmod></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/iraqi_maqam_baghdad.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/coptic_orthodox_chant.json</loc><lastmod>2026-07-16</lastmod></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/maghrebi_andalusi_nuba.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/tigrinya_music_eritrean.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/oromo_music_ethiopian.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/somali_qaraami.json</loc><lastmod>2026-07-16</lastmod></url>
@@ -729,8 +713,6 @@
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/lambada_carimbo.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/coco_brasileiro.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/jongo_brasileiro.json</loc><lastmod>2026-07-16</lastmod></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/quechua_wayno_modern.json</loc><lastmod>2026-07-16</lastmod></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/maya_marimba_guatemalteca.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/classical_period_18c.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/early_romantic_19c.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/late_romantic_19c.json</loc><lastmod>2026-07-16</lastmod></url>
@@ -768,7 +750,6 @@
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/grand_opera_french.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/zarzuela_spanish.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/canzone_napoletana.json</loc><lastmod>2026-07-16</lastmod></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/dixieland_traditional_jazz.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/chicago_jazz_1920s.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/swing_big_band.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/cool_jazz_west_coast.json</loc><lastmod>2026-07-16</lastmod></url>
@@ -892,7 +873,6 @@
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/mallsoft.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/future_funk_vaporwave.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/neo_soul_classic.json</loc><lastmod>2026-07-16</lastmod></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/contemporary_rb_2010s_alt.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/prog_rb.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/alt_rnb.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/modern_indie_rock_2010s.json</loc><lastmod>2026-07-16</lastmod></url>
@@ -917,7 +897,6 @@
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/jazzy_hip_hop.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/chillwave_glo_fi.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/drone_metal_sustained.json</loc><lastmod>2026-07-16</lastmod></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/avant_doom_metal.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/teen_pop_late_90s.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/dance_pop_2010s.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/fusion_70s_electric.json</loc><lastmod>2026-07-16</lastmod></url>
@@ -925,7 +904,6 @@
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/djent.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/black_metal_norwegian.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/blackgaze.json</loc><lastmod>2026-07-16</lastmod></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/blackmetal_dsbm.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/post_punk_revival.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/synthpop_classic_80s.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/new_wave_late_70s_early_80s.json</loc><lastmod>2026-07-16</lastmod></url>
@@ -970,7 +948,6 @@
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/maori_waiata_tangi.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/yiddish_wedding_bulgar.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/roma_svatba_balkan.json</loc><lastmod>2026-07-16</lastmod></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/sardinian_wedding_cantu_launeddas.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/greek_gamilio_glendi.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/albanian_dasma.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/persian_aroosi.json</loc><lastmod>2026-07-16</lastmod></url>
@@ -979,7 +956,6 @@
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/indian_sangeet.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/indian_baraat.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/chinese_xiqing_wedding.json</loc><lastmod>2026-07-16</lastmod></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/javanese_wedding_gamelan.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/yoruba_aso_ebi_wedding.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/ethiopian_eskista_wedding.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/andean_matrimonio_huayno.json</loc><lastmod>2026-07-16</lastmod></url>
@@ -1011,7 +987,6 @@
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/hawaiian_mele_inoa.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/maori_waiata_moteatea_patere.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/arabic_madh_qasida.json</loc><lastmod>2026-07-16</lastmod></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/mande_jeli_praise.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/english_nursery_rhyme.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/french_comptines.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/german_kinderlieder.json</loc><lastmod>2026-07-16</lastmod></url>
@@ -1064,7 +1039,6 @@
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/venice_carnevale.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/indian_holi_diwali_processional.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/caribbean_carnival_steelpan_panorama.json</loc><lastmod>2026-07-16</lastmod></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/mississippi_delta_field_holler.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/bulgarian_zhetvarski.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/romanian_colinde_seceris.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/hungarian_aratonota.json</loc><lastmod>2026-07-16</lastmod></url>
@@ -1094,7 +1068,6 @@
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/korean_baennoraega.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/yiddish_spinning_domestic.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/sardinian_boci_de_tela.json</loc><lastmod>2026-07-16</lastmod></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/faroese_kvaedi_domestic.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/japanese_domestic_hataori.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/pop.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/rock.json</loc><lastmod>2026-07-16</lastmod></url>
@@ -1166,7 +1139,6 @@
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/kyogen_declamation.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/noh_kotoba.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/shakespearean_verse_declamation.json</loc><lastmod>2026-07-16</lastmod></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/greek_tragic_chorus.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/kutiyattam_recitation.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/wayang_dalang_narration.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/hat_boi_tuong.json</loc><lastmod>2026-07-16</lastmod></url>
@@ -1179,7 +1151,6 @@
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/american_political_stump_oratory.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/tobacco_livestock_auctioneer_chant.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/appalachian_square_dance_calling.json</loc><lastmod>2026-07-16</lastmod></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/spoken_word_jazz_poetry.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/maori_whaikorero_oratory.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/hawaiian_haa_ancestral_chant.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/audiobook_narration.json</loc><lastmod>2026-07-16</lastmod></url>
@@ -1198,7 +1169,6 @@
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/greek_tragedy_chorus.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/victorian_melodrama_narration.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/manchu_shamanic_seance.json</loc><lastmod>2026-07-16</lastmod></url>
-  <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/mongolian_boo_murgel_invocation.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/yoruba_dundun_surrogate_speech.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/traditions/proto_rap_spoken_word.json</loc><lastmod>2026-07-16</lastmod></url>
   <url><loc>https://weningerii.github.io/CodexMusica/api/instruments/choir_ensemble.json</loc><lastmod>2026-07-16</lastmod></url>

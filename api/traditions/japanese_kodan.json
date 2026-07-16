@@ -5,7 +5,7 @@
   "lineage": "Japanese historical-narrative recitation in which the koshi (kodan-shi) narrates war-chronicles, vendetta tales, biographies and political-society stories from behind a small reading-desk (shakudai), beating a rhythmic pulse on it with a paper fan or wooden clapper (hariogi). Descended from Edo-period military-chronicle lecturing (koshaku) and distinct from the comic rakugo, it prizes cadenced, driving delivery and dramatic set-pieces; the tradition runs through named koshi lineages and enjoyed a broadcast heyday on early Japanese radio. The voice is a measured, rhythmically-propelled declamation punctuated by the desk-beat.",
   "recipe": "classic East Asian modern japanese kōdan, art Music, east Asian branch tibetan ache lhamo opera beijing opera. thick, breath veiled tone, slow rate, interlocked note trading. tatami parlor japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 328,
-  "score": 220.484,
+  "score": 221.096,
   "config": {
     "traditions": [
       "japanese_kodan",
@@ -43,11 +43,11 @@
           "voice_microtone": 21.059999999999995,
           "voice_tradition": 31.7525,
           "voice_mechanism_compound": 7.049999999999999,
-          "voice_estill_quality": 20.388624999999994,
+          "voice_estill_quality": 20.745624999999997,
           "voice_speech_song": 23.4,
           "voice_ensemble_config": 25.154999999999998,
           "voice_ornament_system": 16.205,
-          "voice_pitch_organization": 7.8505,
+          "voice_pitch_organization": 8.1055,
           "voice_processing_chain": 4.8100000000000005,
           "voice_multitrack_stack": 5.395000000000001
         }

@@ -1383,7 +1383,7 @@
         "droneModal.overtone"
       ],
       "staples": [
-        "mongolian_xoomii",
+        "mongolian_khoomei",
         "tuvan_throat"
       ],
       "current_pick": "false_fold_voice",
@@ -1478,7 +1478,7 @@
       ],
       "staples": [
         "bachata",
-        "kizomba_song_form"
+        "kizomba"
       ],
       "current_pick": "full_chest_belt_voice",
       "current_pick_score": 3.33,
@@ -1524,7 +1524,7 @@
         "functionalSong.tropicalSong"
       ],
       "staples": [
-        "kizomba_song_form",
+        "kizomba",
         "bachata"
       ],
       "current_pick": "full_chest_belt_voice",
@@ -2078,7 +2078,7 @@
       ]
     },
     {
-      "tid": "kizomba_song_form",
+      "tid": "kizomba",
       "name": "Kizomba (song-form)",
       "family": null,
       "parent": "functionalSong.tropicalSong",

@@ -3,14 +3,14 @@
   "name": "Kizomba",
   "family": "global",
   "lineage": "Angolan-Lusophone slow-tempo partner-dance tradition codified circa 1980 — evolution from semba (its faster ancestor), characterized by 24/16 polyrhythmic foundation, Portuguese-Creole vocals, and intimate dance-hold close-position partner couples; Eduardo Paim and Bonga as the canonical early-80s codifiers, with the genre spreading across the Lusophone Atlantic",
-  "recipe": "classic early-1980s kizomba, groove Percussion, Afro-diasporic electric branch, tropical song functional song kizomba merengue urbano. vocal fry, breath veiled tone, slow rate, interlocked note trading. basswood humbucker electric guitar, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca analog poly synth, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 568,
-  "score": 130.645,
+  "recipe": "classic early-1980s kizomba, groove Percussion, Afro-diasporic electric branch, tropical song functional song merengue urbano bachata. vocal fry, breath veiled tone, slow rate, interlocked note trading. basswood alnico clean strummed humbucker electric clean strummed single coil electric guitar, analog poly synth, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, la bella flats Detroit soul bass canon sub heavy electric bass, lead mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 721,
+  "score": 187.141,
   "config": {
     "traditions": [
       "kizomba",
-      "kizomba_song_form",
-      "merengue_urbano"
+      "merengue_urbano",
+      "bachata"
     ],
     "instruments": [
       {
@@ -30,36 +30,36 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 2.73,
-          "voice_quality": 8.970000000000002,
+          "voice_register": 1.4299999999999997,
+          "voice_quality": 10.659999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.2250000000000005,
-          "voice_articulation": 11.634999999999994,
-          "voice_microtone": 12.024999999999991,
-          "voice_tradition": 6.9875,
-          "voice_mechanism_compound": 5.005,
-          "voice_estill_quality": 3.9650000000000007,
-          "voice_speech_song": 20.084999999999994,
-          "voice_ensemble_config": 12.154999999999992,
-          "voice_ornament_system": 0.7149999999999996,
-          "voice_pitch_organization": 3.0550000000000006,
-          "voice_processing_chain": 3.9325,
-          "voice_multitrack_stack": 6.145
+          "voice_vibrato": 3.6400000000000006,
+          "voice_articulation": 15.469999999999999,
+          "voice_microtone": 15.469999999999995,
+          "voice_tradition": 5.427500000000001,
+          "voice_mechanism_compound": 6.5,
+          "voice_estill_quality": 5.46,
+          "voice_speech_song": 22.424999999999997,
+          "voice_ensemble_config": 15.989999999999997,
+          "voice_ornament_system": 1.9499999999999993,
+          "voice_pitch_organization": 2.405,
+          "voice_processing_chain": 5.9725,
+          "voice_multitrack_stack": 7.816499999999999
         }
       },
       {
         "id": "electric_guitar_humbucker",
         "slots": {
           "electric_technique": "electric_clean_strummed",
-          "amp_make": "amp_soldano_slo100",
+          "amp_make": "amp_modern_modeling",
           "body_wood": "basswood_h",
-          "neck_wood": "mahogany_neck_h",
-          "fretboard": "ebony_fb_h",
+          "neck_wood": "maple_neck_h",
+          "fretboard": "pau_ferro_fb_h",
           "pickup_magnet": "alnico_8_h",
           "pickup_winding": "high_wind",
           "string_material": "nickel_plated_h",
@@ -67,22 +67,22 @@
           "scale_length": "scale_baritone_h",
           "string_gauge": "g_12_hum",
           "finish": "nitro_hum",
-          "string_tuning": "drop_d"
+          "string_tuning": "drop_c"
         },
         "scores": {
-          "electric_technique": 2.1199999999999997,
-          "amp_make": 1.2349999999999999,
+          "electric_technique": 4.694999999999999,
+          "amp_make": 1.17,
           "body_wood": 1.95,
-          "neck_wood": 0.435,
-          "fretboard": 0.49499999999999994,
-          "pickup_magnet": 0.585,
-          "pickup_winding": 0.495,
-          "string_material": 0.435,
-          "bridge": 1.1949999999999998,
-          "scale_length": 2.145,
-          "string_gauge": 3.2650000000000006,
+          "neck_wood": 0.6765,
+          "fretboard": 0.6765,
+          "pickup_magnet": 1.04,
+          "pickup_winding": 0.65,
+          "string_material": 0.6765,
+          "bridge": 1.039,
+          "scale_length": 1.95,
+          "string_gauge": 2.6990000000000003,
           "finish": 0,
-          "string_tuning": 2.795
+          "string_tuning": 2.34
         }
       },
       {
@@ -94,10 +94,10 @@
           "poly_maker_lineage": "poly_oberheim_tom"
         },
         "scores": {
-          "electronic_technique": 1.7225,
-          "poly_archetypes": 0.795,
-          "poly_voices": 0.795,
-          "poly_maker_lineage": 1.365
+          "electronic_technique": 2.3725,
+          "poly_archetypes": 0.6,
+          "poly_voices": 0.6,
+          "poly_maker_lineage": 0.5200000000000002
         }
       },
       {
@@ -108,9 +108,78 @@
           "tr808_production_origin": "tr808_roland_osaka_canonical"
         },
         "scores": {
-          "tr808_voice": 1.8525,
-          "drum_machine_808_context": 5.09,
+          "tr808_voice": 2.5025,
+          "drum_machine_808_context": 5.987,
           "tr808_production_origin": 1.1700000000000002
+        }
+      },
+      {
+        "id": "electric_guitar_single_coil",
+        "slots": {
+          "electric_technique": "electric_clean_strummed",
+          "amp_make": "amp_modern_modeling",
+          "body_wood": "pine",
+          "neck_wood": "maple",
+          "fretboard": "pau_ferro_fb",
+          "pickup_magnet": "ceramic",
+          "string_material": "nickel_plated",
+          "string_gauge": "g_12",
+          "bridge": "two_point_trem",
+          "scale_length": "scale_gibson",
+          "finish": "nitro",
+          "string_tuning": "drop_d"
+        },
+        "scores": {
+          "electric_technique": 4.694999999999999,
+          "amp_make": 1.17,
+          "body_wood": 0.7,
+          "neck_wood": 0.6765,
+          "fretboard": 0.6765,
+          "pickup_magnet": 0.6765,
+          "string_material": 0.6765,
+          "string_gauge": 2.6990000000000003,
+          "bridge": 0.65,
+          "scale_length": 0.9079999999999999,
+          "finish": 0,
+          "string_tuning": 2.145
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "electric_technique": "electric_bass_walking",
+          "amp_make": "amp_american_ampeg_svt",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "la_bella_flats_motown",
+          "scale_length_b": "extra_long_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "sub_bass_synth_blend"
+        },
+        "scores": {
+          "electric_technique": -0.05,
+          "amp_make": 1.17,
+          "body_wood": 0.9079999999999999,
+          "pickup_config": 0.65,
+          "string_type": 1.1049999999999998,
+          "scale_length_b": 0.65,
+          "fretted_or_not": 0.007499999999999999,
+          "bass_technique": 1.4765
+        }
+      },
+      {
+        "id": "congas",
+        "slots": {
+          "percussion_technique": "percussion_open_slap",
+          "conga_set": "quinto",
+          "conga_skin": "conga_mule_hide",
+          "conga_shell_wood": "conga_oak_staved"
+        },
+        "scores": {
+          "percussion_technique": 6.054999999999999,
+          "conga_set": 2.275,
+          "conga_skin": 1.4949999999999999,
+          "conga_shell_wood": 1.4949999999999999
         }
       }
     ],

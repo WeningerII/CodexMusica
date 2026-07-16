@@ -3,31 +3,31 @@
   "name": "Japanese matsuri festival drumming (祭, matsuri-bayashi)",
   "family": "global",
   "lineage": "Japanese matsuri (祭, festival) drumming tradition continuous from premodern Shinto-Buddhist festival-procession practice through Edo-period (1603-1868) codification of canonical city-festival drumming (the Tokyo-Asakusa Sanja Matsuri, Kyoto Gion Matsuri, Osaka Tenjin Matsuri, Aomori Nebuta Matsuri) into modern Japanese-and-Japanese-diaspora continuous festival-practice",
-  "recipe": "classic East Asian early-1600s japanese matsuri festival drumming, carnival Processional, east Asian branch, European carnival processional, buddhist ritual devotional, east Asian wedding chinese xǐqìng (喜慶) wedding music javanese wedding gamelan music. thick, breath veiled tone, straight note core, interlocked note trading. cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk oedo sukeroku canonical kumi daiko modern ensemble taiko drum, acrylic red sandalwood premium nylon modern tsugaru shamisen, madake bamboo phyllostachys canonical Japanese root section kinko ryu canonical edo period concert continuous-airflow legato shakuhachi. kabuki theater japanese. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 759,
-  "score": 177.456,
+  "recipe": "classic East Asian early-1600s japanese matsuri festival drumming, carnival Processional, east Asian branch, European carnival processional, buddhist ritual devotional, east Asian wedding chinese xǐqìng (喜慶) wedding music tibetan chöd rite. thick, breath veiled tone, straight note core, interlocked note trading. cowhide canonical Japanese keyaki zelkova canonical Japanese single hollowed trunk oedo sukeroku canonical kumi daiko modern ensemble taiko drum, acrylic red sandalwood premium nylon modern tsugaru shamisen, madake bamboo phyllostachys canonical Japanese root section kinko ryu canonical edo period concert continuous-airflow legato shakuhachi. kabuki theater japanese. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 746,
+  "score": 180.001,
   "config": {
     "traditions": [
       "japanese_matsuri_taiko",
       "chinese_xiqing_wedding",
-      "javanese_wedding_gamelan"
+      "tibetan_chod_rite"
     ],
     "instruments": [
       {
         "id": "taiko_drum",
         "slots": {
-          "taiko_size": "taiko_o_daiko",
+          "taiko_size": "taiko_shime_daiko",
           "taiko_skin": "taiko_cowhide",
           "taiko_shell_wood": "taiko_keyaki_canonical",
           "taiko_lineage": "taiko_oedo_sukeroku",
           "taiko_technique": "taiko_kumi_daiko"
         },
         "scores": {
-          "taiko_size": 0.195,
-          "taiko_skin": 9.27,
-          "taiko_shell_wood": 9.809999999999999,
+          "taiko_size": 0.845,
+          "taiko_skin": 9.12,
+          "taiko_shell_wood": 9.51,
           "taiko_lineage": 3.1200000000000006,
-          "taiko_technique": 6.045
+          "taiko_technique": 5.005
         }
       },
       {
@@ -45,10 +45,10 @@
           "plucked_traditional_technique": -0.05,
           "shamisen_size": 0.15,
           "shamisen_skin": 0.15,
-          "shamisen_pick": 3.38,
+          "shamisen_pick": 3.185,
           "shamisen_neck_wood": 3.0550000000000006,
-          "shamisen_strings": 3.38,
-          "shamisen_tradition": 2.5999999999999996
+          "shamisen_strings": 3.185,
+          "shamisen_tradition": 1.755
         }
       },
       {
@@ -61,11 +61,11 @@
           "shakuhachi_lineage": "shakuhachi_kinko"
         },
         "scores": {
-          "wind_articulation": 5.20125,
+          "wind_articulation": 3.7512499999999998,
           "shaku_length": 0,
-          "shaku_technique": 4.42,
-          "shakuhachi_body_material": 9.315,
-          "shakuhachi_lineage": 8.24125
+          "shaku_technique": 5.915,
+          "shakuhachi_body_material": 9.165,
+          "shakuhachi_lineage": 7.44125
         }
       },
       {
@@ -79,32 +79,32 @@
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "chinese_classical_vocal_tradition",
-          "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
+          "voice_mechanism_compound": "voice_mechanism_ventricular_subharmonic",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_jingju_role",
-          "voice_pitch_organization": "voice_pitch_pelog_7",
+          "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
           "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 3.595,
-          "voice_quality": 5.525000000000001,
+          "voice_register": 3.37,
+          "voice_quality": 14.884999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.90875,
-          "voice_articulation": 10.139999999999999,
-          "voice_microtone": 9.945,
-          "voice_tradition": 26.49375,
-          "voice_mechanism_compound": 1.0074999999999998,
-          "voice_estill_quality": 0.8449999999999999,
-          "voice_speech_song": 10.139999999999999,
-          "voice_ensemble_config": 10.854999999999995,
-          "voice_ornament_system": 6.923750000000001,
-          "voice_pitch_organization": 14.704999999999997,
+          "voice_vibrato": 4.8100000000000005,
+          "voice_articulation": 12.349999999999994,
+          "voice_microtone": 12.154999999999992,
+          "voice_tradition": 23.86875,
+          "voice_mechanism_compound": 2.62,
+          "voice_estill_quality": 2.3399999999999994,
+          "voice_speech_song": 12.349999999999994,
+          "voice_ensemble_config": 14.169999999999993,
+          "voice_ornament_system": 5.04875,
+          "voice_pitch_organization": 3.8962499999999998,
           "voice_processing_chain": 2.925000000000001,
-          "voice_multitrack_stack": 2.0149999999999997
+          "voice_multitrack_stack": 2.8599999999999994
         }
       }
     ],

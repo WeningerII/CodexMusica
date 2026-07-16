@@ -5,7 +5,7 @@
   "lineage": "Mexican brass-band tradition of Sinaloa state, derived from late-nineteenth-century German-immigrant military-band tradition adapted to Mexican-rural-popular celebration-music. Large ensemble of clarinets, trumpets, trombones, sousaphone, tambora, tarola, voice — entirely brass-and-percussion. Repertoire spans ranchera, corrido, cumbia. Banda El Recodo (founded 1938) anchors the canonical sound.",
   "recipe": "classic Mexican late-1930s banda sinaloense, functional Song, Mexican branch, American marching groove percussion american drumline. thick, full chest belt, straight onset, interlocked note trading. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor large cup tenor large trombone, American orchestral brass yellow brass canonical orchestral piston valves American school besson sovereign British brass band tuba, ebonite hard rubber klezmer tradition clarinet, banda sinaloense. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 813,
-  "score": 121.99,
+  "score": 121.339,
   "config": {
     "traditions": [
       "banda_sinaloense",
@@ -29,7 +29,7 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_vocoder_32_band_carrier_saw",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
@@ -37,17 +37,17 @@
           "voice_quality": 5.948750000000002,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.114,
+          "voice_vibrato": 2.0825,
           "voice_articulation": 5.07,
           "voice_microtone": 4.875000000000001,
-          "voice_tradition": 5.36,
-          "voice_mechanism_compound": 1.09875,
-          "voice_estill_quality": 3.353,
+          "voice_tradition": 5.258,
+          "voice_mechanism_compound": 1.0042499999999999,
+          "voice_estill_quality": 3.29,
           "voice_speech_song": 7.41,
           "voice_ensemble_config": 6.695,
           "voice_ornament_system": 1.56,
           "voice_pitch_organization": 1.4949999999999999,
-          "voice_processing_chain": 3.1979999999999995,
+          "voice_processing_chain": 3.185,
           "voice_multitrack_stack": 1.8199999999999998
         }
       },
@@ -64,11 +64,11 @@
         },
         "scores": {
           "wind_articulation": 2.5999999999999996,
-          "brass_size": 0.04875,
-          "trumpet_mouthpiece": 2.3995,
+          "brass_size": 0.0975,
+          "trumpet_mouthpiece": 2.3680000000000003,
           "brass_mute": 0.04875,
           "trumpet_technique": 2.5999999999999996,
-          "trumpet_bell_metal": 4.3995,
+          "trumpet_bell_metal": 4.4167499999999995,
           "trumpet_maker_school": 5.069999999999999
         }
       },
@@ -85,11 +85,11 @@
         },
         "scores": {
           "wind_articulation": 2.5999999999999996,
-          "trombone_type": 0.08025,
+          "trombone_type": 0.04875,
           "trombone_mouthpiece": 2.3680000000000003,
           "trombone_mute": 0.04875,
           "trombone_technique": 0.845,
-          "trombone_bell_metal": 4.5945,
+          "trombone_bell_metal": 4.61175,
           "trombone_maker_school": 5.915
         }
       },
@@ -106,10 +106,10 @@
         "scores": {
           "wind_articulation": 0.39,
           "tuba_pitch": 3.3799999999999994,
-          "tuba_context": 9.7655,
-          "tuba_bell_metal": 4.3995,
+          "tuba_context": 9.503,
+          "tuba_bell_metal": 4.4167499999999995,
           "tuba_valve_system": 4.419999999999999,
-          "tuba_maker_school": 7.420999999999999
+          "tuba_maker_school": 7.406749999999999
         }
       },
       {
@@ -123,8 +123,8 @@
         },
         "scores": {
           "wind_articulation": 2.5999999999999996,
-          "clarinet_body": 4.49075,
-          "clarinet_size": 0.0975,
+          "clarinet_body": 4.3542499999999995,
+          "clarinet_size": 0.14625,
           "clarinet_reed": 0.195,
           "clarinet_articulation": 0.45499999999999996
         }
@@ -137,7 +137,7 @@
         },
         "scores": {
           "sections": 0.845,
-          "banda_sinaloense_context": 1.69
+          "banda_sinaloense_context": 1.6705
         }
       }
     ],

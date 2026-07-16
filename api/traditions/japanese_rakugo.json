@@ -5,7 +5,7 @@
   "lineage": "Japanese comic monologue storytelling performed by a lone seated rakugoka in formal kimono at a low cushion (zabuton) on the yose stage, using only a folding fan (sensu) and hand-towel (tenugui) as props. Developed from Edo-period temple-sermon anecdote into an urban entertainment codified in Edo (Tokyo) and Osaka lineages, its repertoire divides into classical koten and newly-written shinsaku pieces, each ending in the ochi (punch-line 'fall') that gives the form its name. The teller enacts a whole dialogue of characters by turning the head and shifting voice, all from the seated position; the delivery is naturalistic conversational speech shaped for comic timing.",
   "recipe": "classic East Asian modern japanese rakugo, art Music, east Asian branch thai classical tibetan ache lhamo opera. thick, breath veiled tone, slow rate, interlocked note trading. tatami parlor japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 330,
-  "score": 268.357,
+  "score": 269.607,
   "config": {
     "traditions": [
       "japanese_rakugo",
@@ -34,20 +34,20 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 4.061,
+          "voice_register": 3.806,
           "voice_quality": 29.509999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 19.0915,
+          "voice_vibrato": 19.295499999999997,
           "voice_articulation": 22.555,
           "voice_microtone": 22.164999999999996,
           "voice_tradition": 29.835,
           "voice_mechanism_compound": 14.799999999999997,
-          "voice_estill_quality": 23.921499999999998,
+          "voice_estill_quality": 24.712,
           "voice_speech_song": 25.09,
           "voice_ensemble_config": 25.479999999999997,
-          "voice_ornament_system": 17.33,
-          "voice_pitch_organization": 17.568499999999997,
+          "voice_ornament_system": 17.585,
+          "voice_pitch_organization": 17.823499999999996,
           "voice_processing_chain": 6.305,
           "voice_multitrack_stack": 7.67
         }

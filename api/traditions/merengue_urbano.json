@@ -5,7 +5,7 @@
   "lineage": "Electronic-and-rap-influenced Dominican merengue variant emerging in 1990s-2000s. Synthesis of traditional merengue rhythmic pulse with hip-hop production and reggaeton harmonic-rhythmic vocabulary. Drum-machine-and-sampler production, faster 2/4 tempo than traditional merengue, simpler chord-progressions, explicit MC-rapped vocal sections alongside sung verse-and-chorus. Omega \"El Fuerte\" and El Cata anchored the 2000s commercial sound.",
   "recipe": "classic Caribbean mid-1990s merengue urbano, functional Song, tropical song branch, reggaeton MC rhythm moombahton. thick, rap, slow rate, interlocked note trading. TR-808, sub bass analog synth, electric bass. Dominican canon 1970-1995 mid tier dominican capital studio 80s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 405,
-  "score": 138.263,
+  "score": 138.864,
   "config": {
     "traditions": [
       "merengue_urbano",
@@ -23,7 +23,7 @@
           "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "beatboxing_tradition",
+          "voice_tradition": "sean_nos_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -34,8 +34,8 @@
           "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
         },
         "scores": {
-          "voice_register": 2.3330000000000015,
-          "voice_quality": 13.078,
+          "voice_register": 2.3015000000000017,
+          "voice_quality": 13.485,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.47,
@@ -48,8 +48,8 @@
           "voice_ensemble_config": 13.129999999999995,
           "voice_ornament_system": 4.355000000000001,
           "voice_pitch_organization": 2.3399999999999994,
-          "voice_processing_chain": 9.347999999999999,
-          "voice_multitrack_stack": 11.140999999999996
+          "voice_processing_chain": 9.075,
+          "voice_multitrack_stack": 11.046499999999996
         }
       },
       {
@@ -57,12 +57,12 @@
         "slots": {
           "tr808_voice": "tr808_kick_long",
           "drum_machine_808_context": "drum_machine_808_rb",
-          "tr808_production_origin": "tr808_behringer_clone"
+          "tr808_production_origin": "tr808_tr_8s_modern"
         },
         "scores": {
-          "tr808_voice": 3.071,
-          "drum_machine_808_context": 6.086499999999999,
-          "tr808_production_origin": 0.693
+          "tr808_voice": 3.185,
+          "drum_machine_808_context": 6.117999999999999,
+          "tr808_production_origin": 0.6194999999999999
         }
       },
       {
@@ -75,10 +75,10 @@
           "modulation": "no_mod"
         },
         "scores": {
-          "electronic_technique": 3.3960000000000004,
-          "oscillator": 1.45,
+          "electronic_technique": 3.6075000000000004,
+          "oscillator": 1.345,
           "filter_topology": 0.65,
-          "envelope": 2.663,
+          "envelope": 2.7364999999999995,
           "modulation": 0.45499999999999996
         }
       },
@@ -89,7 +89,7 @@
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
-          "string_type": "la_bella_flats_motown",
+          "string_type": "roundwound_s",
           "scale_length_b": "extra_long_b",
           "fretted_or_not": "fretted",
           "bass_technique": "thumb_muted"
@@ -97,9 +97,9 @@
         "scores": {
           "electric_technique": 0.325,
           "amp_make": 0.585,
-          "body_wood": 0.336,
+          "body_wood": 0.546,
           "pickup_config": 0.4365,
-          "string_type": 0.52,
+          "string_type": 0.651,
           "scale_length_b": 0.3465,
           "fretted_or_not": 0,
           "bass_technique": 0.325

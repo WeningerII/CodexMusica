@@ -5,7 +5,7 @@
   "lineage": "Thai court-and-temple piphat tuned-percussion ensemble tradition in seven-equal-temperament tuning — codified through the Ayutthaya-era (1351-1767) royal court repertoire and continuing through the Bangkok Rattanakosin period; the piphat ensemble centered on the ranat-ek and ranat-thum xylophones, khong wong large gong-circle, and pi-nai oboe, performing the great repertoire of Phra Aphai Mani, naphat ceremonial works, and dance accompaniment for khon and lakhon",
   "recipe": "classic early-1350s thai classical, art Music, Thai classical branch, east Asian art music tibetan ache lhamo opera beijing opera. ranat ek, khong wong yai, pi nai, jackwood barrel canonical Thai piphat taphon, central Thai ching chap open and damped iron ching, ivory court heirloom lead voice silk canonical Thai court synthetic membrane modern legato saw duang. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 516,
-  "score": 232.415,
+  "score": 232.7,
   "config": {
     "traditions": [
       "thai_classical",
@@ -19,7 +19,7 @@
           "ranat_ek_technique": "ranat_ek_kep"
         },
         "scores": {
-          "ranat_ek_technique": 29.009999999999994
+          "ranat_ek_technique": 28.964999999999993
         }
       },
       {
@@ -37,7 +37,7 @@
           "pi_nai_style": "pi_nai_piphat"
         },
         "scores": {
-          "pi_nai_style": 29.054999999999993
+          "pi_nai_style": 29.009999999999994
         }
       },
       {
@@ -49,7 +49,7 @@
         },
         "scores": {
           "taphon_technique": 25.249999999999996,
-          "taphon_shell_wood": 12.774999999999997,
+          "taphon_shell_wood": 13.119999999999997,
           "taphon_head": 0.845
         }
       },
@@ -61,7 +61,7 @@
           "ching_alloy": "ching_iron"
         },
         "scores": {
-          "ching_form": 25.444999999999993,
+          "ching_form": 25.39999999999999,
           "ching_stroke": 29.250000000000007,
           "ching_alloy": 1.92
         }
@@ -77,9 +77,9 @@
         },
         "scores": {
           "bowed_technique": 22.839999999999993,
-          "saw_duang_body_form": 5.134999999999999,
+          "saw_duang_body_form": 5.059999999999999,
           "saw_duang_repertoire": 3.0749999999999997,
-          "saw_duang_strings": 13.769999999999996,
+          "saw_duang_strings": 13.919999999999996,
           "saw_duang_face": 1.17
         }
       }

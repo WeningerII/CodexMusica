@@ -5,7 +5,7 @@
   "lineage": "Regional Mexican son tradition of the Huasteca cultural region (Veracruz, Hidalgo, San Luis Potosí, Tamaulipas, Querétaro). Trio of huapanguero violin (with high-falsetto vocal ornament and improvisatory melodic-doubling), quinta huapanguera five-string acoustic-bass-guitar, and jarana huasteca five-string rhythm-guitar. Alternating violin-improvisation and falsetto-vocal-improvisation sections define the canonical huapango.",
   "recipe": "classic Mexican modern son huasteco, ballad Poetry, Latin am troubadour branch, indigenous ritual devotional shipibo-conibo icaros healing songs samoan siva and fagufagu. vocal fry, breath veiled tone, straight note core, interlocked note trading. sitka spruce French Polish shellac pad modern setup longer neck violin orchestral, cedrillo canonical veracruz nylon modern strummed jarana jarocha, son huasteco standard nylon wound modern cedro rojo canonical huasteca quinta huapanguera. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 634,
-  "score": 216.67,
+  "score": 215.935,
   "config": {
     "traditions": [
       "son_huasteco",
@@ -25,7 +25,7 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "polynesian_oli_tradition",
           "voice_mechanism_compound": "voice_mechanism_ingressive_paired",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_falsetto",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
@@ -42,8 +42,8 @@
           "voice_articulation": 19.174999999999997,
           "voice_microtone": 17.744999999999994,
           "voice_tradition": 19.89,
-          "voice_mechanism_compound": 10.405000000000001,
-          "voice_estill_quality": 3.835,
+          "voice_mechanism_compound": 9.520000000000001,
+          "voice_estill_quality": 3.8349999999999995,
           "voice_speech_song": 19.434999999999995,
           "voice_ensemble_config": 18.914999999999996,
           "voice_ornament_system": 7.15,
@@ -92,7 +92,7 @@
           "plucked_traditional_technique": 5.46,
           "jarana_size": 2.3,
           "jarana_jarocha_context": 1.69,
-          "jarana_jarocha_body_wood": 3.835,
+          "jarana_jarocha_body_wood": 3.9850000000000003,
           "jarana_jarocha_strings": 2.34
         }
       },
@@ -105,10 +105,10 @@
           "quinta_huapanguera_body_wood": "quinta_huapanguera_cedro"
         },
         "scores": {
-          "quinta_huapanguera_form": 4.3999999999999995,
+          "quinta_huapanguera_form": 4.25,
           "quinta_huapanguera_context": 0.45499999999999996,
           "quinta_huapanguera_strings": 2.34,
-          "quinta_huapanguera_body_wood": 6.135
+          "quinta_huapanguera_body_wood": 6.284999999999999
         }
       }
     ],

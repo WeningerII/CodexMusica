@@ -3,36 +3,36 @@
   "name": "Russian Orthodox liturgical chant",
   "family": "global",
   "lineage": "Russian Orthodox liturgical chant tradition codified across the medieval-Kievan and Muscovite periods, drawing on the Byzantine octoechos modal system through the znamenny notation tradition — characterized by unaccompanied male-choir performance, the four-part choral harmonization style developed from the seventeenth century onward, deep-bass octavist register, and the obikhod and obihod-derived modern liturgical settings used across the Russian Orthodox parish-and-monastic-foundation network",
-  "recipe": "classic modern russian orthodox liturgical chant, ritual Devotional, Russian orthodox branch, christian gospel coptic coptic liturgical chant ethiopian tewahedo zema chant. thick, declaimed, straight note core, interlocked note trading. a cappella small 3 to 8 one per part four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble, choir russian orthodox. cathedral. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 558,
-  "score": 279.971,
+  "recipe": "classic modern russian orthodox liturgical chant, ritual Devotional, Russian orthodox branch, christian gospel coptic ethiopian tewahedo zema chant syriac orthodox liturgical chant. thick, breath veiled tone, straight note core, interlocked note trading. mixed satb canonical 4 part western four voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble, choir russian orthodox. cathedral. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 575,
+  "score": 276.468,
   "config": {
     "traditions": [
       "russian_orthodox_chant",
-      "coptic_liturgical",
-      "ethiopian_zema_yared"
+      "ethiopian_zema_yared",
+      "syriac_orthodox_chant"
     ],
     "instruments": [
       {
         "id": "choir_ensemble",
         "slots": {
-          "choir_size": "a_cappella_small_ensemble_3_8",
+          "choir_size": "mixed_4_part_satb",
           "choir_polyphonic_configuration": "choir_polyphony_four_voice_polyphonic",
           "choir_regional_canonical_configuration": "choir_regional_kakhetian_three_voice",
           "choir_ensemble_repertoire": "choir_ensemble_sacred_global"
         },
         "scores": {
-          "choir_size": 5.85,
-          "choir_polyphonic_configuration": 4.615,
-          "choir_regional_canonical_configuration": 4.68,
-          "choir_ensemble_repertoire": 14.754999999999999
+          "choir_size": 5.784999999999999,
+          "choir_polyphonic_configuration": 5.654999999999999,
+          "choir_regional_canonical_configuration": 4.03,
+          "choir_ensemble_repertoire": 14.364999999999998
         }
       },
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "praise_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
           "voice_vibrato": "terminal_vibrato",
@@ -45,26 +45,26 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_ethiopian_qenet",
-          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 14.75,
-          "voice_quality": 22.932999999999996,
+          "voice_register": 14.974999999999998,
+          "voice_quality": 23.919999999999995,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 5.492500000000001,
-          "voice_articulation": 20.214999999999996,
-          "voice_microtone": 28.502499999999998,
-          "voice_tradition": 18.979999999999993,
-          "voice_mechanism_compound": 9.945,
+          "voice_vibrato": 7.130250000000001,
+          "voice_articulation": 18.654999999999994,
+          "voice_microtone": 23.529999999999994,
+          "voice_tradition": 18.394999999999992,
+          "voice_mechanism_compound": 9.75,
           "voice_estill_quality": 10.239999999999998,
-          "voice_speech_song": 21.937499999999996,
-          "voice_ensemble_config": 23.399999999999995,
-          "voice_ornament_system": 11.774999999999999,
-          "voice_pitch_organization": 10.205,
-          "voice_processing_chain": 7.085,
-          "voice_multitrack_stack": 8.905000000000001
+          "voice_speech_song": 20.669999999999995,
+          "voice_ensemble_config": 25.057499999999997,
+          "voice_ornament_system": 11.724999999999998,
+          "voice_pitch_organization": 11.829999999999997,
+          "voice_processing_chain": 8.255,
+          "voice_multitrack_stack": 7.475
         }
       },
       {
@@ -74,8 +74,8 @@
           "use": "orthodox_divine_liturgy"
         },
         "scores": {
-          "voicing": 15.469999999999999,
-          "use": 12.61
+          "voicing": 15.079999999999997,
+          "use": 12.219999999999999
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Late-1920s jazz style developed in Chicago by young white musicians influenced by the New Orleans tradition transplanted to Chicago through the 1917 closure of Storyville. Characterized by greater solo-improvisation emphasis (vs Dixieland collective-improvisation), introduction of tenor saxophone, four-beat-to-the-bar rhythm (vs Dixieland's two-beat), and harder-edged \"Chicago bite\" articulation. The Austin High Gang (Bud Freeman, Frank Teschemacher, Jimmy McPartland) is the canonical Chicago school.",
   "recipe": "classic North American chicago jazz, improv On Frame, early branch, American jazz pre jazz ragtime. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, ebonite hard rubber klezmer tradition front line clarinet, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, growly gut upright bass, vintage ambassador asymmetric brushes drum kit. dry but alive 1948-1965 indie-commercial early tape us small. acoustic horn. 78rpm shellac.",
   "recipe_chars": 647,
-  "score": 285.813,
+  "score": 282.112,
   "config": {
     "traditions": [
       "chicago_jazz_1920s",
@@ -24,11 +24,11 @@
           "trumpet_maker_school": "trumpet_bach_stradivarius"
         },
         "scores": {
-          "wind_articulation": 8.915,
+          "wind_articulation": 8.5445,
           "brass_size": 0.065,
-          "trumpet_mouthpiece": 29.27975,
+          "trumpet_mouthpiece": 28.434125,
           "brass_mute": 0.375,
-          "trumpet_technique": 8.915,
+          "trumpet_technique": 8.5445,
           "trumpet_bell_metal": 1.885,
           "trumpet_maker_school": 7.865
         }
@@ -43,7 +43,7 @@
           "clarinet_articulation": "tongued_clarinet"
         },
         "scores": {
-          "wind_articulation": 8.915,
+          "wind_articulation": 8.5445,
           "clarinet_body": 3.1565000000000003,
           "clarinet_size": 0.195,
           "clarinet_reed": 0.065,
@@ -57,7 +57,7 @@
           "sax_size": "tenor_sax",
           "sax_reed": "soft_reed",
           "sax_body_alloy": "phosphor_bronze_sax",
-          "sax_mouthpiece": "hard_rubber_mp",
+          "sax_mouthpiece": "metal_mp",
           "sax_technique": "sax_continuous_legato",
           "sax_maker_school": "sax_selmer_mark_vi"
         },
@@ -65,10 +65,10 @@
           "wind_articulation": 2.325,
           "sax_size": 1.15,
           "sax_reed": 0.065,
-          "sax_body_alloy": 25.570000000000004,
-          "sax_mouthpiece": 0.1425,
+          "sax_body_alloy": 25.575625000000002,
+          "sax_mouthpiece": 0.065,
           "sax_technique": 25.375,
-          "sax_maker_school": 28.76375
+          "sax_maker_school": 27.918125
         }
       },
       {
@@ -118,7 +118,7 @@
         },
         "scores": {
           "drum_technique": 25.375,
-          "drumhead": 29.25475,
+          "drumhead": 28.427875000000004,
           "drum_kit_kick_pedal": 0
         }
       }

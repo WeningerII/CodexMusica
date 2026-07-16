@@ -5,7 +5,7 @@
   "lineage": "Pizzica salentina Southern Italian folk-dance-and-music tradition of the Salento peninsula (southern Puglia), historically tied to the tarantismo ritual-healing tradition where the pizzica dance ostensibly cured tarantism. Characterized by fast 12/8 or 6/8 meter, virtuoso tamburello frame-drum lead, and characteristic call-and-response courtship-and-warrior-dance choreography. Performance contexts include the annual Notte della Taranta festival in Melpignano (founded 1998, now drawing 200,000+ attendees), the canonical Salento-village wedding-and-festival cycle, and (post-2000) the international neo-folk revival circuit. Distinguished from Neapolitan tarantella by pizzica's Salentine regional dialect register and slower tempo-of-instrumental-acceleration arc.",
   "recipe": "classic Southern European late-1990s pizzica salentina, ballad Poetry, Mediterranean ballad branch, indigenous ritual devotional, Brazilian groove percussion shipibo-conibo icaros healing songs mapuche tayil genealogical chant. thick, breath veiled tone, fast rate, interlocked note trading. tambourine orch, bowl back Italian Italian alpine spruce brescian calace big leaf maple modern American mandolin, sitka spruce spirit varnish shellac alcohol violin orchestral. naples canzone napoletana defining 1839-present mid tier naples canzone napoletana studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 622,
-  "score": 282.655,
+  "score": 282.295,
   "config": {
     "traditions": [
       "pizzica_salentina",
@@ -42,7 +42,7 @@
           "voice_articulation": 24.765,
           "voice_microtone": 24.375,
           "voice_tradition": 28.144999999999996,
-          "voice_mechanism_compound": 11.655000000000001,
+          "voice_mechanism_compound": 10.770000000000001,
           "voice_estill_quality": 11.765,
           "voice_speech_song": 26.260000000000005,
           "voice_ensemble_config": 25.35,
@@ -105,7 +105,7 @@
           "orch_strings": 0,
           "orch_top_wood": 4.615,
           "orch_back_wood": 0.585,
-          "orch_varnish": 4.74,
+          "orch_varnish": 5.265,
           "orch_setup_period": -0.07,
           "orch_bow": 6.069999999999999,
           "orch_bow_stick": 0.8449999999999999,

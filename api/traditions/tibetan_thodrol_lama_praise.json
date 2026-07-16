@@ -3,14 +3,14 @@
   "name": "Tibetan thödröl praise-recitation",
   "family": "global",
   "lineage": "Tibetan-Buddhist praise-recitation tradition continuous from 8th-9th century Indo-Tibetan-Buddhist-foundation era through 11th-14th century Sarma-school monastery-formalization era into modern Tibetan-Buddhist-monastic and Tibetan-Buddhist-diaspora practice; thödröl (\"liberation through hearing\") and broader lama-praise repertoires constitute the praise-vocabulary",
-  "recipe": "classic Northeast Asian modern tibetan thödröl praise-recitation, praise Song, indian subcontinent branch, buddhist ritual devotional, overtone drone modal, east Asian Tibetan ritual khöömii tuvan kargyraa subharmonic throat-singing. sygyt, false fold engaged, breath pulsed, interlocked note trading. tibetan monastery assembly. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 392,
-  "score": 255.315,
+  "recipe": "classic Northeast Asian modern tibetan thödröl praise-recitation, praise Song, indian subcontinent branch, buddhist ritual devotional, overtone drone modal, east Asian Tibetan ritual tuvan kargyraa subharmonic throat-singing tuvan throat singing. sygyt, false fold engaged, breath pulsed, interlocked note trading. tibetan monastery assembly. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 405,
+  "score": 290.005,
   "config": {
     "traditions": [
       "tibetan_thodrol_lama_praise",
-      "mongolian_xoomii",
-      "tuvan_kargyraa"
+      "tuvan_kargyraa",
+      "tuvan_throat"
     ],
     "instruments": [
       {
@@ -22,9 +22,9 @@
           "voice_effort": "effort_moderate",
           "voice_vibrato": "diaphragm_vibrato",
           "voice_articulation": "hocket_voice",
-          "voice_microtone": "maqam_inflected",
+          "voice_microtone": "overtone_singing",
           "voice_tradition": "khoomei_tuvan_tradition",
-          "voice_mechanism_compound": "voice_mechanism_overtone_isolation_F2",
+          "voice_mechanism_compound": "voice_mechanism_ventricular_subharmonic",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
@@ -34,22 +34,22 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 33.175,
-          "voice_quality": 39.370000000000005,
+          "voice_register": 40.975,
+          "voice_quality": 44.885,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 8.19,
-          "voice_articulation": 13.389999999999997,
-          "voice_microtone": 16.509999999999994,
-          "voice_tradition": 32.265,
-          "voice_mechanism_compound": 32.989999999999995,
-          "voice_estill_quality": 5.525,
-          "voice_speech_song": 16.184999999999995,
-          "voice_ensemble_config": 15.794999999999995,
+          "voice_vibrato": 7.475,
+          "voice_articulation": 14.884999999999994,
+          "voice_microtone": 18.509999999999998,
+          "voice_tradition": 37.705,
+          "voice_mechanism_compound": 37.71,
+          "voice_estill_quality": 5.07,
+          "voice_speech_song": 18.32999999999999,
+          "voice_ensemble_config": 17.484999999999992,
           "voice_ornament_system": 3.2750000000000004,
-          "voice_pitch_organization": 32.309999999999995,
-          "voice_processing_chain": 5.915,
-          "voice_multitrack_stack": 5.07
+          "voice_pitch_organization": 38.489999999999995,
+          "voice_processing_chain": 5.005,
+          "voice_multitrack_stack": 5.004999999999999
         }
       }
     ],

@@ -5,7 +5,7 @@
   "lineage": "Tibetan / Bhutanese / Ladakhi Vajrayana tantric ritual-music tradition with multiphonic chant and brass-and-percussion liturgical ensemble",
   "recipe": "classic Northeast Asian modern himalayan vajrayana liturgy, ritual Devotional, buddhist branch, east Asian art music tibetan ache lhamo opera beijing opera. thick, breath veiled tone, slow rate, interlocked note trading. log drum, m1 modal compound with overtone tuning khoomei foundational mechanism 8th to 12th partial overtone range himalayan ritual chant subharmonic monastic throat singing voice, call ritual conch shell horn, ceremonial hammered copper brass telescoping canonical Tibetan gelug canonical Tibetan buddhist liturgy tibetan dungchen, wood rosewood body brass bell canonical Tibetan arundo donax canonical Tibetan monastic tibetan gyaling. tibetan monastery assembly. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 749,
-  "score": 315.372,
+  "score": 316.992,
   "config": {
     "traditions": [
       "vajrayana_broader",
@@ -34,7 +34,7 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 2.12,
+          "voice_register": 1.97,
           "voice_quality": 13.714999999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
@@ -43,11 +43,11 @@
           "voice_microtone": 18.069999999999997,
           "voice_tradition": 30.9725,
           "voice_mechanism_compound": 7.049999999999999,
-          "voice_estill_quality": 21.334999999999994,
+          "voice_estill_quality": 21.799999999999994,
           "voice_speech_song": 18.72,
           "voice_ensemble_config": 20.474999999999994,
-          "voice_ornament_system": 16.099999999999998,
-          "voice_pitch_organization": 7.51,
+          "voice_ornament_system": 16.249999999999996,
+          "voice_pitch_organization": 7.66,
           "voice_processing_chain": 3.12,
           "voice_multitrack_stack": 3.7050000000000005
         }
@@ -55,7 +55,7 @@
       {
         "id": "log_drum",
         "slots": {
-          "log_drum_voice": "log_drum_mid",
+          "log_drum_voice": "log_drum_sub",
           "log_drum_context": "log_drum_amapiano"
         },
         "scores": {
@@ -84,7 +84,7 @@
           "conch_shell_horn_region": "conch_shell_horn_polynesian"
         },
         "scores": {
-          "wind_articulation": 12.274999999999999,
+          "wind_articulation": 12.395,
           "conch_use": 0.15,
           "conch_shell_horn_region": 18.265
         }
@@ -97,9 +97,9 @@
           "dungchen_lineage": "dungchen_gelug_canonical"
         },
         "scores": {
-          "dungchen_length": 10.56,
-          "dungchen_body_metal": 8.635,
-          "dungchen_lineage": 12.184999999999999
+          "dungchen_length": 10.41,
+          "dungchen_body_metal": 8.905,
+          "dungchen_lineage": 12.53
         }
       },
       {
@@ -110,9 +110,9 @@
           "gyaling_reed": "gyaling_arundo_canonical"
         },
         "scores": {
-          "gyaling_body": 10.245,
-          "gyaling_body_wood": 8.54,
-          "gyaling_reed": 8.739999999999998
+          "gyaling_body": 10.2,
+          "gyaling_body_wood": 8.84,
+          "gyaling_reed": 8.905
         }
       }
     ],

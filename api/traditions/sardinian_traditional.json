@@ -3,9 +3,9 @@
   "name": "Sardinian cantu a tenore and launeddas",
   "family": "global",
   "lineage": "Sardinian-interior pastoral traditional music — comprising cantu a tenore four-voice male polyphony (with the four voices sa oghe lead, sa mesu oghe upper third, su contra contra at the fifth, su bassu, Sardinian guttural-throated bass) and launeddas (the unique Sardinian triple-pipe instrument made of three cane pipes simultaneously circular-breathed by a single player, dating from the Nuragic civilization c. 1500 BCE); preserved in the Barbagia, Marghine, Logudoro, Goceano regions through 20th-century tenore quartets and launeddas players like Efisio Melis, Antonio Lara, Luigi Lai",
-  "recipe": "classic Southern European early-1500s sardinian cantu a tenore and launeddas, ballad Poetry, Mediterranean ballad branch, vocal drone modal macedonian glasoechko male diaphonic alpine yodel. kargyraa, false fold engaged, straight note core, interlocked note trading. cane arundo donax three pipes canonical sardinian archaic idioglottic single reeds canonical sardinian drone like circular breathing launeddas, m1 modal compound with overtone tuning khoomei foundational mechanism 8th to 12th partial overtone range Mediterranean pastoral polyphonic subharmonic bassu throat singing voice. sardinian outdoor a tenore polyphony. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 690,
-  "score": 277.702,
+  "recipe": "classic Southern European early-1500s sardinian cantu a tenore and launeddas, ballad Poetry, Mediterranean ballad branch, vocal drone modal macedonian glasoechko male diaphonic alpine yodel. kargyraa, false fold engaged, straight note core, interlocked note trading. cane arundo donax three pipes canonical sardinian archaic idioglottic single reeds canonical sardinian drone like circular breathing launeddas, m1 modal compound with overtone tuning khoomei foundational mechanism 8th to 12th partial overtone range Mediterranean pastoral polyphonic subharmonic bassu throat singing voice, leather castagnari Italian premium folk music drone like accordion, softer tone ebonite hard rubber klezmer tradition clarinet. sardinian outdoor a tenore polyphony. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 818,
+  "score": 299.541,
   "config": {
     "traditions": [
       "sardinian_traditional",
@@ -80,6 +80,44 @@
           "throat_mechanism_root": 10.464999999999998,
           "throat_overtone_target_region": 2.34,
           "throat_singing_voice_region": 22.07
+        }
+      },
+      {
+        "id": "accordion",
+        "slots": {
+          "free_reed_technique": "free_reed_drone_under",
+          "accordion_reed_material": "tipo_a_mano",
+          "musette_offset": "german_tuning",
+          "reed_config": "lmmm",
+          "bellows": "cardboard_leather",
+          "voicing_chamber": "no_cassotto",
+          "accordion_maker_school": "accordion_castagnari_italian"
+        },
+        "scores": {
+          "free_reed_technique": 6.175,
+          "accordion_reed_material": 0.65,
+          "musette_offset": 2.795,
+          "reed_config": 0.46499999999999997,
+          "bellows": 1.3,
+          "voicing_chamber": 0.65,
+          "accordion_maker_school": 2.4699999999999998
+        }
+      },
+      {
+        "id": "clarinet",
+        "slots": {
+          "wind_articulation": "wind_breath_quiet",
+          "clarinet_body": "ebonite_clarinet",
+          "clarinet_size": "e_flat_clarinet",
+          "clarinet_reed": "soft_clarinet_reed",
+          "clarinet_articulation": "tongued_clarinet"
+        },
+        "scores": {
+          "wind_articulation": 1.419375,
+          "clarinet_body": 3.185,
+          "clarinet_size": 1.2349999999999999,
+          "clarinet_reed": 0.65,
+          "clarinet_articulation": 0.845
         }
       }
     ],

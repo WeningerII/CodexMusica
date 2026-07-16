@@ -5,7 +5,7 @@
   "lineage": "Andalusian cante jondo siguiriya: the deepest, most tragic-emotional palo (song-form) of the cante jondo \"deep song\" flamenco core repertoire. Characterized by the canonical siguiriya twelve-beat compás (3+3+2+2+2), extended free-rhythm extended-melismatic introductory passages, and intense vocal-emotional projection registering the genre's anguished-lament aesthetic. Lyric content addresses death, the loss of loved ones, the pain of incarceration, the suffering of the Roma-Andalusian historical experience. Distinguished within the cante jondo palos by siguiriya's tragic-anguish (vs the soleá's graver-philosophical or the martinete's a-cappella-direct) emotional register. The canonical siguiriya repertoire descends through hereditary cantaor lineages with strict transmission-conservation conventions.",
   "recipe": "classic North African modern cante jondo siguiriya, ballad Poetry, Mediterranean ballad branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. extended whistle, breath veiled tone, fast rate, interlocked note trading. cypress body percussive attack strong flamenco tradition rasgueado strum picado scale runs flamenco guitar. casablanca and marrakech recording 1970-present indie-commercial casablanca chaabi moroccan studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 540,
-  "score": 213.155,
+  "score": 212.57,
   "config": {
     "traditions": [
       "cante_jondo_siguiriya",
@@ -38,11 +38,11 @@
           "voice_quality": 48.75000000000004,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.68,
+          "voice_vibrato": 4.829999999999999,
           "voice_articulation": 14.624999999999998,
           "voice_microtone": 14.234999999999994,
           "voice_tradition": 21.689999999999998,
-          "voice_mechanism_compound": 11.655000000000001,
+          "voice_mechanism_compound": 10.770000000000001,
           "voice_estill_quality": 14.559999999999997,
           "voice_speech_song": 19.499999999999996,
           "voice_ensemble_config": 15.209999999999997,
@@ -62,7 +62,7 @@
         "scores": {
           "flamenco_body": 5.9799999999999995,
           "flamenco_features": 0,
-          "flamenco_technique": 3.9899999999999998
+          "flamenco_technique": 4.14
         }
       }
     ],

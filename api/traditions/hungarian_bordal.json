@@ -3,53 +3,53 @@
   "name": "Hungarian bordal (wine song)",
   "family": "global",
   "lineage": "Hungarian bordal (wine-song) tradition continuous from medieval-Hungarian wine-and-tavern-song origins through 19th-century Hungarian-national-Romantic-era Liszt-and-Bartók-folk-collection continuous through 20th-century Hungarian continuous wine-cellar (pince) and tavern (csárda) practice; the Hungarian wine-region tradition (Tokaj, Eger, Villány) integrates extensive wine-celebration song-repertoire",
-  "recipe": "classic modern hungarian bordal, drinking Song, European branch, balkan drinking song, iberian functional song, European wedding sardinian wedding cantu and launeddas music georgian supra feast-singing. thick, false fold engaged, straight note core, interlocked note trading. synthetic magic rosin modern acrylic base drone like rubber fiddle, sustained and staccato hungarian tradition concert pedal cimbalom large frame pedal damper cimbalom. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 518,
-  "score": 182.089,
+  "recipe": "classic modern hungarian bordal, drinking Song, European branch, balkan drinking song, iberian functional song, European wedding georgian supra feast-singing macedonian-serbian kafana drinking song. thick, breath veiled tone, fast rate, interlocked note trading. synthetic magic rosin modern acrylic base drone like fiddle, sustained and staccato hungarian tradition concert pedal cimbalom large frame pedal damper cimbalom. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 498,
+  "score": 181.016,
   "config": {
     "traditions": [
       "hungarian_bordal",
-      "sardinian_wedding_cantu_launeddas",
-      "georgian_supra_drinking"
+      "georgian_supra_drinking",
+      "macedonian_kafana_drinking"
     ],
     "instruments": [
       {
         "id": "voice",
         "slots": {
           "voice_register": "chest_voice",
-          "voice_quality": "false_fold_voice",
+          "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "terminal_vibrato",
+          "voice_vibrato": "fast_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "mediterranean_demotic_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_speech",
           "voice_speech_song": "voice_sprechgesang_notated",
-          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ensemble_config": "voice_ensemble_three_voice_polyphony",
           "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
           "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
           "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 6.105,
-          "voice_quality": 9.875624999999998,
+          "voice_register": 4.105,
+          "voice_quality": 8.125,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.885,
-          "voice_articulation": 12.999999999999995,
-          "voice_microtone": 14.104999999999993,
-          "voice_tradition": 28.369999999999997,
-          "voice_mechanism_compound": 1.69,
-          "voice_estill_quality": 1.3,
-          "voice_speech_song": 26.259999999999994,
-          "voice_ensemble_config": 13.909999999999995,
-          "voice_ornament_system": 1.9399999999999997,
-          "voice_pitch_organization": 8.931249999999999,
-          "voice_processing_chain": 2.21,
-          "voice_multitrack_stack": 1.8849999999999996
+          "voice_vibrato": 1.69,
+          "voice_articulation": 13.129999999999995,
+          "voice_microtone": 14.169999999999991,
+          "voice_tradition": 28.1375,
+          "voice_mechanism_compound": 0.78,
+          "voice_estill_quality": 0.585,
+          "voice_speech_song": 30.809999999999995,
+          "voice_ensemble_config": 16.765625,
+          "voice_ornament_system": 2.8149999999999995,
+          "voice_pitch_organization": 8.486875,
+          "voice_processing_chain": 1.3649999999999998,
+          "voice_multitrack_stack": 0.975
         }
       },
       {
@@ -58,15 +58,15 @@
           "bowed_technique": "bowed_rough_drone",
           "fiddle_strings": "synthetic_core",
           "fiddle_bow": "magic_rosin_fiddle",
-          "fiddle_mute": "rubber_mute",
+          "fiddle_mute": "practice_mute",
           "fiddle_articulation": "arco"
         },
         "scores": {
-          "bowed_technique": 12.1825,
+          "bowed_technique": 9.22,
           "fiddle_strings": 1.69,
           "fiddle_bow": 4.225,
-          "fiddle_mute": 1.3900000000000001,
-          "fiddle_articulation": 0.195
+          "fiddle_mute": 1.63625,
+          "fiddle_articulation": 0.39
         }
       },
       {
@@ -76,7 +76,7 @@
           "cimbalom_mallet": "cimbalom_cotton_wound"
         },
         "scores": {
-          "cimbalom_size": 31.589999999999996,
+          "cimbalom_size": 32.565,
           "cimbalom_mallet": 0
         }
       }
