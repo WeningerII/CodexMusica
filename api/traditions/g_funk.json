@@ -5,7 +5,7 @@
   "lineage": "Early-1990s Los Angeles gangsta-funk hip-hop subgenre codified by Dr. Dre on The Chronic (1992) and Snoop Doggy Doggs Doggystyle (1993), built on Parliament-Funkadelic samples, talkbox lead, high-pitched synth lead lines, and slow-tempo (90-100 BPM) syncopated drum machine programming",
   "recipe": "classic North American 1990-1993 g-funk, mc Rhythm, west coast branch, funk percussive groove percussion minneapolis synth-funk-pop. thick, breath veiled tone, slow rate, interlocked note trading. sampled chopped sampler drum machine, fast decay focused low sub bass analog synth, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, talkbox. west la 1616 butler avenue 1968-present major-flagship the village recorder west la. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 613,
-  "score": 209.504,
+  "score": 186.434,
   "config": {
     "traditions": [
       "g_funk",
@@ -87,7 +87,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_slap_pop",
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -97,7 +96,6 @@
           "bass_technique": "slap_pop"
         },
         "scores": {
-          "electric_technique": 23.069999999999997,
           "amp_make": 3.4202500000000007,
           "body_wood": 0.585,
           "pickup_config": 0.195,

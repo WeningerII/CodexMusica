@@ -5,7 +5,7 @@
   "lineage": "Late-1970s through 1980s post-punk-derived dark atmospheric rock — codified through Bauhaus (Bela Lugosi’s Dead 1979), Siouxsie and the Banshees, The Cure (Pornography 1982, Disintegration 1989), Joy Division’s Closer (1980), and the Birthday Party / Nick Cave lineage; characterized by chorused-and-flanged guitar atmospherics, theatrical-baritone vocals, and gothic-literary lyrical subject matter",
   "recipe": "classic North American 1977-1979 gothic rock, distorted Rock, gothic rock branch, alternative distorted rock, experimental distorted rock grunge. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alder single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, pad like lead analog synth, sustained pad string machine. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 689,
-  "score": 602.64,
+  "score": 592.065,
   "config": {
     "traditions": [
       "gothic_rock",
@@ -86,7 +86,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -96,7 +95,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 10.575,
           "amp_make": 24.7325,
           "body_wood": 2.015,
           "pickup_config": 0.845,

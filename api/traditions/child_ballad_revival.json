@@ -5,7 +5,7 @@
   "lineage": "Performance tradition revived 1955-1965, of the 305 narrative ballads catalogued by Francis James Child in The English and Scottish Popular Ballads (1882-1898) — revived through the Lowland Scottish travelling family tradition (Jeannie Robertson, Belle Stewart, Lizzie Higgins) and the parallel UK folk-revival concert-performance lineage (Ewan MacColl, Peggy Seeger, June Tabor, Martin Carthy, Frankie Armstrong)",
   "recipe": "classic Northern European mid-1960s child ballad revival, ballad Poetry, Scottish ballad branch, anglo singer song britfolk britfolk revival. thick, incomplete closure resting, interlocked note trading, neutral third half flat. dadgad tuning martin lifespan fingerpicked acoustic guitar, drone like fiddle, concert harp. uk folk revival club 60s. large-diaphragm condenser, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
   "recipe_chars": 470,
-  "score": 169.019,
+  "score": 147.522,
   "config": {
     "traditions": [
       "child_ballad_revival",
@@ -54,7 +54,6 @@
       {
         "id": "acoustic_guitar_om",
         "slots": {
-          "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "dadgad",
           "top_wood": "cedar_om",
           "back_sides": "walnut_bs_om",
@@ -62,7 +61,6 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 21.49775,
           "string_tuning": 23.444999999999993,
           "top_wood": 0.3,
           "back_sides": 0.3,
@@ -134,7 +132,6 @@
       "voice_mechanism_compound": "voice_mechanism_single_source",
       "bowed_technique": "bowed_legato_classical",
       "fiddle_articulation": "arco",
-      "acoustic_technique": "acoustic_fingerpicked",
       "top_wood": "sitka_om",
       "back_sides": "rosewood_bs_om",
       "string_acoustic": "phosphor_om",

@@ -5,7 +5,7 @@
   "lineage": "Mid-1980s through early 1990s fast-tempo aggressive metal genre fusing NWOBHM melodic-twin-guitar vocabulary with hardcore-punk tempo and aggression — codified through the Big Four (Metallica Kill Em All 1983 and Master of Puppets 1986, Slayer Reign in Blood 1986, Megadeth Peace Sells But Whos Buying 1986, Anthrax Among the Living 1987), then extended through Exodus, Testament, Overkill, Death Angel, Kreator (German Teutonic thrash), Sodom, Sepultura (Brazilian)",
   "recipe": "classic North American 1984-1986 thrash metal, distorted Rock, thrash branch, punk distorted rock hardcore punk. thick, breath veiled tone, fast rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, sticks backbeat drum kit. san francisco bay area thrash 1983-1991 indie-commercial bay area thrash metal studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay ibanez tube screamer TS9 / TS808 proco RAT.",
   "recipe_chars": 669,
-  "score": 400.94,
+  "score": 386.045,
   "config": {
     "traditions": [
       "thrash_metal",
@@ -49,7 +49,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
@@ -59,7 +58,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 14.894999999999998,
           "amp_make": 10.497499999999999,
           "body_wood": 4.225,
           "pickup_config": 1.9900000000000002,

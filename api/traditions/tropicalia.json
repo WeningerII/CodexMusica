@@ -5,7 +5,7 @@
   "lineage": "Brazilian late-1960s art-pop counter-cultural movement (1967-1969 peak) emerging in Salvador-Bahia-and-São-Paulo as fusion of bossa-nova harmonic-sophistication, Northeast forró-and-baião rhythmic-vocabulary, Anglo-American psychedelic-rock instrumentation (electric-guitar, fuzz, distortion), Stockhausen-and-Cage avant-garde electroacoustic-experimentation, and Brazilian-modernist-poetry pau-brasil concrete-and-anthropophagic literary-aesthetic. Built politically in opposition to the 1964-1985 Brazilian military dictatorship through ironic-pop subversion. The canonical recordings of the late-1960s tropicália phase shaped Brazilian-mainstream MPB 1970s-onward and influenced global art-rock through the 1990s-onward Western re-discovery wave.",
   "recipe": "classic Southern American 1967-1969 tropicália, groove Percussion, Brazilian branch, experimental distorted rock chillwave post-rock. thick, breath veiled tone, slow rate, interlocked note trading. cedar strummed open chord ringing overtones classical nylon-string marshall plexi amp British rock amp basswood maple pau ferro humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog synth, berimbau, samba foundation jacaranda rosewood canonical Portuguese steel modern cavaquinho. estudios scatena sp. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
   "recipe_chars": 743,
-  "score": 338.318,
+  "score": 333.643,
   "config": {
     "traditions": [
       "tropicalia",
@@ -107,7 +107,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
           "pickup_config": "humbucker_mm",
@@ -117,7 +116,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 4.675,
           "amp_make": 8.059999999999999,
           "body_wood": 0.845,
           "pickup_config": 0.3465,

@@ -5,7 +5,7 @@
   "lineage": "Mid-1980s British and European punk-and-extreme-metal hybrid genre developed from anarcho-punk through Discharge (Stoke-on-Trent, 1977-onward) and Amebix (Bristol, 1978-onward), integrating thicker distorted-guitar-and-bass production, slower-doom-influenced tempi alongside fast hardcore tempos, and bleak political content. The 1984 Amebix Arise! and the 1989 Doom Police Bastard albums anchored the canonical sound. Direct precursor of broader crustcore and grindcore.",
   "recipe": "classic modern crust punk, distorted Rock, punk branch, thrash metal groove metal speed metal. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, orange amp British heavy crunch alder ernie ball slinky electric bass, brushes-and-sticks drum kit. isolated rural 2005-present isolation diy isolation cabin diy. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 558,
-  "score": 448.031,
+  "score": 431.35,
   "config": {
     "traditions": [
       "crust_punk",
@@ -88,7 +88,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_british_orange",
           "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
@@ -98,7 +97,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 16.6815,
           "amp_make": 14.023249999999999,
           "body_wood": 5.07,
           "pickup_config": 1.69,

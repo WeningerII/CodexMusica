@@ -5,7 +5,7 @@
   "lineage": "Polish poezja śpiewana (\"sung poetry\") and piosenka literacka (\"literary song\") protest-song tradition continuous from 1960s-1980s Communist-era Polish political-songwriter scene; centered on Jacek Kaczmarski (the Solidarność-aligned songwriter-bard whose \"Mury\" 1978 became the Solidarność anthem), Przemysław Gintrowski, Zbigniew Łapiński, Wojciech Bellon",
   "recipe": "classic Central European polish poezja śpiewana and solidarność-era protest, protest Song, European branch, anglo American protest song, Slavic bard ballad poetry, chanson fado ballad poetry morna cape verdean batuko of santiago island. vocal fry, breath veiled tone, slow rate, interlocked note trading. martin lifespan fingerpicked acoustic guitar. warsaw state label studio 1956-1990 mid tier polish polskie nagrania muza. dynamic moving-coil, tube pre. Walkman cassette.",
   "recipe_chars": 474,
-  "score": 219.01,
+  "score": 207.5,
   "config": {
     "traditions": [
       "polish_sung_poetry_protest",
@@ -55,7 +55,6 @@
       {
         "id": "acoustic_guitar_om",
         "slots": {
-          "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "open_d",
           "top_wood": "mahogany_top_om",
           "back_sides": "rosewood_bs_om",
@@ -63,7 +62,6 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 11.51,
           "string_tuning": 0.9999999999999998,
           "top_wood": 0.045,
           "back_sides": 0.6,
@@ -106,7 +104,6 @@
       "voice_estill_quality": "voice_estill_speech",
       "voice_vibrato": "straight_tone",
       "voice_mechanism_compound": "voice_mechanism_single_source",
-      "acoustic_technique": "acoustic_strummed_ringing",
       "top_wood": "sitka_om",
       "back_sides": "mahogany_bs_om",
       "string_acoustic": "phosphor_om",

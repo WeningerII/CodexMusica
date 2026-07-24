@@ -3,9 +3,9 @@
   "name": "Bluegrass gospel",
   "family": "global",
   "lineage": "Bluegrass-derived sacred-song tradition that emerged alongside secular bluegrass through Bill Monroe (his early Blue Grass Boys gospel-quartet sections), the Stanley Brothers (whose sacred-song catalog includes O Death and Angel Band), Lester Flatt and Earl Scruggs (their gospel-song interludes within concert programs), Doyle Lawson and Quicksilver (the modern bluegrass-gospel quartet), Ricky Skaggs (his Bluegrass Rules and Soldier of the Cross gospel-bluegrass crossover work); preserves the high-lonesome harmony vocal aesthetic of bluegrass applied to Protestant Christian sacred-song repertoire",
-  "recipe": "classic Southern American mid-1950s bluegrass gospel, ritual Devotional, southern gospel branch, bluegrass improv on frame. thick, declaimed, fast rate, leader call answered. bronze 3 ply maple Gibson mastertone canon maple bluegrass canon banjo 5 string, Gibson f 5 loar scrolled carved adirondack red spruce loar canon mandolin, flatpicked acoustic guitar, magic rosin modern acrylic base double stops fiddle, flatpicked upright bass. southern white church gospel quartet. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 569,
-  "score": 606.421,
+  "recipe": "classic Southern American mid-1950s bluegrass gospel, ritual Devotional, southern gospel branch, bluegrass improv on frame. thick, declaimed, fast rate, leader call answered. bronze 3 ply maple Gibson mastertone canon maple bluegrass canon banjo 5 string, Gibson f 5 loar scrolled carved adirondack red spruce loar canon mandolin, flatpicked acoustic guitar, magic rosin modern acrylic base double stops fiddle, upright bass. southern white church gospel quartet. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 558,
+  "score": 547.892,
   "config": {
     "traditions": [
       "bluegrass_gospel",
@@ -54,7 +54,6 @@
       {
         "id": "banjo_5_string",
         "slots": {
-          "plucked_traditional_technique": "plucked_call_and_response",
           "banjo_back": "resonator",
           "tone_ring": "flathead",
           "banjo_head": "fiberskyn",
@@ -67,7 +66,6 @@
           "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
         "scores": {
-          "plucked_traditional_technique": 9.098749999999999,
           "banjo_back": 0.845,
           "tone_ring": 24.25,
           "banjo_head": 9.39375,
@@ -106,7 +104,6 @@
       {
         "id": "acoustic_guitar_om",
         "slots": {
-          "acoustic_technique": "acoustic_flatpicked",
           "string_tuning": "standard_tuning",
           "top_wood": "cedar_om",
           "back_sides": "walnut_bs_om",
@@ -114,7 +111,6 @@
           "acoustic_om_technique": "om_flatpicked_lead"
         },
         "scores": {
-          "acoustic_technique": 24.715,
           "string_tuning": 0,
           "top_wood": 0.015,
           "back_sides": 0.195,
@@ -142,12 +138,10 @@
       {
         "id": "upright_bass",
         "slots": {
-          "acoustic_technique": "acoustic_flatpicked",
           "upright_strings": "steel_upright",
           "upright_play": "arco_upright"
         },
         "scores": {
-          "acoustic_technique": 24.715,
           "upright_strings": 0.845,
           "upright_play": 0.07349999999999998
         }
@@ -191,7 +185,6 @@
       "acoustic_technique": "acoustic_flatpicked",
       "upright_play": "pizz_upright",
       "upright_strings": "gut_wound_upright",
-      "plucked_traditional_technique": "plucked_folk_strummed",
       "banjo_back": "resonator",
       "tone_ring": "flathead",
       "banjo_play": "three_finger",

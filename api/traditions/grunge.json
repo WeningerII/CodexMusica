@@ -5,7 +5,7 @@
   "lineage": "Seattle Pacific Northwest alternative-rock genre that emerged in the late 1980s and went global in 1991 — codified through Nirvana (Nevermind 1991, the commercial breakthrough produced by Butch Vig), Pearl Jam (Ten 1991), Soundgarden (Badmotorfinger 1991, then Superunknown 1994), Alice in Chains (Facelift 1990, Dirt 1992), Mudhoney (the Sub Pop founding band), Screaming Trees, Tad — built on a fusion of hardcore punk aggression and Sabbath-style heavy-blues-derived guitar tone",
   "recipe": "classic North American 1987-1989 grunge, distorted Rock, alternative branch, sludge metal post-metal. thick, larynx lowered, wide pitch sway, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. seattle grunge defining 1986-1995 indie-commercial seattle reciprocal grunge studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi boss DS-1.",
   "recipe_chars": 662,
-  "score": 424.962,
+  "score": 417.237,
   "config": {
     "traditions": [
       "grunge",
@@ -88,7 +88,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_british_orange",
           "body_wood": "alder_b",
           "pickup_config": "split_coil",
@@ -98,7 +97,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 7.725000000000001,
           "amp_make": 21.4255,
           "body_wood": 0.4095,
           "pickup_config": 0,

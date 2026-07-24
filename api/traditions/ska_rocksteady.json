@@ -5,7 +5,7 @@
   "lineage": "Jamaican ska (1959-1965, fast-tempo guitar-upbeat horn-section-foregrounded dance music) and its slower-tempo derivation rocksteady (1965-1968) — codified at Studio One, Treasure Isle, and Federal through the Skatalites (Tommy McCook, Don Drummond, Roland Alphonso, Lloyd Knibb, the ska house band), Prince Buster, Toots and the Maytals, the Wailers (early-period), Alton Ellis (Get Ready Rocksteady), Ken Boothe, the Heptones; preceded reggae and remains foundational to the broader Jamaican popular music lineage",
   "recipe": "classic Caribbean mid-1960s ska and rocksteady, bass System, Jamaican branch, Caribbean groove percussion calypso zydeco. thick, breath veiled tone, straight note core, interlocked note trading. ebony open string slide resonance single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character alder pyramid electric bass, brushes-and-sticks drum kit, Hammond a 100 built in Leslie home spinet tonewheel organ, bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn trumpet, rose brass darker warmer saxophone, bach 42 canonical American orchestral tenor bass trombone trombone. Kingston studio one defining 1959-2004 indie-commercial kingston studio one brentford road. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 830,
-  "score": 282.48,
+  "score": 278.485,
   "config": {
     "traditions": [
       "ska_rocksteady",
@@ -47,7 +47,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_thumb_muted",
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
@@ -57,7 +56,6 @@
           "bass_technique": "thumb_muted"
         },
         "scores": {
-          "electric_technique": 3.995,
           "amp_make": 4.065,
           "body_wood": 1.195,
           "pickup_config": 1,

@@ -5,7 +5,7 @@
   "lineage": "Late-1990s and 2000s drum-and-bass subgenre emphasizing accessible bouncy bass-line catchiness, ragga-and-MC-led vocal-presentation, and crowd-friendly party-rave performance context. Aphrodite, DJ Hype, Mickey Finn, Pascal, and the Suburban Base-Frontline-Playaz label rosters anchor the canonical jump-up roster. Distinguished from neurofunk by jump-up's explicit accessible-party-aesthetic over technical-cerebral.",
   "recipe": "classic British 1997-1999 jump-up, bass System, bass descendants branch, Caribbean groove percussion soca zydeco. thick, breath veiled tone, straight onset, interlocked note trading. behringer rd 8 modern clone analog circuit reproduction TR-808, sub bass analog synth, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 597,
-  "score": 187.58,
+  "score": 186.055,
   "config": {
     "traditions": [
       "jump_up_dnb",
@@ -85,7 +85,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pocket",
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -95,7 +94,6 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "electric_technique": 1.525,
           "amp_make": 10.289999999999997,
           "body_wood": 0.38999999999999996,
           "pickup_config": 0.65,

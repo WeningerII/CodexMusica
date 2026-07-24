@@ -5,7 +5,7 @@
   "lineage": "Argentine-Uruguayan rural-pampas tango-precursor and parallel folk genre 1870s-onward with habanera-derived dotted-eighth-sixteenth ostinato bass and characteristic 2/4 milonga-clave. Originated in Rio-de-la-Plata gaucho-payada improvisatory-sung-poetry combined with Afro-Cuban habanera rhythm imported via 19th-century maritime ship-traffic between Buenos Aires and Havana. The milonga-campera rural form remains payada-derived (guitar-accompanied gaucho ballads), while the milonga-ciudadana urban form 1920s-onward fed directly into orquesta-típica tango via the 6/8-against-2/4 polyrhythmic dance variant played at faster tempo than mainline tango.",
   "recipe": "classic South American mid-1870s milonga, ballad Poetry, milonga branch, tropical song functional song bachata merengue urbano. thick, full chest belt, slow rate, interlocked note trading. cedar fingerpicked classical nylon-string guitar, tango virtuoso premier German tango premium alternative bellows articulated bandoneon, sitka spruce hard rock maple acer saccharum synthetic varnish polyurethane violin orchestral, upright bass. large tracking room 1920-1965 mid tier odeon rca buenos aires. RCA 44-BX, German V72 tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 564,
-  "score": 230.759,
+  "score": 229.979,
   "config": {
     "traditions": [
       "milonga",
@@ -118,12 +118,10 @@
       {
         "id": "upright_bass",
         "slots": {
-          "acoustic_technique": "acoustic_chord_melody",
           "upright_strings": "steel_upright",
           "upright_play": "slap_upright"
         },
         "scores": {
-          "acoustic_technique": 0.78,
           "upright_strings": 0.444,
           "upright_play": 2.0799999999999996
         }

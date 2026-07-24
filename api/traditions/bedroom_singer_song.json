@@ -3,9 +3,9 @@
   "name": "Bedroom singer-songwriter",
   "family": "global",
   "lineage": "2010s onward singer-songwriter genre with intimate DIY bedroom-DAW production and a confessional first-person lyrical register — codified through Phoebe Bridgers (Stranger in the Alps 2017, Punisher 2020), Julien Baker, Lucy Dacus, Soccer Mommy, Snail Mail (Lush 2018), Mitski, with the form representing the contemporary indie-singer-songwriter mainstream",
-  "recipe": "classic mid-2010s bedroom singer-songwriter, ballad Poetry, bedroom singer song branch, lofi experimental electric hypnagogic pop. thick, breath veiled tone, straight onset, interlocked note trading. fingerpicked acoustic soft down tuning clean strummed single coil electric guitar, singing lead analog poly synth. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
-  "recipe_chars": 422,
-  "score": 210.111,
+  "recipe": "classic mid-2010s bedroom singer-songwriter, ballad Poetry, bedroom singer song branch, lofi experimental electric hypnagogic pop. thick, breath veiled tone, straight onset, interlocked note trading. narrative fingerpicked acoustic soft down tuning clean strummed single coil electric guitar, singing lead analog poly synth. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 432,
+  "score": 195.686,
   "config": {
     "traditions": [
       "bedroom_singer_song",
@@ -55,7 +55,6 @@
       {
         "id": "acoustic_guitar_om",
         "slots": {
-          "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "eb_standard",
           "top_wood": "cedar_om",
           "back_sides": "walnut_bs_om",
@@ -63,7 +62,6 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 14.424999999999999,
           "string_tuning": 0.52,
           "top_wood": 0.195,
           "back_sides": 0.39,
@@ -157,7 +155,6 @@
       "voice_vibrato": "slow_vibrato",
       "voice_mechanism_compound": "voice_mechanism_single_source",
       "electronic_technique": "electronic_pad_drone",
-      "acoustic_technique": "acoustic_fingerpicked",
       "top_wood": "sitka_om",
       "back_sides": "rosewood_bs_om",
       "string_acoustic": "phosphor_om",

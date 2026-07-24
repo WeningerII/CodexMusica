@@ -69,7 +69,7 @@
     "traditionId": "afrobeat",
     "instrumentId": "electric_bass",
     "instrumentClass": "bass",
-    "expectedPreface": "prancing"
+    "expectedPreface": "two-stepping"
   },
   {
     "traditionId": "alt_country_americana",
@@ -195,7 +195,7 @@
     "traditionId": "antifolk_nyc",
     "instrumentId": "acoustic_guitar_om",
     "instrumentClass": "plucked_string_rhythm",
-    "expectedPreface": "kora-cascading"
+    "expectedPreface": "string-conversing"
   },
   {
     "traditionId": "bachata",

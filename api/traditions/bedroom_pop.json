@@ -5,7 +5,7 @@
   "lineage": "2010s onward indie-pop subgenre originating in solo bedroom-DAW production — characterized by lo-fi or hi-fi DIY production, intimate vocal delivery, and adolescent thematic content — codified through Clairo (Pretty Girl 2017, Immunity 2019), Cuco, Boy Pablo, Mac DeMarco (Salad Days 2014, the genre's lineage-bearing predecessor), Beabadoobee, with the form serving as the late-2010s indie-pop mainstream",
   "recipe": "classic 2017-2019 bedroom pop, experimental Elec, lofi branch, pop rock functional song new wave yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, TR-808, sequential lineage canonical prophet 5 1978 san jose ca lead analog poly synth, ukulele. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 577,
-  "score": 441.92,
+  "score": 437.88,
   "config": {
     "traditions": [
       "bedroom_pop",
@@ -86,7 +86,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -96,7 +95,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 4.039999999999999,
           "amp_make": 11.569999999999999,
           "body_wood": 2.6649999999999996,
           "pickup_config": 3.8249999999999997,

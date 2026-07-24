@@ -5,7 +5,7 @@
   "lineage": "Zimbabwean liberation-struggle music genre codified by Thomas Mapfumo from 1973 onward (chimurenga is the Shona word for struggle, used to refer to the Second Chimurenga liberation war 1966-1979 against Rhodesian white minority rule); built on translating Shona mbira interlocking-cycle repertoire (kushaura and kutsinhira patterns from the religious mbira dzavadzimu tradition) into the electric-band context with electric guitars playing the mbira parts",
   "recipe": "classic Southern African mid-1970s chimurenga, groove Percussion, central east south African branch, Afro-diasporic ritual devotional, string drone modal palo mayombe kongo mambo ritual chant huayno. thick, breath veiled tone, straight note core, interlocked note trading. traditional sustaining iron mbira, ebony open string slide resonance single coil electric guitar, picked narrow-q-precise electric bass, pre muffled edge muffled brushes-and-sticks drum kit, hosho. harare formerly salisbury 1971-present indie-commercial harare zimbabwean chimurenga studio. dynamic moving-coil, tube pre, BBC broadcast console, vari-mu, passive program EQ. vinyl master cut.",
   "recipe_chars": 664,
-  "score": 221.717,
+  "score": 221.117,
   "config": {
     "traditions": [
       "chimurenga",
@@ -101,7 +101,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_slap_pop",
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
@@ -111,7 +110,6 @@
           "bass_technique": "pick_motown"
         },
         "scores": {
-          "electric_technique": 0.6,
           "amp_make": 0.7149999999999999,
           "body_wood": 0.65,
           "pickup_config": 0.65,

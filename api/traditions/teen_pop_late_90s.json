@@ -5,7 +5,7 @@
   "lineage": "Late-1990s and early-2000s American teen-targeted pop subgenre developed through the post-Mickey-Mouse-Club Britney Spears, Christina Aguilera, *NSYNC, Backstreet Boys cycle. Characterized by sophisticated R&B-and-dance-influenced commercial-radio production, choreographed-music-video presentation aesthetic, and explicit teen-audience demographic targeting. The Cheiron Studios (Stockholm, Max Martin) production-team inaugurated the canonical Swedish-pop-production aesthetic that defined much of late-1990s teen pop.",
   "recipe": "classic 1997-1999 teen pop late 90s-00s, functional Song, pop rock branch, east Asian pop functional song city pop modern revival enka. thick, breath veiled tone, straight onset, interlocked note trading. singing lead analog synth, roland tr 8s modern aira digital recreation TR-808, ampeg b15 amp American 60s bass amp flip top character ernie ball slinky electric bass. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 565,
-  "score": 322.887,
+  "score": 320.702,
   "config": {
     "traditions": [
       "teen_pop_late_90s",
@@ -85,7 +85,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -95,7 +94,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 2.1850000000000005,
           "amp_make": 4.05,
           "body_wood": 0.845,
           "pickup_config": 1.39,

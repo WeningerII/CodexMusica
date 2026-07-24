@@ -5,7 +5,7 @@
   "lineage": "Late-1960s-and-onward rock subgenre integrating Afro-Cuban percussion (congas, timbales, bongos) and Latin-American rhythmic-harmonic-vocabulary with rock guitar-bass-drum aesthetic. Santana (San Francisco, 1966-onward) inaugurated the canonical Latin rock sound through the 1969 Woodstock performance and the first three Santana albums (1969-1971); Malo, El Chicano, War, and (later) Café Tacuba and Maná in Spanish-language Latin-rock extended the genre.",
   "recipe": "classic North American latin rock, distorted Rock, regional branch, son salsa Cuban salsa dura salsa colombiana. thick, breath veiled tone, fast rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, brass open slap hand drum timbales, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos. hyde street san francisco 1969-1980 major-flagship wally heider studios sf. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 809,
-  "score": 376.22,
+  "score": 373.269,
   "config": {
     "traditions": [
       "latin_rock",
@@ -88,7 +88,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
@@ -98,7 +97,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 2.9515000000000002,
           "amp_make": 11.9555,
           "body_wood": 0.845,
           "pickup_config": 0.845,

@@ -3,9 +3,9 @@
   "name": "Jíbaro",
   "family": "global",
   "lineage": "Rural Puerto Rican mountain (montaña) peasant song tradition rooted in the Spanish décima poetic form (ten-line stanza, 8 syllables per line, ABBAACCDDC rhyme scheme) brought from 17th-century Iberian colonial settlement and preserved in the Puerto Rican mountain interior — performed on the cuatro puertorriqueño (the 10-string national instrument with five double-string courses), classical guitar, güiro, and bongos; figures Ramito (Florencio Morales Ramos, the 20th-century jíbaro voice), Chuíto el de Bayamón, Toño Mayo, and the modern revival through Ecos de Borinquen and the Cuatro Project",
-  "recipe": "classic Caribbean mid-1930s jíbaro, ballad Poetry, Latin am troubadour branch, Caribbean groove percussion, crooners functional song parang calypso. thick, breath veiled tone, slow rate, interlocked note trading. mahogany puerto rican traditional cuatro pr, fingerpicked acoustic guitar, guiro, open slap hand drum bongos. san juan puerto rican bomba plena yard. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 435,
-  "score": 139.817,
+  "recipe": "classic Caribbean mid-1930s jíbaro, ballad Poetry, Latin am troubadour branch, Caribbean groove percussion, crooners functional song parang calypso. thick, breath veiled tone, slow rate, interlocked note trading. mahogany puerto rican traditional cuatro pr, narrative fingerpicked acoustic guitar, guiro, open slap hand drum bongos. san juan puerto rican bomba plena yard. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 445,
+  "score": 135.397,
   "config": {
     "traditions": [
       "jibaro",
@@ -72,7 +72,6 @@
       {
         "id": "acoustic_guitar_om",
         "slots": {
-          "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "open_d",
           "top_wood": "cedar_om",
           "back_sides": "walnut_bs_om",
@@ -80,7 +79,6 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 4.42,
           "string_tuning": 1.5,
           "top_wood": 0.195,
           "back_sides": 0.195,
@@ -148,7 +146,6 @@
       "voice_estill_quality": "voice_estill_speech",
       "voice_vibrato": "slow_vibrato",
       "voice_mechanism_compound": "voice_mechanism_single_source",
-      "acoustic_technique": "acoustic_strummed_ringing",
       "top_wood": "sitka_om",
       "back_sides": "mahogany_bs_om",
       "string_acoustic": "phosphor_om",

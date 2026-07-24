@@ -5,7 +5,7 @@
   "lineage": "Mid-twentieth-century French chanson canon centered on the Left Bank Paris cabaret scene — codified through Édith Piaf, Charles Trenet, Yves Montand, Jacques Brel (Belgian-Flemish but Paris-resident), Georges Brassens, and Léo Ferré; characterized by literary-poetic lyrical register, music-hall accompaniment, and the chanteuse / chansonnier solo performer tradition",
   "recipe": "classic European early-1940s chanson classique, ballad Poetry, classic chanson branch, anglo singer song ballad poetry singaporean xinyao indie folk. thick, close mic intimate, straight note core, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, castagnari Italian premium folk music straight accordion, cedar walnut phosphor bronze bronze fingerpicked acoustic guitar, ebonite hard rubber klezmer tradition clarinet. jazz club. Neumann U47, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 605,
-  "score": 271.915,
+  "score": 251.184,
   "config": {
     "traditions": [
       "chanson_classique",
@@ -101,7 +101,6 @@
       {
         "id": "acoustic_guitar_om",
         "slots": {
-          "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "drop_d",
           "top_wood": "cedar_om",
           "back_sides": "walnut_bs_om",
@@ -109,7 +108,6 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 20.73125,
           "string_tuning": 0.45499999999999996,
           "top_wood": 1.63,
           "back_sides": 2.02,
@@ -174,7 +172,6 @@
       "reed_config": "lmmh",
       "musette_offset": "demi_swing",
       "wind_articulation": "wind_bebop_runs",
-      "acoustic_technique": "acoustic_strummed_ringing",
       "top_wood": "sitka_om",
       "back_sides": "mahogany_bs_om",
       "string_acoustic": "phosphor_om",

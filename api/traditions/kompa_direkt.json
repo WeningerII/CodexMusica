@@ -5,7 +5,7 @@
   "lineage": "The original founding Haitian kompa-direkt tradition invented by Nemours Jean-Baptiste in 1955 — characterized by big-band horn-section arrangement, slower 2/4 dance tempo (90-110 BPM), and the meringue Haitian rhythmic foundation; figures Nemours Jean-Baptiste (the founder), his orchestra Ensemble Aux Calebasses, and the parallel cadence-rampa lineage of Webert Sicot",
   "recipe": "classic Caribbean mid-1950s kompa-direkt, groove Percussion, Caribbean branch, American jazz early swing-era jazz orchestra new orleans jazz. thick, breath veiled tone, straight onset, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright open string slide resonance single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, congas. port au prince Haitian recording 1970-2000 indie-commercial port au prince haitian kompa studio. sennheiser MD421, transformer-coupled solid-state pre, colored vintage console, optical compressor, parametric EQ. tape 15ips spring reverb.",
   "recipe_chars": 847,
-  "score": 249.945,
+  "score": 249.98,
   "config": {
     "traditions": [
       "kompa_direkt",
@@ -86,7 +86,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_slap_pop",
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "alder_b",
           "pickup_config": "soapbar",
@@ -96,7 +95,6 @@
           "bass_technique": "fingerstyle_walking"
         },
         "scores": {
-          "electric_technique": -0.035,
           "amp_make": 7.1175,
           "body_wood": 0.3,
           "pickup_config": 0.39,

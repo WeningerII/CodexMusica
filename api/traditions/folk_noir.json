@@ -5,7 +5,7 @@
   "lineage": "Contemporary dark chamber-folk songwriter tradition centered around Marissa Nadler (six-album catalog from Ballads of Living and Dying 2004 through Strangers 2016), Espers (Greg Weeks / Meg Baird / Helena Espvall, Philadelphia), and the broader Kemado / Mexican Summer / Hexham Head circle — with Victorian, Pre-Raphaelite, surrealist-poetry (Nadler set Pablo Neruda on her debut), and cinematic-noir literary roots; the term was originally coined by Tony Wakeford for Sol Invictus to distance from the neofolk umbrella, but contemporary usage names the Nadler-Espers chamber-folk lineage. Distinct from gothic_americana (Southern Gothic / Pentecostal roots) and from neofolk-apocalyptic (Current 93, Death in June, post-industrial / Romantic-traditionalism lineage)",
   "recipe": "classic North American mid-2000s folk noir, ballad Poetry, anglo singer song branch, western common practice art music anglican cathedral-choral recording tradition hyperion-school classical-recording aesthetic. thick, breath veiled tone, slow rate, interlocked note trading. martin lifespan fingerpicked acoustic guitar, vintage steinway pre-war compression wired beech laminated maple laminated grand piano, pistoy cinnabar loaded red dyed deep dark red carpathian spruce cello, folk steel modern canonical 36 37 string set spruce maple modern autoharp, vocal female straight harmonium indian. hexham head studio pa chamber folk. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 745,
-  "score": 356.59,
+  "score": 334.25,
   "config": {
     "traditions": [
       "folk_noir",
@@ -55,7 +55,6 @@
       {
         "id": "acoustic_guitar_om",
         "slots": {
-          "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "open_d",
           "top_wood": "sitka_om",
           "back_sides": "mahogany_bs_om",
@@ -63,7 +62,6 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 22.339999999999996,
           "string_tuning": 0.26,
           "top_wood": 0.45499999999999996,
           "back_sides": 0.39,
@@ -189,7 +187,6 @@
       "voice_mechanism_compound": "voice_mechanism_single_source",
       "keyboard_technique": "keyboard_block_chord_pop",
       "piano_pitch_standard": "a_440_modern",
-      "acoustic_technique": "acoustic_fingerpicked",
       "top_wood": "sitka_om",
       "back_sides": "rosewood_bs_om",
       "string_acoustic": "phosphor_om",

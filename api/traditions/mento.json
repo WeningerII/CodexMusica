@@ -5,7 +5,7 @@
   "lineage": "Jamaican rural folk-and-dance music tradition that preceded ska as the dominant Jamaican popular music genre — codified through the post-WWII commercial recordings of Lord Flea, Count Lasher, the Jolly Boys, Stanley Beckford, Harold Richardson; built on a fusion of West African rhythmic foundations, European-derived quadrille dance forms, and Caribbean Spanish-influenced song structures",
   "recipe": "classic Caribbean mid-1970s mento, groove Percussion, Caribbean branch, tropical song functional song bachata merengue urbano. thick, full chest belt, straight note core, interlocked note trading. alternating thumb travis picked parlor acoustic guitar, walnut warmer than maple mid tier scruggs stelling bluegrass setup banjo 5 string, traditional gourd calabash maracas, mento rhumba box repeating bass ostinato forged iron tongues marimbula. Kingston studio one defining 1959-2004 indie-commercial kingston studio one brentford road. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 639,
-  "score": 214.511,
+  "score": 196.376,
   "config": {
     "traditions": [
       "mento",
@@ -72,7 +72,6 @@
       {
         "id": "banjo_5_string",
         "slots": {
-          "plucked_traditional_technique": "plucked_call_and_response",
           "banjo_back": "resonator",
           "tone_ring": "tubaphone",
           "banjo_head": "fiberskyn",
@@ -85,7 +84,6 @@
           "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
         "scores": {
-          "plucked_traditional_technique": 18.134999999999998,
           "banjo_back": 0.54,
           "tone_ring": 0,
           "banjo_head": 16.25,
@@ -160,7 +158,6 @@
       "top_wood_parlor": "sitka_p",
       "back_sides_parlor": "mahogany_bs_p",
       "string_acoustic_parlor": "phosphor_p",
-      "plucked_traditional_technique": "plucked_folk_strummed",
       "banjo_back": "open_back",
       "tone_ring": "no_ring",
       "banjo_play": "clawhammer",

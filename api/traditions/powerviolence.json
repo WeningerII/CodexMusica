@@ -5,7 +5,7 @@
   "lineage": "Late-1980s-1990s American hardcore subgenre characterized by extreme tempo contrasts (alternating blast-beat-fast-sections with sludge-slow-sections), brief song durations (often under one minute), and explicit anti-musical aggression. Bay Area scene centered on Spazz, Crossed Out, Infest, and Man Is the Bastard. Distinguished from broader grindcore by powerviolence's slower-section-emphasis (vs grindcore's relentless-blast-beat) structural framework.",
   "recipe": "classic 1987-1989 powerviolence, distorted Rock, punk branch, thrash metal groove metal djent. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, orange amp British heavy crunch alder ernie ball slinky electric bass, kevlar aramid extreme tension sticks backbeat drum kit. isolated rural 2005-present isolation diy isolation cabin diy. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape proco RAT.",
   "recipe_chars": 595,
-  "score": 295.88,
+  "score": 289.174,
   "config": {
     "traditions": [
       "powerviolence",
@@ -88,7 +88,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_british_orange",
           "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
@@ -98,7 +97,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 6.7065,
           "amp_make": 7.215000000000001,
           "body_wood": 4.875,
           "pickup_config": 2.535,

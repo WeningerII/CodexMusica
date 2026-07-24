@@ -5,7 +5,7 @@
   "lineage": "Rio de Janeiro 1962-1970 small-group jazz-samba tradition centered on the Forma and Som Maior label catalog — codified through Sergio Mendes’s Bossa Rio (1964) and Brasil 66, Tamba Trio (Luiz Eça-Bebeto-Helcio Milito), Sambalanço Trio, Edu Lobo, and Milton Banana Trio; characterized by piano-trio-plus-singer instrumentation, advanced-harmonic vocabulary, and energetic-up-tempo samba-derived rhythmic foundation",
   "recipe": "classic Southern American mid-1960s samba-jazz, improv On Frame, Latin jazz branch, Brazilian groove percussion pagode samba. cold pressed wurzen felt birch laminated maple laminated European spruce grand piano, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, samba bateria, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, lead trumpet ensemble trumpet, flute. phonogram brasil studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
   "recipe_chars": 613,
-  "score": 176.387,
+  "score": 176.062,
   "config": {
     "traditions": [
       "samba_jazz",
@@ -41,12 +41,10 @@
       {
         "id": "upright_bass",
         "slots": {
-          "acoustic_technique": "acoustic_chord_melody",
           "upright_strings": "gut_wound_upright",
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "acoustic_technique": 0.325,
           "upright_strings": 15.874999999999996,
           "upright_play": 15.874999999999996
         }
@@ -159,7 +157,6 @@
       "drum_technique": "brushes_jazz",
       "keyboard_technique": "keyboard_jazz_comping",
       "piano_pitch_standard": "a_440_modern",
-      "acoustic_technique": "acoustic_flatpicked",
       "upright_play": "pizz_upright",
       "upright_strings": "gut_wound_upright",
       "wind_articulation": "wind_punchy_ensemble",

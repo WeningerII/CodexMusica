@@ -5,7 +5,7 @@
   "lineage": "Late-twentieth-century-onward African-American gospel music tradition modernizing the traditional church-choir-and-piano repertoire through R-and-B, funk, hip-hop, and quiet-storm production techniques — codified through Kirk Franklin (Why We Sing 1993), Mary Mary, Yolanda Adams, Donnie McClurkin, Israel and New Breed, with the genre serving as the contemporary mainstream of African-American sacred music",
   "recipe": "classic early-1990s contemporary urban gospel, ritual Devotional, black gospel branch, soul R&B functional song doo-wop alt-r&b. thick, declaimed, straight onset, multi note runs per syllable. a cappella small 3 to 8 one per part polyrhythmic vocal layering independent cycles choir ensemble, centered tine pickup gap canonical balanced Rhodes voicing gospel runs rhodes electric, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled brushes-and-sticks drum kit, field textural sampler, contemporary full choir southern black gospel. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 851,
-  "score": 425.22,
+  "score": 415.77,
   "config": {
     "traditions": [
       "contemporary_urban_gospel",
@@ -114,7 +114,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pocket",
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -124,7 +123,6 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "electric_technique": 9.45,
           "amp_make": 14.342499999999998,
           "body_wood": 0.195,
           "pickup_config": 0.39,

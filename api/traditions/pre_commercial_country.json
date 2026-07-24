@@ -5,7 +5,7 @@
   "lineage": "The Anglo-Appalachian and Southern-Mountain folk tradition that was caught and codified by the 1927 Bristol Sessions (the Big Bang of country music, when Ralph Peer of the Victor Talking Machine Company recorded the Carter Family and Jimmie Rodgers) and the parallel 1928 Johnson City Sessions — featuring the Carter Family (A.P. Carter, Sara Carter, Maybelle Carter, their 1927 Bristol session establishing the Carter Family songbook and the Carter scratch guitar technique), Jimmie Rodgers (the singing brakeman, the commercial country founder, his 13 blue yodels), Vernon Dalhart, Uncle Dave Macon, Charlie Poole",
   "recipe": "classic Southern American late-1920s pre-commercial country roots, functional Song, pre commercial branch, blues narrative ballad poetry classic blues women jug band. thick, breath veiled tone, wide pitch sway, interlocked note trading. open e tuning plain gut sheep gut pre 1900 parlor travis picked parlor acoustic guitar, plain gut sheep gut double stops fiddle, folk solid birch vintage 1920s 1940s autoharp, bowl back Italian adirondack red spruce loar canon big leaf maple mandolin, wood plain gut minstrel pre 1860s fretless canon compensated bridge banjo 5 string, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. bristol sessions appalachian pre commercial. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 801,
-  "score": 679.942,
+  "score": 634.628,
   "config": {
     "traditions": [
       "pre_commercial_country",
@@ -129,7 +129,6 @@
       {
         "id": "banjo_5_string",
         "slots": {
-          "plucked_traditional_technique": "plucked_call_and_response",
           "banjo_back": "open_back",
           "tone_ring": "wood_ring",
           "banjo_head": "fiberskyn",
@@ -142,7 +141,6 @@
           "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
         "scores": {
-          "plucked_traditional_technique": 22.74999999999999,
           "banjo_back": 1.04,
           "tone_ring": 1.4300000000000002,
           "banjo_head": 22.944999999999997,
@@ -158,7 +156,6 @@
       {
         "id": "harmonica",
         "slots": {
-          "free_reed_technique": "free_reed_folk_first_position",
           "harmonica_type": "chromatic_harm",
           "harmonica_comb": "pearwood_comb",
           "harmonica_reed": "brass_harm",
@@ -167,7 +164,6 @@
           "harmonica_tuning": "harmonica_richter_canonical"
         },
         "scores": {
-          "free_reed_technique": 22.564999999999998,
           "harmonica_type": 2.7299999999999995,
           "harmonica_comb": 43.25000000000001,
           "harmonica_reed": 30.400000000000002,
@@ -220,7 +216,6 @@
       "string_acoustic_parlor": "phosphor_p",
       "mandolin_shape": "a_style",
       "mandolin_bracing": "mandolin_x_brace",
-      "plucked_traditional_technique": "plucked_folk_strummed",
       "banjo_back": "open_back",
       "tone_ring": "no_ring",
       "banjo_play": "clawhammer",

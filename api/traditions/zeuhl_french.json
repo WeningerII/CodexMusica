@@ -5,7 +5,7 @@
   "lineage": "1970s French progressive-rock subgenre invented by drummer-composer Christian Vander's Magma (founded 1969), characterized by Kobaïan invented-language vocals, complex polyrhythmic compositional structures, dark-symphonic orchestration, and explicit science-fiction mythological-narrative content. Magma's Mëkanïk Dëstruktïẁ Kömmandöh (1973), Köhntarkösz (1974), and Üdü Ẁüdü (1976) constitute the canonical core. The genre influenced subsequent French-progressive Univers Zéro, Art Zoyd, and Magma-affiliated solo projects.",
   "recipe": "classic Western European mid-1970s zeuhl, distorted Rock, progressive rock branch, western modern art music second viennese school. thick, breath veiled tone, straight onset, interlocked note trading. hiwatt amp British clean amp high wattage headroom basswood alnico humbucker electric guitar, hiwatt amp British clean amp high wattage headroom ernie ball slinky electric bass, fiberskyn synthetic calf brushes-and-sticks drum kit, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano. intimate paris small studio. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
   "recipe_chars": 623,
-  "score": 289.623,
+  "score": 285.772,
   "config": {
     "traditions": [
       "zeuhl_french",
@@ -88,7 +88,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_british_hiwatt",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -98,7 +97,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 3.8500000000000005,
           "amp_make": 6.694999999999999,
           "body_wood": 0.9750000000000001,
           "pickup_config": 3.3150000000000004,

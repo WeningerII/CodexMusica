@@ -5,7 +5,7 @@
   "lineage": "Ashkenazi-Jewish wedding-dance-music tradition continuous from 19th-century Eastern-European-shtetl klezmer practice through New-York Yiddish-American post-1880s immigration era through the 1970s klezmer-revival; the bulgar (Bulgarian-origin double-line dance) and freylekhs (joyful-dance) are the canonical Ashkenazi wedding-dance forms",
   "recipe": "classic Eastern European mid-1880s yiddish wedding bulgar and freylekhs, wedding, European branch, middle eastern wedding, string improv improv on frame, chanson fado ballad poetry cape verdean batuko of santiago island lebanese-arab wedding takht. vocal fry, breath veiled tone, slow rate, interlocked note trading. klezmer ensemble, ebonite hard rubber klezmer tradition continuous-airflow legato clarinet, ornamented fiddle, castagnari Italian premium folk music bellows articulated accordion, upright bass. klezmer simcha celebration hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 606,
-  "score": 266.733,
+  "score": 266.768,
   "config": {
     "traditions": [
       "yiddish_wedding_bulgar",
@@ -121,12 +121,10 @@
       {
         "id": "upright_bass",
         "slots": {
-          "acoustic_technique": "acoustic_chord_melody",
           "upright_strings": "synthetic_upright",
           "upright_play": "arco_upright"
         },
         "scores": {
-          "acoustic_technique": -0.035,
           "upright_strings": 0.8850000000000001,
           "upright_play": 2.34
         }
@@ -172,7 +170,6 @@
       "free_reed_technique": "free_reed_folk_first_position",
       "reed_config": "lmm",
       "musette_offset": "dry_tuning",
-      "acoustic_technique": "acoustic_flatpicked",
       "upright_play": "pizz_upright",
       "upright_strings": "gut_wound_upright",
       "sections": "klez_clarinet_lead",

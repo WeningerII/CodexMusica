@@ -5,7 +5,7 @@
   "lineage": "Bahian carnival pop crossover tradition centered on Salvador, Bahia, from the 1980s onward — codified through Margareth Menezes (Elegibo 1989), Daniela Mercury, Banda Mel, and the trio-elétrico amplified-truck performance tradition; characterized by samba-reggae and ijexá Afro-Brazilian rhythmic foundation, pop-rock-band instrumentation, and Bahian-Salvador carnival-circuit canonical context",
   "recipe": "classic mid-1980s axé, groove Percussion, Brazilian branch, Caribbean groove percussion, Afro-diasporic ritual devotional bomba soca soul. thick, breath veiled tone, breath pulsed, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright pine clean single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled brushes-and-sticks drum kit, nylon canonical rio carnival aluminum canonical modern rio escola surdo, agogo, open slap hand drum timbales, samba bateria. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 738,
-  "score": 190.545,
+  "score": 186.895,
   "config": {
     "traditions": [
       "axe_music",
@@ -86,7 +86,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pocket",
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -96,7 +95,6 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "electric_technique": 3.6500000000000004,
           "amp_make": 5.090625,
           "body_wood": 0.40125,
           "pickup_config": 0.65,

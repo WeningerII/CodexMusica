@@ -5,7 +5,7 @@
   "lineage": "1980s-and-1990s heavy-metal subgenre integrating industrial-electronic production techniques (drum-machine programming, sampling, distorted-synthesizer textures) with heavy-metal guitar-and-vocal aesthetic. Ministry's The Land of Rape and Honey (1988), Nine Inch Nails' The Downward Spiral (1994), and Rammstein's 1995-onward German-language work constitute canonical type-specimens. Distinguished from broader industrial by integration of guitar-band rock framework.",
   "recipe": "classic North American industrial metal, distorted Rock, avant branch, industrial noise experimental electric dark electro / aggrotech. thick, breath veiled tone, straight note core, interlocked note trading. orange amp British heavy crunch basswood power chord humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, brushes-and-sticks drum kit, analog synth, field textural sampler. mid manhattan 1975-1985 mid-major late70s nyc commercial. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 604,
-  "score": 309.976,
+  "score": 307.101,
   "config": {
     "traditions": [
       "industrial_metal",
@@ -88,7 +88,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -98,7 +97,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 2.8750000000000004,
           "amp_make": 7.474999999999999,
           "body_wood": 0.063,
           "pickup_config": 0.105,

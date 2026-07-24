@@ -5,7 +5,7 @@
   "lineage": "NYC-centered fusion of Afro-Cuban rhythmic spine (clave, montuno, tumbao) with bebop / post-bop harmonic language, codified through Machito-Bauzá Cubop (1940s), Cal Tjader-Mongo Santamaría West Coast Latin jazz (1950s-60s), and Eddie Palmieri / Tito Puente / Chucho Valdés modern Latin jazz canon",
   "recipe": "classic North American mid-1940s latin jazz, improv On Frame, Latin jazz branch, American jazz bop, tropical song functional song, Brazilian song functional song bebop modal jazz. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, bach stradivarius 180 canonical American orchestral jazz balance trumpet, bach 42 canonical American orchestral tenor student commercial trombone, cold pressed wurzen felt oversize maple tension resonator sitka spruce grand piano, growly gut upright bass, vintage ambassador asymmetric brushes drum kit, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, bronze open slap hand drum timbales, claves, shekere. nyc jazz vocal engineered 1958-1998 mid tier a and r recording nyc. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ.",
   "recipe_chars": 1000,
-  "score": 702.421,
+  "score": 700.016,
   "config": {
     "traditions": [
       "latin_jazz",
@@ -104,12 +104,10 @@
       {
         "id": "upright_bass",
         "slots": {
-          "acoustic_technique": "acoustic_chord_melody",
           "upright_strings": "gut_wound_upright",
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "acoustic_technique": 2.4050000000000002,
           "upright_strings": 45.12500000000003,
           "upright_play": 45.12500000000003
         }
@@ -222,7 +220,6 @@
       "trumpet_technique": "trumpet_punchy_ensemble",
       "keyboard_technique": "keyboard_jazz_comping",
       "piano_pitch_standard": "a_440_modern",
-      "acoustic_technique": "acoustic_flatpicked",
       "upright_play": "pizz_upright",
       "upright_strings": "gut_wound_upright",
       "conga_set": "conga_proper",

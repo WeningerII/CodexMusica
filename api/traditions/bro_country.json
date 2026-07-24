@@ -3,9 +3,9 @@
   "name": "Bro-country",
   "family": "global",
   "lineage": "2010s mainstream country-pop-rap hybrid codified through Florida Georgia Line \"Cruise\" (2012), Luke Bryan, Jason Aldean, and the Nashville radio-format that adopted hip-hop-derived production cues — characterized by 808-bass-and-drum-machine programming, party-celebrating lyrical subject matter, and pop-rock guitar work over country-vocal lead",
-  "recipe": "classic mid-2010s bro-country, functional Song, contemp main branch, us hip hop southern plugg pluggnb. thick, rap, straight note core, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright basswood humbucker electric guitar, Fender tweed amp American 50s amp tweed breakup la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled brushes-and-sticks drum kit, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick call-and-response banjo 5 string, pitched chopped sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 690,
-  "score": 331.941,
+  "recipe": "classic mid-2010s bro-country, functional Song, contemp main branch, us hip hop southern plugg pluggnb. thick, rap, straight note core, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright basswood humbucker electric guitar, Fender tweed amp American 50s amp tweed breakup la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled brushes-and-sticks drum kit, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string, pitched chopped sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 672,
+  "score": 318.201,
   "config": {
     "traditions": [
       "bro_country",
@@ -88,7 +88,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pocket",
           "amp_make": "amp_american_fender_tweed",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -98,7 +97,6 @@
           "bass_technique": "fingerpicked_country_b"
         },
         "scores": {
-          "electric_technique": 3.275000000000001,
           "amp_make": 12.794999999999998,
           "body_wood": 0.845,
           "pickup_config": 1.3199999999999998,
@@ -124,7 +122,6 @@
       {
         "id": "banjo_5_string",
         "slots": {
-          "plucked_traditional_technique": "plucked_call_and_response",
           "banjo_back": "resonator",
           "tone_ring": "wood_ring",
           "banjo_head": "fiberskyn",
@@ -137,7 +134,6 @@
           "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
         "scores": {
-          "plucked_traditional_technique": 10.464999999999996,
           "banjo_back": 0.845,
           "tone_ring": 0.24,
           "banjo_head": 10.594999999999999,
@@ -216,7 +212,6 @@
       "sampler_archetypes": "akai_s900",
       "sampler_workflow": "sampler_chopped_breaks",
       "sampler_classic_context": "sampler_classic_hiphop",
-      "plucked_traditional_technique": "plucked_folk_strummed",
       "banjo_back": "open_back",
       "tone_ring": "no_ring",
       "banjo_play": "clawhammer",

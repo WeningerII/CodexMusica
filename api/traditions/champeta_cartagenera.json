@@ -5,7 +5,7 @@
   "lineage": "Afro-Colombian dance-music genre of Cartagena and the Colombian Caribbean coast, emerging in 1980s from synthesis of African soukous, juju, and highlife (transmitted through cassette-and-vinyl trade with Africa via maritime sailors) with local Colombian Caribbean costeño rhythmic-vocabulary. Performed at picós large mobile sound-systems in working-class barrios. Distinguished from cumbia by champeta's African-pop-derived (vs cumbia's indigenous-Afro-Spanish-syncretic) lineage.",
   "recipe": "classic Andean mid-1980s champeta, functional Song, tropical song branch, Afro-diasporic MC rhythm south african kwaito kwaito. extended whistle, full chest belt, slow rate, interlocked note trading. basswood mahogany lower tension down tuning clean strummed humbucker electric guitar, mahogany pyramid pure nickel bass British mid 60s era thumb muted electric bass, TR-808. bogota colombian andean studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 536,
-  "score": 154.041,
+  "score": 150.791,
   "config": {
     "traditions": [
       "champeta_cartagenera",
@@ -88,7 +88,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_thumb_muted",
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -98,7 +97,6 @@
           "bass_technique": "thumb_muted"
         },
         "scores": {
-          "electric_technique": 3.25,
           "amp_make": 1.4299999999999997,
           "body_wood": 1.04,
           "pickup_config": 0.4327499999999999,

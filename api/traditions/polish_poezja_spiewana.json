@@ -5,7 +5,7 @@
   "lineage": "Polish sung-poetry tradition setting the work of Polish poets (Wojciech Mlynarski, Agnieszka Osiecka, Jeremi Przybora, Konstanty Ildefons Galczynski) to song composed and performed by singers including Marek Grechuta (the figure), Czesław Niemen, Ewa Demarczyk, Stan Borys, Magda Umer, Anna Treter — emerging from the post-1956 Polish artistic thaw and developing in dialogue with French chanson and German Liedermacher traditions",
   "recipe": "classic Central European mid-1950s polish poezja śpiewana, ballad Poetry, Slavic bard branch, chanson fado ballad poetry morna cape verdean batuko of santiago island. vocal fry, breath veiled tone, slow rate, interlocked note trading. martin lifespan fingerpicked acoustic guitar, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano. warsaw state label studio 1956-1990 mid tier polish polskie nagrania muza. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 565,
-  "score": 215.562,
+  "score": 205.311,
   "config": {
     "traditions": [
       "polish_poezja_spiewana",
@@ -55,7 +55,6 @@
       {
         "id": "acoustic_guitar_om",
         "slots": {
-          "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "open_d",
           "top_wood": "cedar_om",
           "back_sides": "rosewood_bs_om",
@@ -63,7 +62,6 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 10.250625000000001,
           "string_tuning": 1.2999999999999998,
           "top_wood": 0.5643750000000001,
           "back_sides": 0.78,
@@ -132,7 +130,6 @@
       "voice_mechanism_compound": "voice_mechanism_single_source",
       "keyboard_technique": "keyboard_block_chord_pop",
       "piano_pitch_standard": "a_440_modern",
-      "acoustic_technique": "acoustic_strummed_ringing",
       "top_wood": "sitka_om",
       "back_sides": "mahogany_bs_om",
       "string_acoustic": "phosphor_om",

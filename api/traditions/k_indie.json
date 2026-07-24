@@ -5,7 +5,7 @@
   "lineage": "2000s and 2010s Korean independent music scene developing alongside the broader K-pop industry but with distinctly indie-rock and folk-rock aesthetic. Hongdae neighborhood of Seoul anchors institutional infrastructure (the area's many small-venues, including FF Club, V-Hall, and Club Spot). Hyukoh, Jaurim, Jannabi, Crying Nut (foundational 1990s), and the broader Magic Strawberry Sound and Pastel Music label rosters anchor the canonical K-indie roster.",
   "recipe": "classic East Asian mid-2000s k-indie, functional Song, east Asian pop branch, alternative distorted rock dreampop modern indie rock. thick, breath veiled tone, straight onset, interlocked note trading. strummed open chord ringing overtones parlor acoustic guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 573,
-  "score": 306.544,
+  "score": 303.669,
   "config": {
     "traditions": [
       "k_indie",
@@ -72,7 +72,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -82,7 +81,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 2.8750000000000004,
           "amp_make": 10.659999999999998,
           "body_wood": 0.845,
           "pickup_config": 2.145,

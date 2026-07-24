@@ -5,7 +5,7 @@
   "lineage": "Late-1970s British rock subgenre emerging immediately after the 1976-77 punk-rock peak. Characterized by experimental compositional approach, angular-and-dissonant guitar-textures, prominent-driving bass-line emphasis, and existential-philosophical-and-political lyrical content. Joy Division (Manchester 1976-1980), Wire, Gang of Four, Public Image Ltd. (John Lydon post-Sex-Pistols), the Fall, Magazine, and the broader Factory Records-Rough Trade-Mute Records-Domino label network anchored the canonical post-punk roster.",
   "recipe": "classic British 1976-1980 post-punk, distorted Rock, punk branch, alternative distorted rock new wave funk metal. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 645,
-  "score": 410.97,
+  "score": 391.72,
   "config": {
     "traditions": [
       "post_punk_late_70s",
@@ -88,7 +88,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -98,7 +97,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 19.25,
           "amp_make": 18.33,
           "body_wood": 1.4949999999999999,
           "pickup_config": 0.8850000000000001,

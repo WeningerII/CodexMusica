@@ -5,7 +5,7 @@
   "lineage": "Japanese independent music scene developing from 1980s onward parallel to the J-pop mainstream industry. The Shimokitazawa neighborhood of Tokyo anchors institutional infrastructure. Number Girl (Hakata 1995-2002, 2019-onward), Toe (math-rock instrumental, Tokyo), Mono (post-rock instrumental, Tokyo), Lillies and Remains, and the broader Japan independent label network (P-Vine, Headz, Kakubarhythm) anchor the canonical roster.",
   "recipe": "classic East Asian mid-1990s j-indie, functional Song, east Asian pop branch, alternative distorted rock modern indie rock bedroom pop. thick, breath veiled tone, pure, interlocked note trading. marshall plexi amp British rock amp basswood clean strummed humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 591,
-  "score": 335.124,
+  "score": 331.274,
   "config": {
     "traditions": [
       "j_indie",
@@ -88,7 +88,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -98,7 +97,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 3.8500000000000005,
           "amp_make": 9.815,
           "body_wood": 0.845,
           "pickup_config": 2.34,

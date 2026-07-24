@@ -5,7 +5,7 @@
   "lineage": "The ska tradition — Jamaican popular music built on the upstroke offbeat and walking bass, the direct precursor to rocksteady and reggae",
   "recipe": "classic Caribbean mid-1970s ska, bass System, Jamaican branch, Caribbean groove percussion calypso zydeco. thick, breath veiled tone, wide pitch sway, interlocked note trading. blues slide open string slide resonance single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character pyramid pure nickel bass electric bass, ride-driven brushes-and-sticks drum kit, Hammond a 100 built in Leslie home spinet tonewheel organ, heavy one piece matched to monette horn trumpet, saxophone, bass leaning trombone. Kingston studio one defining 1959-2004 indie-commercial kingston studio one brentford road. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 719,
-  "score": 181.155,
+  "score": 177.91,
   "config": {
     "traditions": [
       "ska",
@@ -47,7 +47,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_thumb_muted",
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "split_coil",
@@ -57,7 +56,6 @@
           "bass_technique": "thumb_muted"
         },
         "scores": {
-          "electric_technique": 3.245,
           "amp_make": 4.3149999999999995,
           "body_wood": 0.38999999999999996,
           "pickup_config": 0,

@@ -5,7 +5,7 @@
   "lineage": "Chilean nueva canción (\"new song\") tradition emerging late-1960s through the Allende-era 1970-1973 to mid-1970s Pinochet-coup-era political folk-revival; centered on Víctor Jara, Violeta Parra, Quilapayún, and Inti-Illimani with Indigenous-Andean-instrument integration alongside Western-folk songwriter format",
   "recipe": "classic Andean 1970-1973 chilean nueva canción, protest Song, iberian Latin branch, European protest song, Latin am troubadour ballad poetry, americas wedding andean matrimonio huayno milonga. thick, forward-resonance, straight note core, interlocked note trading. cedar walnut phosphor bronze bronze fingerpicked acoustic guitar, naranjillo andean premium wood cedar andean andean classical charango, bone melodic quena, andean tradition paired rows interlocking siku panpipes, ceibo canonical Argentine leguero hollowed trunk bombo andino, continuous pour slow inverting rainstick. andean altiplano outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 739,
-  "score": 264.001,
+  "score": 248.756,
   "config": {
     "traditions": [
       "chilean_nueva_cancion",
@@ -55,7 +55,6 @@
       {
         "id": "acoustic_guitar_om",
         "slots": {
-          "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "standard_tuning",
           "top_wood": "cedar_om",
           "back_sides": "walnut_bs_om",
@@ -63,7 +62,6 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 15.245,
           "string_tuning": 0,
           "top_wood": 1.6900000000000002,
           "back_sides": 1.6900000000000002,
@@ -173,7 +171,6 @@
       "voice_estill_quality": "voice_estill_speech",
       "voice_vibrato": "straight_tone",
       "voice_mechanism_compound": "voice_mechanism_single_source",
-      "acoustic_technique": "acoustic_strummed_ringing",
       "top_wood": "sitka_om",
       "back_sides": "mahogany_bs_om",
       "string_acoustic": "phosphor_om",

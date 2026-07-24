@@ -5,7 +5,7 @@
   "lineage": "Country-blues tradition of the Mississippi Delta region — slide-guitar-and-vocal solo and small-ensemble repertoire developed in the early twentieth century through the lineage of Charley Patton (the 1929 Paramount recordings), Son House, Robert Johnson (the 1936-37 San Antonio and Dallas sessions), Skip James, Bukka White, and continuing through the post-WWII Chicago-blues electrification by Muddy Waters, Howlin' Wolf, and others",
   "recipe": "classic late-1920s delta blues, ballad Poetry, delta narrative branch, vocal drone modal, blues acoustic functional song, American south field work piedmont blues corsican paghjella three-voice unaccompanied. thick, worn fold, wide pitch sway, interlocked note trading. open g tuning slide steel resonator guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. tin roofed shack. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 515,
-  "score": 396.281,
+  "score": 382.606,
   "config": {
     "traditions": [
       "delta_blues",
@@ -72,7 +72,6 @@
       {
         "id": "harmonica",
         "slots": {
-          "free_reed_technique": "free_reed_blues_cross",
           "harmonica_type": "tremolo_harm",
           "harmonica_comb": "pearwood_comb",
           "harmonica_reed": "brass_harm",
@@ -81,7 +80,6 @@
           "harmonica_tuning": "harmonica_richter_canonical"
         },
         "scores": {
-          "free_reed_technique": 13.674999999999999,
           "harmonica_type": 0.66,
           "harmonica_comb": 30.30125,
           "harmonica_reed": 24.895,

@@ -5,7 +5,7 @@
   "lineage": "Cape Verdean Lusophone-archipelago melancholic ballad tradition — codified through the late-19th-century Brava and São Vicente island repertoire and through Cesária Évora’s international career from the 1990s onward (Miss Perfumado 1992), characterized by Crioulo-language poetic-confessional lyrics on themes of saudade and emigration, accompanied by cavaquinho, violão, violin, and clarinet ensemble in slow 2/4 meter",
   "recipe": "classic Western European mid-1990s morna, ballad Poetry, morna branch, chanson fado fado lisboa, iberian functional song, vocal drone modal galician kantautor and folk-pop. thick, lament wail, slow rate, interlocked note trading. cedar concert modern carbon fiber fingerpicked classical nylon-string guitar, extended range reentrant tuning steel cape verdean cavaquinho, steel sitka spruce European maple sycamore maple oil varnish violin orchestral, grenadilla African blackwood traditional clarinet, steel castagnari Italian premium folk music straight accordion, treble-extended sustaining steel upright bass. intimate paris small studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 788,
-  "score": 268.852,
+  "score": 268.302,
   "config": {
     "traditions": [
       "morna",
@@ -154,12 +154,10 @@
       {
         "id": "upright_bass",
         "slots": {
-          "acoustic_technique": "acoustic_chord_melody",
           "upright_strings": "steel_upright",
           "upright_play": "arco_upright"
         },
         "scores": {
-          "acoustic_technique": 0.5499999999999999,
           "upright_strings": 1.8199999999999998,
           "upright_play": 1.2349999999999999
         }

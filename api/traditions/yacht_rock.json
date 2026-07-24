@@ -5,7 +5,7 @@
   "lineage": "Late-1970s through mid-1980s smooth West-Coast AOR pop-rock codified by Steely Dan Aja and Gaucho, the Doobie Brothers post-Michael McDonald era, Toto, Christopher Cross, Kenny Loggins, the Eagles Hotel California aesthetic",
   "recipe": "classic North American 1977-1979 yacht rock, functional Song, yacht rock branch, late analog major distorted rock, American jazz smooth vocal album-oriented rock modern vocal jazz. thick, close mic intimate, straight onset, interlocked note trading. marshall plexi amp British rock amp basswood mahogany rosewood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, vintage ambassador asymmetric sticks backbeat drum kit, raymac steel tine premium 1970s vintage replacement harder neoprene late 1970s bark grit block chord rhodes electric, soft felt lacquer voiced 17 ply hard rock maple Asian spruce grand piano, singing lead analog synth, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, string machine. west la 1616 butler avenue 1968-present major-flagship the village recorder west la. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical.",
   "recipe_chars": 992,
-  "score": 625.351,
+  "score": 625.401,
   "config": {
     "traditions": [
       "yacht_rock",
@@ -88,7 +88,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_walking",
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -98,7 +97,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": -0.05,
           "amp_make": 17.401964285714286,
           "body_wood": 2.6376785714285718,
           "pickup_config": 1.95,

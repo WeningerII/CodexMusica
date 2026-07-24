@@ -5,7 +5,7 @@
   "lineage": "Punk subgenre synthesizing folk-instrumentation (acoustic guitar, banjo, fiddle, accordion) with punk lyrical-and-attitudinal aesthetic. The Pogues (1983-onward) inaugurated the British-Irish strain; American folk-punk wave through Andrew Jackson Jihad, Defiance Ohio, Pat the Bunny, Mischief Brew, and the broader Plan-It-X Records roster constitutes the 2000s-2010s American development.",
   "recipe": "classic modern folk punk, distorted Rock, punk branch, anglo singer song indie folk freak folk. thick, breath veiled tone, breath pulsed, interlocked note trading. cedar fingerpicked dreadnought acoustic guitar, walnut mid tier scruggs stelling bluegrass setup mastertone flathead banjo 5 string, castagnari Italian premium folk music straight accordion, ampeg b15 amp American 60s bass amp flip top character mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks drum kit. isolated rural 2005-present isolation diy isolation cabin diy. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 688,
-  "score": 382.482,
+  "score": 335.562,
   "config": {
     "traditions": [
       "folk_punk",
@@ -72,7 +72,6 @@
       {
         "id": "banjo_5_string",
         "slots": {
-          "plucked_traditional_technique": "plucked_fingerpicked",
           "banjo_back": "resonator",
           "tone_ring": "wood_ring",
           "banjo_head": "fiberskyn",
@@ -85,7 +84,6 @@
           "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
         "scores": {
-          "plucked_traditional_technique": 28.937999999999995,
           "banjo_back": 0.063,
           "tone_ring": 0.0315,
           "banjo_head": 10.074999999999998,
@@ -122,7 +120,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "humbucker_mm",
@@ -132,7 +129,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 17.9815,
           "amp_make": 6.760000000000002,
           "body_wood": 1.4949999999999999,
           "pickup_config": 0.1365,
@@ -200,7 +196,6 @@
       "free_reed_technique": "free_reed_folk_first_position",
       "reed_config": "lmm",
       "musette_offset": "dry_tuning",
-      "plucked_traditional_technique": "plucked_folk_strummed",
       "banjo_back": "open_back",
       "tone_ring": "no_ring",
       "banjo_play": "clawhammer",

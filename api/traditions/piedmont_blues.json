@@ -5,7 +5,7 @@
   "lineage": "Country-blues tradition of the southern Atlantic seaboard (North Carolina, South Carolina, Virginia, Georgia) — characterized by alternating-thumb fingerpicking guitar accompaniment (the so-called Piedmont style), ragtime-influenced harmonic vocabulary, and a less mournful register than Delta blues — codified through Blind Boy Fuller, Reverend Gary Davis, Blind Blake, Sonny Terry and Brownie McGhee, with continuing transmission through the folk-revival pedagogical inheritance",
   "recipe": "classic mid-1930s piedmont blues, functional Song, blues acoustic branch, blues narrative ballad poetry classic blues women jug band. thick, worn fold, wide pitch sway, interlocked note trading. open g tuning parlor classic steel silk fingerpicked parlor acoustic guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. parlor. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 463,
-  "score": 526.518,
+  "score": 517.603,
   "config": {
     "traditions": [
       "piedmont_blues",
@@ -72,7 +72,6 @@
       {
         "id": "harmonica",
         "slots": {
-          "free_reed_technique": "free_reed_folk_first_position",
           "harmonica_type": "chromatic_harm",
           "harmonica_comb": "pearwood_comb",
           "harmonica_reed": "brass_harm",
@@ -81,7 +80,6 @@
           "harmonica_tuning": "harmonica_richter_canonical"
         },
         "scores": {
-          "free_reed_technique": 8.915000000000001,
           "harmonica_type": 2.7299999999999995,
           "harmonica_comb": 54.95000000000001,
           "harmonica_reed": 42.40000000000001,

@@ -5,7 +5,7 @@
   "lineage": "1930s-1940s Texas-Oklahoma string-band swing-era jazz hybrid — codified through Bob Wills and His Texas Playboys (formed 1934, hits \"San Antonio Rose\" 1938, \"New San Antonio Rose\" 1940), Milton Brown and His Musical Brownies, Spade Cooley’s Orchestra; characterized by fiddle-and-steel-guitar lead, big-band swing-rhythm-section, and Texas-roadhouse repertoire blending country, jazz, blues, and polka idioms",
   "recipe": "classic North American mid-1930s western swing, functional Song, western swing branch, honky tonk era country, American jazz early new orleans jazz honky-tonk. thick, breath veiled tone, wide pitch sway, interlocked note trading. steel double stops fiddle, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Fender blackface amp American 60s amp spring reverb bright nickel plated steel nickel single coil electric guitar, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow legato saxophone, light steel clawhammer canon scruggs stelling bluegrass setup mastertone flathead banjo 5 string, bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet, five string extended low swing lead tremolo shimmer electric mandolin.",
   "recipe_chars": 996,
-  "score": 732.955,
+  "score": 714.3,
   "config": {
     "traditions": [
       "western_swing",
@@ -126,12 +126,10 @@
       {
         "id": "upright_bass",
         "slots": {
-          "acoustic_technique": "acoustic_chord_melody",
           "upright_strings": "gut_wound_upright",
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "acoustic_technique": 0.12999999999999998,
           "upright_strings": 18.499999999999996,
           "upright_play": 18.499999999999996
         }
@@ -198,7 +196,6 @@
       {
         "id": "banjo_5_string",
         "slots": {
-          "plucked_traditional_technique": "plucked_call_and_response",
           "banjo_back": "resonator",
           "tone_ring": "tubaphone",
           "banjo_head": "fiberskyn",
@@ -211,7 +208,6 @@
           "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
         "scores": {
-          "plucked_traditional_technique": 18.525,
           "banjo_back": 0.45499999999999996,
           "tone_ring": 0,
           "banjo_head": 18.46,
@@ -302,7 +298,6 @@
       "voice_mechanism_compound": "voice_mechanism_single_source",
       "bowed_technique": "bowed_chopped_old_time",
       "fiddle_articulation": "arco",
-      "acoustic_technique": "acoustic_flatpicked",
       "upright_play": "pizz_upright",
       "upright_strings": "gut_wound_upright",
       "keyboard_technique": "keyboard_jazz_comping",
@@ -311,7 +306,6 @@
       "sax_size": "alto_sax",
       "brass_size": "trumpet_b_flat",
       "trumpet_technique": "trumpet_punchy_ensemble",
-      "plucked_traditional_technique": "plucked_folk_strummed",
       "banjo_back": "open_back",
       "tone_ring": "no_ring",
       "banjo_play": "clawhammer",

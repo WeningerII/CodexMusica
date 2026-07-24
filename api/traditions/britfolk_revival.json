@@ -5,7 +5,7 @@
   "lineage": "1960s-70s UK folk-revival singer-songwriter movement codified through Bert Jansch and John Renbourn (the Pentangle nexus), Davey Graham (the DADGAD-tuning innovator), Anne Briggs, Shirley Collins, Nic Jones, June Tabor, the Watersons family ensemble, the Carthy family (Martin and Eliza), Fairport Convention, Steeleye Span — drawing heavily on the Cecil Sharp / Vaughan Williams field-collected canon and the Child ballad corpus",
   "recipe": "classic Northern European mid-1960s britfolk revival, ballad Poetry, britfolk branch, Celtic balladic ballad poetry child ballad revival newfoundland outport balladry. thick, incomplete closure resting, straight note core, interlocked note trading. dadgad tuning martin lifespan fingerpicked acoustic guitar, drone like fiddle, flute, ernie ball slinky fingerpicked electric bass, pre muffled edge muffled brushes-and-sticks drum kit, folk drone like modal autoharp. uk folk revival club 60s. large-diaphragm condenser, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
   "recipe_chars": 616,
-  "score": 279.886,
+  "score": 252.206,
   "config": {
     "traditions": [
       "britfolk_revival",
@@ -55,7 +55,6 @@
       {
         "id": "acoustic_guitar_om",
         "slots": {
-          "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "dadgad",
           "top_wood": "cedar_om",
           "back_sides": "walnut_bs_om",
@@ -63,7 +62,6 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 27.715625,
           "string_tuning": 25.325,
           "top_wood": 0.195,
           "back_sides": 0.195,
@@ -108,7 +106,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_walking",
           "amp_make": "amp_american_fender_tweed",
           "body_wood": "mahogany_b",
           "pickup_config": "split_coil",
@@ -118,7 +115,6 @@
           "bass_technique": "fingerpicked_country_b"
         },
         "scores": {
-          "electric_technique": -0.035,
           "amp_make": 2.18,
           "body_wood": 0.195,
           "pickup_config": 0,
@@ -203,7 +199,6 @@
       "voice_mechanism_compound": "voice_mechanism_single_source",
       "bowed_technique": "bowed_legato_classical",
       "fiddle_articulation": "arco",
-      "acoustic_technique": "acoustic_fingerpicked",
       "top_wood": "sitka_om",
       "back_sides": "rosewood_bs_om",
       "string_acoustic": "phosphor_om",

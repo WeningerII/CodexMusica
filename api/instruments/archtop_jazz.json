@@ -15,88 +15,10 @@
     "dynamics": 1
   },
   "short": "archtop jazz",
+  "exclude_family_parts": [
+    "electric_technique"
+  ],
   "parts": [
-    {
-      "id": "electric_technique",
-      "name": "Playing technique",
-      "variants": [
-        {
-          "id": "electric_clean_strummed",
-          "default": true,
-          "name": "Clean strummed",
-          "applies_to": [
-            "electric_guitar_single_coil",
-            "electric_guitar_humbucker",
-            "twelve_string_electric",
-            "archtop_jazz",
-            "semi_hollow",
-            "baritone_electric"
-          ],
-          "descriptors": [
-            "clean",
-            "strummed"
-          ],
-          "match_tokens": [
-            "electric",
-            "open-chord-ringing-overtones",
-            "picked"
-          ],
-          "canonical_tags": [
-            "pop",
-            "rhythm"
-          ]
-        },
-        {
-          "id": "electric_jazz_comping",
-          "name": "Jazz comping",
-          "applies_to": [
-            "electric_guitar_single_coil",
-            "electric_guitar_humbucker",
-            "archtop_jazz",
-            "semi_hollow"
-          ],
-          "descriptors": [
-            "comped",
-            "clean"
-          ],
-          "match_tokens": [
-            "electric",
-            "jazz-trained",
-            "comping"
-          ],
-          "canonical_tags": [
-            "jazz-canonical"
-          ]
-        },
-        {
-          "id": "electric_arpeggiated_clean",
-          "name": "Arpeggiated clean",
-          "applies_to": [
-            "electric_guitar_single_coil",
-            "electric_guitar_humbucker",
-            "twelve_string_electric",
-            "archtop_jazz",
-            "semi_hollow",
-            "baritone_electric"
-          ],
-          "descriptors": [
-            "arpeggiated",
-            "clean"
-          ],
-          "match_tokens": [
-            "electric",
-            "arpeggio-decoration",
-            "picked"
-          ],
-          "canonical_tags": [
-            "shoegaze",
-            "post-punk",
-            "indie"
-          ]
-        }
-      ],
-      "_fromFamily": true
-    },
     {
       "id": "amp_make",
       "name": "Amplifier archetype",

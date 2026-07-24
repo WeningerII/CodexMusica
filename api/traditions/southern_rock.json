@@ -5,7 +5,7 @@
   "lineage": "Late-1960s through 1970s American Southern blues-rock genre — codified through the Allman Brothers Band (Live at Fillmore East 1971), Lynyrd Skynyrd (Pronounced Leh-Nerd Skin-Nerd 1973, Sweet Home Alabama 1974), the Marshall Tucker Band, Wet Willie, the Charlie Daniels Band, ZZ Top (the Texas extension), Molly Hatchet; twin-lead-guitar harmony foreground, blues-rock harmonic foundation extended with country and gospel-influenced songwriting",
   "recipe": "classic Southern American 1967-1969 southern rock, distorted Rock, southern rock branch, classic distorted rock, country rock country hard rock. thick, breath veiled tone, wide pitch sway, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple humbucker electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative gospel runs fast tremolo tonewheel organ, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano. converted coffin warehouse 1969-1979 mid tier muscle shoals sound studio. passive ribbon, Neve 1073 inductor pre.",
   "recipe_chars": 984,
-  "score": 1107.836,
+  "score": 1106.718,
   "config": {
     "traditions": [
       "southern_rock",
@@ -119,7 +119,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "mahogany_b",
           "pickup_config": "split_coil",
@@ -129,7 +128,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 1.1185,
           "amp_make": 30.29000000000001,
           "body_wood": 1.7700000000000002,
           "pickup_config": 0,

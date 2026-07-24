@@ -5,7 +5,7 @@
   "lineage": "Pre-WWII Appalachian and southern American string-band tradition — fiddle, banjo, guitar (sometimes mandolin and bass) playing dance tunes and ballads in regional repertoires including Round Peak (Galax-Mt-Airy NC), Hammons Family (West Virginia), Skillet Lickers (Georgia), and the broader tradition documented through 1920s commercial Bristol sessions and the Library of Congress field-recording campaign",
   "recipe": "classic North American mid-1920s old-time appalachian, drone Modal, appalachian branch, blues narrative ballad poetry classic blues women jug band. wood 3 ply maple Gibson mastertone canon maple bluegrass canon banjo 5 string, double stops fiddle, mahogany parlor classic steel silk fingerpicked parlor acoustic guitar, walnut canonical appalachian clawhammer mountain dulcimer, steel modern canonical 36 37 string set drone like modal autoharp, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. wooden barn. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 701,
-  "score": 324.77,
+  "score": 300.586,
   "config": {
     "traditions": [
       "old_time",
@@ -16,7 +16,6 @@
       {
         "id": "banjo_5_string",
         "slots": {
-          "plucked_traditional_technique": "plucked_call_and_response",
           "banjo_back": "open_back",
           "tone_ring": "wood_ring",
           "banjo_head": "fiberskyn",
@@ -29,7 +28,6 @@
           "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
         "scores": {
-          "plucked_traditional_technique": 20.865000000000002,
           "banjo_back": 1.9499999999999997,
           "tone_ring": 4.4875,
           "banjo_head": 19.955000000000002,
@@ -113,7 +111,6 @@
       {
         "id": "harmonica",
         "slots": {
-          "free_reed_technique": "free_reed_folk_first_position",
           "harmonica_type": "chromatic_harm",
           "harmonica_comb": "pearwood_comb",
           "harmonica_reed": "brass_harm",
@@ -122,7 +119,6 @@
           "harmonica_tuning": "harmonica_richter_canonical"
         },
         "scores": {
-          "free_reed_technique": 3.3187499999999996,
           "harmonica_type": 2.7299999999999995,
           "harmonica_comb": 43.893750000000004,
           "harmonica_reed": 28.911250000000003,
@@ -156,7 +152,6 @@
       "fiddle_articulation": "arco",
       "harmonica_technique": "harm_folk_first_position",
       "harmonica_type": "diatonic_blues",
-      "plucked_traditional_technique": "plucked_folk_strummed",
       "banjo_back": "open_back",
       "tone_ring": "no_ring",
       "banjo_play": "clawhammer",

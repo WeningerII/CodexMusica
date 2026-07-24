@@ -5,7 +5,7 @@
   "lineage": "Irish pub-song / drinking-song tradition continuous from 18th-19th century pub-and-shebeen drinking-song tradition through 20th-century Dubliners-and-Clancy-Brothers-era folk-revival into modern Irish-pub-session continuous practice; foundational repertoire includes \"Whiskey in the Jar,\" \"The Wild Rover,\" \"All for Me Grog,\" \"Whiskey, You're the Devil,\" \"The Parting Glass\"",
   "recipe": "classic modern irish pub song / drinking song, drinking Song, European branch, americas drinking song, European protest song, anglo singer song ballad poetry indie folk freak folk. thick, breath veiled tone, straight onset, interlocked note trading. cedar walnut phosphor bronze bronze fingerpicked acoustic guitar, synthetic magic rosin modern acrylic base drone like fiddle, brass tube plastic fipple canonical generation feadog clarke melodic tin whistle, goat skin canonical Irish birch ply canonical modern Irish bodhran. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 600,
-  "score": 323.299,
+  "score": 297.009,
   "config": {
     "traditions": [
       "irish_pub_song",
@@ -55,7 +55,6 @@
       {
         "id": "acoustic_guitar_om",
         "slots": {
-          "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "drop_d",
           "top_wood": "cedar_om",
           "back_sides": "walnut_bs_om",
@@ -63,7 +62,6 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 26.289999999999996,
           "string_tuning": 1.85,
           "top_wood": 1.15,
           "back_sides": 1.4949999999999999,
@@ -153,7 +151,6 @@
       "voice_mechanism_compound": "voice_mechanism_single_source",
       "bowed_technique": "bowed_legato_classical",
       "fiddle_articulation": "arco",
-      "acoustic_technique": "acoustic_strummed_ringing",
       "top_wood": "sitka_om",
       "back_sides": "mahogany_bs_om",
       "string_acoustic": "phosphor_om",

@@ -5,7 +5,7 @@
   "lineage": "Portuguese música de intervenção (\"intervention music\") protest-song tradition continuous from 1960s-1974 Estado Novo dictatorship-era political folk-and-songwriter scene; centered on José Afonso, Adriano Correia de Oliveira, Sérgio Godinho, José Mário Branco; José Afonso's \"Grândola Vila Morena\" was the radio-signal that triggered the April 25 1974 Carnation Revolution",
   "recipe": "classic Iberian mid-1960s portuguese música de intervenção, protest Song, European branch, iberian Latin protest song, chanson fado ballad poetry, iberian functional song morna cape verdean batuko of santiago island. thick, breath veiled tone, slow rate, interlocked note trading. martin lifespan fingerpicked acoustic guitar, twelve string paired courses high pitched ringing fado lisboa tradition jacaranda Portuguese rosewood spruce canonical fado guitarra portuguesa. iberian kantautor basque galician club. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 641,
-  "score": 253.102,
+  "score": 241.942,
   "config": {
     "traditions": [
       "portuguese_musica_de_intervencao",
@@ -55,7 +55,6 @@
       {
         "id": "acoustic_guitar_om",
         "slots": {
-          "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "open_d",
           "top_wood": "cedar_om",
           "back_sides": "rosewood_bs_om",
@@ -63,7 +62,6 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 11.16,
           "string_tuning": 1.2999999999999998,
           "top_wood": 0.54,
           "back_sides": 0.78,
@@ -123,7 +121,6 @@
       "voice_estill_quality": "voice_estill_speech",
       "voice_vibrato": "straight_tone",
       "voice_mechanism_compound": "voice_mechanism_single_source",
-      "acoustic_technique": "acoustic_strummed_ringing",
       "top_wood": "sitka_om",
       "back_sides": "mahogany_bs_om",
       "string_acoustic": "phosphor_om",

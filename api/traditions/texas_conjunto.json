@@ -5,7 +5,7 @@
   "lineage": "Texas-Mexican (tejano) accordion-and-bajo-sexto dance-band tradition of South Texas and the Texas-Mexico borderlands, developed in the late-nineteenth-century from German-Czech accordion-polka traditions imported into Texas through Central European migration — codified through Narciso Martínez (Texas conjunto founding figure, recording 1936 onward), Santiago Jiménez Sr, Valerio Longoria, Tony de la Rosa, Flaco Jiménez",
   "recipe": "classic North American mid-1930s texas conjunto, functional Song, tejano border branch, Latin am groove percussion forró brasileiro joropo. thick, breath veiled tone, fast rate, interlocked note trading. steel hohner gola canonical premium German concert chordal accordion, spruce nickel wound modern tejano strummed bajo sexto, ampeg svt amp rock bass amp alder la bella flats Detroit soul bass canon electric bass, brushes-and-sticks drum kit, accordion and bajo duo instrumental polka redova vals dance texas tejano conjunto conjunto norteno. honky tonk dance hall. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 663,
-  "score": 217.085,
+  "score": 215.915,
   "config": {
     "traditions": [
       "texas_conjunto",
@@ -93,7 +93,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
@@ -103,7 +102,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 1.17,
           "amp_make": 3.0550000000000006,
           "body_wood": 1.95,
           "pickup_config": 1.3,

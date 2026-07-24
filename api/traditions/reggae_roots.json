@@ -5,7 +5,7 @@
   "lineage": "Jamaican roots reggae genre that emerged in the early-to-mid 1970s as the Rastafarian-political-prophetic extension of ska and rocksteady — recordings tracked at Channel One Studios (the Sly and Robbie / Roots Radics house band era), Studio One, and Treasure Isle through Bob Marley and the Wailers (Catch a Fire 1973, Natty Dread 1974, Rastaman Vibration 1976), Peter Tosh, Bunny Wailer, Burning Spear (Marcus Garvey 1975), Culture (Two Sevens Clash 1977), the Mighty Diamonds, the Abyssinians, Israel Vibration",
   "recipe": "classic Caribbean 1974-1976 reggae roots, bass System, Jamaican branch, Afro-diasporic ritual devotional umbanda ceremonial paranda. kargyraa, breath veiled tone, slow rate, interlocked note trading. mahogany pyramid pure nickel bass British mid 60s era thumb muted electric bass, brushes-and-sticks drum kit, mahogany rosewood single coil electric guitar, Hammond a 100 built in Leslie home spinet Leslie 760 solid state 90w 1970s alternative fast tremolo tonewheel organ, folk hohner melodica canonical 1959 dub roots tradition melodica. Kingston channel one defining 1972-1985 indie-commercial kingston channel one maxfield avenue. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips roland RE-201 space echo spring reverb.",
   "recipe_chars": 777,
-  "score": 168.425,
+  "score": 161.975,
   "config": {
     "traditions": [
       "reggae_roots",
@@ -55,7 +55,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_thumb_muted",
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "humbucker_mm",
@@ -65,7 +64,6 @@
           "bass_technique": "thumb_muted"
         },
         "scores": {
-          "electric_technique": 6.449999999999999,
           "amp_make": 2.895000000000001,
           "body_wood": 1.69,
           "pickup_config": 0.09,

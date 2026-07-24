@@ -3,9 +3,9 @@
   "name": "Chanson pop (modern)",
   "family": "global",
   "lineage": "Modern French songwriter pop tradition extending the chanson lineage past the 1960s yé-yé era — Vanessa Paradis, MC Solaar, Mylène Farmer in the 1990s; Carla Bruni, Cœur de Pirate, Christine and the Queens, Stromae (Belgian) extending the form into the 2000s-2020s with electronic and hip-hop production influences",
-  "recipe": "classic mid-1960s chanson pop, functional Song, europop branch, chanson fado ballad poetry cape verdean batuko of santiago island greek éntechno. thick, breath veiled tone, straight onset, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, strummed open chord ringing overtones fingerpicked acoustic guitar, modeled amp modern rig stainless steel roundwound sub heavy electric bass, pre muffled edge muffled brushes-and-sticks drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 648,
-  "score": 409.052,
+  "recipe": "classic mid-1960s chanson pop, functional Song, europop branch, chanson fado ballad poetry cape verdean batuko of santiago island greek éntechno. thick, breath veiled tone, straight onset, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, fingerpicked acoustic guitar, modeled amp modern rig stainless steel roundwound sub heavy electric bass, pre muffled edge muffled brushes-and-sticks drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 610,
+  "score": 398.827,
   "config": {
     "traditions": [
       "chanson_pop_modern",
@@ -80,7 +80,6 @@
       {
         "id": "acoustic_guitar_om",
         "slots": {
-          "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "drop_d",
           "top_wood": "cedar_om",
           "back_sides": "rosewood_bs_om",
@@ -88,7 +87,6 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 8.794999999999998,
           "string_tuning": 0.98,
           "top_wood": 0.39,
           "back_sides": 0.78,
@@ -99,7 +97,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_slap_pop",
           "amp_make": "amp_modern_modeling",
           "body_wood": "alder_b",
           "pickup_config": "soapbar",
@@ -109,7 +106,6 @@
           "bass_technique": "sub_bass_synth_blend"
         },
         "scores": {
-          "electric_technique": 1.4299999999999997,
           "amp_make": 3.8325,
           "body_wood": 0.39,
           "pickup_config": 3.6325,
@@ -176,7 +172,6 @@
       "voice_mechanism_compound": "voice_mechanism_single_source",
       "keyboard_technique": "keyboard_block_chord_pop",
       "piano_pitch_standard": "a_440_modern",
-      "acoustic_technique": "acoustic_strummed_ringing",
       "top_wood": "sitka_om",
       "back_sides": "mahogany_bs_om",
       "string_acoustic": "phosphor_om",

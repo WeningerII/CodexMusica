@@ -5,7 +5,7 @@
   "lineage": "Basque-language (Euskera) singer-songwriter tradition emerging from underground anti-Franco protest culture in the late-1960s — codified through Mikel Laboa (the Basque kantautor founder, his 1969 Bost urte and 1974 Gernika releases the founding statements), Benito Lertxundi, Imanol Larzabal, Antton Valverde, Lourdes Iriondo, Xabier Lete; deeply engaged with Basque cultural-linguistic revival under and after Franco-era cultural suppression, with parallel post-1980s extensions through Ruper Ordorika (the post-Franco-era Basque cantautor voice)",
   "recipe": "classic Iberian 1967-1969 basque kantautor, functional Song, iberian branch, chanson fado ballad poetry, European protest song cape verdean batuko of santiago island french musette. thick, breath veiled tone, straight note core, interlocked note trading. fingerpicked acoustic guitar, gaita galega three drone muiñeira dance driving gaita galega, dance driven pandero paired wet tuned musette shimmer detuned tremolo trikitixa, mahogany pyramid pure nickel bass British mid 60s era electric bass. iberian kantautor basque galician club. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
   "recipe_chars": 624,
-  "score": 266.71,
+  "score": 254.46,
   "config": {
     "traditions": [
       "basque_kantautor",
@@ -55,7 +55,6 @@
       {
         "id": "acoustic_guitar_om",
         "slots": {
-          "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "open_d",
           "top_wood": "cedar_om",
           "back_sides": "rosewood_bs_om",
@@ -63,7 +62,6 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 10.820000000000002,
           "string_tuning": 0.7149999999999999,
           "top_wood": 0.54,
           "back_sides": 0.78,
@@ -108,7 +106,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_slap_pop",
           "amp_make": "amp_british_60s_selmer",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -118,7 +115,6 @@
           "bass_technique": "slap_pop"
         },
         "scores": {
-          "electric_technique": 1.4299999999999997,
           "amp_make": 0.6499999999999999,
           "body_wood": 1.08,
           "pickup_config": 0.7725,
@@ -169,7 +165,6 @@
       "voice_vibrato": "delayed_vibrato",
       "voice_mechanism_compound": "voice_mechanism_single_source",
       "free_reed_technique": "free_reed_folk_first_position",
-      "acoustic_technique": "acoustic_strummed_ringing",
       "top_wood": "sitka_om",
       "back_sides": "mahogany_bs_om",
       "string_acoustic": "phosphor_om",

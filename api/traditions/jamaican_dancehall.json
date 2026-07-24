@@ -5,7 +5,7 @@
   "lineage": "Jamaican dancehall genre emerging in the early 1980s as the post-roots-reggae evolution toward digital-rhythm computer-riddim DJ-toasting tradition — breakthrough recordings the Sleng Teng riddim 1985 (Wayne Smith Under Mi Sleng Teng, the first all-computer-generated reggae riddim), then through Yellowman, Eek-A-Mouse, Shabba Ranks, Buju Banton, Beenie Man, Bounty Killer, Vybz Kartel, and the broader 1990s-2000s Greensleeves / VP Records dancehall catalog",
   "recipe": "classic Caribbean 1980-1983 jamaican dancehall, bass System, Jamaican branch, Afro-diasporic MC rhythm, house electronic dance chicago house tech-house. thick, breath veiled tone, straight note core, interlocked note trading. ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, roland tr 8s modern aira digital recreation TR-808, roland tr 8s modern aira digital recreation TR-909, sampler, Fender blackface amp American 60s amp spring reverb bright clean strummed single coil electric guitar, Hammond a 100 built in Leslie home spinet Leslie 145 smaller 25w tube home club gospel runs fast tremolo tonewheel organ, sub bass analog poly synth. Kingston channel one defining 1972-1985 indie-commercial kingston channel one maxfield avenue. shure SM58, console-strip pre, soundcraft TS24 / 3200, dbx 160 VCA, SSL surgical EQ.",
   "recipe_chars": 939,
-  "score": 290.892,
+  "score": 283.692,
   "config": {
     "traditions": [
       "jamaican_dancehall",
@@ -55,7 +55,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_thumb_muted",
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -65,7 +64,6 @@
           "bass_technique": "thumb_muted"
         },
         "scores": {
-          "electric_technique": 7.199999999999999,
           "amp_make": 5.410000000000001,
           "body_wood": 0.845,
           "pickup_config": 0.39,

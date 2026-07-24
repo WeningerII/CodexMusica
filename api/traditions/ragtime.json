@@ -5,7 +5,7 @@
   "lineage": "1890s-1910s composed syncopated piano dance form developed in African-American midwestern saloon and brothel piano tradition — codified through Scott Joplin (Maple Leaf Rag 1899 and The Entertainer 1902) plus Tom Turpin, James Scott and Joseph Lamb, with the form serving as the principal pre-jazz American popular dance music until eclipsed by stride and early jazz around 1920",
   "recipe": "classic mid-1890s ragtime, improv On Frame, pre jazz ragtime branch, American jazz early, crooners functional song swing-era jazz orchestra new orleans jazz. cold pressed wurzen felt oversize maple tension resonator European spruce grand stride upright piano, 3 ply maple Gibson mastertone canon maple bluegrass canon plain gut banjo 5 string, yellow brass canonical brass band conn vintage early jazz canon front line cornet, red brass 90 10 darker orchestral bach 42 canonical American orchestral tenor front line student commercial trombone. parlor. acoustic horn. 78rpm shellac.",
   "recipe_chars": 582,
-  "score": 230.937,
+  "score": 215.857,
   "config": {
     "traditions": [
       "ragtime",
@@ -54,7 +54,6 @@
       {
         "id": "banjo_5_string",
         "slots": {
-          "plucked_traditional_technique": "plucked_call_and_response",
           "banjo_back": "open_back",
           "tone_ring": "tubaphone",
           "banjo_head": "fiberskyn",
@@ -67,7 +66,6 @@
           "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
         "scores": {
-          "plucked_traditional_technique": 15.079999999999993,
           "banjo_back": 0.0025,
           "tone_ring": 0,
           "banjo_head": 14.234999999999996,
@@ -142,7 +140,6 @@
       "keyboard_technique": "keyboard_stride_left_hand",
       "piano_pitch_standard": "a_440_modern",
       "wind_articulation": "wind_punchy_ensemble",
-      "plucked_traditional_technique": "plucked_folk_strummed",
       "banjo_back": "open_back",
       "tone_ring": "no_ring",
       "banjo_play": "clawhammer",

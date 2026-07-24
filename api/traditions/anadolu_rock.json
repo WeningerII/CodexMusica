@@ -3,9 +3,9 @@
   "name": "Anadolu rock",
   "family": "global",
   "lineage": "Late-1960s-onward Turkish psychedelic-folk rock genre codified through Cem Karaca, Erkin Koray (whose 1974 Elektronik Türküler is the album), Barış Manço, the Moğollar band, the Mavi Çocuklar — fusing Turkish folk-saz repertoire and Anatolian regional song-traditions with electric instrumentation, rock rhythm-section foundation, and characteristic distorted-electric-saz lead-voice",
-  "recipe": "classic Middle Eastern 1967-1969 anadolu rock, distorted Rock, regional branch, classic distorted rock britpop. thick, breath veiled tone, straight note core, interlocked note trading. marshall plexi amp British rock amp basswood soft down tuning power chord humbucker electric guitar, marshall plexi amp British rock amp ernie ball slinky riff driven electric bass, pre muffled edge muffled sticks backbeat drum kit, mulberry bowl canonical anatolian nylon cura saz softer alevi cem saz baglama. istanbul recording canon 1955-present mid tier istanbul makam kilic ali pasha studio. large-diaphragm condenser, transformer-coupled solid-state pre, colored vintage console, vari-mu, passive program EQ. vinyl master cut tape echo spring reverb germanium fuzz wah / envelope filter.",
-  "recipe_chars": 779,
-  "score": 306.034,
+  "recipe": "classic Middle Eastern 1967-1969 anadolu rock, distorted Rock, regional branch, classic distorted rock britpop. thick, breath veiled tone, straight note core, interlocked note trading. marshall plexi amp British rock amp basswood soft down tuning power chord humbucker electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, mulberry bowl canonical anatolian nylon cura saz softer alevi cem saz baglama. istanbul recording canon 1955-present mid tier istanbul makam kilic ali pasha studio. large-diaphragm condenser, transformer-coupled solid-state pre, colored vintage console, vari-mu, passive program EQ. vinyl master cut tape echo spring reverb germanium fuzz wah / envelope filter.",
+  "recipe_chars": 767,
+  "score": 302.744,
   "config": {
     "traditions": [
       "anadolu_rock",
@@ -88,7 +88,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_fuzz_riff",
           "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "mahogany_b",
           "pickup_config": "split_coil",
@@ -98,7 +97,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 3.29,
           "amp_make": 16.379999999999995,
           "body_wood": 0.845,
           "pickup_config": 0,

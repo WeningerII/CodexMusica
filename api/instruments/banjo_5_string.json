@@ -15,154 +15,10 @@
     "dynamics": 1
   },
   "short": "five-string banjo",
+  "exclude_family_parts": [
+    "plucked_traditional_technique"
+  ],
   "parts": [
-    {
-      "id": "plucked_traditional_technique",
-      "name": "Playing technique",
-      "variants": [
-        {
-          "id": "plucked_folk_strummed",
-          "name": "Folk strummed",
-          "applies_to": [
-            "balalaika",
-            "domra",
-            "bouzouki",
-            "baglamas",
-            "charango",
-            "ronroco",
-            "tiple",
-            "bandola_andina",
-            "cuatro_pr",
-            "cuatro_venezolano",
-            "tres_cubano",
-            "cavaquinho",
-            "viola_caipira",
-            "jarana_jarocha",
-            "requinto_jarocho",
-            "vihuela_mexicana",
-            "bajo_sexto",
-            "banjo_5_string",
-            "tambura_balkan",
-            "saz_baglama",
-            "cumbus"
-          ],
-          "descriptors": [
-            "strummed",
-            "rhythmic",
-            "dance-rhythm"
-          ],
-          "match_tokens": [
-            "plucked",
-            "string-attack",
-            "folk",
-            "folk-tradition",
-            "open-chord-ringing-overtones"
-          ],
-          "canonical_tags": [
-            "folk"
-          ],
-          "default": true
-        },
-        {
-          "id": "plucked_fingerpicked",
-          "name": "Fingerpicked",
-          "applies_to": [
-            "kora",
-            "ngoni",
-            "kamele_ngoni",
-            "donso_ngoni",
-            "xalam",
-            "akonting",
-            "kantele",
-            "gusli",
-            "dotara",
-            "ektara",
-            "khamak",
-            "tumbi",
-            "sintir",
-            "banjo_5_string",
-            "cavaquinho"
-          ],
-          "descriptors": [
-            "fingerpicked",
-            "lyrical"
-          ],
-          "match_tokens": [
-            "plucked",
-            "string-attack",
-            "traditional"
-          ],
-          "canonical_tags": [
-            "folk"
-          ]
-        },
-        {
-          "id": "plucked_dance_pattern",
-          "name": "Dance accompaniment pattern",
-          "applies_to": [
-            "charango",
-            "ronroco",
-            "tiple",
-            "bandola_andina",
-            "cuatro_pr",
-            "cuatro_venezolano",
-            "tres_cubano",
-            "cavaquinho",
-            "viola_caipira",
-            "jarana_jarocha",
-            "requinto_jarocho",
-            "vihuela_mexicana",
-            "banjo_5_string",
-            "bouzouki",
-            "baglamas",
-            "saz_baglama",
-            "tambura_balkan",
-            "balalaika",
-            "domra"
-          ],
-          "descriptors": [
-            "rhythmic"
-          ],
-          "match_tokens": [
-            "plucked",
-            "string-attack",
-            "dance-driving",
-            "dance-rhythm"
-          ],
-          "canonical_tags": [
-            "folk"
-          ]
-        },
-        {
-          "id": "plucked_call_and_response",
-          "name": "Call-and-response",
-          "applies_to": [
-            "kora",
-            "ngoni",
-            "kamele_ngoni",
-            "donso_ngoni",
-            "akonting",
-            "banjo_5_string",
-            "sintir",
-            "xalam"
-          ],
-          "descriptors": [
-            "call-and-response"
-          ],
-          "match_tokens": [
-            "plucked",
-            "string-attack",
-            "call-response",
-            "traditional"
-          ],
-          "canonical_tags": [
-            "griot",
-            "west-african"
-          ]
-        }
-      ],
-      "_fromFamily": true
-    },
     {
       "id": "banjo_back",
       "name": "Open-back vs resonator",
@@ -753,10 +609,6 @@
     }
   ],
   "_ownParts": [
-    {
-      "id": "plucked_traditional_technique",
-      "default_variant": "plucked_folk_strummed"
-    },
     {
       "id": "banjo_back",
       "name": "Open-back vs resonator",

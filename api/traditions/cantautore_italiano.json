@@ -5,7 +5,7 @@
   "lineage": "Italian songwriter tradition codified through the Genoa school (Fabrizio De André, Luigi Tenco, Bruno Lauzi, Gino Paoli, Umberto Bindi), the Milan school (Enzo Jannacci, Giorgio Gaber), the Roman school (Antonello Venditti, Francesco De Gregori, Lucio Dalla, Claudio Baglioni), and the modern continuation (Vinicio Capossela, Cristiano De André), with French chanson and Brazilian bossa nova as primary external lineage influences",
   "recipe": "classic Central European mid-1960s cantautore italiano, ballad Poetry, post chanson branch, chanson fado classic chanson, chanson fado fado lisboa chanson classique. thick, lament wail, slow rate, interlocked note trading. cedar walnut phosphor bronze bronze fingerpicked acoustic guitar, birch laminated maple laminated sitka spruce diaphragmatic multi laminate grand piano, mahogany pyramid pure nickel bass British mid 60s era sub heavy electric bass, pre muffled edge muffled brushes-and-sticks drum kit. german liedermacher kabarett berlin. Neumann U67, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb.",
   "recipe_chars": 659,
-  "score": 168.821,
+  "score": 159.269,
   "config": {
     "traditions": [
       "cantautore_italiano",
@@ -55,7 +55,6 @@
       {
         "id": "acoustic_guitar_om",
         "slots": {
-          "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "standard_tuning",
           "top_wood": "cedar_om",
           "back_sides": "walnut_bs_om",
@@ -63,7 +62,6 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 9.6025,
           "string_tuning": 0,
           "top_wood": 1.4949999999999999,
           "back_sides": 1.6899999999999997,
@@ -99,7 +97,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_walking",
           "amp_make": "amp_british_orange",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -109,7 +106,6 @@
           "bass_technique": "sub_bass_synth_blend"
         },
         "scores": {
-          "electric_technique": -0.05,
           "amp_make": 1.2349999999999997,
           "body_wood": 1.4949999999999999,
           "pickup_config": 0.1949999999999999,
@@ -176,7 +172,6 @@
       "voice_mechanism_compound": "voice_mechanism_single_source",
       "keyboard_technique": "keyboard_block_chord_pop",
       "piano_pitch_standard": "a_440_modern",
-      "acoustic_technique": "acoustic_strummed_ringing",
       "top_wood": "sitka_om",
       "back_sides": "mahogany_bs_om",
       "string_acoustic": "phosphor_om",

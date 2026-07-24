@@ -5,7 +5,7 @@
   "lineage": "Irish rebel-song tradition continuous from 18th-century 1798-United-Irishmen rebellion songs (\"The Wearing of the Green\" \"Bold Robert Emmet\") through 19th-century Young Ireland and Fenian songbook through 1916 Easter Rising era through Northern-Irish Troubles 1968-1998 era continuous into modern Irish-traditional-music repertoire",
   "recipe": "classic late-1790s irish rebel song, protest Song, European branch, anglo American protest song, Celtic balladic ballad poetry, Celtic traditional improv on frame sean-nós solo singing child ballad revival. thick, breath veiled tone, straight onset, interlocked note trading. dadgad tuning martin lifespan fingerpicked acoustic guitar, synthetic magic rosin modern acrylic base fiddle, African blackwood boxwood premium pre modern melodic tin whistle. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 525,
-  "score": 251.037,
+  "score": 237.782,
   "config": {
     "traditions": [
       "irish_rebel_song",
@@ -55,7 +55,6 @@
       {
         "id": "acoustic_guitar_om",
         "slots": {
-          "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "dadgad",
           "top_wood": "mahogany_top_om",
           "back_sides": "rosewood_bs_om",
@@ -63,7 +62,6 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 13.254999999999999,
           "string_tuning": 18.65,
           "top_wood": 0.745,
           "back_sides": 0.975,
@@ -140,7 +138,6 @@
       "voice_mechanism_compound": "voice_mechanism_single_source",
       "bowed_technique": "bowed_legato_classical",
       "fiddle_articulation": "arco",
-      "acoustic_technique": "acoustic_strummed_ringing",
       "top_wood": "sitka_om",
       "back_sides": "mahogany_bs_om",
       "string_acoustic": "phosphor_om",

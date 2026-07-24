@@ -5,7 +5,7 @@
   "lineage": "UK 1979-1981 multiracial ska revival movement centered on Coventry — codified through the 2 Tone Records label (founded 1979 by Jerry Dammers of The Specials) and its catalog: The Specials, The Selecter, Madness, The Beat, The Bodysnatchers, Bad Manners — translating original 1960s Jamaican ska into the post-punk era with explicit anti-racist political content and Two-Tone-checkerboard graphic identity",
   "recipe": "classic Northern European 1979-1981 2-tone ska revival, bass System, reggae diaspora branch, punk distorted rock garage punk post-punk. thick, breath veiled tone, pure, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation palm muted single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative fast tremolo tonewheel organ, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral large cup large rim orchestral bottom heavy trumpet, alto gold brass warmer tone split tone overblown saxophone, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor bass leaning trombone. London black British Caribbean 1976-1985 indie-commercial brixton uk lovers rock basement. dynamic moving-coil, tube pre.",
   "recipe_chars": 978,
-  "score": 414.935,
+  "score": 394.19,
   "config": {
     "traditions": [
       "ska_revival_2tone",
@@ -86,7 +86,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
           "pickup_config": "humbucker_mm",
@@ -96,7 +95,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 20.744999999999997,
           "amp_make": 10.27,
           "body_wood": 0.845,
           "pickup_config": 0.39,

@@ -5,7 +5,7 @@
   "lineage": "Trinidadian soul-and-soca crossover tradition codified by Lord Shorty’s reinvention of calypso through soca (1973 Endless Vibrations record) — Arrow’s Hot Hot Hot (1982) bringing the form to international audiences, then Machel Montano, Bunji Garlin, Patrice Roberts, and Destra Garcia evolving the canon through the 1990s-2000s",
   "recipe": "classic Caribbean mid-1990s soca soul, groove Percussion, Caribbean branch, soul R&B functional song contemporary r&b northern soul and motown. thick, blues-shouter, straight onset, narrative. Fender blackface amp American 60s amp spring reverb bright pine chicken-scratch single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled sticks pocket drum kit, roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth, tenor nickel silver bright projecting ensemble honking saxophone, steelpan, arranged cross genre concert stage steel orchestra. live tracking. sennheiser MD421, transformer-coupled solid-state pre, MCI JH-636 US 70s indie/jazz, dbx 160 VCA, parametric EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 839,
-  "score": 512.912,
+  "score": 488.337,
   "config": {
     "traditions": [
       "soca_soul",
@@ -86,7 +86,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pocket",
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -96,7 +95,6 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "electric_technique": 24.575,
           "amp_make": 31.514999999999997,
           "body_wood": 0.65,
           "pickup_config": 1.3,

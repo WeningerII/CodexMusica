@@ -15,61 +15,10 @@
     "dynamics": 0
   },
   "short": "gayageum",
+  "exclude_family_parts": [
+    "plucked_traditional_technique"
+  ],
   "parts": [
-    {
-      "id": "plucked_traditional_technique",
-      "name": "Playing technique",
-      "variants": [
-        {
-          "id": "plucked_classical_idiom",
-          "name": "Classical / art-music idiom",
-          "applies_to": [
-            "lute_renaissance",
-            "theorbo",
-            "oud",
-            "qanun",
-            "kanun",
-            "tar_persian",
-            "setar_persian",
-            "tanbur_persian",
-            "santur",
-            "santoor",
-            "saz_baglama",
-            "sitar",
-            "sarod",
-            "veena",
-            "rudra_veena",
-            "tanpura",
-            "koto",
-            "biwa_lute",
-            "pipa",
-            "guqin",
-            "gayageum",
-            "geomungo",
-            "sanxian",
-            "ruan",
-            "dan_tranh",
-            "guzheng",
-            "yueqin",
-            "shamisen"
-          ],
-          "descriptors": [
-            "ornamented",
-            "sustained"
-          ],
-          "match_tokens": [
-            "plucked",
-            "string-attack",
-            "classical",
-            "classical-trained"
-          ],
-          "canonical_tags": [
-            "classical"
-          ]
-        }
-      ],
-      "_fromFamily": true
-    },
     {
       "id": "gayageum_type",
       "name": "Type",

@@ -3,9 +3,9 @@
   "name": "Korean minjung gayo (민중가요, people's song)",
   "family": "global",
   "lineage": "Korean minjung gayo (\"people's song\") democracy-movement protest-song tradition continuous from late-1970s anti-Park-Chung-hee resistance through the May 1980 Gwangju Uprising through 1980s anti-Chun-Doo-hwan student-and-labor-movement era; canonical anthems include \"Imjin River\" and \"Marching for our beloved\" (\"님을 위한 행진곡\")",
-  "recipe": "classic 1977-1979 korean minjung gayo, protest Song, east Asian branch, anglo American protest song, east Asian pop functional song, indian bard ballad poetry shidaiqu enka. thick, breath veiled tone, straight onset, interlocked note trading. indian rosewood rosewood flatwound thomastik strummed acoustic guitar. gymnasium. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 454,
-  "score": 264.615,
+  "recipe": "classic 1977-1979 korean minjung gayo, protest Song, east Asian branch, anglo American protest song, east Asian pop functional song, indian bard ballad poetry shidaiqu enka. thick, breath veiled tone, straight onset, interlocked note trading. indian rosewood rosewood flatwound thomastik fingerpicked acoustic guitar. gymnasium. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 458,
+  "score": 251.53,
   "config": {
     "traditions": [
       "korean_minjung_gayo",
@@ -55,7 +55,6 @@
       {
         "id": "acoustic_guitar_om",
         "slots": {
-          "acoustic_technique": "acoustic_strummed_ringing",
           "string_tuning": "standard_tuning",
           "top_wood": "cedar_om",
           "back_sides": "rosewood_bs_om",
@@ -63,7 +62,6 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 13.084999999999999,
           "string_tuning": 0,
           "top_wood": 0.845,
           "back_sides": 2.1399999999999997,
@@ -106,7 +104,6 @@
       "voice_estill_quality": "voice_estill_speech",
       "voice_vibrato": "straight_tone",
       "voice_mechanism_compound": "voice_mechanism_single_source",
-      "acoustic_technique": "acoustic_strummed_ringing",
       "top_wood": "sitka_om",
       "back_sides": "mahogany_bs_om",
       "string_acoustic": "phosphor_om",

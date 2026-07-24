@@ -5,7 +5,7 @@
   "lineage": "Mid-1960s American teenage-band rock-and-roll tradition characterized by raw production, basic three-chord songwriting, and amateur-virtuoso instrumental performance — codified through the original garage-rock canon documented on Nuggets (Lenny Kaye compilation, 1972): The Sonics, The Standells, ? and the Mysterians, The Seeds, Count Five, The Electric Prunes, with the form serving as the protopunk template",
   "recipe": "classic North American 1964-1966 garage rock, distorted Rock, classic branch, punk distorted rock hardcore punk. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ. concrete basement. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 697,
-  "score": 474.033,
+  "score": 460.882,
   "config": {
     "traditions": [
       "garage_rock",
@@ -86,7 +86,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
@@ -96,7 +95,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 13.150624999999998,
           "amp_make": 14.9175,
           "body_wood": 2.145,
           "pickup_config": 0.39,

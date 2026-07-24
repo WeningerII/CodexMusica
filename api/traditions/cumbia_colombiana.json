@@ -5,7 +5,7 @@
   "lineage": "Colombian Caribbean-coast cortejo-procession couple-dance tradition originating mid-17th-century onward in Cartagena-and-Barranquilla Atlantic-coastal-region from Afro-Indigenous-Spanish fusion (enslaved-Africans-of-the-Bantu-Yoruba diaspora + Zenú-Wayuu Indigenous-coast + Spanish colonial Catholic-feast-day procession). The canonical conjunto-de-cumbia ensemble: gaitas Indigenous-Wayuu vertical-clay-and-cane flutes (gaita-macho lead, gaita-hembra accompaniment), tambor-mayor low-bass-drum (African-derived), llamador high-pulse-drum, alegre middle-improvisation-drum, maracas-and-guache shakers. The cumbia-clave 4-beat pattern emphasizes beats 1 and 3 (the conga-pattern echo). The 1940s-1960s commercial-mainstream cumbia adaptation by big-band-with-accordion-and-brass (cumbia-de-orquesta) spread Colombian-cumbia internationally; the 1960s-onward Peruvian-Mexican-and-Argentine cumbia-variants emerged from this diaspora.",
   "recipe": "classic South American mid-1940s cumbia colombiana, groove Percussion, Latin am branch, tropical song functional song bachata garifuna punta-rock. thick, full chest belt, slow rate, interlocked note trading. weltmeister east German mid tier vintage volk accordion, gaita macho rhythmic drone gaita deep barrel coastal cumbia head and shell steady pulse tambora colombiana, ampeg svt amp rock bass amp mahogany pyramid pure nickel bass electric bass, guiro, maracas, cumbia lead gaita ensemble tambor alegre. colombian canon 1934-present mid tier discos fuentes medellin. shure SM57, transformer-coupled solid-state pre, colored vintage console, optical compressor. tape 15ips spring reverb.",
   "recipe_chars": 690,
-  "score": 326.357,
+  "score": 323.907,
   "config": {
     "traditions": [
       "cumbia_colombiana",
@@ -87,7 +87,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -97,7 +96,6 @@
           "bass_technique": "sub_bass_synth_blend"
         },
         "scores": {
-          "electric_technique": 2.45,
           "amp_make": 5.265,
           "body_wood": 3.445,
           "pickup_config": 0.1949999999999999,

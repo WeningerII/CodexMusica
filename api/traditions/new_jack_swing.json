@@ -5,7 +5,7 @@
   "lineage": "Late-1980s-and-early-1990s R&B-and-hip-hop hybrid genre invented by producer Teddy Riley (born 1967), characterized by syncopated-swing-eighth-note hip-hop drum-programming, R&B vocal-delivery, and explicit hip-hop production-aesthetic-and-fashion integration. Bobby Brown's Don't Be Cruel (1988), Guy's self-titled debut (1988), Bell Biv DeVoe's Poison (1990), and the early Mary J. Blige and Jodeci catalogs constitute the canonical core. Direct precursor of broader 1990s R&B and hip-hop-soul.",
   "recipe": "classic Los Angeles 1987-1989 new jack swing, functional Song, soul R&B branch, us hip hop MC rhythm conscious hip-hop gangsta rap. thick, rap, straight onset, narrative. TR-808, low sub bass analog synth, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
   "recipe_chars": 581,
-  "score": 427.975,
+  "score": 415.525,
   "config": {
     "traditions": [
       "new_jack_swing",
@@ -85,7 +85,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pocket",
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -95,7 +94,6 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "electric_technique": 12.45,
           "amp_make": 17.123749999999998,
           "body_wood": 1.04,
           "pickup_config": 0.45499999999999996,

@@ -5,7 +5,7 @@
   "lineage": "Late-1990s and 2000s R&B subgenre developed in Philadelphia (Roots, Jill Scott, Musiq Soulchild) and broader American urban scenes, characterized by live-instrument analog production (vs the parallel commercial R&B's drum-machine production), jazz-and-soul-influenced harmonic vocabulary, and reverent reference to 1970s classic soul aesthetic. D'Angelo's Voodoo (2000), Erykah Badu's Baduizm (1997), and Maxwell's Embrya (1998) consolidated the canonical sound. The Soulquarians collective (Questlove, J Dilla, D'Angelo, Erykah Badu, Common, Mos Def, Bilal, Q-Tip) anchored the artistic-organizational hub.",
   "recipe": "classic 1997-1999 neo-soul, functional Song, soul R&B branch, American jazz fusion acid jazz nu jazz / electro-jazz. thick, blues-shouter, straight onset, narrative. cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, Fender blackface amp American 60s amp spring reverb bright basswood soft down tuning humbucker electric guitar. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 713,
-  "score": 532.467,
+  "score": 517.317,
   "config": {
     "traditions": [
       "neo_soul_classic",
@@ -80,7 +80,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pocket",
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -90,7 +89,6 @@
           "bass_technique": "fingerstyle_walking"
         },
         "scores": {
-          "electric_technique": 15.149999999999997,
           "amp_make": 25.913999999999994,
           "body_wood": 0.7889999999999999,
           "pickup_config": 0.6465000000000001,

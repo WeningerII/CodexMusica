@@ -5,7 +5,7 @@
   "lineage": "Late-1980s-and-onward jazz-avant-garde collective centered on alto saxophonist Steve Coleman (born 1956), pursuing a \"Macro-Basic Array of Structured Extemporizations\" compositional methodology integrating Yoruba metaphysical concepts, mathematical-rhythmic structures, and African diasporic musical-cultural inheritance. Cassandra Wilson's early-career M-Base recordings, Greg Osby's solo work, and Coleman's Five Elements and Council of Balance ensembles constitute the canonical core.",
   "recipe": "classic North American m-base collective, improv On Frame, avant branch, us hip hop conscious rap conscious hip-hop. thick, rap, straight onset, interlocked note trading. tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris multiphonic saxophone, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit. mid manhattan 1975-1985 mid-major late70s nyc commercial. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 727,
-  "score": 363.634,
+  "score": 360.109,
   "config": {
     "traditions": [
       "m_base_collective",
@@ -100,7 +100,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pocket",
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -110,7 +109,6 @@
           "bass_technique": "fingerstyle_walking"
         },
         "scores": {
-          "electric_technique": 3.525,
           "amp_make": 8.98675,
           "body_wood": 0.195,
           "pickup_config": 0.45499999999999996,

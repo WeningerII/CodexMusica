@@ -5,7 +5,7 @@
   "lineage": "Mid-1980s onward American hip-hop street-narrative subgenre codified through Schoolly D (\"PSK What Does It Mean?\" 1985), Ice-T (Rhyme Pays 1987), and the N.W.A. Straight Outta Compton (1988) breakthrough — characterized by first-person street-life narratives, hardened drum-machine production, sample-based foundations, and explicit anti-establishment lyrical content driving the late-80s/early-90s West Coast scene",
   "recipe": "classic North American 1984-1986 gangsta rap, mc Rhythm, gangsta branch, us hip hop west coast, us hip hop east coast boom bap pre-sampling hip-hop. thick, rap, straight onset, narrative. sampled chopped sampler drum machine, chopped sampler, low sub bass analog synth, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass. treated studio. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 493,
-  "score": 402.547,
+  "score": 393.472,
   "config": {
     "traditions": [
       "gangsta_rap",
@@ -104,7 +104,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pocket",
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -114,7 +113,6 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "electric_technique": 9.075,
           "amp_make": 8.773,
           "body_wood": 1.885,
           "pickup_config": 0.18,

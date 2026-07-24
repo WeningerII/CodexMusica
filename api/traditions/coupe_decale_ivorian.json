@@ -5,7 +5,7 @@
   "lineage": "Coupé-décalé Ivorian dance-pop genre emerging in early-2000s Paris among the Ivorian diaspora club scene and rapidly transferred back to Abidjan. The name derives from Nouchi street-slang (\"couper\" to grab money, \"décaler\" to slip away) describing the get-rich-and-flee aspirational lifestyle. Production centers on hard four-on-the-floor digital kick with Nouchi-French lyrical content, simple call-and-response chorus, and electronic synth-bass. The death of founding figure Stéphane Hamidou Doukouré (Douk Saga) in 2006 mythologized the Paris-Abidjan founder-generation.",
   "recipe": "classic West African 2000-2003 coupé-décalé, electronic Dance, African dance branch, Afro-diasporic MC rhythm south african kwaito kwaito. extended whistle, breath veiled tone, straight note core, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, sub bass analog synth, ampeg svt amp rock bass amp alder pyramid pure nickel bass electric bass. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 582,
-  "score": 173.293,
+  "score": 170.043,
   "config": {
     "traditions": [
       "coupe_decale_ivorian",
@@ -85,7 +85,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_thumb_muted",
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
@@ -95,7 +94,6 @@
           "bass_technique": "thumb_muted"
         },
         "scores": {
-          "electric_technique": 3.25,
           "amp_make": 3.12,
           "body_wood": 2.73,
           "pickup_config": 0.37799999999999995,

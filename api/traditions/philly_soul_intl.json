@@ -5,7 +5,7 @@
   "lineage": "Lush orchestral soul codified at Sigma Sound Studios Philadelphia 1971-1980 under Kenny Gamble and Leon Huffs Philadelphia International Records label with the MFSB rhythm section (Mother Father Sister Brother) as house band — The OJays Backstabbers and Love Train, Harold Melvin and the Blue Notes If You Dont Know Me by Now, MFSB TSOP, Spinners, Three Degrees, Patti LaBelle",
   "recipe": "classic North American mid-1970s philadelphia international soul, functional Song, soul R&B branch, pop rock functional song, continental electronic dance new wave disco. thick, breath veiled tone, breath pulsed, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright mahogany rosewood humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, pre muffled edge muffled brushes-and-sticks drum kit, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, tremolo block chord rhodes electric, Hammond b3 canonical 1955 1975 jazz gospel rock standard block chord slow chorale tonewheel organ, hard rock maple acer saccharum synthetic varnish polyurethane modern setup violin orchestral, tenor gold brass warmer tone ensemble honking saxophone, bach stradivarius 180 canonical American orchestral ensemble large cup large rim orchestral bottom heavy trumpet.",
   "recipe_chars": 982,
-  "score": 586.653,
+  "score": 573.528,
   "config": {
     "traditions": [
       "philly_soul_intl",
@@ -49,7 +49,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pocket",
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -59,7 +58,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 13.124999999999998,
           "amp_make": 16.003999999999998,
           "body_wood": 1.69,
           "pickup_config": 0.585,

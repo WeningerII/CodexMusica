@@ -5,7 +5,7 @@
   "lineage": "Early-2000s UK electronic subgenre developed in West London through producers IG Culture, Bugz in the Attic, and 4hero. Characterized by complex broken-rhythm percussion (often 6/4 or 9/8 polymetric framework), jazz-and-soul-vocal integration, deep-house-and-techno harmonic vocabulary, and the canonical 4-and-7-Records label. Distinguished from drum-and-bass by broken beat's slower tempo and explicit jazz-house-fusion orientation.",
   "recipe": "classic British broken beat, bass System, bass descendants branch, American jazz fusion acid jazz nu jazz / electro-jazz. thick, breath veiled tone, straight onset, interlocked note trading. behringer rd 8 modern clone analog circuit reproduction TR-808, sub bass analog synth, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 595,
-  "score": 386.808,
+  "score": 381.158,
   "config": {
     "traditions": [
       "broken_beat_uk",
@@ -85,7 +85,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pocket",
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -95,7 +94,6 @@
           "bass_technique": "fingerstyle_walking"
         },
         "scores": {
-          "electric_technique": 5.65,
           "amp_make": 22.554999999999996,
           "body_wood": 0.663,
           "pickup_config": 0.3,

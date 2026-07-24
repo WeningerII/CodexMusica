@@ -6,6 +6,26 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Fixed
+- **Ten instruments no longer show "Playing technique" twice.** Each carried a
+  generic family-level technique part *and* an instrument-specific one — both
+  rendering under the same "Playing technique" label — so a card listed two
+  technique dropdowns and a recipe stamped two technique tokens. The generic
+  family part was frequently *wrong* for the instrument (an upright bass offered
+  guitar "flatpicked" / "chord-melody"; a banjo offered generic "strummed"). Each
+  instrument now excludes the generic family technique part (`exclude_family_parts`,
+  the same mechanism the drum kit uses) and keeps its idiomatic own part:
+  `upright_bass`→`upright_play` (pizz/arco/slap), `electric_bass`→`bass_technique`,
+  `archtop_jazz`→`archtop_technique`, `acoustic_guitar_om`→`acoustic_om_technique`,
+  `banjo_5_string`→`banjo_play` (clawhammer/three-finger), `akonting`→`akonting_play`,
+  `cuatro_venezolano`→`cuatro_venezolano_technique`, `gayageum`→`gayageum_technique`,
+  `djembe`→`djembe_play`, `harmonica`→`harmonica_technique`. The instrument-specific
+  part was already pinned in nearly every relevant tradition, so recipes just lose
+  the spurious duplicate token (e.g. hard bop's "gut chord melody upright bass" →
+  "growly gut upright bass"). 116 now-orphaned family-technique pins were removed
+  from the traditions that only used them via one of these instruments; 67 fixtures
+  re-blessed, 2 preface fixtures re-blessed, preface 79/79 otherwise unchanged.
+
 ### Removed
 - **Deduplicated 30 redundant tradition records (1195 → 1165).** A catalog-wide
   name-similarity scan (distinctive-token overlap, transliteration-folded) surfaced

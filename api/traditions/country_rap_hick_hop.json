@@ -5,7 +5,7 @@
   "lineage": "Country-hip-hop hybrid subgenre codified through Cowboy Troy, Big Smo, Colt Ford (Ride Through the Country 2008), and the broader Average Joes Entertainment label catalog — characterized by trap-derived 808 production with country-rapped vocals, banjo and steel-guitar accents, and rural-Americana lyrical subject matter",
   "recipe": "classic late-2000s country rap, functional Song, contemp main branch, us hip hop southern plugg pluggnb. thick, rap, straight note core, interlocked note trading. light steel clawhammer canon scruggs stelling bluegrass setup mastertone flathead banjo 5 string, Fender blackface amp American 60s amp spring reverb bright basswood nickel plated steel humbucker electric guitar, Fender tweed amp American 50s amp tweed breakup la bella flats Detroit soul bass canon electric bass, TR-808, pitched chopped sampler. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 656,
-  "score": 431.622,
+  "score": 415.152,
   "config": {
     "traditions": [
       "country_rap_hick_hop",
@@ -55,7 +55,6 @@
       {
         "id": "banjo_5_string",
         "slots": {
-          "plucked_traditional_technique": "plucked_call_and_response",
           "banjo_back": "resonator",
           "tone_ring": "wood_ring",
           "banjo_head": "fiberskyn",
@@ -68,7 +67,6 @@
           "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
         "scores": {
-          "plucked_traditional_technique": 13.194999999999993,
           "banjo_back": 0.845,
           "tone_ring": 0.39,
           "banjo_head": 13.324999999999996,
@@ -117,7 +115,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pocket",
           "amp_make": "amp_american_fender_tweed",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -127,7 +124,6 @@
           "bass_technique": "fingerpicked_country_b"
         },
         "scores": {
-          "electric_technique": 3.275000000000001,
           "amp_make": 20.544999999999998,
           "body_wood": 0.845,
           "pickup_config": 0.39,
@@ -217,7 +213,6 @@
       "sampler_archetypes": "akai_s900",
       "sampler_workflow": "sampler_chopped_breaks",
       "sampler_classic_context": "sampler_classic_hiphop",
-      "plucked_traditional_technique": "plucked_folk_strummed",
       "banjo_back": "open_back",
       "tone_ring": "no_ring",
       "banjo_play": "clawhammer",

@@ -5,7 +5,7 @@
   "lineage": "1920s vaudeville female-blues piano-led jazz-combo tradition codified through Mamie Smith’s \"Crazy Blues\" (1920, the first commercial blues recording), Bessie Smith (\"Downhearted Blues\" 1923, \"St. Louis Blues\" 1925 with Louis Armstrong), Ma Rainey, Ethel Waters, Alberta Hunter, Ida Cox, and Sippie Wallace — characterized by jazz-band accompaniment, theatrical-stage delivery, and the African-American TOBA vaudeville circuit context",
   "recipe": "classic mid-1920s classic blues women, ballad Poetry, classic blues women branch, blues narrative hokum blues, American jazz early new orleans jazz. thick, blues-shouter, wide pitch sway, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, yellow brass canonical brass band conn vintage early jazz canon front line cornet, ebonite hard rubber klezmer tradition front line clarinet, alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, red brass 90 10 darker orchestral bach 42 canonical American orchestral tenor ensemble student commercial trombone, growly gut upright bass, compensated bridge snuffy smith scruggs stelling bluegrass setup mastertone flathead banjo 5 string, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre.",
   "recipe_chars": 1000,
-  "score": 791.816,
+  "score": 773.204,
   "config": {
     "traditions": [
       "classic_blues_women",
@@ -156,12 +156,10 @@
       {
         "id": "upright_bass",
         "slots": {
-          "acoustic_technique": "acoustic_chord_melody",
           "upright_strings": "gut_wound_upright",
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "acoustic_technique": -0.035,
           "upright_strings": 18.625,
           "upright_play": 18.625
         }
@@ -169,7 +167,6 @@
       {
         "id": "banjo_5_string",
         "slots": {
-          "plucked_traditional_technique": "plucked_call_and_response",
           "banjo_back": "resonator",
           "tone_ring": "wood_ring",
           "banjo_head": "fiberskyn",
@@ -182,7 +179,6 @@
           "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
         "scores": {
-          "plucked_traditional_technique": 16.093499999999995,
           "banjo_back": 1.5499999999999998,
           "tone_ring": 0.01875,
           "banjo_head": 15.919749999999995,
@@ -198,7 +194,6 @@
       {
         "id": "harmonica",
         "slots": {
-          "free_reed_technique": "free_reed_folk_first_position",
           "harmonica_type": "chromatic_harm",
           "harmonica_comb": "pearwood_comb",
           "harmonica_reed": "brass_harm",
@@ -207,7 +202,6 @@
           "harmonica_tuning": "harmonica_richter_canonical"
         },
         "scores": {
-          "free_reed_technique": 2.5534999999999997,
           "harmonica_type": 9.684999999999999,
           "harmonica_comb": 53.65400000000002,
           "harmonica_reed": 46.164375000000014,
@@ -255,12 +249,10 @@
       "wind_articulation": "wind_punchy_ensemble",
       "sax_size": "tenor_sax",
       "sax_technique": "sax_bebop_runs",
-      "acoustic_technique": "acoustic_flatpicked",
       "upright_play": "pizz_upright",
       "upright_strings": "gut_wound_upright",
       "harmonica_technique": "harm_blues_cross",
       "harmonica_type": "diatonic_blues",
-      "plucked_traditional_technique": "plucked_folk_strummed",
       "banjo_back": "open_back",
       "tone_ring": "no_ring",
       "banjo_play": "clawhammer",

@@ -5,7 +5,7 @@
   "lineage": "Mid-2000s San Francisco Bay Area hip-hop subgenre characterized by hyperactive vocal-delivery, distinctive synth-heavy production with Roland 808 emphasis, and explicit Bay Area dance-culture-and-sideshow-cruising thematic content. E-40's My Ghetto Report Card (2006), Mac Dre's post-mortem catalog (Dre died 2004), and the broader Mistah F.A.B.-Federation-Keak da Sneak scene defined the canonical hyphy roster.",
   "recipe": "classic Los Angeles 2004-2006 bay area hyphy, mc Rhythm, west coast branch, us hip hop gangsta. vocal fry, rap, slow rate, narrative. roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, sub bass analog synth, orange amp British heavy crunch mahogany la bella flats Detroit soul bass canon electric bass. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
   "recipe_chars": 532,
-  "score": 160.367,
+  "score": 158.542,
   "config": {
     "traditions": [
       "bay_area_hyphy",
@@ -84,7 +84,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pocket",
           "amp_make": "amp_british_orange",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -94,7 +93,6 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "electric_technique": 1.825,
           "amp_make": 3.8795000000000006,
           "body_wood": 2.535,
           "pickup_config": 0.22124999999999997,

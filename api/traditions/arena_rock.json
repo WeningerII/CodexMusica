@@ -5,7 +5,7 @@
   "lineage": "1970s-1980s American stadium-rock genre crafting anthemic compositions for large-venue performance — codified through Boston (Boston 1976), Foreigner (Foreigner 1977), Journey (Escape 1981), Styx (Paradise Theatre 1981), REO Speedwagon (Hi Infidelity 1980), Kansas (Leftoverture 1976), and continuing through Bon Jovi (Slippery When Wet 1986) and Heart",
   "recipe": "classic North American mid-1970s arena rock, distorted Rock, late analog major branch, pop rock functional song, classic distorted rock new wave yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, string machine, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay MXR phase 90 electro-harmonix deluxe memory man.",
   "recipe_chars": 821,
-  "score": 585.447,
+  "score": 581.408,
   "config": {
     "traditions": [
       "arena_rock",
@@ -88,7 +88,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
           "pickup_config": "soapbar",
@@ -98,7 +97,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 4.039999999999999,
           "amp_make": 21.71,
           "body_wood": 2.6650000000000005,
           "pickup_config": 1.4949999999999999,

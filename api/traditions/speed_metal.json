@@ -5,7 +5,7 @@
   "lineage": "Mid-1980s heavy-metal subgenre emphasizing extreme tempo and virtuoso guitar-playing while retaining melodic-vocal lines and traditional heavy-metal song-structure (vs the simultaneously-emerging thrash metal's harsher vocal-and-rhythmic-aggression). Motörhead's 1979-onward catalog inaugurated the style; Helloween (Hamburg, 1984-onward), Iced Earth, and (especially in 1990s extension) the Italian power-metal scene continued the lineage. Distinguished from thrash metal by speed metal's retention of melodic-vocal lines and traditional metal harmonic-vocabulary.",
   "recipe": "classic North American modern speed metal, distorted Rock, thrash branch, power metal. thick, breath veiled tone, straight note core, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, brushes-and-sticks drum kit. san francisco bay area thrash 1983-1991 indie-commercial bay area thrash metal studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay ibanez tube screamer TS9 / TS808.",
   "recipe_chars": 657,
-  "score": 330.5,
+  "score": 329.786,
   "config": {
     "traditions": [
       "speed_metal",
@@ -87,7 +87,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
@@ -97,7 +96,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 0.7149999999999999,
           "amp_make": 5.265000000000001,
           "body_wood": 1.69,
           "pickup_config": 0.33699999999999997,

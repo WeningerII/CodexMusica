@@ -5,7 +5,7 @@
   "lineage": "Mid-1980s through present post-hardcore-derived confessional rock — codified through Rites of Spring (Rites of Spring 1985 on Dischord Records), Embrace, Sunny Day Real Estate (Diary 1994), Texas Is the Reason, the Promise Ring, and Mineral codifying the second-wave emo aesthetic; later mainstreamed through Jimmy Eat World (Bleed American 2001), Dashboard Confessional, and the Drive-Thru / Vagrant Records scene",
   "recipe": "classic North American 1984-1986 emo, distorted Rock, emo branch, punk distorted rock, pop punk distorted rock, alternative distorted rock pop-punk crust punk. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 746,
-  "score": 650.01,
+  "score": 621.74,
   "config": {
     "traditions": [
       "emo",
@@ -119,7 +119,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
@@ -129,7 +128,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 28.269999999999996,
           "amp_make": 11.245000000000001,
           "body_wood": 4.975,
           "pickup_config": 1.4300000000000002,

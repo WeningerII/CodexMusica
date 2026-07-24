@@ -5,7 +5,7 @@
   "lineage": "Mid-1960s through 1970s amplified folk-rock fusion codified by The Byrds Mr. Tambourine Man (1965), Buffalo Springfield, Crosby Stills Nash and Young, Simon and Garfunkel late-60s catalog",
   "recipe": "classic North American 1964-1966 folk rock, functional Song, folk rock branch, country functional song country rock western swing. thick, breath veiled tone, wide pitch sway, interlocked note trading. cedar flatwound thomastik travis picked dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, vintage ambassador asymmetric sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ, tambourine orch. hyde street san francisco 1969-1980 major-flagship wally heider studios sf. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
   "recipe_chars": 879,
-  "score": 716.335,
+  "score": 715.79,
   "config": {
     "traditions": [
       "folk_rock",
@@ -103,7 +103,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_fuzz_riff",
           "amp_make": "amp_american_fender_tweed",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -113,7 +112,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 0.5449999999999999,
           "amp_make": 24.347499999999997,
           "body_wood": 2.08,
           "pickup_config": 0.045,

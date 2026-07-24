@@ -5,7 +5,7 @@
   "lineage": "Early-1990s Norwegian heavy-metal subgenre developed from broader 1980s first-wave black-metal (Venom, Bathory, Hellhammer) into a distinct Norwegian extreme-metal style. Characterized by tremolo-picked-guitar-blast-beat percussion, raw-and-lo-fi production aesthetic, screeched-or-shrieked vocal-delivery, and explicit Norse-pagan-and-Satanic thematic content. Mayhem (founded 1984), Burzum, Darkthrone, Emperor, Immortal, and the broader Norwegian black-metal scene anchored the canonical aesthetic. The early-1990s church-arson and murder controversies mythologized the scene.",
   "recipe": "classic 1990-1993 black metal, distorted Rock, death branch, thrash metal groove metal djent. thick, breath veiled tone, breath pulsed, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modeled amp modern rig alder ernie ball slinky electric bass, kevlar aramid extreme tension brushes-and-sticks drum kit. isolated rural 2005-present isolation diy isolation cabin diy. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 610,
-  "score": 379.897,
+  "score": 373.646,
   "config": {
     "traditions": [
       "black_metal_norwegian",
@@ -88,7 +88,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_modern_modeling",
           "body_wood": "alder_b",
           "pickup_config": "soapbar",
@@ -98,7 +97,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 6.2509999999999994,
           "amp_make": 5.585,
           "body_wood": 3.1849999999999996,
           "pickup_config": 1.8599999999999999,

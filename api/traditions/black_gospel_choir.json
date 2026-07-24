@@ -5,7 +5,7 @@
   "lineage": "African-American Pentecostal and Baptist sacred-music choir tradition codified by Thomas A. Dorsey (the father of gospel music, who pivoted from his blues piano career to founded the gospel song-form in 1932 with Take My Hand Precious Lord) and developed through the 20th-century lineage: Mahalia Jackson (the solo gospel voice, How I Got Over 1947, Move on Up a Little Higher 1948), the Reverend James Cleveland (the post-WWII choir tradition figure, his Southern California Community Choir and broader Gospel Music Workshop of America), Edwin Hawkins (Oh Happy Day 1969), Walter Hawkins, the Mississippi Mass Choir, Bishop Paul S. Morton, and the modern Kirk Franklin and Mary Mary contemporary-gospel extension",
   "recipe": "classic Southern American early-1930s black gospel, ritual Devotional, black gospel branch, soul R&B functional song doo-wop alt-r&b. thick, declaimed, wide pitch sway, multi note runs per syllable. a cappella small 3 to 8 one per part antiphonal double choir alternating sardinian cantu a tenore oche mesu contra bassu choir ensemble, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched gospel runs full spectrum fast tremolo tonewheel organ, cold pressed wurzen felt birch laminated maple laminated Asian spruce grand piano, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled brushes-and-sticks drum kit, contemporary full choir southern black gospel. southern black church gospel choir. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 966,
-  "score": 631.22,
+  "score": 623.57,
   "config": {
     "traditions": [
       "black_gospel_choir",
@@ -114,7 +114,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pocket",
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "split_coil",
@@ -124,7 +123,6 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "electric_technique": 7.6499999999999995,
           "amp_make": 15.314999999999998,
           "body_wood": 0.195,
           "pickup_config": 0,

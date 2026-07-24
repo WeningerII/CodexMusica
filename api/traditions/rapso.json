@@ -3,9 +3,9 @@
   "name": "Rapso",
   "family": "global",
   "lineage": "Trinidadian chantwell spoken-word over soca-derived rhythm bed — codified through Brother Resistance (Lutalo Masimba) and the Network Riddum Band starting late 1970s, then Brother Marvin and the broader 3 Canal collective bringing rapso into Trinidad’s carnival mainstream; characterized by oratorical-political rapso-flow delivery over Caribbean percussion-and-electronic-instrument production",
-  "recipe": "classic Western European 1977-1979 rapso, ballad Poetry, anglo singer song branch, Afro-diasporic electric groove percussion afrobeat kompa. thick, breath veiled tone, straight onset, interlocked note trading. thomastik infeld low tension jazz warm pocket fingerstyle electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, bell like soca engine room iron trinidadian iron, goat skin rope and fire canonical indo Trinidadian metal modern Caribbean carnival modern Trinidadian carnival fusion tassa drum, steelpan, Fender blackface amp American 60s amp spring reverb bright maple pau ferro single coil electric guitar, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble shallow cup lead trumpet trumpet, roland jupiter lineage canonical jupiter 8 1981 osaka analog poly synth. brent black community studio london.",
+  "recipe": "classic Western European 1977-1979 rapso, ballad Poetry, anglo singer song branch, Afro-diasporic electric groove percussion afrobeat kompa. thick, breath veiled tone, straight onset, interlocked note trading. thomastik infeld low tension jazz warm fingerstyle locked electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, bell like soca engine room iron trinidadian iron, goat skin rope and fire canonical indo Trinidadian metal modern Caribbean carnival modern Trinidadian carnival fusion tassa drum, steelpan, Fender blackface amp American 60s amp spring reverb bright maple pau ferro single coil electric guitar, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble shallow cup lead trumpet trumpet, roland jupiter lineage canonical jupiter 8 1981 osaka analog poly synth. brent black community studio london.",
   "recipe_chars": 994,
-  "score": 269.982,
+  "score": 266.207,
   "config": {
     "traditions": [
       "rapso",
@@ -55,7 +55,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pocket",
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -65,7 +64,6 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "electric_technique": 3.7745,
           "amp_make": 1.755,
           "body_wood": 0.975,
           "pickup_config": 0.195,

@@ -5,7 +5,7 @@
   "lineage": "Late-1990s-and-2000s indie rock subgenre integrating orchestral-and-chamber-instrument arrangements (strings, woodwinds, brass) with pop song-form structure, often referencing the 1960s Brian Wilson/Beach Boys, Burt Bacharach, and Van Dyke Parks compositional aesthetic. The High Llamas (UK, 1992-onward, Sean O'Hagan), Belle and Sebastian, Lambchop, the Divine Comedy, and Sufjan Stevens constitute the canonical roster.",
   "recipe": "classic Los Angeles modern chamber pop, distorted Rock, art rock branch, western common practice art music classical period grand opera. thick, breath veiled tone, slow rate, interlocked note trading. marshall plexi amp British rock amp alder pau ferro nickel plated steel single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, synthetic norway spruce European alpine European maple bosnian source violin orchestral. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
   "recipe_chars": 769,
-  "score": 425.322,
+  "score": 420.172,
   "config": {
     "traditions": [
       "chamber_pop_high_llamas",
@@ -86,7 +86,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
           "pickup_config": "soapbar",
@@ -96,7 +95,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 5.15,
           "amp_make": 5.595,
           "body_wood": 1.7550000000000001,
           "pickup_config": 0.9099999999999999,

@@ -5,7 +5,7 @@
   "lineage": "Metal-orchestral-choral hybrid subgenre codified through Nightwish (Oceanborn 1998), Within Temptation (Mother Earth 2000), Epica (The Phantom Agony 2003), Therion, and Edenbridge; characterized by operatic-soprano-led-vocal performances, full-orchestral arrangements (often with film-score session ensembles), choral-backing-vocal stacks, and fantasy-and-mythology lyrical subject-matter tradition",
   "recipe": "classic late-1990s symphonic metal, distorted Rock, symphonic branch, western common practice art music grand opera the mighty handful. thick, breath veiled tone, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, alder ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, polyrhythmic vocal layering independent cycles kakhetian three voice two soloists choral drone choir ensemble, string quartet inst, synthetic carpathian spruce European maple sycamore maple oil varnish violin orchestral, mallets timpani. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 817,
-  "score": 338.527,
+  "score": 336.627,
   "config": {
     "traditions": [
       "symphonic_metal_classic",
@@ -88,7 +88,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "alder_b",
           "pickup_config": "soapbar",
@@ -98,7 +97,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 1.9000000000000001,
           "amp_make": 1.8199999999999998,
           "body_wood": 1.3649999999999998,
           "pickup_config": 3.51,

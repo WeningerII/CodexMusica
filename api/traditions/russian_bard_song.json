@@ -5,7 +5,7 @@
   "lineage": "Soviet-era guitar-and-poet song (avtorskaya pesnya, literally authorial song) tradition codified by Vladimir Vysotsky (the raspy-voice baritone), Bulat Okudzhava (the gentle-tenor Arbat-Street troubadour), Alexander Galich (the dissident émigré voice), Yuri Vizbor (the mountain-climbing-and-friendship songwriter) — circulated through magnitizdat (self-distributed-tape underground circulation) under Soviet censorship rather than official Melodiya release",
   "recipe": "classic Eastern European early-1960s russian bard song, ballad Poetry, Slavic bard branch, chanson fado ballad poetry, European protest song morna cape verdean batuko of santiago island. vocal fry, breath veiled tone, straight note core, interlocked note trading. martin lifespan fingerpicked acoustic guitar, sekunda tuning Soviet orchestra canon strummed balalaika. moscow state label 1964-present major-flagship moscow melodiya studio. dynamic moving-coil, tube pre. Walkman cassette.",
   "recipe_chars": 487,
-  "score": 211.92,
+  "score": 202.6,
   "config": {
     "traditions": [
       "russian_bard_song",
@@ -55,7 +55,6 @@
       {
         "id": "acoustic_guitar_om",
         "slots": {
-          "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "open_d",
           "top_wood": "cedar_om",
           "back_sides": "rosewood_bs_om",
@@ -63,7 +62,6 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 9.320000000000002,
           "string_tuning": 1.2999999999999998,
           "top_wood": 0.54,
           "back_sides": 0.78,
@@ -122,7 +120,6 @@
       "voice_estill_quality": "voice_estill_speech",
       "voice_vibrato": "slow_vibrato",
       "voice_mechanism_compound": "voice_mechanism_single_source",
-      "acoustic_technique": "acoustic_strummed_ringing",
       "top_wood": "sitka_om",
       "back_sides": "mahogany_bs_om",
       "string_acoustic": "phosphor_om",

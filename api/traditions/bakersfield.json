@@ -5,7 +5,7 @@
   "lineage": "California Central Valley honky-tonk-derived country tradition that emerged in 1950s-60s Bakersfield as a West Coast reaction against the smoother Nashville Sound — codified through Buck Owens (Capitol Records Bakersfield voice from 1959 onward, Together Again 1964) and Merle Haggard (post-Owens Bakersfield extension, Mama Tried 1968, Okie from Muskogee 1969), played by the Buckaroos (Owens band led by Don Rich) and the Strangers (Haggards band); built on Telecaster-and-pedal-steel-foreground arrangement, faster shuffle tempos than typical Nashville fare, and Dust-Bowl-migration cultural lineage",
   "recipe": "classic Southern American mid-1950s bakersfield country, functional Song, honky tonk era branch, outlaw country. thick, breath veiled tone, straight note core, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright classic country brass pedal steel, Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, Fender tweed amp American 50s amp tweed breakup alder pyramid electric bass, ride-driven brushes-and-sticks drum kit, steel double stops fiddle. nashville music row defining 1957-present major-flagship nashville rca studio b quonset hut. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay spring reverb analog bucket-brigade delay.",
   "recipe_chars": 812,
-  "score": 366.028,
+  "score": 365.963,
   "config": {
     "traditions": [
       "bakersfield",
@@ -108,7 +108,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_fuzz_riff",
           "amp_make": "amp_american_fender_tweed",
           "body_wood": "alder_b",
           "pickup_config": "split_coil",
@@ -118,7 +117,6 @@
           "bass_technique": "fingerpicked_country_b"
         },
         "scores": {
-          "electric_technique": 0.06499999999999999,
           "amp_make": 18.1805,
           "body_wood": 1.95,
           "pickup_config": 0,

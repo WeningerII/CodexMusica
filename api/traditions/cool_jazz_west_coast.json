@@ -5,7 +5,7 @@
   "lineage": "Late-1940s-1950s jazz substyle emerging in response to bebop's frenetic energy, characterized by lighter timbral palette, restrained dynamic register, and arrangement-heavy compositional approach. Miles Davis's Birth of the Cool sessions (1949-1950) established the canonical sound; the West Coast cool subgenre developed in 1950s Los Angeles through Gerry Mulligan, Chet Baker, Lennie Niehaus, Shorty Rogers, and Dave Brubeck. Distinguished from bebop by cool's slower-and-more-relaxed (vs frenetic) emotional register.",
   "recipe": "classic North American cool jazz / west coast, improv On Frame, bop branch, American jazz smooth vocal cool jazz vocal. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral lyrical jazz balance trumpet, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris lyrical continuous-airflow saxophone, cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, growly gut upright bass, vintage ambassador asymmetric brushes drum kit. capitol tower 1750 vine 1956-present major-flagship capitol tower studios la. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 683,
-  "score": 328.25,
+  "score": 325.901,
   "config": {
     "traditions": [
       "cool_jazz_west_coast",
@@ -83,12 +83,10 @@
       {
         "id": "upright_bass",
         "slots": {
-          "acoustic_technique": "acoustic_chord_melody",
           "upright_strings": "gut_wound_upright",
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "acoustic_technique": 2.349,
           "upright_strings": 29,
           "upright_play": 29
         }
@@ -136,7 +134,6 @@
       "sax_technique": "sax_bebop_runs",
       "keyboard_technique": "keyboard_jazz_comping",
       "piano_pitch_standard": "a_440_modern",
-      "acoustic_technique": "acoustic_flatpicked",
       "upright_play": "pizz_upright",
       "upright_strings": "gut_wound_upright"
     },

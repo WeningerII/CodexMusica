@@ -5,7 +5,7 @@
   "lineage": "Cuban up-tempo song-and-dance form, the satirical-comic cousin to son cubano, prominent in the Sonora Matancera repertoire and the Celia Cruz canon",
   "recipe": "classic Caribbean mid-1950s guaracha, groove Percussion, son salsa branch, rumba Cuban rumba cubana guaguancó. vocal fry, blues-shouter, slow rate, interlocked note trading. cedar canonical Cuban strummed tres cubano, cold pressed wurzen felt grand piano, upright bass, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, open slap hand drum timbales, claves, schilke chicago lead bright heavy one piece matched to monette horn trumpet. pre revolutionary cuba 1944-1960 mid tier panart puchito havana pre 1959. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 661,
-  "score": 175.627,
+  "score": 175.662,
   "config": {
     "traditions": [
       "guaracha",
@@ -97,12 +97,10 @@
       {
         "id": "upright_bass",
         "slots": {
-          "acoustic_technique": "acoustic_chord_melody",
           "upright_strings": "steel_upright",
           "upright_play": "slap_upright"
         },
         "scores": {
-          "acoustic_technique": -0.035,
           "upright_strings": 0.273,
           "upright_play": 0.39
         }
@@ -203,7 +201,6 @@
       "voice_mechanism_compound": "voice_mechanism_single_source",
       "keyboard_technique": "keyboard_block_chord_pop",
       "piano_pitch_standard": "a_440_modern",
-      "acoustic_technique": "acoustic_flatpicked",
       "upright_play": "pizz_upright",
       "upright_strings": "gut_wound_upright",
       "wind_articulation": "wind_punchy_ensemble",

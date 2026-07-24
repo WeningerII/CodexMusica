@@ -3,9 +3,9 @@
   "name": "New Orleans jazz",
   "family": "jazz",
   "lineage": "New Orleans turn-of-the-20th-century African-American Creole funeral / parade / Storyville-district ensemble tradition that fused brass-band, blues, and ragtime into the foundational jazz vocabulary",
-  "recipe": "classic mid-1930s new orleans jazz, improv On Frame, early branch, American jazz bop bebop cool jazz / west coast. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral lyrical jazz balance trumpet, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris lyrical continuous-airflow saxophone, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick call-and-response banjo 5 string, growly gut upright bass, vintage ambassador asymmetric brushes drum kit, brass band new orleans, ebonite hard rubber klezmer tradition front line clarinet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor front line student commercial trombone, yellow brass canonical brass band conn vintage early jazz canon lyrical cornet, tenor guitar. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 973,
-  "score": 451.787,
+  "recipe": "classic mid-1930s new orleans jazz, improv On Frame, early branch, American jazz bop bebop cool jazz / west coast. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral lyrical jazz balance trumpet, alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris lyrical continuous-airflow saxophone, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string, growly gut upright bass, vintage ambassador asymmetric brushes drum kit, brass band new orleans, ebonite hard rubber klezmer tradition front line clarinet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor front line student commercial trombone, yellow brass canonical brass band conn vintage early jazz canon lyrical cornet, tenor guitar. blanket damped 1925-1945 commercial-major electrical era office. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 955,
+  "score": 437.162,
   "config": {
     "traditions": [
       "new_orleans",
@@ -58,7 +58,6 @@
       {
         "id": "banjo_5_string",
         "slots": {
-          "plucked_traditional_technique": "plucked_call_and_response",
           "banjo_back": "open_back",
           "tone_ring": "tubaphone",
           "banjo_head": "fiberskyn",
@@ -71,7 +70,6 @@
           "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
         "scores": {
-          "plucked_traditional_technique": 12.317499999999999,
           "banjo_back": 0.845,
           "tone_ring": 0.010499999999999999,
           "banjo_head": 9.294999999999998,
@@ -87,12 +85,10 @@
       {
         "id": "upright_bass",
         "slots": {
-          "acoustic_technique": "acoustic_chord_melody",
           "upright_strings": "gut_wound_upright",
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "acoustic_technique": 2.3075,
           "upright_strings": 28.875,
           "upright_play": 28.875
         }
@@ -217,10 +213,8 @@
       "trumpet_technique": "trumpet_punchy_ensemble",
       "sax_size": "tenor_sax",
       "sax_technique": "sax_bebop_runs",
-      "acoustic_technique": "acoustic_flatpicked",
       "upright_play": "pizz_upright",
       "upright_strings": "gut_wound_upright",
-      "plucked_traditional_technique": "plucked_folk_strummed",
       "banjo_back": "open_back",
       "tone_ring": "no_ring",
       "banjo_play": "clawhammer",

@@ -5,7 +5,7 @@
   "lineage": "Early-1990s American feminist punk subgenre emerging in Olympia, Washington and Washington, D.C., addressing rape, domestic violence, female empowerment, and patriarchal critique through aggressive punk musical-aesthetic. Bikini Kill (1990 founded), Bratmobile, Heavens to Betsy, and Huggy Bear constitute the canonical roster; the Riot Grrrl manifesto and zine-distribution-network anchored the broader cultural movement. K Records and Kill Rock Stars provided institutional infrastructure.",
   "recipe": "classic Pacific Northwest 1990-1993 riot grrrl, distorted Rock, punk branch, regional distorted rock latin rock aussie pub rock. thick, breath veiled tone, fast rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. regional commercial 1985-2005 mid-major pacnw commercial indie. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay boss DS-1.",
   "recipe_chars": 623,
-  "score": 358.516,
+  "score": 341.789,
   "config": {
     "traditions": [
       "riot_grrrl",
@@ -88,7 +88,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
           "pickup_config": "split_coil",
@@ -98,7 +97,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 16.726499999999998,
           "amp_make": 13.910000000000002,
           "body_wood": 0.273,
           "pickup_config": 0,

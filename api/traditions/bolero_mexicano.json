@@ -5,7 +5,7 @@
   "lineage": "Mexican adaptation of the broader Latin-American bolero, developed in mid-twentieth-century Mexico City through Agustín Lara (born 1897) and the 1940s-1950s Mexican-cinema golden-age. Solo voice with piano-or-trio accompaniment, slow 2/4 meter with the canonical bolero rhythmic figure, intensely romantic-melancholic register. Distinguished from Cuban bolero by Mexican-Spanish lyrical register and elaborate harmonic-vocabulary.",
   "recipe": "classic Mexican mid-1940s bolero mexicano, functional Song, Mexican branch, Latin am troubadour ballad poetry milonga filin. thick, full chest belt, straight onset, interlocked note trading. cedar phosphor bronze bronze fingerpicked parlor acoustic guitar, cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, growly gut upright bass. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 563,
-  "score": 158.275,
+  "score": 155.281,
   "config": {
     "traditions": [
       "bolero_mexicano",
@@ -97,12 +97,10 @@
       {
         "id": "upright_bass",
         "slots": {
-          "acoustic_technique": "acoustic_chord_melody",
           "upright_strings": "gut_wound_upright",
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "acoustic_technique": 2.9937500000000004,
           "upright_strings": 5.375,
           "upright_play": 5.375
         }

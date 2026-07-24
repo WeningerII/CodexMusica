@@ -3,9 +3,9 @@
   "name": "Desert rock (Palm Desert scene)",
   "family": "rock_punk",
   "lineage": "Late-1980s-and-1990s Palm Desert California scene that birthed stoner rock through generator-party performances in the high desert outside Palm Springs and Joshua Tree. The \"generator parties\" allowed local bands (Kyuss, Yawning Man, Across the River, Fatso Jetson) to perform with the band powered by gasoline generators in remote desert locations free of police interference. The 1988-1992 generator-party period mythologized the geographic-cultural specificity of the desert-rock scene.",
-  "recipe": "classic Midwestern American 1988-1992 desert rock, distorted Rock, doom branch, sludge metal post-metal. thick, larynx lowered, pure, interlocked note trading. orange amp British heavy crunch basswood maple pau ferro humbucker electric guitar, orange amp British heavy crunch ernie ball slinky riff driven electric bass, sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi.",
-  "recipe_chars": 542,
-  "score": 401.201,
+  "recipe": "classic Midwestern American 1988-1992 desert rock, distorted Rock, doom branch, sludge metal post-metal. thick, larynx lowered, pure, interlocked note trading. orange amp British heavy crunch basswood maple pau ferro humbucker electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb electro-harmonix big muff pi.",
+  "recipe_chars": 530,
+  "score": 392.649,
   "config": {
     "traditions": [
       "desert_rock_palm",
@@ -88,7 +88,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_fuzz_riff",
           "amp_make": "amp_british_orange",
           "body_wood": "mahogany_b",
           "pickup_config": "split_coil",
@@ -98,7 +97,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 8.5525,
           "amp_make": 25.9565,
           "body_wood": 0.39,
           "pickup_config": 0,

@@ -3,14 +3,14 @@
   "name": "Scottish bothy ballad (Northeast farm-laborer drinking-song)",
   "family": "global",
   "lineage": "Scottish bothy-ballad tradition continuous from 19th-century Northeast-Scotland Aberdeenshire-and-Moray farm-laborer (bothy = \"farm-laborer's outbuilding\") drinking-and-grievance-song tradition through 20th-century revival into modern Scottish-folk-revival continuous practice; the bothy-ballads document farm-laborer drinking-and-courting-and-employer-grievance life in agricultural-Scotland 1840s-1900s",
-  "recipe": "classic mid-1840s scottish bothy ballad, drinking Song, European branch, Slavic balkan field work, Celtic balladic ballad poetry, European protest song sean-nós solo singing child ballad revival. thick, breath veiled tone, straight note core, interlocked note trading. dadgad tuning coated nanoweb fingerpicked acoustic guitar, magic rosin modern acrylic base drone like fiddle. irish pub. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
-  "recipe_chars": 464,
-  "score": 223.572,
+  "recipe": "classic mid-1840s scottish bothy ballad, drinking Song, European branch, Slavic balkan field work, Celtic balladic ballad poetry, European protest song sean-nós solo singing cape breton milling-frolic. thick, breath veiled tone, straight note core, interlocked note trading. dadgad tuning coated nanoweb fingerpicked acoustic guitar, magic rosin modern acrylic base fiddle. irish pub. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 459,
+  "score": 207.896,
   "config": {
     "traditions": [
       "scottish_bothy_ballad",
       "sean_nos_solo",
-      "child_ballad_revival"
+      "cape_breton_milling"
     ],
     "instruments": [
       {
@@ -25,7 +25,7 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_speech",
+          "voice_estill_quality": "voice_estill_nasal_twang",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
@@ -34,19 +34,19 @@
           "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 6.9,
-          "voice_quality": 8.06,
+          "voice_register": 5.45,
+          "voice_quality": 7.735,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.0399999999999998,
-          "voice_articulation": 13.649999999999993,
-          "voice_microtone": 14.494999999999989,
-          "voice_tradition": 38.47624999999999,
-          "voice_mechanism_compound": 2.21,
-          "voice_estill_quality": 1.235,
+          "voice_vibrato": 1.5737499999999995,
+          "voice_articulation": 14.104999999999993,
+          "voice_microtone": 14.94999999999999,
+          "voice_tradition": 43.00125,
+          "voice_mechanism_compound": 2.8600000000000003,
+          "voice_estill_quality": 1.4299999999999997,
           "voice_speech_song": 21.514999999999993,
-          "voice_ensemble_config": 13.584999999999992,
-          "voice_ornament_system": 23.168125,
+          "voice_ensemble_config": 14.592499999999992,
+          "voice_ornament_system": 31.193124999999995,
           "voice_pitch_organization": 3.769999999999999,
           "voice_processing_chain": 2.6,
           "voice_multitrack_stack": 2.0799999999999996
@@ -55,37 +55,35 @@
       {
         "id": "acoustic_guitar_om",
         "slots": {
-          "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "dadgad",
           "top_wood": "mahogany_top_om",
-          "back_sides": "mahogany_bs_om",
+          "back_sides": "rosewood_bs_om",
           "string_acoustic": "coated_nano_om",
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 18.830000000000002,
-          "string_tuning": 24.4,
+          "string_tuning": 21.225,
           "top_wood": 0.8225,
-          "back_sides": 0.8225,
-          "string_acoustic": 1.3,
-          "acoustic_om_technique": 18.830000000000002
+          "back_sides": 0.9525,
+          "string_acoustic": 1.45,
+          "acoustic_om_technique": 13.48
         }
       },
       {
         "id": "fiddle",
         "slots": {
-          "bowed_technique": "bowed_rough_drone",
+          "bowed_technique": "bowed_celtic_session",
           "fiddle_strings": "gut_wound",
           "fiddle_bow": "magic_rosin_fiddle",
           "fiddle_mute": "practice_mute",
           "fiddle_articulation": "arco"
         },
         "scores": {
-          "bowed_technique": 7.7250000000000005,
-          "fiddle_strings": 0.050624999999999996,
+          "bowed_technique": 5.6450000000000005,
+          "fiddle_strings": 0.195,
           "fiddle_bow": 2.2750000000000004,
           "fiddle_mute": 0.8225,
-          "fiddle_articulation": 0.585
+          "fiddle_articulation": 0.7481249999999999
         }
       }
     ],
@@ -125,7 +123,6 @@
       "voice_mechanism_compound": "voice_mechanism_single_source",
       "bowed_technique": "bowed_legato_classical",
       "fiddle_articulation": "arco",
-      "acoustic_technique": "acoustic_strummed_ringing",
       "top_wood": "sitka_om",
       "back_sides": "mahogany_bs_om",
       "string_acoustic": "phosphor_om",

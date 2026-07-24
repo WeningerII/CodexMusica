@@ -5,7 +5,7 @@
   "lineage": "1930s-40s Kansas City African-American big-band swing tradition (Count Basie, Bennie Moten, Mary Lou Williams, Lester Young, Charlie Parker) built on blues-frame riff-foreground structure and head arrangements rather than pre-written scores",
   "recipe": "classic North American mid-1930s kansas city swing, improv On Frame, kansas city branch, American jazz early, American jazz bop, American jazz boogie woogie new orleans jazz boogie-woogie. thick, blues-shouter, straight onset, interlocked note trading. alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, red brass 90 10 darkest bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, red brass 90 10 darker orchestral bach 42 canonical American orchestral tenor front line student commercial trombone, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. voluminous 1935-1955 major-flagship swing live room. passive ribbon, tube pre, German tube console. Studer 30ips tape.",
   "recipe_chars": 873,
-  "score": 598.167,
+  "score": 597.582,
   "config": {
     "traditions": [
       "kansas_city_swing",
@@ -104,12 +104,10 @@
       {
         "id": "upright_bass",
         "slots": {
-          "acoustic_technique": "acoustic_chord_melody",
           "upright_strings": "gut_wound_upright",
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "acoustic_technique": 0.585,
           "upright_strings": 25.374999999999996,
           "upright_play": 25.374999999999996
         }
@@ -208,7 +206,6 @@
       "trumpet_technique": "trumpet_punchy_ensemble",
       "keyboard_technique": "keyboard_jazz_comping",
       "piano_pitch_standard": "a_440_modern",
-      "acoustic_technique": "acoustic_flatpicked",
       "upright_play": "pizz_upright",
       "upright_strings": "gut_wound_upright"
     },

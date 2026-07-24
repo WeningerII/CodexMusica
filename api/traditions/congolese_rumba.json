@@ -5,7 +5,7 @@
   "lineage": "1940s-1960s Congolese-Kinshasa-and-Brazzaville Cuban-rumba-influenced urban dance music — codified through Joseph Kabasele (Grand Kallé) and African Jazz (Indépendance Cha-Cha 1960, the de facto anthem of Congolese independence) and Luambo Makiadi (Franco) and OK Jazz; built on the GV series Cuban son 78 records that came to the Congo through Belgian colonial trade in the 1930s-40s, then reinterpreted through Congolese guitar-and-voice ensembles into a distinct genre",
   "recipe": "classic Central African mid-1940s congolese rumba, functional Song, congolese rumba branch, central east south African groove percussion, tropical song functional song bachata soukous. thick, breath veiled tone, straight onset, interlocked note trading. mahogany rosewood clean strummed single coil electric guitar, alder thomastik infeld low tension jazz warm walking electric bass, fiberskyn synthetic calf brushes-and-sticks drum kit, lead mule hide canonical Cuban premium oak staved canonical Cuban congas, traditional gourd calabash maracas, leather weltmeister east German mid tier vintage volk accordion, claves. kinshasa leopoldville defining 1953-present mid tier kinshasa african jazz studio. dynamic moving-coil, tube pre. 78rpm shellac.",
   "recipe_chars": 749,
-  "score": 311.715,
+  "score": 311.765,
   "config": {
     "traditions": [
       "congolese_rumba",
@@ -86,7 +86,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_walking",
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
@@ -96,7 +95,6 @@
           "bass_technique": "fingerstyle_walking"
         },
         "scores": {
-          "electric_technique": -0.05,
           "amp_make": 1.9499999999999993,
           "body_wood": 2.08,
           "pickup_config": 0.65,

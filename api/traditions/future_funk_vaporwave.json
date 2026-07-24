@@ -5,7 +5,7 @@
   "lineage": "Mid-2010s vaporwave-derived electronic subgenre integrating French house, disco, and Japanese city-pop sampling into accessible, uplifting dance-music. Saint Pepsi (later Skylar Spence), Yung Bae, Macross 82-99, and the broader Business Casual and Local Business label rosters anchor the canonical future funk aesthetic. Distinguished from broader vaporwave by future funk's explicit dance-functional and uplifting (vs vaporwave's ironic-melancholic) emotional register.",
   "recipe": "classic 2014-2016 future funk, groove Percussion, funk percussive branch, east Asian pop functional song, ambient experimental electric enka k-indie. thick, breath veiled tone, slow rate, interlocked note trading. TR-808, fast decay focused low lead analog synth, mahogany ernie ball slinky electric bass. no single room 2015-present distributed distributed production. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 468,
-  "score": 262.815,
+  "score": 248.565,
   "config": {
     "traditions": [
       "future_funk_vaporwave",
@@ -85,7 +85,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_slap_pop",
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -95,7 +94,6 @@
           "bass_technique": "slap_pop"
         },
         "scores": {
-          "electric_technique": 14.25,
           "amp_make": 2.4699999999999998,
           "body_wood": 2.535,
           "pickup_config": 0.24,

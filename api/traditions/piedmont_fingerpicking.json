@@ -3,9 +3,9 @@
   "name": "Piedmont fingerpicking blues",
   "family": "global",
   "lineage": "Eastern-seaboard fingerpicked country blues tradition that flourished in the Piedmont region (Virginia, the Carolinas, Georgia) from the early 20th century — distinguished from the Mississippi Delta blues tradition (which is harder-edged and rhythmically heavier) by its lighter ragtime-derived right-hand fingerpicking, brighter harmonic vocabulary, and parlor-music influence; codified through Blind Boy Fuller (the Piedmont voice, recorded 1935-40), Blind Blake, the Reverend Gary Davis, Brownie McGhee, Sonny Terry, Etta Baker, Elizabeth Cotten (Freight Train, Shake Sugaree)",
-  "recipe": "classic Midwestern American mid-1930s piedmont fingerpicking blues, ballad Poetry, piedmont narrative branch, blues acoustic functional song piedmont blues. thick, worn fold, wide pitch sway, interlocked note trading. open g tuning fingerpicked slide acoustic guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, narrative fingerpicked mountain dulcimer. us dustbowl outdoor woody guthrie. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 528,
-  "score": 362.29,
+  "recipe": "classic Midwestern American mid-1930s piedmont fingerpicking blues, ballad Poetry, piedmont narrative branch, blues acoustic functional song piedmont blues. thick, worn fold, wide pitch sway, interlocked note trading. open g tuning slide acoustic guitar, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, narrative fingerpicked mountain dulcimer. us dustbowl outdoor woody guthrie. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 515,
+  "score": 344.13,
   "config": {
     "traditions": [
       "piedmont_fingerpicking",
@@ -54,7 +54,6 @@
       {
         "id": "acoustic_guitar_om",
         "slots": {
-          "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "open_g",
           "top_wood": "cedar_om",
           "back_sides": "walnut_bs_om",
@@ -62,7 +61,6 @@
           "acoustic_om_technique": "om_bottleneck_slide"
         },
         "scores": {
-          "acoustic_technique": 10.994875,
           "string_tuning": 15.974999999999998,
           "top_wood": 0.0045,
           "back_sides": 0.0045,
@@ -73,7 +71,6 @@
       {
         "id": "harmonica",
         "slots": {
-          "free_reed_technique": "free_reed_folk_first_position",
           "harmonica_type": "octave_harm",
           "harmonica_comb": "pearwood_comb",
           "harmonica_reed": "brass_harm",
@@ -82,7 +79,6 @@
           "harmonica_tuning": "harmonica_richter_canonical"
         },
         "scores": {
-          "free_reed_technique": 7.165000000000001,
           "harmonica_type": 0.05749999999999999,
           "harmonica_comb": 28.207999999999995,
           "harmonica_reed": 24.3385,
@@ -144,7 +140,6 @@
       "voice_mechanism_compound": "voice_mechanism_single_source",
       "harmonica_technique": "harm_blues_cross",
       "harmonica_type": "diatonic_blues",
-      "acoustic_technique": "acoustic_bottleneck_slide",
       "top_wood": "sitka_om",
       "back_sides": "mahogany_bs_om",
       "string_acoustic": "phosphor_om",

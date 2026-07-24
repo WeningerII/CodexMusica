@@ -5,7 +5,7 @@
   "lineage": "2010s American-and-international pop subgenre integrating European-dance-music production-aesthetic with American pop-vocal-feature mainstream commercial framework. Lady Gaga's The Fame (2008-2009 launch), Ke$ha's Animal (2010), Katy Perry's Teenage Dream (2010), and the broader Max Martin, RedOne, Dr. Luke, and Ryan Tedder producer-network consolidated the canonical 2010s dance-pop production aesthetic. Distinguished by EDM-festival-aesthetic absorption into pop chart-mainstream.",
   "recipe": "classic dance pop, functional Song, pop rock branch, house electronic dance deep house chicago house. thick, breath veiled tone, straight onset, interlocked note trading. plucked short envelope analog synth, TR-808, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, 2010s melodyne microtuned stack heavy bus compression glue post 2010 multitrack vocal stack. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 611,
-  "score": 295.995,
+  "score": 290.8,
   "config": {
     "traditions": [
       "dance_pop_2010s",
@@ -85,7 +85,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pocket",
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -95,7 +94,6 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "electric_technique": 5.194999999999999,
           "amp_make": 11.659999999999998,
           "body_wood": 0.845,
           "pickup_config": 0.195,

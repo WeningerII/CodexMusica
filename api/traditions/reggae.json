@@ -5,7 +5,7 @@
   "lineage": "The reggae tradition — Jamaican popular music built on the offbeat skank and one-drop drum, evolved from ska and rocksteady",
   "recipe": "classic Caribbean mid-1970s reggae, bass System, Jamaican branch, Afro-diasporic ritual devotional umbanda ceremonial paranda. breath veiled tone, straight note core, interlocked note trading, neutral third half flat. pyramid pure nickel bass British mid 60s era thumb muted electric bass, rim clicks drum kit, single coil electric guitar, Hammond a 100 built in Leslie home spinet tonewheel organ, hohner melodica canonical 1959 dub roots tradition melodica. Kingston channel one defining 1972-1985 indie-commercial kingston channel one maxfield avenue. dynamic moving-coil, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips roland RE-201 space echo spring reverb.",
   "recipe_chars": 697,
-  "score": 101.262,
+  "score": 92.512,
   "config": {
     "traditions": [
       "reggae",
@@ -55,7 +55,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_thumb_muted",
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "humbucker_mm",
@@ -65,7 +64,6 @@
           "bass_technique": "thumb_muted"
         },
         "scores": {
-          "electric_technique": 8.749999999999998,
           "amp_make": 2.295,
           "body_wood": 0.6,
           "pickup_config": 0.09,

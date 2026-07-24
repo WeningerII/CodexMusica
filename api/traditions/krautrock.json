@@ -5,7 +5,7 @@
   "lineage": "West German experimental rock genre that emerged in 1968-1980 — codified through Can (Tago Mago 1971, Ege Bamyasi 1972, Future Days 1973), Kraftwerk (Autobahn 1974, Trans-Europe Express 1977 — the electronic-pop founding albums), Neu! (Neu! 1972, Neu! 2 1973 — the motorik-rhythm-foundation albums), Faust, Amon Düül II, Tangerine Dream, Cluster, Harmonia, Popol Vuh; characterized by repetitive motorik rhythm (the Klaus Dinger drumbeat), tape-loop and tape-delay manipulation, modular-synthesizer sequencing, and a deliberate philosophical break from Anglo-American rock idiom",
   "recipe": "classic Central European mid-1970s krautrock, distorted Rock, experimental branch, ambient experimental electric mallsoft vaporwave aesthetic. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation wenge single coil electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, pad like pad analog synth, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched block chord fast tremolo tonewheel organ. dusseldorf cologne krautrock defining 1968-1980 indie-commercial krautrock dusseldorf kling klang studio. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo phaser.",
   "recipe_chars": 771,
-  "score": 143.347,
+  "score": 140.648,
   "config": {
     "traditions": [
       "krautrock",
@@ -47,7 +47,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -57,7 +56,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 2.7,
           "amp_make": 5.305,
           "body_wood": 0.845,
           "pickup_config": 0.39,

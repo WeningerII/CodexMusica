@@ -5,7 +5,7 @@
   "lineage": "Algerian chaabi (\"popular\") urban-folk tradition of Algiers and broader Algerian coastal region, emerging in 1920s-1930s Algiers Casbah as working-class popular reinterpretation of older malhun classical-Arabic poetic tradition, with simplified modal structures and accessible Algerian-Arabic dialect lyrics. Founding figure El Hadj M'Hamed El Anka codified the genre, establishing instrumentation of oud, mandole, banjo (introduced through American jazz exposure), darbuka, and tar frame-drum. Repertoire spans poetic-philosophical reflection (qsida), urban-life observation, and post-1962 independence cultural-pride themes.",
   "recipe": "classic North African mid-1920s algerian chaabi, functional Song, mid east n African pop branch, middle eastern classical art music shashmaqam uyghur on ikki muqam. thick, breath veiled tone, slow rate, interlocked note trading. walnut ribs canonical mid tier Lebanese cedar eastern Mediterranean pyramid oud, spun aluminum Egyptian sombaty goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka, walnut mid tier scruggs stelling bluegrass setup mastertone flathead banjo 5 string. casablanca and marrakech recording 1970-present indie-commercial casablanca chaabi moroccan studio. large-diaphragm condenser, German V72 tube pre, German tube console. tape 15ips.",
   "recipe_chars": 686,
-  "score": 342.21,
+  "score": 331.355,
   "config": {
     "traditions": [
       "algerian_chaabi",
@@ -91,7 +91,6 @@
       {
         "id": "banjo_5_string",
         "slots": {
-          "plucked_traditional_technique": "plucked_call_and_response",
           "banjo_back": "resonator",
           "tone_ring": "wood_ring",
           "banjo_head": "fiberskyn",
@@ -104,7 +103,6 @@
           "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
         "scores": {
-          "plucked_traditional_technique": 10.854999999999997,
           "banjo_back": 0.24,
           "tone_ring": 0.24,
           "banjo_head": 11.83,
@@ -157,7 +155,6 @@
       "darbuka_material": "darbuka_aluminum_sombaty",
       "darbuka_skin": "darbuka_synthetic_mylar",
       "darbuka_regional_style": "darbuka_egyptian_sombaty",
-      "plucked_traditional_technique": "plucked_folk_strummed",
       "banjo_back": "open_back",
       "tone_ring": "no_ring",
       "banjo_play": "clawhammer",

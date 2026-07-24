@@ -698,6 +698,7 @@ const INSTRUMENTS = [
     class: 'plucked_string_lead',
     axes: { pitchFix: 0, sustain: -1, polyphony: 1, harmonicity: 1, register: 0, range: 1, articulation: 2, transduction: 1, dynamics: 1 },
     short: 'archtop jazz',
+    exclude_family_parts: ['electric_technique'],
     parts: [
       { id: 'archtop_body', name: 'Body type', variants: [
         { id: 'archtop_full_hollow', default: true, name: 'Full hollow (L5, Super 400)', descriptors: ['body-resonance-low-mid'], match_tokens: ['electric', 'plucked'], canonical_tags: ['jazz'] },
@@ -770,8 +771,8 @@ const INSTRUMENTS = [
     class: 'bass',
     axes: { pitchFix: 0, sustain: 0, polyphony: 0, harmonicity: 0, register: -1, range: 1, articulation: 2, transduction: 1, dynamics: 1 },
     short: 'electric bass',
+    exclude_family_parts: ['electric_technique'],
     parts: [
-      { id: 'electric_technique', default_variant: 'electric_bass_walking' },
       { id: 'body_wood', surface: false, name: 'Body wood', variants: [
         { id: 'alder_b', default: true, name: 'Alder', descriptors: ['balanced', 'fast-attack-transient', 'mid-rich', 'alder'], match_tokens: ['electric', 'low-register', 'foundational-bass'] },
         { id: 'swamp_ash_b', name: 'Swamp ash', descriptors: ['scooped', 'snappy', 'growly', 'swamp-ash', 'ash'], match_tokens: ['electric', 'low-register', 'foundational-bass'] },
@@ -1386,6 +1387,7 @@ const INSTRUMENTS = [
     class: 'plucked_string_rhythm',
     axes: { pitchFix: 0, sustain: -1, polyphony: 1, harmonicity: 1, register: 0, range: 1, articulation: 1, transduction: -2, dynamics: 0 },
     short: 'orchestra-model acoustic guitar',
+    exclude_family_parts: ['acoustic_technique'],
     parts: [
       { id: 'top_wood', surface: false, name: 'Top wood', variants: [
         { id: 'sitka_om', default: true, name: 'Sitka spruce', descriptors: ['articulate', 'balanced', 'sitka-spruce', 'spruce'], match_tokens: ['acoustic-only', 'plucked', 'fingerpicked'] },
@@ -1530,8 +1532,8 @@ const INSTRUMENTS = [
     class: 'bass',
     axes: { pitchFix: -1, sustain: 0, polyphony: 0, harmonicity: 1, register: -1, range: 1, articulation: 2, transduction: -2, dynamics: 1 },
     short: 'upright bass',
+    exclude_family_parts: ['acoustic_technique'],
     parts: [
-      { id: 'acoustic_technique', default_variant: 'acoustic_flatpicked' },
       { id: 'upright_strings', surface: false, name: 'Strings', variants: [
         { id: 'gut_upright', default: true, name: 'Gut', descriptors: ['thumpy', 'vintage', 'gut'], match_tokens: ['acoustic-only', 'low-register', 'body-resonance-low-mid'] },
         { id: 'gut_wound_upright', name: 'Gut-core wound', descriptors: ['growly', 'gut'], match_tokens: ['acoustic-only', 'low-register', 'body-resonance-low-mid'], canonical_tags: ['jazz'] },
@@ -1552,8 +1554,8 @@ const INSTRUMENTS = [
     class: 'plucked_string_lead',
     axes: { pitchFix: 1, sustain: -2, polyphony: 0, harmonicity: 0, register: 0, range: 0, articulation: 1, transduction: -2, dynamics: -1 },
     short: 'akonting',
+    exclude_family_parts: ['plucked_traditional_technique'],
     parts: [
-      { id: 'plucked_traditional_technique', default_variant: 'plucked_fingerpicked' },
       { id: 'akonting_construction', name: 'Construction', variants: [
         { id: 'gourd_neck_akonting', default: true, name: 'Gourd body, long stick neck', descriptors: ['archaic', 'folk', 'gourd'], match_tokens: ['plucked', 'fingerpicked'] },
       ] },
@@ -1811,8 +1813,8 @@ const INSTRUMENTS = [
     class: 'plucked_string_lead',
     axes: { pitchFix: 2, sustain: -1, polyphony: 1, harmonicity: 1, register: 0, range: 1, articulation: 1, transduction: -2, dynamics: 0 },
     short: 'cuatro venezolano',
+    exclude_family_parts: ['plucked_traditional_technique'],
     parts: [
-      { id: 'plucked_traditional_technique', default_variant: 'plucked_folk_strummed' },
       { id: 'cuatro_venezolano_tuning', surface: false, name: 'Tuning', variants: [
         { id: 'cuatro_venezolano_reentrant', default: true, name: 'Reentrant (la-re-fa#-si)', descriptors: ['standard'], match_tokens: ['plucked'] },
         { id: 'cuatro_venezolano_octave', name: 'Octave (lower variant)', descriptors: ['regional', 'specific-genres', 'alternative'], match_tokens: ['plucked'] },
@@ -1963,8 +1965,8 @@ const INSTRUMENTS = [
     class: 'plucked_string_lead',
     axes: { pitchFix: 2, sustain: -2, polyphony: 1, harmonicity: 0, register: 0, range: 1, articulation: 1, transduction: -2, dynamics: 1 },
     short: 'five-string banjo',
+    exclude_family_parts: ['plucked_traditional_technique'],
     parts: [
-      { id: 'plucked_traditional_technique', default_variant: 'plucked_folk_strummed' },
       { id: 'banjo_back', name: 'Open-back vs resonator', variants: [
         { id: 'open_back', default: true, name: 'Open-back', descriptors: ['low-projection-volume', 'woody', 'low-dynamic-level'], match_tokens: ['open-chord-ringing-overtones', 'open-tuned', 'plucked'] },
         { id: 'resonator', name: 'Resonator', descriptors: ['loud', 'treble-extended', 'projecting'], match_tokens: ['plucked', 'fingerpicked', 'ringing'] },
@@ -2030,6 +2032,7 @@ const INSTRUMENTS = [
     class: 'plucked_string_lead',
     axes: { pitchFix: 1, sustain: -1, polyphony: 1, harmonicity: 1, register: 0, range: 1, articulation: 2, transduction: -2, dynamics: 0 },
     short: 'gayageum',
+    exclude_family_parts: ['plucked_traditional_technique'],
     parts: [
       { id: 'gayageum_type', name: 'Type', variants: [
         { id: 'jeongak_gayageum', default: true, name: 'Jeongak (court)', descriptors: ['classical', 'court'], match_tokens: ['plucked', 'ornamented', 'classical-trained'] },
@@ -4779,6 +4782,7 @@ const INSTRUMENTS = [
     class: 'hand_percussion',
     axes: { pitchFix: 0, sustain: -2, polyphony: -2, harmonicity: 0, register: -1, range: 0, articulation: 2, transduction: -2, dynamics: 1 },
     short: 'djembe',
+    exclude_family_parts: ['percussion_technique'],
     parts: [
       { id: 'djembe_wood', name: 'Shell wood', variants: [
         { id: 'djembe_lenke', default: true, name: 'Lenke (traditional Mali)', descriptors: ['low-fundamental-tuning', 'authentic'], match_tokens: ['percussive-attack', 'hands', 'loud-projection'] },
@@ -6011,6 +6015,7 @@ const INSTRUMENTS = [
     class: 'free_reed',
     axes: { pitchFix: 1, sustain: 2, polyphony: 0, harmonicity: 1, register: 0, range: 1, articulation: 2, transduction: -2, dynamics: 0 },
     short: 'harmonica',
+    exclude_family_parts: ['free_reed_technique'],
     parts: [
       { id: 'harmonica_type', surface: false, name: 'Variant', variants: [
         { id: 'diatonic_blues', name: 'Ten-hole diatonic (blues harp)', descriptors: ['bendy', 'expressive'], match_tokens: ['blues-derived', 'blues-inflected', 'wind-driven'] },

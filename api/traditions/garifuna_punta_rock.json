@@ -5,7 +5,7 @@
   "lineage": "Modern-popular variant of older Garifuna punta dance-tradition, developed in 1970s-1980s Belize and Honduras. Pen Cayetano (born 1954, Dangriga) developed the punta-rock sound in mid-1970s; Andy Palacio (born 1960) extended internationally through his 2007 Wátina album (Stonetree Records). Electric instruments alongside Garifuna traditional drums (primero, segunda, tercero) and shaker.",
   "recipe": "classic North American 1974-1976 garifuna punta-rock, functional Song, tropical song branch, Caribbean groove percussion kompa-direkt soca. thick, breath veiled tone, straight onset, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modeled amp modern rig mahogany ernie ball slinky sub heavy electric bass, behringer rd 8 modern clone analog circuit reproduction TR-808. port of spain community studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 644,
-  "score": 173.067,
+  "score": 171.543,
   "config": {
     "traditions": [
       "garifuna_punta_rock",
@@ -88,7 +88,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pocket",
           "amp_make": "amp_modern_modeling",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -98,7 +97,6 @@
           "bass_technique": "sub_bass_synth_blend"
         },
         "scores": {
-          "electric_technique": 1.525,
           "amp_make": 3.39,
           "body_wood": 1.8399999999999999,
           "pickup_config": 3.295,

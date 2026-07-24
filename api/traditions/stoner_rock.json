@@ -3,9 +3,9 @@
   "name": "Stoner rock",
   "family": "rock_punk",
   "lineage": "Late-1980s-and-1990s heavy-metal-and-rock subgenre developed primarily in California (Palm Desert \"desert rock\" scene) and northern Europe, characterized by down-tuned-distorted guitar tone, slow-to-mid-tempo grooves, vintage-1970s-Sabbath-Hendrix sonic reference, and improvisational-jam-oriented composition. Kyuss (Palm Desert, 1987-1995) and Sleep (San Jose, 1990-1998) inaugurated the canonical American sound; Queens of the Stone Age (1996-onward, Kyuss successor) extended the genre commercially.",
-  "recipe": "classic Midwestern American mid-1990s stoner rock, distorted Rock, doom branch, sludge metal post-metal. thick, larynx lowered, slow rate, interlocked note trading. orange amp British heavy crunch basswood maple pau ferro humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky riff driven electric bass, vintage ambassador asymmetric sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay electro-harmonix big muff pi.",
-  "recipe_chars": 601,
-  "score": 472.613,
+  "recipe": "classic Midwestern American mid-1990s stoner rock, distorted Rock, doom branch, sludge metal post-metal. thick, larynx lowered, slow rate, interlocked note trading. orange amp British heavy crunch basswood maple pau ferro humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, vintage ambassador asymmetric sticks backbeat drum kit. stoner doom garage amplifier room. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay electro-harmonix big muff pi.",
+  "recipe_chars": 589,
+  "score": 464.06,
   "config": {
     "traditions": [
       "stoner_rock",
@@ -88,7 +88,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_fuzz_riff",
           "amp_make": "amp_british_orange",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -98,7 +97,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 8.5525,
           "amp_make": 27.735999999999997,
           "body_wood": 1.8924999999999998,
           "pickup_config": 0.45499999999999996,

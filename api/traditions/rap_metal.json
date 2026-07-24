@@ -3,9 +3,9 @@
   "name": "Rap metal (early-1990s hip-hop-and-metal hybrid)",
   "family": "rock_punk",
   "lineage": "Early-1990s-and-onward American heavy-rock subgenre integrating hip-hop vocal-delivery and rhythmic-foundation with heavy-metal guitar-bass-drum aesthetic. Rage Against the Machine (Los Angeles, 1991-2000, 2007-onward) is the canonical type-specimen, with explicit revolutionary-political lyric content; the parallel Body Count (Ice-T project) and (later) the 2000s wave of Hed PE and Sevendust extended the genre.",
-  "recipe": "classic Los Angeles rap metal, distorted Rock, avant branch, us hip hop conscious rap conscious hip-hop. thick, rap, straight onset, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character ernie ball slinky pocket electric bass, fiberskyn synthetic calf brushes-and-sticks drum kit. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape digitech whammy.",
-  "recipe_chars": 636,
-  "score": 308.041,
+  "recipe": "classic Los Angeles rap metal, distorted Rock, avant branch, us hip hop conscious rap conscious hip-hop. thick, rap, straight onset, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character ernie ball slinky electric bass, fiberskyn synthetic calf brushes-and-sticks drum kit. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape digitech whammy.",
+  "recipe_chars": 629,
+  "score": 304.516,
   "config": {
     "traditions": [
       "rap_metal",
@@ -87,7 +87,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pocket",
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -97,7 +96,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 3.525,
           "amp_make": 9.81175,
           "body_wood": 0.195,
           "pickup_config": 0.45499999999999996,

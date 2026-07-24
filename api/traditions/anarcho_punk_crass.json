@@ -5,7 +5,7 @@
   "lineage": "British post-1977 punk substyle centered on the Crass collective at Dial House (Essex commune, founded 1967, music project 1977-1984) and the parallel Poison Girls, Flux of Pink Indians, and Conflict scenes. Combines aggressive punk musical-aesthetic with explicit anarchist-pacifist-feminist-vegan political content, DIY-distribution-and-production self-organization, and rigorous anti-commercial cultural-stance. The 1980 Reality Asylum, 1981 Penis Envy, and 1982 Christ — The Album consolidated the canonical anarcho-punk register.",
   "recipe": "classic mid-1980s anarcho-punk, distorted Rock, punk branch, regional distorted rock latin rock rasin. thick, breath veiled tone, fast rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation palm muted humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. isolated rural 2005-present isolation diy isolation cabin diy. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 573,
-  "score": 345.107,
+  "score": 326.137,
   "config": {
     "traditions": [
       "anarcho_punk_crass",
@@ -88,7 +88,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
@@ -98,7 +97,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 18.97,
           "amp_make": 13.455000000000002,
           "body_wood": 0.3705,
           "pickup_config": 0.18525,

@@ -3,9 +3,9 @@
   "name": "Heartland rock",
   "family": "rock",
   "lineage": "Late-1970s through 1980s American populist working-class rock genre with social-realist lyrical content addressing economic decline, blue-collar life, and small-town America — codified through Bruce Springsteen (Born to Run 1975, The River 1980, Born in the USA 1984), Bob Seger (Night Moves 1976), John Mellencamp (Scarecrow 1985), Tom Petty and the Heartbreakers (Damn the Torpedoes 1979), and continuing through Steve Earle",
-  "recipe": "classic North American 1977-1979 heartland rock, distorted Rock, late analog major branch, anglo singer song ballad poetry freak folk indie folk. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp mahogany rosewood arpeggiated single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched block chord fast tremolo tonewheel organ, brass traditional richter canonical 10 hole diatonic blues straight harmonica. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
-  "recipe_chars": 876,
-  "score": 387.292,
+  "recipe": "classic North American 1977-1979 heartland rock, distorted Rock, late analog major branch, anglo singer song ballad poetry freak folk indie folk. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp mahogany rosewood arpeggiated single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched block chord fast tremolo tonewheel organ, brass traditional richter canonical 10 hole diatonic blues harmonica. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 867,
+  "score": 366.282,
   "config": {
     "traditions": [
       "heartland_rock",
@@ -86,7 +86,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_fuzz_riff",
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -96,7 +95,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 2.87,
           "amp_make": 9.19,
           "body_wood": 1.4949999999999999,
           "pickup_config": 0.135,
@@ -141,7 +139,6 @@
       {
         "id": "harmonica",
         "slots": {
-          "free_reed_technique": "free_reed_folk_first_position",
           "harmonica_type": "tremolo_harm",
           "harmonica_comb": "pearwood_comb",
           "harmonica_reed": "brass_harm",
@@ -150,7 +147,6 @@
           "harmonica_tuning": "harmonica_richter_canonical"
         },
         "scores": {
-          "free_reed_technique": 18.139999999999997,
           "harmonica_type": 0.39,
           "harmonica_comb": 0.26,
           "harmonica_reed": 1.3649999999999998,

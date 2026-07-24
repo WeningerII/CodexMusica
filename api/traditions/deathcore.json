@@ -5,7 +5,7 @@
   "lineage": "Mid-2000s onward American extreme metal subgenre fusing death-metal's growl-vocal-and-blast-beat vocabulary with metalcore's breakdown-section conventions and pig-squeal / inhale-scream vocal techniques — codified through Suicide Silence (The Cleansing 2007), Whitechapel (This Is Exile 2008), Job for a Cowboy (Doom EP 2005), Carnifex, Despised Icon (The Healing Process 2005), Thy Art Is Murder",
   "recipe": "classic 2004-2006 deathcore, distorted Rock, death branch, thrash metal djent. thick, breath veiled tone, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, orange amp British heavy crunch alder ernie ball slinky electric bass, sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 519,
-  "score": 370.756,
+  "score": 366.64,
   "config": {
     "traditions": [
       "deathcore",
@@ -49,7 +49,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_british_orange",
           "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
@@ -59,7 +58,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 4.11625,
           "amp_make": 8.06,
           "body_wood": 6.11,
           "pickup_config": 1.8850000000000002,

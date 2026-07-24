@@ -3,9 +3,9 @@
   "name": "Funeral doom",
   "family": "global",
   "lineage": "Extreme-slow doom-metal sub-style codified through Thergothon (Finnish, Stream from the Heavens 1994), Skepticism, Mournful Congregation, and Esoteric — characterized by sub-30 BPM tempo, sustained heavy-distortion guitar drones, glacial drumming, and bell-like cathedral-organ accents; ritual-funereal lyrical and visual identity",
-  "recipe": "classic mid-1990s funeral doom, distorted Rock, doom branch, ambient experimental electric witch house vaporwave aesthetic. thick, larynx lowered, straight onset, interlocked note trading. orange amp British heavy crunch basswood lower tension down tuning power chord humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky riff driven electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, sustained pad analog poly synth. cathedral. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 613,
-  "score": 238.287,
+  "recipe": "classic mid-1990s funeral doom, distorted Rock, doom branch, ambient experimental electric witch house vaporwave aesthetic. thick, larynx lowered, straight onset, interlocked note trading. orange amp British heavy crunch basswood lower tension down tuning power chord humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky sub heavy electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, sustained pad analog poly synth. cathedral. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 611,
+  "score": 226.587,
   "config": {
     "traditions": [
       "funeral_doom",
@@ -88,7 +88,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_fuzz_riff",
           "amp_make": "amp_british_orange",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -98,7 +97,6 @@
           "bass_technique": "sub_bass_synth_blend"
         },
         "scores": {
-          "electric_technique": 11.7,
           "amp_make": 13.679999999999998,
           "body_wood": 1.17,
           "pickup_config": 0.15,

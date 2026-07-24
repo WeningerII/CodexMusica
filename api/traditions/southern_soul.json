@@ -5,7 +5,7 @@
   "lineage": "African-American gospel-belt vocal soul tradition codified through Stax Records Memphis (Otis Redding, Sam and Dave, Wilson Pickett, Eddie Floyd, Booker T and the MGs), FAME Studios Muscle Shoals (Aretha Franklin I Never Loved a Man, Wilson Pickett Mustang Sally, Etta James Tell Mama), and Muscle Shoals Sound Studio (Aretha Franklin Spirit in the Dark, Bob Seger, Wilson Pickett)",
   "recipe": "classic Southern American mid-1970s southern soul, functional Song, soul R&B branch, christian gospel ritual devotional black gospel gospel quartet. thick, blues-shouter, wide pitch sway, multi note runs per syllable. Fender blackface amp American 60s amp spring reverb bright wenge flatwound single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled sticks pocket drum kit, gospel runs upright piano, tenor gold brass warmer tone ensemble ebonite saxophone, bach stradivarius 180 canonical American orchestral ensemble standard rim orchestral balance trumpet. converted movie theatre 1957-1975 mid tier stax studio memphis. passive ribbon, Neve 1073 inductor pre, colored vintage console, LA-2A optical, Neve inductor EQ. Studer 30ips tape ibanez tube screamer TS9 / TS808.",
   "recipe_chars": 879,
-  "score": 586.998,
+  "score": 571.347,
   "config": {
     "traditions": [
       "southern_soul",
@@ -47,7 +47,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pocket",
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "split_coil",
@@ -57,7 +56,6 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "electric_technique": 15.649999999999997,
           "amp_make": 24.314999999999998,
           "body_wood": 0.39,
           "pickup_config": 0,

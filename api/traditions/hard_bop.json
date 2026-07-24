@@ -3,9 +3,9 @@
   "name": "Hard bop",
   "family": "jazz",
   "lineage": "1953-1965 Blue Note / Prestige-canon African-American jazz movement extending bebop with extended blues, gospel-quoting melody, and elongated solo space — the defining post-bop vocabulary, with Lee Morgan, Wayne Shorter, Horace Silver, Art Blakey Jazz Messengers, Hank Mobley, Kenny Drew, Cannonball Adderley among the era practitioners",
-  "recipe": "classic North American mid-1950s hard bop, improv On Frame, hard bop branch, American jazz bop, American jazz soul jazz bebop. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, sterling silver bell premium projecting bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet, sterling silver rare premium bach 42 canonical American orchestral tenor ensemble student commercial trombone, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, gut chord melody upright bass, vintage ambassador asymmetric brushes drum kit. cedar and redwood vaulted ceiling 1959-2016 mid tier van gelder englewood cliffs. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
-  "recipe_chars": 816,
-  "score": 567.381,
+  "recipe": "classic North American mid-1950s hard bop, improv On Frame, hard bop branch, American jazz bop, American jazz soul jazz bebop. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, sterling silver bell premium projecting bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet, sterling silver rare premium bach 42 canonical American orchestral tenor ensemble student commercial trombone, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, growly gut upright bass, vintage ambassador asymmetric brushes drum kit. cedar and redwood vaulted ceiling 1959-2016 mid tier van gelder englewood cliffs. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 810,
+  "score": 564.02,
   "config": {
     "traditions": [
       "hard_bop",
@@ -104,12 +104,10 @@
       {
         "id": "upright_bass",
         "slots": {
-          "acoustic_technique": "acoustic_chord_melody",
           "upright_strings": "gut_wound_upright",
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "acoustic_technique": 3.361,
           "upright_strings": 42.500000000000014,
           "upright_play": 42.500000000000014
         }
@@ -157,7 +155,6 @@
       "trumpet_technique": "trumpet_bebop_lines",
       "keyboard_technique": "keyboard_jazz_comping",
       "piano_pitch_standard": "a_440_modern",
-      "acoustic_technique": "acoustic_flatpicked",
       "upright_play": "pizz_upright",
       "upright_strings": "gut_wound_upright"
     },

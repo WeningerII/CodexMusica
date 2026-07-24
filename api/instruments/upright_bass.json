@@ -15,63 +15,10 @@
     "dynamics": 1
   },
   "short": "upright bass",
+  "exclude_family_parts": [
+    "acoustic_technique"
+  ],
   "parts": [
-    {
-      "id": "acoustic_technique",
-      "name": "Playing technique",
-      "variants": [
-        {
-          "id": "acoustic_flatpicked",
-          "name": "Flatpicked single-note",
-          "applies_to": [
-            "acoustic_guitar_dread",
-            "acoustic_guitar_om",
-            "mandolin",
-            "mandola",
-            "cittern",
-            "acoustic_guitar_parlor",
-            "upright_bass"
-          ],
-          "descriptors": [
-            "flatpicked",
-            "articulated"
-          ],
-          "match_tokens": [
-            "acoustic-only"
-          ],
-          "canonical_tags": [
-            "bluegrass",
-            "old-time"
-          ],
-          "default": true
-        },
-        {
-          "id": "acoustic_chord_melody",
-          "name": "Chord-melody",
-          "applies_to": [
-            "acoustic_guitar_dread",
-            "acoustic_guitar_om",
-            "acoustic_guitar_parlor",
-            "classical_nylon_string_guitar",
-            "mandolin",
-            "upright_bass"
-          ],
-          "descriptors": [
-            "chord-melody"
-          ],
-          "match_tokens": [
-            "acoustic-only",
-            "chordal",
-            "block-chord",
-            "lead-melody"
-          ],
-          "canonical_tags": [
-            "jazz-canonical"
-          ]
-        }
-      ],
-      "_fromFamily": true
-    },
     {
       "id": "upright_strings",
       "surface": false,
@@ -194,10 +141,6 @@
     }
   ],
   "_ownParts": [
-    {
-      "id": "acoustic_technique",
-      "default_variant": "acoustic_flatpicked"
-    },
     {
       "id": "upright_strings",
       "surface": false,

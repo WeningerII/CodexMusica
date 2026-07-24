@@ -5,7 +5,7 @@
   "lineage": "2000s and 2010s country-pop crossover tradition codified through Shania Twain (Come On Over 1997), Faith Hill, Tim McGraw, Taylor Swift’s first three records (2006-2010 before her full pop pivot), Carrie Underwood — characterized by country-vocal lead over pop-radio production with reduced fiddle/steel and increased programmed-percussion presence",
   "recipe": "classic 2006-2010 country-pop crossover, functional Song, contemp main branch, pop rock functional song new wave yacht rock. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, singing lead analog poly synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 732,
-  "score": 635.525,
+  "score": 631.485,
   "config": {
     "traditions": [
       "country_pop_crossover",
@@ -86,7 +86,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_american_fender_tweed",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -96,7 +95,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 4.039999999999999,
           "amp_make": 13.939999999999998,
           "body_wood": 2.275,
           "pickup_config": 1.825,

@@ -5,7 +5,7 @@
   "lineage": "Japanese 20th-century sentimental popular-ballad genre derived from late-Meiji-period (1880s-1912) enka-shi street-political-protest-song tradition, transformed mid-Showa-period (1930s-1960s) into commercial recording-industry sentimental-vocal-pop. The vocal technique stresses kobushi melismatic-ornamental vibrato-and-microtonal-bend, koe-on chest-resonance projected-vocal, and pentatonic-yo minor-leaning melodic-vocabulary (often modulating through 4-cycle key changes per verse). Lyrical themes center on lost-love, distant-homeland, mother-and-rural-nostalgia, and ocean-and-port-imagery. The 1960s-1980s golden-age enka-orchestra featured strings-and-shamisen-and-shakuhachi hybrid-arrangement; 1990s-onward enka declined as a youth-genre but persists as a senior-audience-and-karaoke staple.",
   "recipe": "classic East Asian mid-1880s enka, functional Song, enka branch, crooners functional song american barbershop quartet great american songbook. thick, breath veiled tone, straight onset, interlocked note trading. dog skin ivory mulberry kuwa mid tier traditional min yo shamisen, silk pre wwii canon koto, Fender tweed amp American 50s amp tweed breakup mahogany rosewood single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character alder pyramid electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog poly synth, string quartet inst. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 774,
-  "score": 352.202,
+  "score": 351.957,
   "config": {
     "traditions": [
       "enka",
@@ -126,7 +126,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "alder_b",
           "pickup_config": "split_coil",
@@ -136,7 +135,6 @@
           "bass_technique": "fingerstyle_walking"
         },
         "scores": {
-          "electric_technique": 0.245,
           "amp_make": 5.265000000000001,
           "body_wood": 2.535,
           "pickup_config": 0,

@@ -5,7 +5,7 @@
   "lineage": "West African dance-band popular music tradition codified through E.T. Mensah and the Tempos (Ghanaian highlife pioneer, 1947-onward), Bobby Benson (Nigerian highlife pioneer), Victor Olaiya, the Black Beats, the Cardinal Rex Lawson dance band, then extended through the 1960s-70s Lagos-Accra recording boom — built on a fusion of Caribbean calypso, ballroom dance-band horn-section orchestration, and West African rhythmic foundations (Akan, Ga, Yoruba percussion patterns)",
   "recipe": "classic West African modern highlife, groove Percussion, west African branch, African pop functional song congolese rumba isicathamiya. maple pau ferro ceramic nickel plated steel nickel single coil electric guitar, schilke chicago lead bright ensemble shallow cup lead trumpet trumpet, alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, thomastik infeld low tension jazz warm walking fingerstyle electric bass, pre muffled edge muffled brushes-and-sticks drum kit, lead mule hide canonical Cuban premium oak staved canonical Cuban congas, shekere, ensemble student commercial trombone. decca west africa subsidiary 1947-1975 mid tier lagos decca west african studio. passive ribbon, tube pre. direct-to-disc lacquer.",
   "recipe_chars": 769,
-  "score": 156.602,
+  "score": 155.952,
   "config": {
     "traditions": [
       "highlife",
@@ -89,7 +89,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pocket",
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
           "pickup_config": "split_coil",
@@ -99,7 +98,6 @@
           "bass_technique": "fingerstyle_walking"
         },
         "scores": {
-          "electric_technique": 0.6499999999999999,
           "amp_make": 1.1049999999999998,
           "body_wood": 0.585,
           "pickup_config": 0.195,
