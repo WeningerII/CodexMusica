@@ -5,7 +5,7 @@
   "lineage": "Late-1980s and 1990s American heavy-rock subgenre integrating industrial-electronic-production with rock-band-instrumentation. Nine Inch Nails (Trent Reznor, Cleveland 1988-onward) is the canonical type-specimen with Pretty Hate Machine (1989) and The Downward Spiral (1994); Ministry (Chicago, parallel scene), Filter, Stabbing Westward, Marilyn Manson (industrial-rock-glam-hybrid), and the broader Nothing Records and TVT Records label rosters anchor the canonical industrial rock roster.",
   "recipe": "classic North American industrial rock, distorted Rock, avant branch, industrial noise experimental electric dark electro / aggrotech. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, analog synth. mid manhattan 1975-1985 mid-major late70s nyc commercial. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
   "recipe_chars": 573,
-  "score": 327.168,
+  "score": 322.343,
   "config": {
     "traditions": [
       "industrial_rock",
@@ -88,7 +88,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -98,7 +97,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 4.824999999999999,
           "amp_make": 13.371500000000001,
           "body_wood": 0.063,
           "pickup_config": 0.105,

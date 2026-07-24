@@ -5,7 +5,7 @@
   "lineage": "Founding commercial-recording era of hip-hop — pre-sampling-technology, when hip-hop tracks were built with live session-band recreations of the breakbeats that DJs had isolated and looped from existing records during the Bronx block-party era. Recordings include the Sugar Hill Gang Rappers Delight 1979 (the commercial breakthrough, built on a session-band recreation of Chics Good Times bassline), Grandmaster Flash and the Furious Five The Message 1982 (the socially-conscious hip-hop breakthrough), Afrika Bambaataa Planet Rock 1982 (the Kraftwerk-Trans-Europe-Express-derived electro-funk hip-hop fusion), Run-DMC self-titled debut 1984",
   "recipe": "classic North American pre-sampling hip-hop, mc Rhythm, east coast branch, soul R&B functional song contemporary r&b doo-wop. thick, rap, straight onset, narrative. sampled chopped turntable, pre muffled edge muffled brushes-and-sticks drum kit, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, Fender blackface amp American 60s amp spring reverb bright chicken-scratch single coil electric guitar, drum machine 606, cheap paired with 303 chicago foundational TR-707. bronx harlem hip hop pioneer defining 1979-1991 indie-commercial nyc bronx hip hop block party studio. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 762,
-  "score": 329.177,
+  "score": 315.977,
   "config": {
     "traditions": [
       "pre_sampling_hip_hop_1979_1985",
@@ -79,7 +79,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pocket",
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "split_coil",
@@ -89,7 +88,6 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "electric_technique": 13.2,
           "amp_make": 16.265,
           "body_wood": 0.195,
           "pickup_config": 0,

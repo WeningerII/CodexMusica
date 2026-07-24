@@ -5,7 +5,7 @@
   "lineage": "Yugoslav-era and post-Yugoslav successor singer-poet tradition spanning Serbian, Croatian, Bosnian, Slovenian, Macedonian, and Montenegrin language traditions — codified through Đorđe Balašević (the Vojvodina Serbian kantautor, active 1978 until his death in 2021), Arsen Dedić (the Croatian voice), Bora Đorđević and Riblja Čorba (the rock-and-kantautor crossover), Vlatko Stefanovski (the Macedonian guitar-virtuoso continuation), and the post-Yugoslav diaspora extensions Branimir Štulić and Azra",
   "recipe": "classic Southern European late-1970s south slavic kantautor, ballad Poetry, Slavic bard branch, chanson fado ballad poetry morna cape verdean batuko of santiago island. thick, breath veiled tone, slow rate, interlocked note trading. martin lifespan fingerpicked acoustic guitar, cold pressed wurzen felt birch laminated maple laminated European spruce grand piano. balkan sevdalinka kafana tavern. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
   "recipe_chars": 485,
-  "score": 267.49,
+  "score": 257.713,
   "config": {
     "traditions": [
       "south_slavic_kantautor",
@@ -55,7 +55,6 @@
       {
         "id": "acoustic_guitar_om",
         "slots": {
-          "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "open_e",
           "top_wood": "cedar_om",
           "back_sides": "rosewood_bs_om",
@@ -63,7 +62,6 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 9.777500000000002,
           "string_tuning": 2.3850000000000002,
           "top_wood": 0.5725,
           "back_sides": 0.78,
@@ -132,7 +130,6 @@
       "voice_mechanism_compound": "voice_mechanism_single_source",
       "keyboard_technique": "keyboard_block_chord_pop",
       "piano_pitch_standard": "a_440_modern",
-      "acoustic_technique": "acoustic_strummed_ringing",
       "top_wood": "sitka_om",
       "back_sides": "mahogany_bs_om",
       "string_acoustic": "phosphor_om",

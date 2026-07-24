@@ -3,9 +3,9 @@
   "name": "Modal jazz",
   "family": "jazz",
   "lineage": "Late-1950s onward jazz subgenre dispensing with rapid bebop chord-changes in favor of static modal frameworks — Miles Davis Kind of Blue (1959), Coltrane Impressions and the McCoy Tyner / Elvin Jones quartet years, Bill Evans modal trio voicings, Wayne Shorter, Herbie Hancock",
-  "recipe": "classic North American 1957-1959 modal jazz, improv On Frame, bop branch, string drone modal huayno maskandi. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris rubber saxophone, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral lead trumpet trumpet, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, gut chord melody upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. converted armenian church 1949-1981 major-flagship columbia 30th street studio nyc. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 724,
-  "score": 174.651,
+  "recipe": "classic North American 1957-1959 modal jazz, improv On Frame, bop branch, string drone modal huayno maskandi. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris rubber saxophone, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral lead trumpet trumpet, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. converted armenian church 1949-1981 major-flagship columbia 30th street studio nyc. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 718,
+  "score": 170.715,
   "config": {
     "traditions": [
       "modal_jazz",
@@ -83,12 +83,10 @@
       {
         "id": "upright_bass",
         "slots": {
-          "acoustic_technique": "acoustic_chord_melody",
           "upright_strings": "gut_wound_upright",
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "acoustic_technique": 3.935142857142857,
           "upright_strings": 14.294999999999998,
           "upright_play": 14.249999999999998
         }
@@ -136,7 +134,6 @@
       "trumpet_technique": "trumpet_bebop_lines",
       "keyboard_technique": "keyboard_jazz_comping",
       "piano_pitch_standard": "a_440_modern",
-      "acoustic_technique": "acoustic_flatpicked",
       "upright_play": "pizz_upright",
       "upright_strings": "gut_wound_upright"
     },

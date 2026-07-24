@@ -5,7 +5,7 @@
   "lineage": "1944-1955 small-group jazz vocabulary codified by Charlie Parker, Dizzy Gillespie, Thelonious Monk, Bud Powell, Max Roach, Kenny Clarke — rapid chord changes, virtuosic melodic improvisation, complex rhythmic displacement, intimate quintet-sextet format displacing swing-era big bands",
   "recipe": "classic North American mid-1950s bebop, improv On Frame, bop branch, American jazz early swing-era jazz orchestra new orleans jazz. alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, red brass 90 10 darkest bach stradivarius 180 canonical American orchestral front line jazz balance trumpet, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, growly gut upright bass, vintage ambassador asymmetric brushes drum kit. converted living room 1944-1959 indie-commercial van gelder hackensack. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 673,
-  "score": 256.476,
+  "score": 254.684,
   "config": {
     "traditions": [
       "bebop",
@@ -83,12 +83,10 @@
       {
         "id": "upright_bass",
         "slots": {
-          "acoustic_technique": "acoustic_chord_melody",
           "upright_strings": "gut_wound_upright",
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "acoustic_technique": 1.7922500000000001,
           "upright_strings": 24.375,
           "upright_play": 24.375
         }
@@ -136,7 +134,6 @@
       "trumpet_technique": "trumpet_bebop_lines",
       "keyboard_technique": "keyboard_jazz_comping",
       "piano_pitch_standard": "a_440_modern",
-      "acoustic_technique": "acoustic_flatpicked",
       "upright_play": "pizz_upright",
       "upright_strings": "gut_wound_upright"
     },

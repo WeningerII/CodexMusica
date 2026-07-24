@@ -5,7 +5,7 @@
   "lineage": "Early-1990s American indie rock substyle characterized by deliberately-loose performance aesthetic, lo-fi production, deadpan vocal delivery, and oblique-fragmentary lyrical content. Pavement (Stockton, 1989-1999) is the canonical type-specimen; parallel acts include Sebadoh, Guided by Voices, Silver Jews, and Built to Spill. Distinguished from broader indie rock by slacker rock's explicit casual-attitudinal aesthetic and emphasis on rough-edged production.",
   "recipe": "classic North American slacker rock, distorted Rock, alternative branch, experimental distorted rock chillwave post-rock. thick, breath veiled tone, slow rate, interlocked note trading. marshall plexi amp British rock amp basswood maple pau ferro humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb proco RAT.",
   "recipe_chars": 562,
-  "score": 319.159,
+  "score": 314.334,
   "config": {
     "traditions": [
       "slacker_rock",
@@ -88,7 +88,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -98,7 +97,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 4.825,
           "amp_make": 12.61,
           "body_wood": 0.845,
           "pickup_config": 1.4364999999999999,

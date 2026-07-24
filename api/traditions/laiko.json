@@ -5,7 +5,7 @@
   "lineage": "Post-rebetiko Greek popular song that emerged in the 1950s-1960s as rebetiko transitioned from tavern-context to commercial-nightclub-context — codified through Manolis Chiotis (who introduced the three-course-to-four-course (trichordo-to-tetrachordo) bouzouki conversion and electric amplification), Stelios Kazantzidis (the voice of laiko), Marinella, Stratos Dionysiou, Yiannis Parios, Glykeria, and the Athens Minos / Columbia Greece / Lyra label catalog",
   "recipe": "classic Southern European mid-1950s laikó, ballad Poetry, Mediterranean ballad branch, vocal drone modal, chanson fado ballad poetry cape verdean batuko of santiago island greek éntechno. thick, breath veiled tone, slow rate, interlocked note trading. walnut staves canonical Greek gut pre 1950s rebetiko strummed bouzouki, cedar fingerpicked classical nylon-string guitar, beech laminated maple laminated European tradition European spruce norway spruce grand piano, sub heavy electric bass, pre muffled edge muffled brushes-and-sticks drum kit. athens major label 1955-1985 mid tier athens minos studios 60s 70s. large-diaphragm condenser, tube pre, Emi redd.51, vari-mu, passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 718,
-  "score": 308.567,
+  "score": 307.423,
   "config": {
     "traditions": [
       "laiko",
@@ -116,7 +116,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_slap_pop",
           "amp_make": "amp_british_60s_selmer",
           "body_wood": "mahogany_b",
           "pickup_config": "humbucker_mm",
@@ -126,7 +125,6 @@
           "bass_technique": "sub_bass_synth_blend"
         },
         "scores": {
-          "electric_technique": 1.1449999999999998,
           "amp_make": 0.49999999999999994,
           "body_wood": 0.69,
           "pickup_config": 0.045,

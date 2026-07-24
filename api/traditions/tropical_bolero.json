@@ -5,7 +5,7 @@
   "lineage": "Pan-Latin-American romantic ballad tradition that emerged in late-19th-century Santiago de Cuba (the first bolero Tristezas by José Pepe Sánchez 1883) and codified pan-continentally from the 1930s through Mexican composers Agustín Lara (Solamente Una Vez 1941, Granada 1932), Consuelo Velázquez (Bésame Mucho 1940 — the most-recorded bolero), Armando Manzanero, María Grever, and the trio canon (Trio Los Panchos 1944-onward, Trio Matamoros, Trio Calaveras), with the post-WWII voices Pedro Infante, Lucho Gatica, Lola Beltrán, Olga Guillot, and the late-1940s Cuban filin small-combo intimate-jazz extension",
   "recipe": "classic Mexican modern bolero, functional Song, tropical song branch, Latin am troubadour ballad poetry milonga filipino harana. thick, breath veiled tone, straight onset, interlocked note trading. flatwound thomastik fingerpicked acoustic guitar, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, thomastik infeld low tension jazz warm walking fingerstyle electric bass, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, cedrillo canonical veracruz strummed requinto jarocho. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 750,
-  "score": 194.762,
+  "score": 185.603,
   "config": {
     "traditions": [
       "tropical_bolero",
@@ -55,7 +55,6 @@
       {
         "id": "acoustic_guitar_om",
         "slots": {
-          "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "standard_tuning",
           "top_wood": "cedar_om",
           "back_sides": "walnut_bs_om",
@@ -63,7 +62,6 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 9.195000000000002,
           "string_tuning": 0,
           "top_wood": 0.39,
           "back_sides": 0.39,
@@ -99,7 +97,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_slap_pop",
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "humbucker_mm",
@@ -109,7 +106,6 @@
           "bass_technique": "fingerstyle_walking"
         },
         "scores": {
-          "electric_technique": -0.035,
           "amp_make": 2.0799999999999996,
           "body_wood": 0.39,
           "pickup_config": 0.345,
@@ -193,7 +189,6 @@
       "voice_mechanism_compound": "voice_mechanism_single_source",
       "keyboard_technique": "keyboard_jazz_comping",
       "piano_pitch_standard": "a_440_modern",
-      "acoustic_technique": "acoustic_strummed_ringing",
       "top_wood": "sitka_om",
       "back_sides": "mahogany_bs_om",
       "string_acoustic": "phosphor_om",

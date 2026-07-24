@@ -5,7 +5,7 @@
   "lineage": "European metal-folk-instrument hybrid subgenre codified through Skyclad (UK 1990, the first folk-metal album The Wayward Sons of Mother Earth), Korpiklaani (Finnish), Eluveitie (Swiss-Celtic), Ensiferum (Finnish-Viking) — characterized by fiddle, accordion, hurdy-gurdy, and bagpipe alongside metal instrumentation, with regional-folk melodic vocabularies",
   "recipe": "classic early-1990s folk metal, distorted Rock, folk metal branch, Celtic balladic ballad poetry newfoundland outport balladry breton folk. thick, breath veiled tone, straight note core, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, leather castagnari Italian premium folk music straight accordion, synthetic magic rosin modern acrylic base drone like fiddle, yamaha modern Japanese mid to premium flute, dance rhythm strummed bouzouki, traditional pine resin historical steel modern bal folk French bal folk pignol tritonik hurdy gurdy, birch alder regional nyckelharpa, cane drone reeds traditional arundo donax sheepskin cowhide traditional pre modern melodic highland bagpipes, melodic recorder. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ.",
   "recipe_chars": 1000,
-  "score": 561.245,
+  "score": 561.28,
   "config": {
     "traditions": [
       "folk_metal_european",
@@ -88,7 +88,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_walking",
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
           "pickup_config": "soapbar",
@@ -98,7 +97,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": -0.035,
           "amp_make": 2.4,
           "body_wood": 0.39,
           "pickup_config": 0.845,

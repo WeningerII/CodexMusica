@@ -5,7 +5,7 @@
   "lineage": "Brazilian sertanejo subgenre emerging in late-2000s as a urban-modern revival of the older sertanejo country-music tradition, targeted at younger university-student audiences. Characterized by pop-country-influenced harmonic vocabulary, slower mid-tempo love-ballad register, and twin-male-vocal-harmony presentation. Goiânia, Brasília, and São Paulo studios anchored the canonical sound. Michel Teló's 2011 \"Ai Se Eu Te Pego\" became the international-crossover hit.",
   "recipe": "classic Southern American 2007-2009 sertanejo universitário, functional Song, Brazilian song branch, country functional song country rock pre-commercial country roots. thick, breath veiled tone, wide pitch sway, interlocked note trading. cedar phosphor bronze modern martin travis picked dreadnought acoustic Fender tweed amp American 50s amp tweed breakup basswood mahogany humbucker electric guitar, pre muffled edge muffled brushes-and-sticks drum kit, Fender tweed amp American 50s amp tweed breakup alder ernie ball slinky electric bass. estudios scatena sp. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 693,
-  "score": 513.585,
+  "score": 511.49,
   "config": {
     "traditions": [
       "sertanejo_universitario",
@@ -118,7 +118,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_american_fender_tweed",
           "body_wood": "alder_b",
           "pickup_config": "soapbar",
@@ -128,7 +127,6 @@
           "bass_technique": "fingerpicked_country_b"
         },
         "scores": {
-          "electric_technique": 2.095,
           "amp_make": 34.9,
           "body_wood": 1.69,
           "pickup_config": 1.345,

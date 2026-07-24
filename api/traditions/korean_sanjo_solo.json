@@ -5,7 +5,7 @@
   "lineage": "Korean sanjo (\"scattered melody\") solo virtuoso instrumental tradition emerging in late-nineteenth-century southwestern Korea (Jeolla provinces) and crystallizing into the canonical concert form through Kim Chang-jo (1865-1919) for the gayageum zither and subsequent adaptations for geomungo, daegeum, ajaeng, and haegeum. Performance is a continuous suite of progressively accelerating sections (jinyangjo, jungmori, jungjungmori, jajinmori, hwimori, danmori), with janggu hourglass-drum accompaniment marking the rhythmic-cycle changgu. The sanjo grew from sinawi shaman-ensemble heterophony into a self-standing virtuoso art-music form parallel to but distinct from pansori vocal narrative.",
   "recipe": "classic East Asian early-1860s korean sanjo, art Music, east Asian branch, indian classical improv improv on frame hindustani classical carnatic instrumental. vocal fry, breath veiled tone, slow rate, interlocked note trading. composite material paulownia canonical Korean horse dog asymmetric canonical Korean pansori godo janggu, aniri spoken narrative quality interleaved chuseong ascending into slide jungjungmori medium fast 12 8 heightened narrative no interjected chuimsae solo cross tradition fusion concert context pansori voice, court paulownia Korean gayageum, silk court paulownia canonical Korean geomungo, steel paulownia canonical Korean legato haegeum, daegeum, forsythia canonical Korean paulownia canonical Korean silk canonical Korean court legato ajaeng. korean gugak hall. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 866,
-  "score": 398.025,
+  "score": 381.43,
   "config": {
     "traditions": [
       "korean_sanjo_solo",
@@ -89,14 +89,12 @@
       {
         "id": "gayageum",
         "slots": {
-          "plucked_traditional_technique": "plucked_classical_idiom",
           "gayageum_type": "jeongak_gayageum",
           "gayageum_technique": "gayageum_plectrum",
           "gayageum_top_wood": "gayageum_paulownia_korean",
           "gayageum_strings": "gayageum_nylon_coated_modern"
         },
         "scores": {
-          "plucked_traditional_technique": 16.595,
           "gayageum_type": 8.45,
           "gayageum_technique": 5.2,
           "gayageum_top_wood": 3.5999999999999996,

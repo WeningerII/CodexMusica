@@ -5,7 +5,7 @@
   "lineage": "The dubstep tradition — UK bass music built on a half-time rhythm, sub-bass weight, and the two-step shuffle, originating in South London",
   "recipe": "classic modern dubstep, bass System, uk soundsystem branch. sampler, TR-909, sub bass digital subtractive, ampeg svt amp rock bass amp la bella flats Detroit soul bass canon sub heavy electric bass. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter high-gain distortion hall reverb.",
   "recipe_chars": 377,
-  "score": 37.171,
+  "score": 36.471,
   "config": {
     "traditions": [
       "dubstep"
@@ -57,7 +57,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_thumb_muted",
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -67,7 +66,6 @@
           "bass_technique": "sub_bass_synth_blend"
         },
         "scores": {
-          "electric_technique": 0.7,
           "amp_make": 5.265,
           "body_wood": 0.6435,
           "pickup_config": 0.07275,

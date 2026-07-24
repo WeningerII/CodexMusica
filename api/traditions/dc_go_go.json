@@ -5,7 +5,7 @@
   "lineage": "Washington D.C.-specific funk subgenre developed in mid-1970s by Chuck Brown (1936-2012), characterized by continuous percussion-and-bass-and-vocal groove without breaks between songs (the \"go-go\" of perpetual-motion), call-and-response between bandleader and audience, and Latin-percussion (congas, timbales, cowbell) integration with funk-band horn-section. Trouble Funk, Rare Essence, Experience Unlimited, and Backyard Band extended the canonical roster.",
   "recipe": "classic North American dc go-go, functional Song, soul R&B branch, funk percussive groove percussion future funk. thick, breath veiled tone, slow rate, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright basswood mahogany humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, pre muffled edge muffled brushes-and-sticks drum kit, cowhide mid tier siam oak mid tier modern open slap hand drum congas, open slap hand drum timbales, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble heavy one piece matched to monette horn trumpet, tenor ensemble honking attack saxophone. mid manhattan 1975-1985 mid-major late70s nyc commercial. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 915,
-  "score": 416.955,
+  "score": 389.505,
   "config": {
     "traditions": [
       "dc_go_go",
@@ -88,7 +88,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pocket",
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -98,7 +97,6 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "electric_technique": 27.45,
           "amp_make": 7.8155,
           "body_wood": 2.535,
           "pickup_config": 0.195,

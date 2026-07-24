@@ -5,7 +5,7 @@
   "lineage": "Cuban dance-music developed in 1970s-1980s Havana by Los Van Van under Juan Formell, synthesizing son montuno, changüí, North American funk, and Cuban folkloric rumba. Introduced drum-kit alongside canonical timbales and congas, electric-bass with funk-derived ostinato, extended sectional structures. Directly informed subsequent 1990s timba emergence.",
   "recipe": "classic Caribbean songo, groove Percussion, son salsa branch, Brazilian song functional song lambada and carimbó forró pé-de-serra. extended whistle, breath veiled tone, fast rate, interlocked note trading. cold pressed wurzen felt birch laminated maple laminated Asian spruce grand piano, ampeg b15 amp American 60s bass amp flip top character pyramid pure nickel bass electric bass, brass open slap hand drum timbales, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, pre muffled edge muffled brushes-and-sticks drum kit, handheld montuno lift coro section cencerro. Cuban state recording 1962-present mid tier estudios areito havana. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 806,
-  "score": 168.418,
+  "score": 161.918,
   "config": {
     "traditions": [
       "songo_cubano",
@@ -80,7 +80,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_slap_pop",
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -90,7 +89,6 @@
           "bass_technique": "slap_pop"
         },
         "scores": {
-          "electric_technique": 6.499999999999999,
           "amp_make": 3.7275000000000005,
           "body_wood": 0.78,
           "pickup_config": 0.845,

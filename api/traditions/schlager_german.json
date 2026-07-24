@@ -5,7 +5,7 @@
   "lineage": "German-language popular sentimental song genre with 1920s Weimar cabaret roots, mid-century commercial extension (Heino, Roy Black, Freddy Quinn), and modern continuation (Helene Fischer, Andrea Berg) — major-key sentimental melodies, accordion-and-strings-and-occasional-yodel arrangements, lyrical content concerning love, home country (Heimat), nostalgia, holidays, alpine landscapes; distinct from Liedermacher (politically engaged literary-cabaret tradition)",
   "recipe": "classic Central European mid-1920s schlager, functional Song, europop branch, crooners functional song brill building pop american barbershop quartet. thick, breath veiled tone, wide pitch sway, interlocked note trading. weltmeister east German mid tier vintage volk straight accordion, Fender tweed amp American 50s amp tweed breakup alder pyramid electric bass, pre muffled edge muffled brushes-and-sticks drum kit, singing lead analog poly synth. german liedermacher kabarett berlin. large-diaphragm condenser, tube pre, Pultec passive program EQ. Studer 30ips tape echo.",
   "recipe_chars": 574,
-  "score": 209.124,
+  "score": 209.059,
   "config": {
     "traditions": [
       "schlager_german",
@@ -76,7 +76,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_american_fender_tweed",
           "body_wood": "alder_b",
           "pickup_config": "soapbar",
@@ -86,7 +85,6 @@
           "bass_technique": "sub_bass_synth_blend"
         },
         "scores": {
-          "electric_technique": 0.06499999999999999,
           "amp_make": 7.5725,
           "body_wood": 1.885,
           "pickup_config": 1.95,

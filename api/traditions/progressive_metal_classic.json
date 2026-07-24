@@ -5,7 +5,7 @@
   "lineage": "Metal-prog-rock hybrid subgenre codified through Queensrÿche (Operation: Mindcrime 1988), Fates Warning (Awaken the Guardian 1986), Dream Theater (Images and Words 1992), Symphony X, and Watchtower; characterized by operatic-clean-vocal performances, virtuosic-twin-guitar lead lines, complex multi-meter compositions, and the conceptual-album / fantasy-narrative lyrical subject-matter tradition",
   "recipe": "classic late-1980s progressive metal, distorted Rock, prog branch, American jazz fusion acid jazz nu jazz / electro-jazz. thick, breath veiled tone, straight onset, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, roland jupiter lineage canonical jupiter 8 1981 osaka analog poly synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 702,
-  "score": 424.169,
+  "score": 421.769,
   "config": {
     "traditions": [
       "progressive_metal_classic",
@@ -88,7 +88,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pocket",
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -98,7 +97,6 @@
           "bass_technique": "fingerstyle_walking"
         },
         "scores": {
-          "electric_technique": 2.4000000000000004,
           "amp_make": 9.55875,
           "body_wood": 0.4125,
           "pickup_config": 0.39,

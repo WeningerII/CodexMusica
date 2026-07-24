@@ -5,7 +5,7 @@
   "lineage": "Greek-language rock music developed from 1960s onward, integrating Greek-laiko and rebetiko folk-music influences with broader Western rock vocabulary. The 1960s Pavlos Sidiropoulos and Stamatis Spanoudakis era inaugurated the form; the 1980s-90s \"Greek rock\" wave through Magic de Spell, Trypes, Tripes, Pyx Lax, and the broader post-1981 Athens scene consolidated commercial visibility. Distinguished by Greek-language lyrics and frequent integration of bouzouki/baglamas folk-instruments into rock contexts.",
   "recipe": "classic Southern European mid-1960s greek rock, distorted Rock, regional branch, chanson fado Greek entechno greek éntechno. thick, breath veiled tone, slow rate, interlocked note trading. marshall plexi amp British rock amp humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, kevlar aramid extreme tension sticks backbeat drum kit, strummed baglamas, walnut staves canonical Greek strummed bouzouki. athens major label 1955-1985 mid tier athens minos studios 60s 70s. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 636,
-  "score": 301.411,
+  "score": 301.346,
   "config": {
     "traditions": [
       "greek_rock",
@@ -87,7 +87,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_fuzz_riff",
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
           "pickup_config": "split_coil",
@@ -97,7 +96,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 0.06499999999999999,
           "amp_make": 9.945,
           "body_wood": 0,
           "pickup_config": 0,

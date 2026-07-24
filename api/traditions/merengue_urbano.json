@@ -5,7 +5,7 @@
   "lineage": "Electronic-and-rap-influenced Dominican merengue variant emerging in 1990s-2000s. Synthesis of traditional merengue rhythmic pulse with hip-hop production and reggaeton harmonic-rhythmic vocabulary. Drum-machine-and-sampler production, faster 2/4 tempo than traditional merengue, simpler chord-progressions, explicit MC-rapped vocal sections alongside sung verse-and-chorus. Omega \"El Fuerte\" and El Cata anchored the 2000s commercial sound.",
   "recipe": "classic Caribbean mid-1990s merengue urbano, functional Song, tropical song branch, reggaeton MC rhythm moombahton. thick, rap, slow rate, interlocked note trading. TR-808, sub bass analog synth, electric bass. Dominican canon 1970-1995 mid tier dominican capital studio 80s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 405,
-  "score": 138.864,
+  "score": 138.539,
   "config": {
     "traditions": [
       "merengue_urbano",
@@ -85,7 +85,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_thumb_muted",
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -95,7 +94,6 @@
           "bass_technique": "thumb_muted"
         },
         "scores": {
-          "electric_technique": 0.325,
           "amp_make": 0.585,
           "body_wood": 0.546,
           "pickup_config": 0.4365,

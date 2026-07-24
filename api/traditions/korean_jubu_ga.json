@@ -3,14 +3,14 @@
   "name": "Korean jubu-ga (drinking-and-celebration songs)",
   "family": "global",
   "lineage": "Korean drinking-and-celebration song tradition continuous from premodern Korean banquet-and-tavern song-tradition through Japanese-colonial-era and post-1945 continuous performance into modern Korean-and-Korean-diaspora continuous noraebang (가요방, song-room) and drinking-establishment practice; the broader Korean drinking-culture integrates extensive trot (트로트) and folk-drinking-song repertoire",
-  "recipe": "classic mid-1940s korean jubu-ga, drinking Song, east Asian branch, European drinking song, east Asian pop functional song, east Asian protest song shidaiqu korean trot. thick, breath veiled tone, straight onset, interlocked note trading. flatwound thomastik strummed open chord ringing overtones fingerpicked acoustic guitar. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 400,
-  "score": 316.022,
+  "recipe": "classic mid-1940s korean jubu-ga, drinking Song, east Asian branch, European drinking song, east Asian pop functional song, east Asian protest song shidaiqu enka. thick, breath veiled tone, straight onset, interlocked note trading. flatwound thomastik fingerpicked acoustic guitar. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
+  "recipe_chars": 355,
+  "score": 303.2,
   "config": {
     "traditions": [
       "korean_jubu_ga",
       "shidaiqu",
-      "korean_trot"
+      "enka"
     ],
     "instruments": [
       {
@@ -34,41 +34,39 @@
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
-          "voice_register": 25.949999999999996,
-          "voice_quality": 24.765000000000004,
+          "voice_register": 27.974999999999994,
+          "voice_quality": 23.465,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 12.093749999999998,
-          "voice_articulation": 23.660000000000007,
-          "voice_microtone": 24.310000000000002,
-          "voice_tradition": 48.61249999999999,
-          "voice_mechanism_compound": 3.9249999999999994,
+          "voice_vibrato": 11.94375,
+          "voice_articulation": 29.445000000000014,
+          "voice_microtone": 30.095000000000013,
+          "voice_tradition": 37.4625,
+          "voice_mechanism_compound": 2.0799999999999996,
           "voice_estill_quality": 3.0275,
-          "voice_speech_song": 39.19500000000001,
-          "voice_ensemble_config": 26.130000000000006,
-          "voice_ornament_system": 39.8,
-          "voice_pitch_organization": 8.462499999999999,
-          "voice_processing_chain": 8.715,
-          "voice_multitrack_stack": 8.361250000000002
+          "voice_speech_song": 47.90500000000003,
+          "voice_ensemble_config": 32.110000000000014,
+          "voice_ornament_system": 28.8,
+          "voice_pitch_organization": 8.912499999999996,
+          "voice_processing_chain": 8.665000000000001,
+          "voice_multitrack_stack": 7.5862500000000015
         }
       },
       {
         "id": "acoustic_guitar_om",
         "slots": {
-          "acoustic_technique": "acoustic_strummed_ringing",
-          "string_tuning": "standard_tuning",
+          "string_tuning": "drop_d",
           "top_wood": "mahogany_top_om",
           "back_sides": "mahogany_bs_om",
           "string_acoustic": "thomastik_flat_om",
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 12.474999999999998,
-          "string_tuning": 0,
+          "string_tuning": 0.12499999999999997,
           "top_wood": 0.9099999999999999,
           "back_sides": 0.9099999999999999,
           "string_acoustic": 3.5749999999999993,
-          "acoustic_om_technique": 6.470000000000001
+          "acoustic_om_technique": 3.62
         }
       }
     ],
@@ -106,7 +104,6 @@
       "voice_estill_quality": "voice_estill_speech",
       "voice_vibrato": "straight_tone",
       "voice_mechanism_compound": "voice_mechanism_single_source",
-      "acoustic_technique": "acoustic_strummed_ringing",
       "top_wood": "sitka_om",
       "back_sides": "mahogany_bs_om",
       "string_acoustic": "phosphor_om",

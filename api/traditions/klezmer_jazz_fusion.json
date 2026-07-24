@@ -5,7 +5,7 @@
   "lineage": "1980s-and-onward American-Jewish jazz-fusion style integrating klezmer modal-and-melodic vocabulary with jazz-improvisational practice. Don Byron's Plays the Music of Mickey Katz (1993) and the Klezmatics 1980s-onward recordings constitute the canonical type-specimens; the parallel Frank London-led ensembles and David Krakauer's solo work extended the genre. Distinguished from broader klezmer revival by jazz-fusion's explicit jazz-improvisation-and-harmonic emphasis.",
   "recipe": "classic North American mid-1980s klezmer-jazz fusion, improv On Frame, klezmer improv branch, Jewish ritual devotional hasidic niggun sephardi bakkashot. thick, breath veiled tone, straight onset, interlocked note trading. ebonite hard rubber klezmer tradition continuous-airflow legato clarinet, alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano, growly gut upright bass, fiberskyn synthetic calf brushes-and-sticks drum kit, klezmer ensemble. nuyorican fania canon 1968-1977 mid tier fania la tierra studios ny. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 809,
-  "score": 411.28,
+  "score": 408.29,
   "config": {
     "traditions": [
       "klezmer_jazz_fusion",
@@ -118,12 +118,10 @@
       {
         "id": "upright_bass",
         "slots": {
-          "acoustic_technique": "acoustic_chord_melody",
           "upright_strings": "gut_wound_upright",
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "acoustic_technique": 2.99,
           "upright_strings": 18,
           "upright_play": 18
         }
@@ -193,7 +191,6 @@
       "sax_technique": "sax_bebop_runs",
       "keyboard_technique": "keyboard_jazz_comping",
       "piano_pitch_standard": "a_440_modern",
-      "acoustic_technique": "acoustic_flatpicked",
       "upright_play": "pizz_upright",
       "upright_strings": "gut_wound_upright",
       "sections": "klez_clarinet_lead",

@@ -5,7 +5,7 @@
   "lineage": "Late-1980s onward underground rock movement deploying odd time signatures, polymetric and angular guitar interplay, instrumental-or-near-instrumental song form, and crescendo-based arrangement — codified through Slint (Spiderland 1991), Tortoise (Millions Now Living Will Never Die 1996), Mogwai (Mogwai Young Team 1997), Godspeed You Black Emperor (F♯ A♯ ∞ 1997), Don Caballero (American Don 2000), Battles (Mirrored 2007)",
   "recipe": "classic 1987-1989 math rock and post-rock, distorted Rock, alternative branch, experimental distorted rock krautrock post-rock. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 506,
-  "score": 178.318,
+  "score": 175.993,
   "config": {
     "traditions": [
       "math_rock_post_rock",
@@ -47,7 +47,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
           "pickup_config": "soapbar",
@@ -57,7 +56,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 2.3249999999999997,
           "amp_make": 16.314999999999998,
           "body_wood": 0.39,
           "pickup_config": 0.65,

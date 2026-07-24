@@ -3,9 +3,9 @@
   "name": "Singer-songwriter folk",
   "family": "vernacular",
   "lineage": "Post-folk-revival American songwriter tradition combining Greenwich Village 60s confessional vocabulary with Laurel Canyon 70s intimate production aesthetic — voice and acoustic guitar at minimum, often expanded with piano and modest band",
-  "recipe": "classic North American mid-1950s singer-songwriter folk, ballad Poetry, anglo singer song branch, americana country gothic country. thick, incomplete closure resting, straight note core, interlocked note trading. walnut fingerpicked acoustic guitar, pearwood marine band tradition brass traditional straight harmonica, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano. hollywood flagship 1958-present major-flagship sunset sound studios hollywood. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
-  "recipe_chars": 594,
-  "score": 261.993,
+  "recipe": "classic North American mid-1950s singer-songwriter folk, ballad Poetry, anglo singer song branch, americana country gothic country. thick, incomplete closure resting, straight note core, interlocked note trading. walnut fingerpicked acoustic guitar, pearwood marine band tradition brass traditional harmonica, cold pressed wurzen felt oversize maple tension resonator European spruce grand piano. hollywood flagship 1958-present major-flagship sunset sound studios hollywood. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 585,
+  "score": 209.203,
   "config": {
     "traditions": [
       "singer_songwriter",
@@ -55,7 +55,6 @@
       {
         "id": "acoustic_guitar_om",
         "slots": {
-          "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "open_d",
           "top_wood": "cedar_om",
           "back_sides": "walnut_bs_om",
@@ -63,7 +62,6 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 25.5965,
           "string_tuning": 0.889,
           "top_wood": 0.21449999999999997,
           "back_sides": 1.2349999999999999,
@@ -74,7 +72,6 @@
       {
         "id": "harmonica",
         "slots": {
-          "free_reed_technique": "free_reed_folk_first_position",
           "harmonica_type": "tremolo_harm",
           "harmonica_comb": "pearwood_comb",
           "harmonica_reed": "brass_harm",
@@ -83,7 +80,6 @@
           "harmonica_tuning": "harmonica_richter_canonical"
         },
         "scores": {
-          "free_reed_technique": 27.194499999999994,
           "harmonica_type": 0.39,
           "harmonica_comb": 5.785,
           "harmonica_reed": 1.7145000000000001,
@@ -155,7 +151,6 @@
       "harmonica_type": "diatonic_blues",
       "keyboard_technique": "keyboard_block_chord_pop",
       "piano_pitch_standard": "a_440_modern",
-      "acoustic_technique": "acoustic_fingerpicked",
       "top_wood": "sitka_om",
       "back_sides": "rosewood_bs_om",
       "string_acoustic": "phosphor_om",

@@ -5,7 +5,7 @@
   "lineage": "The blues tradition — African-American vernacular form built on the twelve-bar progression, blue notes, and call-and-response, originating in the Deep South at the turn of the 20th century and electrified in postwar Chicago",
   "recipe": "classic Midwestern American mid-1970s blues, functional Song, blues electric branch. thick, breath veiled tone, wide pitch sway, interlocked note trading. rock blues lower tension down tuning single coil electric guitar, Hammond a 100 built in Leslie home spinet tonewheel organ, electric bass, jazz-trained brushes-and-sticks drum kit, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica. 2120 south michigan avenue 1957-1975 indie-commercial chess studios chicago. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb ibanez tube screamer TS9 / TS808.",
   "recipe_chars": 689,
-  "score": 167.019,
+  "score": 165.251,
   "config": {
     "traditions": [
       "blues"
@@ -103,7 +103,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pocket",
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "split_coil",
@@ -113,7 +112,6 @@
           "bass_technique": "fingerstyle_walking"
         },
         "scores": {
-          "electric_technique": 0.6499999999999999,
           "amp_make": 2.0698749999999997,
           "body_wood": 0.15424999999999997,
           "pickup_config": 0,
@@ -139,7 +137,6 @@
       {
         "id": "harmonica",
         "slots": {
-          "free_reed_technique": "free_reed_blues_cross",
           "harmonica_type": "bass_harm",
           "harmonica_comb": "pearwood_comb",
           "harmonica_reed": "brass_harm",
@@ -148,7 +145,6 @@
           "harmonica_tuning": "harmonica_richter_canonical"
         },
         "scores": {
-          "free_reed_technique": 1.1179999999999999,
           "harmonica_type": 1,
           "harmonica_comb": 13.02925,
           "harmonica_reed": 11.036499999999998,

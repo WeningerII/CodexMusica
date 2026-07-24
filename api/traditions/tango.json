@@ -5,7 +5,7 @@
   "lineage": "Argentine bandoneón-and-violin orquesta-típica tradition codified through the Buenos Aires studio canon from Carlos Gardel onward",
   "recipe": "classic South American mid-1940s tango, ballad Poetry, Latin am troubadour branch, tropical song functional song bolero bachata. thick, full chest belt, straight onset, interlocked note trading. tango virtuoso premier German tango premium alternative bellows articulated bandoneon, sitka spruce hard rock maple acer saccharum synthetic varnish polyurethane violin orchestral, upright piano, growly gut upright bass, venice catlin high twist renaissance bass engelmann spruce hard rock maple cello. large tracking room 1920-1965 mid tier odeon rca buenos aires. RCA 44-BX, German V72 tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 628,
-  "score": 157.37,
+  "score": 157.24,
   "config": {
     "traditions": [
       "tango",
@@ -112,12 +112,10 @@
       {
         "id": "upright_bass",
         "slots": {
-          "acoustic_technique": "acoustic_chord_melody",
           "upright_strings": "gut_wound_upright",
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "acoustic_technique": 0.12999999999999998,
           "upright_strings": 1.25,
           "upright_play": 1.25
         }
@@ -184,7 +182,6 @@
       "bowed_technique": "bowed_chopped_old_time",
       "orch_setup_period": "modern_setup_violin",
       "orch_bow": "modern_bow",
-      "acoustic_technique": "acoustic_flatpicked",
       "upright_play": "pizz_upright",
       "upright_strings": "gut_wound_upright",
       "keyboard_technique": "keyboard_block_chord_pop",

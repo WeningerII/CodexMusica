@@ -5,7 +5,7 @@
   "lineage": "Black Pentecostal / COGIC (Church of God in Christ) liturgical music tradition characterized by Hammond B3 organ, piano, drums, electric bass, congregational call-and-response with melismatic lead vocal — codified through James Cleveland, Mahalia Jackson, the Caravans, Edwin Hawkins, Andrae Crouch, Aretha Franklins Amazing Grace (1972, New Temple Missionary Baptist Church LA)",
   "recipe": "classic North American early-1970s black pentecostal gospel, ritual Devotional, pentecostal branch, soul R&B functional song southern soul classic r&b. thick, declaimed, wide pitch sway, multi note runs per syllable. Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched gospel runs full spectrum fast tremolo tonewheel organ, gospel runs upright piano, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled sticks pocket drum kit, ecstatic call response choir pentecostal cogic, choir southern black gospel. pentecostal storefront church. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 811,
-  "score": 424.379,
+  "score": 411.429,
   "config": {
     "traditions": [
       "pentecostal_gospel",
@@ -87,7 +87,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pocket",
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "split_coil",
@@ -97,7 +96,6 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "electric_technique": 12.949999999999996,
           "amp_make": 19.656499999999994,
           "body_wood": 0.39,
           "pickup_config": 0,

@@ -5,7 +5,7 @@
   "lineage": "Contemporary West African Sahel praise-music tradition that extends the Mande jeli vocal-and-praise lineage into the modern electric-band context — Salif Keita (Maninka noble-line singer who broke caste taboo by becoming a commercial musician, 1987 Soro album the Paris-recorded breakthrough), Youssou NDour (Senegalese Wolof, his 1984 Immigrés the Paris recording), Baaba Maal (Senegalese Fulani Pulaar-language), Mory Kanté (Guinean kora-virtuoso, 1987 Yé Ké Yé Ké), Ali Farka Touré, Toumani Diabaté, Khaira Arby, Oumou Sangaré",
   "recipe": "classic Western European late-1980s sahel praise music, functional Song, African pop branch, Sufi ritual devotional, west African griot ballad poetry sudanese aghani al-banat wassoulou. thick, declaimed, straight onset, interlocked note trading. open string slide resonance clean strummed single coil electric guitar, sub heavy electric bass, pre muffled edge muffled brushes-and-sticks drum kit, calabash nylon fishing line cowhide mande traditional kora, griot voice, bell on shell iroko west African premium cowhide rope lacing canonical mande dunun, donso ritual large calabash mande gut pre modern hunters donso ngoni. paris African diaspora recording 1970-2000 mid tier paris pathe marconi african diaspora. large-diaphragm condenser, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 855,
-  "score": 293.987,
+  "score": 293.922,
   "config": {
     "traditions": [
       "sahel_praise",
@@ -86,7 +86,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_fuzz_riff",
           "amp_make": "amp_british_orange",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -96,7 +95,6 @@
           "bass_technique": "sub_bass_synth_blend"
         },
         "scores": {
-          "electric_technique": 0.06499999999999999,
           "amp_make": 0.585,
           "body_wood": 0.845,
           "pickup_config": 1.3650000000000002,

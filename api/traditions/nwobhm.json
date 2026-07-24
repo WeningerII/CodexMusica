@@ -5,7 +5,7 @@
   "lineage": "Late-1970s through mid-1980s UK metal revival movement that emerged in response to the punk-and-disco displacement of mid-1970s hard rock — codified through Iron Maiden (the NWOBHM founding band, Iron Maiden 1980, The Number of the Beast 1982, Powerslave 1984), Judas Priest (the older band that became NWOBHM-adjacent through British Steel 1980 and Screaming for Vengeance 1982), Saxon, Diamond Head (whose Lightning to the Nations 1980 directly influenced Metallica), Def Leppard (early album On Through the Night 1980 before their pop-metal commercial turn), Motörhead",
   "recipe": "classic Northern European 1977-1979 nwobhm, distorted Rock, nwobhm branch, classic distorted rock britpop. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. London major flagship studio 1968-1985 major-flagship uk 70s hard rock arena studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 659,
-  "score": 384.206,
+  "score": 378.297,
   "config": {
     "traditions": [
       "nwobhm",
@@ -88,7 +88,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "alder_b",
           "pickup_config": "split_coil",
@@ -98,7 +97,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 5.9087499999999995,
           "amp_make": 15.989999999999997,
           "body_wood": 3.445,
           "pickup_config": 0,

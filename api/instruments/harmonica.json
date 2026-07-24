@@ -15,90 +15,10 @@
     "dynamics": 0
   },
   "short": "harmonica",
+  "exclude_family_parts": [
+    "free_reed_technique"
+  ],
   "parts": [
-    {
-      "id": "free_reed_technique",
-      "name": "Playing technique",
-      "variants": [
-        {
-          "id": "free_reed_blues_cross",
-          "name": "Blues cross-position (bent)",
-          "applies_to": [
-            "harmonica"
-          ],
-          "descriptors": [
-            "bent",
-            "cross-harp",
-            "wailing"
-          ],
-          "match_tokens": [
-            "bellows-driven",
-            "reed-driven",
-            "blues-derived",
-            "blues-inflected"
-          ],
-          "canonical_tags": [
-            "blues-canonical",
-            "delta"
-          ]
-        },
-        {
-          "id": "free_reed_folk_first_position",
-          "default": true,
-          "name": "Folk first-position straight",
-          "descriptors": [
-            "straight",
-            "melodic"
-          ],
-          "match_tokens": [
-            "bellows-driven",
-            "reed-driven",
-            "folk",
-            "folk-tradition"
-          ],
-          "canonical_tags": [
-            "folk",
-            "singer-songwriter",
-            "country"
-          ]
-        },
-        {
-          "id": "free_reed_chromatic_jazz",
-          "name": "Chromatic jazz lead",
-          "applies_to": [
-            "accordion",
-            "piano_accordion",
-            "harmonica"
-          ],
-          "descriptors": [
-            "chromatic",
-            "lead"
-          ],
-          "match_tokens": [
-            "bellows-driven",
-            "reed-driven",
-            "jazz-trained"
-          ],
-          "canonical_tags": [
-            "jazz-canonical"
-          ]
-        },
-        {
-          "id": "free_reed_overblow_modern",
-          "name": "Overblow modern bending",
-          "descriptors": [
-            "overblown",
-            "fully-chromatic"
-          ],
-          "match_tokens": [
-            "bellows-driven",
-            "reed-driven",
-            "modern"
-          ]
-        }
-      ],
-      "_fromFamily": true
-    },
     {
       "id": "harmonica_type",
       "surface": false,

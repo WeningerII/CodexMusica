@@ -5,7 +5,7 @@
   "lineage": "1980s indie genre extending the 1960s Byrds twelve-string-electric chimey-guitar sound — codified through R.E.M. (the Athens Georgia voice, Murmur 1983, Reckoning 1984, Fables of the Reconstruction 1985), The dB s, the Smiths (the UK parallel canon, with Johnny Marrs Rickenbacker arpeggios over Morrisseys baritone), the Replacements early period, the Feelies, Game Theory, and the broader Paisley Underground Los Angeles scene (Dream Syndicate, Rain Parade, Three OClock); foundational sound: chiming Rickenbacker 12-string-electric over driving rhythm-section and melodic vocal hooks",
   "recipe": "classic North American mid-1980s jangle pop, functional Song, pop rock branch, alternative distorted rock modern indie rock bedroom pop. thick, breath veiled tone, straight note core, interlocked note trading. vox ac amp British 60s amp top boost chime rotosound toaster twelve string electric, marshall plexi amp British rock amp clean strummed single coil electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 694,
-  "score": 388.195,
+  "score": 386.295,
   "config": {
     "traditions": [
       "jangle_pop",
@@ -105,7 +105,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -115,7 +114,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 1.9000000000000001,
           "amp_make": 10.27,
           "body_wood": 0.845,
           "pickup_config": 2.34,

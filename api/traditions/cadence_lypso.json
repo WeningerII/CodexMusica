@@ -3,9 +3,9 @@
   "name": "Cadence-lypso",
   "family": "global",
   "lineage": "Dominica creole-French Caribbean dance-band tradition fusing Haitian compas and Trinidadian calypso, codified through Exile One and Grammacks in the 1970s",
-  "recipe": "classic North American mid-1970s cadence-lypso, groove Percussion, Caribbean branch, Afro-diasporic electric groove percussion kompa afrobeat. thick, breath veiled tone, fast rate, interlocked note trading. maple pau ferro ceramic nickel plated steel nickel single coil electric guitar, thomastik infeld low tension jazz warm pocket fingerstyle electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, open slap hand drum congas. nuyorican fania canon 1968-1977 mid tier fania la tierra studios ny. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, passive program EQ. tape 15ips spring reverb.",
+  "recipe": "classic North American mid-1970s cadence-lypso, groove Percussion, Caribbean branch, Afro-diasporic electric groove percussion kompa afrobeat. thick, breath veiled tone, fast rate, interlocked note trading. maple pau ferro ceramic nickel plated steel nickel single coil electric guitar, thomastik infeld low tension jazz warm fingerstyle locked electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone, open slap hand drum congas. nuyorican fania canon 1968-1977 mid tier fania la tierra studios ny. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, passive program EQ. tape 15ips spring reverb.",
   "recipe_chars": 739,
-  "score": 148.927,
+  "score": 145.352,
   "config": {
     "traditions": [
       "cadence_lypso",
@@ -86,7 +86,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pocket",
           "amp_make": "amp_american_fender_tweed",
           "body_wood": "mahogany_b",
           "pickup_config": "humbucker_mm",
@@ -96,7 +95,6 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "electric_technique": 3.575,
           "amp_make": 0.585,
           "body_wood": 0.195,
           "pickup_config": 0.045,

@@ -5,7 +5,7 @@
   "lineage": "Mid-1990s UK drum-and-bass subgenre integrating Jamaican ragga MC vocal samples and dancehall rhythmic vocabulary with chopped-Amen-break percussion and sub-bass production. Congo Natty (Rebel MC) inaugurated the canonical sound; Shy FX, M-Beat, General Levy, and the broader Suburban Base label roster defined the canonical 1994-1996 ragga jungle peak.",
   "recipe": "classic British 1994-1996 ragga jungle, bass System, bass descendants branch, Jamaican bass system jamaican dancehall. vocal fry, breath veiled tone, slow rate, interlocked note trading. roland tr 8s modern aira digital recreation TR-808, ampeg svt amp rock bass amp alder pyramid pure nickel bass electric bass. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 531,
-  "score": 178.047,
+  "score": 168.727,
   "config": {
     "traditions": [
       "ragga_jungle",
@@ -68,7 +68,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_thumb_muted",
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
@@ -78,7 +77,6 @@
           "bass_technique": "thumb_muted"
         },
         "scores": {
-          "electric_technique": 9.32,
           "amp_make": 10.464999999999998,
           "body_wood": 1.69,
           "pickup_config": 0.213,

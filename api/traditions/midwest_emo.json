@@ -5,7 +5,7 @@
   "lineage": "Mid-1990s American emo subgenre developed in the American Midwest (Champaign-Urbana, Kinsella-family-related Chicago, Milwaukee, and St. Louis) characterized by intricate twinkly-guitar arpeggios, math-rock-derived rhythmic complexity, and confessional-emotional vocal-delivery. Cap'n Jazz (1989-1995, Chicago) inaugurated the style; American Football (1997, Champaign-Urbana, Mike Kinsella), the Promise Ring, Mineral, and Sunny Day Real Estate (Pacific Northwest cognate) constitute the canonical roster.",
   "recipe": "classic North American mid-1990s midwest emo, distorted Rock, emo branch, alternative distorted rock modern indie rock slacker rock. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp mahogany rosewood arpeggiated single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, fiberskyn synthetic calf sticks backbeat drum kit. scrappy 1980-2000 indie-commercial indie commercial us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay electro-harmonix deluxe memory man chorus.",
   "recipe_chars": 663,
-  "score": 333.137,
+  "score": 329.287,
   "config": {
     "traditions": [
       "midwest_emo",
@@ -86,7 +86,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
           "pickup_config": "soapbar",
@@ -96,7 +95,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 3.8500000000000005,
           "amp_make": 13.714999999999998,
           "body_wood": 2.535,
           "pickup_config": 2.9899999999999998,

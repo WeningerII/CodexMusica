@@ -5,7 +5,7 @@
   "lineage": "Cuban big-band brass-and-saxophone urban-popular-dance music codified 1939-onward in Havana from son-cubano accelerated-and-orchestrated for big-band swing-orchestra adaptation. The mambo-typical ensemble: four-trumpets, five-saxophones (two altos, two tenors, plus baritone), piano, contrabass, congas, bongos, timbales, claves, maracas, and güiro. The mambo-section open-improvisation montuno-equivalent features brass-shouts (mambos), saxophone-and-piano riffs over ostinato-vamp, and percussion-and-vocal call-and-response. The 1947-onward Mexico-City-and-NYC-Palladium mambo-craze made it the international Cuban-dance-music ambassador; the 1950s saw mambo-fused-with-jazz (Afro-Cuban jazz, Latin-jazz), with cha-cha-chá and pachanga emerging as next-generation variants.",
   "recipe": "classic Caribbean modern mambo, groove Percussion, charanga danza branch, American jazz early swing big band chicago jazz. thick, full chest belt, straight onset, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator grand piano, growly gut upright bass, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, bronze open slap hand drum timbales, mule hide canonical Cuban son premium oak staved canonical Cuban open slap hand drum bongos, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral ensemble jazz balance trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor ensemble student commercial trombone, phosphor bronze selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow legato saxophone, claves. pre revolutionary cuba 1944-1960 mid tier panart puchito havana pre 1959. large-diaphragm condenser, tube pre.",
   "recipe_chars": 988,
-  "score": 604.886,
+  "score": 602.831,
   "config": {
     "traditions": [
       "mambo",
@@ -80,12 +80,10 @@
       {
         "id": "upright_bass",
         "slots": {
-          "acoustic_technique": "acoustic_chord_melody",
           "upright_strings": "gut_wound_upright",
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "acoustic_technique": 2.055,
           "upright_strings": 25.75,
           "upright_play": 25.75
         }
@@ -243,7 +241,6 @@
       "voice_mechanism_compound": "voice_mechanism_single_source",
       "keyboard_technique": "keyboard_block_chord_pop",
       "piano_pitch_standard": "a_440_modern",
-      "acoustic_technique": "acoustic_flatpicked",
       "upright_play": "pizz_upright",
       "upright_strings": "gut_wound_upright",
       "percussion_technique": "percussion_hands_layered",

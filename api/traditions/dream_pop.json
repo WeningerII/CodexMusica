@@ -5,7 +5,7 @@
   "lineage": "1980s-onward atmospheric guitar pop genre codified through the 4AD label catalog (Cocteau Twins, Treasure 1984, Heaven or Las Vegas 1990 the dream pop album), the Mazzy Star California canon (She Hangs Brightly 1990, So Tonight That I Might See 1993 with Hope Sandoval female-vocal-foreground), Galaxie 500 (the New England slowcore-adjacent canon), Beach House (Baltimore modern dream pop, Teen Dream 2010, Bloom 2012)",
   "recipe": "classic Northern European mid-1980s dream pop, functional Song, pop rock branch, alternative distorted rock bedroom pop. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alder single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, sequential lineage canonical prophet 5 1978 san jose ca lead analog poly yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, original production texture omnichord. UK 4ad and creation shoegaze 1986-1995 indie-commercial dream pop shoegaze 4ad studio. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb electro-harmonix deluxe memory man chorus.",
   "recipe_chars": 922,
-  "score": 512.867,
+  "score": 511.018,
   "config": {
     "traditions": [
       "dream_pop",
@@ -86,7 +86,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -96,7 +95,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 1.85,
           "amp_make": 13.682500000000003,
           "body_wood": 0.845,
           "pickup_config": 1.0399999999999998,

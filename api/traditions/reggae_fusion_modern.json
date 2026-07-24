@@ -5,7 +5,7 @@
   "lineage": "Late-1990s onward Caribbean popular-music genre fusing reggae rhythmic and vocal vocabulary with hip-hop, pop, R-and-B, and electronic-dance production techniques — codified through Sean Paul (Dutty Rock 2002), Shaggy (Hot Shot 2000), Sean Kingston (Sean Kingston 2007), Magic! (Don't Kill the Magic 2014), with the form serving as the international-mainstream commercial-reggae substream",
   "recipe": "classic 1997-1999 reggae fusion, bass System, reggae diaspora branch, intl hip hop MC rhythm australian hip-hop japanese hip-hop. thick, rap, straight onset, interlocked note trading. modeled amp modern rig clean strummed single coil electric guitar, modeled amp modern rig ernie ball slinky thumb muted electric bass, pre muffled edge muffled brushes-and-sticks drum kit, pitched chopped sampler, Hammond a 100 built in Leslie home spinet block chord fast tremolo tonewheel organ. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 627,
-  "score": 359.359,
+  "score": 342.159,
   "config": {
     "traditions": [
       "reggae_fusion_modern",
@@ -86,7 +86,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_thumb_muted",
           "amp_make": "amp_modern_modeling",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -96,7 +95,6 @@
           "bass_technique": "thumb_muted"
         },
         "scores": {
-          "electric_technique": 17.199999999999996,
           "amp_make": 4.23,
           "body_wood": 0.3,
           "pickup_config": 1.645,

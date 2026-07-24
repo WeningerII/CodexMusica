@@ -5,7 +5,7 @@
   "lineage": "1970s jazz subgenre developed from Miles Davis's late-1960s Bitches Brew sessions, integrating jazz-improvisational practice with rock-and-funk rhythmic vocabulary and electric-amplified-instrumentation. Weather Report (founded 1970 by Joe Zawinul and Wayne Shorter), Mahavishnu Orchestra (John McLaughlin), Return to Forever (Chick Corea), and Headhunters (Herbie Hancock) constitute the canonical 1970s fusion roster. Distinguished from broader jazz by fusion's explicit rock-and-funk-rhythmic-electric-instrument synthesis.",
   "recipe": "classic Los Angeles jazz fusion, improv On Frame, fusion branch, progressive rock distorted rock zeuhl canterbury scene. alto nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow saxophone, soft felt lacquer voiced 17 ply hard rock maple sitka spruce grand piano, marshall plexi amp British rock amp ernie ball slinky walking fingerstyle electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, analog synth, prog rock electric violin. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
   "recipe_chars": 674,
-  "score": 301.507,
+  "score": 295.007,
   "config": {
     "traditions": [
       "fusion_70s_electric",
@@ -62,7 +62,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_slap_pop",
           "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -72,7 +71,6 @@
           "bass_technique": "fingerstyle_walking"
         },
         "scores": {
-          "electric_technique": 6.499999999999999,
           "amp_make": 12.805,
           "body_wood": 0.273,
           "pickup_config": 0.45499999999999996,

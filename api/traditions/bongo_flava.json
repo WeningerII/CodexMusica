@@ -5,7 +5,7 @@
   "lineage": "Tanzanian Swahili-language hip-hop and R&B hybrid tradition codified through Diamond Platnumz, Ali Kiba, Professor Jay, and Lady Jaydee — emerging late 1990s from Dar es Salaam street hip-hop scene, then evolving into mainstream Swahili-pop with R&B crossover; characterized by Swahili vocals over hip-hop and afropop production",
   "recipe": "classic 1997-1999 bongo flava, functional Song, African pop branch, intl hip hop MC rhythm, Afro-diasporic MC rhythm gengetone french rap. extended whistle, rap, straight onset, narrative. TR-808, pitched chopped sampler, sub bass analog poly synth, sub heavy electric bass. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 419,
-  "score": 255.625,
+  "score": 255.105,
   "config": {
     "traditions": [
       "bongo_flava",
@@ -100,7 +100,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_fuzz_riff",
           "amp_make": "amp_modern_modeling",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -110,7 +109,6 @@
           "bass_technique": "sub_bass_synth_blend"
         },
         "scores": {
-          "electric_technique": 0.52,
           "amp_make": 0.7149999999999999,
           "body_wood": 0.78,
           "pickup_config": 1.4949999999999999,

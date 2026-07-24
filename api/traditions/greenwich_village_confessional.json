@@ -5,7 +5,7 @@
   "lineage": "Early-1960s Greenwich Village (Cafe Wha, Gerdes Folk City, the Bitter End) folk-revival singer-songwriter circuit — Bob Dylan, Phil Ochs, Dave Van Ronk, Joan Baez early years, Tom Paxton, Eric Andersen",
   "recipe": "classic North American 1960s greenwich village confessional folk, ballad Poetry, 60s confessional, anglo singer song laurel canyon, anglo singer song britfolk britfolk revival. thick, incomplete closure resting, straight note core, interlocked note trading. verse-lament through-composed narrative, through composed, static dynamic envelope, vocal ornamentation as intensification. dadgad tuning fingerpicked acoustic guitar, pearwood marine band tradition brass traditional hering Brazilian premium forro canon harmonica. nyc jazz vocal engineered 1958-1998 mid tier a and r recording nyc. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 685,
-  "score": 289.709,
+  "score": 221.293,
   "config": {
     "traditions": [
       "greenwich_village_confessional",
@@ -55,7 +55,6 @@
       {
         "id": "acoustic_guitar_om",
         "slots": {
-          "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "dadgad",
           "top_wood": "cedar_om",
           "back_sides": "walnut_bs_om",
@@ -63,7 +62,6 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 43.685874999999996,
           "string_tuning": 7.894999999999999,
           "top_wood": 0.195,
           "back_sides": 0.195,
@@ -74,7 +72,6 @@
       {
         "id": "harmonica",
         "slots": {
-          "free_reed_technique": "free_reed_folk_first_position",
           "harmonica_type": "tremolo_harm",
           "harmonica_comb": "pearwood_comb",
           "harmonica_reed": "brass_harm",
@@ -83,7 +80,6 @@
           "harmonica_tuning": "harmonica_richter_canonical"
         },
         "scores": {
-          "free_reed_technique": 24.729999999999997,
           "harmonica_type": 0.9974999999999999,
           "harmonica_comb": 2.1475,
           "harmonica_reed": 1.9,
@@ -128,7 +124,6 @@
       "voice_mechanism_compound": "voice_mechanism_single_source",
       "harmonica_technique": "harm_folk_first_position",
       "harmonica_type": "diatonic_blues",
-      "acoustic_technique": "acoustic_strummed_ringing",
       "top_wood": "sitka_om",
       "back_sides": "mahogany_bs_om",
       "string_acoustic": "phosphor_om",

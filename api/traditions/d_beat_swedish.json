@@ -5,7 +5,7 @@
   "lineage": "Punk subgenre named for the distinctive 1-and-3 kick / 2-and-4 snare beat-pattern codified by Discharge (UK 1977-onward). Swedish D-beat-revival scene centered on Anti-Cimex, Mob 47, and (in the 1990s D-beat wave) Driller Killer and Wolfpack drove international circulation. Characterized by Discharge-derived beat-pattern, distorted-bass-and-guitar tone, and bleak anti-war anti-government political content.",
   "recipe": "classic Northern European modern d-beat, distorted Rock, punk branch, thrash metal groove metal djent. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, brushes-and-sticks drum kit. gothenburg Swedish metal defining 1992-present indie-commercial gothenburg swedish melodic death studio. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 604,
-  "score": 317.088,
+  "score": 307.132,
   "config": {
     "traditions": [
       "d_beat_swedish",
@@ -88,7 +88,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
@@ -98,7 +97,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 9.956499999999998,
           "amp_make": 6.890000000000001,
           "body_wood": 3.1849999999999996,
           "pickup_config": 0.845,

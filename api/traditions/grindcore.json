@@ -5,7 +5,7 @@
   "lineage": "UK and US extreme-metal-and-hardcore fusion that emerged in the mid-late 1980s — codified through Napalm Death (Birmingham UK, Scum 1987 the foundational album with You Suffer the 28-second-song sonic-economy gesture), Carcass (Liverpool UK gore-grindcore, Reek of Putrefaction 1988), Repulsion (Michigan US founding band, Horrified 1989), the modern continuation through Pig Destroyer, Magrudergrind; hardcore-punks compressed-song-format extended to its logical conclusion",
   "recipe": "classic Midwestern American 1987-1989 grindcore, distorted Rock, death branch, punk distorted rock crust punk d-beat. thick, breath veiled tone, slow rate, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, kevlar aramid extreme tension brushes-and-sticks drum kit. stoner doom garage amplifier room. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 597,
-  "score": 393.967,
+  "score": 376.972,
   "config": {
     "traditions": [
       "grindcore",
@@ -49,7 +49,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
@@ -59,7 +58,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 16.995000000000005,
           "amp_make": 9.035,
           "body_wood": 2.9899999999999998,
           "pickup_config": 0.845,

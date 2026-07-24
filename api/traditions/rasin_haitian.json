@@ -5,7 +5,7 @@
   "lineage": "Haitian rock-and-Vodou-fusion genre developed in late-1970s-1980s Haiti. Fusion of Haitian Vodou ceremonial-drumming-and-singing with rock-and-roots-music aesthetic. Emerged through Boukman Eksperyans (founded 1978 in Port-au-Prince by Theodore \"Lolo\" Beaubrun) and parallel groups Boukan Ginen, Sanba Yo, Rara Machine. Electric guitars-bass-drum-kit alongside Vodou-ceremonial percussion. The 1990 Vodou Adjae album consolidated international visibility.",
   "recipe": "classic Caribbean 1977-1979 rasin, distorted Rock, regional branch, Afro-diasporic ritual devotional jongo haitian vodou ceremonial. thick, breath veiled tone, straight note core, interlocked note trading. marshall plexi amp British rock amp mahogany maple alnico humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, brushes-and-sticks drum kit. port au prince Haitian recording 1970-2000 indie-commercial port au prince haitian kompa studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
   "recipe_chars": 540,
-  "score": 189.868,
+  "score": 189.917,
   "config": {
     "traditions": [
       "rasin_haitian",
@@ -88,7 +88,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_walking",
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
           "pickup_config": "humbucker_mm",
@@ -98,7 +97,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": -0.05,
           "amp_make": 6.8,
           "body_wood": 0.6,
           "pickup_config": 0.39,

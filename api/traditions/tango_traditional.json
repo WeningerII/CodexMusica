@@ -5,7 +5,7 @@
   "lineage": "Pre-1955 Buenos-Aires-and-Montevideo orquesta-típica golden-age tradition of the 1940s-decade-of-the-orchestras D'Arienzo-Troilo-Pugliese-Di-Sarli-stylistic-spectrum. The standard ten-piece orquesta-típica configuration: four bandoneóns leading-and-bellows-articulated-counter-melody, four violins (with one rotated to viola for chamber-thickness), upright-bass marking the strong-beats, and piano providing harmonic-rhythmic-anchor. Built on the 2/4 four-strong-beat (D'Arienzo marcato) versus 4/4 elongated-phrasing (Pugliese yumba-and-rubato) tempo-philosophy split that defines tango interpretation. The repertoire layers tango-instrumental, tango-canción with sung-poetic-lunfardo-slang lyrics, vals-criollo Argentine-waltz, and milonga-fast pace variant.",
   "recipe": "classic South American mid-1940s tango traditional, ballad Poetry, Latin am troubadour branch, Latin am groove percussion joropo vallenato. sygyt, breath veiled tone, fast rate, interlocked note trading. tango virtuoso premier German tango premium alternative steel reeds canonical aa pre 1949 voicing bellows articulated bandoneon, synthetic sitka spruce European maple sycamore maple cremonese pre 1750 violin orchestral, upright piano, upright bass. large tracking room 1920-1965 mid tier odeon rca buenos aires. RCA 44-BX, German V72 tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 583,
-  "score": 187.155,
+  "score": 186.205,
   "config": {
     "traditions": [
       "tango_traditional",
@@ -112,12 +112,10 @@
       {
         "id": "upright_bass",
         "slots": {
-          "acoustic_technique": "acoustic_chord_melody",
           "upright_strings": "steel_upright",
           "upright_play": "slap_upright"
         },
         "scores": {
-          "acoustic_technique": 0.95,
           "upright_strings": 0.39,
           "upright_play": 1.95
         }
@@ -159,7 +157,6 @@
       "bowed_technique": "bowed_chopped_old_time",
       "orch_setup_period": "modern_setup_violin",
       "orch_bow": "modern_bow",
-      "acoustic_technique": "acoustic_flatpicked",
       "upright_play": "pizz_upright",
       "upright_strings": "gut_wound_upright",
       "keyboard_technique": "keyboard_block_chord_pop",

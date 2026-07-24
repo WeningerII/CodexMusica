@@ -5,7 +5,7 @@
   "lineage": "Japanese 1980s-1990s mainstream pop tradition codified through Seiko Matsuda, Yumi Matsutoya, the agency-system idol pop infrastructure (Johnny’s Entertainment for male groups, Sun Music for solo idols), and television-tied tie-up song format — characterized by major-key brightness, English-loanword lyric inserts, and tightly-arranged session-musician production",
   "recipe": "classic Asian mid-1980s j-pop, functional Song, east Asian pop branch, pop rock functional song new wave yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. singing lead analog poly synth, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit. treated studio. Neumann U87, console-strip pre, SSL inline console, SMART research c1/c2, SSL surgical EQ. 16-bit digital eventide harmonizer TC electronic 2290 delay digital delay.",
   "recipe_chars": 642,
-  "score": 517.81,
+  "score": 513.47,
   "config": {
     "traditions": [
       "j_pop_classic",
@@ -101,7 +101,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
           "pickup_config": "soapbar",
@@ -111,7 +110,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 4.339999999999999,
           "amp_make": 12.35,
           "body_wood": 3.055,
           "pickup_config": 0.195,

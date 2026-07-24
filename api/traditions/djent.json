@@ -5,7 +5,7 @@
   "lineage": "Mid-2000s progressive-metal subgenre developed through Meshuggah-derived polymetric-rhythmic-and-down-tuned guitar production (the term \"djent\" is onomatopoeic for the distinctive percussive palm-muted heavily-distorted seven-or-eight-string guitar attack). Periphery (Misha Mansoor, founded 2005), Animals As Leaders (Tosin Abasi), TesseracT, Monuments, and the broader Sumerian Records and Basick Records label rosters anchor the canonical djent roster.",
   "recipe": "classic djent, distorted Rock, thrash branch, western modern art music american minimalism indeterminacy and aleatoric. thick, breath veiled tone, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modeled amp modern rig alder ernie ball slinky sub heavy electric bass, pre muffled edge muffled brushes-and-sticks drum kit. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 638,
-  "score": 300.365,
+  "score": 298.165,
   "config": {
     "traditions": [
       "djent",
@@ -88,7 +88,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_modern_modeling",
           "body_wood": "alder_b",
           "pickup_config": "soapbar",
@@ -98,7 +97,6 @@
           "bass_technique": "sub_bass_synth_blend"
         },
         "scores": {
-          "electric_technique": 2.2,
           "amp_make": 16.795,
           "body_wood": 6.874999999999999,
           "pickup_config": 3.7700000000000005,

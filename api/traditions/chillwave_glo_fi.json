@@ -5,7 +5,7 @@
   "lineage": "Late-2000s indie-electronic subgenre developed through internet-distributed-production scene, characterized by hazy-reverbed atmospheric production, 1980s-synth-and-disco sampling, mid-tempo languid grooves, and explicit nostalgic-summer-evening aesthetic. Washed Out, Toro y Moi, Neon Indian, and Ducktails inaugurated the canonical sound c. 2009-2011; the broader Carpark Records, Mexican Summer, and Captured Tracks label rosters anchored institutional infrastructure.",
   "recipe": "classic chillwave, distorted Rock, experimental branch, ambient experimental electric vaporwave aesthetic witch house. thick, breath veiled tone, straight onset, interlocked note trading. pad like vibrato y pad analog synth, TR-808, alder ernie ball slinky electric bass. no single room 2015-present distributed distributed production. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 434,
-  "score": 158.64,
+  "score": 156.44,
   "config": {
     "traditions": [
       "chillwave_glo_fi",
@@ -85,7 +85,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "alder_b",
           "pickup_config": "soapbar",
@@ -95,7 +94,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 2.2,
           "amp_make": 2.9549999999999996,
           "body_wood": 1.69,
           "pickup_config": 0.15,

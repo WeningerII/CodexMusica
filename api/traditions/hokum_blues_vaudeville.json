@@ -3,9 +3,9 @@
   "name": "Hokum blues",
   "family": "global",
   "lineage": "1920s-30s vaudeville-blues humorous-narrative subgenre — codified through Tampa Red (Tampa Red and the Hokum Jug Band, his Its Tight Like That 1928 with Georgia Tom Dorsey the hokum recording), Memphis Minnie, the Hokum Boys (the studio collective recording for Paramount and Vocalion 1928-30), Blind Boy Fuller (whose Trucking My Blues Away 1937 extended the hokum tradition into the Piedmont blues style), the Mississippi Sheiks; lyrical content alternates explicit double-entendre sexual humor with topical social-commentary and broader vaudeville-derived theatrical-humor narrative",
-  "recipe": "classic North American mid-1920s hokum blues, ballad Poetry, hokum blues branch, American jazz early new orleans jazz swing big band. thick, blues-shouter, wide pitch sway, interlocked note trading. flatwound thomastik fingerpicked slide acoustic guitar, growly gut upright bass, frottoir, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick call-and-response banjo 5 string, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, kazoo. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
-  "recipe_chars": 673,
-  "score": 460.019,
+  "recipe": "classic North American mid-1920s hokum blues, ballad Poetry, hokum blues branch, American jazz early new orleans jazz swing big band. thick, blues-shouter, wide pitch sway, interlocked note trading. flatwound thomastik slide acoustic guitar, growly gut upright bass, frottoir, scruggs stelling bluegrass setup mastertone flathead picks and thumbpick banjo 5 string, pearwood marine band tradition brass traditional hohner marine band 1896 canonical blues trossingen harmonica, kazoo. nyc tin pan alley defining 1880-1965 major-flagship nyc brill building tin pan alley. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 642,
+  "score": 437.983,
   "config": {
     "traditions": [
       "hokum_blues_vaudeville",
@@ -55,7 +55,6 @@
       {
         "id": "acoustic_guitar_om",
         "slots": {
-          "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "open_g",
           "top_wood": "cedar_om",
           "back_sides": "mahogany_bs_om",
@@ -63,7 +62,6 @@
           "acoustic_om_technique": "om_bottleneck_slide"
         },
         "scores": {
-          "acoustic_technique": 5.6325,
           "string_tuning": 2.2,
           "top_wood": 0.005625,
           "back_sides": 0.005625,
@@ -74,12 +72,10 @@
       {
         "id": "upright_bass",
         "slots": {
-          "acoustic_technique": "acoustic_chord_melody",
           "upright_strings": "gut_wound_upright",
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "acoustic_technique": 0.9806250000000001,
           "upright_strings": 17,
           "upright_play": 17
         }
@@ -98,7 +94,6 @@
       {
         "id": "banjo_5_string",
         "slots": {
-          "plucked_traditional_technique": "plucked_call_and_response",
           "banjo_back": "resonator",
           "tone_ring": "tubaphone",
           "banjo_head": "fiberskyn",
@@ -111,7 +106,6 @@
           "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
         "scores": {
-          "plucked_traditional_technique": 13.504999999999997,
           "banjo_back": 1.005625,
           "tone_ring": 0.01125,
           "banjo_head": 13.259999999999998,
@@ -127,7 +121,6 @@
       {
         "id": "harmonica",
         "slots": {
-          "free_reed_technique": "free_reed_folk_first_position",
           "harmonica_type": "chromatic_harm",
           "harmonica_comb": "pearwood_comb",
           "harmonica_reed": "brass_harm",
@@ -136,7 +129,6 @@
           "harmonica_tuning": "harmonica_solo_chromatic"
         },
         "scores": {
-          "free_reed_technique": 1.9174999999999998,
           "harmonica_type": 8.839999999999998,
           "harmonica_comb": 32.8325,
           "harmonica_reed": 25.870625000000004,
@@ -188,7 +180,6 @@
       "voice_estill_quality": "voice_estill_belt",
       "voice_vibrato": "slow_vibrato",
       "voice_mechanism_compound": "voice_mechanism_single_source",
-      "acoustic_technique": "acoustic_flatpicked",
       "upright_play": "pizz_upright",
       "upright_strings": "gut_wound_upright",
       "harmonica_technique": "harm_blues_cross",
@@ -197,7 +188,6 @@
       "back_sides": "mahogany_bs_om",
       "string_acoustic": "phosphor_om",
       "acoustic_om_technique": "om_bottleneck_slide",
-      "plucked_traditional_technique": "plucked_dance_pattern",
       "banjo_back": "open_back",
       "tone_ring": "wood_ring",
       "banjo_play": "clawhammer",

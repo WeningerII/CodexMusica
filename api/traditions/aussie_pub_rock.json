@@ -5,7 +5,7 @@
   "lineage": "1970s-and-1980s Australian rock subgenre developed through the working-class pub-circuit performance economy of Sydney, Melbourne, Adelaide, and Perth. Cold Chisel, the Angels, Rose Tattoo, Midnight Oil, and AC/DC (Sydney-formed) constitute the canonical roster; the Australian-Crawl and (later) INXS extended the genre into international circulation. Distinguished by tight-rhythm-section-and-melodic-vocal pub-band aesthetic and Australian-cultural-identity lyrical content.",
   "recipe": "classic Los Angeles mid-1970s aussie pub rock, distorted Rock, regional branch, classic distorted rock merseybeat. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, oil filled brushes-and-sticks drum kit. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
   "recipe_chars": 606,
-  "score": 332.275,
+  "score": 327.284,
   "config": {
     "traditions": [
       "aussie_pub_rock",
@@ -88,7 +88,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -98,7 +97,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 4.991499999999999,
           "amp_make": 11.764999999999997,
           "body_wood": 1.7700000000000002,
           "pickup_config": 0.045,

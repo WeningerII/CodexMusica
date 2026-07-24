@@ -3,9 +3,9 @@
   "name": "Tribal house",
   "family": "electronic",
   "lineage": "1990s house subgenre developed in New York and Chicago characterized by heavy world-percussion sampling (Afro-Cuban congas, African djembe-and-talking-drum, Brazilian batucada), tribal-chant vocal-sampling, and minimalist-melodic-percussion-focused arrangement. Junior Vasquez, Danny Tenaglia, Roger Sanchez, and the Sound Factory NYC scene defined the canonical 1990s tribal house aesthetic.",
-  "recipe": "classic mid-1990s tribal house, electronic Dance, house branch, west African groove percussion indonesian jaipongan jùjú. vocal fry, breath veiled tone, straight note core, interlocked note trading. TR-808, fast decay focused low analog synth, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, open slap hand drum djembe. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 554,
-  "score": 180.177,
+  "recipe": "classic mid-1990s tribal house, electronic Dance, house branch, west African groove percussion indonesian jaipongan jùjú. vocal fry, breath veiled tone, straight note core, interlocked note trading. TR-808, fast decay focused low analog synth, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, djembe. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 534,
+  "score": 172.442,
   "config": {
     "traditions": [
       "tribal_house",
@@ -100,13 +100,11 @@
       {
         "id": "djembe",
         "slots": {
-          "percussion_technique": "percussion_open_slap",
           "djembe_wood": "djembe_iroko",
           "djembe_skin": "djembe_synthetic",
           "djembe_play": "djembe_traditional_3"
         },
         "scores": {
-          "percussion_technique": 7.735,
           "djembe_wood": 1.04,
           "djembe_skin": 0.195,
           "djembe_play": 0.845

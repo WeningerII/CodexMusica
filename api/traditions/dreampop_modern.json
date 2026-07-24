@@ -5,7 +5,7 @@
   "lineage": "1980s-onward indie rock subgenre developed from Cocteau Twins (UK 1979-1997) and continuing through Mazzy Star, Beach House, and the broader contemporary scene. Characterized by ethereal-reverberant production, atmospheric-pad textures, female-vocal-feature presentation, and explicit slow-emotional-dream-state aesthetic. Distinguished from shoegaze by dreampop's emphasis on melodic-songcraft over wall-of-noise.",
   "recipe": "classic mid-1980s dreampop, distorted Rock, alternative branch, ambient experimental electric, anglo singer song confessional60s vaporwave aesthetic hauntology. thick, breath veiled tone, straight onset, interlocked note trading. marshall plexi amp British rock amp basswood alnico soft down tuning humbucker electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, pad like pad analog synth. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 678,
-  "score": 211.232,
+  "score": 209.332,
   "config": {
     "traditions": [
       "dreampop_modern",
@@ -88,7 +88,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -98,7 +97,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 1.9000000000000001,
           "amp_make": 3.755,
           "body_wood": 1.17,
           "pickup_config": 1.15,

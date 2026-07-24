@@ -15,65 +15,10 @@
     "dynamics": 1
   },
   "short": "djembe",
+  "exclude_family_parts": [
+    "percussion_technique"
+  ],
   "parts": [
-    {
-      "id": "percussion_technique",
-      "name": "Playing technique",
-      "variants": [
-        {
-          "id": "percussion_hands_layered",
-          "default": true,
-          "name": "Hand percussion layered",
-          "applies_to": [
-            "congas",
-            "djembe",
-            "bongos",
-            "pandeiro",
-            "tar_frame_drum",
-            "timbales",
-            "darbuka",
-            "cuica"
-          ],
-          "descriptors": [
-            "hands",
-            "layered"
-          ],
-          "match_tokens": [
-            "percussive-attack"
-          ],
-          "canonical_tags": [
-            "afro",
-            "latin"
-          ]
-        },
-        {
-          "id": "percussion_open_slap",
-          "name": "Open / slap (hand-drum)",
-          "applies_to": [
-            "congas",
-            "djembe",
-            "bongos",
-            "darbuka",
-            "timbales"
-          ],
-          "descriptors": [
-            "open-slap",
-            "hand-drum"
-          ],
-          "match_tokens": [
-            "open-chord-ringing-overtones",
-            "open-tuned",
-            "slappy",
-            "percussive-attack"
-          ],
-          "canonical_tags": [
-            "afro",
-            "latin"
-          ]
-        }
-      ],
-      "_fromFamily": true
-    },
     {
       "id": "djembe_wood",
       "name": "Shell wood",

@@ -5,7 +5,7 @@
   "lineage": "Late-1940s through early-1960s African-American (originally) and Italian-American (East Coast urban) vocal-harmony group teen-pop R&B tradition built on the I-vi-IV-V chord cycle and non-lexical vocal syllables (shooby-doo-wop) — the Orioles, the Ravens, the Five Satins, the Penguins (Earth Angel, 1954), the Platters, Frankie Lymon and the Teenagers (Why Do Fools Fall in Love, 1956)",
   "recipe": "classic North American 1947-1949 doo-wop, functional Song, doowop branch, christian gospel jubilee quartet, pop rock functional song 1960s girl group new wave. thick, breath veiled tone, breath pulsed, interlocked note trading. choir doo wop group, block chord upright piano, Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, upright bass, tenor selmer mark vi canonical 1954 1974 jazz paris ensemble honking attack saxophone, pre muffled edge muffled brushes-and-sticks drum kit, khoisan click articulated song syllables vocal percussion solo lead vocal percussion voice. eleventh floor office converted studio 1947-1976 mid tier atlantic studios nyc. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 803,
-  "score": 456.06,
+  "score": 453.685,
   "config": {
     "traditions": [
       "doo_wop",
@@ -110,12 +110,10 @@
       {
         "id": "upright_bass",
         "slots": {
-          "acoustic_technique": "acoustic_chord_melody",
           "upright_strings": "steel_upright",
           "upright_play": "slap_upright"
         },
         "scores": {
-          "acoustic_technique": 2.375,
           "upright_strings": 0.195,
           "upright_play": 0.585
         }
@@ -210,7 +208,6 @@
       "voice_estill_quality": "voice_estill_belt",
       "voice_vibrato": "fast_vibrato",
       "voice_mechanism_compound": "voice_mechanism_single_source",
-      "acoustic_technique": "acoustic_flatpicked",
       "upright_play": "pizz_upright",
       "upright_strings": "gut_wound_upright",
       "wind_articulation": "wind_bebop_runs",

@@ -5,7 +5,7 @@
   "lineage": "Trinidadian narrative-and-topical song tradition emerging from post-1834 Emancipation kalinda stick-fighting chant, codified through the post-WWII commercial recording era — Mighty Sparrow (Slinger Francisco), Lord Kitchener (Aldwyn Roberts), Lord Invader, the Roaring Lion, Lord Melody, Calypso Rose; performed during the Trinidad and Tobago Carnival season (October-February preparation, with Carnival Monday-Tuesday peak) in calypso tent venues and competition contexts",
   "recipe": "classic Caribbean mid-1830s calypso, groove Percussion, Caribbean branch, tropical song functional song, Caribbean carnival processional bachata merengue urbano. vocal fry, full chest belt, straight note core, interlocked note trading. dreadnought acoustic guitar, claves, pyramid pure nickel bass British mid 60s era sub heavy electric bass, steelpan, bach stradivarius 180 canonical American orchestral shallow cup lead trumpet ensemble trumpet, yellow brass modern standard yamaha custom 875ex modern Japanese premium rubber saxophone, steel orchestra. trinidad calypso panyard outdoor. sennheiser MD421, transformer-coupled solid-state pre, MCI JH-636 US 70s indie/jazz, dbx 160 VCA, parametric EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 748,
-  "score": 178.197,
+  "score": 177.947,
   "config": {
     "traditions": [
       "calypso",
@@ -83,7 +83,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_slap_pop",
           "amp_make": "amp_modern_modeling",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -93,7 +92,6 @@
           "bass_technique": "sub_bass_synth_blend"
         },
         "scores": {
-          "electric_technique": 0.25,
           "amp_make": 1.17,
           "body_wood": 0.78,
           "pickup_config": 0.65,

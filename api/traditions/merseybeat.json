@@ -5,7 +5,7 @@
   "lineage": "Early-1960s Liverpool-and-Merseyside beat-music style emerging from the convergence of skiffle, American R&B, and rock-and-roll into the canonical guitar-bass-drums-and-vocal-harmony four-piece beat-group format. The Beatles, Gerry and the Pacemakers, the Searchers, the Merseybeats, and Cilla Black constituted the canonical roster; the Cavern Club Liverpool and the Star-Club Hamburg anchored the institutional performance circuit. Distinguished from broader British Invasion by Merseybeat's Liverpool-specific geographic-cultural identity.",
   "recipe": "classic British merseybeat, distorted Rock, classic branch, regional distorted rock aussie pub rock greek rock. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation soft down tuning single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, oil filled sticks backbeat drum kit, sticky pad plucked sustained chord comping hohner pianet. small Soho room 1962-1968 indie-commercial uk small 60s commercial. large-diaphragm condenser, tube pre, German tube console. tape 15ips echo plate reverb spring reverb.",
   "recipe_chars": 643,
-  "score": 368.014,
+  "score": 363.144,
   "config": {
     "traditions": [
       "merseybeat",
@@ -86,7 +86,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
           "pickup_config": "split_coil",
@@ -96,7 +95,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 4.869999999999999,
           "amp_make": 14.105,
           "body_wood": 0.48300000000000004,
           "pickup_config": 0,

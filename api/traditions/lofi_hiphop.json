@@ -5,7 +5,7 @@
   "lineage": "Mid-2010s onward online-distributed instrumental-hip-hop genre characterized by tape-saturated downtempo beat-tape production, jazz-and-soul sample foundations, and study-and-relax-targeted use context — codified through Nujabes (Modal Soul 2005, posthumously canonical), J Dilla (Donuts 2006, the lineage-bearing predecessor), and developed through ChilledCow and Lofi Girl YouTube live-streams, with countless bedroom-producer contributors",
   "recipe": "classic 2014-2016 lo-fi hip hop, experimental Elec, lofi branch, us hip hop modern cloud rap. chopped sampler, mark 7 modern tine post 2007 reissue centered tine pickup gap canonical balanced Rhodes voicing ostinato rhodes electric, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, roland tr 8s modern aira digital recreation TR-808, soft felt lacquer voiced 17 ply hard rock maple Asian spruce grand piano. bedroom. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
   "recipe_chars": 560,
-  "score": 145.008,
+  "score": 139.358,
   "config": {
     "traditions": [
       "lofi_hiphop",
@@ -51,7 +51,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pocket",
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -61,7 +60,6 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "electric_technique": 5.65,
           "amp_make": 7.47525,
           "body_wood": 1.135,
           "pickup_config": 3.835,

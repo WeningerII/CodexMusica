@@ -5,7 +5,7 @@
   "lineage": "Mid-1950s American Mid-South rockabilly genre codified at Sun Studios Memphis under Sam Phillips production — Elvis Presley Thats All Right Mama 1954 (the founding rockabilly recording), Carl Perkins Blue Suede Shoes 1955, Jerry Lee Lewis Whole Lotta Shakin Goin On 1957, Johnny Cash I Walk the Line 1956, Roy Orbison Ooby Dooby 1956; characterized by slap-bass upright bass, Gretsch hollowbody or Fender Telecaster electric guitar with travis-picking right-hand technique, the Sun Studios slapback short-tape-delay processing, and the country I-IV-V harmonic foundation fused with blues pentatonic vocabulary",
   "recipe": "classic Southern American 1954-1956 rockabilly, functional Song, honky tonk era branch, pop rock functional song, blues narrative ballad poetry folk rock classic blues women. thick, breath veiled tone, wide pitch sway, interlocked note trading. Fender tweed amp American 50s amp tweed breakup dual p90 flatwound semi hollow, Fender tweed amp American 50s amp tweed breakup mahogany rosewood single coil electric guitar, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit. sun studios 706 union avenue memphis 1950-1968 indie-commercial sun studios memphis 706 union. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 693,
-  "score": 426.12,
+  "score": 426.155,
   "config": {
     "traditions": [
       "rockabilly_50s",
@@ -105,12 +105,10 @@
       {
         "id": "upright_bass",
         "slots": {
-          "acoustic_technique": "acoustic_chord_melody",
           "upright_strings": "gut_wound_upright",
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "acoustic_technique": -0.035,
           "upright_strings": 4.875,
           "upright_play": 4.875
         }
@@ -169,7 +167,6 @@
       "voice_estill_quality": "voice_estill_oral_twang",
       "voice_vibrato": "slow_vibrato",
       "voice_mechanism_compound": "voice_mechanism_single_source",
-      "acoustic_technique": "acoustic_flatpicked",
       "upright_play": "slap_upright",
       "upright_strings": "steel_upright",
       "semi_archetypes": "semi_casino",

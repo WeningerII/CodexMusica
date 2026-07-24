@@ -3,9 +3,9 @@
   "name": "Bluegrass",
   "family": "vernacular",
   "lineage": "Kentucky-and-Appalachian string-band genre codified by Bill Monroe (the founding figure, his Blue Grass Boys band of 1939-onward giving the genre its name, with the 1945-1948 lineup of Earl Scruggs banjo, Lester Flatt guitar, Chubby Wise fiddle, Cedric Rainwater bass marking the genre birth) — extended through Lester Flatt and Earl Scruggs (their post-Monroe Foggy Mountain Boys, 1948 onward), the Stanley Brothers, Jim and Jesse, the Osborne Brothers, the second-wave New Grass Revival (Sam Bush, Bela Fleck) and the modern Alison Krauss and Union Station era",
-  "recipe": "classic Southern American 1945-1948 bluegrass, improv On Frame, bluegrass branch, appalachian drone modal, American south field work old-time appalachian. sitka spruce spruce maple martin lifespan dreadnought acoustic guitar, Gibson f 5 loar scrolled carved adirondack red spruce loar canon mandolin, bronze 3 ply maple Gibson mastertone canon maple bluegrass canon banjo 5 string, steel flatpicked upright bass, steel magic rosin modern acrylic base double stops fiddle, Italian alpine brescian tradition big leaf maple flatpicked mandola. bristol sessions appalachian pre commercial. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 717,
-  "score": 211.94,
+  "recipe": "classic Southern American 1945-1948 bluegrass, improv On Frame, bluegrass branch, appalachian drone modal, American south field work old-time appalachian. sitka spruce spruce maple martin lifespan dreadnought acoustic guitar, Gibson f 5 loar scrolled carved adirondack red spruce loar canon mandolin, bronze 3 ply maple Gibson mastertone canon maple bluegrass canon banjo 5 string, treble-extended sustaining steel upright bass, steel magic rosin modern acrylic base double stops fiddle, Italian alpine brescian tradition big leaf maple flatpicked mandola. bristol sessions appalachian pre commercial. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
+  "recipe_chars": 733,
+  "score": 192.725,
   "config": {
     "traditions": [
       "bluegrass",
@@ -55,7 +55,6 @@
       {
         "id": "banjo_5_string",
         "slots": {
-          "plucked_traditional_technique": "plucked_call_and_response",
           "banjo_back": "resonator",
           "tone_ring": "flathead",
           "banjo_head": "fiberskyn",
@@ -68,7 +67,6 @@
           "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
         "scores": {
-          "plucked_traditional_technique": 9.21425,
           "banjo_back": 1.309,
           "tone_ring": 8.125,
           "banjo_head": 10.0455,
@@ -84,12 +82,10 @@
       {
         "id": "upright_bass",
         "slots": {
-          "acoustic_technique": "acoustic_flatpicked",
           "upright_strings": "steel_upright",
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "acoustic_technique": 10,
           "upright_strings": 1.309,
           "upright_play": 0.585
         }
@@ -158,7 +154,6 @@
       "fiddle_articulation": "arco",
       "mandolin_shape": "f_style",
       "mandolin_bracing": "mandolin_parallel_tone_bars_loar",
-      "plucked_traditional_technique": "plucked_folk_strummed",
       "banjo_back": "resonator",
       "tone_ring": "flathead",
       "banjo_play": "three_finger",

@@ -5,7 +5,7 @@
   "lineage": "European-rooted melodic metal subgenre codified through Helloween (Keeper of the Seven Keys 1987-88), Blind Guardian, Stratovarius, Sonata Arctica, Rhapsody (Italian symphonic-power) — characterized by major-key triumphant choruses, twin-guitar harmony lead lines, high-register clean vocals, and fantasy/Tolkien-derived lyrical subject matter",
   "recipe": "classic late-1980s power metal, distorted Rock, power branch, symphonic metal gothic metal. thick, breath veiled tone, straight note core, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth, polyrhythmic vocal layering independent cycles kakhetian three voice two soloists choral drone choir ensemble. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 661,
-  "score": 321.225,
+  "score": 318.989,
   "config": {
     "traditions": [
       "power_metal_european",
@@ -88,7 +88,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
           "pickup_config": "soapbar",
@@ -98,7 +97,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 2.2362500000000005,
           "amp_make": 7.98,
           "body_wood": 0.45499999999999996,
           "pickup_config": 1.3,

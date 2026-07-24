@@ -5,7 +5,7 @@
   "lineage": "Late-1960s confessional pop-folk songwriter tradition with intimate first-person lyrical subject matter — Leonard Cohen Songs of Leonard Cohen (1967), James Taylor James Taylor (1968, Apple Records), Joni Mitchell Song to a Seagull (1968) and Clouds (1969), Nick Drake Five Leaves Left (1969), Carole King Tapestry (1971)",
   "recipe": "classic North American 1967-1969 late-60s interior confessional songwriter, ballad Poetry, 60s confessional, American jazz smooth vocal cool jazz vocal modern vocal jazz. thick, incomplete closure resting, straight onset, interlocked note trading. flatwound thomastik fingerpicked acoustic guitar, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano. charlie chaplin studio lot 1966-1999 major-flagship a and m studios hollywood. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 599,
-  "score": 174.627,
+  "score": 160.005,
   "config": {
     "traditions": [
       "interior_confessional_60s",
@@ -55,7 +55,6 @@
       {
         "id": "acoustic_guitar_om",
         "slots": {
-          "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "standard_tuning",
           "top_wood": "cedar_om",
           "back_sides": "walnut_bs_om",
@@ -63,7 +62,6 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 14.621999999999998,
           "string_tuning": 0,
           "top_wood": 0.195,
           "back_sides": 0.195,
@@ -132,7 +130,6 @@
       "voice_mechanism_compound": "voice_mechanism_single_source",
       "keyboard_technique": "keyboard_block_chord_pop",
       "piano_pitch_standard": "a_440_modern",
-      "acoustic_technique": "acoustic_strummed_ringing",
       "top_wood": "sitka_om",
       "back_sides": "mahogany_bs_om",
       "string_acoustic": "phosphor_om",

@@ -5,7 +5,7 @@
   "lineage": "1980s British adult-contemporary jazz-pop subgenre characterized by smooth chord-rich production, electric-piano-led harmonic foundation, atmospheric backing vocals — codified through Sade (Diamond Life 1984, Promise 1985), Everything But the Girl (Eden 1984), the Style Council (Café Bleu 1984), Prefab Sprout (Steve McQueen 1985), and the early Swing Out Sister releases",
   "recipe": "classic North American mid-1980s sophisti-pop, functional Song, pop rock branch, crooners functional song great american songbook brill building pop. thick, breath veiled tone, straight onset, interlocked note trading. singing lead analog poly synth, marshall plexi amp British rock amp mahogany thomastik infeld low tension electric ampeg b15 amp American 60s bass amp flip top character ebony unlined fretless bass, pre muffled edge muffled brushes-and-sticks drum kit, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris rubber continuous-airflow saxophone, torrington spring steel tine canonical Rhodes 1965 1984 centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric. treated studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 893,
-  "score": 377.162,
+  "score": 376.162,
   "config": {
     "traditions": [
       "sophisti_pop",
@@ -70,7 +70,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -80,7 +79,6 @@
           "bass_technique": "fingerstyle_walking"
         },
         "scores": {
-          "electric_technique": 0.9999999999999999,
           "amp_make": 4.355,
           "body_wood": 2.7299999999999995,
           "pickup_config": 0.603,

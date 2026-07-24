@@ -5,7 +5,7 @@
   "lineage": "2010s and 2020s R&B subgenre characterized by virtuoso-instrumental playing (especially electric bass), jazz-and-fusion harmonic complexity, lo-fi-and-experimental production aesthetic, and explicit Los-Angeles-Brainfeeder-scene cultural affiliation. Thundercat (Stephen Bruner, born 1984) anchored the canonical sound through Drunk (2017); Steve Lacy (The Internet), Hiatus Kaiyote (Australian, parallel scene), and the broader Brainfeeder, Stones Throw, and Anticon label rosters extended the genre.",
   "recipe": "classic progressive r&b, functional Song, soul R&B branch, American jazz fusion acid jazz nu jazz / electro-jazz. thick, breath veiled tone, straight onset, interlocked note trading. ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, analog synth. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 632,
-  "score": 459.699,
+  "score": 453.549,
   "config": {
     "traditions": [
       "prog_rb",
@@ -55,7 +55,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pocket",
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -65,7 +64,6 @@
           "bass_technique": "fingerstyle_walking"
         },
         "scores": {
-          "electric_technique": 6.15,
           "amp_make": 16.914,
           "body_wood": 0.7889999999999999,
           "pickup_config": 1.69,

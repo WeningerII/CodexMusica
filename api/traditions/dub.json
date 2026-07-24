@@ -5,7 +5,7 @@
   "lineage": "Jamaican instrumental remix-and-effects genre invented by King Tubby (Osbourne Ruddock) in the late 1960s through the early 1970s in his Waterhouse-district Kingston home workshop — created by taking the rhythm tracks (riddims) of existing reggae recordings and live-re-mixing them through tape delay (Roland Space Echo), spring reverb, and dropout-mute manipulation; codified through King Tubby, Lee Scratch Perry (his Black Ark studio canon), Augustus Pablo (King Tubby Meets Rockers Uptown 1976), Scientist (Hopeton Brown, Tubbys protégé)",
   "recipe": "classic Caribbean 1967-1969 dub, bass System, Jamaican branch, ambient experimental electric mallsoft vaporwave aesthetic. ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, Fender blackface amp American 60s amp spring reverb bright wenge flatwound single coil electric guitar, Hammond a 100 built in Leslie home spinet Leslie 122 canonical 6l6 tube 40w rotary Hammond matched tonewheel organ, hohner melodica canonical 1959 dub roots tradition melodica. kingston king tubby dub workshop. dynamic moving-coil, tube pre, colored vintage console, optical compressor, Pultec passive program EQ. tape 15ips echo spring reverb roland RE-201 space echo plate reverb.",
   "recipe_chars": 777,
-  "score": 94.02,
+  "score": 82.72,
   "config": {
     "traditions": [
       "dub",
@@ -16,7 +16,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_thumb_muted",
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "split_coil",
@@ -26,7 +25,6 @@
           "bass_technique": "thumb_muted"
         },
         "scores": {
-          "electric_technique": 11.299999999999999,
           "amp_make": 4.405000000000001,
           "body_wood": 0.845,
           "pickup_config": 0,

@@ -5,7 +5,7 @@
   "lineage": "Late-1990s-and-early-2000s American heavy-rock subgenre integrating hip-hop rhythmic-vocal influence, down-tuned-seven-string-guitar metal aesthetic, and confessional-aggressive-personal-trauma lyrical content. Korn (Bakersfield, 1993-onward), Deftones, Limp Bizkit, Slipknot, and Linkin Park constitute the canonical roster. The 1998 Family Values Tour consolidated the genre's commercial peak.",
   "recipe": "classic Los Angeles modern nu metal, distorted Rock, avant branch, us hip hop gangsta. thick, rap, straight onset, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character ernie ball slinky electric bass, jazz-trained brushes-and-sticks drum kit, sampled chopped turntable. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
   "recipe_chars": 610,
-  "score": 224.191,
+  "score": 222.291,
   "config": {
     "traditions": [
       "nu_metal_korn_limp",
@@ -87,7 +87,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -97,7 +96,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 1.9000000000000001,
           "amp_make": 4.2575,
           "body_wood": 0.845,
           "pickup_config": 0.105,

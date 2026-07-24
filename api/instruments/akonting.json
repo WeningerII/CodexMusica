@@ -15,75 +15,10 @@
     "dynamics": -1
   },
   "short": "akonting",
+  "exclude_family_parts": [
+    "plucked_traditional_technique"
+  ],
   "parts": [
-    {
-      "id": "plucked_traditional_technique",
-      "name": "Playing technique",
-      "variants": [
-        {
-          "id": "plucked_fingerpicked",
-          "name": "Fingerpicked",
-          "applies_to": [
-            "kora",
-            "ngoni",
-            "kamele_ngoni",
-            "donso_ngoni",
-            "xalam",
-            "akonting",
-            "kantele",
-            "gusli",
-            "dotara",
-            "ektara",
-            "khamak",
-            "tumbi",
-            "sintir",
-            "banjo_5_string",
-            "cavaquinho"
-          ],
-          "descriptors": [
-            "fingerpicked",
-            "lyrical"
-          ],
-          "match_tokens": [
-            "plucked",
-            "string-attack",
-            "traditional"
-          ],
-          "canonical_tags": [
-            "folk"
-          ],
-          "default": true
-        },
-        {
-          "id": "plucked_call_and_response",
-          "name": "Call-and-response",
-          "applies_to": [
-            "kora",
-            "ngoni",
-            "kamele_ngoni",
-            "donso_ngoni",
-            "akonting",
-            "banjo_5_string",
-            "sintir",
-            "xalam"
-          ],
-          "descriptors": [
-            "call-and-response"
-          ],
-          "match_tokens": [
-            "plucked",
-            "string-attack",
-            "call-response",
-            "traditional"
-          ],
-          "canonical_tags": [
-            "griot",
-            "west-african"
-          ]
-        }
-      ],
-      "_fromFamily": true
-    },
     {
       "id": "akonting_construction",
       "name": "Construction",
@@ -193,10 +128,6 @@
     }
   ],
   "_ownParts": [
-    {
-      "id": "plucked_traditional_technique",
-      "default_variant": "plucked_fingerpicked"
-    },
     {
       "id": "akonting_construction",
       "name": "Construction",

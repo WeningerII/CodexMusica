@@ -5,7 +5,7 @@
   "lineage": "1990s Japanese eclectic-pop subgenre centered on Tokyo’s Shibuya district record-store scene — codified through Pizzicato Five, Cornelius (Keigo Oyamada), Fantastic Plastic Machine, and Kahimi Karie; characterized by sampledelic crate-digger production, sixties-French-pop and bossa-nova references, and ironic-cosmopolitan pop sensibility",
   "recipe": "classic Asian mid-1990s shibuya-kei, functional Song, east Asian pop branch, pop experimental experimental electric hyperpop. extended whistle, breath veiled tone, straight onset, interlocked note trading. field textural sampler, centered tine pickup gap canonical balanced Rhodes voicing block chord rhodes electric, clean strummed single coil electric guitar, ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, samba bateria. treated studio. Neumann U87, console-strip pre, SSL inline console, SMART research c1/c2, SSL surgical EQ. 16-bit digital eventide harmonizer TC electronic 2290 delay digital delay.",
   "recipe_chars": 645,
-  "score": 292.879,
+  "score": 292.814,
   "config": {
     "traditions": [
       "shibuya_kei",
@@ -121,7 +121,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -131,7 +130,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 0.06499999999999999,
           "amp_make": 0.5199999999999999,
           "body_wood": 0.43050000000000005,
           "pickup_config": 0.195,

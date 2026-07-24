@@ -5,7 +5,7 @@
   "lineage": "Mandarin-language mainstream Chinese-language pop tradition codified through 1980s Taiwan (Teresa Teng, Liu Wen-cheng) — through Jay Chou’s 2000-2010 Hua Yu pop (Mandarin pop with hip-hop and R&B production), and the contemporary cross-strait Mandarin entertainment industry spanning Taiwan, mainland China, Singapore, and Malaysia",
   "recipe": "classic Asian mid-2000s mandopop, functional Song, east Asian pop branch, pop rock functional song new wave yacht rock. thick, chest mix belt, straight onset, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, string quartet inst. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
   "recipe_chars": 689,
-  "score": 576.037,
+  "score": 571.997,
   "config": {
     "traditions": [
       "mandopop",
@@ -111,7 +111,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
           "pickup_config": "soapbar",
@@ -121,7 +120,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 4.039999999999999,
           "amp_make": 11.569999999999999,
           "body_wood": 2.6649999999999996,
           "pickup_config": 0.195,

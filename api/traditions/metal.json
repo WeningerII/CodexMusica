@@ -5,7 +5,7 @@
   "lineage": "The broad heavy-metal tradition — high-gain distorted-guitar music that emerged from hard rock into a distinct genre of amplified aggression, volume, and virtuosity",
   "recipe": "classic North American mid-1990s metal, distorted Rock, thrash branch. thick, breath veiled tone, interlocked note trading, equal tempered. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, sticks backbeat drum kit. san francisco bay area thrash 1983-1991 indie-commercial bay area thrash metal studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay ibanez tube screamer TS9 / TS808 proco RAT.",
   "recipe_chars": 635,
-  "score": 126.738,
+  "score": 124.786,
   "config": {
     "traditions": [
       "metal"
@@ -47,7 +47,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
           "pickup_config": "humbucker_mm",
@@ -57,7 +56,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 1.9525,
           "amp_make": 4.485,
           "body_wood": 1.4565000000000003,
           "pickup_config": 0.3645,

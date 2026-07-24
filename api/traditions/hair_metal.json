@@ -5,7 +5,7 @@
   "lineage": "Sunset Strip glam-metal commercial 1980s American hard-rock subgenre characterized by virtuoso lead-guitar, anthemic choruses, glamorous androgynous stage presentation, and ballad-and-banger album construction — codified through Mötley Crüe (Shout at the Devil 1983), Ratt (Out of the Cellar 1984), Poison (Look What the Cat Dragged In 1986), Bon Jovi (Slippery When Wet 1986), Def Leppard (Hysteria 1987), Whitesnake (Whitesnake 1987), Warrant, Cinderella",
   "recipe": "classic North American mid-1980s hair metal, distorted Rock, late analog major branch, nwobhm metal. thick, breath veiled tone, straight onset, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, string machine. multi room 1985-2000 major-flagship multitrack flagship us 80s. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay ibanez tube screamer TS9 / TS808 MXR phase 90.",
   "recipe_chars": 694,
-  "score": 271.048,
+  "score": 269.053,
   "config": {
     "traditions": [
       "hair_metal",
@@ -87,7 +87,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -97,7 +96,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 1.9949999999999999,
           "amp_make": 10.53,
           "body_wood": 1.3,
           "pickup_config": 0.39,

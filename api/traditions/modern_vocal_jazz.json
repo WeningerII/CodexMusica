@@ -5,7 +5,7 @@
   "lineage": "Late-1990s onward mainstream jazz-vocal revival — Diana Krall, Norah Jones, Michael Bublé, Cassandra Wilson, Madeleine Peyroux — revisiting the Great American Songbook canon with modern recording-aesthetic polish",
   "recipe": "classic North American 1997-1999 modern vocal jazz, improv On Frame, smooth vocal branch, crooners functional song great american songbook american barbershop quartet. thick, close mic intimate, straight onset, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano, growly gut upright bass, fiberskyn synthetic calf brushes drum kit, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, bach stradivarius 180 canonical American orchestral jazz balance trumpet. capitol tower 1750 vine 1956-present major-flagship capitol tower studios la. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
   "recipe_chars": 769,
-  "score": 331.191,
+  "score": 329.566,
   "config": {
     "traditions": [
       "modern_vocal_jazz",
@@ -80,12 +80,10 @@
       {
         "id": "upright_bass",
         "slots": {
-          "acoustic_technique": "acoustic_chord_melody",
           "upright_strings": "gut_wound_upright",
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "acoustic_technique": 1.625,
           "upright_strings": 14.375,
           "upright_play": 14.375
         }
@@ -183,7 +181,6 @@
       "voice_mechanism_compound": "voice_mechanism_single_source",
       "keyboard_technique": "keyboard_jazz_comping",
       "piano_pitch_standard": "a_440_modern",
-      "acoustic_technique": "acoustic_flatpicked",
       "upright_play": "pizz_upright",
       "upright_strings": "gut_wound_upright",
       "wind_articulation": "wind_punchy_ensemble",

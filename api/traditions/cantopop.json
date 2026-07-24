@@ -5,7 +5,7 @@
   "lineage": "Hong Kong Cantonese-language mainstream pop, codified through the late-1970s Sam Hui and the early-1990s Four Heavenly Kings — Jacky Cheung, Andy Lau, Aaron Kwok, Leon Lai — characterized by ballad-heavy repertoire, film-tie-in song format, and the post-handover (1997) industry that absorbed and merged with the mainland Mandarin pop market",
   "recipe": "classic East Asian 1977-1979 cantopop, functional Song, east Asian pop branch, pop rock functional song new wave yacht rock. thick, breath veiled tone, straight onset, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, sequential lineage canonical prophet 5 1978 san jose ca lead analog poly synth. hong kong flagship 1980-2000 mid tier hong kong cantopop studio 80s. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
   "recipe_chars": 813,
-  "score": 627.137,
+  "score": 622.929,
   "config": {
     "traditions": [
       "cantopop",
@@ -111,7 +111,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -121,7 +120,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 4.208749999999999,
           "amp_make": 12.35,
           "body_wood": 2.275,
           "pickup_config": 0.195,

@@ -15,144 +15,10 @@
     "dynamics": 1
   },
   "short": "electric bass",
+  "exclude_family_parts": [
+    "electric_technique"
+  ],
   "parts": [
-    {
-      "id": "electric_technique",
-      "name": "Playing technique",
-      "variants": [
-        {
-          "id": "electric_fuzz_riff",
-          "name": "Fuzz-driven riff",
-          "applies_to": [
-            "electric_guitar_single_coil",
-            "electric_guitar_humbucker",
-            "electric_bass",
-            "semi_hollow_bass"
-          ],
-          "descriptors": [
-            "fuzzed",
-            "riff-driven"
-          ],
-          "match_tokens": [
-            "electric",
-            "fuzzy-saturation",
-            "picked"
-          ],
-          "canonical_tags": [
-            "psychedelic",
-            "doom"
-          ]
-        },
-        {
-          "id": "electric_bass_walking",
-          "name": "Walking bass line",
-          "applies_to": [
-            "electric_bass",
-            "semi_hollow_bass",
-            "fretless_bass",
-            "short_scale_bass"
-          ],
-          "descriptors": [
-            "walking"
-          ],
-          "match_tokens": [
-            "electric",
-            "picked"
-          ],
-          "canonical_tags": [
-            "jazz-canonical"
-          ],
-          "default": true
-        },
-        {
-          "id": "electric_bass_pocket",
-          "name": "Pocket fingerstyle locked",
-          "applies_to": [
-            "electric_bass",
-            "semi_hollow_bass",
-            "fretless_bass"
-          ],
-          "descriptors": [
-            "pocket",
-            "fingerstyle",
-            "locked"
-          ],
-          "match_tokens": [
-            "electric",
-            "rhythm-section-pocket",
-            "picked"
-          ],
-          "canonical_tags": [
-            "soul",
-            "funk",
-            "afrobeat"
-          ]
-        },
-        {
-          "id": "electric_bass_pick_aggressive",
-          "name": "Pick aggressive",
-          "applies_to": [
-            "electric_bass",
-            "semi_hollow_bass",
-            "short_scale_bass"
-          ],
-          "descriptors": [
-            "picked",
-            "high-gain-saturation"
-          ],
-          "match_tokens": [
-            "electric"
-          ],
-          "canonical_tags": [
-            "rock-canonical",
-            "punk"
-          ]
-        },
-        {
-          "id": "electric_bass_slap_pop",
-          "name": "Slap-and-pop",
-          "applies_to": [
-            "electric_bass",
-            "semi_hollow_bass",
-            "fretless_bass"
-          ],
-          "descriptors": [
-            "slapped",
-            "popped",
-            "percussive"
-          ],
-          "match_tokens": [
-            "electric",
-            "slappy",
-            "percussive-attack"
-          ],
-          "canonical_tags": [
-            "funk"
-          ]
-        },
-        {
-          "id": "electric_bass_thumb_muted",
-          "name": "Thumb-muted dub",
-          "applies_to": [
-            "electric_bass",
-            "semi_hollow_bass"
-          ],
-          "descriptors": [
-            "thumb-muted"
-          ],
-          "match_tokens": [
-            "electric",
-            "muted",
-            "picked"
-          ],
-          "canonical_tags": [
-            "reggae",
-            "dub"
-          ]
-        }
-      ],
-      "_fromFamily": true
-    },
     {
       "id": "amp_make",
       "name": "Amplifier archetype",
@@ -918,10 +784,6 @@
     }
   ],
   "_ownParts": [
-    {
-      "id": "electric_technique",
-      "default_variant": "electric_bass_walking"
-    },
     {
       "id": "body_wood",
       "surface": false,

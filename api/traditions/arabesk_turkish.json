@@ -5,7 +5,7 @@
   "lineage": "Turkish urban-melancholic Egyptian-music-influenced crossover-pop tradition that dominated Turkish mass culture from the 1970s through the 1990s — codified through Orhan Gencebay (the founder, 1968 onward), Müslüm Gürses, İbrahim Tatlıses (the 80s-90s voice), Ferdi Tayfur, Bülent Ersoy; thematically anchored in the urban-rural migration anxiety of Turkish working-class internal-migrant audiences, with characteristic minor-key Egyptian-inspired string arrangements over Turkish-language vocals",
   "recipe": "classic Middle Eastern mid-1970s arabesk, functional Song, mid east n African pop branch, Persian arab improv improv on frame iraqi maqam malhun. extended whistle, breath veiled tone, slow rate, interlocked note trading. rosewood premium iraqi Turkish la bella Turkish school canon drone like oud, metal finger picks maple body Turkish school drone like modal qanun, mahogany rosewood clean strummed single coil electric guitar, alder electric bass, pre muffled edge muffled brushes-and-sticks drum kit, kanun drone like modal tortoiseshell traditional kanun. istanbul recording canon 1955-present mid tier istanbul makam kilic ali pasha studio. large-diaphragm condenser, transformer-coupled solid-state pre, colored vintage console, vari-mu, passive program EQ. vinyl master cut tape echo spring reverb germanium fuzz wah / envelope filter.",
   "recipe_chars": 842,
-  "score": 257.162,
+  "score": 257.212,
   "config": {
     "traditions": [
       "arabesk_turkish",
@@ -128,7 +128,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_walking",
           "amp_make": "amp_british_orange",
           "body_wood": "alder_b",
           "pickup_config": "split_coil",
@@ -138,7 +137,6 @@
           "bass_technique": "sub_bass_synth_blend"
         },
         "scores": {
-          "electric_technique": -0.05,
           "amp_make": 1.6899999999999997,
           "body_wood": 1.95,
           "pickup_config": 0,

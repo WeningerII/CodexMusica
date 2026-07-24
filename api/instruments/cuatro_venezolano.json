@@ -15,126 +15,10 @@
     "dynamics": 0
   },
   "short": "cuatro venezolano",
+  "exclude_family_parts": [
+    "plucked_traditional_technique"
+  ],
   "parts": [
-    {
-      "id": "plucked_traditional_technique",
-      "name": "Playing technique",
-      "variants": [
-        {
-          "id": "plucked_folk_strummed",
-          "name": "Folk strummed",
-          "applies_to": [
-            "balalaika",
-            "domra",
-            "bouzouki",
-            "baglamas",
-            "charango",
-            "ronroco",
-            "tiple",
-            "bandola_andina",
-            "cuatro_pr",
-            "cuatro_venezolano",
-            "tres_cubano",
-            "cavaquinho",
-            "viola_caipira",
-            "jarana_jarocha",
-            "requinto_jarocho",
-            "vihuela_mexicana",
-            "bajo_sexto",
-            "banjo_5_string",
-            "tambura_balkan",
-            "saz_baglama",
-            "cumbus"
-          ],
-          "descriptors": [
-            "strummed",
-            "rhythmic",
-            "dance-rhythm"
-          ],
-          "match_tokens": [
-            "plucked",
-            "string-attack",
-            "folk",
-            "folk-tradition",
-            "open-chord-ringing-overtones"
-          ],
-          "canonical_tags": [
-            "folk"
-          ],
-          "default": true
-        },
-        {
-          "id": "plucked_tremolo",
-          "name": "Tremolo (mandolin-style)",
-          "applies_to": [
-            "baglamas",
-            "bouzouki",
-            "cuatro_pr",
-            "cuatro_venezolano",
-            "tres_cubano",
-            "cavaquinho",
-            "tiple",
-            "jarana_jarocha",
-            "requinto_jarocho",
-            "leona",
-            "vihuela_mexicana",
-            "domra"
-          ],
-          "descriptors": [
-            "tremolo",
-            "sustained"
-          ],
-          "match_tokens": [
-            "plucked",
-            "string-attack",
-            "rapid-tremolo",
-            "traditional"
-          ],
-          "canonical_tags": [
-            "mandolin",
-            "mediterranean"
-          ]
-        },
-        {
-          "id": "plucked_dance_pattern",
-          "name": "Dance accompaniment pattern",
-          "applies_to": [
-            "charango",
-            "ronroco",
-            "tiple",
-            "bandola_andina",
-            "cuatro_pr",
-            "cuatro_venezolano",
-            "tres_cubano",
-            "cavaquinho",
-            "viola_caipira",
-            "jarana_jarocha",
-            "requinto_jarocho",
-            "vihuela_mexicana",
-            "banjo_5_string",
-            "bouzouki",
-            "baglamas",
-            "saz_baglama",
-            "tambura_balkan",
-            "balalaika",
-            "domra"
-          ],
-          "descriptors": [
-            "rhythmic"
-          ],
-          "match_tokens": [
-            "plucked",
-            "string-attack",
-            "dance-driving",
-            "dance-rhythm"
-          ],
-          "canonical_tags": [
-            "folk"
-          ]
-        }
-      ],
-      "_fromFamily": true
-    },
     {
       "id": "cuatro_venezolano_tuning",
       "surface": false,
@@ -269,10 +153,6 @@
     }
   ],
   "_ownParts": [
-    {
-      "id": "plucked_traditional_technique",
-      "default_variant": "plucked_folk_strummed"
-    },
     {
       "id": "cuatro_venezolano_tuning",
       "surface": false,

@@ -5,7 +5,7 @@
   "lineage": "The soul tradition — African-American popular music fusing gospel vocal fervor with rhythm-and-blues and pop, codified through the mid-century Stax, Motown, and Atlantic eras",
   "recipe": "classic Southern American mid-1970s soul, functional Song, soul R&B branch. thick, blues-shouter, wide pitch sway, narrative. Fender blackface amp American 60s amp spring reverb bright mahogany rosewood single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, pre muffled edge muffled sticks pocket drum kit, gospel runs upright piano, tenor ensemble honking attack saxophone, bach stradivarius 180 canonical American orchestral ensemble trumpet. converted movie theatre 1957-1975 mid tier stax studio memphis. passive ribbon, Neve 1073 inductor pre, colored vintage console, LA-2A optical, Neve inductor EQ. Studer 30ips tape ibanez tube screamer TS9 / TS808.",
   "recipe_chars": 723,
-  "score": 298.362,
+  "score": 287.412,
   "config": {
     "traditions": [
       "soul"
@@ -45,7 +45,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pocket",
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "alder_b",
           "pickup_config": "split_coil",
@@ -55,7 +54,6 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "electric_technique": 10.95,
           "amp_make": 17.447,
           "body_wood": 1.3,
           "pickup_config": 0,

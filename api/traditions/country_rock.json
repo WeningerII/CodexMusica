@@ -5,7 +5,7 @@
   "lineage": "Late-1960s through 1970s LA-centered amplified country-and-rock fusion codified by The Byrds Sweetheart of the Rodeo (1968), The Flying Burrito Brothers, Poco, the Eagles Take It Easy era, Linda Ronstadt, Emmylou Harris",
   "recipe": "classic North American 1967-1969 country rock, functional Song, country rock branch, pop rock folk rock, southern rock distorted rock. thick, breath veiled tone, wide pitch sway, interlocked note trading. open e tuning sitka spruce spruce maple steel dreadnought acoustic Fender blackface amp American 60s amp spring reverb bright mahogany maple single coil electric guitar, Fender blackface amp American 60s amp spring reverb bright classic country steel pedal steel, Fender tweed amp American 50s amp tweed breakup mahogany ernie ball slinky electric bass, pre muffled edge muffled sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative block chord fast tremolo tonewheel organ, soft felt lacquer voiced 18 ply hard rock maple vintage production grand piano, steel double stops fiddle. hollywood flagship 1958-present major-flagship sunset sound studios hollywood. large-diaphragm condenser, Neve 1073 inductor pre.",
   "recipe_chars": 990,
-  "score": 1128.416,
+  "score": 1128.01,
   "config": {
     "traditions": [
       "country_rock",
@@ -126,7 +126,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_american_fender_tweed",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -136,7 +135,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 0.40625,
           "amp_make": 31.571249999999996,
           "body_wood": 1.04,
           "pickup_config": 0.01875,

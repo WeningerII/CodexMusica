@@ -5,7 +5,7 @@
   "lineage": "Post-WWII Texas-and-Tennessee honky-tonk country tradition that dominated commercial country from 1945-1955 — codified through Ernest Tubb (Walking the Floor Over You 1941, the founding honky-tonk recording), Hank Williams (the honky-tonk figure, Lovesick Blues 1949, Im So Lonesome I Could Cry 1949, his 1953 death at 29 closed the founding era), Lefty Frizzell (the most-imitated honky-tonk vocalist), Webb Pierce, Faron Young, Ray Price; characterized by amplified-band dance-hall instrumentation (pedal steel guitar, fiddle, electric guitar, upright bass, drums) and lyrical content of working-class drinking, cheating, and barroom-romantic-loss",
   "recipe": "classic Southern American mid-1950s honky-tonk, functional Song, honky tonk era branch, anglo singer song ballad poetry texas country-folk storyteller freak folk. thick, breath veiled tone, wide pitch sway, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright classic country brass pedal steel, Fender tweed amp American 50s amp tweed breakup mahogany rosewood single coil electric guitar, sustaining steel upright bass, brushes-and-sticks drum kit, steel double stops rubber fiddle, tack upright piano. honky tonk dance hall. Neumann U47, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb spring reverb analog bucket-brigade delay.",
   "recipe_chars": 710,
-  "score": 436.67,
+  "score": 436.345,
   "config": {
     "traditions": [
       "honky_tonk",
@@ -109,12 +109,10 @@
       {
         "id": "upright_bass",
         "slots": {
-          "acoustic_technique": "acoustic_chord_melody",
           "upright_strings": "steel_upright",
           "upright_play": "slap_upright"
         },
         "scores": {
-          "acoustic_technique": 0.325,
           "upright_strings": 1.69,
           "upright_play": 0.345
         }
@@ -220,7 +218,6 @@
       "voice_estill_quality": "voice_estill_oral_twang",
       "voice_vibrato": "slow_vibrato",
       "voice_mechanism_compound": "voice_mechanism_single_source",
-      "acoustic_technique": "acoustic_flatpicked",
       "upright_play": "pizz_upright",
       "upright_strings": "gut_wound_upright",
       "bowed_technique": "bowed_chopped_old_time",

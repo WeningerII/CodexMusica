@@ -5,7 +5,7 @@
   "lineage": "Korean idol-pop tradition codified through Seo Taiji and Boys (1992) breaking the trot mold, then HOT, Shinhwa, and SES as first-generation idols; second-generation (TVXQ, BIGBANG, Wonder Girls, 2NE1) breaking into Japan 2005-2010; third-generation BTS, Blackpink, EXO, Twice driving global crossover from 2013 onward — characterized by densely-produced multi-genre tracks, synchronized choreography, and integrated visual identity",
   "recipe": "classic Asian mid-2000s k-pop, functional Song, east Asian pop branch, intl hip hop MC rhythm uk grime australian hip-hop. extended whistle, rap, straight onset, interlocked note trading. chopped sampler, plucked short envelope digital subtractive, roland tr 8s modern aira digital recreation TR-808, pyramid pure nickel bass British mid 60s era sub heavy electric bass, lead plus third fifth 3 part stack 2000s elastic pitch edited stack heavy bus compression glue post 2010 multitrack vocal stack. multi room segmented 2010-present major-flagship kpop idol complex. tube condenser, avalon VT-737sp, empirical labs distressor, dynamic EQ. 24-bit digital autotune pitch shifter digital delay.",
   "recipe_chars": 692,
-  "score": 233.971,
+  "score": 234.021,
   "config": {
     "traditions": [
       "k_pop_modern",
@@ -98,7 +98,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_walking",
           "amp_make": "amp_modern_modeling",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -108,7 +107,6 @@
           "bass_technique": "sub_bass_synth_blend"
         },
         "scores": {
-          "electric_technique": -0.05,
           "amp_make": 2.6650000000000005,
           "body_wood": 0.65,
           "pickup_config": 1.3,

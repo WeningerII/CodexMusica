@@ -5,7 +5,7 @@
   "lineage": "Mid-2000s psychedelic-folk revival emerging from the Devendra Banhart / Vetiver / Joanna Newsom / CocoRosie cluster extending the 1960s-70s Vashti Bunyan / Karen Dalton / Linda Perhacs psychedelic-folk lineage into the post-millennium era; recordings: Devendra Banhart Rejoicing in the Hands 2004 and Cripple Crow 2005, Joanna Newsom The Milk-Eyed Mender 2004 and Ys 2006, CocoRosie La Maison de mon Rêve 2004, Vetiver Vetiver 2004",
   "recipe": "classic North American 2004-2006 freak folk, ballad Poetry, freak folk branch, pop experimental experimental electric hyperpop. thick, breath veiled tone, straight onset, interlocked note trading. cedar walnut phosphor bronze bronze fingerpicked acoustic guitar, concert harp, drone like fiddle, castagnari Italian premium folk music straight accordion, mass production synthetic varnish polyurethane violin orchestral, folk strummed open chord ringing overtones autoharp, walnut mid tier scruggs stelling bluegrass setup mastertone flathead banjo 5 string, mid attack plastic glockenspiel, maple mid tier Baroque alternative melodic recorder. takoma home recording fahey. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 819,
-  "score": 282.408,
+  "score": 245.107,
   "config": {
     "traditions": [
       "freak_folk_2000s",
@@ -54,7 +54,6 @@
       {
         "id": "acoustic_guitar_om",
         "slots": {
-          "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "open_g",
           "top_wood": "cedar_om",
           "back_sides": "walnut_bs_om",
@@ -62,7 +61,6 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 20.599999999999994,
           "string_tuning": 0.45500000000000007,
           "top_wood": 1.010125,
           "back_sides": 1.010125,
@@ -166,7 +164,6 @@
       {
         "id": "banjo_5_string",
         "slots": {
-          "plucked_traditional_technique": "plucked_folk_strummed",
           "banjo_back": "open_back",
           "tone_ring": "wood_ring",
           "banjo_head": "fiberskyn",
@@ -179,7 +176,6 @@
           "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
         "scores": {
-          "plucked_traditional_technique": 16.700625,
           "banjo_back": 0.195,
           "tone_ring": 0.005625,
           "banjo_head": 9.570874999999997,
@@ -262,12 +258,10 @@
       "musette_offset": "dry_tuning",
       "orch_setup_period": "modern_setup_violin",
       "orch_bow": "modern_bow",
-      "acoustic_technique": "acoustic_fingerpicked",
       "top_wood": "sitka_om",
       "back_sides": "rosewood_bs_om",
       "string_acoustic": "phosphor_om",
       "acoustic_om_technique": "om_fingerpicked",
-      "plucked_traditional_technique": "plucked_folk_strummed",
       "banjo_back": "open_back",
       "tone_ring": "no_ring",
       "banjo_play": "clawhammer",

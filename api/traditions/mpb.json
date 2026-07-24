@@ -5,7 +5,7 @@
   "lineage": "Brazilian MPB (Música Popular Brasileira) post-bossa-nova-and-tropicália sophisticated-popular-music umbrella-tradition emerging 1965-onward from the bossa-nova-tropicália-festival circuit. Built on harmonically-extended chord-vocabulary (minor-7-and-maj-7-and-9-and-11 jazz-extensions), Brazilian-rhythmic foundation (samba, baião, choro, bossa derivatives), and singer-songwriter literary-poetic-lyrical-sophistication. The 1970s mpb-jovem-guarda commercial-pop wave, the 1980s mpb-de-câmara chamber-mpb, and 1990s-onward mpb-as-heritage-institution comprise the genre's historical arc. Canonical instrumentation: violão acoustic-guitar nylon-string fingerstyle-led, with optional flute, piano, cavaquinho, and contemporary-rhythm-section. The MPB-canon overlaps significantly with samba-canção and bossa-nova but retains a distinct singer-songwriter-as-poet aesthetic identity.",
   "recipe": "classic Southern American modern mpb, groove Percussion, Brazilian branch, Latin am troubadour ballad poetry milonga jíbaro. thick, breath veiled tone, straight onset, interlocked note trading. cedar nylon fingerpicked classical nylon-string guitar, no chemical hardener t rivet birch laminated maple laminated sitka spruce grand piano, thomastik infeld low tension jazz warm walking fingerstyle electric bass, pre muffled edge muffled brushes-and-sticks drum kit, samba bateria, samba foundation mahogany samba canon steel modern strummed cavaquinho. phonogram brasil studio. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
   "recipe_chars": 712,
-  "score": 354.21,
+  "score": 352.71,
   "config": {
     "traditions": [
       "mpb",
@@ -99,7 +99,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_walking",
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "humbucker_mm",
@@ -109,7 +108,6 @@
           "bass_technique": "fingerstyle_walking"
         },
         "scores": {
-          "electric_technique": 1.5,
           "amp_make": 2.4050000000000002,
           "body_wood": 0.39,
           "pickup_config": 0.345,

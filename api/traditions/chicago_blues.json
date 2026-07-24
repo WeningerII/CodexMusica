@@ -5,7 +5,7 @@
   "lineage": "Post-WWII Chicago electric blues tradition codified through the Great Migration of Black Mississippi Delta musicians to Chicago in the 1940s-50s, with the Chess Records recording infrastructure anchoring the canon — Muddy Waters (the Chicago blues voice, Mannish Boy 1955), Howlin Wolf, Little Walter (Chicago amplified-harmonica), Willie Dixon (Chess songwriter-and-bassist), Otis Spann piano, the broader Chess house-band assembled around them",
   "recipe": "classic Midwestern American mid-1940s chicago blues, functional Song, blues electric branch, American jazz improv on frame hard bop soul jazz. thick, breath veiled tone, straight onset, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright open string slide resonance chicken-scratch single coil electric guitar, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative gospel runs slow chorale tonewheel organ, ampeg b15 amp American 60s bass amp flip top character thomastik infeld low tension electric bass, vintage ambassador asymmetric brushes drum kit, pearwood marine band tradition double brass chromatic canon hohner marine band 1896 canonical blues trossingen harmonica. 2120 south michigan avenue 1957-1975 indie-commercial chess studios chicago. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb ibanez tube screamer TS9 / TS808.",
   "recipe_chars": 998,
-  "score": 690.523,
+  "score": 679.228,
   "config": {
     "traditions": [
       "chicago_blues",
@@ -105,7 +105,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pocket",
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
@@ -115,7 +114,6 @@
           "bass_technique": "fingerstyle_walking"
         },
         "scores": {
-          "electric_technique": 7.495,
           "amp_make": 15.307499999999997,
           "body_wood": 0.975,
           "pickup_config": 0.09,
@@ -141,7 +139,6 @@
       {
         "id": "harmonica",
         "slots": {
-          "free_reed_technique": "free_reed_blues_cross",
           "harmonica_type": "chromatic_harm",
           "harmonica_comb": "pearwood_comb",
           "harmonica_reed": "double_brass_harm",
@@ -150,7 +147,6 @@
           "harmonica_tuning": "harmonica_solo_chromatic"
         },
         "scores": {
-          "free_reed_technique": 3.8000000000000003,
           "harmonica_type": 13.455000000000004,
           "harmonica_comb": 25.024999999999995,
           "harmonica_reed": 28.75500000000001,

@@ -5,7 +5,7 @@
   "lineage": "Peruvian coastal courtship dance with three regional variants (norteña, limeña, serrana) and characteristic guitarra-cajón-vocal ensemble",
   "recipe": "classic Andean mid-1930s marinera peruana, groove Percussion, Latin am branch, Latin am troubadour ballad poetry filipino harana milonga. thick, breath veiled tone, slow rate, interlocked note trading. fingerpicked acoustic guitar, open back Afro peruvian tradition marinera tradition cajon peruano, a cappella small 3 to 8 one per part three voice polyphonic regional sardinian cantu a tenore oche mesu contra bassu choir ensemble. andean altiplano outdoor. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 531,
-  "score": 168.922,
+  "score": 160.252,
   "config": {
     "traditions": [
       "marinera",
@@ -55,7 +55,6 @@
       {
         "id": "acoustic_guitar_om",
         "slots": {
-          "acoustic_technique": "acoustic_fingerpicked",
           "string_tuning": "standard_tuning",
           "top_wood": "cedar_om",
           "back_sides": "walnut_bs_om",
@@ -63,7 +62,6 @@
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 8.67,
           "string_tuning": 0,
           "top_wood": 0.39,
           "back_sides": 0.39,
@@ -133,7 +131,6 @@
       "voice_mechanism_compound": "voice_mechanism_single_source",
       "choir_size": "chamber_choir",
       "choir_ensemble_repertoire": "choir_ensemble_global_traditional",
-      "acoustic_technique": "acoustic_strummed_ringing",
       "top_wood": "sitka_om",
       "back_sides": "mahogany_bs_om",
       "string_acoustic": "phosphor_om",

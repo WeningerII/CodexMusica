@@ -5,7 +5,7 @@
   "lineage": "Atlantic Records New York 1948-1962 small-combo R&B canon — Ruth Brown, LaVern Baker, the Drifters, Ray Charles I Got a Woman and What Did I Say, Big Joe Turner Shake Rattle and Roll, the Coasters — tracked by Tom Dowd at Atlantic Studios 11 West 60th Street with a recurring NYC session rhythm section, distinct from later Stax / Motown / Philly Soul subgenres",
   "recipe": "classic North American classic r&b, functional Song, soul R&B branch, christian gospel black gospel contemporary urban gospel. thick, declaimed, wide pitch sway, multi note runs per syllable. Fender blackface amp American 60s amp spring reverb bright lower tension down tuning chicken-scratch single coil electric guitar, upright bass, pre muffled edge muffled brushes-and-sticks drum kit, gospel runs upright piano, tenor gold brass warmer tone ensemble honking saxophone. eleventh floor office converted studio 1947-1976 mid tier atlantic studios nyc. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac ibanez tube screamer TS9 / TS808.",
   "recipe_chars": 659,
-  "score": 404.875,
+  "score": 404.91,
   "config": {
     "traditions": [
       "classic_rb",
@@ -47,12 +47,10 @@
       {
         "id": "upright_bass",
         "slots": {
-          "acoustic_technique": "acoustic_chord_melody",
           "upright_strings": "steel_upright",
           "upright_play": "slap_upright"
         },
         "scores": {
-          "acoustic_technique": -0.035,
           "upright_strings": 0.195,
           "upright_play": 0.195
         }
@@ -187,7 +185,6 @@
       "voice_estill_quality": "voice_estill_belt",
       "voice_vibrato": "fast_vibrato",
       "voice_mechanism_compound": "voice_mechanism_single_source",
-      "acoustic_technique": "acoustic_flatpicked",
       "upright_play": "pizz_upright",
       "upright_strings": "gut_wound_upright",
       "wind_articulation": "wind_honking_attack",

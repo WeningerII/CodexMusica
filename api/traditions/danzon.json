@@ -5,7 +5,7 @@
   "lineage": "Cuban late-19th-century elegant-couple-dance tradition derived from European-contradanza imported through Haitian-French Saint-Domingue refugees 1791-onward, codified 1879-onward in Matanzas-and-Havana by orquesta-típica orchestral ensembles. The dance unfolds through ABACA rondo-form (introduction-and-paseo-promenade, A-section, B-section, A-return, C-trio-section, A-return), allowing partner-couples to alternate between dancing and resting during instrumental-trio-sections. The classic charanga-francesa ensemble: two flutes (one wooden, one metal), two violins, contrabass, piano, timbales (with cáscara stick-rhythm-on-shell), and güiro scraper. The danzón seeded the cha-cha-chá 1953-onward and danzonete vocal-variant 1929-onward and remains a living tradition through danzonera dance-hall events in Havana, Mérida, and Mexico-City.",
   "recipe": "classic Caribbean modern danzón, groove Percussion, charanga danza branch, rumba Cuban rumba cubana yambú. powell boston canonical American orchestral flute, sitka spruce hard rock maple acer saccharum French Polish shellac pad violin orchestral, beech laminated maple laminated European tradition European spruce norway spruce grand piano, upright bass, open slap hand drum timbales, guiro. pre revolutionary cuba 1944-1960 mid tier panart puchito havana pre 1959. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
   "recipe_chars": 575,
-  "score": 36.822,
+  "score": 36.857,
   "config": {
     "traditions": [
       "danzon",
@@ -85,12 +85,10 @@
       {
         "id": "upright_bass",
         "slots": {
-          "acoustic_technique": "acoustic_chord_melody",
           "upright_strings": "steel_upright",
           "upright_play": "slap_upright"
         },
         "scores": {
-          "acoustic_technique": -0.035,
           "upright_strings": 0.105,
           "upright_play": 0.195
         }
@@ -145,7 +143,6 @@
       "orch_bow": "modern_bow",
       "keyboard_technique": "keyboard_block_chord_pop",
       "piano_pitch_standard": "a_440_modern",
-      "acoustic_technique": "acoustic_flatpicked",
       "upright_play": "pizz_upright",
       "upright_strings": "gut_wound_upright",
       "percussion_technique": "percussion_hands_layered",

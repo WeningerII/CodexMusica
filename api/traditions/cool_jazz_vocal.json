@@ -5,7 +5,7 @@
   "lineage": "Late-1950s/60s cool-school West-Coast-jazz vocal aesthetic — Chet Baker (Sings, 1954), June Christy, Anita ODay, Julie London — restrained delivery, intimate microphone presence, small-group accompaniment, contrasted against the muscular East Coast hard bop of the same period",
   "recipe": "classic North American 1957-1959 cool jazz vocal, improv On Frame, smooth vocal branch, Latin jazz improv on frame descarga ethio-jazz. thick, breath veiled tone, straight onset, interlocked note trading. cold pressed wurzen felt oversize maple tension resonator a 415 grand piano, growly gut upright bass, vintage ambassador asymmetric brushes drum kit, tenor phosphor bronze selmer mark vi canonical 1954 1974 jazz paris lyrical continuous-airflow saxophone. capitol tower 1750 vine 1956-present major-flagship capitol tower studios la. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 662,
-  "score": 384.659,
+  "score": 381.923,
   "config": {
     "traditions": [
       "cool_jazz_vocal",
@@ -80,12 +80,10 @@
       {
         "id": "upright_bass",
         "slots": {
-          "acoustic_technique": "acoustic_chord_melody",
           "upright_strings": "gut_wound_upright",
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "acoustic_technique": 2.7368749999999995,
           "upright_strings": 25.125,
           "upright_play": 25.125
         }
@@ -162,7 +160,6 @@
       "voice_mechanism_compound": "voice_mechanism_single_source",
       "keyboard_technique": "keyboard_jazz_comping",
       "piano_pitch_standard": "a_440_modern",
-      "acoustic_technique": "acoustic_flatpicked",
       "upright_play": "pizz_upright",
       "upright_strings": "gut_wound_upright",
       "wind_articulation": "wind_bebop_runs",

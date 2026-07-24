@@ -5,7 +5,7 @@
   "lineage": "Moroccan-Arabic-language popular wedding-and-celebration music built on the rural Moroccan dance rhythms (haoussa from Casablanca, aita from the Atlantic plains, houara from the Souss valley) with the urban ensemble of oud, violin, the Moroccan-invented banjo (late 1960s), darbuka, voice — codified through Cheikha Rimitti (raï predecessor and chaabi crossover), Najat Aatabou, Stati, Daoudi",
   "recipe": "classic North African 1967-1969 chaabi, functional Song, mid east n African pop branch, Persian arab improv improv on frame, Sufi ritual devotional malhun iraqi maqam. extended whistle, breath veiled tone, slow rate, interlocked note trading. rosewood premium iraqi Turkish pyramid nylon arab school oud, spun aluminum Egyptian sombaty goat skin Turkish darbuka regional Egyptian sombaty canonical mid east darbuka, alder electric bass. casablanca and marrakech recording 1970-present indie-commercial casablanca chaabi moroccan studio. large-diaphragm condenser, German V72 tube pre, German tube console. tape 15ips.",
   "recipe_chars": 617,
-  "score": 170.862,
+  "score": 170.912,
   "config": {
     "traditions": [
       "chaabi_moroccan",
@@ -91,7 +91,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_walking",
           "amp_make": "amp_british_orange",
           "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
@@ -101,7 +100,6 @@
           "bass_technique": "fingerstyle_walking"
         },
         "scores": {
-          "electric_technique": -0.05,
           "amp_make": 1.6899999999999997,
           "body_wood": 1.95,
           "pickup_config": 0.045,

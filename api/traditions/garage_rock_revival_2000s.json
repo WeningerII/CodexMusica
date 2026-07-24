@@ -5,7 +5,7 @@
   "lineage": "2000s deliberate-vintage garage-rock movement reviving 1960s garage-rock sonic and stylistic vocabulary through fuzz-and-reverb single-coil-guitar production, raw vocal delivery, and short-song-form construction — codified through The White Stripes (White Blood Cells 2001, Elephant 2003), The Strokes (Is This It 2001), The Hives (Veni Vidi Vicious 2000), Yeah Yeah Yeahs, The Vines, with revival-aesthetic continuing through Black Lips and the Burger Records scene",
   "recipe": "classic garage-rock revival, distorted Rock, classic branch, punk distorted rock crust punk post-punk. thick, breath veiled tone, breath pulsed, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation alnico single coil electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, oil filled sticks backbeat drum kit. fetishistic vintage 1995-present vintage-revival toe rag vintage revival. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 625,
-  "score": 351.44,
+  "score": 334.945,
   "config": {
     "traditions": [
       "garage_rock_revival_2000s",
@@ -86,7 +86,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
@@ -96,7 +95,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 16.495,
           "amp_make": 14.040000000000001,
           "body_wood": 1.69,
           "pickup_config": 0.845,

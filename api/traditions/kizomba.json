@@ -5,7 +5,7 @@
   "lineage": "Angolan-Lusophone slow-tempo partner-dance tradition codified circa 1980 — evolution from semba (its faster ancestor), characterized by 24/16 polyrhythmic foundation, Portuguese-Creole vocals, and intimate dance-hold close-position partner couples; Eduardo Paim and Bonga as the canonical early-80s codifiers, with the genre spreading across the Lusophone Atlantic",
   "recipe": "classic early-1980s kizomba, groove Percussion, Afro-diasporic electric branch, tropical song functional song merengue urbano bachata. vocal fry, breath veiled tone, slow rate, interlocked note trading. basswood alnico clean strummed humbucker electric clean strummed single coil electric guitar, analog poly synth, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, la bella flats Detroit soul bass canon sub heavy electric bass, lead mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 721,
-  "score": 187.141,
+  "score": 187.191,
   "config": {
     "traditions": [
       "kizomba",
@@ -147,7 +147,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_walking",
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -157,7 +156,6 @@
           "bass_technique": "sub_bass_synth_blend"
         },
         "scores": {
-          "electric_technique": -0.05,
           "amp_make": 1.17,
           "body_wood": 0.9079999999999999,
           "pickup_config": 0.65,

@@ -5,7 +5,7 @@
   "lineage": "2010s heavy-metal subgenre integrating black-metal extreme-vocal-and-percussion aggression with shoegaze-and-post-rock textural-and-melodic-arrangement. Alcest (France, 2000-onward) inaugurated the canonical sound; Deafheaven's Sunbather (2013) consolidated international visibility and the broader 2010s blackgaze wave through Bosse-de-Nage, Astronoid, Underling, and adjacent acts. Distinguished from atmospheric black metal by blackgaze's explicit shoegaze-textural-influence and major-key/melodic-emphasis.",
   "recipe": "classic blackgaze, distorted Rock, death branch, alternative distorted rock madchester / baggy math rock. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric guitar, marshall plexi amp British rock amp ernie ball slinky electric bass, kevlar aramid extreme tension sticks backbeat drum kit. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 620,
-  "score": 398.177,
+  "score": 391.402,
   "config": {
     "traditions": [
       "blackgaze",
@@ -88,7 +88,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -98,7 +97,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 6.7749999999999995,
           "amp_make": 13.389999999999999,
           "body_wood": 0.845,
           "pickup_config": 0.8850000000000001,

@@ -5,7 +5,7 @@
   "lineage": "1960-onward avant-garde jazz dispensing with fixed harmony and steady meter — Ornette Coleman, Cecil Taylor, Albert Ayler, late John Coltrane (Ascension 1965, Meditations 1965), Pharoah Sanders, Sun Ra Arkestra; ESP-Disk, Impulse!, BYG-Actuel, and Strata-East labels",
   "recipe": "classic North American modern free jazz, improv On Frame, avant branch, industrial noise experimental electric, jam free improv on frame noise music free improvisation. alto phosphor bronze selmer mark vi canonical 1954 1974 jazz paris multiphonic saxophone, bach stradivarius 180 canonical American orchestral multiphonic jazz balance trumpet, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, ebonite hard rubber klezmer tradition multiphonic clarinet. radio city music hall eighth floor 1949-1985 mid tier plaza sound radio city nyc. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
   "recipe_chars": 702,
-  "score": 236.358,
+  "score": 235.808,
   "config": {
     "traditions": [
       "free_jazz",
@@ -58,12 +58,10 @@
       {
         "id": "upright_bass",
         "slots": {
-          "acoustic_technique": "acoustic_chord_melody",
           "upright_strings": "gut_wound_upright",
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "acoustic_technique": 0.5499999999999999,
           "upright_strings": 16.499999999999996,
           "upright_play": 16.499999999999996
         }
@@ -126,7 +124,6 @@
       "sax_technique": "sax_bebop_runs",
       "brass_size": "trumpet_b_flat",
       "trumpet_technique": "trumpet_bebop_lines",
-      "acoustic_technique": "acoustic_flatpicked",
       "upright_play": "pizz_upright",
       "upright_strings": "gut_wound_upright"
     },

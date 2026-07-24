@@ -5,7 +5,7 @@
   "lineage": "Early-1960s teen-pop female-vocal-group genre centered on the Brill Building songwriter ecosystem — codified through The Shirelles (\"Will You Love Me Tomorrow\" 1960, Goffin-King), The Ronettes (\"Be My Baby\" 1963, Phil Spector-Wall of Sound), The Crystals, The Marvelettes, Martha and the Vandellas; characterized by lead-and-backing-vocal arrangements, professional-songwriter material, and small-studio production aesthetic of the era",
   "recipe": "classic Los Angeles 1960s girl group, functional Song, girl group branch, soul R&B doowop doo-wop. thick, breath veiled tone, wide pitch sway, interlocked note trading. choir doo wop group, Fender blackface amp American 60s amp spring reverb bright clean strummed single coil electric guitar, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, pre muffled edge muffled brushes-and-sticks drum kit, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, tenor selmer mark vi canonical 1954 1974 jazz paris ensemble honking attack saxophone, Hammond b3 canonical 1955 1975 jazz gospel rock standard block chord fast tremolo tonewheel organ, low fundamental tuning professional rosewood castanets. compound architecture 1958-1970 indie-commercial small la chambers. passive ribbon, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 980,
-  "score": 409.391,
+  "score": 402.816,
   "config": {
     "traditions": [
       "girl_group_60s",
@@ -96,7 +96,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pocket",
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
           "pickup_config": "split_coil",
@@ -106,7 +105,6 @@
           "bass_technique": "fingerstyle_locked"
         },
         "scores": {
-          "electric_technique": 6.574999999999999,
           "amp_make": 13.804875,
           "body_wood": 0.195,
           "pickup_config": 0,

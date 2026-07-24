@@ -5,7 +5,7 @@
   "lineage": "European atmospheric-foregrounded subgenre of black metal that emerged from the Norwegian and Scandinavian second-wave black metal scene in the mid-1990s — codified through Emperor (In the Nightside Eclipse 1994, the symphonic-atmospheric breakthrough), Burzum (Hvis lyset tar oss 1994), Ulver (Bergtatt 1995), early Enslaved, Wolves in the Throne Room (the US Cascadian black metal extension from 2006 onward, Two Hunters 2007); characterized by long-form composition (often 8-15 minute pieces), tremolo-picked melodic-guitar foregrounded over blast-beat percussion, ambient-keyboard-or-synth pads, and false-fold ventricular shriek vocals",
   "recipe": "classic Northern European 1994-1996 atmospheric black metal, distorted Rock, black branch, ambient experimental electric hauntology witch house. thick, false fold engaged, straight note core, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, marshall plexi amp British rock amp alder ernie ball slinky electric bass, brushes-and-sticks drum kit. gothenburg Swedish metal defining 1992-present indie-commercial gothenburg swedish melodic death studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 691,
-  "score": 267.545,
+  "score": 264.345,
   "config": {
     "traditions": [
       "atmospheric_black_metal",
@@ -49,7 +49,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_british_late_60s_marshall_plexi",
           "body_wood": "alder_b",
           "pickup_config": "soapbar",
@@ -59,7 +58,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 3.2,
           "amp_make": 4.055,
           "body_wood": 1.3,
           "pickup_config": 0.15,

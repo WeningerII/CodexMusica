@@ -5,7 +5,7 @@
   "lineage": "Korean trot (teuroteu) twentieth-century popular ballad genre emerging in 1920s-1930s colonial-period Korea from the synthesis of Japanese enka (then dominant on the colonial-Korean recording market) with native Korean folk vocal-inflection. Characterized by the canonical 2/4 \"trot rhythm\" (a swung syncopated pulse derived ultimately from foxtrot dance-band music), characteristic Korean vocal-vibrato called kkeokgi (\"bending\"), and emotionally direct sentimental-romantic-and-loss lyrical register. The genre survived multiple cycles of cultural-policy suppression (especially the 1965 anti-Japanese-influence purge) and remains a major mainstream Korean popular-music form today. The 2010s trot-revival under Korean cable-television trot-contests reinvigorated the genre with young audiences.",
   "recipe": "classic East Asian mid-1920s korean trot, functional Song, east Asian pop branch, chanson fado ballad poetry cape verdean batuko of santiago island morna. thick, breath veiled tone, slow rate, interlocked note trading. mahogany maple ebony clean strummed humbucker electric guitar, pre muffled edge muffled brushes-and-sticks drum kit, low mid rich spectrum low-mid-thick mahogany electric bass. flagship Japanese studio 1970-1995 flagship tokyo studio 1970s 80s. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
   "recipe_chars": 579,
-  "score": 321.29,
+  "score": 319.86,
   "config": {
     "traditions": [
       "korean_trot",
@@ -101,7 +101,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_slap_pop",
           "amp_make": "amp_british_60s_selmer",
           "body_wood": "mahogany_b",
           "pickup_config": "split_coil",
@@ -111,7 +110,6 @@
           "bass_technique": "slap_pop"
         },
         "scores": {
-          "electric_technique": 1.4299999999999997,
           "amp_make": 0.6499999999999999,
           "body_wood": 1.8209999999999997,
           "pickup_config": 0,

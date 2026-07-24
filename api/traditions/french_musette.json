@@ -5,7 +5,7 @@
   "lineage": "French musette accordion-led popular-folk genre developed in early-twentieth-century Paris from the convergence of Auvergnat-immigrant cabrette-bagpipe dance-music with Italian-immigrant accordion-playing in the working-class Parisian guinguette dance-hall and bistro scenes around Bastille and the rue de Lappe. Characterized by waltz-and-java rhythmic base, virtuoso accordion-melodic lead, and the canonical valse musette dance-floor accompaniment. The interwar 1920s-1930s period at Bal Tabarin and Balajo dance-halls anchored institutional crystallization. Distinguished from later French chanson by musette's instrumental-dance (vs literary-lyrical) primary functional orientation.",
   "recipe": "classic Western European mid-1920s french musette, ballad Poetry, chanson fado branch, europop functional song bal-folk hungarian magyar nóta. thick, breath veiled tone, straight note core, interlocked note trading. melodic straight piano accordion, fingerpicked parlor acoustic guitar, upright bass, carousel march brassy dance mixed ranks glockenspiel rank drum and cymbal barrel organ. intimate paris small studio. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
   "recipe_chars": 490,
-  "score": 257.425,
+  "score": 257.475,
   "config": {
     "traditions": [
       "french_musette",
@@ -85,12 +85,10 @@
       {
         "id": "upright_bass",
         "slots": {
-          "acoustic_technique": "acoustic_chord_melody",
           "upright_strings": "gut_upright",
           "upright_play": "slap_upright"
         },
         "scores": {
-          "acoustic_technique": -0.05,
           "upright_strings": 0,
           "upright_play": 1.69
         }

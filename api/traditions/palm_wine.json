@@ -5,7 +5,7 @@
   "lineage": "West African coastal acoustic-guitar songcraft tradition, codified through the early-twentieth-century Sierra Leonean and Liberian port-city repertoire and the Ghanaian Koo Nimo and the Sierra Leonean S.E. Rogie 1950s-1960s acoustic-guitar lineage — characterized by relaxed two-finger picking patterns over Krio/English-Creole melodic vocal lines, played at outdoor gatherings drinking the eponymous fermented palm sap",
   "recipe": "classic West African mid-1950s palm-wine guitar, groove Percussion, west African branch, African pop functional song congolese rumba isicathamiya. strummed open chord ringing overtones parlor acoustic guitar, pearwood marine band tradition double brass chromatic canon solo canonical chromatic harmonica, proto juju responsorial melodic bass agidigbo. wooden barn. passive ribbon, tube pre. direct-to-disc lacquer.",
   "recipe_chars": 414,
-  "score": 35.103,
+  "score": 32.178,
   "config": {
     "traditions": [
       "palm_wine",
@@ -33,7 +33,6 @@
       {
         "id": "harmonica",
         "slots": {
-          "free_reed_technique": "free_reed_folk_first_position",
           "harmonica_type": "chromatic_harm",
           "harmonica_comb": "pearwood_comb",
           "harmonica_reed": "double_brass_harm",
@@ -42,7 +41,6 @@
           "harmonica_tuning": "harmonica_solo_chromatic"
         },
         "scores": {
-          "free_reed_technique": 2.925,
           "harmonica_type": 1.8849999999999996,
           "harmonica_comb": 5.59,
           "harmonica_reed": 4.1499999999999995,

@@ -3,9 +3,9 @@
   "name": "Drone metal",
   "family": "rock",
   "lineage": "extreme-minimalist sustained-tone metal — guitar-as-feedback-and-pure-overtone genre established by Earth (Earth 2 1993, Pentastar 1996) and Sunn O))) (the Earth-tribute project become canon through ØØ Void 2000, Black One 2005, Monoliths and Dimensions 2009), with Boris (drone-era), Khanate, and Nadja in the broader continuum — distinct from doom metal by abandonment of riff-progression-as-song-form in favor of sustained-distorted-chord-as-event compositional approach",
-  "recipe": "classic early-1990s drone metal, distorted Rock, drone branch, doom metal, ambient experimental electric funeral doom. orange amp British heavy crunch basswood power chord humbucker electric orange amp British heavy crunch 30 inch plus extended baritone metal djent baritone electric guitar, orange amp British heavy crunch ernie ball slinky riff driven electric bass, kevlar aramid extreme tension brushes-and-sticks drum kit. cathedral. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 568,
-  "score": 404.591,
+  "recipe": "classic early-1990s drone metal, distorted Rock, drone branch, doom metal, ambient experimental electric funeral doom. orange amp British heavy crunch basswood power chord humbucker electric orange amp British heavy crunch 30 inch plus extended baritone metal djent baritone electric guitar, orange amp British heavy crunch ernie ball slinky electric bass, kevlar aramid extreme tension brushes-and-sticks drum kit. cathedral. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 556,
+  "score": 379.391,
   "config": {
     "traditions": [
       "drone_metal",
@@ -49,7 +49,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_fuzz_riff",
           "amp_make": "amp_british_orange",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -59,7 +58,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 25.2,
           "amp_make": 30.292045454545452,
           "body_wood": 0.195,
           "pickup_config": 0.39,

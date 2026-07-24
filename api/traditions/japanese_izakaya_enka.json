@@ -3,14 +3,14 @@
   "name": "Japanese izakaya enka (居酒屋演歌, tavern enka)",
   "family": "global",
   "lineage": "Japanese izakaya (居酒屋, tavern) enka drinking-song tradition continuous from postwar-Japanese enka-popularization era (1950s-1960s Misora Hibari era) through 20th-century continuous performance into modern Japanese-and-Japanese-diaspora continuous izakaya-and-snack-bar (スナック) practice; the izakaya-enka repertoire emphasizes melancholic-drinking-song aesthetic distinct from the more-celebratory Korean-jubu-ga or German-trinklied",
-  "recipe": "classic mid-1950s japanese izakaya enka, drinking Song, east Asian branch, European drinking song, anglo singer song ballad poetry, east Asian lullaby freak folk 1960s greenwich village confessional folk. thick, breath veiled tone, straight onset, interlocked note trading. fingerpicked acoustic guitar, acrylic nylon modern tsugaru min yo folk song accompaniment shamisen. jazz club. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 514,
-  "score": 233.979,
+  "recipe": "classic mid-1950s japanese izakaya enka, drinking Song, east Asian branch, European drinking song, anglo singer song ballad poetry, east Asian lullaby freak folk indie folk. thick, breath veiled tone, straight onset, interlocked note trading. narrative fingerpicked acoustic guitar, acrylic nylon modern tsugaru min yo folk song accompaniment shamisen. jazz club. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+  "recipe_chars": 493,
+  "score": 218.345,
   "config": {
     "traditions": [
       "japanese_izakaya_enka",
       "freak_folk_2000s",
-      "greenwich_village_confessional"
+      "indie_folk_2000s"
     ],
     "instruments": [
       {
@@ -30,45 +30,43 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
-          "voice_register": 16.275,
-          "voice_quality": 9.23,
+          "voice_register": 22.275,
+          "voice_quality": 11.439999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.755,
-          "voice_articulation": 9.944999999999997,
-          "voice_microtone": 10.139999999999997,
-          "voice_tradition": 42.279999999999994,
-          "voice_mechanism_compound": 2.145,
-          "voice_estill_quality": 4.710000000000001,
-          "voice_speech_song": 20.734999999999992,
-          "voice_ensemble_config": 11.569999999999993,
-          "voice_ornament_system": 7.5150000000000015,
+          "voice_vibrato": 2.1125,
+          "voice_articulation": 13.129999999999992,
+          "voice_microtone": 13.32499999999999,
+          "voice_tradition": 42.82999999999999,
+          "voice_mechanism_compound": 2.34,
+          "voice_estill_quality": 3.3600000000000003,
+          "voice_speech_song": 23.074999999999996,
+          "voice_ensemble_config": 14.949999999999992,
+          "voice_ornament_system": 6.165000000000001,
           "voice_pitch_organization": 5.069999999999999,
-          "voice_processing_chain": 2.245,
-          "voice_multitrack_stack": 10.294999999999995
+          "voice_processing_chain": 4.090000000000001,
+          "voice_multitrack_stack": 7.735
         }
       },
       {
         "id": "acoustic_guitar_om",
         "slots": {
-          "acoustic_technique": "acoustic_fingerpicked",
-          "string_tuning": "dadgad",
+          "string_tuning": "drop_d",
           "top_wood": "mahogany_top_om",
           "back_sides": "mahogany_bs_om",
           "string_acoustic": "phosphor_om",
           "acoustic_om_technique": "om_fingerpicked"
         },
         "scores": {
-          "acoustic_technique": 26.731249999999996,
-          "string_tuning": 0.7249999999999998,
+          "string_tuning": 1.85,
           "top_wood": 0.9581249999999999,
           "back_sides": 0.9581249999999999,
           "string_acoustic": 0.5,
-          "acoustic_om_technique": 26.731249999999996
+          "acoustic_om_technique": 20.43125
         }
       },
       {
@@ -76,20 +74,20 @@
         "slots": {
           "plucked_traditional_technique": "plucked_classical_idiom",
           "shamisen_size": "hosozao",
-          "shamisen_skin": "shamisen_dog",
+          "shamisen_skin": "shamisen_synthetic",
           "shamisen_pick": "bachi_acrylic",
-          "shamisen_neck_wood": "shamisen_mulberry",
+          "shamisen_neck_wood": "shamisen_red_sandalwood",
           "shamisen_strings": "shamisen_nylon_tsugaru",
           "shamisen_tradition": "shamisen_min_yo"
         },
         "scores": {
           "plucked_traditional_technique": -0.05,
           "shamisen_size": 0.045,
-          "shamisen_skin": 0.345,
+          "shamisen_skin": 0.15,
           "shamisen_pick": 1.69,
-          "shamisen_neck_wood": 0.8450000000000001,
+          "shamisen_neck_wood": 0.7149999999999999,
           "shamisen_strings": 1.69,
-          "shamisen_tradition": 18.199999999999996
+          "shamisen_tradition": 17.485
         }
       }
     ],
@@ -127,7 +125,6 @@
       "voice_estill_quality": "voice_estill_sob",
       "voice_vibrato": "delayed_vibrato",
       "voice_mechanism_compound": "voice_mechanism_single_source",
-      "acoustic_technique": "acoustic_strummed_ringing",
       "top_wood": "sitka_om",
       "back_sides": "mahogany_bs_om",
       "string_acoustic": "phosphor_om",

@@ -5,7 +5,7 @@
   "lineage": "1935-1955 American big-band swing tradition (Duke Ellington, Count Basie, Benny Goodman, Glenn Miller, Tommy Dorsey, Stan Kenton) with 14-18 piece ensembles built around saxophone-trumpet-trombone choirs supported by piano-bass-drums rhythm section",
   "recipe": "classic North American mid-1940s swing-era jazz orchestra, improv On Frame, early branch, crooners functional song brill building pop american barbershop quartet. thick, breath veiled tone, straight onset, interlocked note trading. nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, bach stradivarius 180 canonical American orchestral lead trumpet ensemble trumpet, bach 42 canonical American orchestral tenor student commercial trombone, growly gut upright bass, vintage ambassador asymmetric brushes-and-sticks drum kit, cold pressed wurzen felt oversize maple tension resonator Asian spruce grand piano. voluminous 1935-1955 major-flagship swing live room. passive ribbon, tube pre, German tube console. Studer 30ips tape.",
   "recipe_chars": 789,
-  "score": 298.236,
+  "score": 296.611,
   "config": {
     "traditions": [
       "big_band",
@@ -79,12 +79,10 @@
       {
         "id": "upright_bass",
         "slots": {
-          "acoustic_technique": "acoustic_chord_melody",
           "upright_strings": "gut_wound_upright",
           "upright_play": "pizz_upright"
         },
         "scores": {
-          "acoustic_technique": 1.625,
           "upright_strings": 8.75,
           "upright_play": 8.75
         }
@@ -206,7 +204,6 @@
       "sax_size": "alto_sax",
       "brass_size": "trumpet_b_flat",
       "trumpet_technique": "trumpet_punchy_ensemble",
-      "acoustic_technique": "acoustic_flatpicked",
       "upright_play": "pizz_upright",
       "upright_strings": "gut_wound_upright",
       "keyboard_technique": "keyboard_jazz_comping",

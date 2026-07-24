@@ -5,7 +5,7 @@
   "lineage": "Virtuosic death-metal sub-style codified through Atheist (Piece of Time 1990, Unquestionable Presence 1991), Cynic (Focus 1993), Death’s later records (Human 1991, Individual Thought Patterns 1993), and the Suffocation 1990s lineage — characterized by complex multi-meter compositions, fretboard-acrobatic guitar work, and jazz-fusion influences",
   "recipe": "classic early-1990s technical death metal, distorted Rock, death branch, prog metal progressive metal. thick, breath veiled tone, straight onset, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 581,
-  "score": 214.989,
+  "score": 214.924,
   "config": {
     "traditions": [
       "technical_death_metal",
@@ -87,7 +87,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -97,7 +96,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 0.06499999999999999,
           "amp_make": 5.3950000000000005,
           "body_wood": 1.5690000000000002,
           "pickup_config": 0.195,

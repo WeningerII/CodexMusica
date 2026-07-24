@@ -5,7 +5,7 @@
   "lineage": "Colombian-Caribbean accordion-led song-form codified 1940s-onward in Valledupar (Cesar-department, northeastern Colombia) from earlier 19th-century rural-troubadour traditions of the Magdalena-basin cattle-ranch lineage. The canonical ensemble: button-accordion (the diatonic Hohner-3-row accordion imported via 1880s-onward German maritime-trade with Caribbean-port-cities), caja-vallenata small two-headed drum, guacharaca grooved-bamboo scraper. The four canonical vallenato airs: paseo moderate-tempo-narrative, merengue (different from Dominican) faster-6/8, son slower-double-meter, and puya fastest-rural-virtuosic. The lyric-tradition is heavily narrative-storytelling, often improvised, and the Vallenato-Festival-de-la-Leyenda annual competition (since 1968) codifies regional standards.",
   "recipe": "classic South American mid-1940s vallenato, groove Percussion, Latin am branch, Latin am troubadour ballad poetry milonga cueca. thick, breath veiled tone, slow rate, interlocked note trading. button accordion three row hohner legato acordeon vallenato, wood vallenato tradition fastest puya carreto canonical colombian Caribbean coast goat skin canonical vallenato caja vallenata, vallenato tradition wood metal fork guacharaca, alder la bella flats Detroit soul bass canon fingerpicked electric bass. colombian canon 1934-present mid tier discos fuentes medellin. shure SM57, transformer-coupled solid-state pre, colored vintage console, optical compressor. tape 15ips spring reverb.",
   "recipe_chars": 685,
-  "score": 151.5,
+  "score": 151.535,
   "config": {
     "traditions": [
       "vallenato",
@@ -90,7 +90,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_slap_pop",
           "amp_make": "amp_british_orange",
           "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
@@ -100,7 +99,6 @@
           "bass_technique": "fingerpicked_country_b"
         },
         "scores": {
-          "electric_technique": -0.035,
           "amp_make": 0.9749999999999996,
           "body_wood": 2.08,
           "pickup_config": 0.845,

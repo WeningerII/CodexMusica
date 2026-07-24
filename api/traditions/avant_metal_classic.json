@@ -5,7 +5,7 @@
   "lineage": "Experimental-leaning metal subgenre codified through Voivod (Canadian dissonant prog-metal), Sigh (Japanese avant-black-metal), Mr. Bungle, Diabolic Masquerade, and the broader Tzadik / Hydra Head label ecosystem — characterized by atonal harmony, irregular meter, genre-collage composition, and prog-metal sectional architecture",
   "recipe": "classic modern avant-garde metal, distorted Rock, avant branch, idm glitch experimental electric chiptune / 8-bit drill'n'bass. thick, breath veiled tone, straight note core, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, brushes-and-sticks drum kit, sub bass analog poly synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
   "recipe_chars": 605,
-  "score": 262.048,
+  "score": 259.347,
   "config": {
     "traditions": [
       "avant_metal_classic",
@@ -88,7 +88,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
           "pickup_config": "humbucker_mm",
@@ -98,7 +97,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 2.7,
           "amp_make": 5.330000000000001,
           "body_wood": 2.73,
           "pickup_config": 0.845,

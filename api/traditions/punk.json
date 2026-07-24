@@ -5,7 +5,7 @@
   "lineage": "Mid-1970s underground rock movement reasserting amateur three-chord rock against progressive-rock complexity, with simplified song-form, aggressive vocal delivery, and anti-establishment thematic content — codified through the New York scene (Ramones, Television, Patti Smith, the Voidoids) and the UK scene (Sex Pistols Never Mind the Bollocks 1977, The Clash 1977, Buzzcocks, The Damned), spreading worldwide through the late-1970s as a distinct underground commercial-and-DIY scene",
   "recipe": "classic North American 1974-1976 punk, distorted Rock, punk branch, classic distorted rock garage rock hard rock. thick, breath veiled tone, wide pitch sway, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation mahogany single coil electric guitar, ampeg svt amp rock bass amp alder ernie ball slinky electric bass, sticks backbeat drum kit. concrete basement. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb boss DS-1.",
   "recipe_chars": 562,
-  "score": 447.319,
+  "score": 437.098,
   "config": {
     "traditions": [
       "punk",
@@ -86,7 +86,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "alder_b",
           "pickup_config": "split_coil",
@@ -96,7 +95,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 10.22125,
           "amp_make": 20.799999999999997,
           "body_wood": 1.95,
           "pickup_config": 0,

@@ -5,7 +5,7 @@
   "lineage": "Late-1960s onward improvisational rock tradition with extended-form live solos and audience-tape-trading culture — Grateful Dead, Allman Brothers, Phish, Widespread Panic, Dave Matthews Band, String Cheese Incident",
   "recipe": "classic North American 1967-1969 jam band, improv On Frame, jam free branch, classic distorted rock early rock-and-roll garage-rock revival. thick, breath veiled tone, wide pitch sway, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple humbucker electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation maple single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, oil filled sticks backbeat drum kit, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 122 canonical 6l6 tube 40w rotary Hammond matched fast tremolo tonewheel organ, congas. hyde street san francisco 1969-1980 major-flagship wally heider studios sf. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
   "recipe_chars": 917,
-  "score": 335.427,
+  "score": 334.467,
   "config": {
     "traditions": [
       "jam_band",
@@ -119,7 +119,6 @@
       {
         "id": "electric_bass",
         "slots": {
-          "electric_technique": "electric_bass_pick_aggressive",
           "amp_make": "amp_american_ampeg_svt",
           "body_wood": "mahogany_b",
           "pickup_config": "soapbar",
@@ -129,7 +128,6 @@
           "bass_technique": "pick_aggressive"
         },
         "scores": {
-          "electric_technique": 0.96,
           "amp_make": 10.009999999999998,
           "body_wood": 0.65,
           "pickup_config": 0.045,
