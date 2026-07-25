@@ -3,14 +3,14 @@
   "name": "Folk metal (European)",
   "family": "global",
   "lineage": "European metal-folk-instrument hybrid subgenre codified through Skyclad (UK 1990, the first folk-metal album The Wayward Sons of Mother Earth), Korpiklaani (Finnish), Eluveitie (Swiss-Celtic), Ensiferum (Finnish-Viking) — characterized by fiddle, accordion, hurdy-gurdy, and bagpipe alongside metal instrumentation, with regional-folk melodic vocabularies",
-  "recipe": "classic early-1990s folk metal, distorted Rock, folk metal branch, Celtic balladic ballad poetry newfoundland outport balladry breton folk. thick, breath veiled tone, straight note core, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, leather castagnari Italian premium folk music straight accordion, synthetic magic rosin modern acrylic base drone like fiddle, yamaha modern Japanese mid to premium flute, dance rhythm strummed bouzouki, traditional pine resin historical steel modern bal folk French bal folk pignol tritonik hurdy gurdy, birch alder regional nyckelharpa, cane drone reeds traditional arundo donax sheepskin cowhide traditional pre modern melodic highland bagpipes, melodic recorder. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ.",
-  "recipe_chars": 1000,
-  "score": 561.28,
+  "recipe": "classic North American early-1990s folk metal, distorted Rock, folk metal branch, Celtic balladic ballad poetry sean-nós solo singing newfoundland outport balladry. thick, breath veiled tone, straight note core, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, rock canon ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, leather castagnari Italian premium folk music straight accordion, synthetic magic rosin modern acrylic base drone like fiddle, yamaha modern Japanese mid to premium flute, dance rhythm strummed bouzouki, traditional pine resin historical steel modern bal folk French bal folk pignol tritonik hurdy gurdy, birch alder regional nyckelharpa, cane drone reeds traditional arundo donax sheepskin cowhide traditional pre modern melodic highland bagpipes, melodic recorder. live tracking. large-diaphragm condenser.",
+  "recipe_chars": 979,
+  "score": 558.41,
   "config": {
     "traditions": [
       "folk_metal_european",
-      "newfoundland_outport",
-      "breton_folk"
+      "sean_nos_solo",
+      "newfoundland_outport"
     ],
     "instruments": [
       {
@@ -29,27 +29,27 @@
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
-          "voice_pitch_organization": "voice_pitch_pythagorean",
+          "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
-          "voice_register": 30.419999999999998,
-          "voice_quality": 10.399999999999997,
+          "voice_register": 29.62,
+          "voice_quality": 8.190000000000001,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 4.56,
-          "voice_articulation": 11.439999999999996,
-          "voice_microtone": 11.374999999999993,
-          "voice_tradition": 46.91499999999999,
+          "voice_vibrato": 4.635,
+          "voice_articulation": 10.659999999999995,
+          "voice_microtone": 11.89499999999999,
+          "voice_tradition": 48.88999999999999,
           "voice_mechanism_compound": 25.650000000000006,
-          "voice_estill_quality": 3.835,
-          "voice_speech_song": 14.039999999999996,
-          "voice_ensemble_config": 10.919999999999996,
-          "voice_ornament_system": 17.649999999999995,
-          "voice_pitch_organization": 1.1249999999999998,
-          "voice_processing_chain": 3.25,
-          "voice_multitrack_stack": 4.030000000000001
+          "voice_estill_quality": 4.030000000000001,
+          "voice_speech_song": 12.349999999999994,
+          "voice_ensemble_config": 10.594999999999994,
+          "voice_ornament_system": 29.324999999999996,
+          "voice_pitch_organization": 1.3649999999999998,
+          "voice_processing_chain": 3.6400000000000006,
+          "voice_multitrack_stack": 4.3149999999999995
         }
       },
       {
@@ -71,16 +71,16 @@
         },
         "scores": {
           "electric_technique": 25.700000000000006,
-          "amp_make": 12.620000000000001,
-          "body_wood": 11.265000000000002,
+          "amp_make": 12.245000000000003,
+          "body_wood": 11.115000000000004,
           "neck_wood": 0.39,
           "fretboard": 0.325,
-          "pickup_magnet": 0.845,
-          "pickup_winding": 0.845,
+          "pickup_magnet": 0.65,
+          "pickup_winding": 0.65,
           "string_material": 0,
-          "bridge": 0.7899999999999999,
-          "scale_length": 10.830000000000004,
-          "string_gauge": 0.835,
+          "bridge": 0.94,
+          "scale_length": 10.680000000000003,
+          "string_gauge": 0.985,
           "finish": 0.15,
           "string_tuning": 11.850000000000003
         }
@@ -93,16 +93,16 @@
           "pickup_config": "soapbar",
           "string_type": "ernie_ball_slinky_bass",
           "scale_length_b": "long_scale_b",
-          "fretted_or_not": "fretted",
+          "fretted_or_not": "fretless",
           "bass_technique": "pick_aggressive"
         },
         "scores": {
           "amp_make": 2.4,
           "body_wood": 0.39,
-          "pickup_config": 0.845,
+          "pickup_config": 0.65,
           "string_type": 5.195,
           "scale_length_b": 0.9500000000000001,
-          "fretted_or_not": 0.9950000000000001,
+          "fretted_or_not": 1.04,
           "bass_technique": 4.95
         }
       },
@@ -114,8 +114,8 @@
           "drum_kit_kick_pedal": "dk_kick_single_felt"
         },
         "scores": {
-          "drum_technique": 10.854999999999997,
-          "drumhead": 2.16,
+          "drum_technique": 10.724999999999994,
+          "drumhead": 1.755,
           "drum_kit_kick_pedal": 0
         }
       },
@@ -131,13 +131,13 @@
           "accordion_maker_school": "accordion_castagnari_italian"
         },
         "scores": {
-          "free_reed_technique": 26.689999999999998,
+          "free_reed_technique": 27.115000000000002,
           "accordion_reed_material": 0.39,
-          "musette_offset": 1.04,
+          "musette_offset": 1.17,
           "reed_config": 0.345,
-          "bellows": 1.04,
+          "bellows": 1.17,
           "voicing_chamber": 0,
-          "accordion_maker_school": 11.739999999999998
+          "accordion_maker_school": 11.34
         }
       },
       {
@@ -151,10 +151,10 @@
         },
         "scores": {
           "bowed_technique": 23.9,
-          "fiddle_strings": 1.8850000000000002,
-          "fiddle_bow": 2.105,
-          "fiddle_mute": 0.835,
-          "fiddle_articulation": 2.3850000000000002
+          "fiddle_strings": 1.69,
+          "fiddle_bow": 1.625,
+          "fiddle_mute": 0.985,
+          "fiddle_articulation": 2.535
         }
       },
       {
@@ -163,15 +163,15 @@
           "wind_articulation": "wind_classical_legato",
           "flute_size": "alto_flute",
           "flute_material": "silver_flute",
-          "flute_technique": "beatboxed_flute",
+          "flute_technique": "classical_flute",
           "flute_maker_school": "flute_yamaha"
         },
         "scores": {
           "wind_articulation": 0.6499999999999999,
-          "flute_size": 0.39,
-          "flute_material": 0.845,
-          "flute_technique": 0.845,
-          "flute_maker_school": 1.625
+          "flute_size": 1.04,
+          "flute_material": 0.65,
+          "flute_technique": 0.7,
+          "flute_maker_school": 1.8199999999999998
         }
       },
       {
@@ -184,10 +184,10 @@
           "bouzouki_strings": "bouzouki_steel_modern"
         },
         "scores": {
-          "plucked_traditional_technique": 25.924999999999997,
-          "bouzouki_courses": 1.8199999999999998,
-          "bouzouki_pick": 1.04,
-          "bouzouki_body_wood": 0.845,
+          "plucked_traditional_technique": 23.625,
+          "bouzouki_courses": 2.6,
+          "bouzouki_pick": 1.17,
+          "bouzouki_body_wood": 0.65,
           "bouzouki_strings": 0.045
         }
       },
@@ -203,11 +203,11 @@
         },
         "scores": {
           "bowed_technique": -0.05,
-          "hurdy_strings": 11.645,
-          "hurdy_buzz": 0.39,
-          "hurdy_wheel_rosin": 1.4300000000000002,
-          "hurdy_string_material": 12.325,
-          "hurdy_tradition": 11.194999999999999
+          "hurdy_strings": 11.945,
+          "hurdy_buzz": 0.9500000000000001,
+          "hurdy_wheel_rosin": 1.755,
+          "hurdy_string_material": 11.975,
+          "hurdy_tradition": 10.995
         }
       },
       {
@@ -222,10 +222,10 @@
         },
         "scores": {
           "bowed_technique": -0.05,
-          "nyckel_keys": 11.194999999999999,
-          "nyckel_strings": 23,
-          "nyckel_body_wood": 2.5900000000000003,
-          "nyckel_string_material": 0.975,
+          "nyckel_keys": 10.995,
+          "nyckel_strings": 22.5,
+          "nyckel_body_wood": 3.24,
+          "nyckel_string_material": 0.585,
           "nyckel_mechanism": -1.085
         }
       },
@@ -240,12 +240,12 @@
           "highland_bag": "highland_hide_bag"
         },
         "scores": {
-          "wind_articulation": 36.464999999999996,
-          "highland_drones": 0.65,
+          "wind_articulation": 34.49,
+          "highland_drones": 0.15,
           "highland_chanter": 0.975,
-          "highland_drone_reeds": 1.04,
-          "highland_chanter_reed": 0.39,
-          "highland_bag": 2.08
+          "highland_drone_reeds": 1.8199999999999998,
+          "highland_chanter_reed": 0.09,
+          "highland_bag": 1.8199999999999998
         }
       },
       {
@@ -257,15 +257,15 @@
           "recorder_body_wood": "recorder_grenadilla"
         },
         "scores": {
-          "wind_articulation": 36.464999999999996,
+          "wind_articulation": 34.49,
           "recorder_size": 0,
-          "recorder_context": 2.145,
-          "recorder_body_wood": 0.78
+          "recorder_context": 1.625,
+          "recorder_body_wood": 0.585
         }
       }
     ],
     "room": "live_room",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_80s_late_analog_majorrock",
     "inline_chain": {
       "mic": "dynamic_mic",
       "pre": "transformer_solid_state",

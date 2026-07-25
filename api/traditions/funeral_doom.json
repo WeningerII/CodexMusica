@@ -3,9 +3,9 @@
   "name": "Funeral doom",
   "family": "global",
   "lineage": "Extreme-slow doom-metal sub-style codified through Thergothon (Finnish, Stream from the Heavens 1994), Skepticism, Mournful Congregation, and Esoteric — characterized by sub-30 BPM tempo, sustained heavy-distortion guitar drones, glacial drumming, and bell-like cathedral-organ accents; ritual-funereal lyrical and visual identity",
-  "recipe": "classic mid-1990s funeral doom, distorted Rock, doom branch, ambient experimental electric witch house vaporwave aesthetic. thick, larynx lowered, straight onset, interlocked note trading. orange amp British heavy crunch basswood lower tension down tuning power chord humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky sub heavy electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, sustained pad analog poly synth. cathedral. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 611,
-  "score": 226.587,
+  "recipe": "classic North American mid-1990s funeral doom, distorted Rock, doom branch, ambient experimental electric witch house vaporwave aesthetic. thick, larynx lowered, straight onset, interlocked note trading. orange amp British heavy crunch basswood lower tension down tuning power chord humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky sub heavy electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, roland jupiter lineage canonical jupiter 8 1981 osaka pad analog poly synth. cathedral. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 687,
+  "score": 230.562,
   "config": {
     "traditions": [
       "funeral_doom",
@@ -49,7 +49,7 @@
           "voice_ornament_system": 2.495,
           "voice_pitch_organization": 4.485,
           "voice_processing_chain": 8.625,
-          "voice_multitrack_stack": 11.374999999999998
+          "voice_multitrack_stack": 8.775000000000002
         }
       },
       {
@@ -125,18 +125,18 @@
           "electronic_technique": "electronic_pad_drone",
           "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_8_voice",
-          "poly_maker_lineage": "poly_sequential_smith"
+          "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
           "electronic_technique": 7.035000000000001,
           "poly_archetypes": 1.71,
           "poly_voices": 1.63,
-          "poly_maker_lineage": -0.525
+          "poly_maker_lineage": 1.625
         }
       }
     ],
     "room": "cathedral",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_80s_late_analog_majorrock",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "transformer_solid_state",

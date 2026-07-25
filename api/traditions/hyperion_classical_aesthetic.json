@@ -3,9 +3,9 @@
   "name": "Hyperion-school classical-recording aesthetic",
   "family": "global",
   "lineage": "Hyperion Records (British classical label founded 1980) audiophile-canon production aesthetic for Western classical chamber and song repertoire — characterized by intimate close-miked sound stage, transparent capture without console coloration, minimal post-processing, and exploratory programming covering obscure and rediscovered repertoire alongside the standard canon",
-  "recipe": "classic early-1980s hyperion-school classical-recording aesthetic, art Music, western common practice branch, western early art music historically-informed performance recording baroque period-instrument. thick, breath veiled tone, slow rate, interlocked note trading. beech laminated maple laminated European tradition European spruce norway spruce grand piano, synthetic norway spruce European alpine European maple bosnian source violin orchestral, gut norway spruce European alpine European maple bosnian source cello. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 674,
-  "score": 577.371,
+  "recipe": "classic European early-1980s hyperion-school classical-recording aesthetic, art Music, western common practice branch, western early art music historically-informed performance recording baroque period-instrument. thick, breath veiled tone, slow rate, interlocked note trading. beech laminated maple laminated European tradition European spruce norway spruce grand piano, synthetic norway spruce European alpine European maple bosnian source violin orchestral, gut norway spruce European alpine European maple bosnian source cello. shoebox concert hall. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+  "recipe_chars": 628,
+  "score": 577.106,
   "config": {
     "traditions": [
       "hyperion_classical_aesthetic",
@@ -30,7 +30,7 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
         },
         "scores": {
@@ -48,8 +48,8 @@
           "voice_ensemble_config": 10.627499999999998,
           "voice_ornament_system": 15.125000000000002,
           "voice_pitch_organization": 14.245000000000003,
-          "voice_processing_chain": 2.990000000000001,
-          "voice_multitrack_stack": 4.355
+          "voice_processing_chain": 2.925,
+          "voice_multitrack_stack": 1.7549999999999994
         }
       },
       {
@@ -131,7 +131,7 @@
       }
     ],
     "room": "concert_hall_shoebox",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_church_location_early_music",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "tube_modern",

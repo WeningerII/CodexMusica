@@ -3,14 +3,14 @@
   "name": "Audiobook narration",
   "family": "global",
   "lineage": "Solo long-form literary narration tradition rooted in the 1932 American Foundation for the Blind / Library of Congress talking-book program for blind readers and in the 1952 founding of Caedmon Records, whose Dylan Thomas reading of A Child's Christmas in Wales is the commonly cited commercial origin point. It grew through the Books on Tape cassette-rental era of the 1970s-80s into the Audible-era digital industry, with the narrator working alone in a dry, heavily damped close-miked booth, sustaining a consistent voice, pacing, and character palette across many hours of finished audio. Canonical narrators include Jim Dale and Stephen Fry (the US and UK Harry Potter cycles respectively), George Guidall, and Barbara Rosenblat.",
-  "recipe": "classic mid-1970s audiobook narration, spoken Word, narration branch podcast conversation documentary voiceover. vocal fry, breath veiled tone, slow rate, interlocked note trading. closet booth. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 324,
-  "score": 159.16,
+  "recipe": "classic mid-1970s audiobook narration, spoken Word, narration branch documentary voiceover old-time radio announcer. vocal fry, breath veiled tone, slow rate, interlocked note trading. closet booth. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 297,
+  "score": 164.222,
   "config": {
     "traditions": [
       "audiobook_narration",
-      "podcast_conversation",
-      "documentary_voiceover"
+      "documentary_voiceover",
+      "oldtime_radio_announcer"
     ],
     "instruments": [
       {
@@ -25,7 +25,7 @@
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "scottish_gaelic_taladh_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
-          "voice_estill_quality": "voice_estill_nasal_twang",
+          "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_andean_huayno",
@@ -35,26 +35,26 @@
         },
         "scores": {
           "voice_register": 2.535,
-          "voice_quality": 32.17500000000001,
+          "voice_quality": 33.475,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 2.47,
-          "voice_articulation": 15.274999999999995,
-          "voice_microtone": 15.079999999999993,
-          "voice_tradition": 9.945,
-          "voice_mechanism_compound": 4.225,
-          "voice_estill_quality": 2.34,
-          "voice_speech_song": 15.274999999999995,
-          "voice_ensemble_config": 20.279999999999994,
+          "voice_articulation": 17.614999999999995,
+          "voice_microtone": 17.419999999999995,
+          "voice_tradition": 7.41,
+          "voice_mechanism_compound": 3.38,
+          "voice_estill_quality": 3.6725000000000003,
+          "voice_speech_song": 18.459999999999997,
+          "voice_ensemble_config": 20.929999999999996,
           "voice_ornament_system": 3.2500000000000004,
           "voice_pitch_organization": 2.34,
-          "voice_processing_chain": 13.324999999999996,
-          "voice_multitrack_stack": 4.745
+          "voice_processing_chain": 15.014999999999993,
+          "voice_multitrack_stack": 2.5999999999999996
         }
       }
     ],
     "room": "closet_booth",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_minimal_daw_bedroom",
     "inline_chain": {
       "mic": "mic_u87_condenser_neumann",
       "pre": "transformerless",

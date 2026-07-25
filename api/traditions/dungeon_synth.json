@@ -3,14 +3,12 @@
   "name": "Dungeon synth",
   "family": "electronic",
   "lineage": "Early-1990s ambient subgenre developed by Norwegian black-metal musicians as parallel-project compositions, characterized by minimal MIDI-keyboard-and-synth production evoking medieval-fantasy and Tolkien-inspired imaginary-soundtrack atmosphere. Mortiis (Håvard Ellefsen), Burzum's 1993-1999 ambient catalogs, Wongraven, and the broader Cold Meat Industry label roster anchored the canonical sound. The 2010s revival through SoundCloud and Bandcamp distributed-production scenes consolidated contemporary visibility.",
-  "recipe": "classic mid-1990s dungeon synth, experimental Elec, ambient branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. pad like pad analog synth. isolated rural 2005-present isolation diy isolation cabin diy. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 386,
-  "score": 20.5,
+  "recipe": "classic mid-1990s dungeon synth, experimental Elec, ambient branch, indigenous ritual devotional. pad like pad analog synth. isolated rural 2005-present isolation diy isolation cabin diy. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
+  "recipe_chars": 283,
+  "score": 18.75,
   "config": {
     "traditions": [
-      "dungeon_synth",
-      "shipibo_icaros",
-      "mapuche_tayil_ritual"
+      "dungeon_synth"
     ],
     "instruments": [
       {
@@ -25,14 +23,14 @@
         "scores": {
           "electronic_technique": 10.395,
           "oscillator": 0.495,
-          "filter_topology": 0.845,
+          "filter_topology": 0.8700000000000001,
           "envelope": 4.1,
           "modulation": 0.38999999999999996
         }
       }
     ],
     "room": "studio_isolation_cabin_diy",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_pre_daw_electronic_pioneer",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "transformerless",

@@ -3,9 +3,9 @@
   "name": "Chiptune / 8-bit",
   "family": "electronic",
   "lineage": "Late-1990s and 2000s electronic subgenre composed using sound chips from 1980s game consoles (Commodore 64 SID chip, Nintendo Game Boy LSDj software, Famicom NSF chip). Characterized by limited-polyphony square-and-triangle-wave timbres, fast tempo, and bright-melodic content reminiscent of 8-bit-era video-game soundtracks. Anamanaguchi, Crystal Castles (early use), Sabrepulse, Bit Shifter, and the broader 8bitpeoples netlabel anchored the canonical 2000s sound.",
-  "recipe": "classic 1997-1999 chiptune / 8-bit, experimental Elec, idm glitch branch, house electronic dance future house. fast decay focused low sub bass analog synth. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 350,
-  "score": 19.915,
+  "recipe": "classic 1997-1999 chiptune / 8-bit, experimental Elec, idm glitch branch, house electronic dance future house. fast decay focused low sub bass analog synth. no single room 2015-present distributed distributed production. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
+  "recipe_chars": 316,
+  "score": 20.79,
   "config": {
     "traditions": [
       "chiptune_8bit",
@@ -32,7 +32,7 @@
       }
     ],
     "room": "studio_distributed_production",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_pre_daw_electronic_pioneer",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "transformerless",

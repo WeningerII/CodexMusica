@@ -3,9 +3,9 @@
   "name": "EBM (electronic body music)",
   "family": "electronic",
   "lineage": "Early-1980s European electronic subgenre developed in Belgium and Germany through Front 242 (Belgium 1981), Nitzer Ebb (UK), DAF (German Düsseldorf), and Klinik. Characterized by aggressive-mechanical synth-bass-line sequences, shouted-distorted male vocal-delivery, military-industrial visual-aesthetic, and explicit dance-floor-functional structural framework. The Wax Trax! Records (Chicago) and Play It Again Sam (Belgian) label rosters anchored the international circulation.",
-  "recipe": "classic 1980-1983 ebm, experimental Elec, industrial noise branch, thrash metal groove metal djent. thick, breath veiled tone, straight note core, interlocked note trading. analog synth, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808. isolated rural 2005-present isolation diy isolation cabin diy. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 482,
-  "score": 140.592,
+  "recipe": "classic 1980-1983 ebm, experimental Elec, industrial noise branch, thrash metal groove metal djent. thick, breath veiled tone, straight note core, interlocked note trading. analog synth, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808. isolated rural 2005-present isolation diy isolation cabin diy. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette.",
+  "recipe_chars": 448,
+  "score": 147.209,
   "config": {
     "traditions": [
       "ebm_european_body",
@@ -31,7 +31,7 @@
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_vocoder_8_band",
-          "voice_multitrack_stack": "voice_multitrack_2000s_elastic_pitch_edited"
+          "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
           "voice_register": 7.326500000000001,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 4.030000000000001,
           "voice_processing_chain": 13.1525,
-          "voice_multitrack_stack": 5.655000000000001
+          "voice_multitrack_stack": 7.671500000000002
         }
       },
       {
@@ -79,12 +79,12 @@
         "scores": {
           "tr808_voice": 1.51275,
           "drum_machine_808_context": 6.61125,
-          "tr808_production_origin": 1.8199999999999996
+          "tr808_production_origin": 4.42
         }
       }
     ],
     "room": "studio_isolation_cabin_diy",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_pre_daw_electronic_pioneer",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "transformerless",

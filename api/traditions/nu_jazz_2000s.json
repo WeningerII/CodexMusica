@@ -3,9 +3,9 @@
   "name": "Nu jazz / electro-jazz",
   "family": "jazz",
   "lineage": "2000s jazz substyle integrating electronic-production techniques, sample-and-loop-based composition, and broader club-music-influenced rhythmic vocabulary with jazz harmonic-melodic content. Norwegian Jaga Jazzist, German Jazzanova, and Swedish Esbjörn Svensson Trio anchored the European canonical sound; American counterparts including The Bad Plus and Robert Glasper extended the style into American jazz mainstream.",
-  "recipe": "classic mid-2000s nu jazz / electro-jazz, improv On Frame, fusion branch, idm glitch experimental electric chiptune / 8-bit drill'n'bass. nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, cold pressed wurzen felt oversize maple tension resonator sitka spruce grand piano, ampeg b15 amp American 60s bass amp flip top character alder thomastik infeld electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, analog synth. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 696,
-  "score": 228.577,
+  "recipe": "classic mid-2000s nu jazz / electro-jazz, improv On Frame, fusion branch, idm glitch experimental electric chiptune / 8-bit drill'n'bass. nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, cold pressed wurzen felt oversize maple tension resonator sitka spruce grand piano, ampeg b15 amp American 60s bass amp flip top character alder thomastik infeld electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit, analog synth. no single room 2015-present distributed distributed production. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
+  "recipe_chars": 674,
+  "score": 230.152,
   "config": {
     "traditions": [
       "nu_jazz_2000s",
@@ -112,7 +112,7 @@
       }
     ],
     "room": "studio_distributed_production",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ecm_kongshaug",
     "inline_chain": {
       "mic": "mic_u87_condenser_neumann",
       "pre": "transformer_solid_state",

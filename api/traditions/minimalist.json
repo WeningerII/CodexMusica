@@ -3,9 +3,9 @@
   "name": "Minimalist",
   "family": "classical",
   "lineage": "Late-1960s onward American art-music movement characterized by repetitive cells, gradual processual change, sustained tonal centers, and rejection of post-Webern serialism — codified through La Monte Young (early drone works), Terry Riley (In C 1964), Steve Reich (Music for 18 Musicians 1976, Music for Mallet Instruments Voices and Organ), Philip Glass (Music in Twelve Parts 1971-74, Einstein on the Beach 1976), and continuing through John Adams (Shaker Loops 1978)",
-  "recipe": "classic 1967-1969 minimalist, art Music, western modern branch, ambient experimental electric. soft felt lacquer voiced beech laminated maple laminated European tradition grand piano, analog synth, bass flute. shoebox concert hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 361,
-  "score": 60.635,
+  "recipe": "classic European 1967-1969 minimalist, art Music, western modern branch, ambient experimental electric. soft felt lacquer voiced beech laminated maple laminated European tradition grand piano, analog synth, bass flute. shoebox concert hall. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
+  "recipe_chars": 348,
+  "score": 59.685,
   "config": {
     "traditions": [
       "minimalist"
@@ -68,7 +68,7 @@
       }
     ],
     "room": "concert_hall_shoebox",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ecm_kongshaug",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "transformer_solid_state",

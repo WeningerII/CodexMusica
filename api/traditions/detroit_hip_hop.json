@@ -3,9 +3,9 @@
   "name": "Detroit hip-hop",
   "family": "hip_hop",
   "lineage": "Detroit Michigan hip-hop tradition with distinct regional-aesthetic descended from J Dilla's 1990s-2000s production style — sampling jazz, soul, and funk records with deliberately-loose drum-quantization and \"behind-the-beat\" rhythmic feel. Slum Village (founded 1991 by J Dilla, T3, and Baatin), Royce da 5'9\", Black Milk, Danny Brown, and (later) 42 Dugg, Babyface Ray, and Tee Grizzley constitute the canonical roster. Eminem's parallel Detroit-based career operates as adjacent-but-distinct lineage.",
-  "recipe": "classic Midwestern American mid-1990s detroit hip-hop, mc Rhythm, us hip hop branch, us hip hop conscious rap conscious hip-hop. thick, rap, straight onset, narrative. chopped sampler, TR-808. converted house 2648 west grand blvd 1959-1972 mid tier hitsville usa motown detroit. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 408,
-  "score": 272.427,
+  "recipe": "classic Midwestern American mid-1990s detroit hip-hop, mc Rhythm, us hip hop branch, us hip hop conscious rap conscious hip-hop. thick, rap, straight onset, narrative. chopped sampler, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808. converted house 2648 west grand blvd 1959-1972 mid tier hitsville usa motown detroit. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 487,
+  "score": 281.052,
   "config": {
     "traditions": [
       "detroit_hip_hop",
@@ -78,12 +78,12 @@
         "scores": {
           "tr808_voice": 11.8075,
           "drum_machine_808_context": 2.7852500000000004,
-          "tr808_production_origin": 0.9099999999999999
+          "tr808_production_origin": 3.5100000000000002
         }
       }
     ],
     "room": "hitsville_usa_motown_detroit",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_80s_indie_commercial_us",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "pre_neve_1073_input",

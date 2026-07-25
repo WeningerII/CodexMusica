@@ -5,7 +5,7 @@
   "lineage": "Late-1970s and early-1980s American and British rock subgenre emerging from post-punk's dissolution into commercially-accessible pop-and-rock direction with synthesizer-and-arty-aesthetic integration. Blondie, Talking Heads, Devo, the Cars, Elvis Costello, Squeeze, the Police, and the broader 1978-1983 new wave commercial-radio dominance constitute the canonical roster.",
   "recipe": "classic British mid-1980s new wave, distorted Rock, alternative branch, classic distorted rock merseybeat. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation soft down tuning single coil electric guitar, marshall plexi amp British rock amp mahogany ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit, plucked short envelope analog synth. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
   "recipe_chars": 700,
-  "score": 334.486,
+  "score": 336.58,
   "config": {
     "traditions": [
       "new_wave_late_70s_early_80s",
@@ -49,7 +49,7 @@
           "voice_ornament_system": 0.845,
           "voice_pitch_organization": 8.71,
           "voice_processing_chain": 11.245000000000001,
-          "voice_multitrack_stack": 7.0200000000000005
+          "voice_multitrack_stack": 9.114500000000001
         }
       },
       {

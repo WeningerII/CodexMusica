@@ -3,9 +3,9 @@
   "name": "Progressive trance",
   "family": "global",
   "lineage": "Late-1990s and 2000s long-arc trance subgenre characterized by 7-12-minute track lengths with extended dynamic build-and-release arcs — codified through Sasha and John Digweed’s Northern Exposure mixes (1996-1999), Hernán Cattáneo’s Buenos Aires DJ sets, and the GU (Global Underground) mix-CD series",
-  "recipe": "classic 1996-1999 progressive trance, electronic Dance, trance branch, ambient experimental electric dungeon synth vaporwave aesthetic. sustained pad analog poly synth, sustained pad digital subtractive, TR-909, field textural sampler. festival stage. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter hall reverb.",
-  "recipe_chars": 393,
-  "score": 81.735,
+  "recipe": "classic 1996-1999 progressive trance, electronic Dance, trance branch, ambient experimental electric dungeon synth vaporwave aesthetic. roland jupiter lineage canonical jupiter 8 1981 osaka pad analog poly synth, sustained pad digital subtractive, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909, field textural sampler. festival stage. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette hall reverb digital delay.",
+  "recipe_chars": 495,
+  "score": 88.065,
   "config": {
     "traditions": [
       "progressive_trance",
@@ -25,7 +25,7 @@
           "electronic_technique": 10.184999999999999,
           "poly_archetypes": 1.5299999999999998,
           "poly_voices": 1.5299999999999998,
-          "poly_maker_lineage": -0.31499999999999995
+          "poly_maker_lineage": 2.015
         }
       },
       {
@@ -46,12 +46,12 @@
         "slots": {
           "tr909_voice": "tr909_kick",
           "drum_machine_909_context": "drum_machine_909_techno",
-          "tr909_production_origin": "tr909_behringer_rd_9"
+          "tr909_production_origin": "tr909_roland_osaka_canonical"
         },
         "scores": {
           "tr909_voice": 0.75,
           "drum_machine_909_context": 0.7149999999999999,
-          "tr909_production_origin": 0.15
+          "tr909_production_origin": 1.625
         }
       },
       {
@@ -73,7 +73,7 @@
       }
     ],
     "room": "festival_stage",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_pre_daw_electronic_pioneer",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "transformer_solid_state",

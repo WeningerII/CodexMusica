@@ -3,9 +3,9 @@
   "name": "Chinese xiangsheng crosstalk",
   "family": "global",
   "lineage": "Chinese comic dialogue (xiangsheng, 'crosstalk'), most characteristically the two-person duikou form in which a lead funnyman (dougen) and a straight-man feed (penggen) trade rapid witty patter, wordplay, mimicry and song at a small table on stage. A Beijing-Tianjin vernacular art crystallised in the late Qing and Republican eras and canonised through masters such as Hou Baolin, its skills are summed as the four arts of speaking, imitating, teasing and singing (shuo, xue, dou, chang), including tongue-twisting guankou set-pieces. Delivery is fast, rhythmic conversational comedy built on precise timing between the two voices.",
-  "recipe": "classic East Asian modern chinese xiangsheng crosstalk, art Music, east Asian branch tibetan ache lhamo opera beijing opera. kargyraa, breath veiled tone, slow rate, interlocked note trading. chinese traditional teahouse. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 351,
-  "score": 242.832,
+  "recipe": "classic East Asian early-1930s chinese xiangsheng crosstalk, art Music, east Asian branch tibetan ache lhamo opera beijing opera. kargyraa, breath veiled tone, slow rate, interlocked note trading. chinese traditional teahouse. RCA 44-BX, calrec BBC-broadcast pre, BBC broadcast console, Telefunken u73b broadcast comp, broadcast loudness EQ. AM-radio broadcast.",
+  "recipe_chars": 361,
+  "score": 231.722,
   "config": {
     "traditions": [
       "chinese_xiangsheng",
@@ -30,8 +30,8 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_processing_chain": "voice_processing_stutter_edit",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
           "voice_register": 2.7815000000000003,
@@ -48,13 +48,13 @@
           "voice_ensemble_config": 26.84499999999999,
           "voice_ornament_system": 18.8445,
           "voice_pitch_organization": 8.3605,
-          "voice_processing_chain": 5.655000000000001,
-          "voice_multitrack_stack": 3.7050000000000005
+          "voice_processing_chain": 3.6399999999999997,
+          "voice_multitrack_stack": 4.8100000000000005
         }
       }
     ],
     "room": "chinese_traditional_teahouse",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_network_radio_broadcast",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "tube_pre",

@@ -3,9 +3,9 @@
   "name": "Japanese rakugo",
   "family": "global",
   "lineage": "Japanese comic monologue storytelling performed by a lone seated rakugoka in formal kimono at a low cushion (zabuton) on the yose stage, using only a folding fan (sensu) and hand-towel (tenugui) as props. Developed from Edo-period temple-sermon anecdote into an urban entertainment codified in Edo (Tokyo) and Osaka lineages, its repertoire divides into classical koten and newly-written shinsaku pieces, each ending in the ochi (punch-line 'fall') that gives the form its name. The teller enacts a whole dialogue of characters by turning the head and shifting voice, all from the seated position; the delivery is naturalistic conversational speech shaped for comic timing.",
-  "recipe": "classic East Asian modern japanese rakugo, art Music, east Asian branch thai classical tibetan ache lhamo opera. thick, breath veiled tone, slow rate, interlocked note trading. tatami parlor japanese. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 330,
-  "score": 269.607,
+  "recipe": "classic East Asian early-1930s japanese rakugo, art Music, east Asian branch thai classical tibetan ache lhamo opera. thick, breath veiled tone, slow rate, interlocked note trading. tatami parlor japanese. RCA 44-BX, calrec BBC-broadcast pre, BBC broadcast console, Telefunken u73b broadcast comp, broadcast loudness EQ. AM-radio broadcast.",
+  "recipe_chars": 340,
+  "score": 250.557,
   "config": {
     "traditions": [
       "japanese_rakugo",
@@ -49,12 +49,12 @@
           "voice_ornament_system": 17.585,
           "voice_pitch_organization": 17.823499999999996,
           "voice_processing_chain": 6.305,
-          "voice_multitrack_stack": 7.67
+          "voice_multitrack_stack": 3.1200000000000006
         }
       }
     ],
     "room": "tatami_parlor_japanese",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_network_radio_broadcast",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "tube_pre",

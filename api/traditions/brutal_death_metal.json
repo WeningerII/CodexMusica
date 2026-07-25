@@ -3,9 +3,9 @@
   "name": "Brutal death metal",
   "family": "global",
   "lineage": "Extreme-aggressive death-metal sub-style codified through Suffocation (Effigy of the Forgotten 1991), Cannibal Corpse (Tomb of the Mutilated 1992), Cryptopsy (None So Vile 1996), Disgorge — characterized by guttural-pig-squeal vocals, sub-200-BPM blast-beat drums, and downtuned-baritone-guitar low-end",
-  "recipe": "classic early-1990s brutal death metal, distorted Rock, death branch, thrash metal groove metal djent. thick, breath veiled tone, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modeled amp modern rig mahogany ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 538,
-  "score": 309.477,
+  "recipe": "classic North American early-1990s brutal death metal, distorted Rock, death branch, thrash metal groove metal djent. thick, breath veiled tone, slow rate, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, modeled amp modern rig mahogany ernie ball slinky electric bass, sticks backbeat drum kit. treated studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 570,
+  "score": 309.277,
   "config": {
     "traditions": [
       "brutal_death_metal",
@@ -48,7 +48,7 @@
           "voice_ensemble_config": 7.279999999999999,
           "voice_ornament_system": 2.3060000000000005,
           "voice_pitch_organization": 2.4875,
-          "voice_processing_chain": 6.4350000000000005,
+          "voice_processing_chain": 3.835,
           "voice_multitrack_stack": 5.655000000000001
         }
       },
@@ -121,7 +121,7 @@
       }
     ],
     "room": "treated_studio",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_80s_late_analog_majorrock",
     "inline_chain": {
       "mic": "dynamic_mic",
       "pre": "transformer_solid_state",

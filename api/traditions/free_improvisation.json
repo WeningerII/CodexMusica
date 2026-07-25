@@ -3,9 +3,9 @@
   "name": "Free improvisation (non-idiomatic)",
   "family": "global",
   "lineage": "Post-1960s European and American non-idiomatic improvisation tradition — codified through Derek Bailey’s Improvisation: Its Nature and Practice in Music (1980) as theoretical foundation, the Spontaneous Music Ensemble (London 1966 onward), AMM, Music Improvisation Company, the Globe Unity Orchestra, and the Bay Area / Knitting Factory NYC American scenes — characterized by genre-disavowal posture, no-pre-arranged-material premise, and timbre-and-extended-technique-foreground performance",
-  "recipe": "classic mid-1960s free improvisation, improv On Frame, jam free branch, musique concrete experimental electric musique concrète electroacoustic composition. extended whistle, breath veiled tone, fast rate, interlocked note trading. alto yellow brass modern standard saxophone, steel plywood laminate European maple sycamore maple double bass, pre muffled edge muffled brushes-and-sticks drum kit, glitched textural granular synth, whale song waterphone. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 599,
-  "score": 135.493,
+  "recipe": "classic European mid-1960s free improvisation, improv On Frame, jam free branch, musique concrete experimental electric musique concrète electroacoustic composition. extended whistle, breath veiled tone, fast rate, interlocked note trading. alto yellow brass modern standard saxophone, steel plywood laminate European maple sycamore maple double bass, pre muffled edge muffled brushes-and-sticks drum kit, glitched textural granular synth, whale song waterphone. treated studio. Neumann U87, ultra-clean solid-state pre, parametric EQ. Studer 30ips tape plate reverb lexicon 224 / 480L.",
+  "recipe_chars": 586,
+  "score": 135.718,
   "config": {
     "traditions": [
       "free_improvisation",
@@ -143,7 +143,7 @@
       }
     ],
     "room": "treated_studio",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_ecm_kongshaug",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "transformerless",

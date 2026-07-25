@@ -3,9 +3,9 @@
   "name": "Southern hip-hop (classic South)",
   "family": "hip_hop",
   "lineage": "Late-1980s-and-onward Southern US hip-hop tradition spanning Houston (Geto Boys, Rap-A-Lot Records), Atlanta (Outkast, Dungeon Family), Miami (2 Live Crew, Miami Bass), and Memphis (Three 6 Mafia). Characterized by drawled vocal-delivery, Roland 808-prominent production, and explicit Southern-cultural-identity assertion against the East Coast / West Coast geographic dichotomy. Outkast's Aquemini (1998) and Geto Boys' We Can't Be Stopped (1991) consolidated regional visibility.",
-  "recipe": "classic Los Angeles 1987-1989 southern hip-hop, mc Rhythm, southern branch, funk percussive groove percussion, soul R&B functional song new jack swing doo-wop. thick, rap, straight onset, interlocked note trading. pitched chopped sampler, roland tr 8s modern aira digital recreation TR-808, sub bass analog synth. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
-  "recipe_chars": 491,
-  "score": 289.464,
+  "recipe": "classic Los Angeles 1987-1989 southern hip-hop, mc Rhythm, southern branch, funk percussive groove percussion, soul R&B functional song new jack swing doo-wop. thick, rap, straight onset, interlocked note trading. pitched chopped sampler, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, sub bass analog synth. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
+  "recipe_chars": 542,
+  "score": 292.244,
   "config": {
     "traditions": [
       "southern_hip_hop_classic",
@@ -49,7 +49,7 @@
           "voice_ornament_system": 3.445000000000001,
           "voice_pitch_organization": 3.38,
           "voice_processing_chain": 13.325,
-          "voice_multitrack_stack": 8.290000000000001
+          "voice_multitrack_stack": 10.29
         }
       },
       {
@@ -74,12 +74,12 @@
         "slots": {
           "tr808_voice": "tr808_kick_long",
           "drum_machine_808_context": "drum_machine_808_miami",
-          "tr808_production_origin": "tr808_tr_8s_modern"
+          "tr808_production_origin": "tr808_roland_osaka_canonical"
         },
         "scores": {
           "tr808_voice": 12.28,
           "drum_machine_808_context": 7.34375,
-          "tr808_production_origin": 1.69
+          "tr808_production_origin": 2.47
         }
       },
       {

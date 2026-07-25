@@ -3,9 +3,9 @@
   "name": "Industrial metal (1980s-1990s electro-industrial heavy rock)",
   "family": "rock_punk",
   "lineage": "1980s-and-1990s heavy-metal subgenre integrating industrial-electronic production techniques (drum-machine programming, sampling, distorted-synthesizer textures) with heavy-metal guitar-and-vocal aesthetic. Ministry's The Land of Rape and Honey (1988), Nine Inch Nails' The Downward Spiral (1994), and Rammstein's 1995-onward German-language work constitute canonical type-specimens. Distinguished from broader industrial by integration of guitar-band rock framework.",
-  "recipe": "classic North American industrial metal, distorted Rock, avant branch, industrial noise experimental electric dark electro / aggrotech. thick, breath veiled tone, straight note core, interlocked note trading. orange amp British heavy crunch basswood power chord humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, brushes-and-sticks drum kit, analog synth, field textural sampler. mid manhattan 1975-1985 mid-major late70s nyc commercial. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 604,
-  "score": 307.101,
+  "recipe": "classic North American industrial metal, distorted Rock, avant branch, industrial noise experimental electric dark electro / aggrotech. thick, breath veiled tone, straight note core, interlocked note trading. orange amp British heavy crunch basswood power chord humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, brushes-and-sticks drum kit, analog synth, field textural sampler. mid manhattan 1975-1985 mid-major late70s nyc commercial. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 621,
+  "score": 317.105,
   "config": {
     "traditions": [
       "industrial_metal",
@@ -49,7 +49,7 @@
           "voice_ornament_system": 0,
           "voice_pitch_organization": 3.185000000000001,
           "voice_processing_chain": 19.116499999999995,
-          "voice_multitrack_stack": 7.7025
+          "voice_multitrack_stack": 9.756499999999999
         }
       },
       {
@@ -155,7 +155,7 @@
       }
     ],
     "room": "studio_late70s_nyc_commercial",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_80s_late_analog_majorrock",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "pre_neve_1073_input",
