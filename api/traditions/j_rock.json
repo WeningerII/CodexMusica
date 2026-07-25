@@ -3,9 +3,9 @@
   "name": "J-rock",
   "family": "global",
   "lineage": "Japanese-language alternative-rock and visual-kei tradition codified through X Japan (1980s-90s), Luna Sea, B’z, Mr. Children, L’Arc-en-Ciel, and the Buck-Tick visual-kei progenitor lineage — characterized by Western-rock instrumentation with Japanese-language vocals, dramatic stage personas, and extensive crossover with anime soundtrack production",
-  "recipe": "classic mid-1980s j-rock, distorted Rock, regional branch, east Asian pop functional song enka k-pop. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation soft down tuning single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 683,
-  "score": 321.39,
+  "recipe": "classic Asian mid-1980s j-rock, distorted Rock, regional branch, east Asian pop functional song enka k-pop. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation soft down tuning single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit. treated studio. Neumann U87, console-strip pre, SSL inline console, SMART research c1/c2, SSL surgical EQ. 16-bit digital eventide harmonizer TC electronic 2290 delay digital delay.",
+  "recipe_chars": 725,
+  "score": 319.465,
   "config": {
     "traditions": [
       "j_rock",
@@ -152,7 +152,7 @@
       }
     ],
     "room": "treated_studio",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_tokyo_jpop_hit_factory",
     "inline_chain": {
       "mic": "dynamic_mic",
       "pre": "transformer_solid_state",

@@ -3,14 +3,14 @@
   "name": "Teen pop late 90s-00s",
   "family": "pop",
   "lineage": "Late-1990s and early-2000s American teen-targeted pop subgenre developed through the post-Mickey-Mouse-Club Britney Spears, Christina Aguilera, *NSYNC, Backstreet Boys cycle. Characterized by sophisticated R&B-and-dance-influenced commercial-radio production, choreographed-music-video presentation aesthetic, and explicit teen-audience demographic targeting. The Cheiron Studios (Stockholm, Max Martin) production-team inaugurated the canonical Swedish-pop-production aesthetic that defined much of late-1990s teen pop.",
-  "recipe": "classic 1997-1999 teen pop late 90s-00s, functional Song, pop rock branch, east Asian pop functional song city pop modern revival enka. thick, breath veiled tone, straight onset, interlocked note trading. singing lead analog synth, roland tr 8s modern aira digital recreation TR-808, ampeg b15 amp American 60s bass amp flip top character ernie ball slinky electric bass. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 565,
-  "score": 320.702,
+  "recipe": "classic 1997-1999 teen pop late 90s-00s, functional Song, pop rock branch, east Asian pop functional song enka city pop modern revival. thick, breath veiled tone, straight onset, interlocked note trading. singing lead analog synth, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, ampeg b15 amp American 60s bass amp flip top character ernie ball slinky electric bass. no single room 2015-present distributed distributed production. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 633,
+  "score": 322.97,
   "config": {
     "traditions": [
       "teen_pop_late_90s",
-      "city_pop_modern",
-      "enka"
+      "enka",
+      "city_pop_modern"
     ],
     "instruments": [
       {
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 43.07500000000002,
-          "voice_quality": 10.984999999999992,
+          "voice_quality": 10.984999999999989,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 9.430000000000001,
-          "voice_articulation": 18.265000000000004,
+          "voice_articulation": 18.265,
           "voice_microtone": 43.79500000000001,
           "voice_tradition": 47.54,
           "voice_mechanism_compound": 0.39,
           "voice_estill_quality": 1.4949999999999999,
-          "voice_speech_song": 26.000000000000004,
-          "voice_ensemble_config": 18.395000000000003,
+          "voice_speech_song": 26,
+          "voice_ensemble_config": 18.395,
           "voice_ornament_system": 3.2500000000000004,
           "voice_pitch_organization": 4.582500000000001,
-          "voice_processing_chain": 11.524999999999999,
-          "voice_multitrack_stack": 10.665
+          "voice_processing_chain": 9.525,
+          "voice_multitrack_stack": 12.665
         }
       },
       {
@@ -74,12 +74,12 @@
         "slots": {
           "tr808_voice": "tr808_cowbell",
           "drum_machine_808_context": "drum_machine_808_miami",
-          "tr808_production_origin": "tr808_tr_8s_modern"
+          "tr808_production_origin": "tr808_roland_osaka_canonical"
         },
         "scores": {
           "tr808_voice": 0.24,
           "drum_machine_808_context": 9.91,
-          "tr808_production_origin": 1.4949999999999999
+          "tr808_production_origin": 1.625
         }
       },
       {
@@ -105,7 +105,7 @@
       }
     ],
     "room": "studio_distributed_production",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_80s_late_analog_majorrock",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "pre_neve_1073_input",

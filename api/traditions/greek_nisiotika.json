@@ -3,9 +3,9 @@
   "name": "Greek nisiotika (island music)",
   "family": "global",
   "lineage": "Greek nisiotika (\"island music\") folk-popular music tradition of the Greek Aegean Sea islands — Naxos, Mykonos, Tinos, Andros, Skyros, Lesbos, Chios, Samos, and adjacent islands — distinguished from mainland Greek demotic music by characteristic island-dance-rhythm repertoire (the syrtos, sousta, ballos), instrumental signature (lyra Cretan-style three-string fiddle on some islands, violin elsewhere, laouto long-neck lute, and santouri hammered-dulcimer), and the broader Aegean-island maritime-cultural orientation. The mid-twentieth-century commercial-recording era at Columbia, HMV, and Pathé Athens documented the canonical island repertoire. Distinguished from the parallel Cretan lyra tradition by nisiotika's broader-Aegean-island-network and lighter dance-emphasis register.",
-  "recipe": "classic Southern European modern greek nisiotika, ballad Poetry, Mediterranean ballad branch, west African groove percussion indonesian jaipongan fújì. thick, breath veiled tone, slow rate, interlocked note trading. walnut ribs canonical mid tier western red cedar modern alternative pyramid oud, sitka spruce Baroque setup short neck shorter fingerboard lighter bass bar violin orchestral, sustained and staccato hungarian tradition concert pedal cimbalom large frame pedal damper cimbalom, mulberry canonical cretan gut pre modern cretan cretan lyra, island rhythmic laouto. athens major label 1955-1985 mid tier athens minos studios 60s 70s. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 707,
-  "score": 258.892,
+  "recipe": "classic Southern European early-1930s greek nisiotika, ballad Poetry, Mediterranean ballad branch, west African groove percussion indonesian jaipongan fújì. thick, breath veiled tone, slow rate, interlocked note trading. walnut ribs canonical mid tier spruce face pyramid nylon oud, sitka spruce Baroque setup short neck shorter fingerboard lighter bass bar violin orchestral, sustained and staccato hungarian tradition concert pedal cimbalom large frame pedal damper cimbalom, mulberry canonical cretan gut pre modern cretan cretan lyra, island rhythmic laouto. athens major label 1955-1985 mid tier athens minos studios 60s 70s. large-diaphragm condenser, tube pre, Emi redd.51, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 734,
+  "score": 256.522,
   "config": {
     "traditions": [
       "greek_nisiotika",
@@ -31,7 +31,7 @@
           "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
           "voice_pitch_organization": "voice_pitch_slendro_5",
           "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
           "voice_register": 5.805000000000001,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 2.469999999999999,
           "voice_pitch_organization": 9.064999999999998,
           "voice_processing_chain": 6.465000000000001,
-          "voice_multitrack_stack": 6.4350000000000005
+          "voice_multitrack_stack": 5.1850000000000005
         }
       },
       {
@@ -57,19 +57,19 @@
         "slots": {
           "plucked_traditional_technique": "plucked_classical_idiom",
           "oud_school": "oud_arab_classic",
-          "oud_strings": "oud_thirteen",
+          "oud_strings": "oud_eleven",
           "oud_pick": "risha_eagle_feather",
           "oud_body_wood": "oud_walnut_body",
-          "oud_soundboard_wood": "oud_western_red_cedar_face",
+          "oud_soundboard_wood": "oud_spruce_face",
           "oud_string_material": "oud_pyramid_nylon"
         },
         "scores": {
           "plucked_traditional_technique": -0.035,
           "oud_school": 4.615,
-          "oud_strings": 0.65,
+          "oud_strings": 0,
           "oud_pick": 3.38,
           "oud_body_wood": 4.03,
-          "oud_soundboard_wood": 1.8850000000000002,
+          "oud_soundboard_wood": 1.69,
           "oud_string_material": 1.69
         }
       },
@@ -125,7 +125,7 @@
           "lyra_strings": 2.145,
           "lyra_use": 3.17,
           "lyra_body_wood": 4.289999999999999,
-          "lyra_string_material": 3.3949999999999996
+          "lyra_string_material": 1.8949999999999996
         }
       },
       {
@@ -143,7 +143,7 @@
       }
     ],
     "room": "athens_minos_studios_60s_70s",
-    "archetype": "arch_ethnographic_field_digital",
+    "archetype": "arch_greek_columbia_rizoupoli",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

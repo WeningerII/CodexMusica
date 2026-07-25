@@ -3,9 +3,9 @@
   "name": "Sophisti-pop (mid-1980s UK jazz-leaning adult-contemporary)",
   "family": "pop",
   "lineage": "Mid-1980s UK pop subgenre integrating jazz-and-soul harmonic vocabulary with sophisticated-glamorous-adult-pop aesthetic. Sade's Diamond Life (1984), the Style Council (Paul Weller post-Jam project), Everything but the Girl, Prefab Sprout, Working Week, and the broader UK-mainstream 1985-1989 chart-pop sophisti-pop wave constitute the canonical roster. Distinguished from broader 80s pop by sophisti-pop's explicit jazz-influence and adult-contemporary cultural orientation.",
-  "recipe": "classic British sophisti-pop, functional Song, pop rock branch, American jazz smooth vocal modern vocal jazz. thick, close mic intimate, straight onset, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, ampeg b15 amp American 60s bass amp flip top character mahogany thomastik infeld electric bass, pre muffled edge muffled brushes drum kit, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone. converted victorian 1965-1985 major-flagship british class a commercial. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 728,
-  "score": 653.198,
+  "recipe": "classic British sophisti-pop, functional Song, pop rock branch, American jazz smooth vocal modern vocal jazz. thick, close mic intimate, straight onset, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, ampeg b15 amp American 60s bass amp flip top character mahogany thomastik infeld electric bass, pre muffled edge muffled brushes drum kit, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+  "recipe_chars": 744,
+  "score": 645.757,
   "config": {
     "traditions": [
       "sophistipop_80s",
@@ -30,7 +30,7 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_none",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
+          "voice_processing_chain": "voice_processing_talkbox",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
@@ -38,18 +38,18 @@
           "voice_quality": 10.573999999999998,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 33.053,
+          "voice_vibrato": 31.552999999999997,
           "voice_articulation": 7.8,
           "voice_microtone": 61.97500000000002,
-          "voice_tradition": 45.938500000000005,
+          "voice_tradition": 44.438500000000005,
           "voice_mechanism_compound": 2.535,
           "voice_estill_quality": 3.2600000000000007,
           "voice_speech_song": 12.804999999999996,
           "voice_ensemble_config": 7.735,
           "voice_ornament_system": 0.0315,
           "voice_pitch_organization": 1.4949999999999999,
-          "voice_processing_chain": 11.790999999999999,
-          "voice_multitrack_stack": 9.973
+          "voice_processing_chain": 10.809,
+          "voice_multitrack_stack": 11.972999999999999
         }
       },
       {
@@ -62,19 +62,19 @@
           "piano_rim": "asian_laminated_rim_birch_maple",
           "piano_soundboard": "asian_spruce_soundboard",
           "piano_pinblock": "hexagrip_7_ply_quartersawn_maple",
-          "piano_plate": "wet_sand_cast_plate",
-          "piano_pitch_standard": "a_440_modern"
+          "piano_plate": "gray_iron_full_perimeter_plate",
+          "piano_pitch_standard": "a_441_japanese"
         },
         "scores": {
           "keyboard_technique": 32.254500000000014,
           "grand_piano_size": 4.443,
           "grand_piano_brand": 4.6739999999999995,
-          "piano_hammer": 35.13600000000002,
+          "piano_hammer": 33.63600000000002,
           "piano_rim": 34.77150000000001,
           "piano_soundboard": 34.500000000000014,
           "piano_pinblock": 2.5130000000000003,
-          "piano_plate": 4.029999999999999,
-          "piano_pitch_standard": 3.136
+          "piano_plate": 2.5130000000000003,
+          "piano_pitch_standard": 2.5945
         }
       },
       {
@@ -82,7 +82,7 @@
         "slots": {
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
-          "pickup_config": "soapbar",
+          "pickup_config": "split_coil",
           "string_type": "thomastik_jazz_bass_flat",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
@@ -91,7 +91,7 @@
         "scores": {
           "amp_make": 9.267,
           "body_wood": 3.7479999999999998,
-          "pickup_config": 1.3,
+          "pickup_config": 0,
           "string_type": 28.2075,
           "scale_length_b": 3.3714999999999997,
           "fretted_or_not": 0,
@@ -134,7 +134,7 @@
       }
     ],
     "room": "studio_british_class_a_commercial",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_70s_uk_class_a_rock",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "pre_neve_1073_input",

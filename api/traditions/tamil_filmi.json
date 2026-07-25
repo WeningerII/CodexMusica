@@ -1,0 +1,261 @@
+{
+  "id": "tamil_filmi",
+  "name": "Tamil filmi / Kollywood playback",
+  "family": "global",
+  "lineage": "Tamil-language Madras (Chennai) film-song playback tradition — the Kollywood parallel canon that the catalog's hindi_filmi record explicitly scopes out — codified by Ilaiyaraaja from his 1976 debut score Annakili onward across roughly 1000 films, hand-orchestrated at a rate of about one song per session and tracked on the Madras cinema-industry scoring stages at Prasad, AVM and Gemini; the defining innovation is the fusion of Tamil village folk idiom (gaana, villuppattu, therukoothu and the nadaswaram-thavil temple-and-wedding repertoire) and Carnatic melakarta-raga melody with Western symphonic orchestration, functional harmony and genuine written counterpoint, heard on Mullum Malarum (1978), Sindhu Bhairavi (1985), Punnagai Mannan (1986), Mouna Ragam (1986) and Nayakan (1987), and carried into concert form on his own How To Name It? (1986) and Nothing But Wind (1988); preceded by the Tamil music-director generation of M.S. Viswanathan and K.V. Mahadevan (1950s-1970s); voiced by the playback axis of S.P. Balasubrahmanyam (1946-2020, some 40000 recorded songs across Tamil, Telugu, Kannada, Malayalam and Hindi) and S. Janaki (1938-), with P. Susheela, Malaysia Vasudevan, Vani Jairam and K.J. Yesudas; the core era closes with A.R. Rahman's Roja (1992), whose sampler-and-sequencer bedroom-studio method displaced the live-orchestra scoring stage and reset Tamil film sound for the 1990s. Distinct from hindi_filmi in language, industrial base (Madras rather than Bombay), Carnatic rather than Hindustani melodic source, and single-auteur rather than music-director-rotation production economy",
+  "recipe": "classic South Asian early-1940s tamil filmi / kollywood playback, functional Song, south Asian pop branch, south Asian art music, indian classical improv improv on frame thumrī carnatic vocal. thick, breath veiled tone, slow rate, interlocked note trading. silver wound lamb gut core carpathian spruce European maple bosnian source violin orchestral, gourd silk pre modern vijayanagara era thanjavur canonical south indian veena, kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, ghatam, concert stage jackwood barrel canonical Tamil thavil, temple volume Tamil temple context periya melam thavil percussion pair temple procession nadaswaram, pyramid pure nickel bass British mid 60s era electric bass, pre muffled edge muffled brushes-and-sticks drum kit, yamaha cs lineage canonical cs 80 1976 hamamatsu polyphonic flagship lead analog poly synth.",
+  "recipe_chars": 992,
+  "score": 679.155,
+  "config": {
+    "traditions": [
+      "tamil_filmi",
+      "thumri",
+      "carnatic_vocal"
+    ],
+    "instruments": [
+      {
+        "id": "voice",
+        "slots": {
+          "voice_register": "chest_voice",
+          "voice_quality": "aspirated_voice",
+          "voice_vocal_tract": "tract_neutral",
+          "voice_effort": "effort_moderate",
+          "voice_vibrato": "slow_vibrato",
+          "voice_articulation": "hocket_voice",
+          "voice_microtone": "maqam_inflected",
+          "voice_tradition": "carnatic_classical_tradition",
+          "voice_mechanism_compound": "voice_mechanism_tahrir_tekye_chain",
+          "voice_estill_quality": "voice_estill_opera",
+          "voice_speech_song": "voice_sprechgesang_notated",
+          "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
+          "voice_ornament_system": "voice_ornament_carnatic_gamaka",
+          "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
+          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+        },
+        "scores": {
+          "voice_register": 9.575000000000001,
+          "voice_quality": 27.56000000000001,
+          "voice_vocal_tract": 0,
+          "voice_effort": 0,
+          "voice_vibrato": 19.5975,
+          "voice_articulation": 34.250000000000014,
+          "voice_microtone": 32.30500000000001,
+          "voice_tradition": 39.06,
+          "voice_mechanism_compound": 13.025,
+          "voice_estill_quality": 17.3,
+          "voice_speech_song": 41.81500000000002,
+          "voice_ensemble_config": 34.77500000000001,
+          "voice_ornament_system": 28.344999999999995,
+          "voice_pitch_organization": 28.974999999999998,
+          "voice_processing_chain": 13.227500000000001,
+          "voice_multitrack_stack": 9.717499999999998
+        }
+      },
+      {
+        "id": "violin_orchestral",
+        "slots": {
+          "bowed_technique": "bowed_pizzicato",
+          "orch_strings": "silver_wound_lamb_gut_violin",
+          "orch_top_wood": "carpathian_spruce_violin",
+          "orch_back_wood": "bosnian_flamed_maple_violin",
+          "orch_varnish": "oil_amber_varnish_violin",
+          "orch_setup_period": "modern_setup_violin",
+          "orch_bow": "modern_bow",
+          "orch_bow_stick": "pernambuco_stick_orch",
+          "orch_articulation": "arco_orch",
+          "orch_rosin": "pirastro_gold_rosin_orch"
+        },
+        "scores": {
+          "bowed_technique": 13.36,
+          "orch_strings": 1.49,
+          "orch_top_wood": 14.425,
+          "orch_back_wood": 14.375,
+          "orch_varnish": 14.8,
+          "orch_setup_period": 14.04,
+          "orch_bow": 2.0799999999999996,
+          "orch_bow_stick": 20.214999999999996,
+          "orch_articulation": 2.08,
+          "orch_rosin": 13.695
+        }
+      },
+      {
+        "id": "veena",
+        "slots": {
+          "plucked_traditional_technique": "plucked_classical_idiom",
+          "veena_construction": "ekanda",
+          "veena_resonator": "gourd_resonator",
+          "veena_pluck": "wire_plectrum_veena",
+          "veena_body_wood": "veena_jackwood_canonical",
+          "veena_strings": "veena_silk_historical",
+          "veena_lineage": "veena_thanjavur_canonical"
+        },
+        "scores": {
+          "plucked_traditional_technique": 13.17,
+          "veena_construction": 0.24,
+          "veena_resonator": 1.34,
+          "veena_pluck": 6.825,
+          "veena_body_wood": 0.195,
+          "veena_strings": 2.245,
+          "veena_lineage": 9.23
+        }
+      },
+      {
+        "id": "bansuri",
+        "slots": {
+          "wind_articulation": "wind_continuous_legato",
+          "bansuri_length": "small_bansuri",
+          "bansuri_ornament": "meend_bansuri",
+          "bansuri_body_material": "bansuri_kerala_bamboo",
+          "bansuri_lineage": "bansuri_hariprasad_maihar"
+        },
+        "scores": {
+          "wind_articulation": 13.27,
+          "bansuri_length": 4.345000000000001,
+          "bansuri_ornament": 13.939999999999998,
+          "bansuri_body_material": 9.034999999999998,
+          "bansuri_lineage": 5.784999999999999
+        }
+      },
+      {
+        "id": "mridangam",
+        "slots": {
+          "mridangam_heads": "mridangam_standard",
+          "mridangam_use": "mridangam_carnatic",
+          "mridangam_shell_wood": "mridangam_jackwood_canonical",
+          "mridangam_heads_material": "mridangam_goat_buffalo",
+          "mridangam_lineage": "mridangam_palghat"
+        },
+        "scores": {
+          "mridangam_heads": 6.825,
+          "mridangam_use": 0,
+          "mridangam_shell_wood": 4.809999999999999,
+          "mridangam_heads_material": 0.585,
+          "mridangam_lineage": 6.305
+        }
+      },
+      {
+        "id": "ghatam",
+        "slots": {
+          "ghatam_school": "ghatam_trichy",
+          "ghatam_technique": "ghatam_mouth"
+        },
+        "scores": {
+          "ghatam_school": 0.585,
+          "ghatam_technique": 0.18
+        }
+      },
+      {
+        "id": "thavil",
+        "slots": {
+          "thavil_context": "thavil_concert",
+          "thavil_technique": "thavil_all_stick",
+          "thavil_shell_wood": "thavil_jackwood",
+          "thavil_head": "thavil_buffalo_goat"
+        },
+        "scores": {
+          "thavil_context": 4.265,
+          "thavil_technique": 0.39,
+          "thavil_shell_wood": 9.209999999999999,
+          "thavil_head": 0.585
+        }
+      },
+      {
+        "id": "nadaswaram",
+        "slots": {
+          "nadaswaram_register": "nadaswaram_standard",
+          "nadaswaram_ensemble": "nadaswaram_periya_melam",
+          "nadaswaram_body_wood": "nadaswaram_aacha_canonical",
+          "nadaswaram_reed": "nadaswaram_arundo_palm_canonical",
+          "nadaswaram_lineage": "nadaswaram_thiruvavaduthurai"
+        },
+        "scores": {
+          "nadaswaram_register": 11.86,
+          "nadaswaram_ensemble": 3.6500000000000004,
+          "nadaswaram_body_wood": 8.97,
+          "nadaswaram_reed": 8.97,
+          "nadaswaram_lineage": 13.265
+        }
+      },
+      {
+        "id": "electric_bass",
+        "slots": {
+          "amp_make": "amp_british_orange",
+          "body_wood": "mahogany_b",
+          "pickup_config": "soapbar",
+          "string_type": "pyramid_pure_nickel",
+          "scale_length_b": "short_scale_b",
+          "fretted_or_not": "fretted",
+          "bass_technique": "sub_bass_synth_blend"
+        },
+        "scores": {
+          "amp_make": 0.585,
+          "body_wood": 0.845,
+          "pickup_config": 0.195,
+          "string_type": 2.9450000000000003,
+          "scale_length_b": 0.845,
+          "fretted_or_not": 0.195,
+          "bass_technique": 0.4875
+        }
+      },
+      {
+        "id": "drum_kit",
+        "slots": {
+          "drum_technique": "brushes_and_sticks",
+          "drumhead": "ec_pre_muffled_drumhead",
+          "drum_kit_kick_pedal": "dk_kick_single_felt"
+        },
+        "scores": {
+          "drum_technique": 34.36500000000001,
+          "drumhead": 4.125,
+          "drum_kit_kick_pedal": 0
+        }
+      },
+      {
+        "id": "analog_poly_synth",
+        "slots": {
+          "electronic_technique": "electronic_lead_line",
+          "poly_archetypes": "oberheim_obxa",
+          "poly_voices": "poly_8_voice",
+          "poly_maker_lineage": "poly_yamaha_cs"
+        },
+        "scores": {
+          "electronic_technique": 4.03,
+          "poly_archetypes": 0.195,
+          "poly_voices": 0.045,
+          "poly_maker_lineage": 3.5100000000000002
+        }
+      }
+    ],
+    "room": "mumbai_bombay_filmi_studio",
+    "archetype": "arch_ilaiyaraaja_kollywood",
+    "inline_chain": {
+      "mic": "condenser_ldc",
+      "pre": "pre_console_inline_strip",
+      "console": "console_mci_jh636",
+      "comp": "comp_la2a_optical",
+      "eq": "eq_active_parametric",
+      "amp": null,
+      "medium": "tape_30ips"
+    },
+    "tuning": "carnatic_72_melakarta_kriti_form",
+    "aesthetic": null,
+    "arrangement": null,
+    "fx_extras": [
+      "plate_reverb"
+    ]
+  },
+  "source": {
+    "tuning": "carnatic_72_melakarta_kriti_form",
+    "room": "mumbai_bombay_filmi_studio",
+    "chain_mic": "condenser_ldc",
+    "chain_pre": "pre_console_inline_strip",
+    "chain_comp": "comp_la2a_optical",
+    "chain_eq": "eq_active_parametric",
+    "chain_medium": "tape_30ips",
+    "chain_console": "console_mci_jh636",
+    "chain_fx": [
+      "plate_reverb"
+    ]
+  }
+}

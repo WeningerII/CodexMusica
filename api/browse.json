@@ -16,7 +16,7 @@
     "percussion",
     "cyclicity"
   ],
-  "count": 1165,
+  "count": 1167,
   "items": [
     {
       "id": "honky_tonk",
@@ -44973,6 +44973,95 @@
       "description": "Militant Black Arts Movement poetry declaimed over conga vamps in late-1960s and early-1970s New York, the most-cited direct ancestor of rap MCing. The Last Poets formed in Harlem in 1968 and their self-titled 1970 debut set traded, chanted verses over hand percussion, while Gil Scott-Heron's 'The Revolution Will Not Be Televised' first appeared on Small Talk at 125th and Lenox (Flying Dutchman, 1970) with only congas behind the voice; the Watts Prophets carried the parallel West Coast strand. The delivery is rhythmically locked to the drum pulse but spoken rather than sung, with group members answering the lead line in call-and-response, and the records circulated through Black radio and co",
       "crossRefs": [
         "mcRhythm"
+      ]
+    },
+    {
+      "id": "tamil_filmi",
+      "name": "Tamil filmi / Kollywood playback",
+      "family": "global",
+      "lineage": "Tamil-language Madras (Chennai) film-song playback tradition — the Kollywood parallel canon that the catalog's hindi_filmi record explicitly scopes out — codified by Ilaiyaraaja from his 1976 debut score Annakili onward across roughly 1000 films, hand-orchestrated at a rate of about one song per session and tracked on the Madras cinema-industry scoring stages at Prasad, AVM and Gemini; the defining innovation is the fusion of Tamil village folk idiom (gaana, villuppattu, therukoothu and the nadaswaram-thavil temple-and-wedding repertoire) and Carnatic melakarta-raga melody with Western symphonic orchestration, functional harmony and genuine written counterpoint, heard on Mullum Malarum (1978), Sindhu Bhairavi (1985), Punnagai Mannan (1986), Mouna Ragam (1986) and Nayakan (1987), and carried into concert form on his own How To Name It? (1986) and Nothing But Wind (1988); preceded by the Tamil music-director generation of M.S. Viswanathan and K.V. Mahadevan (1950s-1970s); voiced by the playback axis of S.P. Balasubrahmanyam (1946-2020, some 40000 recorded songs across Tamil, Telugu, Kannada, Malayalam and Hindi) and S. Janaki (1938-), with P. Susheela, Malaysia Vasudevan, Vani Jairam and K.J. Yesudas; the core era closes with A.R. Rahman's Roja (1992), whose sampler-and-sequencer bedroom-studio method displaced the live-orchestra scoring stage and reset Tamil film sound for the 1990s. Distinct from hindi_filmi in language, industrial base (Madras rather than Bombay), Carnatic rather than Hindustani melodic source, and single-auteur rather than music-director-rotation production economy",
+      "parent": "functionalSong.southAsianPop",
+      "axes": [
+        1,
+        1,
+        2,
+        1,
+        2,
+        1,
+        -1,
+        1,
+        1,
+        2,
+        0,
+        1,
+        2
+      ],
+      "instruments": [
+        "voice",
+        "violin_orchestral",
+        "veena",
+        "bansuri",
+        "mridangam",
+        "ghatam",
+        "thavil",
+        "nadaswaram",
+        "electric_bass",
+        "drum_kit",
+        "analog_poly_synth"
+      ],
+      "description": "Tamil filmi / Kollywood playback (Madras/Chennai, core era 1976-1992), the Tamil-language film-song playback canon of the South Indian cinema industry and the largest of the regional Indian film-music traditions that Bombay-centred Hindi filmi explicitly excludes. Defined by the same playback-singer division of labour as Hindi filmi (songs cut in studio by career playback voices, lip-synced on screen by actors) applied to a different musical substrate: Carnatic melakarta-raga melody and Tamil village folk idiom — gaana, villuppattu, therukoothu, koothu rhythm, and nadaswaram-and-thavil temple-and-wedding material — set under Western symphonic orchestration with functional harmony and real written counterpoint, a 40-to-60-piece string-and-wind orchestra sectioned across a multitrack film-scoring stage rather than tracked live-to-disc. Codified almost single-handedly by Ilaiyaraaja (1943-), who from his debut score Annakili (1976) wrote roughly 1000 film scores, notated every part himself, and worked at Prasad, AVM and Gemini studios in Madras at a pace of about one song per session: Mullum Malarum (1978), Sindhu Bhairavi (1985), Punnagai Mannan (1986), Mouna Ragam (1986), Nayakan (1987), with the parallel concert projects How To Name It? (1986) and Nothing But Wind (1988) making the Bach-and-Tyagaraja synthesis explicit. Predecessor music directors M.S. Viswanathan and K.V. Mahadevan established the Tamil playback orchestra in the 1950s-60s; the singer canon runs through S.P. Balasubrahmanyam (1946-2020, roughly 40000 songs in five languages, the defining male playback voice of the era) and S. Janaki (1938-), with P. Susheela, Malaysia Vasudevan, Vani Jairam and K.J. Yesudas. The era ends with A.R. Rahman's Roja (1992), whose sampler, sequencer and multitracked-vocal method retired the live scoring-stage orchestra. Distinguished from hindi_filmi by Tamil language, Madras rather than Bombay industrial base, Carnatic rather than Hindustani raga source, and a single-auteur rather than rotating-music-director production economy — hindi_filmi's own scope note names the Tamil, Telugu, Bengali and Malayalam canons as out of its bounds, and this record fills that gap; distinguished from Carnatic classical by three-minute song form, fixed notated arrangement and absence of manodharma improvisation; distinguished from Tamil folk song by studio orchestra, professional playback voice and cinema-commercial transmission.",
+      "exemplars": [
+        "Ilaiyaraaja — Mullum Malarum",
+        "Ilaiyaraaja — Nayakan",
+        "S.P. Balasubrahmanyam"
+      ],
+      "crossRefs": [
+        "artMusic.southAsian",
+        "improvOnFrame.indianClassicalImprov"
+      ]
+    },
+    {
+      "id": "french_touch",
+      "name": "French touch / filter house",
+      "family": "electronic",
+      "lineage": "Parisian filter-house tradition running from the mid-1990s to the mid-2000s, built from disco, funk and soul loops lifted off vinyl into an Ensoniq ASR-10 or Akai sampler and reshaped by resonant band-pass and low-pass filter sweeps, phasing and heavy kick-keyed pumping compression, the filter gesture itself carrying the arrangement — codified through Motorbass (Philippe Zdar and Étienne de Crécy, Pansoul 1996), de Crécy's Super Discount (1996) and the Solid label, Thomas Bangalter and Daft Punk (Da Funk on Soma 1995, Homework 1997, Discovery 2001) and Bangalter's Roulé label (Spinal Scratch 1995, Trax on da Rocks 1995-1997), Alan Braxe (Vertigo 1997), Stardust's Music Sounds Better With You (Roulé 1998, Bangalter with Braxe and Benjamin Diamond over a Chaka Khan Fate loop), Cassius (Zdar with Hubert \"Boom Bass\" Blanc-Francard, the album 1999 in 1999), Bob Sinclar (Gym Tonic 1998), Alex Gopher (The Child 1999), Guy-Manuel de Homem-Christo's Crydamoure, and Modjo (Lady Hear Me Tonight 2000, over Chic's Soup for One); an apartment-studio culture with no tracking room and no live band, summing sampled loops through a colored analog desk to DAT and cutting the club 12-inch at Paris lacquer houses",
+      "parent": "electronicDance.continental",
+      "axes": [
+        2,
+        -1,
+        0,
+        2,
+        1,
+        -1,
+        -1,
+        2,
+        1,
+        0,
+        1,
+        2,
+        2
+      ],
+      "instruments": [
+        "sampler_classic",
+        "turntable",
+        "drum_machine_909",
+        "analog_synth",
+        "vocoder",
+        "voice"
+      ],
+      "description": "French touch, the Paris filter-house tradition (codified 1995-2001 and commercially peaking 1998-2001 around Thomas Bangalter's Roulé label, Étienne de Crécy and Alex Gopher's Solid, Guy-Manuel de Homem-Christo's Crydamoure, and the Virgin-backed Source imprint). Defined by a four-on-the-floor house frame at roughly 118-130 BPM carrying a two-to-eight-bar disco, funk or soul loop sampled off vinyl rather than replayed, with the loop's extended seventh-and-ninth harmony inherited from 1970s Philadelphia and New York disco left intact as the entire chord progression; by resonant band-pass and low-pass filter sweeps opened and closed by hand across that loop so the filter, not new material, produces the build and the drop; by aggressive bus compression keyed to the kick, giving the audible ducking pump that is the style's fingerprint; by phaser, flanger and retained vinyl saturation and hiss as timbre; and by vocoder and talkbox toplines in the later Daft Punk and Modjo phase. Landmark records are Motorbass's Pansoul (1996), de Crécy's Super Discount (1996), Daft Punk's Homework (1997), Alan Braxe's Vertigo (1997), Stardust's Music Sounds Better With You (1998) and Modjo's Lady (Hear Me Tonight) (2000). Distinguished from Chicago house by its sampled-loop rather than drum-machine-programmed foundation and its French disco-crate source material; distinguished from contemporaneous American filtered disco house (Masters at Work, Armand Van Helden) by the tight Paris label network and by the extremity of the filter-and-pump gesture; distinguished from later nu-disco and future funk by predating them and by its analog apartment-studio chain rather than in-the-box revivalism.",
+      "exemplars": [
+        "Daft Punk — Homework (1997)",
+        "Stardust — Music Sounds Better With You (1998)",
+        "Motorbass — Pansoul (1996)",
+        "Étienne de Crécy — Super Discount (1996)",
+        "Cassius — 1999 (1999)",
+        "Modjo — Lady (Hear Me Tonight) (2000)"
+      ],
+      "crossRefs": [
+        "electronicDance.house",
+        "functionalSong.soulRb",
+        "groovePercussion.funkPercussive"
       ]
     }
   ]

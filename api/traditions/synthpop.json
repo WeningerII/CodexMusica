@@ -5,7 +5,7 @@
   "lineage": "Late-1970s through 1980s synthesizer-foreground electronic pop — codified through Kraftwerk’s Trans-Europe Express (1977) and Computer World (1981) European roots, then Gary Numan (\"Are Friends Electric?\" 1979), Depeche Mode (Speak and Spell 1981), the Human League (Dare 1981), Soft Cell, Yazoo, and the broader British New Romantic scene — characterized by monophonic-synth lead lines, drum-machine programming, and detached-pop vocal performance",
   "recipe": "classic North American 1977-1979 synthpop, functional Song, synthpop branch, pop rock new wave, continental electronic dance disco. thick, breath veiled tone, straight onset, interlocked note trading. singing lead analog roland jupiter lineage canonical jupiter 8 1981 osaka lead analog poly synth, drum machine analog, string machine, classic source linn lm 1 1980 1982 earliest sample based drum machine 5000 production only linndrum, vocoder. scrappy 1980-2000 indie-commercial indie commercial us 80s. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape chorus flanger.",
   "recipe_chars": 634,
-  "score": 367.701,
+  "score": 376.814,
   "config": {
     "traditions": [
       "synthpop",
@@ -35,21 +35,21 @@
         },
         "scores": {
           "voice_register": 45.30892857142859,
-          "voice_quality": 13.156785714285704,
+          "voice_quality": 14.234999999999987,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
           "voice_vibrato": 4.789196428571429,
-          "voice_articulation": 17.48633928571428,
+          "voice_articulation": 19.56499999999999,
           "voice_microtone": 41.55,
-          "voice_tradition": 30.488571428571422,
+          "voice_tradition": 30.683571428571423,
           "voice_mechanism_compound": 1.56,
           "voice_estill_quality": 2.692142857142857,
-          "voice_speech_song": 25.553660714285705,
-          "voice_ensemble_config": 19.52526785714285,
+          "voice_speech_song": 27.559999999999988,
+          "voice_ensemble_config": 21.77499999999999,
           "voice_ornament_system": 1.6899999999999997,
-          "voice_pitch_organization": 0.7526785714285713,
-          "voice_processing_chain": 29.89071428571428,
-          "voice_multitrack_stack": 12.384374999999999
+          "voice_pitch_organization": 0.7799999999999998,
+          "voice_processing_chain": 30.280714285714282,
+          "voice_multitrack_stack": 12.519374999999998
         }
       },
       {
@@ -63,8 +63,8 @@
         },
         "scores": {
           "electronic_technique": 29.005178571428566,
-          "oscillator": 2.303660714285714,
-          "filter_topology": 3.0956249999999996,
+          "oscillator": 2.348660714285714,
+          "filter_topology": 3.25,
           "envelope": 0.500625,
           "modulation": 0
         }
@@ -80,7 +80,7 @@
         "scores": {
           "electronic_technique": 29.005178571428566,
           "poly_archetypes": 7.212499999999999,
-          "poly_voices": 0.500625,
+          "poly_voices": 0.585,
           "poly_maker_lineage": 6.6552678571428565
         }
       },
@@ -93,7 +93,7 @@
           "shuffle_quantize": "straight_quantize"
         },
         "scores": {
-          "kick_voice": 0.5327678571428571,
+          "kick_voice": 0.585,
           "snare_voice": 0.500625,
           "hat_voice": 0.03214285714285714,
           "shuffle_quantize": 2
@@ -105,12 +105,12 @@
           "electronic_technique": "electronic_pad_drone",
           "sm_voice_count": "sm_full_poly",
           "sm_chorus": "sm_chorus_lush",
-          "sm_voicing": "sm_brass"
+          "sm_voicing": "sm_cellos"
         },
         "scores": {
           "electronic_technique": 0.40062499999999995,
-          "sm_voice_count": 6.253571428571427,
-          "sm_chorus": 3.7085714285714286,
+          "sm_voice_count": 6.733571428571427,
+          "sm_chorus": 3.7535714285714286,
           "sm_voicing": 0.195
         }
       },
@@ -123,8 +123,8 @@
         },
         "scores": {
           "linndrum_voice": 6.750000000000001,
-          "linndrum_context": 1.623125,
-          "linndrum_production_origin": 8.330446428571427
+          "linndrum_context": 1.625,
+          "linndrum_production_origin": 8.420446428571429
         }
       },
       {

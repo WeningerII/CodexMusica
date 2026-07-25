@@ -3,9 +3,9 @@
   "name": "Kabyle music (Algerian Berber)",
   "family": "global",
   "lineage": "Kabyle music of the Tamazight-speaking Berber population of the Kabylie mountains of northern Algeria. Performance integrates classical Kabyle-language poetic-meter (the asefru four-line verse-form developed by seventeenth-century poet Si Mohand) with Berber pentatonic-leaning modal vocabulary distinct from Andalusi-Arab. The mid-twentieth-century Paris-emigration produced an exile-and-protest corpus through Slimane Azem; 1970s-1980s cultural-revival under Idir and Lounès Matoub. The 1998 Matoub assassination politicized the genre. Instrumentation: oud, mandole (Algerian electric-mandolin), bendir frame-drum.",
-  "recipe": "classic North African mid-1970s kabyle music, ballad Poetry, Mediterranean ballad branch, islamic ritual devotional naʿat were music. declaimed, slow rate, interlocked note trading, neutral third half flat. walnut ribs canonical mid tier Lebanese cedar eastern Mediterranean pyramid oud, clay pre modern traditional fish skin pre modern Egyptian traditional Egyptian sombaty canonical mid east darbuka, juniper bent frame canonical Maghrebi synthetic remo modern world music bendir, melodic single line mandole, olive Mediterranean alternative ghaita. atlas mountain village square. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 645,
-  "score": 211.73,
+  "recipe": "classic North African mid-1970s kabyle music, ballad Poetry, Mediterranean ballad branch, islamic ritual devotional naʿat were music. declaimed, slow rate, interlocked note trading, neutral third half flat. walnut ribs canonical mid tier Lebanese cedar eastern Mediterranean pyramid oud, Egyptian sombaty canonical mid east darbuka, juniper bent frame canonical Maghrebi synthetic remo modern world music bendir, melodic single line mandole, olive Mediterranean alternative ghaita. atlas mountain village square. large-diaphragm condenser, German V72 tube pre, German tube console. tape 15ips.",
+  "recipe_chars": 593,
+  "score": 208.855,
   "config": {
     "traditions": [
       "kabyle_music_algerian",
@@ -30,7 +30,7 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_processing_chain": "voice_processing_talkbox",
           "voice_multitrack_stack": "voice_multitrack_late_1980s_reverb_saturated_bus"
         },
         "scores": {
@@ -48,8 +48,8 @@
           "voice_ensemble_config": 10.984999999999996,
           "voice_ornament_system": 16.455,
           "voice_pitch_organization": 10.620999999999999,
-          "voice_processing_chain": 9.1,
-          "voice_multitrack_stack": 3.185
+          "voice_processing_chain": 7.855,
+          "voice_multitrack_stack": 5.4895
         }
       },
       {
@@ -77,14 +77,14 @@
         "id": "darbuka",
         "slots": {
           "percussion_technique": "percussion_open_slap",
-          "darbuka_material": "darbuka_clay_traditional",
-          "darbuka_skin": "darbuka_fish_skin",
+          "darbuka_material": "darbuka_aluminum_sombaty",
+          "darbuka_skin": "darbuka_goat_skin",
           "darbuka_regional_style": "darbuka_egyptian_sombaty"
         },
         "scores": {
           "percussion_technique": 1.755,
-          "darbuka_material": 1.6899999999999997,
-          "darbuka_skin": 1.6899999999999997,
+          "darbuka_material": 0.8400000000000001,
+          "darbuka_skin": 0.845,
           "darbuka_regional_style": 1.69
         }
       },
@@ -100,7 +100,7 @@
           "bendir_snares": 4.225,
           "bendir_context": 0.2265,
           "bendir_shell_wood": 2.73,
-          "bendir_head": 5.545
+          "bendir_head": 4.029999999999999
         }
       },
       {
@@ -135,7 +135,7 @@
       }
     ],
     "room": "atlas_mountain_village_square",
-    "archetype": "arch_ethnographic_field_digital",
+    "archetype": "arch_maghreb_state_radio",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

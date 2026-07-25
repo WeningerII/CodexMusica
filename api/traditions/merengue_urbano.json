@@ -3,9 +3,9 @@
   "name": "Merengue urbano",
   "family": "global",
   "lineage": "Electronic-and-rap-influenced Dominican merengue variant emerging in 1990s-2000s. Synthesis of traditional merengue rhythmic pulse with hip-hop production and reggaeton harmonic-rhythmic vocabulary. Drum-machine-and-sampler production, faster 2/4 tempo than traditional merengue, simpler chord-progressions, explicit MC-rapped vocal sections alongside sung verse-and-chorus. Omega \"El Fuerte\" and El Cata anchored the 2000s commercial sound.",
-  "recipe": "classic Caribbean mid-1990s merengue urbano, functional Song, tropical song branch, reggaeton MC rhythm moombahton. thick, rap, slow rate, interlocked note trading. TR-808, sub bass analog synth, electric bass. Dominican canon 1970-1995 mid tier dominican capital studio 80s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 405,
-  "score": 138.539,
+  "recipe": "classic Caribbean mid-1990s merengue urbano, functional Song, tropical song branch, reggaeton MC rhythm moombahton. thick, rap, slow rate, interlocked note trading. TR-808, sub bass analog synth, electric bass. Dominican canon 1970-1995 mid tier dominican capital studio 80s. shure SM58, transformerless solid-state pre, pumping sidechain, parametric EQ. lossy MP3 autotune digital delay.",
+  "recipe_chars": 388,
+  "score": 141.814,
   "config": {
     "traditions": [
       "merengue_urbano",
@@ -105,7 +105,7 @@
       }
     ],
     "room": "dominican_capital_studio_80s",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_san_juan_reggaeton_mixtape",
     "inline_chain": {
       "mic": "condenser_fet",
       "pre": "pre_avalon_v737",

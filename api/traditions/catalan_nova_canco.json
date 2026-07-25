@@ -3,9 +3,9 @@
   "name": "Catalan Nova Cançó",
   "family": "global",
   "lineage": "Catalan Nova Cançó (\"new song\") minority-language protest-song tradition continuous from 1959 founding by Els Setze Jutges collective through the Franco-era 1959-1975 Catalan-language-suppression-resistance period continuous into post-Franco Catalan-cultural-revival; centered on Lluís Llach, Raimon, Joan Manuel Serrat, Maria del Mar Bonet, Pi de la Serra",
-  "recipe": "classic Iberian mid-1960s catalan nova cançó, protest Song, European branch, iberian Latin protest song, iberian functional song, chanson fado ballad poetry morna cape verdean batuko of santiago island. vocal fry, breath veiled tone, straight note core, interlocked note trading. fingerpicked acoustic guitar. iberian kantautor basque galician club. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 479,
-  "score": 203.29,
+  "recipe": "classic Iberian mid-1960s catalan nova cançó, protest Song, European branch, iberian Latin protest song, iberian functional song, chanson fado ballad poetry morna cape verdean batuko of santiago island. vocal fry, breath veiled tone, straight note core, interlocked note trading. fingerpicked acoustic guitar. iberian kantautor basque galician club. Neumann U47, tube pre, colored vintage console, LA-2A optical, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 457,
+  "score": 189.285,
   "config": {
     "traditions": [
       "catalan_nova_canco",
@@ -30,8 +30,8 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_flamenco_cante_jondo",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
         },
         "scores": {
           "voice_register": 3.025,
@@ -48,8 +48,8 @@
           "voice_ensemble_config": 20.085,
           "voice_ornament_system": 4.565,
           "voice_pitch_organization": 6.955000000000001,
-          "voice_processing_chain": 9.035000000000004,
-          "voice_multitrack_stack": 7.605
+          "voice_processing_chain": 6.434999999999999,
+          "voice_multitrack_stack": 4.175
         }
       },
       {
@@ -71,7 +71,7 @@
       }
     ],
     "room": "iberian_kantautor_basque_galician_club",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_madrid_flamenco_tape",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

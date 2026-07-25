@@ -3,13 +3,14 @@
   "name": "Italo house",
   "family": "global",
   "lineage": "Late-1980s and early-1990s Italian house tradition codified through Black Box \"Ride on Time\" (1989), Cappella, FPI Project, Quartz — characterized by major-key euphoric piano-stab figures, female diva-vocal samples (often uncleared at the time), and the Italo-disco euphoric production aesthetic",
-  "recipe": "classic Asian 1987-1989 italo house, electronic Dance, italo house branch, continental electronic dance disco. thick, chest mix belt, straight onset, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, digital subtractive, TR-909, sampler. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
-  "recipe_chars": 454,
-  "score": 176.248,
+  "recipe": "classic Asian 1987-1989 italo house, electronic Dance, italo house branch, continental electronic dance disco french touch / filter house. thick, chest mix belt, slow rate, interlocked note trading. cold pressed weikert felt birch laminated maple laminated sitka spruce grand piano, digital subtractive, TR-909, sampler. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+  "recipe_chars": 470,
+  "score": 297.023,
   "config": {
     "traditions": [
       "italo_house_piano",
-      "disco"
+      "disco",
+      "french_touch"
     ],
     "instruments": [
       {
@@ -19,10 +20,10 @@
           "voice_quality": "chest_mix_belt_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_vibrato": "slow_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
-          "voice_tradition": "bel_canto_tradition",
+          "voice_tradition": "japanese_min_yo_tradition",
           "voice_mechanism_compound": "voice_mechanism_M0_pulse_borrowed",
           "voice_estill_quality": "voice_estill_opera",
           "voice_speech_song": "voice_sprechgesang_notated",
@@ -33,60 +34,60 @@
           "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
-          "voice_register": 4.3687499999999995,
-          "voice_quality": 14.224374999999998,
+          "voice_register": 6.8687499999999995,
+          "voice_quality": 14.899374999999996,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 1.48,
-          "voice_articulation": 8.120624999999997,
-          "voice_microtone": 9.246249999999996,
-          "voice_tradition": 5.536875000000001,
-          "voice_mechanism_compound": 1.67875,
-          "voice_estill_quality": 5.430000000000001,
-          "voice_speech_song": 9.871249999999995,
-          "voice_ensemble_config": 9.552499999999998,
+          "voice_vibrato": 2.73,
+          "voice_articulation": 19.625625000000003,
+          "voice_microtone": 20.751250000000002,
+          "voice_tradition": 6.205000000000001,
+          "voice_mechanism_compound": 4.668749999999999,
+          "voice_estill_quality": 7.965,
+          "voice_speech_song": 22.13125,
+          "voice_ensemble_config": 21.297500000000003,
           "voice_ornament_system": 5.400000000000001,
           "voice_pitch_organization": 3.799375000000001,
-          "voice_processing_chain": 12.850625,
-          "voice_multitrack_stack": 7.188125
+          "voice_processing_chain": 18.915625000000002,
+          "voice_multitrack_stack": 11.123125
         }
       },
       {
         "id": "grand_piano",
         "slots": {
           "keyboard_technique": "keyboard_gospel_chord_runs",
-          "grand_piano_size": "grand_9_foot",
-          "grand_piano_brand": "fazioli",
-          "piano_hammer": "japanese_1980s_hammer",
+          "grand_piano_size": "grand_7_foot",
+          "grand_piano_brand": "bosendorfer",
+          "piano_hammer": "ronsen_weikert_hammer",
           "piano_rim": "asian_laminated_rim_birch_maple",
-          "piano_soundboard": "asian_spruce_soundboard",
+          "piano_soundboard": "sitka_spruce_solid_quartersawn",
           "piano_pinblock": "asian_multi_laminate_pinblock",
           "piano_plate": "wet_sand_cast_plate",
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
-          "keyboard_technique": 2.8249999999999997,
-          "grand_piano_size": 1.235,
-          "grand_piano_brand": 2.27,
-          "piano_hammer": 1.5750000000000002,
-          "piano_rim": 2.575,
-          "piano_soundboard": 1.5750000000000002,
+          "keyboard_technique": 5.324999999999999,
+          "grand_piano_size": 3.3012499999999996,
+          "grand_piano_brand": 3.306875,
+          "piano_hammer": 1.885,
+          "piano_rim": 3.42,
+          "piano_soundboard": 2.6000000000000005,
           "piano_pinblock": -0.05,
           "piano_plate": 2.2368750000000004,
-          "piano_pitch_standard": 1.4949999999999999
+          "piano_pitch_standard": 3.185
         }
       },
       {
         "id": "digital_subtractive",
         "slots": {
           "electronic_technique": "electronic_lead_line",
-          "va_archetypes": "access_virus",
+          "va_archetypes": "nord_lead",
           "digital_subtractive_context": "digital_subtractive_trance"
         },
         "scores": {
           "electronic_technique": 2.1700000000000004,
-          "va_archetypes": 0.2737499999999999,
-          "digital_subtractive_context": 8.852499999999997
+          "va_archetypes": 0.845,
+          "digital_subtractive_context": 20.357500000000005
         }
       },
       {
@@ -94,12 +95,12 @@
         "slots": {
           "tr909_voice": "tr909_kick",
           "drum_machine_909_context": "drum_machine_909_house",
-          "tr909_production_origin": "tr909_behringer_rd_9"
+          "tr909_production_origin": "tr909_roland_osaka_canonical"
         },
         "scores": {
-          "tr909_voice": 16.625,
-          "drum_machine_909_context": 1.37,
-          "tr909_production_origin": 0
+          "tr909_voice": 21.5,
+          "drum_machine_909_context": 2.215,
+          "tr909_production_origin": 0.78
         }
       },
       {
@@ -112,11 +113,11 @@
           "sampler_classic_context": "sampler_classic_edm"
         },
         "scores": {
-          "electronic_technique": -0.1,
-          "sampler_archetypes": 1.25,
-          "sampler_bit_depth": 0.52,
+          "electronic_technique": 0.9099999999999999,
+          "sampler_archetypes": 2.875,
+          "sampler_bit_depth": 3.5100000000000002,
           "sampler_workflow": 2,
-          "sampler_classic_context": 28.164374999999993
+          "sampler_classic_context": 44.544375
         }
       }
     ],

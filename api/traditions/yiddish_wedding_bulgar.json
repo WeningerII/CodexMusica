@@ -3,9 +3,9 @@
   "name": "Yiddish wedding bulgar and freylekhs",
   "family": "global",
   "lineage": "Ashkenazi-Jewish wedding-dance-music tradition continuous from 19th-century Eastern-European-shtetl klezmer practice through New-York Yiddish-American post-1880s immigration era through the 1970s klezmer-revival; the bulgar (Bulgarian-origin double-line dance) and freylekhs (joyful-dance) are the canonical Ashkenazi wedding-dance forms",
-  "recipe": "classic Eastern European mid-1880s yiddish wedding bulgar and freylekhs, wedding, European branch, middle eastern wedding, string improv improv on frame, chanson fado ballad poetry cape verdean batuko of santiago island lebanese-arab wedding takht. vocal fry, breath veiled tone, slow rate, interlocked note trading. klezmer ensemble, ebonite hard rubber klezmer tradition continuous-airflow legato clarinet, ornamented fiddle, castagnari Italian premium folk music bellows articulated accordion, upright bass. klezmer simcha celebration hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 606,
-  "score": 266.768,
+  "recipe": "classic Eastern European mid-1880s yiddish wedding bulgar and freylekhs, wedding, European branch, middle eastern wedding, string improv improv on frame, chanson fado ballad poetry cape verdean batuko of santiago island lebanese-arab wedding takht. vocal fry, breath veiled tone, slow rate, interlocked note trading. klezmer ensemble, ebonite hard rubber klezmer tradition continuous-airflow legato clarinet, ornamented fiddle, castagnari Italian premium folk music bellows articulated accordion, upright bass. klezmer simcha celebration hall. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 616,
+  "score": 259.838,
   "config": {
     "traditions": [
       "yiddish_wedding_bulgar",
@@ -30,7 +30,7 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_arab_maqam_mawwal",
           "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_processing_chain": "voice_processing_vocoder_8_band",
           "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
         },
         "scores": {
@@ -48,7 +48,7 @@
           "voice_ensemble_config": 18.525,
           "voice_ornament_system": 13.039,
           "voice_pitch_organization": 12.9835,
-          "voice_processing_chain": 7.6700000000000035,
+          "voice_processing_chain": 3.8745000000000007,
           "voice_multitrack_stack": 4.874999999999999
         }
       },
@@ -84,14 +84,14 @@
         "id": "fiddle",
         "slots": {
           "bowed_technique": "bowed_klezmer_ornamented",
-          "fiddle_strings": "synthetic_core",
+          "fiddle_strings": "plain_sheep_gut_fiddle",
           "fiddle_bow": "light_rosin",
           "fiddle_mute": "no_mute",
           "fiddle_articulation": "pizz"
         },
         "scores": {
           "bowed_technique": 12.099499999999999,
-          "fiddle_strings": 0.8850000000000001,
+          "fiddle_strings": 0.325,
           "fiddle_bow": 0.15,
           "fiddle_mute": 0.345,
           "fiddle_articulation": 1.24
@@ -121,17 +121,17 @@
       {
         "id": "upright_bass",
         "slots": {
-          "upright_strings": "synthetic_upright",
+          "upright_strings": "steel_upright",
           "upright_play": "arco_upright"
         },
         "scores": {
-          "upright_strings": 0.8850000000000001,
+          "upright_strings": 0.28500000000000003,
           "upright_play": 2.34
         }
       }
     ],
     "room": "klezmer_simcha_celebration_hall",
-    "archetype": "arch_ethnographic_field_digital",
+    "archetype": "arch_electrical_disc_cut",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

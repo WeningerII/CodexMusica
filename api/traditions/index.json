@@ -1,5 +1,5 @@
 {
-  "count": 1165,
+  "count": 1167,
   "items": [
     {
       "id": "honky_tonk",
@@ -6990,6 +6990,18 @@
       "name": "Proto-rap spoken word",
       "family": "hip_hop",
       "href": "traditions/proto_rap_spoken_word.json"
+    },
+    {
+      "id": "tamil_filmi",
+      "name": "Tamil filmi / Kollywood playback",
+      "family": "global",
+      "href": "traditions/tamil_filmi.json"
+    },
+    {
+      "id": "french_touch",
+      "name": "French touch / filter house",
+      "family": "electronic",
+      "href": "traditions/french_touch.json"
     }
   ]
 }

@@ -3,9 +3,9 @@
   "name": "Cretan lyra (Cretan pear-shaped fiddle)",
   "family": "global",
   "lineage": "Cretan lyra solo-and-ensemble music tradition of Crete (Greece), centered on the pear-shaped three-string upright-played fiddle of unique Cretan construction (with the fingers stopping the strings from the side rather than pressing down, allowing characteristic Cretan-style pitch-glide ornament). Performance configuration: lyra leading with laouto long-neck-lute rhythmic-and-harmonic accompaniment, plus voice for sung repertoire. Repertoire spans the canonical Cretan dance-forms (pentozali fast-warrior-dance, syrtos slow-circle-dance, sousta), mantinada improvised-couplet form, and the rizitika hilltop-mountain-village ritual-song tradition. The post-twentieth-century Anogeia village and the Psarantonis-Xylouris family lineage anchor the canonical contemporary tradition. Distinguished from broader Greek nisiotika by Cretan-specific lyra-instrument signature.",
-  "recipe": "classic Southern European modern cretan lyra, ballad Poetry, Mediterranean ballad branch, west African groove percussion indonesian jaipongan fújì. thick, breath veiled tone, slow rate, interlocked note trading. walnut ribs canonical mid tier spruce face pyramid nylon oud, sitka spruce hard rock maple acer saccharum Baroque setup short neck violin orchestral, mulberry canonical cretan gut pre modern cretan cretan lyra, cretan rhythmic laouto. athens major label 1955-1985 mid tier athens minos studios 60s 70s. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 577,
-  "score": 250.92,
+  "recipe": "classic Southern European early-1930s cretan lyra, ballad Poetry, Mediterranean ballad branch, west African groove percussion indonesian jaipongan fújì. thick, breath veiled tone, slow rate, interlocked note trading. walnut ribs canonical mid tier spruce face pyramid nylon oud, sitka spruce hard rock maple acer saccharum Baroque setup short neck violin orchestral, mulberry canonical cretan gut pre modern cretan cretan lyra, cretan rhythmic laouto. athens major label 1955-1985 mid tier athens minos studios 60s 70s. large-diaphragm condenser, tube pre, Emi redd.51, vari-mu, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 623,
+  "score": 251.54,
   "config": {
     "traditions": [
       "cretan_lyra",
@@ -31,7 +31,7 @@
           "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
           "voice_pitch_organization": "voice_pitch_slendro_5",
           "voice_processing_chain": "voice_processing_talkbox",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
           "voice_register": 2.1125,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 4.16,
           "voice_pitch_organization": 10.364999999999998,
           "voice_processing_chain": 5.225,
-          "voice_multitrack_stack": 4.745
+          "voice_multitrack_stack": 5.1850000000000005
         }
       },
       {
@@ -57,7 +57,7 @@
         "slots": {
           "plucked_traditional_technique": "plucked_classical_idiom",
           "oud_school": "oud_arab_classic",
-          "oud_strings": "oud_thirteen",
+          "oud_strings": "oud_eleven",
           "oud_pick": "risha_eagle_feather",
           "oud_body_wood": "oud_walnut_body",
           "oud_soundboard_wood": "oud_spruce_face",
@@ -66,7 +66,7 @@
         "scores": {
           "plucked_traditional_technique": -0.035,
           "oud_school": 2.925,
-          "oud_strings": 0.65,
+          "oud_strings": 0,
           "oud_pick": 1.69,
           "oud_body_wood": 4.029999999999999,
           "oud_soundboard_wood": 2.9899999999999998,
@@ -83,7 +83,7 @@
           "orch_varnish": "spirit_varnish_violin",
           "orch_setup_period": "baroque_setup_violin",
           "orch_bow": "baroque_bow",
-          "orch_bow_stick": "carbon_fiber_stick_orch",
+          "orch_bow_stick": "brazilwood_stick_orch",
           "orch_articulation": "arco_orch",
           "orch_rosin": "bernardel_rosin_orch"
         },
@@ -95,7 +95,7 @@
           "orch_varnish": -0.035,
           "orch_setup_period": 4.365,
           "orch_bow": 7.4399999999999995,
-          "orch_bow_stick": 0.975,
+          "orch_bow_stick": 0.78,
           "orch_articulation": 0.51,
           "orch_rosin": 0.78
         }
@@ -114,7 +114,7 @@
           "lyra_strings": 0.845,
           "lyra_use": 1.69,
           "lyra_body_wood": 11.49,
-          "lyra_string_material": 9.295
+          "lyra_string_material": 7.795
         }
       },
       {
@@ -132,7 +132,7 @@
       }
     ],
     "room": "athens_minos_studios_60s_70s",
-    "archetype": "arch_ethnographic_field_digital",
+    "archetype": "arch_greek_columbia_rizoupoli",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",
