@@ -6,6 +6,21 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Added
+- **Two traditions the catalog documented as missing, and every archetype now has
+  an owner.** `arch_french_touch_filter_house` and `arch_ilaiyaraaja_kollywood`
+  were authored but used by zero traditions. Git history confirmed neither was
+  ever assigned to anything, so unlike the clobbered archetypes above this was a
+  content gap, not data loss — and the catalog names the gap itself: the tree node
+  `electronicDance.continental` mentions "French touch" with nothing hanging under
+  it, and `hindi_filmi`'s own notes scope out the "Tamil, Telugu, Bengali,
+  Malayalam parallel canons". Added `french_touch` (Motorbass, Bangalter/Daft
+  Punk, Braxe, de Crécy, Cassius, Stardust, Modjo — sampled disco loops through
+  resonant filter sweeps, cut to vinyl) and `tamil_filmi` (Ilaiyaraaja from
+  Annakili 1976 across ~1000 scores, SPB and S. Janaki, the Prasad/AVM Madras
+  scoring stages, through to Rahman's Roja 1992). Catalog: **1165 → 1167
+  traditions; archetypes in active use 82 → 84 of 84, zero orphans.**
+
 ### Fixed
 - **Duplicate `chain_archetype` keys were silently discarding purpose-built chains.**
   A tradition is a JS object literal, so writing a key twice keeps the *last* value
