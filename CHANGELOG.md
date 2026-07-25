@@ -17,11 +17,26 @@ All notable changes to this project are recorded here. Format loosely follows
   12-inch** chain, `ecm_jazz_aesthetic` **ECM/Kongshaug**, `nashville_sound` the
   **Nashville A-Team**, `dub_techno` the **Berlin dub-techno** chain, and `mariachi`
   was rendering a *Havana* chain instead of Mexican Churubusco. Each record now
-  carries exactly one key, restoring the authored chain. `validate` gained a
-  source-level duplicate-key rule for single-valued tradition fields (a sibling of
-  the existing `06_extras.js` check) so this cannot regress; it strips the nested
-  `parts` object first, since part ids share a namespace with field names (`tuning`
-  is both).
+  carries exactly one key, restoring the authored chain.
+- **The same bug was also discarding `production_aesthetic` — and had killed the
+  array form outright.** A follow-up audit (AST sweep, cross-checked against an
+  independent dependency-free scanner, exact agreement) found two more duplicate
+  keys that the first, whitelist-based rule had missed: `hyperpop` and
+  `hyperpop_rap` each silently dropped `maximalist_streaming_pop` to a later
+  scalar. `hyperpop` had been authored as an **array** of two aesthetics — and
+  arrays are supported end to end (`validate` iterates them; `search` unions them
+  into the allowed set and takes `[0]` as primary) — yet **no tradition in the
+  catalog was using one**, because the only one ever written had been clobbered.
+  Both records now carry the union; recipes are unchanged (regression 1171/1171).
+- **`validate`'s duplicate-key rule now scans every key in every `references/*.js`.**
+  The first version whitelisted known single-valued tradition fields, which is
+  precisely why it missed `production_aesthetic` — so the whitelist is gone. The
+  scanner tracks strings and comments (prose containing a colon can't be mistaken
+  for a key) and brace depth (nested objects get their own key scope, so a `parts`
+  pin sharing a name with a top-level field — `tuning` is both — is not a false
+  positive). It is hand-rolled rather than AST-based on purpose: `validate` must run
+  from the extracted zip artifact, which ships without `node_modules`. Verified
+  two-sided against an injected duplicate in all six populated reference files.
 - **Ten instruments no longer show "Playing technique" twice.** Each carried a
   generic family-level technique part *and* an instrument-specific one — both
   rendering under the same "Playing technique" label — so a card listed two

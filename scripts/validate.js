@@ -521,60 +521,111 @@ for (const fam of Object.keys(C.INSTRUMENT_FAMILY_PARTS || {})) {
   }
 }
 
-// ---- Source-level duplicate-key detection (05_traditions.js records) ----
-// Same failure mode one level down: a tradition is an object literal, so writing
-// chain_archetype twice in one record silently keeps the LAST value and discards
-// the first. That is invisible to every ref check (both values are valid ids), and
-// it is how purpose-built archetypes (Motown Snakepit, Sigma Sound, ECM/Kongshaug,
-// the Nashville A-Team) ended up authored-but-unused: a later generic append won.
-// Only single-valued top-level fields are scanned, so nested `parts` keys can't
-// produce a false positive.
+// ---- Source-level duplicate-key detection (all references/*.js) ----
+// Same failure mode one level down from the extras check: every reference file is
+// object literals, so writing a key twice silently keeps the LAST value and discards
+// the first. That is invisible to every ref check, because both values are usually
+// valid ids. It is how purpose-built archetypes (Motown Snakepit, Sigma Sound,
+// ECM/Kongshaug, the Nashville A-Team) ended up authored-but-unused, and how the
+// array form of production_aesthetic was silently discarded on the only two records
+// that used it. A whitelist of known fields is NOT enough — production_aesthetic was
+// missed by exactly that approach — so this scans EVERY key in EVERY object scope.
+//
+// Hand-rolled rather than AST-based on purpose: validate.js must run from the
+// extracted zip artifact, which ships without node_modules (tandem asserts this).
+// The scanner tracks strings and comments so prose containing a colon cannot be
+// mistaken for a key, and brace depth so a nested object gets its own key scope.
 {
   const fs = require('fs');
   const path = require('path');
-  const tradSrc = fs.readFileSync(
-    path.join(__dirname, '..', 'references', '05_traditions.js'),
-    'utf8'
-  );
-  const SINGLE_VALUED = [
-    'chain_archetype',
-    'chain_mic',
-    'chain_pre',
-    'chain_medium',
-    'chain_console',
-    'chain_comp',
-    'chain_eq',
-    'chain_status',
-    'chain_amp',
-    'chain_amp_guitar',
-    'chain_amp_bass',
-    'room',
-    'tuning',
-    'family',
-  ];
-  // Record boundaries: the file mixes pretty (`{ id: 'x',`) and minified (`{"id":"x"`).
-  const starts = [];
-  for (const re of [/\{ id: '([a-z0-9_]+)',/g, /\{"id":"([a-z0-9_]+)"/g]) {
-    let m;
-    while ((m = re.exec(tradSrc)) !== null) starts.push({ pos: m.index, id: m[1] });
-  }
-  starts.sort((a, b) => a.pos - b.pos);
-  for (let i = 0; i < starts.length; i++) {
-    const end = i + 1 < starts.length ? starts[i + 1].pos : tradSrc.length;
-    // Strip the flat `parts: { ... }` override object first: part ids share a
-    // namespace with top-level field names (`tuning` is both), so scanning the
-    // raw record would report a nested part pin as a duplicate top-level key.
-    const rec = tradSrc.slice(starts[i].pos, end).replace(/["']?parts["']?\s*:\s*\{[^{}]*\}/g, '');
-    for (const key of SINGLE_VALUED) {
-      const hits = rec.match(new RegExp(`["']?\\b${key}["']?\\s*:`, 'g')) || [];
-      if (hits.length > 1) {
-        errors.push([
-          'DUPLICATE_KEY',
-          'tradition_source',
-          starts[i].id,
-          `${key} appears ${hits.length}x in one record — the later one silently wins on eval`,
-        ]);
+  const refDir = path.join(__dirname, '..', 'references');
+  for (const file of fs.readdirSync(refDir).filter((f) => f.endsWith('.js'))) {
+    const src = fs.readFileSync(path.join(refDir, file), 'utf8');
+    const stack = [];
+    let pending = null;
+    let pendingPos = -1;
+    let i = 0;
+    const n = src.length;
+    while (i < n) {
+      const c = src[i];
+      if (c === '/' && src[i + 1] === '/') {
+        while (i < n && src[i] !== '\n') i++;
+        continue;
       }
+      if (c === '/' && src[i + 1] === '*') {
+        i += 2;
+        while (i < n && !(src[i] === '*' && src[i + 1] === '/')) i++;
+        i += 2;
+        continue;
+      }
+      if (c === '"' || c === "'" || c === '`') {
+        const q = c;
+        let j = i + 1;
+        let val = '';
+        while (j < n) {
+          if (src[j] === '\\') {
+            val += src[j + 1];
+            j += 2;
+            continue;
+          }
+          if (src[j] === q) break;
+          val += src[j];
+          j++;
+        }
+        pending = val;
+        pendingPos = i;
+        i = j + 1;
+        continue;
+      }
+      if (/[A-Za-z_$]/.test(c)) {
+        let j = i;
+        while (j < n && /[A-Za-z0-9_$]/.test(src[j])) j++;
+        pending = src.slice(i, j);
+        pendingPos = i;
+        i = j;
+        continue;
+      }
+      if (c === '{') {
+        stack.push({ type: 'obj', keys: new Map() });
+        pending = null;
+        i++;
+        continue;
+      }
+      if (c === '[') {
+        stack.push({ type: 'arr', keys: new Map() });
+        pending = null;
+        i++;
+        continue;
+      }
+      if (c === '}' || c === ']') {
+        stack.pop();
+        pending = null;
+        i++;
+        continue;
+      }
+      if (c === ':') {
+        const scope = stack[stack.length - 1];
+        if (scope && scope.type === 'obj' && pending !== null) {
+          if (scope.keys.has(pending)) {
+            const line = src.slice(0, pendingPos).split('\n').length;
+            errors.push([
+              'DUPLICATE_KEY',
+              'reference_source',
+              file + ':' + line,
+              pending + ' written twice in one object — the later one silently wins on eval',
+            ]);
+          } else scope.keys.set(pending, pendingPos);
+        }
+        pending = null;
+        i++;
+        continue;
+      }
+      if (c === ',') {
+        pending = null;
+        i++;
+        continue;
+      }
+      i++;
     }
   }
 }
