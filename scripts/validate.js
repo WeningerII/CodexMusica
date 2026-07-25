@@ -521,6 +521,64 @@ for (const fam of Object.keys(C.INSTRUMENT_FAMILY_PARTS || {})) {
   }
 }
 
+// ---- Source-level duplicate-key detection (05_traditions.js records) ----
+// Same failure mode one level down: a tradition is an object literal, so writing
+// chain_archetype twice in one record silently keeps the LAST value and discards
+// the first. That is invisible to every ref check (both values are valid ids), and
+// it is how purpose-built archetypes (Motown Snakepit, Sigma Sound, ECM/Kongshaug,
+// the Nashville A-Team) ended up authored-but-unused: a later generic append won.
+// Only single-valued top-level fields are scanned, so nested `parts` keys can't
+// produce a false positive.
+{
+  const fs = require('fs');
+  const path = require('path');
+  const tradSrc = fs.readFileSync(
+    path.join(__dirname, '..', 'references', '05_traditions.js'),
+    'utf8'
+  );
+  const SINGLE_VALUED = [
+    'chain_archetype',
+    'chain_mic',
+    'chain_pre',
+    'chain_medium',
+    'chain_console',
+    'chain_comp',
+    'chain_eq',
+    'chain_status',
+    'chain_amp',
+    'chain_amp_guitar',
+    'chain_amp_bass',
+    'room',
+    'tuning',
+    'family',
+  ];
+  // Record boundaries: the file mixes pretty (`{ id: 'x',`) and minified (`{"id":"x"`).
+  const starts = [];
+  for (const re of [/\{ id: '([a-z0-9_]+)',/g, /\{"id":"([a-z0-9_]+)"/g]) {
+    let m;
+    while ((m = re.exec(tradSrc)) !== null) starts.push({ pos: m.index, id: m[1] });
+  }
+  starts.sort((a, b) => a.pos - b.pos);
+  for (let i = 0; i < starts.length; i++) {
+    const end = i + 1 < starts.length ? starts[i + 1].pos : tradSrc.length;
+    // Strip the flat `parts: { ... }` override object first: part ids share a
+    // namespace with top-level field names (`tuning` is both), so scanning the
+    // raw record would report a nested part pin as a duplicate top-level key.
+    const rec = tradSrc.slice(starts[i].pos, end).replace(/["']?parts["']?\s*:\s*\{[^{}]*\}/g, '');
+    for (const key of SINGLE_VALUED) {
+      const hits = rec.match(new RegExp(`["']?\\b${key}["']?\\s*:`, 'g')) || [];
+      if (hits.length > 1) {
+        errors.push([
+          'DUPLICATE_KEY',
+          'tradition_source',
+          starts[i].id,
+          `${key} appears ${hits.length}x in one record — the later one silently wins on eval`,
+        ]);
+      }
+    }
+  }
+}
+
 // ---- Report ----
 if (errors.length === 0) {
   const archCount = (C.CHAIN_ARCHETYPES || []).length;

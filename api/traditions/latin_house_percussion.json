@@ -3,9 +3,9 @@
   "name": "Latin house",
   "family": "global",
   "lineage": "Latin-percussion-driven house subgenre codified through New York 1990s production — Louie Vega, Kenny \"Dope\" Gonzalez (Masters at Work duo), Frankie Feliciano — characterized by congas, timbales, and bongo accents layered over four-on-the-floor house foundation, Spanish-language vocal hooks, and son-and-salsa percussion vocabularies",
-  "recipe": "classic mid-1990s latin house, electronic Dance, Latin house branch, Cuban groove percussion cha-cha-chá charanga. extended whistle, breath veiled tone, straight onset, interlocked note trading. digital subtractive, TR-909, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, brass open slap hand drum timbales, melodic orchestral imitation pitched sampler, claves. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 548,
-  "score": 319.612,
+  "recipe": "classic Asian mid-1990s latin house, electronic Dance, Latin house branch, Cuban groove percussion cha-cha-chá charanga. extended whistle, breath veiled tone, straight onset, interlocked note trading. digital subtractive, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909, mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, brass open slap hand drum timbales, melodic orchestral imitation pitched sampler, claves. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+  "recipe_chars": 636,
+  "score": 321.422,
   "config": {
     "traditions": [
       "latin_house_percussion",
@@ -49,7 +49,7 @@
           "voice_ornament_system": 0.45500000000000007,
           "voice_pitch_organization": 3.9000000000000004,
           "voice_processing_chain": 5.390000000000001,
-          "voice_multitrack_stack": 7.215000000000001
+          "voice_multitrack_stack": 4.615000000000001
         }
       },
       {
@@ -70,12 +70,12 @@
         "slots": {
           "tr909_voice": "tr909_kick",
           "drum_machine_909_context": "drum_machine_909_hardcore",
-          "tr909_production_origin": "tr909_behringer_rd_9"
+          "tr909_production_origin": "tr909_roland_osaka_canonical"
         },
         "scores": {
           "tr909_voice": 20.25,
           "drum_machine_909_context": 1.4300000000000002,
-          "tr909_production_origin": 0.65
+          "tr909_production_origin": 1.885
         }
       },
       {
@@ -136,7 +136,7 @@
       }
     ],
     "room": "treated_studio",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_hk_cantopop_ballad_factory",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "transformer_solid_state",

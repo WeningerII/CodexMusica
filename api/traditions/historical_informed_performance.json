@@ -3,9 +3,9 @@
   "name": "Historically-informed performance recording",
   "family": "global",
   "lineage": "Late-twentieth-century classical-performance movement aiming to play pre-1900 Western art-music repertoire on period-appropriate instruments using period-appropriate technique, tuning (typically A=415 Hz baroque, A=430 Hz classical), tempo, articulation, and ornamentation — codified through ensembles including The English Concert (Trevor Pinnock), Concentus Musicus Wien (Nikolaus Harnoncourt), Academy of Ancient Music (Christopher Hogwood), and continuing through generations of period-instrument-trained performers",
-  "recipe": "classic early-1900s historically-informed performance recording, art Music, western early branch, western common practice art music anglican cathedral-choral recording tradition hyperion-school classical-recording aesthetic. thick, breath veiled tone, straight note core, interlocked note trading. maple modern British folk brass wire canonical renaissance cittern, late medieval legato vielle medieval, sustained breathy chant doubling portative organ, plain lamb gut canonical period performance snakewood underhand grip canonical Baroque viol viola da gamba, boxwood canonical renaissance Baroque continuous-airflow legato recorder, mid renaissance English Spanish lute renaissance, boxwood canonical renaissance European shawm, tenor workhorse consort blend thin hammered brass sackbut, crumhorn, song support double bourdon early Italian baroque guitar, six course polyphonic vihuela de mano, treble voiced legato rebec, medieval psaltery. parish church. tube condenser, 500-series boutique pre.",
-  "recipe_chars": 1000,
-  "score": 337.103,
+  "recipe": "classic European early-1900s historically-informed performance recording, art Music, western early branch, western common practice art music anglican cathedral-choral recording tradition hyperion-school classical-recording aesthetic. thick, breath veiled tone, straight note core, interlocked note trading. maple modern British folk brass wire canonical renaissance cittern, late medieval legato vielle medieval, sustained breathy chant doubling portative organ, plain lamb gut canonical period performance snakewood underhand grip canonical Baroque viol viola da gamba, boxwood canonical renaissance Baroque continuous-airflow legato recorder, mid renaissance English Spanish alternating ebony ivory venetian premium pre 1989 lute renaissance, boxwood canonical renaissance European shawm, tenor workhorse consort blend thin hammered brass sackbut, crumhorn, song support double bourdon early Italian baroque guitar, six course polyphonic vihuela de mano, treble voiced legato rebec.",
+  "recipe_chars": 984,
+  "score": 336.026,
   "config": {
     "traditions": [
       "historical_informed_performance",
@@ -31,7 +31,7 @@
           "voice_ornament_system": "voice_ornament_dhrupad_meend_andolan",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_late_1970s_thirds_fifths_octaves"
         },
         "scores": {
           "voice_register": 7.3999999999999995,
@@ -48,8 +48,8 @@
           "voice_ensemble_config": 8.19,
           "voice_ornament_system": 10.724499999999999,
           "voice_pitch_organization": 11.175,
-          "voice_processing_chain": 5.3950000000000005,
-          "voice_multitrack_stack": 3.315000000000001
+          "voice_processing_chain": 2.7950000000000004,
+          "voice_multitrack_stack": 1.8199999999999996
         }
       },
       {
@@ -141,7 +141,7 @@
           "plucked_traditional_technique": "plucked_classical_idiom",
           "lute_courses": "lute_7_courses",
           "lute_renaissance_context": "lute_renaissance_solo",
-          "lute_renaissance_ribs": "lute_yew_ribs",
+          "lute_renaissance_ribs": "lute_ebony_ivory_alternating",
           "lute_renaissance_soundboard": "lute_alpine_spruce",
           "lute_renaissance_strings": "lute_fluorocarbon"
         },
@@ -149,7 +149,7 @@
           "plucked_traditional_technique": 10.625,
           "lute_courses": 1.95,
           "lute_renaissance_context": 16.380000000000003,
-          "lute_renaissance_ribs": 0.585,
+          "lute_renaissance_ribs": 1.19,
           "lute_renaissance_soundboard": 0.585,
           "lute_renaissance_strings": 0.6749999999999999
         }
@@ -253,7 +253,7 @@
       }
     ],
     "room": "stone_parish_church",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_church_location_early_music",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "tube_modern",

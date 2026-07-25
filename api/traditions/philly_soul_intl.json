@@ -3,9 +3,9 @@
   "name": "Philadelphia International soul",
   "family": "blues_gospel",
   "lineage": "Lush orchestral soul codified at Sigma Sound Studios Philadelphia 1971-1980 under Kenny Gamble and Leon Huffs Philadelphia International Records label with the MFSB rhythm section (Mother Father Sister Brother) as house band — The OJays Backstabbers and Love Train, Harold Melvin and the Blue Notes If You Dont Know Me by Now, MFSB TSOP, Spinners, Three Degrees, Patti LaBelle",
-  "recipe": "classic North American mid-1970s philadelphia international soul, functional Song, soul R&B branch, pop rock functional song, continental electronic dance new wave disco. thick, breath veiled tone, breath pulsed, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright mahogany rosewood humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, pre muffled edge muffled brushes-and-sticks drum kit, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, tremolo block chord rhodes electric, Hammond b3 canonical 1955 1975 jazz gospel rock standard block chord slow chorale tonewheel organ, hard rock maple acer saccharum synthetic varnish polyurethane modern setup violin orchestral, tenor gold brass warmer tone ensemble honking saxophone, bach stradivarius 180 canonical American orchestral ensemble large cup large rim orchestral bottom heavy trumpet.",
-  "recipe_chars": 982,
-  "score": 573.528,
+  "recipe": "classic North American mid-1970s philadelphia international soul, functional Song, soul R&B branch, pop rock functional song, continental electronic dance new wave disco. thick, breath veiled tone, breath pulsed, interlocked note trading. Fender blackface amp American 60s amp spring reverb bright mahogany rosewood humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character mahogany la bella flats electric bass, pre muffled edge muffled brushes-and-sticks drum kit, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, tremolo raymac steel tine premium 1970s vintage replacement neoprene rubber tips canonical Rhodes stage suitcase mid 1970s block chord rhodes electric, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative block chord slow chorale tonewheel organ, hard rock maple acer saccharum synthetic varnish polyurethane plucked violin orchestral.",
+  "recipe_chars": 966,
+  "score": 577.912,
   "config": {
     "traditions": [
       "philly_soul_intl",
@@ -21,8 +21,8 @@
           "body_wood": "korina",
           "neck_wood": "mahogany_neck_h",
           "fretboard": "rosewood_fb_h",
-          "pickup_magnet": "alnico_8_h",
-          "pickup_winding": "high_wind",
+          "pickup_magnet": "alnico_4_h",
+          "pickup_winding": "low_wind",
           "string_material": "nickel_plated_h",
           "bridge": "stoptail",
           "scale_length": "scale_gibson_h",
@@ -36,8 +36,8 @@
           "body_wood": 2.08,
           "neck_wood": 1.69,
           "fretboard": 1.625,
-          "pickup_magnet": 0.195,
-          "pickup_winding": 0.195,
+          "pickup_magnet": 0.09,
+          "pickup_winding": 0.09,
           "string_material": 0.78,
           "bridge": 1.69,
           "scale_length": 1.69,
@@ -51,7 +51,7 @@
         "slots": {
           "amp_make": "amp_american_ampeg_b15",
           "body_wood": "mahogany_b",
-          "pickup_config": "soapbar",
+          "pickup_config": "humbucker_mm",
           "string_type": "la_bella_flats_motown",
           "scale_length_b": "short_scale_b",
           "fretted_or_not": "fretted",
@@ -60,7 +60,7 @@
         "scores": {
           "amp_make": 16.003999999999998,
           "body_wood": 1.69,
-          "pickup_config": 0.585,
+          "pickup_config": 0.045,
           "string_type": 15.953999999999997,
           "scale_length_b": 2.34,
           "fretted_or_not": 0.045,
@@ -90,18 +90,18 @@
           "piano_rim": "asian_laminated_rim_birch_maple",
           "piano_soundboard": "asian_spruce_soundboard",
           "piano_pinblock": "asian_multi_laminate_pinblock",
-          "piano_plate": "wet_sand_cast_plate",
+          "piano_plate": "gray_iron_full_perimeter_plate",
           "piano_pitch_standard": "a_442_european"
         },
         "scores": {
           "keyboard_technique": 13.074999999999998,
           "grand_piano_size": 2.9535,
           "grand_piano_brand": 1.885,
-          "piano_hammer": 13.455,
+          "piano_hammer": 11.955,
           "piano_rim": 13.863749999999998,
           "piano_soundboard": 13.17,
           "piano_pinblock": 0.46499999999999997,
-          "piano_plate": 1.2025,
+          "piano_plate": 0.5695,
           "piano_pitch_standard": 4.5825000000000005
         }
       },
@@ -111,7 +111,7 @@
           "keyboard_technique": "keyboard_block_chord_pop",
           "rhodes_model": "rhodes_suitcase",
           "rhodes_use": "rhodes_soul",
-          "rhodes_tine_material": "rhodes_mark7_modern_tine",
+          "rhodes_tine_material": "rhodes_raymac_tine",
           "rhodes_hammer_tip": "rhodes_neoprene_hammer_tip",
           "rhodes_pickup_position": "rhodes_pickup_far_bell"
         },
@@ -119,8 +119,8 @@
           "keyboard_technique": 13.074999999999998,
           "rhodes_model": 1.885,
           "rhodes_use": 2.275,
-          "rhodes_tine_material": -0.525,
-          "rhodes_hammer_tip": 0.5850000000000002,
+          "rhodes_tine_material": 1.4299999999999997,
+          "rhodes_hammer_tip": 3.185,
           "rhodes_pickup_position": 0.39
         }
       },
@@ -132,7 +132,7 @@
           "rotary_speed": "slow_chorale",
           "percussion_setting": "percussion_on_long",
           "tonewheel_model": "tonewheel_hammond_b3",
-          "leslie_cabinet_model": "leslie_145_smaller"
+          "leslie_cabinet_model": "leslie_760_solid_state"
         },
         "scores": {
           "keyboard_technique": 13.074999999999998,
@@ -140,7 +140,7 @@
           "rotary_speed": 12.749999999999998,
           "percussion_setting": 5.589999999999998,
           "tonewheel_model": 2.794999999999999,
-          "leslie_cabinet_model": 0.975
+          "leslie_cabinet_model": 2.34
         }
       },
       {
@@ -151,11 +151,11 @@
           "orch_top_wood": "sitka_spruce_violin_top",
           "orch_back_wood": "hard_rock_maple_violin_back",
           "orch_varnish": "modern_synthetic_varnish_violin",
-          "orch_setup_period": "modern_setup_violin",
+          "orch_setup_period": "baroque_setup_violin",
           "orch_bow": "baroque_bow",
-          "orch_bow_stick": "carbon_fiber_stick_orch",
+          "orch_bow_stick": "brazilwood_stick_orch",
           "orch_articulation": "arco_orch",
-          "orch_rosin": "magic_rosin_orch"
+          "orch_rosin": "liebenzeller_metal_rosin_orch"
         },
         "scores": {
           "bowed_technique": 5.950000000000001,
@@ -163,11 +163,11 @@
           "orch_top_wood": 0.4875,
           "orch_back_wood": 6.467499999999999,
           "orch_varnish": 1.2675,
-          "orch_setup_period": 1.0074999999999998,
+          "orch_setup_period": 0.6499999999999999,
           "orch_bow": 3.185,
-          "orch_bow_stick": 1.3324999999999998,
+          "orch_bow_stick": 0.42,
           "orch_articulation": 0.39,
-          "orch_rosin": 0.4875
+          "orch_rosin": 0.32499999999999996
         }
       },
       {
@@ -179,7 +179,7 @@
           "sax_body_alloy": "gold_brass_sax",
           "sax_mouthpiece": "metal_mp",
           "sax_technique": "sax_honking_attack",
-          "sax_maker_school": "sax_yamaha_custom"
+          "sax_maker_school": "sax_keilwerth_german"
         },
         "scores": {
           "wind_articulation": 16.313499999999998,
@@ -188,7 +188,7 @@
           "sax_body_alloy": 1.0045,
           "sax_mouthpiece": 0.78,
           "sax_technique": 12.7,
-          "sax_maker_school": 0.195
+          "sax_maker_school": 0
         }
       },
       {
@@ -253,7 +253,7 @@
           "voice_vibrato": 2.5999999999999996,
           "voice_articulation": 15.144999999999992,
           "voice_microtone": 23.299999999999994,
-          "voice_tradition": 17.7125,
+          "voice_tradition": 15.762499999999998,
           "voice_mechanism_compound": 3.25,
           "voice_estill_quality": 12.354999999999997,
           "voice_speech_song": 22.749999999999996,
@@ -261,12 +261,12 @@
           "voice_ornament_system": 3.3800000000000012,
           "voice_pitch_organization": 1.56,
           "voice_processing_chain": 12.949499999999999,
-          "voice_multitrack_stack": 8.58
+          "voice_multitrack_stack": 11.154499999999999
         }
       }
     ],
     "room": "sigma_sound_studios_philadelphia",
-    "archetype": "arch_80s_late_analog_majorrock",
+    "archetype": "arch_sigma_philly_soul",
     "inline_chain": {
       "mic": "mic_u87_condenser_neumann",
       "pre": "pre_api_312",
@@ -277,7 +277,7 @@
       "medium": "tape_30ips"
     },
     "tuning": "motown_four_on_floor_tambourine",
-    "aesthetic": null,
+    "aesthetic": "phl_intl_aesthetic",
     "arrangement": null,
     "fx_extras": [
       "fx_aphex_aural_exciter"

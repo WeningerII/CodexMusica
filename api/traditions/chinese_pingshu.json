@@ -3,9 +3,9 @@
   "name": "Chinese pingshu storytelling",
   "family": "global",
   "lineage": "Northern Chinese solo oral storytelling (pingshu, 'commentary-book'), in which a standing teller serialises long historical and martial-heroic novels — Romance of the Three Kingdoms, Water Margin, Generals of the Yang Family — over many nightly episodes, traditionally in teahouses using a folding fan, a handkerchief and a wooden waking-block (xingmu) rapped for emphasis. A Beijing-Tianjin Mandarin-language art distinct from the southern sung tanci, it reached mass audiences through radio and television, with Yuan Kuocheng and Shan Tianfang among its best-known twentieth-century masters. Delivery is vivid narrative speech with sudden gesture, mimicry and the crack of the block to mark suspense.",
-  "recipe": "classic East Asian modern chinese pingshu storytelling, art Music, east Asian branch beijing opera tibetan ache lhamo opera. thick, breath veiled tone, slow rate, interlocked note trading. chinese traditional teahouse. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 348,
-  "score": 238.641,
+  "recipe": "classic East Asian early-1930s chinese pingshu storytelling, art Music, east Asian branch beijing opera tibetan ache lhamo opera. thick, breath veiled tone, slow rate, interlocked note trading. chinese traditional teahouse. RCA 44-BX, calrec BBC-broadcast pre, BBC broadcast console, Telefunken u73b broadcast comp, broadcast loudness EQ. AM-radio broadcast.",
+  "recipe_chars": 358,
+  "score": 223.111,
   "config": {
     "traditions": [
       "chinese_pingshu",
@@ -30,8 +30,8 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
           "voice_register": 3.681,
@@ -48,13 +48,13 @@
           "voice_ensemble_config": 25.154999999999994,
           "voice_ornament_system": 18.5895,
           "voice_pitch_organization": 8.1055,
-          "voice_processing_chain": 7.345000000000001,
-          "voice_multitrack_stack": 3.7050000000000005
+          "voice_processing_chain": 3.12,
+          "voice_multitrack_stack": 3.25
         }
       }
     ],
     "room": "chinese_traditional_teahouse",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_network_radio_broadcast",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "tube_pre",

@@ -3,9 +3,9 @@
   "name": "Technical death metal",
   "family": "global",
   "lineage": "Virtuosic death-metal sub-style codified through Atheist (Piece of Time 1990, Unquestionable Presence 1991), Cynic (Focus 1993), Death’s later records (Human 1991, Individual Thought Patterns 1993), and the Suffocation 1990s lineage — characterized by complex multi-meter compositions, fretboard-acrobatic guitar work, and jazz-fusion influences",
-  "recipe": "classic early-1990s technical death metal, distorted Rock, death branch, prog metal progressive metal. thick, breath veiled tone, straight onset, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 581,
-  "score": 214.924,
+  "recipe": "classic North American early-1990s technical death metal, distorted Rock, death branch, prog metal progressive metal. thick, breath veiled tone, straight onset, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp mahogany ernie ball slinky electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit. treated studio. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 613,
+  "score": 215.249,
   "config": {
     "traditions": [
       "technical_death_metal",
@@ -30,7 +30,7 @@
           "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
           "voice_pitch_organization": "voice_pitch_sub_semitone_third_glide",
           "voice_processing_chain": "voice_processing_melodyne_microtuned",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_granular_texture"
         },
         "scores": {
           "voice_register": 14.426624999999992,
@@ -48,7 +48,7 @@
           "voice_ornament_system": 1.5996249999999999,
           "voice_pitch_organization": 1.788625,
           "voice_processing_chain": 2.73,
-          "voice_multitrack_stack": 2.665000000000001
+          "voice_multitrack_stack": 2.34
         }
       },
       {
@@ -120,7 +120,7 @@
       }
     ],
     "room": "treated_studio",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_80s_late_analog_majorrock",
     "inline_chain": {
       "mic": "dynamic_mic",
       "pre": "transformer_solid_state",

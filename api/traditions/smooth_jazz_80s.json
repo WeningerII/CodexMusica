@@ -5,7 +5,7 @@
   "lineage": "1980s-onward commercial jazz format characterized by polished pop-production, mid-tempo grooves, melodic-rather-than-improvisational soloing, and radio-friendly song-form structures. Emerged from late-1970s jazz-fusion through Grover Washington Jr., George Benson, and Kenny G's consistent commercial success. Distinguished from broader jazz by smooth jazz's explicit commercial-radio-targeting and reduced improvisational-emphasis.",
   "recipe": "classic Los Angeles smooth jazz, improv On Frame, smooth vocal branch, pop rock functional song sophisti-pop skiffle. thick, close mic intimate, straight onset, interlocked note trading. nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris continuous-airflow legato saxophone, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, ampeg b15 amp American 60s bass amp flip top character alder thomastik infeld electric bass, vintage ambassador asymmetric brushes-and-sticks drum kit. neve paired 1970-1995 mid-major la rock 70s 90s. large-diaphragm condenser, Neve 1073 inductor pre, Neve transformer console, LA-2A optical, Neve inductor EQ. Studer 30ips tape.",
   "recipe_chars": 722,
-  "score": 653.648,
+  "score": 654.248,
   "config": {
     "traditions": [
       "smooth_jazz_80s",
@@ -48,8 +48,8 @@
           "voice_ensemble_config": 13.584999999999997,
           "voice_ornament_system": 0.045,
           "voice_pitch_organization": 0.8449999999999999,
-          "voice_processing_chain": 20.699999999999996,
-          "voice_multitrack_stack": 10.1725
+          "voice_processing_chain": 18.699999999999996,
+          "voice_multitrack_stack": 12.772499999999999
         }
       },
       {

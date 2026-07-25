@@ -7,6 +7,21 @@ All notable changes to this project are recorded here. Format loosely follows
 ## [Unreleased]
 
 ### Fixed
+- **Duplicate `chain_archetype` keys were silently discarding purpose-built chains.**
+  A tradition is a JS object literal, so writing a key twice keeps the *last* value
+  and drops the first — invisible to every ref check, because both ids are valid.
+  Nine records carried two `chain_archetype` keys, and in seven of them a
+  purpose-built archetype had been clobbered by a later generic append. That is why
+  four archetypes sat authored-but-unused: `northern_soul_motown` was losing
+  **Motown Snakepit**, `philly_soul_intl` **Sigma Sound**, `disco` the **NYC disco
+  12-inch** chain, `ecm_jazz_aesthetic` **ECM/Kongshaug**, `nashville_sound` the
+  **Nashville A-Team**, `dub_techno` the **Berlin dub-techno** chain, and `mariachi`
+  was rendering a *Havana* chain instead of Mexican Churubusco. Each record now
+  carries exactly one key, restoring the authored chain. `validate` gained a
+  source-level duplicate-key rule for single-valued tradition fields (a sibling of
+  the existing `06_extras.js` check) so this cannot regress; it strips the nested
+  `parts` object first, since part ids share a namespace with field names (`tuning`
+  is both).
 - **Ten instruments no longer show "Playing technique" twice.** Each carried a
   generic family-level technique part *and* an instrument-specific one — both
   rendering under the same "Playing technique" label — so a card listed two
@@ -25,6 +40,24 @@ All notable changes to this project are recorded here. Format loosely follows
   "growly gut upright bass"). 116 now-orphaned family-technique pins were removed
   from the traditions that only used them via one of these instruments; 67 fixtures
   re-blessed, 2 preface fixtures re-blessed, preface 79/79 otherwise unchanged.
+
+### Changed
+- **Broke up the catch-all recording chain (221 → 160 traditions).**
+  `arch_modern_pro_daw_studio` ("2000–present") had become the fallback for anything
+  modern-ish, and **104 of its 221 traditions are documented as pre-2000** — a plain
+  era error. It also made the chain the least informative part of a recipe: across
+  the catalog only **97 distinct chain tails** served 1,147 recipes, with **95% of
+  recipes sharing a tail with at least one other**, and a single 202-recipe tail
+  reading `tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ`.
+  59 traditions were reassigned to era-correct archetypes that already existed —
+  90s club/rave scenes to the pre-DAW electronic-pioneer chain, 80s/90s metal and
+  major-studio pop to the late-analog SSL chain, sample-era hip-hop and post-punk to
+  the American indie-commercial chain, holy minimalism / free improvisation /
+  European chamber-jazz to **ECM/Kongshaug**, historically-informed performance to
+  the church-location chain, and the spoken-word forms out of a music-mastering
+  chain entirely (radio-broadcast storytelling to the network-radio chain, audiobook
+  / podcast / voiceover to the home-booth digital chain). Archetypes in active use
+  rose from 78 to 82 of 84; no archetype was added or removed.
 
 ### Removed
 - **Deduplicated 30 redundant tradition records (1195 → 1165).** A catalog-wide

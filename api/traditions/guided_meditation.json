@@ -3,9 +3,9 @@
   "name": "Guided meditation",
   "family": "global",
   "lineage": "Recorded spoken instruction guiding a listener through relaxation and meditation practice, descending from 1970s self-help relaxation cassettes and the secular-mindfulness turn led by Jon Kabat-Zinn, whose Mindfulness-Based Stress Reduction program (University of Massachusetts, 1979) circulated body-scan recordings as core practice material. Delivery is slow, low-register, and deliberately under-projected, with long structured silences left between instructions. The 2010s app era — Headspace with Andy Puddicombe, Calm with Tamara Levitt — turned the form into a mass studio-produced voice genre.",
-  "recipe": "classic mid-1970s guided meditation, spoken Word, intimate voice branch audiobook narration shipping forecast cadence. vocal fry, breath veiled tone, slow rate, interlocked note trading. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 332,
-  "score": 147.353,
+  "recipe": "classic mid-1970s guided meditation, spoken Word, intimate voice branch audiobook narration shipping forecast cadence. vocal fry, breath veiled tone, slow rate, interlocked note trading. treated studio. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 301,
+  "score": 146.928,
   "config": {
     "traditions": [
       "guided_meditation",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "treated_studio",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_minimal_daw_bedroom",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "pre_avalon_v737",

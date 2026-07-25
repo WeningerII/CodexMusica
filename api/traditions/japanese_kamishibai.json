@@ -3,9 +3,9 @@
   "name": "Japanese kamishibai narration",
   "family": "global",
   "lineage": "Japanese 'paper-play' storytelling in which a narrator performs a tale by sliding illustrated cards through a small wooden proscenium (butai), reading the text printed on the back while showing the picture in front. Popularised by itinerant street performers in the 1920s-1950s who drew children with candy sales before the advent of television, and later adapted for classroom and library use, it is a documented Showa-era mass-entertainment form. Delivery is animated, dramatic spoken narration timed to the beat of each card-change, with distinct character voices and cliffhanger pacing.",
-  "recipe": "classic mid-1920s japanese kamishibai narration, art Music, east Asian branch tibetan ache lhamo opera beijing opera. thick, breath veiled tone, slow rate, interlocked note trading. urban courtyard. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 328,
-  "score": 218.683,
+  "recipe": "classic mid-1920s japanese kamishibai narration, art Music, east Asian branch tibetan ache lhamo opera beijing opera. thick, breath veiled tone, slow rate, interlocked note trading. urban courtyard. RCA 44-BX, calrec BBC-broadcast pre, BBC broadcast console, Telefunken u73b broadcast comp, broadcast loudness EQ. AM-radio broadcast.",
+  "recipe_chars": 333,
+  "score": 201.852,
   "config": {
     "traditions": [
       "japanese_kamishibai",
@@ -30,8 +30,8 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_carnatic_22_shruti",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
           "voice_register": 2.3075,
@@ -48,13 +48,13 @@
           "voice_ensemble_config": 21.774999999999995,
           "voice_ornament_system": 16.459999999999997,
           "voice_pitch_organization": 8.3605,
-          "voice_processing_chain": 7.345000000000001,
-          "voice_multitrack_stack": 7.085000000000001
+          "voice_processing_chain": 6.5,
+          "voice_multitrack_stack": 3.25
         }
       }
     ],
     "room": "urban_courtyard",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_network_radio_broadcast",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "tube_pre",

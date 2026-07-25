@@ -3,9 +3,9 @@
   "name": "Documentary voiceover",
   "family": "global",
   "lineage": "Authoritative scripted narration read over documentary picture, descending from 1930s-40s newsreel narration such as Westbrook Van Voorhis's reads for The March of Time into postwar television nature and history documentary. Canonical exemplars include David Attenborough's intimate-authoritative BBC natural-history narration (Life on Earth, 1979, through the Planet Earth series), David McCullough's narration of Ken Burns's The Civil War (1990) and Peter Coyote's later Burns work, and Morgan Freeman's March of the Penguins (2005) as the popular touchstone of the warm 'voice of God' register. The performer reads alone to picture in a dry, treated studio, balancing measured pacing and low, resonant delivery against the score and location-sound bed.",
-  "recipe": "classic mid-1930s documentary voiceover, spoken Word, narration branch audiobook narration old-time radio announcer. vocal fry, breath veiled tone, slow rate, interlocked note trading. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 330,
-  "score": 162.997,
+  "recipe": "classic mid-1930s documentary voiceover, spoken Word, narration branch audiobook narration old-time radio announcer. vocal fry, breath veiled tone, slow rate, interlocked note trading. treated studio. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 299,
+  "score": 161.822,
   "config": {
     "traditions": [
       "documentary_voiceover",
@@ -54,7 +54,7 @@
       }
     ],
     "room": "treated_studio",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_minimal_daw_bedroom",
     "inline_chain": {
       "mic": "condenser_fet",
       "pre": "pre_avalon_v737",

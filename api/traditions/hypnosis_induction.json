@@ -3,9 +3,9 @@
   "name": "Hypnotic induction",
   "family": "global",
   "lineage": "Clinical and stage tradition of spoken hypnotic induction descending from Franz Mesmer's eighteenth-century salons through James Braid, the Manchester surgeon who coined 'hypnotism' in the 1840s, into twentieth-century American practice. Milton H. Erickson developed conversational, indirect induction while Dave Elman codified rapid inductions for physicians; both styles rely on monotone, descending-cadence suggestion delivery, progressive-relaxation deepeners, and counted descents. From the 1970s onward the form also became a mass-market audio genre through self-hypnosis cassettes and later digital downloads.",
-  "recipe": "classic mid-1840s hypnotic induction, spoken Word, intimate voice branch audiobook narration guided meditation. vocal fry, breath veiled tone, slow rate, interlocked note trading. closet booth. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 323,
-  "score": 127.516,
+  "recipe": "classic mid-1840s hypnotic induction, spoken Word, intimate voice branch audiobook narration guided meditation. vocal fry, breath veiled tone, slow rate, interlocked note trading. closet booth. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 292,
+  "score": 126.741,
   "config": {
     "traditions": [
       "hypnosis_induction",
@@ -49,12 +49,12 @@
           "voice_ornament_system": 4.485,
           "voice_pitch_organization": 4.1901785714285715,
           "voice_processing_chain": 9.100000000000001,
-          "voice_multitrack_stack": 7.5356071428571445
+          "voice_multitrack_stack": 7.0356071428571445
         }
       }
     ],
     "room": "closet_booth",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_minimal_daw_bedroom",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "transformerless",

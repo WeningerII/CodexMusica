@@ -3,9 +3,9 @@
   "name": "Drone metal (1990s extreme-deceleration sustained-tone metal)",
   "family": "rock_punk",
   "lineage": "1990s heavy-metal subgenre developed from doom metal's extreme deceleration, characterized by extreme-down-tuned distorted-guitar drone textures, glacial tempi (often single notes sustained 30-90 seconds), heavy amplifier-and-feedback emphasis, and minimal-to-absent traditional rhythmic-or-vocal content. Earth's Earth 2 (1993, Dylan Carlson) inaugurated the canonical sound; Sunn O))) (Stephen O'Malley and Greg Anderson, founded 1998), Boris, and the broader Southern Lord Records label roster anchor the canonical drone metal aesthetic.",
-  "recipe": "classic Midwestern American drone metal, distorted Rock, doom branch, ambient experimental electric dark ambient darksynth. orange amp British heavy crunch basswood mahogany rosewood humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, kevlar aramid extreme tension brushes-and-sticks drum kit. stoner doom garage amplifier room. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 507,
-  "score": 134.012,
+  "recipe": "classic Midwestern American drone metal, distorted Rock, doom branch, ambient experimental electric dark ambient darksynth. orange amp British heavy crunch basswood mahogany rosewood humbucker electric guitar, orange amp British heavy crunch mahogany ernie ball slinky electric bass, kevlar aramid extreme tension brushes-and-sticks drum kit. stoner doom garage amplifier room. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 524,
+  "score": 138.462,
   "config": {
     "traditions": [
       "drone_metal_sustained",
@@ -82,7 +82,7 @@
       }
     ],
     "room": "stoner_doom_garage_amplifier_room",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_80s_late_analog_majorrock",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "pre_neve_1073_input",

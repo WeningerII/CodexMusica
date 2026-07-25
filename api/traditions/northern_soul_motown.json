@@ -3,9 +3,9 @@
   "name": "Northern soul and Motown",
   "family": "blues_gospel",
   "lineage": "Detroit-based African-American pop-soul codified at Hitsville USA Motown 1959-1972 (the Supremes, Temptations, Four Tops, Marvin Gaye, Stevie Wonder, Smokey Robinson, Martha and the Vandellas) with the Funk Brothers as house rhythm section; the term Northern Soul refers to the UK club-DJ revival of mid-1960s Detroit and Chicago and Philadelphia uptempo soul records that found a second life on the British Midlands and Northern dance-floor circuit from 1969 onward",
-  "recipe": "classic Midwestern American mid-1960s northern soul and motown, functional Song, soul R&B branch, pop rock functional song new wave yacht rock. thick, breath veiled tone, straight onset, narrative. Fender blackface amp American 60s amp spring reverb bright mahogany rosewood humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, pre muffled edge muffled sticks pocket drum kit, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative ostinato fast tremolo tonewheel organ, tenor nickel silver bright projecting ensemble honking saxophone, tambourine orch. converted house 2648 west grand blvd 1959-1972 mid tier hitsville usa motown detroit. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
-  "recipe_chars": 974,
-  "score": 792.875,
+  "recipe": "classic Midwestern American mid-1960s northern soul and motown, functional Song, soul R&B branch, pop rock functional song new wave yacht rock. thick, breath veiled tone, straight onset, narrative. Fender blackface amp American 60s amp spring reverb bright mahogany rosewood humbucker electric guitar, ampeg b15 amp American 60s bass amp flip top character alder la bella flats electric bass, pre muffled edge muffled sticks pocket drum kit, Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, Hammond b3 canonical 1955 1975 jazz gospel rock standard Leslie 760 solid state 90w 1970s alternative ostinato fast tremolo tonewheel organ, tenor nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble saxophone, tambourine orch. converted house 2648 west grand blvd 1959-1972 mid tier hitsville usa motown detroit. Neumann U67, dedicated DI box, colored vintage console, Pultec passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 988,
+  "score": 787.125,
   "config": {
     "traditions": [
       "northern_soul_motown",
@@ -120,7 +120,7 @@
           "drawbar_setting": 22.465,
           "rotary_speed": 23.17,
           "percussion_setting": 11.634999999999998,
-          "tonewheel_model": 13.519999999999998,
+          "tonewheel_model": 16.119999999999997,
           "leslie_cabinet_model": 2.925
         }
       },
@@ -142,7 +142,7 @@
           "sax_body_alloy": 3.215,
           "sax_mouthpiece": 0.585,
           "sax_technique": 20.074999999999996,
-          "sax_maker_school": 0.9100000000000003
+          "sax_maker_school": 3.5100000000000002
         }
       },
       {
@@ -197,7 +197,7 @@
       }
     ],
     "room": "hitsville_usa_motown_detroit",
-    "archetype": "arch_late60s_us_multitrack",
+    "archetype": "arch_motown_snakepit",
     "inline_chain": {
       "mic": "mic_ela_m_251_telefunken",
       "pre": "pre_tube_german_v72",

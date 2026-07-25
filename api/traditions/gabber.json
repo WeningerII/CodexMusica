@@ -3,9 +3,9 @@
   "name": "Gabber",
   "family": "electronic",
   "lineage": "Mid-1990s Rotterdam hard-electronic-dance subgenre characterized by 180-200 bpm distorted-kick-drum dominance, aggressive sub-bass, and explicit working-class-Rotterdam subcultural identity — codified through DJ Paul Elstak, Rob Gee, Neophyte, the Rotterdam Records label, and the genre's explicit anti-Amsterdam-house cultural posture",
-  "recipe": "classic 1994-1996 gabber, electronic Dance, hardstyle branch, techno electronic dance peak-time techno detroit techno. sub bass digital subtractive, roland tr 8s modern aira digital recreation TR-909, sound design field sampler. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 373,
-  "score": 66.139,
+  "recipe": "classic Asian 1994-1996 gabber, electronic Dance, hardstyle branch, techno electronic dance peak-time techno detroit techno. sub bass digital subtractive, roland tr 8s modern aira digital recreation TR-909, sound design field sampler. live tracking. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+  "recipe_chars": 383,
+  "score": 68.989,
   "config": {
     "traditions": [
       "gabber",
@@ -58,7 +58,7 @@
       }
     ],
     "room": "live_room",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_hk_cantopop_ballad_factory",
     "inline_chain": {
       "mic": "condenser_fet",
       "pre": "transformerless",

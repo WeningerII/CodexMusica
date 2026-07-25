@@ -3,9 +3,9 @@
   "name": "Power metal (European)",
   "family": "global",
   "lineage": "European-rooted melodic metal subgenre codified through Helloween (Keeper of the Seven Keys 1987-88), Blind Guardian, Stratovarius, Sonata Arctica, Rhapsody (Italian symphonic-power) — characterized by major-key triumphant choruses, twin-guitar harmony lead lines, high-register clean vocals, and fantasy/Tolkien-derived lyrical subject matter",
-  "recipe": "classic late-1980s power metal, distorted Rock, power branch, symphonic metal gothic metal. thick, breath veiled tone, straight note core, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, analog poly synth, polyrhythmic vocal layering independent cycles kakhetian three voice two soloists choral drone choir ensemble. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 661,
-  "score": 318.989,
+  "recipe": "classic North American late-1980s power metal, distorted Rock, power branch, symphonic metal gothic metal. thick, breath veiled tone, straight note core, interlocked note trading. mesa dual rectifier amp california modern saturation scooped mid modern metal multi mode rectifier basswood humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, sticks backbeat drum kit, roland jupiter lineage canonical jupiter 8 1981 osaka analog poly synth, polyrhythmic vocal layering independent cycles kakhetian three voice two soloists choral drone choir ensemble. live tracking. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+  "recipe_chars": 747,
+  "score": 319.727,
   "config": {
     "traditions": [
       "power_metal_european",
@@ -30,8 +30,8 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_bel_canto",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
           "voice_register": 13.157499999999997,
@@ -48,8 +48,8 @@
           "voice_ensemble_config": 10.734374999999996,
           "voice_ornament_system": 3.1500000000000004,
           "voice_pitch_organization": 5.107500000000002,
-          "voice_processing_chain": 4.996250000000001,
-          "voice_multitrack_stack": 6.511875
+          "voice_processing_chain": 3.805,
+          "voice_multitrack_stack": 5.58875
         }
       },
       {
@@ -125,13 +125,13 @@
           "electronic_technique": "electronic_lead_line",
           "poly_archetypes": "oberheim_obxa",
           "poly_voices": "poly_5_voice",
-          "poly_maker_lineage": "poly_oberheim_tom"
+          "poly_maker_lineage": "poly_roland_jupiter"
         },
         "scores": {
           "electronic_technique": 1.7762499999999999,
           "poly_archetypes": 6.19875,
           "poly_voices": 0,
-          "poly_maker_lineage": -0.77
+          "poly_maker_lineage": 1.1199999999999999
         }
       },
       {
@@ -151,7 +151,7 @@
       }
     ],
     "room": "live_room",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_80s_late_analog_majorrock",
     "inline_chain": {
       "mic": "dynamic_mic",
       "pre": "transformer_solid_state",

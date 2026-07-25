@@ -3,9 +3,9 @@
   "name": "Psytrance",
   "family": "global",
   "lineage": "Goa-derived psychedelic trance subgenre, codified through 1990s Goa-coast Indian beach-party scene (Goa-trance as immediate predecessor) and the move toward digital-DAW production through Astrix, Infected Mushroom, Vibrasphere, and the broader Israeli-and-European psytrance label ecosystem",
-  "recipe": "classic mid-1990s psytrance, electronic Dance, trance branch, idm glitch experimental electric breakcore chiptune / 8-bit. analog mono synth, digital subtractive, roland tr 8s modern aira digital recreation TR-909, glitched textural sampler, evolving modular eurorack modular. festival stage. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter phaser flanger analog bucket-brigade delay.",
-  "recipe_chars": 465,
-  "score": 81.031,
+  "recipe": "classic mid-1990s psytrance, electronic Dance, trance branch, idm glitch experimental electric breakcore chiptune / 8-bit. roland lineage canonical sh 101 tb 303 1982 1984 osaka analog mono synth, digital subtractive, roland osaka 1983 1985 canonical original 10000 unit run hybrid analog sample TR-909, glitched textural sampler, evolving modular eurorack modular. festival stage. dynamic moving-coil, transformer-coupled solid-state pre, dbx 160 VCA, parametric EQ. cassette phaser flanger analog bucket-brigade delay.",
+  "recipe_chars": 520,
+  "score": 87.736,
   "config": {
     "traditions": [
       "psytrance",
@@ -20,14 +20,14 @@
           "mono_oscillator": "mono_voltage_controlled",
           "mono_filter": "moog_ladder",
           "mono_archetypes": "sh_101",
-          "mono_maker_lineage": "mono_moog_robert"
+          "mono_maker_lineage": "mono_roland_kakehashi"
         },
         "scores": {
           "electronic_technique": 0.7,
           "mono_oscillator": 0.18525,
           "mono_filter": 0.7155,
           "mono_archetypes": 1.69,
-          "mono_maker_lineage": -0.07000000000000019
+          "mono_maker_lineage": 2.4699999999999998
         }
       },
       {
@@ -48,12 +48,12 @@
         "slots": {
           "tr909_voice": "tr909_kick",
           "drum_machine_909_context": "drum_machine_909_hardcore",
-          "tr909_production_origin": "tr909_tr_8s_modern"
+          "tr909_production_origin": "tr909_roland_osaka_canonical"
         },
         "scores": {
           "tr909_voice": 2.647125,
           "drum_machine_909_context": 3.185,
-          "tr909_production_origin": 1.3
+          "tr909_production_origin": 3.3149999999999995
         }
       },
       {
@@ -88,7 +88,7 @@
       }
     ],
     "room": "festival_stage",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_pre_daw_electronic_pioneer",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "transformer_solid_state",

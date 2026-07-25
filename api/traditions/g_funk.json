@@ -3,9 +3,9 @@
   "name": "G-funk",
   "family": "hip_hop",
   "lineage": "Early-1990s Los Angeles gangsta-funk hip-hop subgenre codified by Dr. Dre on The Chronic (1992) and Snoop Doggy Doggs Doggystyle (1993), built on Parliament-Funkadelic samples, talkbox lead, high-pitched synth lead lines, and slow-tempo (90-100 BPM) syncopated drum machine programming",
-  "recipe": "classic North American 1990-1993 g-funk, mc Rhythm, west coast branch, funk percussive groove percussion minneapolis synth-funk-pop. thick, breath veiled tone, slow rate, interlocked note trading. sampled chopped sampler drum machine, fast decay focused low sub bass analog synth, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, talkbox. west la 1616 butler avenue 1968-present major-flagship the village recorder west la. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 613,
-  "score": 186.434,
+  "recipe": "classic North American 1990-1993 g-funk, mc Rhythm, west coast branch, funk percussive groove percussion minneapolis synth-funk-pop. thick, breath veiled tone, slow rate, interlocked note trading. sampled chopped sampler drum machine, fast decay focused low sub bass analog synth, ampeg b15 amp American 60s bass amp flip top character la bella flats Detroit soul bass canon electric bass, talkbox. west la 1616 butler avenue 1968-present major-flagship the village recorder west la. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+  "recipe_chars": 597,
+  "score": 189.907,
   "config": {
     "traditions": [
       "g_funk",
@@ -31,7 +31,7 @@
           "voice_ornament_system": "voice_ornament_connemara_unaccompanied",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_talkbox",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_stab_percussive_trigger"
         },
         "scores": {
           "voice_register": 5.301500000000001,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 2.990000000000001,
           "voice_pitch_organization": 1.6899999999999997,
           "voice_processing_chain": 23.264999999999997,
-          "voice_multitrack_stack": 6.11
+          "voice_multitrack_stack": 5.07
         }
       },
       {
@@ -118,7 +118,7 @@
       }
     ],
     "room": "the_village_recorder_west_la",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_80s_indie_commercial_us",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "pre_neve_1073_input",
@@ -129,7 +129,7 @@
       "medium": "digital_high"
     },
     "tuning": "funk_one_drop_syncopated_4_4",
-    "aesthetic": null,
+    "aesthetic": "westcoast_funk_aesthetic",
     "arrangement": null,
     "fx_extras": []
   },
