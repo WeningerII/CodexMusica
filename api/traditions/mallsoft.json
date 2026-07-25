@@ -3,9 +3,9 @@
   "name": "Mallsoft (vaporwave subgenre)",
   "family": "electronic",
   "lineage": "Mid-2010s vaporwave subgenre evoking the atmosphere of 1980s-1990s American suburban shopping malls through extensive reverb-processed Muzak-and-elevator-music sampling, distant-and-ghostly atmospheric production, and explicit retail-space liminality thematic content. ░▒▓ 컴퓨터 데이터 ▓▒░, Disconscious, Cat System Corp., and the broader Bandcamp-distributed mallsoft scene anchor the canonical aesthetic.",
-  "recipe": "classic 2014-2016 mallsoft, experimental Elec, ambient branch, east Asian pop functional song enka j-indie. pad like lead analog synth, field textural sampler. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 353,
-  "score": 56.145,
+  "recipe": "classic 2014-2016 mallsoft, experimental Elec, ambient branch, east Asian pop functional song enka j-indie. pad like lead analog synth, field textural sampler. no single room 2015-present distributed distributed production. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+  "recipe_chars": 322,
+  "score": 53.82,
   "config": {
     "traditions": [
       "mallsoft",
@@ -25,7 +25,7 @@
         "scores": {
           "electronic_technique": 12.919999999999996,
           "oscillator": 0.32999999999999996,
-          "filter_topology": 2.73,
+          "filter_topology": 2.08,
           "envelope": 1.59,
           "modulation": 0.845
         }
@@ -42,14 +42,14 @@
         "scores": {
           "electronic_technique": 3.7,
           "sampler_archetypes": 0.65,
-          "sampler_bit_depth": 2.18,
+          "sampler_bit_depth": 1.6800000000000002,
           "sampler_workflow": 3.745,
           "sampler_classic_context": 24.18
         }
       }
     ],
     "room": "studio_distributed_production",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_minimal_daw_bedroom",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "transformerless",

@@ -3,9 +3,9 @@
   "name": "Cante jondo siguiriya (deepest flamenco)",
   "family": "global",
   "lineage": "Andalusian cante jondo siguiriya: the deepest, most tragic-emotional palo (song-form) of the cante jondo \"deep song\" flamenco core repertoire. Characterized by the canonical siguiriya twelve-beat compás (3+3+2+2+2), extended free-rhythm extended-melismatic introductory passages, and intense vocal-emotional projection registering the genre's anguished-lament aesthetic. Lyric content addresses death, the loss of loved ones, the pain of incarceration, the suffering of the Roma-Andalusian historical experience. Distinguished within the cante jondo palos by siguiriya's tragic-anguish (vs the soleá's graver-philosophical or the martinete's a-cappella-direct) emotional register. The canonical siguiriya repertoire descends through hereditary cantaor lineages with strict transmission-conservation conventions.",
-  "recipe": "classic North African modern cante jondo siguiriya, ballad Poetry, Mediterranean ballad branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. extended whistle, breath veiled tone, fast rate, interlocked note trading. cypress body percussive attack strong flamenco tradition rasgueado strum picado scale runs flamenco guitar. casablanca and marrakech recording 1970-present indie-commercial casablanca chaabi moroccan studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 540,
-  "score": 212.57,
+  "recipe": "classic North African early-1950s cante jondo siguiriya, ballad Poetry, Mediterranean ballad branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. extended whistle, breath veiled tone, fast rate, interlocked note trading. cypress body percussive attack strong flamenco tradition rasgueado strum picado scale runs flamenco guitar. casablanca and marrakech recording 1970-present indie-commercial casablanca chaabi moroccan studio. Neumann U47, tube pre, colored vintage console, LA-2A optical, passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 590,
+  "score": 208.77,
   "config": {
     "traditions": [
       "cante_jondo_siguiriya",
@@ -31,7 +31,7 @@
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_meantone_quarter_comma",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
           "voice_register": 4.745,
@@ -48,8 +48,8 @@
           "voice_ensemble_config": 15.209999999999997,
           "voice_ornament_system": 7.15,
           "voice_pitch_organization": 3.835,
-          "voice_processing_chain": 18.915,
-          "voice_multitrack_stack": 7.410000000000001
+          "voice_processing_chain": 14.364999999999998,
+          "voice_multitrack_stack": 4.484999999999999
         }
       },
       {
@@ -67,7 +67,7 @@
       }
     ],
     "room": "casablanca_chaabi_moroccan_studio",
-    "archetype": "arch_ethnographic_field_digital",
+    "archetype": "arch_madrid_flamenco_tape",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

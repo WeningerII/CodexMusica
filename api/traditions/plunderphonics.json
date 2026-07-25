@@ -3,9 +3,9 @@
   "name": "Plunderphonics",
   "family": "global",
   "lineage": "1980s-onward sample-collage composition tradition coined by John Oswald (Plunderphonics 1989) — characterized by appropriated-pop-recording manipulation as compositional material; the Negativland (Christianity Is Stupid 1987), the Tape-beatles, People Like Us / Vicki Bennett lineage, and the broader fair-use-and-copyright contested terrain",
-  "recipe": "classic mid-1980s plunderphonics, experimental Elec, musique concrete branch, us hip hop MC rhythm conscious hip-hop houston chopped and screwed. chopped sampler, sampled chopped sampler drum machine, modular granular synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 370,
-  "score": 109.82,
+  "recipe": "classic Asian mid-1980s plunderphonics, experimental Elec, musique concrete branch, us hip hop MC rhythm conscious hip-hop houston chopped and screwed. chopped sampler, sampled chopped sampler drum machine, modular granular synth. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+  "recipe_chars": 380,
+  "score": 112.057,
   "config": {
     "traditions": [
       "plunderphonics",
@@ -60,7 +60,7 @@
       }
     ],
     "room": "treated_studio",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_hk_cantopop_ballad_factory",
     "inline_chain": {
       "mic": "condenser_ldc",
       "pre": "transformerless",

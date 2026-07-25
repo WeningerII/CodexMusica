@@ -3,9 +3,9 @@
   "name": "Black gospel whooping sermon",
   "family": "blues_gospel",
   "lineage": "African-American Baptist and Pentecostal folk-preaching tradition whose sermonic climax shifts from spoken prose into a metered, pitched chant known as whooping (also zooning or tuning-up), delivered in call-and-response with the congregation and frequently doubled by the Hammond organ. Documented from the earliest race-record sermons of Rev. J. M. Gates and Rev. J. C. Burnett in the 1920s through the mid-century recorded sermons of Rev. C. L. Franklin on Chess and Jewel. The chanted-preaching form and its formulaic building-blocks were analyzed by Bruce Rosenberg in The Art of the American Folk Preacher (1970). The preacher improvises within stock cadential formulas, accelerating and rising in pitch until the congregation's shouts and the organ carry the room.",
-  "recipe": "classic Southern American mid-1920s black gospel whooping sermon, ritual Devotional, christian gospel branch shipibo-conibo icaros healing songs sufi inshad. thick, breath veiled tone, slow rate, interlocked note trading. southern black church gospel choir. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 320,
-  "score": 256.868,
+  "recipe": "classic Southern American mid-1920s black gospel whooping sermon, ritual Devotional, christian gospel branch shipibo-conibo icaros healing songs sufi inshad. thick, breath veiled tone, slow rate, interlocked note trading. southern black church gospel choir. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+  "recipe_chars": 330,
+  "score": 248.585,
   "config": {
     "traditions": [
       "black_gospel_whooping_sermon",
@@ -31,7 +31,7 @@
           "voice_ornament_system": "voice_ornament_quranic_tajwid",
           "voice_pitch_organization": "voice_pitch_arab_24_quartertone",
           "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_2010s_melodyne_microtuned"
+          "voice_multitrack_stack": "voice_multitrack_pitched_sample_melodic_bed"
         },
         "scores": {
           "voice_register": 13.099999999999998,
@@ -48,13 +48,13 @@
           "voice_ensemble_config": 26.325000000000003,
           "voice_ornament_system": 17.950000000000003,
           "voice_pitch_organization": 4.85,
-          "voice_processing_chain": 16.769999999999996,
-          "voice_multitrack_stack": 6.955000000000001
+          "voice_processing_chain": 12.219999999999999,
+          "voice_multitrack_stack": 3.835
         }
       }
     ],
     "room": "southern_black_church_gospel_choir",
-    "archetype": "arch_ethnographic_field_digital",
+    "archetype": "arch_electrical_disc_cut",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

@@ -3,9 +3,9 @@
   "name": "Korean minjung gayo (민중가요, people's song)",
   "family": "global",
   "lineage": "Korean minjung gayo (\"people's song\") democracy-movement protest-song tradition continuous from late-1970s anti-Park-Chung-hee resistance through the May 1980 Gwangju Uprising through 1980s anti-Chun-Doo-hwan student-and-labor-movement era; canonical anthems include \"Imjin River\" and \"Marching for our beloved\" (\"님을 위한 행진곡\")",
-  "recipe": "classic 1977-1979 korean minjung gayo, protest Song, east Asian branch, anglo American protest song, east Asian pop functional song, indian bard ballad poetry shidaiqu enka. thick, breath veiled tone, straight onset, interlocked note trading. indian rosewood rosewood flatwound thomastik fingerpicked acoustic guitar. gymnasium. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 458,
-  "score": 251.53,
+  "recipe": "classic 1977-1979 korean minjung gayo, protest Song, east Asian branch, anglo American protest song, east Asian pop functional song, indian bard ballad poetry shidaiqu enka. thick, breath veiled tone, straight onset, interlocked note trading. indian rosewood rosewood flatwound thomastik fingerpicked acoustic guitar. gymnasium. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+  "recipe_chars": 403,
+  "score": 241.84,
   "config": {
     "traditions": [
       "korean_minjung_gayo",
@@ -38,7 +38,7 @@
           "voice_quality": 23.465,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 10.549999999999999,
+          "voice_vibrato": 9.049999999999999,
           "voice_articulation": 20.99500000000001,
           "voice_microtone": 22.894999999999996,
           "voice_tradition": 31.687500000000004,
@@ -49,7 +49,7 @@
           "voice_ornament_system": 13.774999999999999,
           "voice_pitch_organization": 9.894999999999996,
           "voice_processing_chain": 11.205,
-          "voice_multitrack_stack": 8.612500000000002
+          "voice_multitrack_stack": 10.86
         }
       },
       {
@@ -71,7 +71,7 @@
       }
     ],
     "room": "gymnasium",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_nagra_ethnographic_field",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

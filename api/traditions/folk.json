@@ -3,9 +3,9 @@
   "name": "Folk",
   "family": "global",
   "lineage": "The broad folk tradition — acoustic vernacular and revivalist song built on oral transmission and topical lyric, codified in the mid-20th-century Anglo-American folk revival",
-  "recipe": "classic modern folk, protest Song, anglo American branch. thick, close mic intimate, slow rate, interlocked note trading. cedar walnut phosphor bronze bronze fingerpicked acoustic guitar, pearwood marine band tradition brass traditional harmonica, walnut mid tier scruggs stelling bluegrass setup mastertone flathead banjo 5 string. bedroom. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 404,
-  "score": 87.955,
+  "recipe": "classic North American mid-1950s folk, protest Song, anglo American branch. thick, close mic intimate, slow rate, interlocked note trading. cedar walnut phosphor bronze bronze fingerpicked acoustic guitar, pearwood marine band tradition brass traditional harmonica, walnut mid tier scruggs stelling bluegrass setup mastertone flathead banjo 5 string. bedroom. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 454,
+  "score": 90.201,
   "config": {
     "traditions": [
       "folk"
@@ -28,8 +28,8 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_andean_huayno",
           "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
-          "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
+          "voice_processing_chain": "voice_processing_unprocessed",
+          "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
           "voice_register": 8.499999999999998,
@@ -46,8 +46,8 @@
           "voice_ensemble_config": 4.460214285714285,
           "voice_ornament_system": 0.26,
           "voice_pitch_organization": 0.4503571428571428,
-          "voice_processing_chain": 1.688357142857143,
-          "voice_multitrack_stack": 0.3
+          "voice_processing_chain": 1.6606428571428573,
+          "voice_multitrack_stack": 1.4299999999999997
         }
       },
       {
@@ -74,7 +74,7 @@
           "harmonica_comb": "pearwood_comb",
           "harmonica_reed": "brass_harm",
           "harmonica_technique": "harm_folk_first_position",
-          "harmonica_maker_school": "harmonica_suzuki_japanese",
+          "harmonica_maker_school": "harmonica_hering_brazilian",
           "harmonica_tuning": "harmonica_richter_canonical"
         },
         "scores": {
@@ -82,7 +82,7 @@
           "harmonica_comb": 1.8414642857142858,
           "harmonica_reed": 1.2816785714285714,
           "harmonica_technique": 9.45292857142857,
-          "harmonica_maker_school": 0.21542857142857144,
+          "harmonica_maker_school": 0,
           "harmonica_tuning": 0.312
         }
       },
@@ -96,7 +96,7 @@
           "banjo_play": "clawhammer",
           "banjo_rim_wood": "banjo_mahogany_rim",
           "banjo_neck_wood": "banjo_walnut_neck",
-          "banjo_strings": "banjo_fluorocarbon",
+          "banjo_strings": "banjo_light_clawhammer",
           "banjo_bridge": "banjo_compensated_bridge",
           "banjo_setup_period": "banjo_scruggs_bluegrass_setup"
         },
@@ -108,14 +108,14 @@
           "banjo_play": 0,
           "banjo_rim_wood": 0.003214285714285714,
           "banjo_neck_wood": 1.0259285714285715,
-          "banjo_strings": 0.21542857142857144,
+          "banjo_strings": 0,
           "banjo_bridge": 0,
           "banjo_setup_period": 4.251499999999999
         }
       }
     ],
     "room": "untreated_bedroom",
-    "archetype": "arch_ethnographic_field_digital",
+    "archetype": "arch_early_tape_us_commercial",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

@@ -3,9 +3,9 @@
   "name": "Bongo flava (Tanzanian)",
   "family": "global",
   "lineage": "Tanzanian Swahili-language hip-hop and R&B hybrid tradition codified through Diamond Platnumz, Ali Kiba, Professor Jay, and Lady Jaydee — emerging late 1990s from Dar es Salaam street hip-hop scene, then evolving into mainstream Swahili-pop with R&B crossover; characterized by Swahili vocals over hip-hop and afropop production",
-  "recipe": "classic 1997-1999 bongo flava, functional Song, African pop branch, intl hip hop MC rhythm, Afro-diasporic MC rhythm gengetone french rap. extended whistle, rap, straight onset, narrative. TR-808, pitched chopped sampler, sub bass analog poly synth, sub heavy electric bass. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 419,
-  "score": 255.105,
+  "recipe": "classic Southern African 1997-1999 bongo flava, functional Song, African pop branch, intl hip hop MC rhythm, Afro-diasporic MC rhythm gengetone french rap. extended whistle, rap, straight onset, narrative. TR-808, pitched chopped sampler, sub bass analog poly synth, sub heavy electric bass. live tracking. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
+  "recipe_chars": 390,
+  "score": 255.005,
   "config": {
     "traditions": [
       "bongo_flava",
@@ -120,7 +120,7 @@
       }
     ],
     "room": "live_room",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_sa_township_digital",
     "inline_chain": {
       "mic": "dynamic_mic",
       "pre": "transformer_solid_state",

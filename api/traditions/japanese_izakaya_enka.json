@@ -3,9 +3,9 @@
   "name": "Japanese izakaya enka (居酒屋演歌, tavern enka)",
   "family": "global",
   "lineage": "Japanese izakaya (居酒屋, tavern) enka drinking-song tradition continuous from postwar-Japanese enka-popularization era (1950s-1960s Misora Hibari era) through 20th-century continuous performance into modern Japanese-and-Japanese-diaspora continuous izakaya-and-snack-bar (スナック) practice; the izakaya-enka repertoire emphasizes melancholic-drinking-song aesthetic distinct from the more-celebratory Korean-jubu-ga or German-trinklied",
-  "recipe": "classic mid-1950s japanese izakaya enka, drinking Song, east Asian branch, European drinking song, anglo singer song ballad poetry, east Asian lullaby freak folk indie folk. thick, breath veiled tone, straight onset, interlocked note trading. narrative fingerpicked acoustic guitar, acrylic nylon modern tsugaru min yo folk song accompaniment shamisen. jazz club. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 493,
-  "score": 218.345,
+  "recipe": "classic Asian mid-1950s japanese izakaya enka, drinking Song, east Asian branch, European drinking song, anglo singer song ballad poetry, east Asian lullaby freak folk indie folk. thick, breath veiled tone, straight note core, interlocked note trading. narrative fingerpicked acoustic guitar, min yo folk song accompaniment shamisen. jazz club. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
+  "recipe_chars": 460,
+  "score": 213.163,
   "config": {
     "traditions": [
       "japanese_izakaya_enka",
@@ -20,7 +20,7 @@
           "voice_quality": "aspirated_voice",
           "voice_vocal_tract": "tract_neutral",
           "voice_effort": "effort_moderate",
-          "voice_vibrato": "delayed_vibrato",
+          "voice_vibrato": "terminal_vibrato",
           "voice_articulation": "hocket_voice",
           "voice_microtone": "maqam_inflected",
           "voice_tradition": "japanese_min_yo_tradition",
@@ -30,7 +30,7 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_jingju_role",
           "voice_pitch_organization": "voice_pitch_microtonal_glide_continuous",
-          "voice_processing_chain": "voice_processing_multiband_aggressive_broadcast",
+          "voice_processing_chain": "voice_processing_retune_10_50ms_natural",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
@@ -38,7 +38,7 @@
           "voice_quality": 11.439999999999994,
           "voice_vocal_tract": 0,
           "voice_effort": 0,
-          "voice_vibrato": 2.1125,
+          "voice_vibrato": 1.4406249999999998,
           "voice_articulation": 13.129999999999992,
           "voice_microtone": 13.32499999999999,
           "voice_tradition": 42.82999999999999,
@@ -48,8 +48,8 @@
           "voice_ensemble_config": 14.949999999999992,
           "voice_ornament_system": 6.165000000000001,
           "voice_pitch_organization": 5.069999999999999,
-          "voice_processing_chain": 4.090000000000001,
-          "voice_multitrack_stack": 7.735
+          "voice_processing_chain": 3.7375000000000007,
+          "voice_multitrack_stack": 9.794999999999998
         }
       },
       {
@@ -75,24 +75,24 @@
           "plucked_traditional_technique": "plucked_classical_idiom",
           "shamisen_size": "hosozao",
           "shamisen_skin": "shamisen_synthetic",
-          "shamisen_pick": "bachi_acrylic",
+          "shamisen_pick": "bachi_ivory",
           "shamisen_neck_wood": "shamisen_red_sandalwood",
-          "shamisen_strings": "shamisen_nylon_tsugaru",
+          "shamisen_strings": "shamisen_silk_traditional",
           "shamisen_tradition": "shamisen_min_yo"
         },
         "scores": {
           "plucked_traditional_technique": -0.05,
           "shamisen_size": 0.045,
           "shamisen_skin": 0.15,
-          "shamisen_pick": 1.69,
+          "shamisen_pick": 0.495,
           "shamisen_neck_wood": 0.7149999999999999,
-          "shamisen_strings": 1.69,
+          "shamisen_strings": 0.78,
           "shamisen_tradition": 17.485
         }
       }
     ],
     "room": "jazz_club",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_nippon_columbia_enka",
     "inline_chain": {
       "mic": "mic_sm58_dynamic_shure",
       "pre": "transformer_solid_state",

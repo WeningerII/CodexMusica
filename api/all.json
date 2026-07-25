@@ -2,7 +2,7 @@
   "name": "Codex Musica — all recipes",
   "description": "Every tradition with its compressed recording recipe, in one file. For full structured arrangements per tradition, fetch traditions/{id}.json.",
   "generated": "2026-07-25",
-  "count": 1165,
+  "count": 1167,
   "items": [
     {
       "id": "honky_tonk",
@@ -1338,8 +1338,8 @@
       "id": "kuduro",
       "name": "Kuduro",
       "family": "global",
-      "recipe": "classic 1987-1989 kuduro, electronic Dance, African dance branch, Afro-diasporic electric groove percussion, Afro-diasporic MC rhythm kwaito south african kwaito. sygyt, breath veiled tone, straight onset, interlocked note trading. TR-808, sub bass analog poly synth, high-gain-saturation sub bass monosynth acid bass. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 463
+      "recipe": "classic Southern African 1987-1989 kuduro, electronic Dance, African dance branch, Afro-diasporic electric groove percussion, Afro-diasporic MC rhythm kwaito south african kwaito. sygyt, breath veiled tone, straight onset, interlocked note trading. TR-808, sub bass analog poly synth, high-gain-saturation sub bass monosynth acid bass. live tracking. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
+      "recipe_chars": 434
     },
     {
       "id": "reggaeton",
@@ -1436,8 +1436,8 @@
       "id": "hardstyle",
       "name": "Hardstyle",
       "family": "electronic",
-      "recipe": "classic 1997-1999 hardstyle, electronic Dance, hardstyle branch, continental electronic dance disco. digital subtractive, TR-909, sampler. live tracking. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
-      "recipe_chars": 288
+      "recipe": "classic 1997-1999 hardstyle, electronic Dance, hardstyle branch, continental electronic dance french touch / filter house disco. low sub bass digital subtractive, TR-909, sampler. live tracking. large-diaphragm condenser, transformerless solid-state pre, pumping sidechain, dynamic EQ. 24-bit digital digital delay pitch shifter.",
+      "recipe_chars": 329
     },
     {
       "id": "gabber",
@@ -1513,8 +1513,8 @@
       "id": "byzantine_chant",
       "name": "Byzantine chant",
       "family": "classical",
-      "recipe": "classic Southern European modern byzantine chant, ritual Devotional, Russian orthodox branch, vocal drone modal armenian duduk-accompanied chant croatian istrian two-part-in-istrian-scale. thick, breath veiled tone, slow rate, interlocked note trading. byzantine monastery chant athos. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 348
+      "recipe": "classic Southern European early-1950s byzantine chant, ritual Devotional, Russian orthodox branch, vocal drone modal armenian duduk-accompanied chant croatian istrian two-part-in-istrian-scale. thick, breath veiled tone, slow rate, interlocked note trading. byzantine monastery chant athos. blumlein stereo pair, ultra-clean solid-state pre. tape 15ips hall reverb.",
+      "recipe_chars": 365
     },
     {
       "id": "pre_commercial_country",
@@ -2024,15 +2024,15 @@
       "id": "eurodance_90s",
       "name": "90s eurodance",
       "family": "global",
-      "recipe": "classic Asian mid-1990s 90s eurodance, electronic Dance, eurodance branch, continental electronic dance disco. thick, chest mix belt, straight note core, interlocked note trading. singing lead digital subtractive, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, TR-909, sampler. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
-      "recipe_chars": 568
+      "recipe": "classic Asian mid-1990s 90s eurodance, electronic Dance, eurodance branch, continental electronic dance disco french touch / filter house. thick, chest mix belt, slow rate, interlocked note trading. singing lead digital subtractive, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, TR-909, sampler. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+      "recipe_chars": 587
     },
     {
       "id": "italo_dance",
       "name": "Italo dance",
       "family": "global",
-      "recipe": "classic Asian 1997-1999 italo dance, electronic Dance, eurodance branch, continental electronic dance disco. thick, chest mix belt, straight note core, interlocked note trading. singing lead digital subtractive, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, TR-909, melodic orchestral imitation pitched sampler. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
-      "recipe_chars": 603
+      "recipe": "classic Asian 1997-1999 italo dance, electronic Dance, eurodance branch, continental electronic dance disco french touch / filter house. thick, chest mix belt, straight note core, interlocked note trading. singing lead digital subtractive, oberheim lineage canonical ob x 1979 ob xa 1980 los angeles ca lead analog poly yamaha dx7 canonical 1983 1989 chowning stanford FM patent 6 operator mid 1980s pop ubiquity lead fm synth, TR-909, melodic orchestral imitation pitched sampler. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+      "recipe_chars": 631
     },
     {
       "id": "hi_nrg",
@@ -2542,8 +2542,8 @@
       "id": "italo_house_piano",
       "name": "Italo house",
       "family": "global",
-      "recipe": "classic Asian 1987-1989 italo house, electronic Dance, italo house branch, continental electronic dance disco. thick, chest mix belt, straight onset, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, digital subtractive, TR-909, sampler. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
-      "recipe_chars": 454
+      "recipe": "classic Asian 1987-1989 italo house, electronic Dance, italo house branch, continental electronic dance disco french touch / filter house. thick, chest mix belt, slow rate, interlocked note trading. cold pressed weikert felt birch laminated maple laminated sitka spruce grand piano, digital subtractive, TR-909, sampler. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+      "recipe_chars": 470
     },
     {
       "id": "latin_house_percussion",
@@ -2612,15 +2612,15 @@
       "id": "rumba_yambu",
       "name": "Yambú",
       "family": "global",
-      "recipe": "classic Caribbean mid-1850s yambú, groove Percussion, rumba branch, Afro-diasporic ritual devotional candomblé ceremonial haitian vodou ceremonial. thick, breath veiled tone, straight note core, interlocked note trading. open back Afro peruvian tradition festejo tradition cajon peruano, lead mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, wood hardwood claves, a cappella small 3 to 8 one per part three voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. havana solar outdoor courtyard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 656
+      "recipe": "classic Caribbean mid-1850s yambú, groove Percussion, rumba branch, Afro-diasporic ritual devotional candomblé ceremonial haitian vodou ceremonial. thick, breath veiled tone, straight note core, interlocked note trading. open back Afro peruvian tradition festejo tradition cajon peruano, lead mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, wood hardwood claves, a cappella small 3 to 8 one per part three voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. havana solar outdoor courtyard. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+      "recipe_chars": 703
     },
     {
       "id": "rumba_columbia",
       "name": "Columbia",
       "family": "global",
-      "recipe": "classic Caribbean mid-1880s columbia, groove Percussion, rumba branch, Afro-diasporic ritual devotional candomblé ceremonial haitian vodou ceremonial. thick, breath veiled tone, straight note core, interlocked note trading. lead mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, wood hardwood claves, a cappella small 3 to 8 one per part three voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. havana solar outdoor courtyard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 592
+      "recipe": "classic Caribbean mid-1880s columbia, groove Percussion, rumba branch, Afro-diasporic ritual devotional candomblé ceremonial haitian vodou ceremonial. thick, breath veiled tone, straight note core, interlocked note trading. lead mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, wood hardwood claves, a cappella small 3 to 8 one per part three voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. havana solar outdoor courtyard. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+      "recipe_chars": 639
     },
     {
       "id": "traditional_doom",
@@ -2752,8 +2752,8 @@
       "id": "j_rock",
       "name": "J-rock",
       "family": "global",
-      "recipe": "classic mid-1980s j-rock, distorted Rock, regional branch, east Asian pop functional song enka k-pop. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation soft down tuning single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 683
+      "recipe": "classic Asian mid-1980s j-rock, distorted Rock, regional branch, east Asian pop functional song enka k-pop. thick, breath veiled tone, straight note core, interlocked note trading. marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation basswood humbucker electric marshall jcm800 amp British 80s rock amp master volume overdrive el34 stack saturation soft down tuning single coil electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, pre muffled edge muffled brushes-and-sticks drum kit. treated studio. Neumann U87, console-strip pre, SSL inline console, SMART research c1/c2, SSL surgical EQ. 16-bit digital eventide harmonizer TC electronic 2290 delay digital delay.",
+      "recipe_chars": 725
     },
     {
       "id": "anadolu_rock",
@@ -2794,8 +2794,8 @@
       "id": "plunderphonics",
       "name": "Plunderphonics",
       "family": "global",
-      "recipe": "classic mid-1980s plunderphonics, experimental Elec, musique concrete branch, us hip hop MC rhythm conscious hip-hop houston chopped and screwed. chopped sampler, sampled chopped sampler drum machine, modular granular synth. treated studio. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 370
+      "recipe": "classic Asian mid-1980s plunderphonics, experimental Elec, musique concrete branch, us hip hop MC rhythm conscious hip-hop houston chopped and screwed. chopped sampler, sampled chopped sampler drum machine, modular granular synth. treated studio. Neumann U87, console-strip pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape lexicon 224 / 480L digital delay.",
+      "recipe_chars": 380
     },
     {
       "id": "early_rock_and_roll_50s",
@@ -3046,8 +3046,8 @@
       "id": "garifuna_paranda",
       "name": "Paranda (Garifuna)",
       "family": "global",
-      "recipe": "classic Caribbean late-2000s paranda, ritual Devotional, Afro-diasporic branch, west African griot ballad poetry hausa court music wassoulou. thick, breath veiled tone, straight note core, interlocked note trading. cedar concert modern carbon fiber fingerpicked classical nylon-string guitar, plastic synthetic maracas, durable synthetic oak staved modern atabaque, gourd seeds hardwood handle canonical garifuna paranda accompaniment canonical garifuna sisera, interlocking song accompaniment hardwood shell deerskin head garaon. trinidad calypso panyard outdoor. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 627
+      "recipe": "classic Caribbean late-2000s paranda, ritual Devotional, Afro-diasporic branch, west African griot ballad poetry hausa court music wassoulou. thick, breath veiled tone, straight note core, interlocked note trading. cedar concert modern carbon fiber fingerpicked classical nylon-string guitar, plastic synthetic maracas, durable synthetic oak staved modern atabaque, gourd seeds hardwood handle canonical garifuna paranda accompaniment canonical garifuna sisera, interlocking song accompaniment hardwood shell deerskin head garaon. trinidad calypso panyard outdoor. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
+      "recipe_chars": 694
     },
     {
       "id": "cadence_lypso",
@@ -3193,8 +3193,8 @@
       "id": "bongo_flava",
       "name": "Bongo flava (Tanzanian)",
       "family": "global",
-      "recipe": "classic 1997-1999 bongo flava, functional Song, African pop branch, intl hip hop MC rhythm, Afro-diasporic MC rhythm gengetone french rap. extended whistle, rap, straight onset, narrative. TR-808, pitched chopped sampler, sub bass analog poly synth, sub heavy electric bass. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 419
+      "recipe": "classic Southern African 1997-1999 bongo flava, functional Song, African pop branch, intl hip hop MC rhythm, Afro-diasporic MC rhythm gengetone french rap. extended whistle, rap, straight onset, narrative. TR-808, pitched chopped sampler, sub bass analog poly synth, sub heavy electric bass. live tracking. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
+      "recipe_chars": 390
     },
     {
       "id": "genge_kenyan",
@@ -3683,8 +3683,8 @@
       "id": "chinese_kunqu_opera",
       "name": "Chinese kunqu opera",
       "family": "classical",
-      "recipe": "classic Southeast Asian mid-1550s chinese kunqu opera, art Music, east Asian branch, east Asian Cantonese opera. extended whistle, breath veiled tone, slow rate, interlocked note trading. jingju foundational python skin silk canonical traditional padauk mid tier sanxian, silk red sandalwood zitan premium pipa, composite material paulownia canonical Korean horse dog asymmetric canonical Korean pansori godo janggu. wooden pagoda hall. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 566
+      "recipe": "classic Southeast Asian mid-1550s chinese kunqu opera, art Music, east Asian branch, east Asian Cantonese opera. extended whistle, breath veiled tone, slow rate, interlocked note trading. jingju foundational python skin silk canonical traditional padauk mid tier sanxian, silk red sandalwood zitan premium pipa, composite material paulownia canonical Korean horse dog asymmetric canonical Korean pansori godo janggu. wooden pagoda hall. large-diaphragm condenser, German V72 tube pre, German tube console, broadcast loudness EQ. tape 15ips hall reverb.",
+      "recipe_chars": 552
     },
     {
       "id": "tibetan_ache_lhamo",
@@ -3949,8 +3949,8 @@
       "id": "kabyle_music_algerian",
       "name": "Kabyle music (Algerian Berber)",
       "family": "global",
-      "recipe": "classic North African mid-1970s kabyle music, ballad Poetry, Mediterranean ballad branch, islamic ritual devotional naʿat were music. declaimed, slow rate, interlocked note trading, neutral third half flat. walnut ribs canonical mid tier Lebanese cedar eastern Mediterranean pyramid oud, clay pre modern traditional fish skin pre modern Egyptian traditional Egyptian sombaty canonical mid east darbuka, juniper bent frame canonical Maghrebi synthetic remo modern world music bendir, melodic single line mandole, olive Mediterranean alternative ghaita. atlas mountain village square. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 645
+      "recipe": "classic North African mid-1970s kabyle music, ballad Poetry, Mediterranean ballad branch, islamic ritual devotional naʿat were music. declaimed, slow rate, interlocked note trading, neutral third half flat. walnut ribs canonical mid tier Lebanese cedar eastern Mediterranean pyramid oud, Egyptian sombaty canonical mid east darbuka, juniper bent frame canonical Maghrebi synthetic remo modern world music bendir, melodic single line mandole, olive Mediterranean alternative ghaita. atlas mountain village square. large-diaphragm condenser, German V72 tube pre, German tube console. tape 15ips.",
+      "recipe_chars": 593
     },
     {
       "id": "algerian_chaabi",
@@ -3991,8 +3991,8 @@
       "id": "khaliji_gulf",
       "name": "Khaliji (Arabian Gulf music)",
       "family": "global",
-      "recipe": "classic Middle Eastern mid-1970s khaliji, functional Song, mid east n African pop branch, middle eastern classical art music shashmaqam uyghur on ikki muqam. extended whistle, breath veiled tone, slow rate, interlocked note trading. walnut ribs canonical mid tier Lebanese cedar eastern Mediterranean pyramid oud, spun aluminum Egyptian sombaty synthetic remo mylar modern canonical Egyptian Egyptian sombaty canonical mid east darbuka. qat chew majlis room. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 521
+      "recipe": "classic Middle Eastern mid-1970s khaliji, functional Song, mid east n African pop branch, middle eastern classical art music shashmaqam uyghur on ikki muqam. extended whistle, breath veiled tone, slow rate, interlocked note trading. walnut ribs canonical mid tier Lebanese cedar eastern Mediterranean pyramid oud, spun aluminum Egyptian sombaty synthetic remo mylar modern canonical Egyptian Egyptian sombaty canonical mid east darbuka. qat chew majlis room. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
+      "recipe_chars": 550
     },
     {
       "id": "sawt_bahraini_kuwaiti",
@@ -4040,8 +4040,8 @@
       "id": "uyghur_muqam",
       "name": "Uyghur On Ikki Muqam (Twelve Muqams)",
       "family": "classical",
-      "recipe": "classic Central Asian mid-1950s uyghur on ikki muqam, art Music, middle eastern classical branch, Persian arab improv improv on frame turkish-romani çümbüş music tarab. vocal fry, breath veiled tone, slow rate, interlocked note trading. mulberry bowl canonical kurdish steel modern tanbur persian, turkmen long necked bagshy tradition silk canonical pre modern shashmaqam bukharan shashmaqam canonical uzbek tajik classical dutar, walnut bent frame canonical Persian goat skin tacked brass rings canonical Iranian daf, mulberry pear body long neck bowed tanbur shashmaqam canonical bukhara samarkand classical legato sato, muqam lead long necked muqam ensemble melodic bright metallic rubab. bukhara shashmaqam courtyard chamber. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 792
+      "recipe": "classic Central Asian mid-1950s uyghur on ikki muqam, art Music, middle eastern classical branch, Persian arab improv improv on frame turkish-romani çümbüş music tarab. vocal fry, breath veiled tone, slow rate, interlocked note trading. mulberry bowl canonical kurdish steel modern tanbur persian, turkmen long necked bagshy tradition silk canonical pre modern shashmaqam bukharan shashmaqam canonical uzbek tajik classical dutar, walnut bent frame canonical Persian goat skin tacked brass rings canonical Iranian daf, mulberry pear body long neck bowed tanbur shashmaqam canonical bukhara samarkand classical legato sato, muqam lead long necked muqam ensemble melodic bright metallic rubab. bukhara shashmaqam courtyard chamber. large-diaphragm condenser, German V72 tube pre, German tube console, broadcast loudness EQ. tape 15ips hall reverb.",
+      "recipe_chars": 845
     },
     {
       "id": "kazakh_kuy",
@@ -4124,8 +4124,8 @@
       "id": "nepali_lok",
       "name": "Nepali lok (folk-popular song)",
       "family": "global",
-      "recipe": "classic South Asian early-1950s nepali lok, functional Song, south Asian pop branch, west African groove percussion indonesian jaipongan fújì. thick, breath veiled tone, straight note core, interlocked note trading. dholak, dark folk clay tabla, kerala bamboo alternative south indian maihar gharana canonical 20th century melodic bansuri, gut 3 main playing strings teak modern alternative microtonal sarangi. kolkata dum dum EMI hmv 1928-present major-flagship kolkata hmv dum dum studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 553
+      "recipe": "classic South Asian early-1950s nepali lok, functional Song, south Asian pop branch, west African groove percussion indonesian jaipongan fújì. thick, breath veiled tone, straight note core, interlocked note trading. dholak, dark folk clay tabla, kerala bamboo alternative south indian maihar gharana canonical 20th century melodic bansuri, gut 3 main playing strings teak modern alternative microtonal sarangi. kolkata dum dum EMI hmv 1928-present major-flagship kolkata hmv dum dum studio. Neumann U47, German V72 tube pre, German tube console. tape 15ips.",
+      "recipe_chars": 557
     },
     {
       "id": "huangmei_opera_chinese",
@@ -4516,8 +4516,8 @@
       "id": "cante_jondo_siguiriya",
       "name": "Cante jondo siguiriya (deepest flamenco)",
       "family": "global",
-      "recipe": "classic North African modern cante jondo siguiriya, ballad Poetry, Mediterranean ballad branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. extended whistle, breath veiled tone, fast rate, interlocked note trading. cypress body percussive attack strong flamenco tradition rasgueado strum picado scale runs flamenco guitar. casablanca and marrakech recording 1970-present indie-commercial casablanca chaabi moroccan studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 540
+      "recipe": "classic North African early-1950s cante jondo siguiriya, ballad Poetry, Mediterranean ballad branch, indigenous ritual devotional shipibo-conibo icaros healing songs mapuche tayil genealogical chant. extended whistle, breath veiled tone, fast rate, interlocked note trading. cypress body percussive attack strong flamenco tradition rasgueado strum picado scale runs flamenco guitar. casablanca and marrakech recording 1970-present indie-commercial casablanca chaabi moroccan studio. Neumann U47, tube pre, colored vintage console, LA-2A optical, passive program EQ. tape 15ips plate reverb.",
+      "recipe_chars": 590
     },
     {
       "id": "flamenco_solea",
@@ -4593,15 +4593,15 @@
       "id": "greek_nisiotika",
       "name": "Greek nisiotika (island music)",
       "family": "global",
-      "recipe": "classic Southern European modern greek nisiotika, ballad Poetry, Mediterranean ballad branch, west African groove percussion indonesian jaipongan fújì. thick, breath veiled tone, slow rate, interlocked note trading. walnut ribs canonical mid tier western red cedar modern alternative pyramid oud, sitka spruce Baroque setup short neck shorter fingerboard lighter bass bar violin orchestral, sustained and staccato hungarian tradition concert pedal cimbalom large frame pedal damper cimbalom, mulberry canonical cretan gut pre modern cretan cretan lyra, island rhythmic laouto. athens major label 1955-1985 mid tier athens minos studios 60s 70s. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 707
+      "recipe": "classic Southern European early-1930s greek nisiotika, ballad Poetry, Mediterranean ballad branch, west African groove percussion indonesian jaipongan fújì. thick, breath veiled tone, slow rate, interlocked note trading. walnut ribs canonical mid tier spruce face pyramid nylon oud, sitka spruce Baroque setup short neck shorter fingerboard lighter bass bar violin orchestral, sustained and staccato hungarian tradition concert pedal cimbalom large frame pedal damper cimbalom, mulberry canonical cretan gut pre modern cretan cretan lyra, island rhythmic laouto. athens major label 1955-1985 mid tier athens minos studios 60s 70s. large-diaphragm condenser, tube pre, Emi redd.51, vari-mu, passive program EQ. tape 15ips plate reverb.",
+      "recipe_chars": 734
     },
     {
       "id": "cretan_lyra",
       "name": "Cretan lyra (Cretan pear-shaped fiddle)",
       "family": "global",
-      "recipe": "classic Southern European modern cretan lyra, ballad Poetry, Mediterranean ballad branch, west African groove percussion indonesian jaipongan fújì. thick, breath veiled tone, slow rate, interlocked note trading. walnut ribs canonical mid tier spruce face pyramid nylon oud, sitka spruce hard rock maple acer saccharum Baroque setup short neck violin orchestral, mulberry canonical cretan gut pre modern cretan cretan lyra, cretan rhythmic laouto. athens major label 1955-1985 mid tier athens minos studios 60s 70s. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 577
+      "recipe": "classic Southern European early-1930s cretan lyra, ballad Poetry, Mediterranean ballad branch, west African groove percussion indonesian jaipongan fújì. thick, breath veiled tone, slow rate, interlocked note trading. walnut ribs canonical mid tier spruce face pyramid nylon oud, sitka spruce hard rock maple acer saccharum Baroque setup short neck violin orchestral, mulberry canonical cretan gut pre modern cretan cretan lyra, cretan rhythmic laouto. athens major label 1955-1985 mid tier athens minos studios 60s 70s. large-diaphragm condenser, tube pre, Emi redd.51, vari-mu, passive program EQ. tape 15ips plate reverb.",
+      "recipe_chars": 623
     },
     {
       "id": "pontic_greek",
@@ -4691,8 +4691,8 @@
       "id": "banda_sinaloense",
       "name": "Banda sinaloense",
       "family": "global",
-      "recipe": "classic Mexican late-1930s banda sinaloense, functional Song, Mexican branch, American marching groove percussion american drumline. thick, full chest belt, straight onset, interlocked note trading. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor large cup tenor large trombone, American orchestral brass yellow brass canonical orchestral piston valves American school besson sovereign British brass band tuba, ebonite hard rubber klezmer tradition clarinet, banda sinaloense. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 813
+      "recipe": "classic Mexican late-1930s banda sinaloense, functional Song, Mexican branch, American marching groove percussion american drumline. thick, full chest belt, interlocked note trading, neutral third half flat. yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral heavy one piece matched to monette horn trumpet, yellow brass canonical 70 30 bach 42 standard bach 42 canonical American orchestral tenor large cup tenor large trombone, American orchestral brass yellow brass canonical orchestral piston valves American school besson sovereign British brass band tuba, ebonite hard rubber klezmer tradition clarinet, banda sinaloense. mexico city RCA victor mexicana 1930-1965 mid tier mexico bolero xochimilco studio. Telefunken ELA M 251, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
+      "recipe_chars": 873
     },
     {
       "id": "norteno",
@@ -4747,15 +4747,15 @@
       "id": "trova_cubana",
       "name": "Trova cubana",
       "family": "global",
-      "recipe": "classic Caribbean mid-1890s trova cubana, ballad Poetry, Latin am troubadour branch, chanson fado ballad poetry cape verdean batuko of santiago island morna. vocal fry, breath veiled tone, slow rate, interlocked note trading. fingerpicked parlor acoustic guitar. Cuban state recording 1962-present mid tier estudios areito havana. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 460
+      "recipe": "classic Caribbean mid-1890s trova cubana, ballad Poetry, Latin am troubadour branch, chanson fado ballad poetry cape verdean batuko of santiago island morna. vocal fry, breath veiled tone, slow rate, interlocked note trading. fingerpicked parlor acoustic guitar. Cuban state recording 1962-present mid tier estudios areito havana. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+      "recipe_chars": 440
     },
     {
       "id": "filin_cubano",
       "name": "Filin (Cuban jazz-trova)",
       "family": "global",
-      "recipe": "classic Caribbean 1947-1949 filin, ballad Poetry, Latin am troubadour branch, American jazz smooth vocal cool jazz vocal. thick, breath veiled tone, straight onset, interlocked note trading. cold pressed wurzen felt birch laminated maple laminated Asian spruce grand piano, fingerpicked parlor acoustic guitar. Cuban state recording 1962-present mid tier estudios areito havana. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 508
+      "recipe": "classic Caribbean 1947-1949 filin, ballad Poetry, Latin am troubadour branch, American jazz smooth vocal cool jazz vocal. thick, breath veiled tone, straight onset, interlocked note trading. cold pressed wurzen felt birch laminated maple laminated Asian spruce grand piano, fingerpicked parlor acoustic guitar. Cuban state recording 1962-present mid tier estudios areito havana. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+      "recipe_chars": 488
     },
     {
       "id": "descarga_cubana",
@@ -4796,8 +4796,8 @@
       "id": "merengue_urbano",
       "name": "Merengue urbano",
       "family": "global",
-      "recipe": "classic Caribbean mid-1990s merengue urbano, functional Song, tropical song branch, reggaeton MC rhythm moombahton. thick, rap, slow rate, interlocked note trading. TR-808, sub bass analog synth, electric bass. Dominican canon 1970-1995 mid tier dominican capital studio 80s. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 405
+      "recipe": "classic Caribbean mid-1990s merengue urbano, functional Song, tropical song branch, reggaeton MC rhythm moombahton. thick, rap, slow rate, interlocked note trading. TR-808, sub bass analog synth, electric bass. Dominican canon 1970-1995 mid tier dominican capital studio 80s. shure SM58, transformerless solid-state pre, pumping sidechain, parametric EQ. lossy MP3 autotune digital delay.",
+      "recipe_chars": 388
     },
     {
       "id": "merengue_tipico",
@@ -4810,8 +4810,8 @@
       "id": "chutney_indo_caribbean",
       "name": "Chutney (Indo-Caribbean)",
       "family": "global",
-      "recipe": "classic North American late-1960s chutney, functional Song, south Asian pop branch, tropical song functional song garifuna punta-rock champeta. thick, breath veiled tone, straight onset, interlocked note trading. goat skin syahi rope laced steel ring dholak, indian rosewood rosewood clay tabla, goat skin rope and fire canonical indo Trinidadian metal modern Caribbean carnival hindu wedding tassa indo Caribbean tassa drum. port of spain community studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 520
+      "recipe": "classic North American late-1960s chutney, functional Song, south Asian pop branch, tropical song functional song garifuna punta-rock champeta. thick, breath veiled tone, straight onset, interlocked note trading. goat skin syahi rope laced steel ring dholak, indian rosewood rosewood clay tabla, goat skin rope and fire canonical indo Trinidadian metal modern Caribbean carnival hindu wedding tassa indo Caribbean tassa drum. port of spain community studio. sennheiser MD421, transformer-coupled solid-state pre, MCI JH-636 US 70s indie/jazz, dbx 160 VCA, parametric EQ. Studer 30ips tape plate reverb digital delay.",
+      "recipe_chars": 616
     },
     {
       "id": "twoubadou_haitian",
@@ -4824,8 +4824,8 @@
       "id": "rasin_haitian",
       "name": "Rasin (Haitian roots-Vodou rock)",
       "family": "global",
-      "recipe": "classic Caribbean 1977-1979 rasin, distorted Rock, regional branch, Afro-diasporic ritual devotional jongo haitian vodou ceremonial. thick, breath veiled tone, straight note core, interlocked note trading. marshall plexi amp British rock amp mahogany maple alnico humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, brushes-and-sticks drum kit. port au prince Haitian recording 1970-2000 indie-commercial port au prince haitian kompa studio. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 540
+      "recipe": "classic Caribbean 1977-1979 rasin, distorted Rock, regional branch, Afro-diasporic ritual devotional jongo haitian vodou ceremonial. thick, breath veiled tone, straight note core, interlocked note trading. marshall plexi amp British rock amp mahogany maple alnico humbucker electric guitar, ampeg svt amp rock bass amp ernie ball slinky electric bass, brushes-and-sticks drum kit. port au prince Haitian recording 1970-2000 indie-commercial port au prince haitian kompa studio. sennheiser MD421, transformer-coupled solid-state pre, colored vintage console, optical compressor, parametric EQ. tape 15ips spring reverb.",
+      "recipe_chars": 618
     },
     {
       "id": "garifuna_punta_rock",
@@ -4936,8 +4936,8 @@
       "id": "lambada_carimbo",
       "name": "Lambada and carimbó (Amazonian Pará)",
       "family": "global",
-      "recipe": "classic Southern American mid-1980s lambada and carimbó, functional Song, Brazilian song branch, Brazilian groove percussion pagode baião. extended whistle, breath veiled tone, slow rate, interlocked note trading. clean strummed single coil electric guitar, traditional mellow brass tambourine orch. estudio rozenblit recife. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 455
+      "recipe": "classic Southern American mid-1980s lambada and carimbó, functional Song, Brazilian song branch, Brazilian groove percussion pagode baião. extended whistle, breath veiled tone, slow rate, interlocked note trading. clean strummed single coil electric guitar, traditional mellow brass tambourine orch. estudio rozenblit recife. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips echo plate reverb germanium fuzz.",
+      "recipe_chars": 461
     },
     {
       "id": "coco_brasileiro",
@@ -6056,8 +6056,8 @@
       "id": "mallsoft",
       "name": "Mallsoft (vaporwave subgenre)",
       "family": "electronic",
-      "recipe": "classic 2014-2016 mallsoft, experimental Elec, ambient branch, east Asian pop functional song enka j-indie. pad like lead analog synth, field textural sampler. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 353
+      "recipe": "classic 2014-2016 mallsoft, experimental Elec, ambient branch, east Asian pop functional song enka j-indie. pad like lead analog synth, field textural sampler. no single room 2015-present distributed distributed production. FET condenser, transformerless solid-state pre, brick-wall limiter, parametric EQ. 16-bit digital.",
+      "recipe_chars": 322
     },
     {
       "id": "future_funk_vaporwave",
@@ -6147,8 +6147,8 @@
       "id": "sophistipop_80s",
       "name": "Sophisti-pop (mid-1980s UK jazz-leaning adult-contemporary)",
       "family": "pop",
-      "recipe": "classic British sophisti-pop, functional Song, pop rock branch, American jazz smooth vocal modern vocal jazz. thick, close mic intimate, straight onset, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, ampeg b15 amp American 60s bass amp flip top character mahogany thomastik infeld electric bass, pre muffled edge muffled brushes drum kit, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone. converted victorian 1965-1985 major-flagship british class a commercial. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 728
+      "recipe": "classic British sophisti-pop, functional Song, pop rock branch, American jazz smooth vocal modern vocal jazz. thick, close mic intimate, straight onset, interlocked note trading. Japanese factory birch laminated maple laminated Asian spruce hokkaido source grand piano, ampeg b15 amp American 60s bass amp flip top character mahogany thomastik infeld electric bass, pre muffled edge muffled brushes drum kit, nickel silver bright projecting selmer mark vi canonical 1954 1974 jazz paris ensemble continuous-airflow saxophone. converted victorian 1965-1985 major-flagship british class a commercial. large-diaphragm condenser, Neve 1073 inductor pre, Trident class-A console, LA-2A optical, Neve inductor EQ. Studer 30ips tape echo plate reverb.",
+      "recipe_chars": 744
     },
     {
       "id": "city_pop_modern",
@@ -6245,8 +6245,8 @@
       "id": "teen_pop_late_90s",
       "name": "Teen pop late 90s-00s",
       "family": "pop",
-      "recipe": "classic 1997-1999 teen pop late 90s-00s, functional Song, pop rock branch, east Asian pop functional song city pop modern revival enka. thick, breath veiled tone, straight onset, interlocked note trading. singing lead analog synth, roland tr 8s modern aira digital recreation TR-808, ampeg b15 amp American 60s bass amp flip top character ernie ball slinky electric bass. no single room 2015-present distributed distributed production. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 565
+      "recipe": "classic 1997-1999 teen pop late 90s-00s, functional Song, pop rock branch, east Asian pop functional song enka city pop modern revival. thick, breath veiled tone, straight onset, interlocked note trading. singing lead analog synth, roland osaka 1980 1983 canonical original 12000 unit run transistor noise based voice circuits TR-808, ampeg b15 amp American 60s bass amp flip top character ernie ball slinky electric bass. no single room 2015-present distributed distributed production. large-diaphragm condenser, Neve 1073 inductor pre, SSL inline console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape plate reverb digital delay.",
+      "recipe_chars": 633
     },
     {
       "id": "dance_pop_2010s",
@@ -6588,8 +6588,8 @@
       "id": "yiddish_wedding_bulgar",
       "name": "Yiddish wedding bulgar and freylekhs",
       "family": "global",
-      "recipe": "classic Eastern European mid-1880s yiddish wedding bulgar and freylekhs, wedding, European branch, middle eastern wedding, string improv improv on frame, chanson fado ballad poetry cape verdean batuko of santiago island lebanese-arab wedding takht. vocal fry, breath veiled tone, slow rate, interlocked note trading. klezmer ensemble, ebonite hard rubber klezmer tradition continuous-airflow legato clarinet, ornamented fiddle, castagnari Italian premium folk music bellows articulated accordion, upright bass. klezmer simcha celebration hall. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 606
+      "recipe": "classic Eastern European mid-1880s yiddish wedding bulgar and freylekhs, wedding, European branch, middle eastern wedding, string improv improv on frame, chanson fado ballad poetry cape verdean batuko of santiago island lebanese-arab wedding takht. vocal fry, breath veiled tone, slow rate, interlocked note trading. klezmer ensemble, ebonite hard rubber klezmer tradition continuous-airflow legato clarinet, ornamented fiddle, castagnari Italian premium folk music bellows articulated accordion, upright bass. klezmer simcha celebration hall. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+      "recipe_chars": 616
     },
     {
       "id": "roma_svatba_balkan",
@@ -6707,8 +6707,8 @@
       "id": "portuguese_musica_de_intervencao",
       "name": "Portuguese música de intervenção",
       "family": "global",
-      "recipe": "classic Iberian mid-1960s portuguese música de intervenção, protest Song, European branch, iberian Latin protest song, chanson fado ballad poetry, iberian functional song morna cape verdean batuko of santiago island. thick, breath veiled tone, slow rate, interlocked note trading. martin lifespan fingerpicked acoustic guitar, twelve string paired courses high pitched ringing fado lisboa tradition jacaranda Portuguese rosewood spruce canonical fado guitarra portuguesa. iberian kantautor basque galician club. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 641
+      "recipe": "classic Iberian mid-1960s portuguese música de intervenção, protest Song, European branch, iberian Latin protest song, chanson fado ballad poetry, iberian functional song morna cape verdean batuko of santiago island. thick, breath veiled tone, slow rate, interlocked note trading. martin lifespan fingerpicked acoustic guitar, twelve string paired courses high pitched ringing fado lisboa tradition jacaranda Portuguese rosewood spruce canonical fado guitarra portuguesa. iberian kantautor basque galician club. Neumann U47, tube pre, colored vintage console, LA-2A optical, passive program EQ. tape 15ips plate reverb.",
+      "recipe_chars": 619
     },
     {
       "id": "south_african_freedom_song",
@@ -6721,15 +6721,15 @@
       "id": "korean_minjung_gayo",
       "name": "Korean minjung gayo (민중가요, people's song)",
       "family": "global",
-      "recipe": "classic 1977-1979 korean minjung gayo, protest Song, east Asian branch, anglo American protest song, east Asian pop functional song, indian bard ballad poetry shidaiqu enka. thick, breath veiled tone, straight onset, interlocked note trading. indian rosewood rosewood flatwound thomastik fingerpicked acoustic guitar. gymnasium. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 458
+      "recipe": "classic 1977-1979 korean minjung gayo, protest Song, east Asian branch, anglo American protest song, east Asian pop functional song, indian bard ballad poetry shidaiqu enka. thick, breath veiled tone, straight onset, interlocked note trading. indian rosewood rosewood flatwound thomastik fingerpicked acoustic guitar. gymnasium. small-diaphragm pencil condenser, portable field-recorder pre. tape 15ips.",
+      "recipe_chars": 403
     },
     {
       "id": "catalan_nova_canco",
       "name": "Catalan Nova Cançó",
       "family": "global",
-      "recipe": "classic Iberian mid-1960s catalan nova cançó, protest Song, European branch, iberian Latin protest song, iberian functional song, chanson fado ballad poetry morna cape verdean batuko of santiago island. vocal fry, breath veiled tone, straight note core, interlocked note trading. fingerpicked acoustic guitar. iberian kantautor basque galician club. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 479
+      "recipe": "classic Iberian mid-1960s catalan nova cançó, protest Song, European branch, iberian Latin protest song, iberian functional song, chanson fado ballad poetry morna cape verdean batuko of santiago island. vocal fry, breath veiled tone, straight note core, interlocked note trading. fingerpicked acoustic guitar. iberian kantautor basque galician club. Neumann U47, tube pre, colored vintage console, LA-2A optical, passive program EQ. tape 15ips plate reverb.",
+      "recipe_chars": 457
     },
     {
       "id": "algerian_rai_political",
@@ -6763,8 +6763,8 @@
       "id": "american_political_hip_hop",
       "name": "American political hip-hop and conscious rap",
       "family": "global",
-      "recipe": "classic North American mid-1980s american political hip-hop and conscious rap, protest Song, urban American branch, anglo American protest song, MC rhythm, bass system conscious hip-hop gangsta rap. thick, rap, straight onset, interlocked note trading. sampled chopped turntable, sampled chopped sampler drum machine, chopped sampler. mid manhattan 1975-1985 mid-major late70s nyc commercial. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 522
+      "recipe": "classic North American mid-1980s american political hip-hop and conscious rap, protest Song, urban American branch, anglo American protest song, MC rhythm, bass system conscious hip-hop gangsta rap. thick, rap, straight onset, interlocked note trading. sampled chopped turntable, sampled chopped sampler drum machine, chopped sampler. mid manhattan 1975-1985 mid-major late70s nyc commercial. dynamic moving-coil, console-strip pre, Trident class-A console, dbx 160 VCA, SSL surgical EQ. Studer 30ips tape.",
+      "recipe_chars": 506
     },
     {
       "id": "brazilian_mpb_protest",
@@ -7085,15 +7085,15 @@
       "id": "japanese_izakaya_enka",
       "name": "Japanese izakaya enka (居酒屋演歌, tavern enka)",
       "family": "global",
-      "recipe": "classic mid-1950s japanese izakaya enka, drinking Song, east Asian branch, European drinking song, anglo singer song ballad poetry, east Asian lullaby freak folk indie folk. thick, breath veiled tone, straight onset, interlocked note trading. narrative fingerpicked acoustic guitar, acrylic nylon modern tsugaru min yo folk song accompaniment shamisen. jazz club. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-      "recipe_chars": 493
+      "recipe": "classic Asian mid-1950s japanese izakaya enka, drinking Song, east Asian branch, European drinking song, anglo singer song ballad poetry, east Asian lullaby freak folk indie folk. thick, breath veiled tone, straight note core, interlocked note trading. narrative fingerpicked acoustic guitar, min yo folk song accompaniment shamisen. jazz club. Neumann U47, German V72 tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips plate reverb.",
+      "recipe_chars": 460
     },
     {
       "id": "mexican_cantina_drinking",
       "name": "Mexican cantina drinking song (mariachi-and-ranchera lineage)",
       "family": "global",
-      "recipe": "classic modern mexican cantina drinking song, drinking Song, americas branch, European drinking song, americas wedding, iberian Latin protest song french chansons à boire irish pub song / drinking song. thick, full chest belt, straight onset, interlocked note trading. concert modern carbon fiber fingerpicked classical nylon-string guitar, cedar caoba paracho nylon treble steel bass guitarron mexicano, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral unison student friendly trumpet, synthetic magic rosin modern acrylic base drone like fiddle, banda sinaloense. irish pub. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 689
+      "recipe": "classic European early-1940s mexican cantina drinking song, drinking Song, americas branch, European drinking song, americas wedding, iberian Latin protest song french chansons à boire irish pub song / drinking song. thick, full chest belt, straight onset, interlocked note trading. concert modern carbon fiber fingerpicked classical nylon-string guitar, cedar caoba paracho nylon treble steel bass guitarron mexicano, yellow brass canonical 70 30 bach stradivarius bach stradivarius 180 canonical American orchestral unison student friendly trumpet, synthetic magic rosin modern acrylic base drone like fiddle, banda sinaloense. irish pub. Neumann U47, German V72 tube pre, German tube console, vari-mu, passive program EQ. tape 15ips plate reverb.",
+      "recipe_chars": 749
     },
     {
       "id": "american_drinking_song",
@@ -7127,15 +7127,15 @@
       "id": "russian_volga_boat_song",
       "name": "Russian Volga boat-haulers' work song (бурлацкая песня)",
       "family": "global",
-      "recipe": "classic mid-1860s russian volga boat-haulers' work song, sea Shanty, north Southeast Asian baltic branch, Slavic balkan field work, European protest song, Slavic bard ballad poetry italian canti partigiani russian zhnitvenye pesni. thick, breath veiled tone, straight onset, interlocked note trading. open air. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 373
+      "recipe": "classic Eastern European mid-1860s russian volga boat-haulers' work song, sea Shanty, north Southeast Asian baltic branch, Slavic balkan field work, European protest song, Slavic bard ballad poetry italian canti partigiani russian zhnitvenye pesni. thick, breath veiled tone, straight onset, interlocked note trading. open air. Neumann U47, German V72 tube pre, German tube console, Telefunken u73b broadcast comp, broadcast loudness EQ. tape 15ips hall reverb.",
+      "recipe_chars": 461
     },
     {
       "id": "greek_tabachaniotika",
       "name": "Greek Cretan tabachaniotika (Cretan urban sea-faring song)",
       "family": "global",
-      "recipe": "classic Southern European early-1920s greek cretan tabachaniotika, sea Shanty, Mediterranean branch, balkan drinking song, European protest song, Mediterranean ballad ballad poetry sevdalinka georgian supra feast-singing. thick, breath veiled tone, straight onset, interlocked note trading. mulberry canonical cretan gut pre modern cretan cretan lyra, mahogany modern alternative Lebanese cedar eastern Mediterranean brass wound bass oud, cretan rhythmic laouto. athens piraeus rebetadika. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 552
+      "recipe": "classic Southern European early-1920s greek cretan tabachaniotika, sea Shanty, Mediterranean branch, balkan drinking song, European protest song, Mediterranean ballad ballad poetry sevdalinka georgian supra feast-singing. thick, breath veiled tone, straight note core, interlocked note trading. mulberry canonical cretan gut pre modern cretan cretan lyra, maple ribs Turkish school Lebanese cedar eastern Mediterranean la bella oud, cretan rhythmic laouto. athens piraeus rebetadika. large-diaphragm condenser, tube pre, Emi redd.51, vari-mu, passive program EQ. tape 15ips plate reverb.",
+      "recipe_chars": 587
     },
     {
       "id": "hebridean_iorram",
@@ -7498,8 +7498,8 @@
       "id": "folk",
       "name": "Folk",
       "family": "global",
-      "recipe": "classic modern folk, protest Song, anglo American branch. thick, close mic intimate, slow rate, interlocked note trading. cedar walnut phosphor bronze bronze fingerpicked acoustic guitar, pearwood marine band tradition brass traditional harmonica, walnut mid tier scruggs stelling bluegrass setup mastertone flathead banjo 5 string. bedroom. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 404
+      "recipe": "classic North American mid-1950s folk, protest Song, anglo American branch. thick, close mic intimate, slow rate, interlocked note trading. cedar walnut phosphor bronze bronze fingerpicked acoustic guitar, pearwood marine band tradition brass traditional harmonica, walnut mid tier scruggs stelling bluegrass setup mastertone flathead banjo 5 string. bedroom. passive ribbon, tube pre, German tube console, vari-mu, Pultec passive program EQ. tape 15ips.",
+      "recipe_chars": 454
     },
     {
       "id": "soul",
@@ -7960,8 +7960,8 @@
       "id": "jingju_yunbai",
       "name": "Jingju yunbai stage-speech",
       "family": "classical",
-      "recipe": "classic East Asian early-1890s jingju yunbai stage-speech, art Music, east Asian branch thai classical beijing opera. thick, breath veiled tone, slow rate, interlocked note trading. chinese traditional teahouse. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 274
+      "recipe": "classic East Asian early-1890s jingju yunbai stage-speech, art Music, east Asian branch thai classical beijing opera. thick, breath veiled tone, slow rate, interlocked note trading. chinese traditional teahouse. large-diaphragm condenser, German V72 tube pre, German tube console, broadcast loudness EQ. tape 15ips hall reverb.",
+      "recipe_chars": 327
     },
     {
       "id": "commedia_lazzi",
@@ -7974,8 +7974,8 @@
       "id": "black_gospel_whooping_sermon",
       "name": "Black gospel whooping sermon",
       "family": "blues_gospel",
-      "recipe": "classic Southern American mid-1920s black gospel whooping sermon, ritual Devotional, christian gospel branch shipibo-conibo icaros healing songs sufi inshad. thick, breath veiled tone, slow rate, interlocked note trading. southern black church gospel choir. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-      "recipe_chars": 320
+      "recipe": "classic Southern American mid-1920s black gospel whooping sermon, ritual Devotional, christian gospel branch shipibo-conibo icaros healing songs sufi inshad. thick, breath veiled tone, slow rate, interlocked note trading. southern black church gospel choir. large-diaphragm condenser, tube pre, German tube console. 78rpm shellac.",
+      "recipe_chars": 330
     },
     {
       "id": "fire_and_brimstone_revival_sermon",
@@ -8158,6 +8158,20 @@
       "family": "hip_hop",
       "recipe": "classic North American 1967-1969 proto-rap spoken word, mc Rhythm, us hip hop branch conscious hip-hop gangsta rap. thick, rap, straight onset, interlocked note trading. lead open slap hand drum congas. independent loft jazz 1971-1978 indie-commercial strata east loft nyc. large-diaphragm condenser, API 312 op-amp pre, API op-amp console, 1176 FET, API proportional-Q EQ. Studer 30ips tape plate reverb.",
       "recipe_chars": 405
+    },
+    {
+      "id": "tamil_filmi",
+      "name": "Tamil filmi / Kollywood playback",
+      "family": "global",
+      "recipe": "classic South Asian early-1940s tamil filmi / kollywood playback, functional Song, south Asian pop branch, south Asian art music, indian classical improv improv on frame thumrī carnatic vocal. thick, breath veiled tone, slow rate, interlocked note trading. silver wound lamb gut core carpathian spruce European maple bosnian source violin orchestral, gourd silk pre modern vijayanagara era thanjavur canonical south indian veena, kerala bamboo alternative south indian maihar gharana canonical 20th century continuous-airflow legato bansuri, jackwood barrel canonical carnatic palghat lineage canonical carnatic mridangam, ghatam, concert stage jackwood barrel canonical Tamil thavil, temple volume Tamil temple context periya melam thavil percussion pair temple procession nadaswaram, pyramid pure nickel bass British mid 60s era electric bass, pre muffled edge muffled brushes-and-sticks drum kit, yamaha cs lineage canonical cs 80 1976 hamamatsu polyphonic flagship lead analog poly synth.",
+      "recipe_chars": 992
+    },
+    {
+      "id": "french_touch",
+      "name": "French touch / filter house",
+      "family": "electronic",
+      "recipe": "classic 1995-1997 french touch / filter house, electronic Dance, continental branch, house electronic dance, soul R&B functional song, funk percussive groove percussion chicago house northern soul and motown. thick, breath veiled tone, slow rate, interlocked note trading. sampler, turntable, TR-909, fast decay focused low lead analog synth, vocoder. professional grade domestic 1980-present auteur-home-pro auteur home pro. large-diaphragm condenser, console-strip pre, colored vintage console, pumping sidechain, parametric EQ. vinyl master cut phaser wah / envelope filter.",
+      "recipe_chars": 577
     }
   ]
 }

@@ -3,9 +3,9 @@
   "name": "Khaliji (Arabian Gulf music)",
   "family": "global",
   "lineage": "Khaliji (\"Gulf\") urban popular music of the Arabian Peninsula Gulf states — Kuwait, Bahrain, Saudi Arabia, Qatar, UAE, Oman — characterized by mid-tempo 2/4 or 4/4 metric base with syncopated 2-and-4 backbeat and distinctive Khaliji-modal vocabulary between maqam-Arabic and Persian-dastgah. The genre developed from the older sawt classical urban-chamber Bahraini-and-Kuwaiti tradition into contemporary Khaliji-pop through the post-1970s petroleum-era recording industry centered in Bahrain, Kuwait, and Riyadh.",
-  "recipe": "classic Middle Eastern mid-1970s khaliji, functional Song, mid east n African pop branch, middle eastern classical art music shashmaqam uyghur on ikki muqam. extended whistle, breath veiled tone, slow rate, interlocked note trading. walnut ribs canonical mid tier Lebanese cedar eastern Mediterranean pyramid oud, spun aluminum Egyptian sombaty synthetic remo mylar modern canonical Egyptian Egyptian sombaty canonical mid east darbuka. qat chew majlis room. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 521,
-  "score": 345.295,
+  "recipe": "classic Middle Eastern mid-1970s khaliji, functional Song, mid east n African pop branch, middle eastern classical art music shashmaqam uyghur on ikki muqam. extended whistle, breath veiled tone, slow rate, interlocked note trading. walnut ribs canonical mid tier Lebanese cedar eastern Mediterranean pyramid oud, spun aluminum Egyptian sombaty synthetic remo mylar modern canonical Egyptian Egyptian sombaty canonical mid east darbuka. qat chew majlis room. shure SM58, console-strip pre, colored vintage console, graphic EQ. cassette spring reverb.",
+  "recipe_chars": 550,
+  "score": 339.095,
   "config": {
     "traditions": [
       "khaliji_gulf",
@@ -30,7 +30,7 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_persian_tahrir",
           "voice_pitch_organization": "voice_pitch_persian_dastgah",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_mid_1960s_double_tracking_era"
         },
         "scores": {
@@ -48,7 +48,7 @@
           "voice_ensemble_config": 13.259999999999994,
           "voice_ornament_system": 29.130000000000003,
           "voice_pitch_organization": 32.69,
-          "voice_processing_chain": 6.825,
+          "voice_processing_chain": 4.225,
           "voice_multitrack_stack": 4.160000000000001
         }
       },
@@ -90,7 +90,7 @@
       }
     ],
     "room": "qat_chew_majlis_room",
-    "archetype": "arch_ethnographic_field_digital",
+    "archetype": "arch_eastmed_cassette_kiosk",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",

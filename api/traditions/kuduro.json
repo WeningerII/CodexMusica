@@ -3,9 +3,9 @@
   "name": "Kuduro",
   "family": "global",
   "lineage": "Angolan high-tempo electronic dance genre codified in late-1980s Luanda — characterized by 140-150 BPM hectic kick patterns, Portuguese-Kimbundu vocals, batida rhythmic foundation; Tony Amado, Buraka Som Sistema (Portuguese-Angolan diaspora), and DJ Marfox extending the canon through the 2000s into international electronic music",
-  "recipe": "classic 1987-1989 kuduro, electronic Dance, African dance branch, Afro-diasporic electric groove percussion, Afro-diasporic MC rhythm kwaito south african kwaito. sygyt, breath veiled tone, straight onset, interlocked note trading. TR-808, sub bass analog poly synth, high-gain-saturation sub bass monosynth acid bass. live tracking. tube condenser, 500-series boutique pre, brick-wall limiter, dynamic EQ. 24-bit digital plate reverb digital delay pitch shifter.",
-  "recipe_chars": 463,
-  "score": 140.381,
+  "recipe": "classic Southern African 1987-1989 kuduro, electronic Dance, African dance branch, Afro-diasporic electric groove percussion, Afro-diasporic MC rhythm kwaito south african kwaito. sygyt, breath veiled tone, straight onset, interlocked note trading. TR-808, sub bass analog poly synth, high-gain-saturation sub bass monosynth acid bass. live tracking. dynamic moving-coil, transformerless solid-state pre, pumping sidechain. lossy MP3.",
+  "recipe_chars": 434,
+  "score": 143.443,
   "config": {
     "traditions": [
       "kuduro",
@@ -97,7 +97,7 @@
       }
     ],
     "room": "live_room",
-    "archetype": "arch_modern_pro_daw_studio",
+    "archetype": "arch_sa_township_digital",
     "inline_chain": {
       "mic": "dynamic_mic",
       "pre": "transformerless",

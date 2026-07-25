@@ -3,9 +3,9 @@
   "name": "Columbia",
   "family": "global",
   "lineage": "Fast-tempo Cuban rumba subform 1880s-onward, the male-virtuoso-solo-dance variant of the three rumba subforms (alongside slower yambú and middle-tempo guaguancó). Built on accelerated-version-of-guaguancó conga-pattern with three-conga (tumbador, tres-dos, quinto) plus palitos stick-pattern, claves 3-2 wood-block, and one-or-two-male-vocalists. The dance features acrobatic-male-solo (often climbing-on-objects, knife-and-bottle-skill-play, machismo-display) rather than couple-pursuit; columbia originated in rural Matanzas dock-worker-and-railroad-worker communities (etymology from the Colón rail-line) and remains the most rural and afro-derived of the rumba subforms. The vocal-style features Yoruba-Bantu invocations (Lucumí ritual fragments embedded in the lalaleo non-lexical opening) mixed with Spanish-language verse.",
-  "recipe": "classic Caribbean mid-1880s columbia, groove Percussion, rumba branch, Afro-diasporic ritual devotional candomblé ceremonial haitian vodou ceremonial. thick, breath veiled tone, straight note core, interlocked note trading. lead mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, wood hardwood claves, a cappella small 3 to 8 one per part three voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. havana solar outdoor courtyard. ORTF stereo pair, portable field-recorder pre. 24-bit digital.",
-  "recipe_chars": 592,
-  "score": 211.049,
+  "recipe": "classic Caribbean mid-1880s columbia, groove Percussion, rumba branch, Afro-diasporic ritual devotional candomblé ceremonial haitian vodou ceremonial. thick, breath veiled tone, straight note core, interlocked note trading. lead mule hide canonical Cuban premium oak staved canonical Cuban open slap hand drum congas, wood hardwood claves, a cappella small 3 to 8 one per part three voice polyphonic regional kakhetian three voice two soloists choral drone sacred liturgical global choir ensemble. havana solar outdoor courtyard. large-diaphragm condenser, tube pre, colored vintage console, vari-mu, Pultec passive program EQ. tape 15ips.",
+  "recipe_chars": 639,
+  "score": 209.274,
   "config": {
     "traditions": [
       "rumba_columbia",
@@ -30,7 +30,7 @@
           "voice_ensemble_config": "voice_ensemble_four_plus_polyphony",
           "voice_ornament_system": "voice_ornament_sub_saharan_polyphonic",
           "voice_pitch_organization": "voice_pitch_tonal_language_constrained",
-          "voice_processing_chain": "voice_processing_harmonizer_ai_trained_stack",
+          "voice_processing_chain": "voice_processing_melodyne_microtuned",
           "voice_multitrack_stack": "voice_multitrack_3_part_third_fifth"
         },
         "scores": {
@@ -48,7 +48,7 @@
           "voice_ensemble_config": 17.81,
           "voice_ornament_system": 5.46,
           "voice_pitch_organization": 11.879499999999998,
-          "voice_processing_chain": 5.6450000000000005,
+          "voice_processing_chain": 2.795,
           "voice_multitrack_stack": 4.2895
         }
       },
@@ -95,7 +95,7 @@
       }
     ],
     "room": "havana_solar_outdoor_courtyard",
-    "archetype": "arch_ethnographic_field_digital",
+    "archetype": "arch_early_tape_havana",
     "inline_chain": {
       "mic": "condenser_sdc",
       "pre": "pre_field_recorder_portable",
