@@ -165,17 +165,6 @@ status: reachable
 precondition: empty
 ```
 
-```yaml
-name: app-bar-drawer-toggle
-kind: widget
-selector: '#btn-drawer-toggle'
-surface: app bar — mobile drawer toggle (hidden ≥ 900px)
-implementation: DOMContentLoaded handler toggles .is-open on sidebar + backdrop
-status: reachable
-precondition: empty
-notes: visible only on mobile breakpoint via CSS; selector resolves regardless
-```
-
 ### Empty state
 
 ```yaml
