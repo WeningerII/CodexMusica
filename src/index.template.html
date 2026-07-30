@@ -95,11 +95,21 @@ ul { list-style: none; }
 .app-bar-wordmark .wordmark-text { font-weight: var(--fw-semibold); font-size: var(--fs-display-modal); letter-spacing: -0.01em; }
 .app-bar-wordmark .wordmark-rule { display: inline-block; width: 1px; height: 16px; background: var(--text-3); opacity: 0.5; }
 .app-bar-wordmark .wordmark-sub { font-family: var(--font-display); font-style: italic; font-weight: var(--fw-regular); font-size: var(--fs-display-sub); color: var(--text-3); letter-spacing: 0.01em; font-variation-settings: "SOFT" 50, "opsz" 18; }
-@media (max-width: 720px) {
-  .app-bar-wordmark .wordmark-sub, .app-bar-wordmark .wordmark-rule { display: none; }
-}
 .app-bar h1 svg { color: var(--color-blue); }
 .app-bar .actions { display: flex; gap: var(--s2); align-items: center; }
+/* ############################################################################
+   PART A — ONE base rule. Goes next to the other .app-bar rules (immediately
+   after `.app-bar .actions { display: flex; ... }`, src/index.template.html:102).
+   This is the only declaration outside a max-width query, and it is a no-op on
+   desktop by construction: `display: contents` means the new wrapper generates
+   NO BOX AT ALL, so `.actions` keeps exactly the same eight flex children in
+   the same order that it has today. Measured: identical per-control rects at
+   900/1000/1100/1280px, and the wrapper reports clientWidth 0 / scrollWidth 0.
+   ########################################################################## */
+/* Wrapper for the six secondary tools. It generates no box on desktop, so the
+   app bar's flex tree is byte-for-byte what it was before this change; the
+   mobile tiers below turn it into a real horizontal scroll container. */
+.app-bar .actions-scroll { display: contents; }
 .workspace-meta { font-size: var(--fs-caption); color: var(--text-3); }
 
 /* Buttons */
@@ -960,17 +970,301 @@ ul { list-style: none; }
 ::-webkit-scrollbar-thumb { background: var(--border); border: 2px solid transparent; background-clip: padding-box; border-radius: 5px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--border-strong); background-clip: padding-box; }
 
-/* Mobile */
-@media (max-width: 700px) {
-  .app-bar { padding: var(--s3) var(--s4); }
-  .chain-flow { grid-template-columns: repeat(4, 1fr); }
-  .modal { max-width: 100%; max-height: 92vh; }
-  .modal-head, .modal-body, .modal-foot, .modal-search { padding-left: var(--s4); padding-right: var(--s4); }
-  .fam-grid { grid-template-columns: 1fr; }
-  .app-bar h1 + .workspace-meta { display: none; }
-  .app-bar .actions .btn span.long { display: none; }
+/* ############################################################################
+   PART B — the responsive section. Goes at the END of the stylesheet, exactly
+   where the old `@media (max-width: 700px)` block sat (src/index.template.html
+   963-972, including its `/* Mobile *​/` comment line). It MUST stay after the
+   base rules for `.chain-flow` (800), `.modal` (869) and `.fam-grid` (933):
+   media queries add no specificity, so an earlier position would lose to them.
+   ########################################################################## */
+
+/* ============================================================================
+   RESPONSIVE TIERS — replaces the old `@media (max-width: 720px)` block
+   (lines 98-100) and the old `@media (max-width: 700px)` block (lines 964-972).
+
+   ROOT CAUSE this fixes: `.app-bar` is flex/space-between and never wrapped or
+   shrank, so the eight nowrap controls in `.actions` (~712px min-content)
+   propagated to the document. On a 360-375px phone the browser widened the
+   LAYOUT VIEWPORT to 791px and scaled the whole app down ~47%. At 768px
+   `#btn-add` rendered at x 753..915 — entirely off-screen and unusable.
+
+   THE FIX: the six secondary tools live in `.actions-scroll`, a real scroll
+   container. `min-width: 0` + `overflow-x: auto` drops its min-content
+   contribution to ~0, so the bar — and therefore the document — always fits
+   the device. `#btn-save` and `#btn-add` sit OUTSIDE that container with
+   `flex: none`, so the two commit actions are on screen at every width.
+
+   TIERS — three width literals, all of them numbers this stylesheet already
+   used, so no new breakpoint enters the cascade:
+     899   compact   the width at which the workspace already collapses to one
+                     column + drawer sidebar. The app bar now restructures at
+                     the SAME width, closing the 701-899px dead zone where a
+                     desktop-width header ran inside a mobile layout.
+     700   phone     the boundary this file has always used to shed header
+                     text. Labels collapse to icon squares, the bar tightens
+                     to one 53px row, and the content grids go narrow — the
+                     old 700px block's job, done properly.
+     599   micro     legibility floor + one-hand detail-header layout.
+   Plus one orthogonal `(pointer: coarse)` query for touch ergonomics, always
+   nested under a max-width so it can never enlarge desktop chrome.
+
+   DESKTOP: every rule below is inside a max-width query — nothing here can
+   match at >= 900px. Verified against the unpatched build in headless
+   Chromium: identical app-bar height, document scrollWidth and per-control
+   rects at 900 / 1000 / 1100 / 1280px.
+   ========================================================================= */
+
+
+/* ===========================================================================
+   TIER 1 — compact (<= 899px): tablet + phone
+   =========================================================================== */
+@media (max-width: 899px) {
+
+  /* Restate the drawer block's track with a zero floor: a `1fr` track has an
+     auto (min-content) minimum, so one wide descendant could re-open the
+     layout viewport once the app bar stops being the widest box. */
+  .workspace { grid-template-columns: minmax(0, 1fr); }
+  #workspace-detail { min-width: 0; }
+
+  /* --- App bar ---------------------------------------------------------- */
+  .app-bar { padding: var(--s2) var(--s4); gap: var(--s3); }
+
+  /* Pin the brand group at its intrinsic width; only the action half gives
+     way. Putting `min-width: 0` on BOTH halves instead lets the brand box
+     shrink below its own content, and the "Codex" wordmark — one unbreakable
+     word — then paints straight through the first strip button (a real
+     18px overlap at 600px, still 3px at 700px). `flex: 0 0 auto` cannot. */
+  .app-bar > div:first-child { flex: 0 0 auto; }
+  .app-bar .actions { flex: 0 1 auto; min-width: 0; }
+
+  /* Shrink the STRIP, never the controls. Without this the flex items inside
+     a shrinking `.actions` hit their automatic minimum before the strip ever
+     scrolls: btn-undo collapses to 0px wide (its icon span is empty — see the
+     glyph fallback below) and stops hit-testing, btn-attributions renders at
+     half width, and btn-drawer-toggle is squeezed from 28px to 21px. */
+  .app-bar .icon-btn,
+  .app-bar .actions .btn { flex: none; }
+  .app-bar .actions .btn { padding: 8px var(--s3); }
+
+  /* The one structural change: the strip may shrink past its min-content and
+     scroll internally instead of pushing the layout viewport open. */
+  .app-bar .actions-scroll {
+    display: flex;                  /* dissolves the desktop `display: contents` */
+    align-items: center;
+    gap: var(--s2);
+    flex: 0 1 auto;
+    min-width: 0;                   /* with overflow, may shrink past min-content */
+    overflow-x: auto;
+    overflow-y: hidden;             /* keeps the bar exactly one row tall */
+    overscroll-behavior-x: contain; /* a swipe here must not trigger back-nav */
+    -webkit-overflow-scrolling: touch;
+    scroll-padding-inline: var(--s2);
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  /* The global `::-webkit-scrollbar` is 10px tall; without this the strip
+     would add 10px of bar height on every classic-scrollbar platform. */
+  .app-bar .actions-scroll::-webkit-scrollbar { width: 0; height: 0; display: none; }
+  /* A hairline divider separates nothing useful inside a scrolling strip. */
+  .app-bar .actions-scroll > span[aria-hidden="true"] { display: none; }
+  /* Focus rings paint outside the border box and would be clipped by the
+     scroll container; pull them inside so keyboard focus stays visible.
+     (Focusing an off-screen control auto-scrolls the strip to it.) */
+  .app-bar .actions-scroll :focus-visible { outline-offset: -2px; }
+
+  /* Text the compact bar can no longer afford. These three used to sit at
+     700/720px — the exact reason 701-899px slimmed nothing. */
+  .app-bar-wordmark .wordmark-sub,
+  .app-bar-wordmark .wordmark-rule      { display: none; }
+  .app-bar h1 + .workspace-meta         { display: none; }
+  .app-bar .actions #btn-save span.long { display: none; }  /* -> "workspace" */
+
+  /* --- Missing-glyph fallback: scoped, and self-disabling ----------------
+     `data-icon="undo"` / `"redo"` resolve to nothing — ICON_PATHS has no such
+     key and ICON_ALIASES has no entry (the catalog spells them `undo-2` /
+     `redo-2`), so icon() returns '' and both spans stay empty at every width.
+     Two blank squares are merely odd beside labelled neighbours on desktop,
+     but unusable in an icon-only phone bar. Paint the real Lucide glyph as a
+     currentColor mask, ONLY while the span is `:empty` — the moment someone
+     adds the two ICON_ALIASES entries this rule stops matching by itself.
+     Deliberately kept inside the mobile query: fixing the icons is a rendered
+     -pixel change above the gate and belongs in its own re-baselined commit. */
+  .app-bar .icon-btn > [data-icon="undo"]:empty,
+  .app-bar .icon-btn > [data-icon="redo"]:empty {
+    display: block;
+    width: 14px;
+    height: 14px;
+    background-color: currentColor;
+    -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+    -webkit-mask-position: center;  mask-position: center;
+    -webkit-mask-size: 14px 14px;   mask-size: 14px 14px;
+  }
+  .app-bar .icon-btn > [data-icon="undo"]:empty {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 14 4 9l5-5'/%3E%3Cpath d='M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5a5.5 5.5 0 0 1-5.5 5.5H11'/%3E%3C/svg%3E");
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 14 4 9l5-5'/%3E%3Cpath d='M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5a5.5 5.5 0 0 1-5.5 5.5H11'/%3E%3C/svg%3E");
+  }
+  .app-bar .icon-btn > [data-icon="redo"]:empty {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m15 14 5-5-5-5'/%3E%3Cpath d='M20 9H9.5A5.5 5.5 0 0 0 4 14.5A5.5 5.5 0 0 0 9.5 20H13'/%3E%3C/svg%3E");
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m15 14 5-5-5-5'/%3E%3Cpath d='M20 9H9.5A5.5 5.5 0 0 0 4 14.5A5.5 5.5 0 0 0 9.5 20H13'/%3E%3C/svg%3E");
+  }
+
+  /* --- Card tab row ------------------------------------------------------
+     Was a shrinkable flex row, so at 375px the items were squeezed to their
+     min-content and "Signal chain" broke across two lines inside a 91px bar.
+     Tabs are now intrinsically sized and the ROW scrolls, so no label ever
+     breaks mid-word. The container border moves to an inset shadow because
+     `overflow` clips the -1px margin the active underline used to overlap it
+     with; `margin-bottom: 0` on the tab completes the swap. `overflow-y:
+     hidden` is required — with `overflow-x: auto` alone, overflow-y computes
+     to auto and clips the underline instead. */
+  .detail-tab-bar {
+    gap: var(--s4);
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scroll-padding-inline: var(--s4);
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    border-bottom: none;
+    box-shadow: inset 0 -1px 0 var(--border);
+  }
+  .detail-tab-bar::-webkit-scrollbar { width: 0; height: 0; display: none; }
+  .detail-tab-bar :focus-visible { outline-offset: -2px; }
+  .detail-tab { flex: none; white-space: nowrap; margin-bottom: 0; }
+  /* `margin-left: auto` inside a scroll container pushes the status to the far
+     end of the SCROLL width, not the visible edge — it would sit hundreds of
+     px past the last tab, reachable only by scrolling all the way. Let it
+     trail the last tab instead. */
+  .detail-tab-status { flex: none; margin-left: var(--s4); }
 }
 
+
+/* ===========================================================================
+   TIER 2 — phone (<= 700px). Same boundary as the block this replaces.
+   =========================================================================== */
+@media (max-width: 700px) {
+
+  /* 4px of vertical padding: the controls define the bar height now, so the
+     bar is 53px on touch (44 + 4 + 4 + 1px border) — 10px SHORTER than
+     today's 63px, and ONE row at every width. app.js measures `.app-bar`
+     offsetHeight into `--app-bar-height`, so the drawer, the sticky sidebar
+     and the backdrop all follow automatically. */
+  .app-bar { padding: var(--s1) var(--s3); gap: var(--s2); }
+  .app-bar .actions,
+  .app-bar .actions-scroll { gap: var(--s1); }
+
+  /* Visually hidden, still in the accessibility tree: the page keeps its <h1>
+     and every button keeps its accessible name. Absolutely positioned, so
+     these contribute no width and generate no flex `gap`. (`.app-bar` is
+     position: sticky, so it is their containing block.)
+     Hiding the wordmark here is what buys the strip ~70px — the difference
+     between every control being reachable and two of them needing a swipe. */
+  .app-bar h1,
+  .app-bar .actions .btn > .btn-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    clip-path: inset(50%);
+  }
+
+  /* Secondary actions become icon squares. */
+  .app-bar .actions .btn {
+    position: relative;
+    width: 40px;
+    min-height: 40px;
+    padding: 0;
+    justify-content: center;
+  }
+  /* ...but the PRIMARY action keeps a label: "Add instrument" -> "Add",
+     using the same `.long` convention the Save button already uses. */
+  .app-bar .actions #btn-add { width: auto; padding: 0 var(--s3); }
+  .app-bar .actions #btn-add > .btn-label {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    clip-path: none;
+  }
+  .app-bar .actions #btn-add span.long { display: none; }
+
+  /* Content grids — the other half of the old 700px block, kept at exactly
+     the same boundary so this band renders as it does today. `minmax(0, 1fr)`
+     rather than `1fr` removes each track's min-content floor, so a long
+     unbreakable token can never re-open the layout viewport. */
+  .chain-flow { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .fam-grid   { grid-template-columns: minmax(0, 1fr); }
+  .modal      { max-width: 100%; max-height: 92vh; }
+  .modal-head, .modal-body, .modal-foot, .modal-search {
+    padding-left: var(--s4);
+    padding-right: var(--s4);
+  }
+}
+
+
+/* ===========================================================================
+   TIER 3 — micro (<= 599px)
+   =========================================================================== */
+@media (max-width: 599px) {
+
+  /* Legibility floor: nothing below 12px on a phone. A scoped override of the
+     shared scale — the desktop type ramp is untouched. */
+  :root { --fs-nano: 12px; --fs-code: 12px; --fs-micro: 12px; }
+
+  /* Tighter tab row, and drop the trailing status string: it is meta, not
+     navigation, and it added ~158px to the row's scroll width — the last tab
+     would otherwise sit behind a long swipe rather than a short one. */
+  .detail-tab-bar { gap: var(--s3); }
+  .detail-tab-status { display: none; }
+
+  /* The 80px / 1fr / auto header crushed its third column, clipping the
+     letter-spaced "FINGERPRINT" label against the right edge. Two columns,
+     with the fingerprint panel on its own full-width row. Applied at 599 and
+     not 899: a 768/820px tablet has room for the original three columns. */
+  .detail-header { grid-template-columns: 56px minmax(0, 1fr); }
+  .detail-fingerprint-panel { grid-column: 1 / -1; align-items: flex-start; }
+}
+
+
+/* ===========================================================================
+   TOUCH — orthogonal to the width tiers, and nested under the desktop gate so
+   it can never enlarge desktop chrome. Every rule grows a REAL box. None adds
+   invisible hit-slop: a 44px `::before` on a 28px button silently steals taps
+   from its neighbour (in `.detail-actions` the gap is 4px and Remove is last
+   in DOM, so it would capture the right ~8px of Duplicate).
+   =========================================================================== */
+@media (max-width: 899px) and (pointer: coarse) {
+  .icon-btn { min-width: 44px; min-height: 44px; }
+  .app-bar .icon-btn { width: 44px; height: 44px; }
+  .app-bar .actions .btn { min-height: 44px; }
+  .detail-tab { min-height: 44px; }
+  .sb-card { min-height: 44px; }
+  .sb-tradition-move,
+  .sb-tradition-delete { min-width: 44px; min-height: 44px; }
+  /* Was `opacity: 0` until :hover / :focus-within — invisible, and therefore
+     unreachable, on a device that has no hover state at all. */
+  .sb-tradition-delete { opacity: 0.7; }
+  .sidebar-search input,
+  .modal-search input { min-height: 44px; }
+  .sb-add-to-tradition,
+  .rp-open { min-height: 44px; }
+  /* `min-height` ONLY — never `display: inline-flex`, which would flip these
+     from block-level flex containers to shrink-to-fit and collapse two-line
+     chips (`.chip-block-sub` is display: block and belongs UNDER its label,
+     not beside it). */
+  .chip, .chip-block, .dss-trad, .starter-trad,
+  .empty-state .btn { min-height: 44px; }
+}
+@media (max-width: 700px) and (pointer: coarse) {
+  .app-bar .actions .btn { width: 44px; }
+  .app-bar .actions #btn-add { width: auto; }
+}
 /* ===== Material feedback — micro-animations on state changes =====
    Currently used:
    - preface-shift: a preface changed because the dedup rule rippled
@@ -1057,14 +1351,20 @@ ul { list-style: none; }
     <span class="workspace-meta" id="meta"></span>
   </div>
   <div class="actions">
-    <button class="icon-btn" id="btn-undo" data-tooltip="Undo (Ctrl/Cmd+Z)" aria-label="Undo" disabled><span data-icon="undo" data-size="14"></span></button>
-    <button class="icon-btn" id="btn-redo" data-tooltip="Redo (Ctrl/Cmd+Shift+Z)" aria-label="Redo" disabled><span data-icon="redo" data-size="14"></span></button>
-    <button class="icon-btn" id="btn-attributions" data-tooltip="Image credits & licenses" aria-label="Image credits"><span data-icon="info" data-size="14"></span></button>
-    <span style="width: 1px; height: 18px; background: var(--border); margin: 0 var(--s2);" aria-hidden="true"></span>
-    <button class="btn btn-ghost" id="btn-traditions"><span data-icon="library" data-size="14"></span>Traditions</button>
-    <button class="btn btn-ghost" id="btn-saved"><span data-icon="folder" data-size="14"></span>Saved</button>
-    <button class="btn btn-secondary" id="btn-save"><span data-icon="save" data-size="14"></span><span class="long">Save&nbsp;</span>workspace</button>
-    <button class="btn btn-primary" id="btn-add"><span data-icon="plus" data-size="14"></span>Add instrument</button>
+    <!-- Secondary tools. `display: contents` on desktop, so the flex tree is
+         unchanged; below 900px this becomes the horizontal scroll strip that
+         lets the bar shrink to any device width. -->
+    <div class="actions-scroll">
+      <button class="icon-btn" id="btn-undo" data-tooltip="Undo (Ctrl/Cmd+Z)" aria-label="Undo" disabled><span data-icon="undo" data-size="14"></span></button>
+      <button class="icon-btn" id="btn-redo" data-tooltip="Redo (Ctrl/Cmd+Shift+Z)" aria-label="Redo" disabled><span data-icon="redo" data-size="14"></span></button>
+      <button class="icon-btn" id="btn-attributions" data-tooltip="Image credits & licenses" aria-label="Image credits"><span data-icon="info" data-size="14"></span></button>
+      <span style="width: 1px; height: 18px; background: var(--border); margin: 0 var(--s2);" aria-hidden="true"></span>
+      <button class="btn btn-ghost" id="btn-traditions"><span data-icon="library" data-size="14"></span><span class="btn-label">Traditions</span></button>
+      <button class="btn btn-ghost" id="btn-saved"><span data-icon="folder" data-size="14"></span><span class="btn-label">Saved</span></button>
+    </div>
+    <!-- Commit actions live OUTSIDE the strip: always on screen, any width. -->
+    <button class="btn btn-secondary" id="btn-save"><span data-icon="save" data-size="14"></span><span class="long">Save&nbsp;</span><span class="btn-label">workspace</span></button>
+    <button class="btn btn-primary" id="btn-add"><span data-icon="plus" data-size="14"></span><span class="btn-label">Add<span class="long">&nbsp;instrument</span></span></button>
   </div>
 </header>
 

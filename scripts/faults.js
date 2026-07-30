@@ -434,6 +434,34 @@ record(
   );
 }
 
+// 20. the header stops fitting a phone -> check_mobile_layout.js
+//     (the real regression this gate was written for: `.app-bar .actions` held eight
+//     `white-space: nowrap` controls in a non-shrinking flex row, so its min-content
+//     width — measured at ~712px — exceeded the device width. That never surfaces as
+//     document overflow: the browser opens the LAYOUT VIEWPORT to fit and scales the
+//     whole app down, so every scrollWidth-based check stays green. Re-plant that
+//     width demand on the same container the regression lived in.)
+{
+  const d = mkenv(['scripts', 'codex.html', 'api']);
+  const f = path.join(d, 'codex.html');
+  const before = fs.readFileSync(f, 'utf8');
+  const after = before.replace(
+    '</body>',
+    '<style>/* __MOBILE_FAULT__ */ .app-bar .actions { min-width: 720px !important; }</style>\n</body>'
+  );
+  if (after === before) throw new Error('mobile fault: could not inject into codex.html');
+  fs.writeFileSync(f, after);
+  // Deliberately NOT matching the generic `MOBILE LAYOUT: FAIL` banner: this gate
+  // needs a browser, and a Chromium-launch failure prints that same banner. Only
+  // the two measured-defect messages count, so a missing browser is reported as
+  // WRONG-REASON instead of masquerading as detection.
+  record(
+    'unfittable-header -> check_mobile_layout.js',
+    gate(d, ['scripts/check_mobile_layout.js']),
+    /layout viewport blown open|is off-screen/i
+  );
+}
+
 // Registry-driven completeness: every promise-bound gate (_promises.js) must have
 // a fault class here, or "every gate is two-sided" is hollow. faults.js itself is
 // exempt (it is the injector); check_artifact_fresh's faults need --fresh-*, so
