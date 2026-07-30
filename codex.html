@@ -331,8 +331,15 @@ ul { list-style: none; }
 .sb-tradition-delete:hover { opacity: 1 !important; color: var(--color-red); background: var(--surface-2); }
 .sb-tradition-header[draggable="true"] { cursor: grab; }
 .sb-tradition-header[draggable="true"]:active { cursor: grabbing; }
-.sb-tradition-group.is-drag-over { box-shadow: inset 0 2px 0 0 var(--accent); }
-.sb-tradition-group.is-drag-over .sb-tradition-header { background: var(--surface-2); }
+/* The drag preview sits under the pointer and therefore ON TOP of whatever it
+   is about to be dropped into, so a hairline alone is easy to miss on a phone.
+   The tint fills the whole target group and stays readable around the ghost. */
+.sb-tradition-group.is-drag-over {
+  box-shadow: inset 0 2px 0 0 var(--accent);
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+  border-radius: var(--r2);
+}
+.sb-tradition-group.is-drag-over .sb-tradition-header { background: transparent; }
 /* Directional drop indicators for group-onto-group reorder. Cursor in the
    top half of the target → line at top (drop above). Cursor in the bottom
    half → line at bottom (drop below). The visual treatment intentionally
@@ -340,6 +347,40 @@ ul { list-style: none; }
    intend a card-reparent (uses is-drag-over) or a group-reorder. */
 .sb-tradition-group.is-drag-over-top { box-shadow: inset 0 2px 0 0 var(--accent); }
 .sb-tradition-group.is-drag-over-bottom { box-shadow: inset 0 -2px 0 0 var(--accent); }
+
+/* ── Drag preview (Pointer Events; see "DRAG AND DROP" in app.js) ──────────
+   A clone of the row, following the pointer. `pointer-events: none` is load-
+   bearing: the controller resolves drop targets with elementFromPoint, and a
+   hit-testable ghost would sit under the pointer and answer every query with
+   itself. */
+.dnd-ghost {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 300;
+  pointer-events: none;
+  opacity: 0.85;
+  border-radius: var(--r2);
+  background: var(--surface);
+  box-shadow: 0 8px 24px rgba(32, 33, 36, 0.18), 0 0 0 1px var(--accent);
+  transition: none;
+}
+/* The row stays in place, dimmed, so the tree keeps its shape while you drag
+   — collapsing it would reflow every genre under the finger mid-gesture. */
+.sb-card.is-dragging,
+.sb-tradition-header.is-dragging { opacity: 0.4; }
+/* Cursor + selection only while a drag is live, so normal text selection in
+   the tree is unaffected the rest of the time. */
+body.is-dnd-active { cursor: grabbing; user-select: none; -webkit-user-select: none; }
+body.is-dnd-active * { cursor: grabbing !important; }
+/* Suppress the iOS/Android long-press callout on the drag handles — the long
+   press is our pick-up gesture. Vertical panning stays available, so a swipe
+   that starts on a row still scrolls the page. */
+.sb-card,
+.sb-tradition-header {
+  touch-action: pan-y;
+  -webkit-touch-callout: none;
+}
 .sb-card-pin { display: inline-flex; align-items: center; justify-content: center; color: var(--text-3); margin-right: 4px; }
 .sb-card.is-pinned .sb-card-pin { color: var(--accent); }
 
@@ -31270,13 +31311,9 @@ const app = {
   // HISTORY_MAX entries.
   history: [],
   historyIndex: -1,
-  // Transient state for drag-and-drop tradition reordering. Set during
-  // dragstart on a group header, cleared on dragend/drop. Read by the
-  // dragover handler on potential drop targets to know what's being dragged.
-  _dragTraditionId: null,
-  // Transient state for card-level drag (reorder within group / reparent
-  // across groups / pin via drag-to-Pinned). Mirrors _dragTraditionId.
-  _dragCardId: null,
+  // Live drag state — see the "Drag and drop" section. Null when nothing is
+  // being dragged. Owned entirely by that controller; nothing else writes it.
+  _dnd: null,
   // Layout-refactor state (Phase 2+):
   // - selected: card.id of the currently-active card in the sidebar selection
   //   model. Phase 3 will use this to render the right-pane detail view.
@@ -34576,7 +34613,9 @@ function renderSidebarTraditions() {
     );
     return (
       '<section class="sb-tradition-group' + (isCollapsed ? ' is-collapsed' : '') + '" data-tradition-id="' + esc(tradId) + '">' +
-        '<div class="sb-tradition-header" role="button" tabindex="0"' + (tradId !== '__ungrouped__' ? ' draggable="true"' : '') + '>' +
+        // data-drag-tradition marks a genre header as a drag handle. The
+        // __ungrouped__ pseudo-group cannot be reordered, so it has none.
+        '<div class="sb-tradition-header" role="button" tabindex="0"' + (tradId !== '__ungrouped__' ? ' data-drag-tradition="' + esc(tradId) + '"' : '') + '>' +
           '<span class="sb-chev">' + icon('chevron-down', 12) + '</span>' +
           (tradId !== '__ungrouped__' ? traditionGlyphsHTML(tradId, 22) : '') +
           '<span class="sb-tradition-name">' + esc(name) + '</span>' +
@@ -34677,141 +34716,6 @@ function renderSidebarTraditions() {
     });
   });
 
-  // ─── Drag-and-drop tradition reorder (Phase 3b) ───
-  // Headers are draggable; on drop, the dragged group's cards are spliced
-  // into app.cards immediately before the drop target group's cards.
-  // The __ungrouped__ pseudo-group isn't draggable (headers without
-  // draggable="true" attribute won't fire dragstart).
-  host.querySelectorAll('.sb-tradition-header[draggable="true"]').forEach(h => {
-    h.addEventListener('dragstart', e => {
-      const tradId = h.parentElement.dataset.traditionId;
-      app._dragTraditionId = tradId;
-      app._dragCardId = null;  // distinguish group drag from card drag
-      e.dataTransfer.effectAllowed = 'move';
-      // Setting any text on dataTransfer is required for the drag to be
-      // considered "valid" by some browsers (Firefox in particular).
-      e.dataTransfer.setData('text/plain', 'tradition:' + tradId);
-    });
-    h.addEventListener('dragend', () => {
-      app._dragTraditionId = null;
-      host.querySelectorAll('.sb-tradition-group.is-drag-over, .sb-tradition-group.is-drag-over-top, .sb-tradition-group.is-drag-over-bottom')
-        .forEach(g => { g.classList.remove('is-drag-over'); g.classList.remove('is-drag-over-top'); g.classList.remove('is-drag-over-bottom'); });
-    });
-  });
-
-  host.querySelectorAll('.sb-tradition-group').forEach(g => {
-    g.addEventListener('dragover', e => {
-      const targetTradId = g.dataset.traditionId;
-      if (targetTradId === '__ungrouped__') return;
-      // Group-onto-group drag: don't accept drop on self
-      if (app._dragTraditionId && app._dragTraditionId !== targetTradId) {
-        e.preventDefault();
-        e.dataTransfer.dropEffect = 'move';
-        // Above vs below based on cursor Y relative to group bounding box.
-        // Clear sibling indicators first to avoid sticky decoration when the
-        // cursor moves across multiple groups quickly.
-        host.querySelectorAll('.sb-tradition-group.is-drag-over-top, .sb-tradition-group.is-drag-over-bottom')
-          .forEach(o => { o.classList.remove('is-drag-over-top'); o.classList.remove('is-drag-over-bottom'); });
-        const rect = g.getBoundingClientRect();
-        const midpoint = rect.top + rect.height / 2;
-        if (e.clientY < midpoint) {
-          g.classList.add('is-drag-over-top');
-        } else {
-          g.classList.add('is-drag-over-bottom');
-        }
-        return;
-      }
-      // Card-onto-group drag: don't accept drop on the card's own group
-      // (within-group reorder isn't supported in v1 — group-level only).
-      if (app._dragCardId) {
-        const dragCard = app.cards.find(c => c.id === app._dragCardId);
-        if (dragCard && dragCard.traditionId !== targetTradId) {
-          e.preventDefault();
-          e.dataTransfer.dropEffect = 'move';
-          g.classList.add('is-drag-over');
-        }
-      }
-    });
-    g.addEventListener('dragleave', e => {
-      // Only clear when actually leaving the group, not when entering a child.
-      // Using contains check: relatedTarget null means leaving the document, or
-      // outside-of-g child cases.
-      if (!g.contains(e.relatedTarget)) {
-        g.classList.remove('is-drag-over');
-        g.classList.remove('is-drag-over-top');
-        g.classList.remove('is-drag-over-bottom');
-      }
-    });
-    g.addEventListener('drop', e => {
-      const dropAbove = g.classList.contains('is-drag-over-top');
-      g.classList.remove('is-drag-over');
-      g.classList.remove('is-drag-over-top');
-      g.classList.remove('is-drag-over-bottom');
-      const targetId = g.dataset.traditionId;
-      if (targetId === '__ungrouped__') return;
-      e.preventDefault();
-
-      // Tradition-group drop: reorder app.cards. Source cards land either
-      // BEFORE the target's first card (dropAbove) or AFTER the target's
-      // last card (dropBelow). The above/below decision was made during
-      // dragover from cursor Y relative to the target's midpoint.
-      if (app._dragTraditionId && app._dragTraditionId !== targetId) {
-        const sourceId = app._dragTraditionId;
-        const sourceCards = app.cards.filter(c => c.traditionId === sourceId);
-        const remaining = app.cards.filter(c => c.traditionId !== sourceId);
-        if (dropAbove) {
-          // Insert before target's first card
-          const targetIdx = remaining.findIndex(c => c.traditionId === targetId);
-          if (targetIdx === -1) {
-            app.cards = [...remaining, ...sourceCards];
-          } else {
-            app.cards = [...remaining.slice(0, targetIdx), ...sourceCards, ...remaining.slice(targetIdx)];
-          }
-        } else {
-          // Insert after target's last card
-          let lastTargetIdx = -1;
-          for (let i = remaining.length - 1; i >= 0; i--) {
-            if (remaining[i].traditionId === targetId) { lastTargetIdx = i; break; }
-          }
-          if (lastTargetIdx === -1) {
-            app.cards = [...remaining, ...sourceCards];
-          } else {
-            app.cards = [...remaining.slice(0, lastTargetIdx + 1), ...sourceCards, ...remaining.slice(lastTargetIdx + 1)];
-          }
-        }
-        app._dragTraditionId = null;
-        if (typeof pushHistory === 'function') pushHistory();
-        renderAll();
-        return;
-      }
-
-      // Card drop: reparent the dragged card to this tradition group
-      if (app._dragCardId) {
-        const dragCard = app.cards.find(c => c.id === app._dragCardId);
-        if (dragCard && dragCard.traditionId !== targetId) {
-          dragCard.traditionId = targetId;
-          // Move the card next to its new tradition's existing members
-          app.cards = app.cards.filter(c => c.id !== dragCard.id);
-          const insertIdx = app.cards.findIndex(c => c.traditionId === targetId);
-          if (insertIdx === -1) {
-            app.cards.push(dragCard);
-          } else {
-            // Insert AFTER the last card of the target tradition so it appears
-            // at the end of the group rather than the start.
-            let lastIdx = -1;
-            for (let i = 0; i < app.cards.length; i++) {
-              if (app.cards[i].traditionId === targetId) lastIdx = i;
-            }
-            app.cards.splice(lastIdx + 1, 0, dragCard);
-          }
-          app._dragCardId = null;
-          if (typeof pushHistory === 'function') pushHistory();
-          renderAll();
-        }
-      }
-    });
-  });
-
   // Wire tradition-delete buttons — bulk-remove all cards with that traditionId
   // in one undoable action. Uses skipHistory: true per rmCard to avoid one
   // history entry per card; pushHistory() runs once after the batch.
@@ -34850,23 +34754,6 @@ function renderSidebarTraditions() {
       renderSidebarTraditions();
       if (!isMobileLayout()) renderDetail();  // else: remounted by the line above
       if (!collapse) _revealSelectedCard();
-    });
-    // ─── Card drag (Phase 3c) ───
-    // Card drags reparent across tradition groups. Group drop handler reads
-    // app._dragCardId (set here) vs app._dragTraditionId (set on header drag)
-    // to know whether it's a card-onto-group or group-onto-group drop.
-    btn.addEventListener('dragstart', e => {
-      const cardId = btn.dataset.cardId;
-      app._dragCardId = cardId;
-      app._dragTraditionId = null;
-      e.dataTransfer.effectAllowed = 'move';
-      e.dataTransfer.setData('text/plain', 'card:' + cardId);
-      e.stopPropagation();  // don't bubble into tradition-header dragstart
-    });
-    btn.addEventListener('dragend', () => {
-      app._dragCardId = null;
-      host.querySelectorAll('.sb-tradition-group.is-drag-over, .sb-tradition-group.is-drag-over-top, .sb-tradition-group.is-drag-over-bottom')
-        .forEach(g => { g.classList.remove('is-drag-over'); g.classList.remove('is-drag-over-top'); g.classList.remove('is-drag-over-bottom'); });
     });
   });
 
@@ -34910,7 +34797,7 @@ function renderSidebarCard(card) {
   const fingerprint = card.traditionId && typeof renderFingerprint === 'function' ? renderFingerprint(card.traditionId) : '';
 
   return (
-    '<button class="sb-card' + (isSelected ? ' is-selected' : '') + (card.pinned ? ' is-pinned' : '') + '" data-card-id="' + esc(card.id) + '" draggable="true" ' +
+    '<button class="sb-card' + (isSelected ? ' is-selected' : '') + (card.pinned ? ' is-pinned' : '') + '" data-card-id="' + esc(card.id) + '" ' +
       'style="--family-tint: ' + familyTint + '; --family-color: ' + familyColor + ';">' +
       '<div class="sb-card-thumb">' + thumb + '</div>' +
       '<div class="sb-card-text">' +
@@ -35147,6 +35034,304 @@ function renderDetail() {
   } else {
     host.appendChild(view);
   }
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// DRAG AND DROP — cards between genres, genres into order
+//
+// Pointer Events, not HTML5 drag-and-drop. `dragstart` is a mouse-only event in
+// every mobile browser, so the HTML5 version this replaces could not fire from
+// a finger: reparenting a card into another genre had NO touch path at all (the
+// genre ↑/↓ movers were the only reorder a phone could reach). Pointer Events
+// are input-agnostic, so one implementation drives mouse, touch and pen.
+//
+// Touch has to coexist with scrolling. Below 900px the tree IS the page, so a
+// finger moving up the screen almost always means "scroll". Drag therefore arms
+// on a LONG PRESS — a stationary finger is unambiguous — while a mouse arms on a
+// small movement threshold. Moving before the timer fires cancels the press and
+// lets the scroll through untouched.
+//
+// Once armed, a NON-PASSIVE touchmove blocker stops the page scrolling under the
+// drag. It is attached at arm time, which is safe precisely because the finger
+// was stationary: no scroll gesture is in flight yet, and a scroll already begun
+// cannot be cancelled.
+// ═══════════════════════════════════════════════════════════════════════════
+
+const DND_LONG_PRESS_MS = 350; // touch: hold this long to pick up
+const DND_MOUSE_ARM_PX = 5; // mouse: move this far to pick up
+const DND_TOUCH_CANCEL_PX = 12; // touch: move this far first = scroll, not drag
+const DND_EDGE_PX = 72; // auto-scroll band at the viewport edges
+const DND_EDGE_SPEED = 16; // px per frame at the very edge
+
+// ── Drop appliers ──────────────────────────────────────────────────────────
+// The two mutations a drop can perform. Kept as named functions so the drag
+// controller is only about INPUT, and so a future keyboard or menu affordance
+// can reuse the exact same semantics rather than reimplementing them.
+
+// Reparent a card into another genre, landing after that genre's last card so
+// it reads as appended rather than inserted at a random depth.
+function dropCardOnTradition(cardId, targetTradId) {
+  const card = app.cards.find((c) => c.id === cardId);
+  if (!card || !targetTradId || targetTradId === '__ungrouped__') return false;
+  if (card.traditionId === targetTradId) return false;
+  card.traditionId = targetTradId;
+  app.cards = app.cards.filter((c) => c.id !== card.id);
+  let lastIdx = -1;
+  for (let i = 0; i < app.cards.length; i++) {
+    if (app.cards[i].traditionId === targetTradId) lastIdx = i;
+  }
+  if (lastIdx === -1) app.cards.push(card);
+  else app.cards.splice(lastIdx + 1, 0, card);
+  return true;
+}
+
+// Move a whole genre's run of cards above or below another genre's run.
+function dropTraditionOnTradition(sourceId, targetId, dropAbove) {
+  if (!sourceId || !targetId || sourceId === targetId) return false;
+  if (sourceId === '__ungrouped__' || targetId === '__ungrouped__') return false;
+  const sourceCards = app.cards.filter((c) => c.traditionId === sourceId);
+  if (!sourceCards.length) return false;
+  const remaining = app.cards.filter((c) => c.traditionId !== sourceId);
+  if (dropAbove) {
+    const at = remaining.findIndex((c) => c.traditionId === targetId);
+    app.cards =
+      at === -1
+        ? [...remaining, ...sourceCards]
+        : [...remaining.slice(0, at), ...sourceCards, ...remaining.slice(at)];
+  } else {
+    let last = -1;
+    for (let i = remaining.length - 1; i >= 0; i--) {
+      if (remaining[i].traditionId === targetId) {
+        last = i;
+        break;
+      }
+    }
+    app.cards =
+      last === -1
+        ? [...remaining, ...sourceCards]
+        : [...remaining.slice(0, last + 1), ...sourceCards, ...remaining.slice(last + 1)];
+  }
+  return true;
+}
+
+// ── Controller ─────────────────────────────────────────────────────────────
+// Delegated from #sidebar-traditions, which survives every re-render (only its
+// innerHTML is replaced), so this wires once at boot instead of re-binding a
+// listener per row on each paint.
+function wireTreeDragAndDrop() {
+  const host = document.getElementById('sidebar-traditions');
+  if (!host || !window.PointerEvent) return;
+
+  const clearIndicators = () => {
+    host
+      .querySelectorAll('.is-drag-over, .is-drag-over-top, .is-drag-over-bottom')
+      .forEach((g) => g.classList.remove('is-drag-over', 'is-drag-over-top', 'is-drag-over-bottom'));
+  };
+
+  // Block page scroll while a drag is live. Non-passive: passive listeners
+  // cannot preventDefault, which is the whole point.
+  const blockScroll = (e) => e.preventDefault();
+
+  const cleanup = () => {
+    const d = app._dnd;
+    if (!d) return;
+    if (d.timer) clearTimeout(d.timer);
+    if (d.raf) cancelAnimationFrame(d.raf);
+    if (d.ghost) d.ghost.remove();
+    if (d.source) d.source.classList.remove('is-dragging');
+    document.removeEventListener('touchmove', blockScroll);
+    document.removeEventListener('pointermove', onMove);
+    document.removeEventListener('pointerup', onUp);
+    document.removeEventListener('pointercancel', onUp);
+    document.body.classList.remove('is-dnd-active');
+    clearIndicators();
+    app._dnd = null;
+  };
+
+  // Which genre is under the pointer, and — for a genre drag — whether the drop
+  // lands above or below it. Returns null when the point is not a legal target.
+  const resolveTarget = (x, y) => {
+    const el = document.elementFromPoint(x, y);
+    const group = el && el.closest ? el.closest('.sb-tradition-group') : null;
+    if (!group || !host.contains(group)) return null;
+    const targetId = group.dataset.traditionId;
+    if (!targetId || targetId === '__ungrouped__') return null;
+    const d = app._dnd;
+    if (d.kind === 'tradition') {
+      if (targetId === d.id) return null;
+      const r = group.getBoundingClientRect();
+      return { group, targetId, above: y < r.top + r.height / 2 };
+    }
+    const card = app.cards.find((c) => c.id === d.id);
+    if (!card || card.traditionId === targetId) return null;
+    return { group, targetId };
+  };
+
+  const paintTarget = (hit) => {
+    clearIndicators();
+    if (!hit) return;
+    if (app._dnd.kind === 'tradition') {
+      hit.group.classList.add(hit.above ? 'is-drag-over-top' : 'is-drag-over-bottom');
+    } else {
+      hit.group.classList.add('is-drag-over');
+    }
+  };
+
+  // Auto-scroll when the pointer nears a viewport edge — without it, a drag on a
+  // long tree can only reach what was already on screen when it started.
+  const edgeScroll = () => {
+    const d = app._dnd;
+    if (!d || !d.armed) return;
+    const vh = window.innerHeight;
+    let dy = 0;
+    if (d.y < DND_EDGE_PX) dy = -DND_EDGE_SPEED * (1 - d.y / DND_EDGE_PX);
+    else if (d.y > vh - DND_EDGE_PX) dy = DND_EDGE_SPEED * (1 - (vh - d.y) / DND_EDGE_PX);
+    if (dy) {
+      window.scrollBy(0, dy);
+      paintTarget(resolveTarget(d.x, d.y));
+    }
+    d.raf = requestAnimationFrame(edgeScroll);
+  };
+
+  const arm = () => {
+    const d = app._dnd;
+    if (!d || d.armed) return;
+    d.armed = true;
+    if (d.timer) {
+      clearTimeout(d.timer);
+      d.timer = null;
+    }
+    const r = d.source.getBoundingClientRect();
+    d.offX = d.startX - r.left;
+    d.offY = d.startY - r.top;
+    const ghost = d.source.cloneNode(true);
+    ghost.classList.add('dnd-ghost');
+    ghost.removeAttribute('id');
+    ghost.style.width = r.width + 'px';
+    ghost.style.height = r.height + 'px';
+    document.body.appendChild(ghost);
+    d.ghost = ghost;
+    d.source.classList.add('is-dragging');
+    document.body.classList.add('is-dnd-active');
+    document.addEventListener('touchmove', blockScroll, { passive: false });
+    // A short buzz is the only "you picked it up" signal a finger gets — the
+    // pointer is under the user's own thumb, hiding the lifted row.
+    if (navigator.vibrate) navigator.vibrate(12);
+    moveGhost();
+    d.raf = requestAnimationFrame(edgeScroll);
+  };
+
+  const moveGhost = () => {
+    const d = app._dnd;
+    if (!d || !d.ghost) return;
+    d.ghost.style.transform = `translate(${d.x - d.offX}px, ${d.y - d.offY}px)`;
+  };
+
+  function onMove(e) {
+    const d = app._dnd;
+    if (!d || e.pointerId !== d.pointerId) return;
+    d.x = e.clientX;
+    d.y = e.clientY;
+    if (!d.armed) {
+      const dist = Math.hypot(d.x - d.startX, d.y - d.startY);
+      if (d.touch) {
+        // Moved before the hold completed → the user is scrolling. Stand down.
+        if (dist > DND_TOUCH_CANCEL_PX) cleanup();
+      } else if (dist > DND_MOUSE_ARM_PX) {
+        arm();
+      }
+      return;
+    }
+    moveGhost();
+    paintTarget(resolveTarget(d.x, d.y));
+  }
+
+  function onUp(e) {
+    const d = app._dnd;
+    if (!d || e.pointerId !== d.pointerId) return;
+    if (!d.armed) {
+      cleanup(); // a plain tap/click — leave it to the normal click handler
+      return;
+    }
+    const hit = e.type === 'pointercancel' ? null : resolveTarget(d.x, d.y);
+    const kind = d.kind;
+    const id = d.id;
+    // Suppress the click this pointer sequence is about to synthesise, so a
+    // drag never also toggles the row it started from.
+    const swallow = (ev) => {
+      ev.stopPropagation();
+      ev.preventDefault();
+    };
+    document.addEventListener('click', swallow, { capture: true, once: true });
+    setTimeout(() => document.removeEventListener('click', swallow, { capture: true }), 0);
+    cleanup();
+    if (!hit) return;
+    const changed =
+      kind === 'tradition'
+        ? dropTraditionOnTradition(id, hit.targetId, hit.above)
+        : dropCardOnTradition(id, hit.targetId);
+    if (!changed) return;
+    if (typeof pushHistory === 'function') pushHistory();
+    renderAll();
+    if (typeof showToast === 'function') {
+      const nameOf = (tid) => (Tradition(tid) ? Tradition(tid).name : tid);
+      showToast(
+        kind === 'tradition'
+          ? `Moved ${nameOf(id)} ${hit.above ? 'above' : 'below'} ${nameOf(hit.targetId)}`
+          : `Moved to ${nameOf(hit.targetId)}`,
+        'success'
+      );
+    }
+  }
+
+  host.addEventListener('pointerdown', (e) => {
+    if (e.button !== undefined && e.button !== 0) return; // left / primary only
+    if (app._dnd) cleanup();
+    // Controls inside a row act on their own; they are not drag handles.
+    if (e.target.closest('.sb-tradition-move, .sb-tradition-delete, .sb-add-to-tradition')) return;
+    const header = e.target.closest('[data-drag-tradition]');
+    const card = e.target.closest('.sb-card');
+    let kind, id, source;
+    if (card && host.contains(card)) {
+      kind = 'card';
+      id = card.dataset.cardId;
+      source = card;
+    } else if (header && host.contains(header)) {
+      kind = 'tradition';
+      id = header.dataset.dragTradition;
+      source = header;
+    } else {
+      return;
+    }
+    const touch = e.pointerType === 'touch' || e.pointerType === 'pen';
+    app._dnd = {
+      kind,
+      id,
+      source,
+      touch,
+      pointerId: e.pointerId,
+      startX: e.clientX,
+      startY: e.clientY,
+      x: e.clientX,
+      y: e.clientY,
+      offX: 0,
+      offY: 0,
+      armed: false,
+      ghost: null,
+      timer: null,
+      raf: null,
+    };
+    document.addEventListener('pointermove', onMove);
+    document.addEventListener('pointerup', onUp);
+    document.addEventListener('pointercancel', onUp);
+    if (touch) app._dnd.timer = setTimeout(arm, DND_LONG_PRESS_MS);
+  });
+
+  // A long press on touch would otherwise raise the context menu / selection
+  // callout on top of the drag.
+  host.addEventListener('contextmenu', (e) => {
+    if (app._dnd && app._dnd.armed) e.preventDefault();
+  });
 }
 
 // The .sb-card button for a card, or null if the tree isn't showing it (the
@@ -36784,6 +36969,7 @@ function _initApp() {
   syncAppBarHeight();
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(syncAppBarHeight).catch(() => {});
   wireOverflowMenu();
+  wireTreeDragAndDrop();
   // Crossing 900px swaps the whole model — the detail panel moves between the
   // tree and the right-hand pane — so the app has to repaint, not just
   // restyle. Repaint ONLY on a crossing: a plain resize (or the address bar

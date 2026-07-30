@@ -32,6 +32,9 @@
 //      interaction, tapping an instrument expands it INSIDE the tree, and the
 //      recipe bar is pinned within the viewport
 //      above 900px: the detail mounts in the right-hand pane, as before
+//   H. drag and drop works with the viewport's REAL input — a genuine touch
+//      gesture on phones, a genuine mouse drag on desktop — and leaves no
+//      ghost or highlight behind
 //
 // Usage:
 //   node scripts/check_mobile_layout.js [--html=codex.html] [--verbose]
@@ -215,6 +218,48 @@ const MOUNT_PROBE = `(() => {
     innerWidth: window.innerWidth,
   };
 })()`;
+
+// Deterministic tree shape for the drag test: two genres, every genre expanded,
+// no inline detail open, scrolled to top — so a source row and a target genre
+// are on one screen at 360px as well as at 1280px.
+const DND_SETUP = `(() => {
+  app.collapsedTraditionGroups.clear();
+  app.selected = null;
+  renderAll();
+  window.scrollTo(0, 0);
+  const s = document.getElementById('sidebar-scroll');
+  if (s) s.scrollTop = 0;
+  return [...new Set(app.cards.map(c => c.traditionId))];
+})()`;
+
+// Put the boundary between genre 1 and genre 2 near the middle of the screen,
+// so a source row and a target genre are both visible. Needed for the landscape
+// phone (844x390), where the tree is far taller than the viewport and the second
+// genre otherwise starts below the fold.
+const DND_FOCUS = `(() => {
+  const groups = document.querySelectorAll('.sb-tradition-group');
+  if (groups.length < 2) return false;
+  const cards = groups[0].querySelectorAll('.sb-card');
+  const anchor = cards[cards.length - 1] || groups[0];
+  window.scrollBy(0, anchor.getBoundingClientRect().top - window.innerHeight * 0.35);
+  return true;
+})()`;
+
+// A point on the element that is genuinely hit-testable there — the sticky
+// genre headers cover the row beneath them once the tree is scrolled, so the
+// geometric centre is not always the right place to press.
+const DND_POINT = `((sel, idx) => {
+  const el = document.querySelectorAll(sel)[idx];
+  if (!el) return null;
+  const r = el.getBoundingClientRect();
+  for (const fy of [0.5, 0.75, 0.9, 0.25]) {
+    const x = Math.round(r.left + r.width / 2), y = Math.round(r.top + r.height * fy);
+    if (y < 0 || y > window.innerHeight) continue;
+    const top = document.elementFromPoint(x, y);
+    if (top && (top === el || el.contains(top))) return { x, y };
+  }
+  return null;
+})`;
 
 // Scroll to the bottom, then check the two anchored bars are still anchored.
 const PINNED_PROBE = `(() => {
@@ -442,6 +487,103 @@ const PINNED_PROBE = `(() => {
       }
     }
 
+    // ---- H. drag and drop, driven by the viewport's real input --------------
+    // HTML5 drag-and-drop is mouse-only: `dragstart` never fires from a finger,
+    // so for as long as the tree used it, reparenting a card into another genre
+    // had no touch path at all and nothing failed. This drives a genuine touch
+    // gesture on phone viewports (CDP touch events -> real pointerType 'touch')
+    // and a genuine mouse drag on desktop, then asserts the model actually
+    // changed. A regression here means a whole interaction silently died again.
+    checks++;
+    try {
+      // Add a second genre so there is somewhere to drag TO.
+      const staple = await page.$('#sb-staple-add');
+      if (staple) {
+        await staple.click();
+        await page.waitForTimeout(1800);
+      }
+      const genres = await page.evaluate(DND_SETUP);
+      await page.waitForTimeout(400);
+      await page.evaluate(DND_FOCUS);
+      await page.waitForTimeout(400);
+      if (genres.length < 2) {
+        fail(vp, 'could not build a two-genre workspace to exercise drag and drop');
+      } else {
+        const before = await page.evaluate('app.cards.map(c => ({ id: c.id, t: c.traditionId }))');
+        // The LAST card of genre 1 — nearest the genre-1/genre-2 boundary that
+        // DND_FOCUS just centred, so both ends of the drag are on screen even on
+        // the 390px-tall landscape phone.
+        const srcId = await page.evaluate(
+          `(() => { const c = document.querySelectorAll('.sb-tradition-group')[0].querySelectorAll('.sb-card');
+             return c.length ? c[c.length - 1].dataset.cardId : null; })()`
+        );
+        const from = await page.evaluate(
+          `(() => { const c = document.querySelectorAll('.sb-tradition-group')[0].querySelectorAll('.sb-card');
+             return ${DND_POINT}('.sb-tradition-group:nth-of-type(1) .sb-card', c.length - 1); })()`
+        );
+        const to = await page.evaluate(
+          `${DND_POINT}('.sb-tradition-group:nth-of-type(2) .sb-tradition-header', 0)`
+        );
+        if (!from || !to || !srcId) {
+          fail(vp, 'drag source or target row is not hit-testable on screen');
+        } else {
+          let armed = false;
+          if (vp.phone) {
+            const cdp = await ctx.newCDPSession(page);
+            const send = (type, pts) =>
+              cdp.send('Input.dispatchTouchEvent', { type, touchPoints: pts });
+            await send('touchStart', [{ x: from.x, y: from.y }]);
+            await page.waitForTimeout(500); // long press to arm
+            armed = await page.evaluate('!!(app._dnd && app._dnd.armed)');
+            for (let i = 1; i <= 10; i++) {
+              await send('touchMove', [
+                {
+                  x: from.x + ((to.x - from.x) * i) / 10,
+                  y: from.y + ((to.y - from.y) * i) / 10,
+                },
+              ]);
+              await page.waitForTimeout(25);
+            }
+            await page.waitForTimeout(120);
+            await send('touchEnd', []);
+          } else {
+            await page.mouse.move(from.x, from.y);
+            await page.mouse.down();
+            for (let i = 1; i <= 12; i++) {
+              await page.mouse.move(
+                from.x + ((to.x - from.x) * i) / 12,
+                from.y + ((to.y - from.y) * i) / 12
+              );
+              await page.waitForTimeout(15);
+            }
+            armed = await page.evaluate('!!(app._dnd && app._dnd.armed)');
+            await page.waitForTimeout(120);
+            await page.mouse.up();
+          }
+          await page.waitForTimeout(800);
+          const after = await page.evaluate('app.cards.map(c => ({ id: c.id, t: c.traditionId }))');
+          const b = before.find((c) => c.id === srcId);
+          const a = after.find((c) => c.id === srcId);
+          const input = vp.phone ? 'touch' : 'mouse';
+          if (!armed) {
+            fail(vp, `drag never armed on ${input} — the row could not be picked up`);
+          } else if (!a || !b || a.t === b.t) {
+            fail(vp, `drag on ${input} did not reparent the card (still in "${b && b.t}")`);
+          }
+          checks++;
+          const leftover = await page.evaluate(
+            `!!document.querySelector('.dnd-ghost, .is-dragging, .is-drag-over, .is-drag-over-top, .is-drag-over-bottom')`
+          );
+          if (leftover) fail(vp, 'drag artefacts (ghost / highlight) survived the drop');
+        }
+      }
+    } catch (e) {
+      fail(
+        vp,
+        `drag and drop check threw: ${(e && e.message ? e.message : String(e)).slice(0, 120)}`
+      );
+    }
+
     checks++;
     if (pageErrors.length) fail(vp, `uncaught JS error: ${pageErrors[0]}`);
 
@@ -467,7 +609,8 @@ const PINNED_PROBE = `(() => {
   console.log(
     `MOBILE LAYOUT: PASS — ${checks} assertions across ${VIEWPORTS.length} viewports ` +
       `(viewport, overflow, ${CAPABILITIES.length} capabilities reachable + touch-sized, ` +
-      `no overlap, no empty icons, sticky bar, inline-expansion model).`
+      `no overlap, no empty icons, sticky bar, inline-expansion model, ` +
+      `drag-and-drop under real touch + mouse).`
   );
   process.exit(0);
 })().catch((e) => {
