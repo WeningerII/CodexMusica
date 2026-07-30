@@ -53,9 +53,15 @@ const VIEWPORTS = [
 const REQUIRED_CONTROLS = ['btn-add', 'btn-drawer-toggle'];
 
 const MIME = {
-  '.html': 'text/html', '.js': 'text/javascript', '.json': 'application/json',
-  '.css': 'text/css', '.svg': 'image/svg+xml', '.png': 'image/png',
-  '.webp': 'image/webp', '.txt': 'text/plain', '.xml': 'application/xml',
+  '.html': 'text/html',
+  '.js': 'text/javascript',
+  '.json': 'application/json',
+  '.css': 'text/css',
+  '.svg': 'image/svg+xml',
+  '.png': 'image/png',
+  '.webp': 'image/webp',
+  '.txt': 'text/plain',
+  '.xml': 'application/xml',
 };
 
 function serve() {
@@ -163,20 +169,27 @@ const PROBE = `(() => {
     for (const id of REQUIRED_CONTROLS) {
       const c = r.controls[id];
       checks++;
-      if (!c || c.missing) { failures.push(`${vp.name}: #${id} missing from the DOM`); continue; }
+      if (!c || c.missing) {
+        failures.push(`${vp.name}: #${id} missing from the DOM`);
+        continue;
+      }
       if (c.hidden) continue; // deliberately hidden at this width is fine
       if (!c.inside) {
-        failures.push(`${vp.name}: #${id} is off-screen (x ${c.left}..${c.right}, viewport ${r.innerWidth})`);
+        failures.push(
+          `${vp.name}: #${id} is off-screen (x ${c.left}..${c.right}, viewport ${r.innerWidth})`
+        );
       } else if (!c.hittable) {
         failures.push(`${vp.name}: #${id} is covered by another element and cannot be tapped`);
       }
     }
     if (VERBOSE) {
-      console.error(`  ${vp.name.padEnd(16)} innerWidth=${r.innerWidth} scrollWidth=${r.scrollWidth} ` +
-        REQUIRED_CONTROLS.map((id) => {
-          const c = r.controls[id] || {};
-          return `${id}:${c.hidden ? 'hidden' : c.inside ? 'ok' : 'OFF'}`;
-        }).join(' '));
+      console.error(
+        `  ${vp.name.padEnd(16)} innerWidth=${r.innerWidth} scrollWidth=${r.scrollWidth} ` +
+          REQUIRED_CONTROLS.map((id) => {
+            const c = r.controls[id] || {};
+            return `${id}:${c.hidden ? 'hidden' : c.inside ? 'ok' : 'OFF'}`;
+          }).join(' ')
+      );
     }
     await ctx.close();
   }
@@ -185,7 +198,9 @@ const PROBE = `(() => {
   server.close();
 
   if (failures.length) {
-    console.error(`MOBILE LAYOUT: FAIL — ${failures.length} problem(s) across ${VIEWPORTS.length} viewports:`);
+    console.error(
+      `MOBILE LAYOUT: FAIL — ${failures.length} problem(s) across ${VIEWPORTS.length} viewports:`
+    );
     for (const f of failures) console.error('  ✗ ' + f);
     process.exit(1);
   }
