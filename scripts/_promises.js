@@ -73,4 +73,10 @@ module.exports = [
     gate: 'check_lazy_app.js',
     claim: 'the shipped lazy shell behaves identically to the embedded build',
   },
+  {
+    id: 'mobile-layout-usable',
+    doc: 'README.md',
+    gate: 'check_mobile_layout.js',
+    claim: 'the shipped page fits the device width on a phone, with every header control tappable',
+  },
 ];
