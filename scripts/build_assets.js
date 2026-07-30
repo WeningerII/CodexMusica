@@ -88,6 +88,11 @@ const ICON_ALIASES = {
   load: 'folder-open',
   'save-as': 'save-all',
   filter: 'funnel',
+  // The app bar spells these `undo` / `redo`; Lucide vendors them as the
+  // numbered variants. Without the aliases icon() returns '' and both
+  // buttons render as empty squares.
+  undo: 'undo-2',
+  redo: 'redo-2',
 };
 
 // Extract the inner content from a Lucide SVG file (strip the outer <svg> wrapper).

@@ -39,6 +39,22 @@ const { execFileSync } = require('child_process');
 const { parseInventory } = require('./_inventory_parser.js');
 const { HTML_OUT } = require('./_paths.js');
 
+// A preinstalled Chromium may be a different build than the pinned playwright,
+// which then looks for a `chromium_headless_shell-<pin>` that is not there and
+// dies at launch. Fall back to whatever `chromium-<build>` is actually present.
+// Returns undefined when there is none, letting playwright resolve normally.
+// (Same helper as check_mobile_layout.js.)
+function chromiumPath() {
+  const base = process.env.PLAYWRIGHT_BROWSERS_PATH;
+  if (!base || !fs.existsSync(base)) return undefined;
+  for (const d of fs.readdirSync(base)) {
+    if (!/^chromium-\d+$/.test(d)) continue;
+    const exe = path.join(base, d, 'chrome-linux', 'chrome');
+    if (fs.existsSync(exe)) return exe;
+  }
+  return undefined;
+}
+
 const args = process.argv.slice(2);
 const flags = {};
 for (const a of args) {
@@ -319,6 +335,7 @@ async function main() {
   const { chromium } = await loadPlaywright();
   const browser = await chromium.launch({
     headless: true,
+    executablePath: chromiumPath(),
     args: ['--no-sandbox'],
   });
 

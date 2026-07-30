@@ -4523,6 +4523,19 @@ function esc(s) { return s == null ? '' : String(s).replace(/&/g, '&amp;').repla
 // RENDER
 // ============================================================
 
+// Below 900px the app is ONE SCROLLING PAGE: the genre tree is the page and
+// the instrument detail mounts inside it, under the row that opened it. Above
+// it, the classic two-pane master/detail. 899 is the same width the workspace
+// grid already collapsed at — no new breakpoint enters the cascade.
+//
+// Matches the CSS on WIDTH ALONE, deliberately: gating on `pointer: coarse`
+// would let a narrow desktop window take the phone layout while the JS still
+// mounted the detail in the desktop pane.
+const MOBILE_MAX_WIDTH = 899;
+function isMobileLayout() {
+  return window.innerWidth <= MOBILE_MAX_WIDTH;
+}
+
 function renderAll() {
   renderEmpty();
   renderMeta();
@@ -4531,7 +4544,10 @@ function renderAll() {
   // no two cards share the same preface; collisions resolved by score.
   _applyRecipeDedup();
   renderSidebar();
-  renderDetail();
+  // On mobile the detail lives INSIDE the tree that renderSidebar() just
+  // rebuilt, so renderSidebarTraditions() has already remounted it. Calling
+  // again here would tear down and rebuild the same panel a second time.
+  if (!isMobileLayout()) renderDetail();
 }
 
 // Curated starter recipes for the empty-state gallery — chosen to span the
@@ -5015,9 +5031,14 @@ function renderSidebarTraditions() {
   host.querySelectorAll('.sb-card').forEach(btn => {
     btn.addEventListener('click', () => {
       const cardId = btn.dataset.cardId;
-      app.selected = cardId;
+      // Mobile: the row is a disclosure, so a second tap on the open one
+      // closes it. Desktop has a permanent detail pane — there is nothing to
+      // close, and clearing the selection would blank half the screen.
+      const collapse = isMobileLayout() && app.selected === cardId;
+      app.selected = collapse ? null : cardId;
       renderSidebarTraditions();
-      renderDetail();
+      if (!isMobileLayout()) renderDetail();  // else: remounted by the line above
+      if (!collapse) _revealSelectedCard();
     });
     // ─── Card drag (Phase 3c) ───
     // Card drags reparent across tradition groups. Group drop handler reads
@@ -5051,6 +5072,15 @@ function renderSidebarTraditions() {
       openModal('modal-add');
     });
   });
+
+  // MOBILE: the inline detail panel lived inside the subtree the innerHTML
+  // assignment above just replaced, so rebuild it. Every caller that repaints
+  // the tree — selection, collapse, reorder, filter — lands here, which is why
+  // the remount belongs in this function rather than at each call site.
+  if (isMobileLayout()) {
+    host.querySelectorAll('.sb-card').forEach(b => b.setAttribute('aria-expanded', 'false'));
+    renderDetail();
+  }
 }
 
 function renderSidebarCard(card) {
@@ -5150,7 +5180,7 @@ function renderSidebarStaple() {
 function renderSidebarRecipePreview() {
   const host = document.getElementById('sidebar-recipe-preview');
   if (!host) return;
-  if (app.cards.length === 0) { host.innerHTML = ''; return; }
+  if (app.cards.length === 0) { host.innerHTML = ''; _syncRecipeBarHeight(); return; }
 
   const CEILING = RECIPE_CHAR_CEILING;
   let text = '';
@@ -5165,18 +5195,45 @@ function renderSidebarRecipePreview() {
   const pct = Math.min(100, Math.round((len / CEILING) * 100));
   const band = pct > 90 ? 'is-red' : (pct > 70 ? 'is-amber' : '');
 
+  // Below 900px this box is pinned to the bottom of the viewport, so it is the
+  // one surface guaranteed to be on screen at every scroll position. Undo,
+  // redo and copy therefore ride here rather than in the app bar — a phone has
+  // no Ctrl+Z, and they are thumb-reachable at the bottom edge. `.rp-tool` and
+  // `.rp-expand` are display:none above 900px, where the app bar already
+  // carries undo/redo and the panel is permanently open.
+  const expanded = !!app._recipeSheetOpen;
+  host.classList.toggle('is-expanded', expanded);
   host.innerHTML =
     '<div class="rp-head">' +
       icon('diamond', 12) +
       '<span class="rp-label">Current recipe</span>' +
       '<span class="rp-count ' + band + '">' + len + ' / ' + CEILING + '</span>' +
+      '<button class="icon-btn rp-tool" data-proxy="btn-undo" aria-label="Undo">' + icon('undo', 14) + '</button>' +
+      '<button class="icon-btn rp-tool" data-proxy="btn-redo" aria-label="Redo">' + icon('redo', 14) + '</button>' +
       '<button class="icon-btn rp-copy" id="sb-recipe-copy" data-tooltip="Copy recipe" data-tooltip-pos="bottom" aria-label="Copy recipe">' + icon('copy', 12) + '</button>' +
+      '<button class="icon-btn rp-expand" id="sb-recipe-expand" aria-expanded="' + expanded + '" ' +
+        // chevron-up is not vendored; the glyph is chevron-down rotated by CSS.
+        'aria-label="' + (expanded ? 'Collapse recipe' : 'Expand recipe') + '">' + icon('chevron-down', 14) + '</button>' +
     '</div>' +
     '<div class="rp-progress"><div class="rp-progress-fill ' + band + '" style="width: ' + pct + '%;"></div></div>' +
     (text
       ? '<div class="rp-text">' + esc(text) + '</div>'
       : '<div class="rp-empty">Nothing configured yet.</div>') +
     '<button class="rp-open" id="sb-open-full-stack">Open full stack ' + icon('arrow-right', 12) + '</button>';
+
+  const expandBtn = document.getElementById('sb-recipe-expand');
+  if (expandBtn) expandBtn.addEventListener('click', () => {
+    app._recipeSheetOpen = !app._recipeSheetOpen;
+    renderSidebarRecipePreview();
+    _syncRecipeBarHeight();
+  });
+  // Mirror the real buttons' disabled state so a greyed-out Undo reads as
+  // greyed-out here too; the click itself is forwarded, not reimplemented.
+  host.querySelectorAll('[data-proxy]').forEach(b => {
+    const src = document.getElementById(b.dataset.proxy);
+    b.disabled = !src || src.disabled;
+    b.addEventListener('click', () => { if (src) src.click(); });
+  });
 
   const copy = document.getElementById('sb-recipe-copy');
   if (copy) copy.addEventListener('click', () => {
@@ -5190,6 +5247,7 @@ function renderSidebarRecipePreview() {
     if (typeof renderRecipeStack === 'function') renderRecipeStack();
     if (typeof openModal === 'function') openModal('modal-recipe-stack');
   });
+  _syncRecipeBarHeight();
 }
 // Right-pane content for the currently-selected card. Composes 6 layers:
 // breadcrumb + action cluster, header (thumb + title + fingerprint), trait
@@ -5218,9 +5276,16 @@ function renderDetail() {
   // master-detail refactor.
   if (emptyEl) emptyEl.style.display = 'none';
 
-  // Resolve selection — default to first card if nothing selected.
+  // Resolve selection. Desktop falls back to the first card because the detail
+  // pane is permanent — an empty right half is not a state worth showing.
+  // Mobile has no pane to fill: "nothing selected" means every genre row is
+  // collapsed, which is a legitimate (and useful) view of a long tree.
   let card = app.cards.find(c => c.id === app.selected);
-  if (!card) { card = app.cards[0]; app.selected = card.id; }
+  if (!card) {
+    if (isMobileLayout()) return;
+    card = app.cards[0];
+    app.selected = card.id;
+  }
   const inst = Inst(card.instrumentId);
   if (!inst) return;
 
@@ -5259,7 +5324,44 @@ function renderDetail() {
   // tuning-picker / chain-toggle interaction working identically.
   view.addEventListener('click', e => handleCardClick(e, card));
 
-  host.appendChild(view);
+  // MOUNT POINT. On mobile the panel belongs to the row that opened it, so it
+  // goes directly after that .sb-card inside the tree — tapping an instrument
+  // expands it in place rather than repainting a second pane you cannot see.
+  // Everything above this line is layout-independent: both layouts render the
+  // identical panel, with the identical handlers.
+  const anchor = isMobileLayout() ? _detailAnchorFor(card.id) : null;
+  if (anchor) {
+    anchor.insertAdjacentElement('afterend', view);
+    anchor.setAttribute('aria-expanded', 'true');
+  } else {
+    host.appendChild(view);
+  }
+}
+
+// The .sb-card button for a card, or null if the tree isn't showing it (the
+// sidebar filter can hide it, and there is no tree at all with zero cards).
+function _detailAnchorFor(cardId) {
+  const tree = document.getElementById('sidebar-traditions');
+  if (!tree || !cardId) return null;
+  return [...tree.querySelectorAll('.sb-card')].find(b => b.dataset.cardId === cardId) || null;
+}
+
+// After a tap expands a row, bring it under the app bar — but only if it isn't
+// already sitting somewhere sensible, so tapping through a short list doesn't
+// jerk the page on every tap.
+function _revealSelectedCard() {
+  if (!isMobileLayout()) return;
+  requestAnimationFrame(() => {
+    const anchor = _detailAnchorFor(app.selected);
+    if (!anchor) return;
+    const barH = parseInt(
+      getComputedStyle(document.documentElement).getPropertyValue('--app-bar-height'), 10
+    ) || 56;
+    const top = anchor.getBoundingClientRect().top;
+    if (top >= barH && top <= window.innerHeight * 0.5) return;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollBy({ top: top - barH - 8, behavior: reduce ? 'auto' : 'smooth' });
+  });
 }
 
 // Stack signature strip — surfaces the workspace centroid + 4 nearest
@@ -6777,6 +6879,62 @@ function syncAppBarHeight() {
   document.documentElement.style.setProperty('--app-bar-height', bar.offsetHeight + 'px');
 }
 
+// Same idea for the pinned recipe bar: below 900px it is fixed to the bottom
+// edge, so the scrolling content needs exactly its height in bottom padding or
+// the last genre in the tree sits underneath it and cannot be tapped.
+function _syncRecipeBarHeight() {
+  const rp = document.getElementById('sidebar-recipe-preview');
+  const h = rp && isMobileLayout() && rp.childElementCount ? rp.offsetHeight : 0;
+  document.documentElement.style.setProperty('--recipe-bar-height', h + 'px');
+}
+
+// The compact app bar's overflow sheet. Every item forwards its click to the
+// real control in the app bar rather than duplicating its handler, so the
+// compact bar cannot drift out of parity with the desktop one — there is still
+// exactly one implementation of Save, Saved and Image credits.
+function wireOverflowMenu() {
+  const btn = document.getElementById('btn-more');
+  const menu = document.getElementById('app-more-menu');
+  if (!btn || !menu) return;
+  let backdrop = null;
+
+  const close = () => {
+    menu.hidden = true;
+    btn.setAttribute('aria-expanded', 'false');
+    if (backdrop) { backdrop.remove(); backdrop = null; }
+  };
+  const open = () => {
+    menu.querySelectorAll('[data-proxy]').forEach(i => {
+      const src = document.getElementById(i.dataset.proxy);
+      i.disabled = !src || src.disabled;
+    });
+    menu.hidden = false;             // must be laid out before it can be measured
+    btn.setAttribute('aria-expanded', 'true');
+    const r = btn.getBoundingClientRect();
+    const w = menu.offsetWidth;
+    menu.style.top = (r.bottom + 6) + 'px';
+    menu.style.left = Math.max(8, Math.min(r.right - w, window.innerWidth - w - 8)) + 'px';
+    backdrop = document.createElement('div');
+    backdrop.className = 'more-menu-backdrop';
+    backdrop.addEventListener('click', close);
+    document.body.appendChild(backdrop);
+    const first = menu.querySelector('.more-menu-item:not(:disabled)');
+    if (first) first.focus();
+  };
+
+  btn.addEventListener('click', () => (menu.hidden ? open() : close()));
+  menu.addEventListener('click', e => {
+    const item = e.target.closest('[data-proxy]');
+    if (!item || item.disabled) return;
+    close();
+    const src = document.getElementById(item.dataset.proxy);
+    if (src) src.click();
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && !menu.hidden) { close(); btn.focus(); }
+  });
+}
+
 // Boot gate. Embedded build: CATALOG_READY is null and init runs synchronously
 // inside the DOMContentLoaded handler, exactly as it always has. Lazy shell:
 // init waits for the one browse-index fetch; a failed fetch renders a
@@ -6814,7 +6972,18 @@ function _initApp() {
   // locked to the bar's actual height.
   syncAppBarHeight();
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(syncAppBarHeight).catch(() => {});
-  window.addEventListener('resize', syncAppBarHeight);
+  wireOverflowMenu();
+  // Crossing 900px swaps the whole model — the detail panel moves between the
+  // tree and the right-hand pane — so the app has to repaint, not just
+  // restyle. Repaint ONLY on a crossing: a plain resize (or the address bar
+  // hiding on scroll) must not rebuild the tree under the user's finger.
+  let wasMobile = isMobileLayout();
+  window.addEventListener('resize', () => {
+    syncAppBarHeight();
+    const nowMobile = isMobileLayout();
+    if (nowMobile !== wasMobile) { wasMobile = nowMobile; renderAll(); }
+    _syncRecipeBarHeight();
+  });
   populatePrefaceDatalist();
   // Escape closes any currently-open modal. Backdrop click closes are wired
   // elsewhere via data-close; this adds the keyboard parity for accessibility.

@@ -6,7 +6,80 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Changed
+- **The phone layout is now one scrolling page, not a desktop UI made to fit.**
+  The previous pass made the app bar *fit* a 390px screen and stopped there. What
+  it shipped was seven unlabelled icon squares in a horizontal scroll strip, the
+  genre tree behind a hamburger, and the recipe stack at the bottom of that
+  drawer — so the only route to "add a genre" was an unlabelled music-note glyph,
+  and the thing you came to edit was never on screen with the thing you tapped.
+  Below 900px the model is now: **the genre tree IS the page**, genres collapse
+  inline (reusing the existing `collapsedTraditionGroups` machinery), and tapping
+  an instrument mounts `#detail-view` directly beneath that row rather than
+  repainting a pane you cannot see. The app bar carries the two authoring entry
+  points with real words on them — **+ Genre** and **+ Instrument** — the recipe
+  is a bar pinned to the bottom edge carrying **undo / redo / copy** and expanding
+  to the full recipe on tap, and save / saved / credits sit behind an overflow
+  sheet whose items forward their clicks to the real app-bar buttons, so there is
+  still exactly one handler per action. Desktop (>= 900px) is untouched: same
+  two-pane master/detail, same eight controls, every rule in a `max-width` query.
+- **Touch sizing no longer depends on `pointer: coarse`.** It was gated on the
+  emulation flag, so a narrow desktop *window* got the phone layout with 28px
+  targets. Below 900px the layout is the phone layout, so it gets 44px targets
+  unconditionally.
+- **The stack-signature strip is dropped below 900px.** It reflowed to four
+  stacked rows and cost ~40% of the panel's first screenful before a single
+  editable control, and it is read-only context rather than an authoring surface.
+  Authoring parity is unaffected; the nearest-traditions "Browse near" jump goes
+  with it, and those traditions stay reachable through the Traditions browser.
+
+### Fixed
+- **The app bar scrolled off the top and never came back.** `html, body { height:
+  100% }` is the desktop app-shell assumption — the page never scrolls there, the
+  detail pane scrolls inside a viewport-tall frame. Once the phone layout made the
+  *page* the scroller, that fixed-height body clamped the sticky bar to a
+  viewport-tall containing block: past ~844px of scrolling the bar left the screen
+  for good, taking both Add actions with it.
+- **Hover tooltips were re-opening the layout viewport on phones.**
+  `[data-tooltip]::after` is an always-rendered, `white-space: nowrap`,
+  absolutely-positioned bubble held at opacity 0 until `:hover` — invisible on a
+  touch device, but still laid out. `data-tooltip-pos="left"` (which the tradition
+  mover and delete buttons ask for) has *no CSS implementation*, so those bubbles
+  rendered centred-above and spilled past the right edge. The desktop sidebar is
+  `overflow: hidden` and clipped them; the scrolling page did not, so a 133px
+  bubble on a right-aligned 44px button pushed the document to 468px and Chrome
+  scaled the whole app to 83% — the same failure class as the original collapse,
+  from a new cause. Tooltips are now suppressed below 900px (every affected
+  control already carries `aria-label`, so no accessible name is lost), with
+  `overflow-x: clip` on the tree as a structural backstop.
+- **`undo` / `redo` icon aliases existed only in the generated manifest.** They
+  were added to `references/08_asset_manifest.js` directly, not to its generator,
+  so the next `npm run assets:icons` would have silently returned both buttons to
+  empty squares. Added to `scripts/build_assets.js`, and the CSS mask workaround
+  that had been papering over the blank glyphs is deleted.
+- `scripts/ui_reachability_check.js` now falls back to a preinstalled
+  `chromium-<build>` when the pinned playwright's `chromium_headless_shell` is
+  absent, matching `check_mobile_layout.js`. It was dying at launch.
+
 ### Added
+- **`check_mobile_layout.js` now asserts the layout MODEL, not just that it fits.**
+  v1 passed on the unusable icon-strip build, because it checked 2 of 8 controls
+  and contained `if (c.hidden) continue;  // deliberately hidden at this width is
+  fine` — which scored "solve the overflow by hiding the button" as a pass. It is
+  now written against **capabilities** rather than button ids: nine capabilities
+  (add instrument, add genre, undo, redo, copy recipe, recipe size, save, saved,
+  credits), each satisfied only by a control that is on screen, hit-testable at
+  its centre point, and >= 44px on phone widths. Moving a control into the
+  overflow sheet is allowed — the gate opens the sheet and re-checks — but hiding
+  it with no route at all now fails. Added alongside: pairwise overlap detection
+  between painted controls, an empty-glyph check (`icon()` returns `''` for an
+  unknown name, which is how `undo`/`redo` shipped blank), a sticky-app-bar check
+  after scrolling to the bottom, and model assertions — the tree must be on screen
+  with no interaction and the detail must mount *inside the tree* below 900px and
+  *in the right-hand pane* above it. **21 assertions across 7 viewports → 159
+  across 8.** Verified by mutation: hiding `#btn-traditions`, restoring `html,
+  body { height: 100% }`, and restoring the tooltips each make it fail with the
+  specific diagnosis.
 - **Two traditions the catalog documented as missing, and every archetype now has
   an owner.** `arch_french_touch_filter_house` and `arch_ilaiyaraaja_kollywood`
   were authored but used by zero traditions. Git history confirmed neither was
