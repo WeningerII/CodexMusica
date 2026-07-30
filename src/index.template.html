@@ -106,11 +106,57 @@ ul { list-style: none; }
    the same order that it has today. Measured: identical per-control rects at
    900/1000/1100/1280px, and the wrapper reports clientWidth 0 / scrollWidth 0.
    ########################################################################## */
-/* Wrapper for the six secondary tools. It generates no box on desktop, so the
-   app bar's flex tree is byte-for-byte what it was before this change; the
-   mobile tiers below turn it into a real horizontal scroll container. */
+/* Wrapper for the six secondary tools. It generates no box at ANY width — the
+   compact tier moves these controls into #app-more-menu rather than reflowing
+   them, so the app bar's flex tree is the same shape on a phone as on a
+   desktop, just with fewer children displayed. */
 .app-bar .actions-scroll { display: contents; }
+.app-bar .actions-rule { width: 1px; height: 18px; background: var(--border); margin: 0 var(--s2); }
 .workspace-meta { font-size: var(--fs-caption); color: var(--text-3); }
+
+/* Two-width button labels. `.lbl-full` is the desktop wording, `.lbl-compact`
+   the phone wording — "Add instrument" / "Instrument", "Traditions" / "Genre".
+   Exactly one is ever in flow, so the button has no hidden width. */
+.lbl-compact { display: none; }
+
+/* Overflow menu — desktop hides the trigger entirely (every action it holds is
+   already a button in the bar). Scoped to `.app-bar` to outrank `.icon-btn
+   { display: inline-flex }`, which is same-specificity but declared later. */
+.app-bar .app-more-btn { display: none; }
+.more-menu {
+  position: fixed;
+  z-index: 120;
+  min-width: 220px;
+  padding: var(--s2);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r3, 10px);
+  box-shadow: var(--shadow-modal);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.more-menu[hidden] { display: none; }
+.more-menu-item {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  width: 100%;
+  min-height: 44px;
+  padding: 0 var(--s3);
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text);
+  font-size: var(--fs-body);
+  text-align: left;
+  cursor: pointer;
+}
+.more-menu-item:hover:not(:disabled) { background: var(--surface-2); }
+.more-menu-item:disabled { opacity: 0.4; cursor: default; }
+.more-menu-item svg { color: var(--text-3); flex-shrink: 0; }
+.more-menu-sep { height: 1px; background: var(--border); margin: var(--s1) calc(-1 * var(--s2)); }
+.more-menu-backdrop { position: fixed; inset: 0; z-index: 119; }
 
 /* Buttons */
 .btn {
@@ -382,6 +428,14 @@ ul { list-style: none; }
 .rp-copy:hover { color: var(--text); }
 .rp-open { display: flex; align-items: center; justify-content: center; gap: 4px; padding: 8px; border: 1px solid var(--border); border-radius: 6px; background: transparent; color: var(--text-2); font-size: var(--fs-caption); cursor: pointer; transition: border-color 120ms, color 120ms; }
 .rp-open:hover { border-color: var(--text-3); color: var(--text); }
+/* Undo / redo / expand live in the recipe bar only once it is pinned to the
+   bottom of the viewport (<= 899px). On desktop the app bar already carries
+   undo and redo, and the panel is always open, so all three are redundant. */
+.rp-tool, .rp-expand { display: none; }
+/* Points UP while collapsed ("expand me"), flat-down once open. The glyph is
+   chevron-down — Lucide's chevron-up is not vendored, and icon() returns an
+   empty string for an unknown name rather than failing loudly. */
+.rp-expand svg { transform: rotate(180deg); transition: transform var(--t-norm, 160ms) var(--ease, ease); }
 
 /* Detail pane — Phase 3 of layout refactor. Right pane shows selected card. */
 .detail-view { max-width: 1100px; margin: 0 auto; }
@@ -524,41 +578,68 @@ ul { list-style: none; }
 .detail-tab-content > .composer-section:first-child { padding-top: 0; border-top: none; }
 .detail-tab-content > .composer-section .composer-section-title { display: none; }
 
-/* Mobile: collapse to single pane with drawer-style sidebar. */
+/* The drawer toggle and its backdrop are dead below 900px — the tree is the
+   page there, not a slide-out pane — but they stay in the DOM so nothing has
+   to branch on layout to query them. */
 .drawer-toggle { display: none; }
 .sidebar-backdrop { display: none; }
+
+/* ===========================================================================
+   MOBILE MODEL (<= 899px): ONE SCROLLING PAGE.
+
+   The genre tree IS the page. Genres collapse inline (the .is-collapsed
+   machinery is the same one the desktop sidebar uses), and tapping an
+   instrument mounts #detail-view directly beneath that row — see
+   _detailAnchorFor() in app.js. There is no drawer, no second pane and no
+   master-detail split: on a phone those cost a tap and a mode each, and the
+   thing you came to edit is never on screen at the same time as the thing
+   you tapped.
+
+   Everything the desktop can author is authorable here: the tree carries the
+   roster + genre operations, the inline detail carries prefaces, variants,
+   parts, environment and signal chain, and the app bar's two ADD actions plus
+   #app-more-menu carry the rest.
+   =========================================================================== */
 @media (max-width: 899px) {
-  .drawer-toggle { display: inline-flex; }
-  .workspace {
-    grid-template-columns: 1fr;
-  }
+  /* Grid -> flow. The sidebar and the detail host stack in DOM order. */
+  .workspace { display: block; min-height: 0; }
+
+  /* The pane stops being a viewport-tall sticky column with its own scroll
+     region and becomes ordinary page content. Every one of these declarations
+     undoes a desktop rule that only makes sense for a fixed-height column. */
   #workspace-sidebar {
-    position: fixed;
-    top: var(--app-bar-height, 56px);
-    left: 0;
-    bottom: 0;
-    width: 320px;
-    z-index: 50;
-    transform: translateX(-100%);
-    transition: transform 200ms ease-out;
-    box-shadow: 4px 0 12px rgba(0,0,0,0.08);
+    position: static;
+    height: auto;
+    overflow: visible;
+    border-right: none;
+    padding: var(--s3) var(--s3) 0;
+    gap: var(--s3);
   }
-  #workspace-sidebar.is-open {
-    transform: translateX(0);
+  #sidebar-scroll {
+    overflow: visible;   /* the PAGE scrolls now, not this box */
+    min-height: 0;
+    margin: 0;
+    padding: 0;
   }
-  .sidebar-backdrop.is-open {
-    display: block;
-    position: fixed;
-    top: var(--app-bar-height, 56px);
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0,0,0,0.3);
-    z-index: 49;
-  }
-  #workspace-detail {
-    padding: var(--s4) var(--s3) var(--s8);
-  }
+
+  /* Genre headers stick under the app bar rather than to the top of a pane
+     that no longer scrolls. */
+  .sb-tradition-header { top: var(--app-bar-height, 56px); background: var(--bg); }
+
+  /* `html, body { height: 100% }` is the desktop app-shell assumption: the
+     PAGE never scrolls there, the detail pane scrolls inside a viewport-tall
+     frame. Here the page is the scroller, and a fixed-height body silently
+     breaks `position: sticky` on the app bar — sticky is clamped to its
+     containing block, so once you scrolled past ~844px the bar (and with it
+     every action) slid off the top and never came back. */
+  html, body { height: auto; min-height: 100%; }
+  #workspace-detail { overflow: visible; }
+
+  /* Clearance for the pinned recipe bar. #workspace-detail holds only the
+     empty state once cards exist (the per-card detail mounts inside the
+     tree), so both containers need it — whichever is the non-empty one. */
+  #workspace-sidebar { padding-bottom: calc(var(--s6) + var(--recipe-bar-height, 64px)); }
+  #workspace-detail  { padding: 0 var(--s3) calc(var(--s8) + var(--recipe-bar-height, 64px)); }
 }
 
 /* Empty state */
@@ -970,48 +1051,41 @@ ul { list-style: none; }
 ::-webkit-scrollbar-thumb { background: var(--border); border: 2px solid transparent; background-clip: padding-box; border-radius: 5px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--border-strong); background-clip: padding-box; }
 
-/* ############################################################################
-   PART B — the responsive section. Goes at the END of the stylesheet, exactly
-   where the old `@media (max-width: 700px)` block sat (src/index.template.html
-   963-972, including its `/* Mobile *​/` comment line). It MUST stay after the
-   base rules for `.chain-flow` (800), `.modal` (869) and `.fam-grid` (933):
-   media queries add no specificity, so an earlier position would lose to them.
-   ########################################################################## */
-
 /* ============================================================================
-   RESPONSIVE TIERS — replaces the old `@media (max-width: 720px)` block
-   (lines 98-100) and the old `@media (max-width: 700px)` block (lines 964-972).
+   RESPONSIVE TIERS
 
-   ROOT CAUSE this fixes: `.app-bar` is flex/space-between and never wrapped or
-   shrank, so the eight nowrap controls in `.actions` (~712px min-content)
-   propagated to the document. On a 360-375px phone the browser widened the
-   LAYOUT VIEWPORT to 791px and scaled the whole app down ~47%. At 768px
-   `#btn-add` rendered at x 753..915 — entirely off-screen and unusable.
+   THE MODEL below 900px is one scrolling page (see "MOBILE MODEL" above the
+   .workspace rules): the genre tree is the page, genres collapse inline, and
+   the instrument detail mounts under the row that opened it.
 
-   THE FIX: the six secondary tools live in `.actions-scroll`, a real scroll
-   container. `min-width: 0` + `overflow-x: auto` drops its min-content
-   contribution to ~0, so the bar — and therefore the document — always fits
-   the device. `#btn-save` and `#btn-add` sit OUTSIDE that container with
-   `flex: none`, so the two commit actions are on screen at every width.
+   That model is what sizes the app bar. The previous revision kept all eight
+   desktop controls and made them fit — a horizontal scroll strip of unlabelled
+   icon squares. It fit, and it was unusable: seven glyphs with no words, one of
+   which ("Traditions") was the only way to add a genre. The controls are now
+   split by how often a phone needs them instead:
 
-   TIERS — three width literals, all of them numbers this stylesheet already
-   used, so no new breakpoint enters the cascade:
-     899   compact   the width at which the workspace already collapses to one
-                     column + drawer sidebar. The app bar now restructures at
-                     the SAME width, closing the 701-899px dead zone where a
-                     desktop-width header ran inside a mobile layout.
-     700   phone     the boundary this file has always used to shed header
-                     text. Labels collapse to icon squares, the bar tightens
-                     to one 53px row, and the content grids go narrow — the
-                     old 700px block's job, done properly.
-     599   micro     legibility floor + one-hand detail-header layout.
-   Plus one orthogonal `(pointer: coarse)` query for touch ergonomics, always
-   nested under a max-width so it can never enlarge desktop chrome.
+     app bar      + Genre, + Instrument   the two authoring entry points, both
+                                          with a real word on them
+     recipe bar   undo, redo, copy        pinned to the bottom, thumb-reachable,
+                                          on screen at every scroll position
+     overflow     saved, save, credits    session-level, not per-edit
+
+   Every desktop capability is reachable — nothing is dropped, and no capability
+   depends on a control that is `display: none` at that width. check_mobile_layout.js
+   asserts this per capability rather than per button id.
+
+   TIERS — the same three width literals this stylesheet already used:
+     899   compact   the width the workspace collapses to one column
+     700   phone     the width the wordmark can no longer be afforded
+     599   micro     legibility floor + one-hand detail-header layout
+
+   TOUCH SIZING IS NOT GATED ON `pointer: coarse`. It used to be, which meant a
+   narrow desktop WINDOW got the phone layout with 28px targets — the emulation
+   flag, not the layout, decided ergonomics. Below 900px the layout is the phone
+   layout, so it gets phone target sizes unconditionally.
 
    DESKTOP: every rule below is inside a max-width query — nothing here can
-   match at >= 900px. Verified against the unpatched build in headless
-   Chromium: identical app-bar height, document scrollWidth and per-control
-   rects at 900 / 1000 / 1100 / 1280px.
+   match at >= 900px.
    ========================================================================= */
 
 
@@ -1020,103 +1094,61 @@ ul { list-style: none; }
    =========================================================================== */
 @media (max-width: 899px) {
 
-  /* Restate the drawer block's track with a zero floor: a `1fr` track has an
-     auto (min-content) minimum, so one wide descendant could re-open the
-     layout viewport once the app bar stops being the widest box. */
-  .workspace { grid-template-columns: minmax(0, 1fr); }
   #workspace-detail { min-width: 0; }
 
   /* --- App bar ---------------------------------------------------------- */
-  .app-bar { padding: var(--s2) var(--s4); gap: var(--s3); }
-
+  .app-bar { padding: var(--s2) var(--s3); gap: var(--s2); }
   /* Pin the brand group at its intrinsic width; only the action half gives
-     way. Putting `min-width: 0` on BOTH halves instead lets the brand box
-     shrink below its own content, and the "Codex" wordmark — one unbreakable
-     word — then paints straight through the first strip button (a real
-     18px overlap at 600px, still 3px at 700px). `flex: 0 0 auto` cannot. */
+     way. `min-width: 0` on BOTH halves instead lets the brand box shrink
+     below its own content and the "Codex" wordmark — one unbreakable word —
+     paints straight through the first action button. */
   .app-bar > div:first-child { flex: 0 0 auto; }
-  .app-bar .actions { flex: 0 1 auto; min-width: 0; }
+  .app-bar .actions { flex: 0 0 auto; gap: var(--s2); }
+  .app-bar .icon-btn, .app-bar .actions .btn { flex: none; }
 
-  /* Shrink the STRIP, never the controls. Without this the flex items inside
-     a shrinking `.actions` hit their automatic minimum before the strip ever
-     scrolls: btn-undo collapses to 0px wide (its icon span is empty — see the
-     glyph fallback below) and stops hit-testing, btn-attributions renders at
-     half width, and btn-drawer-toggle is squeezed from 28px to 21px. */
-  .app-bar .icon-btn,
-  .app-bar .actions .btn { flex: none; }
-  .app-bar .actions .btn { padding: 8px var(--s3); }
+  /* The four session-level tools move into #app-more-menu, and undo/redo move
+     into the pinned recipe bar. Each is re-exposed by a proxy control that
+     forwards its click to the button hidden here, so there is still exactly
+     one click handler per action. */
+  #btn-undo, #btn-redo, #btn-attributions, #btn-saved, #btn-save,
+  .app-bar .actions-rule { display: none; }
+  .app-bar .app-more-btn { display: inline-flex; }
 
-  /* The one structural change: the strip may shrink past its min-content and
-     scroll internally instead of pushing the layout viewport open. */
-  .app-bar .actions-scroll {
-    display: flex;                  /* dissolves the desktop `display: contents` */
-    align-items: center;
-    gap: var(--s2);
-    flex: 0 1 auto;
-    min-width: 0;                   /* with overflow, may shrink past min-content */
-    overflow-x: auto;
-    overflow-y: hidden;             /* keeps the bar exactly one row tall */
-    overscroll-behavior-x: contain; /* a swipe here must not trigger back-nav */
-    -webkit-overflow-scrolling: touch;
-    scroll-padding-inline: var(--s2);
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-  /* The global `::-webkit-scrollbar` is 10px tall; without this the strip
-     would add 10px of bar height on every classic-scrollbar platform. */
-  .app-bar .actions-scroll::-webkit-scrollbar { width: 0; height: 0; display: none; }
-  /* A hairline divider separates nothing useful inside a scrolling strip. */
-  .app-bar .actions-scroll > span[aria-hidden="true"] { display: none; }
-  /* Focus rings paint outside the border box and would be clipped by the
-     scroll container; pull them inside so keyboard focus stays visible.
-     (Focusing an off-screen control auto-scrolls the strip to it.) */
-  .app-bar .actions-scroll :focus-visible { outline-offset: -2px; }
+  /* Both authoring actions keep a word. This is the point of the tier. */
+  .lbl-full    { display: none; }
+  .lbl-compact { display: inline; }
+  .app-bar .actions .btn { padding: 0 var(--s3); white-space: nowrap; }
 
-  /* Text the compact bar can no longer afford. These three used to sit at
-     700/720px — the exact reason 701-899px slimmed nothing. */
+  /* Text the compact bar cannot afford. */
   .app-bar-wordmark .wordmark-sub,
-  .app-bar-wordmark .wordmark-rule      { display: none; }
-  .app-bar h1 + .workspace-meta         { display: none; }
-  .app-bar .actions #btn-save span.long { display: none; }  /* -> "workspace" */
+  .app-bar-wordmark .wordmark-rule { display: none; }
+  .app-bar h1 + .workspace-meta    { display: none; }
 
-  /* --- Missing-glyph fallback: scoped, and self-disabling ----------------
-     `data-icon="undo"` / `"redo"` resolve to nothing — ICON_PATHS has no such
-     key and ICON_ALIASES has no entry (the catalog spells them `undo-2` /
-     `redo-2`), so icon() returns '' and both spans stay empty at every width.
-     Two blank squares are merely odd beside labelled neighbours on desktop,
-     but unusable in an icon-only phone bar. Paint the real Lucide glyph as a
-     currentColor mask, ONLY while the span is `:empty` — the moment someone
-     adds the two ICON_ALIASES entries this rule stops matching by itself.
-     Deliberately kept inside the mobile query: fixing the icons is a rendered
-     -pixel change above the gate and belongs in its own re-baselined commit. */
-  .app-bar .icon-btn > [data-icon="undo"]:empty,
-  .app-bar .icon-btn > [data-icon="redo"]:empty {
-    display: block;
-    width: 14px;
-    height: 14px;
-    background-color: currentColor;
-    -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
-    -webkit-mask-position: center;  mask-position: center;
-    -webkit-mask-size: 14px 14px;   mask-size: 14px 14px;
+  /* --- Inline instrument detail ------------------------------------------
+     #detail-view mounts inside .sb-tradition-cards, directly after the card
+     that opened it. It reads as that row expanding, not as a second pane. */
+  #sidebar-traditions #detail-view {
+    max-width: none;
+    margin: var(--s1) 0 var(--s3);
+    padding: var(--s3);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--family-color, var(--color-blue));
+    border-radius: var(--r2, 8px);
   }
-  .app-bar .icon-btn > [data-icon="undo"]:empty {
-    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 14 4 9l5-5'/%3E%3Cpath d='M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5a5.5 5.5 0 0 1-5.5 5.5H11'/%3E%3C/svg%3E");
-            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 14 4 9l5-5'/%3E%3Cpath d='M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5a5.5 5.5 0 0 1-5.5 5.5H11'/%3E%3C/svg%3E");
-  }
-  .app-bar .icon-btn > [data-icon="redo"]:empty {
-    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m15 14 5-5-5-5'/%3E%3Cpath d='M20 9H9.5A5.5 5.5 0 0 0 4 14.5A5.5 5.5 0 0 0 9.5 20H13'/%3E%3C/svg%3E");
-            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m15 14 5-5-5-5'/%3E%3Cpath d='M20 9H9.5A5.5 5.5 0 0 0 4 14.5A5.5 5.5 0 0 0 9.5 20H13'/%3E%3C/svg%3E");
-  }
+  #sidebar-traditions #detail-view .detail-breadcrumb-row { margin-bottom: var(--s3); }
+  /* The breadcrumb names the genre you are already sitting inside. Its action
+     cluster (duplicate / pin / remove) is the half worth keeping. */
+  #sidebar-traditions #detail-view .detail-breadcrumb { display: none; }
+  #sidebar-traditions #detail-view .detail-actions { margin-left: auto; }
+  /* The row that opened the panel stays visually attached to it. */
+  .sb-card.is-selected { position: relative; z-index: 1; }
 
   /* --- Card tab row ------------------------------------------------------
-     Was a shrinkable flex row, so at 375px the items were squeezed to their
-     min-content and "Signal chain" broke across two lines inside a 91px bar.
-     Tabs are now intrinsically sized and the ROW scrolls, so no label ever
-     breaks mid-word. The container border moves to an inset shadow because
-     `overflow` clips the -1px margin the active underline used to overlap it
-     with; `margin-bottom: 0` on the tab completes the swap. `overflow-y:
-     hidden` is required — with `overflow-x: auto` alone, overflow-y computes
-     to auto and clips the underline instead. */
+     Intrinsically-sized tabs in a scrolling row, so no label breaks mid-word
+     inside the narrow inline panel. `overflow-y: hidden` is required — with
+     `overflow-x: auto` alone, overflow-y computes to auto and clips the
+     active underline. */
   .detail-tab-bar {
     gap: var(--s4);
     overflow-x: auto;
@@ -1133,72 +1165,124 @@ ul { list-style: none; }
   .detail-tab-bar :focus-visible { outline-offset: -2px; }
   .detail-tab { flex: none; white-space: nowrap; margin-bottom: 0; }
   /* `margin-left: auto` inside a scroll container pushes the status to the far
-     end of the SCROLL width, not the visible edge — it would sit hundreds of
-     px past the last tab, reachable only by scrolling all the way. Let it
-     trail the last tab instead. */
+     end of the SCROLL width, not the visible edge. Let it trail the last tab. */
   .detail-tab-status { flex: none; margin-left: var(--s4); }
+
+  /* --- Recipe: pinned bottom sheet ---------------------------------------
+     Was the bottom zone of a viewport-tall sidebar, which on a phone meant it
+     lived at the end of a drawer. Now it is fixed to the bottom edge: the
+     char count is always in view while you edit, and Copy / Undo / Redo are
+     one thumb-tap from any scroll position. Tapping the head expands it. */
+  #sidebar-recipe-preview {
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    z-index: 60;
+    padding: var(--s2) var(--s3) calc(var(--s2) + env(safe-area-inset-bottom, 0px));
+    border-top: 1px solid var(--border);
+    box-shadow: 0 -2px 12px rgba(0,0,0,0.10);
+    gap: var(--s2);
+  }
+  #sidebar-recipe-preview:empty { display: none; }
+  .rp-head { gap: var(--s1); }
+  /* The label carried `flex: 1`; with it hidden the count takes over pushing
+     the tool cluster to the right edge. */
+  .rp-head .rp-label { display: none; }
+  .rp-head .rp-count { margin-right: auto; }
+  .rp-tool, .rp-expand { display: inline-flex; }
+  /* Collapsed: head + progress only. The body is the expanded half. */
+  #sidebar-recipe-preview .rp-text,
+  #sidebar-recipe-preview .rp-open { display: none; }
+  #sidebar-recipe-preview.is-expanded .rp-text { display: block; max-height: 40vh; }
+  #sidebar-recipe-preview.is-expanded .rp-open { display: flex; }
+  #sidebar-recipe-preview.is-expanded .rp-expand svg { transform: rotate(0deg); }
+
+  /* The stack-signature strip is dropped on mobile. It is a three-column
+     desktop grid (fingerprint | info | browse) that reflows to four stacked
+     rows at this width, costing ~40% of the first screenful of the panel
+     before a single editable control — and it is read-only context, not an
+     authoring surface. Authoring parity is unaffected: roster, genres,
+     prefaces, variants, parts, environment and signal chain are all still
+     here. What goes with it is the nearest-traditions "Browse near" jump;
+     the same traditions remain reachable through the Traditions browser. */
+  .detail-stack-signature { display: none; }
+
+  /* The toast is fixed at `bottom: var(--s5)`, which is now underneath the
+     pinned recipe bar — it covered Undo/Redo/Copy for its whole 3s lifetime.
+     Sit it on top of the bar instead. */
+  .toast {
+    bottom: calc(var(--recipe-bar-height, 64px) + var(--s3));
+    max-width: calc(100vw - 2 * var(--s4));
+  }
+
+  /* --- Hover tooltips are dead weight here, and they were widening the page -
+     `[data-tooltip]::after` is an always-rendered, `white-space: nowrap`,
+     absolutely-positioned bubble kept at opacity 0 until :hover. A touch
+     device has no hover, so it could never be seen — but it is still laid
+     out, and `data-tooltip-pos="left"` (which the tradition mover/delete
+     buttons ask for) has no implementation, so those bubbles render
+     centred-above and spill past the right edge. The desktop sidebar is
+     `overflow: hidden` and clipped them; this layout scrolls the page
+     instead, so a 133px bubble on a right-aligned 44px button pushed the
+     document to 468px and Chrome scaled the whole app to 83%.
+
+     Every control that carries data-tooltip also carries aria-label, so the
+     accessible name is unaffected. */
+  [data-tooltip]::after { content: none; }
+  /* Structural backstop: nothing absolutely positioned inside the tree may
+     re-open the layout viewport. `clip` rather than `hidden` — `hidden` would
+     make this a scroll container and break the sticky genre headers. */
+  #workspace-sidebar { overflow-x: clip; }
+
+  /* --- Touch target sizing (unconditional at this width — see header) ----- */
+  .icon-btn { min-width: 44px; min-height: 44px; }
+  .app-bar .icon-btn { width: 44px; height: 44px; }
+  .app-bar .actions .btn { min-height: 44px; }
+  .detail-tab { min-height: 44px; }
+  .sb-card { min-height: 44px; }
+  .sb-tradition-header { min-height: 44px; }
+  .sb-tradition-move,
+  .sb-tradition-delete { min-width: 44px; min-height: 44px; }
+  /* Was `opacity: 0` until :hover — invisible, and therefore unreachable, on a
+     device that has no hover state at all. */
+  .sb-tradition-delete { opacity: 0.7; }
+  .sidebar-search input,
+  .modal-search input { min-height: 44px; }
+  .sb-add-to-tradition,
+  .rp-open { min-height: 44px; }
+  /* `min-height` ONLY — never `display: inline-flex`, which would flip these
+     from block-level flex containers to shrink-to-fit and collapse two-line
+     chips (`.chip-block-sub` is display: block and belongs UNDER its label). */
+  .chip, .chip-block, .dss-trad, .starter-trad,
+  .empty-state .btn { min-height: 44px; }
 }
 
 
 /* ===========================================================================
-   TIER 2 — phone (<= 700px). Same boundary as the block this replaces.
+   TIER 2 — phone (<= 700px)
    =========================================================================== */
 @media (max-width: 700px) {
 
-  /* 4px of vertical padding: the controls define the bar height now, so the
-     bar is 53px on touch (44 + 4 + 4 + 1px border) — 10px SHORTER than
-     today's 63px, and ONE row at every width. app.js measures `.app-bar`
-     offsetHeight into `--app-bar-height`, so the drawer, the sticky sidebar
-     and the backdrop all follow automatically. */
-  .app-bar { padding: var(--s1) var(--s3); gap: var(--s2); }
-  .app-bar .actions,
-  .app-bar .actions-scroll { gap: var(--s1); }
+  .app-bar { padding: var(--s1) var(--s2); gap: var(--s1); }
+  .app-bar .actions { gap: var(--s1); }
 
-  /* Visually hidden, still in the accessibility tree: the page keeps its <h1>
-     and every button keeps its accessible name. Absolutely positioned, so
-     these contribute no width and generate no flex `gap`. (`.app-bar` is
-     position: sticky, so it is their containing block.)
-     Hiding the wordmark here is what buys the strip ~70px — the difference
-     between every control being reachable and two of them needing a swipe. */
-  .app-bar h1,
-  .app-bar .actions .btn > .btn-label {
+  /* Visually hidden, still in the accessibility tree: the page keeps its <h1>.
+     Absolutely positioned, so it contributes no width and generates no flex
+     `gap`. (`.app-bar` is position: sticky, so it is the containing block.)
+     This is what buys "+ Genre" and "+ Instrument" room to keep their words
+     at 360px — the trade the previous revision made in the other direction. */
+  .app-bar h1 {
     position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    padding: 0;
-    border: 0;
-    overflow: hidden;
-    white-space: nowrap;
+    width: 1px; height: 1px;
+    margin: -1px; padding: 0; border: 0;
+    overflow: hidden; white-space: nowrap;
     clip-path: inset(50%);
   }
 
-  /* Secondary actions become icon squares. */
-  .app-bar .actions .btn {
-    position: relative;
-    width: 40px;
-    min-height: 40px;
-    padding: 0;
-    justify-content: center;
-  }
-  /* ...but the PRIMARY action keeps a label: "Add instrument" -> "Add",
-     using the same `.long` convention the Save button already uses. */
-  .app-bar .actions #btn-add { width: auto; padding: 0 var(--s3); }
-  .app-bar .actions #btn-add > .btn-label {
-    position: static;
-    width: auto;
-    height: auto;
-    margin: 0;
-    overflow: visible;
-    clip-path: none;
-  }
-  .app-bar .actions #btn-add span.long { display: none; }
-
-  /* Content grids — the other half of the old 700px block, kept at exactly
-     the same boundary so this band renders as it does today. `minmax(0, 1fr)`
-     rather than `1fr` removes each track's min-content floor, so a long
-     unbreakable token can never re-open the layout viewport. */
-  .chain-flow { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  /* Content grids. `minmax(0, 1fr)` rather than `1fr` removes each track's
+     min-content floor, so a long unbreakable token cannot re-open the layout
+     viewport. The chain drops to two columns: eight was a desktop-width row,
+     and four still overflowed inside the inline detail panel. */
+  .chain-flow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .fam-grid   { grid-template-columns: minmax(0, 1fr); }
   .modal      { max-width: 100%; max-height: 92vh; }
   .modal-head, .modal-body, .modal-foot, .modal-search {
@@ -1218,53 +1302,18 @@ ul { list-style: none; }
   :root { --fs-nano: 12px; --fs-code: 12px; --fs-micro: 12px; }
 
   /* Tighter tab row, and drop the trailing status string: it is meta, not
-     navigation, and it added ~158px to the row's scroll width — the last tab
-     would otherwise sit behind a long swipe rather than a short one. */
+     navigation, and it added ~158px to the row's scroll width. */
   .detail-tab-bar { gap: var(--s3); }
   .detail-tab-status { display: none; }
 
   /* The 80px / 1fr / auto header crushed its third column, clipping the
      letter-spaced "FINGERPRINT" label against the right edge. Two columns,
-     with the fingerprint panel on its own full-width row. Applied at 599 and
-     not 899: a 768/820px tablet has room for the original three columns. */
+     with the fingerprint panel on its own full-width row. */
   .detail-header { grid-template-columns: 56px minmax(0, 1fr); }
   .detail-fingerprint-panel { grid-column: 1 / -1; align-items: flex-start; }
 }
 
 
-/* ===========================================================================
-   TOUCH — orthogonal to the width tiers, and nested under the desktop gate so
-   it can never enlarge desktop chrome. Every rule grows a REAL box. None adds
-   invisible hit-slop: a 44px `::before` on a 28px button silently steals taps
-   from its neighbour (in `.detail-actions` the gap is 4px and Remove is last
-   in DOM, so it would capture the right ~8px of Duplicate).
-   =========================================================================== */
-@media (max-width: 899px) and (pointer: coarse) {
-  .icon-btn { min-width: 44px; min-height: 44px; }
-  .app-bar .icon-btn { width: 44px; height: 44px; }
-  .app-bar .actions .btn { min-height: 44px; }
-  .detail-tab { min-height: 44px; }
-  .sb-card { min-height: 44px; }
-  .sb-tradition-move,
-  .sb-tradition-delete { min-width: 44px; min-height: 44px; }
-  /* Was `opacity: 0` until :hover / :focus-within — invisible, and therefore
-     unreachable, on a device that has no hover state at all. */
-  .sb-tradition-delete { opacity: 0.7; }
-  .sidebar-search input,
-  .modal-search input { min-height: 44px; }
-  .sb-add-to-tradition,
-  .rp-open { min-height: 44px; }
-  /* `min-height` ONLY — never `display: inline-flex`, which would flip these
-     from block-level flex containers to shrink-to-fit and collapse two-line
-     chips (`.chip-block-sub` is display: block and belongs UNDER its label,
-     not beside it). */
-  .chip, .chip-block, .dss-trad, .starter-trad,
-  .empty-state .btn { min-height: 44px; }
-}
-@media (max-width: 700px) and (pointer: coarse) {
-  .app-bar .actions .btn { width: 44px; }
-  .app-bar .actions #btn-add { width: auto; }
-}
 /* ===== Material feedback — micro-animations on state changes =====
    Currently used:
    - preface-shift: a preface changed because the dedup rule rippled
@@ -1351,22 +1400,36 @@ ul { list-style: none; }
     <span class="workspace-meta" id="meta"></span>
   </div>
   <div class="actions">
-    <!-- Secondary tools. `display: contents` on desktop, so the flex tree is
-         unchanged; below 900px this becomes the horizontal scroll strip that
-         lets the bar shrink to any device width. -->
+    <!-- `display: contents` at every width, so these are always direct flex
+         children of `.actions`. Below 900px the four tools below move into
+         the #app-more-menu overflow sheet and only the two ADD actions stay
+         in the bar — see the compact tier in the responsive section. -->
     <div class="actions-scroll">
       <button class="icon-btn" id="btn-undo" data-tooltip="Undo (Ctrl/Cmd+Z)" aria-label="Undo" disabled><span data-icon="undo" data-size="14"></span></button>
       <button class="icon-btn" id="btn-redo" data-tooltip="Redo (Ctrl/Cmd+Shift+Z)" aria-label="Redo" disabled><span data-icon="redo" data-size="14"></span></button>
       <button class="icon-btn" id="btn-attributions" data-tooltip="Image credits & licenses" aria-label="Image credits"><span data-icon="info" data-size="14"></span></button>
-      <span style="width: 1px; height: 18px; background: var(--border); margin: 0 var(--s2);" aria-hidden="true"></span>
-      <button class="btn btn-ghost" id="btn-traditions"><span data-icon="library" data-size="14"></span><span class="btn-label">Traditions</span></button>
+      <span class="actions-rule" aria-hidden="true"></span>
+      <button class="btn btn-ghost" id="btn-traditions"><span data-icon="library" data-size="14"></span><span class="btn-label"><span class="lbl-full">Traditions</span><span class="lbl-compact">Genre</span></span></button>
       <button class="btn btn-ghost" id="btn-saved"><span data-icon="folder" data-size="14"></span><span class="btn-label">Saved</span></button>
     </div>
-    <!-- Commit actions live OUTSIDE the strip: always on screen, any width. -->
-    <button class="btn btn-secondary" id="btn-save"><span data-icon="save" data-size="14"></span><span class="long">Save&nbsp;</span><span class="btn-label">workspace</span></button>
-    <button class="btn btn-primary" id="btn-add"><span data-icon="plus" data-size="14"></span><span class="btn-label">Add<span class="long">&nbsp;instrument</span></span></button>
+    <button class="btn btn-secondary" id="btn-save"><span data-icon="save" data-size="14"></span><span class="btn-label"><span class="lbl-full">Save workspace</span><span class="lbl-compact">Save</span></span></button>
+    <button class="btn btn-primary" id="btn-add"><span data-icon="plus" data-size="14"></span><span class="btn-label"><span class="lbl-full">Add instrument</span><span class="lbl-compact">Instrument</span></span></button>
+    <!-- Overflow. Hidden at >= 900px, where every action above is already in
+         the bar. Below 900px it is the ONLY route to undo/redo/saved/save/
+         credits, so it is never itself hidden. -->
+    <button class="icon-btn app-more-btn" id="btn-more" aria-label="More actions" aria-haspopup="true" aria-expanded="false" aria-controls="app-more-menu"><span data-icon="more-horizontal" data-size="14"></span></button>
   </div>
 </header>
+
+<!-- Overflow sheet. Every item proxies its click to the real control in the
+     app bar, so there is exactly one handler per action and the compact bar
+     can never drift out of parity with the desktop one. -->
+<div class="more-menu" id="app-more-menu" role="menu" aria-labelledby="btn-more" hidden>
+  <button class="more-menu-item" role="menuitem" data-proxy="btn-saved"><span data-icon="folder" data-size="15"></span>Saved workspaces</button>
+  <button class="more-menu-item" role="menuitem" data-proxy="btn-save"><span data-icon="save" data-size="15"></span>Save workspace</button>
+  <div class="more-menu-sep" role="separator"></div>
+  <button class="more-menu-item" role="menuitem" data-proxy="btn-attributions"><span data-icon="info" data-size="15"></span>Image credits</button>
+</div>
 
 <main class="workspace">
   <aside id="workspace-sidebar" aria-label="Workspace navigation">
