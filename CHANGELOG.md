@@ -6,6 +6,57 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Removed
+- **Repo hygiene sweep — dead code, no-op structure and stale prose.** A survey of
+  every dimension (unreferenced scripts, unreferenced fixtures, dead CSS classes
+  and custom properties, never-called functions, TODOs, stale doc claims) found
+  the codebase already in good order; the real findings were concentrated in what
+  the single-scroll rebuild had just orphaned, plus one long-standing token bug.
+  - **The mobile drawer, in full.** `#btn-drawer-toggle`, `#sidebar-backdrop`,
+    their CSS and the `DOMContentLoaded` block toggling `.is-open` on both. The
+    tree is the page below 900px, so `.drawer-toggle` was `display: none` at
+    *every* width and the `.is-open` rules that styled the backdrop had gone with
+    the old block — the button could not render and the handler drove nothing.
+    Also drops its `ui_capability_inventory.md` entry, which had been passing the
+    reachability gate on the strength of `notes: selector resolves regardless`.
+  - **The `.actions-scroll` wrapper.** Left over from the deleted horizontal
+    scroll strip; `display: contents` at every width with no other reference, so
+    it generated no box and grouped nothing. Its six children are now direct
+    children of `.actions`.
+  - **The "PART A" patch-application comment**, whose only concrete content was a
+    self-referencing line number that had already drifted, and the superseded
+    `.env-options-cluster-head` rule (`.label-micro-cap` has identical properties
+    and is the live one).
+  - Kept deliberately: the 10 unread CSS custom properties. They are the unused
+    rungs of *documented, complete* scales — a semantic palette ("Yellow =
+    warning / attention"), a shared motion vocabulary, a radius and shadow ramp.
+    Deleting individual rungs would leave a gap-toothed vocabulary that reads
+    worse than the dead weight.
+  - Also kept: the 15 `tests/*_audit.json` fixtures, which look unreferenced to a
+    filename grep but are read by `tandem.js` as `tests/${slotKey}_audit.json` —
+    a template string, one per key in `pick_audit_classifications.json` (verified
+    15/15, zero orphans either way), where a missing file is a fatal error.
+
+### Fixed
+- **`--accent` was never declared.** The editorial red used for preface italics,
+  the active tab underline, the pinned marker and the drag indicators reached the
+  page through ten copies of `var(--accent, #c8504a)` — a fallback for a variable
+  that did not exist, so the fallback was the real value every time and the app's
+  accent colour was absent from its own palette. Declared once in `:root` and all
+  ten uses simplified; computed values verified unchanged (`rgb(200, 80, 74)`).
+- **`data-tooltip-pos="left"` had no implementation.** Four controls request it;
+  only the `bottom` variant existed, so they fell back to the centred-above
+  default and were clipped by the sidebar's `overflow: hidden` on desktop. (Below
+  900px this was also half of the layout-viewport blowout fixed above.) The left
+  variant now exists.
+- Simplified 16 further unreachable `var()` fallbacks whose variables are
+  unconditionally declared in `:root` — several of which named *stale palette
+  values* (`var(--color-blue, #4a7cb8)` against a real `--color-blue` of
+  `#1a73e8`), so the dead text actively misdescribed the design system.
+- `#workspace-sidebar`'s `overflow-x: clip` backstop moved into the same rule as
+  its `overflow: visible`, so it no longer depends on the source order of two
+  separate `max-width: 899px` blocks.
+
 ### Changed
 - **The phone layout is now one scrolling page, not a desktop UI made to fit.**
   The previous pass made the app bar *fit* a 390px screen and stopped there. What

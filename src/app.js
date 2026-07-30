@@ -6870,7 +6870,7 @@ window.addEventListener('unhandledrejection', e => {
 
 // Keep the CSS --app-bar-height variable in sync with the real rendered app
 // bar. The sidebar pane (height/top = calc(100vh - app-bar-height)) and the
-// mobile drawer offsets are derived from it; measuring the actual bar — which
+// the sticky genre headers are offset by it; measuring the actual bar — which
 // shifts with web-font loading and viewport width — keeps those panes
 // pixel-aligned to the sticky bar instead of trusting the 56px fallback.
 function syncAppBarHeight() {
@@ -7082,27 +7082,6 @@ function _initApp() {
   document.getElementById('btn-undo').addEventListener('click', undo);
   document.getElementById('btn-redo').addEventListener('click', redo);
 
-  // Mobile drawer toggle (Phase 9). Toggles .is-open on sidebar + backdrop.
-  // Backdrop click closes. Sidebar card-click also closes (to reveal the
-  // detail pane the user just selected).
-  const drawerBtn = document.getElementById('btn-drawer-toggle');
-  const sidebarEl = document.getElementById('workspace-sidebar');
-  const backdrop = document.getElementById('sidebar-backdrop');
-  if (drawerBtn && sidebarEl && backdrop) {
-    const closeDrawer = () => {
-      sidebarEl.classList.remove('is-open');
-      backdrop.classList.remove('is-open');
-    };
-    drawerBtn.addEventListener('click', () => {
-      const isOpen = sidebarEl.classList.toggle('is-open');
-      backdrop.classList.toggle('is-open', isOpen);
-    });
-    backdrop.addEventListener('click', closeDrawer);
-    // Auto-close after a sidebar card selection on mobile
-    sidebarEl.addEventListener('click', e => {
-      if (window.innerWidth <= 899 && e.target.closest('.sb-card')) closeDrawer();
-    });
-  }
   document.addEventListener('keydown', (e) => {
     // Skip if user is typing in an input/textarea/contenteditable — Ctrl+Z
     // is also the OS-level text undo for those.
@@ -7173,7 +7152,7 @@ function _initApp() {
 .tree-row-name { line-height: 1.3; }
 .sb-trad-glyphs { display: inline-flex; gap: 2px; align-items: center; flex: 0 0 auto; vertical-align: middle; margin-right: 5px; }
 .sb-trad-glyph { display: inline-flex; align-items: center; justify-content: center; padding: 2px; border-radius: 6px; }
-.sb-trad-glyph.is-fn { background: var(--surface-2); box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--accent, #c8504a) 50%, transparent); }
+.sb-trad-glyph.is-fn { background: var(--surface-2); box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--accent) 50%, transparent); }
 .sb-trad-glyph.is-character { background: color-mix(in srgb, #E0A157 18%, transparent); }
 .sb-trad-glyph svg { display: block; }
 .qp-glyph { display: inline-flex; align-items: center; vertical-align: middle; margin-right: 6px; }

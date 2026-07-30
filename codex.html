@@ -65,6 +65,13 @@
   --color-yellow-soft: #fef7e0;
   --color-green:       #1e8e3e;
   --color-green-soft:  #e6f4ea;
+  /* Accent — the editorial red used for preface italics, the active tab
+     underline, the pinned marker and drag indicators. It is NOT one of the
+     semantic status colours above: it marks authored/emphasised content, not
+     an error. It was previously carried by ten inline fallbacks against a
+     variable that was never declared, so the fallback was the real value in
+     every case. */
+  --accent:            #c8504a;
   /* Motion — single shared vocabulary */
   --t-fast: 100ms;         /* hover, immediate feedback */
   --t-norm: 150ms;         /* state changes, click confirms */
@@ -97,20 +104,6 @@ ul { list-style: none; }
 .app-bar-wordmark .wordmark-sub { font-family: var(--font-display); font-style: italic; font-weight: var(--fw-regular); font-size: var(--fs-display-sub); color: var(--text-3); letter-spacing: 0.01em; font-variation-settings: "SOFT" 50, "opsz" 18; }
 .app-bar h1 svg { color: var(--color-blue); }
 .app-bar .actions { display: flex; gap: var(--s2); align-items: center; }
-/* ############################################################################
-   PART A — ONE base rule. Goes next to the other .app-bar rules (immediately
-   after `.app-bar .actions { display: flex; ... }`, src/index.template.html:102).
-   This is the only declaration outside a max-width query, and it is a no-op on
-   desktop by construction: `display: contents` means the new wrapper generates
-   NO BOX AT ALL, so `.actions` keeps exactly the same eight flex children in
-   the same order that it has today. Measured: identical per-control rects at
-   900/1000/1100/1280px, and the wrapper reports clientWidth 0 / scrollWidth 0.
-   ########################################################################## */
-/* Wrapper for the six secondary tools. It generates no box at ANY width — the
-   compact tier moves these controls into #app-more-menu rather than reflowing
-   them, so the app bar's flex tree is the same shape on a phone as on a
-   desktop, just with fewer children displayed. */
-.app-bar .actions-scroll { display: contents; }
 .app-bar .actions-rule { width: 1px; height: 18px; background: var(--border); margin: 0 var(--s2); }
 .workspace-meta { font-size: var(--fs-caption); color: var(--text-3); }
 
@@ -130,7 +123,7 @@ ul { list-style: none; }
   padding: var(--s2);
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: var(--r3, 10px);
+  border-radius: var(--r3);
   box-shadow: var(--shadow-modal);
   display: flex;
   flex-direction: column;
@@ -217,7 +210,8 @@ ul { list-style: none; }
 .btn svg { width: 14px; height: 14px; flex-shrink: 0; }
 
 /* Workspace — master-detail grid (Phase 1 of layout refactor).
-   Sidebar is fixed 320px on desktop, drawer (slide-out from left) on mobile.
+   Sidebar is a fixed 320px column on desktop; below 900px it becomes ordinary
+   page content and the tree is the page (see MOBILE MODEL further down).
    Detail pane fills remaining width and holds the selected instrument's tabs. */
 .workspace {
   display: grid;
@@ -285,7 +279,7 @@ ul { list-style: none; }
 .ws-label { font-size: var(--fs-micro); font-weight: var(--fw-semibold); text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-3); margin-bottom: var(--s1); }
 .ws-name-row { display: flex; align-items: center; justify-content: space-between; gap: var(--s2); }
 .ws-name { font-family: var(--font-display); font-size: var(--fs-display-card); font-weight: var(--fw-semibold); color: var(--text); margin: 0; line-height: 1.2; min-width: 0; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.ws-name-input { font-family: var(--font-display); font-size: var(--fs-display-card); font-weight: var(--fw-semibold); color: var(--text); background: transparent; border: none; border-bottom: 1px solid var(--accent, #c8504a); outline: none; padding: 0 0 2px 0; flex: 1; min-width: 0; }
+.ws-name-input { font-family: var(--font-display); font-size: var(--fs-display-card); font-weight: var(--fw-semibold); color: var(--text); background: transparent; border: none; border-bottom: 1px solid var(--accent); outline: none; padding: 0 0 2px 0; flex: 1; min-width: 0; }
 .ws-rename { padding: 4px; }
 
 .sidebar-search { position: relative; }
@@ -307,7 +301,7 @@ ul { list-style: none; }
 .sb-tradition-group.is-collapsed .sb-chev { transform: rotate(-90deg); }
 .sb-tradition-name { font-weight: var(--fw-semibold); color: var(--text); font-size: var(--fs-body); flex: 1 1 auto; min-width: 0; line-height: 1.25; overflow: hidden; overflow-wrap: anywhere; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
 .sb-status-pill { font-size: var(--fs-nano); font-weight: var(--fw-semibold); text-transform: uppercase; letter-spacing: 0.05em; padding: 2px 8px; border-radius: 10px; }
-.sb-status-pill.primary { background: var(--color-blue, #4a7cb8); color: white; }
+.sb-status-pill.primary { background: var(--color-blue); color: white; }
 .sb-status-pill.secondary { background: var(--surface-2); color: var(--text-2); }
 .sb-tradition-count { font-size: var(--fs-caption); color: var(--text-3); margin-left: 4px; }
 /* Mover buttons — always visible (vs delete which only appears on hover),
@@ -334,20 +328,20 @@ ul { list-style: none; }
 .sb-tradition-delete { background: transparent; border: none; padding: 2px 4px; margin-left: 2px; color: var(--text-3); cursor: pointer; border-radius: var(--r1); opacity: 0; transition: opacity var(--t-fast) var(--ease), color var(--t-fast) var(--ease), background var(--t-fast) var(--ease); display: inline-flex; align-items: center; justify-content: center; }
 .sb-tradition-header:hover .sb-tradition-delete,
 .sb-tradition-header:focus-within .sb-tradition-delete { opacity: 0.7; }
-.sb-tradition-delete:hover { opacity: 1 !important; color: var(--color-red, #c8504a); background: var(--surface-2); }
+.sb-tradition-delete:hover { opacity: 1 !important; color: var(--color-red); background: var(--surface-2); }
 .sb-tradition-header[draggable="true"] { cursor: grab; }
 .sb-tradition-header[draggable="true"]:active { cursor: grabbing; }
-.sb-tradition-group.is-drag-over { box-shadow: inset 0 2px 0 0 var(--accent, #c8504a); }
+.sb-tradition-group.is-drag-over { box-shadow: inset 0 2px 0 0 var(--accent); }
 .sb-tradition-group.is-drag-over .sb-tradition-header { background: var(--surface-2); }
 /* Directional drop indicators for group-onto-group reorder. Cursor in the
    top half of the target → line at top (drop above). Cursor in the bottom
    half → line at bottom (drop below). The visual treatment intentionally
    matches .is-drag-over so the user gets consistent feedback whether they
    intend a card-reparent (uses is-drag-over) or a group-reorder. */
-.sb-tradition-group.is-drag-over-top { box-shadow: inset 0 2px 0 0 var(--accent, #c8504a); }
-.sb-tradition-group.is-drag-over-bottom { box-shadow: inset 0 -2px 0 0 var(--accent, #c8504a); }
+.sb-tradition-group.is-drag-over-top { box-shadow: inset 0 2px 0 0 var(--accent); }
+.sb-tradition-group.is-drag-over-bottom { box-shadow: inset 0 -2px 0 0 var(--accent); }
 .sb-card-pin { display: inline-flex; align-items: center; justify-content: center; color: var(--text-3); margin-right: 4px; }
-.sb-card.is-pinned .sb-card-pin { color: var(--accent, #c8504a); }
+.sb-card.is-pinned .sb-card-pin { color: var(--accent); }
 
 .sb-tradition-cards { display: flex; flex-direction: column; gap: 2px; }
 .sb-tradition-group.is-collapsed .sb-tradition-cards { display: none; }
@@ -360,7 +354,7 @@ ul { list-style: none; }
 .sb-card-thumb svg, .sb-card-thumb img { width: 24px; height: 24px; }
 .sb-card-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
 .sb-card-line1 { font-size: var(--fs-body); color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.sb-card-line1 .sb-preface { font-style: italic; color: var(--accent, #c8504a); margin-right: 4px; }
+.sb-card-line1 .sb-preface { font-style: italic; color: var(--accent); margin-right: 4px; }
 .sb-card-line1 .sb-name { color: var(--text); }
 .sb-card-line2 { display: flex; align-items: center; justify-content: space-between; gap: var(--s2); }
 .sb-card-line2 .sb-family { font-size: var(--fs-nano); font-weight: var(--fw-semibold); text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-3); }
@@ -373,12 +367,12 @@ ul { list-style: none; }
 /* Suggest a staple — Phase 7. Sibling-tradition recommendation card. */
 .sb-staple { background: var(--color-blue-tint, #eef3fb); border: 1px solid var(--color-blue-border, #cfd9e8); border-radius: 8px; padding: var(--s3); display: flex; flex-direction: column; gap: var(--s2); }
 .sb-staple-head { display: flex; align-items: center; gap: 6px; }
-.sb-staple-head .ws-label { color: var(--color-blue, #4a7cb8); margin: 0; flex: 1; }
-.sb-staple-refresh { padding: 4px; color: var(--color-blue, #4a7cb8); }
+.sb-staple-head .ws-label { color: var(--color-blue); margin: 0; flex: 1; }
+.sb-staple-refresh { padding: 4px; color: var(--color-blue); }
 .sb-staple-refresh:hover { color: var(--text); }
 .sb-staple-body { font-size: var(--fs-caption); color: var(--text-2); line-height: 1.4; }
 .sb-staple-body .sb-staple-name { font-style: italic; color: var(--text); font-weight: var(--fw-medium); }
-.sb-staple-add { display: flex; align-items: center; justify-content: center; gap: 4px; padding: 6px 8px; border: 1px solid var(--color-blue-border, #cfd9e8); background: rgba(255,255,255,0.5); border-radius: 6px; color: var(--color-blue, #4a7cb8); font-size: var(--fs-caption); font-weight: var(--fw-medium); cursor: pointer; transition: background 120ms; }
+.sb-staple-add { display: flex; align-items: center; justify-content: center; gap: 4px; padding: 6px 8px; border: 1px solid var(--color-blue-border, #cfd9e8); background: rgba(255,255,255,0.5); border-radius: 6px; color: var(--color-blue); font-size: var(--fs-caption); font-weight: var(--fw-medium); cursor: pointer; transition: background 120ms; }
 .sb-staple-add:hover { background: white; }
 
 /* Parts list grid (Phase 4 of layout refactor). Matches the screenshot row
@@ -413,11 +407,11 @@ ul { list-style: none; }
 .rp-head .rp-label { font-size: var(--fs-micro); font-weight: var(--fw-semibold); text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-3); flex: 1; }
 .rp-head .rp-count { font-size: var(--fs-micro); font-variant-numeric: tabular-nums; color: var(--text-3); }
 .rp-head .rp-count.is-amber { color: #b87a26; }
-.rp-head .rp-count.is-red { color: var(--color-red, #c8504a); }
+.rp-head .rp-count.is-red { color: var(--color-red); }
 .rp-progress { height: 2px; background: var(--surface-2); border-radius: 1px; overflow: hidden; }
-.rp-progress-fill { height: 100%; background: var(--color-green, #4a9c6f); transition: width 200ms ease, background 200ms ease; }
+.rp-progress-fill { height: 100%; background: var(--color-green); transition: width 200ms ease, background 200ms ease; }
 .rp-progress-fill.is-amber { background: #d9961f; }
-.rp-progress-fill.is-red { background: var(--color-red, #c8504a); }
+.rp-progress-fill.is-red { background: var(--color-red); }
 .rp-text { font-family: 'JetBrains Mono', monospace; font-size: var(--fs-code); line-height: 1.5; color: var(--text-2); max-height: 200px; overflow-y: auto; word-break: break-word; padding-right: 4px; }
 .rp-text::-webkit-scrollbar { width: 4px; }
 .rp-text::-webkit-scrollbar-thumb { background: var(--text-4); border-radius: 2px; }
@@ -435,20 +429,20 @@ ul { list-style: none; }
 /* Points UP while collapsed ("expand me"), flat-down once open. The glyph is
    chevron-down — Lucide's chevron-up is not vendored, and icon() returns an
    empty string for an unknown name rather than failing loudly. */
-.rp-expand svg { transform: rotate(180deg); transition: transform var(--t-norm, 160ms) var(--ease, ease); }
+.rp-expand svg { transform: rotate(180deg); transition: transform var(--t-norm) var(--ease); }
 
 /* Detail pane — Phase 3 of layout refactor. Right pane shows selected card. */
 .detail-view { max-width: 1100px; margin: 0 auto; }
 .detail-breadcrumb-row { display: flex; align-items: center; justify-content: space-between; gap: var(--s3); margin-bottom: var(--s5); }
 .detail-breadcrumb { font-size: var(--fs-micro); font-weight: var(--fw-semibold); text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-3); display: flex; align-items: center; gap: var(--s2); cursor: pointer; }
 .detail-breadcrumb:hover { color: var(--text-2); }
-.detail-breadcrumb-status { display: inline-flex; align-items: center; gap: 4px; color: var(--color-blue, #4a7cb8); }
+.detail-breadcrumb-status { display: inline-flex; align-items: center; gap: 4px; color: var(--color-blue); }
 .detail-breadcrumb-status::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
 .detail-breadcrumb-status.secondary { color: var(--text-3); }
 .detail-actions { display: flex; gap: var(--s1); align-items: center; }
 .detail-actions .icon-btn { padding: 6px; color: var(--text-2); }
 .detail-actions .icon-btn:hover { color: var(--text); }
-.detail-actions .icon-btn.is-danger { color: var(--color-red, #c8504a); }
+.detail-actions .icon-btn.is-danger { color: var(--color-red); }
 
 /* Stack signature strip — Phase 2 of UI Capability Inventory Plan.
  * Renders above the detail header when 2+ cards are in the workspace.
@@ -463,7 +457,7 @@ ul { list-style: none; }
   margin-bottom: var(--s4);
   background: var(--surface-2);
   border-radius: var(--r2);
-  border: 1px solid var(--surface-3, var(--border, transparent));
+  border: 1px solid var(--surface-3);
 }
 .detail-stack-signature .dss-fingerprint {
   display: flex;
@@ -495,7 +489,7 @@ ul { list-style: none; }
   font-weight: var(--fw-medium);
   color: var(--text-2);
   background: var(--surface-1, var(--surface));
-  border: 1px solid var(--surface-3, var(--border, transparent));
+  border: 1px solid var(--surface-3);
   border-radius: var(--r1);
   padding: 3px 8px;
   cursor: pointer;
@@ -534,7 +528,7 @@ ul { list-style: none; }
 .detail-thumb svg, .detail-thumb img { width: 56px; height: 56px; }
 .detail-title-block { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
 .detail-title { font-family: var(--font-display); font-size: var(--fs-display-detail); font-weight: var(--fw-semibold); line-height: 1.2; color: var(--text); }
-.detail-title .detail-preface { font-style: italic; color: var(--accent, #c8504a); font-weight: var(--fw-regular); margin-right: 8px; }
+.detail-title .detail-preface { font-style: italic; color: var(--accent); font-weight: var(--fw-regular); margin-right: 8px; }
 /* Primary-card marker — small ANCHOR pill in the detail-title row.
    Surfaces when the displayed card is _determinePrimaryCard(app.cards).
    The sidebar's PRIMARY pill marks the tradition group at the tree level;
@@ -571,18 +565,12 @@ ul { list-style: none; }
 .detail-tab-bar { display: flex; align-items: center; gap: var(--s5); border-bottom: 1px solid var(--border); margin-bottom: var(--s4); }
 .detail-tab { display: inline-flex; align-items: center; gap: 6px; padding: 10px 0; border: none; background: transparent; cursor: pointer; color: var(--text-2); font-size: var(--fs-body); font-weight: var(--fw-medium); border-bottom: 2px solid transparent; margin-bottom: -1px; transition: color 120ms, border-color 120ms; }
 .detail-tab:hover { color: var(--text); }
-.detail-tab.is-active { color: var(--text); font-weight: var(--fw-semibold); border-bottom-color: var(--accent, #c8504a); }
+.detail-tab.is-active { color: var(--text); font-weight: var(--fw-semibold); border-bottom-color: var(--accent); }
 .detail-tab-status { margin-left: auto; font-size: var(--fs-caption); color: var(--text-3); }
 
 .detail-tab-content { min-height: 200px; }
 .detail-tab-content > .composer-section:first-child { padding-top: 0; border-top: none; }
 .detail-tab-content > .composer-section .composer-section-title { display: none; }
-
-/* The drawer toggle and its backdrop are dead below 900px — the tree is the
-   page there, not a slide-out pane — but they stay in the DOM so nothing has
-   to branch on layout to query them. */
-.drawer-toggle { display: none; }
-.sidebar-backdrop { display: none; }
 
 /* ===========================================================================
    MOBILE MODEL (<= 899px): ONE SCROLLING PAGE.
@@ -611,6 +599,12 @@ ul { list-style: none; }
     position: static;
     height: auto;
     overflow: visible;
+    /* Structural backstop: nothing absolutely positioned inside the tree may
+       re-open the layout viewport (a hover tooltip on a right-aligned button
+       once did exactly that). `clip` rather than `hidden` — `hidden` would make
+       this a scroll container and break the sticky genre headers. Declared with
+       the shorthand above so it does not depend on block ordering. */
+    overflow-x: clip;
     border-right: none;
     padding: var(--s3) var(--s3) 0;
     gap: var(--s3);
@@ -885,7 +879,6 @@ ul { list-style: none; }
 
 /* Environment items */
 .env-options { margin-top: var(--s3); padding-top: var(--s3); grid-column: 1 / -1; display: flex; flex-direction: column; gap: var(--s1); }
-.env-options-cluster-head { font-size: var(--fs-micro); font-weight: var(--fw-semibold); text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-3); margin-top: var(--s3); margin-bottom: 4px; }
 
 /* Chain visual */
 .chain-flow { display: grid; grid-template-columns: repeat(8, 1fr); gap: 2px; }
@@ -976,8 +969,7 @@ ul { list-style: none; }
 .muted-italic { color: var(--text-3); font-style: italic; }
 /* Small uppercase section labels — micro size, semibold, tracked.
    Used to introduce sub-sections inside picker drill-downs ("Closest
-   on", etc.). Mirrors the .env-options-cluster-head pattern but with
-   tighter, more flexible margins for in-flow use. */
+   on", etc.). */
 .label-micro-cap { font-size: var(--fs-micro); font-weight: var(--fw-semibold); text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-3); margin-bottom: 4px; margin-top: var(--s2); }
 .modal-head { padding: var(--s4) var(--s5); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: var(--s3); }
 .modal-head h2 { font-family: var(--font-display); font-size: var(--fs-display-modal); font-weight: var(--fw-semibold); letter-spacing: -0.005em; font-variation-settings: "SOFT" 50, "opsz" 30; }
@@ -1134,7 +1126,7 @@ ul { list-style: none; }
     background: var(--surface);
     border: 1px solid var(--border);
     border-left: 3px solid var(--family-color, var(--color-blue));
-    border-radius: var(--r2, 8px);
+    border-radius: var(--r2);
   }
   #sidebar-traditions #detail-view .detail-breadcrumb-row { margin-bottom: var(--s3); }
   /* The breadcrumb names the genre you are already sitting inside. Its action
@@ -1228,11 +1220,6 @@ ul { list-style: none; }
      Every control that carries data-tooltip also carries aria-label, so the
      accessible name is unaffected. */
   [data-tooltip]::after { content: none; }
-  /* Structural backstop: nothing absolutely positioned inside the tree may
-     re-open the layout viewport. `clip` rather than `hidden` — `hidden` would
-     make this a scroll container and break the sticky genre headers. */
-  #workspace-sidebar { overflow-x: clip; }
-
   /* --- Touch target sizing (unconditional at this width — see header) ----- */
   .icon-btn { min-width: 44px; min-height: 44px; }
   .app-bar .icon-btn { width: 44px; height: 44px; }
@@ -1389,29 +1376,41 @@ ul { list-style: none; }
 [data-tooltip-pos="bottom"]:focus-visible::after {
   transform: translateX(-50%) translateY(0);
 }
+/* Left — for controls sitting at the right edge of a clipping container. The
+   sidebar's tradition mover/delete buttons ask for this; until it existed they
+   fell back to the centred-above default and were clipped by the sidebar's
+   `overflow: hidden` (and, before the tooltips were suppressed below 900px,
+   pushed the phone layout viewport open). */
+[data-tooltip-pos="left"]::after {
+  bottom: auto;
+  top: 50%;
+  left: auto;
+  right: calc(100% + 8px);
+  transform: translateY(-50%) translateX(2px);
+}
+[data-tooltip-pos="left"]:hover::after,
+[data-tooltip-pos="left"]:focus-visible::after {
+  transform: translateY(-50%) translateX(0);
+}
 </style>
 </head>
 <body>
 
 <header class="app-bar">
   <div style="display: flex; align-items: center; gap: var(--s4);">
-    <button class="icon-btn drawer-toggle" id="btn-drawer-toggle" aria-label="Toggle sidebar"><span data-icon="menu" data-size="14"></span></button>
     <h1 class="app-bar-wordmark"><span class="wordmark-text">Codex</span><span class="wordmark-rule" aria-hidden="true"></span><span class="wordmark-sub">of song-recipes</span></h1>
     <span class="workspace-meta" id="meta"></span>
   </div>
   <div class="actions">
-    <!-- `display: contents` at every width, so these are always direct flex
-         children of `.actions`. Below 900px the four tools below move into
-         the #app-more-menu overflow sheet and only the two ADD actions stay
-         in the bar — see the compact tier in the responsive section. -->
-    <div class="actions-scroll">
-      <button class="icon-btn" id="btn-undo" data-tooltip="Undo (Ctrl/Cmd+Z)" aria-label="Undo" disabled><span data-icon="undo" data-size="14"></span></button>
-      <button class="icon-btn" id="btn-redo" data-tooltip="Redo (Ctrl/Cmd+Shift+Z)" aria-label="Redo" disabled><span data-icon="redo" data-size="14"></span></button>
-      <button class="icon-btn" id="btn-attributions" data-tooltip="Image credits & licenses" aria-label="Image credits"><span data-icon="info" data-size="14"></span></button>
-      <span class="actions-rule" aria-hidden="true"></span>
-      <button class="btn btn-ghost" id="btn-traditions"><span data-icon="library" data-size="14"></span><span class="btn-label"><span class="lbl-full">Traditions</span><span class="lbl-compact">Genre</span></span></button>
-      <button class="btn btn-ghost" id="btn-saved"><span data-icon="folder" data-size="14"></span><span class="btn-label">Saved</span></button>
-    </div>
+    <!-- Below 900px the four session-level tools here move into the
+         #app-more-menu overflow sheet and only the two ADD actions stay in the
+         bar — see the compact tier in the responsive section. -->
+    <button class="icon-btn" id="btn-undo" data-tooltip="Undo (Ctrl/Cmd+Z)" aria-label="Undo" disabled><span data-icon="undo" data-size="14"></span></button>
+    <button class="icon-btn" id="btn-redo" data-tooltip="Redo (Ctrl/Cmd+Shift+Z)" aria-label="Redo" disabled><span data-icon="redo" data-size="14"></span></button>
+    <button class="icon-btn" id="btn-attributions" data-tooltip="Image credits &amp; licenses" aria-label="Image credits"><span data-icon="info" data-size="14"></span></button>
+    <span class="actions-rule" aria-hidden="true"></span>
+    <button class="btn btn-ghost" id="btn-traditions"><span data-icon="library" data-size="14"></span><span class="btn-label"><span class="lbl-full">Traditions</span><span class="lbl-compact">Genre</span></span></button>
+    <button class="btn btn-ghost" id="btn-saved"><span data-icon="folder" data-size="14"></span><span class="btn-label">Saved</span></button>
     <button class="btn btn-secondary" id="btn-save"><span data-icon="save" data-size="14"></span><span class="btn-label"><span class="lbl-full">Save workspace</span><span class="lbl-compact">Save</span></span></button>
     <button class="btn btn-primary" id="btn-add"><span data-icon="plus" data-size="14"></span><span class="btn-label"><span class="lbl-full">Add instrument</span><span class="lbl-compact">Instrument</span></span></button>
     <!-- Overflow. Hidden at >= 900px, where every action above is already in
@@ -1446,7 +1445,6 @@ ul { list-style: none; }
     </div>
     <div id="sidebar-recipe-preview"></div>
   </aside>
-  <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
   <section id="workspace-detail">
     <section id="empty-state" class="empty-state">
       <div class="empty-state-icon"><span data-icon="music" data-size="40"></span></div>
@@ -36683,7 +36681,7 @@ window.addEventListener('unhandledrejection', e => {
 
 // Keep the CSS --app-bar-height variable in sync with the real rendered app
 // bar. The sidebar pane (height/top = calc(100vh - app-bar-height)) and the
-// mobile drawer offsets are derived from it; measuring the actual bar — which
+// the sticky genre headers are offset by it; measuring the actual bar — which
 // shifts with web-font loading and viewport width — keeps those panes
 // pixel-aligned to the sticky bar instead of trusting the 56px fallback.
 function syncAppBarHeight() {
@@ -36895,27 +36893,6 @@ function _initApp() {
   document.getElementById('btn-undo').addEventListener('click', undo);
   document.getElementById('btn-redo').addEventListener('click', redo);
 
-  // Mobile drawer toggle (Phase 9). Toggles .is-open on sidebar + backdrop.
-  // Backdrop click closes. Sidebar card-click also closes (to reveal the
-  // detail pane the user just selected).
-  const drawerBtn = document.getElementById('btn-drawer-toggle');
-  const sidebarEl = document.getElementById('workspace-sidebar');
-  const backdrop = document.getElementById('sidebar-backdrop');
-  if (drawerBtn && sidebarEl && backdrop) {
-    const closeDrawer = () => {
-      sidebarEl.classList.remove('is-open');
-      backdrop.classList.remove('is-open');
-    };
-    drawerBtn.addEventListener('click', () => {
-      const isOpen = sidebarEl.classList.toggle('is-open');
-      backdrop.classList.toggle('is-open', isOpen);
-    });
-    backdrop.addEventListener('click', closeDrawer);
-    // Auto-close after a sidebar card selection on mobile
-    sidebarEl.addEventListener('click', e => {
-      if (window.innerWidth <= 899 && e.target.closest('.sb-card')) closeDrawer();
-    });
-  }
   document.addEventListener('keydown', (e) => {
     // Skip if user is typing in an input/textarea/contenteditable — Ctrl+Z
     // is also the OS-level text undo for those.
@@ -36986,7 +36963,7 @@ function _initApp() {
 .tree-row-name { line-height: 1.3; }
 .sb-trad-glyphs { display: inline-flex; gap: 2px; align-items: center; flex: 0 0 auto; vertical-align: middle; margin-right: 5px; }
 .sb-trad-glyph { display: inline-flex; align-items: center; justify-content: center; padding: 2px; border-radius: 6px; }
-.sb-trad-glyph.is-fn { background: var(--surface-2); box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--accent, #c8504a) 50%, transparent); }
+.sb-trad-glyph.is-fn { background: var(--surface-2); box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--accent) 50%, transparent); }
 .sb-trad-glyph.is-character { background: color-mix(in srgb, #E0A157 18%, transparent); }
 .sb-trad-glyph svg { display: block; }
 .qp-glyph { display: inline-flex; align-items: center; vertical-align: middle; margin-right: 6px; }
