@@ -179,12 +179,12 @@ function stripExpandedVariants(inst) {
   };
 }
 
+// TRADITION_SOURCE_KEYS and configIdProblems are internal helpers of
+// traditionSource() and recordProblems() respectively — exported, never imported.
 module.exports = {
   RECIPE_CHAR_CEILING,
-  TRADITION_SOURCE_KEYS,
   traditionSource,
   buildResolver,
-  configIdProblems,
   recordProblems,
   stripExpandedVariants,
 };

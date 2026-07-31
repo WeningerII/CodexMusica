@@ -30,6 +30,11 @@
 const C = require('./_loader.js');
 const { seedFromTradition } = require('./search.js');
 
+// Locale-invariant ordering: localeCompare with no locale argument collates by
+// the machine's ICU locale, which made this ordering depend on where it ran.
+// Mirrors `_cmp` in scripts/_recipe_stack.js.
+const _cmp = (a, b) => (a < b ? -1 : a > b ? 1 : 0);
+
 const args = process.argv.slice(2);
 const flags = {};
 // Accept both --flag=value and --flag value (the latter previously became
@@ -368,7 +373,7 @@ if (mode === 'stack') {
     const order = ['tradition:', 'room:', 'archetype:', 'aesthetic:', 'chain:', 'instrument:'];
     const ai = order.findIndex((p) => a.startsWith(p));
     const bi = order.findIndex((p) => b.startsWith(p));
-    return ai - bi || a.localeCompare(b);
+    return ai - bi || _cmp(a, b);
   });
 
   for (const layerKey of layerOrder) {

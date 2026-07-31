@@ -593,7 +593,7 @@ const Catalog = (() => {
 // ---- Lookups ----
 // O(1) ID indexes built once at boot from the catalog arrays. Every render
 // path used to call `.find()` linear scans on these arrays — at 40+ cards
-// the cumulative cost of scanning 1090 traditions × 421 instruments × N
+// the cumulative cost of scanning every tradition × every instrument × N
 // chain items × variants dominated the per-render budget (the heaviest
 // single hot path, `findTraditionsByVector`, alone cost ~1M ops/render).
 // Maps push every lookup to constant time without changing call sites.
@@ -2664,6 +2664,21 @@ function _suppressSubsumed(tokens) {
   return clean.filter((_, i) => !drop.has(i));
 }
 
+// Fixed-order string comparison for everything that reaches the rendered recipe.
+//
+// localeCompare with no locale argument collates by the BROWSER's locale, so the
+// same catalog rendered a different recipe for a Danish reader than for the build
+// machine — da-DK reads "aa" as "å", which sorts "maag" after "mid-emphasized"
+// and reorders a descriptor chunk. Codepoint order is locale-invariant and,
+// measured over all 7,154 distinct multi-token descriptor sets, identical to
+// what en-US produces today: pinning it changed no output, it only stopped the
+// output depending on who was looking.
+//
+// scripts/_recipe_stack.js carries a byte-identical `_cmp`. This file is inlined
+// into codex.html and cannot require() it, so the two are kept in step by
+// check_app_parity.js rather than by sharing a module.
+const _cmp = (a, b) => (a < b ? -1 : a > b ? 1 : 0);
+
 // ===== Descriptor priority — tier + IDF ordering =====
 // Replaces alphabetical sort inside descriptor chunks with a meaning-weighted
 // order. Tokens that name a concrete physical reference (materials, named
@@ -2799,7 +2814,7 @@ function _sortDescriptorsByPriority(descs) {
     const da = df.get(a) || 999;
     const db = df.get(b) || 999;
     if (da !== db) return da - db;
-    return a.toLowerCase().localeCompare(b.toLowerCase());
+    return _cmp(a.toLowerCase(), b.toLowerCase());
   });
 }
 
@@ -2886,7 +2901,7 @@ function renderAttributions() {
 }
 
 // Family-level visual identity via color, not icons. The codex has 11
-// instrument families across 421 instruments; no UI icon library (Lucide,
+// instrument families across the whole roster; no UI icon library (Lucide,
 // Heroicons, Tabler, etc.) has more than ~5 real instrument glyphs, and
 // substituting noteheads for "violin" or "drum" misrepresents the family.
 // Color works better here: 11 distinct hues actually differentiate, where
@@ -3068,7 +3083,7 @@ function _computeRecipeDedupedPrefaces(cards) {
     ranked.sort(function(a, b) {
       if (a.score !== b.score) return b.score - a.score;
       if (a.shared !== b.shared) return b.shared - a.shared;
-      return a.entry.id.localeCompare(b.entry.id);
+      return _cmp(a.entry.id, b.entry.id);
     });
     let cursor = 0;
     while (cursor < ranked.length && lockedIds.has(ranked[cursor].entry.id)) cursor++;
@@ -3192,7 +3207,7 @@ function suggestPrefaceForCard(card) {
   ranked.sort(function(a, b) {
     if (a.score !== b.score) return b.score - a.score;
     if (a.shared !== b.shared) return b.shared - a.shared;
-    return a.entry.id.localeCompare(b.entry.id);
+    return _cmp(a.entry.id, b.entry.id);
   });
   return ranked[0].entry.id;
 }
@@ -3459,7 +3474,7 @@ function buildReachabilityFan(card, n) {
   if (ranked.length === 0) return [];
   ranked.sort(function (a, b) {
     if (a.score !== b.score) return b.score - a.score;
-    return a.entry.id.localeCompare(b.entry.id);
+    return _cmp(a.entry.id, b.entry.id);
   });
   const currentId = card.preface || null;
   return ranked.slice(0, n).map(function (r) {
@@ -6727,7 +6742,7 @@ async function renderSaved() {
     b.innerHTML = renderEmptyModalState('No saved workspaces yet.', 'folder');
     return;
   }
-  list.sort((a, b) => (b.saved_at || '').localeCompare(a.saved_at || ''));
+  list.sort((a, b) => _cmp(b.saved_at || '', a.saved_at || ''));
   b.innerHTML = `<div class="saved-grid">` + list.map(w => {
     const date = w.saved_at ? new Date(w.saved_at).toLocaleString(undefined, { month: 'short', day: 'numeric', year: 'numeric' }) : '';
     return `
@@ -6838,7 +6853,7 @@ function buildUpSetData(cards) {
     if (a.size !== b.size) return b.size - a.size;
     if (a.setIdxs.length !== b.setIdxs.length) return a.setIdxs.length - b.setIdxs.length;
     // Stable for deterministic test output: lexicographic on setIdxs
-    return a.setIdxs.join(',').localeCompare(b.setIdxs.join(','));
+    return _cmp(a.setIdxs.join(','), b.setIdxs.join(','));
   });
 
   return {
@@ -7278,7 +7293,7 @@ function _initApp() {
     const fa = familyOrder.indexOf(a.family);
     const fb = familyOrder.indexOf(b.family);
     if (fa !== fb) return fa - fb;
-    return sortKey(a).localeCompare(sortKey(b), undefined, { sensitivity: 'base' });
+    return sortKey(a).localeCompare(sortKey(b), 'en', { sensitivity: 'base' });
   });
 })();
 
@@ -7542,7 +7557,7 @@ function renderAxisFingerprint(axesObj, classExtra) {
 // The centroid is a pure function of static catalog data — the same tradId
 // always produces the same result. Cached lazily: first call per tradId
 // computes and stores; subsequent calls return the cached vector. With
-// findTraditionsByVector iterating all 1090 traditions on every render, this
+// findTraditionsByVector iterating every tradition on every render, this
 // drops the per-render compute from ~1M ops to ~5K ops after first warmup.
 let _TRAD_CENTROID_CACHE = null;
 
@@ -8047,7 +8062,7 @@ function renderTradPicker() {
     const matches = Catalog.all()
       .map((t) => ({ t, r: matchRank(t) }))
       .filter((x) => x.r !== Infinity)
-      .sort((a, b) => a.r - b.r || a.t.name.length - b.t.name.length || a.t.name.localeCompare(b.t.name))
+      .sort((a, b) => a.r - b.r || a.t.name.length - b.t.name.length || a.t.name.localeCompare(b.t.name, 'en'))
       .map((x) => x.t);
     if (!matches.length) {
       c.innerHTML = `<div class="empty-msg">No traditions match &ldquo;${esc(q)}&rdquo;</div>`;

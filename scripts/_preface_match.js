@@ -28,6 +28,11 @@
 // Bounded [0, 1]. No gates. No filters. No negation. Tiebreaks deterministic
 // by alphabetical preface id.
 
+// Locale-invariant ordering: localeCompare with no locale argument collates by
+// the machine's ICU locale, which made this ordering depend on where it ran.
+// Mirrors `_cmp` in scripts/_recipe_stack.js.
+const _cmp = (a, b) => (a < b ? -1 : a > b ? 1 : 0);
+
 // Derive the v2 token profile from a preface lexicon entry.
 // If the entry already has a flat `tokens` array, use it.
 // Otherwise, fall back to the v1 habitat representation by merging
@@ -65,7 +70,7 @@ function rank(cardDescriptorSet, lexicon) {
     if (s === 0) continue;
     out.push({ entry, i, score: s });
   }
-  out.sort((a, b) => b.score - a.score || a.entry.id.localeCompare(b.entry.id));
+  out.sort((a, b) => b.score - a.score || _cmp(a.entry.id, b.entry.id));
   return out;
 }
 

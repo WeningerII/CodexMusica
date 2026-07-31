@@ -25,8 +25,9 @@
 // What it skips:
 // - Markdowns with STATUS marker SHIPPED|ACTED ON|MOSTLY SHIPPED (historical
 //   reference docs that intentionally preserve point-in-time snapshots).
-// - README.md and CHANGELOG.md (prose; their comma-formatted numbers are not
-//   canonical counts) and the tests/ fixtures.
+// - CHANGELOG.md (a historical record: old entries state old counts on purpose)
+//   and the tests/ fixtures. README.md IS checked — its thousands separators are
+//   handled rather than exempted.
 // - Lines containing `<!-- check_docs:ignore -->` inline pragma.
 //
 // Usage:
@@ -57,11 +58,17 @@ const JSON_OUT = flags.json;
 
 // docs/ and the _one_off / _archive trees were removed in the production-hardening
 // pass; SKILL.md is the one canonical manifest whose counts must stay truthful.
-// README.md and CHANGELOG.md are prose (comma-formatted numbers, not canonical
-// totals) and are intentionally not drift-checked; tests/ holds fixtures.
+// tests/ holds fixtures.
 const EXCLUDED_PREFIXES = ['node_modules/', 'tests/', '.git/'];
 
-const EXCLUDED_FILES = ['README.md', 'CHANGELOG.md'];
+// CHANGELOG.md only. Its entries are a historical record — an old entry is
+// SUPPOSED to state the count that was true when it was written, so drift-checking
+// it would be wrong. README.md used to be excluded on the same "prose" rationale,
+// which left the repo's most-read file as the only one allowed to be wrong: it
+// advertised 1,195 traditions and 651 instruments long after the real figures were
+// 1,167 and 870, and no gate could say so. The only real obstacle was that README
+// writes numbers with thousands separators, which N below now accepts.
+const EXCLUDED_FILES = ['CHANGELOG.md'];
 
 const STATUS_RE = /\*\*STATUS:\*\*\s+(SHIPPED|ACTED ON|MOSTLY SHIPPED)/;
 
@@ -126,6 +133,12 @@ const QUALIFIERS = [
 ];
 const Q_NEG = `(?!\\s+(?:${QUALIFIERS.join('|')})\\b)`;
 
+// Number group accepting both "870" and "1,167". README writes prose numbers with
+// thousands separators; the agent-facing docs do not. Spelled out rather than
+// written [\\d,]+ so it can never match a trailing comma ("in 2024, 84 rooms").
+// Commas are stripped before the comparison.
+const N = '((?:\\d{1,3}(?:,\\d{3})+|\\d+))';
+
 const GLOBAL_FAMILY_COUNT = C.TRADITIONS.filter((t) => t.family === 'global').length;
 const DOTTED_NODE_COUNT = C.TREE_NODES.filter((n) => n.id.includes('.')).length;
 
@@ -134,43 +147,43 @@ const COUNT_CHECKS = [
   // and \s+ so a line-wrapped "all 1195\ntraditions" still matches — both forms
   // drifted silently before this pattern was widened.
   {
-    phrase: new RegExp(`(\\d+)(?:\\s+(?:recorded-music|music))?\\s+traditions\\b${Q_NEG}`, 'g'),
+    phrase: new RegExp(`${N}(?:\\s+(?:recorded-music|music))?\\s+traditions\\b${Q_NEG}`, 'g'),
     expected: C.TRADITIONS.length,
     kind: 'traditions',
   },
   {
-    phrase: new RegExp(`(\\d+) instruments\\b${Q_NEG}`, 'g'),
+    phrase: new RegExp(`${N} instruments\\b${Q_NEG}`, 'g'),
     expected: C.INSTRUMENTS.length,
     kind: 'instruments',
   },
   {
-    phrase: new RegExp(`(\\d+) prefaces\\b${Q_NEG}`, 'g'),
+    phrase: new RegExp(`${N} prefaces\\b${Q_NEG}`, 'g'),
     expected: C.PREFACE_LEXICON.length,
     kind: 'prefaces',
   },
-  { phrase: new RegExp(`(\\d+) rooms\\b${Q_NEG}`, 'g'), expected: C.ROOMS.length, kind: 'rooms' },
+  { phrase: new RegExp(`${N} rooms\\b${Q_NEG}`, 'g'), expected: C.ROOMS.length, kind: 'rooms' },
   {
-    phrase: new RegExp(`(\\d+) chain archetypes\\b${Q_NEG}`, 'g'),
+    phrase: new RegExp(`${N} chain archetypes\\b${Q_NEG}`, 'g'),
     expected: C.CHAIN_ARCHETYPES.length,
     kind: 'chain_archetypes',
   },
   {
-    phrase: new RegExp(`(\\d+) production aesthetics\\b${Q_NEG}`, 'g'),
+    phrase: new RegExp(`${N} production aesthetics\\b${Q_NEG}`, 'g'),
     expected: C.PRODUCTION_AESTHETICS.length,
     kind: 'production_aesthetics',
   },
   {
-    phrase: new RegExp(`(\\d+) tunings\\b${Q_NEG}`, 'g'),
+    phrase: new RegExp(`${N} tunings\\b${Q_NEG}`, 'g'),
     expected: C.TUNINGS.length,
     kind: 'tunings',
   },
   {
-    phrase: new RegExp(`(\\d+) tree nodes\\b${Q_NEG}`, 'g'),
+    phrase: new RegExp(`${N} tree nodes\\b${Q_NEG}`, 'g'),
     expected: C.TREE_NODES.length,
     kind: 'tree_nodes',
   },
   {
-    phrase: new RegExp(`(\\d+) catalog tables\\b${Q_NEG}`, 'g'),
+    phrase: new RegExp(`${N} catalog tables\\b${Q_NEG}`, 'g'),
     expected: Object.keys(C).length,
     kind: 'catalog_tables',
   },
@@ -245,7 +258,7 @@ for (const { rel, content } of activeMarkdowns) {
     check.phrase.lastIndex = 0;
     let m;
     while ((m = check.phrase.exec(content)) !== null) {
-      const found = parseInt(m[1], 10);
+      const found = parseInt(m[1].replace(/,/g, ''), 10);
       if (found === check.expected) continue;
       const lineNum = lineNumberAt(content, m.index);
       const line = lineAt(content, lineNum);
@@ -456,7 +469,7 @@ if (JSON_OUT) {
 
 console.log(`=== Documentation verification ===`);
 console.log(
-  `(${activeMarkdowns.length} active docs scanned: *.md + llms.txt + index.html; README/CHANGELOG/tests + codex.html excluded)\n`
+  `(${activeMarkdowns.length} active docs scanned: *.md + llms.txt + index.html; CHANGELOG/tests + codex.html excluded)\n`
 );
 
 // Numeric counts

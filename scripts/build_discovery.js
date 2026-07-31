@@ -108,13 +108,17 @@ const urls = [
   ...tindex.items.map((t) => `${BASE}/api/${t.href}`),
   ...iindex.items.map((i) => `${BASE}/api/${i.href}`),
 ];
-const today = new Date().toISOString().slice(0, 10);
+// NO <lastmod>. It used to be `new Date()`, which made a COMMITTED artifact a
+// function of the wall clock: every build on a new UTC day rewrote all 2,043
+// entries, producing a whole-file diff with no source change (that churn caused
+// a real merge conflict) and telling crawlers that 2,043 URLs all changed today
+// — a claim they discount anyway. lastmod is optional in the sitemap protocol,
+// and omitting it is both honest and deterministic: sitemap.xml is now purely a
+// function of the URL set, so check_artifact_fresh.js can byte-compare it.
 const xml =
   '<?xml version="1.0" encoding="UTF-8"?>\n' +
   '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
-  urls
-    .map((u) => `  <url><loc>${u.replace(/&/g, '&amp;')}</loc><lastmod>${today}</lastmod></url>`)
-    .join('\n') +
+  urls.map((u) => `  <url><loc>${u.replace(/&/g, '&amp;')}</loc></url>`).join('\n') +
   '\n</urlset>\n';
 fs.writeFileSync(path.join(OUT_DIR, 'sitemap.xml'), xml);
 

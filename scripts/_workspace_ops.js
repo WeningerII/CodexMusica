@@ -176,8 +176,10 @@ function render(ws, opts) {
   return renderWorkspace(clone(ws).cards, opts);
 }
 
+// emptyWorkspace is not part of the op surface: seed() is the only entry point
+// that mints a workspace, and it calls emptyWorkspace() itself. Exporting it
+// advertised a second way in that no caller ever used.
 module.exports = {
-  emptyWorkspace,
   seed,
   addTradition,
   removeTradition,

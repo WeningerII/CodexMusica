@@ -187,13 +187,15 @@ function renderWorkspace(cards, { format = 'rich', ceiling } = {}) {
   return header + body;
 }
 
+// Only what another module actually imports. recipeHeaderFromCards,
+// voicePartsForTradition and resolveAmpVariant were exported "for the op layer +
+// tests" but no caller ever took them — each is used exactly once, inside this
+// file. An export nobody imports is not an API, it is a claim that this file's
+// internals are someone else's business.
 module.exports = {
   seedTraditionCards,
   renderWorkspace,
-  recipeHeaderFromCards,
-  // building blocks (exported for the op layer + tests)
+  // building blocks (imported by the op layer)
   makeCard,
   defaultParts,
-  voicePartsForTradition,
-  resolveAmpVariant,
 };

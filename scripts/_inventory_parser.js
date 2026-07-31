@@ -110,7 +110,10 @@ function summarize(entries) {
   return { total: entries.length, byStatus, byKind };
 }
 
-module.exports = { parseInventory, summarize, REQUIRED, OPTIONAL, VALID_KINDS, VALID_STATUSES };
+// parseInventory is the only import (ui_reachability_check.js). summarize,
+// VALID_KINDS and VALID_STATUSES are used by the self-test below and nowhere
+// else, so they stay in the file but leave the export surface.
+module.exports = { parseInventory, REQUIRED, OPTIONAL };
 
 // Self-test when invoked directly: `node scripts/_inventory_parser.js`
 if (require.main === module) {

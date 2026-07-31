@@ -65,6 +65,9 @@ out, so thread the returned `workspace` into the next call.
 - **Add in Claude:** Settings → Connectors → Add custom connector → paste the URL.
 - **Server card** (capabilities, for clients that auto-discover): `https://codex-musica-mcp.onrender.com/.well-known/mcp.json`
 - **Tools:** `start_recipe`, `edit_recipe`, `render_recipe`, `search_catalog`, `search_prefaces`, `get_instrument`, `get_tradition`, `list_traditions`, `list_options`.
+- `render_recipe` takes `format`: `rich` (default), `tags`, `prose`, `compact`. Every one of
+  them returns the byte-identical string the app shows for the same workspace.
+  <!-- @promise: connector-render-parity -->
 
 **The default seed is scaffolding, not the answer.** `start_recipe` returns a
 tradition's stock cards; the tool's job is to push them toward the user's words.

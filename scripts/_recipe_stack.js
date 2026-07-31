@@ -43,6 +43,23 @@ function ChainItem(stage, itemId) {
   return null;
 }
 
+// Fixed-order string comparison for everything that reaches the rendered recipe.
+//
+// String.prototype.localeCompare with no locale argument uses the runtime's
+// default ICU locale, so the SAME source produced a different recipe on a
+// machine whose locale collates differently — under da-DK, "maag" sorts after
+// "mid-emphasized" because Danish reads "aa" as "å", reordering a shipped
+// descriptor chunk. The catalog carries 90 non-ASCII instrument names and 17
+// non-ASCII descriptors, so the exposure only grows. Codepoint order is
+// locale-invariant and, measured over all 7,154 distinct multi-token descriptor
+// sets, identical to what en-US collation produces today — so pinning it here
+// changed no output, it only stopped the output depending on the machine.
+//
+// src/app.js carries a byte-identical `_cmp` (it is inlined into codex.html and
+// cannot require this module). The two MUST stay in step or check_app_parity.js
+// goes red — which is the point.
+const _cmp = (a, b) => (a < b ? -1 : a > b ? 1 : 0);
+
 // ─────────────────────────── display helpers ───────────────────────────
 function _kebab(label) {
   if (!label) return '';
@@ -352,7 +369,7 @@ function _sortDescriptorsByPriority(descs) {
     const da = df.get(a) || 999;
     const db = df.get(b) || 999;
     if (da !== db) return da - db;
-    return a.toLowerCase().localeCompare(b.toLowerCase());
+    return _cmp(a.toLowerCase(), b.toLowerCase());
   });
 }
 
@@ -478,9 +495,7 @@ function assignDedupedPrefaces(cards) {
       // the more-specific 9-shared one).
       ranked = rank(descSet, C.PREFACE_LEXICON)
         .map((r) => ({ ...r, shared: tokensOf(r.entry).filter((t) => descSet.has(t)).length }))
-        .sort(
-          (a, b) => b.score - a.score || b.shared - a.shared || a.entry.id.localeCompare(b.entry.id)
-        );
+        .sort((a, b) => b.score - a.score || b.shared - a.shared || _cmp(a.entry.id, b.entry.id));
     } catch {
       ranked = [];
     }
@@ -681,9 +696,7 @@ function compressProseRecipe(cards, ceiling) {
 
 // ─────────────────────────── tags ───────────────────────────
 function _tagsChunk(label, descs, preface) {
-  const clean = _suppressSubsumed(descs).sort((a, b) =>
-    a.toLowerCase().localeCompare(b.toLowerCase())
-  );
+  const clean = _suppressSubsumed(descs).sort((a, b) => _cmp(a.toLowerCase(), b.toLowerCase()));
   const head = preface ? `${preface} ${_kebab(label)}` : _kebab(label);
   return clean.length === 0 ? head : `${head}: ${clean.join(' ')}`;
 }
@@ -716,7 +729,7 @@ function compressTagsRecipe(cards, ceiling) {
             label: inst.label,
             preface: _resolvePreface(card),
             descs: _suppressSubsumed(inst.descriptors).sort((a, b) =>
-              a.toLowerCase().localeCompare(b.toLowerCase())
+              _cmp(a.toLowerCase(), b.toLowerCase())
             ),
           }
         : null;
@@ -730,7 +743,7 @@ function compressTagsRecipe(cards, ceiling) {
         label: p.label,
         preface: null,
         descs: _suppressSubsumed(p.descriptors).sort((a, b) =>
-          a.toLowerCase().localeCompare(b.toLowerCase())
+          _cmp(a.toLowerCase(), b.toLowerCase())
         ),
       });
     }

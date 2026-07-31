@@ -50,6 +50,11 @@ const { buildContext, buildMergedContext, isolatedStaplesForPart, scoreVariant }
   path.join(__dirname, 'score.js')
 );
 
+// Locale-invariant ordering: localeCompare with no locale argument collates by
+// the machine's ICU locale, which made this ordering depend on where it ran.
+// Mirrors `_cmp` in scripts/_recipe_stack.js.
+const _cmp = (a, b) => (a < b ? -1 : a > b ? 1 : 0);
+
 // === CLI parsing ===
 const flags = {};
 for (const a of process.argv.slice(2)) {
@@ -112,7 +117,7 @@ function scoreAllVariants(context) {
     const result = scoreVariant(v, context, { useNeighbors: true });
     out.push({ id: v.id, score: Number(result.score.toFixed(4)) });
   }
-  out.sort((a, b) => b.score - a.score || a.id.localeCompare(b.id));
+  out.sort((a, b) => b.score - a.score || _cmp(a.id, b.id));
   return out;
 }
 

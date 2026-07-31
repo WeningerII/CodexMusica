@@ -10,7 +10,7 @@
 // outside the regression fixture set.
 //
 // Runs in-process so it can share the catalog load + buildContext cache
-// across all 1090 traditions. End-to-end runtime ~16 minutes after the
+// across the whole catalog. End-to-end runtime ~16 minutes after the
 // 2026-05 perf work (parse cache + skip-signals + sumLookupWeight neighbor-
 // bias memoization in score.js). Profile if it regresses.
 //
@@ -36,7 +36,7 @@ const VERBOSE = !!flags.verbose;
 const CEILING = parseInt(flags['max-chars']) || 1000;
 
 const failures = [];
-const stats = { traditions: 0, blends: 0, axisTargets: 0, total: 0, ok: 0 };
+const stats = { traditions: 0, blends: 0, axisTargets: 0, total: 0, ok: 0, skipped: 0 };
 
 function fail(scope, msg) {
   failures.push({ scope, msg });
@@ -133,9 +133,11 @@ for (const ids of BLEND_PAIRS) {
   // Skip blends referencing unknown traditions (keeps test resilient as catalog evolves)
   const unknown = ids.find((id) => !C.TRADITION_EXTRAS[id]);
   if (unknown) {
-    if (VERBOSE) console.error(`  - skip blend [${ids.join(', ')}]: unknown tradition ${unknown}`);
-    stats.total++;
-    stats.ok++;
+    // Counted as a skip, not a pass. Banking stats.ok++ here meant that if a
+    // rename quietly orphaned every pair in BLEND_PAIRS, section [2] would
+    // report a perfect score having exercised nothing.
+    stats.skipped++;
+    console.error(`  - SKIP blend [${ids.join(', ')}]: unknown tradition ${unknown}`);
     continue;
   }
   smokeOne(`blend:${ids.join('+')}`, () => seedFromTradition(ids[0], ids.slice(1)));
@@ -173,24 +175,22 @@ for (const target of AXIS_TARGETS) {
 // concatenation introduced by template edits.
 console.error('\n[4] HTML JS parseability:');
 const fs = require('fs');
-const path = require('path');
 const { HTML_OUT } = require('./_paths.js');
-// Two candidate locations: (a) ../../codex.html — historical sibling-of-repo
-// location preserved for backward compatibility; (b) the sandbox blessed
-// output path from _paths.js. Whichever exists first wins.
-const HTML_PATH_LEGACY = path.join(__dirname, '..', '..', 'codex.html');
-let htmlPath = null;
-for (const p of [HTML_PATH_LEGACY, HTML_OUT]) {
-  if (fs.existsSync(p)) {
-    htmlPath = p;
-    break;
-  }
-}
-stats.total++;
+// The build output from _paths.js, and nothing else. This used to try
+// ../../codex.html FIRST — a path OUTSIDE the repository, kept for a long-dead
+// sibling-of-repo layout. Any stray file there would have been parsed and
+// reported on in place of the real artifact, so the gate could pass while
+// saying nothing about what this repo actually builds.
+const htmlPath = fs.existsSync(HTML_OUT) ? HTML_OUT : null;
 if (!htmlPath) {
-  if (VERBOSE) console.error('  - skip: codex.html not built yet (run build_html first)');
-  stats.ok++; // Not a failure if HTML not built — smoke runs before build_html in pipeline
+  // build.js runs smoke BEFORE build_html, so a missing artifact is legitimately
+  // "not yet", not "broken". Record it as a SKIP — visible in the summary and
+  // excluded from the denominator. It used to bank stats.ok++, which meant a
+  // never-built codex.html reported as a passing parseability check.
+  stats.skipped++;
+  console.error('  - SKIP: no codex.html at ' + HTML_OUT + ' (run build_html first)');
 } else {
+  stats.total++;
   const html = fs.readFileSync(htmlPath, 'utf8');
   // Extract scripts and try parsing each via vm.Script
   const vm = require('vm');
@@ -414,6 +414,7 @@ console.error(`  blends:       ${stats.blends}`);
 console.error(`  axis-targets: ${stats.axisTargets}`);
 console.error(`  total:        ${stats.total}`);
 console.error(`  ok:           ${stats.ok}`);
+console.error(`  skipped:      ${stats.skipped}`);
 console.error(`  failed:       ${failures.length}`);
 
 if (failures.length > 0) {
@@ -427,5 +428,9 @@ if (failures.length > 0) {
   process.exit(1);
 }
 
-console.error(`\nSMOKE: ${stats.ok}/${stats.total} pass.`);
+console.error(
+  `\nSMOKE: ${stats.ok}/${stats.total} pass` +
+    (stats.skipped ? `, ${stats.skipped} skipped` : '') +
+    '.'
+);
 process.exit(0);
