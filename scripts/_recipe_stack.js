@@ -340,23 +340,28 @@ function _descriptorTier(token) {
   return 2;
 }
 
+// Descriptor document frequency — FROZEN, committed data, not a live count.
+//
+// DF used to be recomputed here over the whole INSTRUMENTS table plus TUNINGS /
+// ROOMS / CHAIN_SECTIONS, so adding ANY instrument anywhere reordered descriptor
+// chunks on cards nobody touched: measured over all 1167 traditions, of 249,622
+// adjacent token pairs ordered by this comparison 38,831 were decided by a DF
+// margin of exactly 1 and 81,478 were DF-tied — ~48% one catalog record away
+// from flipping, in every single tradition. That forced a re-bless of
+// tests/regression_snapshot.json (1,171 fixtures) on every catalog edit, and a
+// routinely re-blessed snapshot cannot detect a real regression.
+//
+// The counts now live in references/_descriptor_df.json, regenerated ONLY by a
+// deliberate `node scripts/build_descriptor_df.js --freeze`. A token absent from
+// the table falls back to 999 in _sortDescriptorsByPriority — byte-identical to
+// how an unknown token behaves. src/app.js carries the same table inlined (it
+// cannot require()); build_descriptor_df.js --check gates the two against drift.
+const DESCRIPTOR_DF = require('../references/_descriptor_df.json').df;
+
 let _DF = null;
 function _ensureDF() {
   if (_DF !== null) return _DF;
-  _DF = new Map();
-  const bump = (d) => _DF.set(d, (_DF.get(d) || 0) + 1);
-  for (const inst of C.INSTRUMENTS || []) {
-    for (const part of inst.parts || []) {
-      for (const v of part.variants || []) {
-        if (v.expanded) continue; // universal cross-instrument materials don't shift corpus DF
-        for (const d of v.descriptors || []) bump(d);
-      }
-    }
-  }
-  for (const t of C.TUNINGS || []) for (const d of t.descriptors || []) bump(d);
-  for (const r of C.ROOMS || []) for (const d of r.descriptors || []) bump(d);
-  for (const sec of C.CHAIN_SECTIONS || [])
-    for (const it of sec.items || []) for (const d of it.descriptors || []) bump(d);
+  _DF = new Map(Object.entries(DESCRIPTOR_DF));
   return _DF;
 }
 
@@ -534,17 +539,25 @@ function assignDedupedPrefaces(cards) {
 }
 
 // ─────────────────────────── prose (collapsed) ───────────────────────────
+// Prose is the ICONIC view: a chunk carries its card's preface and its
+// instrument label and nothing else. The full descriptor stack is deliberately
+// not pooled in here the way tags and rich pool it — `rasping voice` would come
+// out `belt-quality-high-larynx-thick-fold blues-shouter … voice`, and the env
+// chunks would drag their tuning/room/mic/medium tokens behind labels that are
+// meant to read bare. That is why a chunk here has a `preface` field and no
+// `descriptors` field at all: src/app.js compressProseRecipe is shaped the same
+// way, and check_app_parity.js compares the two byte for byte.
 function compressProseRecipe(cards, ceiling) {
   const rawChunks = [];
   for (const card of cards) {
     const parts = buildStackParts(card);
     const inst = parts.find((p) => p.kind === 'instrument');
     if (!inst) continue;
+    const preface = _resolvePreface(card);
     rawChunks.push({
       kind: 'inst',
       label: _kebab(inst.label),
-      descriptors: _sortDescriptorsByPriority(_suppressSubsumed(inst.descriptors)),
-      preface: _resolvePreface(card),
+      preface: preface || null,
     });
   }
   if (cards.length > 0) {
@@ -556,26 +569,27 @@ function compressProseRecipe(cards, ceiling) {
       rawChunks.push({
         kind: 'env',
         label: _kebab(label),
-        descriptors: _sortDescriptorsByPriority(_suppressSubsumed(p.descriptors)),
         preface: null,
       });
     }
   }
 
+  // Phase A (exact-label merge): identical labels pool their prefaces, so eight
+  // `voice` cards read `<8 prefaces> voice` instead of spending eight chunks
+  // repeating a label that carries no new information.
   const mergedByLabel = new Map();
   const labelOrder = [];
   const labelKind = new Map();
   for (const c of rawChunks) {
     if (mergedByLabel.has(c.label)) {
       const existing = mergedByLabel.get(c.label);
-      for (const d of c.descriptors)
-        if (!existing.descriptors.includes(d)) existing.descriptors.push(d);
-      if (c.preface && !existing.descriptors.includes(c.preface))
-        existing.descriptors.push(c.preface);
+      if (c.preface && !existing.prefaces.includes(c.preface)) existing.prefaces.push(c.preface);
     } else {
-      const cp = { kind: c.kind, label: c.label, descriptors: [...c.descriptors] };
-      if (c.preface) cp.descriptors.push(c.preface);
-      mergedByLabel.set(c.label, cp);
+      mergedByLabel.set(c.label, {
+        kind: c.kind,
+        label: c.label,
+        prefaces: c.preface ? [c.preface] : [],
+      });
       labelOrder.push(c.label);
       labelKind.set(c.label, c.kind);
     }
@@ -605,7 +619,7 @@ function compressProseRecipe(cards, ceiling) {
         const member = mergedByLabel.get(groupKey);
         const memberSegs = member.label.split('-');
         const innerLabel = memberSegs.slice(0, -1).join('-') || null;
-        parts.push({ descriptors: member.descriptors.slice(), innerLabel });
+        parts.push({ prefaces: member.prefaces.slice(), innerLabel });
         if (labelKind.get(groupKey) === 'env') groupKind = 'env';
         emitted.add(groupKey);
       }
@@ -615,7 +629,7 @@ function compressProseRecipe(cards, ceiling) {
       finalChunks.push({
         kind: c.kind,
         trailingLabel: c.label,
-        parts: [{ descriptors: c.descriptors.slice(), innerLabel: null }],
+        parts: [{ prefaces: c.prefaces.slice(), innerLabel: null }],
       });
     }
   }
@@ -623,7 +637,7 @@ function compressProseRecipe(cards, ceiling) {
   const renderChunk = (c) => {
     const tokens = [];
     for (const p of c.parts) {
-      for (const d of p.descriptors) tokens.push(d);
+      for (const pref of p.prefaces) tokens.push(pref);
       if (p.innerLabel) tokens.push(p.innerLabel);
     }
     return tokens.length > 0 ? `${tokens.join(' ')} ${c.trailingLabel}` : c.trailingLabel;
@@ -633,26 +647,28 @@ function compressProseRecipe(cards, ceiling) {
   let output = renderAll();
   if (output.length <= ceiling) return output;
 
+  // Phase 1 (preface shed): pop the trailing preface off whichever chunk-part
+  // holds the most pooled prefaces. `targetLen` starting at 1 is the whole
+  // policy — a part down to a single preface is never a candidate, so every card
+  // keeps its own preface until the later phases start dropping chunks outright.
+  // A tier-ordered pop (the rule the rich cascade uses, where descriptors really
+  // are decoration) would instead strip one card to a bare label while its
+  // neighbour still carried three pooled prefaces, and prefaces are the only
+  // signal this format has. Mirrors src/app.js compressProseRecipe exactly.
   let guard = 5000;
   while (renderAll().length > ceiling && guard-- > 0) {
     let target = null;
-    let targetTier = -Infinity;
-    let targetLen = -1;
+    let targetLen = 1;
     for (const c of finalChunks) {
       for (const part of c.parts) {
-        if (part.descriptors.length === 0) continue;
-        const last = part.descriptors[part.descriptors.length - 1];
-        const t = _descriptorTier(last);
-        const better = t > targetTier || (t === targetTier && part.descriptors.length > targetLen);
-        if (better) {
+        if (part.prefaces.length > targetLen) {
           target = part;
-          targetTier = t;
-          targetLen = part.descriptors.length;
+          targetLen = part.prefaces.length;
         }
       }
     }
     if (!target) break;
-    target.descriptors.pop();
+    target.prefaces.pop();
   }
   output = renderAll();
   if (output.length <= ceiling) return output;
@@ -695,8 +711,63 @@ function compressProseRecipe(cards, ceiling) {
 }
 
 // ─────────────────────────── tags ───────────────────────────
+// Chunks sharing an exact trailing suffix — everything after the first space —
+// merge into one: their prefixes, deduped in first-occurrence order, join and
+// the suffix is written once, so `eye-watering voice: X` beside `weeping
+// voice: X` reads `eye-watering weeping voice: X`. The match is exact, so
+// `loping parlor-acoustic-guitar: cedar` and `loping
+// dreadnought-acoustic-guitar: cedar` stay apart — the body-shape qualifier is
+// real information. Chunks with no space (bare single-token labels like
+// `twelve-tone-equal-temperament`) and suffixes seen only once pass through
+// untouched.
+//
+// Load-bearing, not cosmetic: the trim cascade below measures the COLLAPSED
+// length, and trimming is itself what drives two chunks' tails onto a shared
+// suffix. Measure the raw join instead and the cascade is sizing a string the
+// app never renders, so it stops in the wrong place — progressive_rock and
+// reggae_roots end a token short, psychedelic_rock and reggae keep one the app
+// drops. Mirrors src/app.js:_collapseSharedSuffixes.
+function _collapseSharedSuffixes(chunks) {
+  if (!Array.isArray(chunks) || chunks.length < 2) return chunks;
+  const parsed = chunks.map((chunk) => {
+    const sp = chunk.indexOf(' ');
+    if (sp < 0) return { chunk, prefix: null, suffix: null };
+    return { chunk, prefix: chunk.slice(0, sp), suffix: chunk.slice(sp + 1) };
+  });
+  const groups = new Map();
+  for (const p of parsed) {
+    if (p.suffix === null) continue;
+    if (!groups.has(p.suffix)) groups.set(p.suffix, { prefixes: [] });
+    const g = groups.get(p.suffix);
+    if (!g.prefixes.includes(p.prefix)) g.prefixes.push(p.prefix);
+  }
+  const emitted = new Set();
+  const result = [];
+  for (const p of parsed) {
+    if (p.suffix === null) {
+      result.push(p.chunk);
+      continue;
+    }
+    const g = groups.get(p.suffix);
+    if (g.prefixes.length < 2) {
+      result.push(p.chunk);
+      continue;
+    }
+    if (emitted.has(p.suffix)) continue;
+    emitted.add(p.suffix);
+    result.push(g.prefixes.join(' ') + ' ' + p.suffix);
+  }
+  return result;
+}
+
+// Descriptor order inside a tags chunk is PRIORITY order (tier asc, then df
+// asc), the same order src/app.js:_buildChunk uses — not alphabetical. It is
+// the order the tokens print in, and the trim cascade below also reads that
+// position as the priority signal: the LAST token is the least informative one
+// in its chunk. Sorted any other way the chunk both prints wrong and hands the
+// trim an arbitrary tail to pop.
 function _tagsChunk(label, descs, preface) {
-  const clean = _suppressSubsumed(descs).sort((a, b) => _cmp(a.toLowerCase(), b.toLowerCase()));
+  const clean = _sortDescriptorsByPriority(_suppressSubsumed(descs));
   const head = preface ? `${preface} ${_kebab(label)}` : _kebab(label);
   return clean.length === 0 ? head : `${head}: ${clean.join(' ')}`;
 }
@@ -715,7 +786,7 @@ function compressTagsRecipe(cards, ceiling) {
       chunks.push(_tagsChunk(p.label, p.descriptors));
     }
   }
-  let output = chunks.join(', ');
+  let output = _collapseSharedSuffixes(chunks).join(', ');
   const TRIM_TARGET = ceiling - 1;
   if (output.length <= TRIM_TARGET) return output + '.';
 
@@ -728,9 +799,7 @@ function compressTagsRecipe(cards, ceiling) {
             kind: 'inst',
             label: inst.label,
             preface: _resolvePreface(card),
-            descs: _suppressSubsumed(inst.descriptors).sort((a, b) =>
-              _cmp(a.toLowerCase(), b.toLowerCase())
-            ),
+            descs: _sortDescriptorsByPriority(_suppressSubsumed(inst.descriptors)),
           }
         : null;
     })
@@ -742,42 +811,47 @@ function compressTagsRecipe(cards, ceiling) {
         kind: 'env',
         label: p.label,
         preface: null,
-        descs: _suppressSubsumed(p.descriptors).sort((a, b) =>
-          _cmp(a.toLowerCase(), b.toLowerCase())
-        ),
+        descs: _sortDescriptorsByPriority(_suppressSubsumed(p.descriptors)),
       });
     }
   }
-  const renderAll = () =>
-    rebuilt
-      .map((c) => {
-        const head = c.preface ? `${c.preface} ${_kebab(c.label)}` : _kebab(c.label);
-        return c.descs.length ? `${head}: ${c.descs.join(' ')}` : head;
-      })
-      .join(', ');
+  const renderAll = () => {
+    const rendered = rebuilt.map((c) => {
+      const head = c.preface ? `${c.preface} ${_kebab(c.label)}` : _kebab(c.label);
+      return c.descs.length ? `${head}: ${c.descs.join(' ')}` : head;
+    });
+    return _collapseSharedSuffixes(rendered).join(', ');
+  };
 
+  // Phase A: pop the lowest-priority token, chunk by chunk, until under budget.
+  // Each chunk's descs arrive pre-sorted by _sortDescriptorsByPriority, so the
+  // LAST token is that chunk's least informative one; the chunk to cut is the
+  // one whose last token has the highest tier (texture before scaffold before
+  // iconic before material/gear), ties to the largest chunk as the most
+  // reducible. The trim therefore obeys the same priority signal the sort
+  // encodes. Cutting the SHORTEST token instead — the obvious length heuristic
+  // — inverts that signal, because the highest-value tokens are short by
+  // morphology: `steel`, `gut`, `tin` are materials, and shortness says
+  // nothing about how much they carry. Mirrors src/app.js compressTagsRecipe.
   let guard = 5000;
   while (renderAll().length > TRIM_TARGET && guard-- > 0) {
     let target = -1;
-    let targetMinLen = Infinity;
+    let targetTier = -Infinity;
     for (let i = 0; i < rebuilt.length; i++) {
       if (rebuilt[i].descs.length === 0) continue;
-      let minLen = Infinity;
-      for (const d of rebuilt[i].descs) if (d.length < minLen) minLen = d.length;
-      if (
-        minLen < targetMinLen ||
-        (minLen === targetMinLen && rebuilt[i].descs.length > (rebuilt[target]?.descs.length || 0))
-      ) {
+      const last = rebuilt[i].descs[rebuilt[i].descs.length - 1];
+      const t = _descriptorTier(last);
+      const better =
+        t > targetTier ||
+        (t === targetTier &&
+          rebuilt[i].descs.length > (target >= 0 ? rebuilt[target].descs.length : 0));
+      if (better) {
         target = i;
-        targetMinLen = minLen;
+        targetTier = t;
       }
     }
     if (target < 0) break;
-    const c = rebuilt[target];
-    let shortIdx = 0;
-    for (let i = 1; i < c.descs.length; i++)
-      if (c.descs[i].length < c.descs[shortIdx].length) shortIdx = i;
-    c.descs.splice(shortIdx, 1);
+    rebuilt[target].descs.pop();
   }
   while (renderAll().length > TRIM_TARGET && rebuilt.some((c) => c.kind === 'env')) {
     for (let i = rebuilt.length - 1; i >= 0; i--) {
@@ -808,22 +882,31 @@ function compressTagsRecipe(cards, ceiling) {
 }
 
 // ─────────────────────────── compact ───────────────────────────
+// Every line is comma-tailed — at full stack depth and in the reduced
+// instrument-only pass alike — so the block drops straight into a
+// comma-separated list when it is copy-pasted, with nothing to add by hand.
+// The comma is rendered text, not punctuation the caller supplies:
+// src/app.js:compressCompactRecipe tails every line including the last, so a
+// bare line diverges from the app by exactly one character per card — enough to
+// fail check_app_parity.js on every tradition in the catalog.
 function compressCompactRecipe(cards, ceiling) {
   let out = cards
     .map((card) => {
       const preface = _resolvePreface(card);
-      return buildStackParts(card)
-        .map((p) => (p.kind === 'instrument' && preface ? `${preface} ${p.label}` : p.label))
-        .join(' · ');
+      return (
+        buildStackParts(card)
+          .map((p) => (p.kind === 'instrument' && preface ? `${preface} ${p.label}` : p.label))
+          .join(' · ') + ','
+      );
     })
     .join('\n');
   if (out.length <= ceiling) return out;
   out = cards
     .map((card) => {
       const inst = buildStackParts(card).find((p) => p.kind === 'instrument');
-      if (!inst) return '?';
+      if (!inst) return '?,';
       const preface = _resolvePreface(card);
-      return preface ? `${preface} ${inst.label}` : inst.label;
+      return (preface ? `${preface} ${inst.label}` : inst.label) + ',';
     })
     .join('\n');
   if (out.length <= ceiling) return out;
