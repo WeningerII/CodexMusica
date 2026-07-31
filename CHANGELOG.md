@@ -6,6 +6,140 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Fixed — stability audit
+
+An audit of the repo's instability, architecture and dead code turned up eleven
+findings. All eleven are addressed here; one, branch protection on `main`, is a
+repository setting rather than code and is called out at the end because it is
+the one that makes the rest enforceable.
+
+**The rendered recipe depended on the machine that produced it.**
+`localeCompare` with no locale argument collates by the runtime's ICU locale.
+Hashing 4,668 renders (1,167 traditions × 4 formats) under five collations gave
+`928c8664` on en-US and `1fc09d82` on da-DK — Danish reads "aa" as "å", which
+sorts `maag` after `mid-emphasized` and reorders a shipped descriptor chunk. The
+catalog carries 90 non-ASCII instrument names and 17 non-ASCII descriptors, so
+the exposure was growing. A `_cmp` codepoint comparator now backs every ordering
+that reaches the recipe, in `scripts/_recipe_stack.js` and a byte-identical copy
+in `src/app.js`. All five collations now produce `928c8664` — identical to the
+en-US baseline, so nothing moved; it only stopped depending on where it ran. Two
+deliberate display sorts (instrument roster, tradition search) keep their
+collation semantics with the locale pinned to `en`.
+
+**The connector returned a different recipe than the app for three of its four
+formats.** `render_recipe` advertises `rich | tags | prose | compact` and the
+server card promises the result is identical to what a human sees, but
+`check_app_parity.js` compared `rich` alone — so the other three drifted on
+every tradition without a gate going red. The gate now compares all four
+(1167/1167 byte-identical, 4,668 comparisons) and sixteen edits to
+`scripts/_recipe_stack.js` close the gap; `src/app.js` is untouched, because the
+app is what the promise is about.
+
+  - `prose` had **two** independent causes. Node attached a full descriptor list
+    to every chunk where the app carries only a preface, so `rasping voice` came
+    out `belt-quality-high-larynx-thick-fold blues-shouter … voice` and the
+    environment chunks dragged tuning/room/mic tokens in front of labels meant to
+    read bare. Separately, node's Phase-1 trim chose its victim by descriptor
+    tier and would strip a card to zero tokens, where the app chooses the part
+    holding the most prefaces with `targetLen` starting at 1 — so each card's
+    primary preface survives by construction. The second cause is **latent**:
+    fixing only the first still scored 1167/1167 catalog-wide, because no seeded
+    tradition exceeds the ceiling today (largest untrimmed prose body: 743 chars,
+    `progressive_rock`). A ceiling sweep — 8 workspaces × 15 ceilings — scored
+    33/120 with one fix and 120/120 with both. Breadth alone would have blessed a
+    half-fix as complete.
+  - `tags` was missing `_collapseSharedSuffixes` entirely and was not
+    priority-sorting chunk descriptors before the trim cascade. Because the
+    cascade drops from the end of a chunk, a different order meant a different
+    **set** survived the ceiling — the two sides disagreed about which
+    descriptors a card kept, not merely about their order.
+  - `compact` omitted the `,` line tail on both reduction tiers.
+
+**Descriptor order was a function of today's catalog, not of anything
+committed.** `_sortDescriptorsByPriority` ranked tokens by a corpus document
+frequency counted at runtime, so adding any instrument reordered descriptors on
+cards nobody touched. Of 249,622 adjacent same-tier pairs, 38,831 sat at a DF
+margin of exactly 1 and 81,478 were tied, with 6,806 of 9,044 distinct tokens at
+DF 1; one added record moved 772 of 9,336 recipes. That is what forced a re-bless
+of 1,171 fixtures on every catalog change — and a snapshot re-blessed as a matter
+of routine cannot detect a regression. `scripts/build_descriptor_df.js` now
+freezes the table into `references/_descriptor_df.json` and inlines the same data
+into `src/app.js`. Three modes follow the `build_signatures.js` precedent:
+default re-emits the app block from the JSON and can never move output,
+`--freeze` re-counts from the live catalog and is the only command that can,
+`--check` verifies. `--check` is two-sided on two independent modes — the app
+block must equal the JSON, and the freeze must still know ≥97% of the catalog's
+distinct tokens, so the lag is bounded rather than merely detected. Verified to
+have moved nothing: 1171/1171 fixtures match the **committed** snapshot.
+
+**`sitemap.xml` was a function of the wall clock.** Every build on a new UTC day
+rewrote all 2,043 `<lastmod>` entries with no source change — churn that caused a
+real merge conflict — while telling crawlers that 2,043 URLs had all changed
+today. `lastmod` is optional; dropping it makes the file purely a function of the
+URL set. `check_artifact_fresh.js` now regenerates and byte-compares
+`sitemap.xml`, `llms.txt` and `robots.txt`, passing `--api` as well as `--out`
+(without which the "fresh" sitemap would be derived from the committed catalog
+and the gate would only ever agree with itself).
+
+**`tests/regression_snapshot.json` was serialized in worker-completion order.**
+`runFixturesParallel` merges worker messages as they arrive and `nWorkers` is
+`os.cpus().length`, so a two-fixture re-bless produced a 3,590-line diff — noise
+that hides real content changes and conflicts with any concurrent branch. Keys
+are sorted before writing.
+
+**`smoke.js` could validate the wrong file, or nothing.** It preferred
+`../../codex.html` — a path outside the repository — over the build output, and
+banked a pass when no artifact existed, and again for a blend pair naming an
+unknown tradition. A rename that orphaned every pair in `BLEND_PAIRS` would have
+scored perfect having exercised nothing. Both are counted skips now.
+
+### Changed — gates and pipeline
+
+- **`README.md` joined the docs-drift gate.** It was the only document excluded
+  from `check_docs.js` and consequently the only one allowed to be wrong: it
+  advertised 1,195 traditions and 651 instruments against a real 1,167 and 870.
+  The obstacle was only thousands separators, so the count patterns accept them
+  and strip them before comparing. `CHANGELOG.md` stays excluded on purpose —
+  entries below this one are supposed to state the counts that were true when
+  they were written.
+- **New promise `connector-render-parity`**, binding `check_app_parity.js`.
+  Because no promise bound that gate, nobody ever had to write down that its
+  scope was one format out of four. Bijection is 12/12, 0 orphans.
+- **`build.js` and `ci.yml` were two definitions of "the full pipeline"**, neither
+  a superset. `smoke.js` — 5,879 assertions, the only catalog-wide breadth check —
+  ran in `build.js` and nowhere automatic; it is now a third parallel CI job.
+  `tandem.js` ran in neither and is now weekly, which is proportionate now that
+  its textual app-vs-node checks are superseded by the widened
+  `check_app_parity`, its HTML checks overlap `check_lazy_app`, and its zip
+  round-trip guards an unpublished artifact; what remains unique is the 18
+  `tests/*_audit.json` snapshots. `audit_coherence.js` stays in neither
+  deliberately — it always exits 0 and is an authoring aid, and gating on it
+  would only train people to ignore a green check.
+
+### Removed
+
+- Twelve exported symbols no other module imported, each used exactly once inside
+  its own file, across five modules.
+- The duplicate `process.argv` parse in `regression_recipes.js`. The first pass
+  computed `a.slice(2 + eq + 1 - 2)` — which is `a.slice(eq + 1)`, the same value
+  the second pass assigned under the comment "Re-parse to handle --key=value
+  properly" — and set `flags.__parsed`, read nowhere.
+- The unused `--fs-display` custom property (its six siblings are live).
+- Hard-coded catalog counts in comments in `ci.yml`, `smoke.js` and `src/app.js`,
+  de-numbered rather than re-pinned so they stop drifting.
+
+### Known
+
+- **`main` is unprotected.** `ci.yml` has always noted that "green before live"
+  needs branch protection, which is a repository setting, not workflow config. It
+  is still not set, so every gate above is advisory: a pull request can be merged
+  red, and `main` accepts direct and force pushes.
+- Freezing the descriptor table moved the largest `codex.html` script block from
+  607 KiB to 851 KiB against a 1024 KiB ceiling. The ceiling gate will catch an
+  overflow rather than ship one, but there is meaningfully less room. If it
+  binds, the table can move to `api/` at the price of an async first render.
+
+
 ### Added
 - **219 instrument records — the catalog grows 651 → 870 (+34%).** Drafted from
   two source lists (the Wikipedia drum "Types" section, and a ~350-entry list of
