@@ -25,6 +25,11 @@ const { assignDedupedPrefaces } = require('../scripts/_recipe_stack.js');
 // The product-defining hard recipe cap — single source of truth, re-exported so
 // the tool schema (tools.js) derives its max_chars bound from the same constant.
 const { RECIPE_CHAR_CEILING } = require('../scripts/_api_contract.js');
+
+// Locale-invariant ordering: localeCompare with no locale argument collates by
+// the machine's ICU locale, which made this ordering depend on where it ran.
+// Mirrors `_cmp` in scripts/_recipe_stack.js.
+const _cmp = (a, b) => (a < b ? -1 : a > b ? 1 : 0);
 export { RECIPE_CHAR_CEILING };
 
 class EngineError extends Error {}
@@ -241,7 +246,7 @@ export function searchCatalog({ query, types, limit = 20 } = {}) {
   for (const sec of C.CHAIN_SECTIONS || [])
     for (const it of sec.items || [])
       add('chain', it.id, it.name, (it.descriptors || []).join(' '));
-  rows.sort((a, b) => b.matched - a.matched || a.id.localeCompare(b.id));
+  rows.sort((a, b) => b.matched - a.matched || _cmp(a.id, b.id));
   return { query, total: rows.length, items: rows.slice(0, Math.min(limit, 50)) };
 }
 
@@ -260,7 +265,7 @@ export function searchPrefaces({ query, limit = 15 } = {}) {
     if (score > 0)
       rows.push({ id: p.id, name: p.name || p.id, matched: score, tokens: toks.slice(0, 12) });
   }
-  rows.sort((a, b) => b.matched - a.matched || a.id.localeCompare(b.id));
+  rows.sort((a, b) => b.matched - a.matched || _cmp(a.id, b.id));
   return { query, total: rows.length, items: rows.slice(0, Math.min(limit, 50)) };
 }
 

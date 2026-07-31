@@ -385,6 +385,34 @@ check('tradition-signature parity (app.js inline ↔ canonical JSON)', () => {
   return `${Object.keys(json).length} tradition signatures parity-locked (app.js ↔ JSON)`;
 });
 
+// Frozen descriptor-DF: the corpus document frequencies that order EVERY
+// descriptor chunk live canonically in references/_descriptor_df.json (required
+// directly by scripts/_recipe_stack.js) and are inlined into src/app.js for the
+// browser by scripts/build_descriptor_df.js. Two things are checked here, and
+// they fail for opposite reasons:
+//   - PARITY  — the inlined block drifted from the JSON, so the app and the
+//     connector would order chunks differently. Fix: `node scripts/build_descriptor_df.js`.
+//   - COVERAGE — the freeze has fallen behind the live catalog far enough that
+//     new tokens are piling up at the 999 fallback. Fix: a DELIBERATE
+//     `node scripts/build_descriptor_df.js --freeze`, which moves descriptor
+//     order and therefore requires re-blessing the recipe snapshots + api/ +
+//     codex.html in the same commit.
+check('frozen descriptor-DF (app.js inline ↔ canonical JSON, + catalog coverage)', () => {
+  const out = RUN_TOLERANT('node scripts/build_descriptor_df.js --check');
+  if (!/DESCRIPTOR-DF: PASS/.test(out)) {
+    throw new Error(
+      out
+        .trim()
+        .split('\n')
+        .filter((l) => /FAIL|✗/.test(l))
+        .join(' | ') || out.trim()
+    );
+  }
+  const tokens = out.match(/frozen tokens\s+(\d+)/);
+  const cov = out.match(/token coverage\s+([\d.]+)%/);
+  return `${tokens ? tokens[1] : '?'} tokens parity-locked, ${cov ? cov[1] : '?'}% of the live catalog covered`;
+});
+
 // Card-descriptor semantics: there are TWO different card-descriptor harvesters
 // in the codex, intentionally:
 //   - `_card_descriptors.cardDescriptors` and the HTML embed's

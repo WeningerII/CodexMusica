@@ -59,7 +59,7 @@ module.exports = [
     id: 'artifact-reproducible',
     doc: 'README.md',
     gate: 'check_artifact_fresh.js',
-    claim: 'published api/ + codex.html are a pure function of the source',
+    claim: 'published api/, codex.html and the discovery files are a pure function of the source',
   },
   {
     id: 'gates-two-sided',
@@ -72,6 +72,12 @@ module.exports = [
     doc: 'README.md',
     gate: 'check_lazy_app.js',
     claim: 'the shipped lazy shell behaves identically to the embedded build',
+  },
+  {
+    id: 'connector-render-parity',
+    doc: 'AGENTS.md',
+    gate: 'check_app_parity.js',
+    claim: 'every format render_recipe offers returns exactly what the app shows',
   },
   {
     id: 'mobile-layout-usable',

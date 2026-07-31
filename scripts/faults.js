@@ -24,6 +24,8 @@
 //   dead audit token    -> audit_dead_tokens.js   (token dead even in the enriched pool)
 //   workspace mutation  -> check_workspace_ops.js (an edit op mutates its input ws)
 //   stale voice-parts   -> _gen_voice_parts.js --check (Node voice maps drift from src/app.js)
+//   drifted frozen DF   -> build_descriptor_df.js --check (app.js DF block != the JSON)
+//   stale frozen DF     -> build_descriptor_df.js --check (the freeze fell behind the catalog)
 //
 // Usage:
 //   node scripts/faults.js [--fresh-api=DIR --fresh-html=FILE] [--verbose]
@@ -464,6 +466,49 @@ record(
     'unfittable-header -> check_mobile_layout.js',
     gate(d, ['scripts/check_mobile_layout.js']),
     /layout viewport blown open|off-screen/i
+  );
+}
+
+// 21. drifted frozen descriptor-DF mirror -> build_descriptor_df.js --check
+//     The DF counts that order every descriptor chunk are committed in
+//     references/_descriptor_df.json and inlined into src/app.js (which cannot
+//     require()). If the inlined copy drifts, the browser and the connector sort
+//     chunks by DIFFERENT numbers — a desync the recipe fixtures need not catch,
+//     since it only shows on the traditions whose chunks the drifted tokens reach.
+{
+  const d = mkenv(['scripts', 'references', 'src']);
+  const f = path.join(d, 'src/app.js');
+  const src = fs.readFileSync(f, 'utf8');
+  const m = src.match(/(const DESCRIPTOR_DF = \{\n {2}'[^']+': )(\d+),/);
+  if (!m) throw new Error('descriptor-df fault: DESCRIPTOR_DF block not found in src/app.js');
+  fs.writeFileSync(f, src.replace(m[0], m[1] + (Number(m[2]) + 777) + ','));
+  record(
+    'drifted-descriptor-df -> build_descriptor_df.js',
+    gate(d, ['scripts/build_descriptor_df.js', '--check']),
+    /PARITY|DESCRIPTOR-DF: FAIL/
+  );
+}
+
+// 22. frozen descriptor-DF fallen behind the catalog -> build_descriptor_df.js --check
+//     The freeze is ALLOWED to lag the catalog — that lag is what stops one new
+//     instrument reordering everyone's cards. What must not happen is the lag
+//     growing without bound: every token the catalog gains after a freeze is
+//     unknown to the table and drops to the 999 fallback, piling up at the back of
+//     every chunk. Truncating the frozen table is the mechanical dual of the
+//     catalog growing past it. The app.js block is regenerated from the truncated
+//     JSON first, so PARITY is clean and only COVERAGE can fail.
+{
+  const d = mkenv(['scripts', 'references', 'src']);
+  const p = path.join(d, 'references/_descriptor_df.json');
+  const j = JSON.parse(fs.readFileSync(p, 'utf8'));
+  const keys = Object.keys(j.df);
+  j.df = Object.fromEntries(keys.slice(0, Math.floor(keys.length / 2)).map((k) => [k, j.df[k]]));
+  fs.writeFileSync(p, JSON.stringify(j, null, 2));
+  gate(d, ['scripts/build_descriptor_df.js']); // re-inline, so parity is NOT the defect
+  record(
+    'stale-frozen-df -> build_descriptor_df.js',
+    gate(d, ['scripts/build_descriptor_df.js', '--check']),
+    /COVERAGE/
   );
 }
 

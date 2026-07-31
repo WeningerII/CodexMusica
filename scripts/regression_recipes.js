@@ -1355,24 +1355,17 @@ function runFixturesParallel() {
   });
 }
 
+// One parse. There used to be two: the first computed `a.slice(2 + eq + 1 - 2)`,
+// which is exactly `a.slice(eq + 1)` — the same value the second loop assigned
+// under the comment "Re-parse to handle --key=value properly". It also set
+// flags.__parsed, which nothing read.
 const args = process.argv.slice(2);
 const flags = {};
-for (let i = 0; i < args.length; i++) {
-  const a = args[i];
-  if (a.startsWith('--')) {
-    const eq = a.indexOf('=');
-    if (eq > 0) flags[a.slice(2, eq)] = a.slice(2 + eq + 1 - 2);
-    else flags[a.slice(2)] = true;
-  }
-}
-// Re-parse to handle --key=value properly
-flags.__parsed = true;
-for (let i = 0; i < args.length; i++) {
-  const a = args[i];
-  if (a.startsWith('--')) {
-    const eq = a.indexOf('=');
-    if (eq > 0) flags[a.slice(2, eq)] = a.slice(eq + 1);
-  }
+for (const a of args) {
+  if (!a.startsWith('--')) continue;
+  const eq = a.indexOf('=');
+  if (eq > 0) flags[a.slice(2, eq)] = a.slice(eq + 1);
+  else flags[a.slice(2)] = true;
 }
 
 // Generate current output for each fixture. The full unfiltered set runs across
@@ -1405,7 +1398,16 @@ async function runFixtures(filter) {
       snapshot = JSON.parse(fs.readFileSync(SNAPSHOT_PATH, 'utf8'));
     }
     for (const id of Object.keys(current)) snapshot[id] = current[id];
-    fs.writeFileSync(SNAPSHOT_PATH, JSON.stringify(snapshot, null, 2) + '\n');
+    // Serialize in sorted id order. runFixturesParallel() assembles `results` by
+    // Object.assign-ing worker messages as they arrive, so insertion order is
+    // worker-completion order — which varies with os.cpus().length and with
+    // scheduling. Writing that order directly made a two-fixture re-bless produce
+    // a 3,590-line diff on a 1,171-fixture file, which both hides real content
+    // changes in the noise and guarantees a conflict on any concurrent branch.
+    // Sorting here makes --update byte-stable across machines and run modes.
+    const ordered = {};
+    for (const id of Object.keys(snapshot).sort()) ordered[id] = snapshot[id];
+    fs.writeFileSync(SNAPSHOT_PATH, JSON.stringify(ordered, null, 2) + '\n');
     console.log(`Snapshot updated: ${SNAPSHOT_PATH}`);
     console.log(`  ${Object.keys(current).length} fixture(s) written`);
     if (flags.verbose) {

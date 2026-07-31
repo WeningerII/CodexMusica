@@ -7,10 +7,11 @@
 //   node scripts/check_connector_parity.js            # gate (exit non-zero on fail)
 //   node scripts/check_connector_parity.js <tradId>   # also print that recipe
 //
-// The full seed-parity assertion
-// (seed+render === src/app.js importTradition+compileRecipeStack, catalog-wide)
-// lands once the browser pipeline is reachable from Node; for now it locks the
-// structural invariants the search path violated (auto-staple, wrong header).
+// The full seed-parity assertion (seed+render === src/app.js
+// importTradition+compileRecipeStack, catalog-wide, every format) lives in
+// check_app_parity.js, which reaches the browser pipeline from Node. This gate
+// keeps the structural invariants the search path violated (auto-staple, wrong
+// header) — cheap, and it fails with a clearer message than a byte diff would.
 
 const C = require('./_loader.js');
 const { seedTraditionCards, renderWorkspace } = require('./_seed_workspace.js');

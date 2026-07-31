@@ -290,9 +290,6 @@ function splitFileIntoChunks(source, maxChars) {
   return [...declLines, ...restChunks];
 }
 
-module.exports = {
-  parseTopLevelDeclaration,
-  chunkElements,
-  emitChunkedDeclaration,
-  splitFileIntoChunks,
-};
+// splitFileIntoChunks is the whole public surface — build_html.js is the only
+// caller. The three stages it composes are internal and were exported unused.
+module.exports = { splitFileIntoChunks };

@@ -1,5 +1,24 @@
 #!/usr/bin/env node
-// build.js — canonical ship-this command.
+// build.js — the LOCAL ship-this command: regenerate the artifacts and run the
+// gates that are fast enough to want in a tight loop.
+//
+// IT IS NOT THE COMPLETE GATE SET, and nothing here should imply otherwise.
+// .github/workflows/ci.yml is the enforcement surface — it runs eleven check_*
+// gates this file does not (api contract, docs drift, promise bijection, preface
+// lexicon, dead tokens, lazy-app, connector parity, app parity, workspace ops,
+// mobile layout, artifact reproducibility, fault injection). Calling this file
+// "canonical" while CI ran a different and larger list is how the two definitions
+// drifted apart in the first place; they are now explicitly different jobs:
+//
+//   node scripts/build.js   — "I changed something, rebuild and sanity-check it."
+//   CI                      — "this is allowed to merge."
+//
+// Every gate now belongs to at least one of the two: smoke.js moved into a third
+// parallel CI job, and tandem.js into a weekly one. scripts/audit_coherence.js is
+// deliberately in neither — it always exits 0 and only reports patterns worth a
+// human's attention (e.g. 203 single-instrument traditions, nearly all of which
+// are correct: guqin, shakuhachi, quranic recitation). It is an authoring aid, not
+// a gate, and wiring it into CI would only teach people to ignore a green check.
 //
 // Runs in order:
 //   1. validate.js          — verify all cross-references resolve, no orphan extras (FATAL on failure)
