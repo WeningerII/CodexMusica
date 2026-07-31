@@ -6,6 +6,34 @@ All notable changes to this project are recorded here. Format loosely follows
 
 ## [Unreleased]
 
+### Fixed
+- **CI was red for three commits: the mobile gate stopped failing for the right
+  reason.** `scripts/faults.js` is the gate on the gates — it plants one defect
+  per gate-class and asserts each gate catches *that* defect, not merely that it
+  exits non-zero. Its `unfittable-header` class injects
+  `.app-bar .actions { min-width: 720px }` into `codex.html` and matches the
+  failure text against the measurement.
+
+  When `check_mobile_layout.js` was rewritten it began *interacting* with the
+  page — clicking a starter recipe, adding a genre, dragging — before probing.
+  Under that planted defect the layout is broken enough that another element
+  starts intercepting pointer events, so the click timed out, the exception hit
+  the outer `.catch`, and the whole run collapsed to
+  `MOBILE LAYOUT: FAIL — elementHandle.click: Timeout 30000ms exceeded`. The gate
+  failed, but never printed the measurement explaining why — `WRONG-REASON`.
+
+  Fixed on the merits rather than to satisfy the matcher: a layout too broken to
+  click through is precisely what this gate exists to report, so **assertions A
+  and B now run before the page is touched**, and again once a workspace loads. A
+  failed starter click is reported on its own terms instead of as a bare timeout,
+  and the drag check's clicks carry a short timeout so a already-failed run does
+  not add four minutes of Playwright retries. Both files now carry a comment
+  marking the shared phrases as a contract.
+- The meta-gate's matcher said `is off-screen`, but the rewritten capability
+  message reads `#btn-add off-screen (x …)` — no "is". Had the viewport-blowout
+  path ever stopped firing, neither alternative would have matched and the escape
+  would have been silent. Both sides now agree.
+
 ### Added
 - **Drag and drop now works on touch — it never did before.** The tree's two drag
   interactions (drag an instrument row into a different genre; drag a genre header

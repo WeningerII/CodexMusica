@@ -36,6 +36,13 @@
 //      gesture on phones, a genuine mouse drag on desktop — and leaves no
 //      ghost or highlight behind
 //
+// ORDERING CONTRACT: A and B are measured BEFORE the page is interacted with.
+// A layout broken enough to blow the viewport open also stops Playwright
+// clicking through it, so an interaction-first version of this gate dies on a
+// click timeout and never prints the measurement that explains why. faults.js
+// plants exactly that defect and matches on the measurement text — see its
+// `unfittable-header` class.
+//
 // Usage:
 //   node scripts/check_mobile_layout.js [--html=codex.html] [--verbose]
 // Exit 0 if every assertion passes, 1 otherwise.
@@ -176,6 +183,13 @@ const CONTROL_FN = `(function measure(sel) {
   };
 })`;
 
+// The two measurements that need no interaction, so they can be taken on a
+// layout too broken to click through.
+const VIEWPORT_PROBE = `({
+  innerWidth: window.innerWidth,
+  scrollWidth: document.documentElement.scrollWidth,
+})`;
+
 const PROBE = `(() => {
   const measure = ${CONTROL_FN};
   const caps = {};
@@ -307,6 +321,29 @@ const PINNED_PROBE = `(() => {
     await page.goto(url, { waitUntil: 'networkidle', timeout: 90000 });
     await page.waitForTimeout(1200);
 
+    // A and B are measured BEFORE anything is clicked, and are re-measured
+    // after the workspace loads. This ordering is load-bearing: a layout broken
+    // badly enough to blow the viewport open is also broken enough that
+    // Playwright cannot click through it (a mis-sized element starts
+    // intercepting pointer events), so an interaction-first gate throws and
+    // reports a click timeout instead of the measurement that explains it.
+    // That is precisely the confusing failure faults.js calls WRONG-REASON.
+    const assertViewport = (probe, when) => {
+      checks++;
+      if (probe.innerWidth > vp.width + 1) {
+        fail(
+          vp,
+          `layout viewport blown open to ${probe.innerWidth}px on a ${vp.width}px device ${when} ` +
+            `(the page is being scaled down ~${Math.round((vp.width / probe.innerWidth) * 100)}%)`
+        );
+      }
+      checks++;
+      if (probe.scrollWidth > probe.innerWidth + 1) {
+        fail(vp, `horizontal overflow ${probe.scrollWidth - probe.innerWidth}px ${when}`);
+      }
+    };
+    assertViewport(await page.evaluate(VIEWPORT_PROBE), 'on the empty state');
+
     // Load a real workspace. Every assertion below is about editing a stack,
     // and the empty state has neither a tree nor a recipe bar to check.
     const starter = await page.$('#starter-gallery .starter-trad');
@@ -315,25 +352,25 @@ const PINNED_PROBE = `(() => {
       await ctx.close();
       continue;
     }
-    await starter.click();
+    try {
+      await starter.click({ timeout: 15000 });
+    } catch (e) {
+      // Not fatal to the run: the measurements above already stand, and this
+      // failure is reported on its own terms rather than as a bare timeout.
+      fail(
+        vp,
+        `could not load a starter recipe — the empty state is not clickable ` +
+          `(${String((e && e.message) || e)
+            .split('\n')[0]
+            .slice(0, 90)})`
+      );
+      await ctx.close();
+      continue;
+    }
     await page.waitForTimeout(2000);
 
     let r = await page.evaluate(PROBE);
-
-    // ---- A. layout viewport must equal the device width --------------------
-    checks++;
-    if (r.innerWidth > vp.width + 1) {
-      fail(
-        vp,
-        `layout viewport blown open to ${r.innerWidth}px on a ${vp.width}px device ` +
-          `(the page is being scaled down ~${Math.round((vp.width / r.innerWidth) * 100)}%)`
-      );
-    }
-    // ---- B. no horizontal overflow -----------------------------------------
-    checks++;
-    if (r.scrollWidth > r.innerWidth + 1) {
-      fail(vp, `horizontal overflow ${r.scrollWidth - r.innerWidth}px`);
-    }
+    assertViewport(r, 'with a workspace loaded');
 
     // ---- C. every capability reachable -------------------------------------
     // Anything unsatisfied directly gets a second look behind the overflow
@@ -499,7 +536,10 @@ const PINNED_PROBE = `(() => {
       // Add a second genre so there is somewhere to drag TO.
       const staple = await page.$('#sb-staple-add');
       if (staple) {
-        await staple.click();
+        // Short timeout on purpose: under a deliberately broken layout (see
+        // faults.js) this click is unreachable, and the default 30s x 8
+        // viewports would add four minutes to a run that has already failed.
+        await staple.click({ timeout: 8000 });
         await page.waitForTimeout(1800);
       }
       const genres = await page.evaluate(DND_SETUP);
